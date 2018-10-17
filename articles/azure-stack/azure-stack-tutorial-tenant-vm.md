@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/07/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 6bd722801202f5cdff2882c29895ae06fecbbcb8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d106d9f79498678f08142f952e09c5125c6e5d6c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425361"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721515"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Didacticiel : mettre des machines virtuelles à la disposition de vos utilisateurs Azure Stack
 
@@ -46,11 +46,11 @@ Pour plus d’informations, consultez [Fonctionnalités et concepts clés d’Az
 
 Les offres sont des groupes d’un ou plusieurs plans que les fournisseurs proposent à l’achat ou à l’abonnement aux utilisateurs. La création d’une offre se fait en plusieurs étapes. Vous êtes d’abord invité à créer l’offre, puis un plan, et enfin des quotas.
 
-1. [Connectez-vous](azure-stack-connect-azure-stack.md) au portail en tant qu’administrateur cloud, puis cliquez sur **Nouveau** > **Offres + Plans** > **Offre**.
+1. [Connectez-vous](azure-stack-connect-azure-stack.md) au portail en tant qu’administrateur cloud, puis sélectionnez **+ Créer une ressource** > **Offres + Plans** > **Offre**.
 
    ![Nouvelle offre](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-1. Dans **Nouvelle offre**, renseignez le **Nom d’affichage** et le **Nom de la ressource**, puis sélectionnez un **Groupe de ressources** nouveau ou existant. Le nom d’affichage correspond au nom convivial de l’offre. Seul l’opérateur cloud peut voir le nom de la ressource. Il s’agit du nom que les administrateurs utilisent pour gérer l’offre en tant que ressource Azure Resource Manager.
+1. Dans **Nouvelle offre**, renseignez le **Nom d’affichage** et le **Nom de la ressource**, puis sélectionnez un **Groupe de ressources** nouveau ou existant. Le nom d’affichage correspond au nom convivial de l’offre. Seul l’opérateur cloud peut voir le nom de la ressource qui est utilisé par les administrateurs pour travailler avec une offre comme ressource Azure Resource Manager.
 
    ![Nom complet](media/azure-stack-tutorial-tenant-vm/image02.png)
 
@@ -58,7 +58,7 @@ Les offres sont des groupes d’un ou plusieurs plans que les fournisseurs propo
 
    ![Ajouter un plan](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-1. Dans la section **Nouveau plan**, renseignez le **Nom d’affichage** et le **Nom de la ressource**. Le nom d’affichage correspond au nom convivial du plan, que les locataires voient. Seul l’opérateur cloud peut voir le nom de la ressource. Il s’agit du nom que les opérateurs cloud utilisent pour gérer le plan comme une ressource Azure Resource Manager.
+1. Dans la section **Nouveau plan**, renseignez le **Nom d’affichage** et le **Nom de la ressource**. Le nom d’affichage correspond au nom convivial du plan, que les utilisateurs voient. Seul l’opérateur cloud peut voir le nom de la ressource qui est utilisé par les opérateurs cloud pour travailler avec le plan comme ressource Azure Resource Manager.
 
    ![Nom d’affichage du plan](media/azure-stack-tutorial-tenant-vm/image04.png)
 
@@ -112,13 +112,13 @@ Maintenant que vous avez créé une offre, vous pouvez le tester. Vous allez vou
    - Pour un système intégré, l’URL varie en fonction de la région et du nom de domaine externe de votre opérateur, et son format est https://portal.&lt;*région*&gt;.&lt;*FQDN*&gt;.
    - Si vous utilisez le Kit de développement Azure Stack, l’adresse du portail est https://portal.local.azurestack.external.
 
-   ![Prendre un abonnement](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![Prendre un abonnement](media/azure-stack-tutorial-tenant-vm/image10.png)
 
    b. Sous **Prendre un abonnement**, saisissez un nom pour votre abonnement dans le champ **Nom d’affichage**. Sélectionnez **Offre**, puis choisissez une offre dans la liste **Choisir une offre**. Sélectionnez **Créer**.
 
-   ![Créer une offre](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![Créer une offre](media/azure-stack-tutorial-tenant-vm/image11.png)
 
-   c. Pour afficher l’abonnement, sélectionnez **Plus de services**, puis **Abonnements**. Sélectionnez votre nouvel abonnement pour voir les services qui en font partie.
+   c. Pour voir l’abonnement, sélectionnez **Tous les services**, puis **Abonnements** sous la catégorie **GÉNÉRAL**. Sélectionnez votre nouvel abonnement pour voir les services qui en font partie.
 
    >[!NOTE]
    >Une fois que vous êtes abonné à une offre, vous devrez peut-être actualiser le portail pour voir les services qui font partie du nouvel abonnement.
@@ -131,7 +131,7 @@ Maintenant que vous avez créé une offre, vous pouvez le tester. Vous allez vou
       - Pour un système intégré, l’URL varie en fonction de la région et du nom de domaine externe de votre opérateur, et son format est https://portal.&lt;*région*&gt;.&lt;*FQDN*&gt;.
    - Si vous utilisez le Kit de développement Azure Stack, l’adresse du portail est https://portal.local.azurestack.external.
 
-   b.  Sur le tableau de bord, sélectionnez **Nouveau** > **Calcul** > **Windows Server 2016 Datacenter Evaluation**, puis sélectionnez **Créer**.
+   b.  Dans le tableau de bord, sélectionnez **+ Créer une ressource** > **Calcul** > **Windows Server 2016 Datacenter Evaluation**, puis sélectionnez **Créer**.
 
    c. Sous **Paramètres de base**, renseignez les informations suivantes :
       - Saisissez un **nom**
@@ -151,14 +151,11 @@ Maintenant que vous avez créé une offre, vous pouvez le tester. Vous allez vou
 
    h. Sélectionnez **OK** dans **Paramètres** pour enregistrer la configuration du réseau.
 
-   ![Création d’un réseau virtuel](media/azure-stack-provision-vm/image04.png)
-
-   i. Sous **Résumé**, sélectionnez **OK** pour créer la machine virtuelle.  
+      i. Sous **Résumé**, sélectionnez **OK** pour créer la machine virtuelle.  
 
    j. Pour afficher la nouvelle machine virtuelle, sélectionnez **Toutes les ressources**. Recherchez la machine virtuelle et sélectionnez son nom dans les résultats de la recherche.
 
-   ![Toutes les ressources](media/azure-stack-provision-vm/image06.png)
-
+   
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce tutoriel, vous avez appris à effectuer les opérations suivantes :

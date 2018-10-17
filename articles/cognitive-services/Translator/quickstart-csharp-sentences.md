@@ -1,31 +1,33 @@
 ---
-title: Obtention des longueurs de phrase à l’aide de l’API de traduction de texte Translator Text avec C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous allez rechercher les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text avec C# dans Cognitive Services.
+title: 'Démarrage rapide : Obtenir la longueur des phrases - API de traduction de texte Translator Text, C#'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez rechercher la longueur des phrases du texte à l’aide de l’API de traduction de texte Translator Text avec C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: b3e7f1099b1a7584435646fe3fae237cd458967f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 4569a580dfdad3a71201e607ae5b7895d0d01099
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43769505"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364344"
 ---
 # <a name="quickstart-get-sentence-lengths-with-c35"></a>Démarrage rapide : Obtenir les longueurs de phrase avec C&#35;
 
 Dans ce démarrage rapide, vous allez rechercher les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text.
 
+Le code source pour cet exemple est disponible sur [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+
 ## <a name="prerequisites"></a>Prérequis
 
 Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour exécuter ce code sur Windows. (La version Community Edition gratuite fonctionne.)
 
-Pour utiliser l’API de traduction de texte Translator Text, vous avez également besoin d’une clé d’abonnement. Consultez [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Comment s’inscrire à l’API de traduction de texte Translator Text).
+Pour utiliser l’API de traduction de texte Translator Text, vous avez également besoin d’une clé d’abonnement. Consultez [Comment s’inscrire à l’API de traduction de texte Translator Text](translator-text-how-to-signup.md).
 
 ## <a name="breaksentence-request"></a>Requête BreakSentence
 

@@ -1,25 +1,25 @@
 ---
-title: 'L’API de traduction de texte Translator Text : conversion de script de texte avec Ruby | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous convertirez du texte dans une langue d’un script vers un autre à l’aide de l’API de traduction de texte Translator Text avec Ruby dans Cognitive Services.
+title: 'Démarrage rapide : Convertir un script de texte - Traduction de texte Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez convertir le texte d’un script d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 56872ed6b6d7168fb1bf2c45de8104a592af34e3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6595e486a93811fdded21050c39e99d4f7e5a760
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769729"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121751"
 ---
 # <a name="quickstart-transliterate-text-with-ruby"></a>Démarrage rapide : Translittérer du texte avec Ruby
 
-Dans ce démarrage rapide, vous convertissez du texte dans une langue d’un script vers un autre à l’aide de l’API de traduction de texte Translator Text.
+Dans ce démarrage rapide, vous convertissez du texte dans la langue d’un script vers une autre à l’aide de l’API de traduction de texte Translator Text.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -82,7 +82,7 @@ puts json
 
 ## <a name="transliterate-response"></a>Réponse Translittérer
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

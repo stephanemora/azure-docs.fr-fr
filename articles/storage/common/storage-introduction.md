@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 07/11/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 59e6f4126e8a39ab695015fae2a2013529383418
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 693ba07e46900ba6f3e025d97cb34aad9e244ace
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920048"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027042"
 ---
 # <a name="introduction-to-azure-storage"></a>Présentation de Stockage Azure
 
@@ -93,7 +93,7 @@ Ce tableau détaille les différents types de comptes de stockage et les objets 
 
 |**Type de compte de stockage**|**Édition Standard à usage général**|**Édition Premium à usage général**|**Stockage d’objets blob, niveaux d’accès froid et chaud**|
 |-----|-----|-----|-----|
-|**Services pris en charge**| Services d’objet blob, de fichier et de file d’attente | Service blob | Service blob|
+|**Services pris en charge**| Services blob, de file d’attente et de table | Service blob | Service blob|
 |**Types d’objets blob pris en charge**|Objets blob de blocs, objets blob de pages et objets blob d’ajout | Objets blob de pages | Objets blob de blocs et objets blob d’ajout|
 
 ### <a name="general-purpose-storage-accounts"></a>Comptes de stockage à usage général

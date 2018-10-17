@@ -1,21 +1,21 @@
 ---
-title: 'Didacticiel : écrire une application WPF pour l’API de traduction de texte Translator Text avec C# | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
+title: 'Tutoriel : Écrire une application WPF pour l’API de traduction de texte Translator Text avec C#'
+titleSuffix: Azure Cognitive Services
 description: Dans ce didacticiel, vous apprendrez à utiliser l’API de traduction de texte Translator Text pour traduire un texte, obtenir la liste des langues prises en charge, et plus encore, grâce à la création d’une application WPF avec C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: nolachar
-ms.openlocfilehash: 5dc9478516f4e9850543a6ee129fef0f1d3ee4f7
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 97660985b275bbe4384acb3fc92be8aaa0b57881
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214915"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123961"
 ---
 # <a name="tutorial-write-a-wpf-application-for-translator-text-using-c35"></a>Didacticiel : écrire une application WPF pour l’API de traduction de texte Translator Text avec C&#35;
 
@@ -666,9 +666,9 @@ Ensuite, transmettez le texte à l’API `Translate` dans un tableau JSON séria
 L’en-tête HTTP nommé `X-ClientTraceId` est facultatif. La valeur doit être un GUID. L’ID de suivi fourni par le client est utile pour suivre les requêtes lorsque les opérations ne se déroulent pas comme prévu. Toutefois, pour être utile, la valeur de X-ClientTraceID doit être enregistrée par le client. Un ID de suivi du client et la date des requêtes peuvent aider Microsoft à diagnostiquer les problèmes qui peuvent se produire.
 
 > [!NOTE]
-> Ce didacticiel étant axé sur le service Microsoft Translator, les méthodes `DetectLanguage()` et `CorrectSpelling()` ne sont pas abordées en détail. Les services Analyse de texte et Vérification orthographique Bing fournissent des réponses en JSON plutôt qu’en XML, et Analyse de texte requiert que la requête soit au format JSON également. Ces caractéristiques représentent la plupart des différences de code existant avec les méthodes abordées ici.
+> Ce didacticiel étant axé sur le service Microsoft Translator, les méthodes `DetectLanguage()` et `CorrectSpelling()` ne sont pas abordées en détail.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Référence de l’API Microsoft Translator Text](http://docs.microsofttranslator.com/text-translate.html)
+> [Référence de l’API Microsoft Translator Text](https://docs.microsoft.com/azure/cognitive-services/Translator/reference/v3-0-reference)

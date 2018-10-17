@@ -1,21 +1,21 @@
 ---
-title: 'L’API de traduction de texte Translator Text : traduction de texte avec Node.js | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous traduisez du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Node.js dans Cognitive Services.
+title: 'Démarrage rapide : Traduire du texte - Traduction de texte Translator Text, Node.js'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez traduire du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 6d862125dc6c248afa8d8322ec1b008959abb7cd
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: fe81b7fffd1705cb940e3aa52f397cf0f2cf1b14
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43769598"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122172"
 ---
 # <a name="quickstart-translate-text-with-nodejs"></a>Démarrage rapide : Traduire du texte avec Node.js
 
@@ -102,7 +102,7 @@ Translate (content);
 
 ## <a name="translate-response"></a>Réponse Traduire
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

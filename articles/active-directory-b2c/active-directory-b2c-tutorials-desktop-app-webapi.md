@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 98c86f5613116dce5423aa9ca6a2ff43e5414592
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b8cdf6cb07215f4c1e2a472f60513aff765dcfb5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39594778"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603191"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Didacticiel - Accorder l’accès à une API web Node.js depuis une application de bureau à l’aide d’Azure Active Directory B2C
 
@@ -41,7 +41,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Les ressources d’API web doivent être inscrites dans votre client pour pouvoir accepter les [demandes de ressources protégées](../active-directory/develop/developer-glossary.md#resource-server) des [applications clientes](../active-directory/develop/developer-glossary.md#client-application) qui présentent un [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) d’Azure Active Directory et y répondre. L’inscription établit [l’objet principal de service et d’application](../active-directory/develop/developer-glossary.md#application-object) dans votre client. 
 
-Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre client Azure AD B2C.
+Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -110,7 +110,7 @@ Pour appeler une API web protégée à partir d’une application, vous devez ac
 
 5. Cliquez sur **OK**.
 
-L’application **Mon exemple d’application WPF** est inscrite pour appeler **Mon exemple d’API web Node.js** protégée. Un utilisateur [s’authentifie](../active-directory/develop/developer-glossary.md#authentication) auprès d’Azure AD B2C pour utiliser l’application de bureau WPF. L’application de bureau obtient un [octroi d’autorisation](../active-directory/develop/developer-glossary.md#authorization-grant) d’Azure AD B2C pour accéder à l’API web protégée.
+L’application **Mon exemple d’application WPF** est inscrite pour appeler **Mon exemple d’API web Node.js** protégée. Un utilisateur [s’authentifie](../active-directory/develop/developer-glossary.md#authentication) auprès d’Azure AD B2C pour utiliser l’application de poste de travail WPF. L’application de poste de travail obtient un [octroi d’autorisation](../active-directory/develop/developer-glossary.md#authorization-grant) d’Azure AD B2C pour accéder à l’API web protégée.
 
 ## <a name="update-web-api-code"></a>Mettre à jour le code de l’API web
 

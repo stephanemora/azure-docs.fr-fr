@@ -1,49 +1,53 @@
 ---
-title: Démarrage rapide API Vision par ordinateur avec Python pour créer une miniature | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous allez générer une miniature à partir d’une image à l’aide de l’API Vision par ordinateur avec Python dans Cognitive Services.
+title: 'Démarrage rapide : Générer une miniature - REST, Python - Vision par ordinateur'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous générez une miniature d’une image en utilisant l’API Vision par ordinateur avec Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: bc1d01cd4b8f15ba627d917825ee5205c34f5cdf
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: c5809b3dd62d87e2a1f3bde762d17bef6d5732ae
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770213"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632923"
 ---
-# <a name="quickstart-generate-a-thumbnail---rest-python"></a>Démarrage rapide : Générer une miniature - REST, Python
+# <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST et Python dans Vision par ordinateur
 
-Dans ce démarrage rapide, vous allez générer une miniature à partir d’une image à l’aide de l’API Vision par ordinateur.
+Dans ce guide de démarrage rapide, vous générez une miniature d’une image en utilisant l’API REST de Vision par ordinateur. Avec la méthode [Obtenir une miniature](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), vous pouvez générer une miniature d’une image. Vous spécifiez la hauteur et la largeur, qui peuvent différer des proportions de l’image d’entrée. L’API Vision par ordinateur utilise le rognage intelligent pour identifier la région d’intérêt et générer des coordonnées de rognage en fonction de cette région.
 
 Vous pouvez exécuter ce démarrage rapide étape par étape à l’aide d’un bloc-notes Jupyter sur [MyBinder](https://mybinder.org). Pour lancer Binder, sélectionnez le bouton suivant :
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=VisionAPI.ipynb)
 
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
+
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser l’API Vision par ordinateur, vous avez besoin d’une clé d’abonnement. Consultez [How to obtain subscription keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Obtention de clés d’abonnement).
+Pour utiliser l’API Vision par ordinateur, vous avez besoin d’une clé d’abonnement. Consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="intelligently-generate-a-thumbnail"></a>Générer une miniature de façon intelligente
+## <a name="prerequisites"></a>Prérequis
 
-Avec la [méthode Obtenir une miniature](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb), vous pouvez générer une miniature d’une image. Vous spécifiez la hauteur et la largeur, qui peuvent différer des proportions de l’image d’entrée. L’API Vision par ordinateur utilise le rognage intelligent pour identifier la région d’intérêt et générer des coordonnées de rognage en fonction de cette région.
+- Si vous souhaitez exécuter l’exemple localement, [Python](https://www.python.org/downloads/) doit être installé.
+- Vous devez avoir une clé d’abonnement pour Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-Pour exécuter l’exemple, effectuez les étapes suivantes :
+## <a name="create-and-run-the-sample"></a>Créer et exécuter l’exemple
 
-1. Copiez le code suivant dans un nouveau fichier de script Python.
-1. Remplacez `<Subscription Key>` par votre clé d’abonnement valide.
-1. Remplacez la valeur `vision_base_url` par l’emplacement où vous avez obtenu vos clés d’abonnement, le cas échéant.
-1. Éventuellement, remplacez la valeur `image_url` par une autre image.
-1. Exécutez le script.
+Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
-Le code suivant utilise la bibliothèque Python `requests` pour appeler l’API Vision par ordinateur Analyser l’image. La clé API est transmise via le dictionnaire `headers`. La taille de la miniature est transmise via le dictionnaire `params`. La miniature est renvoyée en tant que tableau d’octets dans la réponse.
-
-## <a name="get-thumbnail-request"></a>Requête d’obtention de miniature
+1. Copiez le code ci-après dans un éditeur de texte.
+1. Modifiez le code comme ci-dessous :
+    1. Remplacez la valeur de `subscription_key` par votre clé d’abonnement.
+    1. Si nécessaire, remplacez la valeur de `vision_base_url` par l’URL du point de terminaison de la ressource Vision par ordinateur dans la région Azure où vous avez obtenu vos clés d’abonnement.
+    1. Remplacez éventuellement la valeur de `image_url` par l’URL d’une autre image pour laquelle vous souhaitez générer une miniature.
+1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `get-thumbnail.py`.
+1. Ouvrir une fenêtre d’invite de commandes.
+1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python get-thumbnail.py`.
 
 ```python
 import requests
@@ -87,9 +91,13 @@ plt.axis("off")
 print("Thumbnail is {0}-by-{1}".format(*thumbnail.size))
 ```
 
+## <a name="examine-the-response"></a>Examiner la réponse
+
+Une réponse réussie est retournée sous forme de données binaires qui représentent les données image de la miniature. Si la requête réussit, la miniature est générée à partir des données binaires de la réponse, et est affichée par l’exemple. Si la requête échoue, la réponse s’affiche dans la fenêtre d’invite de commandes. La réponse associée à l’échec de la requête contient un code d’erreur et un message indiquant la cause du problème.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez une application Python qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent, ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Pour tester rapidement les API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explorez une application Python qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent, ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutoriel sur l’API Vision par ordinateur Python](../Tutorials/PythonTutorial.md)

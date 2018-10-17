@@ -1,21 +1,21 @@
 ---
-title: 'L’API de traduction de texte Translator Text : identification de la langue du texte avec Ruby | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous identifiez la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec Ruby dans Cognitive Services.
+title: 'Démarrage rapide : Identifier la langue du texte - Traduction de texte Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous identifiez la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: b692b66454cc86e6d81aec9c3139b39a905d0d66
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e2b138b5c28047487da2ca7a72169a10a125eaf5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769681"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121701"
 ---
 # <a name="quickstart-identify-language-from-text-with-ruby"></a>Démarrage rapide : Identifier la langue du texte avec Ruby
 
@@ -76,9 +76,9 @@ json = JSON.pretty_generate(JSON.parse(result))
 puts json
 ```
 
-## <a name="detect-response"></a>Réponse de détection
+## <a name="detect-response"></a>Réponse Détecter
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

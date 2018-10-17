@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 03/20/2018
-ms.openlocfilehash: 181e31530960f031dd2785b852c0ae15c21af782
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 6a3241e15cc72d1d50862a9dec14c23712ec4226
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30186306"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406380"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql-using-the-azure-portal"></a>Didacticiel : Concevoir une base de données Azure Database pour PostgreSQL à l’aide du portail Azure
 
@@ -32,10 +32,9 @@ Ce didacticiel vous montre comment utiliser le portail Azure pour :
 > * Restaurer des données
 
 ## <a name="prerequisites"></a>Prérequis
-
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
-## <a name="log-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-an-azure-database-for-postgresql"></a>Créer une base de données Azure pour PostgreSQL
@@ -66,7 +65,7 @@ Pour créer un serveur de base de données Azure pour PostgreSQL, suivez les ét
 
 5.  Cliquez sur **OK**.
 
-6.  Cliquez sur **Créer** pour approvisionner le serveur. L’approvisionnement prend quelques minutes.
+6.  Cliquez sur **Créer** pour approvisionner le serveur. Le provisionnement prend quelques minutes.
 
 7.  Dans la barre d’outils, cliquez sur **Notifications** pour surveiller le processus de déploiement.
  ![Base de données Azure pour PostgreSQL - Consulter les notifications](./media/tutorial-design-database-using-azure-portal/3-notifications.png)
@@ -86,7 +85,7 @@ Le service Azure Database pour PostgreSQL utilise un pare-feu au niveau du serve
 
 2.  Sur la page du serveur, sélectionnez **Sécurité de la connexion**. 
 
-3.  Cliquez dans la zone de texte sous **Nom de la règle**, puis ajoutez une nouvelle règle de pare-feu pour placer la plage IP pour la connectivité en liste verte. Pour ce didacticiel, nous allons autoriser toutes les adresses IP. Pour cela, tapez **Nom de la règle = AllowAllIps** ,  **= 0.0.0.0** et **= 255.255.255.255** , puis cliquez sur **Enregistrer**. Vous pouvez définir une règle de pare-feu spécifique qui couvre une plage d’adresses IP plus restreinte afin de vous connecter à partir de votre réseau.
+3.  Cliquez dans la zone de texte sous **Nom de la règle**, puis ajoutez une nouvelle règle de pare-feu pour placer la plage IP pour la connectivité en liste verte. Entrez votre plage IP. Cliquez sur **Enregistrer**.
 
    ![Base de données Azure pour PostgreSQL - Créer une règle de pare-feu](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
 

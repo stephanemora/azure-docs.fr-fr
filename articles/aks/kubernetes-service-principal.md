@@ -1,102 +1,100 @@
 ---
-title: Principal de service de cluster Azure Kubernetes
-description: Créer et gérer un principal de service Azure Active Directory pour un cluster Kubernetes dans AKS
+title: Principaux de service pour Azure Kubernetes Services (AKS)
+description: Créer et gérer un principal de service Azure Active Directory pour un cluster dans Azure Kubernetes Service (AKS)
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: get-started-article
-ms.date: 04/19/2018
+ms.date: 09/26/2018
 ms.author: iainfou
-ms.custom: mvc
-ms.openlocfilehash: 4ad0fc3fdb7d5b7c14f13fd6c279915974558dc9
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: ef3139c4b3f06644b219e177fad0c094ed600fb6
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578794"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394588"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
-Un cluster AKS nécessite un [principal de service Azure Active Directory][aad-service-principal] pour interagir avec des API Azure. Le principal de service est nécessaire pour la création et la gestion dynamiques des ressources telles [qu’Azure Load Balancer][azure-load-balancer-overview].
+Un cluster AKS nécessite un [principal de service Azure Active Directory (AD)][aad-service-principal] pour interagir avec des API Azure. Le principal de service est nécessaire pour la création et la gestion dynamiques d’autres ressources Azure, comme un équilibreur de charge ou un Registre de conteneurs Azure (ACR).
 
-Cet article indique les différentes options de configuration d’un principal de service pour votre cluster Kubernetes dans AKS.
+Cet article montre comment créer et utiliser un principal de service pour vos clusters AKS.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
+Pour créer un principal de service Azure AD, vous devez disposer des autorisations suffisantes pour inscrire une application auprès de votre client Azure AD et l’affecter à un rôle dans votre abonnement. Si vous n’avez pas les privilèges nécessaires, vous devriez demander à votre administrateur Azure AD ou administrateur d’abonnement de vous attribuer les privilèges nécessaires, de ou créer au préalable un principal de service que vous pourrez utiliser avec le cluster AKS.
 
-Pour créer un principal de service Azure AD, vous devez disposer des autorisations suffisantes pour inscrire une application auprès de votre client Azure AD et l’affecter à un rôle dans votre abonnement. Si vous n’avez pas les privilèges nécessaires, vous devriez demander à votre administrateur Azure AD ou administrateur d’abonnement de vous attribuer les privilèges nécessaires, de ou créer un principal de service pour le cluster Kubernetes au préalable.
+Vous devez également avoir installé et configuré Azure CLI version 2.0.46 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
 
-Vous devez également avoir installé et configuré Azure CLI version 2.0.27 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
+## <a name="automatically-create-and-use-a-service-principal"></a>Créer et utiliser un principal de service automatiquement
 
-## <a name="create-sp-with-aks-cluster"></a>Créer un Service Pack avec cluster AKS
+Lorsque vous créez un cluster AKS dans le portail Azure ou à l’aide de la commande [az aks create][az-aks-create], Azure peut générer automatiquement un principal de service.
 
-Lors du déploiement d’un cluster AKS avec la commande `az aks create`, vous avez la possibilité de générer automatiquement un principal de service.
+Dans l’exemple d’Azure CLI suivant, un principal de service n’est pas spécifié. Dans ce scénario, Azure CLI crée un principal de service pour le cluster AKS. Pour effectuer cette opération, votre compte Azure doit disposer des droits nécessaires pour la création d’un principal de service.
 
-Dans l’exemple suivant, un cluster AKS est créé, et puisqu’un principal de service existant n’est pas spécifié, un principal de service est créé pour le cluster. Pour effectuer cette opération, votre compte doit disposer des droits nécessaires pour la création d’un principal de service.
-
-```azurecli-interactive
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --generate-ssh-keys
 ```
 
-## <a name="use-an-existing-sp"></a>Utiliser un Service Pack existant
+## <a name="manually-create-a-service-principal"></a>Créer manuellement un principal de service
 
-Un principal de service Azure AD existant peut être utilisé ou créé au préalable pour une utilisation avec un cluster AKS. Cela s’avère utile lors du déploiement d’un cluster à partir du portail Azure où vous devez fournir les informations du principal de service. Lorsque vous utilisez un principal de service existant, la clé secrète du client doit être configurée comme un mot de passe.
-
-## <a name="pre-create-a-new-sp"></a>Créer un nouveau Service Pack au préalable
-
-Pour créer le principal de service avec Azure CLI, utilisez la commande [az ad sp create-for-rbac][az-ad-sp-create].
+Pour créer manuellement un principal de service avec Azure CLI, utilisez la commande [az ad sp create-for-rbac][az-ad-sp-create]. Dans l’exemple suivant, le paramètre `--skip-assignment` empêche toute affectation par défaut supplémentaire :
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
 ```
 
-Le résultat ressemble à ce qui suit. Notez la valeur de `appId` et `password`. Ces valeurs sont utilisées lors de la création d’un cluster AKS.
+Le résultat ressemble à l’exemple qui suit. Prenez note de vos propres valeurs pour `appId` et `password`. Ces valeurs sont utilisées lorsque vous créez un cluster AKS dans la section suivante.
 
 ```json
 {
-  "appId": "7248f250-0000-0000-0000-dbdeb8400d85",
-  "displayName": "azure-cli-2017-10-15-02-20-15",
-  "name": "http://azure-cli-2017-10-15-02-20-15",
-  "password": "77851d2c-0000-0000-0000-cb3ebc97975a",
-  "tenant": "72f988bf-0000-0000-0000-2d7cd011db47"
+  "appId": "559513bd-0c19-4c1a-87cd-851a26afd5fc",
+  "displayName": "azure-cli-2018-09-25-21-10-19",
+  "name": "http://azure-cli-2018-09-25-21-10-19",
+  "password": "e763725a-5eee-40e8-a466-dc88d980f415",
+  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db48"
 }
 ```
 
-## <a name="use-an-existing-sp"></a>Utiliser un Service Pack existant
+## <a name="specify-a-service-principal-for-an-aks-cluster"></a>Spécifier un principal de service pour un cluster AKS
 
-Lorsque vous utilisez un principal de service créé au préalable, fournissez `appId` et `password` en tant que valeurs d’argument à la commande `az aks create`.
+Pour utiliser un principal de service existant lorsque vous créez un cluster AKS à l’aide la commande [az aks create][az-aks-create], utilisez les paramètres `--service-principal` et `--client-secret` pour spécifier `appId` et `password` à partir de la sortie de la commande [az ad sp create-for-rbac][az-ad-sp-create] :
 
 ```azurecli-interactive
-az aks create --resource-group myResourceGroup --name myAKSCluster --service-principal <appId> --client-secret <password>
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --service-principal <appId> \
+    --client-secret <password>
 ```
 
-Si vous déployez un cluster AKS à l’aide du portail Azure, entrez la valeur `appId` dans le champ **ID client de principal de service** et la valeur `password` dans le champ **Clé secrète client de principal de service** dans le formulaire de configuration de cluster AKS.
+Si vous déployez un cluster AKS à l’aide du portail Azure, sur la page *Authentification* de la boîte de dialogue **Créer un cluster Kubernetes**, choisissez **Configurer un principal de service**. Sélectionnez **Utiliser existant** et spécifiez les valeurs suivantes :
 
-![Image de la navigation vers Azure Vote](media/container-service-kubernetes-service-principal/sp-portal.png)
+- **ID client du principal de service** correspond à votre *appId*
+- **Secret client du principal de service** correspond à la valeur *password*
+
+![Image de la navigation vers Azure Vote](media/kubernetes-service-principal/portal-configure-service-principal.png)
 
 ## <a name="additional-considerations"></a>Considérations supplémentaires
 
 Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez les points suivants à l’esprit.
 
-* Le principal de service pour Kubernetes fait partie de la configuration du cluster. Toutefois, n’utilisez pas l’identité pour déployer le cluster.
-* Chaque principal de service est associé à une application Azure AD. Le principal de service pour un cluster Kubernetes peut être associé à tout nom d’application Azure AD valide (par exemple : `https://www.contoso.org/example`). L’URL de l’application ne doit pas être un point de terminaison réel.
-* Lorsque vous spécifiez **l’ID client** du principal du service, veillez à utiliser la valeur de `appId`.
-* Sur les machines virtuelles principales et de nœud du cluster Kubernetes, les informations d’identification du principal de service sont stockées dans le fichier `/etc/kubernetes/azure.json`.
-* Si vous utilisez la commande `az aks create` pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier `~/.azure/aksServicePrincipal.json` sur la machine utilisée pour exécuter la commande.
-* Lors de la suppression d’un cluster AKS qui a été créé par `az aks create`, le principal du service qui a été créé automatiquement ne sera pas supprimé. Pour supprimer le principal du service, récupérer tout d’abord son ID avec la [liste d’applications az ad][az-ad-app-list]. L’exemple suivant recherche le cluster nommé *myAKSCluster* , puis supprime l’ID d’application à l’aide de [delete de az ad app][az-ad-app-delete]. Remplacez ces noms par vos propres valeurs :
+- Le principal de service pour Kubernetes fait partie de la configuration du cluster. Toutefois, n’utilisez pas l’identité pour déployer le cluster.
+- Chaque principal de service est associé à une application Azure AD. Le principal de service pour un cluster Kubernetes peut être associé à tout nom d’application Azure AD valide (par exemple : *https://www.contoso.org/example*). L’URL de l’application ne doit pas être un point de terminaison réel.
+- Lorsque vous spécifiez **l’ID client** du principal de service, utilisez la valeur de `appId`.
+- Sur les machines virtuelles principales et de nœud du cluster Kubernetes, les informations d’identification du principal de service sont stockées dans le fichier `/etc/kubernetes/azure.json`
+- Si vous utilisez la commande [az aks create][az-aks-create] pour générer automatiquement le principal de service, les informations d’identification du principal de service sont écrites dans le fichier `~/.azure/aksServicePrincipal.json` sur la machine utilisée pour exécuter la commande.
+- Lors de la suppression d’un cluster AKS qui a été créé par [az aks create][az-aks-create], le principal de service qui a été créé automatiquement ne sera pas supprimé.
+    - Pour supprimer le principal du service, récupérer tout d’abord son ID avec la [liste d’applications az ad][az-ad-app-list]. L’exemple suivant recherche le cluster nommé *myAKSCluster* , puis supprime l’ID d’application à l’aide de [delete de az ad app][az-ad-app-delete]. Remplacez ces noms par vos propres valeurs :
 
-    ```azurecli-interactive
-    az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
-    az ad app delete --id <appId>
-    ```
+        ```azurecli
+        az ad app list --query "[?displayName=='myAKSCluster'].{Name:displayName,Id:appId}" --output table
+        az ad app delete --id <appId>
+        ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les principaux de service Azure Active Directory, consultez la documentation d’applications Azure AD.
-
-> [!div class="nextstepaction"]
-> [Objets application et principal du service dans Azure Active Directory (Azure AD)][service-principal]
+Pour plus d’informations sur les principaux de service Azure Active Directory, consultez [Objets application et principal de service][service-principal]
 
 <!-- LINKS - internal -->
 [aad-service-principal]:../active-directory/develop/app-objects-and-service-principals.md
@@ -108,3 +106,4 @@ Pour plus d’informations sur les principaux de service Azure Active Directory,
 [user-defined-routes]: ../load-balancer/load-balancer-overview.md
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
+[az-aks-create]: /cli/azure/aks#az-aks-create

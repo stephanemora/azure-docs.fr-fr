@@ -1,24 +1,25 @@
 ---
-title: Tutoriel sur l’API Vision par ordinateur JavaScript | Microsoft Docs
-description: Explorez une application JavaScript de base qui utilise l’API Vision par ordinateur dans Microsoft Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
+title: 'Tutoriel : API Vision par ordinateur avec JavaScript'
+titlesuffix: Azure Cognitive Services
+description: Explorez une application JavaScript de base qui utilise l’API Vision par ordinateur dans Azure Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 89bdc0524e07c1cb6a1473e0a52791fe20271e06
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368196"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984922"
 ---
-# <a name="computer-vision-api-javascript-tutorial"></a>Tutoriel sur l’API Vision par ordinateur JavaScript
+# <a name="tutorial-computer-vision-api-javascript"></a>Tutoriel : API Vision par ordinateur avec JavaScript
 
-Ce tutoriel montre les fonctionnalités de l’API REST Vision par ordinateur Microsoft Cognitive Services.
+Ce tutoriel montre les fonctionnalités de l’API REST Vision par ordinateur dans Azure Cognitive Services.
 
 Explorez une application JavaScript qui utilise l’API REST Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Cet exemple vous permet d’envoyer une URL d’image à des fins d’analyse ou de traitement. Vous pouvez utiliser cet exemple open source comme modèle pour générer votre propre application en JavaScript qui utilisera l’API REST Vision par ordinateur.
 
@@ -32,7 +33,7 @@ Ce tutoriel a été développé à l’aide d’un éditeur de texte simple.
 
 ### <a name="subscribe-to-computer-vision-api-and-get-a-subscription-key"></a>S’abonner à l’API Vision par ordinateur et obtenir une clé d’abonnement 
 
-Avant de créer l’exemple, vous devez vous abonner à l’API Vision par ordinateur qui fait partie de Microsoft Cognitive Services. Pour plus d’informations sur l’abonnement et la gestion des clés, consultez [Abonnements](https://azure.microsoft.com/try/cognitive-services/). Les clés primaire et secondaire peuvent toutes deux être utilisées dans ce tutoriel. 
+Avant de créer l’exemple, vous devez vous abonner à l’API Vision par ordinateur qui fait partie d’Azure Cognitive Services. Pour plus d’informations sur l’abonnement et la gestion des clés, consultez [Abonnements](https://azure.microsoft.com/try/cognitive-services/). Les clés primaire et secondaire peuvent toutes deux être utilisées dans ce tutoriel. 
 
 ## <a name="download-the-tutorial-project"></a>Télécharger le projet du tutoriel
 

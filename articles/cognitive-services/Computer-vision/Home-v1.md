@@ -1,20 +1,21 @@
 ---
-title: API Vision par ordinateur pour Microsoft Cognitive Services | Microsoft Docs
-description: Utilisation d’algorithmes avancés dans l’API Vision par ordinateur pour vous aider à traiter des images et à renvoyer des informations dans Microsoft Cognitive Services.
+title: Présentation de l’API Vision par ordinateur
+titlesuffix: Azure Cognitive Services
+description: L’API Vision par ordinateur offre aux développeurs un accès à des algorithmes avancés pour le traitement d’images et le renvoi d’informations.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: overview
 ms.date: 08/10/2017
 ms.author: kefre
-ms.openlocfilehash: 86e0441c600162e479c678d3cb1dbeaad423ddb5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e2f3a5655b2fbedf3ad80d555421599e26225196
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370084"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982080"
 ---
 # <a name="what-is-computer-vision-api-version-10"></a>Qu’est-ce que l’API Vision par ordinateur Version 1.0 ?
 
@@ -48,7 +49,7 @@ L’API Vision par ordinateur renvoie des balises basées sur plus de 2000 objet
 Après le chargement d’une image ou d’une URL d’image, les algorithmes de l’API Vision par ordinateur génèrent des balises basées sur les objets, les êtres vivants et les actions identifiées dans l’image. Le balisage ne se limite pas au sujet principal, comme une personne au premier plan, mais il inclut également le décor (intérieur ou extérieur), le mobilier, les outils, les plantes, les animaux, les accessoires, les gadgets, etc.
 
 ### <a name="example"></a>Exemples
-![House_Yard](./Images/house_yard.jpg) '
+![House_Yard](./Images/house_yard.png) '
 
 ```json
 Returned Json
@@ -95,15 +96,15 @@ Outre le balisage et les descriptions, l’API Vision par ordinateur renvoie les
 ### <a name="the-86-category-concept"></a>Concept des 86 catégories
 Selon une liste de 86 concepts (voir diagramme ci-dessous), les fonctionnalités visuelles d’une image peuvent être classées, qu’elles soient générales ou spécifiques. Pour consulter la taxonomie complète au format texte, consultez [Taxonomie des catégories](https://docs.microsoft.com/azure/cognitive-services/computer-vision/category-taxonomy).
 
-![Analyser les catégories](./Images/analyze_categories.jpg)
+![Analyser les catégories](./Images/analyze_categories.png)
 
 Image                                                  | response
 ------------------------------------------------------ | ----------------
-![Toit femme](./Images/woman_roof.jpg)                 | people
-![Photo de famille](./Images/family_photo.jpg)             | people_crowd
-![Chien mignon](./Images/cute_dog.jpg)                     | animal_dog
-![Montagne extérieur](./Images/mountain_vista.jpg)       | outdoor_mountain
-![Analyse Vision aliment pain](./Images/bread.jpg)       | food_bread
+![Toit femme](./Images/woman_roof.png)                 | people
+![Photo de famille](./Images/family_photo.png)             | people_crowd
+![Chien mignon](./Images/cute_dog.png)                     | animal_dog
+![Montagne extérieur](./Images/mountain_vista.png)       | outdoor_mountain
+![Analyse Vision aliment pain](./Images/bread.png)       | food_bread
 
 ## <a name="identifying-image-types"></a>Identifier les types d’images
 Plusieurs possibilités s’offrent à vous pour classer des images. L’API Vision par ordinateur peut définir un indicateur booléen pour spécifier si une image est en noir et blanc ou en couleur. Elle peut également définir un indicateur pour spécifier si une image est un dessin au trait ou non. Elle peut également indiquer si une image est une image clipart ou non et indiquer sa qualité sur une échelle de 0 à 3.
@@ -120,16 +121,16 @@ Valeur | Signification
 
 Image|response
 ----|----
-![Analyse Vision clipart fromage](./Images/cheese_clipart.jpg)|3 good-clip-art
-![Analyse Vision jardin maison](./Images/house_yard.jpg)|0 Non-clip-art
+![Analyse Vision clipart fromage](./Images/cheese_clipart.png)|3 good-clip-art
+![Analyse Vision jardin maison](./Images/house_yard.png)|0 Non-clip-art
 
 ### <a name="line-drawing-type"></a>Type d’image dessin au trait
 Détecte si une image est un dessin au trait ou non.
 
 Image|response
 ----|----
-![Analyse Vision dessin lion](./Images/lion_drawing.jpg)|True
-![Analyse Vision fleur](./Images/flower.jpg)|False
+![Analyse Vision dessin lion](./Images/lion_drawing.png)|True
+![Analyse Vision fleur](./Images/flower.png)|False
 
 ### <a name="faces"></a>Visages
 Détecte les visages au sein d’une image et génère les coordonnées du visage, le rectangle du visage, le sexe et âge. Ces fonctionnalités visuelles constituent un sous-ensemble des métadonnées générées pour le visage. Pour obtenir des métadonnées plus complètes sur les visages (identification faciale, détection de la pose, etc.), utilisez l’API Visage.  
@@ -159,7 +160,7 @@ Effectuez une analyse pour fournir des informations supplémentaires en lien ave
 Les algorithmes de l’API Vision par ordinateur analysent le contenu d’une image. L’analyse constitue la description essentielle qui est affichée sous forme de texte lisible par l’homme (phrases complètes). La description résume les éléments identifiés dans l’image. Les algorithmes de l’API Vision par ordinateur génèrent différentes descriptions selon les objets identifiés dans l’image. Chacune des descriptions est évaluée, et un score de confiance est généré. Une liste est ensuite renvoyée, classée du score de confiance plus élevé au plus bas. Vous pouvez consulter un exemple de robot utilisant cette technologie pour générer des légendes pour les images [ici](https://github.com/Microsoft/BotBuilder-Samples/tree/master/CSharp/intelligence-ImageCaption).  
 
 ### <a name="example-description-generation"></a>Exemple de génération de description
-![Bâtiments B&W](./Images/bw_buildings.jpg) '
+![Bâtiments B&W](./Images/bw_buildings.png) '
 ```json
  Returned Json
 
@@ -202,18 +203,18 @@ L’algorithme Vision par ordinateur extrait les couleurs d’une image. Les cou
 
 Image                                                       | Premier plan |Arrière-plan| Couleurs
 ----------------------------------------------------------- | --------- | ------- | ------
-![Montagne extérieur](./Images/mountain_vista.jpg)            | Noir     | Noir   | Blanc
-![Analyse Vision fleur](./Images/flower.jpg)               | Noir     | Blanc   | Blanc, noir, vert
-![Analyse Vision gare ferroviaire](./Images/train_station.jpg) | Noir     | Noir   | Noir
+![Montagne extérieur](./Images/mountain_vista.png)            | Noir     | Noir   | Blanc
+![Analyse Vision fleur](./Images/flower.png)               | Noir     | Blanc   | Blanc, noir, vert
+![Analyse Vision gare ferroviaire](./Images/train_station.png) | Noir     | Noir   | Noir
 
 ### <a name="accent-color"></a>Couleur d’accentuation
 Il s’agit de la couleur extraite d’une image, visant à représenter la couleur qui attire le plus l’œil des utilisateurs, à l’aide d’un mélange des couleurs dominantes et de la saturation.
 
 Image                                                       | response
 ----------------------------------------------------------- | ----
-![Montagne extérieur](./Images/mountain_vista.jpg)            | #BC6F0F
-![Analyse Vision fleur](./Images/flower.jpg)               | #CAA501
-![Analyse Vision gare ferroviaire](./Images/train_station.jpg) | #484B83
+![Montagne extérieur](./Images/mountain_vista.png)            | #BC6F0F
+![Analyse Vision fleur](./Images/flower.png)               | #CAA501
+![Analyse Vision gare ferroviaire](./Images/train_station.png) | #484B83
 
 
 ### <a name="black--white"></a>Noir et blanc
@@ -221,8 +222,8 @@ Indicateur booléen qui spécifie si une image est en noir et blanc ou non.
 
 Image                                                      | response
 ---------------------------------------------------------- | ----
-![Analyse Vision bâtiment](./Images/bw_buildings.jpg)      | True
-![Analyse Vision jardin maison](./Images/house_yard.jpg)      | False
+![Analyse Vision bâtiment](./Images/bw_buildings.png)      | True
+![Analyse Vision jardin maison](./Images/house_yard.png)      | False
 
 ## <a name="flagging-adult-content"></a>Signaler le contenu réservé aux adultes
 Les différentes catégories visuelles comptent également le groupe pour le contenu suggestif et/ou réservé aux adultes qui permet de détecter des sujets pour adultes et restreint l’affichage des images à caractère sexuel. Le filtre pour la détection de contenu suggestif et réservé aux adultes peut être défini sur une échelle variable pour s’adapter aux préférences de l’utilisateur.

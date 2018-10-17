@@ -8,32 +8,32 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 4592b256dfda75e81a94034545cd54dbf0d71532
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 860294ebc7fbadd3eeefc4298ec740ca7f704587
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42022745"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714392"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web Node 
 
-Ce démarrage rapide vous montre comment stocker un secret dans Key Vault et le récupérer à l’aide d’une application web. Pour afficher la valeur du secret, vous devrez exécuter cette procédure sur Azure. Le démarrage rapide utilise des identités de service géré (MSI) et Node.js
+Ce démarrage rapide vous montre comment stocker un secret dans Key Vault et le récupérer à l’aide d’une application web. Pour afficher la valeur du secret, vous devrez exécuter cette procédure sur Azure. Le guide de démarrage rapide utilise Node.js et des identités managées pour les ressources Azure.
 
 > [!div class="checklist"]
 > * Création d’un coffre de clés.
 > * Stockage d’un secret dans le coffre de clés.
 > * Récupération d’un secret à partir de Key Vault.
 > * Création d’une application web Azure.
-> * [Activation d’identités de service administrées (MSI)](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview).
+> * Activation d’une [identité managée](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) pour l’application web.
 > * Octroi des autorisations requises à l’application web pour lire des données venant de Key Vault.
 
 Avant de procéder, assurez-vous d’être familiarisé avec les [concepts de base](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
-Pour comprendre pourquoi le didacticiel ci-dessous est la meilleure pratique, il est nécessaire de comprendre certains concepts. Key Vault est un référentiel central pour stocker les secrets par programmation. Mais pour cela, les applications / utilisateurs doivent d’abord s’authentifier sur Key Vault, et donc présenter un secret. Pour suivre les meilleures pratiques de sécurité, ce premier secret doit faire l’objet d’une rotation périodique. Mais avec [Managed Service Identity](../active-directory/managed-service-identity/overview.md), les applications qui s’exécutent dans Azure bénéficient d’une identité gérée automatiquement par Azure. Cela permet de résoudre le **problème d’introduction de secrets** où les utilisateurs / applications peuvent suivre les meilleures pratiques et n’ont pas à se soucier de la rotation du premier secret
+Pour comprendre pourquoi le didacticiel ci-dessous est la meilleure pratique, il est nécessaire de comprendre certains concepts. Key Vault est un référentiel central pour stocker les secrets par programmation. Mais pour cela, les applications / utilisateurs doivent d’abord s’authentifier sur Key Vault, et donc présenter un secret. Pour suivre les meilleures pratiques de sécurité, ce premier secret doit faire l’objet d’une rotation périodique. Par contre, avec les [identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md), les applications s’exécutant dans Azure bénéficient d’une identité qui est automatiquement managée par Azure. Cela permet de résoudre le **problème d’introduction de secrets** où les utilisateurs / applications peuvent suivre les meilleures pratiques et n’ont pas à se soucier de la rotation du premier secret
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -150,15 +150,15 @@ Voici les quelques étapes que nous devons faire
     La commande ci-dessus crée également une application prenant en charge Git qui vous permet de déployer vers Azure à partir de votre git local. 
     Le git local est configuré avec l’URL de « https://<username>@< app_name >.scm.azurewebsites.net/ < app_name > .git »
 
-- Créer un utilisateur de déploiement. Une fois la commande précédente terminée, vous pouvez ajouter d’ajouter un Azure à distance à votre référentiel Git local. Remplacez <url> par l’URL du Git distant de la section Activer Git pour votre application.
+- Créez un utilisateur de déploiement. Une fois la commande précédente terminée, vous pouvez ajouter un référentiel Azure distant à votre dépôt Git local. Remplacez <url> par l’URL du Git distant de la section Activer Git pour votre application.
 
     ```
     git remote add azure <url>
     ```
 
-## <a name="enable-managed-service-identity"></a>Activer Managed Service Identity
+## <a name="enable-a-managed-identity-for-the-web-app"></a>Activer une identité managée pour l’application web
 
-Azure Key Vault permet de stocker en toute sécurité des informations d’identification et autres clés et secrets, mais votre code doit s’authentifier sur Key Vault pour les récupérer. L’identité du service administré (MSI) simplifie la résolution de ce problème en donnant aux services Azure une identité automatiquement gérée dans Azure Active Directory (Azure AD). Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, y compris Key Vault, sans avoir d’informations d’identification dans votre code.
+Azure Key Vault permet de stocker en toute sécurité des informations d’identification et autres clés et secrets, mais votre code doit s’authentifier sur Key Vault pour les récupérer. La [vue d’ensemble des identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md) simplifie la résolution de ce problème en fournissant aux services Azure une identité managée automatiquement dans Azure AD (Azure Active Directory). Vous pouvez utiliser cette identité pour vous authentifier sur n’importe quel service prenant en charge l’authentification Azure AD, y compris Key Vault, sans avoir d’informations d’identification dans votre code.
 
 Exécutez la commande assign-identity pour créer l’identité de cette application :
 
@@ -166,7 +166,7 @@ Exécutez la commande assign-identity pour créer l’identité de cette applica
 az webapp identity assign --name <app_name> --resource-group "<YourResourceGroupName>"
 ```
 
-L’exécution de cette commande revient à accéder au portail et à régler **Managed Service Identity** sur **Activer** dans les propriétés de l’application web.
+Cette commande revient à accéder au portail et à affecter au paramètre **Identité / Affecté(e) par le système** la valeur **Activer** dans les propriétés de l’application web.
 
 ### <a name="assign-permissions-to-your-application-to-read-secrets-from-key-vault"></a>Octroyer des autorisations à votre application pour lire des secrets dans Key Vault
 

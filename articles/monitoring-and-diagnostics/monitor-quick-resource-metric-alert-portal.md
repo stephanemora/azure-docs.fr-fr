@@ -9,12 +9,12 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 01955ba7a61b3eb46be6bad72c7243c4918add12
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8f3be2b1eb9c12aab212fb198283dce9ee3d3912
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263046"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982859"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Recevoir une notification quand une valeur de métrique remplit une condition
 
@@ -32,7 +32,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 1. Cliquez sur le bouton **Créer une ressource** dans le coin supérieur gauche du portail Azure.
 
-2. Recherchez et sélectionnez **Application logique**. Cliquez sur le bouton **Créer** .
+2. Recherchez et sélectionnez **Application logique**. Cliquez sur le bouton **Créer**.
 
 3. Entrez le nom myLogicApp et le groupe de ressources myResourceGroup. Choisissez votre abonnement.  Utilisez l’emplacement par défaut. Sélectionnez l’option **Épingler au tableau de bord**.  Lorsque vous avez terminé, cliquez sur **Créer**. 
 
@@ -47,7 +47,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 6. Définissez vos valeurs comme indiqué dans l’illustration suivante.
 
-    ![Configuration du déclencheur d’application logique dans le panneau du portail](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png). 
+    ![Configuration du déclencheur d’application logique dans le panneau du portail](./media/monitor-quick-resource-metric-alert-portal/create-logic-app-triggers.png) 
 
 7. Dans le concepteur, sélectionnez le déclencheur **Périodicité**.
 
@@ -96,7 +96,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 3. Peu de temps après, vous devez recevoir un e-mail intitulé « Alertes Microsoft Azure » vous informant que l’alerte a été « résolue ».
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Les autres guides de démarrage rapide de cette collection sont la prolongation du présent guide de démarrage rapide. Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les didacticiels, ne supprimez pas les ressources créées dans ce guide de démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées au cours de ce démarrage rapide dans le portail Azure.
 

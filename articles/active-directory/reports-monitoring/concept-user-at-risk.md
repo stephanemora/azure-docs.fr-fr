@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 030774716e1af4a7d6817d64ae66ded2bcaf4081
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fde063cb593ca1f610dc35cd044fe41e34ab9202
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41918742"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578354"
 ---
 # <a name="users-flagged-for-risk-security-report-in-the-azure-active-directory-portal"></a>Rapport sur la sécurité des utilisateurs avec indicateur de risque dans le portail Azure Active Directory
 
@@ -29,9 +29,9 @@ Azure Active Directory détecte les actions suspectes liées aux comptes des u
 
 Les événements à risque détectés sont utilisés pour déterminer les valeurs suivantes :
 
-- **Connexions risquées** : une connexion risquée est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. Pour plus d’informations, consultez [Connexions risquées](../identity-protection/overview.md#risky-sign-ins). 
+- **Connexions risquées** : une connexion risquée est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. Pour plus d’informations, consultez [Guide pratique pour configurer la stratégie pour les risques liés à la connexion](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Utilisateurs avec indicateur de risque** : il s’agit d’un compte d’utilisateur susceptible d’être compromis. Pour plus d’informations, consultez [Utilisateurs avec indicateur de risque](../identity-protection/overview.md#users-flagged-for-risk).  
+- **Utilisateurs avec indicateur de risque** : il s’agit d’un compte d’utilisateur susceptible d’être compromis. Pour plus d’informations, consultez [Guide pratique pour configurer la stratégie pour les risques liés à l’utilisateur](../identity-protection/howto-user-risk-policy.md).  
 
 Dans le portail Azure, vous trouverez les rapports de sécurité dans le panneau **Azure Active Directory** dans la section **Sécurité**.  
 
@@ -78,13 +78,13 @@ Cette boîte de dialogue fournit une option permettant de :
 
 Le rapport sur les utilisateurs avec indicateur de risque dans les éditions Premium d’Azure Active Directory vous fournit les informations suivantes :
 
-- Une [liste des comptes d’utilisateurs](../identity-protection/overview.md#users-flagged-for-risk) qui ont peut-être été compromis 
+- Une liste des comptes d’utilisateur qui sont peut-être compromis 
 
 - Informations agrégées sur les [types d’événements à risque](concept-risk-events.md) qui ont été détectés
 
 - Une option pour télécharger le rapport
 
-- Une option pour configurer une [stratégie de résolution du risque utilisateur](../identity-protection/overview.md#user-risk-security-policy)  
+- Une option pour configurer une [stratégie de résolution du risque utilisateur](../identity-protection/howto-user-risk-policy.md)  
 
 
 ![les connexions risquées.](./media/concept-user-at-risk/71.png)
@@ -103,7 +103,7 @@ Lorsque vous sélectionnez un utilisateur, vous obtenez une vue de rapport déta
 ![les connexions risquées.](./media/concept-user-at-risk/324.png)
 
 
-Pour analyser un événement à risque, sélectionnez-en un depuis la liste pour ouvrir le panneau **Détails** de cet événement à risque. Dans le panneau **Détails**, vous avez le choix entre [fermer manuelle un événement à risque](../identity-protection/overview.md#closing-risk-events-manually) ou réactiver un événement à risque fermé manuellement. 
+Pour analyser un événement à risque, sélectionnez-en un depuis la liste pour ouvrir le panneau **Détails** de cet événement à risque. Dans le panneau **Détails**, vous avez le choix entre fermer manuellement un événement à risque ou réactiver un événement à risque fermé manuellement. 
 
 
 ![les connexions risquées.](./media/concept-user-at-risk/325.png)

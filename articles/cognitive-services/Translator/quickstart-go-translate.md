@@ -1,21 +1,21 @@
 ---
-title: 'L’API de traduction de texte Translator Text : traduction de texte avec Go | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous traduisez du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Go dans Cognitive Services.
+title: 'Démarrage rapide : Traduire du texte - Traduction de texte Translator Text, Go'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous traduisez du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: 72d4a3bc7563d6427335f1536f787eab6d7a0de4
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: df8b938c9541a4f57a337065af0ab02fe6815c6d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43769790"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126698"
 ---
 # <a name="quickstart-translate-text-with-go"></a>Démarrage rapide : Traduire du texte avec Go
 
@@ -31,7 +31,7 @@ Pour utiliser l’API de traduction de texte Translator Text, vous avez égaleme
 
 Le code suivant traduit le texte source d’une langue à une autre en utilisant la méthode [Traduire](./reference/v3-0-translate.md).
 
-1. Créez un nouveau projet Go dans votre éditeur de code favori.
+1. Créez un projet Go dans votre éditeur de code favori.
 2. Ajoutez le code ci-dessous.
 3. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
 4. Enregistrez le fichier avec une extension .go.
@@ -109,7 +109,7 @@ func main() {
 
 ## <a name="translate-response"></a>Réponse Traduire
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [
@@ -134,7 +134,7 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorer des packages Go pour les API Cognitive Services à partir de [Azure SDK pour Go](https://github.com/Azure/azure-sdk-for-go) sur GitHub.
+Explorez des packages Go pour les API Cognitive Services à partir de [Azure SDK pour Go](https://github.com/Azure/azure-sdk-for-go) sur GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorer des packages Go sur GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)

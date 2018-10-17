@@ -1,21 +1,21 @@
 ---
-title: 'L’API de traduction de texte Translator Text : traduction de texte avec Java | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous traduisez du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Java dans Cognitive Services.
+title: 'Démarrage rapide : Traduire du texte - Traduction de texte Translator Text, Java'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous traduisez du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: c4c1774d2e02ffa17ee49cc7ff3a2c0d5bf29cb5
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 806ab636827d873c5c23e4964492c144d1489a95
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43769555"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126188"
 ---
 # <a name="quickstart-translate-text-with-java"></a>Démarrage rapide : Traduire du texte avec Java
 
@@ -145,7 +145,7 @@ public class Translate {
 
 ## <a name="translate-response"></a>Réponse Traduire
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

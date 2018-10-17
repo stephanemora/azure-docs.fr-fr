@@ -9,16 +9,16 @@ ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: b0d8466f1deaa82260aaebee5398f1b8fbea851d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bcc6c6e9d38948cb4be09c9f52049790ccd5ac7e
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965549"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227025"
 ---
 # <a name="starter-resource-graph-queries"></a>Requêtes Resource Graph de démarrage
 
-Pour comprendre comment fonctionnent les requêtes dans Azure Resource Graph, vous devez au préalable vous familiariser avec le [langage de requête](../concepts/query-language.md). Si vous ne connaissez pas bien KQL, nous vous recommandons de passer en revue les notions de base de ce langage pour apprendre à composer des requêtes pour les ressources qui vous intéressent.
+Pour comprendre comment fonctionnent les requêtes dans Azure Resource Graph, vous devez au préalable vous familiariser avec le [langage de requête](../concepts/query-language.md). Si vous ne connaissez pas bien [l’Explorateur de données Azure](../../../data-explorer/data-explorer-overview.md), nous vous recommandons de passer en revue les notions de base de ce langage pour apprendre à composer des requêtes pour les ressources qui vous intéressent.
 
 Nous allons vous guider tout au long des requêtes de démarrage suivantes :
 
@@ -36,7 +36,7 @@ Nous allons vous guider tout au long des requêtes de démarrage suivantes :
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free) avant de commencer.
 
-## <a name="language-support"></a>Prise en charge des langages
+## <a name="language-support"></a>Support multilingue
 
 Azure CLI (par le biais d’une extension) et Azure PowerShell (par le biais d’un module) prennent en charge Azure Resource Graph. Avant d’exécuter les requêtes suivantes, vérifiez que votre environnement est prêt. Consultez [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) et [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) pour savoir comment installer et valider l’environnement de votre interpréteur de commandes.
 
@@ -52,7 +52,7 @@ summarize count()
 az graph query -q "summarize count()"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "summarize count()"
 ```
 
@@ -69,7 +69,7 @@ project name, type, location
 az graph query -q "project name, type, location | order by name asc"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "project name, type, location | order by name asc"
 ```
 
@@ -88,7 +88,7 @@ project name, location, type
 az graph query -q "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "project name, location, type| where type =~ 'Microsoft.Compute/virtualMachines' | order by name desc"
 ```
 
@@ -106,7 +106,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | project name, properties.storageProfile.osDisk.osType | top 5 by name desc"
 ```
 
@@ -124,7 +124,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | summarize count() by tostring(properties.storageProfile.osDisk.osType)"
 ```
 
@@ -140,7 +140,7 @@ where type =~ 'Microsoft.Compute/virtualMachines'
 az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | extend os = properties.storageProfile.osDisk.osType | summarize count() by tostring(os)"
 ```
 
@@ -159,7 +159,7 @@ where type contains 'storage' | distinct type
 az graph query -q "where type contains 'storage' | distinct type"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type contains 'storage' | distinct type"
 ```
 
@@ -177,7 +177,7 @@ where type contains 'publicIPAddresses' and properties.ipAddress != ''
 az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | project properties.ipAddress | limit 100"
 ```
 
@@ -194,7 +194,7 @@ where type contains 'publicIPAddresses' and properties.ipAddress != ''
 az graph query -q "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type contains 'publicIPAddresses' and properties.ipAddress != '' | summarize count () by subscriptionId"
 ```
 
@@ -211,7 +211,7 @@ where tags.environment=~'internal'
 az graph query -q "where tags.environment=~'internal' | project name"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name"
 ```
 
@@ -226,7 +226,7 @@ where tags.environment=~'internal'
 az graph query -q "where tags.environment=~'internal' | project name, tags"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where tags.environment=~'internal' | project name, tags"
 ```
 
@@ -243,7 +243,7 @@ where type =~ 'Microsoft.Storage/storageAccounts'
 az graph query -q "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 
-```azurepowershell-interactive
+```powershell
 Search-AzureRmGraph -Query "where type =~ 'Microsoft.Storage/storageAccounts' | where tags['tag with a space']=='Custom value'"
 ```
 

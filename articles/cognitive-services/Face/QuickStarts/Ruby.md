@@ -1,25 +1,25 @@
 ---
-title: 'Démarrage rapide : API Visage avec Ruby | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous détectez les visages dans une image à l’aide de l’API Visage avec Ruby dans Cognitive Services.
+title: 'Démarrage rapide : Détecter les visages dans une image - API Visage, Ruby'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez détecter les visages d’une image à l’aide de l’API Visage avec Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: nolachar
-ms.openlocfilehash: b7fc23259475b7d165171ce42f1d0dff90d1069c
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a76be6d6afa198762448cea7125b5c49e7fc1009
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "43769465"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124794"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-ruby"></a>Démarrage rapide : Détecter les visages dans une image à l’aide de Ruby
 
-Dans ce démarrage rapide, vous détectez des visages humains dans une image à l’aide de l’API Visage.
+Dans ce démarrage rapide, vous allez détecter des visages humains dans une image à l’aide de l’API Visage.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -260,7 +260,7 @@ Une réponse correcte est retournée au format JSON, par exemple :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les API visage utilisées pour détecter les visages humains dans une image, délimiter les visages avec des rectangles et retourner des attributs tels que l’âge et le sexe.
+Explorez les API Visage utilisées pour détecter les visages humains dans une image, délimiter les visages avec des rectangles et retourner des attributs tels que l’âge et le sexe.
 
 > [!div class="nextstepaction"]
 > [API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

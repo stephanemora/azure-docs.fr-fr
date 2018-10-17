@@ -70,7 +70,7 @@ Le tableau et le graphique suivants fournissent une vue d’ensemble des composa
 1. Une fois que vous activez la protection d’une machine virtuelle Hyper-V, dans le portail Azure ou en local, **l’activation de la protection** démarre.
 2. Le travail vérifie que la machine est conforme à la configuration requise, puis appelle la méthode [CreateReplicationRelationship](https://msdn.microsoft.com/library/hh850036.aspx), laquelle configure la réplication avec les paramètres que vous avez configurés.
 3. Le travail démarre la réplication initiale en appelant la méthode [StartReplication](https://msdn.microsoft.com/library/hh850303.aspx) pour initialiser une réplication complète de la machine virtuelle et envoyer les disques virtuels de la machine virtuelle sur Azure.
-4. Vous pouvez surveiller le travail dans l'onglet **Travaux**.      Liste des travaux![Activer l’exploration de la protection](media/hyper-v-azure-architecture/image2.png)
+4. Vous pouvez surveiller le travail dans l'onglet **Travaux**.      ![Liste des travaux](media/hyper-v-azure-architecture/image1.png) ![Activer l’exploration de la protection](media/hyper-v-azure-architecture/image2.png)
 
 
 ### <a name="initial-data-replication"></a>Réplication initiale des données

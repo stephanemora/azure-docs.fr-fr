@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 3dda4c330f2dc620662c476aa4e5dbfe3a60fa76
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 85016ffb412b9f8773606639eb1496ac8ad251a7
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39003694"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729990"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Démarrage rapide : Créer un pipeline de recherche cognitive à l’aide de compétences et d’exemples de données
 
@@ -28,10 +28,13 @@ Dans ce guide de démarrage rapide, essayez le pipeline d’enrichissement dans 
 
 Vous pouvez essayer la recherche cognitive dans un service Recherche Azure créé dans les régions suivantes :
 
-* États-Unis - partie centrale méridionale
+* USA Centre Sud
 * Europe Ouest
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+> [!NOTE]
+> La recherche cognitive est disponible en version préliminaire publique. L’exécution de compétences ainsi que l’extraction et la normalisation d’images sont actuellement proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -54,7 +57,7 @@ Tout d’abord, inscrivez-vous au service Recherche Azure.
 
 1. Pour Groupe de ressources, créez un groupe de ressources qui contiendra toutes les ressources que vous créerez dans ce guide de démarrage rapide. Cela facilite le nettoyage des ressources lorsque vous avez terminé le guide de démarrage rapide.
 
-1. Pour Emplacement, choisissez **Sud-Centre des États-Unis** ou **Europe de l’Ouest**. Actuellement, la version préliminaire est disponible uniquement dans ces régions.
+1. Pour Emplacement, choisissez **USA Centre Sud** ou **Europe Ouest**. Actuellement, la version préliminaire est disponible uniquement dans ces régions.
 
 1. Pour le niveau tarifaire, vous pouvez créer un service **Gratuit** pour effectuer les tutoriels et les guides de démarrage rapide. Pour un examen plus approfondi à l’aide de vos propres données, créez un [service payant](https://azure.microsoft.com/pricing/details/search/), tel qu’un service **De base** ou **Standard**. 
 

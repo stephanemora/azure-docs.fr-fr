@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7121c83aea75f3b23820a7b0504fa704ec9f3016
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702542"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984303"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Didacticiel : définir un nouveau type d’appareil dans votre application Azure IoT Central
 
@@ -427,7 +427,7 @@ Après avoir défini votre modèle d’appareil **Climatiseur connecté**, vous 
     | Intitulé                   | Numéro de série |
     | Settings and Properties (Paramètres et propriétés) | Numéro de série |
 
-    ![Paramètres de la propriété de numéro de série](./media/tutorial-define-device-type/propertysettings1.png)
+    ![Paramètres de la propriété de numéro de série](./media/tutorial-define-device-type/propertysettings3.png)
 
     Puis choisissez **Enregistrer**.
 
@@ -442,7 +442,7 @@ Après avoir défini votre modèle d’appareil **Climatiseur connecté**, vous 
     | Intitulé                   | Version du microprogramme |
     | Settings and Properties (Paramètres et propriétés) | Version du microprogramme |
 
-    ![Paramètres de la propriété de numéro de série](./media/tutorial-define-device-type/propertysettings2.png)
+    ![Paramètres de la propriété de numéro de série](./media/tutorial-define-device-type/propertysettings3.png)
 
     Puis choisissez **Enregistrer**.
 

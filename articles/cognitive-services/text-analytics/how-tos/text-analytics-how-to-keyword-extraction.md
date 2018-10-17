@@ -1,22 +1,23 @@
 ---
-title: Guide pratique pour extraire des expressions clés dans l’API REST Analyse de texte (Microsoft Cognitive Services sur Azure) | Microsoft Docs
-description: Explique comment extraire des expressions clés à l’aide de l’API REST Analyse de texte dans Microsoft Cognitive Services sur Azure dans ce didacticiel pas à pas.
+title: 'Exemple : Comment extraire des phrases clés dans l’API Analyse de texte'
+titleSuffix: Azure Cognitive Services
+description: Découvrez comment extraire des phrases clés à l’aide de l’API REST Analyse de texte.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 78b100e737242fa9f56e50275ef2038d8895349e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368409"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605485"
 ---
-# <a name="how-to-extract-key-phrases-in-text-analytics"></a>Guide pratique pour extraire des expressions clés dans Analyse de texte
+# <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exemple : Comment extraire des phrases clés dans l’API Analyse de texte
 
 L’[API Extraction de phrases clés](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) évalue un texte non structuré puis, pour chaque document JSON, retourne une liste d’expressions clés. 
 
@@ -152,8 +153,8 @@ Dans cet article, vous avez vu les concepts et le flux de travail d’extraction
 ## <a name="see-also"></a>Voir aussi 
 
  [Vue d’ensemble d’Analyse de texte](../overview.md)  
- [Forum Aux Questions (FAQ)](../text-analytics-resource-faq.md)</br>
- [Page de produit Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

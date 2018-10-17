@@ -4,22 +4,28 @@ description: Quelle est la différence entre Azure Active Directory B2B Collabor
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: overview
 ms.date: 03/15/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b59dba541394c105370cfd3af0768a8477ddb4e6
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 42fbb8b08a2dc24ced436c4a6104f03ae3bca1e9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39347698"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982808"
 ---
 # <a name="compare-b2b-collaboration-and-b2c-in-azure-active-directory"></a>Comparer B2B Collaboration et B2C dans Azure Active Directory
 
 Azure Active Directory (Azure AD) B2B Collection et Azure AD B2C vous permettent de travailler avec des utilisateurs externes dans Azure AD. En quoi se différencient-ils ?
+
+**Azure AD B2B** convient aux entreprises qui souhaitent partager des fichiers et des ressources de manière sécurisée afin de collaborer avec des utilisateurs externes. Un administrateur Azure configure le B2B dans le portail Azure, et Azure AD se charge de la fédération entre votre entreprise et vos partenaires externes. Les utilisateurs se connectent aux ressources partagées à l’aide d’un processus simple d’invitation et d’échange d’invitation, en utilisant leur compte professionnel ou scolaire, ou n’importe quel autre compte e-mail.
+ 
+**Azure AD B2C** s’adresse principalement aux entreprises et aux développeurs qui créent des applications destinées aux clients. Avec Azure AD B2C, les développeurs peuvent utiliser Azure AD comme un système d’identité complet pour leur application, tout en permettant aux clients de se connecter avec une identité qu’ils utilisent déjà (telle que Facebook ou Gmail).
+
+Le tableau ci-dessous donne une comparaison détaillée.
 
 
 Fonctionnalités de B2B Collaboration |     Offre autonome d’Azure AD B2C

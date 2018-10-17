@@ -1,22 +1,23 @@
 ---
-title: Utiliser le Service Vision personnalisée à partir d’une application C# - Azure Cognitive Services | Microsoft Docs
-description: Explorez une application C# de base qui utilise l’API Custom Vision dans Microsoft Cognitive Services. Créez un projet, ajoutez des mots clés, chargez des images, entraînez votre projet et effectuez une prédiction en utilisant le point de terminaison par défaut.
+title: 'Tutoriel : Créer une application Windows pour le service Vision personnalisée avec C#'
+titlesuffix: Azure Cognitive Services
+description: Créez un projet, ajoutez des mots clés, chargez des images, entraînez votre projet et effectuez une prédiction en utilisant le point de terminaison par défaut.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: d3c2ffb0fd9578458bd07241eed4a87cf70d3c3c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617432"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366639"
 ---
-# <a name="use-the-custom-vision-service-from-a-c35-application"></a>Utiliser le service Vision personnalisée à partir d’une application C#
+# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>Tutoriel : Utiliser le service Vision personnalisée à partir d’une application C#
 
 Découvrez comment utiliser le service Vision personnalisée à partir d’une application C#. Après la création du projet, vous pouvez ajouter des mots clés, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester par programmation une image. Utilisez cet exemple open source comme modèle de création de votre propre application pour Windows au moyen de l’API Service Vision personnalisée.
 

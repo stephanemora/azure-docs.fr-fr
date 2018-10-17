@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: ea6078088417099045006f81dcaf1f769bbd64d7
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: b5a38b9f16224c8b2b128b464106fe83d018b308
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43246813"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129758"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importer une application de fonction Azure en tant qu’API dans Gestion des API Azure
 
@@ -71,9 +71,11 @@ Suivez les étapes ci-dessous pour créer une nouvelle API à partir d’une app
     > [!NOTE]
     > Vous pouvez importer uniquement des fonctions qui utilisent un déclencheur HTTP et dont le paramètre de niveau d’autorisation est défini sur *Anonyme* ou *Fonction*.
 
-7. Modifiez les champs pré-renseignés le cas échéant. Cliquez sur **Créer**.
+7. Passez à la vue **Complète** et affectez **Produit** à votre nouvelle API. Si nécessaire, modifiez les autres champs préremplis.
 
     ![Ajouter à partir d’une application de fonction](./media/import-function-app-as-api/add-06.png)
+
+8. Cliquez sur **Créer**.
 
 ## <a name="append-azure-function-app-to-api"></a> Ajouter une application de fonction Azure à une API existante
 

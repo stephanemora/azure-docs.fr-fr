@@ -1,22 +1,23 @@
 ---
-title: Didacticiel sur l’API Vision par ordinateur Python | Microsoft Docs
-description: Découvrez comment utiliser l’API Vision par ordinateur avec Python à l’aide de bloc-notes Jupyter dans Microsoft Cognitive Services. Visualisez vos résultats à l’aide de bibliothèques populaires.
+title: 'Tutoriel : API Vision par ordinateur avec Python'
+titlesuffix: Azure Cognitive Services
+description: Découvrez comment utiliser l’API Vision par ordinateur avec Python à l’aide de bloc-notes Jupyter. Visualisez vos résultats à l’aide de bibliothèques populaires.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 02/25/2017
 ms.author: kefre
-ms.openlocfilehash: a093c2d066e70a8daf1fe1cd33ccf794ecb196af
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 59e88ecb253bc6da803ddf34a4a02229b99e259d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368505"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981709"
 ---
-# <a name="computer-vision-api-python-tutorial"></a>Didacticiel sur l’API Vision par ordinateur Python
+# <a name="tutorial-computer-vision-api-python"></a>Tutoriel : API Vision par ordinateur avec Python
 
 Ce didacticiel vous montre comment utiliser l’API Vision par ordinateur dans Python et comment visualiser vos résultats à l’aide de certaines bibliothèques populaires. Utilisez Jupyter pour exécuter le didacticiel. Pour savoir comment prendre en main les blocs-notes Jupyter interactifs, consultez la [documentation Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
 

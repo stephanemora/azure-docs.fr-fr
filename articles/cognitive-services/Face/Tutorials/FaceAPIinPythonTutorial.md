@@ -1,27 +1,27 @@
 ---
-title: Didacticiel de l’API Visage avec Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Apprenez à utiliser l’API Visage avec le kit de développement logiciel (SDK) Python pour détecter les visages humains d’une image dans Cognitive Services.
+title: 'Tutoriel : Détecter et encadrer des visages dans une image - API Visage, Python'
+titleSuffix: Azure Cognitive Services
+description: Découvrez comment utiliser l’API Visage avec le SDK Python pour détecter les visages humains d’une image.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 90d74d8df2ed59e6f3313ef7c620284d1022a667
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37049109"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127735"
 ---
-# <a name="getting-started-with-face-api-in-python-tutorial"></a>Prise en main de l’API Visage dans le didacticiel Python
+# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>Tutoriel : Détecter et encadrer des visages avec l’API Visage et Python 
 
 Dans ce didacticiel, vous apprendrez à invoquer l’API Visage via le Kit de développement logiciel (SDK) Python pour détecter les visages humains d’une image.
 
-## <a name="prerequisites"></a> Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
 
@@ -35,7 +35,7 @@ pip install cognitive_face
 
 - Obtenez une [clé d’abonnement](https://azure.microsoft.com/try/cognitive-services/) pour Microsoft Cognitive Services. Vous pouvez utiliser votre clé principale ou secondaire pour ce didacticiel. (Remarque : pour utiliser n’importe quelle API Visage, vous devez posséder une clé d’abonnement valide.)
 
-## <a name="sdk-example"></a> Détecter un Visage dans une Image
+## <a name="detect-a-face-in-an-image"></a>Détecter un visage dans une image
 
 ```python
 import cognitive_face as CF
@@ -93,7 +93,7 @@ for face in faces:
 img.show()
 ```
 
-## <a name='further'></a> Exploration approfondie
+## <a name="further-exploration"></a>Exploration approfondie
 
 Pour vous aider à découvrir davantage l’API Visage, ce didacticiel fournit un exemple d’interface graphique utilisateur. Pour l’exécuter, installez d’abord [wxPython](https://wxpython.org/pages/downloads/) puis exécutez les commandes ci-dessous.
 
@@ -103,11 +103,11 @@ cd Cognitive-Face-Python
 python sample
 ```
 
-## <a name="summary"></a> Résumé
+## <a name="summary"></a>Résumé
 
 Dans ce didacticiel, vous avez appris le processus de base d’utilisation de l’API Visage via l’invocation du Kit de développement logiciel (SDK) Python. Pour plus d’informations sur les API, veuillez consulter les guides et la [documentation sur les API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
 
-## <a name="related"></a> Rubriques connexes
+## <a name="related-topics"></a>Rubriques connexes
 
 - [Prise en main de l’API Visage dans CSharp](FaceAPIinCSharpTutorial.md)
 - [Prise en main de l’API Visage dans Java pour Android](FaceAPIinJavaForAndroidTutorial.md)

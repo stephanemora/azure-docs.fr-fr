@@ -1,24 +1,22 @@
 ---
-title: 'Démarrage rapide : Soumettre un workflow à l’aide d’entrées de fichiers FASTQ | Microsoft Docs'
+title: 'Démarrage rapide : Soumettre un workflow à l’aide d’entrées de fichiers FASTQ - Microsoft Genomics'
 titleSuffix: Azure
 description: Le démarrage rapide suppose que le client msgen est installé et que vous avez exécuté l’échantillon de données dans le service.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: f093397803f21c023a2c32e42709ecfcd0e3aec7
-ms.sourcegitcommit: 922687d91838b77c038c68b415ab87d94729555e
+ms.openlocfilehash: acbcceb32ec54ab85db05ef743e9c10cd8cf025c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/13/2017
-ms.locfileid: "26684481"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735847"
 ---
-# <a name="submit-a-workflow-using-fastq-file-inputs"></a>Soumettre un workflow à l’aide d’entrées de fichiers FASTQ
+# <a name="submit-a-workflow-using-fastq-file-inputs-in-microsoft-genomics"></a>Soumettre un workflow à l’aide d’entrées de fichiers FASTQ dans Microsoft Genomics
 
 Ce démarrage rapide vous montre comment soumettre un workflow dans le service Microsoft Genomics si vos fichiers d’entrée sont une paire unique de fichiers FASTQ. Cette rubrique suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à exécuter ce démarrage rapide. 
 

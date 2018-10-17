@@ -1,296 +1,207 @@
 ---
-title: 'Démarrage rapide : Envoyer des requêtes de recherche à l’aide de l’API REST pour l’API Recherche d’images Bing à l’aide de C#'
-description: Dans ce démarrage rapide, vous envoyez des requêtes de recherche à l’API Recherche Bing pour obtenir une liste des images pertinentes à l’aide de C#.
+title: 'Démarrage rapide : Effectuer une recherche d’image avec C# - API Recherche d’images Bing'
+titleSuffix: Azure Cognitive Services
+description: Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’images Bing et rechercher un résultat de recherche dans la réponse JSON. Cette application C# simple envoie une requête de recherche d’image HTTP à l’API et affiche l’URL de la première image retournée.
 services: cognitive-services
-documentationcenter: ''
 author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
-ms.date: 8/9/2018
+ms.topic: quickstart
+ms.date: 9/07/2018
 ms.author: aahi
-ms.openlocfilehash: 7a5ef36f02d82ee17698af9c647f043792280fbc
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 897e380092b029855ac6c986c1126ca4b2d657a9
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41929955"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296638"
 ---
-# <a name="quickstart-send-search-queries-using-the-rest-api-and-c"></a>Démarrage rapide : Envoyer des requêtes de recherche à l’aide de l’API REST et de C#
+# <a name="quickstart-send-search-queries-using-the-bing-image-search-api-and-c"></a>Démarrage rapide : Envoyer des requêtes de recherche à l’aide de l’API Recherche d’images Bing et C#
 
-L’API Recherche d’images Bing offre une expérience similaire à celle de Bing.com/Images, en ce sens qu’elle permet d’envoyer une requête de recherche à Bing pour obtenir une liste d’images pertinentes.
+Utilisez ce guide de démarrage rapide pour effectuer votre premier appel à l’API Recherche d’images Bing et rechercher un résultat de recherche dans la réponse JSON. Cette application C# simple envoie une requête de recherche d’image HTTP à l’API et affiche l’URL de la première image retournée.
 
-Cet article comporte une application console simple qui exécute une requête de l’API Recherche d’images Bing et affiche les résultats bruts retournés par la recherche, au format JSON. Alors que cette application est écrite en C#, l’API est un service web RESTful compatible avec n’importe quel langage de programmation qui peut formuler des requêtes HTTP et analyser JSON. 
+Alors que cette application est écrite en C#, l’API est un service web RESTful compatible avec la plupart des langages de programmation.
 
-L’exemple de programme utilise uniquement des classes .NET Core et s’exécute sur Windows à l’aide du CLR .NET ou sur Linux ou macOS à l’aide de [Mono](http://www.mono-project.com/).
+Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/Search/BingImageSearchv7Quickstart.cs) avec une gestion des erreurs supplémentaire et des annotations de code.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour que ce code s’exécute sous Windows. (La version Community Edition gratuite fonctionne.)
+* N’importe quelle édition de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
+* Le framework [Json.NET](https://www.newtonsoft.com/json), disponible sous forme de package NuGet.
+* Si vous utilisez Linux/MacOS, cette application peut être exécutée à l’aide de [Mono](http://www.mono-project.com/).
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="running-the-application"></a>Exécution de l'application
+## <a name="create-and-initialize-a-project"></a>Créer et initialiser un projet
 
-Pour exécuter cette application, suivez les étapes ci-dessous.
+1. Créez une solution Console nommée `BingSearchApisQuickStart` dans Visual Studio. Ajoutez ensuite les espaces de noms suivants dans le fichier de code principal.
 
-1. Créez une solution Console dans Visual Studio.
-2. Remplacez `Program.cs` par le code fourni.
-3. Remplacez la valeur `accessKey` par une clé d’accès valide pour votre abonnement.
-4. Exécutez le programme.
+    ```csharp
+    using System;
+    using System.Net;
+    using System.IO;
+    using System.Collections.Generic;
+    using Newtonsoft.Json.Linq;
+    ```
+
+2. Créez des variables pour le point de terminaison d’API, votre clé d’abonnement et le terme de recherche.
+
+    ```csharp
+    //...
+    namespace BingSearchApisQuickstart
+    {
+        class Program
+        {
+        // Replace the this string with your valid access key.
+        const string subscriptionKey = "enter your key here";
+        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
+        const string searchTerm = "tropical ocean";
+    //...
+    ```
+
+## <a name="create-a-struct-to-format-the-bing-image-search-response"></a>Créer une structure pour mettre en forme la réponse de Recherche d’images Bing
+
+Définissez un struct `SearchResult` pour contenir les résultats de recherche d’images et les informations d’en-tête JSON.
 
 ```csharp
-using System;
-using System.Text;
-using System.Net;
-using System.IO;
-using System.Collections.Generic;
+    namespace BingSearchApisQuickstart
+    {
+        class Program
+        {
+        //...
+            struct SearchResult
+            {
+                public String jsonResult;
+                public Dictionary<String, String> relevantHeaders;
+            }
+//...
+```
 
+## <a name="create-a-method-to-send-search-requests"></a>Créer une méthode pour envoyer des requêtes de recherche
+
+Créez une méthode nommée `BingImageSearch` pour effectuer l’appel à l’API, puis définissez le type de retour sur le struct `SearchResult` créé précédemment.
+
+```csharp
+//...
 namespace BingSearchApisQuickstart
 {
-
+    //...
     class Program
     {
-        // **********************************************
-        // *** Update or verify the following values. ***
-        // **********************************************
-
-        // Replace the accessKey string value with your valid access key.
-        const string accessKey = "enter key here";
-
-        // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-        // search APIs.  In the future, regional endpoints may be available.  If you
-        // encounter unexpected authorization errors, double-check this value against
-        // the endpoint for your Bing search instance in your Azure dashboard.
-        const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/search";
-
-        const string searchTerm = "puppies";
-
-        // Used to return image search results including relevant headers
-        struct SearchResult
+        //...
+        static SearchResult BingImageSearch(string searchTerm)
         {
-            public String jsonResult;
-            public Dictionary<String, String> relevantHeaders;
         }
-
-        static void Main()
-        {
-            Console.OutputEncoding = System.Text.Encoding.UTF8;
-
-            if (accessKey.Length == 32)
-            {
-                Console.WriteLine("Searching images for: " + searchTerm);
-
-                SearchResult result = BingImageSearch(searchTerm);
-
-                Console.WriteLine("\nRelevant HTTP Headers:\n");
-                foreach (var header in result.relevantHeaders)
-                    Console.WriteLine(header.Key + ": " + header.Value);
-
-                Console.WriteLine("\nJSON Response:\n");
-                Console.WriteLine(JsonPrettyPrint(result.jsonResult));
-            }
-            else
-            {
-                Console.WriteLine("Invalid Bing Search API subscription key!");
-                Console.WriteLine("Please paste yours into the source code.");
-            }
-
-            Console.Write("\nPress Enter to exit ");
-            Console.ReadLine();
-        }
-
-        /// <summary>
-        /// Performs a Bing Image search and return the results as a SearchResult.
-        /// </summary>
-        static SearchResult BingImageSearch(string searchQuery)
-        {
-            // Construct the URI of the search request
-            var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(searchQuery);
-
-            // Perform the Web request and get the response
-            WebRequest request = HttpWebRequest.Create(uriQuery);
-            request.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-            HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
-            string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
-
-            // Create result object for return
-            var searchResult = new SearchResult()
-            {
-                jsonResult = json,
-                relevantHeaders = new Dictionary<String, String>()
-            };
-
-            // Extract Bing HTTP headers
-            foreach (String header in response.Headers)
-            {
-                if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
-                    searchResult.relevantHeaders[header] = response.Headers[header];
-            }
-
-            return searchResult;
-        }
-
-        /// <summary>
-        /// Formats the given JSON string by adding line breaks and indents.
-        /// </summary>
-        /// <param name="json">The raw JSON string to format.</param>
-        /// <returns>The formatted JSON string.</returns>
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
-
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
-
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            char last = ' ';
-            int offset = 0;
-            int indentLength = 2;
-
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\\':
-                        if (quote && last != '\\') ignore = true;
-                        break;
-                }
-
-                if (quote)
-                {
-                    sb.Append(ch);
-                    if (last == '\\' && ignore) ignore = false;
-                }
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (quote || ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-                last = ch;
-            }
-
-            return sb.ToString().Trim();
-        }
-    }
-}
+//...
 ```
+
+## <a name="create-and-handle-an-image-search-request"></a>Créer et gérer une requête de recherche d’image
+
+Dans la méthode `BingImageSearch`, effectuez les étapes suivantes.
+
+1. Construisez l’URI de la requête de recherche. Notez que le terme de recherche `toSearch` doit être mis en forme avant d’être ajouté à la chaîne.
+
+    ```csharp
+    static SearchResult BingImageSearch(string toSearch){
+
+        var uriQuery = uriBase + "?q=" + Uri.EscapeDataString(toSearch);
+    //...
+    ```
+
+2. Effectuez la requête web et obtenez la réponse sous la forme de chaîne JSON.
+
+    ```csharp
+    WebRequest request = WebRequest.Create(uriQuery);
+    request.Headers["Ocp-Apim-Subscription-Key"] = subscriptionKey;
+    HttpWebResponse response = (HttpWebResponse)request.GetResponseAsync().Result;
+    string json = new StreamReader(response.GetResponseStream()).ReadToEnd();
+    ```
+
+3. Créez l’objet résultat de la recherche, puis extrayez les en-têtes HTTP Bing. Retournez ensuite `searchResult`.
+
+    ```csharp
+    // Create the result object for return
+    var searchResult = new SearchResult()
+    {
+        jsonResult = json,
+        relevantHeaders = new Dictionary<String, String>()
+    };
+
+    // Extract Bing HTTP headers
+    foreach (String header in response.Headers)
+    {
+        if (header.StartsWith("BingAPIs-") || header.StartsWith("X-MSEdge-"))
+            searchResult.relevantHeaders[header] = response.Headers[header];
+    }
+    return searchResult;
+    ```
+
+## <a name="process-and-view-the-response"></a>Traiter et afficher la réponse
+
+1. Dans la méthode principale, appelez `BingImageSearch()` et stockez la réponse retournée. Désérialisez ensuite le contenu JSON dans un objet.
+
+    ```csharp
+    SearchResult result = BingImageSearch(searchTerm);
+    //deserialize the JSON response from the Bing Image Search API
+    dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result.jsonResult);
+    ```
+
+2. Obtenez la première image retournée à partir de `jsonObj`, puis imprimez le titre et une URL vers l’image.
+    ```csharp
+    var firstJsonObj = jsonObj["value"][0];
+    Console.WriteLine("Title for the first image result: " + firstJsonObj["name"]+"\n");
+    //After running the application, copy the output URL into a browser to see the image.
+    Console.WriteLine("URL for the first image result: " + firstJsonObj["webSearchUrl"]+"\n");
+    ```  
+
+3. Veillez à supprimer votre clé d’abonnement du code de l’application.
 
 ## <a name="json-response"></a>Réponse JSON
 
-Voici un exemple de réponse. Pour limiter la longueur du code JSON, un seul résultat est indiqué ; les autres parties de la réponse ont été tronquées. 
+Les réponses de l’API Recherche d’images Bing sont retournées au format JSON. Cet exemple de réponse a été tronqué pour afficher un résultat unique.
 
 ```json
 {
-  "_type": "Images",
-  "instrumentation": {},
-  "readLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=puppies",
-  "webSearchUrl": "https://www.bing.com/images/search?q=puppies&FORM=OIIARP",
-  "totalEstimatedMatches": 955,
-  "nextOffset": 1,
-  "value": [
+"_type":"Images",
+"instrumentation":{
+    "_type":"ResponseInstrumentation"
+},
+"readLink":"images\/search?q=tropical ocean",
+"webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=tropical ocean&FORM=OIIARP",
+"totalEstimatedMatches":842,
+"nextOffset":47,
+"value":[
     {
-      "webSearchUrl": "https://www.bing.com/images/search?view=detailv...",
-      "name": "So cute - Puppies Wallpaper",
-      "thumbnailUrl": "https://tse3.mm.bing.net/th?id=OIP.jHrihoDNkXGS1t...",
-      "datePublished": "2014-02-01T21:55:00.0000000Z",
-      "contentUrl": "http://images4.contoso.com/image/photos/14700000/So-cute-puppies...",
-      "hostPageUrl": "http://www.contoso.com/clubs/puppies/images/14749028/...",
-      "contentSize": "394455 B",
-      "encodingFormat": "jpeg",
-      "hostPageDisplayUrl": "www.contoso.com/clubs/puppies/images/14749...",
-      "width": 1600,
-      "height": 1200,
-      "thumbnail": {
-        "width": 300,
-        "height": 225
-      },
-      "imageInsightsToken": "ccid_jHrihoDN*mid_F68CC526226E163FD1EA659747AD...",
-      "insightsMetadata": {
-        "recipeSourcesCount": 0
-      },
-      "imageId": "F68CC526226E163FD1EA659747ADCB8F9FA36",
-      "accentColor": "8D613E"
+        "webSearchUrl":"https:\/\/www.bing.com\/images\/search?view=detailv2&FORM=OIIRPO&q=tropical+ocean&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&simid=608027248313960152",
+        "name":"My Life in the Ocean | The greatest WordPress.com site in ...",
+        "thumbnailUrl":"https:\/\/tse3.mm.bing.net\/th?id=OIP.fmwSKKmKpmZtJiBDps1kLAHaEo&pid=Api",
+        "datePublished":"2017-11-03T08:51:00.0000000Z",
+        "contentUrl":"https:\/\/mylifeintheocean.files.wordpress.com\/2012\/11\/tropical-ocean-wallpaper-1920x12003.jpg",
+        "hostPageUrl":"https:\/\/mylifeintheocean.wordpress.com\/",
+        "contentSize":"897388 B",
+        "encodingFormat":"jpeg",
+        "hostPageDisplayUrl":"https:\/\/mylifeintheocean.wordpress.com",
+        "width":1920,
+        "height":1200,
+        "thumbnail":{
+        "width":474,
+        "height":296
+        },
+        "imageInsightsToken":"ccid_fmwSKKmK*mid_8607ACDACB243BDEA7E1EF78127DA931E680E3A5*simid_608027248313960152*thid_OIP.fmwSKKmKpmZtJiBDps1kLAHaEo",
+        "insightsMetadata":{
+        "recipeSourcesCount":0,
+        "bestRepresentativeQuery":{
+            "text":"Tropical Beaches Desktop Wallpaper",
+            "displayText":"Tropical Beaches Desktop Wallpaper",
+            "webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=Tropical+Beaches+Desktop+Wallpaper&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&FORM=IDBQDM"
+        },
+        "pagesIncludingCount":115,
+        "availableSizesCount":44
+        },
+        "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
+        "accentColor":"0050B2"
     }
-  ],
-  "queryExpansions": [
-    {
-      "text": "Shih Tzu Puppies",
-      "displayText": "Shih Tzu",
-      "webSearchUrl": "https://www.bing.com/images/search?q=Shih+Tzu+Puppies...",
-      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Shih...",
-      "thumbnail": {
-        "thumbnailUrl": "https://tse2.mm.bing.net/th?q=Shih+Tzu+Puppies&pid=Api..."
-      }
-    }
-  ],
-  "pivotSuggestions": [
-    {
-      "pivot": "puppies",
-      "suggestions": [
-        {
-          "text": "Dog",
-          "displayText": "Dog",
-          "webSearchUrl": "https://www.bing.com/images/search?q=Dog&tq=%7b%22pq%...",
-          "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/search?q=Dog...",
-          "thumbnail": {
-            "thumbnailUrl": "https://tse1.mm.bing.net/th?q=Dog&pid=Api&mkt=en-US..."
-          }
-        }
-      ]
-    }
-  ],
-  "similarTerms": [
-    {
-      "text": "cute",
-      "displayText": "cute",
-      "webSearchUrl": "https://www.bing.com/images/search?q=cute&FORM=...",
-      "thumbnail": {
-        "url": "https://tse2.mm.bing.net/th?q=cute&pid=Api&mkt=en-US..."
-      }
-    }
-  ],
-  "relatedSearches": [
-    {
-      "text": "Cute Puppies",
-      "displayText": "Cute Puppies",
-      "webSearchUrl": "https://www.bing.com/images/search?q=Cute+Puppies",
-      "searchLink": "https://api.cognitive.microsoft.com/api/v7/images/sear...",
-      "thumbnail": {
-        "thumbnailUrl": "https://tse4.mm.bing.net/th?q=Cute+Puppies&pid=..."
-      }
-    }
-  ]
 }
 ```
 
@@ -299,9 +210,10 @@ Voici un exemple de réponse. Pour limiter la longueur du code JSON, un seul ré
 > [!div class="nextstepaction"]
 > [Tutoriel d’une application monopage Recherche d’images Bing](../tutorial-bing-image-search-single-page-app.md)
 
-## <a name="see-also"></a>Voir aussi 
+## <a name="see-also"></a>Voir aussi
 
-[Vue d’ensemble de la Recherche d’images Bing](../overview.md)  
-[Essayer](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Obtenir une clé d’accès d’essai gratuit](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Informations de référence sur l’API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Qu’est-ce que la Recherche d’images Bing ?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Essayez une démonstration interactive en ligne](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Obtenir une clé d’accès Cognitive Services gratuite](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Documentation Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Informations de référence sur l’API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

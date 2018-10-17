@@ -11,12 +11,12 @@ ms.devlang: azure-cli
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.custom: mvc
-ms.openlocfilehash: 599d08668af75f6cdee2838cb16b76b04e759f32
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 6fedd7fbdbd4780a9a4e1103faae3ce6f402b893
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031224"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410117"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-using-the-azure-cli"></a>Démarrage rapide : Créer une instance d’Azure Database pour PostgreSQL à l’aide d’Azure CLI
 Base de données Azure pour PostgreSQL est un service géré qui vous permet d’exécuter, de gérer et de mettre à l’échelle des bases de données PostgreSQL hautement disponibles dans le cloud. L’interface de ligne de commande (CLI) Azure permet de créer et gérer des ressources Azure à partir de la ligne de commande ou dans les scripts. Ce guide de démarrage rapide vous montre comment créer un serveur Azure Database pour PostgreSQL dans un [groupe de ressources Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) avec la CLI Azure.
@@ -25,7 +25,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Pour afficher la version installée, exécutez la commande `az --version`. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0 ou une version ultérieure pour poursuivre la procédure décrite dans cet article. Pour afficher la version installée, exécutez la commande `az --version`. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 Si vous exécutez l’interface CLI localement, vous devrez vous connecter à votre compte à l’aide de la commande [az login](/cli/azure/authenticate-azure-cli?view=interactive-log-in). Notez la propriété **id** depuis la sortie de commande pour le nom d’abonnement correspondant.
 ```azurecli-interactive
@@ -46,23 +46,39 @@ az group create --name myresourcegroup --location westus
 
 ## <a name="create-an-azure-database-for-postgresql-server"></a>Créer un serveur Azure Database pour PostgreSQL
 
-Créez un [serveur Azure Database pour PostgreSQL](overview.md) avec la commande [az sql server create](/cli/azure/postgres/server#az_postgres_server_create). Un serveur contient un groupe de bases de données gérées en tant que groupe. 
+Créez un [serveur Azure Database pour PostgreSQL](overview.md) avec la commande [az sql server create](/cli/azure/postgres/server#az_postgres_server_create). Un serveur peut contenir plusieurs bases de données.
 
-L’exemple suivant crée un serveur dans la région Ouest des États-Unis, nommé `mydemoserver`, dans votre groupe de ressources `myresourcegroup` avec l’identifiant d’administrateur serveur `myadmin`. Il s’agit d’un serveur à **usage général**, de **4e génération** avec 2 **vCores**. Le nom du serveur correspond au nom DNS et doit ainsi être globalement unique dans Azure. Remplacez `<server_admin_password>` par votre propre valeur.
-```azurecli-interactive
-az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
-```
-La valeur du paramètre sku-name suit la convention {tarification}\_{génération de calcul}\_{vCores} comme dans les exemples ci-dessous :
+
+**Paramètre** | **Exemple de valeur** | **Description**
+---|---|---
+Nom | mydemoserver | Choisissez un nom unique qui identifie votre serveur de base de données Azure pour PostgreSQL. Le nom de serveur ne peut contenir que des lettres minuscules, des chiffres et le caractère de trait d’union (-). Il doit inclure entre 3 et 63 caractères.
+resource-group | myResourceGroup | Indiquez le nom du groupe de ressources Azure.
+sku-name | GP_Gen4_2 | Nom du la référence SKU. Suit la convention {niveau tarifaire}_{génération de calcul}_{vCores} dans le raccourci. Consultez ce tableau ci-dessous pour plus d’informations sur le paramètre sku-name.
+backup-retention | 7 | Durée pendant laquelle une sauvegarde doit être conservée. L’unité est exprimée en jours. La plage s’étend de 7 à 35. 
+geo-redundant-backup | Désactivé | Indique si les sauvegardes géoredondantes doivent être activées pour ce serveur ou non. Valeurs autorisées : Enabled (Activé), Disabled (Désactivé).
+location | westus | Emplacement Azure pour le serveur.
+ssl-enforcement | activé | Si le protocole ssl doit être activé ou non pour ce serveur. Valeurs autorisées : Enabled (Activé), Disabled (Désactivé).
+storage-size | 51200 | Capacité de stockage du serveur (l’unité est en mégaoctets). La valeur valide de storage-size est de 5 120 Mo minimum et augmente par incréments de 1 024 Mo. Consultez le document des [tarifs](./concepts-pricing-tiers.md) pour plus d’informations sur les limites de taille de stockage. 
+version | 9.6 | La version principale de PostgreSQL.
+admin-user | myadmin | Nom d’utilisateur pour la connexion de l’administrateur. Il ne peut pas être **azure_superuser** (super_utilisateur), **admin**, **administrator** (administrateur), **root** (racine), **guest** (invité) ou **public**.
+admin-password | *mot de passe sécurisé* | Mot de passe de l’utilisateur Administrateur. Il doit contenir entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères appartenant à trois des catégories suivantes : lettres majuscules, lettres minuscules, chiffres et caractères non alphanumériques.
+
+
+La valeur du paramètre sku-name suit la convention {tarification}\_{génération de calcul}\_{vCores} comme dans les exemples ci-dessous :
 + `--sku-name B_Gen4_4` correspond à Basic, Gen 4 et 4 vCores.
 + `--sku-name GP_Gen5_32` correspond à Usage général, Gen 5 et 32 vCores.
 + `--sku-name MO_Gen5_2` correspond à Mémoire optimisée, Gen 5 et 2 vCores.
 
 Consultez la documentation des [niveaux tarifaires](./concepts-pricing-tiers.md) pour comprendre les valeurs valides par région et par niveau.
 
-> [!IMPORTANT]
-> La connexion d’administrateur serveur et le mot de passe que vous spécifiez ici seront requis plus loin dans ce guide de démarrage rapide pour la connexion au serveur et à ses bases de données. Retenez ou enregistrez ces informations pour une utilisation ultérieure.
+L’exemple suivant crée un serveur PostgreSQL 9.6 dans la région USA Ouest, nommé `mydemoserver`, dans votre groupe de ressources `myresourcegroup` avec l’identifiant d’administrateur serveur `myadmin`. Il s’agit d’un serveur à **usage général**, de **4e génération** avec 2 **vCores**. Remplacez `<server_admin_password>` par votre propre valeur.
+```azurecli-interactive
+az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 9.6
+```
 
-Par défaut, la base de données **postgres** est créée sous le serveur. La base de données [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) est une base de données par défaut destinée aux utilisateurs, utilitaires et applications tierces. 
+
+> [!IMPORTANT]
+> La connexion d’administrateur serveur et le mot de passe que vous spécifiez ici seront requis plus loin dans ce guide de démarrage rapide pour la connexion au serveur. Retenez ou enregistrez ces informations pour une utilisation ultérieure.
 
 
 ## <a name="configure-a-server-level-firewall-rule"></a>Configurer une règle de pare-feu au niveau du serveur

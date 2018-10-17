@@ -1,53 +1,57 @@
 ---
-title: 'API Vision par ordinateur avec PHP - Démarrage rapide : analyse d’image | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous analysez une image à l’aide de l’API Vision par ordinateur avec PHP dans Cognitive Services.
+title: 'Démarrage rapide : Analyser une image distante - REST, PHP - Vision par ordinateur'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous analysez une image en utilisant l’API Vision par ordinateur avec PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
-ms.date: 08/28/2018
+ms.date: 09/10/2018
 ms.author: v-deken
-ms.openlocfilehash: 114674f47ee945717e866d97ffed747ae45decc8
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: bc7803860e092d23c245bd425fc27f11fac41047
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770117"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629408"
 ---
-# <a name="quickstart-analyze-a-remote-image---rest-php"></a>Démarrage rapide : Analyser une image distante - REST, PHP
+# <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-php-in-computer-vision"></a>Démarrage rapide : Analyser une image distante à l’aide de l’API REST et PHP dans Vision par ordinateur
 
-Dans ce démarrage rapide, vous analysez une image pour extraire des fonctionnalités visuelles à l’aide de l’API Vision par ordinateur.
+Dans ce guide de démarrage rapide, vous analysez une image stockée à distance pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la méthode [Analyser une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des caractéristiques visuelles à partir du contenu d’une image.
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser l’API Vision par ordinateur, vous avez besoin d’une clé d’abonnement. Consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- [PHP](https://secure.php.net/downloads.php) doit être installé.
+- [Pear](https://pear.php.net) doit être installé.
+- Vous devez avoir une clé d’abonnement pour Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="analyze-image-request"></a>Requête Analyser l’image
+## <a name="create-and-run-the-sample"></a>Créer et exécuter l’exemple
 
-Avec la [méthode d’analyse d’une image](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image. Vous pouvez télécharger une image ou spécifier l’URL d’une image et choisir les fonctionnalités à retourner, notamment :
+Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
-* Une liste détaillée des balises liées au contenu de l’image.
-* Une description du contenu de l’image dans une phrase complète.
-* Les coordonnées, le sexe et l’âge de n’importe quel visage contenu dans l’image.
-* Le type d’image (images clipart ou dessin au trait).
-* La couleur dominante, la couleur d’accentuation, et si une image est en noir et blanc.
-* La catégorie définie dans cette [taxonomie](../Category-Taxonomy.md).
-* L’image contient-elle un contenu pour adultes ou sexuellement suggestif ?
+1. Installez le package [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) PHP5.
+   1. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
+   1. Exécutez la commande suivante :
 
-Pour exécuter l’exemple, effectuez les étapes suivantes :
+      ```console
+      pear install HTTP_Request2
+      ```
 
-1. Copiez le code ci-après dans un éditeur.
-1. Remplacez `<Subscription Key>` par votre clé d’abonnement valide.
-1. Remplacez `uriBase` par l’emplacement où vous avez obtenu vos clés d’abonnement, si nécessaire.
-1. Si vous le souhaitez, définissez `imageUrl` sur l’image que vous souhaitez analyser.
-1. Modifiez éventuellement la langue de la réponse (`'language' => 'en'`).
-1. Enregistrez le fichier avec une extension `.php`.
-1. Ouvrez le fichier dans une fenêtre de navigateur avec prise en charge PHP.
+   1. Une fois que vous avez installé le package, fermez la fenêtre d’invite de commandes.
 
-Cet exemple utilise le package PHP5 [HTTP_Request2](http://pear.php.net/package/HTTP_Request2).
+1. Copiez le code ci-après dans un éditeur de texte.
+1. Modifiez le code comme ci-dessous :
+    1. Remplacez la valeur de `subscriptionKey` par votre clé d’abonnement.
+    1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) dans la région Azure où vous avez obtenu vos clés d’abonnement.
+    1. Remplacez éventuellement la valeur de `imageUrl` par l’URL d’une autre image que vous voulez analyser.
+    1. Si vous le souhaitez, remplacez la valeur du paramètre de requête `language` par une autre langue.
+1. Enregistrez le code dans un fichier avec une extension `.php`. Par exemple : `analyze-image.php`.
+1. Ouvrez une fenêtre de navigateur avec prise en charge de PHP.
+1. Faites glisser et déposez le fichier dans la fenêtre du navigateur.
 
 ```php
 <html>
@@ -109,9 +113,9 @@ catch (HttpException $ex)
 </html>
 ```
 
-## <a name="analyze-image-response"></a>Réponse Analyser l’image
+## <a name="examine-the-response"></a>Examiner la réponse
 
-Une réponse correcte est retournée au format JSON, par exemple :
+Une réponse correcte est retournée au format JSON. L’exemple de site web analyse et affiche une réponse réussie dans la fenêtre du navigateur, comme dans l’exemple suivant :
 
 ```json
 {
@@ -169,9 +173,22 @@ Une réponse correcte est retournée au format JSON, par exemple :
 }
 ```
 
+## <a name="clean-up-resources"></a>Supprimer les ressources
+
+Quand vous n’en avez plus besoin, supprimez le fichier, puis désinstallez le package `HTTP_Request2` PHP5. Pour désinstaller le package, effectuez les étapes suivantes :
+
+1. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
+2. Exécutez la commande suivante :
+
+   ```console
+   pear uninstall HTTP_Request2
+   ```
+
+3. Une fois que vous avez désinstallé le package, fermez la fenêtre d’invite de commandes.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorer les API Vision par ordinateur utilisées pour analyser une image, détecter des célébrités et des monuments, créer une miniature et extraire le texte imprimé et manuscrit. Pour tester rapidement les API Vision par ordinateur, essayez la [console de test d’API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explorez l’API Vision par ordinateur utilisée pour analyser une image, détecter des célébrités et des monuments, créer une miniature et extraire le texte imprimé ou manuscrit. Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorer les API Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorer l’API Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

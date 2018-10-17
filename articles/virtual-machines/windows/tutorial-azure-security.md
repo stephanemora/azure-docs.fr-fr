@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 05/01/2017
+ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: b573208107b07b47b471d9c5247b362ef144099e
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 0fd843b150148057399a4e05f5e25a728cd4ae56
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298508"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Didacticiel : utiliser Azure Security Center pour surveiller les machines virtuelles Windows
 
@@ -46,12 +47,13 @@ Security Center va au-delà de la découverte de données et fournit des recomma
 
 ## <a name="set-up-data-collection"></a>Configurer la collecte de données
 
-Avant d’obtenir une visibilité des configurations de sécurité des machines virtuelles, vous devez configurer la collecte de données de Security Center. Ceci implique d’activer la collecte de données et de créer un compte de stockage Azure pour stocker les données collectées. 
+Avant d’obtenir une visibilité des configurations de sécurité des machines virtuelles, vous devez configurer la collecte de données de Security Center. Pour ce faire, vous devez activer la collecte de données qui installe automatiquement Microsoft Monitoring Agent sur toutes les machines virtuelles de votre abonnement.
 
 1. Dans le tableau de bord de Security Center, cliquez sur **Stratégie de sécurité** puis sélectionnez votre abonnement. 
-2. Pour **Collecte de données**, sélectionnez **Activée**.
-3. Pour créer un compte de stockage, sélectionnez **Choisir un compte de stockage**. Ensuite, sélectionnez **OK**.
-4. Dans le panneau **Stratégie de sécurité**, sélectionnez **Enregistrer**. 
+2. Pour **Collecte de données**, dans **Approvisionnement automatique**, sélectionnez **Activer**.
+3. Pour **Configuration de l’espace de travail par défaut**, conservez le paramètre **Utiliser un ou des espace(s) de travail créé(s) par Security Center (par défaut)**.
+4. Pour **Événements de sécurité**, conservez l’option par défaut **Commun**.
+4. Cliquez sur **Enregistrer** dans la partie supérieure de la page. 
 
 L’agent de collecte de données de Security Center est alors installé sur toutes les machines virtuelles, puis la collecte de données commence. 
 
@@ -59,26 +61,13 @@ L’agent de collecte de données de Security Center est alors installé sur tou
 
 Les stratégies de sécurité permettent de définir les éléments pour lesquels Security Center collecte des données et formule des recommandations. Vous pouvez appliquer des stratégies de sécurité différentes à différents ensembles de ressources Azure. Bien que par défaut les ressources Azure soient évaluées pour tous les éléments de la stratégie, vous pouvez désactiver des éléments individuels de la stratégie pour toutes les ressources ou pour un groupe de ressources Azure. Pour obtenir des informations détaillées sur les stratégies de sécurité de Security Center, consultez [Définir des stratégies de sécurité dans Azure Security Center](../../security-center/security-center-policies.md). 
 
-Pour configurer une stratégie de sécurité pour toutes les ressources Azure :
+Pour configurer une stratégie de sécurité pour l’intégralité d’un abonnement :
 
-1. Dans le tableau de bord de Security Center, cliquez sur **Stratégie de sécurité** puis sélectionnez votre abonnement.
-2. Sélectionnez **Stratégie de prévention**.
-3. Activez ou désactivez les éléments de la stratégie que vous voulez appliquer à toutes les ressources Azure.
-4. Quand vous avez fini de sélectionner vos paramètres, choisissez **OK**.
-5. Dans le panneau **Stratégie de sécurité**, sélectionnez **Enregistrer**. 
+1. Dans le tableau de bord de Security Center, cliquez sur **Stratégie de sécurité**, puis sélectionnez votre abonnement.
+2. Dans le panneau **Stratégie de sécurité**, sélectionnez **Stratégie de sécurité**. 
+3. Dans le panneau** Stratégie de sécurité – Stratégie de sécurité **, activez ou désactivez les éléments de stratégie que vous souhaitez appliquer à l’abonnement.
+4. Lorsque vous avez terminé de sélectionner vos paramètres, sélectionnez **Enregistrer** dans la partie supérieure du panneau. 
 
-Pour définir une stratégie pour un groupe de ressources spécifique :
-
-1. Dans le tableau de bord de Security Center, sélectionnez **Stratégie de sécurité** puis choisissez un groupe de ressources.
-2. Sélectionnez **Stratégie de prévention**.
-3. Activez ou désactivez les éléments de la stratégie que vous voulez appliquer au groupe de ressources.
-4. Sous **HÉRITAGE**, sélectionnez **Unique**.
-5. Quand vous avez fini de sélectionner vos paramètres, choisissez **OK**.
-6. Dans le panneau **Stratégie de sécurité**, sélectionnez **Enregistrer**.  
-
-Dans cette page, vous pouvez également désactiver la collecte des données pour un groupe de ressources spécifique.
-
-Dans l’exemple suivant, une stratégie unique a été créée pour un groupe de ressources nommé *myResoureGroup*. Dans cette stratégie, les recommandations en matière de chiffrement de disque et de pare-feu d’applications web sont désactivées.
 
 ![Stratégie unique](./media/tutorial-azure-security/unique-policy.png)
 
@@ -90,8 +79,8 @@ Après que vous avez activé la collecte de données et défini une stratégie d
 
 Pour afficher l’intégrité des ressources :
 
-1.  Dans le tableau de bord de Security Center, sous **Intégrité de la sécurité des ressources**, sélectionnez **Calcul**. 
-2.  Dans le panneau **Calcul**, sélectionnez **Machines virtuelles**. Cette vue fournit un récapitulatif de l’état de la configuration de toutes vos machines virtuelles.
+1.  Dans le tableau de bord de Security Center, sous **Prévention**, sélectionnez **Calcul**. 
+2.  Dans le panneau **Calcul**, sélectionnez **Machines virtuelles et ordinateurs**. Cette vue fournit un récapitulatif de l’état de la configuration de toutes vos machines virtuelles.
 
 ![Calculer l’état d’intégrité](./media/tutorial-azure-security/compute-health.png)
 
@@ -105,7 +94,7 @@ Pour afficher la liste de toutes les recommandations :
 
 1. Dans le tableau de bord de Security Center, sélectionnez **Recommandations**.
 2. Sélectionnez une recommandation spécifique. La liste de toutes les ressources auxquelles la recommandation s’applique s’affiche.
-3. Pour appliquer une recommandation, sélectionnez une ressource spécifique. 
+3. Pour appliquer une recommandation, sélectionnez la ressource. 
 4. Suivez les instructions pour les étapes de correction. 
 
 Dans de nombreux cas, Security Center propose des mesures que vous pouvez prendre pour suivre une recommandation sans quitter Security Center. Dans l’exemple suivant, Security Center détecte un groupe de sécurité réseau qui a une règle de trafic entrant non restreinte. Dans la page de recommandation, vous pouvez sélectionner le bouton **Modifier les règles de trafic entrant**. L’interface utilisateur nécessaire pour modifier la règle apparaît. 
@@ -118,14 +107,14 @@ Les recommandations sont marquées comme étant résolues à mesure qu’elles s
 
 En plus des recommandations concernant la configuration des ressources, Security Center affiche des alertes de détection de menaces. La fonctionnalité d’alertes de sécurité agrège les données collectées à partir de chaque machine virtuelle, des journaux de réseau Azure et des solutions partenaires connectées pour détecter les menaces de sécurité au niveau des ressources Azure. Pour obtenir des informations détaillées sur les fonctionnalités de détection des menaces de Security Center, consultez [Fonctionnalités de détection d’Azure Security Center](../../security-center/security-center-detection-capabilities.md).
 
-La fonctionnalité d’alertes de sécurité nécessite que le niveau tarifaire de Security Center soit porté de *Gratuit* à *Standard*. Une **version d’évaluation gratuite** de 30 jours est disponible quand vous passez à ce niveau tarifaire supérieur. 
+La fonctionnalité d’alertes de sécurité nécessite que le niveau tarifaire de Security Center soit porté de *Gratuit* à *Standard*. Une **version d’évaluation gratuite** de 60 jours est disponible quand vous passez à ce niveau tarifaire supérieur. 
 
 Pour changer de niveau tarifaire :  
 
 1. Dans le tableau de bord de Security Center, cliquez sur **Stratégie de sécurité** puis sélectionnez votre abonnement.
 2. Sélectionnez **Niveau tarifaire**.
-3. Sélectionnez le nouveau niveau puis choisissez **Sélectionner**.
-4. Dans le panneau **Stratégie de sécurité**, sélectionnez **Enregistrer**. 
+3. Sélectionnez **Standard**, puis cliquez sur **Enregistrer** dans la partie supérieure du panneau.
+
 
 Après que vous avez changé le niveau tarifaire, le graphique des alertes de sécurité commence à se remplir à mesure que des menaces de sécurité sont détectées.
 
@@ -144,7 +133,7 @@ Ce didacticiel vous a montré comment configurer Azure Security Center, puis exa
 > * Afficher et résoudre des problèmes d’intégrité de configuration
 > * Examiner les menaces détectées
 
-Passez au didacticiel suivant pour découvrir comment créer un pipeline CI/CD avec Visual Studio Team Services et une machine virtuelle Windows exécutant IIS.
+Passez au tutoriel suivant pour découvrir comment créer un pipeline CI/CD avec Azure DevOps Services et une machine virtuelle Windows exécutant IIS.
 
 > [!div class="nextstepaction"]
-> [Pipeline CI/CD de Visual Studio Team Services](./tutorial-vsts-iis-cicd.md)
+> [Azure Pipelines(./tutorial-vsts-iis-cicd.md)

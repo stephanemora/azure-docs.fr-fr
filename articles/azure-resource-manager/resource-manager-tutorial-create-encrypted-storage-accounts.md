@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 08/27/2018
+ms.date: 09/07/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 57d5f7039831c9fd617926f20f3ff001b22ef314
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
+ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43097883"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47419523"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Didacticiel : créer un modèle Azure Resource Manager pour le déploiement d’un compte de stockage chiffré
 
@@ -112,9 +112,14 @@ Pour utiliser la variable définie dans le modèle :
 L’objectif de ce didacticiel est de définir un modèle pour créer un compte de stockage chiffré.  L’exemple de modèle crée uniquement un compte de stockage de base non chiffré. Pour trouver la configuration relative au chiffrement, vous pouvez utiliser la référence du modèle du compte de stockage Azure.
 
 1. Accédez aux [modèles Azure](https://docs.microsoft.com/azure/templates/).
-2. Dans la table des matières sur la gauche, sélectionnez **Référence**->**Stockage**->**Comptes de stockage**. Vous pouvez également entrer **stockage** dans le champ **Filtrer par titre**.  La page contient le schéma pour définir des informations de compte de stockage.
-3. Explorez les informations relatives au chiffrement.  
-4. À l’intérieur de l’élément Propriétés de la définition de ressource de compte de stockage, ajoutez le code json suivant :
+2. Dans **Filtrer par titre**, entrez **comptes de stockage**.
+3. Sélectionnez **Référence/Référence de modèle/Stockage/Comptes de stockage**, comme indiqué dans la capture d’écran suivante :
+
+    ![Resource Manager modèle référence compte de stockage](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
+
+    resource-manager-template-resources-reference-storage-accounts
+1. Explorez les informations relatives au chiffrement.  
+1. À l’intérieur de l’élément Propriétés de la définition de ressource de compte de stockage, ajoutez le code json suivant :
 
     ```json
     "encryption": {
@@ -140,7 +145,7 @@ La capture d’écran suivante montre la commande CLI permettant de répertorier
 
 ![Compte de stockage chiffré Azure Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous avez déployées en supprimant le groupe de ressources.
 
@@ -151,7 +156,7 @@ Lorsque vous n’en avez plus besoin, nettoyez les ressources Azure que vous ave
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à utiliser la référence de modèle pour personnaliser un modèle existant. Le modèle utilisé dans ce didacticiel ne contient qu’une seule ressource Azure.  Dans le tutoriel suivant, vous développez un modèle disposant de plusieurs ressources. Certaines ressources comportent des ressources dépendantes.
+Dans ce didacticiel, vous avez appris à utiliser la référence de modèle pour personnaliser un modèle existant. Pour apprendre à créer plusieurs instances de compte de stockage, voir :
 
 > [!div class="nextstepaction"]
-> [Créer plusieurs ressources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)
+> [Créer plusieurs instances](./resource-manager-tutorial-create-multiple-instances.md)

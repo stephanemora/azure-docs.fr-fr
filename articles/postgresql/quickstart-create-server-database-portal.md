@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/20/2018
-ms.openlocfilehash: 002ec2f99e488af76654c2391416e4b90e16e4c0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: d32fb6e1a85865d89a2f8ee1483eb8fd599b4bb6
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050225"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408910"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Démarrage rapide : créer un serveur Azure Database pour PostgreSQL dans le portail Azure
 
@@ -50,7 +50,7 @@ Pour créer un serveur Azure Database pour PostgreSQL, suivez ces étapes :
     Connexion d’administrateur serveur |*myadmin*| Votre propre compte de connexion en tant que compte à utiliser lorsque vous vous connectez au serveur. Le nom de connexion de l’administrateur ne doit pas être **azure_superuser**, **azure_pg_admin**, **admin**, **administrator**, **root**, **guest** ou **public**. Il ne peut pas commencer par **pg_**.
     Mot de passe |Votre mot de passe| Un nouveau mot de passe pour le compte Administrateur du serveur. Il doit contenir entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères appartenant à trois des catégories suivantes : lettres majuscules, lettres minuscules, chiffres (0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).
     Lieu|La région la plus proche de vos utilisateurs| L’emplacement géographique le plus proche de vos utilisateurs.
-    Version|La version la plus récente| La version PostgreSQL la plus récente, sauf si vous avez des exigences précises.
+    Version|La version principale la plus récente| La version principale PostgreSQL la plus récente, sauf si vous avez des exigences précises.
     Niveau tarifaire | **Usage général**, **Gen 4**, **2 vCores**, **5 Go**, **7 jours**, **géographiquement redondant** | Les configurations de calcul, de stockage et de sauvegarde pour votre nouveau serveur. Sélectionnez **Niveau tarifaire**. Ensuite, sélectionnez l’onglet **Usage général**. *Gen 4*, *2 vCores*, *5 Go*, et *7 jours* sont les valeurs par défaut pour la **Génération de calcul**, **vCore**, le **Stockage**, et la **période de rétention de sauvegarde**. Vous pouvez laisser ces curseurs en l’état. Pour activer les sauvegardes de votre serveur dans le stockage géo-redondant, sélectionnez **Géographiquement redondant** dans les **Options de redondance de sauvegarde**. Pour enregistrer cette sélection du niveau tarifaire, sélectionnez **OK**. La capture d’écran suivante capture ces sélections.
 
     > [!IMPORTANT]
@@ -78,17 +78,10 @@ Azure Database pour PostgreSQL crée un pare-feu au niveau du serveur. Il empêc
 
 3. Sous **Règles de pare-feu**, dans la colonne **Nom de la règle**, sélectionnez la zone de texte vide pour commencer à créer la règle de pare-feu. 
 
-    Pour ce guide de démarrage rapide, autorisons toutes les adresses IP sur le serveur. Renseignez la zone de texte de chaque colonne avec les valeurs suivantes :
+   Renseignez les zones de texte avec un nom et la plage IP de début et de fin des clients qui accéderont à votre serveur. Dans le cas d’une adresse IP unique, utilisez la même valeur pour l’adresse IP de début et l’adresse IP de fin.
 
-    Nom de la règle | Adresse IP de début | Adresse IP de fin 
-    ---|---|---
-    AllowAllIps | 0.0.0.0 | 255.255.255.255
-
-     ![Définir les règles de pare-feu](./media/quickstart-create-database-portal/5-firewall-2.png)
+   ![Définir les règles de pare-feu](./media/quickstart-create-database-portal/5-firewall-2.png)
      
-      > [!NOTE]
-      > Pour les instances de production, définissez vos règles de pare-feu pour qu’elles acceptent uniquement les requêtes entrantes émanant d’adresses IP connues.  Ces paramètres sont uniquement fournis à titre d’exemple.
-      >
 
 4. Dans la barre d’outils supérieure de la page **Sécurité de la connexion**, sélectionnez **Enregistrer**. Avant de continuer, attendez la notification indiquant que la mise à jour de la sécurité de la connexion s’est correctement déroulée.
 
@@ -222,7 +215,7 @@ pgAdmin est un outil open source utilisé avec PostgreSQL. Vous pouvez installer
 12. Dans le volet **Navigateur**, vous pouvez remarquer la présence de la base de données que vous venez de créer dans la liste des bases de données qui se trouvent sous votre nom de serveur.
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Vous disposez au choix de deux moyens de supprimer les ressources que vous avez créées dans ce guide de démarrage rapide. Vous pouvez supprimer le [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) qui inclut toutes les ressources du groupe de ressources. Si vous souhaitez conserver les autres ressources intactes, ne supprimez que la ressource de serveur.
 
 > [!TIP]

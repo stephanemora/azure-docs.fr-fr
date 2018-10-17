@@ -1,44 +1,46 @@
 ---
-title: 'API Vision par ordinateur avec Go - Démarrage rapide : OCR | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous extrayez le texte imprimé d’une image à l’aide de l’API Vision par ordinateur avec Go dans Cognitive Services.
+title: 'Démarrage rapide : Extraire du texte imprimé (OCR) - REST, Go - Vision par ordinateur'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous extrayez le texte imprimé d’une image en utilisant l’API Vision par ordinateur avec Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: b0de66e31c3537198831dd0f31590dbaf3fda89b
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 459b53dbde08e2729951249e984f075449943e31
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770254"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629574"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-go"></a>Démarrage rapide : Extraire le texte imprimé (OCR) - REST, Go
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-go-in-computer-vision"></a>Démarrage rapide : Extraire du texte imprimé (OCR) à l’aide de l’API REST et Go dans Vision par ordinateur
 
-Dans ce démarrage rapide, vous allez extraire le texte imprimé selon une technique également appelée reconnaissance optique de caractères (OCR) à partir d’une image, à l’aide de l’API Vision par ordinateur.
+Dans ce guide de démarrage rapide, vous extrayez le texte imprimé d’une image par reconnaissance optique de caractères (OCR) à l’aide de l’API REST de Vision par ordinateur. Avec la méthode [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), vous pouvez détecter le texte imprimé dans une image et extraire les caractères reconnus dans un flux de caractères exploitable automatiquement.
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser l’API Vision par ordinateur, vous avez besoin d’une clé d’abonnement. Consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- [Go](https://golang.org/dl/) doit être installé.
+- Vous devez avoir une clé d’abonnement pour Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>Requête OCR
+## <a name="create-and-run-the-sample"></a>Créer et exécuter l’exemple
 
-Avec la [méthode OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), vous pouvez détecter le texte imprimé dans une image et extraire les caractères reconnus dans un flux de caractères exploitable automatiquement.
+Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
-Pour exécuter l’exemple, effectuez les étapes suivantes :
-
-1. Copiez le code ci-après dans un éditeur.
-1. Remplacez `<Subscription Key>` par votre clé d’abonnement valide.
-1. Remplacez la valeur `uriBase` par l’emplacement où vous avez obtenu vos clés d’abonnement, si nécessaire.
-1. Si vous le souhaitez, remplacez la valeur `imageUrl` par l’image que vous souhaitez analyser.
-1. Enregistrez le fichier avec une extension `.go`.
-1. Ouvrez une invite de commandes sur un ordinateur sur lequel Go est installé.
-1. Générez le fichier, par exemple : `go build get-printed-text.go`.
-1. Exécutez le fichier, par exemple : `get-printed-text`.
+1. Copiez le code ci-après dans un éditeur de texte.
+1. Modifiez le code comme ci-dessous :
+    1. Remplacez la valeur de `subscriptionKey` par votre clé d’abonnement.
+    1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dans la région Azure où vous avez obtenu vos clés d’abonnement.
+    1. Remplacez éventuellement la valeur de `imageUrl` par l’URL d’une autre image que vous voulez analyser.
+1. Enregistrez le code dans un fichier avec une extension `.go`. Par exemple : `get-printed-text.go`.
+1. Ouvrir une fenêtre d’invite de commandes.
+1. À l’invite, exécutez la commande `go build` pour compiler le package à partir du fichier. Par exemple : `go build get-printed-text.go`.
+1. À l’invite, exécutez le package compilé. Par exemple : `get-printed-text`.
 
 ```go
 package main
@@ -53,12 +55,17 @@ import (
 )
 
 func main() {
-    // For example, subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+    // Replace <Subscription Key> with your valid subscription key.
     const subscriptionKey = "<Subscription Key>"
 
-    // You must use the same location in your REST call as you used to get your
-    // subscription keys. For example, if you got your subscription keys from
-    // westus, replace "westcentralus" in the URL below with "westus".
+    // You must use the same Azure region in your REST API method as you used to
+    // get your subscription keys. For example, if you got your subscription keys
+    // from the West US region, replace "westcentralus" in the URL
+    // below with "westus".
+    //
+    // Free trial subscription keys are generated in the West Central US region.
+    // If you use a free trial subscription key, you shouldn't need to change
+    // this region.
     const uriBase =
         "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/ocr"
     const imageUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/af/" +
@@ -110,9 +117,9 @@ func main() {
 }
 ```
 
-## <a name="ocr-response"></a>Réponse OCR
+## <a name="examine-the-response"></a>Examiner la réponse
 
-En cas de réussite, les résultats de la reconnaissance optique de caractères renvoyés incluent du texte, ainsi qu’un rectangle englobant pour les régions, les lignes et les mots, par exemple :
+Une réponse correcte est retournée au format JSON. L’exemple d’application analyse et affiche une réponse réussie dans la fenêtre d’invite de commandes, comme dans l’exemple suivant :
 
 ```json
 {
@@ -213,9 +220,13 @@ En cas de réussite, les résultats de la reconnaissance optique de caractères 
 }
 ```
 
+## <a name="clean-up-resources"></a>Supprimer les ressources
+
+Quand vous n’en avez plus besoin, supprimez le package compilé et le fichier à partir duquel le package a été compilé, puis fermez la fenêtre d’invite de commandes et l’éditeur de texte.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les API Vision par ordinateur utilisées pour analyser une image, détecter des célébrités et des points de repère, créer une miniature et extraire le texte imprimé et manuscrit. Pour tester rapidement les API Vision par ordinateur, essayez la [console de test d’API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explorez l’API Vision par ordinateur utilisée pour analyser une image, détecter des célébrités et des monuments, créer une miniature et extraire le texte imprimé ou manuscrit. Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorer les API Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorer l’API Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

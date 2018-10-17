@@ -1,25 +1,25 @@
 ---
-title: Obtention des longueurs de phrase à l’aide de l’API de traduction de texte Translator Text et de Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous recherchez les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text avec Node.js dans Cognitive Services.
+title: 'Démarrage rapide : Obtenir la longueur des phrases - Traduction de texte Translator Text, Node.js'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez rechercher la longueur des phrases du texte à l’aide de l’API de traduction de texte Translator Text avec Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 42fe27df2f0d6aacecfe2b9b01ad0061c2fea646
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 9a55642ae41eb311121c9e334472a8afbc8d9925
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43769640"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127193"
 ---
 # <a name="quickstart-get-sentence-lengths-with-nodejs"></a>Démarrage rapide : Obtenir les longueurs de phrase avec Node.js
 
-Dans ce démarrage rapide, vous recherchez les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text.
+Dans ce démarrage rapide, vous allez rechercher les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -101,7 +101,7 @@ BreakSentences (content);
 
 ## <a name="breaksentence-response"></a>Réponse BreakSentence
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

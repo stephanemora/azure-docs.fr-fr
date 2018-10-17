@@ -1,25 +1,25 @@
 ---
-title: Obtention des langues prises en charge à l’aide de l’API de traduction de texte Translator Text et de Java | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous obtenez une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text avec Java dans Cognitive Services.
+title: 'Démarrage rapide : Obtenir les langues prises en charge - Traduction de texte Translator Text, Java'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez obtenir la liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text avec Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: af8b50d6600354601c8516c20a079028cefe2b16
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 64954c06d90ff8110b77874846fe57072faf2f76
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43769544"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126970"
 ---
 # <a name="quickstart-get-supported-languages-with-java"></a>Démarrage rapide : Obtenir les langues prises en charge avec Java
 
-Dans ce démarrage rapide, vous obtenez une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text.
+Dans ce démarrage rapide, vous allez obtenir une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -124,7 +124,7 @@ public class Languages {
 
 ## <a name="languages-response"></a>Réponse Langues
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 {

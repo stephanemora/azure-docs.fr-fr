@@ -10,12 +10,12 @@ keywords: azure automation, DSC, powershell, configuration de l’état souhait�
 ms.date: 03/15/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: ce30a9eb11cd951ca7d8197c15c3becba333f5a9
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: e09a1b1c1a849e9957c2969da2b8e4c1d00347ff
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34053774"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297689"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Présentation d’Azure Automation
 
@@ -65,7 +65,7 @@ Parcourez la [galerie Automation](automation-runbook-gallery.md) pour les runboo
 
 Azure Automation effectue la gestion tout au long du cycle de vie de votre infrastructure et des applications. Transfert des connaissances relatives à la manière dont l’organisation fournit et gère les charges de travail vers le système. Création d’applications dans des langages courants tels que PowerShell, la configuration de l’état souhaité, Python et les runbooks graphiques. Obtention d’un inventaire complet des ressources déployées à des fins de ciblage, de création de rapports et de conformité. Identification des modifications pouvant entraîner une configuration incorrecte et amélioration de la conformité opérationnelle.
 
-* **Générer/déployer des ressources** - Permet de déployer des machines virtuelles dans un environnement hybride à l’aide de modèles de Runbooks et Azure Resource Manager. Intégration à des outils de développement, tels que Jenkins et Visual Studio Team services.
+* **Générer/déployer des ressources** - Permet de déployer des machines virtuelles dans un environnement hybride à l’aide de modèles de Runbooks et Azure Resource Manager. Intégration à des outils de développement, tels que Jenkins et Azure DevOps.
 * **Configurer des machines virtuelles** - Permet d’évaluer et de configurer des machines Windows et Linux avec la configuration souhaitée pour l’infrastructure et l’application.
 * **Surveiller** - Permet d’identifier les modifications apportées aux machines à l’origine des problèmes et de corriger ou de faire remonter les informations aux systèmes de gestion.
 * **Protéger** - Permet de mettre une machine virtuelle en quarantaine en cas de déclenchement de l’alerte de sécurité. Définition d’exigences intégrées.

@@ -1,25 +1,25 @@
 ---
-title: Obtention des longueurs de phrase à l’aide de l’API de traduction de texte Translator Text et de Python | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous recherchez les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text avec Python dans Cognitive Services.
+title: 'Démarrage rapide : Obtenir la longueur des phrases - Traduction de texte Translator Text, Python'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez rechercher la longueur des phrases du texte à l’aide de l’API de traduction de texte Translator Text avec Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 7b822dfa2db1b9d106d6d569fb26d9f6e8109c83
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 2b014f5b52249cf316889e5637e76ee7b7d23e91
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43769652"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125695"
 ---
 # <a name="quickstart-get-sentence-lengths-with-python"></a>Démarrage rapide : Obtenir les longueurs de phrase avec Python
 
-Dans ce démarrage rapide, vous recherchez les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text.
+Dans ce démarrage rapide, vous allez rechercher les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -84,7 +84,7 @@ print (output)
 
 ## <a name="breaksentence-response"></a>Réponse BreakSentence
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

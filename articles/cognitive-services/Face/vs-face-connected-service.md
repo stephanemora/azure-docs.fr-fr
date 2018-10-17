@@ -1,21 +1,21 @@
 ---
-title: Tutoriel de l’API Visage avec C# | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 'Tutoriel : API Visage en C#'
+titleSuffix: Azure Cognitive Services
 description: Créez une application Windows simple qui utilise l’API Visage Cognitive Services pour détecter des traits du visage dans une image.
 services: cognitive-services
 author: ghogen
-manager: douge
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: conceptual
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: ghogen
-ms.openlocfilehash: b51760f889db27aa25e54582070ee7d3adcf66f8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 70414674e563cf3703d2cf3ebc57f09afcdf2691
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38663887"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129520"
 ---
 # <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Se connecter à l’API Visage Cognitive Services avec les Services connectés dans Visual Studio
 
@@ -237,7 +237,7 @@ Cet article et ceux qui l’accompagnent donnent des détails sur l’utilisatio
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 
-Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le service cognitif et les ressources associées. Pour supprimer le groupe de ressources à l’aide du portail :
+Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le service cognitif et les ressources qui lui sont associées. Pour supprimer le groupe de ressources à l’aide du portail :
 
 1. Entrez le nom de votre groupe de ressources dans la zone Recherche en haut du portail. Lorsque vous voyez le groupe de ressources utilisé dans ce Démarrage rapide dans les résultats de recherche, sélectionnez-le.
 1. Sélectionnez **Supprimer le groupe de ressources**.

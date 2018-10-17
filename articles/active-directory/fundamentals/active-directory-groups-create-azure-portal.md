@@ -1,59 +1,92 @@
 ---
-title: Créer un groupe pour des utilisateurs dans Azure AD | Microsoft Docs
-description: Comment créer un groupe dans Azure Active Directory et ajouter des membres au groupe
+title: Guide pratique pour créer un groupe de base et ajouter des membres avec Azure Active Directory | Microsoft Docs
+description: Découvrez comment créer un groupe de base avec Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: quickstart
-ms.date: 08/04/2017
+ms.date: 08/22/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 3c71c9c49413045e3a730c10e90ea3c12648b4cb
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 36bd0ca06859c1952a75b1aa8397fba88dc22d40
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857719"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574910"
 ---
-# <a name="create-a-group-and-add-members-in-azure-active-directory"></a>Créer un groupe et ajouter des membres dans Azure Active Directory
-> [!div class="op_single_selector"]
-> * [Portail Azure](active-directory-groups-create-azure-portal.md)
-> * [PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
+# <a name="how-to-create-a-basic-group-and-add-members-using-azure-active-directory"></a>Guide pratique pour créer un groupe de base et ajouter des membres avec Azure Active Directory
 
-Cet article explique comment créer et remplir un nouveau groupe dans Azure Active Directory. Un groupe vous permet d’effectuer différentes tâches de gestion, par exemple l’attribution de licences ou autorisations à plusieurs utilisateurs ou appareils simultanément.
+Vous pouvez créer un groupe de base à l’aide du portail Azure Active Directory (Azure AD). Pour les besoins de cet article, un groupe de base est ajouté à une seule ressource par le propriétaire de la ressource (administrateur) ; il inclut les membres spécifiques (employés) qui doivent accéder à cette ressource. Pour des scénarios plus complexes, notamment la création de règles et les appartenances dynamiques, consultez la [documentation Gestion des utilisateurs Azure Active Directory](../users-groups-roles/index.yml).
 
-## <a name="how-do-i-create-a-group"></a>Comment créer un groupe ?
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Tous les services**, entrez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
+## <a name="create-a-basic-group-and-add-members"></a>Créer un groupe de base et ajouter des membres
+Vous pouvez créer un groupe de base et ajouter vos membres en même temps.
 
-   ![Ouvrir la gestion des utilisateurs](./media/active-directory-groups-create-azure-portal/search-user-management.png)
-3. Dans le panneau **Utilisateurs et groupes**, sélectionnez **Tous les groupes**.
+### <a name="to-create-a-basic-group-and-add-members"></a>Pour créer un groupe de base et ajouter des membres
+1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général pour l’annuaire.
 
-   ![Ouvrir le panneau de groupes](./media/active-directory-groups-create-azure-portal/view-groups-blade.png)
-4. Dans le panneau **Utilisateurs et groupes - Tous les groupes**, sélectionnez la commande **Ajouter**.
+2. Sélectionnez **Azure Active Directory**, **Groupes**, puis **Nouveau groupe**.
 
-   ![Sélection de la commande Ajouter](./media/active-directory-groups-create-azure-portal/add-group-command.png)
-5. Dans le panneau **Groupe** , ajoutez un nom et une description pour le groupe.
-6. Pour sélectionner les membres à ajouter au groupe, sélectionnez **Affecté** dans la zone **Type d’appartenance**, puis sélectionnez **Membres**. Pour plus d’informations sur la façon de gérer l’appartenance à un groupe de manière dynamique, consultez la page [Utilisation d’attributs pour créer des règles avancées pour l’appartenance au groupe](../users-groups-roles/groups-dynamic-membership.md).
+    ![Azure AD avec affichage des groupes](media/active-directory-groups-create-azure-portal/group-full-screen.png)
 
-   ![Sélection de membres à ajouter](./media/active-directory-groups-create-azure-portal/select-members.png)
-7. Dans le panneau **Membres**, sélectionnez un ou plusieurs utilisateurs ou appareils à ajouter au groupe, puis cliquez sur le **Sélectionner** en bas du panneau pour les ajouter au groupe. La zone **Utilisateur** filtre l’affichage en fonction de la correspondance de votre entrée avec une partie ou l’intégralité d’un nom d’utilisateur ou d’appareil. Dans cette zone aucun caractère générique n’est accepté.
-8. Lorsque vous avez terminé l’ajout de membres au groupe, sélectionnez **Créer** dans le panneau **Groupe**.    
+3. Dans la page **Groupe**, fournissez les informations obligatoires.
 
-   ![Confirmation de création du groupe](./media/active-directory-groups-create-azure-portal/create-group-confirmation.png)
+    ![Page de création d’un groupe, renseignée avec les informations de l’exemple](media/active-directory-groups-create-azure-portal/new-group-blade.png)
 
+    - **Type de groupe (obligatoire).** Sélectionnez un type de groupe prédéfini. notamment :
+        
+        - **Sécurité**. Utilisé pour gérer l’accès de membres et d’ordinateurs aux ressources partagées d’un groupe d’utilisateurs. Par exemple, vous pouvez créer un groupe de sécurité pour une stratégie de sécurité particulière. En procédant ainsi, vous pouvez donner un ensemble d’autorisations à tous les membres à la fois, au lieu de devoir ajouter des autorisations individuellement à chaque membre. Pour plus d’informations sur la gestion de l’accès aux ressources, consultez [Gérer l’accès aux ressources avec des groupes Azure Active Directory](active-directory-manage-groups.md).
+        
+        - **Office 365**. Fournit des opportunités de collaboration en donnant aux membres l’accès à des éléments partagés : une boîte aux lettres, un calendrier, des fichiers, un site SharePoint et bien plus encore. Cette option vous permet également de donner à des personnes extérieures à votre organisation un accès au groupe. Pour plus d’informations sur les groupes Office 365, consultez [En savoir plus sur les groupes Office 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+
+    - **Nom du groupe (obligatoire).** Ajoutez le nom du groupe, quelque chose dont vous vous souviendrez et qui est évocateur.
+
+    - **Description du groupe.** Ajoutez une description facultative à votre groupe.
+
+    - **Type d’appartenance (obligatoire).** Sélectionnez un type d’appartenance prédéfini. notamment :
+
+        - **Affecté.** Vous permet d’ajouter des utilisateurs spécifiques pour qu’ils soient membres de ce groupe et qu’ils disposent d’autorisations uniques. Pour les besoins de cet article, nous utilisons cette option.
+
+        - **Utilisateur dynamique.** Vous permet d’utiliser des règles de groupe dynamique pour ajouter et supprimer automatiquement des membres. Si les attributs d’un membre changent, le système examine vos règles de groupe dynamique par rapport à l’annuaire, et voit si le membre répond aux exigences des règles (il est ajouté) ou s’il ne répond plus aux exigences de ces règles (il est supprimé).
+
+        - **Appareil dynamique.** Vous permet d’utiliser des règles de groupe dynamique pour ajouter et supprimer automatiquement des appareils. Si les attributs d’un appareil changent, le système examine vos règles de groupe dynamique par rapport à l’annuaire, et voit si l’appareil répond aux exigences des règles (il est ajouté) ou s’il ne répond plus aux exigences de ces règles (il est supprimé).
+
+        >[!Important]
+        >Vous pouvez créer un groupe dynamique pour des appareils ou pour des utilisateurs, mais pas pour les deux. Vous ne pouvez pas non plus créer de groupe d’appareils d’après les attributs des propriétaires d’appareils. Les règles d’appartenance d’appareil peuvent référencer uniquement des attributions d’appareils. Pour plus d’informations sur la création d’un groupe dynamique d’utilisateurs ou d’appareils, consultez [Créer un groupe de dynamique et vérifier l’état](../users-groups-roles/groups-create-rule.md).
+
+4. Sélectionnez **Créer**.
+
+    Votre groupe est créé et prêt pour l’ajout de membres.
+
+5. Sélectionnez la zone **Membres** dans la page **Groupe**, puis commencez à rechercher les membres à ajouter à votre groupe à partir de la page **Sélectionner des membres**.
+
+    ![Sélection de membres pour votre groupe pendant le processus de création du groupe](media/active-directory-groups-create-azure-portal/select-members-create-group.png)
+
+6. Lorsque vous avez terminé l’ajout de membres, choisissez **Sélectionner**.
+
+    La page **Présentation du groupe** est mise à jour pour afficher le nombre de membres désormais ajoutés au groupe.
+
+    ![Page de la vue d’ensemble du groupe avec le nombre de membres mis en évidence](media/active-directory-groups-create-azure-portal/group-overview-blade-number-highlight.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
+Maintenant que vous avez ajouté un groupe et au moins un utilisateur, vous pouvez :
 
-* [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)
-* [Gérer les paramètres d’un groupe](active-directory-groups-settings-azure-portal.md)
-* [Gérer les membres d’un groupe](active-directory-groups-members-azure-portal.md)
-* [Gérer l’appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
-* [Gérer les règles dynamiques pour les utilisateurs dans un groupe](../users-groups-roles/groups-dynamic-membership.md)
+- [Afficher vos groupes et vos membres](active-directory-groups-view-azure-portal.md)
+
+- [Ajouter une appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
+
+- [Gérer les règles dynamiques pour les utilisateurs dans un groupe](../users-groups-roles/groups-create-rule.md)
+
+- [Modifier vos paramètres de groupe](active-directory-groups-settings-azure-portal.md)
+
+- [Gérer l’accès aux ressources en utilisant des groupes](active-directory-manage-groups.md)
+
+- [Gérer l’accès aux applications SaaS en utilisant des groupes](../users-groups-roles/groups-saasapps.md)
+
+- [Gérer des groupes au moyen de commandes PowerShell](../users-groups-roles/groups-settings-v2-cmdlets.md)
+
+- [Associer ou ajouter un abonnement Azure à Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

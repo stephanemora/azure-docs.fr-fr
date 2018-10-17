@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 31a3a0618330b74c611afcdf70560ce47eeb85e3
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 7cccb47bd7489e88649ee82c4d52c72af0d91e8e
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023742"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390943"
 ---
 # <a name="what-is-azure-network-watcher"></a>Présentation d’Azure Network Watcher
 
@@ -36,6 +36,8 @@ Les points de terminaison peuvent être une autre machine virtuelle, un nom de d
 Si un point de terminaison devient inaccessible, l’outil de résolution des problèmes de connexion vous en communique la raison. Il peut s’agir d’un problème de résolution de noms DNS, de processeur, de mémoire ou de pare-feu dans le système d’exploitation d’une des machines virtuelles, ou bien d’une erreur de type de tronçon d’un itinéraire personnalisé ou de règle de sécurité de la machine virtuelle ou du sous-réseau de la connexion sortante. Pour plus d’informations, voir [Règles de sécurité](../virtual-network/security-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#security-rules) et [Types de tronçon d’itinéraires](../virtual-network/virtual-networks-udr-overview.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) dans Azure.
 
 Le contrôle de la connexion indique également la latence minimale, maximale et moyenne observée au fil du temps. Après en avoir pris connaissance, vous trouverez peut-être des moyens de réduire la latence en déplaçant vos ressources Azure dans différentes régions Azure. Découvrez comment déterminer les [latences relatives entre les régions Azure et les fournisseurs de services Internet](#determine-relative-latencies-between-azure-regions-and-internet-service-providers) et comment effectuer le monitoring de la communication entre une machine virtuelle et un point de terminaison avec le [contrôle de la connexion](connection-monitor.md). Si vous préférez tester une connexion à un moment donné, plutôt que d’effectuer le monitoring de la connexion au fil du temps, comme avec le contrôle de la connexion, utilisez la fonctionnalité de [résolution des problèmes de connexion](#connection-troubleshoot).
+
+Network Performance Monitor est une solution d’analyse réseau hybride basé sur le cloud qui vous permet d’analyser les performances du réseau entre différents points de votre infrastructure réseau. Vous pouvez également analyser la connectivité réseau avec le service et les points de terminaison d’application ainsi que les performances d’Azure ExpressRoute. Network Performance Monitor détecte les problèmes réseau comme le blocage du trafic, les erreurs de routage et autres problèmes que les méthodes d’analyse réseau classiques ne sont pas capables de détecter. La solution génère des alertes et vous informe en cas de dépassement d’un seuil pour une liaison réseau. Il assure également la détection en temps opportun des problèmes de performances réseau et en localise la source en identifiant un segment ou un appareil réseau particuliers. En savoir plus sur le [moniteur de performances réseau](../log-analytics/log-analytics-network-performance-monitor.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
 
 ### <a name="view-resources-in-a-virtual-network-and-their-relationships"></a>Afficher les ressources se trouvant sur un réseau virtuel et leurs relations
 

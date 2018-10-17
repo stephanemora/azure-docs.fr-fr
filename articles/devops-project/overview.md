@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 05/03/2018
 ms.author: mlearned
-ms.openlocfilehash: eef71aabaab71f908f950a4467da918dca1787fa
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 39dffad597b8382dea4df6fa1b0726d9582d67d1
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492542"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44293624"
 ---
 # <a name="overview-of-azure-devops-project"></a>Présentation d’Azure DevOps Project
 
@@ -35,8 +35,8 @@ Azure DevOps Project effectue tout le travail pour la configuration initiale d�
 Vous pouvez utiliser Azure DevOps Project comme suit :
 
 * Déployer rapidement votre application dans Azure
-* Automatiser la configuration d’un pipeline CI/CD VSTS
-* Utiliser DevOps Project en tant que modèle pour afficher et comprendre comment configurer correctement l’intégration continue/la livraison continue dans Azure avec VSTS
+* Automatiser la configuration d’un pipeline CI/CD Azure
+* Utiliser DevOps Project en tant que modèle pour afficher et comprendre comment configurer correctement l’intégration continue/la livraison continue dans Azure avec Azure DevOps
 * Bien démarrer avec le pipeline CI/CD sur Azure, puis personnaliser davantage le pipeline de mise en production en fonction de vos scénarios spécifiques
 
 ## <a name="how-do-i-use-the-azure-devops-project"></a>Comment utiliser Azure DevOps Project ?
@@ -49,16 +49,16 @@ Vous choisissez plusieurs options de configuration dans le cadre de la configura
 * Sélectionner un langage pour l’application
 * Choisir une infrastructure d’application en fonction du langage
 * Sélectionner un service Azure (cible de déploiement)
-* Compte VSTS (nouveau ou existant)
+* Organisation Azure DevOps (nouvelle ou existante)
 * Choisir votre abonnement Azure
 * Choisir l’emplacement des services Azure
 * Choisir parmi les différents niveaux de tarification pour les services Azure
 
 Après avoir utilisé Azure DevOps Project, vous pouvez également supprimer toutes les ressources à partir d’un emplacement unique dans le tableau de bord Azure DevOps Project sur le portail Azure.
 
-## <a name="azure-devops-project-and-vsts-integration"></a>Intégration d’Azure DevOps Project et de VSTS
+## <a name="azure-devops-project-and-azure-devops-integration"></a>Intégration d’Azure DevOps Project et d’Azure DevOps
 
-Les projets DevOps Projects sont alimentés par VSTS.  Le projet DevOps Project automatise tout le travail nécessaire dans VSTS pour configurer l’intégration continue/la livraison continue vers Azure.  Un référentiel Git est créé dans un compte VSTS nouveau ou existant.  Le projet DevOps Project valide un exemple d’application ou de votre code existant dans un référentiel Git.  L’automatisation établit également un déclencheur CI pour la build afin que chaque nouvelle validation de code lance une build.  Le projet DevOps Project crée également un déclencheur CD et déploie chaque nouvelle build réussie sur le service Azure de votre choix.  Les définitions de build et de mise en production peuvent être personnalisées pour d’autres scénarios.  Vous pouvez également cloner les définitions de build et de mise en production pour une utilisation dans d’autres projets.
+Les projets DevOps Projects sont alimentés par Azure DevOps.  Le projet DevOps Project automatise tout le travail nécessaire dans Azure DevOps pour configurer l’intégration continue/la livraison continue vers Azure.  Un référentiel Git est créé dans une organisation Azure DevOps nouvelle ou existante.  Le projet DevOps Project valide un exemple d’application ou de votre code existant dans un référentiel Git.  L’automatisation établit également un déclencheur CI pour la build afin que chaque nouvelle validation de code lance une build.  Le projet DevOps Project crée également un déclencheur CD et déploie chaque nouvelle build réussie sur le service Azure de votre choix.  Les pipelines de build et de mise en production peuvent être personnalisés pour d’autres scénarios.  Vous pouvez également cloner les pipelines de build et de mise en production pour une utilisation dans d’autres projets.
 
 Après avoir créé votre projet DevOps Project, vous pouvez :
 

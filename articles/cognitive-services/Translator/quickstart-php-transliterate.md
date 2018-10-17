@@ -1,25 +1,25 @@
 ---
-title: 'L’API de traduction de texte Translator Text : conversion de script de texte avec PHP | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous convertirez du texte dans une langue d’un script vers un autre à l’aide de l’API de traduction de texte Translator Text avec PHP dans Cognitive Services.
+title: 'Démarrage rapide : Convertir un script de texte - Traduction de texte Translator Text, PHP'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez convertir le texte d’un script d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: aec4dfe9c99f95eb971148ace4a9e692a01998c2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b2b1773bc6eeea3a19d197faae75039511e77cf9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769682"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123850"
 ---
 # <a name="quickstart-transliterate-text-with-php"></a>Démarrage rapide : Translittérer du texte avec PHP
 
-Dans ce démarrage rapide, vous convertissez du texte dans une langue d’un script vers un autre à l’aide de l’API de traduction de texte Translator Text.
+Dans ce démarrage rapide, vous convertissez du texte dans la langue d’un script vers une autre à l’aide de l’API de traduction de texte Translator Text.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -110,7 +110,7 @@ echo $json;
 
 ## <a name="transliterate-response"></a>Réponse Translittérer
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

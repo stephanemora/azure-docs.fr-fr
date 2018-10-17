@@ -1,24 +1,25 @@
 ---
-title: Créer un tutoriel Python pour le service Vision personnalisée - Azure Cognitive Services | Microsoft Docs
-description: Explorez une application Python de base qui utilise l’API Custom Vision dans Microsoft Cognitive Services. Créez un projet, ajoutez des mots clés, chargez des images, entraînez votre projet et effectuez une prédiction en utilisant le point de terminaison par défaut.
+title: 'Tutoriel : Créer un projet de classification d’images - Service Vision personnalisée, Python'
+titlesuffix: Azure Cognitive Services
+description: Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage votre projet ainsi qu’une prédiction en utilisant le point de terminaison par défaut.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
-ms.date: 05/07/2018
+ms.topic: tutorial
+ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 0359935bf266d4f2a5cf845dd0d23183f4f77b72
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369112"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363375"
 ---
-# <a name="custom-vision-api-python-tutorial"></a>Tutoriel Python avec l’API Custom Vision
+# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>Tutoriel : Créer un projet de classification d’images à l’aide du service Vision personnalisée avec Python
 
-Découvrez comment créer un projet de classification d’images avec le service Vision personnalisé et un script Python de base. Après la création du projet, vous pouvez ajouter des mots clés, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester par programmation une image. Utilisez cet exemple open source comme modèle de création de votre propre application au moyen de l’API Vision personnalisée.
+Découvrez comment créer un projet de classification d’images avec le service Vision personnalisé et un script Python de base. Après la création du projet, vous pouvez ajouter des mots-clés, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester par programmation une image. Utilisez cet exemple open source comme modèle de création pour votre propre application au moyen de l’API Vision personnalisée.
 
 
 
@@ -29,13 +30,13 @@ Découvrez comment créer un projet de classification d’images avec le service
 
 ## <a name="get-the-training-and-prediction-keys"></a>Obtenir les clés d’entraînement et de prédiction
 
-Pour obtenir les clés utilisées dans cet exemple, visitez la page web de [Custom Vision](https://customvision.ai) et sélectionnez l’__icône d’engrenage__ en haut à droite. Dans la section __Accounts__ (Comptes), copiez les valeurs des champs __Training Key__ (Clé de formation) et __Prediction Key__ (Clé de prédiction).
+Pour obtenir les clés utilisées dans cet exemple, visitez la [page web Custom Vision](https://customvision.ai) et sélectionnez l’__icône d’engrenage__ dans le coin supérieur droit. Dans la section __Accounts__ (Comptes), copiez les valeurs des champs __Training Key__ (Clé de formation) et __Prediction Key__ (Clé de prédiction).
 
 ![Image de l’interface utilisateur des clés](./media/python-tutorial/training-prediction-keys.png)
 
 ## <a name="install-the-custom-vision-service-sdk"></a>Installer le kit SDK Service Vision personnalisée
 
-Pour installer le kit SDK Service Vision personnalisée, utilisez la commande suivante :
+Pour installer le SDK Service Vision personnalisée, utilisez la commande suivante :
 
 ```
 pip install azure-cognitiveservices-vision-customvision
@@ -163,7 +164,7 @@ for prediction in results.predictions:
 
 ## <a name="run-the-example"></a>Exécuter l’exemple
 
-Exécutez la solution. Les résultats de prédiction s’affichent dans la console.
+Exécutez la solution. Les résultats de prédiction s’affichent sur la console.
 
 ```
 python sample.py

@@ -1,27 +1,27 @@
 ---
-title: Démarrage rapide Azure - Créer un objet blob dans un stockage d’objets à l’aide de .NET | Microsoft Docs
-description: Dans le cadre de ce guide de démarrage rapide, vous allez créer un compte de stockage et un conteneur dans un stockage d’objets (blob). Ensuite, vous utilisez la bibliothèque de client de stockage pour .NET, afin de charger un objet blob dans Stockage Azure, de télécharger un objet blob et de répertorier les objets blob dans un conteneur.
+title: 'Démarrage rapide : Utiliser .NET pour créer un objet blob dans le stockage d’objets - Stockage Azure'
+description: Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente de stockage Azure pour .NET, puis vous créez un conteneur et un objet blob dans le stockage (d’objets) Blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
 services: storage
 author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 05/22/2018
+ms.date: 08/27/2018
 ms.author: tamram
-ms.openlocfilehash: d5a9c87246a175cc7455113c36caa59d59a79226
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: cde8516b93c2aac0cb74d9c9599168c8e6a70472
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399683"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734131"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-using-net"></a>Démarrage rapide : Charger, télécharger et répertorier des objets blob à l’aide de .NET
+# <a name="quickstart-use-net-to-create-a-blob-in-object-storage"></a>Démarrage rapide : Utiliser .NET pour créer un objet blob dans le stockage d’objets
 
-Dans ce démarrage rapide, vous allez découvrir comment utiliser la bibliothèque cliente .NET pour le Stockage Azure afin de charger, télécharger et répertorier des objets blob de blocs dans un conteneur.
-
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+Dans ce guide de démarrage rapide, vous apprenez à utiliser la bibliothèque cliente de stockage Azure pour .NET, puis vous créez un conteneur et un objet blob dans le stockage (d’objets) Blob. Vous apprenez ensuite à télécharger l’objet blob sur votre ordinateur local et à lister tous les objets blob dans un conteneur.
 
 ## <a name="prerequisites"></a>Prérequis
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 Pour terminer ce démarre rapide, commencez par créer un compte de stockage Azure dans le [portail Azure](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Si vous avez besoin d’aide pour créer un compte de stockage, consultez [Créez un compte de stockage](../common/storage-quickstart-create-account.md).
 
@@ -265,7 +265,7 @@ Console.WriteLine("Downloading blob to {0}", destinationFile);
 await cloudBlockBlob.DownloadToFileAsync(destinationFile, FileMode.Create);  
 ```
 
-### <a name="clean-up-resources"></a>Supprimer les ressources
+### <a name="clean-up-resources"></a>Supprimer des ressources
 
 L’exemple se débarrasse des ressources créées en supprimant l’ensemble du conteneur avec la méthode [CloudBlobContainer.DeleteAsync](/dotnet/api/microsoft.windowsazure.storage.blob.cloudblobcontainer.deleteasync). Si vous voulez, vous pouvez aussi supprimer les fichiers locaux.
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 469a3662b5bc4db467dde3285d557ac8bbae368e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 2b70ed174331b88f9afc9aa30d14a585986496a5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39609087"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604338"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-from-a-web-app-using-azure-active-directory-b2c"></a>Didacticiel - Accorder l’accès à une API web ASP.NET depuis une application web à l’aide d’Azure Active Directory B2C
 
@@ -40,19 +40,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Les ressources d’API web doivent être inscrites dans votre client pour pouvoir accepter les [demandes de ressources protégées](../active-directory/develop/developer-glossary.md#resource-server) des [applications clientes](../active-directory/develop/developer-glossary.md#client-application) qui présentent un [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) d’Azure Active Directory et y répondre. L’inscription établit [l’objet principal de service et d’application](../active-directory/develop/developer-glossary.md#application-object) dans votre client. 
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre client Azure AD B2C.
+Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
 
-2. Assurez-vous que vous utilisez le répertoire qui contient votre locataire Azure AD B2C en l’activant dans l’angle supérieur droit du portail Azure. Sélectionnez les informations sur votre abonnement, puis cliquez sur **Changer de répertoire**.
+[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-    ![Changer de répertoires](./media/active-directory-b2c-tutorials-web-api/switch-directories.png)
+1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**. Vous devriez désormais utiliser le locataire que vous avez créé dans le tutoriel précédent.
 
-3. Choisissez le répertoire qui contient votre locataire.
-
-    ![Sélectionner le répertoire](./media/active-directory-b2c-tutorials-web-api/select-directory.png)
-
-4. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**. Vous devriez désormais utiliser le locataire que vous avez créé dans le tutoriel précédent.
-
-5. Sélectionnez **Applications**, puis **Ajouter**.
+2. Sélectionnez **Applications**, puis **Ajouter**.
 
     Pour inscrire l’exemple d’API web dans votre client, utilisez les paramètres ci-dessous.
     
@@ -67,7 +61,7 @@ Les ressources d’API web doivent être inscrites dans votre client pour pouvoi
     | **URI ID d’application** | myAPISample | L’URI identifie de façon unique l’API dans le client. Vous pouvez ainsi inscrire plusieurs API par client. Les [étendues](../active-directory/develop/developer-glossary.md#scopes) régissent l’accès à la ressource d’API protégée et sont définies par l’URI ID d’application. |
     | **Client natif** | Non  | Dans la mesure où il s’agit d’une API web et pas d’un client natif, sélectionnez Non. |
     
-6. Cliquez sur **Créer** pour inscrire votre API.
+3. Cliquez sur **Créer** pour inscrire votre API.
 
 Les API inscrites sont indiquées dans la liste des applications du client Azure AD B2C. Sélectionnez votre API web dans la liste. Le volet de propriétés de l’API web s’affiche.
 
@@ -168,7 +162,7 @@ Ouvrez la solution **B2C-WebAPI-DotNet** dans Visual Studio.
     <add key="ida:ClientId" value="<The Application ID for your web API obtained from the Azure portal>"/>
     ```
 
-4. Mettez à jour le paramètre de stratégie à l’aide du nom généré lorsque vous avez créé votre stratégie d’inscription et de connexion.
+4. Mettez à jour le paramètre de stratégie avec le nom généré quand vous avez créé votre stratégie d’inscription et de connexion.
 
     ```C#
     <add key="ida:SignUpSignInPolicyId" value="B2C_1_SiUpIn" />
@@ -192,7 +186,7 @@ Vous devez exécuter les projets **TaskWebApp** et **TaskService**.
 5. Appuyez sur la touche **F5** pour exécuter les deux applications. Chaque application s’ouvre dans son propre onglet de navigateur. `https://localhost:44316/` est l’application web.
     `https://localhost:44332/` est l’API web.
 
-6. Dans l’application web, cliquez sur le lien de connexion/inscription dans la bannière de menu pour vous inscrire pour l’application web. Utilisez le compte que vous avez créé dans le [didacticiel relatif à l’application web](active-directory-b2c-tutorials-web-app.md). 
+6. Dans l’application web, cliquez sur le lien de connexion/inscription dans la bannière du menu pour vous inscrire pour l’application web. Utilisez le compte que vous avez créé dans le [didacticiel relatif à l’application web](active-directory-b2c-tutorials-web-app.md). 
 7. Une fois connecté, cliquez sur le lien **Liste de tâches** et créez un élément de la liste de tâches.
 
 Lorsque vous créez un élément de la liste de tâches, l’application web effectue une requête auprès de l’API web pour le générer. L’application web que vous avez protégée appelle l’API web protégée dans votre client Azure AD B2C.

@@ -2,10 +2,10 @@ Dans Cloud Shell, créez un plan App Service dans le groupe de ressources avec l
 
 <!-- [!INCLUDE [app-service-plan](app-service-plan-linux.md)] -->
 
-L’exemple suivant crée un plan App Service nommé `myAppServicePlan` dans le niveau tarifaire **Standard** (`--sku S1`) et un conteneur Linux (`--is-linux`).
+L’exemple suivant crée un plan App Service nommé `myAppServicePlan` dans le niveau tarifaire **De base** (`--sku B1`) et un conteneur Linux (`--is-linux`).
 
 ```azurecli-interactive
-az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku S1 --is-linux
+az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 ```
 
 Lorsque le plan App Service est créé, l’interface Azure CLI affiche des informations similaires à l’exemple suivant :

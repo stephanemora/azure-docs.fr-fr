@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.date: 07/11/2018
 ms.author: luisca
-ms.openlocfilehash: 35295f00b9264e4b6fba2ff9d293772c22b91c50
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4694d7a580c9544e43cf0b56b192b55c02257531
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991871"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730662"
 ---
 # <a name="tutorial-learn-how-to-call-cognitive-search-apis-preview"></a>Tutoriel : Appeler des API de recherche cognitive (version préliminaire)
 
@@ -32,6 +32,9 @@ Dans ce tutoriel, vous effectuez des appels d’API REST pour effectuer les tâc
 La sortie obtenue est un index de recherche en texte intégral sur Recherche Azure. Vous pouvez améliorer cet index avec d’autres fonctionnalités standard, telles que des [synonymes](search-synonyms.md), des [profils de score](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), des [analyseurs](search-analyzers.md) et des [filtres](search-filters.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
+
+> [!NOTE]
+> La recherche cognitive est disponible en version préliminaire publique. L’exécution d’ensemble de compétences, ainsi que l’extraction et la normalisation d’images, sont actuellement proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -53,7 +56,7 @@ Tout d’abord, inscrivez-vous au service Recherche Azure.
 
 1. Pour Groupe de ressources, créez un groupe de ressources qui contiendra toutes les ressources que vous créerez dans ce tutoriel. Cela facilite le nettoyage des ressources une fois le tutoriel terminé.
 
-1. Pour Emplacement, choisissez **Sud-Centre des États-Unis** ou **Europe de l’Ouest**. Actuellement, la version préliminaire est disponible uniquement dans ces régions.
+1. Pour Emplacement, choisissez **USA Centre Sud** ou **Europe Ouest**. Actuellement, la version préliminaire est disponible uniquement dans ces régions.
 
 1. Pour le niveau tarifaire, vous pouvez créer un service **Gratuit** pour effectuer les tutoriels et les guides de démarrage rapide. Pour un examen plus approfondi à l’aide de vos propres données, créez un [service payant](https://azure.microsoft.com/pricing/details/search/), tel qu’un service **De base** ou **Standard**. 
 
@@ -124,7 +127,7 @@ Dans la mesure où il s’agit de votre première demande, vérifiez le portail 
 Si vous avez obtenu une erreur 403 ou 404, vérifiez la construction de la demande : `api-version=2017-11-11-Preview` doit être sur le point de terminaison, `api-key` doit être dans l’en-tête après `Content-Type` et sa valeur doit être valide pour un service de recherche. Vous pouvez réutiliser l’en-tête pour les étapes restantes de ce tutoriel.
 
 > [!TIP]
-> À présent, avant d’avoir effectué de nombreuses tâches, il est judicieux de vérifier que le service de recherche est en cours d’exécution dans l’un des emplacements pris en charge assurant la fonctionnalité d’aperçu : Sud-Centre des États-Unis ou Europe de l’Ouest.
+> À présent, avant d’avoir effectué de nombreuses tâches, il est judicieux de vérifier que le service de recherche est en cours d’exécution dans l’un des emplacements pris en charge assurant la fonctionnalité d’aperçu : USA Centre Sud ou Europe Ouest.
 
 ## <a name="create-a-skillset"></a>Créer un ensemble de compétences
 
@@ -540,7 +543,7 @@ Les [compétences prédéfinies](cognitive-search-predefined-skills.md) ont ét�
 
 Enfin, vous avez appris à tester les résultats et réinitialiser le système pour des itérations ultérieures. Vous avez appris qu’émettre des requêtes par rapport à l’index retourne la sortie créée par le pipeline d’indexation enrichie. Dans cette version, il existe un mécanisme permettant d’afficher les constructions internes (documents enrichis créés par le système). Vous avez également appris à vérifier l’état de l’indexeur et quels objets supprimer avant de réexécuter un pipeline.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Le moyen le plus rapide de nettoyer après un tutoriel consiste à supprimer le groupe de ressources contenant le service Recherche Azure et le service Blob Azure. En supposant que vous avez placé ces deux services dans le même groupe, supprimez maintenant le groupe de ressources pour supprimer définitivement tout ce qu’il contient, y compris les services et tout le contenu stocké que vous avez créé pour ce tutoriel. Dans le portail, le nom du groupe de ressources figure dans la page Vue d’ensemble de chaque service.
 

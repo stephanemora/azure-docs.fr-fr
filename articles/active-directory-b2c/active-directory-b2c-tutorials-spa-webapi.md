@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 54ddafbf0e4fe02bfc1445aad23ac3e20b42acb0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: efe975fa4f89a262faef82df3cc79820d393b60e
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339384"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605757"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-app-using-azure-active-directory-b2c"></a>Didacticiel : Accorder l’accès à une API web ASP.NET Core depuis une application monopage à l’aide d’Azure Active Directory B2C
 
@@ -42,13 +42,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 Les ressources d’API web doivent être inscrites dans votre client pour pouvoir accepter les [demandes de ressources protégées](../active-directory/develop/developer-glossary.md#resource-server) des [applications clientes](../active-directory/develop/developer-glossary.md#client-application) qui présentent un [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) d’Azure Active Directory et y répondre. L’inscription établit [l’objet principal de service et d’application](../active-directory/develop/developer-glossary.md#application-object) dans votre client. 
 
-Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre client Azure AD B2C.
+Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
-1. Sélectionnez **Azure AD B2C** dans la liste des services du portail Azure.
+1. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**. Vous devriez désormais utiliser le locataire que vous avez créé dans le tutoriel précédent.
 
-2. Dans les paramètres B2C, cliquez sur **Applications**, puis sur **Ajouter**.
+2. Sélectionnez **Applications**, puis **Ajouter**.
 
     Pour inscrire l’exemple d’API web dans votre client, utilisez les paramètres ci-dessous.
     
@@ -59,7 +59,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
     | **Name** | API Core Hello | Entrez un **nom** qui décrit votre API web pour les développeurs. |
     | **Inclure une application/API web** | Oui | Sélectionnez **Oui** pour une API web. |
     | **Autoriser le flux implicite** | Oui | Sélectionnez **Oui** puisque l’API utilise la [connexion OpenID Connect](active-directory-b2c-reference-oidc.md). |
-    | **URL de réponse** | `http://localhost:44332` | Les URL de réponse sont des points de terminaison auxquels Azure AD B2C retourne les jetons demandés par votre API. Dans ce didacticiel, l’exemple d’API web s’exécute localement (localhost) et écoute sur le port 5000. |
+    | **URL de réponse** | `http://localhost:5000` | Les URL de réponse sont des points de terminaison auxquels Azure AD B2C retourne les jetons demandés par votre API. Dans ce tutoriel, l’exemple d’API web s’exécute localement (localhost) et écoute sur le port 5000 (une fois qu’il est configuré pour cela, plus loin dans ce tutoriel). |
     | **URI ID d’application** | HelloCoreAPI | L’URI identifie de façon unique l’API dans le client. Vous pouvez ainsi inscrire plusieurs API par client. Les [étendues](../active-directory/develop/developer-glossary.md#scopes) régissent l’accès à la ressource d’API protégée et sont définies par l’URI ID d’application. |
     | **Client natif** | Non  | Dans la mesure où il s’agit d’une API web et pas d’un client natif, sélectionnez Non. |
     
@@ -111,7 +111,7 @@ Pour appeler une API web protégée à partir d’une application, vous devez ac
 
 5. Cliquez sur **OK**.
 
-L’application **Mon exemple d’application monopage** est inscrite pour appeler **l’API Core Hello** protégée. Un utilisateur [s’authentifie](../active-directory/develop/developer-glossary.md#authentication) auprès d’Azure AD B2C pour utiliser l’application de bureau WPF. L’application de bureau obtient un [octroi d’autorisation](../active-directory/develop/developer-glossary.md#authorization-grant) d’Azure AD B2C pour accéder à l’API web protégée.
+L’application **Mon exemple d’application monopage** est inscrite pour appeler **l’API Core Hello** protégée. Un utilisateur [s’authentifie](../active-directory/develop/developer-glossary.md#authentication) auprès d’Azure AD B2C pour utiliser l’application monopage. L’application monopage obtient un [octroi d’autorisation](../active-directory/develop/developer-glossary.md#authorization-grant) d’Azure AD B2C pour accéder à l’API web protégée.
 
 ## <a name="update-code"></a>Mettre à jour le code
 
@@ -158,7 +158,7 @@ Pour autoriser votre application monopage à appeler l’API web ASP.NET Core, v
         builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-3. Ouvrez le fichier **launchSettings.json** sous **Propriétés**, recherchez le paramètre *applicationURL* et enregistrez la valeur pour une utilisation dans la section suivante.
+3. Ouvrez le fichier **launchSettings.json** sous **Propriétés**, localisez le paramètre **iisSettings** *applicationURL* et définissez le numéro de port sur celui qui est inscrit pour l’URL de réponse de l’API `http://localhost:5000`.
 
 ### <a name="configure-the-single-page-app"></a>Configurer l’application monopage
 
@@ -174,7 +174,7 @@ Pour modifier les paramètres d’application :
         clientID: '<Application ID for your SPA obtained from portal app registration>',
         authority: "https://<your-tenant-name>.b2clogin.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://<Your tenant name>.onmicrosoft.com/HelloCoreAPI/demo.read"],
-        webApi: 'http://localhost:64791/api/values',
+        webApi: 'http://localhost:5000/api/values',
     };
     ```
 
@@ -210,7 +210,7 @@ Au lancement du projet, une page web s’affiche dans votre navigateur par défa
 
 Après vous être connecté ou inscrit avec un compte d’utilisateur, l’exemple appelle l’API web protégée et renvoie un résultat.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous pouvez utiliser votre client Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre client Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 

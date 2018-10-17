@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
-ms.date: 06/21/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1be4769a8a07ac5d4a968ed5aa15ed2e0a2b6db2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c1f94c04db69ad44203ef1ada1c3b9fa3df2d779
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43086824"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718083"
 ---
 # <a name="copy-data-from-azure-blob-storage-to-a-sql-database-by-using-the-copy-data-tool"></a>Copier des données à partir du Stockage Blob Azure vers une base de données SQL en utilisant l’outil Copier les données
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -72,13 +72,7 @@ Préparez votre stockage d'objets blob et votre base de données SQL pour ce did
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
 
-1. Autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est activé pour votre serveur exécutant SQL Server. Ce paramètre permet à Data Factory d’écrire des données dans votre instance de SQL server. Pour vérifier et activer ce paramètre, procédez comme suit :
-
-    a. Sur la gauche, sélectionnez **Plus de services**, puis choisissez **Serveurs SQL**.
-
-    b. Sélectionnez votre serveur, puis **PARAMÈTRES** > **Pare-feu**.
-
-    c. Sur la page **Paramètres du pare-feu**, configurez l’option **Autoriser l’accès aux services Azure** sur **ACTIVER**.
+2. Autorisez les services Azure à accéder au serveur SQL. Vérifiez que le paramètre **Autoriser l’accès aux services Azure** est activé pour votre serveur exécutant SQL Database. Ce paramètre permet à Data Factory d’écrire des données dans votre instance de base de données. Pour vérifier et activer ce paramètre, accédez à votre serveur SQL Azure > **Sécurité** > **Pare-feux et réseaux virtuels** > définissez l’option **Autoriser l’accès aux services Azure** sur **Activé**.
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 

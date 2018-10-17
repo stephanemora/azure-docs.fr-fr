@@ -1,21 +1,21 @@
 ---
-title: 'L’API de traduction de texte Translator Text : identification de la langue du texte avec Python | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous identifiez la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec Python dans Cognitive Services.
+title: 'Démarrage rapide : Identifier la langue du texte - Traduction de texte Translator Text, Python'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous identifiez la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 07a16e419bfdd4d73108fcdaa12695e99fecabee
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 31fb36421dd2aef21f77b4941771e4d3db813730
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43769603"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124998"
 ---
 # <a name="quickstart-identify-language-from-text-with-python"></a>Démarrage rapide : Identifier la langue du texte avec Python
 
@@ -82,9 +82,9 @@ output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
 print (output)
 ```
 
-## <a name="detect-response"></a>Réponse de détection
+## <a name="detect-response"></a>Réponse Détecter
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: overview
 ms.date: 01/26/2018
-ms.openlocfilehash: fa66ded9a35109f874bda00a4bde3af78b436cd5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f865086a7e57898adb7d43ec0c02c7d38ef0da9c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630719"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365568"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Qu’est-ce que Azure Time Series Insights ?
 
@@ -33,6 +33,12 @@ Time Series Insights a quatre tâches principales :
 Si vous créez une application, en vue d’une utilisation en interne ou pour des clients externes, vous pouvez utiliser Time Series Insights comme serveur principal pour l’indexation, le stockage et l’agrégation des données de série chronologique. Vous pouvez créer une visualisation et une expérience utilisateur personnalisées en plus.  Time Series Insights expose des API Query pour permettre ce scénario.  
 
 Si vous ne savez pas si vos données sont de série chronologique, voici ce que vous devez savoir.  Les données de série chronologique représentent la façon dont un élément multimédia ou un processus changent au fil du temps.  Elles sont uniques en cela qu’elles ont un horodatage et que l’heure est plus explicite sous forme d’axe.  En général, les données de série chronologique arrivent dans un ordre chronologique et sont considérées comme une instruction insert, plutôt qu’une mise à jour pour votre base de données.  Étant donné que Time Series Insights capture et stocke chaque nouvel événement sous la forme d’une ligne, le changement est mesuré dans le temps, ce qui vous permet de voir les valeurs passées et de prévoir les futurs changements.  Dans des volumes importants, le stockage, l’indexation, l’interrogation, l’analyse et la visualisation des données de série chronologique peuvent être difficiles.  
+
+## <a name="video"></a>Vidéo : 
+
+### <a name="in-this-video-we-provide-an-overview-of-time-series-insights-a-cloud-based-iot-analytics-platformbr"></a>Dans cette vidéo, nous fournissons une vue d’ensemble de Time Series Insights, une plateforme d’analytique IoT basée sur le cloud.</br>
+
+> [!VIDEO https://www.youtube.com/embed/qNc9gQTLROs]
 
 ## <a name="primary-scenarios"></a>Principaux scénarios
 

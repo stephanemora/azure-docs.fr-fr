@@ -4,7 +4,7 @@ description: Cet article fournit une vue d’ensemble générale de Media Servic
 services: media-services
 documentationcenter: na
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 tags: ''
 keywords: azure media services, flux, diffusion, en direct, hors connexion
@@ -13,15 +13,15 @@ ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 07/14/2018
+ms.date: 09/25/2018
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: 6c3fb7391c25628ba12526a04c022215bdbd9d40
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 3641806870c3eab0b3a05f538015a72d9a0b34ef
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325929"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47221928"
 ---
 # <a name="what-is-azure-media-services-v3"></a>Présentation d’Azure Media Services v3
 
@@ -55,7 +55,7 @@ v3 est basée sur une surface d’API unifiée qui expose des fonctionnalités d
 Cette version offre les fonctionnalités suivantes :  
 
 * **Transformations** : définir des workflows simples des tâches d’analytique ou de traitement multimédia. La transformation est une formule pour le traitement de vos fichiers audio et vidéo. Vous pouvez ensuite l’appliquer à plusieurs reprises pour traiter tous les fichiers dans votre bibliothèque de contenu, en envoyant des travaux à la Transformation.
-* **Travaux** : traiter (encoder ou analyser) vos vidéos. Un contenu d’entrée peut être spécifié sur un travail à l’aide d’URL HTTP(s), d’URL SAP ou de chemins d’accès aux fichiers situés dans le stockage Blob Azure. 
+* **Travaux** : traiter (encoder ou analyser) vos vidéos. Un contenu d’entrée peut être spécifié sur un travail à l’aide d’URL HTTPS, d’URL SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure. Actuellement, AMS v3 ne prend pas en charge le chiffrement de transfert en bloc sur les URL HTTPS.
 * **Notifications** : surveiller la progression ou les états du travail, le démarrage/l’arrêt de Live Channel et les événements d’erreur. Les notifications sont intégrées au système de notification Azure Event Grid. Vous pouvez facilement vous abonner à des événements sur plusieurs ressources dans Azure Media Services. 
 * Vous pouvez utiliser les gabarits **Azure Resource Management** pour créer et déployer des transformations, des points de terminaison de streaming, des canaux et bien plus encore.
 * Il est possible de configurer le **contrôle d’accès en fonction du rôle** au niveau de la ressource, ce qui vous permet de bloquer l’accès à des ressources spécifiques comme les transformations, les canaux et bien plus encore.

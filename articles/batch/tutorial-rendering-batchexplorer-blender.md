@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: tutorial
-ms.openlocfilehash: 8df9054e069540398c137290e682bb4160b4a799
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 46c65cd7ac5734134fa7c4ad6fd85f39d1188e28
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036481"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392549"
 ---
 # <a name="tutorial-render-a-blender-scene-using-batch-explorer"></a>Didacticiel : Effectuer le rendu d’une scène de Blender avec Batch Explorer
 
@@ -24,11 +24,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Effectuer le rendu de plusieurs images
 > * Afficher et télécharger les fichiers de rendu des images
 
-Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-
 ## <a name="prerequisites"></a>Prérequis
 
-Un compte Azure Batch avec un compte de stockage associé.  Consultez un des articles de démarrage rapide de Batch, comme [l’article CLI](https://docs.microsoft.com/azure/batch/quick-create-cli) pour créer un compte Batch.
+Vous avez besoin d’un abonnement de paiement à l’utilisation ou autre option d’achat Azure pour utiliser les applications de rendu dans Batch sur une base de paiement à l’utilisation. Les licences de paiement à l’utilisation ne sont pas prises en charge si vous utilisez une offre Azure gratuite qui propose un crédit monétaire.
+
+Un compte Azure Batch avec un compte de stockage associé est requis.  Consultez un des articles de démarrage rapide de Batch, comme [l’article CLI](https://docs.microsoft.com/azure/batch/quick-create-cli) pour créer un compte Batch.
 
 Un quota de cœurs de faible priorité d’au moins 50 cœurs est requis pour la taille de machine virtuelle et le nombre de machines virtuelles spécifiées dans ce didacticiel. Le quota par défaut peut être utilisé, mais une machine virtuelle de plus petite taille devra être utilisée, ce qui signifie que le rendu des images prendra plus de temps. Le processus permettant de demander une augmentation du quota de cœurs accrue est détaillé dans [cet article](https://docs.microsoft.com/azure/batch/batch-quota-limit).
 
@@ -128,7 +128,7 @@ Le modèle de travail spécifie également que les fichiers journaux et de l’i
 
 Une fois toutes les tâches terminées, le travail est marqué comme étant terminé : ![Travail et toutes les tâches terminés](./media/tutorial-rendering-batchexplorer-blender/batch_explorer_job_alltasks_complete.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 > [!WARNING]
 > Le pool doit être supprimé (il peut également être redimensionné jusqu’à zéro nœud) pour arrêter les frais venant des machines virtuelles facturées à l’abonnement Azure.

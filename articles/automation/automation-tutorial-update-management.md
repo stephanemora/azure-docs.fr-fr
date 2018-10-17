@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247366"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498519"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gérer les mises à jour Windows à l’aide d’Azure Automation
 
@@ -158,6 +158,8 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 
 * **Système d’exploitation** : sélectionnez le système d’exploitation à cibler pour le déploiement de mises à jour.
 
+* **Groupes à mettre à jour (préversion)** : définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)
+
 * **Machines to update** (Ordinateurs à mettre à jour) : sélectionnez une recherche enregistrée, un groupe importé ou choisissez un ordinateur dans la liste déroulante, puis sélectionnez des ordinateurs individuels. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
 * **Classification de mise à jour** : sélectionnez les types de logiciels que le déploiement de mises à jour incluait dans le déploiement. Pour ce didacticiel, conservez tous les types sélectionnés.
@@ -171,10 +173,13 @@ Sous **Nouveau déploiement de mises à jour**, spécifiez les informations suiv
 
    Pour obtenir la description des types de classification, consultez [Classifications des mises à jour](automation-update-management.md#update-classifications).
 
+* **Mises à jour à inclure/exclure** : ceci ouvre la page **Inclure/Exclure**. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Comportement d’inclusion](automation-update-management.md#inclusion-behavior)
+
 * **Paramètres de planification** : le volet **Paramètres de planification** s’ouvre. L’heure de début par défaut est dans 30 minutes. Vous pouvez définir l’heure de début à tout moment à partir de 10 minutes à l’avenir.
 
    Vous pouvez également spécifier si le déploiement se produit une seule fois ou configurer une planification périodique. Sous **Récurrence**, sélectionnez **Une fois**. Laissez la valeur par défaut sur 1 jour et sélectionnez **OK**. Cela configure une planification récurrente.
 
+* **Pré-scripts + post-scripts** : sélectionnez les scripts à exécuter avant et après votre déploiement. Pour plus d’informations, consultez [Gérer les pré-scripts et les post-scripts](pre-post-scripts.md).
 * **Fenêtre de maintenance (en minutes)** : conservez la valeur par défaut. Vous pouvez définir la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Ce paramètre permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
 
 * **Reboot options** (Options de redémarrage) : ce paramètre détermine comment les redémarrages doivent être traités. Options disponibles :

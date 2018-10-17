@@ -1,24 +1,25 @@
 ---
-title: Vue d’ensemble de l’apprentissage automatique du service Vision personnalisée - Azure Cognitive Services | Microsoft Docs
-description: Le service Vision personnalisée est un service Microsoft Cognitive Services qui vous permet de créer des classifieurs d’images personnalisés sur la plateforme Azure.
+title: Qu’est-ce que le service Vision personnalisée ?
+titlesuffix: Azure Cognitive Services
+description: Le service Vision personnalisée vous permet de créer des classifieurs d’images personnalisés dans le cloud Azure.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
 ms.topic: overview
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: d2daf7c211f9474f5636b6af69c5b700d597aa14
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1d3d1a82cf59b06625487fb241a63f51352e18e5
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43285242"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365857"
 ---
 # <a name="what-is-the-custom-vision-service"></a>Qu’est-ce que le service Vision personnalisée ?
 
-Le service Vision personnalisée est un service Microsoft Cognitive Services qui vous permet de créer des classifieurs d’images personnalisés. Il permet de créer, déployer et améliorer facilement et rapidement un classifieur d’images. Le service Vision personnalisée fournit une API REST et une interface web pour charger vos images et entraîner le classifieur.
+Le service Vision personnalisée est un service Azure Cognitive Services qui vous permet de créer des classifieurs d’images personnalisés. Il permet de créer, déployer et améliorer facilement et rapidement un classifieur d’images. Le service Vision personnalisée fournit une API REST et une interface web pour charger vos images et entraîner le classifieur.
 
 ## <a name="what-does-custom-vision-service-do-well"></a>Pour quelles tâches le service Vision personnalisée est-il performant ?
 

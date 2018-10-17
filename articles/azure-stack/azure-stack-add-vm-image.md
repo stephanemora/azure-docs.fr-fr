@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698772"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575811"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>Mettre une image de machine virtuelle à la disposition des utilisateurs dans Azure Stack
 
@@ -54,7 +54,7 @@ Les images doivent pouvoir être référencées par un URI de stockage d’objet
 
    ![Définir un accès public pour les objets blob](./media/azure-stack-add-vm-image/image2.png)
 
-2. Connectez-vous au Azure Stack en tant qu’opérateur. Dans le menu, cliquez sur **Plus de services**. Ensuite, sélectionnez **Compute** > **Images de machine virtuelle** > **Ajouter**.
+2. Connectez-vous au Azure Stack en tant qu’opérateur. Dans le menu, sélectionnez **Tous les services**. Ensuite, sous la catégorie **ADMINISTRATION**, sélectionnez **Calcul** > **Images de machine virtuelle** > **Ajouter**.
 
 3. Dans le panneau **Ajouter une image de machine virtuelle**, saisissez l’éditeur, l’offre, la référence SKU et la version de l’image de machine virtuelle. Ces segments de nom référencent l’image de machine virtuelle dans les modèles Resource Manager. Sélectionnez la valeur **type de système d’exploitation** approprié. Pour **URI de l’objet blob OS Disk**, saisissez l’URI de l’objet Blob où l’image a été téléchargée. Cliquez ensuite sur **Créer** pour commencer la création d’une image de machine virtuelle.
 
@@ -75,7 +75,7 @@ Les images doivent pouvoir être référencées par un URI de stockage d’objet
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>Ajouter une image de machine virtuelle à la Place de marché à l’aide de PowerShell
 
 > [!Note]  
-> Quand vous ajoutez une image, elle est disponible seulement pour les modèles et les déploiements PowerShell basés sur Azure Resource Manager. Pour rendre une image disponible pour vos utilisateurs comme élément de Place de marché, publiez cet élément en suivant les étapes de l’article [Créer et publier un élément de Place de marché](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
+> Quand vous ajoutez une image, elle est disponible seulement pour les modèles et les déploiements PowerShell basés sur Azure Resource Manager. Pour rendre une image disponible pour vos utilisateurs comme élément de Place de marché, publiez cet élément en suivant les étapes de l’article [Créer et publier un élément de Place de marché](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
 
 1. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).  
 
@@ -115,7 +115,7 @@ Les images doivent pouvoir être référencées par un URI de stockage d’objet
     Pour plus d’informations, consultez la référence sur PowerShell pour les cmdlet [Add-AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) et [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject).
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>Ajouter une image de machine virtuelle personnalisée à la Place de marché à l’aide de PowerShell
-
+ 
 1. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).
 
   ```PowerShell  

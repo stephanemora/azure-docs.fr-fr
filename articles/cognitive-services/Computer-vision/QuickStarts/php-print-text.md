@@ -1,44 +1,56 @@
 ---
-title: Démarrage rapide API Vision par ordinateur avec PHP - OCR | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous allez extraire le texte imprimé d’une image à l’aide de l’API Vision par ordinateur avec PHP dans Cognitive Services.
+title: 'Démarrage rapide : Extraire du texte imprimé (OCR) - REST, PHP - Vision par ordinateur'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous extrayez le texte imprimé d’une image en utilisant l’API Vision par ordinateur avec PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 85df021357c76330be21ceff77d79491edcc23b0
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 14c03f2079e695fcd3cac8535b2888d71f41c913
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770134"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633229"
 ---
-# <a name="quickstart-extract-printed-text-ocr---rest-php"></a>Démarrage rapide : Extraire le texte imprimé (OCR) - REST, PHP
+# <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>Démarrage rapide : Extraire du texte imprimé (OCR) à l’aide de l’API REST et PHP dans Vision par ordinateur
 
-Dans ce démarrage rapide, vous allez extraire le texte imprimé selon une technique également appelée reconnaissance optique des caractères (OCR) à partir d’une image, à l’aide de l’API Vision par ordinateur.
+Dans ce guide de démarrage rapide, vous extrayez le texte imprimé d’une image par reconnaissance optique de caractères (OCR) à l’aide de l’API REST de Vision par ordinateur. Avec la méthode [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), vous pouvez détecter le texte imprimé dans une image et extraire les caractères reconnus dans un flux de caractères exploitable automatiquement.
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser l’API Vision par ordinateur, vous avez besoin d’une clé d’abonnement. Consultez [How to obtain subscription keys](../Vision-API-How-to-Topics/HowToSubscribe.md) (Obtention de clés d’abonnement).
+- [PHP](https://secure.php.net/downloads.php) doit être installé.
+- [Pear](https://pear.php.net) doit être installé.
+- Vous devez avoir une clé d’abonnement pour Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="ocr-request"></a>Requête OCR
+## <a name="create-and-run-the-sample"></a>Créer et exécuter l’exemple
 
-Avec la [méthode OCR](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), vous pouvez détecter le texte imprimé dans une image et extraire les caractères reconnus dans un flux de caractères exploitable automatiquement.
+Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
-Pour exécuter l’exemple, effectuez les étapes suivantes :
+1. Installez le package [`HTTP_Request2`](http://pear.php.net/package/HTTP_Request2) PHP5.
+   1. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
+   1. Exécutez la commande suivante :
 
-1. Copiez le code ci-après dans un éditeur.
-1. Remplacez `<Subscription Key>` par votre clé d’abonnement valide.
-1. Remplacez `uriBase` par l’emplacement où vous avez obtenu vos clés d’abonnement, si nécessaire.
-1. Si vous le souhaitez, définissez `imageUrl` sur l’image que vous souhaitez analyser.
-1. Enregistrez le fichier avec une extension `.php`.
-1. Ouvrez le fichier dans une fenêtre de navigateur avec prise en charge PHP.
+      ```console
+      pear install HTTP_Request2
+      ```
 
-Cet exemple utilise le package PHP5 [HTTP_Request2](http://pear.php.net/package/HTTP_Request2).
+   1. Une fois que vous avez installé le package, fermez la fenêtre d’invite de commandes.
+
+1. Copiez le code ci-après dans un éditeur de texte.
+1. Modifiez le code comme ci-dessous :
+    1. Remplacez la valeur de `subscriptionKey` par votre clé d’abonnement.
+    1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dans la région Azure où vous avez obtenu vos clés d’abonnement.
+    1. Remplacez éventuellement la valeur de `imageUrl` par l’URL d’une autre image à partir de laquelle vous voulez extraire le texte imprimé.
+1. Enregistrez le code dans un fichier avec une extension `.php`. Par exemple : `get-printed-text.php`.
+1. Ouvrez une fenêtre de navigateur avec prise en charge de PHP.
+1. Faites glisser et déposez le fichier dans la fenêtre du navigateur.
 
 ```php
 <?php
@@ -101,9 +113,9 @@ catch (HttpException $ex)
 </html>
 ```
 
-## <a name="ocr-response"></a>Réponse OCR
+## <a name="examine-the-response"></a>Examiner la réponse
 
-En cas de réussite, les résultats OCR renvoyés incluent du texte, ainsi qu’un rectangle englobant pour les régions, les lignes et les mots, par exemple :
+Une réponse correcte est retournée au format JSON. L’exemple de site web analyse et affiche une réponse réussie dans la fenêtre du navigateur, comme dans l’exemple suivant :
 
 ```json
 {
@@ -204,9 +216,22 @@ En cas de réussite, les résultats OCR renvoyés incluent du texte, ainsi qu’
 }
 ```
 
+## <a name="clean-up-resources"></a>Supprimer les ressources
+
+Quand vous n’en avez plus besoin, supprimez le fichier, puis désinstallez le package `HTTP_Request2` PHP5. Pour désinstaller le package, effectuez les étapes suivantes :
+
+1. Ouvrez une fenêtre d’invite de commandes en tant qu’administrateur.
+2. Exécutez la commande suivante :
+
+   ```console
+   pear uninstall HTTP_Request2
+   ```
+
+3. Une fois que vous avez désinstallé le package, fermez la fenêtre d’invite de commandes.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les API Vision par ordinateur utilisées pour analyser une image, détecter des célébrités et des points de repère, créer une miniature et extraire le texte imprimé et manuscrit. Pour tester rapidement les API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explorez l’API Vision par ordinateur utilisée pour analyser une image, détecter des célébrités et des monuments, créer une miniature et extraire le texte imprimé ou manuscrit. Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
-> [Explorer les API Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)
+> [Explorer l’API Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

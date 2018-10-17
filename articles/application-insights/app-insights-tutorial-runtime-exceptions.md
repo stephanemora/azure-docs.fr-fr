@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f45cb6a47756fae7b75d8c3df80a0bc754742063
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42815111"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298998"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rechercher et diagnostiquer des exceptions runtime avec Azure Application Insights
 
@@ -101,6 +101,15 @@ Toutes les données collectées par Application Insights sont stockées dans Azu
     ![Code](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. Cliquez sur **Analyser l’impact** pour ouvrir Application Insights Analytics.  Application Insights Analytics comprend plusieurs requêtes qui fournissent des détails sur les demandes ayant échoué, tels que les utilisateurs, les navigateurs et les régions concernés.<br><br>![Analyse](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
+
+## <a name="add-work-item"></a>Ajouter un élément de travail
+Si vous connectez Application Insights à un système de suivi tel que Azure DevOps ou GitHub, vous pouvez créer un élément de travail directement à partir d’Application Insights.
+
+1. Revenez au panneau **Propriétés d'exception** dans Application Insights.
+2. Cliquez sur **Nouvel élément de travail**.
+3. Le panneau **Nouvel élément de travail** s’ouvre, affichant les détails relatifs à l’exception.  Vous pouvez ajouter des informations avant de l’enregistrer.
+
+    ![Nouvel élément de travail](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 À présent que vous avez appris à identifier les exceptions runtime, passez au didacticiel suivant pour apprendre à identifier et à diagnostiquer les problèmes de performances.

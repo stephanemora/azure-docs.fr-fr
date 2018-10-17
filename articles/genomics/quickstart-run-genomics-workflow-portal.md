@@ -1,25 +1,25 @@
 ---
-title: 'Démarrage rapide : Exécuter un workflow via le service Microsoft Genomics | Microsoft Docs'
+title: 'Démarrage rapide : Exécuter un workflow avec Microsoft Genomics'
 description: Ce démarrage rapide vous montre comment charger des données d’entrée dans le service Stockage Blob Azure et exécuter un workflow via le service Microsoft Genomics.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: e1d10b578d33ba8d96f43666b82e94ef5503fe77
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42022593"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731085"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Démarrage rapide : Exécuter un workflow via le service Microsoft Genomics
 
-Microsoft Genomics est un service sécurisé et évolutif dédié à l’analyse secondaire de génomes. Il procède rapidement, en commençant par des lectures brutes, puis produit des lectures alignées et des appels de variants. Démarrez en quelques étapes : 
+Ce démarrage rapide vous montre comment charger des données d’entrée dans le stockage Blob Azure et exécuter un workflow via le service Microsoft Genomics. Microsoft Genomics est un service sécurisé et évolutif dédié à l’analyse secondaire de génomes. Il procède rapidement, en commençant par des lectures brutes, puis produit des lectures alignées et des appels de variants. 
+
+Démarrez en quelques étapes : 
 1.  Configuration : Créez un compte Microsoft Genomics via le portail Azure, puis installez le client Microsoft Genomics Python dans votre environnement local. 
 2.  Chargement des données d’entrée : Créez un compte de stockage Microsoft Azure via le portail Azure, puis chargez les fichiers d’entrée. Les fichiers d’entrée doivent constituer des séquences appariées (fichiers fastq ou bam).
 3.  Exécution : Utilisez l’interface de ligne de commande Microsoft Genomics afin d’exécuter les workflows via le service Microsoft Genomics. 

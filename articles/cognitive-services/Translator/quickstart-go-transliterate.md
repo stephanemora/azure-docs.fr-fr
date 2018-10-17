@@ -1,25 +1,25 @@
 ---
-title: 'L’API de traduction de texte Translator Text : conversion de script de texte avec Go | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous convertirez du texte dans une langue d’un script vers un autre à l’aide de l’API de traduction de texte Translator Text avec Go dans Cognitive Services.
+title: 'Démarrage rapide : Convertir un script de texte - Traduction de texte Translator Text, Go'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez convertir le texte d’un script d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: f01fe38ef0605ad399edc03b52dc5b8ecc75275b
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c4930e03f5d366eb3f21b44c5be90c20230065c3
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43769784"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126749"
 ---
 # <a name="quickstart-transliterate-text-with-go"></a>Démarrage rapide : Translittérer du texte avec Go
 
-Dans ce démarrage rapide, vous convertissez du texte dans une langue d’un script vers un autre à l’aide de l’API de traduction de texte Translator Text.
+Dans ce démarrage rapide, vous convertissez du texte dans la langue d’un script vers une autre à l’aide de l’API de traduction de texte Translator Text.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -31,7 +31,7 @@ Pour utiliser l’API de traduction de texte Translator Text, vous avez égaleme
 
 Ce qui suit convertit le texte dans une langue d’un script vers un autre en utilisant la méthode [Translittérer](./reference/v3-0-transliterate.md).
 
-1. Créez un nouveau projet Go dans votre éditeur de code favori.
+1. Créez un projet Go dans votre éditeur de code favori.
 2. Ajoutez le code ci-dessous.
 3. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
 4. Enregistrez le fichier avec une extension .go.
@@ -110,7 +110,7 @@ func main() {
 
 ## <a name="transliterate-response"></a>Réponse Translittérer
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [
@@ -123,7 +123,7 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorer des packages Go pour les API Cognitive Services à partir de [Azure SDK pour Go](https://github.com/Azure/azure-sdk-for-go) sur GitHub.
+Explorez des packages Go pour les API Cognitive Services à partir de [Azure SDK pour Go](https://github.com/Azure/azure-sdk-for-go) sur GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorer des packages Go sur GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)

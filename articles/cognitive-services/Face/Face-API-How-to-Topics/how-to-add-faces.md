@@ -1,29 +1,29 @@
 ---
-title: Ajouter des visages avec l’API Visage | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Utilisez l’API Visage de Cognitive Services pour ajouter des visages dans des images.
+title: 'Exemple : Ajouter des visages - API Visage'
+titleSuffix: Azure Cognitive Services
+description: Utilisez l’API Visage pour ajouter des visages à une image.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 3306c13d6c3d231ddbda38cfcbc5419fcdbd30db
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fb5d03e2cb3c11daf7a94966fda46345ee910ded
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367969"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125100"
 ---
-# <a name="how-to-add-faces"></a>Comment ajouter des visages
+# <a name="example-how-to-add-faces"></a>Exemple : Comment ajouter des visages
 
 Ce guide présente la meilleure pratique pour ajouter un nombre important de personnes et de visages à un groupe PersonGroup.
 La même stratégie s’applique également à FaceList et LargePersonGroup.
 Les exemples sont écrits en C# à l’aide de la bibliothèque de client de l’API Visage.
 
-## <a name="step1"></a> Étape 1 : Initialisation
+## <a name="step-1-initialization"></a>Étape 1 : Initialisation
 
 Plusieurs variables sont déclarées et une fonction d’assistance est implémentée pour planifier les requêtes.
 
@@ -60,7 +60,7 @@ static async Task WaitCallLimitPerSecondAsync()
 }
 ```
 
-## <a name="step2"></a> Étape 2 : Autoriser l’appel d’API
+## <a name="step-2-authorize-the-api-call"></a>Étape 2 : Autoriser l’appel d’API
 
 Quand vous utilisez une bibliothèque de client, la clé d’abonnement est transmise par le biais du constructeur de la classe FaceServiceClient. Par exemple : 
 
@@ -70,7 +70,7 @@ FaceServiceClient faceServiceClient = new FaceServiceClient("<Subscription Key>"
 
 Vous pouvez obtenir la clé d’abonnement à partir de la page Place de marché de votre Portail Azure. Consultez la page sur les [abonnements](https://www.microsoft.com/cognitive-services/en-us/sign-up).
 
-## <a name="step3"></a> Étape 3 : Créer le groupe PersonGroup
+## <a name="step-3-create-the-persongroup"></a>Étape 3 : Créer le groupe PersonGroup
 
 Un groupe PersonGroup nommé « MyPersonGroup » est créé pour enregistrer les personnes.
 L’heure de la requête est empilée dans `_timeStampQueue` pour garantir la validation globale.
@@ -82,7 +82,7 @@ _timeStampQueue.Enqueue(DateTime.UtcNow);
 await faceServiceClient.CreatePersonGroupAsync(personGroupId, personGroupName);
 ```
 
-## <a name="step4"></a> Étape 4 : Créer les personnes dans le groupe PersonGroup
+## <a name="step-4-create-the-persons-to-the-persongroup"></a>Étape 4 : Créer les personnes du groupe PersonGroup
 
 Les personnes sont créées en même temps et `await WaitCallLimitPerSecondAsync()` est également appliqué pour éviter de dépasser la limite de l’appel.
 
@@ -97,7 +97,7 @@ Parallel.For(0, PersonCount, async i =>
 });
 ```
 
-## <a name="step5"></a> Étape 5 : Ajouter des visages aux personnes
+## <a name="step-5-add-faces-to-the-persons"></a>Étape 5 : Ajouter des visages aux personnes
 
 L’ajout de visages à différentes personnes est traité simultanément, alors que pour une personne spécifique, le traitement est séquentiel.
 Là encore, `await WaitCallLimitPerSecondAsync()` est appelé afin de garantir que la fréquence de requêtes se trouve dans l’étendue de la limite.
@@ -120,7 +120,7 @@ Parallel.For(0, PersonCount, async i =>
 });
 ```
 
-## <a name="summary"></a> Résumé
+## <a name="summary"></a>Résumé
 
 Dans ce guide, vous avez appris le processus de création d’un groupe PersonGroup avec un nombre important de personnes et de visages. Plusieurs rappels :
 
@@ -135,7 +135,8 @@ Voici un rappel rapide des fonctionnalités précédemment expliquées et montr�
 - Création de personnes à l’aide de l’API [PersonGroup Person - Créer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c)
 - Ajout de visages aux personnes à l’aide de l’API [PersonGroup Person - Ajouter un visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b)
 
-## <a name="related"></a> Rubriques connexes
-- [How to identify faces in images](HowtoIdentifyFacesinImage.md) (Comment identifier les visages dans l’image)
-- [How to Detect Faces in Image](HowtoDetectFacesinImage.md) (Comment détecter des visages dans l’image)
-- [How to use the large-scale feature](how-to-use-large-scale.md) (Comment utiliser la fonctionnalité à grande échelle)
+## <a name="related-topics"></a>Rubriques connexes
+
+- [Guide pratique pour identifier des visages dans une image](HowtoIdentifyFacesinImage.md)
+- [Guide pratique pour détecter des visages dans une image](HowtoDetectFacesinImage.md)
+- [Guide pratique pour utiliser la fonctionnalité de grande échelle](how-to-use-large-scale.md)

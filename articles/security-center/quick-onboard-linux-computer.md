@@ -3,7 +3,7 @@ title: Démarrage rapide Azure Security Center - Intégrer vos ordinateurs Linux
 description: Ce guide de démarrage rapide décrit comment intégrer vos ordinateurs Linux à Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: 05e4bed0f9b4dfb6d1879408085447ef53db8655
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1eab54d16dcc0facace9a51a4cf5b5d1243baf4f
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630095"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025391"
 ---
 # <a name="quickstart-onboard-linux-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Linux à Azure Security Center
 Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour les ressources Linux s’exécutant en dehors d’Azure, par exemple, localement ou dans d’autres clouds, en provisionnant l’agent Linux.
@@ -39,13 +39,12 @@ Vous devez utiliser le niveau tarifaire Standard de Security Center pour commenc
 
  ![Vue d’ensemble de Security Center][2]
 
-3. Dans le menu principal de Security Center, sélectionnez **Intégration à la sécurité avancée**.
-4. Sélectionnez **Voulez-vous ajouter des ordinateurs non-Azure**.
-   ![Intégrer à la sécurité avancée][3]
+3. Dans le menu principal de Security Center, sélectionnez **Prise en main**.
+4. Sélectionnez l’onglet **Prise en main**. ![Prise en main][3]
 
-5. Sous **Ajouter de nouveaux ordinateurs non-Azure**, une liste de vos espaces de travail Log Analytics est affichée. Elle comprend, le cas échéant, l’espace de travail par défaut créé pour vous par Security Center à l’activation de l’approvisionnement automatique. Sélectionnez cet espace de travail ou un autre espace de travail à utiliser.
+5. Cliquez sur **Configurer** sous **Ajouter de nouveaux ordinateurs extérieurs à Azure** pour afficher la liste de vos espaces de travail Log Analytics. Elle comprend, le cas échéant, l’espace de travail par défaut créé pour vous par Security Center à l’activation de l’approvisionnement automatique. Sélectionnez cet espace de travail ou un autre espace de travail à utiliser.
 
-    ![Ajouter un ordinateur autre qu’Azure][4]
+    ![Ajouter un ordinateur autre qu’Azure](./media/quick-onboard-linux-computer/non-azure.png)
 
 6.  Dans la page **Agent direct**, sous **TÉLÉCHARGER ET INTÉGRER L’AGENT POUR LINUX**, sélectionnez le bouton **copier** pour copier la commande *wget*.
 
@@ -91,7 +90,7 @@ Dans ce guide de démarrage rapide, vous avez provisionné l’agent sur un ordi
 <!--Image references-->
 [1]: ./media/quick-onboard-linux-computer/portal.png
 [2]: ./media/quick-onboard-linux-computer/overview.png
-[3]: ./media/quick-onboard-linux-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-linux-computer/get-started.png
 [4]: ./media/quick-onboard-linux-computer/add-computer.png
 [5]: ./media/quick-onboard-linux-computer/pgrep-command.png
 [6]: ./media/quick-onboard-linux-computer/logs-for-agent.png

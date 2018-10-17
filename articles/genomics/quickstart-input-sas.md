@@ -1,24 +1,22 @@
 ---
-title: Envoyer un flux de travail à l’aide d’un SAS plutôt qu’une clé de compte de stockage | Microsoft Docs
+title: Envoyer un workflow à l’aide d’un SAS, pas d’une clé de compte de stockage - Microsoft Genomics
 titleSuffix: Azure
 description: Le démarrage rapide suppose que le client msgen est installé et que vous avez exécuté l’échantillon de données dans le service.
-services: microsoft-genomics
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlun
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
+ms.service: genomics
 ms.topic: quickstart
 ms.date: 03/02/2018
-ms.openlocfilehash: 802e300ac453baa4ea9bd9183223315abced2ea1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9a22e4bb0949544e18237e789ca807e57ed59abf
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32177212"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733495"
 ---
-# <a name="submit-a-workflow-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un flux de travail à l’aide d’un SAS plutôt qu’une clé de compte de stockage
+# <a name="submit-a-workflow-to-microsoft-genomics-using-a-sas-instead-of-a-storage-account-key"></a>Envoyer un workflow à Microsoft Genomics à l’aide d’un SAS plutôt que d’une clé de compte de stockage 
 
 Ce guide de démarrage rapide montre comment envoyer un flux de travail au service Microsoft Genomics à l’aide d’un fichier config.txt contenant des [signatures d’accès partagé (SAP)](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) au lieu de clés de compte de stockage. Cette fonctionnalité peut être utile si avoir la clé de compte de stockage visible dans le fichier config.txt pose des problèmes de sécurité. Cette article suppose que vous avez déjà installé et exécuté le client `msgen`, et que vous savez comment utiliser Stockage Azure. Si vous avez soumis un workflow à l’aide de l’exemple de données fourni, vous êtes prêt à exécuter ce démarrage rapide. 
 

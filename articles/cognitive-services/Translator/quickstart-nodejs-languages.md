@@ -1,25 +1,25 @@
 ---
-title: Obtention des langues prises en charge à l’aide de l’API de traduction de texte Translator Text et de Node.js | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous obtenez une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text avec Node.js dans Cognitive Services.
+title: 'Démarrage rapide : Obtenir les langues prises en charge - Traduction de texte Translator Text, Node.js'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez obtenir la liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text avec Node.js.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: dd37aab3707c6f06b8cc2e942366e19746694252
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: a3b9dde8983b87a63858b3eb1381f7c74545cb1a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43769609"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122856"
 ---
 # <a name="quickstart-get-supported-languages-with-nodejs"></a>Démarrage rapide : Obtenir les langues prises en charge avec Node.js
 
-Dans ce démarrage rapide, vous obtenez une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text.
+Dans ce démarrage rapide, vous allez obtenir une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -91,7 +91,7 @@ GetLanguages ();
 
 ## <a name="languages-response"></a>Réponse Langues
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 {

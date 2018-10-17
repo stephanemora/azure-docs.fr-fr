@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 69898358026eab716c057f339d8594df43db136f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 11112e01e38f85db9f71280c53c27b130275d86f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629369"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498264"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Visite guidée de l’interface utilisateur de Azure IoT Central
 
@@ -39,7 +39,7 @@ Utilisez le menu de navigation gauche pour accéder aux différentes zones de l�
 
 | Menu | Description |
 | ---- | ----------- |
-| ![Menu de navigation gauche](media/overview-iot-central-tour/navigationbar.png) | <ul><li>Le bouton **Accueil** affiche la page d’accueil de votre application. En tant que générateur, vous pouvez personnaliser cette page d’accueil pour vos opérateurs.</li><li>Le bouton **Device Explorer** répertorie les modèles d’appareils définis dans votre application et les appareils simulés et réels associés à chaque modèle de périphérique. En tant qu’opérateur, vous utilisez **Device Explorer** pour gérer vos appareils connectés.</li><li>Le bouton **Device Sets** vous permet d’afficher et de créer des ensembles d’appareils. En tant qu’opérateur, vous pouvez créer des ensembles d’appareils comme une collection logique d’appareils spécifiée par une requête.</li><li>Le bouton **Analytique** montre les analytiques dérivées des données de télémétrie de l’appareil pour les appareils et les ensembles d’appareils. En tant qu’opérateur, vous pouvez créer des vues personnalisées sur des données d’appareils pour dégager des insights à partir de votre application.</li><li>Le bouton **Générateur d’applications** montre les outils utilisés par un générateur, comme l’outil **Créer un modèle d’appareil**.</li><li>Le bouton **Administration** montre les pages d’administration de l’application depuis lesquelles un administrateur peut gérer les paramètres, les utilisateurs et les rôles de l’application.</li></ul> |
+| ![Menu de navigation gauche](media/overview-iot-central-tour/navigationbar.png) | <ul><li>Le bouton **Accueil** affiche la page d’accueil de votre application. En tant que générateur, vous pouvez personnaliser cette page d’accueil pour vos opérateurs.</li><li>Le bouton **Device Explorer** répertorie les modèles d’appareils définis dans votre application et les appareils simulés et réels associés à chaque modèle de périphérique. En tant qu’opérateur, vous utilisez **Device Explorer** pour gérer vos appareils connectés.</li><li>Le bouton **Device Sets** vous permet d’afficher et de créer des ensembles d’appareils. En tant qu’opérateur, vous pouvez créer des ensembles d’appareils comme une collection logique d’appareils spécifiée par une requête.</li><li>Le bouton **Analytique** montre les analytiques dérivées des données de télémétrie de l’appareil pour les appareils et les ensembles d’appareils. En tant qu’opérateur, vous pouvez créer des vues personnalisées sur des données d’appareils pour dégager des insights à partir de votre application.</li><li>Le bouton **Tâches** permet une gestion des appareils en bloc en vous faisant créer et exécuter des tâches pour effectuer des mises à jour à grande échelle.</li><li>Le bouton **Générateur d’applications** montre les outils utilisés par un générateur, comme l’outil **Créer un modèle d’appareil**.</li><li>Le bouton **Administration** montre les pages d’administration de l’application depuis lesquelles un administrateur peut gérer les paramètres, les utilisateurs et les rôles de l’application.</li></ul> |
 
 ## <a name="search-help-and-support"></a>Recherche, aide et support
 
@@ -82,7 +82,13 @@ La page _Ensembles d’appareils_ affiche les ensembles d’appareils créés pa
 
 La page Analytics affiche les graphiques qui vous aident à comprendre comment se comportent les appareils connectés à votre application. Un opérateur utilise cette page pour surveiller et étudier les problèmes avec les appareils connectés. Le générateur peut définir les graphiques affichés sur cette page. Pour plus d’informations, consultez l’article [Créer des analytiques personnalisés pour votre application Azure IoT Central](howto-create-analytics.md).
 
-## <a name="application-builder"></a>Générateur d’applications
+## <a name="jobs"></a>Tâches
+
+![Page Tâches](media/overview-iot-central-tour/jobs.png)
+
+La page Tâches vous permet d’effectuer des opérations de gestion d’appareils en bloc sur vos appareils. Le générateur utilise cette page pour mettre à jour des commandes, des paramètres et des propriétés d’appareil. Pour plus d’informations, consultez l’article [Exécuter une tâche](howto-run-a-job.md).
+
+## <a name="application-builder"></a>Concepteur d’applications
 
 ![Page Générateur d’applications](media/overview-iot-central-tour/applicationbuilder.png)
 

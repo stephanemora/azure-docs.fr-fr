@@ -1,21 +1,21 @@
 ---
-title: 'API de traduction de texte Translator Text : rechercher de traductions alternatives avec Go | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous allez trouver des traductions alternatives et des exemples de termes en contexte à l’aide de l’API de traduction de texte Translator Text avec Go dans Cognitive Services.
+title: 'Démarrage rapide : Rechercher des traductions alternatives - Traduction de texte Translator Text, Go'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez rechercher des traductions alternatives et des exemples de termes en contexte à l’aide de l’API de traduction de texte Translator Text avec Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: a076418dbf969a61107c28f191457fc336a8b907
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 4ea21673c993c6dd9478f42bfee790b62317946f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43769783"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128874"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-go"></a>Démarrage rapide : Rechercher des traductions et des utilisations alternatives avec Go
 
@@ -31,7 +31,7 @@ Pour utiliser l’API de traduction de texte Translator Text, vous avez égaleme
 
 Pour obtenir des traductions alternatives d’un mot à l’aide de la méthode [Recherche dans le dictionnaire](./reference/v3-0-dictionary-lookup.md), procédez comme suit.
 
-1. Créez un nouveau projet Go dans votre éditeur de code favori.
+1. Créez un projet Go dans votre éditeur de code favori.
 2. Ajoutez le code ci-dessous.
 3. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
 4. Enregistrez le fichier avec une extension .go.
@@ -171,7 +171,7 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 
 Pour obtenir des exemples contextuels d’utilisation d’un terme dans le dictionnaire à l’aide de la méthode [Exemples de dictionnaire](./reference/v3-0-dictionary-examples.md).
 
-1. Créez un nouveau projet Go dans votre éditeur de code favori.
+1. Créez un projet Go dans votre éditeur de code favori.
 2. Ajoutez le code ci-dessous.
 3. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
 4. Enregistrez le fichier avec une extension .go.
@@ -250,7 +250,7 @@ func main() {
 
 ## <a name="dictionary-examples-response"></a>Réponse Exemples de dictionnaire
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [
@@ -282,7 +282,7 @@ Une réponse correcte est retournée au format JSON, comme dans l’exemple suiv
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorer des packages Go pour les API Cognitive Services à partir de [Azure SDK pour Go](https://github.com/Azure/azure-sdk-for-go) sur GitHub.
+Explorez des packages Go pour les API Cognitive Services à partir de [Azure SDK pour Go](https://github.com/Azure/azure-sdk-for-go) sur GitHub.
 
 > [!div class="nextstepaction"]
 > [Explorer des packages Go sur GitHub](https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices)

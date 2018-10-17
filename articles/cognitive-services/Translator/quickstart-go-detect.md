@@ -1,21 +1,21 @@
 ---
-title: 'L’API de traduction de texte Translator Text : identification de la langue du texte avec Go | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous identifiez la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec Go dans Cognitive Services.
+title: 'Démarrage rapide : Identifier la langue du texte - Traduction de texte Translator Text, Go'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez identifier la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec Go.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
 ms.author: nolachar
-ms.openlocfilehash: 29fac1a079455a65cc3d430c3030fed99f5cfce1
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 25834fae2ce60d93ebeb3a25298b97294748bf9b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "43769778"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129707"
 ---
 # <a name="quickstart-identify-language-from-text-with-go"></a>Démarrage rapide : Identifier la langue du texte avec Go
 
@@ -31,7 +31,7 @@ Pour utiliser l’API de traduction de texte Translator Text, vous avez égaleme
 
 Le code suivant identifie la langue du texte source en utilisant la méthode [Détecter](./reference/v3-0-detect.md).
 
-1. Créez un nouveau projet Go dans votre éditeur de code favori.
+1. Créez un projet Go dans votre éditeur de code favori.
 2. Ajoutez le code ci-dessous.
 3. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
 4. Enregistrez le fichier avec une extension .go.
@@ -106,7 +106,7 @@ func main() {
 
 ## <a name="detect-response"></a>Réponse de détection
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

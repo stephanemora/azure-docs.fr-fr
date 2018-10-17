@@ -1,21 +1,21 @@
 ---
-title: 'API de traduction de texte Translator Text : rechercher des traductions alternatives avec Ruby | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous allez trouver des traductions alternatives et des exemples de termes en contexte à l’aide de l’API de traduction de texte Translator Text avec Ruby dans Cognitive Services.
+title: 'Démarrage rapide : Rechercher des traductions alternatives - Traduction de texte Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez rechercher des traductions alternatives et des exemples de termes en contexte à l’aide de l’API de traduction de texte Translator Text avec Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 6462a48c2f15c8ac4a6b9bce49d23ea3d38dcbd5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 7cd34e3482df666de8b974380302ee6b4c592496
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769687"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122805"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-ruby"></a>Démarrage rapide : Rechercher des traductions et des utilisations alternatives avec Ruby
 
@@ -192,7 +192,7 @@ puts json
 
 ## <a name="dictionary-examples-response"></a>Réponse Exemples de dictionnaire
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

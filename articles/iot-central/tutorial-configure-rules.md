@@ -9,16 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: af2aa8d7b01d973da400808fd3e97d0739693cd2
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: fb13bcee411b4fa27bf3ce5cd62fa3a483ea23e6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236329"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731886"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Didacticiel : Configurer des règles et des actions pour votre appareil dans Azure IoT Central
 
-Ce didacticiel vous montre, en tant que générateur, comment configurer des règles et des actions basées sur la télémétrie dans votre application Microsoft Azure IoT Central.
+*Cet article s’applique aux opérateurs, aux créateurs et aux administrateurs.*
 
 Dans ce didacticiel, vous créez une règle qui envoie un courrier électronique lorsque la température d’un climatiseur raccordé dépasse 90&deg; F.
 
@@ -36,44 +36,48 @@ Avant de commencer, vous devez effectuer le tutoriel [Définir un nouveau type d
 
 1. Pour ajouter une nouvelle règle basée sur la télémétrie pour votre application, dans le menu de navigation de gauche, choisissez **Device Explorer** :
 
-    ![Page Device Explorer](media/tutorial-configure-rules/explorerpage.png)
+    ![Page Device Explorer](media/tutorial-configure-rules/explorerpage1.png)
 
     Vous voyez le modèle d’appareil **Climatiseur raccordé (1.0.0)** et l’appareil **Climatiseur raccordé-1** que vous avez créé dans le didacticiel précédent.
 
 2. Pour commencer à personnaliser votre climatiseur raccordé, choisissez l’appareil que vous avez créé dans le didacticiel précédent :
 
-    ![Page du climatiseur raccordé](media/tutorial-configure-rules/builderdevicelist.png)
+    ![Page du climatiseur raccordé](media/tutorial-configure-rules/builderdevicelist1.png)
 
-3. Pour commencer à ajouter une règle dans la vue **Règles**, choisissez **Règles** :
+3. Pour commencer à ajouter une règle dans la vue **Règles**, choisissez **Règles**, puis cliquez sur **Modifier le modèle** :
 
-    ![Vue Règles](media/tutorial-configure-rules/builderrulesview.png)
+    ![Vue Règles](media/tutorial-configure-rules/builderedittemplate.png)
 
-4. Pour commencer à créer une règle de télémétrie basée sur un seuil, choisissez **Nouvelle règle**, puis **Télémétrie**.
+4. Pour créer une règle de télémétrie basée sur un seuil, cliquez sur **Nouvelle règle**, puis sur **Télémétrie**.
+
+    ![Modifier un Modèle](media/tutorial-configure-rules/buildernewrule.png)
 
 5. Pour définir votre règle, utilisez les informations du tableau suivant :
 
-    | Paramètre     | Valeur                          |
-    | ----------- | ------------------------------ |
-    | NOM        | Température du climatiseur    |
-    | Activer la règle | Il en va                             |
-    | Condition   | Température supérieure à 90 |
+    | Paramètre                                      | Valeur                             |
+    | -------------------------------------------- | ------------------------------    |
+    | NOM                                         | Alerte de température du climatiseur |
+    | Activer la règle pour tous les appareils de ce modèle | Il en va                                |
+    | Activer la règle sur cet appareil                   | Il en va                                |
+    | Condition                                    | Température supérieure à 90    |
+    | Agrégation                                  | Aucun                              |
 
-    ![Condition de règle de température](media/tutorial-configure-rules/buildertemperaturerule.png)
+    ![Condition de règle de température](media/tutorial-configure-rules/buildertemperaturerule1.png)
 
 ## <a name="add-an-action"></a>Ajouter une action
 
 Lorsque vous définissez une règle, vous définissez également une action à exécuter lorsque les conditions de la règle sont remplies. Dans ce didacticiel, vous ajoutez une action pour envoyer un courrier électronique sous forme de notification indiquant que la règle est déclenchée.
 
-1. Pour ajouter une **Action**, faites défiler vers le bas le panneau **Configure Telemetry Rule** (Configurer une règle de télémétrie) et choisissez **+** en regard de **Actions**, puis **Courrier électronique** :
+1. Pour ajouter une **Action**, **enregistrez** d’abord la règle, puis faites défiler vers le bas le panneau **Configurer une règle de télémétrie** et choisissez **+** en regard de **Actions**, puis **E-mail** :
 
-    ![Action de règle de température](media/tutorial-configure-rules/builderaddaction.png)
+    ![Action de règle de température](media/tutorial-configure-rules/builderaddaction1.png)
 
 2. Pour définir votre action, utilisez les informations du tableau suivant :
 
     | Paramètre   | Valeur                          |
     | --------- | ------------------------------ |
     | À        | Votre adresse e-mail             |
-    | Notes     | La température dans le climatiseur dépasse le seuil. |
+    | Notes     | La température du climatiseur a dépassé le seuil. |
 
     > [!NOTE]
     > Pour recevoir une notification par courrier électronique, l’adresse e-mail doit être un [ID d’utilisateur dans l’application](howto-administer.md), et l’utilisateur doit s’être connecté au moins une fois à l’application.
@@ -82,7 +86,10 @@ Lorsque vous définissez une règle, vous définissez également une action à e
 
 3. Choisissez **Enregistrer**. Votre règle est répertoriée dans la page **Règles** :
 
-    ![Règles du Générateur d’applications](media/tutorial-configure-rules/builderrules.png)
+    ![Règles du Générateur d’applications](media/tutorial-configure-rules/builderrules1.png)
+
+4. Choisissez **Terminé** pour quitter le mode **Modifier le modèle**.
+ 
 
 ## <a name="test-the-rule"></a>Tester la règle
 
@@ -92,7 +99,7 @@ Peu après l’enregistrement de la règle, elle devient active. Lorsque les con
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 <!-- Repeat task list from intro -->
 > [!div class="nextstepaction"]

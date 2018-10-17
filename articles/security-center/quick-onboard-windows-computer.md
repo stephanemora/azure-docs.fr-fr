@@ -3,7 +3,7 @@ title: Démarrage rapide Azure Security Center - Intégrer des ordinateurs Windo
 description: Ce guide de démarrage rapide explique comment approvisionner Microsoft Monitoring Agent sur un ordinateur Windows.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 61e95a87-39c5-48f5-aee6-6f90ddcd336e
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
-ms.author: terrylan
-ms.openlocfilehash: b872153278810ce92f19c7c71fe473a2b77def35
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/2/2018
+ms.author: rkarlin
+ms.openlocfilehash: 55bb7242427bf85d10fac0a44e2b2eac3a5181ad
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38702655"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022998"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Démarrage rapide : Intégrer des ordinateurs Windows à Azure Security Center
 Après avoir intégré vos abonnements Azure, vous pouvez activer Security Center pour des ressources qui s’exécutent en dehors d’Azure, par exemple, en local ou dans d’autres clouds, en approvisionnant Microsoft Monitoring Agent.
@@ -39,14 +39,14 @@ Vous devez utiliser le niveau tarifaire Standard de Security Center pour commenc
 
  ![Vue d’ensemble de Security Center][2]
 
-3. Dans le menu principal de Security Center, sélectionnez **Intégration à la sécurité avancée**.
-4. Sélectionnez **Voulez-vous ajouter des ordinateurs extérieurs à Azure**.
+3. Dans le menu principal de Security Center, sélectionnez **Prise en main**.
+4. Sélectionnez l’onglet **Prise en main**.
 
-   ![Intégrer à la sécurité avancée][3]
+   ![Prise en main][3]
 
-5. Dans **Ajouter de nouveaux ordinateurs extérieurs à Azure** apparaît la liste de vos espaces de travail Log Analytics. Elle comprend, le cas échéant, l’espace de travail par défaut créé pour vous par Security Center à l’activation de l’approvisionnement automatique. Sélectionnez cet espace de travail ou un autre espace de travail à utiliser.
+5. Cliquez sur **Configurer** sous **Ajouter de nouveaux ordinateurs non Azure**. Une liste de vos espaces de travail Log Analytics apparaît. Elle comprend, le cas échéant, l’espace de travail par défaut créé pour vous par Security Center à l’activation de l’approvisionnement automatique. Sélectionnez cet espace de travail ou un autre espace de travail à utiliser.
 
-    ![Ajouter un ordinateur autre qu’Azure][4]
+    ![Ajouter un ordinateur autre qu’Azure](./media/quick-onboard-windows-computer/non-azure.png)
 
   Le panneau **Agent direct** s’ouvre et affiche un lien permettant de télécharger un agent Windows et des clés pour votre ID d’espace de travail, qui serviront à la configuration de l’agent.
 
@@ -104,7 +104,7 @@ Dans ce guide de démarrage rapide, vous avez approvisionné Microsoft Monitorin
 
 <!--Image references-->
 [2]: ./media/quick-onboard-windows-computer/overview.png
-[3]: ./media/quick-onboard-windows-computer/onboard-windows-computer.png
+[3]: ./media/quick-onboard-windows-computer/get-started.png
 [4]: ./media/quick-onboard-windows-computer/add-computer.png
 [5]: ./media/quick-onboard-windows-computer/log-analytics-mma-setup-laworkspace.png
 [6]: ./media/quick-onboard-windows-computer/compute.png

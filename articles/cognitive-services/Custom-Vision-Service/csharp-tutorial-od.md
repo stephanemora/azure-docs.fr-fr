@@ -1,22 +1,24 @@
 ---
-title: Créer un projet de détection d’objet en C# - Service Vision personnalisée - Azure Cognitive Services | Microsoft Docs
-description: Explorer une application Windows de base qui utilise l’API Vision personnalisée dans Cognitive Services. Créez un projet, ajoutez des balises, téléchargez des images, formez votre projet et faites une prédiction à l’aide du point de terminaison par défaut.
+title: 'Tutoriel : Créer un projet de détection d’objets en C# - Service Vision personnalisée'
+titlesuffix: Azure Cognitive Services
+description: Créez un projet, ajoutez des mots clés, chargez des images, entraînez votre projet et effectuez une prédiction en utilisant le point de terminaison par défaut.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: e3def864267a590c86a2dd6663561d8488081ad6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "36301078"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366911"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-in-c35"></a>Utiliser l’API Vision personnalisée pour créer un projet de détection d’objet en C&#35; 
+# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>Tutoriel : Utiliser l’API Vision personnalisée pour créer un projet de détection d’objets en C#
+
 Découvrez comment utiliser une application Windows de base qui utilise l’API Vision par ordinateur pour créer un projet de détection d’objet. Une fois le projet créé, vous pouvez ajouter des régions balisées, charger des images, former le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet, et utiliser le point de terminaison pour tester une image par programmation. Utilisez cet exemple open source comme modèle pour créer votre propre application pour Windows à l’aide de l’API Vision personnalisée.
 
 ## <a name="prerequisites"></a>Prérequis

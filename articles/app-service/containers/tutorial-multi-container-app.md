@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: e99d6e917df1bf3bbb4658524f1b3e249a01da72
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ff3659bd0f4001424ce27484f08a645f364c2ef6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433882"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054636"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Didacticiel : Création d’une application à plusieurs conteneurs (version préliminaire) à l’aide d’Azure Web App pour conteneurs
 
-[Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Dans ce didacticiel, vous allez apprendre à créer une application à plusieurs conteneurs à l’aide de WordPress et de MySQL. Vous allez effectuer ce tutoriel dans Cloud Shell, mais vous pouvez également exécuter ces commandes localement avec [Cloud Shell](/cli/azure/install-azure-cli) (2.0.32 ou ultérieur).
+[Web App pour conteneurs](app-service-linux-intro.md) fournit une solution souple d’utilisation des images Docker. Dans ce didacticiel, vous allez apprendre à créer une application à plusieurs conteneurs à l’aide de WordPress et de MySQL. Vous allez effectuer ce tutoriel dans Cloud Shell, mais vous pouvez également exécuter ces commandes localement avec l’outil en ligne de commande [Azure CLI](/cli/azure/install-azure-cli) (2.0.32 ou ultérieur).
 
 Ce didacticiel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -588,6 +588,30 @@ Une fois la base de données créée, Cloud Shell affiche des informations simil
 }
 ```
 
+### <a name="create-a-multi-container-app-kubernetes"></a>Création d’une application à plusieurs conteneurs (Kubernetes)
+
+Dans Cloud Shell, créez une [application web](app-service-linux-intro.md) multiconteneur dans le groupe de ressources `myResourceGroup` et le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
+
+```bash
+az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
+```
+
+Une fois l’application web créée, Cloud Shell affiche une sortie similaire à l’exemple suivant :
+
+```json
+{
+  "availabilityState": "Normal",
+  "clientAffinityEnabled": true,
+  "clientCertEnabled": false,
+  "cloningInfo": null,
+  "containerSize": 0,
+  "dailyMemoryTimeQuota": 0,
+  "defaultHostName": "<app_name>.azurewebsites.net",
+  "enabled": true,
+  < JSON data removed for brevity. >
+}
+```
+
 ### <a name="configure-database-variables-in-wordpress"></a>Configuration des variables de la base de données dans WordPress
 
 Pour connecter l’application WordPress à ce nouveau serveur MySQL, vous devez configurer quelques variables d’environnement spécifiques à WordPress. Pour faire cette modification, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell. Les paramètres d’application respectent la casse et sont séparés par des espaces.
@@ -645,30 +669,6 @@ Une fois le paramètre d’application créé, Cloud Shell affiche des informati
     "value": "TRUE"
   }
 ]
-```
-
-### <a name="create-a-multi-container-app-kubernetes"></a>Création d’une application à plusieurs conteneurs (Kubernetes)
-
-Dans Cloud Shell, créez une [application web](app-service-linux-intro.md) multiconteneur dans le groupe de ressources `myResourceGroup` et le plan App Service `myAppServicePlan` avec la commande [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create). N’oubliez pas de remplacer _\<app_name>_ par un nom d’application unique.
-
-```bash
-az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type kube --multicontainer-config-file kubernetes-wordpress.yml
-```
-
-Une fois l’application web créée, Cloud Shell affiche une sortie similaire à l’exemple suivant :
-
-```json
-{
-  "availabilityState": "Normal",
-  "clientAffinityEnabled": true,
-  "clientCertEnabled": false,
-  "cloningInfo": null,
-  "containerSize": 0,
-  "dailyMemoryTimeQuota": 0,
-  "defaultHostName": "<app_name>.azurewebsites.net",
-  "enabled": true,
-  < JSON data removed for brevity. >
-}
 ```
 
 ### <a name="browse-to-the-app"></a>Accéder à l’application

@@ -1,28 +1,29 @@
 ---
-title: Démarrage rapide de l’API Recherche Web | Microsoft Docs
+title: Démarrage rapide de l’API Recherche Web
+titleSuffix: Azure Cognitive Services
 description: Prise en main de l’API Recherche Web Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 27B4B51A-D017-44C8-8E4E-9684DC553886
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: quickstart
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 0b8c4678a518985a4be3ee426a85b0a85dd2365d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: af32abe1c61c44b14d0f70033aee54aa7eba7c8b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368085"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126239"
 ---
 # <a name="your-first-bing-search-query"></a>Votre première requête de recherche Bing
 
 Avant de pouvoir passer votre premier appel, vous devez obtenir une clé d’abonnement Cognitive Services. Pour obtenir une clé, rendez-vous sur la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).
 
 Pour obtenir les résultats de la recherche web, vous devez envoyer une requête GET au point de terminaison suivant :  
-  
+
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/search
 ```  
@@ -30,24 +31,24 @@ https://api.cognitive.microsoft.com/bing/v7.0/search
 La requête doit utiliser le protocole HTTPS.
 
 Nous vous recommandons de générer toutes les requêtes à partir d’un serveur. Si vous diffusez la clé dans le cadre d’une application client, vous prenez le risque qu’un tiers malveillant puisse y accéder. Par ailleurs, en appelant l’API à partir d’un serveur, vous disposez d’un unique point de mise à niveau pour les prochaines versions de l’API.  
-  
+
 La requête doit indiquer le paramètre [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query), qui contient le terme de recherche de l’utilisateur. La requête peut également indiquer le paramètre [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#mkt) (facultatif), qui vous permet de choisir le marché d’où proviennent les résultats. Pour obtenir la liste des paramètres de requête facultatifs tels que `responseFilter` et `textDecorations`, consultez la page [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query-parameters) (Paramètres de requête). Toutes les valeurs de paramètres de requête doivent être codées au format URL.  
-  
-La requête doit indiquer l’en-tête [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey). Nous vous conseillons également d’indiquer les en-têtes suivants (qui sont facultatifs) :  
-  
+
+La requête doit indiquer l’en-tête [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#subscriptionkey). Nous vous conseillons également d’indiquer les en-têtes suivants (qui sont facultatifs) :  
+
 -   [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#useragent)  
 -   [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientid)  
 -   [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#clientip)  
 -   [X-Search-Location](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#location)  
 
-Les en-têtes d’emplacement et d’adresse IP client sont importants, car ils permettent de renvoyer du contenu géolocalisé. Par exemple, si la requête de l’utilisateur est *voile+cours*, il est probablement intéressé par des cours situés à proximité de l’endroit où il se trouve. Si vous souhaitez que les résultats contiennent des cours à proximité de l’emplacement où se trouve l’utilisateur, vous devez inclure l’en-tête d’emplacement et éventuellement l’en-tête d’adresse IP client. Cela est moins important si le terme de requête indique spécifiquement un emplacement (par exemple, voile+cours+floride+keys). 
+Les en-têtes d’emplacement et d’adresse IP client sont importants, car ils permettent de renvoyer du contenu géolocalisé. Par exemple, si la requête de l’utilisateur est *voile+cours*, il est probablement intéressé par des cours situés à proximité de l’endroit où il se trouve. Si vous souhaitez que les résultats contiennent des cours à proximité de l’emplacement où se trouve l’utilisateur, vous devez inclure l’en-tête d’emplacement et éventuellement l’en-tête d’adresse IP client. Cela est moins important si le terme de requête indique spécifiquement un emplacement (par exemple, voile+cours+floride+keys).
 
 Pour obtenir la liste complète des en-têtes de requête et de réponse, consultez la page [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers) (En-têtes).
 
 ## <a name="the-request"></a>La requête
 
-Vous trouverez ci-dessous une requête de recherche qui inclut tous les paramètres de requête et les en-têtes suggérés. Si vous appelez l’une des API Bing pour la première fois, n’incluez pas l’en-tête ID client. Indiquez uniquement l’ID client si vous avez précédemment appelé une API Bing et si Bing a renvoyé un ID client pour la combinaison utilisateur/appareil. 
-  
+Vous trouverez ci-dessous une requête de recherche qui inclut tous les paramètres de requête et les en-têtes suggérés. Si vous appelez l’une des API Bing pour la première fois, n’incluez pas l’en-tête ID client. Indiquez uniquement l’ID client si vous avez précédemment appelé une API Bing et si Bing a renvoyé un ID client pour la combinaison utilisateur/appareil.
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+lessons+seattle&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -57,7 +58,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```  
 
-Voici la réponse à la requête précédente. L’exemple montre également les en-têtes de réponse spécifiques à Bing.
+Voici la réponse à la requête précédente. L’exemple montre également les en-têtes de réponse propres à Bing.
 
 ```
 BingAPIs-TraceId: 76DD2C2549B94F9FB55B4BD6FEB6AC
@@ -265,6 +266,6 @@ BingAPIs-Market: en-US
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayez l’API. Accédez à la [console de test de l’API Recherche Web](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d). 
+Essayez l’API. Accédez à la [console de test de l’API Recherche Web](https://dev.cognitive.microsoft.com/docs/services/56b43eeccf5ff8098cef3807/operations/56b4447dcf5ff8098cef380d).
 
 Pour en savoir plus sur la consommation des objets de réponse, consultez la page [Bing Web Search Documentation](./search-the-web.md) (Documentation sur Recherche Web Bing).

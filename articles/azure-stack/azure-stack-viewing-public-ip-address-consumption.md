@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 0f77be49-eafe-4886-8c58-a17061e8120f
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 50bf01d6de6105d3041c6bb88e803f3d110f751d
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: 6207a77555d0d4656c0728dddec769e483f4d762
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29742456"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378242"
 ---
 # <a name="view-public-ip-address-consumption-in-azure-stack"></a>Afficher la consommation d’adresses IP publiques dans Azure Stack
 
@@ -39,9 +38,8 @@ L’élément de menu **Adresses IP publiques** sous **Ressources de locataire**
 ## <a name="view-the-public-ip-address-usage-information"></a>Afficher les informations d’utilisation d’adresses IP publiques
 Pour afficher le nombre total d’adresses IP publiques qui ont été consommées dans la région :
 
-1. Dans le portail d’administration Azure Stack, sélectionnez **Autres services**, sous **Ressources administratives**, sélectionnez **Fournisseurs de ressources**.
-2. Dans la liste des **Fournisseurs de ressources**, sélectionnez **Réseau**.
-3. Le volet **Réseau** affiche la vignette **Utilisation des pools d’adresses IP publiques** dans la section **Vue d’ensemble**.
+1. Dans le portail d’administration Azure Stack, sélectionnez **Tous les services**. Ensuite, sous la catégorie **ADMINISTRATION**, sélectionnez **Réseau**.
+1. Le volet **Réseau** affiche la vignette **Utilisation des pools d’adresses IP publiques** dans la section **Vue d’ensemble**.
 
 ![Volet Fournisseur de ressources réseau](media/azure-stack-viewing-public-ip-address-consumption/image01.png)
 
@@ -61,11 +59,11 @@ Quand une adresse IP publique est affectée, elle apparaît dans une liste ou da
 
 | **Cas d’affectation d’adresses IP publiques** | **Apparaît dans le récapitulatif d’utilisation** | **Apparaît dans la liste d’adresses IP publiques du locataire** |
 | --- | --- | --- |
-| Adresse IP publique dynamique non encore affectée à une carte réseau ou un équilibreur de charge (temporaire) |Non  |OUI |
-| Adresse IP publique dynamique affectée à une carte réseau ou un équilibreur de charge. |OUI |OUI |
-| Adresse IP publique statique affectée à une carte réseau ou un équilibreur de charge du locataire. |OUI |OUI |
-| Adresse IP publique statique affectée à un point de terminaison de service d’infrastructure fabric. |OUI |Non  |
-| Adresse IP publique implicitement créée pour des instances de machine virtuelle IaaS et utilisée pour les règles NAT de trafic sortant sur le réseau virtuel. Ces adresses IP sont créées en arrière-plan chaque fois qu’un locataire crée une instance de machine virtuelle pour que les machines virtuelles puissent envoyer des informations sur Internet. |OUI |Non  |
+| Adresse IP publique dynamique non encore affectée à une carte réseau ou un équilibreur de charge (temporaire) |Non  |Oui |
+| Adresse IP publique dynamique affectée à une carte réseau ou un équilibreur de charge. |Oui |Oui |
+| Adresse IP publique statique affectée à une carte réseau ou un équilibreur de charge du locataire. |Oui |Oui |
+| Adresse IP publique statique affectée à un point de terminaison de service d’infrastructure fabric. |Oui |Non  |
+| Adresse IP publique implicitement créée pour des instances de machine virtuelle IaaS et utilisée pour les règles NAT de trafic sortant sur le réseau virtuel. Ces adresses IP sont créées en arrière-plan chaque fois qu’un locataire crée une instance de machine virtuelle pour que les machines virtuelles puissent envoyer des informations sur Internet. |Oui |Non  |
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 [Gérer les comptes de stockage dans Azure Stack](azure-stack-manage-storage-accounts.md)

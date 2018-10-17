@@ -4,15 +4,15 @@ description: Fournit une vue d’ensemble du service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 08/08/2018
+ms.date: 09/25/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 8371a160d129586f63b2f14946ed34a8d0637f6c
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: d2a8885ffb9148d408eff0e8a7d2ef09121e5359
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39714238"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47162032"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -33,9 +33,12 @@ Azure Migrate vous aide à :
 - Si vous souhaitez évaluer des machines virtuelles Hyper et des serveurs physiques, utilisez le [Planificateur de déploiement Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) pour Hyper-V et nos [outils partenaires](https://azure.microsoft.com/migration/partners/) pour les machines physiques.
 - Vous pouvez détecter jusqu’à 1500 machines virtuelles par détection et jusqu’à 1500 machines virtuelles par projet. En outre, vous pouvez évaluer jusqu’à 1500 machines virtuelles par évaluation.
 - Si vous voulez découvrir un environnement plus grand, vous pouvez séparer la découverte et créer plusieurs projets. [Plus d’informations](how-to-scale-assessment.md) Azure Migrate prend en charge jusqu’à 20 projets par abonnement.
-- Vous ne pouvez créer un projet Azure Migrate que dans la région USA Centre-Ouest ou USA Est. Cela n’affecte pas votre capacité à planifier la migration vers n’importe quel emplacement Azure cible. L’emplacement du projet de migration est utilisé uniquement pour stocker les métadonnées détectées à partir de l’environnement local.
 - Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
+- Vous ne pouvez créer un projet Azure Migrate que dans la zone géographique États-Unis. Cela n’affecte pas votre capacité à planifier la migration vers n’importe quel emplacement Azure cible. La zone géographique du projet de migration est utilisée uniquement pour stocker les métadonnées détectées à partir de l’environnement local. [En savoir plus](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment) sur les métadonnées recueillies par Azure Migrate. Les métadonnées recueillies sont stockées dans une des régions de la [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) :
 
+**Zone géographique** | **Régions**
+--- | ---
+États-Unis | Centre-Ouest des États-Unis, USA Est
 
 ## <a name="what-do-i-need-to-pay-for"></a>Pour quoi dois-je payer ?
 
@@ -49,14 +52,14 @@ Les paramètres d’évaluation peuvent être personnalisés selon vos besoins. 
 **Propriété** | **Détails**
 --- | ---
 **Emplacement cible** | Emplacement Azure vers lequel vous souhaitez migrer.<br/><br/>Azure Migrate prend actuellement en charge 30 régions. [Vérifier les régions](https://azure.microsoft.com/global-infrastructure/services/). USA Ouest 2 est la région cible par défaut.
-**Type de stockage** | le type de disques que vous souhaitez allouer dans Azure. Elle s’applique lorsque le critère de dimensionnement est **en local**. Vous spécifiez le type de disque cible en tant que disques managés Premium (par défaut) ou Standard. Pour le dimensionnement basé sur les performances, la suggestion de dimensionnement du disque est automatiquement effectuée selon les données de performances des machines virtuelles. 
-**Critère de dimensionnement** | Le dimensionnement peut être basé sur **l’historique des performances** des machines virtuelles locales, ou **localement** (par défaut) sans tenir compte de l’historique des performances. 
+**Type de stockage** | le type de disques que vous souhaitez allouer dans Azure. Elle s’applique lorsque le critère de dimensionnement est **en local**. Vous spécifiez le type de disque cible en tant que disques managés Premium (par défaut) ou Standard. Pour le dimensionnement basé sur les performances, la suggestion de dimensionnement du disque est automatiquement effectuée selon les données de performances des machines virtuelles.
+**Critère de dimensionnement** | Le dimensionnement peut être basé sur **l’historique des performances** des machines virtuelles locales, ou **localement** (par défaut) sans tenir compte de l’historique des performances.
 **Offre Azure** | L’[offre Azure](https://azure.microsoft.com/support/legal/offer-details/) à laquelle vous êtes inscrit. Azure Migrate estime le coût en conséquence.
 **Azure Hybrid Benefit** | Si vous disposez de Software Assurance et que vous êtes éligible à [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-use-benefit/) avec des réductions.
 **Instances réservées** |  Si vous disposez d’[instances réservées](https://azure.microsoft.com/pricing/reserved-vm-instances/) dans Azure. Azure Migrate estime le coût en conséquence.
 **Durée de fonctionnement de la machine virtuelle** | La durée pendant laquelle les machines virtuelles seront exécutées dans Azure. Les estimations de coût sont effectuées en conséquence.
 **Niveau tarifaire** | Le [niveau tarifaire (de base/standard)](../virtual-machines/windows/sizes-general.md) des machines virtuelles Azure cibles. Par exemple, si vous envisagez de migrer un environnement de production, vous pouvez prendre en compte le niveau Standard, qui fournit des machines virtuelles avec une faible latence, mais est sans doute plus coûteux. En revanche, dans un environnement de test, vous pouvez utiliser le niveau de base avec une latence plus élevée et des coûts plus faibles. Par défaut le niveau [standard](../virtual-machines/windows/sizes-general.md) est utilisé.
-**Historique des performances** | Par défaut, Azure Migrate évalue les performances des machines locales à l’aide de l’historique des performances du dernier jour, avec une valeur de centile de 95 %. 
+**Historique des performances** | Par défaut, Azure Migrate évalue les performances des machines locales à l’aide de l’historique des performances du dernier jour, avec une valeur de centile de 95 %.
 **Séries de machine virtuelle** | Les séries de machine virtuelle utilisées pour les estimations de taille. Par exemple, si vous disposez d’un environnement de production que vous ne souhaitez pas migrer vers des machines virtuelles de série A dans Azure, vous pouvez exclure la série A de la liste ou des séries. Le dimensionnement est uniquement basé sur les séries sélectionnées.   
 **Facteur de confort** | Azure Migrate considère une mémoire tampon (facteur de confort) au cours de l’évaluation. Cette mémoire tampon est appliquée sur des données d’utilisation de l’ordinateur pour les machines virtuelles (processeur, mémoire, disque et réseau). Le facteur de confort prend en compte les problèmes, tels que l’utilisation saisonnière, l’historique des performances de courte durée et l’augmentation probable de l’utilisation future.<br/><br/> Par exemple, une machine virtuelle de 10 cœurs avec 20 % d’utilisation correspond normalement à une machine virtuelle à 2 cœurs. Toutefois, avec un facteur de confort de 2.0x, le résultat est une machine virtuelle de 4 cœurs. Le paramètre de confort par défaut est 1.3x.
 
@@ -80,10 +83,10 @@ Les paramètres d’évaluation peuvent être personnalisés selon vos besoins. 
 Le tableau récapitule les ports nécessaires pour les communications d’Azure Migrate.
 
 Composant | Communique avec |  Détails
---- | --- |--- 
+--- | --- |---
 Collecteur  | Service Azure Migrate | Le collecteur se connecte au service via le port SSL 443.
-Collecteur | Serveur vCenter | Par défaut, le collecteur se connecte au serveur vCenter via le port 443. Si le serveur écoute sur un port différent, configurez-le comme port sortant sur le collecteur de machine virtuelle. 
-Machine virtuelle locale | Espace de travail Log Analytics | [TCP 443] | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) utilise le port TCP 443 pour se connecter à Log Analytics. Vous avez besoin de ce port uniquement si vous utilisez la fonctionnalité de visualisation des dépendances nécessitant l’agent MMA. 
+Collecteur | Serveur vCenter | Par défaut, le collecteur se connecte au serveur vCenter via le port 443. Si le serveur écoute sur un port différent, configurez-le comme port sortant sur le collecteur de machine virtuelle.
+Machine virtuelle locale | Espace de travail Log Analytics | [TCP 443] | [Microsoft Monitoring Agent (MMA)](../log-analytics/log-analytics-windows-agent.md) utilise le port TCP 443 pour se connecter à Log Analytics. Vous avez besoin de ce port uniquement si vous utilisez la fonctionnalité de visualisation des dépendances nécessitant l’agent MMA.
 
 
 ## <a name="what-happens-after-assessment"></a>Que se passe-t-il après l’évaluation ?
@@ -91,7 +94,7 @@ Machine virtuelle locale | Espace de travail Log Analytics | [TCP 443] | [Micros
 Une fois que vous avez évalué des machines locales, vous pouvez utiliser deux outils pour effectuer la migration :
 
 - **Azure Site Recovery** : vous pouvez utiliser Azure Site Recovery pour migrer vers Azure. Pour ce faire, vous [préparez les composants Azure](../site-recovery/tutorial-prepare-azure.md) dont vous avez besoin, y compris un compte de stockage et un réseau virtuel. En local, vous [préparez votre environnement VMware](../site-recovery/vmware-azure-tutorial-prepare-on-premises.md). Lorsque tout est prêt, vous configurez et activez la réplication vers Azure et vous migrez les machines virtuelles. [Plus d’informations](../site-recovery/vmware-azure-tutorial.md)
-- **Azure Database Migration**: si des machines locales sont en cours d’exécution sur une base de données telle que SQL Server, MySQL ou Oracle, vous pouvez utiliser [Azure Database Migration Service](../dms/dms-overview.md) pour les migrer vers Azure. 
+- **Azure Database Migration**: si des machines locales sont en cours d’exécution sur une base de données telle que SQL Server, MySQL ou Oracle, vous pouvez utiliser [Azure Database Migration Service](../dms/dms-overview.md) pour les migrer vers Azure.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

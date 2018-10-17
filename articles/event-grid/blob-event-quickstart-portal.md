@@ -8,12 +8,12 @@ ms.author: tomfitz
 ms.date: 08/13/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: a47beb3e4299c62ec4b7959b4834d0440fee06f7
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 17fba267e85c7b1421e632930c8bea2bfaf6ff5f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744583"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736493"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Créer et acheminer des événements de stockage d’objets blob avec le portail Azure et Event Grid
 
@@ -37,7 +37,7 @@ Une fois que vous avez fini, vous voyez que les données d’événement ont ét
 
    ![Sélectionner Stockage](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Pour les événements, vous devez créer un [compte de stockage d’objets blob](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) ou un [compte de stockage v2 à usage général](../storage/common/storage-account-options.md#general-purpose-v2-accounts). Pour les applications qui requièrent uniquement le stockage d’objets blob de blocs ou d’objets blob d’ajout, nous recommandons d’utiliser des comptes de stockage d’objets blob. Fournissez des valeurs pour le compte d’objets blob ou de stockage V2. Attribuez un nom unique au compte. Après avoir défini les valeurs, sélectionnez **Créer**.
+1. Pour s’abonner à des événements, créez un compte de stockage v2 à usage général ou un compte de stockage d’objets blob. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](../storage/common/storage-quickstart-create-account.md) .
 
    ![Étapes de démarrage](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

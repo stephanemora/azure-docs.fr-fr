@@ -3,27 +3,26 @@ title: Recherche interactive sur une carte avec Azure Maps | Microsoft Docs
 description: 'Guide de démarrage rapide Azure : Lancer une démonstration de recherche interactive sur une carte avec Azure Maps'
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 002d9820cb4414d8f33cdd362e28f31e7e8b6273
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: cf39ad460d163a996bd2e0aa522d634cf485d83a
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989552"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541549"
 ---
 # <a name="launch-an-interactive-search-map-using-azure-maps"></a>Lancer une carte de recherche interactive avec Azure Maps
 
-Cet article décrit les fonctionnalités d’Azure Maps qui consistent à créer une carte offrant aux utilisateurs une expérience de recherche interactive. Il explique également dans les grandes lignes comment créer son propre compte Maps et obtenir une clé de compte pour pouvoir l’utiliser dans l’application web de démonstration. 
+Cet article décrit les fonctionnalités d’Azure Maps qui consistent à créer une carte offrant aux utilisateurs une expérience de recherche interactive. Il explique également dans les grandes lignes comment créer son propre compte Maps et obtenir une clé de compte pour pouvoir l’utiliser dans l’application web de démonstration.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-
-## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure
+## <a name="log-in-to-the-azure-portal"></a>Se connecter au portail Azure.
 
 Connectez-vous au [portail Azure](https://portal.azure.com/).
 
@@ -31,36 +30,34 @@ Connectez-vous au [portail Azure](https://portal.azure.com/).
 
 1. En haut à gauche du [portail Azure](https://portal.azure.com), cliquez sur **Créer une ressource**.
 2. Dans la zone *Rechercher sur la Place de marché*, tapez **Maps**.
-3. Dans les *Résultats*, sélectionnez **Maps**. Cliquez sur le bouton **Créer** qui s’affiche sous la carte. 
+3. Dans les *Résultats*, sélectionnez **Maps**. Cliquez sur le bouton **Créer** qui s’affiche sous la carte.
 4. Sur la page **Créer un compte Maps**, entrez les valeurs suivantes :
-    - Le *Nom* de votre nouveau compte. 
+    - Le *Nom* de votre nouveau compte.
     - *L’Abonnement* à utiliser pour ce compte.
     - Le *Groupe de ressources* de ce compte. Vous pouvez choisir de *Créer* ou d’utiliser un groupe de ressources *Existant*.
     - Sélectionnez *l’Emplacement du groupe de ressources*.
-    - Lisez la *Licence* et la *Déclaration de confidentialité*, puis cochez la case pour accepter les conditions. 
+    - Lisez la *Licence* et la *Déclaration de confidentialité*, puis cochez la case pour accepter les conditions.
     - Enfin, cliquez sur le bouton **Créer**.
 
     ![Créer un compte Maps sur le Portail](./media/quick-demo-map-app/create-account.png)
 
-5. Une fois votre compte créé, ouvrez-le et accédez à la section Paramètres du menu Compte. Cliquez sur **Clés** pour afficher les clés primaire et secondaire de votre compte Azure Maps. Copiez la valeur de la **Clé primaire** dans le Presse-papiers local afin de pouvoir l’utiliser dans la section suivante. 
+5. Une fois votre compte créé, ouvrez-le et accédez à la section Paramètres du menu Compte. Cliquez sur **Clés** pour afficher les clés primaire et secondaire de votre compte Azure Maps. Copiez la valeur de la **Clé primaire** dans le Presse-papiers local afin de pouvoir l’utiliser dans la section suivante.
 
 ## <a name="download-the-application"></a>Télécharger l’application
 
 1. Téléchargez ou copiez le contenu du fichier [interactiveSearch.html](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/interactiveSearch.html).
 2. Enregistrez le contenu de ce fichier localement en tant que **AzureMapDemo.html** et ouvrez-le dans un éditeur de texte.
-3. Recherchez la chaîne `<insert-key>` et remplacez-la par la valeur de la **Clé primaire** obtenue dans la section précédente. 
-
+3. Recherchez la chaîne `<insert-key>` et remplacez-la par la valeur de la **Clé primaire** obtenue dans la section précédente.
 
 ## <a name="launch-the-application"></a>Lancer l’application
 
 1. Ouvrez le fichier **AzureMapDemo.html** dans le navigateur de votre choix.
 2. Observez la carte de la ville de Los Angeles. Effectuez un zoom avant et arrière : la carte affiche automatiquement plus ou moins d’informations selon le niveau de zoom. 
-3. Modifiez le centre par défaut de la carte. Dans le fichier **AzureMapDemo.html**, recherchez la variable nommée **center**. Remplacez la paire de valeurs longitude, latitude de cette variable par les nouvelles valeurs : **[-74.0060, 40.7128]**. Enregistrez le fichier et actualisez votre navigateur. 
-3. Testez l’expérience de recherche interactive. Dans la zone de recherche en haut à gauche de l’application web de démonstration, recherchez **restaurants**. 
-4. Déplacez votre souris sur la liste des adresses/emplacements qui s’affichent sous la zone de recherche, et notez comment la punaise correspondante sur la carte affiche des informations sur cet emplacement. Pour des raisons de confidentialité des entreprises privées, des adresses et des noms fictifs sont présentés. 
+3. Modifiez le centre par défaut de la carte. Dans le fichier **AzureMapDemo.html**, recherchez la variable nommée **center**. Remplacez la paire de valeurs longitude, latitude de cette variable par les nouvelles valeurs : **[-74.0060, 40.7128]**. Enregistrez le fichier et actualisez votre navigateur.
+4. Testez l’expérience de recherche interactive. Dans la zone de recherche en haut à gauche de l’application web de démonstration, recherchez **restaurants**.
+5. Déplacez votre souris sur la liste des adresses/emplacements qui s’affichent sous la zone de recherche, et notez comment la punaise correspondante sur la carte affiche des informations sur cet emplacement. Pour des raisons de confidentialité des entreprises privées, des adresses et des noms fictifs sont présentés.
 
     ![Application web de recherche interactive](./media/quick-demo-map-app/interactive-search.png)
-
 
 ## <a name="clean-up-resources"></a>Supprimer les ressources
 

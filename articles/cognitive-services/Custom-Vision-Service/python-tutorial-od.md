@@ -1,22 +1,23 @@
 ---
-title: Détection d’objet avec Python et l’API Vision personnalisée - Azure Cognitive Services | Microsoft Docs
-description: Exploration d’une application Windows de base qui utilise l’API Vision personnalisée dans Microsoft Cognitive Services. Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage votre projet ainsi qu’une prédiction en utilisant le point de terminaison par défaut.
+title: 'Tutoriel : Créer un projet de détection des objets - API Vision personnalisée, Python'
+titlesuffix: Azure Cognitive Services
+description: Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage votre projet ainsi qu’une prédiction en utilisant le point de terminaison par défaut.
 services: cognitive-services
 author: areddish
-manager: chbuehle
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: 37bdb9ebf7c74586c728e171a9897903b8ad2ee8
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213579"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363698"
 ---
-# <a name="use-custom-vision-api-to-build-an-object-detection-project-with-python"></a>Utiliser l’API Vision personnalisée pour créer une détection d’objet avec Python
+# <a name="tutorial-build-an-object-detection-project-with-python"></a>Tutoriel : Créer un projet de détection des objets avec Python
 
 Explorez un script Python de base qui utilise l’API Vision par ordinateur pour créer un projet de détection d’objet. Une fois le projet créé, vous pouvez ajouter des régions balisées, charger des images, effectuer l’apprentissage du projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser le point de terminaison pour tester une image par programmation. Utilisez cet exemple open source comme modèle de création pour votre propre application au moyen de l’API Vision personnalisée.
 

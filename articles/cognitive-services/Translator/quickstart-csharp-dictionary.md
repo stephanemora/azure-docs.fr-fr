@@ -1,31 +1,33 @@
 ---
-title: 'API de traduction de texte Translator Text : rechercher des traductions alternatives avec C# | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous allez trouver des traductions alternatives et des exemples de termes en contexte à l’aide de l’API de traduction de texte Translator Text avec C# dans Cognitive Services.
+title: 'Démarrage rapide : Rechercher des traductions alternatives - API de traduction de texte Translator Text, C#'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez rechercher des traductions alternatives et des exemples de termes en contexte à l’aide de l’API de traduction de texte Translator Text avec C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 3f45e7281456f9ae09912a2ee665cb480dc5052f
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 328f5996a9b830ea6c2ff4b4a535d5311f39e08e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43769514"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365254"
 ---
 # <a name="quickstart-find-alternate-translations-and-usage-with-c35"></a>Démarrage rapide : Rechercher des traductions et des utilisations alternatives avec C&#35;
 
 Ce démarrage rapide vous fournit des informations détaillées sur les traductions alternatives possibles d’un terme, ainsi que des exemples d’utilisation de ces traductions alternatives, à l’aide de l’API de traduction de texte Translator Text.
 
+Le code source pour cet exemple est disponible sur [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+
 ## <a name="prerequisites"></a>Prérequis
 
 Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour exécuter ce code sur Windows. (La version Community Edition gratuite fonctionne.)
 
-Pour utiliser l’API de traduction de texte Translator Text, vous avez également besoin d’une clé d’abonnement. Consultez [Comment s’inscrire à l’API de traduction de texte Translator Text](translator-text-how-to-signup.md).
+Pour utiliser l’API de traduction de texte Translator Text, vous avez également besoin d’une clé d’abonnement. Consultez [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Comment s’inscrire à l’API de traduction de texte Translator Text).
 
 ## <a name="dictionary-lookup-request"></a>Requête Recherche dans le dictionnaire
 
@@ -216,7 +218,7 @@ namespace TranslatorTextQuickStart
 
 ## <a name="dictionary-examples-response"></a>Réponse Exemples de dictionnaire
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

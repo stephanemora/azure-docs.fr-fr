@@ -8,36 +8,36 @@ ms.service: postgresql
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: sewatson
-ms.openlocfilehash: 9c930d1171b77ddf0bb6621fbf012f98816fd763
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 6282acaf165d2f31a1a1ac525dad75ebc64a2a7c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23073841"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434787"
 ---
 # <a name="azure-database-for-postgresql-documentation"></a>Base de données Azure pour obtenir une Documentation PostgreSQL
 
-Base de données Azure pour PostgreSQL est un service de base de données relationnelle basé sur le moteur de base de données Postgres open source. Il est une base de données entièrement géré en tant que service capable de gérer des charges de travail critiques avec des performances prévisibles, la sécurité, haute disponibilité et l’évolutivité dynamique de l’offre.  Développer des applications avec la base de données Azure pour PostgreSQL en exploitant les outils open source et la plateforme de votre choix.  Découvrez comment utiliser Azure Web Apps avec nos guides de démarrage rapide, nos didacticiels et nos exemples.
+Azure Database pour PostgreSQL est un service de base de données relationnelle basé sur le moteur de base de données Postgres open source. Il est une base de données entièrement géré en tant que service capable de gérer des charges de travail critiques avec des performances prévisibles, la sécurité, haute disponibilité et l’évolutivité dynamique de l’offre.  Développer des applications avec Azure Database pour PostgreSQL en exploitant les outils open source et la plateforme de votre choix.  Découvrez comment utiliser Azure Web Apps avec nos guides de démarrage rapide, nos didacticiels et nos exemples.
 
 ## <a name="5-minute-quickstarts"></a>Démarrages en 5 minutes
 
 Découvrez comment créer une base de données PostgreSQL grâce à :
 
-- [portail Azure](/azure/postgresql/quickstart-create-server-database-portal)
-- [Interface de ligne de commande Azure](/azure/postgresql/quickstart-create-server-database-azure-cli)
+- [Portail Azure](/azure/postgresql/quickstart-create-server-database-portal)
+- [interface de ligne de commande Azure](/azure/postgresql/quickstart-create-server-database-azure-cli)
 
 ## <a name="step-by-step-tutorials"></a>Didacticiels pas à pas
 
 Découvrez comment :
 
 - Concevoir une base de données : [Portail Azure](/azure/postgresql/tutorial-design-database-using-azure-portal) |  [Azure CLI](/azure/postgresql/tutorial-design-database-using-azure-cli)
-- [Créer une application web à l’aide de Python et de l’interface CLI](/azure/app-service-web/app-service-web-tutorial-docker-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json)
+- [Créer une application web à l’aide de Python et de l’interface CLI](/azure/app-service/containers/tutorial-python-postgresql-app?toc=%2fazure%2fpostgresql%2ftoc.json)
 
 ## <a name="samples"></a>Exemples 
 
 Trouvez des scripts pour gérer les tâches courantes.
 
-- [Interface de ligne de commande Azure](/azure/postgresql/sample-scripts-azure-cli)
+- [interface de ligne de commande Azure](/azure/postgresql/sample-scripts-azure-cli)
 
 ## <a name="more"></a>En savoir plus
 

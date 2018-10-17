@@ -1,25 +1,25 @@
 ---
-title: Obtention des longueurs de phrase à l’aide de l’API de traduction de texte Translator Text et de Java | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 'Démarrage rapide : Obtenir la longueur des phrases - Traduction de texte Translator Text, Java'
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous recherchez les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text avec Java dans Cognitive Services.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 1e68f6b888aa670644ef1e05e5f4f3e26cf70b18
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: d0459b04bbd0dbbda3dab80623a39742a6f843b2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43769561"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122618"
 ---
 # <a name="quickstart-get-sentence-lengths-with-java"></a>Démarrage rapide : Obtenir les longueurs de phrase avec Java
 
-Dans ce démarrage rapide, vous recherchez les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text.
+Dans ce démarrage rapide, vous allez rechercher les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -142,7 +142,7 @@ public class BreakSentences {
 
 ## <a name="breaksentence-response"></a>Réponse BreakSentence
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

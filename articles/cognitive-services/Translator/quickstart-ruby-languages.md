@@ -1,25 +1,25 @@
 ---
-title: Obtention des langues prises en charge à l’aide de l’API de traduction de texte Translator Text et de Ruby| Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous obtenez une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text avec Ruby dans Cognitive Services.
+title: 'Démarrage rapide : Obtenir les langues prises en charge - Traduction de texte Translator Text, Ruby'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez obtenir la liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text avec Ruby.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 1080d79f6dddfd57816989b7d1c4f95348493ad6
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: f000d2c4c1519f26b4d82a36803b86f016716c5e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769676"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121836"
 ---
 # <a name="quickstart-get-supported-languages-with-ruby"></a>Démarrage rapide : Obtenir les langues prises en charge avec Ruby
 
-Dans ce démarrage rapide, vous obtenez une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text.
+Dans ce démarrage rapide, vous allez obtenir une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -74,7 +74,7 @@ end
 
 ## <a name="languages-response"></a>Réponse Langues
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 {

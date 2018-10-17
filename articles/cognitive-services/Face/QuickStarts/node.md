@@ -1,25 +1,25 @@
 ---
-title: 'Démarrage rapide : API Visage avec Node.js | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
+title: 'Démarrage rapide : Détecter les visages dans une image - API Visage, Node.js'
+titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous détectez les visages dans une image à l’aide de l’API Visage avec Node.js dans Cognitive Services.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 06/08/2018
 ms.author: nolachar
-ms.openlocfilehash: 15e6db9c9d92e60f18bf2d7708403fd8b0b7a990
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 53d5ed6c13c2f2822374134d8b403493079e1956
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "43769481"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123995"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-nodejs"></a>Démarrage rapide : Détecter les visages dans une image à l’aide de Node.js
 
-Dans ce démarrage rapide, vous détectez des visages humains dans une image à l’aide de l’API Visage.
+Dans ce démarrage rapide, vous allez détecter des visages humains dans une image à l’aide de l’API Visage.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -273,7 +273,7 @@ Une réponse correcte est retournée au format JSON, par exemple :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les API visage utilisées pour détecter les visages humains dans une image, délimiter les visages avec des rectangles et retourner des attributs tels que l’âge et le sexe.
+Explorez les API Visage utilisées pour détecter les visages humains dans une image, délimiter les visages avec des rectangles et retourner des attributs tels que l’âge et le sexe.
 
 > [!div class="nextstepaction"]
 > [API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

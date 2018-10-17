@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: b9ba2bb89bb0d7e16a28a165cf14530a7a10f71b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 35f4d2adfe3ca64496139cdd708fb5f52f8721ee
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234748"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023475"
 ---
 # <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Didacticiel : mettre des bases de données SQL à la disposition de vos utilisateurs Azure Stack
 
@@ -59,12 +59,12 @@ Maintenant que vous avez déployé le fournisseur de ressources SQL Server et c
 1. Connectez-vous au portail Azure Stack (https://portal.local.azurestack.external) en tant que locataire.
 2. Sélectionnez **Prendre un abonnement**, puis entrez **TestSQLServerSubscription** sous **Nom d’affichage**.
 3. Sélectionnez **Sélectionner une offre** > **TestSQLServerOffer** > **Créer**.
-4. Sélectionnez **Plus de services** > **Abonnements** > **TestSQLServerSubscription** > **Fournisseurs de ressources**.
+4. Sélectionnez **Tous les services** > **Abonnements** > **TestSQLServerSubscription** > **Fournisseurs de ressources**.
 5. Sélectionnez **Inscrire** en regard du fournisseur **Microsoft.SQLAdapter**.
 
 ### <a name="create-a-sql-database"></a>Créer une base de données SQL
 
-1. Sélectionnez **+** > **Données et stockage** > **Base de données SQL**.
+1. Sélectionnez **+** > **Données et stockage** > **Base de données SQL**.
 2. Conservez les valeurs par défaut ou utilisez ces exemples pour les champs suivants :
     - **Nom de la base de données** : SQLdb
     - **Taille maximale (en Mo)**  : 100
@@ -76,7 +76,7 @@ Maintenant que vous avez déployé le fournisseur de ressources SQL Server et c
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Déployer le fournisseur de ressources SQL Server

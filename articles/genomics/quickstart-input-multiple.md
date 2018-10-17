@@ -1,22 +1,19 @@
 ---
-title: 'Démarrage rapide : Soumettre un workflow à l’aide d’entrées multiples | Microsoft Docs'
+title: 'Démarrage rapide : Soumettre un workflow à l’aide d’entrées multiples - Microsoft Genomics'
 titleSuffix: Azure
-description: Le démarrage rapide suppose que le client msgen est installé et que vous avez exécuté l’exemple de données dans le service.
-services: microsoft-genomics
+description: Le démarrage rapide suppose que le client msgen est installé et que vous avez exécuté l’échantillon de données dans le service.
+services: genomics
 author: grhuynh
-manager: jhubbard
-editor: jasonwhowell
+manager: cgronlund
 ms.author: grhuynh
-ms.service: microsoft-genomics
-ms.workload: genomics
 ms.topic: quickstart
 ms.date: 02/05/2018
-ms.openlocfilehash: 7aeb4d5ad939cefcf8300b78b4afcc9d91ca0624
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 1007d81a73ce9f183f997354188e534274b2fe95
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29119993"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730360"
 ---
 # <a name="submit-a-workflow-using-multiple-inputs-from-the-same-sample"></a>Soumettre un workflow à l’aide d’entrées multiples d’un seul exemple
 
@@ -157,5 +154,5 @@ output_storage_account_container: outputs
 
 Envoyez le fichier `config.txt` avec cet appel : `msgen submit -f config.txt`
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Dans cet article, vous avez chargé plusieurs fichiers BAM ou des fichiers FASTQ appariés dans Stockage Azure et avez soumis un workflow au service Microsoft Genomics via le client Python `msgen`. Pour plus d’informations sur la soumission du workflow et les autres commandes pouvant être utilisées avec le service Microsoft Genomics, consultez la [FAQ](frequently-asked-questions-genomics.md). 

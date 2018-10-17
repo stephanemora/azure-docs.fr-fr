@@ -1,25 +1,25 @@
 ---
-title: Chargement d’images Bing pour obtenir des informations | Microsoft Docs
-description: Application console qui utilise l’API Recherche d’images Bing pour charger une image et obtenir des informations à son sujet.
+title: 'Tutoriel : Extraire les détails de l’image avec C# - API Recherche d’images Bing'
+titleSuffix: Azure Cognitive Services
+description: Utilisez cet article pour créer une application C# qui extrait les détails de l’image avec l’API Recherche d’images Bing.
 services: cognitive-services
-author: mikedodaro
-manager: rosh
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
-ms.date: 12/07/2017
-ms.author: v-gedod
-ms.openlocfilehash: f0bf32a9951527a072fffe464f6b5f50d0f237a2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.topic: tutorial
+ms.date: 9/14/2018
+ms.author: aahi
+ms.openlocfilehash: 96d011a04c97d309409062a286bdd7a17db9cda5
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367893"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297654"
 ---
-# <a name="tutorial-bing-image-upload-for-insights"></a>Didacticiel : chargement d’images Bing pour obtenir des informations
+# <a name="tutorial-extract-image-details-using-the-bing-image-search-api-and-c"></a>Tutoriel : Extraire les détails de l’image avec l’API Recherche d’images Bing et C#
 
-L’API Recherche d’images Bing fournit une option `POST` permettant de charger une image et de rechercher des informations pertinentes à son sujet. Cette application console C# charge une image à l’aide du point de terminaison Recherche d’images pour obtenir des informations.
-En résumé, les résultats sont des objets JSON semblables aux résultats suivants :
+Plusieurs [points de terminaison](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint) sont disponibles via l’API Recherche d’images Bing. Le point de terminaison `/details` accepte une requête POST avec une image, et peut retourner divers détails relatifs à l’image. Cette application C# envoie une image à l’aide de cette API et affiche les détails retournés par Bing, qui sont des objets JSON, par exemple les éléments suivants :
 
 ![[Résultats JSON]](media/cognitive-services-bing-images-api/jsonResult.jpg)
 
@@ -32,154 +32,85 @@ Ce didacticiel explique comment :
 > * Télécharger les données de l’image et envoyer la requête `POST`
 > * Imprimer les résultats JSON vers la console
 
-## <a name="app-components"></a>Composants de l’application
+Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/Tutorials/BingGetSimilarImages.cs).
 
-L’application du didacticiel comprend trois parties :
+## <a name="prerequisites"></a>Prérequis
 
-> [!div class="checklist"]
-> * Configuration du point de terminaison pour spécifier le point de terminaison Recherche d’images Bing et les en-têtes nécessaires
-> * Téléchargement du fichier image pour la requête `POST` vers le point de terminaison
-> * Analyse des résultats JSON qui constituent les détails renvoyés par la requête `POST`
+* N’importe quelle édition de [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/).
 
-## <a name="scenario-overview"></a>Présentation du scénario
-Il existe [trois points de terminaison Recherche d’images](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/image-search-endpoint). Le point de terminaison `/details` peut utiliser une requête `POST` avec les données de l’image dans le corps de la requête.
+[!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
+
+## <a name="construct-an-image-details-search-request"></a>Construire une requête de recherche de détails d’image
+
+Voici le point de terminaison `/details`, qui accepte les requêtes POST avec des données d’image dans le corps de la requête.
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
-Le paramètre d’URL `modules` qui suit `/details?` spécifie le type d’informations qui sont intégrées dans les résultats :
+
+Lors de la construction de l’URL de requête de recherche, le paramètre `modules` suit le point de terminaison ci-dessus et spécifie les types de détails que contiennent les résultats :
+
 * `modules=All`
 * `modules=RecognizedEntities` (personnes ou lieux visibles dans l’image)
 
-Spécifiez `modules=All` dans la requête `POST` pour obtenir du texte JSON comprenant la liste suivante :
+Spécifiez `modules=All` dans la requête POST pour obtenir du texte JSON qui inclut les éléments suivants :
+
 * `bestRepresentativeQuery` - une requête Bing qui renvoie des images similaire à l’image chargée
-* `detectedObjects` - objets détectés tels qu’un rectangle englobant ou une zone réactive dans l’image
-* `image` - métadonnées de l’image
-* `imageInsightsToken` - jeton en vue d’une requête `GET` ultérieure obtenant `RecognizedEntities` (personnes ou lieux visibles dans l’image) 
-* `imageTags`
-* `pagesIncluding` - pages Web où l’image est intégrée
-* `relatedSearches`
-* `visuallySimilarImages`
+* `detectedObjects` : objets se trouvant dans l’image
+* `image` : métadonnées de l’image
+* `imageInsightsToken` : un jeton pour une requête GET ultérieure qui obtient `RecognizedEntities` (personnes ou endroits visibles dans l’image) à partir de l’image.
+* `imageTags` : étiquettes pour l’image
+* `pagesIncluding` - pages web où l’image est intégrée
+* `relatedSearches` - recherches basées sur les détails de l’image.
+* `visuallySimilarImages` - images similaires sur le web.
 
-Spécifiez `modules=RecognizedEntities` dans la requête `POST` pour n’obtenir que le jeton `imageInsightsToken`, qui sera utilisé dans une requête `GET` ultérieure. Les personnes ou lieux visibles dans l’image seront identifiés.
+Spécifiez `modules=RecognizedEntities` dans la requête POST pour obtenir uniquement `imageInsightsToken`, qui peut être utilisé dans une requête GET ultérieure pour identifier les personnes ou les lieux figurant dans l’image.
 
-## <a name="webclient-and-headers-for-the-post-request"></a>WebClient et en-têtes pour la requête POST
+## <a name="create-a-webclient-object-and-set-headers-for-the-api-request"></a>Créer un objet WebClient et définir des en-têtes pour la requête d’API
+
 Créez un objet `WebClient` et définissez les en-têtes. Pour effectuer des requêtes vers l’API Recherche Bing, vous avez besoin d’une clé `Ocp-Apim-Subscription-Key`. La requête `POST` permettant de charger une image doit également spécifier `ContentType: multipart/form-data`.
 
-```
-            WebClient client = new WebClient();
-            client.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
-            client.Headers["ContentType"] = "multipart/form-data"; 
-```
-
-## <a name="upload-the-image-and-get-results"></a>Télécharger l’image et obtenir des résultats
-
-La classe `WebClient`inclut la méthode`UpLoadFile` qui met en forme les données pour la requête `POST`. Elle met en forme `RequestStream` et appelle `HttpWebRequest` afin de simplifier le processus.
-Appelez `WebClient.UpLoadFile` avec le point de terminaison `/details` et le fichier image à télécharger. La réponse comporte des données binaires qui sont facilement converties au format JSON. 
-
-Utilisez le texte JSON pour initialiser une instance de la structure `SearchResult` (consultez le [code source de l’application](tutorial-image-post-source.md) pour en savoir plus sur le contexte).
-```        
-         const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/details";
-
-        // The image to upload. Replace with your file and path.
-        const string imageFile = "ansel-adams-tetons-snake-river.jpg";
-            
-        byte[] resp = client.UploadFile(uriBase + "?modules=All", imageFile);
-        var json = System.Text.Encoding.Default.GetString(resp);
-
-        // Create result object for return
-        var searchResult = new SearchResult()
-        {
-            jsonResult = json,
-            relevantHeaders = new Dictionary<String, String>()
-        };
+```javascript
+WebClient client = new WebClient();
+client.Headers["Ocp-Apim-Subscription-Key"] = accessKey;
+client.Headers["ContentType"] = "multipart/form-data";
 ```
 
-## <a name="print-the-results"></a>Imprimer les résultats
-Le reste du code analyse le résultat JSON et l’imprime dans la console.
+## <a name="upload-the-image-and-display-the-results"></a>Charger l’image et afficher les résultats
 
+La méthode `UpLoadFile()` de la classe `WebClient` met en forme les données de la requête `POST`, notamment la mise en forme de `RequestStream` et l’appel de `HttpWebRequest`.
+
+Appelez `WebClient.UpLoadFile()` avec le point de terminaison `/details` et le fichier image à télécharger. Utilisez la réponse JSON pour initialiser une instance de la structure `SearchResult` et stocker la réponse.
+
+```javascript        
+const string uriBase = "https://api.cognitive.microsoft.com/bing/v7.0/images/details";
+// The image to upload. Replace with your file and path.
+const string imageFile = "your-image.jpg";
+byte[] resp = client.UploadFile(uriBase + "?modules=All", imageFile);
+var json = System.Text.Encoding.Default.GetString(resp);
+// Create result object for return
+var searchResult = new SearchResult()
+{
+    jsonResult = json,
+    relevantHeaders = new Dictionary<String, String>()
+};
 ```
-        /// <summary>
-        /// Formats the given JSON string by adding line breaks and indents.
-        /// </summary>
-        /// <param name="json">The raw JSON string to format.</param>
-        /// <returns>The formatted JSON string.</returns>
-        static string JsonPrettyPrint(string json)
-        {
-            if (string.IsNullOrEmpty(json))
-                return string.Empty;
+Cette réponse JSON peut ensuite être affichée sur la console.
 
-            json = json.Replace(Environment.NewLine, "").Replace("\t", "");
+## <a name="use-an-image-insights-token-in-a-request"></a>Utiliser un jeton d’insights sur l’image dans une requête
 
-            StringBuilder sb = new StringBuilder();
-            bool quote = false;
-            bool ignore = false;
-            char last = ' ';
-            int offset = 0;
-            int indentLength = 2;
+Pour utiliser le `ImageInsightsToken` retourné avec les résultats d’un `POST`, vous pouvez l’ajouter à une requête `GET`. Par exemple : 
 
-            foreach (char ch in json)
-            {
-                switch (ch)
-                {
-                    case '"':
-                        if (!ignore) quote = !quote;
-                        break;
-                    case '\\':
-                        if (quote && last != '\\') ignore = true;
-                        break;
-                }
-
-                if (quote)
-                {
-                    sb.Append(ch);
-                    if (last == '\\' && ignore) ignore = false;
-                }
-                else
-                {
-                    switch (ch)
-                    {
-                        case '{':
-                        case '[':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', ++offset * indentLength));
-                            break;
-                        case '}':
-                        case ']':
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', --offset * indentLength));
-                            sb.Append(ch);
-                            break;
-                        case ',':
-                            sb.Append(ch);
-                            sb.Append(Environment.NewLine);
-                            sb.Append(new string(' ', offset * indentLength));
-                            break;
-                        case ':':
-                            sb.Append(ch);
-                            sb.Append(' ');
-                            break;
-                        default:
-                            if (quote || ch != ' ') sb.Append(ch);
-                            break;
-                    }
-                }
-                last = ch;
-            }
-
-            return sb.ToString().Trim();
-        }
-```
-## <a name="get-request-using-the-imageinsightstoken"></a>Requête GET à l’aide du jeton ImageInsightsToken
-Pour utiliser le jeton `ImageInsightsToken` renvoyé avec les résultats d’une requête `POST`, créez une requête `GET` de la façon suivante :
 ```
 https://api.cognitive.microsoft.com/bing/v7.0/images/details?InsightsToken="bcid_A2C4BB81AA2C9EF8E049C5933C546449*ccid_osS7gaos*mid_BF7CC4FC4A882A3C3D56E644685BFF7B8BACEAF2
 ```
+
 Si des personnes ou des lieux peuvent être identifiés dans l’image, cette requête renverra des informations à leur sujet.
-Les [démarrages rapides](https://docs.microsoft.com/azure/cognitive-services/bing-image-search) contiennent de nombreux exemples de code.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [Informations de référence sur l’API Recherche d’images Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+> [Afficher des images et des options de recherche dans une application web monopage ](tutorial-bing-image-search-single-page-app.md)
 
+## <a name="see-also"></a>Voir aussi
+
+* [Informations de référence sur l’API Recherche d’images Bing](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

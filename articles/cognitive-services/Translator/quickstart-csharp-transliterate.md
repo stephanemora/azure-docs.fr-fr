@@ -1,31 +1,33 @@
 ---
-title: 'L’API de traduction de texte Translator Text : conversion de script de texte avec C# | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous convertirez du texte dans une langue d’un script vers un autre à l’aide de l’API de traduction de texte Translator Text avec C# dans Cognitive Services.
+title: 'Démarrage rapide : Convertir un script de texte - Traduction de texte Translator Text, C#'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez convertir le texte d’un script d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec C#.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 66d649c0015be8c6a74e9925af68297334bfdb30
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 53ac3f4aa85e889c86d09927ece7df012427e4a9
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "43769498"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367591"
 ---
 # <a name="quickstart-transliterate-text-with-c35"></a>Démarrage rapide : Translittérer du texte avec C&#35;
 
 Dans ce démarrage rapide, vous convertissez du texte dans la langue d’un script vers une autre à l’aide de l’API de traduction de texte Translator Text.
 
+Le code source pour cet exemple est disponible sur [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
+
 ## <a name="prerequisites"></a>Prérequis
 
 Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downloads/) pour exécuter ce code sur Windows. (La version Community Edition gratuite fonctionne.)
 
-Pour utiliser l’API de traduction de texte Translator Text, vous avez également besoin d’une clé d’abonnement. Consultez [Comment s’inscrire à l’API de traduction de texte Translator Text](translator-text-how-to-signup.md).
+Pour utiliser l’API de traduction de texte Translator Text, vous avez également besoin d’une clé d’abonnement. Consultez [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Comment s’inscrire à l’API de traduction de texte Translator Text).
 
 ## <a name="transliterate-request"></a>Requête Translittérer
 
@@ -93,7 +95,7 @@ namespace TranslatorTextQuickStart
 
 ## <a name="transliterate-response"></a>Réponse Translittérer
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

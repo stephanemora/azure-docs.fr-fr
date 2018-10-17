@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: fc17ce0ebd13fb7e89405fcf4d6633551f340a27
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: bdf31c72fbcd8941161e6b9df0a490df7f6a16e0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43050422"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026516"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Provisionner le stockage sur disque de machines virtuelles dans Azure Stack
 
@@ -30,9 +30,13 @@ Cet article décrit comment provisionner le stockage sur disque de machines virt
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Azure Stack prend en charge l’utilisation de [disques non managés](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) sur les machines virtuelles à la fois comme disque de système d’exploitation et comme disque de données.
+À compter de la version 1808, Azure Stack prend en charge l’utilisation de disques managés et non managés sur les machines virtuelles, à la fois comme disque de système d’exploitation et comme disque de données. Avant la version 1808, seuls les disques non managés sont pris en charge. 
 
-Pour utiliser des disques non managés, vous créez un [compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) pour stocker les disques. Les disques que vous créez sont appelés « disques de machine virtuelle » et sont stockés dans des conteneurs, dans le compte de stockage.
+Les **[disques managés](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)** simplifient la gestion des disques des machines virtuelles Azure IaaS, en gérant les comptes de stockage associés aux disques de machines virtuelles. Vous spécifiez simplement la taille du disque dont vous avez besoin, et Azure Stack crée et gère le disque pour vous.
+
+Les **[disques non managés](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)** nécessitent la création d’un [compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) pour stocker les disques. Les disques que vous créez sont appelés « disques de machine virtuelle » et sont stockés dans des conteneurs, dans le compte de stockage.
+
+ 
 
 ### <a name="best-practice-guidelines"></a>Conseils de bonnes pratiques
 

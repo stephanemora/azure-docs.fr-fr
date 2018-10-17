@@ -1,22 +1,23 @@
 ---
-title: Prise en main de l’API de liaison d'entités | Microsoft Docs
-description: Analysez du texte et liez des entités nommées aux entrées adéquates dans une base de connaissances à l’aide de l’API de liaison d'entités dans Cognition Services.
+title: 'Tutoriel : Créer une application de liaison d’entités - C#'
+titlesuffix: Azure Cognitive Services
+description: Analysez du texte et liez des entités nommées aux entrées adéquates dans une base de connaissances à l’aide de l’API de liaison d’entités.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: entity-linking-intelligence
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/06/2016
 ms.author: davl
-ms.openlocfilehash: 54c4a3bbb3637c248bd7705ed291633368b542c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 907b4cab483f1bf63a864094530784f9c632a1c8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368101"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365636"
 ---
-# <a name="get-started-with-entity-linking-api-in-c35"></a>Prise en main de l’API de liaison d'entités dans C&#35;
+# <a name="tutorial-build-an-entity-linking-app-with-c"></a>Tutoriel : Créer une application de liaison d’entités en C#
 
 La liaison d'entités de Microsoft est un outil de traitement de langage naturel qui analyse du texte et lie des entités nommées aux entrées adéquates dans une base de connaissances. 
 

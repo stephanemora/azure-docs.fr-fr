@@ -3,18 +3,17 @@ title: Registres de conteneurs Docker privés dans Azure
 description: Présentation du service Azure Container Registry, proposant des registres Docker privés, gérés et basés sur le cloud.
 services: container-registry
 author: stevelas
-manager: jeconnoc
 ms.service: container-registry
 ms.topic: overview
-ms.date: 05/08/2018
+ms.date: 09/25/2018
 ms.author: stevelas
 ms.custom: mvc
-ms.openlocfilehash: f282d7d6950278d0c270009256cf054a0d630e60
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5d60144c6b3aada74e4b89c905085835dd5b32d2
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43120633"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47031323"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Présentation des registres de conteneurs Docker privés dans Azure
 
@@ -28,12 +27,12 @@ Pour en savoir plus Docker et les conteneurs, consultez [l’aperçu de Docker](
 
 Extrayez des images à partir d’un registre de conteneur Azure pour différents objectifs de déploiement :
 
-* Des **systèmes d’orchestration évolutifs** qui gèrent des applications en conteneur sur des clusters d’hôtes, y compris du [contrôleur de domaine/système d’exploitation](https://docs.mesosphere.com/), [Docker Swarm](https://docs.docker.com/swarm/) et [Kubernetes](http://kubernetes.io/docs/).
+* Des **systèmes d’orchestration évolutifs** qui gèrent des applications en conteneur sur des clusters d’hôtes, y compris de [Kubernetes](http://kubernetes.io/docs/), [du contrôleur de domaine/système d’exploitation](https://docs.mesosphere.com/) et de [Docker Swarm](https://docs.docker.com/swarm/).
 * Des **services Azure** qui prennent en charge la création et l’exécution des applications à grande échelle, y compris [Azure Kubernetes Service (AKS)](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/) et d’autres services.
 
-Les développeurs peuvent également effectuer un push vers un registre de conteneur dans le cadre d’un flux de travail de développement de conteneur. Par exemple, ciblez un registre de conteneur à partir d’un outil de développement et d’intégration continu comme [Visual Studio Team Services](https://www.visualstudio.com/docs/overview) ou [Jenkins](https://jenkins.io/).
+Les développeurs peuvent également effectuer un push vers un registre de conteneur dans le cadre d’un flux de travail de développement de conteneur. Par exemple, ciblez un registre de conteneur à partir d’un outil de développement et d’intégration continu comme [Azure DevOps Services](https://www.visualstudio.com/docs/overview) ou [Jenkins](https://jenkins.io/).
 
-Configurez les tâches de build [ACR Build](#azure-container-registry-build) pour automatiquement recréer les images d’application au moment de la mise à jour de leurs images de base. Utilisez ACR Build pour automatiser les builds d’image lorsque votre équipe valide le code dans un référentiel Git. *ACR Build est actuellement en version préliminaire.*
+Configurez [ACR Tasks](#azure-container-registry-build) pour automatiquement recréer les images d’application au moment de la mise à jour de leurs images de base. Utilisez ACR Tasks pour automatiser les builds d’image lorsque votre équipe valide le code dans un référentiel Git.
 
 ## <a name="key-concepts"></a>Concepts clés
 
@@ -51,14 +50,14 @@ Configurez les tâches de build [ACR Build](#azure-container-registry-build) pou
 
 * **Conteneur** : un conteneur définit une application logicielle et ses dépendances encapsulées dans un système de fichiers complet, y compris le code, l’exécution, les outils système et les bibliothèques. Exécutez des conteneurs Docker basés sur des images Windows ou Linux que vous extrayez à partir d’un registre de conteneur. Les conteneurs en cours d’exécution sur un même ordinateur partagent le noyau du système d’exploitation. Les conteneurs Docker sont entièrement portables sur toutes les principales distributions Linux, macOS et Windows.
 
-## <a name="azure-container-registry-build-preview"></a>Azure Container Registry Build (version préliminaire)
+## <a name="azure-container-registry-tasks"></a>Tâches Azure Container Registry
 
-[Azure Container Registry Build](container-registry-build-overview.md) (ACR Build) est une suite de fonctionnalités d’Azure Container Registry qui fournit des builds d’images de conteneur Docker rationalisés et efficaces dans Azure. Utilisez ACR Build pour étendre votre développement interne dans le cloud en déchargeant les opérations `docker build` vers Azure. Configurez des tâches de build pour automatiser le pipeline des mises à jour correctives (infrastructure et système d’exploitation du conteneur) et ainsi créer automatiquement des images lorsque votre équipe valide le code pour contrôler la source.
+[Azure Container Registry Tasks](container-registry-tasks-overview.md) (ACR Tasks) est une suite de fonctionnalités d’Azure Container Registry qui fournit des builds d’images de conteneur Docker rationalisés et efficaces dans Azure. Utilisez ACR Tasks pour étendre votre développement interne dans le cloud en déchargeant les opérations `docker build` vers Azure. Configurez des tâches de build pour automatiser le pipeline des mises à jour correctives (infrastructure et système d’exploitation du conteneur) et ainsi créer automatiquement des images lorsque votre équipe valide le code pour contrôler la source.
 
-[!INCLUDE [container-registry-build-preview-note](../../includes/container-registry-build-preview-note.md)]
+[Tâches à plusieurs étapes](container-registry-tasks-overview.md#multi-step-tasks-preview), une fonctionnalité d’évaluation d’ACR Tasks, permet la définition et l’exécution basées sur une tâche pour la génération, le test et la mise à jour corrective d’images de conteneur dans le cloud. Les étapes de la tâche définissent les opérations build et push d’une image de conteneur individuelle. Elles permettent également de définir l’exécution d’un ou plusieurs conteneurs, en utilisant à chaque étape le conteneur comme son environnement d’exécution.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Créer un registre de conteneur à l’aide du portail Azure](container-registry-get-started-portal.md)
 * [Créer un registre de conteneur à l’aide de l’interface de ligne de commande Azure](container-registry-get-started-azure-cli.md)
-* [Automatiser les mises à jour correctives du système d’exploitation et de l’infrastructure avec ACR Build](container-registry-build-overview.md) (version préliminaire)
+* [Automatiser les mises à jour correctives du système d’exploitation et de l’infrastructure avec ACR Tasks](container-registry-tasks-overview.md)

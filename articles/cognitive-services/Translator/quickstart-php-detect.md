@@ -1,21 +1,21 @@
 ---
-title: 'L’API de traduction de texte Translator Text : identification de la langue du texte avec PHP | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous identifiez la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec PHP dans Cognitive Services.
+title: 'Démarrage rapide : Identifier la langue du texte - Traduction de texte Translator Text, PHP'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous identifiez la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec PHP.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
 ms.author: nolachar
-ms.openlocfilehash: 2888ea96ac31d56f6870b2f2ccbb04ff8328a1b8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: cb643503f72f9cf21c83f35477ca6878d8938339
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "43769736"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125967"
 ---
 # <a name="quickstart-identify-language-from-text-with-php"></a>Démarrage rapide : Identifier la langue du texte avec PHP
 
@@ -106,7 +106,7 @@ echo $json;
 
 ## <a name="detect-response"></a>Réponse Détecter
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

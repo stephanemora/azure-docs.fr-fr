@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : intégration continue/déploiement continu de Jenkins vers des machines virtuelles Azure avec Team Services | Microsoft Docs'
+title: 'Tutoriel : intégration continue/déploiement continu de Jenkins vers des machines virtuelles Azure avec Azure DevOps Services | Microsoft Docs'
 description: Avec ce didacticiel, vous allez apprendre à configurer l’intégration continue (CI) et le déploiement continu (CD) d’une application Node.js en utilisant Jenkins sur des machines virtuelles Azure à partir de Release Management dans Visual Studio Team Services ou Microsoft Team Foundation Server
 author: tomarcher
 manager: jpconnock
@@ -13,38 +13,40 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: d3a4a81f60f4e70c2c7576c3176e2b4d6de08d04
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: cfe67fbed61b4af9b4a4f5b490397ca1a6e1d752
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390593"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299489"
 ---
-# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-visual-studio-team-services"></a>Didacticiel : déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Visual Studio Team Services
+# <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Tutoriel : déployer votre application vers des machines virtuelles Linux dans Azure à l’aide de Jenkins et Azure DevOps Service
 
-L’intégration continue (CI) et le déploiement continu (CD) constituent un pipeline via lequel vous pouvez générer, mettre en production et déployer votre code. Visual Studio Team Services fournit un ensemble complet d’outils d’automatisation CI/CD pour le déploiement sur Azure. Jenkins est un outil serveur CI/CD tiers populaire qui propose également l’automatisation CI/CD. Vous pouvez utiliser Team Services et Jenkins ensemble pour personnaliser la façon dont vous proposez votre service ou application cloud.
+L’intégration continue (CI) et le déploiement continu (CD) constituent un pipeline via lequel vous pouvez générer, mettre en production et déployer votre code. Azure DevOps Services fournit un ensemble complet d’outils d’automatisation CI/CD pour le déploiement sur Azure. Jenkins est un outil serveur CI/CD tiers populaire qui propose également l’automatisation CI/CD. Vous pouvez utiliser Azure DevOps Services et Jenkins ensemble pour personnaliser la façon dont vous proposez votre service ou application cloud.
 
-Dans ce didacticiel, vous allez utiliser Jenkins pour générer une application web Node.js. Vous utiliserez ensuite Team Services ou Team Foundation Server pour la déployer dans un [groupe de déploiement](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) qui contient des machines virtuelles Linux. Vous allez apprendre à effectuer les actions suivantes :
+Dans ce didacticiel, vous allez utiliser Jenkins pour générer une application web Node.js. Vous utilisez ensuite Azure DevOps pour la déployer
+
+dans un [groupe de déploiement](https://docs.microsoft.com/en-us/azure/devops/pipelines/release/deployment-groups/index?view=vsts) qui contient des machines virtuelles Linux. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Obtenir l’exemple d’application.
 > * Configurer les plug-ins Jenkins.
 > * Configurer un projet libre (Freestyle) Jenkins pour Node.js.
-> * Configurer Jenkins pour l’intégration Team Services.
+> * Configurer Jenkins pour l’intégration Azure DevOps Services.
 > * Créer un point de terminaison de service Jenkins.
 > * Créer un groupe de déploiement pour les machines virtuelles Azure.
-> * Créer une définition de mise en production Team Services.
+> * Créer un pipeline de mise en production Azure Pipelines.
 > * Exécuter des déploiements déclenchés manuellement ou par CI.
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 * Vous devez avoir accès à un serveur Jenkins. Si vous n’avez pas encore créé de serveur Jenkins, consultez [Créer un serveur Jenkins sur une machine virtuelle Azure](https://docs.microsoft.com/azure/jenkins/install-jenkins-solution-template). 
 
-* Connectez-vous à votre compte Team Services (**https://{votrecompte}.visualstudio.com**). 
-  Vous pouvez obtenir un [compte Team Services gratuit](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
+* Connectez-vous à votre organisation Azure DevOps Services (**https://{yourorganization}.visualstudio.com**). 
+  Vous pouvez obtenir une [organisation Azure DevOps Services gratuite](https://go.microsoft.com/fwlink/?LinkId=307137&clcid=0x409&wt.mc_id=o~msft~vscom~home-vsts-hero~27308&campaign=o~msft~vscom~home-vsts-hero~27308).
 
   > [!NOTE]
-  > Pour plus d’informations, consultez [Connect to Visual Studio Team Services from Eclipse, Xcode, Visual Studio, and more](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services) (Se connecter à Visual Studio Team Services depuis Eclipse, Xcode, Visual Studio, etc.).
+  > Pour plus d’informations, consultez [Se connecter à Azure DevOps Services](https://docs.microsoft.com/azure/devops/organizations/projects/connect-to-projects?view=vsts).
 
 *  Vous avez besoin d’une machine virtuelle Linux pour une cible de déploiement.  Pour plus d’informations, consultez [Créer et gérer des machines virtuelles Linux avec l’interface Azure CLI](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm).
 
@@ -89,22 +91,22 @@ Tout d’abord, vous devez configurer deux plug-ins Jenkins : **NodeJS** et **V
 6. Sous l’onglet **Build** (Générer), sélectionnez **Execute shell** (Exécuter Shell) et entrez la commande `npm install` pour vous assurer que toutes les dépendances sont mises à jour.
 
 
-## <a name="configure-jenkins-for-team-services-integration"></a>Configurer Jenkins pour l’intégration Team Services
+## <a name="configure-jenkins-for-azure-devops-services-integration"></a>Configurer Jenkins pour l’intégration Azure DevOps Services
 
 > [!NOTE]
-> Vérifiez que le jeton d’accès personnel (PAT) que vous allez utiliser pour les étapes suivantes contient l’autorisation de mise en production *Release* (lecture, écriture, exécution et gestion) dans Team Services.
+> Vérifiez que le jeton d’accès personnel (PAT) que vous allez utiliser pour les étapes suivantes contient l’autorisation de mise en production *Release* (lecture, écriture, exécution et gestion) dans Azure DevOps Services.
  
-1.  Créez un jeton PAT dans votre compte Team Services si vous n’en avez pas. Jenkins requiert ces informations pour accéder à votre compte Team Services. Veillez à stocker les informations sur le jeton qui seront nécessaires dans les prochaines étapes de cette section.
+1.  Créez un jeton PAT dans votre organisation Azure DevOps Services si vous n’en avez pas. Jenkins requiert ces informations pour accéder à votre organisation Azure DevOps Services. Veillez à stocker les informations sur le jeton qui seront nécessaires dans les prochaines étapes de cette section.
   
-    Pour découvrir comment générer un jeton, consultez [Créer un jeton d’accès personnel pour VSTS et TFS](https://www.visualstudio.com/docs/setup-admin/team-services/use-personal-access-tokens-to-authenticate).
+    Pour découvrir comment générer un jeton, consultez [Créer un jeton d’accès personnel pour Azure DevOps Services](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=vsts).
 2. Sous l’onglet **Post-build Actions** (Actions post-build), sélectionnez **Add post-build action** (Ajouter une action post-build). Sélectionnez **Archive the artifacts** (Archiver les artefacts).
 3. Sous **Files to archive** (Fichiers à archiver), entrez `**/*` pour inclure tous les fichiers.
 4. Pour créer une autre action, sélectionnez **Add post-build action** (Ajouter une action post-build).
-5. Sélectionnez **Trigger release in TFS/Team Services** (Déclencher la mise en production dans TFS/Team Services). Entrez l’URI de votre compte Team Services, tel que **https://{votre-nom-de-compte}.visualstudio.com**.
-6. Entrez le nom du **projet d’équipe**.
-7. Choisissez un nom pour la définition de mise en production. (Vous allez créer cette définition de mise en production plus tard dans Team Services.)
-8. Choisissez les informations d’identification pour vous connecter à votre environnement Team Services ou Team Foundation Server :
-   - Laissez le champ **Username** (Nom d’utilisateur) vide si vous utilisez Team Services. 
+5. Sélectionnez **Trigger release in TFS/Team Services** (Déclencher la mise en production dans TFS/Team Services). Entrez l’URI de votre organisation Azure DevOps Services, par exemple **https://{nom-de-votre-organisation}.visualstudio.com**.
+6. Entrer le nom du **projet**.
+7. Choisissez un nom pour le pipeline de mise en production. (Vous créerez ce pipeline de mise en production plus tard dans Azure DevOps Services.)
+8. Choisissez les informations d’identification pour vous connecter à votre environnement Azure DevOps Services ou Team Foundation Server :
+   - Laissez le champ **Username** (Nom d’utilisateur) vide si vous utilisez Azure DevOps Services. 
    - Entrez un nom d’utilisateur et un mot de passe si vous utilisez une version locale de Team Foundation Server.    
    ![Configuration des actions post-build Jenkins](media/tutorial-build-deploy-jenkins/trigger-release-from-jenkins.png)
 5. Enregistrez le projet Jenkins.
@@ -112,9 +114,9 @@ Tout d’abord, vous devez configurer deux plug-ins Jenkins : **NodeJS** et **V
 
 ## <a name="create-a-jenkins-service-endpoint"></a>Créer un point de terminaison de service Jenkins
 
-Un point de terminaison de service permet à Team Services de se connecter à Jenkins.
+Un point de terminaison de service permet à Azure DevOps Services de se connecter à Jenkins.
 
-1. Ouvrez la page **Services** dans Team Services, ouvrez la liste **Nouveau point de terminaison de service** et sélectionnez **Jenkins**.
+1. Ouvrez la page **Services** dans Azure DevOps Services, ouvrez la liste **Nouveau point de terminaison de service** et sélectionnez **Jenkins**.
    ![Ajouter un point de terminaison Jenkins](media/tutorial-build-deploy-jenkins/add-jenkins-endpoint.png)
 2. Attribuez un nom à cette connexion.
 3. Entrez l’URL de votre serveur Jenkins et sélectionnez l’option **Accepter les certificats SSL non fiables**. Exemple d’URL : **http://{votre-URL-Jenkins}.westcentralus.cloudapp.azure.com**.
@@ -124,7 +126,7 @@ Un point de terminaison de service permet à Team Services de se connecter à Je
 
 ## <a name="create-a-deployment-group-for-azure-virtual-machines"></a>Créer un groupe de déploiement pour les machines virtuelles Azure
 
-Vous avez besoin d’un [groupe de déploiement](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) pour inscrire l’agent Team Services et permettre le déploiement de la définition de mise en production sur votre machine virtuelle. Avec les groupes de déploiement, vous pouvez facilement définir des groupes logiques de machines cibles pour le déploiement et installer l’agent nécessaire sur chaque machine.
+Vous avez besoin d’un [groupe de déploiement](https://www.visualstudio.com/docs/build/concepts/definitions/release/deployment-groups/) pour inscrire l’agent Azure DevOps Services et permettre le déploiement du pipeline de mise en production sur votre machine virtuelle. Avec les groupes de déploiement, vous pouvez facilement définir des groupes logiques de machines cibles pour le déploiement et installer l’agent nécessaire sur chaque machine.
 
    > [!NOTE]
    > Dans la procédure suivante, veillez à installer les composants requis et de *ne pas exécuter le script avec des privilèges sudo*.
@@ -137,15 +139,15 @@ Vous avez besoin d’un [groupe de déploiement](https://www.visualstudio.com/do
 6. Sélectionnez **Copier le script dans le Presse-papiers** pour copier le script.
 7. Connectez-vous à votre machine virtuelle cible de déploiement et exécutez le script. N’exécutez pas le script avec des privilèges sudo.
 8. Après l’installation, vous êtes invité à confirmer les étiquettes du groupe de déploiement. Acceptez les valeurs par défaut.
-9. Dans Team Services, recherchez la machine virtuelle que vous venez d’inscrire dans **Cibles** sous **Groupes de déploiement**.
+9. Dans Azure DevOps Services, recherchez la machine virtuelle que vous venez d’inscrire dans **Cibles** sous **Groupes de déploiement**.
 
-## <a name="create-a-team-services-release-definition"></a>Créer une définition de mise en production Team Services
+## <a name="create-a-azure-pipelines-release-pipeline"></a>Créer un pipeline de mise en production Azure Pipelines
 
-Une définition de mise en production spécifie le processus que Team Services utilise pour déployer l’application. Dans cet exemple, vous exécutez un script Shell.
+Un pipeline de mise en production spécifie le processus qu’Azure Pipelines utilise pour déployer l’application. Dans cet exemple, vous exécutez un script Shell.
 
-Pour créer la définition de mise en production dans Team Services :
+Pour créer le pipeline de mise en production dans Azure Pipelines :
 
-1. Ouvrez l’onglet **Mises en production** du hub **Build &amp; mise en production** et sélectionnez **Créer une définition de mise en production**. 
+1. Ouvrez l’onglet **Mises en production** du hub **Build &amp; mise en production** et sélectionnez **Créer un pipeline de mise en production**. 
 2. Sélectionnez le modèle **Vide** en choisissant de démarrer avec un **processus Vide**.
 3. Dans la section **Artefacts**, sélectionnez **+ Ajouter un artefact**, puis sélectionnez **Jenkins** sous **Type de source**. Sélectionnez votre connexion de point de terminaison de service Jenkins. Sélectionnez ensuite le travail source Jenkins, puis sélectionnez **Ajouter**.
 4. Sélectionnez les points de suspension à côté de la zone **Environnement 1**. Sélectionnez **Phase d’ajout d’un groupe de déploiement**.
@@ -155,8 +157,8 @@ Pour créer la définition de mise en production dans Team Services :
 8. Dans **Chemin d’accès du script**, entrez **$(System.DefaultWorkingDirectory)/Fabrikam-Node/deployscript.sh**.
 9. Sélectionnez **Avancé**, puis **Spécifier le répertoire de travail**.
 10. Dans **Répertoire de travail**, entrez **$(System.DefaultWorkingDirectory)/Fabrikam-Node**.
-11. Changez le nom de la définition de mise en production par le nom que vous avez spécifié sous l’onglet **Actions post-build** de l’application générée dans Jenkins. Jenkins exige que ce nom soit en mesure de déclencher une nouvelle mise en production lorsque les artefacts source sont mis à jour.
-12. Sélectionnez **Enregistrer**, puis sélectionnez **OK** pour enregistrer la définition de mise en production.
+11. Changez le nom du pipeline de mise en production par le nom que vous avez spécifié sous l’onglet **Actions post-build** de l’application générée dans Jenkins. Jenkins exige que ce nom soit en mesure de déclencher une nouvelle mise en production lorsque les artefacts source sont mis à jour.
+12. Sélectionnez **Enregistrer**, puis sélectionnez **OK** pour enregistrer le pipeline de mise en production.
 
 ## <a name="execute-manual-and-ci-triggered-deployments"></a>Exécuter des déploiements déclenchés manuellement ou par CI
 
@@ -167,7 +169,7 @@ Pour créer la définition de mise en production dans Team Services :
 5. Dans votre navigateur, ouvrez l’URL de l’un des serveurs que vous avez ajoutés à votre groupe de déploiement. Par exemple, entrez **http://{adresse-ip-de-votre-serveur}**.
 6. Accédez au dépôt Git source et modifiez le contenu du titre **h1** dans le fichier app/views/index.jade en apportant quelques corrections au texte.
 7. Validez votre modification.
-8. Après quelques minutes, vous voyez une nouvelle mise en production dans la page **Mises en production** de Team Services ou Team Foundation Server. Ouvrez la mise en production pour voir le déploiement en action. Félicitations !
+8. Après quelques minutes, vous verrez une nouvelle mise en production sur la page **Mises en production** d’Azure DevOps. Ouvrez la mise en production pour voir le déploiement en action. Félicitations !
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Dépannage du plug-in Jenkins
 
@@ -175,13 +177,13 @@ Si vous constatez des bogues dans les plug-ins Jenkins, enregistrez un problème
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez automatisé le déploiement d’une application Azure en utilisant Jenkins pour la génération et Team Services pour la mise en production. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez automatisé le déploiement d’une application Azure en utilisant Jenkins pour la génération et Azure DevOps Services pour la mise en production. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Générer votre application dans Jenkins.
-> * Configurer Jenkins pour l’intégration Team Services.
+> * Configurer Jenkins pour l’intégration Azure DevOps Services.
 > * Créer un groupe de déploiement pour les machines virtuelles Azure.
-> * Créer une définition de mise en production qui configure les machines virtuelles et déploie l’application.
+> * Créer un pipeline de mise en production qui configure les machines virtuelles et déploie l’application.
 
 Pour découvrir comment déployer une pile LAMP (Linux, Apache, MySQL et PHP), passez au didacticiel suivant.
 

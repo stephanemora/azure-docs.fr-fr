@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: bbenz
 ms.custom: mvc
-ms.openlocfilehash: 5e1d7a88e5a1a8ab60a01aea6ca42e850ac6e0e3
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0baab86c0cb76bfeecb30cdb62c968a476e402b9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41917683"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296769"
 ---
 # <a name="tutorial-build-a-java-and-mysql-web-app-in-azure"></a>Tutoriel : Créer une application web Java et MySQL dans Azure
 
@@ -297,7 +297,7 @@ az webapp config appsettings set --settings SPRING_DATASOURCE_PASSWORD=Javaapp_p
 ```
 
 ### <a name="get-ftp-deployment-credentials"></a>Obtention des informations d’identification de déploiement FTP 
-Vous pouvez déployer votre application dans Azure App Service de plusieurs façons, notamment FTP, Git local ainsi que GitHub, Visual Studio Team Services et BitBucket. Pour cet exemple, FTP pour déployer le fichier .WAR basé précédemment sur votre ordinateur local dans Azure App Service.
+Vous pouvez déployer votre application dans Azure App Service de plusieurs façons, notamment FTP, Git local ainsi que GitHub, Azure DevOps et BitBucket. Pour cet exemple, FTP pour déployer le fichier .WAR basé précédemment sur votre ordinateur local dans Azure App Service.
 
 Pour déterminer les informations d’identification à transmettre dans une commande ftp à l’application web, utilisez la commande [`az appservice web deployment list-publishing-profiles`](https://docs.microsoft.com/cli/azure/webapp/deployment#az-appservice-web-deployment-list-publishing-profiles) dans Cloud Shell : 
 

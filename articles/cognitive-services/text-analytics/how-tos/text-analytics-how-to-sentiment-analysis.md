@@ -1,28 +1,29 @@
 ---
-title: Guide pratique pour analyser les sentiments dans l’API REST Analyse de texte (Microsoft Cognitive Services sur Azure) | Microsoft Docs
-description: Explique comment détecter des sentiments à l’aide de l’API REST Analyse de texte dans Microsoft Cognitive Services sur Azure dans ce tutoriel pas à pas.
+title: 'Exemple : Analyser les sentiments avec l’API REST Analyse de texte'
+titleSuffix: Azure Cognitive Services
+description: Découvrez comment détecter des sentiments à l’aide de l’API REST Analyse de texte.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 12/11/2017
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 7ffd8bbe47409b459fdd308cd8d670d32f56649b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 981e663b6a93abed1da9c2765a1b43063c70ad43
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368412"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605893"
 ---
-# <a name="how-to-detect-sentiment-in-text-analytics"></a>Guide pratique pour détecter des sentiments dans Analyse de texte
+# <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Exemple : Comment détecter des sentiments dans l’API Analyse de texte
 
 L’[API Analyse des sentiments](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) évalue le texte en entrée et retourne un score de sentiment pour chaque document, entre 0 (négatif) et 1 (positif).
 
 Cette fonctionnalité est utile pour détecter des sentiments positifs ou négatifs dans les réseaux sociaux, les avis client et les forums de discussion. Le contenu est fourni par vous. Les modèles et les données d’entraînement sont fournis par le service.
 
-Actuellement, l’API Analyse des sentiments prend en charge l’anglais, l’allemand, l’espagnol et le français. D’autres langues sont en préversion. Pour en savoir plus, consultez [Langues prises en charge](../text-analytics-supported-languages.md).
+Actuellement, l’API Analyse des sentiments prend en charge l’anglais, l’allemand, l’espagnol et le français. D’autres langues sont en préversion. Pour en savoir plus, consultez [Langages pris en charge](../text-analytics-supported-languages.md).
 
 ## <a name="concepts"></a>Concepts
 
@@ -34,7 +35,7 @@ L’analyse des sentiments est effectuée sur l’ensemble du document, par oppo
 
 L’analyse des sentiments produit un résultat de meilleure qualité lorsque vous lui donnez de petits segments de texte à analyser. Au contraire, l’extraction d’expressions clés fonctionne mieux sur de plus grands blocs de texte. Pour obtenir des résultats optimaux pour ces deux opérations, envisagez de restructurer les entrées en conséquence.
 
-Vous devez disposer des documents JSON dans ce format : id, texte, langue
+Vous devez disposer des documents JSON dans le format : id, texte, langue
 
 La taille des documents doit être inférieure à 5 000 caractères par document et vous pouvez avoir jusqu'à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. Voici un exemple de contenu que vous pouvez soumettre pour analyse des sentiments.
 

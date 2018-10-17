@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: sethm
-ms.openlocfilehash: a8d211992f52c9719cad76f16133e23eba24d422
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 9f229caa76059db403ced5b74c7a35ec2f0b8e9d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "43775057"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721878"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Considérations importantes : utilisation de services ou génération d’applications pour Azure Stack
 
@@ -33,7 +33,7 @@ Votre opérateur Azure Stack vous indiquera les services que vous pouvez utilise
 
 Le contenu technique Azure suppose que les applications sont développées pour un service Azure au lieu d’Azure Stack. Lorsque vous générez et déployez des applications sur Azure Stack, vous devez comprendre les principales différences, telles que les suivantes :
 
-* Azure Stack fournit un sous-ensemble des services et fonctionnalités qui sont disponibles dans Azure.
+* Azure Stack fournit un **sous-ensemble** des services et fonctionnalités qui sont disponibles dans Azure.
 * Votre entreprise ou fournisseur de services peut choisir les services à proposer. Les options disponibles peuvent inclure des applications ou des services personnalisés. Il peut offrir sa propre documentation personnalisée.
 * Vous devez utiliser les points de terminaison corrects spécifiques à Azure Stack (par exemple, les URL de l’adresse du portail et le point de terminaison Azure Resource Manager).
 * Vous devez utiliser des versions de PowerShell et d’API qui sont prises en charge par Azure Stack. Utiliser des versions prises en charge permet de s’assurer que vos applications fonctionnent dans Azure Stack et Azure.
@@ -75,11 +75,11 @@ Azure Stack prend en charge des versions spécifiques d’Azure PowerShell et de
 Pour vous assurer que vous utilisez une version appropriée d’Azure PowerShell, utilisez les [profils de version d’API](azure-stack-version-profiles.md). Pour connaître le profil de version d’API le plus récent que vous pouvez utiliser, vous devez savoir quelle version d’Azure Stack vous utilisez. Contactez votre administrateur Azure Stack pour obtenir ces informations.
 
 >[!NOTE]
- Si vous utilisez le Kit de développement Azure Stack, et que vous disposez d’un accès administratif, consultez la section « Déterminer la version actuelle » sous [Gérer les mises à jour](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version) pour connaître le build Azure Stack.
+ Si vous utilisez le Kit de développement Azure Stack, et que vous disposez d’un accès administratif, consultez la section « Déterminer la version actuelle » sous [Gérer les mises à jour](../azure-stack-updates.md#determine-the-current-version) pour connaître le build Azure Stack.
 
 Pour les autres API, exécutez la commande PowerShell suivante pour afficher les espaces de noms, les types de ressources et les versions d’API qui sont pris en charge dans votre abonnement Azure Stack. Notez que des différences peuvent subsister au niveau de la propriété. (Pour que cette commande fonctionne, vous devez avoir déjà [installé](azure-stack-powershell-install.md) et [configuré](azure-stack-powershell-configure-user.md) PowerShell pour un environnement Azure Stack. Vous devez également disposer d’un abonnement à une offre Azure Stack.)
 
- ```powershell
+```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```

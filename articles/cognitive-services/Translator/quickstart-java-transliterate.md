@@ -1,25 +1,25 @@
 ---
-title: 'L’API de traduction de texte Translator Text : conversion de script de texte avec Java | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous convertirez du texte dans une langue d’un script vers un autre à l’aide de l’API de traduction de texte Translator Text avec Java dans Cognitive Services.
+title: 'Démarrage rapide : Convertir un script de texte - Traduction de texte Translator Text, Java'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous allez convertir le texte d’un script d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Java.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 6f7353ba0a51bdeec2450d7435f3b738687db766
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 47d0462dcf7e54a3c2b2e2ea8b713b02af2baf37
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "43769543"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297421"
 ---
 # <a name="quickstart-transliterate-text-with-java"></a>Démarrage rapide : Translittérer du texte avec Java
 
-Dans ce démarrage rapide, vous convertissez du texte dans la langue d’un script vers une autre à l’aide de l’API de traduction de texte Translator Text.
+Dans ce guide de démarrage rapide, vous allez convertir le texte d’un script d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -146,7 +146,7 @@ public class Transliterate {
 
 ## <a name="transliterate-response"></a>Réponse Translittérer
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [

@@ -1,29 +1,30 @@
 ---
-title: Prendre en main la fonctionnalité Service d’exploration des connaissances | Microsoft Docs
-description: La fonctionnalité Service d’exploration des connaissances (KES) vous permet de créer un moteur pour une expérience de recherche interactive parmi les publications académiques dans Microsoft Cognitive Services.
+title: 'Exemple : Bien démarrer avec l’API Service d’exploration des connaissances'
+titlesuffix: Azure Cognitive Services
+description: Utilisez l’API Service d’exploration des connaissances (KES) pour créer un moteur permettant d’effectuer des recherches interactives parmi les publications académiques.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: sample
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 02dc9368eef02d6fa507335ef3171e923412acca
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6cee339793269af0e8060cce56f94fa81db6a6c5
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368596"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124012"
 ---
-<a name="getting-started"></a>
 # <a name="get-started-with-the-knowledge-exploration-service"></a>Prendre en main la fonctionnalité Service d’exploration des connaissances
+
 Dans cette procédure pas à pas, vous utilisez la fonctionnalité Service d’exploration des connaissances pour créer le moteur offrant une expérience de recherche interactive pour les publications académiques. Vous pouvez installer l’outil de ligne de commande, [`kes.exe`](CommandLine.md), et tous les fichiers d’exemple à partir du [Kit de développement logiciel (SDK) de la fonctionnalité Service d’exploration des connaissances](https://www.microsoft.com/en-us/download/details.aspx?id=51488).
 
 Les exemples de publications académiques contiennent un échantillon de 1 000 documents académiques publiés par des chercheurs de Microsoft.  Chaque document est associé à un titre, une année de publication, des auteurs et des mots clés. Chaque auteur est représenté par un ID, un nom et une affiliation au moment de la publication. Chaque mot clé peut être associé à un ensemble de synonymes (par exemple, le mot clé « machines à vecteurs de support » peut être associé au synonyme « mvs »).
 
-<a name="defining-schema"></a>
 ## <a name="define-the-schema"></a>Définir le schéma
+
 Le schéma décrit la structure d’attribut des objets dans le domaine. Il spécifie le nom et le type de données pour chaque attribut dans un format de fichier JSON. L’exemple suivant montre le contenu par défaut du fichier *Academic.schema*.
 
 ```json
@@ -61,8 +62,8 @@ Pour l’attribut *Mot clé*, autorisez les synonymes qui correspondent aux vale
 
 Pour plus d’informations sur la définition de schéma, consultez [Schema Format](SchemaFormat.md) (Format de schéma).
 
-<a name="generating-data"></a>
 ## <a name="generate-data"></a>Générer des données
+
 Le fichier de données décrit la liste des publications à indexer, avec chaque ligne spécifiant les valeurs d’attribut d’un document au [format JSON](http://json.org/).  L’exemple suivant est une ligne unique issue du fichier de données *Academic.data*, mise en forme pour une meilleure lisibilité :
 
 ```
@@ -93,16 +94,16 @@ Pour différencier la probabilité de chacun des documents, spécifiez la probab
 
 Pour plus d’informations, consultez [Data Format](DataFormat.md) (Format des données).
 
-<a name="building-index"></a>
 ## <a name="build-a-compressed-binary-index"></a>Créer un index binaire compressé
+
 Une fois que vous avez un fichier de schéma et un fichier de données, vous pouvez créer un index binaire compressé des objets de données à l’aide de [`kes.exe build_index`](CommandLine.md#build_index-command). Dans cet exemple, vous générez le fichier d’index *Academic.index* à partir du fichier de schéma d’entrée *Academic.schema* et du fichier de données *Academic.data*. Utilisez la commande suivante :
 
 `kes.exe build_index Academic.schema Academic.data Academic.index`
 
 Pour la création rapide de prototypes en dehors d’Azure, [`kes.exe build_index`](CommandLine.md#build_index-command) peut générer de petits index localement, à partir de fichiers de données contenant jusqu'à 10 000 objets. Pour les fichiers de données plus volumineux, vous pouvez exécuter la commande à partir d’une [machine virtuelle Windows dans Azure](../../../articles/virtual-machines/windows/quick-create-portal.md), ou effectuer une génération à distance dans Azure. Pour plus d’informations, consultez la section [Monter en puissance pour héberger des index plus grands](#scaling-up).
 
-<a name="authoring-grammar"></a>
 ## <a name="use-an-xml-grammar-specification"></a>Utiliser une spécification de grammaire XML
+
 La grammaire spécifie le jeu de requêtes en langage naturel que le service peut interpréter, ainsi que la façon dont ces requêtes en langage naturel sont traduites en expressions de requête sémantique. Dans cet exemple, vous utilisez la grammaire spécifiée dans *academic.xml* :
 
 ```xml
@@ -198,14 +199,14 @@ La grammaire spécifie le jeu de requêtes en langage naturel que le service peu
 
 Pour plus d’informations sur la syntaxe de spécification de grammaire, consultez [Grammar Format](GrammarFormat.md) (Format de grammaire).
 
-<a name="compiling-grammar"></a>
 ## <a name="compile-the-grammar"></a>Compiler la grammaire
+
 Une fois que vous avez une spécification de grammaire XML, vous pouvez la compiler dans une grammaire binaire à l’aide de [`kes.exe build_grammar`](CommandLine.md#build_grammar-command). Notez que si la grammaire importe un schéma, le fichier de schéma doit se trouver dans le même chemin que le XML de grammaire. Dans cet exemple, vous générez le fichier de grammaire binaire *Academic.grammar* à partir du fichier de grammaire XML d’entrée *Academic.xml*. Utilisez la commande suivante :
 
 `kes.exe build_grammar Academic.xml Academic.grammar`
 
-<a name="hosting-index"></a>
 ## <a name="host-the-grammar-and-index-in-a-web-service"></a>Héberger la grammaire et l’index dans un service web
+
 Pour la création rapide de prototypes, vous pouvez héberger la grammaire et l’index dans un service web sur l’ordinateur local, à l’aide de [`kes.exe host_service`](CommandLine.md#host_service-command). Vous pouvez ensuite accéder au service via les [API web](WebAPI.md) pour valider la conception de la grammaire et l’exactitude des données. Dans cet exemple, vous hébergez le fichier de grammaire *Academic.grammar* et le fichier d’index *Academic.index* à l’adresse http://localhost:8000/. Utilisez la commande suivante :
 
 `kes.exe host_service Academic.grammar Academic.index --port 8000`
@@ -221,8 +222,8 @@ Vous pouvez également appeler directement diverses [API web](WebAPI.md) pour te
 
 En dehors d’Azure, [`kes.exe host_service`](CommandLine.md#host_service-command) est limité aux index de 10 000 objets maximum. D’autres limites incluent un taux d’API de 10 requêtes par seconde et un total de 1 000 requêtes avant que le processus se termine automatiquement. Pour contourner ces restrictions, exécutez la commande à partir d’une [machine Windows dans Azure](../../../articles/virtual-machines/windows/quick-create-portal.md) ou déployez-la sur un service cloud Azure à l’aide de la commande [`kes.exe deploy_service`](CommandLine.md#deploy_service-command). Pour plus d’informations, consultez [Déployer le service](#deploying-service).
 
-<a name="scaling-up"></a>
 ## <a name="scale-up-to-host-larger-indices"></a>Monter en puissance pour héberger des index plus grands
+
 Lorsque vous exécutez `kes.exe` en dehors d’Azure, l’index est limité à 10 000 objets. Vous pouvez créer et héberger des index plus grands à l’aide d’Azure. Inscrivez-vous pour obtenir un [essai gratuit](https://azure.microsoft.com/pricing/free-trial/). Par ailleurs, si vous êtes abonné à Visual Studio ou MSDN, vous pouvez [activer vos avantages d’abonné](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Ceux-ci vous permettent de bénéficier de crédits Azure tous les mois.
 
 Pour autoriser `kes.exe` à accéder à un compte Azure, [téléchargez le fichier de paramètres de publication Azure](https://portal.azure.com/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) depuis le Portail Azure. Si vous y êtes invité, connectez-vous au compte Azure souhaité. Enregistrez le fichier sous *AzurePublishSettings.xml* dans le répertoire de travail à partir duquel `kes.exe` s’exécute.
@@ -243,8 +244,8 @@ Notez que 5 à 10 minutes peuvent être nécessaires pour configurer une machine
 
 La pagination ralentit le processus de génération. Pour éviter la pagination, utilisez une machine virtuelle avec une quantité de RAM multipliée par trois par rapport à la taille du fichier de données pour la génération de l’index. Utilisez une machine virtuelle avec 1 Go de RAM de plus que la taille de l’index pour l’hébergement. Pour obtenir la liste des tailles de machine virtuelle disponibles, consultez [Tailles des machines virtuelles Windows dans Azure](../../../articles/virtual-machines/virtual-machines-windows-sizes.md).
 
-<a name="deploying-service"></a>
 ## <a name="deploy-the-service"></a>Déployer le service
+
 Après avoir configuré une grammaire et un index, vous êtes prêt à déployer le service sur un service cloud Azure. Pour créer un service cloud Azure, consultez [Création et déploiement d’un service cloud](../../../articles/cloud-services/cloud-services-how-to-create-deploy-portal.md). Ne spécifiez pas de package de déploiement à ce stade.  
 
 Lorsque vous avez créé le service cloud, vous pouvez utiliser [`kes.exe deploy_service`](CommandLine.md#deploy_service-command) pour déployer le service. Un service cloud Azure a deux emplacements de déploiement : production et préproduction. Pour un service qui reçoit le trafic des utilisateurs en direct, vous devez effectuer un déploiement initial vers l’emplacement de préproduction. Attendez que le service démarre et s’initialise lui-même. Vous pouvez ensuite envoyer quelques requêtes pour valider le déploiement et vérifier qu’il réussit les tests de base.
@@ -259,8 +260,8 @@ Pour obtenir la liste des tailles de machine virtuelle disponibles, consultez [T
 
 Une fois le service déployé, vous pouvez appeler les diverses [API web](WebAPI.md) pour tester l’interprétation du langage naturel, l’achèvement de la requête, l’évaluation de la requête structurée et le calcul de l’histogramme.  
 
-<a name="testing-service"></a>
 ## <a name="test-the-service"></a>Testez le service
+
 Pour déboguer un service en direct, accédez à la machine hôte à partir d’un navigateur web. Pour un service local déployé via [host_service](#hosting-service), visitez `http://localhost:<port>/`.  Pour un service cloud Azure déployé via [deploy_service](#deploying-service), visitez `http://<serviceName>.cloudapp.net/`.
 
 Cette page contient un lien vers des informations sur les statistiques d’appel d’API de base, ainsi que la grammaire et l’index hébergés par ce service. Cette page contient également une interface de recherche interactive qui illustre l’utilisation des API web. Entrez des requêtes dans la zone de recherche pour afficher les résultats des appels d'API [interpret](interpretMethod.md), [evaluate](evaluateMethod.md) et [calchistogram](calchistogramMethod.md). La source HTML sous-jacente de cette page sert également d’exemple pour apprendre à intégrer les API web à une application, afin de créer une expérience de recherche interactive riche.

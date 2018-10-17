@@ -1,43 +1,48 @@
 ---
-title: API Vision par ordinateur avec JavaScript - Démarrage rapide | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous extrayez le texte manuscrit d’une image à l’aide de l’API Vision par ordinateur avec JavaScript dans Cognitive Services.
+title: 'Démarrage rapide : Extraire du texte manuscrit - REST, JavaScript - Vision par ordinateur'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous extrayez le texte manuscrit d’une image en utilisant l’API Vision par ordinateur avec JavaScript.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: c6b52bfdf1c42499772da1e5f72897baa65a4786
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 82c51c95bf8a538ce50dd190cce737b0295abc6e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770102"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634672"
 ---
-# <a name="quickstart-extract-handwritten-text---rest-javascript"></a>Démarrage rapide : Extraire du texte manuscrit - REST, JavaScript
+# <a name="quickstart-extract-handwritten-text-using-the-rest-api-and-javascript-in-computer-vision"></a>Démarrage rapide : Extraire du texte manuscrit à l’aide de l’API REST et JavaScript dans Vision par ordinateur
 
-Dans ce démarrage rapide, vous extrayez le texte manuscrit d’une image à l’aide de l’API Vision par ordinateur.
+Dans ce guide de démarrage rapide, vous extrayez le texte manuscrit d’une image à l’aide de l’API REST de Vision par ordinateur. Avec les méthodes [Reconnaître le texte](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) et [Obtenir le résultat de l’opération Reconnaître le texte](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), vous pouvez détecter le texte manuscrit dans une image, puis extraire les caractères reconnus dans un flux de caractères exploitable automatiquement.
+
+> [!IMPORTANT]
+> Contrairement à la méthode [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc), la méthode [Reconnaître le texte](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) s’exécute de façon asynchrone. Cette méthode ne retourne pas d’informations dans le corps d’une réponse réussie. À la place, la méthode Reconnaître le texte retourne un URI dans la valeur du champ d’en-tête de réponse `Operation-Content`. Vous pouvez ensuite appeler cet URI, qui représente la méthode [Obtenir le résultat de l’opération Reconnaître le texte](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), pour vérifier l’état de l’appel de la méthode Reconnaître le texte et retourner les résultats.
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour utiliser l’API Vision par ordinateur, vous avez besoin d’une clé d’abonnement. Consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
+Vous devez avoir une clé d’abonnement pour Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="recognize-text-request"></a>Requête Reconnaître le texte
+## <a name="create-and-run-the-sample"></a>Créer et exécuter l’exemple
 
-Avec les méthodes [Reconnaître le texte](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) et [Obtenir le résultat de l’opération Reconnaître le texte](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2cf1154055056008f201), vous pouvez détecter du texte manuscrit dans une image et extraire les caractères reconnus dans un flux de caractères exploitable.
+Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
-Pour exécuter l’exemple, effectuez les étapes suivantes :
-
-1. Copiez le script suivant et enregistrez-le dans un fichier tel que `handwriting.html`.
-1. Remplacez `<Subscription Key>` par votre clé d’abonnement valide.
-1. Remplacez la valeur `uriBase` par l’emplacement où vous avez obtenu vos clés d’abonnement, si nécessaire.
-1. Glissez-déplacez le fichier dans votre navigateur.
-1. Cliquez sur le bouton `Read image`.
-
-Cet exemple utilise jQuery 1.9.0. Pour voir un exemple d’utilisation de JavaScript sans jQuery, consultez [Générer une miniature de façon intelligente](javascript-thumb.md).
+1. Copiez le code ci-après dans un éditeur de texte.
+1. Modifiez le code comme ci-dessous :
+    1. Remplacez la valeur de `subscriptionKey` par votre clé d’abonnement.
+    1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [Reconnaître le texte](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/587f2c6a154055056008f200) dans la région Azure où vous avez obtenu vos clés d’abonnement.
+    1. Remplacez éventuellement la valeur de l’attribut `value` du contrôle `inputImage` par l’URL d’une autre image à partir de laquelle vous voulez extraire le texte manuscrit.
+1. Enregistrez le code dans un fichier avec une extension `.html`. Par exemple : `get-handwriting.html`.
+1. Ouvrez une fenêtre de navigateur.
+1. Dans le navigateur, faites glisser et déposez le fichier dans la fenêtre du navigateur.
+1. Quand la page web s’affiche dans le navigateur, choisissez le bouton **Lire l’image**.
 
 ```html
 <!DOCTYPE html>
@@ -57,19 +62,18 @@ Cet exemple utilise jQuery 1.9.0. Pour voir un exemple d’utilisation de JavaSc
         // Replace <Subscription Key> with your valid subscription key.
         var subscriptionKey = "<Subscription Key>";
 
-        // You must use the same region in your REST call as you used to get your
-        // subscription keys. For example, if you got your subscription keys from
-        // westus, replace "westcentralus" in the URI below with "westus".
+        // You must use the same Azure region in your REST API method as you used to
+        // get your subscription keys. For example, if you got your subscription keys
+        // from the West US region, replace "westcentralus" in the URL
+        // below with "westus".
         //
-        // Free trial subscription keys are generated in the westcentralus region.
+        // Free trial subscription keys are generated in the West Central US region.
         // If you use a free trial subscription key, you shouldn't need to change
         // this region.
         var uriBase =
             "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/recognizeText";
 
         // Request parameter.
-        // Note: The request parameter changed for APIv2.
-        // For APIv1, it is "handwriting": "true".
         var params = {
             "mode": "Handwritten",
         };
@@ -186,11 +190,9 @@ Image to read:
 </html>
 ```
 
-## <a name="recognize-text-response"></a>Réponse Reconnaître le texte
+## <a name="examine-the-response"></a>Examiner la réponse
 
-Une réponse correcte est retournée au format JSON. Les résultats manuscrits retournés incluent du texte, un rectangle englobant pour les régions, des lignes et des mots.
-
-Le programme génère une sortie semblable au JSON suivant :
+Une réponse correcte est retournée au format JSON. L’exemple de page web analyse et affiche une réponse réussie dans la fenêtre du navigateur, comme dans l’exemple suivant :
 
 ```json
 {
@@ -468,9 +470,13 @@ Le programme génère une sortie semblable au JSON suivant :
 }
 ```
 
+## <a name="clean-up-resources"></a>Supprimer les ressources
+
+Quand vous n’en avez plus besoin, supprimez le fichier.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez une application JavaScript qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Pour tester rapidement les API Vision par ordinateur, essayez la [console de test d’API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explorez une application JavaScript qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutoriel sur l’API Vision par ordinateur JavaScript](../Tutorials/javascript-tutorial.md)

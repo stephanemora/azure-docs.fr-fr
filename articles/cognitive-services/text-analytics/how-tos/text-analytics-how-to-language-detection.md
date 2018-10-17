@@ -1,22 +1,23 @@
 ---
-title: Guide pratique pour détecter la langue dans l’API REST Analyse de texte (Microsoft Cognitive Services sur Azure) | Microsoft Docs
-description: Explique comment détecter la langue à l’aide de l’API REST Analyse de texte dans Microsoft Cognitive Services sur Azure dans ce didacticiel pas à pas.
+title: 'Exemple : Détection de la langue avec l’API REST Analyse de texte'
+titleSuffix: Azure Cognitive Services
+description: Découvrez comment détecter la langue à l’aide de l’API REST Analyse de texte.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: article
-ms.date: 3/07/2018
+ms.topic: sample
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: f8e2d9a36533c298addcf42d3cb2061e9c2d1ac7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fa71e4ce2e5cb5967bb583c7314072830de08051
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368408"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604550"
 ---
-# <a name="how-to-detect-language-in-text-analytics"></a>Guide pratique pour détecter la langue dans Analyse de texte
+# <a name="example-how-to-detect-language-in-text-analytics"></a>Exemple : Comment détecter la langue dans l’API Analyse de texte
 
 L’[API Détection de langue](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) évalue le texte en entrée pour chaque document de texte et retourne les identificateurs de langue avec un score qui indique la puissance de l’analyse. Analyse de texte reconnaît jusqu'à 120 langues.
 
@@ -211,8 +212,8 @@ Dans cet article, vous avez vu les concepts et le flux de travail de détection 
 ## <a name="see-also"></a>Voir aussi 
 
  [Vue d’ensemble d’Analyse de texte](../overview.md)  
- [Forum Aux Questions (FAQ)](../text-analytics-resource-faq.md)</br>
- [Page de produit Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

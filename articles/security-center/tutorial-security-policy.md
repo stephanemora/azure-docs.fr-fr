@@ -3,7 +3,7 @@ title: 'Didacticiel Azure Security Center : définir et évaluer les stratégies
 description: 'Didacticiel Azure Security Center : définir et évaluer les stratégies de sécurité'
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 2d248817-ae97-4c10-8f5d-5c207a8019ea
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
-ms.author: terrylan
-ms.openlocfilehash: 15c69bce87ede96eb3a7bc0bada4e4f6a6669abb
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: fcd3c2a95cea0a838fc16149a0a74fad95ea3300
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358606"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027059"
 ---
 # <a name="tutorial-define-and-assess-security-policies"></a>Didacticiel : définir et évaluer les stratégies de sécurité
 Security Center garantit la conformité aux exigences de l’entreprise et de sécurité réglementaires à l’aide de stratégies de sécurité, afin de définir la configuration souhaitée de vos charges de travail. Une fois les stratégies de vos abonnements Azure définies et adaptées au type de charge de travail ou à la sensibilité de vos données, Security Center peut fournir des recommandations de sécurité pour votre ordinateur, mais aussi sur la mise en réseau, les données et le stockage, ainsi que l’identité et l’accès aux ressources. Ce didacticiel vous apprendra à effectuer les opérations suivantes :
@@ -42,8 +42,7 @@ Security Center crée automatiquement une stratégie de sécurité par défaut, 
 
   ![Stratégie de sécurité](./media/tutorial-security-policy/tutorial-security-policy-fig1.png)  
 
-3. Dans la section **COMPOSANTS DE LA STRATÉGIE**, sélectionnez **Stratégie de sécurité**
-4. Pour chaque configuration de sécurité que vous souhaitez analyser, sélectionnez **Activer**. Security Center évalue en permanence la configuration de votre environnement, et quand il existe une vulnérabilité, Security Center génère une recommandation de sécurité. Sélectionnez **Désactiver** si la configuration de sécurité n’est pas recommandée ou n’est pas pertinente. Par exemple, dans un environnement de développement et de test, vous n’aurez pas besoin du même niveau de sécurité que pour un environnement de production. Après avoir sélectionné les stratégies qui s’appliquent à votre environnement, cliquez sur **Enregistrer**.
+3. Sous **Compute et applications**, **Réseau**, et **Données**, définissez chaque configuration de sécurité que vous souhaitez analyser sur **On** (activé). Security Center évalue en permanence la configuration de votre environnement, et quand il existe une vulnérabilité, Security Center génère une recommandation de sécurité. Sélectionnez **Désactiver** si la configuration de sécurité n’est pas recommandée ou n’est pas pertinente. Par exemple, dans un environnement de développement et de test, vous n’aurez pas besoin du même niveau de sécurité que pour un environnement de production. Après avoir sélectionné les stratégies qui s’appliquent à votre environnement, cliquez sur **Enregistrer**.
 
   ![Configuration de la sécurité](./media/tutorial-security-policy/tutorial-security-policy-fig6.png)  
 

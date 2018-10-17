@@ -4,28 +4,29 @@ description: Suivez les étapes de ce démarrage rapide pour créer un compte Az
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 keywords: azure media services, diffuser en continu
 ms.service: media-services
 ms.workload: media
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 04/08/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: 48f85311f38d7e4ab1414dfc22c111b92163740e
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8bef52bb7cb56646b0f09e2cb7910bab3f55e0c0
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42022982"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223540"
 ---
 # <a name="quickstart-stream-video-files---net"></a>Démarrage rapide : Diffuser en continu des fichiers vidéo - .NET
 
 > [!NOTE]
 > La version la plus récente d’Azure Media Services est disponible en préversion et peut être appelée v3. Pour commencer à utiliser des API v3, vous devez créer un nouveau compte Media Services, comme décrit dans ce démarrage rapide. 
 
-Ce démarrage rapide vous montre combien il est facile de lancer la diffusion en continu de vidéos sur une grande variété de navigateurs et d’appareils à l’aide d’Azure Media Services. Dans cette rubrique, l’exemple encode du contenu que vous mettez à disposition via une URL HTTPS. 
+Ce démarrage rapide vous montre combien il est facile de coder et de lancer la diffusion en continu de vidéos sur une grande variété de navigateurs et d’appareils à l’aide d’Azure Media Services. Un contenu d’entrée peut être spécifié à l’aide d’URL HTTPS, d’URL SAP ou de chemins d’accès aux fichiers situés dans le Stockage Blob Azure.
+Dans cette rubrique, l’exemple encode du contenu que vous mettez à disposition via une URL HTTPS. Notez qu’actuellement, AMS v3 ne prend pas en charge le chiffrement de transfert en bloc sur les URL HTTPS.
 
 À la fin du démarrage rapide, vous serez en mesure de diffuser en continu une vidéo.  
 
@@ -93,7 +94,7 @@ Pour tester la diffusion en continu, cet article utilise le lecteur multimédia 
 
 Le lecteur multimédia Azure peut être utilisé pour effectuer des tests, mais ne doit pas être utilisé dans un environnement de production. 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes Media Services et de stockage que vous avez créés dans ce guide de démarrage rapide, supprimez le groupe de ressources. Vous pouvez utiliser l’outil **CloudShell**.
 

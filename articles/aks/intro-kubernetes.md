@@ -1,102 +1,99 @@
 ---
 title: Présentation d’Azure Kubernetes Service
-description: Azure Kubernetes Service simplifie le déploiement et la gestion des applications en conteneur dans Azure.
+description: Découvrez les fonctionnalités et les avantages d’Azure Kubernetes Service pour déployer et gérer des applications en conteneur dans Azure.
 services: container-service
 author: iainfoulds
-manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
-ms.date: 06/13/2018
+ms.date: 09/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 294ccd70e0339ed5ad68022f002e4864fc52b452
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 67b80f539faab40884066f23aaf8a72ad7a6981b
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286718"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47394401"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Service Azure Kubernetes (AKS)
 
-Azure Kubernetes Service (AKS) simplifie le déploiement d’un cluster Kubernetes géré dans Azure. AKS permet de réduire la complexité et la surcharge opérationnelle de la gestion d’un cluster Kubernetes en déléguant une grande partie de cette responsabilité à Azure. En tant que service Kubernetes hébergé, Azure gère pour vous des tâches critiques telles que l’analyse de l'intégrité et la maintenance. En outre, le service est gratuit. Vous payez uniquement pour les nœuds de l’agent au sein de vos clusters, pas pour les maîtres.
+Azure Kubernetes Service (AKS) simplifie le déploiement d’un cluster Kubernetes géré dans Azure. AKS permet de réduire la complexité et la surcharge opérationnelle de la gestion d’un cluster Kubernetes en déléguant une grande partie de cette responsabilité à Azure. En tant que service Kubernetes hébergé, Azure gère pour vous des tâches critiques telles que l’analyse de l'intégrité et la maintenance. Les maîtres Kubernetes sont gérés par Azure. Vous gérez et tenez à jour uniquement les nœuds d’agent. En tant que service Kubernetes managé, AKS est gratuit. Vous payez uniquement pour les nœuds de l’agent au sein de vos clusters, pas pour les maîtres.
 
-Ce document fournit une vue d’ensemble des fonctionnalités d’Azure Kubernetes Service (AKS).
+Vous pouvez créer un cluster AKS dans le portail Azure, avec Azure CLI ou des options de déploiement piloté par modèle, comme les modèles Resource Manager et Terraform. Lors du déploiement d’un cluster AKS, le maître Kubernetes et tous les nœuds sont déployés et configurés pour vous. Des fonctionnalités supplémentaires telles que la mise en réseau avancée, l’intégration d’Azure Active Directory et la surveillance peuvent aussi être configurées lors du processus de déploiement.
 
-## <a name="flexible-deployment-options"></a>Options de déploiement flexibles
+Pour commencer, effectuez le démarrage rapide d’AKS [dans le portail Azure][aks-portal] ou [avec Azure CLI][aks-cli].
 
-Azure Kubernetes Service offre des options de déploiement par portail, ligne de commande et via un modèle (modèle Resource Manager et Terraform). Lors du déploiement d’un cluster AKS, le maître Kubernetes et tous les nœuds sont déployés et configurés pour vous. Des fonctionnalités supplémentaires telles que la mise en réseau avancée, l’intégration d’Azure Active Directory et la surveillance peuvent aussi être configurées lors du processus de déploiement.
+## <a name="access-security-and-monitoring"></a>Accès, sécurité et surveillance
 
-Pour en savoir plus, consultez le [Guide de démarrage rapide pour le portail AKS][aks-portal] ou le [Guide de démarrage rapide de l’interface de ligne de commande AKS][aks-cli].
+Pour améliorer la sécurité et la gestion, AKS vous permet d’intégrer avec Azure Active Directory et d’utiliser les contrôles d’accès en fonction du rôle de Kubernetes. Vous pouvez également superviser l’intégrité de votre cluster et de vos ressources.
 
-## <a name="identity-and-security-management"></a>Gestion de la sécurité et identité
+### <a name="identity-and-security-management"></a>Gestion de la sécurité et identité
 
-Les clusters AKS prennent en charge le [contrôle d'accès en fonction du rôle (RBAC)][kubernetes-rbac]. Un cluster AKS peut aussi être configuré pour s’intégrer à Azure Active Directory. Dans cette configuration, l’accès à Kubernetes peut être configuré en fonction de l’identité et de l’appartenance du groupe d’Azure Active Directory.
+Pour limiter l’accès aux ressources de cluster, AKS prend en charge le [contrôle d’accès en fonction du rôle (RBAC) de Kubernetes][kubernetes-rbac]. RBAC vous permet de contrôle la procédure d’accès aux ressources et aux espaces de noms Kubernetes, ainsi que les autorisations sur ces ressources. Un cluster AKS peut aussi être configuré pour s’intégrer à Azure Active Directory (AD). Avec l’intégration Azure AD, l’accès à Kubernetes peut être configuré en fonction de l’identité et de l’appartenance du groupe existantes. Vos utilisateurs et groupes Azure AD existants peuvent disposer de l’accès aux ressources AKS et avec une expérience d’authentification intégrée.
 
-Pour en savoir plus, consultez [Intégrer Azure Active Directory à AKS][aks-aad].
+Pour sécuriser vos clusters AKS, consultez [Intégrer Azure Active Directory à AKS][aks-aad].
 
-## <a name="integrated-logging-and-monitoring"></a>Fonctions de journalisation et de surveillance intégrées
+### <a name="integrated-logging-and-monitoring"></a>Fonctions de journalisation et de surveillance intégrées
 
-L’intégrité du conteneur vous offre une visibilité des performances en collectant des métriques sur la mémoire et le processeur à partir des contrôleurs, nœuds et conteneurs. Les journaux de conteneur sont aussi collectés. Ces données sont stockées dans l’espace de travail Log Analytics, et sont disponibles via le portail Azure, Azure CLI ou un point de terminaison REST.
+Pour comprendre les performances de vos applications déployées et de votre cluster AKS, Azure Monitor pour l’intégrité des conteneurs collecte les métriques relatives au processeur et à la mémoire à partir des conteneurs, des nœuds et des contrôleurs. Les journaux du conteneur sont disponibles, et vous pouvez également [passer en revue les journaux du maître Kubernetes][aks-master-logs]. Ces données de monitoring sont stockées dans un espace de travail Azure Log Analytics, et sont disponibles via le portail Azure, Azure CLI ou un point de terminaison REST.
 
 Pour plus d’informations, voir [Analyser le fonctionnement des conteneurs Azure Kubernetes Service][container-health].
 
-## <a name="cluster-node-scaling"></a>Mise à l'échelle du nœud de cluster
+## <a name="cluster-and-node"></a>Cluster et nœud
 
-Avec la hausse de la demande en ressources, les nœuds d’un cluster AKS peuvent être augmentés en fonction des besoins. Si la demande en ressources diminue, les nœuds peuvent être supprimés en redimensionnant le cluster. Les opérations de mise à l'échelle d’AKS peuvent être effectuées via le portail Azure ou Azure CLI.
+Les nœuds AKS s’exécutent sur des machines virtuelles Azure. Vous pouvez connecter le stockage à des nœuds et des pods, mettre à niveau les composants du cluster et utiliser des GPU.
+
+### <a name="cluster-node-and-pod-scaling"></a>Nœud de cluster et la mise à l’échelle de pod
+
+Lorsque la demande des ressources change, le nombre de pods ou de nœuds du cluster qui exécutent vos services peut automatiquement monter ou descendre en puissance. Vous pouvez utiliser l’autoscaler de pod horizontal ou l’autoscaler de cluster. Cette approche de la mise à l’échelle permet au cluster AKS de s’ajuster automatiquement aux demandes et d’exécuter uniquement les ressources nécessaires.
 
 Pour plus d’informations, consultez [Mettre à l’échelle un cluster Azure Kubernetes Service (AKS)][aks-scale].
 
-## <a name="cluster-node-upgrades"></a>Mises à niveau du nœud de cluster
+### <a name="cluster-node-upgrades"></a>Mises à niveau du nœud de cluster
 
 Azure Kubernetes Service offre plusieurs versions de Kubernetes. Au fur et à mesure que de nouvelles versions sont disponibles dans AKS, votre cluster peut être mis à niveau via le portail Azure ou Azure CLI. Pendant le processus de mise à niveau, les nœuds sont soigneusement coordonnés et purgés afin de limiter les perturbations pour les applications en cours d’exécution.
 
-Pour plus d’informations, consultez [Mettre à niveau un cluster Azure Kubernetes Service (AKS)][aks-upgrade].
+Pour en savoir plus sur les versions du cycle de vie, consultez [Versions de Kubernetes prises en charge dans AKS][aks-supported versions]. Pour connaître les étapes de la mise à niveau, consultez [Mettre à niveau un cluster Azure Kubernetes Service (AKS)][aks-upgrade].
 
-## <a name="http-application-routing"></a>Routage d’applications HTTP
-
-La solution de routage des applications HTTP permet d’accéder facilement aux applications déployées sur votre cluster AKS. Lorsqu’elle est activée, la solution de routage d’application HTTP configure un contrôleur d’entrée de votre cluster AKS. Lorsque les applications sont déployées, les noms de DNS accessibles publiquement sont configurés automatiquement.
-
-Pour plus d’informations, consultez [Routage d’application HTTP][aks-http-routing].
-
-## <a name="gpu-enabled-nodes"></a>Nœuds avec processeur graphique (GPU)
+### <a name="gpu-enabled-nodes"></a>Nœuds avec processeur graphique (GPU)
 
 AKS prend en charge la création de pools de nœuds avec processeur graphique (GPU). Azure fournit actuellement une ou plusieurs machines virtuelles avec processeur graphique (GPU). Les machines virtuelles avec processeur graphique (GPU) sont conçues pour des charges de travail de visualisation, mais également de calcul et d’affichage graphique intensifs.
 
 Pour plus d’informations, consultez [Utilisation de processeurs graphiques (GPU) sur AKS][aks-gpu].
 
-## <a name="development-tooling-integration"></a>Intégration d’outils de développement
+### <a name="storage-volume-support"></a>Prise en charge du volume de stockage
 
-Kubernetes dispose d’un écosystème riche en outils de gestion et de développement, tels que Helm,Draft et l’extension Kubernetes pour Visual Studio Code. Ces outils fonctionnent de façon fluide avec Azure Kubernetes Service.
+Pour supporter les charges de travail d’application, vous pouvez monter des volumes de stockage pour les données persistantes. Les volumes statiques et dynamiques peuvent être utilisés. En fonction du nombre de pods connectés qui doivent partager le stockage, vous pouvez utiliser un stockage soutenu par Azure Disks pour l’accès d’un pod unique ou Azure Files pour l’accès simultané de plusieurs pods.
 
-De plus, Azure Dev Spaces offre aux équipes une expérience de développement Kubernetes rapide et itérative. Avec une configuration minimale, vous pouvez exécuter et déboguer directement dans Azure Kubernetes Service (AKS).
+Prenez en main les volumes persistants dynamiques avec [Azure Disks][azure-disk] ou [Azure Files][azure-files].
 
-Pour plus d’informations, consultez [Azure Dev Spaces][azure-dev-spaces].
+## <a name="virtual-networks-and-ingress"></a>Réseaux virtuels et entrée
 
-Le projet Azure DevOps fournit une solution simple pour apporter le code et le référentiel Git existant dans Azure. Le projet DevOps crée automatiquement des ressources Azure telles qu’AKS, un pipeline de mise en production dans VSTS comprenant une définition de build pour intégration continue, configure une définition de mise en production pour déploiement continu, puis crée une ressource Azure Application Insights pour la surveillance.
-
-Pour plus d’informations, consultez [Projet Azure DevOps][azure-devops].
-
-## <a name="virtual-network-integration"></a>Intégration du réseau virtuel
-
-Un cluster AKS peut être déployé dans un réseau virtuel existant. Dans cette configuration, chaque pod du cluster se voit affecter une adresse IP dans le réseau virtuel et peut communiquer directement avec les autres pods du cluster et les autres nœuds du réseau virtuel. Les pods peuvent se connecter à d’autres services dans un réseau virtuel appairé, et à d’autres réseaux locaux via des connexions ExpressRoute et VPN site à site (S2S).
+Un cluster AKS peut être déployé dans un réseau virtuel existant. Dans cette configuration, chaque pod du cluster se voit affecter une adresse IP dans le réseau virtuel et peut communiquer directement avec les autres pods du cluster et les autres nœuds du réseau virtuel. Les pods peuvent se connecter à d’autres services dans un réseau virtuel appairé, et à d’autres réseaux locaux via des connexions ExpressRoute ou VPN site à site (S2S).
 
 Pour plus d’informations, consultez [Vue d’ensemble de la mise en réseau AKS][aks-networking].
 
-## <a name="private-container-registry"></a>Registre de conteneurs privé
+### <a name="ingress-with-http-application-routing"></a>Entrée avec un routage d’applications HTTP
 
-Intégrez à Azure Container Registry (ACR) pour stocker vos images Docker en privé.
+Le module complémentaire de routage des applications HTTP permet d’accéder facilement aux applications déployées sur votre cluster AKS. Lorsqu’elle est activée, la solution de routage d’application HTTP configure un contrôleur d’entrée de votre cluster AKS. Lorsque les applications sont déployées, les noms de DNS accessibles publiquement sont configurés automatiquement. Le routage d’applications HTTP configure une zone DNS et l’intègre au cluster AKS. Vous pouvez ensuite déployer des ressources d’entrée Kubernetes comme d’habitude.
 
-Pour plus d’informations, consultez [Azure Container Registry (ACR)][acr-docs].
+Pour vous familiariser avec le trafic en entrée, consultez [Routage d’applications HTTP][aks-http-routing].
 
-## <a name="storage-volume-support"></a>Prise en charge du volume de stockage
+## <a name="development-tooling-integration"></a>Intégration d’outils de développement
 
-Azure Kubernetes Service (AKS) prend en charge le montage de volumes de stockage pour des données persistantes. Les clusters AKS sont créés avec une prise en charge d’Azure Files et Azure Disks.
+Kubernetes dispose d’un écosystème riche en outils de gestion et de développement, tels que Helm,Draft et l’extension Kubernetes pour Visual Studio Code. Ces outils fonctionnent parfaitement avec AKS.
 
-Pour plus d’informations, consultez [Azure Files][azure-files] et [Azure Disks][azure-disk].
+De plus, Azure Dev Spaces offre aux équipes une expérience de développement Kubernetes rapide et itérative. Avec une configuration minimale, vous pouvez exécuter et déboguer des conteneurs directement dans AKS. Pour commencer, consultez [Azure Dev Spaces][azure-dev-spaces].
 
-## <a name="docker-image-support"></a>Prise en charge d’images Docker
+Le projet Azure DevOps fournit une solution simple pour apporter le code et le référentiel Git existant dans Azure. Le projet DevOps crée automatiquement des ressources Azure telles qu’AKS, un pipeline de mise en production dans Azure DevOps Services comprenant un pipeline de build pour CI (intégration continue), configure un pipeline de mise en production pour CD (déploiement continu), puis crée une ressource Azure Application Insights pour la surveillance.
 
-Azure Kubernetes Service prend en charge le format image Docker.
+Pour plus d’informations, consultez [Projet Azure DevOps][azure-devops].
+
+## <a name="docker-image-support-and-private-container-registry"></a>Prise en charge des images Docker et Registre de conteneurs privé
+
+AKS prend en charge le format d’image Docker. Vous pouvez intégrer AKS à Azure Container Registry (ACR) pour stocker vos images Docker en privé.
+
+Pour créer un magasin d’images privé, consultez [Azure Container Registry][acr-docs].
 
 ## <a name="kubernetes-certification"></a>Certification Kubernetes
 
@@ -108,7 +105,7 @@ Azure Kubernetes Service (AKS) est conforme aux normes SOC, ISO et PCI DSS.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur le déploiement et la gestion des ACS avec ACS démarrage rapide.
+En savoir plus sur le déploiement et la gestion d’AKS avec le démarrage rapide Azure CLI.
 
 > [!div class="nextstepaction"]
 > [Guide de démarrage rapide AKS][aks-cli]
@@ -128,11 +125,12 @@ En savoir plus sur le déploiement et la gestion des ACS avec ACS démarrage rap
 [aks-http-routing]: ./http-application-routing.md
 [aks-networking]: ./networking-overview.md
 [aks-portal]: ./kubernetes-walkthrough-portal.md
-[aks-scale]: ./scale-cluster.md
+[aks-scale]: ./tutorial-kubernetes-scale.md
 [aks-upgrade]: ./upgrade-cluster.md
 [azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
 [azure-devops]: https://docs.microsoft.com/en-us/azure/devops-project/overview
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../monitoring/monitoring-container-health.md
-
+[aks-master-logs]: view-master-logs.md
+[aks-supported versions]: supported-kubernetes-versions.md

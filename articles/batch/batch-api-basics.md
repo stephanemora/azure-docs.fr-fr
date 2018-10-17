@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 8b6e543a4835410368e752e70e7e8cb6d8805c0e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746016"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735577"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Développer des solutions de calcul parallèles à grande échelle avec Batch
 
@@ -79,11 +79,13 @@ Vous pouvez exécuter plusieurs charges de travail Batch dans un compte Batch ou
 
 La plupart des solutions Batch utilisent Stockage Azure pour stocker les fichiers de ressources et les fichiers de sortie. Par exemple, vos tâches Batch (y compris les tâches standard, de démarrage, de préparation des travaux et de validation des travaux) spécifient généralement des fichiers de ressources se trouvant dans un compte de stockage.
 
-Batch prend en charge les [options de compte](../storage/common/storage-account-options.md) Stockage Azure suivantes :
+Batch prend en charge les types de comptes Stockage Azure suivants :
 
 * Comptes Usage général v2 (GPv2) 
 * Comptes Usage général v1 (GPv1)
 * Comptes de stockage d’objets blob (actuellement pris en charge pour les pools dans la configuration de la machine virtuelle)
+
+Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../storage/common/storage-account-overview.md).
 
 Vous pouvez associer un compte de stockage à votre compte Batch lorsque vous créez le compte Batch. Vous avez également la possibilité de le faire ultérieurement. Prenez en compte vos exigences en termes de coûts et de performances lorsque vous choisissez un compte de stockage. Par exemple, les options de compte de stockage Blob et GPv2 prennent en charge des [limites d’extensibilité et de capacité](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/) plus importantes que celles des options GPv1. (Contactez le support technique Azure pour demander une augmentation de la limite de stockage.) Ces options de compte peuvent améliorer les performances des solutions Batch qui possèdent un certain nombre de tâches de lecture ou d’écriture s’exécutant simultanément sur le compte de stockage.
 
@@ -540,7 +542,7 @@ Quand certaines de vos tâches échouent, votre application cliente Batch ou un 
 [net_rdpfile]: https://msdn.microsoft.com/library/azure/Mt272127.aspx
 [vnet]: https://msdn.microsoft.com/library/azure/dn820174.aspx#bk_netconf
 
-[py_add_user]: https://docs.microsoft.com/en-us/python/azure/?view=azure-python
+[py_add_user]: https://docs.microsoft.com/python/azure/?view=azure-python
 
 [batch_rest_api]: https://msdn.microsoft.com/library/azure/Dn820158.aspx
 [rest_add_job]: https://msdn.microsoft.com/library/azure/mt282178.aspx

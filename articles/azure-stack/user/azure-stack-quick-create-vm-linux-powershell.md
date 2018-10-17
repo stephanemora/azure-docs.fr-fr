@@ -6,21 +6,20 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 03EE5929-4F05-47D7-B246-EA93D6FC47CD
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9d3c063dab11f31b10762e8399a1f11f2c28c3cd
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 09c719dd03f375127448851d0af9dada9238d1f1
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36226994"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377502"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Démarrage rapide : créer une machine virtuelle de serveur Linux en utilisant PowerShell dans Azure Stack
 
@@ -38,7 +37,9 @@ Vous pouvez créer une machine virtuelle Ubuntu Server 16.04 LTS à l’aide d�
 
    La Place de Marché Azure Stack ne contient pas d’image Linux par défaut. Obtenez de l’opérateur d’Azure Stack qu’il vous fournisse l’image **Ubuntu Server 16.04 LTS** dont vous avez besoin. L’opérateur peut utiliser la procédure décrite dans l’article [Télécharger des éléments de la Place de Marché à partir d’Azure dans Azure Stack](../azure-stack-download-azure-marketplace-item.md).
 
-* Azure Stack nécessite une version spécifique d’Azure PowerShell pour créer et gérer des ressources. Si PowerShell n’est pas configuré pour Azure Stack, connectez-vous au [kit de développement](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), ou à un client externe basé sur Windows si vous êtes [connectés via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) et suivez les étapes pour [installer](azure-stack-powershell-install.md) et [configurer](azure-stack-powershell-configure-user.md) PowerShell.
+* Azure Stack nécessite une version spécifique d’Azure PowerShell pour créer et gérer les ressources. Si PowerShell n’est pas configuré pour Azure Stack, suivez les étapes permettant d’[installer](azure-stack-powershell-install.md) PowerShell.
+
+* Une fois Azure Stack PowerShell configuré, vous devrez vous connecter à votre environnement Azure Stack. Pour plus d’informations, consultez [Se connecter en tant qu’utilisateur à Azure Stack à l’aide de PowerShell](azure-stack-powershell-configure-user.md).
 
 * Une clé SSH publique nommée id_rsa.pub enregistrée dans le répertoire .ssh de votre profil utilisateur Windows. Pour plus d’informations sur la création de clés SSH, consultez [Création de clés SSH sur Windows](../../virtual-machines/linux/ssh-from-windows.md).
 
@@ -416,7 +417,7 @@ Avec NGINX installé et le port 80 ouvert sur votre machine virtuelle, vous pouv
 
 ![Page d’accueil du serveur web NGINX](./media/azure-stack-quick-create-vm-linux-cli/nginx.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Nettoyez les ressources dont vous n’avez plus besoin. Pour supprimer ces ressources, vous pouvez utiliser la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup?view=azurermps-4.3.1). Pour supprimer le groupe de ressources et toutes ses ressources, exécutez la commande suivante :
 

@@ -1,6 +1,6 @@
 ---
-title: Création de rapports Azure Active Directory | Microsoft Docs
-description: Fournit une vue d’ensemble de la création de rapports Azure Active Directory.
+title: Présentation des rapports Azure Active Directory | Microsoft Docs
+description: Fournit une vue d’ensemble des rapports Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: priyamohanram
@@ -9,21 +9,21 @@ editor: ''
 ms.assetid: 6141a333-38db-478a-927e-526f1e7614f4
 ms.service: active-directory
 ms.devlang: na
-ms.topic: conceptual
+ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
 ms.date: 01/15/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 96faeaefc6c58f03328a85b626528267396121a5
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 220f27ccf2d3eaefd8347e1d52824be2d601d9c9
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42140850"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364381"
 ---
-# <a name="azure-active-directory-reporting"></a>Création de rapports Active Directory
+# <a name="what-are-azure-active-directory-reports"></a>Présentation des rapports Azure Active Directory
 
 Les rapports Azure Active Directory vous permettent d’obtenir de précieuses informations sur le comportement de votre environnement.  
 Les données fournies vous permettent de :
@@ -50,6 +50,7 @@ Il existe deux types de rapports de sécurité dans Azure Active Directory :
 - **Connexions à risque** : le [rapport de sécurité de ce type](concept-risky-sign-ins.md) contient un indicateur pour les tentatives de connexion susceptibles d’avoir été effectuées par une personne autre que le propriétaire légitime d’un compte d’utilisateur. 
 
 **De quelle licence Azure AD avez-vous besoin pour accéder à un rapport de sécurité ?**  
+
 Toutes les éditions d’Azure Active Directory vous indiquent les rapports de sécurité Utilisateurs avec indicateur de risque et Connexions à risque.  
 Toutefois, le niveau de granularité d’un rapport varie entre les éditions : 
 
@@ -69,9 +70,7 @@ Il existe deux types de rapports d’activité dans Azure Active Directory :
 - **Connexions** : le [rapport d’activité de ce type](concept-sign-ins.md) vous permet d’identifier qui a effectué les tâches signalées par le rapport de journaux d’audit.
 
 
-
-Le **rapport de journaux d’audit** vous fournit les enregistrements des activités du système relatifs à la conformité.
-Les données fournies vous permettent, entre autres choses, de résoudre des scénarios courants :
+Le **rapport de journaux d’audit** vous fournit les enregistrements des activités du système relatifs à la conformité. Ces données vous permettent de résoudre des scénarios courants, tels que :
 
 - Une personne de mon locataire a obtenu l’accès à un groupe d’administration. Qui lui a fourni cet accès ? 
 
@@ -81,10 +80,10 @@ Les données fournies vous permettent, entre autres choses, de résoudre des sc�
 
 
 **De quelle licence Azure AD avez-vous besoin pour accéder au rapport de journaux d’audit ?**  
+
 Le rapport de journaux d’audit est disponible pour les fonctionnalités dont vous disposez les licences. Si vous possédez une licence pour une fonctionnalité spécifique, vous avez également accès aux informations du journal d’audit correspondantes.
 
 Pour en savoir plus, voir la section **Comparaison des caractéristiques de disponibilité générale des éditions Free, Basic et Premium**  de l’article [Fonctionnalités d’Azure Active Directory](https://www.microsoft.com/cloud-platform/azure-active-directory-features).   
-
 
 
 Le **rapport d’activité des connexions** vous permet de trouver les réponses aux questions suivantes :
@@ -95,8 +94,8 @@ Le **rapport d’activité des connexions** vous permet de trouver les réponses
 
 
 **De quelle licence Azure AD avez-vous besoin pour accéder au rapport d’activité des connexions ?**  
-Pour accéder au rapport d’activité des connexions, votre locataire doit posséder une licence Azure AD Premium qui lui est associée.
 
+Pour accéder au rapport d’activité des connexions, votre locataire doit posséder une licence Azure AD Premium qui lui est associée.
 
 ## <a name="programmatic-access"></a>Accès par programme
 
@@ -105,17 +104,6 @@ Outre l’interface utilisateur, les rapports Azure Active Directory vous four
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les différents types de rapports dans Azure Active Directory, voir :
-
-- [Rapport des utilisateurs avec indicateur de risque](concept-user-at-risk.md)
 - [Rapport sur les connexions à risque](concept-risky-sign-ins.md)
 - [Rapport de journaux d’audit](concept-audit-logs.md)
 - [Rapport de journaux de connexions](concept-sign-ins.md)
-
-Pour en savoir plus sur l’accès aux données des rapports à l’aide de l’API de création de rapports, consultez : 
-
-- [Prise en main de l’API de création de rapports Azure Active Directory](concept-reporting-api.md)
-
-
-<!--Image references-->
-[1]: ./media/active-directory-reporting-azure-portal/ic195031.png

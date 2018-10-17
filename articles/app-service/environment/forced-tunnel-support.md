@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: 082275e2acd81e34c057f863651528eb46e8501e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ba93aab14c8eaccf9e3ed9ae9db0d169f41dddea
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114959"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024043"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurer votre environnement App Service avec le tunneling forcé
 
@@ -105,7 +105,7 @@ Pour tunneliser tout le trafic sortant à partir de votre ASE, à l’exception 
 
 3. Recherchez les adresses qui seront utilisées pour tout le trafic sortant de votre environnement App Service vers Internet. Si vous effectuez un tunneling forcé, il s’agit de vos adresses NAT ou adresses IP de passerelle. Si vous voulez acheminer le trafic sortant de l’environnement App Service via une appliance virtuelle réseau, l’adresse de sortie est l’adresse IP publique de l’appliance.
 
-4. _Pour définir les adresses de sortie dans un environnement App Service existant :_ accédez à resource.azure.com, puis à Subscription/<subscription id>/resourceGroups/<ase resource group>/providers/Microsoft.Web/hostingEnvironments/<ase name>. Vous voyez ainsi le code JSON qui décrit votre environnement App Service. Vérifiez que la mention **read/write** apparaît au début. Sélectionnez **Modifier**. Faites défiler vers le bas. Modifiez la valeur **userWhitelistedIpRanges** **null** en quelque chose qui ressemble à ce qui suit. Utiliser les adresses que vous souhaitez définir en tant que plage d’adresses de sortie. 
+4. _Pour définir les adresses de sortie dans un environnement App Service existant :_ accédez à resources.azure.com, and go to Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Vous voyez ainsi le code JSON qui décrit votre environnement App Service. Vérifiez que la mention **read/write** apparaît au début. Sélectionnez **Modifier**. Faites défiler vers le bas. Modifiez la valeur **userWhitelistedIpRanges** **null** en quelque chose qui ressemble à ce qui suit. Utiliser les adresses que vous souhaitez définir en tant que plage d’adresses de sortie. 
 
         "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"] 
 

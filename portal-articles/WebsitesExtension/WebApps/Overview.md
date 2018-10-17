@@ -8,15 +8,15 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: c01fcc7e69cf5af26b127519f183062ccf4923cc
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 50e6b714bc28ce383f06580d0e35b0b0e4066835
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172742"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47432221"
 ---
 # <a name="app-service-documentation"></a>Documentation App Service
-Azure App Service vous permet de créer et d’héberger des applications web dans le langage de programmation de votre choix sans gérer l’infrastructure, ni le langage ou le runtime de l’infrastructure web. Il offre une mise à l’échelle automatique et une haute disponibilité, prend en charge à la fois Windows et Linux et permet des déploiements automatisés à partir de GitHub, Visual Studio Team Services ou n’importe quel référentiel Git. Découvrez comment utiliser Azure App Service avec nos démarrages rapides, nos didacticiels et nos exemples.
+Azure App Service vous permet de créer et d’héberger des applications web dans le langage de programmation de votre choix sans gérer l’infrastructure, ni le langage ou le runtime de l’infrastructure web. Il offre une mise à l’échelle automatique et une haute disponibilité, prend en charge à la fois Windows et Linux et permet des déploiements automatisés à partir de GitHub, Azure DevOps Services ou n’importe quel référentiel Git. Découvrez comment utiliser Azure App Service avec nos démarrages rapides, nos didacticiels et nos exemples.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux et Docker
 [Web Apps](/app-service/app-service-web-overview) est l’offre principale d’App Service pour créer et héberger des applications web à l’aide d’environnements Windows. Les développeurs qui préfèrent un environnement Linux peuvent choisir [App Service sur Linux](/app-service/containers/app-service-linux-intro). Les développeurs peuvent également déployer des images Docker directement dans App Service sur Linux pour déployer des runtimes/infrastructures personnalisés.
@@ -40,7 +40,7 @@ Découvrez comment déployer, gérer et surveiller des applications web sécuris
   - [.NET avec Azure SQL DB](/azure/app-service/app-service-web-tutorial-dotnet-sqldatabase)
   - [Node.js avec MongoDB](/azure/app-service/app-service-web-tutorial-nodejs-mongodb-app)
   - [Java avec MySQL](/app-service/app-service-web-tutorial-java-mysql)
-  - [Python avec PostgreSQL](/app-service/containers/tutorial-docker-python-postgresql-app)
+  - [Python avec PostgreSQL](/app-service/containers/tutorial-python-postgresql-app)
 - [Mapper un domaine personnalisé existant à votre application](/azure/app-service/app-service-web-tutorial-custom-domain)
 - [Lier un certificat SSL existant à votre application](/azure/app-service/app-service-web-tutorial-custom-SSL)
 

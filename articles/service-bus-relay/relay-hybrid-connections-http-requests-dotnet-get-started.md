@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: spelluru
-ms.openlocfilehash: 4f7aa0b0c5142237f3b6fc66bb8593302c95f5af
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e66a1651a46cfaeb7fb8b232eeb7cf6a2fb8044d
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919384"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47451220"
 ---
 # <a name="get-started-with-relay-hybrid-connections-http-requests-in-net"></a>Bien démarrer avec les requêtes HTTP de connexions hybrides Relay dans .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -64,9 +64,14 @@ Dans Visual Studio, écrivez une application console C# pour envoyer des message
 [!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
 ## <a name="5-run-the-applications"></a>5. Exécution des applications
-1. Exécutez l’application de serveur.
-2. Exécutez l’application cliente et entrez du texte.
-3. Vérifiez que la console d’application de serveur affiche le texte entré dans l’application cliente.
+1. Exécutez l’application de serveur. La fenêtre de console affiche le texte suivant :
+
+    ```
+    Online
+    Server listening
+    ```
+1. Exécuter l’application cliente. Vous voyez `hello!` dans la fenêtre du client. Le client a envoyé une requête HTTP au serveur et le serveur a répondu avec un `hello!`. 
+3. Maintenant, pour fermer les fenêtres de console, appuyez sur **ENTRÉE** dans les deux les fenêtres de console. 
 
 Vous avez créé une application de connexions hybrides complète : félicitations !
 

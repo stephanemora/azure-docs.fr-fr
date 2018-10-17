@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b2bb187e5ad55b466da0b9b06ffbb047ac539717
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 20a57a0d528fa6a291aa66f91ff6ddd71053f478
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104997"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297058"
 ---
 # <a name="tutorial-prepare-an-application-for-azure-kubernetes-service-aks"></a>Didacticiel : préparer une application pour Azure Kubernetes Service (AKS)
 
@@ -35,7 +35,7 @@ Dans les didacticiels suivants, l’image conteneur est chargée dans Azure Cont
 
 Ce didacticiel présuppose une compréhension de base des concepts Docker essentiels, tels que les conteneurs, les images de conteneur et les commandes `docker`. Pour apprendre les principes de base des conteneurs, consultez [Bien démarrer avec Docker][docker-get-started].
 
-Pour suivre ce didacticiel, il vous faut un environnement de développement Docker local. Docker fournit des packages qui le configurent sur un système [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
+Pour suivre ce tutoriel, vous avez besoin d’un environnement de développement Docker local exécutant des conteneurs Linux. Docker fournit des packages qui le configurent sur un système [Mac][docker-for-mac], [Windows][docker-for-windows] ou [Linux][docker-for-linux].
 
 Azure Cloud Shell n’inclut pas les composants Docker requis pour effectuer chaque étape de ces didacticiels. Par conséquent, nous recommandons d’utiliser un environnement de développement Docker complet.
 
@@ -67,7 +67,7 @@ Utilisez l’exemple de fichier `docker-compose.yaml` pour créer l’image cont
 docker-compose up -d
 ```
 
-Une fois l’opération terminée, utilisez la commande [docker images][docker-images] pour afficher les images créées. Trois images ont été téléchargées ou créées. L’image *azure-vote-front* contient l’application de serveur frontal et utilise l’image `nginx-flask` comme base. L’image `redis` est utilisée pour démarrer une instance Redis.
+Une fois terminé, utilisez la commande [docker images][docker-images] pour afficher les images créées. Trois images ont été téléchargées ou créées. L’image *azure-vote-front* contient l’application de serveur frontal et utilise l’image `nginx-flask` comme base. L’image `redis` est utilisée pour démarrer une instance Redis.
 
 ```
 $ docker images

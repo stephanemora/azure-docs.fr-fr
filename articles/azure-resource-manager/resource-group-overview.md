@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/30/2018
+ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 24add63639f5fffe18e4b4468bfd78600a38c5f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: dc73bbd775da31faecf236716a2b028171438b7c
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969289"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47220884"
 ---
 # <a name="azure-resource-manager-overview"></a>Présentation d’Azure Resource Manager
 L’infrastructure sur laquelle s’appuie votre application est généralement constituée de plusieurs composants, par exemple une machine virtuelle, un compte de stockage et un réseau virtuel ou bien une application web, une base de données, un serveur de base de données et des services tiers. Vous ne voyez pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. Azure Resource Manager vous permet de travailler avec les ressources de solution sous forme de groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Le gestionnaire de ressources assure la sécurité, les fonctions d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement. 
@@ -155,6 +155,12 @@ Une fois votre modèle défini, vous êtes prêt à déployer vos ressources dan
 * [Déployer des ressources à l’aide de modèles Resource Manager et du Portail Azure](resource-group-template-deploy-portal.md)
 * [Déployer des ressources à l’aide de modèles Resource Manager et de l’API REST Resource Manager](resource-group-template-deploy-rest.md)
 
+## <a name="safe-deployment-practices"></a>Pratiques de déploiement sécurisé
+
+Lorsque vous déployez un service complexe vers Azure, vous devrez peut-être déployer votre service dans plusieurs régions et contrôler son intégrité avant de passer à l’étape suivante. Utilisez [Azure Deployment Manager](deployment-manager-overview.md) pour coordonner un déploiement intermédiaire du service. Avec un déploiement intermédiaire de votre service, vous pouvez rechercher des problèmes potentiels avant le déploiement dans toutes les régions. Si vous n’avez pas besoin de ces précautions, les opérations de déploiement dans la section précédente constituent la meilleure option.
+
+Deployment Manager est actuellement en préversion publique.
+
 ## <a name="tags"></a>Balises
 Resource Manager fournit une fonctionnalité de balisage vous permettant de catégoriser les ressources en fonction de vos exigences de gestion ou de facturation. Utilisez des balises lorsque vous disposez d’un ensemble complexe de groupes de ressources et de ressources et que vous souhaitez les visualiser de la façon qui vous convient le mieux. Par exemple, vous pouvez baliser des ressources qui jouent un rôle similaire dans votre organisation ou qui appartiennent au même département. Sans balises, les utilisateurs de votre organisation peuvent créer plusieurs ressources qui peuvent s’avérer difficiles à identifier et à gérer ultérieurement. Par exemple, vous pouvez souhaiter supprimer toutes les ressources d’un projet particulier. Si ces ressources ne sont pas balisées pour le projet, vous devez les rechercher manuellement. Le balisage constitue un levier important pour réduire les coûts inutiles dans votre abonnement. 
 
@@ -176,20 +182,6 @@ L’exemple suivant présente une balise appliquée à une machine virtuelle.
   }
 ]
 ```
-
-Pour récupérer toutes les ressources avec une valeur de balise, utilisez l’applet de commande PowerShell suivante :
-
-```powershell
-Find-AzureRmResource -TagName costCenter -TagValue Finance
-```
-
-Vous pouvez également exécuter la commande CLI Azure suivante :
-
-```azurecli
-az resource list --tag costCenter=Finance
-```
-
-Vous avez également la possibilité de consulter les ressources balisées via le portail Azure.
 
 Le [rapport d’utilisation](../billing/billing-understand-your-bill.md) de votre abonnement inclut les noms et valeurs de balises, ce qui vous permet de répartir les coûts en fonction des balises. Pour plus d’informations sur les balises, voir [Organisation des ressources Azure à l’aide de balises](resource-group-using-tags.md).
 
@@ -228,29 +220,8 @@ Dans certains cas, vous souhaiterez exécuter un code ou un script permettant d�
 
 Vous pouvez également verrouiller explicitement les ressources essentielles afin d’empêcher les utilisateurs de les supprimer ou de les modifier. Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 
-## <a name="activity-logs"></a>Journaux d’activité
-Resource Manager consigne dans un journal toutes les opérations de création, de modification ou de suppression d’une ressource. Vous pouvez utiliser les journaux d’activité pour rechercher une erreur lors de la résolution de problèmes ou pour surveiller la manière dont un utilisateur de votre organisation modifie une ressource. Vous pouvez filtrer les journaux selon différentes valeurs, notamment en fonction de l’utilisateur ayant initié l’opération. Pour en savoir plus sur l’utilisation des journaux d’activité, voir [Opérations d’audit avec Resource Manager](resource-group-audit.md).
-
 ## <a name="customized-policies"></a>Stratégies personnalisées
 Resource Manager vous permet de créer des stratégies personnalisées pour gérer vos ressources. Les types de stratégies que vous créez peuvent inclure divers scénarios. Vous pouvez appliquer une convention de dénomination des ressources, limiter les types et les instances de ressources qui peuvent être déployées ou limiter les régions qui peuvent héberger un type de ressource. Vous pouvez demander une valeur de balise sur les ressources pour organiser la facturation par service. Vous créez des stratégies pour vous aider à réduire les coûts et à assurer la cohérence de votre abonnement. 
-
-Vous pouvez définir des stratégies au format JSON, puis les appliquer à votre abonnement ou dans un groupe de ressources. Il convient de faire une distinction entre les stratégies et le contrôle d’accès en fonction du rôle, car les stratégies sont en fait appliquées aux types de ressources.
-
-L’exemple suivant illustre une stratégie qui garantit la cohérence des balises en spécifiant que toutes les ressources incluent une balise costCenter.
-
-```json
-{
-  "if": {
-    "not" : {
-      "field" : "tags",
-      "containsKey" : "costCenter"
-    }
-  },
-  "then" : {
-    "effect" : "deny"
-  }
-}
-```
 
 Il existe de nombreux autres types de stratégies que vous pouvez créer. Pour plus d’informations, consultez [Qu’est-ce qu’Azure Policy ?](../azure-policy/azure-policy-introduction.md).
 

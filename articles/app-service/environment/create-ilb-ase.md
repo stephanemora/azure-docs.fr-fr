@@ -14,12 +14,12 @@ ms.topic: quickstart
 ms.date: 06/12/2018
 ms.author: ccompy
 ms.custom: mvc
-ms.openlocfilehash: df4730078b890353c697b0e9213fb66cdb4e7f9b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: e9d1f77a85d4b5cfb5bb7d3cb80380be3c79315d
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39436690"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378276"
 ---
 # <a name="create-and-use-an-internal-load-balancer-with-an-app-service-environment"></a>Créer et utiliser un équilibreur de charge interne avec un environnement App Service #
 
@@ -56,7 +56,7 @@ Lorsque vous utilisez un ASE ILB, vous ne pouvez pas effectuer certaines opérat
 
 Pour créer un ILB ASE :
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Web + Mobile** > **App Service Environment**.
+1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Web** > **App Service Environment**.
 
 1. Sélectionnez votre abonnement.
 
@@ -209,7 +209,7 @@ Le nom du site SCM vous dirige vers la console Kudu nommée **Portail avancé** 
 
 Dans l’App Service mutualisé et un ASE externe, il existe une authentification unique entre le portail Azure et la console Kudu. Pour l’ASE ILB, vous devez utiliser vos informations d’identification de publication pour vous connecter à la console Kudu.
 
-Les systèmes d’intégration continue basés sur Internet, comme GitHub et Visual Studio Team Services, continueront de fonctionner avec un environnement ASE d’équilibreur de charge interne si l’agent de build est accessible par Internet et se trouve sur le même réseau que l’environnement ASE d’équilibreur de charge interne. Par conséquent, avec Visual Studio Team Services, si l’agent de build est créé sur le même réseau virtuel que l’environnement ASE d’équilibreur de charge interne (vous pouvez utiliser un autre sous-réseau), il ne pourra pas extraire le code de VSTS Git et se déployer dans l’environnement ASE d’équilibreur de charge interne. Si vous ne souhaitez pas créer votre propre agent de build, vous devez utiliser un système d’intégration continue qui utilise un modèle d’extraction, par exemple Dropbox.
+Les systèmes d’intégration continue basés sur Internet, comme GitHub et Azure DevOps, continueront de fonctionner avec un environnement ASE d’équilibreur de charge interne si l’agent de build est accessible par Internet et se trouve sur le même réseau que l’environnement ASE d’équilibreur de charge interne. Par conséquent, avec Azure DevOps, si l’agent de build est créé sur le même réseau virtuel que l’environnement ASE d’équilibreur de charge interne (vous pouvez utiliser un autre sous-réseau), il ne pourra pas extraire le code d’Azure DevOps Git et se déployer dans l’environnement ASE d’équilibreur de charge interne. Si vous ne souhaitez pas créer votre propre agent de build, vous devez utiliser un système d’intégration continue qui utilise un modèle d’extraction, par exemple Dropbox.
 
 Les points de terminaison de publication pour les applications d’un environnement ASE d’équilibreur de charge interne utilisent le domaine avec lequel l’environnement ASE d’équilibreur de charge interne a été créé. Ce domaine apparaît dans le profil de publication de l’application et sur le panneau du portail de l’application (**Vue d’ensemble** > **Bases** et également **Propriétés**). Si vous disposez d’un ASE ILB avec le sous-domaine *contoso.net* et d’une application nommée *mytest*, utilisez *mytest.contoso.net* pour le FTP et *mytest.scm.contoso.net* pour le déploiement web.
 

@@ -9,13 +9,13 @@ editor: jasonwhowell
 ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 03/20/2018
-ms.openlocfilehash: dea380378aa1b6c2203c76f5c48e5af400ec8719
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/12/2018
+ms.openlocfilehash: f26cadf28205359b111a8f92b8fadcbd9f26f958
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35266701"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47407619"
 ---
 # <a name="create-an-azure-database-for-mysql-server-by-using-the-azure-portal"></a>Création d’un serveur Azure Database pour MySQL à l’aide du portail Azure
 
@@ -51,7 +51,7 @@ Pour créer un serveur de base de données Azure pour MySQL, suivez les étapes 
     Mot de passe | *Votre choix* | Spécifiez un mot de passe pour le compte Administrateur du serveur. Il doit inclure entre 8 et 128 caractères. Votre mot de passe doit contenir des caractères appartenant à trois des catégories suivantes : lettres majuscules, lettres minuscules, chiffres (0 à 9) et caractères non alphanumériques (!, $, #, %, etc.).
     Confirmer le mot de passe | *Votre choix*| Confirmez le mot de passe du compte d’administrateur.
     Lieu | *La région la plus proche de vos utilisateurs*| Choisissez l’emplacement le plus proche de vos utilisateurs ou de vos autres applications Azure.
-    Version | *La version la plus récente*| La version la plus récente (sauf si vous avez des exigences spécifiques).
+    Version | *La version principale la plus récente*| La version principale la plus récente (sauf si vous avez des exigences spécifiques).
     Niveau tarifaire | **Usage général**, **Gen 4**, **2 vCores**, **5 Go**, **7 jours**, **géographiquement redondant** | Les configurations de calcul, de stockage et de sauvegarde pour votre nouveau serveur. Sélectionnez **Niveau tarifaire**. Ensuite, sélectionnez l’onglet **Usage général**. *Gen 4*, *2 vCores*, *5 Go*, et *7 jours* sont les valeurs par défaut pour la **Génération de calcul**, **vCore**, le **Stockage**, et la **période de rétention de sauvegarde**. Vous pouvez laisser ces curseurs en l’état. Pour activer les sauvegardes de votre serveur dans le stockage géo-redondant, sélectionnez **Géographiquement redondant** dans les **Options de redondance de sauvegarde**. Pour enregistrer cette sélection du niveau tarifaire, sélectionnez **OK**. La capture d’écran suivante capture ces sélections.
   
     > [!IMPORTANT]
@@ -74,17 +74,11 @@ Le service Base de données Azure pour MySQL crée un pare-feu au niveau du serv
 
 2. Sur la page du serveur, sélectionnez **Sécurité de la connexion**.
 
-3.  Sous le titre **Règles de pare-feu**, sélectionnez la zone de texte vide de la colonne **Nom de la règle** pour commencer à créer la règle de pare-feu. 
-
-   Pour ce guide de démarrage rapide, autorisons toutes les adresses IP sur le serveur en remplissant les zones de chaque colonne avec les valeurs suivantes :
-
-   Nom de la règle | Adresse IP de début | Adresse IP de fin 
-   ---|---|---
-   AllowAllIps |  0.0.0.0 | 255.255.255.255
+3.  Sous le titre **Règles de pare-feu**, sélectionnez la zone de texte vide de la colonne **Nom de la règle** pour commencer à créer la règle de pare-feu. Entrez la plage précis d’adresses IP des clients qui accèderont à ce serveur.
    
-   ![Sécurité de connexion : règles de pare-feu](./media/quickstart-create-mysql-server-database-using-azure-portal/5_firewall-settings.png)
+   ![Sécurité de connexion : règles de pare-feu](./media/quickstart-create-mysql-server-database-using-azure-portal/5-firewall-2.png)
 
-   Autoriser toutes les adresses IP n’est pas une méthode sécurisée. Cet exemple est fourni par souci de simplicité, mais dans un scénario réel, vous devez connaître les plages d’adresses IP précis à ajouter pour vos applications et utilisateurs. 
+
 
 4. Dans la barre d’outils supérieure de la page **Sécurité de la connexion**, sélectionnez **Enregistrer**. Avant de continuer, attendez la notification indiquant que la mise à jour a été faite avec succès. 
 

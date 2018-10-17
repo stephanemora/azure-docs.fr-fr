@@ -1,21 +1,23 @@
 ---
-title: Personnalisation d’article - Azure Cognitive Services | Microsoft Docs
-description: Didacticiel pour la personnalisation d’article avec le Service Décision personnalisée Azure, une API cloud d’aide à la prise de décision contextuelle.
+title: 'Tutoriel : Personnalisation des articles - Service Décision personnalisée'
+titlesuffix: Azure Cognitive Services
+description: Tutoriel sur la personnalisation des articles pour une prise de décision contextuelle.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: tutorial
 ms.date: 05/08/2018
-ms.author: slivkins;marcozo;alekh;marossi
-ms.openlocfilehash: 35d0567f81a23d4726461059eb6fd31e04228697
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.author: slivkins
+ms.openlocfilehash: b142fe2051c017d0c0ec3c4cac6aaedd563f6cd7
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369980"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366333"
 ---
-# <a name="article-personalization"></a>Personnalisation de l’article
+# <a name="tutorial-article-personalization-for-contextual-decision-making"></a>Tutoriel : Personnalisation des articles pour une prise de décision contextuelle
 
 Ce didacticiel est axé sur la personnalisation de la sélection d’articles sur la première page d’un site web. Le Service Décision personnalisée affecte *plusieurs* listes d’articles sur la première page par exemple. La page peut être un site web d’actualités qui traite uniquement de politique et de sport. Elle afficherait trois listes classées d’articles : politique, sports et nouveautés.
 

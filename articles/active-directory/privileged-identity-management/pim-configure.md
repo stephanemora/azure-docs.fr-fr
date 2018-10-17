@@ -13,16 +13,16 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: af93ade2a7031aeda5b4108649c59a8d6c1393ce
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43186209"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465858"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Qu’est-ce qu’Azure AD Privileged Identity Management ?
 
-Avec Azure Active Directory (AD) Privileged Identity Management, vous pouvez gérer, contrôler et surveiller l’accès au sein de votre organisation. Cela inclut l’accès aux ressources d’Azure AD, aux ressources Azure (préversion) et à d’autres services Microsoft Online Services comme Office 365 ou Microsoft Intune.
+Avec Azure Active Directory (Azure AD) Privileged Identity Management, vous pouvez gérer, contrôler et superviser les accès au sein de votre organisation. Cela inclut l’accès aux ressources dans Azure AD, aux ressources Azure et à d’autres services Microsoft Online Services, comme Office 365 ou Microsoft Intune.
 
 > [!NOTE]
 > Lorsque vous activez Privileged Identity Management pour votre locataire, vous devez disposer d’une licence payante ou d’essai valide Azure AD Premium P2 ou Enterprise Mobility + Security E5 pour chaque utilisateur qui interagit avec ce service ou en bénéficie. Voici des exemples avec des utilisateurs/utilisateurs d’un groupe :
@@ -39,11 +39,11 @@ Il est souhaitable pour les organisations de limiter le nombre de personnes qui 
 
 Grâce à Azure AD Privileged Identity Management, votre organisation peut :
 
-- Voir quels utilisateurs disposent de rôles privilégiés pour gérer les ressources Azure (préversion) et quels utilisateurs disposent de rôles d’administrateur dans Azure AD
-- Activer à la demande un accès administratif « juste-à-temps » aux services Microsoft Online Services comme Office 365 et Intune, et aux ressources Azure (préversion) des abonnements, aux groupes de ressources et aux ressources individuelles telles que des machines virtuelles 
--   Consulter un historique de l’activation d’administrateurs, y compris les modifications apportées par les administrateurs aux ressources Azure (préversion)
+- Voir quels utilisateurs disposent de rôles privilégiés pour gérer les ressources Azure et quels utilisateurs disposent de rôles d’administrateur dans Azure AD
+- Activer à la demande un accès administratif « juste-à-temps » aux services Microsoft Online Services, comme Office 365 et Intune, et aux ressources Azure des abonnements, groupes de ressources et ressources individuelles, telles que des machines virtuelles 
+- Consulter un historique de l’activation d’administrateurs, notamment les modifications apportées par les administrateurs aux ressources Azure
 - Recevoir des alertes sur les modifications apportées aux affectations des administrateurs
-- Exiger une approbation pour activer les rôles d’administrateur privilégiés Azure AD (préversion) 
+- Exiger une approbation pour activer les rôles d’administrateur privilégiés Azure AD
 - Vérifier l’appartenance aux rôles d’administrateur et demander aux utilisateurs de fournir une justification pour que l’appartenance à leur rôle soit maintenue
 
 Dans Azure AD, Azure AD Privileged Identity Management peut gérer les utilisateurs affectés aux rôles organisationnels intégrés dans Azure AD, tels que celui d’administrateur général. Dans Azure, Azure AD Privileged Identity Management peut gérer les utilisateurs et les groupes affectés via les rôles RBAC Azure, y compris ceux de propriétaire et de contributeur.
@@ -100,17 +100,17 @@ Pour les rôles RBAC Azure, seul un administrateur d’abonnement, un propriéta
 
 ## <a name="privileged-identity-management-overview-entry-point"></a>Vue d’ensemble de Privileged Identity Management (point d’entrée)
 
-Azure AD Privileged Identity Management prend en charge l’administration des rôles d’annuaire Azure AD et des rôles de ressources Azure (préversion). Le fonctionnement des rôles pour les ressources Azure diffère de celui des rôles d’administrateur dans Azure AD. Les rôles de ressources Azure fournissent des autorisations granulaires pour la ressource à laquelle ils sont affectés, ainsi que pour toutes les ressources subordonnées dans la hiérarchie des ressources (selon un principe appelé héritage). Vous trouverez plus d’informations sur RBAC, la hiérarchie des ressources et l’héritage [ici](../../role-based-access-control/role-assignments-portal.md). Pour les rôles d’annuaire Azure AD et les ressources Azure (préversion), PIM peut être géré en accédant au lien approprié sous la section Gérer du menu de navigation gauche du point d’entrée Vue d’ensemble de PIM.
+Azure AD Privileged Identity Management prend en charge l’administration des rôles d’annuaire Azure AD et des rôles de ressources Azure. Le fonctionnement des rôles pour les ressources Azure diffère de celui des rôles d’administrateur dans Azure AD. Les rôles de ressources Azure fournissent des autorisations granulaires pour la ressource à laquelle ils sont affectés, ainsi que pour toutes les ressources subordonnées dans la hiérarchie des ressources (selon un principe appelé héritage). Vous trouverez plus d’informations sur RBAC, la hiérarchie des ressources et l’héritage [ici](../../role-based-access-control/role-assignments-portal.md). Pour les rôles d’annuaire Azure AD et les ressources Azure, PIM peut être géré en accédant au lien approprié sous la section Gérer du menu de navigation gauche du point d’entrée Vue d’ensemble de PIM.
 
 PIM permet d’activer des rôles et d’afficher les demandes/activations en attente, les approbations en attente (pour les rôles d’annuaire Azure AD), ainsi que les révisions attendant une réponse de votre part en toute simplicité à partir de la section Tâches du menu de navigation gauche.
 
-Lorsque vous accédez à l’un des éléments du menu Tâches à partir du point d’entrée Vue d’ensemble, la vue correspondante contient les résultats pour les rôles d’annuaire Azure AD et les rôles de ressources Azure (version préliminaire).
+Lorsque vous accédez à l’un des éléments du menu Tâches à partir du point d’entrée Vue d’ensemble, la vue correspondante contient à la fois les résultats pour les rôles d’annuaire Azure AD et les rôles de ressources Azure.
 
 ![Démarrage rapide](./media/pim-configure/quick-start.png)
 
-La section Mes rôles contient une liste de vos affectations de rôles actifs et éligibles pour les rôles d’annuaire Azure AD et les rôles de ressources Azure (préversion). Vous trouverez plus d’informations sur l’activation des affectations de rôles éligibles [ici](pim-how-to-activate-role.md).
+La section Mes rôles contient une liste d’affectations de rôles actifs et éligibles pour les rôles d’annuaire Azure AD et les rôles de ressources Azure. Vous trouverez plus d’informations sur l’activation des affectations de rôles éligibles [ici](pim-how-to-activate-role.md).
 
-L’activation de rôles de ressources Azure (préversion) introduit une nouvelle expérience permettant aux membres éligibles d’un rôle de planifier une activation à une date/heure future et de sélectionner une durée d’activation spécifique dans la limite autorisée par les administrateurs.
+L’activation de rôles pour les ressources Azure introduit une nouvelle expérience permettant aux membres éligibles d’un rôle de planifier une activation à une date/heure future et de sélectionner une durée d’activation spécifique dans la limite autorisée par les administrateurs.
 
 ![](./media/pim-configure/activations.png)
 
@@ -126,15 +126,15 @@ Azure AD Privileged Identity Manager fournit un tableau de bord d’administrati
 * Le nombre d'utilisateurs affectés à chaque rôle privilégié  
 * Le nombre d’administrateurs éligibles et permanents
 * Un graphique des activations de rôle privilégié dans votre annuaire
-*   Le nombre d’affectations juste-à-temps, limitées dans le temps et permanentes pour les rôles de ressources Azure (préversion)
-*   Les utilisateurs et les groupes auxquels de nouveaux rôles ont été affectés au cours des 30 derniers jours (rôles de ressources Azure)
+* Le nombre d’affectations juste-à-temps, limitées dans le temps et permanentes pour les rôles de ressources Azure
+* Les utilisateurs et les groupes auxquels de nouveaux rôles ont été affectés au cours des 30 derniers jours (rôles de ressources Azure)
 
 
 ![Capture d’écran du tableau de bord PIM](./media/pim-configure/PIM_Admin_Overview.png)
 
 ## <a name="privileged-role-management"></a>Gestion des rôles privilégiés
 
-Avec Azure AD Privileged Identity Management, vous pouvez gérer les administrateurs en ajoutant ou en supprimant des administrateurs permanents ou éligibles pour chaque rôle d’annuaire Azure AD. Avec PIM pour les ressources Azure (préversion), les propriétaires, les administrateurs de l’accès utilisateur et les administrateurs généraux qui activent la gestion des abonnements dans leur client peuvent affecter des utilisateurs ou des groupes aux rôles de ressources Azure en leur octroyant un accès juste-à-temps (rôle éligible), limité dans le temps (activation non nécessaire) avec une date/heure de début et de fin ou permanent (si cette option est activée dans les paramètres de rôle).
+Avec Azure AD Privileged Identity Management, vous pouvez gérer les administrateurs en ajoutant ou en supprimant des administrateurs permanents ou éligibles pour chaque rôle d’annuaire Azure AD. Avec PIM pour les ressources Azure, les propriétaires, les administrateurs de l’accès utilisateur et les administrateurs généraux qui activent la gestion des abonnements dans leur locataire peuvent affecter des utilisateurs ou des groupes aux rôles de ressources Azure en leur octroyant un accès juste-à-temps (rôle éligible), limité dans le temps (activation non nécessaire) avec une date/heure de début et de fin ou permanent (si cette option est activée dans les paramètres de rôle).
 
 ![Capture d’écran d’ajout et de suppression d’administrateurs dans PIM](./media/pim-configure/PIM_AddRemove.png)
 
@@ -146,13 +146,13 @@ Avec Azure AD Privileged Identity Management, vous pouvez gérer les administrat
 * La notification d'activation d’un rôle
 * Les informations qu'un utilisateur doit fournir au cours du processus d'activation du rôle
 * Un numéro d’incident ou ticket de service
-* [Exigences relatives au flux de travail d’approbation - préversion](./azure-ad-pim-approval-workflow.md)
+* [Exigences relatives au flux de travail d’approbation](./azure-ad-pim-approval-workflow.md)
 
 ![Capture d’écran de l’activation d’administrateur dans les paramètres PIM](./media/pim-configure/PIM_Settings_w_Approval_Disabled.png)
 
 Notez que dans l’image, les boutons de **l’authentification multifacteur** sont désactivés. Avec certains rôles dotés de privilèges élevés, l’authentification multifacteur est requise pour garantir une protection renforcée.
 
-Les paramètres de rôle pour les rôles de ressources Azure (préversion) permettent aux administrateurs de configurer les paramètres d’affectation juste-à-temps et directe, notamment :
+Les paramètres de rôle pour les rôles de ressources Azure permettent aux administrateurs de configurer les paramètres d’affectation juste-à-temps et directe, notamment :
 
 - La possibilité d’affecter des utilisateurs ou des groupes à des rôles sans date/heure de fin (affectation permanente)
 - La durée par défaut d’une affectation (lorsqu’elle n’est pas permanente)
@@ -173,7 +173,7 @@ L’activation de rôles est personnalisable. Dans les paramètres de PIM, vous 
 
 ## <a name="review-role-activity"></a>Passer en revue les activités de rôle
 
-Il existe deux méthodes pour suivre la façon dont vos employés et les administrateurs utilisent les rôles privilégiés. La première option consiste à utiliser l’[historique d’audit des rôles d’annuaire](pim-how-to-use-audit-log.md). L’historique d’audit consigne le suivi des modifications des affectations de rôles privilégiés, l’historique de l’activation de rôles, ainsi que les modifications apportées aux paramètres pour les rôles de ressources Azure (préversion). 
+Il existe deux méthodes pour suivre la façon dont vos employés et les administrateurs utilisent les rôles privilégiés. La première option consiste à utiliser l’[historique d’audit des rôles d’annuaire](pim-how-to-use-audit-log.md). L’historique d’audit consigne le suivi des modifications des affectations de rôles privilégiés, l’historique de l’activation de rôles, ainsi que les modifications apportées aux paramètres pour les rôles de ressources Azure. 
 
 ![Capture d’écran de l’historique d’activation dans PIM](./media/pim-configure/PIM_ActivationHistory.png)
 

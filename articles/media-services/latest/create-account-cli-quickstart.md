@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: 9168a66c3afcd8dd0b05de15f5833c516ddb2250
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38767100"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736000"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Démarrage rapide : créer un compte Azure Media Services
 
@@ -36,7 +36,7 @@ Connectez-vous au [portail Azure](http://portal.azure.com) et lancez **CloudShel
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0 ou une version ultérieure est indispensable pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI]( /cli/azure/install-azure-cli). 
+Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0 ou une version ultérieure est indispensable pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI]( /cli/azure/install-azure-cli). 
 
 ## <a name="set-the-azure-subscription"></a>Configurer l’abonnement Azure
 
@@ -58,7 +58,7 @@ az group create -n <myresourcegroup> -l westus2
 
 Lorsque vous créez un compte Media Services, vous devez fournir l’ID d’une ressource de compte de stockage Azure. Le compte de stockage spécifié est lié à votre compte Media Services. 
 
-Vous devez avoir un compte de stockage **principal** et vous pouvez avoir n’importe quel nombre de comptes de stockage **secondaires** associés à votre compte Media Services. Media Services prend en charge les comptes **v2 à usage général** (GPv2) ou **v1 à usage général** (GPv1). Les comptes Blob uniquement ne sont pas autorisés en tant que comptes **principaux**. Pour plus d’informations sur les comptes de stockage, consultez [Options du compte de stockage Azure](../../storage/common/storage-account-options.md). 
+Vous devez disposer d’un compte de stockage **principal** et vous pouvez avoir n’importe quel nombre de comptes de stockage **secondaires** associés à votre compte Media Services. Media Services prend en charge les comptes **v2 à usage général** ou **v1 à usage général**. Les comptes de stockage d’objets blob ne sont pas autorisés en tant que comptes **principaux**. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../../storage/common/storage-account-overview.md). 
 
 La commande suivante crée le compte de stockage qui sera associé au compte Media Services (principal). Dans le script ci-dessous, remplacez l’espace réservé *storageaccountforams*. La longueur du « nom_du_compte » doit être inférieure à 24.
 

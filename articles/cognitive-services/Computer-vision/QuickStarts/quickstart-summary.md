@@ -1,21 +1,21 @@
 ---
-title: Résumé du démarrage rapide de l’API Vision par ordinateur| Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Dans ces démarrages rapides, vous analysez une image, créez une miniature et extrayez du texte imprimé ou manuscrit à l’aide de l’API Vision par ordinateur dans Cognitive Services.
+title: Résumé des démarrages rapides de Vision par ordinateur
+titleSuffix: Azure Cognitive Services
+description: Dans ces guides de démarrage rapide, vous analysez une image, créez une miniature et extrayez du texte imprimé ou manuscrit à l’aide de l’API Vision par ordinateur.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: v-deken
-ms.openlocfilehash: 94424de3f175e82cf8490bad98f4a775761979e4
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 89502fe49f5eb4b9692d7ee4233c7c46d645b3fb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43770309"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576882"
 ---
 # <a name="quickstart-summary"></a>Démarrage rapide : résumé
 
@@ -53,7 +53,7 @@ Le code est similaire dans chaque exemple. Toutefois, chaque exemple met l’acc
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorer les API Vision par ordinateur utilisées pour analyser une image, détecter des célébrités et des points de repère, créer une miniature et extraire le texte imprimé et manuscrit.
+Explorez les API Vision par ordinateur utilisées pour analyser une image, détecter des célébrités et des points de repère, créer une miniature et extraire le texte imprimé et manuscrit.
 
 > [!div class="nextstepaction"]
 > [Explorer les API Vision par ordinateur](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

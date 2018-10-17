@@ -1,21 +1,21 @@
 ---
-title: 'L’API de traduction de texte Translator Text : conversion de script de texte avec Python | Microsoft Docs'
-titleSuffix: Microsoft Cognitive Services
-description: Dans ce démarrage rapide, vous convertirez du texte dans une langue d’un script vers un autre à l’aide de l’API de traduction de texte Translator Text avec Python dans Cognitive Services.
+title: 'Démarrage rapide : Convertir un script de texte - Traduction de texte Translator Text, Python'
+titleSuffix: Azure Cognitive Services
+description: Dans ce guide de démarrage rapide, vous convertissez le texte d’un script d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Python.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
 ms.author: nolachar
-ms.openlocfilehash: 41fb0f72c5974a1ab034680a820dca6aa7bbdc6d
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 24fe0dc23703bdca4ce74ba1a527990a70ac2ffc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "43769615"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122109"
 ---
 # <a name="quickstart-transliterate-text-with-python"></a>Démarrage rapide : Translittérer du texte avec Python
 
@@ -86,7 +86,7 @@ print (output)
 
 ## <a name="transliterate-response"></a>Réponse Translittérer
 
-Une réponse correcte est retournée au format JSON, comme dans l’exemple suivant :
+Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
 
 ```json
 [
