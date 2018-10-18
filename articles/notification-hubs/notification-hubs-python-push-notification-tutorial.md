@@ -14,12 +14,12 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 339029f14c4fd9a0158f2b7a4fb80bf03bd83cf3
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: b0aa61c86b08a4fe2eddb5eb1fb5b33c4cb901a0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141278"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386585"
 ---
 # <a name="how-to-use-notification-hubs-from-python"></a>Utilisation de Notification Hubs à partir de Python
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -261,7 +261,7 @@ Avec cette classe, écrivez les méthodes d'envoi des notifications à l'intéri
 Ces méthodes envoient une demande POST HTTP au point de terminaison /messages de votre hub de notification, avec le corps et les en-têtes corrects pour envoyer la notification.
 
 ### <a name="using-debug-property-to-enable-detailed-logging"></a>Utilisation de la propriété debug pour activer la journalisation détaillée
-L’activation de la propriété debug lors de l’initialisation du hub de notification permet de rédiger des informations de journalisation détaillées sur le vidage des requêtes et réponses HTTP, ainsi que le résultat détaillé de l’envoi des messages de notification. La [propriété TestSend Notification Hubs](https://docs.microsoft.com/en-us/previous-versions/azure/reference/dn495827(v=azure.100)) retourne des informations détaillées sur le résultat de l'envoi de notification. Pour l’utiliser, réalisez une initialisation à l’aide du code suivant :
+L’activation de la propriété debug lors de l’initialisation du hub de notification permet de rédiger des informations de journalisation détaillées sur le vidage des requêtes et réponses HTTP, ainsi que le résultat détaillé de l’envoi des messages de notification. La [propriété TestSend Notification Hubs](https://docs.microsoft.com/previous-versions/azure/reference/dn495827(v=azure.100)) retourne des informations détaillées sur le résultat de l'envoi de notification. Pour l’utiliser, réalisez une initialisation à l’aide du code suivant :
 
     hub = NotificationHub("myConnectionString", "myNotificationHubName", isDebug)
 

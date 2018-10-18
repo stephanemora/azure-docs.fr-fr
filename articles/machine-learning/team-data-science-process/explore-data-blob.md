@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: 61943da154483d8e815fa135fba30b136724b011
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b80fcecf28eaaf05e7fc199a9c318fd4148b9212
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246488"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46497856"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>Explorer les données dans le stockage d’objets blob Azure avec Pandas
-Ce document explique comment explorer les données stockées dans un conteneur d’objets blob Azure à l’aide du package Python [Pandas](http://pandas.pydata.org/) .
+Ce document explique comment explorer les données stockées dans un conteneur d’objets blob Azure à l’aide du package Python [Pandas](http://pandas.pydata.org/).
 
 Le **menu** suivant pointe vers des rubriques qui expliquent comment utiliser des outils pour explorer des données dans différents environnements de stockage. Cette tâche est une étape du [processus de sciences des données (Data Science Process)](overview.md).
 
@@ -63,7 +63,7 @@ Pour explorer et manipuler un jeu de données, celui-ci doit d’abord être té
 Vous êtes maintenant prêt à explorer les données et à générer des fonctionnalités sur cet ensemble de données.
 
 ## <a name="blob-dataexploration"></a>Exemples d’exploration de données à l’aide de Pandas
-Voici quelques méthodes pour explorer des données à l’aide de Pandas :
+Voici quelques méthodes pour explorer des données à l’aide de Pandas :
 
 1. Vérifiez le **nombre de lignes et de colonnes** 
    

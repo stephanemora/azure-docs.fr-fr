@@ -4,37 +4,42 @@ description: Fichier Include
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
-ms.date: 08/12/2018
+ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3cbe634d862682a5f6b06c2cfc77a4d3b03954f9
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 2808264b4641bda49a53677ebe216a3b53b7d0d9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42809780"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293489"
 ---
-Le code de toutes les fonctions d’une application de fonctions spécifique se trouve dans un dossier racine (`wwwroot`) qui contient un fichier de configuration d’hôte, ainsi qu’un ou plusieurs sous-dossiers. Chaque sous-dossier contient le code d’une fonction distincte, comme dans l’exemple suivant :
+Le code de toutes les fonctions d’une application de fonctions spécifique se trouve dans un dossier de projet racine qui contient un fichier de configuration d’hôte, ainsi qu’un ou plusieurs sous-dossiers. Chaque sous-dossier contient le code d’une fonction distincte, comme dans la représentation suivante :
 
 ```
-wwwroot
+FunctionApp
  | - host.json
- | - mynodefunction
+ | - Myfirstfunction
  | | - function.json
- | | - index.js
- | | - node_modules
- | | | - ... packages ...
- | | - package.json
- | - mycsharpfunction
+ | | - ...  
+ | - mysecondfunction
  | | - function.json
- | | - run.csx
+ | | - ...  
+ | - SharedCode
  | - bin
- | | - mycompiledcsharp.dll
 ```
 
-Le fichier host.json contient des configurations spécifiques du runtime et se trouve dans le dossier racine de l’application de fonction. Pour plus d’informations sur les paramètres disponibles, consultez les [informations de référence sur le fichier host.json](../articles/azure-functions/functions-host-json.md).
+Dans la version 2.x du runtime Functions, toutes les fonctions dans l’application de fonction doivent partager le même rôle de travail de langage.  
 
-Chaque fonction a un dossier contenant un ou plusieurs fichiers de code, la configuration de function.json et d’autres dépendances. Pour un projet de bibliothèque de classes C#, le fichier de bibliothèque de classes (.dll) compilé est déployé dans le sous-dossier `bin`.
+Le fichier [host.json](../articles/azure-functions/functions-host-json.md), qui contient des configurations spécifiques du runtime, se trouve dans le dossier racine de l’application de fonction. Un dossier `bin` contient les packages et autres fichiers de bibliothèque requis par l’application de fonction. Consultez la configuration requise spécifique au langage d’un projet d’application de fonction :
+
+* [Bibliothèque de classes C# (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
+* [Script C# (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
+* [Script F#](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
+* [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
+* [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
+
+
 

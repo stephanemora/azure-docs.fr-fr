@@ -1,34 +1,34 @@
 ---
-title: Documentation de référence pour l’API de traduction de texte Translator Text Microsoft v2.0 | Microsoft Docs
-titleSuffix: Cognitive Services
-description: Documentation de référence pour l’API de traduction de texte Translator Text Microsoft v2.0.
+title: API de traduction de texte Translator Text v2.0
+titleSuffix: Azure Cognitive Services
+description: Documentation de référence pour l’API de traduction de texte Translator Text v2.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 05/15/2018
 ms.author: v-jansko
-ms.openlocfilehash: e32e28608d2fecf27b61acff74af7eb6849f0ba1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 57058e9a86a338738315a08f218978e20fae95e2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370353"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127849"
 ---
 # <a name="translator-text-api-v20"></a>API de traduction de texte Translator Text v2.0
 
 > [!IMPORTANT]
 > Cette version de l’API de traduction de texte Translator Text est désapprouvée. [Consultez la documentation pour la version v3 de l’API de traduction de texte Translator Text](v3-0-reference.md).
 
-Vous pouvez intégrer l’API de traduction de texte Translator Text Microsoft v2 en toute transparence dans vos applications, sites web, outils ou autres solutions pour offrir une expérience utilisateur multilingue. Cette API s’appuyant sur des normes industrielles, vous pouvez l’utiliser sur toute plateforme matérielle et avec tout système d’exploitation pour effectuer la traduction et d’autres opérations liées à la langue, telles que la détection de la langue d’un texte ou la synthèse vocale. Pour plus d’informations sur l’API Microsoft Translator, cliquez ici.
+Vous pouvez intégrer l’API de traduction de texte Translator Text v2 en toute transparence dans vos applications, sites web, outils ou autres solutions pour offrir une expérience utilisateur multilingue. Cette API s’appuyant sur des normes industrielles, vous pouvez l’utiliser sur toute plateforme matérielle et avec tout système d’exploitation pour effectuer la traduction et d’autres opérations liées à la langue, telles que la détection de la langue d’un texte ou la synthèse vocale. Pour plus d’informations sur l’API Microsoft Translator, cliquez ici.
 
 ## <a name="getting-started"></a>Prise en main
-Pour accéder à l’API de traduction de texte Translator Text, vous devez [vous abonner à Microsoft Azure](../translator-text-how-to-signup.md).
+Pour accéder à l’API de traduction de texte Translator Text, vous devez [vous inscrire à Microsoft Azure](../translator-text-how-to-signup.md).
 
 ## <a name="authorization"></a>Authorization
-Tous les appels à l’API de traduction de texte Translator Text Microsoft nécessitent une clé d’abonnement pour l’authentification. L’API prend en charge deux modes d’authentification :
+Tous les appels à l’API de traduction de texte Translator Text nécessitent une clé d’abonnement pour l’authentification. L’API prend en charge deux modes d’authentification :
 
 * En utilisant un jeton d’accès. Utilisez la clé d’abonnement référencée à l’**étape** 9 pour générer un jeton d’accès en envoyant une requête POST au service d’autorisation. Pour plus d’informations, voir la documentation du service de jetons. Passez le jeton d’accès au service Translator à l’aide de l’en-tête Authorization ou du paramètre de requête access_token. Chaque jeton d’accès est valide pendant 10 minutes. Obtenez un nouveau jeton d’accès toutes les 10 minutes, et utilisez-le pour des requêtes répétées pendant 10 minutes.
 
@@ -44,7 +44,7 @@ Si vous souhaitez éviter toute vulgarité dans la traduction, indépendamment d
 
 |ProfanityAction    |Action |Exemple de source (japonais)  |Exemple de traduction (français)  |
 |:--|:--|:--|:--|
-|NoAction   |Par défaut. Équivaut à ne pas définir l’option. La vulgarité de la source est reflétée dans la cible.        |彼はジャッカスです。     |Il est un imbécile.   |
+|NoAction   |Par défaut. Équivaut à ne pas définir d’option. La vulgarité de la source est reflétée dans la cible.        |彼はジャッカスです。     |Il est un imbécile.   |
 |Marked     |Les mots vulgaires sont entourés des balises XML <profanity> et </profanity>.     |彼はジャッカスです。 |Il est un <profanity>imbécile</profanity>.    |
 |Deleted    |Les mots vulgaires sont retirés de la cible sans remplacement.     |彼はジャッカスです。 |Il est un.   |
 
@@ -79,7 +79,7 @@ Type de contenu de réponse : application/xml
 |Paramètre|Valeur|Description    |Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
 |appid  |(empty)    |Requis. Si l’en-tête Authorization ou Ocp-Apim-Subscription-Key est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant « Bearer » + « » + « access_token ».|query|chaîne|
-|text|(empty)   |Requis. Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|query|chaîne|
+|texte|(empty)   |Requis. Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|query|chaîne|
 |from|(empty)   |facultatif. Chaîne représentant le code de langue du texte source. Par exemple, en pour l’anglais.|query|chaîne|
 |to|(empty) |Requis. Chaîne représentant le code de langue du texte cible.|query|chaîne|
 |contentType|(empty)    |facultatif. Format du texte en cours de traduction. Les formats pris en charge sont text/plain (par défaut) et text/html. Tout code HTML doit être un élément bien formé et complet.|query|chaîne|
@@ -324,7 +324,7 @@ Type de contenu de réponse : application/xml
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|chaîne|
-|text|(empty)   |Requis. Chaîne contenant une ou plusieurs phrases dans la langue spécifiée, à prononcer pour le flux WAV. La taille du texte à prononcer ne peut pas dépasser 2 000 caractères.|query|chaîne|
+|texte|(empty)   |Requis. Chaîne contenant une ou plusieurs phrases dans la langue spécifiée, à prononcer pour le flux WAV. La taille du texte à prononcer ne peut pas dépasser 2 000 caractères.|query|chaîne|
 |Langage|(empty)   |Requis. Chaîne représentant le code de la langue prise en charge dans laquelle prononcer le texte. Le code doit être présent dans la liste des codes renvoyée par la méthode `GetLanguagesForSpeak`.|query|chaîne|
 |format|(empty)|facultatif. Chaîne spécifiant l’ID de type de contenu. Actuellement, `audio/wav` et `audio/mp3` sont disponibles. La valeur par défaut est `audio/wav`.|query|chaîne|
 |options|(empty)    |<ul><li>facultatif. Chaîne spécifiant les propriétés de la parole synthétisée :<li>`MaxQuality` et `MinSize` sont disponibles pour spécifier la qualité des signaux audio. Avec `MaxQuality`, vous obtenez des voix de la qualité la plus haute et avec `MinSize`, vous obtenez des voix de la qualité la plus basse. La valeur par défaut est `MinSize`.</li><li>`female` et `male` sont disponibles pour spécifier le genre souhaité de la voix. La valeur par défaut est `female`. Utilisez la barre verticale.|` to include multiple options. For example  `MaxQuality|Male</li></li></ul> |query|chaîne|
@@ -360,7 +360,7 @@ Type de contenu de réponse : application/xml
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
 |appid|(empty)  |Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|chaîne|
-|text|(empty)|Requis. Chaîne contenant du texte dont la langue doit être identifiée. La taille du texte ne peut pas dépasser 10 000 caractères.|query| chaîne|
+|texte|(empty)|Requis. Chaîne contenant du texte dont la langue doit être identifiée. La taille du texte ne peut pas dépasser 10 000 caractères.|query| chaîne|
 |Authorization|(empty)|Obligatoire si le champ `appid` ou l’en-tête `Ocp-Apim-Subscription-Key` ne sont pas spécifiés. Jeton d’autorisation : `"Bearer" + " " + "access_token"`.|en-tête|chaîne|
 |Ocp-Apim-Subscription-Key  |(empty)    |Obligatoire si le champ `appid` ou l’en-tête `Authorization` ne sont pas spécifiés.|en-tête|chaîne|
 
@@ -559,7 +559,7 @@ Type de contenu de réponse : application/xml
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
 |appid|(empty)  |Requis. Si l’en-tête Authorization ou Ocp-Apim-Subscription-Key est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant « Bearer » + « » + « access_token ».|query| chaîne|
-|text|(empty)   |Requis. Chaîne représentant le texte à fractionner en phrases. La taille du texte ne peut pas dépasser 10 000 caractères.|query|chaîne|
+|texte|(empty)   |Requis. Chaîne représentant le texte à fractionner en phrases. La taille du texte ne peut pas dépasser 10 000 caractères.|query|chaîne|
 |Langage   |(empty)    |Requis. Chaîne représentant le code de langue du texte d’entrée.|query|chaîne|
 |Authorization|(empty)|Obligatoire si le champ appid ou l’en-tête Ocp-Apim-Subscription-Key ne sont pas spécifiés. Jeton d’autorisation : « Bearer » + « » + « access_token ».    |en-tête|chaîne|
 |Ocp-Apim-Subscription-Key|(empty)|Obligatoire si le champ appid ou l’en-tête Authorization ne sont pas spécifiés.|en-tête|chaîne|
@@ -653,7 +653,7 @@ Type de contenu de réponse : application/xml
 |Paramètre|Valeur|Description|Type de paramètre|Type de données|
 |:--|:--|:--|:--|:--|
 |appid|(empty)|Requis. Si l’en-tête `Authorization` ou `Ocp-Apim-Subscription-Key` est utilisé, laissez le champ appid vide. Sinon, incluez une chaîne contenant `"Bearer" + " " + "access_token"`.|query|chaîne|
-|text|(empty)|Requis. Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|query|chaîne|
+|texte|(empty)|Requis. Chaîne représentant le texte à traduire. La taille du texte ne peut pas dépasser 10 000 caractères.|query|chaîne|
 |from|(empty)|Requis. Chaîne représentant le code de langue du texte source.|query|chaîne|
 |to |(empty)    |Requis. Chaîne représentant le code de langue du texte cible.|query|chaîne|
 |maxTranslations|(empty)|Requis. Entier représentant le nombre maximal de traductions à renvoyer.|query|integer|

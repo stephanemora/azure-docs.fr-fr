@@ -9,14 +9,16 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/09/2018
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 12b46b4abaa17fe9dd0e9055bca5463312bbd15d
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 696843363bc6617bb11c01cdccb9dbbb7b719a82
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298198"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Corrélation de télémétrie dans Application Insights
 
@@ -72,6 +74,34 @@ Nous travaillons actuellement sur la proposition RFC pour le [protocole HTTP de 
 La norme définit également deux schémas de génération de `Request-Id` : plat et hiérarchique. Le schéma plat inclut une clé `Id` connue définie pour la collection `Correlation-Context`.
 
 Application Insights définit [l’extension](https://github.com/lmolkova/correlation/blob/master/http_protocol_proposal_v2.md) pour le protocole HTTP de corrélation. Il utilise les paires nom/valeur `Request-Context` pour propager la collection de propriétés utilisée par l’appelant ou l’appelé. Le Kit de développement logiciel (SDK) Application Insights utilise cet en-tête pour définir les champs `dependency.target` et `request.source`.
+
+### <a name="w3c-distributed-tracing"></a>Traçage distribué W3C
+
+Nous migrons vers (format de traçage distribué W3C) [https://w3c.github.io/distributed-tracing/report-trace-context.html]. Il définit :
+- `traceparent` : exécute un ID d’opération et un identificateur de l’appel uniques au niveau global
+- `tracestate` : exécute un contexte spécifique de système de traçage.
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-classic-apps"></a>Activer la prise en charge du traçage distribué W3C pour les applications ASP.NET Classic
+
+Cette fonctionnalité est disponible dans les packages Microsoft.ApplicationInsights.Web et Microsoft.ApplicationInsights.DependencyCollector, en commençant par la version 2.8.0-beta1.
+Elle est **désactivée** par défaut. Pour l’activer, modifiez `ApplicationInsights.config` :
+
+* sous `RequestTrackingTelemetryModule`, ajoutez l’élément `EnableW3CHeadersExtraction` avec la valeur définie sur `true`
+* sous `DependencyTrackingTelemetryModule`, ajoutez l’élément `EnableW3CHeadersInjection` avec la valeur définie sur `true`
+
+#### <a name="enable-w3c-distributed-tracing-support-for-aspnet-core-apps"></a>Activer la prise en charge du traçage distribué W3C pour les applications ASP.NET Core
+
+Cette fonctionnalité est disponible dans Microsoft.ApplicationInsights.AspNetCore, version 2.5.0-beta1, et Microsoft.ApplicationInsights.DependencyCollector, version 2.8.0-beta1.
+Elle est **désactivée** par défaut. Pour l’activer, définissez `ApplicationInsightsServiceOptions.RequestCollectionOptions.EnableW3CDistributedTracing` sur `true` :
+
+```csharp
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddApplicationInsightsTelemetry(o => 
+        o.RequestCollectionOptions.EnableW3CDistributedTracing = true );
+    // ....
+}
+```
 
 ## <a name="open-tracing-and-application-insights"></a>Open Tracing et Application Insights
 
@@ -135,3 +165,5 @@ telemetry.getContext().getDevice().setRoleName("My Component Name");
 - Intégrez tous les composants de votre microservice sur Application Insights. Consultez les [plateformes prises en charge](app-insights-platforms.md).
 - Pour connaître les types et les modèles de données Application Insights, consultez [Modèle de données](application-insights-data-model.md).
 - Découvrez comment [étendre et filtrer la télémétrie](app-insights-api-filtering-sampling.md).
+- [Référence de configuration d’Application Insights](app-insights-configuration-with-applicationinsights-config.md)
+

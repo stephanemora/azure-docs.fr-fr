@@ -1,26 +1,27 @@
 ---
-title: Filtrage des termes vulgaires avec l’API de traduction de texte Microsoft Translator Text | Microsoft Docs
-description: Utilisez le filtrage des termes vulgaires dans l’API de traduction de texte Microsoft Translator Text.
+title: Filtrage des grossièretés - API de traduction de texte Translator Text
+titlesuffix: Azure Cognitive Services
+description: Utilisez le filtrage des grossièretés dans l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: a7172e1e8aa336c011fb06e93fc5c4b54d26a3cd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 87814571e6f1c20b219020651eb798fa49a28deb
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368648"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127926"
 ---
-# <a name="how-to-add-profanity-filtering-with-the-microsoft-translator-text-api"></a>Comment ajouter le filtrage des termes vulgaires à l’API de traduction de texte Microsoft Translator Text
+# <a name="add-profanity-filtering-with-the-translator-text-api"></a>Ajouter un filtrage des grossièretés dans l’API de traduction de texte Translator Text
 
 En règle générale, le service Translator conserve dans la traduction les termes vulgaires présents dans la source. Le degré de vulgarité et le contexte rendant le contenu vulgaire diffèrent en fonction des cultures. Par conséquent, le degré de vulgarité dans la langue cible peut être amplifié ou réduit.
 
-Si vous souhaitez éviter toute vulgarité dans la traduction (indépendamment de la présence de termes vulgaires dans le texte source), vous disposez d’une option de filtrage des termes vulgaires dans la méthode Translate(). Cette option vous permet de choisir si vous souhaitez supprimer les termes vulgaires, les marquer à l’aide de balises appropriées, ou si vous préférez qu’aucune action ne soit appliquée.
+Si vous souhaitez éviter toute grossièreté dans la traduction (même si le texte source en contient), utilisez une option de filtrage des termes vulgaires dans la méthode Translate(). Cette option vous permet, si vous le souhaitez, de supprimer les termes vulgaires ou de les marquer à l’aide de balises appropriées, sans qu’aucune action ne soit appliquée.
 
 La méthode Translate() prend un paramètre « options » qui contient le nouvel élément « ProfanityAction ». Les valeurs acceptées pour ProfanityAction sont « NoAction », « Marked » et « Deleted ».
 

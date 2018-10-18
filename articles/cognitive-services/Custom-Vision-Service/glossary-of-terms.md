@@ -1,20 +1,21 @@
 ---
-title: Glossaire des termes du service Vision personnalisée - Azure Cognitive Services | Microsoft Docs
+title: Glossaire des termes du service Vision personnalisée
+titlesuffix: Azure Cognitive Services
 description: Glossaire des termes du service Vision personnalisée.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: anroth
-ms.openlocfilehash: 871617ce3c1c5a84df746c0c7d87c113b3a6f354
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ae68db3de5d1f7eaacbe355133b9b7b61f145f04
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368845"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363409"
 ---
 # <a name="glossary-of-terms-for-custom-vision-service"></a>Glossaire des termes du service Vision personnalisée
 
@@ -48,7 +49,7 @@ Chaque fois que vous entraînez ou ré-entraînez votre classifieur, vous créez
 
 Votre espace de travail contient toutes vos images d’entraînement, et reflète toutes les modifications effectuées à partir de votre itération la plus récente, telles que des images supprimées ou ajoutées. Lorsque vous entraînez votre classifieur, vous créez une itération de votre classifieur en utilisant les images présentes dans votre espace de travail.
 
-## <a name="tags"></a>Mots clés
+## <a name="tags"></a>Balises
 
 Utilisez des mots clés pour étiqueter les objets présents dans vos images d’entraînement. Si vous créez un classifieur pour identifier des chiens et des poneys, vous devez placer un mot clé « chien » sur les images qui contiennent des chiens, un mot clé « poney » sur les images qui contiennent des poneys, et deux mots clés, « chien » et « poney », sur les images qui contiennent à la fois un chien et un poney.
 
@@ -60,7 +61,7 @@ Une fois votre classifieur entraîné, vous pouvez soumettre n’importe quelle 
 
 À fur et à mesure que votre classifieur accepte de nouvelles images à classer, il les stocke pour vous. Vous pouvez utiliser ces images pour améliorer la précision de votre classifieur, en étiquetant convenablement les images mal prédites. Vous pouvez ensuite utiliser ces nouvelles images pour ré-entraîner votre classifieur.
 
-## <a name="precision"></a>Précision
+## <a name="precision"></a>Precision
 
 Lorsque vous classez une image, quelle est la probabilité que votre classifieur classe correctement cette image ? Sur toutes les images utilisées pour entraîner le classifieur (les chiens et les poneys), quel taux de réussite le modèle a-t-il obtenu ? Sur 100 images, 99 mots clés corrects donnent une précision de 99 %.
 

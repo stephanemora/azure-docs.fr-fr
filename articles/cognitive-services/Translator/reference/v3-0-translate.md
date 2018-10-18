@@ -1,23 +1,23 @@
 ---
-title: Méthode Translate de l’API de traduction de texte Translator Text | Microsoft Docs
-titleSuffix: Cognitive Services
+title: Méthode Translate de l’API de traduction de texte Translator Text
+titleSuffix: Azure Cognitive Services
 description: Utilisez la méthode Translate de l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: d8d5e1e2fac747fa733f1d92c08008b7eac2a1bc
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1841730a39d29c5fe1f3451b7614818e924b339f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370673"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128755"
 ---
-# <a name="text-api-30-translate"></a>API de traduction de texte Translator Text 3.0 : Translate
+# <a name="translator-text-api-30-translate"></a>API de traduction de texte Translator Text 3.0 : Translate
 
 Traduit du texte.
 
@@ -34,7 +34,7 @@ https://api.cognitive.microsofttranslator.com/translate?api-version=3.0
 Les paramètres de demande transmis à la chaîne de requête sont les suivants :
 
 <table width="100%">
-  <th width="20%">Paramètre de requête</th>
+  <th width="20%">Paramètre de requête.</th>
   <th>Description</th>
   <tr>
     <td>api-version</td>
@@ -89,7 +89,7 @@ Les paramètres de demande transmis à la chaîne de requête sont les suivants�
 Les en-têtes de demande sont les suivants :
 
 <table width="100%">
-  <th width="20%">En-têtes</th>
+  <th width="20%">headers</th>
   <th>Description</th>
   <tr>
     <td>_One authorization_<br/>_header_</td>
@@ -105,7 +105,7 @@ Les en-têtes de demande sont les suivants :
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Facultatif*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête nommé `ClientTraceId`.</td>
+    <td>*Facultative*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé `ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -122,7 +122,7 @@ Le corps de la demande est un tableau JSON. Chaque élément du tableau est un o
 Les limites suivantes s'appliquent :
 
 * Le tableau ne peut pas compter plus de 25 éléments.
-* L’intégralité du texte inclus dans la demande ne peut pas dépasser 5 000 caractères, espaces compris.
+* L’intégralité du texte inclus dans la requête ne peut pas dépasser 5 000 caractères, espaces compris.
 
 ## <a name="response-body"></a>Response body
 
@@ -166,7 +166,7 @@ Des exemples de réponses JSON sont fournis dans la section [exemples](#examples
 
 ## <a name="response-status-codes"></a>Codes d’état de réponse
 
-Les codes d’état HTTP qu’une demande peut renvoyer sont les suivants. 
+Voici les codes d’état HTTP qu’une demande peut retourner. 
 
 <table width="100%">
   <th width="20%">Code d’état</th>
@@ -177,7 +177,7 @@ Les codes d’état HTTP qu’une demande peut renvoyer sont les suivants.
   </tr>
   <tr>
     <td>400</td>
-    <td>L’un des paramètres de demande est manquant ou non valide. Corrigez les paramètres de demande avant de réessayer.</td>
+    <td>L’un des paramètres de requête est manquant ou non valide. Corrigez les paramètres de demande avant de réessayer.</td>
   </tr>
   <tr>
     <td>401</td>

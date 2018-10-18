@@ -1,6 +1,6 @@
 ---
-title: Inscrire des données Data Lake Store dans Azure Data Catalog | Microsoft Docs
-description: Référencer des données de Data Lake Store dans Azure Data Catalog
+title: Inscrire des données Data Lake Storage Gen1 dans Azure Data Catalog | Microsoft Docs
+description: Inscrire des données Data Lake Storage Gen1 dans Azure Data Catalog
 services: data-lake-store,data-catalog
 documentationcenter: ''
 author: nitinme
@@ -12,27 +12,27 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 8da9f0f8aeb36d9ff2f87511c902dd719bc755b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 35fc7b2c713f8d4b88f4a44d9ddef5d92ba4c402
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441597"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294311"
 ---
-# <a name="register-data-from-data-lake-store-in-azure-data-catalog"></a>Référencer des données de Data Lake Store dans Azure Data Catalog
-Dans cet article, vous allez découvrir comment intégrer Azure Data Lake Store à Azure Data Catalog pour rendre vos données détectables au sein d’une organisation en l’intégrant à Data Catalog. Pour plus d’informations sur le catalogage des données, consultez [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Pour comprendre les scénarios dans lesquels vous pouvez utiliser Data Catalog, consultez [Scénarios courants d’Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
+# <a name="register-data-from-azure-data-lake-storage-gen1-in-azure-data-catalog"></a>Inscrire des données Data Lake Storage Gen1 dans Azure Data Catalog
+Dans cet article, vous allez découvrir comment intégrer Azure Data Lake Storage Gen1 à Azure Data Catalog pour rendre vos données détectables au sein d’une organisation en l’intégrant à Data Catalog. Pour plus d’informations sur le catalogage des données, consultez [Azure Data Catalog](../data-catalog/data-catalog-what-is-data-catalog.md). Pour comprendre les scénarios dans lesquels vous pouvez utiliser Data Catalog, consultez [Scénarios courants d’Azure Data Catalog](../data-catalog/data-catalog-common-scenarios.md).
 
 ## <a name="prerequisites"></a>Prérequis
 Avant de commencer ce didacticiel, vous devez disposer des éléments suivants :
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Activez votre abonnement Azure** pour la version d’évaluation publique de Data Lake Store. Consultez les [instructions](data-lake-store-get-started-portal.md).
-* **Compte Azure Data Lake Store**. Suivez les instructions de [Prise en main d’Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md). Pour ce tutoriel, nous allons créer un compte Data Lake Store appelé **datacatalogstore**.
+* **Activez votre abonnement Azure** pour Data Lake Storage Gen1. Consultez les [instructions](data-lake-store-get-started-portal.md).
+* **Compte Data Lake Storage Gen1**. Suivez les instructions de [Prise en main d’Azure Data Lake Storage Gen1 avec le portail Azure](data-lake-store-get-started-portal.md). Pour ce tutoriel, nous allons créer un compte Data Lake Storage Gen1 appelé **datacatalogstore**.
 
     Une fois que vous avez créé le compte, chargez-y un exemple de jeu de données. Pour ce didacticiel, chargeons tous les fichiers .csv sous le dossier **AmbulanceData** dans le [dépôt Git Azure Data Lake](https://github.com/Azure/usql/tree/master/Examples/Samples/Data/AmbulanceData/). Vous pouvez utiliser différents clients, comme [Explorateur de stockage Azure](http://storageexplorer.com/), pour charger des données dans un conteneur d’objets blob.
 * **Azure Data Catalog**. Votre organisation doit déjà avoir un catalogue de données Azure créé pour votre organisation. Un seul catalogue est autorisé pour chaque organisation.
 
-## <a name="register-data-lake-store-as-a-source-for-data-catalog"></a>Inscrire Data Lake Store comme source pour Data Catalog
+## <a name="register-data-lake-storage-gen1-as-a-source-for-data-catalog"></a>Inscrire Data Lake Storage Gen1 comme source pour Data Catalog
 
 > [!VIDEO https://channel9.msdn.com/Series/AzureDataLake/ADCwithADL/player]
 
@@ -44,15 +44,15 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 1. Sur la page Bienvenue, cliquez sur **Connexion**, puis entrez vos informations d’identification.
 
     ![Écran d’accueil](./media/data-lake-store-with-data-catalog/welcome.screen.png "Écran d’accueil")
-1. Dans la page Sélectionner une source de données, sélectionnez **Azure Data Lake**, puis cliquez sur **Suivant**.
+1. Dans la page Sélectionner une source de données, sélectionnez **Azure Data Lake Store**, puis cliquez sur **Suivant**.
 
     ![Sélectionner une source de données](./media/data-lake-store-with-data-catalog/select-source.png "Sélectionner une source de données")
-1. Sur la page suivante, spécifiez le nom du compte Data Lake Store que vous voulez inscrire dans Data Catalog. Laissez les autres options à leur valeur par défaut, puis cliquez sur **Connexion**.
+1. Sur la page suivante, spécifiez le nom du compte Data Lake Storage Gen1 que vous voulez inscrire dans Data Catalog. Laissez les autres options à leur valeur par défaut, puis cliquez sur **Connexion**.
 
     ![Se connecter à la source de données](./media/data-lake-store-with-data-catalog/connect-to-source.png "Se connecter à la source de données")
 1. La page suivante peut être divisée selon les segments suivants.
 
-    a. La zone **Hiérarchie du serveur** représente la structure des dossiers du compte Data Lake Store. **$Root** représente la racine du compte Data Lake Store et **AmbulanceData** représente le dossier créé à la racine du compte Data Lake Store.
+    a. La zone **Hiérarchie du serveur** représente la structure des dossiers du compte Data Lake Storage Gen1. **$Root** représente la racine du compte Data Lake Storage Gen1 et **AmbulanceData** représente le dossier créé à la racine du compte Data Lake Storage Gen1.
 
     b. La zone **Objets disponibles** répertorie les fichiers et les dossiers présents sous le dossier **AmbulanceData**.
 
@@ -80,4 +80,4 @@ Avant de commencer ce didacticiel, vous devez disposer des éléments suivants 
 ## <a name="see-also"></a>Voir aussi
 * [Annoter des sources de données dans Data Catalog](../data-catalog/data-catalog-how-to-annotate.md)
 * [Documenter des sources de données dans Data Catalog](../data-catalog/data-catalog-how-to-documentation.md)
-* [Intégrer Data Lake Store à d’autres services Azure](data-lake-store-integrate-with-other-services.md)
+* [Intégrer Data Lake Storage Gen1 avec d’autres services Azure](data-lake-store-integrate-with-other-services.md)

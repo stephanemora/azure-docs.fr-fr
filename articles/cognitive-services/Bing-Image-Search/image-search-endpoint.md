@@ -1,38 +1,40 @@
 ---
-title: Points de terminaison Recherche d’images | Microsoft Docs
-description: Synthèse sur le point de terminaison de l’API Recherche d’images.
+title: 'Points de terminaison Recherche d’images : API Recherche d’images Bing'
+titleSuffix: Azure Cognitive Services
+description: Une liste des points de terminaison disponibles pour l’API Recherche d’images Bing.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 11/30/2017
 ms.author: v-gedod
-ms.openlocfilehash: 0d5f28bfdb45b27b04df068f75e8a20d0235d12b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ca38943908bf3eee04c40cf4decf81fd20b08a1f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367853"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295918"
 ---
 # <a name="image-search-endpoints"></a>Points de terminaison Recherche d’images
+
 L’**API Recherche d’images** inclut trois points de terminaison.  Le point de terminaison 1 renvoie des images du Web grâce à une requête. Le point de terminaison 2 renvoie les informations [ImageInsights](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imageinsightsresponse).  Le point de terminaison 3 renvoie des images populaires.
 ## <a name="endpoints"></a>Points de terminaison
 Pour obtenir des résultats d’images à l’aide de l’API Bing, envoyez une requête à l’un des points de terminaison suivants. Utilisez les en-têtes et les paramètres d’URL pour définir d’autres spécifications.
 
 **Point de terminaison 1 :** renvoie des images qui sont pertinentes dans le cadre de la requête de recherche de l’utilisateur définie par `?q=""`.
-``` 
+```
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search
 ```
 
 **Point de terminaison 2 :** renvoie des informations à propos d’une image, à l’aide des requêtes `GET` ou `POST`.
-``` 
+```
  GET or POST https://api.cognitive.microsoft.com/bing/v7.0/images/details
 ```
 Une requête GET renvoie des informations à propos d’une image, comme les pages Web où figure l’image. Intégrez le paramètre [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#insightstoken) avec une requête `GET`.
 
-Vous pouvez aussi inclure une image binaire dans le corps d’une requête `POST` et définir le paramètre de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) sur `RecognizedEntities`. Cette opération renvoie un jeton [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) à utiliser en tant que paramètre dans une requête `GET` ultérieure afin de récupérer des informations sur les personnes de l’image.  Définissez `modules` sur `All` pour obtenir toutes les informations, hormis `RecognizedEntities` dans les résultats de la requête `POST`, sans avoir à effectuer d’autres appels via `insightsToken`. 
+Vous pouvez aussi inclure une image binaire dans le corps d’une requête `POST` et définir le paramètre de [modules](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#modulesrequested) sur `RecognizedEntities`. Cette opération renvoie un jeton [insightsToken](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v5-reference#insightstoken) à utiliser en tant que paramètre dans une requête `GET` ultérieure afin de récupérer des informations sur les personnes de l’image.  Définissez `modules` sur `All` pour obtenir toutes les informations, hormis `RecognizedEntities` dans les résultats de la requête `POST`, sans avoir à effectuer d’autres appels via `insightsToken`.
 
 
 **Point de terminaison 3 :** renvoie des images qui sont populaires en fonction des requêtes de recherche effectuées par d’autres utilisateurs. Les images sont séparées en différentes catégories, par exemple par personnes célèbres ou événements.

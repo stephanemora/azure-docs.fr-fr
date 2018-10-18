@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 931c3d8beb9f2ed12228c74f09f84bbdee1798b8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4013b7136fd365b1d37348cfc1f0b46cce787ce2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41947959"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363121"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Déployer des modèles à l’aide du portail Azure Stack
 
@@ -30,7 +30,7 @@ Vous pouvez utiliser le portail pour déployer des modèles Azure Resource Manag
 
 ## <a name="to-deploy-a-template"></a>Pour déployer un modèle
 
-1. Connectez-vous au portail, sélectionnez **Nouveau**, puis sélectionnez **Personnalisé**.
+1. Connectez-vous au portail, sélectionnez **+ Créer une ressource**, puis sélectionnez **Personnalisé**.
 2. Sélectionnez **Déploiement de modèle**.
 3. Sélectionnez **Modifier un modèle**, puis collez le code de votre modèle JSON dans la fenêtre de code. Sélectionnez **Enregistrer**.
 4. Sélectionnez **Modifier les paramètres**, indiquez des valeurs pour les paramètres affichés, puis sélectionnez **OK**.
@@ -40,4 +40,6 @@ Vous pouvez utiliser le portail pour déployer des modèles Azure Resource Manag
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Déployer des modèles avec PowerShell](azure-stack-deploy-template-powershell.md)
+Pour en savoir plus sur le déploiement de modèles, consultez :
+
+[Déployer des modèles avec PowerShell](azure-stack-deploy-template-powershell.md)

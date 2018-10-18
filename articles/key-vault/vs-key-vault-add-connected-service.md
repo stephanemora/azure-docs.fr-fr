@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840617"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465790"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Ajouter Key Vault à votre application web à l’aide des Services connectés Visual Studio
 
@@ -39,7 +39,8 @@ Pour plus d’informations sur les changements qu’apportent les Services conne
 
    ![Sélection de l’option Sécuriser les secrets avec Azure Key Vault](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   Si vous êtes connecté à Visual Studio et si un abonnement Azure est associé à votre compte, une page s’affiche et montre la liste déroulante de vos abonnements.
+   Si vous êtes connecté à Visual Studio et si un abonnement Azure est associé à votre compte, une page s’affiche et montre la liste déroulante de vos abonnements. Vérifiez que vous êtes connecté à Visual Studio et que le compte auquel vous êtes connecté est identique à celui que vous utilisez pour votre abonnement Azure.
+
 1. Sélectionnez l’abonnement que vous souhaitez utiliser. Ensuite, choisissez un coffre de clés nouveau ou existant, ou cliquez sur le lien Modifier pour modifier le nom généré automatiquement.
 
    ![Sélectionnez votre abonnement](media/vs-key-vault-add-connected-service/KeyVaultConnectedService3.PNG)

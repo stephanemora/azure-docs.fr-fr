@@ -1,28 +1,29 @@
 ---
-title: Méthodes utilisées par les dictionnaires de l’API de traduction de texte Translator Text | Microsoft Docs
-description: Utilisez la méthode des dictionnaires de l’API de traduction de texte Translator Text.
+title: Méthode des exemples de dictionnaire de l’API de traduction de texte Translator Text
+titlesuffix: Azure Cognitive Services
+description: Utilisez la méthode des exemples de dictionnaire de l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9960f3be42090edaec1df935d70e4c1a0d25b691
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1e6bd1b7ddb38d0fad33ab9d282f8edc4ff8c765
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370240"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129128"
 ---
-# <a name="text-api-30-dictionary-examples"></a>API Translator Text 3.0 : Exemples de dictionnaire
+# <a name="translator-text-api-30-dictionary-examples"></a>API Translator Text 3.0 : Exemples de dictionnaire
 
 Fournit des exemples qui illustrent l’utilisation en contexte des termes du dictionnaire. Cette opération est utilisée conjointement à la [recherche dans le dictionnaire](.\v3-0-dictionary-lookup.md).
 
 ## <a name="request-url"></a>URL de la demande
 
-Envoyez une requête `POST` à :
+Envoyez une demande `POST` à :
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0
@@ -30,7 +31,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 ## <a name="request-parameters"></a>Paramètres de la demande
 
-Les paramètres transmis à la chaîne de requête sont les suivants :
+Les paramètres de demande transmis à la chaîne de requête sont les suivants :
 
 <table width="100%">
   <th width="20%">Paramètre de requête.</th>
@@ -49,26 +50,26 @@ Les paramètres transmis à la chaîne de requête sont les suivants :
   </tr>
 </table>
 
-Les en-têtes de requête sont les suivants :
+Les en-têtes de demande sont les suivants :
 
 <table width="100%">
   <th width="20%">headers</th>
   <th>Description</th>
   <tr>
     <td>_One authorization_<br/>_header_</td>
-    <td>*En-tête de requête obligatoire*.<br/>Consultez les [options disponibles pour l’authentification](./v3-0-reference.md#authentication).</td>
+    <td>*En-tête de demande obligatoire*.<br/>Voir les [options disponibles pour l’authentification](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*En-tête de requête obligatoire*.<br/>Spécifie le type de contenu de la charge utile. Les valeurs possibles sont les suivantes : `application/json`.</td>
+    <td>*En-tête de demande obligatoire*.<br/>Spécifie le type de contenu de la charge utile. Les valeurs possibles sont les suivantes : `application/json`.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*En-tête de requête obligatoire*.<br/>Longueur du corps de la requête.</td>
+    <td>*En-tête de demande obligatoire*.<br/>Longueur du corps de la demande.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Facultative*.<br/>GUID généré par le client pour identifier la requête de façon unique. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé `ClientTraceId`.</td>
+    <td>*Facultative*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé `ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -95,7 +96,7 @@ Les limites suivantes s'appliquent :
 
 ## <a name="response-body"></a>Response body
 
-Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
+Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne dans le tableau d’entrée. Un objet de résultat inclut les propriétés suivantes :
 
   * `normalizedSource` : chaîne indiquant la forme normalisée du terme source. En règle générale, elle doit être identique à la valeur du champ `Text` dans l’index de la liste correspondante, dans le corps de la demande.
     

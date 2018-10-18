@@ -1,20 +1,21 @@
 ---
-title: Exporter ou supprimer vos données dans Custom Vision, Azure Cognitive Services | Microsoft Docs
-description: Apprenez à exporter ou à supprimer vos données dans Custom Vision.
+title: Exporter ou supprimer vos données - Service Vision personnalisée
+titlesuffix: Azure Cognitive Services
+description: Apprenez à exporter ou à supprimer vos données à partir du service Vision personnalisée.
 services: cognitive-services
 author: v-jaswel
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 49fc49b3181f56c23167cfbae18911e7db441f8c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c98c72101d893f107d4a6c3185836a75bfe41007
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370508"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367489"
 ---
 # <a name="export-or-delete-user-data-in-custom-vision"></a>Exporter ou supprimer des données utilisateur dans Custom Vision
 

@@ -1,38 +1,43 @@
 ---
-title: Inscription à Azure AD en tant qu’organisation | Microsoft Docs
-description: Découvrez comment utiliser un compte professionnel ou scolaire pour tirer parti des comptes d’utilisateur, des stratégies, des paramètres ou des déploiements de serveur local que vous possédez déjà et améliorer l’efficacité entre l’infrastructure d’identité locale de votre organisation et Azure AD.
+title: Comment s’inscrire à Azure Active Directory en tant qu’organisation | Microsoft Docs
+description: Découvrez comment inscrire votre organisation pour utiliser Azure et Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2017
+ms.date: 09/14/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: a8d4781af0320f86eb5dd0b4b5e71c0ca7db5a18
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: ccff64b88787291832b9d2ed84eb81919152d887
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064338"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364769"
 ---
-# <a name="how-to-sign-up-for-azure-ad-as-an-organization"></a>Guide pratique pour s’inscrire à Azure AD en tant qu’organisation
-Jusqu’à récemment, vous pouviez uniquement créer un abonnement Microsoft Azure à l’aide d’un compte Microsoft (Windows Live ID). Azure prend désormais en charge l'utilisation des deux méthodes suivantes pour la création d'un compte :
+# <a name="how-to-sign-up-for-azure-active-directory-as-an-organization"></a>Comment s’inscrire à Azure Active Directory en tant qu’organisation
+Inscrivez-vous à Azure Active Directory (Azure AD) pour obtenir un nouvel abonnement Microsoft Azure à l’aide de :
 
-* **Comptes Microsoft** (que vous avez créés pour votre utilisation personnelle) : ils donnent accès à tous les produits et services cloud Microsoft orientés utilisateur, tels qu’Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE ou Office 365. La création d'une adresse @Outlook.com. crée automatiquement un compte Microsoft. Après la création d’un compte Microsoft, ce dernier peut être utilisé pour accéder aux services de cloud Microsoft orientés vers les clients ou à Azure. [En savoir plus](https://account.microsoft.com/account)
-* **Comptes professionnels ou scolaires** (émis par un administrateur pour une utilisation dans l’entreprise/l’éducation) : fournissent un accès à tous les services de cloud Microsoft petits, moyens et d’entreprise, comme Azure, Microsoft Intune ou Office 365. Lorsque vous vous inscrivez à un de ces services en tant qu’organisation, un répertoire est automatiquement configuré sur le cloud dans Azure Active Directory pour représenter votre société. [En savoir plus](active-directory-administer.md)
-  
-    Une fois le répertoire créé, un administrateur peut créer des utilisateurs et leur attribuer des licences en fonction des abonnements aux services cloud dont ils ont besoin, comme Azure.
+- **Un compte Microsoft.** Utilisez votre compte Microsoft personnel pour accéder à Azure et à tous les produits et services cloud Microsoft orientés utilisateur, tels qu’Outlook (Hotmail), Messenger, OneDrive, MSN, Xbox LIVE ou Office 365. La création d'une adresse @Outlook.com. crée automatiquement un compte Microsoft. Pour plus d’informations, consultez la [vue d’ensemble des comptes Microsoft](https://account.microsoft.com/account).
 
-Pour vous inscrire à Azure en tant qu'organisation, cliquez [**Inscription**](https://azure.microsoft.com/pricing/purchase-options/)
+- **Un compte professionnel ou scolaire.** Utilisez votre compte professionnel ou scolaire pour accéder à tous les services Microsoft dédiés aux petites, moyennes et grandes entreprises, comme Azure, Microsoft Intune ou Office 365. Lorsque vous vous inscrivez à l’un de ces services en tant qu’organisation, Azure AD configure automatiquement un répertoire informatique qui représente votre organisation. Pour plus d’informations, consultez [Gérer votre répertoire Azure AD](active-directory-administer.md).
 
-**Ressources supplémentaires**
+    >[!Note]
+    Nous vous recommandons d’utiliser votre compte professionnel ou scolaire si vous avez déjà accès à Azure AD. Toutefois, vous devez utiliser le type de compte associé à votre abonnement Azure.
 
-* [Blog Microsoft Azure](https://azure.microsoft.com/blog/)
-* [Présentation d’Azure AD](active-directory-whatis.md)
-* [Utiliser votre infrastructure d’identité locale dans le cloud](../connect/active-directory-aadconnect.md)
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Modes d’achat d’Azure](https://azure.microsoft.com/pricing/purchase-options/)
+
+- [S’inscrire aux éditions Azure Active Directory Premium](active-directory-get-started-premium.md)
+
+- [En savoir plus sur Azure AD](active-directory-whatis.md)
+
+- [Utiliser votre infrastructure d’identité locale dans le cloud](../connect/active-directory-aadconnect.md)
+
+- [Consulter le blog Microsoft Azure](https://azure.microsoft.com/blog/)
 

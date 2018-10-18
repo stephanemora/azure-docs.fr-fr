@@ -1,23 +1,26 @@
 ---
-title: Interface de ligne de commande du Service d’exploration des connaissances (KES) | Microsoft Docs
-description: Utilisez l’interface de ligne de commande KES pour créer un index et des fichiers de grammaire depuis des données structurées, et les déployer en tant que services web dans Microsoft Cognitive Services.
+title: Interface de ligne de commande - API du service d’exploration des connaissances
+titlesuffix: Azure Cognitive Services
+description: Utilisez l’interface de ligne de commande pour créer un index et des fichiers de grammaire à partir de données structurées, et déployez-les en tant que services web.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 71a6f5ac93e5605182a55de1bae9a99c5c3eddf4
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136353"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127135"
 ---
 # <a name="command-line-interface"></a>Interface de ligne de commande
-L’interface de ligne de commande KES fournit la capacité de créer un index et des fichiers de grammaire depuis des données structurées et de les déployer en tant que services web.  Voici la syntaxe générale qu’elle utilise : `kes.exe <command> <required_args> [<optional_args>]`.  Vous pouvez exécuter `kes.exe` sans argument pour afficher une liste de commandes, ou `kes.exe <command>` pour afficher une liste d’arguments disponibles pour la commande spécifiée.  Voici une liste des commandes disponibles :
+
+L’interface de ligne de commande du service d’exploration des connaissances (KES) offre la capacité de créer un index et des fichiers de grammaire à partir de données structurées et de les déployer en tant que services web.  Voici la syntaxe générale qu’elle utilise : `kes.exe <command> <required_args> [<optional_args>]`.  Vous pouvez exécuter `kes.exe` sans argument pour afficher une liste de commandes, ou `kes.exe <command>` pour afficher une liste d’arguments disponibles pour la commande spécifiée.  Voici une liste des commandes disponibles :
+
 * build_index
 * build_grammar
 * host_service

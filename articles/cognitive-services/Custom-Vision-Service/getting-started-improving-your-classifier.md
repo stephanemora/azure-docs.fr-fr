@@ -1,20 +1,21 @@
 ---
-title: Améliorer votre classifieur avec le service Vision personnalisée - Azure Cognitive Services | Microsoft Docs
-description: Découvrez comment améliorer la qualité de votre classifieur Service Vision personnalisée.
+title: 'Améliorer votre classifieur : Service Vision personnalisée'
+titlesuffix: Azure Cognitive Services
+description: Découvrez comment améliorer la qualité de votre classifieur.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: nolachar
-ms.openlocfilehash: 7c6cbd996d0c35b96fde78daf391bebb36feddce
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: d3f0da9b7c5894a485db4bd204e1a9ed5967c1aa
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888175"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366538"
 ---
 # <a name="how-to-improve-your-classifier"></a>Comment améliorer votre classifieur
 
@@ -68,7 +69,7 @@ Le Service Vision personnalisée stocke les images envoyées au point de termina
 
     ![Image de l’onglet des prédictions](./media/getting-started-improving-your-classifier/predictions.png)
 
-2. Pointez sur une image pour lire les mots clés qui ont été prédits par le classifieur. Les images sont classées des plus intéressantes pour le classifieur (en haut) aux moins utiles. Pour sélectionner un tri différent, utilisez la section __Sort__ (Tri). Pour ajouter une image à vos données d’apprentissage, sélectionnez-la, sélectionnez la balise correspondante et cliquez sur __Enregistrer et fermer__. L’image est supprimée de __Prédictions__ et ajoutée aux images d’apprentissage. Vous pouvez la voir en sélectionnant l’onglet __Training Images__ (Images d’entraînement).
+2. Pointez sur une image pour lire les mots clés qui ont été prédits par le classifieur. Les images sont classées des plus intéressantes pour le classifieur (en haut) aux moins utiles. Pour sélectionner un tri différent, utilisez la section __Trier__. Pour ajouter une image à vos données d’apprentissage, sélectionnez-la, sélectionnez la balise correspondante et cliquez sur __Enregistrer et fermer__. L’image est supprimée de __Prédictions__ et ajoutée aux images d’apprentissage. Vous pouvez la voir en sélectionnant l’onglet __Training Images__ (Images d’entraînement).
 
     ![Image de la page d’étiquetage](./media/getting-started-improving-your-classifier/tag.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Recommandations en matière d’optimisation des performances d’Azure Data Lake Store | Microsoft Docs
-description: Recommandations en matière d’optimisation des performances d’Azure Data Lake Store
+title: Recommandations en matière d’optimisation des performances d’Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Recommandations en matière d’optimisation des performances d’Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,26 +12,26 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/30/2017
 ms.author: stewu
-ms.openlocfilehash: 29b662aa2f30083b444483554a78d53f0d05cb7f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ba46ba6429640cf29d9abc75055563fb1578d2e2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34196982"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129588"
 ---
-# <a name="tuning-azure-data-lake-store-for-performance"></a>Paramétrage d’Azure Data Lake Store pour les performances
+# <a name="tuning-azure-data-lake-storage-gen1-for-performance"></a>Réglage d’Azure Data Lake Storage Gen1 pour les performances
 
-Data Lake Store prend en charge un débit élevé pour l’analyse intensive des E/S et le déplacement des données.  Dans Azure Data Lake Store, il est important d’utiliser tout le débit disponible (la quantité de données qui peuvent être lues ou écrites par seconde) pour optimiser les performances.  Pour cela, il convient d’effectuer le plus possible de lectures et d’écritures en parallèle.
+Azure Data Lake Storage Gen1 prend en charge un débit élevé pour l’analyse intensive des E/S et le déplacement des données.  Dans Data Lake Storage Gen1, il est important d’utiliser tout le débit disponible (la quantité de données qui peuvent être lues ou écrites par seconde) pour optimiser les performances.  Pour cela, il convient d’effectuer le plus possible de lectures et d’écritures en parallèle.
 
-![Performances de Data Lake Store](./media/data-lake-store-performance-tuning-guidance/throughput.png)
+![Performances de Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/throughput.png)
 
-Azure Data Lake Store peut évoluer pour fournir le débit nécessaire pour tous les scénarios d’analyse. Par défaut, un compte Azure Data Lake Store fournit automatiquement suffisamment de débit pour répondre aux besoins d’une vaste catégorie de cas d’usage. Pour les cas où les clients atteignent la limite par défaut, le compte ADLS peut être configuré de manière à fournir un débit plus important en contactant le support de Microsoft.
+Data Lake Storage Gen1 peut évoluer pour fournir le débit nécessaire pour tous les scénarios d’analyse. Par défaut, un compte Data Lake Storage Gen1 fournit automatiquement suffisamment de débit pour répondre aux besoins d’une vaste catégorie de cas d’usage. Pour les cas où les clients atteignent la limite par défaut, le compte Data Lake Storage Gen1 peut être configuré de manière à fournir un débit plus important en contactant le support de Microsoft.
 
 ## <a name="data-ingestion"></a>Ingestion de données
 
-Lors de l’ingestion de données à partir d’un système source dans ADLS, vous devez impérativement tenir compte du fait que le matériel source, le matériel réseau source et la connectivité réseau à ADLS peuvent agir comme goulot d’étranglement.  
+Lors de l’ingestion de données à partir d’un système source dans Data Lake Storage Gen1, vous devez impérativement tenir compte du fait que le matériel source, le matériel réseau source et la connectivité réseau à Data Lake Storage Gen1 peuvent agir comme goulot d’étranglement.  
 
-![Performances de Data Lake Store](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
+![Performances de Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/bottleneck.png)
 
 Vous devez impérativement vous assurer que le déplacement des données n’est pas affecté par ces facteurs.
 
@@ -39,9 +39,9 @@ Vous devez impérativement vous assurer que le déplacement des données n’est
 
 Que vous utilisiez des machines locales ou des machines virtuelles dans Azure, vous devez sélectionner avec soin le matériel adapté. Pour le matériel du disque source, préférez les disques SSD aux disques durs HDD et choisissez les disques avec les broches les plus rapides. Pour le matériel réseau source, utilisez la carte réseau la plus rapide possible.  Sur Azure, nous vous recommandons des machines virtuelles Azure D14 qui sont équipées de disques et du matériel de mise en réseau suffisamment puissants.
 
-### <a name="network-connectivity-to-azure-data-lake-store"></a>Connectivité réseau à Azure Data Lake Store
+### <a name="network-connectivity-to-data-lake-storage-gen1"></a>Connectivité réseau à Data Lake Storage Gen1
 
-La connectivité réseau entre les données sources Azure Data Lake Store peut parfois être le goulot d’étranglement. Lorsque vos données sources sont locales, envisagez d’utiliser une liaison dédiée avec [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Si vos données sources sont dans Azure, les performances seront meilleures lorsque les données sont dans la même région Azure que le Data Lake Store.
+La connectivité réseau entre vos données sources et Data Lake Storage Gen1 peut parfois être le goulot d’étranglement. Lorsque vos données sources sont locales, envisagez d’utiliser une liaison dédiée avec [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). Si vos données sources sont dans Azure, les performances seront meilleures lorsque les données sont dans la même région Azure que le compte Data Lake Storage Gen1.
 
 ### <a name="configure-data-ingestion-tools-for-maximum-parallelization"></a>Configuration des outils d’ingestion des données pour une parallélisation maximale
 
@@ -57,7 +57,7 @@ Après avoir traité les goulots d’étranglement du matériel source et de la 
 
 ## <a name="structure-your-data-set"></a>Structure de votre jeu de données
 
-Lorsque les données sont stockées dans Data Lake Store, la taille du fichier, le nombre de fichiers et la structure de dossiers ont un impact sur les performances.  La section suivante décrit les meilleures pratiques en la matière.  
+Lorsque les données sont stockées dans Data Lake Storage Gen1, la taille du fichier, le nombre de fichiers et la structure de dossiers ont un impact sur les performances.  La section suivante décrit les meilleures pratiques en la matière.  
 
 ### <a name="file-size"></a>Taille du fichier
 
@@ -96,7 +96,7 @@ Les instructions suivantes ne s’appliquent qu’aux tâches avec un usage inte
 ### <a name="general-considerations-for-an-hdinsight-cluster"></a>Considérations générales pour les clusters HDInsight
 
 * **Versions HDInsight.** Pour des performances optimales, utilisez la dernière version de HDInsight.
-* **Régions.** Placez Data Lake Store dans la même région que le cluster HDInsight.  
+* **Régions.** Placez le compte Data Lake Storage Gen1 dans la même région que le cluster HDInsight.  
 
 Un cluster HDInsight est composé de deux nœuds principaux et de nœuds Worker. Chaque nœud Worker fournit une quantité spécifique de cœurs et de mémoire, déterminée par le type de machine virtuelle.  Lorsque vous exécutez une tâche, YARN est le négociateur de ressource qui alloue la mémoire et les cœurs disponible pour créer des conteneurs.  Chaque conteneur exécute les tâches nécessaires pour terminer la tâche.  Les conteneurs sont exécutés en parallèle pour traiter rapidement les tâches. Par conséquent, l’exécution du plus grand nombre possible de conteneurs en parallèle permet d’améliorer les performances.
 
@@ -110,15 +110,15 @@ Il existe trois couches au sein d’un cluster HDInsight qui peuvent être ajust
 
 **Exécutez le cluster avec le plus de nœuds et/ou les plus grosses machines virtuelles.**  Un plus grand cluster permet d’exécuter plus de conteneurs YARN, comme le montre l’image ci-dessous.
 
-![Performances de Data Lake Store](./media/data-lake-store-performance-tuning-guidance/VM.png)
+![Performances de Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/VM.png)
 
-**Utilisez des machines virtuelles avec davantage de bande passante réseau.**  La quantité de bande passante réseau peut être un goulot d’étranglement si elle moins importante que le débit Data Lake Store.  La taille de la bande passante réseau varie en fonction des machines virtuelles.  Choisissez un type de machine virtuelle qui possède la plus grande bande passante possible.
+**Utilisez des machines virtuelles avec davantage de bande passante réseau.**  La quantité de bande passante réseau peut être un goulot d’étranglement si elle moins importante que le débit de Data Lake Storage Gen1.  La taille de la bande passante réseau varie en fonction des machines virtuelles.  Choisissez un type de machine virtuelle qui possède la plus grande bande passante possible.
 
 ### <a name="yarn-layer"></a>Couche YARN
 
 **Utilisez des conteneurs YARN plus petits.**  Réduisez la taille de chaque conteneur YARN pour créer plusieurs conteneurs avec la même quantité de ressources.
 
-![Performances de Data Lake Store](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
+![Performances de Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/small-containers.png)
 
 En fonction de votre charge de travail, il y aura toujours une taille de conteneur YARN minimale requise. Si vous sélectionnez un conteneur trop petit, vos tâches rencontreront des problèmes de mémoire insuffisante. En général, les conteneurs YARN ne doivent pas être inférieurs à 1 Go. Les conteneurs YARN de 3 Go sont courants. Pour certaines charges de travail, des conteneurs YARN plus grands peuvent être nécessaires.  
 
@@ -128,7 +128,7 @@ En fonction de votre charge de travail, il y aura toujours une taille de contene
 
 **Utilisez tous les conteneurs disponibles.**  Définissez le nombre de tâches de manière à ce qu’il soit égal ou supérieur au nombre de conteneurs disponibles. Ainsi, toutes les ressources sont utilisées.
 
-![Performances de Data Lake Store](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
+![Performances de Data Lake Storage Gen1](./media/data-lake-store-performance-tuning-guidance/use-containers.png)
 
 **L’échec des tâches est coûteux.** Si chaque tâche doit traiter une grande quantité de données, l’échec d’une tâche entraîne une nouvelle tentative coûteuse.  Par conséquent, il est préférable de créer davantage de tâches, chacune d’elle traitant une petite quantité de données.
 
@@ -142,5 +142,5 @@ Outre les consignes générales ci-dessus, chaque application possède des param
 | [Storm sur HDInsight](data-lake-store-performance-tuning-storm.md)| <ul><li>Nombre de processus de travail</li><li>Nombre d’instances d’exécuteur de spout</li><li>Nombre d’instances d’exécuteur de bolt </li><li>Nombre de tâches de spout</li><li>Nombre de tâches de bolt</li></ul>|
 
 ## <a name="see-also"></a>Voir aussi
-* [Présentation d’Azure Data Lake Store](data-lake-store-overview.md)
+* [Vue d’ensemble d’Azure Data Lake Storage Gen1](data-lake-store-overview.md)
 * [Prise en main d'Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)

@@ -10,14 +10,22 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 04/09/2018
-ms.openlocfilehash: b05b824d8d35351030ca466566f14e4249d4b99d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 399c7b000360a73a9bab06b046be21c9d93a1c70
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626618"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367121"
 ---
 # <a name="diagnose-and-solve-problems-in-your-time-series-insights-environment"></a>Diagnostiquer et résoudre les problèmes dans votre environnement Time Series Insights
+
+Cet article décrit certains problèmes que vous pouvez rencontrer dans votre environnement Time Series Insights. Il présente les causes éventuelles et les solutions pour les résoudre.
+
+## <a name="video"></a>Vidéo : 
+
+### <a name="in-this-video-we-cover-common-time-series-insights-customer-challenges-and-mitigationsbr"></a>Dans cette vidéo, nous abordons des défis mais aussi des cas d’atténuation des risques rencontrés par les clients Time Series Insights.</br>
+
+> [!VIDEO https://www.youtube.com/embed/7U0SwxAVSKw]
 
 ## <a name="problem-1-no-data-is-shown"></a>Problème 1 : Aucune donnée n’est indiquée
 Il existe plusieurs raisons pour lesquelles vous ne pouvez pas voir vos données dans [l’explorateur Azure Time Series Insights](https://insights.timeseries.azure.com) :
@@ -31,7 +39,7 @@ Azure Time Series Insights ne prend en charge que les données JSON. Pour obteni
    ![Autorisation de connexion de service IoT Hub](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)
 
    Comme indiqué dans l’illustration précédente, les stratégies **iothubowner** et **service** sont acceptées, car elles disposent toutes deux de l’autorisation **Connexion de service**.
-   
+
 * Pour Event Hub, vous devez fournir la clé avec l’autorisation **Écouter**.
 
    ![Autorisation d’écoute EventHub](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)

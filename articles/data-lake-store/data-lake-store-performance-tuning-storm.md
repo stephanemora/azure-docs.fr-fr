@@ -1,6 +1,6 @@
 ---
-title: Recommandations en matière d’optimisation des performances d’Azure Data Lake Store Storm | Microsoft Docs
-description: Recommandations en matière d’optimisation des performances d’Azure Data Lake Store Storm
+title: Recommandations en matière d’optimisation des performances d’Azure Data Lake Storage Gen1 Storm | Microsoft Docs
+description: Recommandations en matière d’optimisation des performances d’Azure Data Lake Storage Gen1 Storm
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,29 +12,28 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 5ebca90ffd679de1c30d1bc324bf4f1c3b9f6f70
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aa4d42a53e6fb8ea236a9d544102aab3dff19013
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198858"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129231"
 ---
-# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Recommandations en matière d’optimisation des performances pour Storm sur HDInsight et Azure Data Lake Store
+# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Recommandations en matière d’optimisation des performances pour Storm sur HDInsight et Azure Data Lake Storage Gen1
 
 Comprendre les facteurs à prendre en compte lorsque vous optimisez les performances d’une topologie Storm dans Azure. Par exemple, il est important de comprendre les caractéristiques du travail effectué par les Spouts et les Bolts (si le travail est intensif en E/S ou en mémoire). Cet article aborde diverses recommandations d’optimisation des performances, y compris la résolution des problèmes courants.
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Un compte Azure Data Lake Store**. Pour savoir comment en créer un, consultez [Prise en main d’Azure Data Lake Store](data-lake-store-get-started-portal.md).
-* **Un cluster Azure HDInsight** ayant accès à un compte Data Lake Store. Voir [Créer un cluster HDInsight avec Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Veillez à activer le Bureau à distance pour le cluster.
-* **Exécution d’un cluster Storm sur Data Lake Store**. Pour plus d’informations, consultez [Présentation d’Apache Storm sur HDInsight : analyse en temps réel pour Hadoop](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Recommandations en matière d’optimisation des performances sur Data Lake Store**.  Pour les concepts généraux sur les performances, consultez [Recommandations en matière d’optimisation des performances pour Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Un compte Azure Data Lake Storage Gen1**. Pour savoir comment en créer un, voir [Prise en main d’Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
+* **Un cluster Azure HDInsight** avec accès à un compte Data Lake Storage Gen1. Voir [Créer un cluster HDInsight avec Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Veillez à activer le Bureau à distance pour le cluster.
+* **Exécution d’un cluster Storm sur Data Lake Storage Gen1**. Pour plus d’informations, consultez [Présentation d’Apache Storm sur HDInsight : analyse en temps réel pour Hadoop](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Recommandations en matière d’optimisation des performances sur Data Lake Storage Gen1**.  Pour des concepts généraux sur les performances, voir [Recommandations en matière d’optimisation des performances de Data Lake Storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>Ajuster le parallélisme de la topologie
 
-Vous pouvez améliorer les performances en augmentant l’accès concurrentiel des E/S vers et à partir de Data Lake Store. Une topologie Storm possède un ensemble de configurations qui déterminent le parallélisme :
+Vous pouvez améliorer les performances en augmentant l’accès concurrentiel des E/S vers et à partir de Data Lake Storage Gen1. Une topologie Storm possède un ensemble de configurations qui déterminent le parallélisme :
 * Nombre de processus Worker (les Workers sont répartis uniformément sur les machines virtuelles).
 * Nombre d’instances d’exécuteur de Spout.
 * Nombre d’instances d’exécuteur de Bolt.
@@ -52,9 +51,9 @@ Dans Storm, voici les différents composants impliqués et leur impact sur le ni
 * Instances d’exécuteur de Spout et de Bolt. Chaque instance d’exécuteur correspond à un thread s’exécutant dans les processus Worker (machine virtuelle Java).
 * Tâches de Storm. Il s’agit des tâches logiques exécutées par chacun de ces threads. Cela ne modifie pas le niveau de parallélisme. Vous devez donc évaluer si vous avez besoin de plusieurs tâches par exécuteur ou non.
 
-### <a name="get-the-best-performance-from-data-lake-store"></a>Obtenir des performances optimales pour Data Lake Store
+### <a name="get-the-best-performance-from-data-lake-storage-gen1"></a>Obtenir des performances optimales pour Data Lake Storage Gen1
 
-Lorsque vous travaillez avec Data Lake Store, vous obtenez des performances optimales si vous procédez comme suit :
+Lorsque vous travaillez avec Data Lake Storage Gen1, vous obtenez des performances optimales si vous procédez comme suit :
 * Fusionnez vos petits éléments dans des tailles supérieures (idéalement 4 Mo).
 * Effectuez autant de requêtes simultanées que vous le pouvez. Étant donné que chaque thread de Bolt effectue des lectures bloquantes, il est préférable d’avoir un nombre de threads dans la plage de 8 à 12 par cœur. Cela permet de garantir une utilisation correcte de la carte réseau et du processeur. Une machine virtuelle plus grande permet d’avoir plus de demandes simultanées.  
 
@@ -67,7 +66,7 @@ Supposons que nous utilisons 8 threads bolt par cœur. Avec 64 cœurs, nous voul
 ## <a name="tune-additional-parameters"></a>Ajuster les paramètres supplémentaires
 Une fois que vous avez la topologie de base, vous pouvez envisager de modifier les paramètres :
 * **Number of JVMs per worker node (Nombre de machines virtuelles Java par nœud Worker).** Si vous avez une structure de données de grande taille (par exemple, une table de recherche) que vous hébergez dans la mémoire, chaque machine virtuelle Java requiert une copie distincte. Vous pouvez également utiliser la structure de données entre plusieurs threads si vous avez moins de machines virtuelles Java. Pour les E/S de Bolt, le nombre de machines virtuelles Java ne fait pas beaucoup de différence pour le nombre de threads ajoutés sur ces machines virtuelles Java. Pour plus de simplicité, il est judicieux d’avoir une machine virtuelle Java par Worker. En fonction de ce que fait votre Bolt ou du type de traitement d’application nécessaire, vous devrez peut-être modifier ce nombre.
-* **Number of spout executors (Nombre d’exécuteurs de Spout).** Étant donné que l’exemple précédent utilise les Bolts pour écrire dans Data Lake Store, le nombre de Spouts ne concerne pas directement les performances Bolt. Toutefois, selon la quantité de traitement ou d’E/S se produisant dans le Spout, il est judicieux d’ajuster les Spouts pour de meilleures performances. Assurez-vous d’avoir suffisamment de Spouts pour occuper les Bolts. Les taux de sortie des Spouts doivent correspondre au débit des Bolts. La configuration réelle varie selon le Spout.
+* **Number of spout executors (Nombre d’exécuteurs de Spout).** Étant donné que l’exemple précédent utilise les Bolts pour écrire dans Data Lake Storage Gen1, le nombre de Spouts ne concerne pas directement les performances Bolt. Toutefois, selon la quantité de traitement ou d’E/S se produisant dans le Spout, il est judicieux d’ajuster les Spouts pour de meilleures performances. Assurez-vous d’avoir suffisamment de Spouts pour occuper les Bolts. Les taux de sortie des Spouts doivent correspondre au débit des Bolts. La configuration réelle varie selon le Spout.
 * **Nombre de tâches.** Chaque Bolt s’exécute en tant que thread unique. Les tâches supplémentaires par Bolt n’apportent pas d’accès concurrentiel supplémentaire. Le seul moment où elles sont utiles est si votre processus d’accusé de réception de tuple représente une grande partie du temps d’exécution de votre bolt. Il est judicieux de rassembler plusieurs tuples dans un élément plus grand avant d’envoyer un accusé de réception à partir du Bolt. Par conséquent, dans la plupart des cas, plusieurs tâches ne fournissent pas d’avantage supplémentaire.
 * **Local or shuffle grouping (Groupage local ou aléatoire).** Lorsque ce paramètre est activé, les tuples sont envoyés vers des Bolts dans le même processus Worker. Cela réduit les communications entre processus et les appels réseau. Cela est recommandé pour la plupart des topologies.
 
@@ -86,17 +85,17 @@ Vous pouvez modifier les paramètres suivants pour ajuster le Spout.
  Un bon calcul à faire est l’estimation de la taille de chacun de vos tuples. Ensuite, calculez la quantité de mémoire par thread spout. La mémoire totale allouée à un thread divisée par cette valeur devrait vous donner la limite supérieure pour le paramètre de nombre maximal de Spouts en attente.
 
 ## <a name="tune-the-bolt"></a>Ajuster le Bolt
-Lorsque vous écrivez sur Data Lake Store, définissez une stratégie de synchronisation de taille (tampon du côté client) sur 4 Mo. Un vidage ou une hsync() est ensuite effectué uniquement lorsque la taille du tampon atteint cette valeur. Le pilote Data Lake Store sur la machine virtuelle de Worker effectue automatiquement cette mise en tampon, à moins que vous exécutiez explicitement une hsync().
+Lorsque vous écrivez sur Data Lake Storage Gen1, définissez une stratégie de synchronisation de taille (tampon du côté client) sur 4 Mo. Un vidage ou une hsync() est ensuite effectué uniquement lorsque la taille du tampon atteint cette valeur. Le pilote Data Lake Storage Gen1 sur la machine virtuelle Worker effectue automatiquement cette mise en tampon, à moins que vous exécutiez explicitement une hsync().
 
-Le Bolt Storm par défaut de Data Lake Store a un paramètre de stratégie de synchronisation de taille (fileBufferSize) qui peut être utilisé pour ajuster ce paramètre.
+Le Bolt Storm par défaut de Data Lake Storage Gen1 possède un paramètre de stratégie de synchronisation de taille (fileBufferSize) qui peut être utilisé pour ajuster ce paramètre.
 
 Dans les topologies intensives en E/S, il est judicieux que chaque thread de Bolt écrive dans son propre fichier et définisse une stratégie de rotation de fichiers (fileRotationSize). Lorsque le fichier atteint une certaine taille, le flux est automatiquement vidé, et un nouveau fichier est utilisé pour l’écriture. La taille de fichier recommandée pour la rotation est de 1 Go.
 
 ### <a name="handle-tuple-data"></a>Gérer les données de tuple
 
-Dans Storm, un Spout conserve un tuple jusqu’à ce qu’il soit accepté explicitement par le Bolt. Si un tuple a été lu par le Bolt, mais qu’il n’a pas encore été accepté, le Spout peut ne pas avoir été conservé dans le serveur principal de Data Lake Store. Une fois qu’un tuple est accepté, la persistance du Spout peut être garantie par le Bolt. Il peut donc supprimer les données source, quelle que soit la source utilisée pour la lecture.  
+Dans Storm, un Spout conserve un tuple jusqu’à ce qu’il soit accepté explicitement par le Bolt. Si un tuple a été lu par le Bolt, mais qu’il n’a pas encore été accepté, le Spout peut ne pas avoir été conservé dans le back end Data Lake Storage Gen1. Une fois qu’un tuple est accepté, la persistance du Spout peut être garantie par le Bolt. Il peut donc supprimer les données source, quelle que soit la source utilisée pour la lecture.  
 
-Pour obtenir des performances optimales sur Data Lake Store, le Bolt doit mettre en mémoire tampon 4 Mo de données de tuple. Écrivez ensuite au serveur principal de Data Lake Store sous la forme d’une écriture de 4 Mo. Une fois les données correctement écrites dans le magasin (en appelant hflush()), le Bolt peut accuser réception des données auprès du Spout. C’est ce que l’exemple de bolt fourni ici effectue. Il est également acceptable de contenir de grands nombres de tuples avant d’appeler hflush() et d’accuser réception des tuples. Toutefois, cela augmente le nombre de tuples en cours de vérification que le spout doit contenir, et par conséquent la quantité de mémoire requise par machine virtuelle Java.
+Pour obtenir des performances optimales sur Data Lake Storage Gen1, le Bolt doit mettre en mémoire tampon 4 Mo de données de tuple. Écrivez ensuite sur le back end Data Lake Storage Gen1 sous la forme d’une écriture de 4 Mo. Une fois les données correctement écrites dans le magasin (en appelant hflush()), le Bolt peut accuser réception des données auprès du Spout. C’est ce que l’exemple de bolt fourni ici effectue. Il est également acceptable de contenir de grands nombres de tuples avant d’appeler hflush() et d’accuser réception des tuples. Toutefois, cela augmente le nombre de tuples en cours de vérification que le spout doit contenir, et par conséquent la quantité de mémoire requise par machine virtuelle Java.
 
 > [!NOTE]
 Les applications peuvent avoir l’obligation d’accuser réception des tuples plus fréquemment (à des tailles de données inférieures à 4 Mo) pour d’autres raisons non liées aux performances. Toutefois, cela peut affecter le débit d’E/S pour le serveur principal de stockage. Évaluez ce compromis par rapport aux performances d’E/S du Bolt.
@@ -128,13 +127,13 @@ Voici quelques scénarios courants de résolution des problèmes.
 
 * **Latence d’exécution des Bolts élevée.** Cela signifie que la méthode execute() de votre Bolt prend trop de temps. Optimisez le code ou examinez le comportement de vidage et les tailles d’écriture.
 
-### <a name="data-lake-store-throttling"></a>Limitation Data Lake Store
-Si vous atteignez les limites de la bande passante fournie par Data Lake Store, vous pouvez voir des échecs de tâche. Consultez les journaux des tâches pour les erreurs de limitation. Vous pouvez réduire le parallélisme en augmentant la taille de conteneur.    
+### <a name="data-lake-storage-gen1-throttling"></a>Limitation de requêtes Data Lake Storage Gen1
+Vous pouvez constater des échecs de tâche si vous atteignez les limites de la bande passante fournie par Data Lake Storage Gen1. Consultez les journaux des tâches pour les erreurs de limitation. Vous pouvez réduire le parallélisme en augmentant la taille de conteneur.    
 
 Pour vérifier si une limitation est appliquée, activez la journalisation du débogage côté client :
 
 1. Dans **Ambari** > **Storm** > **Config** > **Avancé storm-worker-log4j**, remplacez **&lt;root level="info"&gt;** par **&lt;root level=”debug”&gt;**. Redémarrez tous les nœuds/le service pour que la configuration prenne effet.
-2. Surveillez les journaux de topologie Storm sur les nœuds Worker (sous /var/log/storm/worker-artifacts/&lt;NomTopologie&gt;/&lt;port&gt;/worker.log) pour les exceptions de limitation de Data Lake Store.
+2. Surveillez les journaux de topologie Storm sur les nœuds Worker (sous /var/log/storm/worker-artifacts/&lt;NomTopologie&gt;/&lt;port&gt;/worker.log) pour les exceptions de limitation de Data Lake Storage Gen1.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour optimiser davantage les performances, consultez [ce blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).

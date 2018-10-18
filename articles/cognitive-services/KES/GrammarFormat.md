@@ -1,27 +1,30 @@
 ---
-title: Format de grammaire dans l’API Service d’exploration des connaissances | Microsoft Docs
-description: Découvrez le format de grammaire dans l’API Service d’exploration des connaissances (KES) de Cognitive Services.
+title: Format de grammaire - API Service d’exploration des connaissances
+titlesuffix: Azure Cognitive Services
+description: Découvrez le format de grammaire dans l’API Service d’exploration des connaissances (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: b64025be2f5a9708162da475c1f037d7f253d2c6
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 4b4010152622cd9a1d8111ac92dd1960e78d4601
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865751"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125151"
 ---
 # <a name="grammar-format"></a>Format de grammaire
+
 La grammaire est un fichier XML qui spécifie le jeu pondéré des requêtes en langage naturel que le service peut interpréter, ainsi que la façon dont ces requêtes en langage naturel sont traduites en expressions de requête sémantique.  La syntaxe de grammaire est basée sur [SRGS](http://www.w3.org/TR/speech-grammar/), une norme W3C pour les grammaires de reconnaissance vocale, avec des extensions pour prendre en charge l’intégration des index de données et les fonctions sémantiques.
 
 Le présent article décrit chacun des éléments syntaxiques qui peuvent être utilisés dans une grammaire.  Pour obtenir une grammaire complète qui illustre l’utilisation de ces éléments en contexte, consultez [cet exemple](#example).
 
-### <a name="grammar-element"></a>Élément grammar 
+### <a name="grammar-element"></a>Élément grammar
+
 L’élément `grammar` est l’élément de niveau supérieur dans le XML de spécification de la grammaire.  L’attribut obligatoire `root` spécifie le nom de la règle racine qui définit le point de départ de la grammaire.
 
 ```xml
@@ -29,6 +32,7 @@ L’élément `grammar` est l’élément de niveau supérieur dans le XML de sp
 ```
 
 ### <a name="import-element"></a>Élément import
+
 L’élément `import` importe une définition de schéma à partir d’un fichier externe pour activer les références d’attributs. L’élément doit être un enfant de l’élément `grammar` de niveau supérieur et il doit apparaître avant tout élément `attrref`. L’attribut obligatoire `schema` spécifie le nom d’un fichier de schéma situé dans le même répertoire que le fichier XML de grammaire. L’élément obligatoire `name` spécifie l’alias de schéma utilisé par les éléments `attrref` ultérieurs lors du référencement d’attributs définis dans ce schéma.
 
 ```xml
@@ -36,6 +40,7 @@ L’élément `import` importe une définition de schéma à partir d’un fichi
 ```
 
 ### <a name="rule-element"></a>Élément rule
+
 L’élément `rule` définit une règle de grammaire, une unité structurelle qui spécifie un jeu d’expressions de requête que le système peut interpréter.  L’élément doit être un enfant de l’élément `grammar` de niveau supérieur.  L’attribut obligatoire `id` spécifie le nom de la règle, qui est référencé à partir d’éléments `grammar` ou `ruleref`.
 
 Un élément `rule` définit un ensemble d’extensions autorisées.  Les jetons de texte correspondent directement à la requête d’entrée.  Les éléments `item` spécifient les répétitions et modifient les probabilités d’interprétation.  Les éléments `one-of` indiquent des choix alternatifs.  Les éléments `ruleref` permettent de construire des expansions plus complexes à partir d’expansions simples.  Les éléments `attrref` autorisent les correspondances par rapport aux valeurs d’attributs de l’index.  Les éléments `tag` spécifient la sémantique de l’interprétation et peuvent modifier la probabilité d’interprétation.
@@ -45,6 +50,7 @@ Un élément `rule` définit un ensemble d’extensions autorisées.  Les jetons
 ```
 
 ### <a name="example-element"></a>Élément example
+
 L’élément facultatif `example` spécifie des exemples d’expressions qui peuvent être acceptées par la définition `rule` contenante.  Vous pouvez l’utiliser à des fins de documentation et/ou de tests automatisés.
 
 ```xml
@@ -52,6 +58,7 @@ L’élément facultatif `example` spécifie des exemples d’expressions qui pe
 ```
 
 ### <a name="item-element"></a>Élément item
+
 L’élément `item` regroupe une séquence de constructions de grammaire.  Vous pouvez l’utiliser pour indiquer les répétitions de la séquence d’expansion, ou pour spécifier des alternatives conjointement avec l’élément `one-of`.
 
 Quand un élément `item` n’est pas un enfant d’un élément `one-of`, il peut spécifier la répétition de la séquence englobée en assignant l’attribut `repeat` à une valeur de compteur.  Une valeur de compteur « *n* » (où *n* est un entier) indique que la séquence doit avoir lieu exactement *n* fois.  Une valeur de compteur « *m*-*n* » permet à la séquence d’apparaître entre *m* et *n* fois inclus.  Une valeur de compteur « *m* » indique que la séquence doit apparaître au moins *m* fois.  L’attribut facultatif `repeat-logprob` peut être utilisé afin de modifier la probabilité d’interprétation pour chaque répétition supplémentaire au-delà de la valeur minimale.
@@ -60,7 +67,7 @@ Quand un élément `item` n’est pas un enfant d’un élément `one-of`, il pe
 <item repeat="1-" repeat-logprob="-10">...</item>
 ```
 
-Quand des éléments `item` apparaissent en tant qu’enfants d’un élément `one-of`, ils définissent le jeu d’alternatives d’expansion.  Dans ce cas, l’attribut facultatif `logprob` spécifie la probabilité logarithmique relative parmi les différents choix.  Étant donné une probabilité *p* comprise entre 0 et 1, la probabilité logarithmique correspondante peut être calculée comme log(*p*), où log() est la fonction logarithme naturel.  Si vous ne spécifiez rien, `logprob` prend par défaut la valeur 0, qui ne modifie pas la probabilité d’interprétation.  Notez que la probabilité logarithmique est toujours une valeur à virgule flottante négative ou 0.
+Quand des éléments `item` apparaissent en tant qu’enfants d’un élément `one-of`, ils définissent le jeu d’alternatives d’expansion.  Dans ce cas, l’attribut facultatif `logprob` spécifie la probabilité logarithmique relative parmi les différents choix.  Par exemple, pour une probabilité *p* comprise entre 0 et 1, la probabilité logarithmique correspondante peut être calculée à l’aide de log(*p*), où log() représente la fonction du logarithme naturel.  Si vous ne spécifiez rien, `logprob` prend par défaut la valeur 0, qui ne modifie pas la probabilité d’interprétation.  Notez que la probabilité logarithmique est toujours une valeur à virgule flottante négative ou 0.
 
 ```xml
 <one-of>
@@ -71,6 +78,7 @@ Quand des éléments `item` apparaissent en tant qu’enfants d’un élément `
 ```
 
 ### <a name="one-of-element"></a>Élément one-of
+
 L’élément `one-of` spécifie des expansions alternatives parmi l’un des éléments `item` enfants.  Seuls des éléments `item` peuvent apparaître à l’intérieur d’un élément `one-of`.  Vous pouvez spécifier les probabilités relatives parmi les différents choix à l’aide de l’attribut `logprob` dans chaque `item` enfant.
 
 ```xml
@@ -82,6 +90,7 @@ L’élément `one-of` spécifie des expansions alternatives parmi l’un des é
 ```
 
 ### <a name="ruleref-element"></a>Élément ruleref
+
 L’élément `ruleref` spécifie les expansions valides par le biais de références à un autre élément `rule`.  Grâce aux éléments `ruleref`, vous pouvez générer des expressions plus complexes à partir de règles simples.  L’attribut obligatoire `uri` indique le nom de l’élément `rule` référencé à l’aide de la syntaxe « #*nom_règle* ».  Pour capturer la sortie sémantique de la règle référencée, utilisez l’attribut facultatif `name` pour spécifier le nom d’une variable à laquelle la sortie sémantique est affectée.
  
 ```xml
@@ -89,6 +98,7 @@ L’élément `ruleref` spécifie les expansions valides par le biais de référ
 ```
 
 ### <a name="attrref-element"></a>Élément attrref
+
 L’élément `attrref` référence un attribut d’index, ce qui permet la mise en correspondance par rapport à des valeurs d’attributs observées dans l’index.  L’attribut obligatoire `uri` spécifie le nom du schéma d’index et le nom de l’attribut à l’aide de la syntaxe « *nom_schéma*#*nom_attribut* ».  Il doit y avoir un élément `import` précédent qui importe le schéma nommé *nom_schéma*.  Le nom d’attribut est le nom d’un attribut défini dans le schéma correspondant.
 
 Outre la mise en correspondance de l’entrée d’utilisateur, l’élément `attrref` retourne également comme sortie un objet de requête structuré qui sélectionne le sous-ensemble des objets dans l’index correspondant à la valeur d’entrée.  Utilisez l’attribut facultatif `name` pour spécifier le nom de la variable où la sortie d’objet de requête doit être stockée.  L’objet de requête peut être composé avec d’autres objets de requête pour former des expressions plus complexes.  Pour plus d’informations, consultez [Interprétation sémantique](SemanticInterpretation.md).  
@@ -97,7 +107,8 @@ Outre la mise en correspondance de l’entrée d’utilisateur, l’élément `a
 <attrref uri="academic#Keyword" name="keyword"/>
 ```
 
-#### <a name="query-completion"></a>Complétion de requête 
+#### <a name="query-completion"></a>Complétion de requête
+
 Pour prendre en charge les complétions de requête lors de l’interprétation des requêtes utilisateur partielles, chaque attribut référencé doit inclure « starts_with » en tant qu’opération dans la définition de schéma.  Étant donné un préfixe de requête utilisateur, `attrref` établira une correspondance avec toutes les valeurs dans l’index qui complètent le préfixe, et générera chaque valeur complète en tant qu’interprétation distincte de la grammaire.  
 
 Exemples :
@@ -105,6 +116,7 @@ Exemples :
 * La mise en correspondance de `<attrref uri="academic#Year" name="year"/>` par rapport au préfixe de requête « 200 » génère une interprétation pour les ouvrages de l’année « 2000 », une interprétation pour les ouvrages de l’année « 2001 », et ainsi de suite.
 
 #### <a name="matching-operations"></a>Opérations de mise en correspondance
+
 En plus de la mise en correspondance exacte, certains types d’attributs prennent également en charge les correspondances de préfixe et d’inégalité par le biais de l’attribut facultatif `op`.  Si aucun objet de l’index ne contient une valeur qui correspond, le chemin de grammaire est bloqué et le service ne génère aucune interprétation traversant ce chemin de grammaire.   L’attribut `op` prend par défaut la valeur « eq ».
 
 ```xml
@@ -129,7 +141,8 @@ Exemples :
 * `<attrref uri="academic#Year" op="starts_with" name="year"/>` établit une correspondance avec la chaîne d’entrée « 20 » et retourne dans une interprétation unique les ouvrages publiés en 200-299, 2000-2999, et ainsi de suite.  Il s’agit d’un cas d’usage rare.
 
 ### <a name="tag-element"></a>Élément tag
-L’élément `tag` spécifie comment un chemin à travers la grammaire doit être interprété.  Il contient une séquence d’instructions se terminant par des points-virgules.  Une instruction peut être une assignation d’un littéral ou d’une variable à une autre variable.  Elle peut également assigner la sortie d’une fonction avec 0, 1 ou plusieurs paramètres à une variable.  Chaque paramètre de fonction peut être spécifié à l’aide d’un littéral ou d’une variable.  Si la fonction ne retourne pas de sortie, l’assignation est omise.  L’étendue de la variable est locale à la règle qui la contient.
+
+L’élément `tag` spécifie comment un chemin à travers la grammaire doit être interprété.  Il contient une séquence d’instructions se terminant par des points-virgules.  Une instruction peut être une assignation d’un littéral ou d’une variable à une autre variable.  Elle peut également assigner la sortie d’une fonction avec 0 ou plusieurs paramètres à une variable.  Chaque paramètre de fonction peut être spécifié à l’aide d’un littéral ou d’une variable.  Si la fonction ne retourne pas de sortie, l’assignation est omise.  L’étendue de la variable est locale à la règle qui la contient.
 
 ```xml
 <tag>x = 1; y = x;</tag>
@@ -144,12 +157,13 @@ Certaines instructions peuvent modifier la probabilité d’un chemin d’interp
 Pour obtenir la liste des fonctions sémantiques prises en charge, consultez [Fonctions sémantiques](SemanticInterpretation.md#semantic-functions).
 
 ## <a name="interpretation-probability"></a>Probabilité d’interprétation
+
 La probabilité d’un chemin d’interprétation par le biais de la grammaire est la probabilité logarithmique cumulée de tous les éléments `<item>` et fonctions sémantiques rencontrés en chemin.  Elle décrit la probabilité relative de mise en correspondance d’une séquence d’entrée particulière.
 
 Étant donné une probabilité *p* comprise entre 0 et 1, la probabilité logarithmique correspondante peut être calculée comme log(*p*), où log() est la fonction logarithme naturel.  L’utilisation de probabilités logarithmiques permet au système d’accumuler la probabilité jointe d’un chemin d’interprétation par simple addition.  Elle évite également le dépassement négatif de capacité en virgule flottante courant avec ce type de calcul de probabilité jointe.  Notez que, par sa conception, la probabilité logarithmique est toujours une valeur à virgule flottante négative ou 0, les valeurs supérieures indiquant une probabilité plus élevée.
 
-<a name="example"></a>
 ## <a name="example"></a>Exemples
+
 Voici un exemple de code XML tiré du domaine de publications académiques qui illustre les différents éléments d’une grammaire :
 
 ```xml

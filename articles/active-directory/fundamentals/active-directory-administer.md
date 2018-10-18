@@ -1,26 +1,25 @@
 ---
-title: Guide pratique pour utiliser une vue d’ensemble de l’annuaire d’un locataire Azure Active Directory | Microsoft Docs
-description: Explique ce qu’est un locataire Azure AD et comment gérer Azure à l’aide d’Azure Active Directory
+title: Gérer votre locataire Azure Active Directory | Microsoft Docs
+description: Découvrez ce qu’est un locataire Azure AD et comment gérer Azure à l’aide d’Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
-ms.date: 08/23/2017
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro;oldportal
-ms.openlocfilehash: b18ff1f59a46e98544159b488294e2d3f7bd9cd7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+custom: it-pro
+ms.openlocfilehash: eb9cf7c21613ab91cc0b8e41a4454835d18f2c34
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767426"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297926"
 ---
-# <a name="manage-your-azure-ad-directory"></a>Gérer votre répertoire Azure AD
+# <a name="manage-your-azure-active-directory-tenant"></a>Gérer votre locataire Azure Active Directory
 
 ## <a name="what-is-an-azure-ad-tenant"></a>Qu’est-ce qu’un locataire Azure AD ?
 Dans Azure Active Directory (Azure AD), un locataire est une instance dédiée d’un répertoire Azure AD reçue par votre organisation lorsqu’elle s’inscrit à un service cloud de Microsoft tel qu’Azure ou Office 365. Chaque annuaire Azure AD est distinct et indépendant des autres annuaires Azure AD. De la même manière qu’un immeuble de bureaux d’entreprise est un élément d’actif sûr propre à votre organisation, un annuaire Azure AD est également conçu pour être un élément d’actif sûr pour les seuls besoins de votre organisation. L’architecture Azure AD isole les données du client et ses informations d’identité de façon à ce que les utilisateurs et les administrateurs d’un répertoire Azure AD ne puissent accéder accidentellement ou de façon malveillante aux données d’un autre répertoire.
@@ -43,7 +42,7 @@ Nous vous recommandons d’utiliser le compte d’administrateur que vous avez u
 
 Ainsi, le fait de s’inscrire à un abonnement Microsoft Intune et de synchroniser par la suite votre répertoire Active Directory local avec votre annuaire Azure AD vous permet de vous inscrire à un autre service Microsoft tel qu’Office 365 et de bénéficier facilement des mêmes avantages liés à l’intégration de répertoire dont vous disposez avec Microsoft Intune.
 
-Pour plus d’informations sur l’intégration de votre annuaire local à Azure AD, consultez [Intégration de répertoire avec Azure AD Connect](../connect/active-directory-aadconnect.md).
+Pour plus d’informations sur l’intégration de votre annuaire local à Azure AD, consultez [Intégration de répertoire avec Azure AD Connect](../hybrid/whatis-hybrid-identity.md).
 
 ### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>Associer un annuaire Azure AD à un nouvel abonnement Azure
 Vous pouvez associer un nouvel abonnement Azure au même répertoire authentifiant les connexions d’un abonnement Office 365 ou Microsoft Intune existant. Pour plus d’informations sur ce scénario, consultez [Transférer la propriété d’un abonnement Azure à un autre compte](../../billing/billing-subscription-transfer.md)

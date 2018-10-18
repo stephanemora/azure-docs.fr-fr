@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 445628679a09a1884f63cdce446adec476af39af
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4b254f9a4446a1b0ff400e0d63effe68fc4f82b4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41947456"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363664"
 ---
 # <a name="deploy-a-template-to-azure-stack-using-powershell"></a>Déployer un modèle dans Azure Stack avec PowerShell
 
@@ -35,36 +35,36 @@ Cet exemple utilise les applets de commande AzureRM PowerShell et un modèle sto
 >[!NOTE]
 >Avant d’essayer cet exemple, vérifiez que vous avez [configuré PowerShell](azure-stack-powershell-configure-user.md) pour un utilisateur Azure Stack.
 
-1. Accédez à <http://aka.ms/AzureStackGitHub> et recherchez le modèle **101-simple-windows-vm**. Enregistrez le modèle à cet emplacement : C:\\templates\\azuredeploy-101-simple-windows-vm.json.
+1. Accédez à [http://aka.ms/AzureStackGitHub](http://aka.ms/AzureStackGitHub) et recherchez le modèle **101-simple-windows-vm**. Enregistrez le modèle à cet emplacement : C:\\templates\\azuredeploy-101-simple-windows-vm.json.
 2. Ouvrez une invite de commandes PowerShell avec élévation de privilèges.
 3. Remplacez *username* et *password* dans le script suivant par votre nom d’utilisateur et votre mot de passe, puis exécutez le script.
 
    ```PowerShell
-       # Set Deployment Variables
-       $myNum = "001" #Modify this per deployment
-       $RGName = "myRG$myNum"
-       $myLocation = "local"
+   # Set deployment variables
+   $myNum = "001" #Modify this per deployment
+   $RGName = "myRG$myNum"
+   $myLocation = "local"
    
-       # Create Resource Group for Template Deployment
-       New-AzureRmResourceGroup -Name $RGName -Location $myLocation
+   # Create resource group for template deployment
+   New-AzureRmResourceGroup -Name $RGName -Location $myLocation
    
-       # Deploy Simple IaaS Template
-       New-AzureRmResourceGroupDeployment `
-           -Name myDeployment$myNum `
-           -ResourceGroupName $RGName `
-           -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
-           -NewStorageAccountName mystorage$myNum `
-           -DnsNameForPublicIP mydns$myNum `
-           -AdminUsername <username> `
-           -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
-           -VmName myVM$myNum `
-           -WindowsOSVersion 2012-R2-Datacenter
+   # Deploy simple IaaS template
+   New-AzureRmResourceGroupDeployment `
+       -Name myDeployment$myNum `
+       -ResourceGroupName $RGName `
+       -TemplateFile c:\templates\azuredeploy-101-simple-windows-vm.json `
+       -NewStorageAccountName mystorage$myNum `
+       -DnsNameForPublicIP mydns$myNum `
+       -AdminUsername <username> `
+       -AdminPassword ("<password>" | ConvertTo-SecureString -AsPlainText -Force) `
+       -VmName myVM$myNum `
+       -WindowsOSVersion 2012-R2-Datacenter
    ```
 
    >[!IMPORTANT]
-   >Chaque fois que vous exécutez ce script, augmentez la valeur du paramètre « $myNum » pour éviter d’écraser votre déploiement.
+   >Chaque fois que vous exécutez ce script, augmentez la valeur du paramètre `$myNum` pour éviter d’écraser votre déploiement.
 
-4. Ouvrez le portail Azure Stack portal, sélectionnez **Parcourir**, puis sélectionnez **Machines virtuelles** pour rechercher votre nouvelle machine virtuelle (*myDeployment001*).
+4. Ouvrez le portail Azure Stack portal, sélectionnez **Parcourir**, puis sélectionnez **Machines virtuelles** pour rechercher votre nouvelle machine virtuelle (**myDeployment001**).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

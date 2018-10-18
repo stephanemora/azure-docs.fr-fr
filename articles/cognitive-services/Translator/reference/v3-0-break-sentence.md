@@ -1,22 +1,23 @@
 ---
-title: Méthode BreakSentence de l’API de traduction de texte Translator Text | Microsoft Docs
+title: Méthode BreakSentence de l’API de traduction de texte Translator Text.
+titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode BreakSentence de l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 8ce6644d21b397ea0e7f2e71e3c3a5a96638eec5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1202d49688bfd6aee50d1fa21c10423c071c6d92
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370241"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124981"
 ---
-# <a name="text-api-30-breaksentence"></a>API de texte 3.0 : BreakSentence
+# <a name="translator-text-api-30-breaksentence"></a>API de traduction de texte Translator Text 3.0 : BreakSentence
 
 Identifie le positionnement des limites de phrases dans du texte.
 
@@ -84,8 +85,8 @@ Le corps de la demande est un tableau JSON. Chaque élément du tableau est un o
 
 Les limites suivantes s'appliquent :
 
-* Le tableau ne peut pas compter plus de 100 éléments.
-* La valeur texte d’un élément de tableau ne peut pas dépasser 10 000 caractères, espaces compris.
+* Le tableau ne peut pas compter plus de 100 éléments.
+* La valeur texte d’un élément de tableau ne peut pas dépasser 10 000 caractères, espaces compris.
 * L’intégralité du texte inclus dans la demande ne peut pas dépasser 50 000 caractères, espaces compris.
 * Si le paramètre de requête `language` est spécifié, tous les éléments du tableau doivent être dans la même langue. Sinon, la détection automatique de la langue est appliquée indépendamment à chaque élément du tableau.
 
@@ -103,7 +104,7 @@ Une réponse correcte est un tableau JSON avec un résultat pour chaque chaîne 
      
     Notez que la propriété `detectedLanguage` n’est présente dans l’objet de résultat que quand la détection automatique de la langue est demandée.
 
-Exemple de réponse JSON :
+Exemple de réponse JSON :
 
 ```json
 [
@@ -130,7 +131,7 @@ Exemple de réponse JSON :
 
 ## <a name="response-status-codes"></a>Codes d’état de réponse
 
-Voici les codes d’état HTTP qu’une demande peut renvoyer. 
+Voici les codes d’état HTTP qu’une demande peut retourner. 
 
 <table width="100%">
   <th width="20%">Code d’état</th>

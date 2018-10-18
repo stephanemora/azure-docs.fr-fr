@@ -1,28 +1,29 @@
 ---
-title: Pagination des images disponibles | Microsoft Docs
+title: Pagination des images disponibles - API Recherche d’images Bing
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment paginer toutes les images renvoyées par Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgonlun
 ms.assetid: 3C8423F8-41E0-4F89-86B6-697E840610A7
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: a74ee817e84be5bb563c5fdaf25afc1dc14732e5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 019d91f6a86bab5c4f446085e0244f9b5323f1fb
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367845"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294405"
 ---
 # <a name="paging-results"></a>Résultats de pagination
 
 Quand vous appelez l’API Recherche d’images, Bing retourne une liste de résultats. La liste est un sous-ensemble du nombre total de résultats en rapport avec la requête. Pour obtenir une estimation du nombre total de résultats disponibles, accédez au champ [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#totalestimatedmatches) de l’objet de la réponse.  
-  
+
 L’exemple suivant illustre le champ `totalEstimatedMatches` qui est inclus dans une réponse d’images.  
-  
+
 ```json
 {
     "_type" : "Images",
@@ -31,15 +32,15 @@ L’exemple suivant illustre le champ `totalEstimatedMatches` qui est inclus dan
     "value" : [...]  
 }  
 ```  
-  
+
 Pour paginer les images disponibles, utilisez les paramètres de requête [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#count) et [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#offset).  
-  
+
 Le paramètre `count` spécifie le nombre de résultats à renvoyer dans la réponse. Vous pouvez demander jusqu’à 150 résultats dans la réponse. La valeur par défaut est 35. Le nombre réel retourné peut être inférieur à ce que vous avez demandé.
 
 Le paramètre `offset` spécifie le nombre de résultats à ignorer. Le paramètre `offset` est basé sur zéro et doit être inférieur à (`totalEstimatedMatches` - `count`).  
-  
+
 Si vous souhaitez afficher 20 images par page, vous devez définir `count` sur 20 et `offset` sur 0 pour obtenir la première page de résultats. L’exemple suivant illustre une requête de 20 images, avec un paramètre offset défini sur 40.  
-  
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&count=20&offset=40&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
@@ -47,13 +48,13 @@ Host: api.cognitive.microsoft.com
 ```  
 
 Si la valeur par défaut `count` est adaptée à votre implémentation, vous devez uniquement spécifier le paramètre de requête `offset`.  
-  
+
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&offset=40&mkt=en-us HTTP/1.1  
 Ocp-Apim-Subscription-Key: 123456789ABCDE  
 Host: api.cognitive.microsoft.com  
 ```  
-  
+
 En règle générale, si vous paginez 35 images à la fois, vous devez définir le paramètre de requête `offset` sur 0 pour la première requête, puis incrémenter `offset` de 35 pour chaque requête ultérieure. Toutefois, certains résultats de la réponse suivante peuvent être des doublons de la réponse précédente. Par exemple, les deux premières images de la réponse peuvent être les mêmes que les deux dernières images de la réponse précédente.
 
 Pour éliminer les doublons, utilisez le champ [nextOffset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#nextoffset) de l’objet `Images`. Le champ `nextOffset` indique le paramètre `offset` à utiliser pour la requête suivante. Par exemple, si vous souhaitez paginer 30 images à la fois, vous devez définir `count` sur 30 et `offset` sur 0 dans la première requête. Dans la requête suivante, vous devez définir `count` sur 30 et `offset` sur la valeur du paramètre `nextOffset` de la réponse précédente. Pour paginer en sens inverse, nous vous suggérons de maintenir une pile des décalages précédents et de dépiler les plus récents.

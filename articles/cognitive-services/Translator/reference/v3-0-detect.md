@@ -1,22 +1,23 @@
 ---
-title: Méthode Detect de l’API de traduction de texte Translator Text | Microsoft Docs
+title: Méthode Detect de l’API de traduction de texte Translator Text
+titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode Detect de l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 7e81e91230e1ada4423d77d22134b1b64df65d9d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6698960cca39fb49fe8ba6e79b957be469ea7c50
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370236"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126120"
 ---
-# <a name="text-api-30-detect"></a>Texte API 3.0 : Detect
+# <a name="translator-text-api-30-detect"></a>API de traduction de texte Translator Text 3.0 : Detect
 
 Identifie la langue d’un texte.
 

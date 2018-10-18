@@ -1,23 +1,24 @@
 ---
-title: Recherche d’images populaires sur le Web| Microsoft Docs
-description: Découvrez comment utiliser l’API Recherche d’images Bing pour rechercher des images sur le web.
+title: 'Recherche d’images populaires sur le Web : API Recherche d’images Bing'
+titleSuffix: Azure Cognitive Services
+description: Découvrez comment utiliser l’API Recherche d’images Bing pour rechercher des images populaires sur le web.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: EAB92D35-5C0B-4A0A-8F49-02DF7FAD44B4
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: b12524cd4c1896501820209b3a45746b8f38b210
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 00d992da1d061ddbbee59e93898a92b6701f1ffb
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367904"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296309"
 ---
-# <a name="get-trending-images"></a>Obtenir des images populaires  
+# <a name="get-trending-images-from-the-bing-image-search-api"></a>Obtenir des images populaires avec l’API Recherche d’images Bing
 
 Pour obtenir des images qui sont populaires à l’heure actuelle, envoyez la requête GET suivante :  
 
@@ -38,7 +39,7 @@ L’API Images populaires n’est actuellement disponible que sur les marchés s
 - zh-CN (chinois, Chine)
 
 La réponse contient un objet [TrendingImages](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#trendingimages) qui classe les images par catégorie. Utilisez l’élément `title` de la catégorie pour grouper les images dans votre expérience utilisateur. Les catégories sont susceptibles de changer tous les jours.  
-  
+
 ```json
 {
     "_type" : "TrendingImages",  
@@ -85,8 +86,8 @@ La réponse contient un objet [TrendingImages](https://docs.microsoft.com/rest/a
     }]  
 }  
 ```  
-  
-Chaque vignette contient une image et des options permettant d’obtenir les images associées. Pour obtenir les images associées, vous pouvez utiliser la requête `text` pour appeler l’[API Recherche d’images](./search-the-web.md) et afficher vous-même les images associées. Vous pouvez également utiliser l’URL dans `webSearchUrl` pour rediriger l’utilisateur sur la page des résultats de la recherche d’images Bing qui contient les images associées. 
+
+Chaque vignette contient une image et des options permettant d’obtenir les images associées. Pour obtenir les images associées, vous pouvez utiliser la requête `text` pour appeler l’[API Recherche d’images](./search-the-web.md) et afficher vous-même les images associées. Vous pouvez également utiliser l’URL dans `webSearchUrl` pour rediriger l’utilisateur sur la page des résultats de la recherche d’images Bing qui contient les images associées.
 
 Si vous appelez l’API Recherche d’images pour obtenir les images associées, définissez le paramètre de requête [id](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#id) sur l’ID du champ `id`. En spécifiant l’ID, vous vous assurez que la réponse contient l’image (il s’agit de la première image de la réponse) et les images qui y sont associées. En outre, définissez le paramètre de requête [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#q) sur le texte dans le champ `text` de l’objet `query`.
 

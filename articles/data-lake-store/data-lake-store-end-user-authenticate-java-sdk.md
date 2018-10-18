@@ -1,6 +1,6 @@
 ---
-title: 'Authentification des utilisateurs finals : Java avec Data Lake Store à l’aide d’Azure Active Directory | Microsoft Docs'
-description: Découvrez comment authentifier les utilisateurs finals auprès de Data Lake Store à l’aide d’Azure Active Directory avec Java.
+title: 'Authentification des utilisateurs finaux : Java avec Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory | Microsoft Docs'
+description: Découvrez comment authentifier les utilisateurs finaux avec Data Lake Storage Gen1 à l’aide d’Azure Active Directory et de Java
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 633bf87d1e02a1132cfc5cd151b1e58418de8152
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 47b975b3ea0cfa9d2fb2536236b0a8dfaef14503
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625016"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126936"
 ---
-# <a name="end-user-authentication-with-data-lake-store-using-java"></a>Authentification des utilisateurs finals auprès de Data Lake Store avec Java
+# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Authentification des utilisateurs finaux avec Azure Data Lake Storage Gen1 à l’aide de Java
 > [!div class="op_single_selector"]
 > * [À l’aide de Java](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [Utilisation du kit de développement logiciel (SDK) .NET](data-lake-store-end-user-authenticate-net-sdk.md)
@@ -27,12 +27,12 @@ ms.locfileid: "34625016"
 > 
 >   
 
-Dans cet article, vous allez apprendre à utiliser le Kit de développement logiciel (SDK) Java pour authentifier les utilisateurs finals auprès d’Azure Data Lake Store. Pour plus d’informations sur l’authentification de service à service auprès de Data Lake Store à l’aide du Kit de développement logiciel (SDK) Java, consultez l’article [Authentification de service à service auprès de Data Lake Store à l’aide de Java](data-lake-store-service-to-service-authenticate-java.md).
+Dans cet article, vous allez apprendre à utiliser le kit de développement logiciel (SDK) Java pour authentifier les utilisateurs finaux avec Azure Data Lake Storage Gen1. Pour plus d’informations sur l’authentification de service à service avec Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) Java, consultez [Authentification de service à service avec Data Lake Storage Gen1 à l’aide de Java](data-lake-store-service-to-service-authenticate-java.md).
 
 ## <a name="prerequisites"></a>Prérequis
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Créez une application « native » Azure Active Directory**. Vous devez avoir suivi la procédure [Authentification d’utilisateur final auprès de Data Lake Store à l’aide d’Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Créez une application « native » Azure Active Directory**. Vous devez avoir suivi la procédure indiquée dans [Authentification des utilisateurs finaux avec Data Lake Storage Gen1 à l’aide d’Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 * [Maven](https://maven.apache.org/install.html). Ce didacticiel utilise Maven pour les dépendances de build et de projet. Bien qu’il soit possible de créer sans utiliser un système de build comme Maven ou Gradle, ces systèmes facilitent considérablement la gestion des dépendances.
 
@@ -56,7 +56,7 @@ Dans cet article, vous allez apprendre à utiliser le Kit de développement logi
           </dependency>
         </dependencies>
    
-    La première dépendance consiste à utiliser le SDK Data Lake Store (`azure-data-lake-store-sdk`) à partir du référentiel maven. La seconde dépendance consiste à spécifier le framework de journalisation (`slf4j-nop`) à utiliser pour cette application. Le SDK Data Lake Store utilise la façade de journalisation [slf4j](http://www.slf4j.org/), ce qui vous permet de choisir parmi plusieurs frameworks de journalisation populaires tels que log4j, la journalisation Java, Logback, etc., ou aucune journalisation. Pour cet exemple, nous désactivons la journalisation et, par conséquent, nous utilisons la liaison **slf4j-nop**. Vous trouverez [ici](http://www.slf4j.org/manual.html#projectDep) des informations pour utiliser d’autres options de journalisation.
+    La première dépendance consiste à utiliser le kit de développement logiciel (SDK) Data Lake Storage Gen1 (`azure-data-lake-store-sdk`) à partir du référentiel maven. La seconde dépendance consiste à spécifier le framework de journalisation (`slf4j-nop`) à utiliser pour cette application. Le kit de développement logiciel (SDK) Data Lake Storage Gen1 utilise la façade de journalisation [slf4j](http://www.slf4j.org/). Cela vous permet de choisir parmi plusieurs frameworks de journalisation populaires, par exemple log4j, la journalisation Java, Logback, etc. Vous pouvez aussi n’utiliser aucune journalisation. Pour cet exemple, nous désactivons la journalisation et, par conséquent, nous utilisons la liaison **slf4j-nop**. Vous trouverez [ici](http://www.slf4j.org/manual.html#projectDep) des informations pour utiliser d’autres options de journalisation.
 
 3. Ajoutez les instructions import ci-après à votre application.
 
@@ -73,11 +73,11 @@ Dans cet article, vous allez apprendre à utiliser le Kit de développement logi
             
         AccessTokenProvider provider = new DeviceCodeTokenProvider(nativeAppId);   
 
-Le SDK Data Lake Store propose des méthodes pratiques pour gérer les jetons de sécurité nécessaires pour communiquer avec le compte Data Lake Store. Toutefois, le Kit de développement (SDK) n’impose pas d’utiliser ces seules méthodes. Vous pouvez utiliser tout autre moyen pour obtenir le jeton, par exemple à l’aide du [SDK Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java), ou de votre propre code personnalisé.
+Le kit de développement logiciel (SDK) Data Lake Storage Gen1 propose des méthodes pratiques pour gérer les jetons de sécurité nécessaires et ainsi communiquer avec le compte Data Lake Storage Gen1. Toutefois, le Kit de développement (SDK) n’impose pas d’utiliser ces seules méthodes. Vous pouvez utiliser tout autre moyen pour obtenir le jeton, par exemple à l’aide du [SDK Azure Active Directory](https://github.com/AzureAD/azure-activedirectory-library-for-java), ou de votre propre code personnalisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez appris à utiliser l’authentification des utilisateurs finals auprès d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) Java. Vous pouvez à présent consulter les articles ci-après, qui expliquent comment utiliser le Kit de développement logiciel (SDK) Java pour travailler avec Azure Data Lake Store.
+Dans cet article, vous avez appris à vous servir de l’authentification des utilisateurs finaux avec Azure Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) Java. Vous pouvez à présent consulter les articles suivants qui vous expliquent comment utiliser le kit de développement logiciel (SDK) Java pour travailler avec Azure Data Lake Storage Gen1.
 
-* [Opérations de gestion du système de fichiers sur Data Lake Store à l’aide du kit de développement logiciel (SDK) Java](data-lake-store-get-started-java-sdk.md)
+* [Opérations sur les données dans Data Lake Storage Gen1 à l’aide du kit de développement logiciel (SDK) Java](data-lake-store-get-started-java-sdk.md)
 
 

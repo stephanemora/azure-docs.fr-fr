@@ -1,20 +1,21 @@
 ---
-title: Compte-rendu CTF (Collaborative Translation Framework) de Microsoft Translator
+title: Compte-rendu CTF (Collaborative Translation Framework) - API de traduction de texte Translator Text
+titlesuffix: Azure Cognitive Services
 description: Explique comment utiliser le compte-rendu CTF (Collaborative Translation Framework).
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: cefc630a82a56703ba4942bcad18f6e0a38b1ee5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b3ac6e6d10fb0e70549cadfd7bf65220deb8f33
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368657"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126919"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Guide pratique pour utiliser le compte-rendu CTF (Collaborative Translation Framework)
 
@@ -75,7 +76,7 @@ UserTranslationCount[]GetUserTranslationCounts(
 
 | Paramètre | Description |
 |:---|:---|
-| appId | **Requis** Si l’en-tête Authorization est utilisé, laissez le champ appid vide. Sinon, spécifiez une chaîne contenant « Bearer » + « » + un jeton d’accès.|
+| appId | **Requis** Si l’en-tête Autorisation est utilisé, laissez le champ appid vide. Sinon, spécifiez une chaîne contenant « Beare » + « » + un jeton d’accès.|
 | uriPrefix | **Facultatif** Chaîne contenant le préfixe d’URI de la traduction.|
 | from | **Facultatif** Chaîne représentant le code de langue du texte de traduction. |
 | to | **Facultatif** Chaîne représentant le code de la langue dans laquelle le texte doit être traduit.|
@@ -146,7 +147,7 @@ UserTranslation[] GetUserTranslations (
 
 | Paramètre | Description |
 |:---|:---|
-| appId | **Requis** Si l’en-tête Authorization est utilisé, laissez le champ appid vide. Sinon, spécifiez une chaîne contenant « Bearer » + « » + un jeton d’accès.|
+| appId | **Requis** Si l’en-tête Autorisation est utilisé, laissez le champ appid vide. Sinon, spécifiez une chaîne contenant « Beare » + « » + un jeton d’accès.|
 | uriPrefix| **Facultatif** Chaîne contenant le préfixe d’URI de la traduction.|
 | from| **Facultatif** Chaîne représentant le code de langue du texte de traduction.|
 | to| **Facultatif** Chaîne représentant le code de la langue dans laquelle le texte doit être traduit.|

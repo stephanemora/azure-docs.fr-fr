@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 211d79f387697ce850ac645ef65338c216e2bd76
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382193"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294762"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Planification d'un Runbook dans Azure Automation
 
@@ -50,7 +50,10 @@ Vous pouvez utiliser le portail Azure ou Windows PowerShell pour créer une plan
 1. Dans le portail Azure, accédez à votre compte Automation et sélectionnez **Planifications** dans la section **Ressources partagées** à gauche.
 1. Cliquez sur **Ajouter une planification** en haut de la page.
 1. Dans le volet **Nouvelle planification**, tapez un **Nom** et éventuellement une **Description** pour la nouvelle planification.
-1. Indiquez si la planification doit s’exécuter une seule fois ou selon un calendrier récurrent en sélectionnant **Une fois** ou **Périodicité**. Si vous sélectionnez **Une fois**, indiquez une **Heure de début**, puis cliquez sur **Créer**. Si vous sélectionnez **Périodicité**, spécifiez une **Heure de début** et indiquez la fréquence à laquelle vous souhaitez répéter le Runbook : par **heure**, par **jour**, par **semaine** ou par **mois**. Si vous sélectionnez **semaine** ou **mois** dans la liste déroulante, l’option **Périodicité** apparaît dans le volet. Sélectionnez cette option pour accéder au volet d’options **Périodicité** et sélectionner le jour de la semaine si vous avez sélectionné **semaine**. Si vous avez sélectionné **mois**, vous pouvez choisir par **jours de la semaine** ou spécifier des jours précis du mois dans le calendrier. Pour finir, indiquez si vous souhaitez ou non exécuter le runbook le dernier jour du mois, puis cliquez sur **OK**.
+1. Indiquez si la planification doit s’exécuter une seule fois ou selon un calendrier récurrent en sélectionnant **Une fois** ou **Récurrent**. Si vous sélectionnez **Une fois**, indiquez une **Heure de début**, puis cliquez sur **Créer**. Si vous sélectionnez **Récurrent**, spécifiez une **Heure de début** et pour **Tous les**, sélectionnez la fréquence à laquelle vous voulez répéter le runbook : **heure**, **jour**, **semaine** ou **mois**.
+    1. Si vous sélectionnez **semaine**, vous accédez à une liste des jours de la semaine parmi lesquels choisir. Sélectionnez autant de jours que vous le voulez. La première exécution de votre planification a lieu le premier jour sélectionné, après l’heure de début.
+    2. Si vous sélectionnez **mois**, vous disposez de différentes options. Pour l’option **Occurrences mensuelles**, sélectionnez **Jours du mois** ou **Jours de la semaine**. Si vous choisissez **Jours du mois**, un calendrier s’affiche vous permettant de choisir autant de jours que vous le voulez. Si par exemple vous choisissez comme date le 31, et que le mois en cours ne dispose pas de 31e jour, la planification ne s’exécute pas. Si vous souhaitez que la planification s’exécute le dernier jour, choisissez **Oui** sous **Run on last day of month** (Exécution le dernier jour du mois). Si vous choisissez **Jours de la semaine**, l’option **Tous les** est proposée. Choisissez **Premier**, **Deuxième**, **Troisième**, **Quatrième** ou **Dernier**. Enfin, choisissez un jour pour la répétition.
+1. Une fois que vous avez terminé, cliquez sur **Créer**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Pour créer une planification avec Windows PowerShell
 
@@ -73,9 +76,9 @@ Un Runbook peut être lié à plusieurs planifications et une planification peut
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Pour lier une planification à un Runbook avec le portail Azure
 
 1. Dans le portail Azure, accédez à votre compte Automation et sélectionnez **Runbooks** dans la section **Automatisation de processus** à gauche.
-1. Cliquez sur le nom du Runbook à planifier.
-1. Si le Runbook n'est pas actuellement lié à une planification, vous avez la possibilité de créer une planification ou de le lier à une planification existante.
-1. Si le Runbook possède des paramètres, vous pouvez sélectionner l’option **Modifier les paramètres d’exécution (par défaut : Azure)** pour accéder au volet **Paramètres**, dans lequel vous pouvez saisir les informations correspondantes.
+2. Cliquez sur le nom du Runbook à planifier.
+3. Si le Runbook n'est pas actuellement lié à une planification, vous avez la possibilité de créer une planification ou de le lier à une planification existante.
+4. Si le Runbook possède des paramètres, vous pouvez sélectionner l’option **Modifier les paramètres d’exécution (par défaut : Azure)** pour accéder au volet **Paramètres**, dans lequel vous pouvez saisir les informations correspondantes.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Pour lier une planification à un Runbook avec Windows PowerShell
 

@@ -1,5 +1,5 @@
 ---
-title: Copier des données d’Oracle Responsys avec Azure Data Factory | Microsoft Docs
+title: Copier des données d’Oracle Responsys avec Azure Data Factory (préversion) | Microsoft Docs
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données d’Oracle Responsys vers des magasins de données récepteurs pris en charge.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 1368a75fb8ae44949ef25def19589ab164e25d8b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 8c8376fcdcc33996ecc9340647c92a3abcf262c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37055360"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129690"
 ---
-# <a name="copy-data-from-oracle-responsys-using-azure-data-factory"></a>Copier des données d’Oracle Responsys avec Azure Data Factory
+# <a name="copy-data-from-oracle-responsys-using-azure-data-factory-preview"></a>Copier des données d’Oracle Responsys avec Azure Data Factory (préversion)
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données d’Oracle Responsys. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
@@ -45,10 +45,10 @@ Les propriétés prises en charge pour le service lié Oracle Responsys sont les
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **Responsys**. | OUI |
-| endpoint | Point de terminaison du serveur Responsys.  | OUI |
-| clientId | ID client associé à l’application Responsys.  | OUI |
-| clientSecret | Clé secrète client associée à l’application Responsys. Vous pouvez choisir de marquer ce champ comme un SecureString pour le stocker de manière sécurisée dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie du fichier de définition d’application en tirer (pull) les données lors de la copie des données. Pour plus d’informations, consultez [Stocker les informations d’identification dans le coffre de clés](store-credentials-in-key-vault.md). | OUI |
+| Type | La propriété de type doit être définie sur **Responsys**. | Oui |
+| endpoint | Point de terminaison du serveur Responsys.  | Oui |
+| clientId | ID client associé à l’application Responsys.  | Oui |
+| clientSecret | Clé secrète client associée à l’application Responsys. Vous pouvez choisir de marquer ce champ comme un SecureString pour le stocker de manière sécurisée dans le fichier de définition d’application, ou stocker le mot de passe dans Azure Key Vault et laisser l’activité de copie du fichier de définition d’application en tirer (pull) les données lors de la copie des données. Pour plus d’informations, consultez [Stocker les informations d’identification dans le coffre de clés](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
@@ -108,7 +108,7 @@ Pour copier des données à partir d’Oracle Responsys, affectez la valeur **Re
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **ResponsysSource**. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **ResponsysSource**. | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
 
 **Exemple :**

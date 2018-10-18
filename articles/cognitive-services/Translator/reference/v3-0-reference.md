@@ -1,26 +1,27 @@
 ---
-title: Documentation de référence pour l’API de traduction de texte Microsoft Translator Text v3.0 | Microsoft Docs
-description: Référencez la documentation relative à l’API de traduction de texte Microsoft Translator Text v3.0.
+title: Référence de l’API de traduction de texte Translator Text V3.0
+titlesuffix: Azure Cognitive Services
+description: Documentation de référence pour l’API de traduction de texte Translator Text V3.0.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: cfaa9584e833b137b417d9074fbfcf606eb21388
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9282d8af30cbfb3346394bcd71510faf8d8c8a21
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368721"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129384"
 ---
-#<a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
+# <a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
 
 ## <a name="whats-new"></a>Nouveautés
 
-La version 3 de l’API de traduction de texte Microsoft Translator Text fournit une API web moderne basée sur JSON. Elle simplifie l’utilisation et améliorer les performances en regroupant les fonctionnalités existantes en moins d’opérations, et elle fournit de nouvelles fonctionnalités.
+La version 3 de l’API de traduction de texte Translator Text fournit une API web moderne basée sur JSON. Elle simplifie l’utilisation et améliorer les performances en regroupant les fonctionnalités existantes en moins d’opérations, et elle fournit de nouvelles fonctionnalités.
 
  * Translittération pour convertir du texte dans une langue d’un script vers un autre script.
  * Traduction en plusieurs langues en une seule demande.

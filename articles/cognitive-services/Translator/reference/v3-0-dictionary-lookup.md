@@ -1,28 +1,29 @@
 ---
-title: Méthode de recherche dans le dictionnaire de l’API de traduction de texte Microsoft Translator Text | Microsoft Docs
+title: Méthode de recherche dans le dictionnaire de l’API de traduction de texte Microsoft Translator Text
+titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode de recherche dans le dictionnaire de l’API de traduction de texte Microsoft Translator Text.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5a186f60dc099b095c00056d965aa92618c2c708
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868083"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127838"
 ---
-# <a name="text-api-30-dictionary-lookup"></a>API de texte 3.0 : Recherche dans le dictionnaire
+# <a name="translator-text-api-30-dictionary-lookup"></a>API Translator Text 3.0 : recherche de dictionnaire
 
 Indique les autres traductions d’un mot et quelques expressions idiomatiques. Pour chaque terme, vous trouverez des informations sur la nature grammaticale ainsi qu’une liste de traductions inverses. Les traductions inverses sont utiles pour comprendre la traduction dans son contexte. L’opération [Exemple de dictionnaire](.\v3-0-dictionary-examples.md) permet d’avoir un aperçu plus détaillé en affichant des exemples d’utilisation de chaque paire de traduction.
 
 ## <a name="request-url"></a>URL de la demande
 
-Envoyez une requête `POST` à :
+Envoyez une demande `POST` à :
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
@@ -30,7 +31,7 @@ https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0
 
 ## <a name="request-parameters"></a>Paramètres de la demande
 
-Les paramètres transmis à la chaîne de requête sont les suivants :
+Les paramètres de demande transmis à la chaîne de requête sont les suivants :
 
 <table width="100%">
   <th width="20%">Paramètre de requête.</th>
@@ -49,32 +50,32 @@ Les paramètres transmis à la chaîne de requête sont les suivants :
   </tr>
 </table>
 
-Les en-têtes de requête sont les suivants :
+Les en-têtes de demande sont les suivants :
 
 <table width="100%">
   <th width="20%">headers</th>
   <th>Description</th>
   <tr>
     <td>_One authorization_<br/>_header_</td>
-    <td>*En-tête de requête obligatoire*.<br/>Consultez les [options disponibles pour l’authentification](./v3-0-reference.md#authentication).</td>
+    <td>*En-tête de demande obligatoire*.<br/>Voir les [options disponibles pour l’authentification](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td>*En-tête de requête obligatoire*.<br/>Spécifie le type de contenu de la charge utile. Les valeurs possibles sont les suivantes : `application/json`.</td>
+    <td>*En-tête de demande obligatoire*.<br/>Spécifie le type de contenu de la charge utile. Les valeurs possibles sont les suivantes : `application/json`.</td>
   </tr>
   <tr>
     <td>Content-Length</td>
-    <td>*En-tête de requête obligatoire*.<br/>Longueur du corps de la requête.</td>
+    <td>*En-tête de demande obligatoire*.<br/>Longueur du corps de la demande.</td>
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Facultative*.<br/>GUID généré par le client pour identifier la requête de façon unique. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé `ClientTraceId`.</td>
+    <td>*Facultative*.<br/>GUID généré par le client pour identifier de façon unique la demande. Vous pouvez omettre cet en-tête si vous incluez l’ID de trace dans la chaîne de requête à l’aide d’un paramètre de requête appelé `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Corps de la demande
 
-Le corps de la requête est un tableau JSON. Chaque élément du tableau est un objet JSON avec une propriété de chaîne nommée `Text`, qui représente le terme à rechercher.
+Le corps de la demande est un tableau JSON. Chaque élément du tableau est un objet JSON avec une propriété de chaîne nommée `Text`, qui représente le terme à rechercher.
 
 ```json
 [

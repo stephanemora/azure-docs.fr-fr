@@ -1,25 +1,28 @@
 ---
-title: Méthode Interpret dans l’API Service d’exploration des connaissances | Microsoft Docs
-description: Découvrez comment utiliser la méthode Interpret dans l’API Service d’exploration des connaissances (KES) dans Cognitive Services.
+title: Méthode Interpret - API Service d’exploration des connaissances
+titlesuffix: Azure Cognitive Services
+description: Découvrez comment utiliser la méthode Interpret dans l’API Service d’exploration des connaissances (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: ef68d98dacf393abf8d030b9312217ea380947d2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 45badbdbe1a7e1f2028a00d54458db35a4f7d440
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368064"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128001"
 ---
 # <a name="interpret-method"></a>Méthode Interpret
+
 La méthode *Interpret* extrait une chaîne de requête de langage naturel et retourne des interprétations formatées de l’intention de l’utilisateur sur les données de grammaire et d’index.  Pour fournir une expérience de recherche interactive, cette méthode peut être appelée à la saisie de chaque caractère par l’utilisateur avec le paramètre *complete* défini sur 1 pour activer la suggestion de saisie semi-automatique.
 
 ## <a name="request"></a>Requête
+
 `http://<host>/interpret?query=<query>[&<options>]`
 
 NOM|Valeur| Description
@@ -28,11 +31,12 @@ query    | Chaîne de texte | Requête saisie par l’utilisateur.  Si le param�
 terminé | 0 (valeur par défaut) ou 1 | 1 signifie que les suggestions de saisie semi-automatique sont générées en fonction des données de la grammaire et de l’index.         
 count    | Nombre (par défaut = 10) | Nombre maximal d’interprétations à renvoyer.         
 Offset   | Nombre (par défaut = 0) | Index de la première interprétation à renvoyer.  Par exemple, *count=2&offset=0* renvoie les interprétations 0 et 1. *count=2&offset=2* renvoie les interprétations 2 et 3.       
-timeout  | Nombre (par défaut = 1000) | Délai d'expiration en millisecondes. Seules les interprétations récupérées avant la fin du délai d'expiration sont renvoyées.
+timeout  | Nombre (par défaut = 1 000) | Délai d'expiration en millisecondes. Seules les interprétations récupérées avant la fin du délai d'expiration sont renvoyées.
 
 À l’aide des paramètres *count* et *offset*, un grand nombre de résultats peuvent être obtenus de façon incrémentielle sur plusieurs requêtes.
 
 ## <a name="response-json"></a>Réponse (JSON)
+
 JSONPath     | Description
 ---------|---------
 $.query |Paramètre *query* de la requête.
@@ -47,6 +51,7 @@ $.interpretations[\*].rules[\*].output.value|Valeur du résultat sémantique.
 $.aborted | True si la requête a expiré.
 
 ### <a name="parse-xml"></a>XML Parse
+
 Le fichier XML Parse annote les requêtes (terminées) avec des informations sur leur correspondance avec les règles de grammaire et les attributs de l’index.  Voici un exemple du domaine des publications académiques :
 
 ```xml
@@ -65,6 +70,7 @@ L’élément `<rule>` délimite l’étendue dans la requête correspondant à 
 L’élément `<attr>` délimite l’étendue dans la requête correspondant à l’attribut de l’index spécifié par son attribut `name`.  Lorsque la correspondance comprend un synonyme dans la requête de sortie, l’attribut `canonical` contient la valeur canonique correspondant au synonyme de l’index.
 
 ## <a name="example"></a>Exemples
+
 Dans l’exemple des publications académiques, la requête suivante renvoie jusqu'à 2 suggestions de saisie semi-automatique pour la requête de préfixe « papers by jaime » :
 
 `http://<host>/interpret?query=papers by jaime&complete=1&count=2`

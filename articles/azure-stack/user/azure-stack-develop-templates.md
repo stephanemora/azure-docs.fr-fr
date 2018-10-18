@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: d09dec2f327d8b5911a4e55832ba106838c7ebc3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 21fd3a33181542d86eccc4292ae68f7ce25e0a05
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41946478"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366724"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Considérations relatives au modèle Azure Resource Manager
 
@@ -34,15 +34,17 @@ Le modèle que vous envisagez de déployer ne doit utiliser que les services Mic
 
 ## <a name="public-namespaces"></a>Espaces de noms publics
 
-Comme Azure Stack est hébergé dans votre centre de données, il dispose d’espaces de noms de point de terminaison de service autres que le cloud public Azure. Par conséquent, les points de terminaison publics codés en dur dans les modèles Azure Resource Manager échouent lorsque vous essayez de les déployer sur Azure Stack. Vous pouvez générer dynamiquement des points de terminaison de service à l’aide des fonctions de *référence* et de *concaténation* pour récupérer des valeurs à partir du fournisseur de ressources lors du déploiement. Par exemple, au lieu de coder en dur *blob.core.windows.net* dans votre modèle, récupérez l’objet [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) pour définir dynamiquement le point de terminaison *osDisk.URI* :
+Comme Azure Stack est hébergé dans votre centre de données, il dispose d’espaces de noms de point de terminaison de service autres que le cloud public Azure. Par conséquent, les points de terminaison publics codés en dur dans les modèles Azure Resource Manager échouent lorsque vous essayez de les déployer sur Azure Stack. Vous pouvez générer dynamiquement des points de terminaison de service à l’aide des fonctions de *référence* et de *concaténation* pour récupérer des valeurs à partir du fournisseur de ressources lors du déploiement. Par exemple, au lieu de coder en dur *blob.core.windows.net* dans votre modèle, récupérez l’objet [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) pour définir dynamiquement le point de terminaison *osDisk.URI* :
 
-     "osDisk": {"name": "osdisk","vhd": {"uri":
-     "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
-      '/',variables('OSDiskName'),'.vhd')]"}}
+```json
+"osDisk": {"name": "osdisk","vhd": {"uri":
+"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
+ '/',variables('OSDiskName'),'.vhd')]"}}
+```
 
 ## <a name="api-versioning"></a>Contrôle de version d’API
 
-Les versions de service Azure peuvent différer entre Azure et Azure Stack. Chaque ressource requiert l’attribut **apiVersion**, qui définit les fonctionnalités proposées. Pour assurer la compatibilité des versions d’API dans Azure Stack, les versions d’API sont valides pour chaque fournisseur de ressources :
+Les versions de service Azure peuvent différer entre Azure et Azure Stack. Chaque ressource requiert l’attribut **apiVersion**, qui définit les fonctionnalités proposées. Pour assurer la compatibilité des versions d’API dans Azure Stack, les versions d’API suivantes sont valides pour chaque fournisseur de ressources :
 
 | Fournisseur de ressources | apiVersion |
 | --- | --- |
@@ -54,7 +56,7 @@ Les versions de service Azure peuvent différer entre Azure et Azure Stack. Chaq
 
 ## <a name="template-functions"></a>Fonctions des modèles de gestionnaire des ressources Azure
 
-Les [fonctions](../../azure-resource-manager/resource-group-template-functions.md) Azure Resource Manager offrent les fonctionnalités nécessaires pour créer des modèles dynamiques. Par exemple, vous pouvez utiliser des fonctions pour des tâches telles que :
+Les [fonctions](../../azure-resource-manager/resource-group-template-functions.md) Azure Resource Manager offrent les fonctionnalités nécessaires pour créer des modèles dynamiques. Par exemple, vous pouvez utiliser des fonctions pour des tâches telles que :
 
 * La concaténation ou la troncation de chaînes.
 * Le référencement de valeurs d’autres ressources.
@@ -67,20 +69,22 @@ Ces fonctions ne sont pas disponibles dans Azure Stack :
 
 ## <a name="resource-location"></a>Emplacement des ressources
 
-Les modèles Azure Resource Manager utilisent un attribut d’emplacement pour placer les ressources pendant le déploiement. Dans Azure, les emplacements font référence à une région, par exemple, USA Ouest ou Amérique Sud. Dans Azure Stack, les emplacements sont différents, car Azure Stack est situé dans votre centre de données. Pour garantir que les modèles sont transférables entre Azure et Azure Stack, vous devez référencer l’emplacement du groupe de ressources lorsque vous déployez des ressources individuelles. Vous pouvez pour cela utiliser `[resourceGroup().Location]` afin de veiller à ce que toutes les ressources héritent de l’emplacement du groupe de ressources. L’extrait suivant est un exemple d’utilisation de cette fonction lors du déploiement d’un compte de stockage :
+Les modèles Azure Resource Manager utilisent un attribut `location` pour placer les ressources pendant le déploiement. Dans Azure, les emplacements font référence à une région, par exemple USA Ouest ou Amérique du Sud. Dans Azure Stack, les emplacements sont différents, car Azure Stack est situé dans votre centre de données. Pour garantir que les modèles sont transférables entre Azure et Azure Stack, vous devez référencer l’emplacement du groupe de ressources lorsque vous déployez des ressources individuelles. Vous pouvez pour cela utiliser `[resourceGroup().Location]` afin de veiller à ce que toutes les ressources héritent de l’emplacement du groupe de ressources. Le code suivant est un exemple d’utilisation de cette fonction lors du déploiement d’un compte de stockage :
 
-    "resources": [
-    {
-      "name": "[variables('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "[variables('apiVersionStorage')]",
-      "location": "[resourceGroup().location]",
-      "comments": "This storage account is used to store the VM disks",
-      "properties": {
-      "accountType": "Standard_GRS"
-      }
-    }
-    ]
+```json
+"resources": [
+{
+  "name": "[variables('storageAccountName')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "apiVersion": "[variables('apiVersionStorage')]",
+  "location": "[resourceGroup().location]",
+  "comments": "This storage account is used to store the VM disks",
+  "properties": {
+  "accountType": "Standard_GRS"
+  }
+}
+]
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

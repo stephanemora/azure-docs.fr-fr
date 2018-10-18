@@ -9,14 +9,14 @@ keywords: azure functions, fonctions, traitement des événements, webhooks, cal
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 12/12/2017
+ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9f538b48918bdde923c6dbf3999302e45b955035
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 54ac616f97ba034893721ff62fc6157dd045b5f8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092408"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126818"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Informations de référence pour les développeurs C# sur Azure Functions
 
@@ -36,10 +36,24 @@ Cet article suppose que vous avez déjà lu les articles suivants :
 Dans Visual Studio, le modèle de projet **Azure Functions** crée un projet de bibliothèque de classes C# qui contient les fichiers suivants :
 
 * [host.json](functions-host-json.md) : stocke les paramètres de configuration qui affectent toutes les fonctions dans le projet au cours d’une exécution locale ou dans Azure.
-* [local.settings.json](functions-run-local.md#local-settings-file) : stocke les paramètres de l’application et les chaînes de connexion utilisés au cours d’une exécution locale.
+* [local.settings.json](functions-run-local.md#local-settings-file) : stocke les paramètres de l’application et les chaînes de connexion utilisés au cours d’une exécution locale. Ce fichier contient des secrets et n’est pas publié dans votre application de fonction dans Azure. Vous devez à la place [ajouter des paramètres d’application à votre application de fonction](functions-develop-vs.md#function-app-settings).
+
+Lorsque vous créez le projet, une structure de dossiers qui ressemble à ce qui suit est générée dans le répertoire de sortie de build :
+
+```
+<framework.version>
+ | - bin
+ | - MyFirstFunction
+ | | - function.json
+ | - MySecondFunction
+ | | - function.json
+ | - host.json
+```
+
+Ce répertoire correspond à ce qui est déployé dans votre application de fonction dans Azure. Les extensions de liaison requises dans la [version 2.x](functions-versions.md) du runtime Azure Functions sont [ajoutées au projet en tant que packages NuGet](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
-> Le processus de génération crée un fichier *function.json* pour chaque fonction. Ce fichier *function.json* n’est pas destiné à être directement modifié. Vous ne pouvez pas modifier la configuration des liaisons ni désactiver la fonction en modifiant ce fichier. Pour désactiver une fonction, utilisez l’attribut [Désactiver](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs). Par exemple, ajoutez un paramètre d’application booléen MY_TIMER_DISABLED, et appliquez `[Disable("MY_TIMER_DISABLED")]` à votre fonction. Vous pouvez ensuite activer et désactiver celle-ci en modifiant le paramètre d’application.
+> Le processus de génération crée un fichier *function.json* pour chaque fonction. Ce fichier *function.json* n’est pas destiné à être directement modifié. Vous ne pouvez pas modifier la configuration des liaisons ni désactiver la fonction en modifiant ce fichier. Pour savoir comment désactiver une fonction, consultez le [Guide pratique pour désactiver des fonctions](disable-function.md#functions-2x---c-class-libraries).
 
 ## <a name="methods-recognized-as-functions"></a>Méthodes reconnues en tant que fonctions
 

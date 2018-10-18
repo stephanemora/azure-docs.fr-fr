@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Marketo avec Azure Data Factory | Microsoft Docs
+title: Copier des données de Marketo avec Azure Data Factory (préversion) | Microsoft Docs
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Marketo vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: f9571f610310a78b8c56732a71ea96f638d59d50
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: efbc020f482a46621eb5c3e3cd6137d1114da6de
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051078"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129605"
 ---
-# <a name="copy-data-from-marketo-using-azure-data-factory"></a>Copier des données de Marketo avec Azure Data Factory
+# <a name="copy-data-from-marketo-using-azure-data-factory-preview"></a>Copier des données de Marketo avec Azure Data Factory (préversion)
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Marketo. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
@@ -45,10 +45,10 @@ Les propriétés prises en charge pour le service lié Marketo sont les suivante
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **Marketo**. | OUI |
-| endpoint | Point de terminaison du serveur Marketo (en l’occurrence, 123-ABC-321.mktorest.com).  | OUI |
-| clientId | ID client de votre service Marketo.  | OUI |
-| clientSecret | Secret client de votre service Marketo. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| Type | La propriété de type doit être définie sur **Marketo**. | Oui |
+| endpoint | Point de terminaison du serveur Marketo (en l’occurrence, 123-ABC-321.mktorest.com).  | Oui |
+| clientId | ID client de votre service Marketo.  | Oui |
+| clientSecret | Secret client de votre service Marketo. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
@@ -103,7 +103,7 @@ Pour copier des données de Marketo, affectez la valeur **MarketoSource** au typ
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source de l’activité de copie doit être définie sur **MarketoSource**. | OUI |
+| Type | La propriété type de la source de l’activité de copie doit être définie sur **MarketoSource**. | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM Activitiy_Types"`. | OUI |
 
 **Exemple :**

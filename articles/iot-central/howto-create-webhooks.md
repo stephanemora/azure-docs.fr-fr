@@ -3,19 +3,21 @@ title: Créer des webhooks sur des règles dans Azure IoT Central | Microsoft Do
 description: Créer des webhooks dans Azure IoT Central pour informer automatiquement les autres applications lorsque des règles se déclenchent.
 author: viv-liu
 ms.author: viviali
-ms.date: 07/17/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1e21076cafe21e6c0efcdf5a8146278eabd9ebc4
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 896d4e9c775fa0b0c8eb062d11d141901daa7242
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39227770"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295975"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Créer des actions de webhook sur des règles dans Azure IoT Central
+
+*Cette rubrique s’applique aux générateurs et aux administrateurs.*
 
 Les webhooks vous permettent de connecter votre application IoT Central à d’autres applications et services à des fins de surveillance à distance et de notification. Les webhooks informent automatiquement les autres applications et services connectés dès lors qu’une règle est déclenchée dans votre application IoT Central. Votre application IoT Central enverra une requête POST au point de terminaison HTTP de l’autre application chaque fois qu’une règle est déclenchée. La charge utile contiendra les détails de l’appareil et les détails du déclencheur de la règle. 
 
@@ -25,9 +27,9 @@ Dans cet exemple, vous allez vous connecter au point de terminaison RequestBin p
 1. Ouvrez [RequestBin](http://requestbin.net/). 
 1. Créez un point de terminaison RequestBin et copiez **l’URL du fichier Bin**. 
 1. Créez une [règle de télémétrie](howto-create-telemetry-rules.md) ou une [règle d’événement](howto-create-event-rules.md). Enregistrez la règle et ajoutez une nouvelle action.
-![Écran de création de webhook](media/howto-create-webhooks/webhookcreate.png)
+![Écran de création de webhook](media/howto-create-webhooks/webhookcreate.PNG)
 1. Choisissez l’action de webhook et indiquez un nom d’affichage, puis collez l’URL du fichier Bin en tant qu’URL de rappel. 
-1. Enregistrer la règle
+1. Enregistrez la règle.
 
 Lorsque la règle se déclenche, une nouvelle requête s’affiche dans RequestBin.
 
@@ -42,6 +44,7 @@ Lorsqu’une règle est déclenchée, une requête HTTP POST est envoyée à l�
         "id":"ID",
         "name":  "Refrigerator1",
         "simulated" : true,
+        "deviceId": "deviceID",
         "deviceTemplate":{
             "id": "ID",
             "version":"1.0.0"

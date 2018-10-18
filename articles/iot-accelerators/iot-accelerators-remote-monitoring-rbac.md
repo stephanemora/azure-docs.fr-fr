@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886308"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364293"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Configurer les contrôles d’accès en fonction du rôle dans l’accélérateur de solution de surveillance à distance
 
@@ -134,11 +134,11 @@ Les étapes suivantes décrivent comment ajouter un rôle à une application dan
 
 ### <a name="define-a-policy-for-the-new-role"></a>Définir une stratégie pour le nouveau rôle
 
-Après avoir ajouté le rôle à l’application dans le Portail Azure, vous devez définir une stratégie dans [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/pcs-auth/Services/data/policies/roles.json) pour le rôle, qui assigne les autorisations nécessaires à la gestion des appareils.
+Après avoir ajouté le rôle à l’application dans le Portail Azure, vous devez définir une stratégie dans [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) pour le rôle, qui assigne les autorisations nécessaires à la gestion des appareils.
 
-1. Clonez le référentiel du [microservice d’authentification et d’autorisation](https://github.com/Azure/pcs-auth-dotnet) de GitHub sur votre ordinateur local.
+1. Clonez le référentiel [Microservices de supervision à distance](https://github.com/Azure/remote-monitoring-services-dotnet) de GitHub à votre ordinateur local.
 
-1. Modifiez le fichier **Services/data/policies/roles.json** afin d’ajouter la stratégie pour le rôle **ManageDevices** comme indiqué dans l’extrait de code suivant. Les valeurs **ID** et **Role** doivent correspondre à la définition de rôle du manifeste d’application de la section précédente. La liste des actions autorisées permet à un utilisateur ayant le rôle **ManageDevices** de créer, mettre à jour et supprimer des appareils connectés à la solution :
+1. Modifiez le fichier **auth/Services/data/policies/roles.json** afin d’ajouter la stratégie pour le rôle **ManageDevices** comme indiqué dans l’extrait de code suivant. Les valeurs **ID** et **Role** doivent correspondre à la définition de rôle du manifeste d’application de la section précédente. La liste des actions autorisées permet à un utilisateur ayant le rôle **ManageDevices** de créer, mettre à jour et supprimer des appareils connectés à la solution :
 
     ```json
     {
@@ -184,7 +184,7 @@ Après avoir ajouté le rôle à l’application dans le Portail Azure, vous dev
 
 ### <a name="how-the-web-ui-enforces-permissions"></a>Mode d’application des autorisations par l’interface utilisateur web
 
-L’interface utilisateur web utilise le [microservice d’authentification et d’autorisation](https://github.com/Azure/pcs-auth-dotnet) pour déterminer les actions qu’un utilisateur est autorisé à effectuer et les contrôles visibles dans l’interface utilisateur. Par exemple, si votre solution se nomme **contoso-rm4**, l’interface utilisateur web récupère une liste d’actions autorisées pour l’utilisateur actuel en envoyant la requête suivante :
+L’interface utilisateur web utilise le [microservice d’authentification et d’autorisation](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) pour déterminer les actions qu’un utilisateur est autorisé à effectuer et les contrôles visibles dans l’interface utilisateur. Par exemple, si votre solution se nomme **contoso-rm4**, l’interface utilisateur web récupère une liste d’actions autorisées pour l’utilisateur actuel en envoyant la requête suivante :
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -226,7 +226,7 @@ Pour plus d’informations, consultez la rubrique [Protected Components](https:/
 
 Les microservices vérifient également les autorisations pour assurer la protection contre les requêtes d’API non autorisées. Lorsqu’un microservice reçoit une requête d’API, il décode et vérifie le jeton JWT pour obtenir l’ID et les autorisations de l’utilisateur associées à son rôle.
 
-L’extrait de code suivant issu du fichier [DevicesController.cs](https://github.com/Azure/iothub-manager-dotnet/blob/master/WebService/v1/Controllers/DevicesController.cs) dans le [microservice Gestionnaire IoTHub](https://github.com/Azure/iothub-manager-dotnet) montre comment les autorisations sont appliquées :
+L’extrait de code suivant issu du fichier [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) dans le [microservice Gestionnaire IoTHub](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager) montre comment les autorisations sont appliquées :
 
 ```csharp
 [HttpDelete("{id}")]
@@ -240,6 +240,8 @@ public async Task DeleteAsync(string id)
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans cet article, vous avez appris comment les contrôles d’accès en fonction du rôle sont implémentés dans l’accélérateur de solution de surveillance à distance.
+
+Consultez [Configurer des contrôles d’accès pour l’explorateur Time Series Insights](iot-accelerators-remote-monitoring-rbac-tsi.md) pour en savoir plus sur la gestion des accès à l’explorateur Time Series Insights dans l’accélérateur de solution Supervision à distance.
 
 Pour plus d’informations conceptuelles sur l’accélérateur de solution de surveillance à distance, consultez [Architecture de la surveillance à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 

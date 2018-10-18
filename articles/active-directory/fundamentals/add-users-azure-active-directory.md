@@ -1,62 +1,88 @@
 ---
-title: Ajouter ou supprimer des utilisateurs dans Azure Active Directory | Microsoft Docs
-description: Explique comment ajouter de nouveaux utilisateurs ou supprimer des utilisateurs existants dans Azure Active Directory
+title: Comment ajouter ou supprimer des utilisateurs dans Azure Active Directory | Microsoft Docs
+description: Découvrez comment ajouter de nouveaux utilisateurs ou supprimer des utilisateurs existants dans Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: e6e21ea09909a3bd92a21e15428af347e3f20b93
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 782363144a6b1dd87aff515c38588b6ce70b61bd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767394"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295102"
 ---
-# <a name="quickstart-add-new-users-to-azure-active-directory"></a>Démarrage rapide : Ajouter de nouveaux utilisateurs à Azure Active Directory
-Cet article explique comment supprimer ou ajouter de nouveaux utilisateurs de votre organisation à Azure Active Directory (Azure AD) à l’aide du portail Azure ou en synchronisant vos données de compte d’utilisateur Windows Server AD local. 
+# <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>Procédure : Ajouter ou supprimer des utilisateurs à l’aide d’Azure Active Directory
+Ajouter de nouveaux utilisateurs ou supprimer des utilisateurs existants dans votre client Azure Active Directory (Azure AD), à l’aide d’Azure AD.
 
-## <a name="add-cloud-based-users"></a>Ajouter des utilisateurs basés sur le cloud
-1. Connectez-vous au [centre d’administration Azure Active Directory](https://aad.portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Azure Active Directory**, puis **Utilisateurs et groupes**.
-3. Dans **Utilisateurs et groupes**, sélectionnez **Tous les utilisateurs**, puis **Nouvel utilisateur**.
-   ![Sélection de la commande Ajouter](./media/add-users-azure-active-directory/add-user.png)
-4. Entrez les détails de l’utilisateur, dont son **nom** et son **nom d’utilisateur**. La partie du nom de domaine du nom d’utilisateur doit être le nom de domaine initial par défaut, « [nom de domaine].onmicrosoft.com », ou un [nom de domaine personnalisé](add-custom-domain.md) vérifié, non fédéré, comme « contoso.com ».
-5. Copiez ou notez d’une autre façon le mot de passe généré de sorte à pouvoir le fournir à l’utilisateur une fois ce processus terminé.
-6. Si vous le souhaitez, vous pouvez ouvrir et renseigner les informations dans **Profil**, **Groupes** ou **Rôle d’annuaire** pour l’utilisateur. Pour plus d’informations sur les utilisateurs et les rôles d’administrateur, consultez la page [Attribution de rôles d’administrateur dans Azure AD](../users-groups-roles/directory-assign-admin-roles.md).
-7. Dans **Utilisateur**, sélectionnez **Créer**.
-8. Distribuez de manière sécurisée le mot de passe généré au nouvel utilisateur afin qu’il puisse se connecter.
+## <a name="add-a-new-user"></a>Ajouter un nouvel utilisateur
+Vous pouvez créer un nouvel utilisateur à l’aide d’Azure Active Directory.
 
-> [!TIP]
-> Vous pouvez également synchroniser les données de compte d’utilisateur à partir de Windows Server AD local. Les solutions d'identité de Microsoft regroupent des fonctionnalités, locales et cloud, de création d'une identité d'utilisateur unique pour l'authentification et l'autorisation d'accès à toutes les ressources, indépendamment de l'emplacement. Nous appelons cette identité « identité hybride ». [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) peut également être utilisé pour intégrer vos répertoires locaux à Azure Active Directory pour les scénarios d’identité hybride. Cela vous permet de fournir une identité commune à vos utilisateurs pour les applications Office 365, Azure et SaaS intégrées à Azure AD. 
+### <a name="to-add-a-new-user"></a>Ajouter un nouvel utilisateur
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général ou administrateur d’utilisateurs du répertoire.
 
-## <a name="delete-users-from-azure-ad"></a>Supprimer des utilisateurs d’Azure AD
-1. Connectez-vous au [centre d’administration Azure Active Directory](https://aad.portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Utilisateurs et groupes**.
-3. Dans le panneau **Utilisateurs et groupes**, sélectionnez l’utilisateur à supprimer dans la liste. 
-4. Dans le panneau de l’utilisateur sélectionné, sélectionnez **Vue d’ensemble**, puis, dans la barre de commandes, sélectionnez **Supprimer**.
-   ![Sélection de la commande Ajouter](./media/add-users-azure-active-directory/delete-user.png)
+2. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis **Nouvel utilisateur**.
 
+    ![Page Utilisateurs - Tous avec l’option Nouvel utilisateur mis en surbrillance](media/add-users-azure-active-directory/new-user-all-users-blade.png)
 
-### <a name="learn-more"></a>En savoir plus 
-* [Ajouter des utilisateurs invités à partir d’un autre répertoire](../b2b/what-is-b2b.md) 
-* [Affecter un utilisateur à un rôle dans Azure AD](active-directory-users-assign-role-azure-portal.md)
-* [Gérer les profils utilisateur](active-directory-users-profile-azure-portal.md)
-* [Restaurer un utilisateur supprimé](active-directory-users-restore.md)
+3. Dans la page **Utilisateur**, fournissez les informations requises.
 
+    ![Ajouter un nouvel utilisateur, page Utilisateur avec les informations sur l’utilisateur](media/add-users-azure-active-directory/new-user-user-blade.png)
 
+    - **Nom (obligatoire).** Prénom et nom du nouvel utilisateur. Par exemple, Mary Parker.
+
+    - **Nom d’utilisateur (obligatoire).** Nom d’utilisateur du nouvel utilisateur. Par exemple : mary@contoso.com. 
+    
+        Le domaine dans le nom d’utilisateur doit correspondre au nom de domaine par défaut initial, <_votrenomdedomaine_>.onmicrosoft.com, ou à un nom de domaine personnalisé, comme contoso.com. Pour plus d’informations sur la création d’un nom de domaine personnalisé, consultez [Ajouter un nom de domaine personnalisé dans Azure Active Directory](add-custom-domain.md).
+
+    - **Profil.** Si vous le souhaitez, ajoutez des informations supplémentaires sur l’utilisateur. Vous pouvez également ajouter ces informations ultérieurement. Pour plus d’informations sur l’ajout d’informations sur l’utilisateur, consultez [Ajouter ou modifier des informations de profil utilisateur](active-directory-users-profile-azure-portal.md).
+
+    - **Groupes.** Si vous le souhaitez, vous pouvez ajouter l’utilisateur à un ou plusieurs groupes existants. Vous pouvez également ajouter l’utilisateur à des groupes ultérieurement. Pour plus d’informations sur l’ajout d’utilisateurs à des groupes, consultez [Créer un groupe de base et ajouter des membres](active-directory-groups-create-azure-portal.md).
+
+    - **Rôle de répertoire.** Si vous le souhaitez, vous pouvez ajouter l’utilisateur à un rôle d’annuaire. Vous pouvez affecter l’utilisateur au rôle d’administrateur global, ou à un ou plusieurs des autres rôles d’administrateur dans Azure AD. Pour plus d’informations sur l’affectation de rôles, consultez [Attribuer des rôles aux utilisateurs](active-directory-users-assign-role-azure-portal.md).
+
+4. Copiez le mot de passe généré automatiquement fourni dans le champ **Mot de passe**. Vous devrez donner ce mot de passe à l’utilisateur pour qu’il se connecte la première fois.
+
+5. Sélectionnez **Créer**.
+
+    L’utilisateur est créé et ajouté à votre locataire Azure AD.
+
+## <a name="add-a-new-user-within-a-hybrid-environment"></a>Ajouter un nouvel utilisateur au sein d’un environnement hybride
+Si vous avez un environnement avec Azure Active Directory (cloud) et Windows Server Active Directory (local), vous pouvez ajouter de nouveaux utilisateurs en synchronisant les données du compte d’utilisateur existant. Pour obtenir plus d’informations sur les utilisateurs et environnements hybrides, consultez [Intégrer vos répertoires locaux avec Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
+
+## <a name="delete-a-user"></a>Supprimer un utilisateur
+Vous pouvez supprimer un utilisateur existant à l’aide d’Azure Active Directory.
+
+### <a name="to-delete-a-user"></a>Pour supprimer un utilisateur
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour le répertoire.
+
+2. Sélectionnez **Azure Active Directory**, **Utilisateurs**, puis recherchez et sélectionnez l’utilisateur que vous souhaitez supprimer de votre client Azure AD. Par exemple, _Mary Parker_.
+
+3. Sélectionnez **Supprimer l’utilisateur**.
+
+    ![Page Utilisateurs - Tous avec l’option Supprimer l’utilisateur mis en surbrillance](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
+
+    L’utilisateur est supprimé et n’apparaît plus sur la page **Utilisateurs : Tous les utilisateurs**. L’utilisateur est affiché sur la page **Utilisateurs supprimés** pendant 30 jours et peut être restauré durant cette période. Pour plus d’informations sur la restauration d’un utilisateur, consultez [Restaurer ou supprimer de façon définitive un utilisateur supprimé](active-directory-users-restore.md).
+
+    >[!Note]
+    >Vous devez utiliser Windows Server Active Directory pour mettre à jour l’identité, les informations de contact ou sur l’emploi des utilisateurs dont la source d’autorité est Windows Server Active Directory. Une fois la mise à jour terminée, vous devez attendre la fin du prochain cycle de synchronisation pour constater les modifications.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce guide de démarrage rapide, vous avez appris comment ajouter de nouveaux utilisateurs à Azure AD Premium. 
+Une fois que vous avez ajouté vos utilisateurs, vous pouvez exécuter les procédures de base suivantes :
 
-Vous pouvez utiliser le lien suivant pour créer un nouvel utilisateur dans Azure AD à partir du portail Azure.
+- [Ajouter ou modifier les informations de profil](active-directory-users-profile-azure-portal.md)
 
->[!div class="nextstepaction"]
->[Ajouter des utilisateurs dans Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/)
+- [Attribuer des rôles aux utilisateurs](active-directory-users-assign-role-azure-portal.md)
+
+- [Créer un groupe de base et ajouter des membres](active-directory-groups-create-azure-portal.md)
+
+- [Travailler avec des utilisateurs et groupes dynamiques](../users-groups-roles/groups-create-rule.md)
+
+Ou vous pouvez effectuer d’autres tâches de gestion des utilisateurs, comme [ajouter des utilisateurs invités depuis un autre répertoire](../b2b/what-is-b2b.md) ou [restaurer un utilisateur supprimé](active-directory-users-restore.md). Pour en savoir plus sur les autres actions disponibles, consultez la [documentation Gestion des utilisateurs Azure Active Directory](../users-groups-roles/index.yml).

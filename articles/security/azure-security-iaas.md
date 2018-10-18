@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/14/2018
+ms.date: 09/18/2018
 ms.author: barclayn
-ms.openlocfilehash: 7c28459aa04c67db8abda54d9f14eb417bd8ed60
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 057c98d4bac87b4e43e5beb8268d3d3bdbe3ec85
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618595"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364256"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Meilleures pratiques de sécurité pour les charges de travail IaaS dans Azure
 
@@ -31,225 +31,144 @@ Votre responsabilité en matière de sécurité dépend du type de service cloud
 
 Les exigences de sécurité dépendent de plusieurs facteurs, notamment du type de charge de travail. Aucune de ces meilleures pratiques ne peut à elle seule sécuriser vos systèmes. Comme toujours en matière de sécurité, vous devez choisir les options appropriées et voir comment les solutions peuvent se compléter mutuellement en remplissant les espaces laissés vides.
 
-Cet article décrit différentes bonnes pratiques de sécurité qui sont le résultat de l’expérience de Microsoft ou de celle de nos clients avec les machines virtuelles.
+Cet article décrit les meilleures pratiques en matière de sécurité pour les machines virtuelles et les systèmes d’exploitation.
 
 Ces meilleures pratiques font l’objet d’un consensus et sont compatibles avec les capacités et fonctionnalités actuelles de la plateforme Azure. Les opinions et technologies évoluant au fil du temps, cet article sera mis à jour de façon à refléter ces changements.
 
-## <a name="use-privileged-access-workstations"></a>Utiliser des stations de travail d’accès privilégié
+## <a name="protect-vms-by-using-authentication-and-access-control"></a>Protéger les machines virtuelles à l’aide de l’authentification et du contrôle d’accès
+La première étape dans la protection de vos machines virtuelles consiste à vous assurer que seuls les utilisateurs autorisés peuvent configurer de nouvelles machines virtuelles et y accéder.
 
-Les entreprises sont souvent victimes de cyberattaques dues au fait que les administrateurs effectuent des actions en utilisant des comptes avec des droits élevés. Même si cela n’est pas nécessairement la conséquence d’activités malveillantes, cela se produit car la configuration et les processus existants le permettent. La plupart de ces utilisateurs comprennent les risques de ces actions d’un point de vue conceptuel, mais choisissent quand même de les effectuer.
+**Meilleure pratique** : contrôler l’accès aux machines virtuelles.   
+**Procédure détaillée** : utilisez des [stratégies Azure](../azure-policy/azure-policy-introduction.md) pour établir des conventions pour les ressources de votre organisation et créer des stratégies personnalisées. Appliquez ces stratégies à vos ressources, telles que les [groupes de ressources](../azure-resource-manager/resource-group-overview.md). Les machines virtuelles qui appartiennent à un groupe de ressources héritent des stratégies de ce dernier.
 
-Des actions telles que consulter ses e-mails et naviguer sur Internet semblent innocentes. Mais ils peuvent exposer des comptes avec élévation de privilèges pour compromettre des acteurs malveillants. Une exploration des activités, des e-mails spécialement conçus ou d’autres techniques peuvent servir à accéder à votre entreprise. Nous recommandons chaudement l’utilisation de stations de travail de gestion sécurisées (SAW) pour effectuer toutes les tâches d’administration Azure. Les SAW constituent un moyen de réduction des risques de compromission accidentelle.
+Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin d’un moyen de gérer efficacement l’accès, les stratégies et la conformité de ces abonnements. [Les groupes d’administration Azure](../azure-resource-manager/management-groups-overview.md) fournissent un niveau d’étendue au-delà des abonnements. Vous organisez les abonnements en groupes d’administration (conteneurs) et vous appliquez vos conditions de gouvernance à ces groupes. Tous les abonnements d’un groupe d’administration héritent automatiquement des conditions appliquées au groupe. Les groupes d’administration vous permettent une gestion de qualité professionnelle à grande échelle, quel que soit le type de vos abonnements.
 
-Les stations de travail d’accès privilégié (PAW) fournissent un système d’exploitation dédié aux tâches sensibles, et protégé contre les attaques Internet et les vecteurs de menaces. La séparation des tâches et comptes sensibles et des stations de travail et appareils à usage quotidien offre une protection renforcée. Cette séparation limite l’impact des attaques d’hameçonnage, les vulnérabilités des applications et des systèmes d’exploitation, les différentes attaques d’emprunt d’identité et les attaques pour le vol des informations d’identification. (journalisation des séquences de touches, Pass-the-Hash et Pass-the-Ticket)
+**Meilleure pratique** : réduire la variabilité au niveau de la configuration et du déploiement des machines virtuelles.   
+**Procédure détaillée** : utilisez les modèles [Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour renforcer vos choix de déploiement, mais aussi gérer et répertorier plus facilement les machines virtuelles dans votre environnement.
 
-L’approche PAW est une extension bien établie et recommandée de la pratique consistant à utiliser un compte d’administration affecté de manière individuelle. Le compte d’administration est distinct d’un compte d’utilisateur standard. Une approche PAW fournit une station de travail digne de confiance pour ces comptes sensibles.
+**Meilleure pratique** : sécuriser l’accès privilégié.   
+**Procédure détaillée** : utilisez une [approche du moindre privilège](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/plan/security-best-practices/implementing-least-privilege-administrative-models) et des rôles Azure intégrés pour permettre aux utilisateurs de créer des machines virtuelles et d’y accéder :
 
-Pour obtenir plus d’informations et des instructions d’implémentation, consultez [Stations de travail d’accès privilégié](https://technet.microsoft.com/windows-server-docs/security/securing-privileged-access/privileged-access-workstations).
+- [Collaborateur de machine virtuelle](../role-based-access-control/built-in-roles.md#virtual-machine-contributor) : peut gérer les machines virtuelles, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées.
+- [Collaborateur de machine virtuelle classique](../role-based-access-control/built-in-roles.md#classic-virtual-machine-contributor) : peut gérer les machines virtuelles créées avec le modèle de déploiement classique, mais pas le réseau virtuel ou le compte de stockage auquel elles sont connectées.
+- [Gestionnaire de sécurité](../role-based-access-control/built-in-roles.md#security-manager) : peut gérer les composants de sécurité, les stratégies de sécurité et les machines virtuelles.
+- [Utilisateur de DevTest Labs](../role-based-access-control/built-in-roles.md#devtest-labs-user) : peut tout afficher et connecter, démarrer, redémarrer et arrêter les machines virtuelles.
 
-## <a name="use-multi-factor-authentication"></a>Utiliser l’authentification multifacteur
+Vos coadministrateurs et administrateurs d’abonnement peuvent modifier ce paramètre. Ils deviennent ainsi administrateurs de toutes les machines virtuelles d’un abonnement. Cela implique que vous autorisez tous vos coadministrateurs et administrateurs d’abonnement à se connecter à n’importe laquelle de vos machines.
 
-Dans le passé, le périmètre réseau était utilisé pour contrôler l’accès aux données d’entreprise. Dans un monde ou le cloud et la mobilité sont la priorité, l’identification est le plan de contrôle : elle permet de contrôler l’accès aux services IaaS à partir de n’importe quel appareil. Vous également l’utiliser pour obtenir de la visibilité et des informations sur les lieux et modes d’utilisation de vos données. La protection de l’identité numérique de vos utilisateurs Azure est la pierre angulaire de la protection de vos abonnements contre l’usurpation d’identité et d’autres cybercrimes.
+> [!NOTE]
+> Nous vous recommandons de consolider les machines virtuelles ayant le même cycle de vie dans le même groupe de ressources. Les groupes de ressources vous aident à déployer et surveiller vos ressources, tout en compilant leur coût.
+>
+>
 
-L’une des mesures les plus intéressantes que vous pouvez prendre pour sécuriser un compte consiste à activer l’authentification à deux facteurs. L’authentification à deux facteurs est une méthode d’authentification qui est complémentaire au mot de passe. Cela permet d’atténuer le risque d’accès par une personne qui serait parvenue à obtenir le mot de passe de quelqu’un d’autre.
+Les organisations qui contrôlent l’accès aux machines virtuelles et leur configuration renforcent la sécurité globale de leurs machines virtuelles.
 
-[Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) contribue à sécuriser l'accès aux données et aux applications tout en répondant à la demande de l'utilisateur d'un processus d'authentification simple. Il fournit une authentification forte via diverses options de vérification simples : appel téléphonique, SMS, notification sur l’application mobile. Les utilisateurs choisissent la méthode qu’ils préfèrent.
+## <a name="use-multiple-vms-for-better-availability"></a>Utiliser plusieurs machines virtuelles pour améliorer la disponibilité
+Si votre machine virtuelle exécute des applications critiques qui requièrent une haute disponibilité, il est vivement recommandé d’utiliser plusieurs machines virtuelles. Pour bénéficier d’une meilleure disponibilité, utilisez un [groupe à haute disponibilité](../virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy).
 
-Le moyen le plus simple d’utiliser Multi-Factor Authentication est l’application mobile Microsoft Authenticator, utilisable sur des appareils mobiles sous Windows, iOS et Android. Avec la dernière version de Windows 10 et l’intégration de votre instance Active Directory locale à Azure Active Directory (Azure AD), [Windows Hello for Business](../active-directory/active-directory-azureadjoin-passport-deployment.md) peut être utilisé pour une authentification unique transparente auprès des ressources Azure. Dans ce cas, l’appareil Windows 10 sert de second facteur d’authentification.
+Un groupe à haute disponibilité est un regroupement logique que vous pouvez utiliser dans Azure pour vous assurer que les ressources de machine virtuelle que vous y incluez sont isolées les unes des autres lors de leur déploiement dans un centre de données Azure. Azure veille à ce que les machines virtuelles que vous placez dans un groupe à haute disponibilité s’exécutent sur plusieurs serveurs physiques, racks de calcul, unités de stockage et commutateurs réseau. En cas de défaillance matérielle ou logicielle dans Azure, seul un sous-ensemble de vos machines virtuelles est affecté et votre application globale reste disponible pour vos clients. Les groupes à haute disponibilité sont une fonctionnalité essentielle pour créer des solutions cloud fiables.
 
-Pour les comptes qui gèrent votre abonnement Azure et pour les comptes qui peuvent se connecter aux machines virtuelles, l’utilisation de Multi-Factor Authentication vous donne un niveau de sécurité bien supérieur à celui apporté par l’utilisation d’un mot de passe seul. D’autres formes d’authentification à deux facteurs peuvent fonctionner tout aussi bien, mais elles risquent d’être plus complexes à déployer si elles ne sont pas déjà en production.
+## <a name="protect-against-malware"></a>Se protéger des programmes malveillants
+Vous devez installer une solution de protection contre les programmes malveillants afin d’identifier et de supprimer les virus, logiciels espions et autres logiciels malveillants. Vous pouvez installer [Microsoft Antimalware](azure-security-antimalware.md) ou une solution de protection des points de terminaison d’un partenaire de Microsoft ([Trend Micro](https://help.deepsecurity.trendmicro.com/azure-marketplace-getting-started-with-deep-security.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/search/result.aspx?q=Windows+defender+endpoint+protection) ou [System Center Endpoint Protection](https://www.microsoft.com/search/result.aspx?q=System+Center+endpoint+protection)).
 
-La capture d’écran suivante montre quelques-unes des options disponibles pour Azure Multi-Factor Authentication :
+Le logiciel Microsoft Antimalware inclut des fonctionnalités telles que la protection en temps réel, l’analyse planifiée, la correction des logiciels malveillants, la mise à jour des signatures, la mise à jour des moteurs, des exemples de création de rapport et la collecte d’événements d’exclusion. Pour les environnements hébergés séparément de votre environnement de production, vous pouvez utiliser une extension anti-programme malveillant pour protéger vos machines virtuelles et vos services cloud.
 
-![Options de Multi-Factor Authentication](./media/azure-security-iaas/mfa-options.png)
+Vous pouvez intégrer Microsoft Antimalware et des solutions de partenaires avec [Azure Security Center](https://docs.microsoft.com/azure/security-center/) pour bénéficier d’un déploiement simplifié et de fonctionnalités de détection intégrées (alertes et incidents).
 
-## <a name="limit-and-constrain-administrative-access"></a>Limiter et contraindre l’accès administrateur
+**Meilleure pratique** : installer une solution anti-programme malveillant pour se protéger des logiciels malveillants.   
+**Procédure détaillée** : [Installer une solution de partenaire Microsoft ou Microsoft Antimalware](../security-center/security-center-install-endpoint-protection.md)
 
-Il est important de sécuriser les comptes qui peuvent gérer votre abonnement Azure. La compromission de ces comptes réduit à néant toutes les autres mesures prises pour garantir la confidentialité et l’intégrité de vos données. Comme l’a récemment illustré [Edward Snowden](https://en.wikipedia.org/wiki/Edward_Snowden), les attaques internes représentent une menace énorme pour la sécurité globale d’une organisation.
+**Meilleure pratique** : intégrer votre solution anti-programme malveillant avec Security Center pour surveiller l’état de votre protection.   
+**Procédure détaillée** : [Gérer les problèmes de protection du point de terminaison avec Security Center](../security-center/security-center-partner-integration.md)
 
-Évaluez les personnes à qui octroyer des droits administratifs par les critères suivants :
+## <a name="manage-your-vm-updates"></a>Gérer les sauvegardes des machines virtuelles
+Les machines virtuelles Azure, comme toutes les machines virtuelles locales, sont destinées à être gérées par l’utilisateur. Azure ne leur envoie donc pas les mises à jour Windows. Vous devez gérer vous-même les mises à jour de vos machines virtuelles.
 
-- Effectue-t-elle des tâches nécessitant des privilèges administratifs ?
-- À quelle fréquence ces tâches sont-elles réalisées ?
-- Y a-t-il une raison spécifique pour laquelle ces tâches ne peuvent pas être effectuées par un autre administrateur en son nom ?
+**Meilleure pratique** : veiller à ce que les machines virtuelles soient toujours à jour.   
+**Procédure détaillée** : utilisez la solution [Update Management](../automation/automation-update-management.md) dans Azure Automation pour gérer les mises à jour du système d’exploitation de vos ordinateurs Windows et Linux déployés dans Azure, des environnements locaux ou d’autres fournisseurs cloud. Vous pouvez rapidement évaluer l’état des mises à jour disponibles sur tous les ordinateurs d’agent et gérer le processus d’installation des mises à jour requises pour les serveurs.
 
-Documentez toutes les autres approches connues d’octroi du privilège et les raisons pour lesquelles elles ne sont pas acceptables.
+Les ordinateurs gérés par Update Management utilisent les configurations suivantes pour effectuer l’évaluation et les déploiements de mises à jour :
 
-L’administration juste-à-temps permet d’éviter l’existence inutile de comptes avec des droits élevés pendant les périodes où ces droits ne sont pas nécessaires. Les comptes disposent de plus de droits pendant une période limitée afin que les administrateurs puissent effectuer leurs tâches. Ces droits sont supprimés à la fin d’un service, ou lorsqu’une tâche est terminée.
+- Microsoft Monitoring Agent (MMA) pour Windows ou Linux
+- PowerShell DSC (Desired State Configuration, configuration d’état souhaité) pour Linux
+- Runbook Worker hybride Automation
+- Services Microsoft Update ou Windows Server Update (WSUS) pour ordinateurs Windows
 
-Vous pouvez utiliser [Privileged Identity Management](../active-directory/privileged-identity-management/pim-configure.md) pour gérer, analyser et contrôler l’accès dans votre organisation. Cela vous permet de tenir compte des actions effectuées par les membres de votre organisation. Il permet également une administration très réactive pour Azure AD en introduisant le concept des administrateurs éligibles. Il s’agit des personnes disposant de comptes auxquels des droits d’administrateur peuvent être accordés. Ces types d’utilisateurs peuvent suivre un processus d’activation et se voir accorder des droits d’administrateur pour une durée limitée.
+Si vous utilisez Windows Update, veillez à ce que la configuration automatique de Windows Update reste activée.
 
-## <a name="use-devtest-labs"></a>Utiliser DevTest Labs
+**Meilleure pratique** : s’assurer, au moment du déploiement, que les images créées incluent les dernières mises à jour Windows.   
+**Procédure détaillée** : recherchez et installez toutes les mises à jour Windows au début de chaque déploiement. Cette phase est particulièrement importante lorsque vous déployez les images que vous avez créées ou issues de votre propre bibliothèque. Bien que les images obtenues via la Place de marché Microsoft Azure soient automatiquement mises à jour par défaut, il peut y avoir un décalage (jusqu’à plusieurs semaines) après la publication d’une version publique.
 
-Azure pour les environnements de développement et de laboratoire élimine les retards dus à l’approvisionnement en matériel. D’un côté, cela permet aux organisations de gagner en agilité de développement et de test. D’un autre côté, l’administrateur peut être trop permissif en ce qui concerne l’affectation des droits en raison d’un manque de connaissance d’Azure ou de la volonté d’accélérer son adoption. Cela peut exposer involontairement l’organisation à des attaques internes. Certains utilisateurs peuvent alors disposer de droits d’accès bien supérieurs à ce qu’ils devraient avoir.
+**Meilleure pratique** : redéployer régulièrement ses machines virtuelles pour actualiser la version du système d’exploitation.   
+**Procédure détaillée** : définissez votre machine virtuelle à l’aide d’un [modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) afin de faciliter son redéploiement. L’utilisation d’un modèle vous permet de bénéficier d’une machine virtuelle corrigée et sécurisée lorsque vous en avez besoin.
 
-Le service [Azure DevTest Labs](../devtest-lab/devtest-lab-overview.md) utilise le [contrôle d’accès en fonction du rôle (RBAC) Azure](../role-based-access-control/overview.md). RBAC vous permet de séparer les responsabilités au sein de votre équipe au sein de rôles qui accordent uniquement le niveau d’accès nécessaire pour permettre aux utilisateurs d’effectuer leurs travaux. RBAC est fourni avec des rôles prédéfinis (propriétaire, utilisateur de labo et collaborateur). Vous pouvez même utiliser ces rôles pour affecter des droits à des partenaires externes et simplifier considérablement la collaboration.
+**Meilleure pratique** : installer les dernières mises à jour de sécurité.   
+**Procédure détaillée** : parmi les premières charges de travail que nos clients déplacent vers Azure figurent les labos et les systèmes accessibles de l’extérieur. Si vos machines virtuelles Azure hébergent des applications ou des services qui doivent être accessibles par Internet, soyez vigilant sur les mises à jour correctives. Installez les correctifs au-delà du système d’exploitation. Des vulnérabilités non corrigées sur des applications partenaires peuvent également entraîner des problèmes pouvant être facilement évités avec une gestion efficace des correctifs.
 
-Étant donné que DevTest Labs utilise RBAC, il est possible de créer d’autres [rôles personnalisés](../lab-services/devtest-lab-grant-user-permissions-to-specific-lab-policies.md). DevTest Labs ne simplifie pas seulement la gestion des autorisations, il simplifie le processus de configuration des environnements. Cela vous permet également de traiter les autres défis types des équipes qui travaillent sur des environnements de développement et de test. Une certaine préparation s’impose mais, à long terme, cela rendra les choses plus faciles pour votre équipe.
+**Meilleure pratique** : déployer et tester une solution de sauvegarde.   
+**Procédure détaillée** : la sauvegarde doit être gérée de la même façon que les autres opérations. Cela s’applique aux systèmes qui font partie de votre environnement de production étendu au cloud.
 
-Voici certaines des fonctionnalités d’Azure DevTest Labs :
+Les systèmes de développement et de test doivent suivre des stratégies de sauvegarde capables de fournir des capacités de restauration similaires à ce à quoi les utilisateurs se sont habitués au cours de leur expérience avec des environnements sur site. Les charges de travail migrées vers Azure doivent s’intégrer avec les solutions de sauvegarde existantes lorsque cela est possible. Vous pouvez également utiliser [Azure Backup](../backup/backup-azure-vms-first-look-arm.md) pour répondre à vos exigences de sauvegarde.
 
-- Contrôle administratif sur les options accessibles aux utilisateurs L’administrateur peut gérer de manière centralisée des éléments tels que les tailles de machines virtuelles autorisées, le nombre maximal de machines virtuelles, et le démarrage et l’arrêt des machines virtuelles.
-- Automatisation de la création de l’environnement de laboratoire
-- Suivi des coûts
-- Distribution simplifiée des machines virtuelles pour un travail collaboratif temporaire
-- Libre-service permettant aux utilisateurs d’approvisionner leurs labos à l’aide de modèles
-- Gestion et limitation de la consommation
+Les organisations qui n’appliquent pas de stratégies de mise à jour logicielle s’exposent davantage aux menaces qui exploitent les vulnérabilités connues, déjà corrigées. Pour se conformer aux réglementations en vigueur, les entreprises doivent prouver leur diligence et la mise en place de contrôles appropriés visant à améliorer la sécurité de leurs charges de travail dans le cloud.
 
-![DevTest Labs](./media/azure-security-iaas/devtestlabs.png)
+En matière de mise à jour logicielle, les meilleures pratiques sont relativement similaires entre un centre de données traditionnel et un environnement IaaS Azure. Nous vous recommandons d’évaluer vos stratégies actuelles de mise à jour logicielle afin d’y inclure les machines virtuelles hébergées dans Azure.
 
-Aucun coût supplémentaire n’est associé à l’utilisation de DevTest Labs. La création de laboratoires, de stratégies, de modèles et d’artefacts est gratuite. Vous payez uniquement pour les ressources Azure utilisées dans vos laboratoires, telles que les machines virtuelles, les comptes de stockage et les réseaux virtuels.
+## <a name="manage-your-vm-security-posture"></a>Gérer l’état de sécurité des machines virtuelles
+Les cybermenaces ne cessent d’évoluer. La protection de vos machines virtuelles requiert des fonctionnalités de supervision capables de détecter les menaces, d’empêcher les accès non autorisés à vos ressources, de déclencher des alertes et de limiter les faux positifs.
 
-## <a name="control-and-limit-endpoint-access"></a>Contrôler et limiter l’accès aux points de terminaison
+Pour surveiller l’état de la sécurité de vos [machines virtuelles Windows](../security-center/security-center-virtual-machine.md) et [Linux](../security-center/security-center-linux-virtual-machine.md), utilisez [Azure Security Center](../security-center/security-center-intro.md). Dans Azure Security Center, protégez vos machines virtuelles grâce aux fonctionnalités suivantes :
 
-Pour que vous puissiez héberger des labos ou des systèmes de production dans Azure, vos systèmes doivent être accessibles sur Internet. Pour une nouvelle machine virtuelle Windows, le port RDP est par défaut accessible à partir d’Internet ; pour une machine virtuelle Linux, le port SSH est ouvert. Il est nécessaire de prendre des mesures pour « limiter les points de terminaison exposés » afin de réduire le risque d’accès non autorisé.
+- Appliquer les paramètres de sécurité du système d’exploitation avec les règles de configuration recommandées
+- Rechercher et télécharger les mises à jour critiques et les mises à jour de sécurité qui peuvent être manquantes
+- Mettre en œuvre les recommandations de protection contre les logiciels malveillants
+- Valider le chiffrement des disques
+- Évaluer et corriger les vulnérabilités
+- Détecter les menaces
 
-Les technologies d’Azure peuvent vous aider à limiter l’accès à ces points de terminaison d’administration. Vous pouvez notamment utiliser les [groupes de sécurité réseau](../virtual-network/security-overview.md) (NSG) dans Azure. Lorsque vous utilisez Azure Resource Manager pour le déploiement, les NSG limitent l’accès provenant de tous les réseaux aux seuls points de terminaison de gestion (RDP ou SSH). Lorsque vous pensez NSG, pensez listes de contrôle d'accès (ACL) du routeur. Vous pouvez les utiliser pour contrôler étroitement les communications réseau entre les différents segments de vos réseaux Azure. Le processus est similaire à la création de réseaux dans des réseaux de périmètre ou d’autres réseaux isolés. Ils n’inspectent pas le trafic, mais facilitent la segmentation du réseau.
+Security Center peut surveiller activement les menaces qui apparaissent alors sous la forme d’alertes de sécurité. Les menaces corrélées sont regroupées sous la forme d’un incident de sécurité.
 
-Un moyen plus dynamique de limiter l’accès aux machines virtuelles consiste à utiliser l’[administration juste-à-temps](../security-center/security-center-just-in-time.md) dans Azure Security Center. Security Center peut verrouiller vos machines virtuelles Azure et fournir l’accès en cas de nécessité. L’accès est accordé à un utilisateur qui le demande après avoir vérifié qu’il disposait des autorisations nécessaires d’après le [contrôle d’accès en fonction du rôle](../role-based-access-control/role-assignments-portal.md) (RBAC). Azure Security Center crée alors les groupes de sécurité réseau (NSG) nécessaires pour autoriser le trafic entrant.
+Security Center stocke les données dans [Azure Log Analytics](../log-analytics/log-analytics-overview.md). Log Analytics fournit un langage de requête et le moteur analytique vous donne des informations sur le fonctionnement de vos applications et de vos ressources. Les données sont également collectées à partir d’[Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md), de solutions de gestion et d’agents installés sur des machines virtuelles hébergées dans le cloud ou localement. Cette fonctionnalité partagée vous permet de constituer une image complète de votre environnement.
 
-### <a name="site-to-site-vpnvpn-gatewayvpn-gateway-howto-site-to-site-resource-manager-portalmd"></a>[VPN de site à site](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)
+Les organisations qui n’appliquent pas une sécurité renforcée à leurs machines virtuelles ne parviennent pas à détecter les actions des utilisateurs non autorisés visant à contourner les contrôles de sécurité mis en place.
 
-Un VPN de site à site étend votre réseau local dans le cloud. Cela vous donne une autre possibilité d’utiliser des NSG, car vous pouvez également les modifier afin de ne pas autoriser l’accès à partir de tout point hors du réseau local. Vous pouvez imposer une connexion au réseau Azure via VPN pour l’administration.
+## <a name="monitor-vm-performance"></a>Analyser les performances des machines virtuelles
+Parfois, une machine virtuelle consomme trop de ressources, ce qui peut poser problème. Une machine virtuelle insuffisamment performante peut entraîner une interruption de service, réduisant ainsi la disponibilité. Cela s’applique particulièrement aux machines virtuelles qui hébergent IIS ou d’autres serveurs web, car une utilisation élevée du processeur ou de la mémoire peut indiquer une attaque par déni de service (DoS). Il est impératif de surveiller l’accès aux machines virtuelles de façon réactive (lorsqu’un problème survient) et de façon proactive (par rapport à des performances de référence mesurées pendant un fonctionnement normal).
 
-L’option de VPN de site à site peut être très intéressante dans les cas où vous hébergez des systèmes de production étroitement intégrés à vos ressources locales dans Azure.
+Nous vous recommandons d’utiliser [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) pour obtenir plus de visibilité sur l’intégrité de vos ressources. Fonctionnalités d’Azure Monitor :
 
-### <a name="point-to-sitevpn-gatewayvpn-gateway-howto-point-to-site-rm-psmd"></a>[Point à site](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md)
+- [Fichiers journaux de diagnostic des ressources](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) : permettent de surveiller les ressources de vos machines virtuelles et d’identifier les problèmes potentiels susceptibles de nuire à la disponibilité et aux performances.
+- [Extension Azure Diagnostics](../monitoring-and-diagnostics/azure-diagnostics.md) : fournit des fonctionnalités d’analyse et de diagnostic pour les machines virtuelles Windows. Vous pouvez activer ces fonctionnalités en intégrant l’extension dans le [modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
 
-Dans les situations où vous souhaitez gérer des systèmes qui n’ont pas besoin d’accéder aux ressources locales. Ces systèmes peuvent être isolés dans leur propre réseau virtuel Azure. Les administrateurs peuvent se connecter via un VPN à l’environnement hébergé par Azure à partir de leur station de travail d’administration.
+Les organisations qui ne surveillent pas les performances des machines virtuelles ne peuvent pas déterminer si certaines variations de performances sont normales ou pas. Si une machine virtuelle consomme davantage de ressources que la normale, cela peut être le signe d’une attaque provenant d’une ressource externe ou d’un processus compromis en cours d’exécution sur la machine virtuelle.
 
->[!NOTE]
->Vous pouvez utiliser l’une des deux options de VPN pour reconfigurer les ACL sur les NSG de façon à interdire l’accès aux points de terminaison de gestion à partir d’Internet.
+## <a name="encrypt-your-virtual-hard-disk-files"></a>Chiffrer les fichiers de disque dur virtuel
+Nous vous recommandons de chiffrer vos disques durs virtuels (VHD) afin de protéger votre volume de démarrage et les volumes de données au repos au niveau du stockage, ainsi que vos clés de chiffrement et vos secrets.
 
-### <a name="remote-desktop-gatewayactive-directoryauthenticationhowto-mfaserver-nps-rdgmd"></a>[Passerelle Bureau à distance](../active-directory/authentication/howto-mfaserver-nps-rdg.md)
+[Azure Disk Encryption](azure-security-disk-encryption-overview.md) vous permet de chiffrer vos disques de machine virtuelle IaaS Windows et Linux. Azure Disk Encryption utilise la fonctionnalité standard [BitLocker](https://technet.microsoft.com/library/cc732774.aspx) de Windows et la fonctionnalité [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) de Linux pour fournir le chiffrement de volume du système d’exploitation et des disques de données. La solution est intégrée avec [Azure Key Vault](https://azure.microsoft.com/documentation/services/key-vault/), ce qui vous permet de contrôler et de gérer les clés et clés secrètes de chiffrement de disque dans votre abonnement Key Vault. Elle garantit également que toutes les données figurant sur les disques de vos machines virtuelles sont chiffrées au repos dans le Stockage Azure.
 
-Vous pouvez utiliser la Passerelle Bureau à distance pour vous connecter de manière sécurisée aux serveurs Bureau à distance par le biais du protocole HTTPS, tout en appliquant des contrôles plus granulaires à ces connexions.
+Voici les meilleures pratiques en matière d’utilisation d’Azure Disk Encryption :
 
-Voici quelques-unes des fonctionnalités auxquelles vous auriez accès :
+**Meilleure pratique** : activer le chiffrement sur les machines virtuelles.   
+**Procédure détaillée** : Azure Disk Encryption génère et écrit les clés de chiffrement dans votre coffre de clés. La gestion des clés de chiffrement dans votre coffre de clés nécessite l’authentification Azure AD. Créez une application Azure AD à cet effet. Pour l’authentification, vous pouvez utiliser soit l’authentification par clé secrète client, soit [l’authentification Azure AD par certificat client](../active-directory/active-directory-certificate-based-authentication-get-started.md).
 
-- Options d’administration pour limiter les connexions aux demandes provenant de systèmes spécifiques
-- Authentification de carte à puce ou Azure Multi-Factor Authentication
-- Contrôle des systèmes auxquels chacun peut se connecter via la passerelle
-- Contrôle de la redirection des appareils et des disques
+**Meilleure pratique** : utiliser une clé de chiffrement à clé pour renforcer la protection des clés de chiffrement, et ajouter une clé de chiffrement à clé à votre coffre de clés.   
+**Procédure détaillée** : utilisez la cmdlet [Add-AzureKeyVaultKey](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey) pour créer une clé de chiffrement à clé dans le coffre de clés. Vous pouvez également importer une clé de chiffrement à clé à partir de votre module de sécurité matériel local de gestion des clés. Pour plus d’informations, consultez la [documentation relative à Key Vault](../key-vault/key-vault-hsm-protected-keys.md). Quand une clé de chiffrement principale est spécifiée, Azure Disk Encryption utilise cette clé pour wrapper les secrets de chiffrement avant d’écrire dans Key Vault. En conservant une copie de cette clé dans un module de sécurité matériel local de gestion des clés, vous réduisez le risque de suppression accidentelle de clés.
 
-### <a name="vm-availability"></a>Disponibilité des machines virtuelles
+**Meilleure pratique** : effectuer une [capture instantanée](../virtual-machines/windows/snapshot-copy-managed-disk.md) et/ou une sauvegarde avant le chiffrement des disques. Les sauvegardes offrent une possibilité de récupération en cas de défaillance inattendue au cours du chiffrement.   
+**Procédure détaillée** : les machines virtuelles dotées de disques managés doivent faire l’objet d’une sauvegarde avant l’étape de chiffrement. Une fois la sauvegarde effectuée, vous pouvez utiliser la cmdlet **Set-AzureRmVMDiskEncryptionExtension** pour chiffrer des disques managés en spécifiant le paramètre *-skipVmBackup*. Pour plus d’informations sur la façon de sauvegarder et de restaurer des machines virtuelles chiffrées, consultez l’article [Sauvegarde Azure](../backup/backup-azure-vms-encryption.md).
 
-Si une machine virtuelle exécute des applications critiques qui ont besoin d’une haute disponibilité, nous vous recommandons vivement d’utiliser plusieurs machines virtuelles. Pour une meilleure disponibilité, créez au moins deux machines virtuelles dans le [groupe à haute disponibilité](../virtual-machines/windows/tutorial-availability-sets.md).
+**Meilleure pratique** : pour garantir que les secrets de chiffrement ne franchissent pas les limites régionales, Azure Disk Encryption exige que le coffre de clés se trouve dans la même région que les machines virtuelles.   
+**Procédure détaillée** : créez et utilisez un coffre de clés situé dans la même région que la machine virtuelle à chiffrer.
 
-[Azure Load Balancer](../load-balancer/load-balancer-overview.md) requiert également que les machines virtuelles dont la charge est équilibrée appartiennent au même groupe à haute disponibilité. Si ces machines virtuelles doivent être accessibles à partir d’Internet, vous devez configurer un [équilibrage de charge sur Internet](../load-balancer/load-balancer-internet-overview.md).
+Azure Disk Encryption répond aux besoins métiers suivants :
 
-## <a name="use-a-key-management-solution"></a>Utiliser une solution de gestion des clés
-
-Une gestion sécurisée des clés est primordiale pour la protection des données du cloud. Avec [Azure Key Vault](../key-vault/key-vault-whatis.md), vous pouvez stocker en toute sécurité des clés de chiffrement et des secrets (tels que les mots de passe) dans des modules de sécurité matériels (HSM). Pour une meilleure garantie, vous pouvez importer ou générer des clés HSM.
-
-Microsoft traite vos clés dans des modules de sécurité matériels validés selon la norme « FIPS 140-2 Level 2 » (matériel et microprogramme). Surveillez et auditez l’utilisation des clés avec la journalisation Azure : envoyez les journaux dans Azure ou votre système SIEM (Security Information and Event Management) pour bénéficier d’une analyse et d’une détection des menaces supplémentaires.
-
-Toute personne disposant d’un abonnement Azure peut créer et utiliser des coffres de clés. Bien que Key Vault procure des avantages aux développeurs et aux administrateurs de sécurité, il peut être implémenté et géré par l’administrateur responsable de la gestion des services Azure dans une organisation.
-
-## <a name="encrypt-virtual-disks-and-disk-storage"></a>Chiffrer les disques virtuels et le stockage des disques
-
-[Azure Disk Encryption](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0) élimine le risque de vol de données ou d’exposition à des accès non autorisés par le biais du déplacement d’un disque. Le disque peut être attaché à un autre système dans le but de contourner d’autres contrôles de sécurité. Disk Encryption utilise [BitLocker](https://technet.microsoft.com/library/hh831713) sous Windows et DM-Crypt sous Linux pour chiffrer le système d’exploitation et les lecteurs de données. Azure Disk Encryption est intégrée à Key Vault pour contrôler et gérer les clés de chiffrement. Il est disponible pour des machines virtuelles standard et des machines virtuelles avec stockage premium.
-
-Pour plus d’informations, voir [Azure Disk Encryption pour machines virtuelles Windows et Linux IaaS](azure-security-disk-encryption.md).
-
-[Azure Storage Service Encryption](../storage/common/storage-service-encryption.md) aide à protéger les données au repos. Il est activé au niveau du compte de stockage. Il chiffre les données au fur et à mesure de leur écriture dans nos centres de données ; elles sont déchiffrées automatiquement lorsque vous y accédez. Cette méthode prend en charge les scénarios suivants :
-
-- Chiffrement des objets blob de blocs, des objets blob d’ajout et des objets blob de pages
-- Chiffrement des modèles et des disques durs virtuels archivés dans Azure depuis un emplacement local
-- Chiffrement du système d’exploitation et des disques de données sous-jacents pour les machines virtuelles IaaS créées à l’aide de vos disques durs virtuels
-
-Avant de passer au chiffrement du Stockage Azure, tenez compte de deux limitations :
-
-- Il n’est pas disponible sur les comptes de stockage Classic.
-- Il ne crypte les données écrites qu’une fois le chiffrement activé.
-
-## <a name="use-a-centralized-security-management-system"></a>Utiliser un système de gestion centralisée de la sécurité
-
-Les serveurs doivent être surveillés lors des mises à jour correctives, de la configuration, des événements et des activités qui peuvent être considérées comme des problèmes de sécurité. Pour résoudre ces problèmes, vous pouvez utiliser [Security Center](https://azure.microsoft.com/services/security-center/) et [Sécurité et conformité Operations Management Suite](https://azure.microsoft.com/services/security-center/). Ces deux options vont au-delà de la configuration au sein du système d’exploitation. Elles fournissent également une analyse de la configuration de l’infrastructure sous-jacente, comme la configuration du réseau et l’utilisation des appliances virtuelles.
-
-## <a name="manage-operating-systems"></a>Gérer les systèmes d’exploitation
-
-Dans un déploiement IaaS, vous êtes toujours responsable de la gestion des systèmes que vous déployez, comme tout autre serveur ou station de travail de votre environnement. Mise à jour corrective, sécurisation renforcée, affectation des droits et les autres activités relatives à la maintenance de votre système restent sous votre responsabilité. Pour les systèmes étroitement intégrés avec vos ressources locales, il peut être intéressant d’utiliser les mêmes outils et procédures qu’en local pour les antivirus, les logiciels anti-programme malveillant, les mises à jour correctives et les sauvegardes notamment.
-
-### <a name="harden-systems"></a>Sécurisation renforcée
-
-Toutes les machines virtuelles dans Azure IaaS doivent faire l’objet d’une sécurisation renforcée afin qu’elles n’exposent que les points de terminaison de service requis pour les applications installées. Pour les machines virtuelles Windows, suivez les recommandations publiées par Microsoft sous forme de lignes de base pour la solution de [Security Compliance Manager](https://technet.microsoft.com/solutionaccelerators/cc835245.aspx).
-
-Security Compliance Manager est un outil gratuit. Vous pouvez l’utiliser pour rapidement configurer et gérer vos postes de travail, votre centre de données traditionnel et vos clouds privé et public, à l’aide de la stratégie de groupe et de System Center Configuration Manager.
-
-Security Compliance Manager fournit des stratégies prêtes à l’emploi et des packs de configuration de gestion de la configuration souhaitée testés. Ces lignes de base sont basées sur les recommandations [Instructions de sécurité Microsoft](https://technet.microsoft.com/library/cc184906.aspx) et les meilleures pratiques du secteur. Ils vous aident à gérer les dérives de configuration, à respecter les exigences de conformité et à réduire les menaces de sécurité.
-
-Vous pouvez utiliser Security Compliance Manager pour importer la configuration actuelle de vos ordinateurs à l’aide de deux méthodes différentes. Tout d’abord, vous pouvez importer des stratégies de groupe Active Directory. Ensuite, vous pouvez importer la configuration d’un ordinateur de référence « golden master » à l’aide de l’[outil LocalGPO](https://blogs.technet.microsoft.com/secguide/2016/01/21/lgpo-exe-local-group-policy-object-utility-v1-0/) pour sauvegarder la stratégie de groupe locale. Vous pouvez ensuite importer la stratégie de groupe locale dans Security Compliance Manager.
-
-Comparez vos standards aux meilleures pratiques du secteur, personnalisez-les et créez de nouvelles stratégies et de nouveaux packs de configuration de gestion de la configuration souhaitée. Les lignes de base ont été publiées pour tous les systèmes d’exploitation pris en charge, y compris la Mise à jour anniversaire Windows 10 et Windows Server 2016.
-
-
-### <a name="install-and-manage-antimalware"></a>Installer et gérer des logiciels anti-programme malveillant
-
-Pour les environnements hébergés séparément de votre environnement de production, vous pouvez utiliser une extension anti-programme malveillant pour protéger vos machines virtuelles et services cloud. Elle s’intègre avec [Azure Security Center](../security-center/security-center-intro.md).
-
-Le [logiciel anti-programme malveillant Microsoft](azure-security-antimalware.md) inclut des fonctionnalités telles que la protection en temps réel, l’analyse planifiée, la correction des logiciels malveillants, la mise à jour des signatures, la mise à jour des moteurs, les rapports d’exemples, la collecte d’événements d’exclusion et la [prise en charge de PowerShell](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension).
-
-![Logiciel anti-programme malveillant Azure](./media/azure-security-iaas/azantimalware.png)
-
-### <a name="install-the-latest-security-updates"></a>Installer les dernières mises à jour de sécurité 
-
-Parmi les premières charges de travail que nos clients déplacent vers Azure figurent les labos et les systèmes accessibles de l’extérieur. Si vos machines virtuelles hébergées par Azure hébergent des applications ou des services qui doivent être accessibles par Internet, soyez vigilant sur les mises à jour correctives. Installez les correctifs au-delà du système d’exploitation. Des vulnérabilités non corrigées sur des applications tierces peuvent également provoquer des problèmes pouvant être facilement évités si une gestion efficace des correctifs est en place.
-
-### <a name="deploy-and-test-a-backup-solution"></a>Déployer et tester une solution de sauvegarde
-
-Tout comme les mises à jour de sécurité, la sauvegarde doit être gérée de la même façon que les autres opérations. Cela s’applique aux systèmes qui font partie de votre environnement de production étendu au cloud. Les systèmes de développement et de test doivent suivre des stratégies de sauvegarde capables de fournir des capacités de restauration similaires à ce à quoi les utilisateurs se sont habitués au cours de leur expérience avec des environnements sur site.
-
-Les charges de travail migrées vers Azure doivent s’intégrer avec les solutions de sauvegarde existantes lorsque cela est possible. Vous pouvez également utiliser [Azure Backup](../backup/backup-azure-arm-vms.md) pour répondre à vos exigences de sauvegarde.
-
-## <a name="monitor"></a>Surveiller
-
-### <a name="security-centersecurity-centersecurity-center-intromd"></a>[Centre de sécurité](../security-center/security-center-intro.md)
-
-Security Center évalue en continu l’état de sécurité de vos ressources Azure pour identifier les vulnérabilités potentielles. Une liste de recommandations vous guide tout au long du processus de configuration des contrôles nécessaires.
-
-Voici quelques exemples :
-
-- Approvisionnement d’un logiciel anti-programme malveillant pour identifier et supprimer les programmes malveillants
-- Configuration de groupes de sécurité réseau et de règles pour contrôler le trafic vers les machines virtuelles
-- Approvisionnement de pare-feu d’applications web pour protéger vos applications web contre les attaques ciblées
-- Déploiement de mises à jour système manquantes
-- Correction des configurations de système d’exploitation qui ne suivent pas les recommandations
-
-L’illustration suivante montre certaines des options que vous pouvez activer dans Security Center.
-
-![Stratégies Azure Security Center](./media/azure-security-iaas/security-center-policies.png)
-
-### <a name="operations-management-suiteoperations-management-suiteoperations-management-suite-overviewmd"></a>[Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) 
-
-Operations Management Suite est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et dans le cloud. Operations Management Suite étant implémenté sous la forme d’un service cloud, elle peut être déployée rapidement et avec un investissement minimal en ressources d’infrastructure.
-
-Les nouvelles fonctionnalités sont fournies automatiquement, ce qui vous permet d’économiser sur les coûts de mise à niveau et de maintenance. Operations Management Suite s’intègre également avec System Center Operations Manager. Il comprend différents composants qui vous aident à mieux gérer vos charges de travail Azure, notamment un module [Sécurité et conformité](../operations-management-suite/oms-security-getting-started.md).
-
-Vous pouvez utiliser les fonctionnalités de sécurité et de conformité dans Operations Management Suite pour afficher des informations concernant vos ressources. Les informations de cette série sont organisées en quatre catégories majeures :
-
-- **Domaines de sécurité** : explorez davantage les enregistrements de sécurité au fil du temps. Accédez aux évaluations des logiciels malveillants, mises à jour des évaluations, informations de sécurité réseau, informations d’identité et d’accès, et ordinateurs avec des événements de sécurité. Tirez parti d’un accès rapide au tableau Azure Security Center.
-- **Problèmes importants** : identifiez rapidement le nombre de problèmes actifs et leur gravité.
-- **Détections (version préliminaire)**  : identifiez les modèles d’attaque en visualisant les alertes de sécurité au fur et à mesure qu’elles affectent vos ressources.
-- **Informations sur les menaces** : identifiez les modèles d’attaques en visualisant le nombre total de serveurs présentant un trafic IP sortant malveillant, le type de menace malveillante et une carte indiquant l’origine de ces adresses IP.
-- **Requêtes de sécurité courantes** : consultez une liste des requêtes de sécurité les plus courantes que vous pouvez utiliser pour surveiller votre environnement. Cliquez sur l’une de ces requêtes pour ouvrir le panneau **Recherche** affichant les résultats de cette requête.
-
-La capture d’écran suivante montre un exemple des informations que Operations Management Suite peut afficher.
-
-![Instructions de sécurité de base pour Operations Management Suite](./media/azure-security-iaas/oms-security-baseline.png)
-
-### <a name="monitor-vm-performance"></a>Analyser les performances des machines virtuelles
-
-Parfois, une machine virtuelle consomme trop de ressources, ce qui peut poser problème. Une machine virtuelle insuffisamment performante peut entraîner une interruption de service, réduisant ainsi la disponibilité. C’est pourquoi il est impératif de surveiller l’accès aux machines virtuelles de façon réactive (lorsqu’un problème survient) et de façon proactive (par rapport à des performances de référence mesurées pendant un fonctionnement normal).
-
-En analysant les [fichiers journaux de diagnostic Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/), vous pouvez surveiller les ressources de vos machines virtuelles et identifier les problèmes potentiels susceptibles de nuire à la disponibilité et aux performances. L’extension Diagnostics Azure fournit des fonctionnalités d’analyse et de diagnostic pour les machines virtuelles Azure Windows. Vous pouvez activer ces fonctionnalités en intégrant l’extension dans le [modèle Azure Resource Manager](../virtual-machines/windows/extensions-diagnostics-template.md).
-
-Vous pouvez également utiliser [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-metrics.md) pour obtenir plus de visibilité sur l’intégrité de vos ressources.
-
-Les organisations qui ne surveillent pas les performances des machines virtuelles ne peuvent pas déterminer si certaines variations des performances sont normales ou pas. Si la machine virtuelle consomme davantage de ressources que la normale, cela peut être le signe d’une attaque potentielle par une ressource externe ou un processus interne compromis.
+- Les machines virtuelles IaaS sont sécurisées au repos via une technologie de chiffrement standard permettant de répondre aux exigences de sécurité et de conformité des organisations.
+- Les machines virtuelles IaaS démarrent par le biais de stratégies et de clés contrôlées par les clients qui peuvent auditer leur utilisation dans le coffre de clés.
 
 ## <a name="next-steps"></a>Étapes suivantes
+Consultez l’article [Meilleures pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres meilleures pratiques de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.
 
-* [Blog de l’équipe de sécurité Azure](https://blogs.msdn.microsoft.com/azuresecurity/)
-* [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx)
-* [Meilleures pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md)
+Les ressources suivantes fournissent des informations générales sur les solutions de sécurité Azure et les services Microsoft associés :
+* [Blog de l’équipe de sécurité Azure](https://blogs.msdn.microsoft.com/azuresecurity/) : accédez aux dernières actualités sur la sécurité Azure
+* [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx) : les vulnérabilités de sécurité Microsoft, y compris les problèmes avec Azure, peuvent être rapportées ou signalées par courrier électronique à l’adresse secure@microsoft.com

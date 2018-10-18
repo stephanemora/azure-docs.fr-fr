@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: e7cd3032053b3628b94f93f3c7e00b6890afd4ca
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7002e8a63ca0223a38ba099b17955a86034fa057
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916280"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295459"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Répliquer des machines virtuelles Azure vers une autre région Azure
 
@@ -29,13 +29,14 @@ Cet article suppose que vous avez déjà configuré Site Recovery pour ce scéna
 
 ## <a name="enable-replication"></a>Activer la réplication
 
-Activez la réplication. Cette procédure suppose que la région principale Azure est Asie de l’Est et que la région secondaire est Asie du Sud-Est.
+Activez la réplication. Cette procédure suppose que la région principale Azure est Asie Est et que la région secondaire est Asie Sud-Est.
 
 1. Dans le coffre, cliquez sur **+ Répliquer**.
 2. Notez les champs suivants :
     - **Source** : le point d’origine des machines virtuelles, qui dans ce cas est **Azure**.
-    - **Emplacement source :** La région Azure où vous souhaitez protéger vos machines virtuelles. Dans notre exemple, l’emplacement source est « Asie de l’Est »
+    - **Emplacement source :** La région Azure où vous souhaitez protéger vos machines virtuelles. Dans notre exemple, l’emplacement source est « Asie Est »
     - **Modèle de déploiement :** Le modèle de déploiement Azure des machines sources.
+    - **Abonnement source** : abonnement auquel vos machines virtuelles sources appartiennent. Il peut s’agir de n’importe quel abonnement au sein du même locataire Azure Active Directory où se trouve votre coffre Recovery services.
     - **Groupe de ressources :** Le groupe de ressources auquel appartiennent vos machines virtuelles sources. Toutes les machines virtuelles du groupe de ressources sélectionné sont répertoriées pour la protection à l’étape suivante.
 
     ![Activer la réplication](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
@@ -46,6 +47,7 @@ Activez la réplication. Cette procédure suppose que la région principale Azur
 4. Dans **Paramètres**, vous pouvez éventuellement configurer les paramètres du site cible :
 
     - **Emplacement cible :** L’emplacement où vos données de machines virtuelles sources sont répliquées. En fonction de l’emplacement des machines virtuelles sélectionné, Site Recovery vous fournit la liste des régions cibles appropriées. Nous vous recommandons de conserver le même emplacement cible que l’emplacement du coffre Recovery Services.
+    - **Abonnement cible** : l’abonnement cible utilisé pour la récupération d’urgence. Par défaut, l’abonnement cible sera identique à l’abonnement source.
     - **Groupe de ressources cible :** Le groupe de ressources auquel appartiennent toutes vos machines virtuelles répliquées. Par défaut, Azure Site Recovery crée un groupe de ressources dans la région cible avec un nom comportant le suffixe « asr ». Si le groupe de ressources créé par Azure Site Recovery existe déjà, il est réutilisé. Vous pouvez également choisir de le personnaliser, comme indiqué dans la section ci-dessous. L’emplacement du groupe de ressources cible peut être n’importe quelle région Azure à l’exception de la région dans laquelle les machines virtuelles source sont hébergées.
     - **Réseau virtuel cible :** par défaut, Site Recovery crée un réseau virtuel dans la région cible avec un nom ayant le suffixe « asr ». Il est mappé à votre réseau source et utilisé pour toute protection ultérieure. [En savoir plus](site-recovery-network-mapping-azure-to-azure.md) sur le mappage réseau.
     - **Comptes de stockage cibles (si votre machine virtuelle source n’utilise pas de disques managés)**  : par défaut, Site Recovery crée un nouveau compte de stockage cible en imitant la configuration de stockage de votre machine virtuelle source. Si le compte de stockage existe déjà, il est réutilisé.
@@ -60,7 +62,9 @@ Activez la réplication. Cette procédure suppose que la région principale Azur
 
 Vous pouvez modifier les paramètres de cible par défaut utilisés par Site Recovery.
 
-1. Cliquez sur **Personnaliser :** pour modifier les paramètres par défaut :
+1. Cliquez sur **Personnaliser :** à côté de « Abonnement cible » pour modifier l’abonnement cible par défaut. Sélectionnez l’abonnement dans la liste de tous ceux disponibles, dans le même locataire Azure Active Directory (AAD).
+
+2. Cliquez sur **Personnaliser :** pour modifier les paramètres par défaut :
     - Dans **Groupe de ressources cible**, sélectionnez le groupe de ressources dans la liste de tous les groupes de ressources à l’emplacement cible de l’abonnement.
     - Dans **Réseau virtuel cible**, sélectionnez le réseau à partir d’une liste de tous les réseaux virtuels dans l’emplacement cible.
     - Dans **Groupe à haute disponibilité**, vous pouvez ajouter les paramètres de groupe à haute disponibilité de la machine virtuelle, s’ils font partie d’un groupe à haute disponibilité dans la zone source.

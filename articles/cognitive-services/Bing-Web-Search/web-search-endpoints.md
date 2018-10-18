@@ -1,20 +1,21 @@
 ---
-title: Point de terminaison de recherche Web | Microsoft Docs
+title: Point de terminaison Recherche Web
+titleSuffix: Azure Cognitive Services
 description: Synthèse sur le point de terminaison de l’API Recherche Web.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: v-gedod
-ms.openlocfilehash: 72fbe1a0eb4379ad032e649f7299e37a0214adfb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3058ca6cf0eb99486dd4c269d43b274fb367f7a9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367945"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125457"
 ---
 # <a name="web-search-endpoint"></a>Point de terminaison Recherche Web
 **L’API Recherche Web** renvoie des pages, des images, des vidéos et des [entités](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web) web. Les entités contiennent un résumé d’informations sur une personne, un lieu ou un sujet.

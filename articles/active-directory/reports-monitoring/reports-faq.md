@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1683321e23eff82e73dc9bb44941fc390633b8c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c2e131776fb9f2c5e87c363d0d57e655bc34448f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42145990"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294218"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>FAQ sur les rapports Azure Active Directory
 
@@ -169,3 +169,7 @@ Cet article répond aux questions fréquemment posées sur les rapports Azure Ac
 **Q : Le nom de la stratégie dans le rapport de connexion ne correspond pas tout le temps au nom de la stratégie d’accès conditionnel. Pourquoi ?**
 
 **R :** Dans tout le rapport de connexion, le nom de la stratégie correspond au nom qu’elle avait au moment de la connexion. Il peut différer si vous l’avez mis à jour ultérieurement, c’est-à-dire après la connexion.
+
+**Q : Mon authentification a été bloquée en raison d’une stratégie d’accès conditionnel, mais le rapport d’activité de connexion indique que la connexion a été établie. Pourquoi ?**
+
+**R :** Actuellement, le rapport de connexion est susceptible de ne pas afficher de résultats précis pour les scénarios Exchange ActiveSync lors de l’application d’un accès conditionnel. Cela peut arriver lorsque le résultat de connexion dans le rapport montre l’établissement d’une connexion, alors que la connexion a en réalité échoué à cause d’une stratégie d’accès conditionnel. 

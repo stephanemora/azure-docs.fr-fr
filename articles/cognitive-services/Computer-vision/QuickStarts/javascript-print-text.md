@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Extraire du texte imprimé (OCR) - REST, JavaScript 
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous extrayez le texte imprimé d’une image en utilisant l’API Vision par ordinateur avec JavaScript.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: v-deken
-ms.openlocfilehash: df4d60170c676e7e2666a8a3c7179cf4b90b15eb
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: a804a5131f1989d39e73eb0bddc88e1b87cf5e32
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634011"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341716"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-javascript-in-computer-vision"></a>Démarrage rapide : Extraire du texte imprimé (OCR) à l’aide de l’API REST et JavaScript dans Vision par ordinateur
 
@@ -36,7 +36,7 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
     1. Remplacez la valeur de `subscriptionKey` par votre clé d’abonnement.
     1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Remplacez éventuellement la valeur de l’attribut `value` du contrôle `inputImage` par l’URL d’une autre image que vous voulez analyser.
-1. Enregistrez le code dans un fichier avec une extension `.html`. Par exemple : `get-printed-text.html`.
+1. Enregistrez le code dans un fichier avec une extension `.html`. Par exemple : `get-printed-text.html`.
 1. Ouvrez une fenêtre de navigateur.
 1. Dans le navigateur, faites glisser et déposez le fichier dans la fenêtre du navigateur.
 1. Quand la page web s’affiche dans le navigateur, choisissez le bouton **Lire l’image**.
@@ -243,9 +243,9 @@ Une réponse correcte est retournée au format JSON. L’exemple de page web ana
 }
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’en avez plus besoin, supprimez le fichier.
+Lorsque vous n’en avez plus besoin, supprimez le fichier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

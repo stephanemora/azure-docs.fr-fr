@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 23f86581b5ecc5257ccb246c7199eef4246efb08
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248139"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498230"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Gérer les mises à jour pour plusieurs ordinateurs
 
@@ -50,7 +50,7 @@ La gestion des mises à jour est prise en charge par les systèmes d’exploitat
 
 Les agents Linux doivent avoir accès à un référentiel de mise à jour.
 
-Cette solution ne prend pas en charge d’agent Operations Management Suite (OMS) pour Linux configuré pour envoyer des rapports à plusieurs espaces de travail Azure Log Analytics.
+Cette solution ne prend pas en charge d’agent Log Analytics pour Linux configuré pour envoyer des rapports à plusieurs espaces de travail Azure Log Analytics.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Activer la gestion des mises à jour pour les machines virtuelles Azure
 
@@ -127,6 +127,7 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
 
 - **Nom** : entrez un nom unique pour identifier le déploiement de mises à jour.
 - **Système d’exploitation** : sélectionnez **Windows** ou **Linux**.
+- **Groupes à mettre à jour (préversion)** : définissez une requête basée sur une combinaison de l’abonnement, des groupes de ressources, des emplacements et des étiquettes pour créer un groupe dynamique de machines virtuelles Azure à inclure dans votre déploiement. Pour plus d’informations, consultez [Groupes dynamiques](automation-update-management.md#using-dynamic-groups)
 - **Machines à mettre à jour** : sélectionnez une recherche enregistrée, un groupe importé, ou sélectionnez des machines, pour choisir les machines que vous souhaitez mettre à jour. Si vous choisissez **Machines**, l’état de préparation de la machine est indiqué dans la colonne **PRÉPARATION À LA MISE À JOUR DE L’AGENT**. Vous pouvez afficher l’état d’intégrité de la machine avant de planifier le déploiement des mises à jour. Pour en savoir plus sur les différentes méthodes de création de groupes d’ordinateurs dans Log Analytics, consultez [Groupes d’ordinateurs dans Log Analytics](../log-analytics/log-analytics-computer-groups.md)
 
   ![Volet Nouveau déploiement de mises à jour](./media/manage-update-multi/update-select-computers.png)
@@ -141,13 +142,15 @@ Dans le volet **Nouveau déploiement de mises à jour**, spécifiez les informat
   - Outils
   - Mises à jour
 
-- **Mises à jour à exclure** : cette option ouvre la page **Exclure**. Entrez les articles de la Base de connaissances ou les noms des packages à exclure.
+- **Mises à jour à inclure/exclure** : ceci ouvre la page **Inclure/Exclure**. Les mises à jour à inclure ou à exclure sont sous des onglets distincts. Pour plus d’informations sur la façon dont l’inclusion est gérée, consultez [Comportement d’inclusion](automation-update-management.md#inclusion-behavior)
 
 - **Paramètres de planification** : vous pouvez accepter la date et l’heure par défaut, qui est de 30 minutes après l’heure actuelle. Vous pouvez également spécifier une heure différente.
 
    Vous pouvez également spécifier si le déploiement se produit une seule fois ou selon une planification périodique. Pour définir une planification périodique, sous **Périodicité**, sélectionnez **Récurrent**.
 
    ![Boîte de dialogue Paramètres de planification](./media/manage-update-multi/update-set-schedule.png)
+
+- **Pré-scripts + post-scripts** : sélectionnez les scripts à exécuter avant et après votre déploiement. Pour plus d’informations, consultez [Gérer les pré-scripts et les post-scripts](pre-post-scripts.md).
 - **Fenêtre de maintenance (en minutes)** : spécifiez la période de temps pendant laquelle le déploiement des mises à jour doit se produire. Ce paramètre permet de garantir que les modifications sont effectuées pendant les fenêtres de maintenance que vous avez définies.
 
 - **Contrôle de redémarrage** : ce paramètre détermine la gestion des redémarrages pour le déploiement des mises à jour.

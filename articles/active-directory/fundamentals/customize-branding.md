@@ -1,114 +1,137 @@
 ---
-title: Personnaliser la page de connexion pour votre locataire Azure AD | Microsoft Docs
-description: Découvrir comment ajouter une société à la page de connexion Azure
+title: Comment personnaliser votre page de connexion Azure Active Directory | Microsoft Docs
+description: Découvrez comment personnaliser la page de connexion Azure Active Directory de votre organisation.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 07/20/2018
+ms.topic: conceptual
+ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: kexia
 custom: it-pro
-ms.openlocfilehash: 45637122af3df1906a8c3b4b16233f6361eecca3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: cdf1c8bfb8e623956d50975f36faafe10b534d06
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528324"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367558"
 ---
-# <a name="quickstart-add-company-branding-to-your-sign-in-page-in-azure-ad"></a>Démarrage rapide : Ajouter la marque de votre société à votre page de connexion dans Azure AD
-Pour éviter toute confusion, de nombreuses entreprises veulent que tous les sites Web et services qu’elles gèrent aient un aspect similaire. Azure Active Directory (AD) offre cette possibilité en vous permettant de personnaliser l’apparence la page de connexion pour qu’elle affiche le logo de votre société et sa palette de couleurs personnalisée. La page de connexion s’affiche lorsque vous vous connectez à Office 365 ou à d’autres applications web qui utilisent Azure AD comme fournisseur d’identité. Vous interagissez avec cette page pour saisir vos informations d’identification.
+# <a name="how-to-add-branding-to-your-azure-active-directory-sign-in-page"></a>Comment personnaliser votre page de connexion Azure Active Directory
+Utilisez le logo et la palette de couleurs personnalisée de votre organisation pour offrir une apparence cohérente à vos pages de connexion Azure Active Directory (Azure AD). Vos pages de connexion s’affichent quand les utilisateurs se connectent aux applications Web de votre organisation, comme Office 365, qui utilise Azure AD comme fournisseur d’identité.
+
+>[!Note]
+>La personnalisation nécessite l’utilisation des éditions Azure Active Directory Premium 1, Premium 2 ou De base, ou encore une licence Office 365. Pour plus d’informations sur les licences et les éditions, consultez [S’inscrire à Azure AD Premium](active-directory-get-started-premium.md).<br><br>Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium Azure AD ne sont pas prises en charge dans le service Azure géré par 21Vianet en Chine. Pour plus d’informations, contactez-nous sur le [forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+
+## <a name="customize-your-azure-ad-sign-in-page"></a>Personnaliser votre page de connexion Azure AD
+Vous pouvez personnaliser vos pages de connexion Azure AD, qui s’affichent lorsque les utilisateurs se connectent à des applications spécifiques aux tenants de votre organisation, comme [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com), ou lors de la soumission d’une variable de domaine, comme [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+
+Votre personnalisation ne s’affiche pas immédiatement quand vos utilisateurs accèdent à des sites tels que www.office.com. L’utilisateur doit se connecter avant que votre personnalisation n’apparaisse.
 
 > [!NOTE]
-> * La marque de société est une fonctionnalité disponible uniquement si vous avez acheté une licence pour l’édition Premium ou De base d’Azure AD, ou disposez d’une licence Office 365. Pour savoir si une fonctionnalité est prise en charge par votre type de licence, consultez la page [Tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory/).
-> 
-> * Les clients vivant en Chine peuvent accéder aux éditions De base et Premium d’Azure Active Directory à l’aide de l’instance mondiale d’Azure Active Directory. Actuellement, les éditions De base et Premium d’Azure Active Directory ne sont pas prises en charge dans le service Microsoft Azure utilisé par 21Vianet en Chine. Pour plus d’informations, contactez-nous via le [Forum Azure Active Directory](https://feedback.azure.com/forums/169401-azure-active-directory/).
+> Tous les éléments de personnalisation sont facultatifs. Par exemple, si vous spécifiez un logo de bannière sans image d’arrière-plan, la page de connexion affiche votre logo avec l’image d’arrière-plan par défaut du site de destination (par exemple, Office 365).<br><br>De plus, la personnalisation de la page de connexion ne s’étend pas aux comptes Microsoft personnels. Si les utilisateurs ou des invités professionnels se connectent avec un compte Microsoft personnel, leur page de connexion ne reflète pas la personnalisation de votre organisation.
 
-## <a name="customizing-the-sign-in-page"></a>Personnalisation de la page de connexion
+### <a name="to-customize-your-branding"></a>Pour personnaliser votre marque
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour l’annuaire.
 
-<!--You can customize the following elements on the sign-in page: <attach image>-->
+2. Sélectionnez **Azure Active Directory**, puis sélectionnez **Marque de société** et **Configurer**.
 
-Les personnalisations de la marque de société s’affichent sur la page de connexion Azure AD lorsque les utilisateurs accèdent à une URL spécifique à un locataire comme [*https://outlook.com/contoso.com*](https://outlook.com/contoso.com) ou transfèrent la variable de domaine dans l’URL comme [*https://passwordreset.microsoftonline.com/?whr=contoso.com*](https://passwordreset.microsoftonline.com/?whr=contoso.com).
+    ![Contoso - Page Marque de société, avec option Configurer mise en surbrillance](media/customize-branding/company-branding-configure-button.png)
 
-Par exemple, lorsque des utilisateurs accèdent à www.office.com, la page de connexion n’affiche aucune personnalisation de marque de l’entreprise, car aucune information d’identification n’a encore été saisie. Une fois que l’utilisateur a saisi son ID ou sélectionné une vignette d’utilisateur, la marque de l’entreprise apparaît.
+3. Sur la page **Configurer la marque de société**, fournissez tout ou partie des informations suivantes.
 
-> [!NOTE]
-> * Votre nom de domaine doit apparaître comme étant « Actif » dans la partie **Domaines** du portail Azure dans lequel vous avez effectué la personnalisation de société. Pour plus d’informations, consultez [Ajouter un nom de domaine personnalisé](add-custom-domain.md).
-> * La personnalisation de marque de la page de connexion ne s’étend pas à la page de connexion des comptes Microsoft personnels. Si les employés ou des invités professionnels se connectent avec un compte Microsoft personnel, leur page de connexion ne reflète pas la marque de votre organisation.
+    >[!Important]
+    >Toutes les images personnalisées que vous ajoutez sur cette page présentent des restrictions en termes de taille d’image (pixels), et éventuellement de taille de fichier (Ko). En raison de ces restrictions, vous devrez probablement utiliser un éditeur de photos pour créer des images à la bonne taille.
 
+    - **Paramètres généraux :**
 
-### <a name="banner-logo"></a>Logo de bannière 
+        ![Page Configurer la marque de société, avec paramètres généraux complétés](media/customize-branding/configure-company-branding-general-settings.png)
 
-Description | Contraintes | Recommandations
-------- | ------- | ----------
-Le logo de bannière s’affiche sur les pages de connexion et du volet d’accès.<br>Sur la page de connexion, le logo s’affiche une fois le nom d’utilisateur saisi. | JPG ou PNG transparent<br>Hauteur max. : 36 px<br>Largeur max. : 245 px | Utilisez le logo de votre organisation ici.<br>Utilisez une image transparente. Ne partez pas du principe que l’arrière-plan est blanc.<br>N’ajoutez pas de marge intérieure autour de votre logo dans l’image, sinon le logo s’affichera disproportionnellement petit.
+        - **Langue.** La langue est définie automatiquement par défaut et ne peut pas être modifiée.
+        
+        - **Image d’arrière-plan de la page de connexion.** Sélectionnez un fichier image .png ou .jpg qui apparaîtra sous la forme d’un arrière-plan sur vos pages de connexion. 
+        
+            L’image ne peut pas être supérieure à 1 920 x 1 080 pixels et elle doit faire moins de 300 Ko.
 
-### <a name="username-hint"></a>Indication sur le nom d’utilisateur   
-Description | Contraintes | Recommandations
-------- | ------- | ----------
-Cette option permet de personnaliser le texte d’information dans le champ du nom d’utilisateur. | Texte Unicode, jusqu’à 64 caractères<br>Texte brut uniquement | Nous vous recommandons de ne pas définir cette option si vous prévoyez que des utilisateurs invités en dehors de votre organisation se connectent à votre application.
+        - **Logo de bannière.** Sélectionnez une version .png ou .jpg de votre logo, qui apparaît sur la page de connexion une fois que l’utilisateur a entré un nom d’utilisateur et sur la page du portail **Mes applications**.
             
-### <a name="sign-in-page-text"></a>Texte de la page de connexion   
-Description | Contraintes | Recommandations
-------- | ------- | ----------
-Cela apparaît en bas du formulaire de connexion et peut être utilisé pour communiquer des informations supplémentaires telles que le numéro de téléphone à votre support technique ou une mention légale. | Texte Unicode, jusqu’à 256 caractères<br>Texte brut uniquement (aucun lien ni balise HTML)    
+            L’image ne peut pas faire plus de 36 pixels de haut ou 245 pixels de large. Nous vous recommandons d’utiliser une image transparente dans la mesure où l’arrière-plan peut ne pas correspondre à l’arrière-plan de votre logo. Nous vous recommandons également de ne pas ajouter de marge intérieure autour de l’image afin que votre logo ne semble pas trop petit.
 
-### <a name="sign-in-page-image"></a>Image de la page de connexion  
-Description | Contraintes | Recommandations
-------- | ------- | ----------
-Cette option s’affiche dans l’arrière-plan de la page de connexion. L’image est ancrée au centre de l’espace visible, mise à l’échelle et rognée pour remplir la fenêtre du navigateur.    <br>Sur les écrans étroits tels que les téléphones mobiles, l’image n’est pas affichée.<br>Un masque noir avec une opacité de 0,55 sera appliqué sur cette image lors du chargement de la page. | JPG ou PNG<br>Dimensions de l’image : 1 920 x 1 080 px<br>Taille de fichier : &lt; 300 Ko | <br>Utilisez des images lorsqu’il n’y a pas de focalisation forte sur l’objet. Le formulaire de connexion opaque apparaît au centre de cette image et peut couvrir une partie de l’image en fonction de la taille de la fenêtre du navigateur.<br>Conservez la taille du fichier aussi réduite que possible pour garantir des temps de chargement rapides. 
+        - **Indication sur le nom d’utilisateur.** Saisissez le texte d’indication qui s’affiche pour les utilisateurs ayant oublié leur nom d’utilisateur. Ce texte doit être au format Unicode, ne comporter aucun lien ni code, et ne pas dépasser 64 caractères. Si des invités se connectent à votre application, nous vous suggérons de ne pas ajouter cet indicateur.
 
-### <a name="sign-in-page-background-color"></a>Couleur d’arrière-plan de la page de connexion
-Description | Contraintes | Recommandations
-------- | ------- | ----------
-Cette couleur est utilisée à la place de l’image d’arrière-plan sur les connexions à faible bande passante. | Couleur RVB en hexadécimal (par exemple #FFFFFF) | Nous vous suggérons d’utiliser la couleur principale du logo de bannière ou la couleur de votre organisation.
+        - **Texte de la page de connexion.** Saisissez le texte qui apparaît au bas de la page de connexion. Vous pouvez utiliser ce texte pour communiquer des informations supplémentaires telles que le numéro de téléphone à votre support technique ou une mention légale. Ce texte doit être au format Unicode et il ne doit pas dépasser 256 caractères. Nous vous suggérons également de ne pas inclure de liens ni de balises HTML.
 
-### <a name="square-logo-image"></a>Logo carré
-Description | Contraintes | Recommandations
-------- | ------- | ----------
-Cette image s’affiche durant la configuration des nouveaux PC Windows 10 Entreprise. Elle fournit aux employés le contexte, durant la configuration de leur nouveau PC de travail. L’image s’affiche pour les clients utilisant [Windows AutoPilot](https://blogs.windows.com/business/2017/06/29/delivering-modern-promise-windows-10/?utm_source=dlvr.it&utm_medium=twitter#gDTp1u6q35bvDWIS.97) pour le déploiement de leurs appareils de travail, et sur les pages de saisie du mot de passe pour les autres utilisateurs Windows 10.<br>Le logo carré est utilisé exclusivement dans l’authentification Windows. Le thème foncé est déconseillé et n’est plus utilisé. | PNG (format préféré) ou JPG transparent<br>Dimensions de l’image : 240 x 240 px<br>Taille de fichier : &lt; 10 Ko | Utilisez le logo de votre organisation ici.<br> Utilisez une image transparente.<br>Ne partez pas du principe que l’arrière-plan est blanc.<br>N’ajoutez pas de marge intérieure autour de votre logo dans l’image, sinon le logo s’affichera disproportionnellement petit.
+    - **Paramètres avancés**
+            
+        ![Page Configurer la marque de société, avec paramètres avancés complétés](media/customize-branding/configure-company-branding-advanced-settings.png)   
 
-### <a name="show-option-to-remain-signed-in"></a>Afficher l’option permettant de rester connecté
-Description | Contraintes | Recommandations
-------- | ------- | ----------
-La connexion Azure AD permet à l’utilisateur de rester connecté lorsqu’il ferme et ouvre à nouveau son navigateur. Ce paramètre masque cette option.<br>Définissez cet élément sur **Non** pour que vos utilisateurs ne voient pas cette option. | &nbsp; | Cela n’a pas d’effet sur la durée de vie de session.<br>Certaines fonctionnalités de SharePoint Online et Office 2010 dépendent du choix des utilisateurs de rester connecté. Si vous définissez cette option sur **Non**, il se peut que vos utilisateurs voient des invites de connexion supplémentaires et inattendues.
+        - **Couleur d’arrière-plan de la page de connexion.** Spécifiez la couleur hexadécimale (par exemple, #FFFFFF pour blanc) qui s’affiche à la place de votre image d’arrière-plan en cas de faible bande passante. Nous vous recommandons d’utiliser la couleur principale de votre logo de bannière ou la couleur de votre organisation.
 
-> [!NOTE]
-> Tous ces éléments sont facultatifs. Par exemple, si vous spécifiez un logo de bannière sans image d’arrière-plan, la page de connexion affiche votre logo et l’image d’arrière-plan pour le site de destination (par exemple, Office 365).
+        - **Logo carré.** Sélectionnez une image .png (recommandé) ou .jpg du logo de votre organisation pour qu’elle apparaisse aux utilisateurs pendant le processus d’installation de nouveaux appareils Windows 10 Entreprise. Cette image est utilisée uniquement pour l’authentification Windows et s’affiche uniquement sur les tenants qui utilisent [Windows Autopilot]( https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot) pour les pages de déploiement ou de saisie de mot de passe dans d’autres expériences Windows 10.
+        
+            L’image ne peut pas être supérieure à 240 x 240 pixels et elle doit faire moins de 10 Ko. Nous vous recommandons d’utiliser une image transparente dans la mesure où l’arrière-plan peut ne pas correspondre à l’arrière-plan de votre logo. Nous vous recommandons également de ne pas ajouter de marge intérieure autour de l’image afin que votre logo ne semble pas trop petit.
+    
+        - **Logo carré, thème foncé.** Identique à l’image de logo carré ci-dessus. Cette image de logo prend la place de l’image de logo carré dans le cas d’un arrière-plan foncé, comme avec les écrans « Windows 10 Azure AD Joined » de l’expérience OOBE (out-of-box experience).  Si votre logo semble correct sur des arrière-plans blancs, bleu foncé et noirs, vous n’avez pas besoin d’ajouter cette image. 
+        
+        - **Afficher l’option permettant de rester connecté.** Vous pouvez autoriser les utilisateurs à rester connecté à Azure AD jusqu’à ce qu’ils se déconnectent de manière explicite. Si vous sélectionnez **Non**, cette option est masquée et les utilisateurs doivent se connecter à chaque fois que le navigateur est fermé puis ouvert.
+        
+            >[!Note]
+            >Certaines fonctionnalités de SharePoint Online et Office 2010 dépendent du choix des utilisateurs de rester connecté. Si vous définissez cette option sur **Non**, il se peut que vos utilisateurs voient des invites de connexion supplémentaires et inattendues.
+   
 
-## <a name="add-company-branding-to-your-directory"></a>Ajouter la marque de société à votre répertoire
+3. Une fois que vous avez terminé votre personnalisation, sélectionnez **Enregistrer**.
 
-1. Connectez-vous au [centre d’administration d’Azure AD](https://aad.portal.azure.com) avec un compte d’administrateur général pour le client.
-2. Sélectionnez **Azure Active Directory** > **Marque de société** > **Modifier**.
-  
-  ![Ouverture de la personnalisation de société](./media/customize-branding/navigation-to-branding.png)
-3. Modifiez les éléments que vous voulez personnaliser. Tous ces éléments sont facultatifs.
-  
-  ![Modifier la personnalisation de société](./media/customize-branding/edit-branding.png)
-4. Quand vous avez terminé, sélectionnez **Enregistrer**.
+    Si ce processus crée votre première configuration de personnalisation, il devient le processus par défaut pour votre tenant. Si vous avez d’autres configurations, vous pouvez choisir votre configuration par défaut.
+    
+    >[!Important]
+    >Si vous souhaitez ajouter d’autres configurations de personnalisation d’entreprise pour votre tenant, vous devez sélectionnez **Nouvelle langue** sur la page **Contoso - Marque de société**. Cette opération ouvre la page **Configurer la marque de société**, où vous pouvez suivre les mêmes étapes que ci-dessus.
 
-Il peut s’écouler jusqu’à une heure avant que les modifications que vous avez apportées à la page de connexion soient visibles.
+## <a name="update-your-custom-branding"></a>Mettre à jour votre personnalisation
+Une fois que vous avez créé votre personnalisation, vous pouvez revenir en arrière et la modifier à votre gré.
+
+### <a name="to-edit-your-custom-branding"></a>Modifier votre personnalisation
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour l’annuaire.
+
+2. Sélectionnez **Azure Active Directory**, puis sélectionnez **Marque de société** et **Configurer**.
+
+    ![Page Contoso - Marque de société, avec configuration par défaut](media/customize-branding/company-branding-default-config.png)
+
+3. Sur la page **Configurer la marque de société**, ajoutez, supprimez ou modifiez les informations, en fonction des descriptions disponibles dans la section [Personnaliser votre page de connexion Azure AD](#customize-your-azure-ad-sign-in-page) de cet article.
+
+4. Sélectionnez **Enregistrer**.
+
+  Il peut s’écouler jusqu’à une heure avant que les modifications que vous avez apportées à la page de connexion soient visibles.
 
 ## <a name="add-language-specific-company-branding-to-your-directory"></a>Ajouter une marque de société spécifique à une langue à votre répertoire
+Vous ne pouvez pas modifier la langue d’origine de votre configuration à partir de votre langue par défaut. Toutefois, si vous avez besoin d’une configuration dans une autre langue, vous pouvez créer une nouvelle configuration.
 
-1. Connectez-vous au [centre d’administration Azure AD](https://aad.portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Azure Active Directory** > **Marque de société** > **Nouvelle langue**.
-  
-  ![Ajouter des éléments spécifiques à une langue](./media/customize-branding/add-language.png)
-3. Modifiez les éléments que vous voulez personnaliser. Tous ces éléments sont facultatifs.
-4. Quand vous avez terminé, sélectionnez **Enregistrer**.
+### <a name="to-add-a-language-specific-branding-configuration"></a>Pour ajouter une configuration de personnalisation spécifique à une langue
 
-Il peut s’écouler jusqu’à une heure avant que les modifications que vous avez apportées à la page de connexion soient visibles.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour l’annuaire.
 
-## <a name="next-steps"></a>Étapes suivantes
-Dans ce guide de démarrage rapide, vous avez appris à ajouter la marque de société à votre annuaire Azure AD. 
+2. Sélectionnez **Azure Active Directory**, puis **Marque de société** et **Nouvelle langue**.
 
-Vous pouvez utiliser le lien suivant pour configurer la marque de votre société dans Azure AD à partir du portail Azure.
+    ![Page Contoso - Marque de société, avec option Nouvelle langue mise en surbrillance](media/customize-branding/company-branding-new-language.png)
 
-> [!div class="nextstepaction"]
-> [Configurer la marque de la société](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/LoginTenantBrandingBlade) 
+3. Sur la page **Configurer la marque de société**, sélectionnez votre langue (par exemple, français), puis ajoutez vos informations traduites, en fonction des descriptions disponibles dans la section [Personnaliser votre page de connexion Azure AD](#customize-your-azure-ad-sign-in-page) de cet article.
+
+4. Sélectionnez **Enregistrer**.
+
+    Mises à jour de la page **Contoso - Marque de société** pour afficher la nouvelle configuration en français.
+
+    ![Page Contoso - Marque de société, avec configuration par défaut](media/customize-branding/company-branding-french-config.png)
+
+## <a name="add-your-custom-branding-to-pages"></a>Ajouter votre personnalisation aux pages
+Pour ajouter votre personnalisation aux pages, modifiez la fin de l’URL avec le texte, `?whr=yourdomainname`. Cette modification fonctionne sur plusieurs pages, y compris la page de configuration de l’authentification multifacteur (MFA), la page de configuration de réinitialisation de mot de passe en libre-service (SSPR) et la page de connexion.
+
+**Exemples :**
+
+**URL d’origine :** https://aka.ms/MFASetup<br>
+**URL personnalisée :** https://account.activedirectory.windowsazure.com/proofup.aspx?whr=contoso.com
+
+**URL d’origine :** https://aka.ms/SSPR<br>
+**URL personnalisée :** https://passwordreset.microsoftonline.com/?whr=contoso.com
+
+ 
