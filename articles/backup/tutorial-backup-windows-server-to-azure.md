@@ -104,7 +104,7 @@ L’agent Microsoft Azure Recovery Services (MARS) crée une association entre W
 
 Vous utilisez l’agent Microsoft Azure Recovery Services pour planifier quand les sauvegardes dans Azure se produisent sur Windows Server. Exécutez les étapes suivantes sur le serveur où vous avez téléchargé l’agent.
 
-1. Ouvrez l’agent Microsoft Azure Recovery Services. Vous pouvez le trouver en recherchant **Sauvegarde Microsoft Azure**sur votre ordinateur.
+1. Ouvrez l’agent Microsoft Azure Recovery Services. Vous pouvez le trouver en recherchant **Sauvegarde Microsoft Azure** sur votre ordinateur.
 
 2.  Dans la console de l’agent Recovery Services, cliquez sur **Planifier la sauvegarde** sous le **volet Actions**.
 
@@ -128,7 +128,7 @@ Vous utilisez l’agent Microsoft Azure Recovery Services pour planifier quand l
 
 11. Lorsque l’Assistant a terminé la création de la planification de la sauvegarde, cliquez sur **Fermer**.
 
-## <a name="perform-an-ad-hoc-back-up"></a>Effectuer une hoc sauvegarde ad-hoc
+## <a name="perform-an-ad-hoc-back-up"></a>Effectuer une sauvegarde ad-hoc
 
 Vous avez établi la planification lors de l’exécution des tâches de sauvegarde. Toutefois, vous n’avez pas sauvegardé le serveur. Comme meilleure pratique en matière de récupération d’urgence, il est recommandé d’exécuter une sauvegarde à la demande pour garantir la résilience de données pour votre serveur.
 
