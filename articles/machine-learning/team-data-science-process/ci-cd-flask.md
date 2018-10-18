@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 4d95fc25ed6f2f2efec8313e5b208b3cccbb619f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968789"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304286"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps pour applications d’intelligence artificielle (IA) : création d’un pipeline d’intégration continue sur Azure à l’aide de Docker et Kubernetes
 Pour une application IA, il existe souvent deux flux de travail : des chercheurs de données générant des modèles de Machine Learning et des développeurs d’applications générant l’application et la présentant aux utilisateurs finaux pour qu’ils l’utilise. Dans cet article, nous allons montrer comment implémenter un pipeline d’intégration continue (CI)/de livraison continue (CD) pour une application IA. Une application IA est une combinaison de code d’application intégré avec un modèle de Machine Learning (ML) préformé. Pour cet article, nous extrayons un modèle préformé d’un compte de stockage d’objets blob Azure privé. Il peut également s’agir d’un compte AWS S3. Dans cet article, nous allons utiliser une application web Python Flask simple.
@@ -35,7 +35,7 @@ Vous pouvez télécharger le code source à partir de [GitHub](https://github.co
 
 ## <a name="pre-requisites"></a>Conditions préalables
 Les prérequis pour le pipeline CI/CD décrit ci-dessous sont les suivants :
-* [Compte Visual Studio Team Services](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [Organisation Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Cluster Azure Container Service (ACS) exécutant Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 * [Compte Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
@@ -53,19 +53,19 @@ L’architecture du pipeline est indiquée ci-dessous.
 
 ## <a name="steps-of-the-cicd-pipeline"></a>Étapes du pipeline CI/CD
 1. Le développeur travaille dans l’IDE de son choix sur le code d’application.
-2. Il valide le code sur le contrôle de source de son choix (VSTS prend bien en charge les différents contrôles de source)
+2. Il valide le code sur le contrôle de source de son choix (Azure DevOps prend bien en charge les différents contrôles de source)
 3. À part, le chercheur de données travaille sur le développement de son modèle.
 4. Lorsque le résultat le satisfait, il publie le modèle dans un référentiel de modèle. Ici, nous utilisons un compte de stockage d’objets blob. Il peut être facilement remplacé par le service de gestion des modèles d’Azure ML Workbench via les API REST.
-5. Une build est lancée dans VSTS en fonction de la validation dans GitHub.
-6. Le pipeline de build VSTS extrait le dernier modèle du conteneur d’objets blob et crée un conteneur.
-7. VSTS envoie l’image au référentiel d’image privée dans Azure Container Registry
+5. Une build est lancée dans Azure DevOps en fonction de la validation dans GitHub.
+6. Le pipeline de build Azure DevOps extrait le dernier modèle du conteneur d’objets blob, et crée un conteneur.
+7. Azure DevOps envoie l’image au référentiel d’image privée dans Azure Container Registry
 8. Selon une planification définie (de nuit), le pipeline de mise en production est démarré.
 9. La dernière image d’ACR est extraite et déployée sur le cluster Kubernetes sur ACS.
 10. Des utilisateurs demandent l’application via un serveur DNS.
 11. Le serveur DNS transfère la requête à l’équilibreur de charge et renvoie la réponse à l’utilisateur.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Reportez-vous au [didacticiel]((https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md)) pour connaître les détails et implémenter votre propre pipeline CI/CD pour votre application.
+* Reportez-vous au [didacticiel](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) pour connaître les détails et implémenter votre propre pipeline CI/CD pour votre application.
 
 ## <a name="references"></a>Références
 * [TDSP (Team Data Science Process)](https://aka.ms/tdsp)

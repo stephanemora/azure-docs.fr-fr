@@ -3,23 +3,19 @@ title: 'Gestion des erreurs dans Fonctions durables : Azure'
 description: Découvrez comment gérer des erreurs dans l’extension Fonctions durables pour Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 04/30/2018
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 944fab5ccc55bc9a697e870208338bd0e697672d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763303"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377903"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Gestion des erreurs dans Fonctions durables (Azure Functions)
 
@@ -72,7 +68,7 @@ Si l’appel à la fonction **CreditAccount** échoue pour le compte de destinat
 
 ## <a name="automatic-retry-on-failure"></a>Nouvelle tentative automatique en cas d’échec
 
-Lorsque vous appelez les fonctions d’activité ou les fonctions de sous-orchestration, vous pouvez spécifier une stratégie de nouvelle tentative automatique. L’exemple suivant tente d’appeler une fonction jusqu’à 3 fois, et attend 5 secondes avant de lancer une nouvelle tentative m:
+Lorsque vous appelez les fonctions d’activité ou les fonctions de sous-orchestration, vous pouvez spécifier une stratégie de nouvelle tentative automatique. L’exemple suivant tente d’appeler une fonction jusqu’à trois fois, et attend 5 secondes avant chaque nouvelle tentative :
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -96,7 +92,7 @@ Il existe plusieurs options de personnalisation de la stratégie de nouvelle ten
 * **Coefficient d’interruption** : coefficient permettant de déterminer le taux d’augmentation de l’interruption. La valeur par défaut est de 1.
 * **Intervalle maximal entre deux nouvelles tentatives** : durée maximale de l’attente entre deux nouvelles tentatives.
 * **Délai de nouvelle tentative** : temps que passe le système à effectuer de nouvelles tentatives. Par défaut, le système effectue ces nouvelles tentatives indéfiniment.
-* **Personnalisé** : un rappel défini par l’utilisateur peut être spécifié. Il détermine si un appel de fonction doit être effectué à nouveau.
+* **Descripteur** : un rappel défini par l’utilisateur peut être spécifié, qui détermine si un appel de fonction doit être effectué à nouveau.
 
 ## <a name="function-timeouts"></a>Délais d’expiration des fonctions
 
@@ -130,7 +126,7 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> Ce mécanisme ne termine pas réellement l’exécution des fonctions d’activité en cours. Il permet simplement à la fonction de l’orchestrateur d’ignorer le résultat et de continuer. Pour plus d’informations, consultez la documentation [Minuteurs](durable-functions-timers.md#usage-for-timeout).
+> Ce mécanisme ne termine pas réellement l’exécution des fonctions d’activité en cours. Il permet simplement à la fonction de l’orchestrateur d’ignorer le résultat et de continuer. Pour plus d’informations, voir la documentation [Minuteurs](durable-functions-timers.md#usage-for-timeout).
 
 ## <a name="unhandled-exceptions"></a>Exceptions non prises en charge
 

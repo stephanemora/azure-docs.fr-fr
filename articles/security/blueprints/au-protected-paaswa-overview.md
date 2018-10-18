@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: ea9c9d773cb863c6ee2b052fcbd097275f00fc87
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: bd6ac05da5f60fdbe86897ce03ccd6646e6bf191
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300985"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390260"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Blueprint de sécurité et de conformité Azure : application web PaaS pour Australia PROTECTED
 
@@ -82,7 +82,6 @@ Cette solution crée une machine virtuelle en tant qu’hôte bastion joint au d
 -   [Extension Diagnostics Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) avec Azure Key Vault
 -   [Stratégie d’arrêt automatique](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) pour réduire la consommation des ressources de machine virtuelle non utilisées
--   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) activé afin que les informations d’identification et autres secrets soient utilisés dans un environnement protégé, isolé du système d’exploitation en cours d’exécution
 
 **App Service Environment v2** : l’[environnement Azure App Service](https://docs.microsoft.com/azure/app-service/environment/intro) est une fonctionnalité d’Azure App Service qui fournit un environnement dédié et totalement isolé pour l’exécution sécurisée d’applications App Service à grande échelle.
 
@@ -202,7 +201,7 @@ Les [solutions de gestion](https://docs.microsoft.com/azure/log-analytics/log-an
 
 **Azure Monitor** : [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) permet aux utilisateurs de suivre les performances, d’assurer le maintien de la sécurité et d’identifier les tendances en permettant aux organisations d’auditer, de créer des alertes et d’archiver des données, notamment en lien avec le suivi des appels d’API dans leurs ressources Azure.
 
-Azure Network Watcher : [Azure Network Watcher]9 https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) offre des outils permettant de surveiller, diagnostiquer, consulter des métriques, et activer et désactiver des journaux pour les ressources d’un réseau virtuel Azure.  Les entités du Commonwealth doivent implémenter les journaux des flux Network Watcher pour les groupes de sécurité réseau et les machines virtuelles. Ces journaux doivent être stockés dans un compte de stockage dédié où seuls les journaux de sécurité sont stockés, et l’accès au compte de stockage doit être sécurisé avec des contrôles d’accès en fonction du rôle.
+Azure Network Watcher : [Azure Network Watcher]9 https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) offre des outils permettant de surveiller, diagnostiquer, consulter des métriques, et activer et désactiver des journaux pour les ressources d’un réseau virtuel Azure.  Les entités du Commonwealth doivent implémenter les journaux des flux Network Watcher pour les groupes de sécurité réseau et les machines virtuelles. Ces journaux doivent être stockés dans un compte de stockage dédié où seuls les journaux de sécurité sont stockés, et l’accès au compte de stockage doit être sécurisé avec des contrôles d’accès en fonction du rôle.
 
 ## <a name="threat-model"></a>Modèle de menace
 

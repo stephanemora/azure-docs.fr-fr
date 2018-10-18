@@ -6,28 +6,24 @@ author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
-ms.topic: conceptual
-ms.date: 10/20/2017
+ms.topic: reference
+ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 351b48f2e2766b4974a5a41b5e95acfbd63dbfc9
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: bd41ce5ba0cc738c1fd0d61d080e63753706f975
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443220"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377410"
 ---
-# <a name="azure-ad-b2c-single-sign-on-sso-session-management"></a>Azure AD B2C : gestion de session d’authentification unique (SSO)
+# <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Gestion de session d’authentification unique dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD B2C permet à un administrateur de contrôler la façon dont Azure AD B2C interagit avec un utilisateur après que celui-ci s’est authentifié. Cela est effectué via une gestion de session d’authentification unique. Par exemple, l’administrateur peut contrôler si la sélection des fournisseurs d’identité s’affiche, ou si des détails de compte local doivent être entrés à nouveau. Cet article décrit comment configurer les paramètres d’authentification unique pour Azure AD B2C.
-
-## <a name="overview"></a>Vue d'ensemble
+Le gestion de session d’authentification unique (SSO) dans Azure Active Directory (Azure AD) B2C permet à un administrateur de contrôler l’interaction avec un utilisateur une fois celui-ci authentifié. Par exemple, l’administrateur peut contrôler si la sélection des fournisseurs d’identité s’affiche, ou si des détails de compte local doivent être entrés à nouveau. Cet article décrit comment configurer les paramètres d’authentification unique pour Azure AD B2C.
 
 La gestion de session d’authentification unique comporte deux parties. La première a trait aux interactions de l’utilisateur directement avec Azure AD B2C, et la deuxième aux interactions de l’utilisateur avec des tiers externes, tels que Facebook. Azure AD B2C ne peut ni remplacer, ni contourner des sessions d’authentification unique qui pourraient être tenues par des parties externes. Au lieu de cela, l’itinéraire parcouru via Azure AD B2C pour accéder à la partie externe est « mémorisé », ce qui évite de devoir réinviter l’utilisateur à sélectionner son fournisseur d’identité sociale ou d’entreprise. La décision finale en lien avec l’authentification unique appartient au tiers externe.
-
-## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
 
 La gestion de session d’authentification unique utilise la même sémantique que tout autre profil technique dans des stratégies personnalisées. Quand une étape d’orchestration est exécutée, le profil technique associé à l’étape est interrogé pour obtenir une référence `UseTechnicalProfileForSessionManagement`. S’il en existe une, le fournisseur de la session de l’authentification unique référencé est vérifié pour voir si l’utilisateur est un participant de la session. Dans l’affirmative, le fournisseur de session d’authentification unique est utilisé pour remplir à nouveau la session. De même, lors de l’exécution d’une étape d’orchestration est terminée, le fournisseur est utilisé pour stocker les informations de la session si un fournisseur de session d’authentification unique a été spécifié.
 
@@ -40,16 +36,13 @@ Azure AD B2C a défini un certain nombre de fournisseurs de session d’authenti
 
 Les classes de gestion de l’authentification unique sont spécifiées à l’aide de l’élément `<UseTechnicalProfileForSessionManagement ReferenceId=“{ID}" />` d’un profil technique.
 
-### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
+## <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
 Comme son nom l’indique, ce fournisseur ne fait rien. Ce fournisseur peut être utilisé pour supprimer un comportement d’authentification unique pour un profil technique spécifique.
 
-### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
+## <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
-Ce fournisseur peut être utilisé pour le stockage de revendications dans une session. Ce fournisseur est en général référencé dans un profil technique utilisé pour la gestion de comptes locaux. 
-
-> [!NOTE]
-> Lorsque vous utilisez le DefaultSSOSessionProvider pour stocker des revendications dans une session, vous devez vous assurer que toutes les revendications devant être retournées à l’application ou utilisées par les conditions préalables dans les étapes suivantes, sont stockées dans la session ou complétées par une lecture depuis le profil des utilisateurs dans le répertoire. Cela garantit que votre parcours d’authentification n’échouera pas sur les revendications manquantes.
+Ce fournisseur peut être utilisé pour le stockage de revendications dans une session. Ce fournisseur est en général référencé dans un profil technique utilisé pour la gestion de comptes locaux. Lorsque vous utilisez le DefaultSSOSessionProvider pour stocker des revendications dans une session, vous devez vous assurer que toutes les revendications devant être retournées à l’application ou utilisées par les conditions préalables dans les étapes suivantes, sont stockées dans la session ou complétées par une lecture depuis le profil des utilisateurs dans le répertoire. Cela garantit que votre parcours d’authentification n’échouera pas sur les revendications manquantes.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
@@ -68,7 +61,7 @@ Ce fournisseur peut être utilisé pour le stockage de revendications dans une s
 
 Pour ajouter des revendications dans la session, utilisez l’élément `<PersistedClaims>` du profil technique. Lorsque le fournisseur est utilisé pour remplir à nouveau la session, les revendications persistantes sont ajoutées au jeu de revendications. `<OutputClaims>` est utilisé pour récupérer des revendications de la session.
 
-### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
+## <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
 
 Ce fournisseur est utilisé pour supprimer l’écran permettant de choisir le fournisseur d’identité. Il est généralement référencé dans un profil technique configuré pour un fournisseur d’identité externe, tel que Facebook. 
 
@@ -79,7 +72,7 @@ Ce fournisseur est utilisé pour supprimer l’écran permettant de choisir le f
 </TechnicalProfile>
 ```
 
-### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
+## <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
 
 Ce fournisseur est utilisé pour gérer les sessions SAML d’Azure AD B2C entre applications ainsi que les fournisseurs d’identité SAML externes.
 
@@ -101,12 +94,5 @@ Le profil technique contient deux éléments de métadonnées :
 | IncludeSessionIndex | true | true/false | Indique au fournisseur que l’index de la session doit être stocké. |
 | RegisterServiceProviders | true | true/false | Indique que le fournisseur doit inscrire tous les fournisseurs de services SAML auxquels une assertion a été envoyée. |
 
-Lorsque vous utilisez le fournisseur pour stocker une session de fournisseur d’identité SAML, les éléments ci-dessus doivent tous deux avoir la valeur false. Lorsque vous utilisez le fournisseur pour stocker la session SAML B2C, les éléments ci-dessus doivent avoir la valeur true. Cette valeur peut également être omise, car les valeurs de ces éléments sont true par défaut.
-
->[!NOTE]
-> La fermeture de la session SAML requiert les valeurs `SessionIndex` et `NameID` pour aboutir.
-
-## <a name="next-steps"></a>Étapes suivantes
-
-Nous adorons que vous nous fassiez part de vos commentaires et suggestions. Si vous rencontrez des difficultés dans le cadre de cette rubrique, publiez un billet sur Stack Overflow en utilisant la mention [« azure-ad-b2c »](https://stackoverflow.com/questions/tagged/azure-ad-b2c). Pour des demandes de fonctionnalités, votez pour celles-ci sur notre [Forum des commentaires](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Lorsque vous utilisez le fournisseur pour stocker une session de fournisseur d’identité SAML, les éléments ci-dessus doivent tous deux avoir la valeur false. Lorsque vous utilisez le fournisseur pour stocker la session SAML B2C, les éléments ci-dessus doivent avoir la valeur true. Cette valeur peut également être omise, car les valeurs de ces éléments sont true par défaut. La fermeture de la session SAML requiert les valeurs `SessionIndex` et `NameID` pour aboutir.
 

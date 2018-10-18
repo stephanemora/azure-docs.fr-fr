@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: 3ef52030f694b0f9ccf2bd10545918a4fae9f2ee
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918303"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391315"
 ---
 # <a name="failover-in-site-recovery"></a>Basculement via Microsoft Azure Site Recovery
 Cet article explique comment basculer des machines virtuelles et des serveurs physiques protégés par Site Recovery.
@@ -31,14 +31,14 @@ Utilisez le tableau suivant pour en savoir plus sur les options de basculement f
 
 
 ## <a name="run-a-failover"></a>Exécuter un basculement
-Cette procédure explique comment exécuter un basculement dans le cadre d’un [plan de récupération](site-recovery-create-recovery-plans.md). Vous pouvez également exécuter le basculement d’une machine virtuelle ou d’un serveur physique unique à partir de la page **Éléments répliqués**.
+Cette procédure explique comment exécuter un basculement dans le cadre d’un [plan de récupération](site-recovery-create-recovery-plans.md). Vous pouvez également exécuter le basculement d’une machine virtuelle ou d’un serveur physique unique à partir de la page **Éléments répliqués**, comme décrit [ici](vmware-azure-tutorial-failover-failback.md#run-a-failover-to-azure).
 
 
 ![Basculement](./media/site-recovery-failover/Failover.png)
 
 1. Sélectionnez **Plans de récupération** > *nom_planrécupération*. Cliquez sur **Basculement**.
-2. Sur l’écran **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
-    1.  **Les dernières** (par défaut) : cette option permet de démarrer le travail en commençant par traiter toutes les données qui ont été envoyées au service de Site Recovery. Le traitement des données crée un point de récupération pour chaque machine virtuelle. Ce point de récupération est utilisé par la machine virtuelle pendant le basculement. Cette option offre l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement dispose de toutes les données qui ont été répliquées vers le service Site Recovery lorsque le basculement a été déclenché.
+2. Sur l’écran **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
+    1.  **Les dernières** : cette option permet de démarrer le travail en commençant par traiter toutes les données qui ont été envoyées au service de Site Recovery. Le traitement des données crée un point de récupération pour chaque machine virtuelle. Ce point de récupération est utilisé par la machine virtuelle pendant le basculement. Cette option offre l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle créée après le basculement dispose de toutes les données qui ont été répliquées vers le service Site Recovery lorsque le basculement a été déclenché.
     1.  **Dernier point dans le temps traité** : cette option permet de basculer toutes les machines virtuelles du plan de récupération vers le dernier point de récupération ayant déjà été traité par le service Site Recovery. Lorsque vous effectuez un test de basculement d’une machine virtuelle, la date et l’heure du dernier point de récupération traité sont également affichées. Si vous effectuez le basculement d’un plan de récupération, vous pouvez accéder à une machine virtuelle individuelle et consulter la vignette **Latest Recovery Points** (Derniers points de récupération) pour obtenir ces informations. Comme aucun temps n’est passé à traiter les données non traitées, cette option assure un basculement avec un objectif de délai récupération (RTO) faible.
     1.  **Dernier point dans le temps cohérent de l’application** : cette option permet de basculer toutes les machines virtuelles du plan de récupération vers le dernier point de récupération cohérent d’application ayant déjà été traité par le service Site Recovery. Lorsque vous effectuez un test de basculement d’une machine virtuelle, la date et l’heure du dernier point de récupération cohérent d’application sont également affichées. Si vous effectuez le basculement d’un plan de récupération, vous pouvez accéder à une machine virtuelle individuelle et consulter la vignette **Latest Recovery Points** (Derniers points de récupération) pour obtenir ces informations.
     1.  **Latest multi-VM processed** (Dernier point multimachine virtuelle traité) : cette option est disponible uniquement pour les plans de récupération qui incluent au moins une machine virtuelle avec la cohérence multimachine virtuelle activée. Les machines virtuelles appartenant à un groupe de réplication basculent vers le point de récupération multimachine virtuelle cohérent commun. Les autres machines virtuelles basculent vers leur dernier point de récupération traité.  
@@ -104,18 +104,19 @@ Dans certains cas, le basculement des machines virtuelles nécessite une étape 
 
 Dans tous les autres cas, cette étape intermédiaire n’est pas utile et le temps nécessaire au basculement est réduit.
 
-
-
-
-
 ## <a name="using-scripts-in-failover"></a>Utilisation de scripts lors du basculement
 Si vous le souhaitez, vous pouvez automatiser certaines actions pendant l’exécution d’un basculement. Pour ce faire, vous pouvez utiliser des scripts ou des [runbooks Azure Automation](site-recovery-runbook-automation.md) dans les [plans de récupération](site-recovery-create-recovery-plans.md).
 
 ## <a name="post-failover-considerations"></a>Points à prendre en compte après le basculement
 Après le basculement, vous souhaiterez peut-être prendre en compte les recommandations suivantes :
 ### <a name="retaining-drive-letter-after-failover"></a>Conserver la lettre de lecteur après le basculement
-Pour conserver la lettre de lecteur sur les machines virtuelles après basculement, vous pouvez définir la **stratégie SAN** de la machine virtuelle sur **Activé**. [En savoir plus](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Pour conserver la lettre de lecteur sur les machines virtuelles après basculement, vous pouvez définir la **stratégie SAN** de la machine virtuelle sur **Activé**. [En savoir plus](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement
+
+Si vous souhaitez vous connecter à des machines virtuelles Azure à l’aide de RDP/SSH après le basculement, respectez les exigences récapitulées dans le tableau [ici](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Suivez les étapes décrites [ici](site-recovery-failover-to-azure-troubleshoot.md) pour résoudre les problèmes de connectivité après le basculement.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

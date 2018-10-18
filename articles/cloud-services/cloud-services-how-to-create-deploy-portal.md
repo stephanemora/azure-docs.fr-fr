@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 57109848bf78311ea4d601b135c5dd304d613aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ece3511d0d3c12be13a649385ea9b6dd5c75bfe0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008125"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303708"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Création et déploiement d’un service cloud
 Le portail Azure vous permet de créer et de déployer un service cloud de deux manières : *Création rapide* et *Création personnalisée*.
@@ -27,7 +27,7 @@ Le portail Azure vous permet de créer et de déployer un service cloud de deux 
 Cet article explique comment utiliser la méthode Quick Create pour créer un service cloud et comment utiliser ensuite **Upload** pour télécharger et déployer un package de service cloud dans Azure. Si vous utilisez cette méthode, le portail Azure met à votre disposition tous les liens nécessaires pour remplir les conditions requises au fur et à mesure. Si vous êtes prêt à déployer votre service cloud lorsque vous le créez, vous pouvez effectuer ces deux opérations en même temps à l'aide de Création personnalisée.
 
 > [!NOTE]
-> Si vous prévoyez de publier votre service cloud depuis Visual Studio Team Services (VSTS), utilisez Création rapide, puis configurez la publication VSTS dans l’outil de démarrage rapide Azure ou dans le tableau de bord. Pour plus d’informations, consultez la page [Livraison continue sur Azure au moyen de Visual Studio Team Services][TFSTutorialForCloudService] ou **Démarrage rapide**.
+> Si vous prévoyez de publier votre service cloud à partir d’Azure DevOps, utilisez Création rapide, puis configurez la publication d’Azure DevOps à partir du Démarrage rapide Azure ou du tableau de bord. Pour plus d’informations, voir [Livraison continue à Azure à l’aide d’Azure DevOps][TFSTutorialForCloudService] ou l’aide de la page **Démarrage rapide**.
 >
 >
 

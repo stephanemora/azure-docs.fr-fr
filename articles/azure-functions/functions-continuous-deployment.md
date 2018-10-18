@@ -4,26 +4,22 @@ description: Utilisez les fonctionnalités de déploiement continu d’Azure App
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 ms.assetid: 361daf37-598c-4703-8d78-c77dbef91643
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: db10cd957f4dc59f787e2ac625355a96c888356e
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735701"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301546"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Déploiement continu pour Azure Functions
-Azure Functions vous permet de déployer votre Function App facilement à l’aide de l’intégration continue App Service. Functions s’intègre à BitBucket, Dropbox, GitHub et Visual Studio Team Services (VSTS). Cela permet d’activer un workflow dans lequel les mises à jour du code de fonctions sont effectuées à l’aide d’un de ces services intégrés qui déclenchent le déploiement dans Azure. Si vous ne connaissez pas Azure Functions, commencez par consulter l’article [Vue d’ensemble d’Azure Functions](functions-overview.md).
+Azure Functions vous permet de déployer votre Function App facilement à l’aide de l’intégration continue App Service. Functions s’intègre avec BitBucket, Dropbox, GitHub et Azure DevOps. Cela permet d’activer un workflow dans lequel les mises à jour du code de fonctions sont effectuées à l’aide d’un de ces services intégrés qui déclenchent le déploiement dans Azure. Si vous ne connaissez pas Azure Functions, commencez par consulter l’article [Vue d’ensemble d’Azure Functions](functions-overview.md).
 
 Le déploiement continu est une option intéressante pour les projets auxquels plusieurs contributions fréquentes sont intégrées. Il vous permet également de conserver le contrôle de code source sur le code de vos fonctions. Les sources de déploiement actuellement prises en charge sont les suivantes :
 
@@ -33,7 +29,7 @@ Le déploiement continu est une option intéressante pour les projets auxquels p
 * [Référentiel Git local](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps Services](https://www.visualstudio.com/team-services/)
 
 Les déploiements sont configurés au cas par cas, selon les Function Apps. Une fois le déploiement continu activé, l’accès au code de fonction dans le portail est défini sur *lecture seule*.
 
@@ -43,10 +39,10 @@ Avant que vous ne configuriez le déploiement continu, votre source de déploiem
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Pour pouvoir déployer à partir de VSTS, vous devez tout d’abord lier votre compte VSTS avec votre abonnement Azure. Pour plus d’informations, consultez [Configurer la facturation pour votre compte VSTS](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
+Pour pouvoir déployer à partir d’Azure DevOps, vous devez commencer par lier votre organisation Azure DevOps avec votre abonnement Azure. Pour plus d’informations, voir [Configurer la facturation pour votre organisation Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/billing/set-up-billing-for-your-organization-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Configurer un déploiement continu
-Utilisez cette procédure pour configurer le déploiement continu d’une Function App existante. Les étapes suivantes présentent l’intégration avec un référentiel GitHub, mais des étapes similaires s’appliquent à Visual Studio Team Services ou à d’autres services de déploiement.
+Utilisez cette procédure pour configurer le déploiement continu d’une Function App existante. Les étapes suivantes présentent l’intégration avec un référentiel GitHub, mais des étapes similaires s’appliquent à Azure DevOps ou à d’autres services de déploiement.
 
 1. Dans votre Function App, dans le [portail Azure](https://portal.azure.com), cliquez sur **Fonctionnalités de la plate-forme** et **Options de déploiement**. 
    

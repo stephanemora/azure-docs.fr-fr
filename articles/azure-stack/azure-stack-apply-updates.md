@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2017
+ms.date: 09/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: da8261d27ae7fad3c5ff30e4e1cce3f1bca2b70a
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 8e4c86a3c9ff40f23a2a758b450d685b81dabc1a
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035331"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091898"
 ---
 # <a name="apply-updates-in-azure-stack"></a>Effectuer des mises à jour dans Azure Stack
 
@@ -42,7 +42,7 @@ La procédure suivante montre comment importer et installer des mises à jour da
 > [!IMPORTANT]
 > Nous vous recommandons vivement d’informer les utilisateurs de toutes les opérations de maintenance, et de planifier dans la mesure du possible les fenêtres de maintenance ordinaire pendant les heures creuses. Les opérations de maintenance peuvent affecter les opérations du portail et les charges de travail des utilisateurs.
 
-1. Dans le portail d’administration, sélectionnez **Plus de services**. Ensuite, sous la catégorie **Données et stockage**, sélectionnez **Comptes de stockage**. (Ou, dans la zone de filtre, commencez à taper **comptes de stockage** et sélectionnez l’option correspondante.)
+1. Dans le portail d’administration, sélectionnez **Tous les services**. Ensuite, dans la catégorie **DONNÉES ET STOCKAGE**, sélectionnez **Comptes de stockage**. (Ou, dans la zone de filtre, commencez à taper **comptes de stockage** et sélectionnez l’option correspondante.)
 
     ![Indique où trouver les comptes de stockage dans le portail](media/azure-stack-apply-updates/ApplyUpdates1.png)
 
@@ -65,7 +65,7 @@ La procédure suivante montre comment importer et installer des mises à jour da
 6. Sous **Charger l’objet blob**, cliquez sur l’icône de dossier, accédez au fichier .exe de la mise à jour, puis cliquez sur **Ouvrir** dans la fenêtre de l’explorateur de fichiers.
   
 7. Sous **Charger l’objet blob**, cliquez sur **Charger**. 
- 
+  
     ![Indique où charger chaque fichier de package](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
 8. Répétez les étapes 6 et 7 pour les fichiers *PackageName*.bin et Metadata.xml. N’importez pas le fichier Notification supplémentaire.txt s’il est inclus.
@@ -74,6 +74,8 @@ La procédure suivante montre comment importer et installer des mises à jour da
 11. Pour installer la mise à jour, sélectionnez le package marqué comme étant **Prêt**, cliquez dessus avec le bouton droit et sélectionnez **Mettre à jour maintenant** ou cliquez sur l’action **Mettre à jour maintenant** située en haut.
 12. Lorsque vous cliquez sur la mise à jour lors de son installation, son état s’affiche dans la zone **Update run details** (Détails sur la mise à jour en cours). À partir de cet emplacement, vous pouvez également cliquer sur **Télécharger les journaux complets** pour télécharger les fichiers journaux.
 13. Lorsque la mise à jour est terminée, la vignette Mise à jour affiche la version Azure Stack mise à jour.
+
+Après avoir installé des mises à jour sur Azure Stack, vous pouvez les supprimer manuellement du compte de stockage. Périodiquement, Azure Stack vérifie la présence de packages de mise à jour plus anciens et les supprime du stockage. Azure Stack peut prendre deux semaines pour supprimer les anciens packages.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

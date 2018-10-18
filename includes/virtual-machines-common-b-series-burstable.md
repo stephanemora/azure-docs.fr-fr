@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 533fa1a8491a701571011f407b338e04fb6a7e8b
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14feb7ad09a24904034f9ae90cf4a54cf786a44c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40182642"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369131"
 ---
 La famille de machines virtuelles de série B vous permet de choisir la taille de machine virtuelle vous offrant les performances de base nécessaires à votre charge de travail, avec la possibilité d’étendre jusqu’à 100 % les performances d’un processeur virtuel Intel® Broadwell E5-2673 v4 2.3 GHz ou Intel® Haswell 2.4 GHz E5-2673 v3.
 
-Les machines virtuelles de la série B sont idéales pour les charges de travail ne nécessitant pas en permanence les performances complètes du processeur, comme les serveurs web, les petites bases de données et les environnements de test et de développement. Ces charges de travail ont généralement des exigences modulables en termes de performances. La série B vous offre la possibilité d’acheter une taille de machine virtuelle aux performances de base. Ainsi, l’instance de machine virtuelle génère des crédits lorsqu’elle n’utilise pas la totalité de ses performances. Dès que la machine virtuelle a cumulé des crédits, elle peut étendre ses performances en utilisant jusqu’à 100 % du processeur virtuel lorsque l’application requiert des performances de processeur plus élevées.
+Les machines virtuelles de la série B sont idéales pour les charges de travail ne nécessitant pas en permanence les performances complètes du processeur, comme les serveurs web, les preuves de concept, les petites bases de données et les environnements de build pour le développement. Ces charges de travail ont généralement des exigences modulables en termes de performances. La série B vous offre la possibilité d’acheter une taille de machine virtuelle aux performances de base. Ainsi, l’instance de machine virtuelle génère des crédits lorsqu’elle n’utilise pas la totalité de ses performances. Dès que la machine virtuelle a cumulé des crédits, elle peut étendre ses performances en utilisant jusqu’à 100 % du processeur virtuel lorsque l’application requiert des performances de processeur plus élevées.
 
 La série B est disponible dans les six tailles de machines virtuelles suivantes :
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 54c99cc9dde6a9706c75401dd75b98f8f5de7cec
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: ab8750e5824cf9f7635d11a6b2be332b2f9a761c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068068"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302586"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Forum aux questions sur le déploiement de Web Apps dans Azure
 
@@ -39,7 +39,7 @@ Pour plus d’informations, voir [Déploiement de votre application dans Azure A
 
 ## <a name="i-see-an-error-message-when-i-try-to-deploy-from-visual-studio-how-do-i-resolve-this"></a>Un message d’erreur s’affiche quand je tente de déployer à partir de Visual Studio. Comment résoudre ce problème ?
 
-Un message peut indiquer que vous utilisez une ancienne version du Kit de développement logiciel (SDK).  Ce message est le suivant : « Erreur lors du déploiement pour la ressource ’NomDeVotreRessource’ du groupe de ressources ’NomDeVotreGroupeDeRessources’ : InscriptionManquantePourEmplacement : L’abonnement n’est pas inscrit pour le type de ressource « composants » à l’emplacement « Emplacement ». Renouvelez l’inscription pour ce fournisseur afin d’avoir accès à cet emplacement. » 
+Un message peut indiquer que vous utilisez une ancienne version du Kit de développement logiciel (SDK).  Ce message est le suivant : « Erreur lors du déploiement pour la ressource ’NomDeVotreRessource’ du groupe de ressources ’NomDeVotreGroupeDeRessources’ : InscriptionManquantePourEmplacement : L’abonnement n’est pas inscrit pour le type de ressource « composants » à l’emplacement « USA Centre ». Renouvelez l’inscription pour ce fournisseur afin d’avoir accès à cet emplacement. » 
 
 Pour résoudre cette erreur, mettez à niveau vers la [dernière version du Kit de développement logiciel (SDK)](https://azure.microsoft.com/downloads/). Si vous voyez ce message et disposez de la dernière version du Kit de développement logiciel (SDK), envoyez une demande de support.
 
@@ -62,7 +62,7 @@ Si vous voyez ce message, il est probable que vous atteignez un quota de disque 
 
 ## <a name="how-do-i-set-up-continuous-deployment-for-my-app-service-web-app"></a>Comment configurer un déploiement continu pour mon application web App Service ?
 
-Vous pouvez configurer un déploiement continu à partir de plusieurs ressources, dont Visual Studio Team Services, OneDrive, GitHub, Bitbucket, Dropbox et d’autres référentiels Git. Ces options sont disponibles dans le portail. Le didacticiel [Déploiement continu vers App Service](app-service-continuous-deployment.md) explique comment configurer un déploiement continu.
+Vous pouvez configurer un déploiement continu à partir de plusieurs ressources, dont Azure DevOps, OneDrive, GitHub, Bitbucket, Dropbox et d’autres référentiels Git. Ces options sont disponibles dans le portail. Le didacticiel [Déploiement continu vers App Service](app-service-continuous-deployment.md) explique comment configurer un déploiement continu.
 
 ## <a name="how-do-i-troubleshoot-issues-with-continuous-deployment-from-github-and-bitbucket"></a>Comment résoudre les problèmes de déploiement continu à partir de GitHub et de Bitbucket ?
 
@@ -85,9 +85,9 @@ Le démarrage rapide Azure est conçu pour vous aider à déployer votre applica
 
 Pour en savoir plus sur les circonstances dans lesquelles un déploiement d’application peut entraîner un redémarrage, voir [Problèmes de déploiement et d’exécution](https://github.com/projectkudu/kudu/wiki/Deployment-vs-runtime-issues#deployments-and-web-app-restarts"). Comme décrit dans l’article, App Service déploie les fichiers dans le dossier wwwroot. Il ne redémarre jamais directement votre application.
 
-## <a name="how-do-i-integrate-visual-studio-team-services-code-with-app-service"></a>Comment intégrer le code de Visual Studio Team Services avec App Service ?
+## <a name="how-do-i-integrate-azure-devops-code-with-app-service"></a>Comment intégrer le code d’Azure DevOps avec App Service ?
 
-Vous disposez de deux options pour l’utilisation d’un déploiement continu avec Visual Studio Team Services :
+Vous disposez de deux options pour utiliser un déploiement continu avec Azure DevOps :
 
 *   Utiliser un projet Git. Connectez-vous via App Service en utilisant les options de déploiement de ce référentiel.
 *   Utiliser un projet Team Foundation Version Control (TFVC). Déployez à l’aide de l’agent de build pour App Service.
@@ -95,7 +95,7 @@ Vous disposez de deux options pour l’utilisation d’un déploiement continu a
 Le déploiement de code en continu pour ces deux options dépend des flux de travail de développeur et des procédures de vérification existants. Pour plus d’informations, voir les articles suivants : 
 
 *   [Implémenter un déploiement continu de votre application sur un site web Azure](https://www.visualstudio.com/docs/release/examples/azure/azure-web-apps-from-build-and-release-hubs)
-*   [Créer un compte Visual Studio Team Services pour pouvoir déployer vers une application web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
+*   [Configurer une organisation Azure DevOps de façon à ce qu’elle puisse opérer un déploiement vers une application web](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App)
 
 ## <a name="how-do-i-use-ftp-or-ftps-to-deploy-my-app-to-app-service"></a>Comment utiliser FTP ou FTPS pour déployer mon application vers App Service ?
 

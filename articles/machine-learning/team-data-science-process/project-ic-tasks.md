@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: e431d89e5d74f5712f6f109075201c95dc233bd3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f21098381d75a4843e9300beaae687adc6ec107d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838549"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303759"
 ---
 # <a name="individual-contributor-tasks"></a>Tâches du contributeur individuel
 
@@ -34,14 +34,14 @@ Les tâches des contributeurs individuels de projets (scientifiques de données)
 
 Pour obtenir des instructions sur la façon d’exécuter un projet de science des données sous TDSP, consultez [Exécution de projets de science des données](project-execution.md). 
 
->[AZURE.NOTE] À travers les instructions suivantes, nous décrivons les étapes nécessaires à la configuration d’un environnement d’équipe TDSP à l’aide de Visual Studio Team Services (VSTS). Nous indiquons comment accomplir ces tâches avec VSTS, car c’est de cette façon que nous implémentons le processus TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui sera différente.
+>[AZURE.NOTE] Dans les instructions qui suivent, nous décrivons les étapes nécessaires pour configurer un environnement d’équipe TDSP à l’aide d’Azure DevOps. Nous indiquons comment accomplir ces tâches avec Azure DevOps, car c’est de cette façon que nous implémentons le processus TDSP chez Microsoft. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui sera différente.
 
 
 ## <a name="repositories-and-directories"></a>Dépôts et répertoires
 
 Dans ce didacticiel, les noms des dépôts et des répertoires sont abrégés. Cela facilite le suivi des opérations entre les dépôts et les répertoires. Cette notation (**R** pour les dépôts Git et **D** pour les répertoires locaux sur votre instance DSVM) est employée dans les sections suivantes :
 
-- **R2** : le dépôt GroupUtilities sur Git que votre responsable de groupe a configuré sur votre serveur de groupe VSTS.
+- **R2** : le dépôt GroupUtilities sur Git que votre responsable de groupe a configuré sur votre serveur de groupe Azure DevOps.
 - **R4** : le dépôt TeamUtilities sur Git que votre responsable d’équipe a configuré.
 - **R5** : le dépôt du projet sur Git qui a été configuré par votre coordinateur de projet.
 - **D2** : le répertoire local cloné à partir de R2.
@@ -61,7 +61,7 @@ Le deuxième prérequis, le dépôt **TeamUtilities**, est facultatif selon que 
 
 - Git doit être installé sur votre machine. Si vous utilisez une image Data Science Virtual Machine (DSVM), Git a été préinstallé et vous êtes prêt à commencer. Dans le cas contraire, consultez l’[annexe Plateformes et outils](platforms-and-tools.md#appendix).  
 - Si vous utilisez une image **DSVM Windows**, [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) doit être installé sur votre machine. Dans le fichier README.md, accédez à la section **Dowload and Install** (Téléchargement et installation), puis cliquez sur *latest installer* (programme d’installation le plus récent). Vous accédez à la page du programme d’installation le plus récent. Téléchargez le programme d’installation .exe et exécutez-le. 
-- Si vous utilisez une image **DSVM Linux**, créez une clé publique SSH sur votre image DSVM et ajoutez-la à votre serveur VSTS de groupe. Pour plus d’informations sur SSH, consultez la section **Créer une clé publique SSH** de l’[annexe Plateformes et outils](platforms-and-tools.md#appendix). 
+- Si vous utilisez **Linux DSVM**, créez une clé publique SSH sur votre DSVM, et ajoutez-la aux Azure DevOps Services de votre groupe. Pour plus d’informations sur SSH, consultez la section **Créer une clé publique SSH** de l’[annexe Plateformes et outils](platforms-and-tools.md#appendix). 
 - Si le responsable d’équipe ou le coordinateur de projet a créé un stockage de fichiers Azure à monter sur votre image DSVM, vous devez vous procurer des informations sur ce stockage auprès de cette personne. 
 
 ## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Étapes 1-3 : Cloner des dépôts de groupe, d’équipe et de projet sur une machine locale

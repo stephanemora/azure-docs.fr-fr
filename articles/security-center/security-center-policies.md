@@ -3,26 +3,28 @@ title: Définir des stratégies de sécurité dans Azure Security Center | Micro
 description: Cet article est conçu pour vous aider à configurer des stratégies de sécurité dans Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: terrylan
-ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: c68b55beba445b7f5d30efe7155a47e7f6f76690
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756989"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161286"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Définir des stratégies de sécurité dans Azure Security Center
 Cet article est conçu pour vous aider à configurer des stratégies de sécurité dans Security Center.
+
+Pour obtenir des instructions sur la façon de définir des stratégies à l’aide de PowerShell, voir [Démarrage rapide : Créer une attribution de stratégie pour identifier les ressources non conformes à l’aide du module Azure RM PowerShell](../azure-policy/assign-policy-definition-ps.md).
 
 ## <a name="how-security-policies-work"></a>Fonctionnement des stratégies de sécurité
 Security Center crée automatiquement une stratégie de sécurité par défaut, pour chacun de vos abonnements Azure. Dans Security Center, vous pouvez modifier les stratégies et en surveiller la conformité.
@@ -37,13 +39,12 @@ Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos 
 
 1. Connectez-vous au portail Azure.
 
-2. Dans le tableau de bord **Security Center**,sous **Général**, sélectionnez **Stratégie de sécurité**.
+2. Dans le tableau de bord **Security Center**, sous **STRATÉGIE ET CONFORMITÉ**, sélectionnez **Stratégie de sécurité**.
 
 3. Sélectionnez l’abonnement pour lequel vous souhaitez activer une stratégie de sécurité.
 
-4. Dans la section **Composants de la stratégie**, sélectionnez **Stratégie de sécurité**.  
-    Il s’agit de la stratégie par défaut affectée par Security Center. Vous pouvez activer ou désactiver les recommandations de sécurité disponibles.
-
+4. Activez les stratégies de votre choix pour l’abonnement. Vous obtiendrez des suggestions basées sur chaque stratégie sélectionnée. 
+  ![liste des stratégies](./media/security-center-policies/policies.png)
 5. Lorsque vous avez terminé, cliquez sur **Enregistrer**.
 
 ## <a name="available-security-policy-definitions"></a>Définitions de stratégie de sécurité disponibles
