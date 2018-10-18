@@ -6,14 +6,14 @@ keywords: ansible, azure, devops, présentation, approvisionnement du cloud, ges
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
-ms.date: 01/19/2018
+ms.date: 09/02/2018
 ms.topic: article
-ms.openlocfilehash: e710770131c844598762feebe09ba50dc120de0c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 977fef390c0efecd47ec5e19b1a82c05e2ecfd0f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106898"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160743"
 ---
 # <a name="ansible-with-azure"></a>Ansible avec Azure
 
@@ -44,6 +44,10 @@ Via sa fonctionnalité [d’inventaire dynamique](http://docs.ansible.com/ansibl
 
 ## <a name="additional-azure-marketplace-options"></a>Autres options de Place de marché Microsoft Azure
 L’image Place de marché Microsoft Azure [Ansible Tower](https://azuremarketplace.microsoft.com/marketplace/apps/redhat.ansible-tower) par Red Hat aide les organisations à mettre à l’échelle l’automatisation des tâches informatiques et à gérer les déploiements complexes dans les infrastructures physiques, virtuelles et cloud. Ansible Tower comprend des fonctionnalités qui fournissent d’autres niveaux de visibilité, de contrôle, de sécurité et d’efficacité nécessaires aux entreprises d’aujourd’hui. Ansible Tower chiffre les informations d’identification telles que les clés SSH et Azure, afin que vous puissiez déléguer des travaux à des employés moins expérimentés sans prendre le risque d’exposer vos informations d’identification.
+
+## <a name="ansible-module-and-version-matrix-for-azure"></a>Matrice de version et module Ansible pour Azure
+Ansible est fourni avec une série de modules qui peuvent être exécutés directement sur les hôtes distants ou par le biais de playbooks.
+La [matrice de version et module Ansible](./ansible-matrix.md) répertorie les modules Ansible pour Azure qui peuvent approvisionner des ressources cloud Azure telles que des services de machine virtuelle, de mise en réseau et de conteneur. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Installer et configurer Ansible pour gérer des machines virtuelles dans Azure](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fen-us%2Fazure%2Fansible%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)

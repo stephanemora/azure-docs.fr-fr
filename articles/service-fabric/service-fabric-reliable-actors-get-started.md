@@ -1,6 +1,6 @@
 ---
-title: Créer votre premier microservice Azure basé sur acteur en C# | Microsoft Docs
-description: Ce didacticiel vous guide dans les étapes de création, de débogage et de déploiement d’un service simple basé sur acteur à l’aide de Service Fabric Reliable Actors.
+title: Créer un service basé sur un acteur sur Azure Service Fabric | Microsoft Docs
+description: Découvrez comment créer, déboguer et déployer votre premier service basé sur un acteur en C# à l’aide de Service Fabric Reliable Actors.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 32d3fa09c863c47753267e97e7c4730dff869887
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4ff896902c1a92c244c3bcd147c3daeeb9e49c77
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211403"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054748"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Prise en main de Reliable Actors
 > [!div class="op_single_selector"]
@@ -29,7 +29,6 @@ ms.locfileid: "34211403"
 Cet article décrit la création et le débogage d'une simple application Reliable Actors dans Visual Studio. Pour plus d’informations sur Reliable Actors, consultez l’article [Présentation du modèle Reliable Actors de Service Fabric](service-fabric-reliable-actors-introduction.md).
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Avant de commencer, assurez-vous d’avoir configuré l’environnement de développement Service Fabric, y compris Visual Studio, sur votre ordinateur. Pour plus de détails, voir [Configuration de l’environnement de développement](service-fabric-get-started.md).
 

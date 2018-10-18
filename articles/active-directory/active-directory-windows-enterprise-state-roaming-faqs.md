@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 39d3913013d9528405191c5f052a943f1869048a
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630754"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026854"
 ---
 # <a name="settings-and-data-roaming-faq"></a>FAQ sur l’itinérance des paramètres et des données
 Cet article répond à certaines questions que les administrateurs informatiques peuvent se poser sur les paramètres et la synchronisation des données d’application.
@@ -35,12 +35,12 @@ Les **Paramètres Windows** : les paramètres du PC intégrés au système d’e
 * Les *Mots de passe* comprenant les mots de passe Internet, les profils Wi-Fi, etc.
 * Les *Préférences linguistiques* comprenant la disposition du clavier, la langue du système, la date et l’heure, etc.
 * Les *Options d’ergonomie* comprenant les thèmes à contraste élevé, le Narrateur et la Loupe.
-* Les *Autres paramètres Windows* comprenant les paramètres d’invite de commandes et la liste des applications.
+* *Autres paramètres Windows*, tels ceux de la souris.
 
 Les **Données d’application** : les applications Windows universelles peuvent écrire des données de paramètres dans un dossier « roaming » (itinérance), et toutes les données écrites dans ce dossier sont automatiquement synchronisées. Il incombe aux développeurs d’applications de concevoir eux-mêmes une application pour tirer parti de cette fonctionnalité. Pour plus d’informations sur la façon de développer une application Windows universelle qui utilise l’itinérance, consultez [l’API de stockage des données d’application](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) et le [blog des développeurs d’applications Windows 8](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Quel compte est utilisé pour la synchronisation des paramètres ?
-Dans Windows 8 et Windows 8.1, la synchronisation des paramètres a toujours utilisé les comptes Microsoft consommateur. Les utilisateurs de l’entreprise avaient la possibilité de connecter un compte Microsoft à leur compte de domaine Active Directory pour avoir accès à la synchronisation des paramètres. Dans Windows 10, cette fonctionnalité « compte Microsoft connecté » est remplacée par une structure de compte principal et secondaire.
+Dans Windows 8.1, la synchronisation des paramètres a toujours utilisé les comptes Microsoft consommateur. Les utilisateurs de l’entreprise avaient la possibilité de connecter un compte Microsoft à leur compte de domaine Active Directory pour avoir accès à la synchronisation des paramètres. Dans Windows 10, cette fonctionnalité « compte Microsoft connecté » est remplacée par une structure de compte principal et secondaire.
 
 Le compte principal est défini en tant que compte utilisé pour se connecter à Windows. Il peut s’agir d’un compte Microsoft, d’un compte Azure Active Directory (Azure AD), d’un compte Active Directory local ou d’un compte local. En plus du compte principal, les utilisateurs de Windows 10 peuvent ajouter à leur appareil un ou plusieurs comptes cloud. Un compte secondaire est généralement un compte Microsoft, Active Directory, ou un autre compte tel que Gmail ou Facebook. Ces comptes secondaires permettent d’accéder à des services supplémentaires tels que l’authentification unique et le Windows Store, mais ne prennent pas en charge la synchronisation des paramètres.
 
@@ -59,7 +59,7 @@ S’il est impossible d’identifier le propriétaire de l’application, celle-
 >
 
 ## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Comment passer de la synchronisation des paramètres de compte Microsoft dans Windows 8 à la synchronisation des paramètres Azure AD dans Windows 10 ?
-Si vous êtes joint au domaine Active Directory fonctionnant sous Windows 8 ou Windows 8.1 avec un compte Microsoft connecté, vous synchronisez les paramètres via votre compte Microsoft. Après la mise à niveau vers Windows 10, vous continuez à synchroniser les paramètres utilisateur via le compte Microsoft tant que vous êtes un utilisateur joint au domaine  et que le domaine Active Directory ne se connecte pas avec Azure AD.
+Si vous êtes joint au domaine Active Directory fonctionnant sous Windows 8.1 avec un compte Microsoft connecté, vous synchronisez les paramètres via votre compte Microsoft. Après la mise à niveau vers Windows 10, vous continuez à synchroniser les paramètres utilisateur via le compte Microsoft tant que vous êtes un utilisateur joint au domaine  et que le domaine Active Directory ne se connecte pas avec Azure AD.
 
 Si le domaine Active Directory local ne se connecte pas avec Azure AD, votre appareil essaie de synchroniser les paramètres à l’aide du compte Azure AD connecté. Si l’administrateur Azure AD n’active pas Enterprise State Roaming, votre compte Azure AD connecté cessera la synchronisation des paramètres. Si vous êtes un utilisateur Windows 10 et que vous vous connectez avec une identité Azure AD, vous pouvez commencer la synchronisation des paramètres Windows dès que votre administrateur active la synchronisation des paramètres via Azure AD.
 
@@ -94,7 +94,7 @@ Les administrateurs peuvent configurer UE-V pour déplacer simplement les donné
 À l’avenir, il est possible que Microsoft cherche des moyens d’intégrer complètement UE-V à Windows et de l’étendre pour permettre l’itinérance des paramètres via le cloud Azure AD.
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Puis-je stocker localement les paramètres et les données synchronisés ?
-Enterprise State Roaming stocke toutes les données synchronisées dans le cloud Azure. UE-V offre une solution d’itinérance locale.
+Enterprise State Roaming stocke toutes les données synchronisées dans le Microsoft Cloud. UE-V offre une solution d’itinérance locale.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>À qui appartiennent les données en itinérance ?
 Les données en itinérance via Enterprise State Roaming sont détenues par les entreprises. Les données sont stockées dans un centre de données Azure. Toutes les données utilisateur sont chiffrées à l’aide du service Azure Rights Management d’Azure Information Protection lorsqu’elles sont en transit et lorsqu’elles sont au repos dans le cloud. Il s’agit d’une amélioration par rapport à la synchronisation des paramètres de compte Microsoft, qui chiffre seulement certaines données sensibles telles que les informations d’identification utilisateur avant de quitter l’appareil.

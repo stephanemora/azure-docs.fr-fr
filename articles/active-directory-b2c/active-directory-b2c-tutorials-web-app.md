@@ -53,7 +53,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
     
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | Mon exemple d’application web | Entrez un **nom** décrivant votre application aux consommateurs. | 
+    | **Nom** | Mon exemple d’application web | Entrez un **nom** décrivant votre application aux consommateurs. | 
     | **Inclure une application/API web** | Oui | Sélectionnez **Oui** pour une application web. |
     | **Autoriser le flux implicite** | Oui | Sélectionnez **Oui** puisque l’application utilise la [connexion OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de réponse** | `https://localhost:44316` | Les URL de réponse sont des points de terminaison auxquels Azure AD B2C retourne les jetons demandés par votre application. Dans ce didacticiel, l’exemple s’exécute localement (localhost) et écoute sur le port 44316. |
@@ -95,7 +95,7 @@ Pour inscrire des utilisateurs puis les connecter à l’application web, créez
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiUpIn | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **b2c_1_**. Vous utilisez le nom complet de la stratégie **b2c_1_SiUpIn** dans l’exemple de code. | 
+    | **Nom** | SiUpIn | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **b2c_1_**. Vous utilisez le nom complet de la stratégie **b2c_1_SiUpIn** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Inscription par e-mail | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
     | **Attributs de l’inscription** | Nom d’affichage et Code Postal | Sélectionnez les attributs à collecter auprès de l'utilisateur pendant l'inscription. |
     | **Revendications de l’application** | Nom d’affichage, Code Postal, L’utilisateur est nouveau, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token). |
@@ -112,7 +112,7 @@ Pour permettre aux utilisateurs de réinitialiser eux-mêmes les informations de
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiPe | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **b2c_1_**. Vous utilisez le nom complet de la stratégie **b2c_1_SiPe** dans l’exemple de code. | 
+    | **Nom** | SiPe | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **b2c_1_**. Vous utilisez le nom complet de la stratégie **b2c_1_SiPe** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Local Account SignIn | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
     | **Attributs de profil** | Nom d’affichage et Code Postal | Sélectionnez les attributs que les utilisateurs peuvent modifier durant la modification du profil. |
     | **Revendications de l’application** | Nom d’affichage, Code postal, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) après une modification de profil réussie. |
@@ -129,7 +129,7 @@ Pour activer la réinitialisation du mot de passe sur votre application, vous de
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SSPR | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **b2c_1_**. Vous utilisez le nom complet de la stratégie **b2c_1_SSPR** dans l’exemple de code. | 
+    | **Nom** | SSPR | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **b2c_1_**. Vous utilisez le nom complet de la stratégie **b2c_1_SSPR** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Réinitialiser le mot de passe à l’aide d’une adresse e-mail | Il s’agit du fournisseur d’identité utilisé pour identifier l’utilisateur. |
     | **Revendications de l’application** | ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) après une réinitialisation réussie du mot de passe. |
 

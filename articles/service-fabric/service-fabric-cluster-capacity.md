@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617216"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348566"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -51,7 +51,7 @@ Chaque type de nœud est un groupe identique distinct et peut faire l’objet d�
 
 Un cluster Service Fabric peut se composer de plusieurs types de nœuds. Dans ce cas, le cluster se compose d’un type de nœud principal et d’un ou de plusieurs types de nœuds non principaux.
 
-Un type de nœud unique ne peut tout simplement pas dépasser 100 nœuds par groupe de machines virtuelles identiques. Vous devrez peut-être ajouter des groupes de machines virtuelles identiques pour atteindre l’évolutivité ciblée, sachant que la mise à l’échelle automatique ne peut pas ajouter, comme par magie, des groupes de machines virtuelles identiques. L’ajout de groupe de machines virtuelles identiques sur place, dans un cluster activé, est une tâche difficile qui conduit fréquemment les utilisateurs à provisionner de nouveaux clusters avec les types de nœuds appropriés qui ont été provisionnés lors de la création. 
+Un type de nœud unique ne peut pas mettre à l’échelle de façon fiable plus de 100 nœuds par groupe de machines virtuelles identiques pour des applications Service Fabric. Pour atteindre plus de 100 nœuds de façon fiable, vous devez ajouter des groupes de machines virtuelles identiques.
 
 ### <a name="primary-node-type"></a>Type de nœud principal
 

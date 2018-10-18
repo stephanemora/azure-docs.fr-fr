@@ -12,14 +12,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/06/2018
 ms.author: alkohli
-ms.openlocfilehash: 2fdd574adf3587f11984bee2a2549d9bcd0c4c0d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: aaa4e4bb24ca42adb9d283e6286dbef879bcb1ea
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126003"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299846"
 ---
 # <a name="azure-data-box-disk-system-requirements-preview"></a>Configuration système exigée Azure Data Box Disk (Préversion)
 
@@ -35,17 +35,29 @@ La configuration système demandée comprend les plateformes prises en charge po
 
 Voici une liste des systèmes d’exploitation pris en charge pour le déverrouillage de disque et l’opération de copie des données par le biais des clients connectés au disque Data Box.
 
-| **Système d’exploitation/plateforme** | **Versions** |
+| **Système d’exploitation** | **Versions testées** |
 | --- | --- |
 | Windows Server |2008 R2 SP1 <br> 2012 <br> 2012 R2 <br> 2016 |
 | Windows |7, 8, 10 |
-| Windows PowerShell |4.0 |
+|Linux <br> <li> Ubuntu </li><li> Debian </li><li> Red Hat Enterprise Linux (RHEL) </li><li> CentOS| <br>14.04, 16.04, 18.04 <br> 8.11, 9 <br> 7.0 <br> 6.5, 6.9, 7.0, 7.5 |  
+
+## <a name="other-required-software-for-windows-clients"></a>Autres logiciels requis pour les clients Windows
+
+Pour un client Windows, les éléments suivants doivent également être installés.
+
+| **Logiciel**| **Version** |
+| --- | --- |
+| Windows PowerShell |5.0 |
 | .NET Framework |4.5.1 |
-| Windows Management Framework |4.0|
+| Windows Management Framework |5.0|
+| BitLocker| - |
 
-> [!NOTE] 
-> La technologie BitLocker doit être activée sur les clients exécutant l’outil de déverrouillage de disque, et qui sont utilisés pour copier les données.
+## <a name="other-required-software-for-linux-clients"></a>Autres logiciels requis pour les clients Linux
 
+Pour les clients Linux, l’ensemble d’outils Data Box Disk installe les logiciels requis suivants :
+
+- dislocker
+- OpenSSL
 
 ## <a name="supported-storage-accounts"></a>Comptes de stockage pris en charge
 

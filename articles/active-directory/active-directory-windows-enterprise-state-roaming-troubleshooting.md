@@ -18,12 +18,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: a80bec460fffcc7c7170204d541d578428980394
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c7a2428e4e5e3b5af0e9e01514ba433707e6a3c8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223947"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022796"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Résolution des problèmes de paramètres Enterprise State Roaming dans Azure Active Directory
 
@@ -71,7 +71,7 @@ Enterprise State Roaming exige que l’appareil soit inscrit auprès d’Azure A
 **Problème potentiel** : la valeur des champs **WamDefaultSet** et **AzureAdJoined** est « NO », l’appareil était joint au domaine et inscrit auprès d’Azure AD, et l’appareil n’est pas synchronisé. Si ce problème apparaît, il est possible que l’appareil attente l’application de la stratégie ou que l’authentification de l’appareil a échoué lors de la connexion à Azure AD. Il est possible que l’utilisateur doive patienter quelques heures avant que la stratégie ne soit appliquée. D’autres étapes de résolution des problèmes peuvent inclure une nouvelle tentative d’inscription automatique en se déconnectant et en se reconnectant, ou en lançant la tâche dans le Planificateur de tâches. Dans certains cas, l’exécution de «*dsregcmd.exe /leave*» dans une fenêtre d’invite de commandes avec élévation de privilèges, un redémarrage et une nouvelle tentative d’inscription peuvent résoudre ce problème.
 
 
-**Problème potentiel** : le champ **AzureAdSettingsUrl** est vide et l’appareil n’est pas synchronisé. L’utilisateur a peut-être ouvert sa dernière session sur l’appareil avant l’activation d’Enterprise State Roaming dans le portail Azure Active Directory. Redémarrez l’appareil et connectez l’utilisateur. Ou, dans le portail, demandez à l’administrateur informatique d’essayer de désactiver puis de réactiver l’option Les utilisateurs peuvent synchroniser les paramètres et les données d'application de l'entreprise. Une fois l’option réactivée, redémarrez l’appareil et connectez l’utilisateur. Si cela ne résout pas le problème, **AzureAdSettingsUrl** peut être vide si le certificat de l’appareil est erroné. Dans ce cas, l’exécution de «*dsregcmd.exe /leave*» dans une fenêtre d’invite de commandes avec élévation de privilèges, un redémarrage et une nouvelle tentative d’inscription peuvent résoudre ce problème.
+**Problème potentiel** : le champ **SettingsUrl** est vide et l’appareil n’est pas synchronisé. L’utilisateur a peut-être ouvert sa dernière session sur l’appareil avant l’activation d’Enterprise State Roaming dans le portail Azure Active Directory. Redémarrez l’appareil et connectez l’utilisateur. Ou, dans le portail, demandez à l’administrateur informatique d’essayer de désactiver puis de réactiver l’option Les utilisateurs peuvent synchroniser les paramètres et les données d'application de l'entreprise. Une fois l’option réactivée, redémarrez l’appareil et connectez l’utilisateur. Si cela ne résout pas le problème, **SettingsUrl** peut être vide si le certificat de l’appareil est erroné. Dans ce cas, l’exécution de «*dsregcmd.exe /leave*» dans une fenêtre d’invite de commandes avec élévation de privilèges, un redémarrage et une nouvelle tentative d’inscription peuvent résoudre ce problème.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming et authentification multifacteur 
 Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser les données si l’authentification multifacteur Azure (MFA) est configurée. Pour plus d’informations sur ces symptômes, consultez le document de support [KB3193683](https://support.microsoft.com/kb/3193683). 
@@ -81,7 +81,7 @@ Il peut arriver qu’Enterprise State Roaming ne parvienne pas à synchroniser l
 **Problème potentiel** : la synchronisation peut échouer si l’administrateur configure la stratégie d’accès conditionnel Multi-Factor Authentication des services Active Directory Federation Services et le jeton d’accès de l’appareil expire. Veillez à vous connecter et à vous déconnecter en utilisant le code confidentiel Microsoft Passport for Work ou à effectuer une authentification multifacteur lorsque vous accédez à d’autres services Azure comme Office 365.
 
 ### <a name="event-viewer"></a>Observateur d’événements
-Pour une résolution des problèmes avancée, l’Observateur d’événements peut être utilisé pour rechercher des erreurs spécifiques. Celles-ci sont décrites dans le tableau ci-dessous. Vous trouverez les événements sous Observateur d’événements > Journaux des applications et des services > **Microsoft** > **Windows** > **SettingSync** et pour les problèmes liés à l’identité avec la synchronisation **Microsoft** > **Windows** > **AAD**.
+Pour une résolution des problèmes avancée, l’Observateur d’événements peut être utilisé pour rechercher des erreurs spécifiques. Celles-ci sont décrites dans le tableau ci-dessous. Vous trouverez les événements sous Observateur d’événements > Journaux des applications et des services > **Microsoft** > **Windows** > **SettingSync-Azure** et pour les problèmes liés à l’identité avec la synchronisation **Microsoft** > **Windows** > **AAD**.
 
 
 ## <a name="known-issues"></a>Problèmes connus
@@ -174,14 +174,6 @@ Dans l’Observateur d’événements, dans les journaux AAD/Operational, cette 
 
 **Action recommandée**  
 Effectuez les étapes répertoriées dans [KB3196528](https://support.microsoft.com/kb/3196528).  
-
-
-
-## <a name="next-steps"></a>Étapes suivantes
-
-- Utilisez le forum [User Voice](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) pour fournir des commentaires et des suggestions sur la façon d’améliorer Enterprise State Roaming.
-
-- Pour plus d’informations, consultez la [Présentation d’Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md). 
 
 ## <a name="related-topics"></a>Rubriques connexes
 * [Présentation d’Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)

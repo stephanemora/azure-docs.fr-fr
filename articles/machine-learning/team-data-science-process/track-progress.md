@@ -14,24 +14,24 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: e50390a1b6385cabfd0e6b30340634860a062d8d
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 32390b05d2ec258a68ed4f53135399675105a7e9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838940"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302083"
 ---
 # <a name="track-progress-of-data-science-projects"></a>Suivre la progression des projets de science des données
 
-Les responsables de groupe, d’équipe et de projet de science des données doivent suivre l’avancement de leurs projets d’équipe, les tâches qui ont été effectuées et par qui, et les tâches qu’il reste à accomplir. 
+Les responsables de groupe, d’équipe et de projet de science des données doivent suivre l’avancement de leurs projets, les tâches qui ont été effectuées et par qui, et les tâches qu’il reste à accomplir. 
 
-## <a name="vsts-dashboards"></a>Tableaux de bord VSTS
-Si vous utilisez Visual Studio Team Services (VSTS), vous pouvez générer des tableaux de bord pour suivre les activités et les éléments de travail associés à un projet Agile donné. 
+## <a name="azure-devops-dashboards"></a>Tableaux de bord DevOps Azure
+Si vous utilisez Azure DevOps, vous pouvez générer des tableaux de bord pour suivre les activités et les éléments de travail associés à un projet Agile donné. 
 
-Pour plus d’informations sur la création et la personnalisation des tableaux de bord et des widgets sur Visual Studio Team Services, consultez les ensembles d’instructions suivants :
+Pour plus d’informations sur la création et la personnalisation des tableaux de bord et des widgets sur Azure DevOps, consultez les ensembles d’instructions suivants :
 
-- [Ajouter et gérer des tableaux de bord](https://docs.microsoft.com/vsts/report/dashboards/dashboards)
-- [Ajouter des widgets à un tableau de bord](https://docs.microsoft.com/vsts/report/dashboards/add-widget-to-dashboard)
+- [Ajouter et gérer des tableaux de bord](https://docs.microsoft.com/azure/devops/report/dashboards/dashboards)
+- [Ajouter des widgets à un tableau de bord](https://docs.microsoft.com/azure/devops/report/dashboards/add-widget-to-dashboard)
 
 ## <a name="example-dashboard"></a>Exemple de tableau de bord
 
@@ -49,7 +49,7 @@ Les autres panneaux affichent le diagramme de flux cumulé, le burndown et le bu
 
 ![dashboard](./media/track-progress/dashboard.png)
 
-Pour obtenir une description de la génération de ces graphiques, consultez les guides de démarrage rapide et les didacticiels présentés dans [Tableaux de bord](https://docs.microsoft.com/vsts/report/dashboards/).
+Pour obtenir une description de la génération de ces graphiques, consultez les guides de démarrage rapide et les didacticiels présentés dans [Tableaux de bord](https://docs.microsoft.com/azure/devops/report/dashboards/).
  
 ## <a name="next-steps"></a>Étapes suivantes
 

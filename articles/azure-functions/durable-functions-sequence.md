@@ -3,23 +3,19 @@ title: Chaînage de fonctions dans Fonctions durables - Azure
 description: Découvrez comment exécuter un exemple de fonctions durables qui exécute une séquence de fonctions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: a5b337e5318154e299f82b1102ca832303d752f7
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: c84977dacddcf9ccca7fde735ad4acb8a1523fa9
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970052"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378701"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Chaînage de fonctions dans Fonctions durables - Exemple de séquence Hello
 
@@ -108,6 +104,9 @@ Pour exécuter l’orchestration `E1_HelloSequence`, envoyez la requête HTTP PO
 ```
 POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+> [!NOTE]
+> L’extrait de code HTTP précédent suppose qu’il existe une entrée dans le fichier `host.json`, qui supprime le préfixe `api/` par défaut de toutes les URL de fonctions de déclencheur HTTP. Le balisage pour cette configuration figure dans le fichier `host.json` dans les exemples.
 
 Par exemple, si vous exécutez l’exemple dans une application de fonction nommée « myfunctionapp », remplacez « {hôte} » par « myfunctionapp.azurewebsites.net ».
 

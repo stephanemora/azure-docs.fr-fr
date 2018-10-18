@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9a22b14df18e10342bb2a872b82b94ab4ea62d0a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 606b36be4a2bbeff8dd226f41341d60e23f0d988
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859865"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163275"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -42,9 +42,7 @@ Avec Bash dans Cloud Shell, vous pouvez exécuter une commande appelée `clouddr
 #### <a name="prerequisites-for-manual-mounting"></a>Prérequis pour le montage manuel
 Vous pouvez mettre à jour le partage de fichiers qui est associé à Cloud Shell à l’aide de la commande `clouddrive mount`.
 
-Si vous montez un partage de fichiers existant, les comptes de stockage doivent être :
-* Des comptes de stockage localement redondant ou géoredondant pour prendre en charge les partages de fichiers.
-* Situés dans votre région affectée. Lors de l’intégration, la région qui vous est affectée est répertoriée dans le nom de groupe de ressources `cloud-shell-storage-<region>`.
+Si vous montez un partage de fichiers existant, les comptes de stockage doivent se trouver dans la région Cloud Shell de votre choix. Récupérez l’emplacement en exécutant la commande `env` à partir de Bash et en vérifiant `ACC_LOCATION`.
 
 #### <a name="the-clouddrive-mount-command"></a>La commande `clouddrive mount`
 

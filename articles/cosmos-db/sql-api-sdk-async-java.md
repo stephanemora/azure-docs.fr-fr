@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 08/16/2018
+ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 9852edfca26e78ad1b373418970dfe9c7ab477d8
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e90c5640e571aaf28e184e9439f6228e3a5bbc6b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144827"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023560"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Async Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -52,6 +52,13 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
+* Ajout de la prise en charge de Proxy.
+* Ajout de la prise en charge de l’autorisation de jeton de ressource.
+* Correction d’un bogue dans la gestion des clés de partition volumineuse ([github #63](https://github.com/Azure/azure-cosmosdb-java/issues/63)).
+* Amélioration de la documentation.
+* Kit de développement logiciel (SDK) restructuré en modules plus petits.
 
 ### <a name="a-name201201"></a><a name="2.0.1"/>2.0.1
 * Correction d’un bogue pour les paramètres régionaux non anglais ([github n° 51](https://github.com/Azure/azure-cosmosdb-java/issues/51)).
@@ -103,6 +110,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.1.0](#2.1.0) |5 septembre 2018|--- |
 | [2.0.1](#2.0.1) |16 août 2018|--- |
 | [2.0.0](#2.0.0) |20 juin 2018|--- |
 | [1.0.2](#1.0.2) |18 mai 2018|--- |

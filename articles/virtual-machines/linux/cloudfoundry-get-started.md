@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972289"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302467"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry sur Azure
 
@@ -60,9 +60,9 @@ Si vous utilisez Pivotal Cloud Foundry, le Service Broker est également [dispon
 
 ## <a name="related-resources"></a>Ressources associées
 
-### <a name="visual-studio-team-services-plugin"></a>Plug-in Visual Studio Team Services
+### <a name="azure-devops-services-plugin"></a>Plug-in Azure DevOps Services
 
-Cloud Foundry convient idéalement au développement agile de logiciels et permet notamment de recourir à l’intégration continue et à la livraison continue. Si vous utilisez Visual Studio Team Services (VSTS) pour gérer vos projets et souhaitez configurer un pipeline avec intégration continue/livraison continue ciblant Cloud Foundry, vous pouvez utiliser [l’extension de build Cloud Foundry pour VSTS](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). Le plug-in simplifie la configuration et l’automatisation des déploiements sur Cloud Foundry, que l’exécution s’effectue dans Azure ou dans un autre environnement.
+Cloud Foundry convient idéalement au développement agile de logiciels et permet notamment de recourir à l’intégration continue et à la livraison continue. Si vous utilisez Azure DevOps Services pour gérer vos projets et souhaitez configurer un pipeline avec intégration continue/livraison continue ciblant Cloud Foundry, vous pouvez utiliser l’[extension de build Cloud Foundry pour Azure DevOps Services](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). Le plug-in simplifie la configuration et l’automatisation des déploiements sur Cloud Foundry, que l’exécution s’effectue dans Azure ou dans un autre environnement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

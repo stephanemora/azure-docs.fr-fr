@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 456f27b97ee644aef34f9bb9e2c0525bd61c1c84
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41946554"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161763"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Utiliser les modèles Azure Resource Manager dans Azure Stack
 
@@ -30,11 +30,11 @@ Vous pouvez utiliser les modèles Azure Resource Manager pour déployer et provi
 
 Ces modèles peuvent être déployés à l’aide du portail Microsoft Azure Stack, de PowerShell, de l’interface de ligne de commande et de Visual Studio.
 
-Les modèles de démarrage rapide suivants sont disponibles sur [GitHub](http://aka.ms/azurestackgithub).
+Les modèles de démarrage rapide suivants sont disponibles sur [GitHub](http://aka.ms/azurestackgithub) :
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Déployer SharePoint Server (déploiement sans haute disponibilité)
 
-Utilisez l’extension DSC PowerShell pour créer une batterie de serveurs SharePoint Server 2013 comprenant les ressources suivantes :
+Utilisez l’extension DSC PowerShell pour [créer une batterie de serveurs SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha) comprenant les ressources suivantes :
 
 * Un réseau virtuel
 * Trois comptes de stockage
@@ -45,7 +45,7 @@ Utilisez l’extension DSC PowerShell pour créer une batterie de serveurs Share
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>Déployer AD (déploiement sans haute disponibilité)
 
-Utilisez l’extension PowerShell DSC pour créer un serveur de contrôleurs de domaine AD comprenant les ressources suivantes :
+Utilisez l’extension PowerShell DSC pour [créer un serveur de contrôleurs de domaine AD](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha) comprenant les ressources suivantes :
 
 * Un réseau virtuel
 * Un compte de stockage
@@ -54,7 +54,7 @@ Utilisez l’extension PowerShell DSC pour créer un serveur de contrôleurs de
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>Déployer AD/SQL (déploiement sans haute disponibilité)
 
-Utilisez l’extension PowerShell DSC pour créer un serveur autonome SQL Server 2014 comprenant les ressources suivantes :
+Utilisez l’extension PowerShell DSC pour [créer un serveur autonome SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha) comprenant les ressources suivantes :
 
 * Un réseau virtuel
 * deux comptes de stockage ;
@@ -68,15 +68,15 @@ Utilisez l’extension PowerShell DSC pour configurer un gestionnaire local de 
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>Création d’une machine virtuelle à partir d’une image utilisateur
 
-Créez une machine virtuelle à partir d’une image utilisateur personnalisée. Ce modèle déploie également un réseau virtuel (avec DNS), une adresse IP publique et une interface réseau.
+[Créez une machine virtuelle à partir d’une image utilisateur personnalisée](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image). Ce modèle déploie également un réseau virtuel (avec DNS), une adresse IP publique et une interface réseau.
 
 ## <a name="basic-virtual-machine"></a>Machine virtuelle classique
 
-Déployez une machine virtuelle Windows comprenant un réseau virtuel (avec DNS), une adresse IP publique et une interface réseau.
+[Déployez une machine virtuelle Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm) comprenant un réseau virtuel (avec DNS), une adresse IP publique et une interface réseau.
 
 ## <a name="cancel-a-running-template-deployment"></a>Annuler le déploiement d’un modèle en cours d’exécution
 
-Pour annuler le déploiement d’un modèle en cours d’exécution, utilisez la cmdlet PowerShell `Stop-AzureRmResourceGroupDeployment`.
+Pour annuler le déploiement d’un modèle en cours d’exécution, utilisez la cmdlet PowerShell [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
