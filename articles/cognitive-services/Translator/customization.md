@@ -1,31 +1,34 @@
 ---
-title: Personnalisation de la traduction de l’API de traduction de texte Translator Text | Microsoft Docs
+title: Personnalisation de la traduction de l’API de traduction de texte Translator Text
+titlesuffix: Azure Cognitive Services
 description: Utilisez Microsoft Translator Hub pour générer votre propre système de traduction automatique à l’aide de la terminologie et du style de votre choix.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: article
 ms.date: 05/10/2018
 ms.author: v-jansko
-ms.openlocfilehash: 1db22a414c41f338c4e7fd6ce9dc7ac739fa9237
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d71158bc74ffe15f133cc637371ddc840ef9df9e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370232"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124326"
 ---
 # <a name="customize-your-text-translations"></a>Personnaliser vos traductions de texte
 
-La préversion de Microsoft Custom Translator est la fonctionnalité du service Microsoft Translator, qui permet aux utilisateurs de personnaliser la traduction automatique neuronale avancée de Microsoft Translator lors de la traduction du texte à l’aide de l’API de traduction de texte Translator Text (version 3 uniquement). 
+La préversion de Microsoft Custom Translator est une fonctionnalité du service Microsoft Translator, qui permet aux utilisateurs de personnaliser la traduction automatique neuronale avancée de Microsoft Translator lors de la traduction de texte à l’aide de l’API de traduction de texte Translator Text (version 3 uniquement). 
 
-Cette fonctionnalité peut également être utilisée pour personnaliser la traduction vocale lorsqu’elle est utilisée avec la [préversion Cognitive Services Speech](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/).
+Cette fonctionnalité peut également être utilisée pour personnaliser la traduction vocale lorsqu’elle est utilisée avec la [préversion Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
 
 ## <a name="custom-translator"></a>Custom Translator
+
 Avec Custom Translator, vous pouvez générer des systèmes de traduction neuronaux qui comprennent la terminologie utilisée dans votre entreprise et secteur. Le système de traduction personnalisé s’intègre aux applications, sites web et flux de travail existants. 
 
-### <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
+### <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
+
 Utilisez vos documents traduits précédemment (dépliants, pages web, documentation, etc.) pour générer un système de traduction qui reflète la terminologie et le style propres à un domaine, plutôt qu’un système de traduction générique. Les utilisateurs peuvent charger des documents TMX, XLIFF, TXT, DOCX et XLSX.  
 
 Le système accepte également des données parallèles au niveau du document, mais pas encore alignées au niveau de la phrase. Si les utilisateurs ont accès à des versions du même contenu dans plusieurs langues, mais dans des documents distincts, Custom Translator est capable de faire correspondre automatiquement les phrases dans les documents.  Le système peut utiliser également des données unilingues dans une ou les deux langages pour compléter les données d’apprentissage parallèles et améliorer les traductions. 
@@ -47,10 +50,10 @@ L’ancien hub Microsoft Translator peut être utilisé pour obtenir une traduct
 |:-----|:----:|:----:|
 |État de la fonctionnalité de personnalisation   | Disponibilité générale  | VERSION PRÉLIMINAIRE |
 | Version de l'API de texte  | V2 uniquement   | V3 uniquement |
-| Personnalisation TA statistique | OUI   | Non  | 
-| Personnalisation TA neuronale | Non     | OUI |
-| Nouvelle personnalisation unifiée des services vocaux | Non     | OUI | 
-| [Sans trace](http://www.aka.ms/notrace) | OUI   | OUI | 
+| Personnalisation TA statistique | Oui   | Non  | 
+| Personnalisation TA neuronale | Non     | Oui |
+| Nouvelle personnalisation unifiée des services vocaux | Non     | Oui | 
+| [Sans trace](http://www.aka.ms/notrace) | Oui   | Oui | 
 
 ## <a name="collaborative-translations-framework"></a>Infrastructure de traductions collaboratives
 
@@ -60,5 +63,6 @@ L’ancien hub Microsoft Translator peut être utilisé pour obtenir une traduct
 >Une fonctionnalité similaire est disponible dans l’API du hub Translator. Voir [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger). 
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 > [!div class="nextstepaction"]
 > [Configurer un système de langue personnalisé à l’aide de Custom Translator](http://aka.ms/CustomTranslatorDocs)

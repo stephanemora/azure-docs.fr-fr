@@ -1,23 +1,26 @@
 ---
-title: Interface d’API web dans l’API Service d’exploration des connaissances | Microsoft Docs
-description: Utilisez l’interface d’API web pour créer une expérience de recherche sémantique enrichie dans l’API Service d’exploration des connaissances (KES) dans Cognitive Services.
+title: Interface d’API web - API du service d’exploration des connaissances
+titlesuffix: Azure Cognitive Services
+description: Utilisez l’interface d’API web pour créer une expérience de recherche sémantique enrichie dans l’API Service d’exploration des connaissances (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 16c5680eb4f249a5d37e6b90eea92cfff7090eef
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5be39e8dce6aeeef32d20273c56650620d6fe986
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367952"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122023"
 ---
 # <a name="web-api-interface"></a>Interface d’API web
+
 Les fichiers de modèle générés par le Service d’exploration des connaissances peuvent être hébergés et sont accessibles via un ensemble d’API web.  Les API peuvent être hébergées sur l’ordinateur local à l’aide de la commande [`host_service`](CommandLine.md#host_service-command), ou peuvent être déployées sur un service cloud Azure à l’aide de la commande [`deploy_service`](CommandLine.md#deploy_service-command).  Ces deux techniques exposent les points de terminaison d’API suivants :
+
 * [*interpret*](interpretMethod.md) : interprète une chaîne de requête en langage naturel. Retourne des interprétations annotées pour activer des expériences enrichies de saisie semi-automatique dans les zones de recherche qui anticipent la saisie utilisateur.
 * [*evaluate*](evaluateMethod.md) : évalue et retourne le résultat d’une expression de requête structurée.
 * [*calchistogram*](calchistogramMethod.md) : calcule un histogramme de valeurs d’attribut pour les objets retournés par une expression de requête structurée.
@@ -30,4 +33,4 @@ Dans un domaine de publications académiques, si un utilisateur tape la chaîne 
 
 Pour ce domaine, la méthode *evaluate* peut être utilisée pour récupérer un ensemble de publications correspondantes dans l’index académique, et la méthode *calchistogram* peut être utilisée pour calculer la distribution des valeurs d’attribut pour les publications correspondantes, qui peuvent être utilisées pour filtrer et affiner davantage les résultats de recherche.
 
-Notez que pour améliorer la lisibilité des exemples, les appels d’API REST contiennent des caractères (tels que des espaces) qui n’ont pas été codés URL. Votre code doit appliquer les encodages appropriés des URL.
+Notez que pour améliorer la lisibilité des exemples, les appels d’API REST contiennent des caractères (tels que des espaces) qui n’ont pas été codés URL. Votre code doit appliquer les codages URL appropriés.

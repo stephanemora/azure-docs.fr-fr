@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: b261ec5fb0ad437202df1a8fd8683a095cb1bb96
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 03280f87b4b49b3e42091c6b1572a7f050afb336
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42140450"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983141"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Vue d’ensemble des instantanés de partage pour Azure Files 
 Azure Files vous permet de prendre des instantanés de partages de fichiers. Les instantanés de partage capturent l’état d’un partage à ce point dans le temps. Dans cet article, nous décrivons les fonctionnalités fournies par les instantanés de partage et comment vous pouvez en tirer parti dans votre propre cas d’usage.
@@ -32,7 +32,7 @@ Après avoir créé un partage de fichiers, vous pouvez régulièrement créer u
 ## <a name="capabilities"></a>Fonctionnalités
 Un instantané de partage est une copie en lecture seule de vos données à un point dans le temps. Vous pouvez créer, supprimer et gérer les instantanés à l’aide de l’API REST. Les mêmes fonctionnalités sont disponibles dans la bibliothèque cliente, l’interface de ligne de commande Azure (Azure CLI) et le portail Azure. 
 
-Vous pouvez afficher les instantanés d’un partage à l’aide de l’API REST et de SMB. Vous pouvez récupérer la liste des versions d’un répertoire ou d’un fichier, ainsi que monter une version spécifique directement en tant que lecteur. 
+Vous pouvez afficher les instantanés d’un partage à l’aide de l’API REST et de SMB. Vous pouvez récupérer la liste des versions d’un répertoire ou d’un fichier, ainsi que monter une version spécifique directement en tant que lecteur (disponible uniquement sur Windows - voir [Limites](#limits)). 
 
 Une fois créé, un instantané de partage peut être lu, copié ou supprimé, mais pas modifié. Vous ne pouvez pas copier un instantané de partage entier vers un autre compte de stockage. Vous devez effectuer cette opération fichier par fichier à l’aide d’AzCopy ou d’autres mécanismes de copie.
 
@@ -62,6 +62,8 @@ Les instantanés ne sont pas décomptés de votre limite de partage 5 To. L’es
 Le nombre maximal d’instantanés de partage autorisé par Azure Files s’élève aujourd’hui à 200. Au-delà de 200 instantanés de partage, vous devez supprimer les anciens instantanés pour en créer d’autres. 
 
 Les appels simultanés de création d’instantanés de partage ne sont pas limités. La quantité d’espace utilisable par les instantanés d’un partage de fichiers particulier n’est pas limitée. 
+
+Aujourd’hui, il n’est pas possible de monter des instantanés de partage sur Linux. En effet, le client SMB Linux ne prend pas en charge les instantanés de montage comme Windows.
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Copie des données vers un partage à partir d’un instantané de partage
 Les opérations de copie qui impliquent des fichiers et des instantanés de partage obéissent aux règles suivantes :

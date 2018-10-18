@@ -7,12 +7,12 @@ ms.date: 06/24/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 571aa5a080ae4622a23fdb20d712327d4ec6fbf9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 5eb0ba659961d809d0ae471034b03263f87e3894
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141494"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985496"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Bonnes pratiques en matière de configuration d’appareil dans une solution IoT
 
@@ -55,7 +55,7 @@ Voici les bonnes pratiques pour les fabricants de matériel et les intégrateurs
 
 Voici les bonnes pratiques pour les développeurs de solutions IoT qui génèrent des systèmes basés sur Azure :
 
-* **Implémenter des [jumeaux d’appareil](iot-hub-devguide-device-twins.md) :** Les jumeaux d’appareil permettent la synchronisation de la configuration souhaitée à partir du cloud, ainsi que le signalement des propriétés de l’appareil et de la configuration actuelle. La meilleure façon d’implémenter des jumeaux d’appareil dans les applications de solutions cloud consiste à utiliser les [SDK Azure IoT](https://github.com/Azure/azure-iot-sdks.). Les jumeaux d’appareil sont mieux adaptés à la configuration, car ils :
+* **Implémenter des [jumeaux d’appareil](iot-hub-devguide-device-twins.md) :** Les jumeaux d’appareil permettent la synchronisation de la configuration souhaitée à partir du cloud, ainsi que le signalement des propriétés de l’appareil et de la configuration actuelle. La meilleure façon d’implémenter des jumeaux d’appareil dans les applications de solutions cloud consiste à utiliser les [kits de développement logiciel (SDK) Azure IoT](https://github.com/Azure/azure-iot-sdks). Les jumeaux d’appareil sont mieux adaptés à la configuration, car ils :
 
     * Prennent en charge la communication bidirectionnelle
     * Autorisent à la fois les états d’appareils connectés et déconnectés 

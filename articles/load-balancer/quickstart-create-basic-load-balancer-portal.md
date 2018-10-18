@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 49fa4cf9b24c432b0956f930a1429e1cdf827f1b
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34304876"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378429"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Démarrage rapide : créer un équilibreur de charge de base public à l’aide du portail Azure
 
@@ -36,7 +36,7 @@ Pour toutes les tâches de ce guide de démarrage rapide, connectez-vous au [por
 
 ## <a name="create-a-basic-load-balancer"></a>Créer un équilibreur de charge de base
 
-Dans cette section, vous créez un équilibreur de charge de base public à l’aide du portail. L’adresse IP publique est automatiquement configurée comme serveur frontal de l’équilibreur de charge lorsque vous créez l’adresse IP publique et la ressource de l’équilibreur de charge à l’aide du portail. Le nom du serveur frontal est **LoadBalancerFrontend**.
+Dans cette section, vous créez un équilibreur de charge de base public à l’aide du portail. L’adresse IP publique est automatiquement configurée comme serveur frontal de l’équilibreur de charge lorsque vous créez l’adresse IP publique et la ressource de l’équilibreur de charge à l’aide du portail. Le nom du serveur frontal est **myLoadBalancer**.
 
 1. En haut à gauche du portail, sélectionnez **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
 2. Dans le volet **Create load balancer** (Créer un équilibreur de charge), entrez les valeurs suivantes :
@@ -162,7 +162,7 @@ Pour permettre à l’équilibreur de charge de surveiller l’état de votre ap
    - **15** pour **Intervalle**, le nombre de secondes entre les tentatives de la sonde
    - **2** pour **Unhealthy threshold** (Seuil de défaillance), le nombre d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante
 
-   ![Ajout d'une sonde](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)
+   ![Ajout d’une sonde](./media/load-balancer-get-started-internet-portal/4-load-balancer-probes.png)
 
 ### <a name="create-a-load-balancer-rule"></a>Créer une règle d’équilibreur de charge
 
@@ -189,7 +189,7 @@ Créez une règle d’équilibreur de charge nommée **myLoadBalancerRuleWeb** p
 
    ![Serveur web IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
-## <a name="clean-up-resources"></a>Supprimer des ressources
+## <a name="clean-up-resources"></a>Supprimer les ressources
 
 Vous pouvez supprimer le groupe de ressources, l’équilibreur de charge et toutes les ressources associées lorsque vous n’en avez plus besoin. Sélectionnez le groupe de ressources qui contient l’équilibreur de charge, puis sélectionnez **Supprimer**.
 

@@ -1,6 +1,6 @@
 ---
-title: Configurer l’environnement PowerShell d’Azure Stack | Microsoft Docs
-description: Découvrez comment configurer l’environnement PowerShell d’Azure Stack.
+title: Connexion à Azure Stack en tant qu’opérateur à l’aide de PowerShell | Microsoft Docs
+description: Apprenez à vous connecter à Azure Stack en tant qu’opérateur à l’aide de PowerShell
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,17 +11,17 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 09/17/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 74a5a9408a78dd0da12fb3f8ed721774030cc438
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: aa86b44364ee84a9640fe0b39b6279982f5594ad
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749859"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982523"
 ---
-# <a name="configure-the-azure-stack-powershell-environment"></a>Configurez l’environnement PowerShell d’Azure Stack
+# <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Connectez-vous à Azure Stack en tant qu’opérateur à l’aide de PowerShell
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
@@ -44,8 +44,7 @@ Configurez l’environnement de l’opérateur Azure Stack avec PowerShell. Exé
     $ArmEndpoint = "<Admin Resource Manager endpoint for your environment>"
 
     # Register an AzureRM environment that targets your Azure Stack instance
-    Add-AzureRMEnvironment `
-        -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
+    Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
 
     # After signing in to your environment, Azure Stack cmdlets
     # can be easily targeted at your Azure Stack instance.

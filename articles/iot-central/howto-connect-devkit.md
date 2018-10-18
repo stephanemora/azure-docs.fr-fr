@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ea9ff8f93ede3b9ec5e7eed83c6049b0c23de7e8
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 94de5566db2395a3daf24c99a43cca6853e12cce
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205457"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736969"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -43,26 +43,34 @@ Pour plus d’informations sur la configuration, consultez [Détails du modèle 
 
 ## <a name="add-a-real-device"></a>Ajouter un appareil réel
 
-Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil **MXChip** et notez la chaîne de connexion de l’appareil. Pour plus d’informations, consultez [Ajouter un appareil réel à votre application Azure IoT Central](tutorial-add-device.md).
+Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du modèle d’appareil **MXChip** et notez les informations de connexion de l’appareil (**ID d’étendue, ID d’appareil, et Clé primaire**).
+
+1. Ajoutez un **appareil réel** à partir de Device Explorer, cliquez sur **+ Nouveau > Réel** pour ajouter un appareil réel.
+    * Entrez l’ID d’appareil **<span style="color:Red">(doit être en minuscules)</span>** ou utilisez l’ID d’appareil suggéré.
+    * Entrez le nom de l’appareil ou utilisez le nom suggéré
+    
+    ![Ajout d’un appareil](media\concepts-connectivity\add-device.png)
+
+
+1. Obtenez des informations de connexion telles que **l’ID d’étendue, l’ID de l’appareil et la clé primaire** pour l’appareil ajouté en cliquant sur **Connecter** sur la page de l’appareil.
+ 
+    ![Informations de connexion](media\concepts-connectivity\device-connect.PNG)
+
+3. Veillez à enregistrer ces informations, car vous serez momentanément déconnecté d’internet quand vous préparerez l’appareil DevKit. 
+
 
 ### <a name="prepare-the-devkit-device"></a>Préparer l’appareil DevKit
 
 > [!NOTE]
 > Si vous avez précédemment utilisé l’appareil et que vous avez des informations d’identification Wi-Fi stockées, et si vous voulez reconfigurer l’appareil de façon à utiliser un autre réseau Wi-Fi, une autre chaîne de connexion ou une autre mesure de télémétrie, appuyez simultanément sur les boutons **A** et **B** de la carte. Si cela ne fonctionne pas, appuyez sur le bouton de **réinitialisation**, puis réessayez.
 
-#### <a name="before-you-start-configuring-the-device"></a>Avant de commencer la configuration de l’appareil :
-1. Dans vos **Exemples de Devkits** IoT Central, accédez à `Device Explorer`-> `select MXChip Template` -> `Click on +New and choose **Real** Device` -> `Connect this device` (en haut à droite) 
-2. Copiez la chaîne de connexion principale.
-3. Veillez à enregistrer la chaîne de connexion, car vous serez momentanément déconnecté d’internet quand vous préparerez l’appareil DevKit. 
 
 
 #### <a name="to-prepare-the-devkit-device"></a>Pour préparer l’appareil DevKit :
 
 
-1. Téléchargez la dernière version du microprogramme Azure IoT Central prédéfini pour MXChip à partir de la page [Releases](https://github.com/Azure/iot-central-firmware/releases) de GitHub. Voici comment se présente le nom du fichier de téléchargement dans la page Releases : `AZ3166-IoT-Central-X.X.X.bin`.
-
+1. Téléchargez la dernière version du microprogramme Azure IoT Central prédéfini pour MXChip à partir de la page [Releases](http://aka.ms/iotcentral-docs-MXChip-releases) de GitHub.
 1. Connectez l’appareil DevKit à votre machine de développement à l’aide d’un câble USB. Dans Windows, une fenêtre Explorateur de fichiers s’ouvre sur un lecteur mappé au stockage de l’appareil DevKit. Par exemple, le lecteur peut s’appeler **AZ3166 (d)**.
-
 1. Faites glisser le fichier **iotCentral.bin** jusqu’à la fenêtre du lecteur. Une fois la copie effectuée, l’appareil redémarre avec le nouveau microprogramme.
 
 1. Pendant le redémarrage de l’appareil DevKit, voici l’écran que vous obtenez :
@@ -75,7 +83,7 @@ Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du
     ```
 
     > [!NOTE]
-    > Si l’écran affiche autre chose, appuyez simultanément sur les boutons **A** et **B** de l’appareil afin de le redémarrer. 
+    > Si l’écran affiche autre chose, réinitialisez l’appareil et appuyez simultanément sur les boutons **A** et **B** de l’appareil afin de le redémarrer. 
 
 1. L’appareil est maintenant en mode AP (point d’accès). Vous pouvez vous connecter à ce point d’accès Wi-Fi à partir de votre ordinateur ou appareil mobile.
 
@@ -89,7 +97,7 @@ Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du
     - ajoutez le nom de votre réseau Wi-Fi 
     - le mot de passe de votre réseau Wi-Fi
     - le code PIN (PIN CODE) indiqué sur l’écran de l’appareil 
-    - la chaîne de connexion de votre appareil (vous devriez déjà l’avoir enregistrée). Elle est accessible à `https://apps.iotcentral.com`->`Device Explorer`->`Device`->`Select or Create a new Real Device`->`Connect this device` (en haut à droite)
+    - les informations de connexion **ID d’étendue, ID d’appareil, et Clé primaire** de votre appareil (vous devez déjà les avoir enregistrées en suivant les étapes)      
     - Sélectionnez toutes les mesures de télémétrie disponibles. 
 
 1. Après avoir choisi **Configurer l’appareil**, cette page apparaît :
@@ -99,7 +107,6 @@ Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du
 1. Appuyez sur le bouton de **réinitialisation** de votre appareil.
 
 
-
 ## <a name="view-the-telemetry"></a>Afficher les données de télémétrie
 
 Pendant le redémarrage de l’appareil DevKit, l’écran de l’appareil affiche les informations suivantes :
@@ -107,6 +114,9 @@ Pendant le redémarrage de l’appareil DevKit, l’écran de l’appareil affic
 * Nombre de messages de télémétrie envoyés.
 * Nombre d’échecs.
 * Nombre de propriétés souhaitées reçues et nombre de propriétés signalés envoyées.
+
+> [!NOTE]
+> Si l’appareil semble être en boucle lors de la connexion, vérifiez si l’appareil est *bloqué* dans IoT Central, et *Débloquez* l’appareil pour qu’il se connecte à l’application.
 
 Le fait de secouer l’appareil a pour effet d’augmenter le nombre de propriétés signalées envoyées. L’appareil envoie un nombre aléatoire pour la propriété de l’appareil **Numéro gravé**.
 

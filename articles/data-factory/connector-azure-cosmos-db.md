@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: db2f3086da41e990e6f87d8086d6e8defa447532
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600334"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543434"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Copier des données depuis/vers Azure Cosmos DB à l’aide d’Azure Data Factory
 
@@ -34,10 +34,14 @@ Vous pouvez copier des données d’Azure Cosmos DB vers toute banque de donnée
 
 Plus précisément, ce connecteur Azure Cosmos DB prend en charge ce qui suit :
 
-- [API SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction) Cosmos DB.
+- la copie de données depuis/vers l’[API SQL](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction) Cosmos DB ;
+- l’écriture dans Cosmos DB en tant qu’INSERT ou UPSERT ;
 - Importation/exportation de documents JSON en l'état, ou copie de données depuis/vers un jeu de données tabulaire, par exemple, une base de données SQL, des fichiers CSV, etc. Pour copier des documents en l’état à partir/à destination de fichiers JSON ou d’une autre collection Cosmos DB, voir [Importer/Exporter des documents JSON](#importexport-json-documents).
 
 Data Factory s’intègre à la [bibliothèque d’exécuteur en bloc Cosmos DB](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) pour fournir les meilleures performances d’écriture dans Cosmos DB.
+
+>[!TIP]
+>Regardez [cette vidéo](https://youtu.be/5-SRNiC_qOU) qui présente la copie de données à partir d’Azure Blob Storage vers Cosmos DB et décrit des considérations de réglage des performances pour l’ingestion générale des données dans Cosmos DB.
 
 ## <a name="getting-started"></a>Prise en main
 

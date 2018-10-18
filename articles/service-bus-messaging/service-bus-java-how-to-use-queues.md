@@ -11,23 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/13/2018
 ms.author: spelluru
-ms.openlocfilehash: e4099c8228e9434276242a3c49ebcb4fc2e995b2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 804e0dd4b510b40c1ebbc5790308a429c2715724
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696463"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573312"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Utilisation des files d’attente Service Bus avec Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 Cet article décrit l’utilisation des files d’attente Service Bus. Les exemples sont écrits en Java et utilisent le [Kit de développement logiciel (SDK) Azure pour Java][Azure SDK for Java]. Les scénarios couverts dans ce guide sont les suivants : **création de files d’attente**, **envoi et réception de messages** et **suppression de files d’attente**.
 
+> [!NOTE]
+> Vous trouverez des exemples Java sur GitHub dans le [référentiel azure-service-bus](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
+
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+## <a name="create-a-service-bus-namespace"></a>Création d’un espace de noms Service Bus
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
+## <a name="create-a-service-bus-queue"></a>Créer une file d’attente Service Bus
+[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Configuration de votre application pour l’utilisation de Service Bus
 Vérifiez que vous avez installé le [Kit de développement logiciel (SDK) Azure pour Java][Azure SDK for Java] avant de créer cet exemple. Si vous utilisez Eclipse, vous pouvez installer le [Kit de ressources Azure pour Eclipse][Azure Toolkit for Eclipse] qui inclut le Kit de développement logiciel (SDK) Azure pour Java. Vous pouvez ensuite ajouter les **bibliothèques Microsoft Azure pour Java** à votre projet :
@@ -38,83 +45,72 @@ Ajoutez les instructions `import` suivantes au début du fichier Java :
 
 ```java
 // Include the following imports to use Service Bus APIs
-import com.microsoft.windowsazure.services.servicebus.*;
-import com.microsoft.windowsazure.services.servicebus.models.*;
-import com.microsoft.windowsazure.core.*;
-import javax.xml.datatype.*;
+import com.google.gson.reflect.TypeToken;
+import com.microsoft.azure.servicebus.*;
+import com.microsoft.azure.servicebus.primitives.ConnectionStringBuilder;
+import com.google.gson.Gson;
+
+import static java.nio.charset.StandardCharsets.*;
+
+import java.time.Duration;
+import java.util.*;
+import java.util.concurrent.*;
+
+import org.apache.commons.cli.*;
+
 ```
-
-## <a name="create-a-queue"></a>Créer une file d’attente
-Vous pouvez effectuer des opérations de gestion pour les files d’attente Service Bus via la classe **ServiceBusContract**. Un objet **ServiceBusContract** est construit avec une configuration appropriée qui encapsule le jeton SAP avec des autorisations pour le gérer, et la classe **ServiceBusContract** est le point de communication unique avec Azure.
-
-La classe **ServiceBusService** fournit des méthodes pour créer, énumérer et supprimer des files d’attente. L’exemple suivant montre comment un objet **ServiceBusService** peut servir à créer une file d’attente nommée `TestQueue` avec un espace de noms nommé `HowToSample` :
-
-```java
-Configuration config =
-    ServiceBusConfiguration.configureWithSASAuthentication(
-            "HowToSample",
-            "RootManageSharedAccessKey",
-            "SAS_key_value",
-            ".servicebus.windows.net"
-            );
-
-ServiceBusContract service = ServiceBusService.create(config);
-QueueInfo queueInfo = new QueueInfo("TestQueue");
-try
-{
-    CreateQueueResult result = service.createQueue(queueInfo);
-}
-catch (ServiceException e)
-{
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
-```
-
-Il existe des méthodes sur `QueueInfo` qui permettent de paramétrer des propriétés de la file d’attente, par exemple : la valeur par défaut « time-to-live » (TTL) à appliquer aux messages envoyés à la file d’attente. L’exemple suivant montre comment créer une file d’attente nommée `TestQueue` avec une taille maximale de 5 Go :
-
-````java
-long maxSizeInMegabytes = 5120;
-QueueInfo queueInfo = new QueueInfo("TestQueue");
-queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
-CreateQueueResult result = service.createQueue(queueInfo);
-````
-
-Notez que vous pouvez utiliser la méthode `listQueues` sur les objets **ServiceBusContract** pour vérifier s’il existe déjà une file d’attente d’un nom déterminé dans un espace de noms de service.
 
 ## <a name="send-messages-to-a-queue"></a>Envoi de messages à une file d'attente
-Pour envoyer un message à une file d’attente Service Bus, votre application obtient un objet **ServiceBusContract**. Le code suivant montre comment envoyer un message pour la file d’attente `TestQueue` créée plus haut dans l’espace de noms `HowToSample` :
+Pour envoyer des messages à une file d’attente Service Bus, votre application instancie un objet **QueueClient** et envoie des messages de façon asynchrone. Le code suivant montre comment envoyer un message pour une file d’attente créée sur le portail.
 
 ```java
-try
-{
-    BrokeredMessage message = new BrokeredMessage("MyMessage");
-    service.sendQueueMessage("TestQueue", message);
+public void run() throws Exception {
+    // Create a QueueClient instance and then asynchronously send messages.
+    // Close the sender once the send operation is complete.
+    QueueClient sendClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
+    this.sendMessageAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
+
+    sendClient.close();
 }
-catch (ServiceException e)
-{
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
+
+    CompletableFuture<Void> sendMessagesAsync(QueueClient sendClient) {
+        List<HashMap<String, String>> data =
+                GSON.fromJson(
+                        "[" +
+                                "{'name' = 'Einstein', 'firstName' = 'Albert'}," +
+                                "{'name' = 'Heisenberg', 'firstName' = 'Werner'}," +
+                                "{'name' = 'Curie', 'firstName' = 'Marie'}," +
+                                "{'name' = 'Hawking', 'firstName' = 'Steven'}," +
+                                "{'name' = 'Newton', 'firstName' = 'Isaac'}," +
+                                "{'name' = 'Bohr', 'firstName' = 'Niels'}," +
+                                "{'name' = 'Faraday', 'firstName' = 'Michael'}," +
+                                "{'name' = 'Galilei', 'firstName' = 'Galileo'}," +
+                                "{'name' = 'Kepler', 'firstName' = 'Johannes'}," +
+                                "{'name' = 'Kopernikus', 'firstName' = 'Nikolaus'}" +
+                                "]",
+                        new TypeToken<List<HashMap<String, String>>>() {}.getType());
+
+        List<CompletableFuture> tasks = new ArrayList<>();
+        for (int i = 0; i < data.size(); i++) {
+            final String messageId = Integer.toString(i);
+            Message message = new Message(GSON.toJson(data.get(i), Map.class).getBytes(UTF_8));
+            message.setContentType("application/json");
+            message.setLabel("Scientist");
+            message.setMessageId(messageId);
+            message.setTimeToLive(Duration.ofMinutes(2));
+            System.out.printf("\nMessage sending: Id = %s", message.getMessageId());
+            tasks.add(
+                    sendClient.sendAsync(message).thenRunAsync(() -> {
+                        System.out.printf("\n\tMessage acknowledged: Id = %s", message.getMessageId());
+                    }));
+        }
+        return CompletableFuture.allOf(tasks.toArray(new CompletableFuture<?>[tasks.size()]));
+    }
+
 ```
 
-Les messages envoyés aux files d’attente Service Bus (et reçus de celles-ci) sont des instances de la classe [BrokeredMessage][BrokeredMessage]. Les objets [BrokeredMessage][BrokeredMessage] possèdent un ensemble de propriétés standard (telles que [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) et [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu’un corps de données d’application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l’objet [BrokeredMessage][BrokeredMessage] ; le sérialiseur approprié est alors utilisé pour sérialiser l’objet. Vous pouvez également fournir un objet **java.IO.InputStream**.
+Les messages échangés avec les files d’attente Service Bus sont des instances de la classe [Message](/java/api/com.microsoft.azure.servicebus._message?view=azure-java-stable). Les objets Message possèdent un ensemble de propriétés standard (telles que Label et TimeToLive), un dictionnaire servant à conserver les propriétés personnalisées d’une application, ainsi qu’un corps de données d’application arbitraires. Une application peut définir le corps du message en transmettant un objet sérialisable au constructeur de l’objet Message. Le sérialiseur approprié est alors utilisé pour sérialiser l’objet. Vous pouvez également fournir un objet **java.IO.InputStream**.
 
-L’exemple suivant montre comment envoyer cinq messages de test au **MessageSender** `TestQueue` obtenu dans l’extrait de code précédent :
-
-```java
-for (int i=0; i<5; i++)
-{
-     // Create message, passing a string message for the body.
-     BrokeredMessage message = new BrokeredMessage("Test message " + i);
-     // Set an additional app-specific property.
-     message.setProperty("MyProperty", i);
-     // Send message to the queue
-     service.sendQueueMessage("TestQueue", message);
-}
-```
 
 Les files d’attente Service Bus prennent en charge une taille de message maximale de 256 Ko dans le [niveau Standard](service-bus-premium-messaging.md) et de 1 Mo dans le [niveau Premium](service-bus-premium-messaging.md). L’en-tête, qui comprend les propriétés d’application standard et personnalisées, peut avoir une taille maximale de 64 Ko. Si une file d'attente n'est pas limitée par le nombre de messages qu'elle peut contenir, elle l'est en revanche par la taille totale des messages qu'elle contient. Cette taille de file d'attente est définie au moment de la création. La limite maximale est de 5 Go.
 
@@ -122,63 +118,60 @@ Les files d’attente Service Bus prennent en charge une taille de message maxim
 Le moyen principal pour recevoir des messages d’une file d’attente consiste à utiliser un objet **ServiceBusContract**. Ces messages reçus peuvent fonctionner dans deux modes différents : **ReceiveAndDelete** et **PeekLock**.
 
 Lorsque le mode **ReceiveAndDelete** est utilisé, la réception est une opération unique : quand Service Bus reçoit une demande de lecture pour un message figurant dans une file d’attente, il marque le message comme étant consommé et le renvoie à l’application. Le mode **ReceiveAndDelete** (qui est le mode par défaut) est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d’un message en cas d’échec. Pour mieux comprendre, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter.
-Comme Service Bus a marqué le message comme étant consommé, lorsque l’application redémarre et recommence à consommer des messages, elle manque le message consommé avant l’incident.
+Étant donné que Service Bus a marqué le message comme étant consommé, quand l’application redémarre et recommence à consommer des messages, elle a manqué le message consommé avant l’incident.
 
-En mode **PeekLock**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant **Delete** pour le message reçu. Lorsque Service Bus obtient l’appel **Delete**, il marque le message comme étant consommé et le supprime de la file d’attente.
+En mode **PeekLock**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer les messages manquants. Lorsque Service Bus reçoit une demande, il recherche le prochain message à consommer, le verrouille pour empêcher d'autres consommateurs de le recevoir, puis le renvoie à l'application. Dès lors que l’application a terminé le traitement du message (ou qu’elle l’a stocké de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant **Delete** pour le message reçu. Lorsque Service Bus voit l’appel **Delete**, il marque le message comme consommé et le supprime de la file d’attente.
 
 L’exemple suivant montre comment les messages peuvent être reçus et traités à l’aide du mode **PeekLock** (qui n’est pas le mode par défaut). Dans cet exemple, une boucle infinie est créée et les messages sont traités à mesure qu’ils parviennent à la file d’attente `TestQueue` :
 
 ```java
-try
-{
-    ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-    opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
+    public void run() throws Exception {
+        // Create a QueueClient instance for receiving using the connection string builder
+        // We set the receive mode to "PeekLock", meaning the message is delivered
+        // under a lock and must be acknowledged ("completed") to be removed from the queue
+        QueueClient receiveClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
+        this.registerReceiver(receiveClient);
 
-    while(true)  {
-         ReceiveQueueMessageResult resultQM =
-                 service.receiveQueueMessage("TestQueue", opts);
-        BrokeredMessage message = resultQM.getValue();
-        if (message != null && message.getMessageId() != null)
-        {
-            System.out.println("MessageID: " + message.getMessageId());
-            // Display the queue message.
-            System.out.print("From queue: ");
-            byte[] b = new byte[200];
-            String s = null;
-            int numRead = message.getBody().read(b);
-            while (-1 != numRead)
-            {
-                s = new String(b);
-                s = s.trim();
-                System.out.print(s);
-                numRead = message.getBody().read(b);
-            }
-            System.out.println();
-            System.out.println("Custom Property: " +
-                message.getProperty("MyProperty"));
-            // Remove message from queue.
-            System.out.println("Deleting this message.");
-            //service.deleteMessage(message);
-        }  
-        else  
-        {
-            System.out.println("Finishing up - no more messages.");
-            break;
-            // Added to handle no more messages.
-            // Could instead wait for more messages to be added.
-        }
+        // shut down receiver to close the receive loop
+        receiveClient.close();
     }
-}
-catch (ServiceException e) {
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
-catch (Exception e) {
-    System.out.print("Generic exception encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
+    void registerReceiver(QueueClient queueClient) throws Exception {
+        // register the RegisterMessageHandler callback
+        queueClient.registerMessageHandler(new IMessageHandler() {
+        // callback invoked when the message handler loop has obtained a message
+            public CompletableFuture<Void> onMessageAsync(IMessage message) {
+            // receives message is passed to callback
+                if (message.getLabel() != null &&
+                    message.getContentType() != null &&
+                    message.getLabel().contentEquals("Scientist") &&
+                    message.getContentType().contentEquals("application/json")) {
+
+                        byte[] body = message.getBody();
+                        Map scientist = GSON.fromJson(new String(body, UTF_8), Map.class);
+
+                        System.out.printf(
+                            "\n\t\t\t\tMessage received: \n\t\t\t\t\t\tMessageId = %s, \n\t\t\t\t\t\tSequenceNumber = %s, \n\t\t\t\t\t\tEnqueuedTimeUtc = %s," +
+                            "\n\t\t\t\t\t\tExpiresAtUtc = %s, \n\t\t\t\t\t\tContentType = \"%s\",  \n\t\t\t\t\t\tContent: [ firstName = %s, name = %s ]\n",
+                            message.getMessageId(),
+                            message.getSequenceNumber(),
+                            message.getEnqueuedTimeUtc(),
+                            message.getExpiresAtUtc(),
+                            message.getContentType(),
+                            scientist != null ? scientist.get("firstName") : "",
+                            scientist != null ? scientist.get("name") : "");
+                    }
+                    return CompletableFuture.completedFuture(null);
+                }
+
+                // callback invoked when the message handler has an exception to report
+                public void notifyException(Throwable throwable, ExceptionPhase exceptionPhase) {
+                    System.out.printf(exceptionPhase + "-" + throwable.getMessage());
+                }
+        },
+        // 1 concurrent call, messages are auto-completed, auto-renew duration
+        new MessageHandlerOptions(1, true, Duration.ofMinutes(1)));
+    }
+
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Gestion des blocages d’application et des messages illisibles

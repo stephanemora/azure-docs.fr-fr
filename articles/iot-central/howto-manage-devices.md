@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: cf803c03d266f2a400e47fc551dea62936456177
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 4b4ded86075e49277bca84f5261b6762b0f4fcae
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937616"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737309"
 ---
 # <a name="manage-devices-in-your-azure-iot-central-application"></a>Gérer les appareils dans votre application Azure IoT Central
 
@@ -51,12 +51,9 @@ Pour ajouter un appareil à votre application Azure IoT Central :
 
 ## <a name="import-devices"></a>Importer des appareils
 
-Pour connecter un grand nombre d’appareils à votre application, Azure IoT Central offre une importation en masse des appareils via un fichier CSV. 
-
-Exigences du fichier CSV :
-1. Le fichier CSV doit contenir une seule colonne contenant les ID d’appareil.
-
-1. Le fichier ne doit contenir aucun en-tête.
+Pour connecter un grand nombre d’appareils à votre application, Azure IoT Central offre une importation en masse des appareils via un fichier CSV. Le fichier CSV doit disposer des colonnes (et en-têtes) suivantes
+1.  IOTC_DeviceID **<span style="color:Red">(doit être en minuscules)</span>**
+1.  IOTC_DeviceName (facultatif)
 
 
 Pour l’inscription en masse d’appareils :
@@ -119,11 +116,13 @@ Pour exporter en bloc des appareils à partir de votre application :
 
     [![Exportation réussie](./media/howto-manage-devices/Export2.png)](./media/howto-manage-devices/Export2.png#lightbox)
 
-1. Le fichier CSV exporté contient les informations suivantes :
-    1. NOM
-    1. ID de périphérique
-    1. Chaîne de connexion principale
-
+1. Le fichier CSV exporté dispose des informations de colonnes suivantes : **Id de l’appareil, nom de l’appareil, clé primaire/secondaire de l’appareil, et thumbprints de certificat primaire/secondaire**
+    *   IOTC_DEVICEID
+    *   IOTC_DEVICENAME
+    *   IOTC_SASKEY_PRIMARY
+    *   IOTC_SASKEY_SECONDARY
+    *   IOTC_X509THUMBPRINT_PRIMARY 
+    *   IOTC_X509THUMBPRINT_SECONDARY
 
 ## <a name="delete-a-device"></a>Suppression d’un appareil
 

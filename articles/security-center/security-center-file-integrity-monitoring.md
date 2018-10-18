@@ -1,27 +1,27 @@
 ---
-title: Monitoring d’intégrité de fichier (préversion) dans Azure Security Center | Microsoft Docs
+title: Supervision d’intégrité de fichier dans Azure Security Center | Microsoft Docs
 description: " Découvrez comment activer le monitoring d’intégrité de fichier dans Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/08/2018
-ms.author: terrylan
-ms.openlocfilehash: 722a4fd11f35f04ed22d73638f07d15c49ea3c26
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.date: 09/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34161832"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124114"
 ---
-# <a name="file-integrity-monitoring-in-azure-security-center-preview"></a>Monitoring d’intégrité de fichier (préversion) dans Azure Security Center
+# <a name="file-integrity-monitoring-in-azure-security-center"></a>Supervision d’intégrité de fichier dans Azure Security Center
 Découvrez comment configurer la fonctionnalité Monitoring d’intégrité de fichier (FIM) dans Azure Security Center à l’aide de cette procédure pas à pas.
 
 ## <a name="what-is-fim-in-security-center"></a>En quoi consiste la fonctionnalité FIM dans Security Center ?
@@ -182,6 +182,14 @@ Sous **Modification pour Change Tracking**, vous pouvez :
   ![Définir la valeur Activé sur false][19]
 
 6. Sélectionnez **Enregistrer**.
+
+## <a name="folder-and-path-monitoring-using-wildcards"></a>Supervision de dossiers et chemins d’accès à l’aide de caractères génériques
+
+Utilisez des caractères génériques pour simplifier le suivi au sein des répertoires. Les règles suivantes s’appliquent lorsque vous configurez la supervision d’un dossier à l’aide de caractères génériques :
+-   Les caractères génériques sont requis pour effectuer le suivi de plusieurs fichiers.
+-   Les caractères génériques ne peuvent être utilisés que dans le dernier segment d’un chemin d’accès, comme C:\folder\file ou /etc/*.conf
+-   Si le chemin d’accès d’une variable d’environnement n’est pas valide, la validation réussit, mais le chemin d’accès échoue lors de l’exécution de l’inventaire.
+-   Lors de la définition du chemin d’accès, évitez les chemins d’accès généraux comme c:\*.*, sinon un trop grand nombre de dossiers sont parcourus.
 
 ## <a name="disable-fim"></a>Désactiver la fonctionnalité FIM
 Vous pouvez désactiver la fonctionnalité FIM. La fonctionnalité FIM utilise la solution Azure Change Tracking pour identifier les modifications apportées dans votre environnement. En la désactivant, vous supprimez la solution Change Tracking de l’espace de travail sélectionné.

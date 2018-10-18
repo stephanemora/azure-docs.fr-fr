@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/01/2018
+ms.date: 09/12/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: 0c43b66a9d6210ea951af3fae5eca8bc6d47c3d9
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 9e5a8cf59d4f1dc47495c5889f8ed4aae64f7ff7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261214"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720444"
 ---
 # <a name="datacenter-integration-considerations-for-azure-stack-integrated-systems"></a>Considérations relatives à l’intégration au centre de données pour les systèmes intégrés Azure Stack
 Si vous êtes intéressé par un système intégré Azure Stack, vous devez comprendre certaines considérations principales sur la planification traitant du déploiement et la façon dont le système s’adapte à votre centre de données. Cet article fournit une vue d’ensemble de ces considérations pour vous aider à prendre des décisions d’infrastructure importantes pour votre système Azure Stack à plusieurs nœuds. Comprendre ces considérations est utile pour collaborer avec votre fournisseur de matériel OEM lorsqu’il déploie Azure Stack vers votre centre de données.  
@@ -35,7 +35,7 @@ Lors de la recherche et de la collecte des informations nécessaires, vous devre
 ## <a name="capacity-planning-considerations"></a>Considérations en matière de planification de capacité
 Lorsque vous évaluez une solution Azure Stack pour l’acquisition, les options de configuration matérielle choisies ont un impact direct sur la capacité globale de la solution Azure Stack. Parmi ces choix se trouvent celui de l’UC, de la densité de mémoire, de la configuration du stockage et de la mise à l’échelle globale de la solution (p. ex. nombre de serveurs). Contrairement à une solution de virtualisation traditionnelle, l’arithmétique simple de ces composants pour déterminer la capacité utilisable ne s’applique pas. La première raison est que l’architecture d’Azure Stack permet d’héberger les composants de gestion ou d’infrastructure au sein-même de la solution. La deuxième raison est qu’une partie de la capacité de la solution est réservée pour prendre en charge la résilience ; la mise à jour des logiciels de la solution d’une façon permettant de minimiser l’interruption de charges de travail des locataires. 
 
-La [feuille de calcul de planification de capacité Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) vous permet de prendre des décisions éclairées par rapport à la capacité de planification de deux manières : soit en sélectionnant une offre matérielle et en essayant d’ajuster une combinaison de ressources, soit en définissant la charge de travail qu’Azure Stack doit exécuter pour afficher les références SKU matérielles disponibles qui peuvent assurer la prise en charge. Enfin, la feuille de calcul est conçue comme un guide pour faciliter la prise de décisions relatives à la planification et à la configuration d’Azure Stack. 
+La [feuille de calcul de planification de capacité Azure Stack](https://aka.ms/azstackcapacityplanner) vous permet de prendre des décisions éclairées par rapport à la capacité de planification de deux manières : soit en sélectionnant une offre matérielle et en essayant d’ajuster une combinaison de ressources, soit en définissant la charge de travail qu’Azure Stack doit exécuter pour afficher les références SKU matérielles disponibles qui peuvent assurer la prise en charge. Enfin, la feuille de calcul est conçue comme un guide pour faciliter la prise de décisions relatives à la planification et à la configuration d’Azure Stack. 
 
 La feuille de calcul n’est pas destinée à remplacer vos propres recherches et analyses.  Microsoft ne fait aucune déclaration ou n’offre aucune garantie, expresse ou implicite, concernant les informations contenues dans la feuille de caclul.
 
@@ -89,7 +89,7 @@ Le tableau suivant récapitule ces décisions d’attribution de noms de domaine
 
 | NOM | Description | 
 | -------- | ------------- | 
-|Nom de la région | Le nom de votre première région Azure Stack. Ce nom est utilisé comme partie du nom de domaine complet pour les adresses IP virtuelles publiques (VIP) gérées par Azure Stack. En règle générale, le nom de la région est un identificateur d’emplacement physique tel qu’un emplacement de centre de données. | 
+|Nom de la région | Le nom de votre première région Azure Stack. Ce nom est utilisé comme partie du nom de domaine complet pour les adresses IP virtuelles publiques (VIP) gérées par Azure Stack. En règle générale, le nom de la région est un identificateur d’emplacement physique tel qu’un emplacement de centre de données.<br><br>Le nom de région doit uniquement comporter des lettres et des nombres compris entre 0 et 9. Les caractères spéciaux tels que « - » ou « # », etc. ne sont pas autorisés.| 
 | Nom de domaine externe | Le nom de la zone Domain Name System (DNS) pour les points de terminaison avec des adresses IP virtuelles externes. Utilisé dans le nom de domaine complet pour ces adresses IP virtuelles publiques. | 
 | Nom de domaine privé (interne) | Le nom du domaine (et de la zone DNS interne) créé sur Azure Stack pour la gestion de l’infrastructure. 
 | | |
@@ -191,10 +191,7 @@ Azure Stack ne sauvegarde pas les applications et les données du client. Vous d
 
 Pour sauvegarder des machines virtuelles IaaS Windows ou Linux, vous devez utiliser des produits de sauvegarde avec un accès au système d’exploitation invité pour protéger les fichiers, les dossiers, l’état du système d’exploitation et les données d’application. Vous pouvez utiliser Azure Backup, System Center Data Protection Center Manager, ou les produits tiers pris en charge.
 
-Pour répliquer des données vers un emplacement secondaire et orchestrer le basculement d’application si un incident se produit, vous pouvez utiliser Azure Site Recovery ou des produits tiers pris en charge. (Lors de la mise en production initiale des systèmes intégrés, Azure Site Recovery ne prendra pas en charge la restauration automatique. Toutefois, vous pouvez effectuer une restauration automatique via un processus manuel.) En outre, les applications qui prennent en charge la réplication native (par exemple, Microsoft SQL Server) peuvent répliquer des données vers un autre emplacement dans lequel l’application est en cours d’exécution.
-
-> [!IMPORTANT]
-> Lors de la mise en production initiale des systèmes intégrés, nous prendrons en charge les technologies de protection qui fonctionnent au niveau invité d’une machine virtuelle IaaS. Vous ne pouvez pas installer des agents sur les serveurs d’infrastructure sous-jacente.
+Pour répliquer des données vers un emplacement secondaire et orchestrer le basculement d’application si un incident se produit, vous pouvez utiliser Azure Site Recovery ou des produits tiers pris en charge. En outre, les applications qui prennent en charge la réplication native, comme Microsoft SQL Server, peuvent répliquer des données vers un autre emplacement dans lequel l’application est en cours d’exécution.
 
 ## <a name="learn-more"></a>En savoir plus
 

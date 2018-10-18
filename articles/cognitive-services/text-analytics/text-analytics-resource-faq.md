@@ -1,22 +1,23 @@
 ---
-title: Forum aux Questions concernant l’API Analyse de texte - Azure Cognitive Services | Microsoft Docs
-description: Obtenez des réponses aux questions courantes relatives à l’API Analyse de texte de Microsoft Cognitive Services sur Azure.
+title: Questions fréquentes sur l’API Analyse de texte
+titleSuffix: Azure Cognitive Services
+description: Obtenez des réponses aux questions courantes sur l’API Analyse de texte.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
 ms.topic: conceptual
-ms.date: 3/07/2018
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: bf82899b4317f0f5ce0f6ca5096dccef7cddd931
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: aa1c5b048c3ef339d01a3a63fd1d565b888ffbbb
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370369"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603394"
 ---
-# <a name="frequently-asked-questions-faq-about-the-text-analytics-api"></a>Questions fréquentes (FAQ) sur l’API Analyse de texte
+# <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Questions fréquentes (FAQ) sur l’API Analyse de texte de Cognitive Service
 
  Trouvez les réponses aux questions fréquemment posées sur les concepts, codes et scénarios relatifs à l’API Analyse de texte pour Microsoft Cognitive Services sur Azure.
 

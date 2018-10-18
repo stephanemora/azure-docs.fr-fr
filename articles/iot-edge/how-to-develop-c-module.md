@@ -6,25 +6,25 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 07/20/2018
+ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 5732f6986750dfee49084e2744052bb54e3a8139
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3ec7f6043c1d2e8e8f090ffc60822768ab9bc9d9
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382565"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983999"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code pour développer et déboguer des modules C pour Azure IoT Edge
 
 Vous pouvez transformer votre logique métier en modules pour Azure IoT Edge. Cet article vous montre comment utiliser Visual Studio Code (VS Code) comme outil principal pour développer et déboguer des modules C.
 
 ## <a name="prerequisites"></a>Prérequis
-Cet article part du principe que vous utilisez un ordinateur ou une machine virtuelle Windows ou Linux comme machine de développement. Et que vous simulez votre appareil IoT Edge sur votre machine de développement.
+Cet article part du principe que vous utilisez un ordinateur ou une machine virtuelle Windows ou Linux comme machine de développement. Et que vous simulez votre appareil IoT Edge sur votre machine de développement avec le démon de sécurité IoT Edge.
 
 > [!NOTE]
-> Ce tutoriel de débogage montre comment attacher un processus dans un conteneur de module et comment le déboguer avec VS Code. Vous pouvez uniquement déboguer des modules C dans des conteneurs Linux amd64. Si vous n’êtes pas familiarisé avec les fonctionnalités de débogage de Visual Studio Code, découvrez-en plus sur le [débogage](https://code.visualstudio.com/Docs/editor/debugging). 
+> Ce tutoriel de débogage montre comment attacher un processus dans un conteneur de module et comment le déboguer avec VS Code. Vous pouvez uniquement déboguer des modules C dans des conteneurs Linux amd64. Si vous n’êtes pas familiarisé avec les fonctionnalités de débogage de Visual Studio Code, découvrez-en plus sur le [débogage](https://code.visualstudio.com/Docs/editor/debugging).
 
 Étant donné que cet article utilise Visual Studio Code comme outil de développement principal, installez VS Code. Ensuite, ajoutez les extensions nécessaires :
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -37,7 +37,7 @@ Pour créer un module, vous avez besoin de Docker pour générer l’image du mo
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ou [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * Vous pouvez utiliser un registre Docker local pour le prototype et à des fins de test, au lieu d’un registre cloud. 
 
-Pour tester votre module sur un appareil, vous avez besoin d’un hub IoT actif avec au moins un appareil IoT Edge. Pour utiliser votre ordinateur comme appareil IoT Edge, suivez les étapes décrites dans le guide de démarrage rapide pour [Windows](quickstart.md) ou [Linux](quickstart-linux.md). 
+Pour tester votre module sur un appareil, vous avez besoin d’un hub IoT actif avec au moins un appareil IoT Edge. Pour utiliser votre ordinateur comme appareil IoT Edge, suivez les étapes décrites dans le guide de démarrage rapide pour [Linux](quickstart-linux.md). 
 
 ## <a name="create-a-new-solution-template"></a>Créer un modèle de solution
 
@@ -97,7 +97,7 @@ Chaque dossier du module contient plusieurs fichiers Docker pour différents typ
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
-2. Dans la palette de commandes VS Code, saisissez et exécutez la commande **Edge : Générer la solution IoT Edge**.
+2. Dans la palette de commandes VS Code, tapez et exécutez la commande **Azure IoT Edge : Générer et envoyer par push la solution IoT Edge**.
 3. Sélectionnez le fichier `deployment.template.json` pour votre solution à partir de la palette de commandes. 
 4. Dans Azure IoT Hub Device Explorer, cliquez avec le bouton droit sur l’ID d’un appareil IoT Edge. Ensuite, sélectionnez **Créer un déploiement pour un seul appareil**. 
 5. Ouvrez le dossier **config** de votre solution. Ensuite, sélectionnez le fichier `deployment.json`. Choisissez **Select Edge Deployment Manifest** (Sélectionner un manifeste de déploiement Edge). 
@@ -111,7 +111,7 @@ VS Code conserve les informations de configuration du débogage dans un fichier 
 
 1. Accédez à la fenêtre de débogage de Visual Studio Code. Sélectionnez le fichier de configuration de débogage de votre module. Le nom de l’option de débogage doit ressembler à **Débogage distant de nom_module (C)**.
 
-   ![Sélectionner la configuration du débogage](./media/how-to-develop-c-module/debug-config.png).
+   ![Sélectionner la configuration du débogage](./media/how-to-develop-c-module/debug-config.png)
 
 2. Accédez à `main.c`. Ajoutez un point d’arrêt dans ce fichier.
 

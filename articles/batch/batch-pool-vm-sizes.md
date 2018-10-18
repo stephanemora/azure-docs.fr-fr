@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 09/12/2018
 ms.author: danlep
-ms.openlocfilehash: 1669d5a2237322f72dce3b172c32e7199900a4e0
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 987cbcc642152a4077cc895ad06e43ac56113497
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038261"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544062"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Choisir une taille de machine virtuelle pour des nœuds de calcul dans un pool Azure Batch
 
@@ -41,8 +41,8 @@ Les pools Batch dans la configuration de la machine virtuelle prennent en charge
 | Série A de base | Basic_A0 (A0) |
 | Série A | Standard_A0 |
 | Série B | Tous |
-| Série M | Tous |
 
+Les machines virtuelles de série M sont prises en charge uniquement pour les nœuds de faible priorité.
 
 
 ### <a name="pools-in-cloud-service-configuration"></a>Pools dans la configuration de service cloud

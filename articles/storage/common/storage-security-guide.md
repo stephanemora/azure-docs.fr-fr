@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 912ae17fb7bb5d5cecad0af5b53d817b2faeef02
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522199"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730947"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -142,20 +142,13 @@ L’utilisation d’Azure Key Vault ajoute également un autre niveau de sécuri
 
 Un autre avantage de l’utilisation d’Azure Key Vault est que vous pouvez également contrôler l’accès à vos clés à l’aide d’Azure Active Directory. Cela signifie que vous pouvez accorder l’accès aux quelques applications qui doivent récupérer les clés dans Azure Key Vault, tout en sachant que d’autres applications ne seront pas en mesure d’accéder aux clés si l’autorisation ne leur est pas expressément accordée.
 
-Remarque : Il est recommandé d’utiliser uniquement l’une des clés dans toutes vos applications en même temps. Si vous utilisez parfois la clé 1 et parfois la clé 2, vous ne pouvez effectuer aucune rotation de vos clés sans qu’une application ne perde l’accès.
+> [!NOTE]
+> Microsoft recommande d’utiliser uniquement l’une des clés dans toutes vos applications en même temps. Si vous utilisez parfois la clé 1 et parfois la clé 2, vous ne pouvez effectuer aucune rotation de vos clés sans qu’une application ne perde l’accès.
 
 #### <a name="resources"></a>Ressources
-* [À propos des comptes Azure Storage](storage-create-storage-account.md#regenerate-storage-access-keys)
 
-  Cet article présente une vue d’ensemble des comptes de stockage et décrit l’affichage, la copie et la régénération des clés d’accès de stockage.
+* [Gérer les paramètres de compte de stockage dans le portail Azure](storage-account-manage.md)
 * [Informations de référence sur l’API REST du fournisseur de ressources Azure Storage](https://msdn.microsoft.com/library/mt163683.aspx)
-
-  Cet article contient des liens vers des articles spécifiques sur la récupération des clés de compte de stockage et la régénération des clés de compte de stockage pour un compte Azure à l’aide de l’API REST. Remarque : ceci concerne les comptes de stockage Resource Manager.
-* [Opérations sur les comptes de stockage](https://msdn.microsoft.com/library/ee460790.aspx)
-
-  Cet article dans Informations de référence sur l’API REST du gestionnaire de service de stockage contient des liens vers des articles spécifiques sur la récupération et la régénération des clés de compte de stockage à l’aide de l’API REST. Remarque : Seuls les comptes de stockage classiques sont concernés.
-
-  Cet article montre comment utiliser Active Directory pour contrôler l’accès à vos clés de stockage Azure dans Azure Key Vault. Il montre également comment utiliser un travail Azure Automation pour régénérer les clés toutes les heures.
 
 ## <a name="data-plane-security"></a>Sécurité du plan de données
 La sécurité du plan de données fait référence aux méthodes permettant de sécuriser les objets de données stockés dans Azure Storage : les objets blob, files d’attente, tables et fichiers. Nous avons vu des méthodes qui permettent de chiffrer les données et la sécurité pendant le transit des données, mais comment faire pour contrôler l’accès aux objets ?

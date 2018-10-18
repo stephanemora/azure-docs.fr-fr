@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: b73deebb10d0c81a06df9cd192eaa2ef28de744d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 42d8a5a8073d2650b9e023305472f28d4f1c738f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37083037"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580097"
 ---
 # <a name="remove-the-sql-resource-provider"></a>Supprimer le fournisseur de ressources SQL
 
@@ -52,6 +52,7 @@ L’administrateur est responsable des tâches de nettoyage suivantes :
 
     * **Désinstaller**. Supprime le fournisseur de ressources et toutes les ressources associées.
     * **PrivilegedEndpoint**. Adresse IP ou nom DNS du point de terminaison privilégié.
+    * **AzureEnvironment**. L’environnement Azure utilisé pour le déploiement d’Azure Stack. Nécessaire uniquement pour les déploiements Azure AD.
     * **CloudAdminCredential**. Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié.
     * **AzCredential**. Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack.
 

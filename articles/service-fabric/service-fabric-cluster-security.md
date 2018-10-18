@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 52730ae24f4917ab593914c390df798f7f58dbde
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143637"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541902"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
 Un cluster Azure Service Fabric est une ressource que vous possédez. Il vous incombe la responsabilité de sécuriser vos clusters pour empêcher les utilisateurs non autorisés de s’y connecter. La sécurisation des clusters est particulièrement importante lorsque vous exécutez des charges de travail de production sur le cluster. Même s’il est possible d’en créer, les clusters non sécurisés permettent aux utilisateurs anonymes de s’y connecter si les points de terminaison de gestion sont exposés sur l’Internet public. Les clusters non sécurisés ne sont pas gérés pour les charges de travail de production. 
@@ -66,7 +66,7 @@ Pour plus d’informations sur la configuration de la sécurité par certificat 
 Pour plus d’informations sur la configuration de la sécurité par certificat dans un cluster autonome Windows Server, consultez [Sécuriser un cluster autonome sur Windows à l’aide de certificats X.509](service-fabric-windows-cluster-x509-security.md).
 
 ### <a name="client-to-node-azure-active-directory-security-on-azure"></a>Sécurité Azure Active Directory de client à nœud sur Azure
-Azure AD permet aux organisations (appelées locataires) de gérer l’accès utilisateur aux applications. Ces dernières se composent d’applications avec une interface utilisateur de connexion web et d’applications avec une expérience client natif. Si vous n’avez pas encore créé de locataire, commencez par lire la section [Obtention d’un client Azure Active Directory][active-directory-howto-tenant].
+Azure AD permet aux organisation (appelées locataires) de gérer l’accès utilisateur aux applications. Ces dernières se composent d’applications avec une interface utilisateur de connexion web et d’applications avec une expérience client natif. Si vous n’avez pas encore créé de locataire, commencez par lire la section [Obtention d’un client Azure Active Directory][active-directory-howto-tenant].
 
 Un cluster Service Fabric offre différents points d’entrée pour leurs fonctionnalités de gestion, notamment les outils [Service Fabric Explorer][service-fabric-visualizing-your-cluster] et [Visual Studio][service-fabric-manage-application-in-visual-studio]. Par conséquent, vous allez créer deux applications Azure AD pour contrôler l’accès au cluster : une application web et une application native.
 
@@ -92,6 +92,7 @@ Quelques éléments importants à prendre en compte :
 * Si vous voulez créer des certificats pour des clusters qui exécutent des charges de travail de production, utilisez un service de certificats Windows Server correctement configuré ou obtenu auprès d’une [autorité de certification](https://en.wikipedia.org/wiki/Certificate_authority) approuvée.
 * N’utilisez jamais de certificats temporaires ou de certificats de test créés à l’aide d’outils tels que MakeCert.exe dans un environnement de production.
 * Vous pouvez utiliser un certificat auto-signé, mais uniquement dans un cluster de test. N’utilisez pas un certificat auto-signé dans un environnement de production.
+* Au moment de la génération de l’empreinte de certificat, veillez à générer une empreinte numérique SHA1. Le hachage SHA1 est celui utilisé lors de la configuration des empreintes de certificat Client et Cluster.
 
 ### <a name="cluster-and-server-certificate-required"></a>Certificat de cluster et de serveur (obligatoire)
 Ces certificats (un principal et éventuellement un secondaire) sont requis pour sécuriser un cluster et empêcher l’accès non autorisé à celui-ci. Ces certificats fournissent l’authentification du cluster et du serveur.

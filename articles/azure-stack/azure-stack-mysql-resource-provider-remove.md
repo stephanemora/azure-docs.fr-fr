@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: d3a615e3b92a62709a787d0463dfa3148f14d07e
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: cd0195796189158650c9c2655062950b71130ad7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37088365"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578478"
 ---
 # <a name="remove-the-mysql-resource-provider"></a>Supprimer le fournisseur de ressources MySQL
 
@@ -53,6 +53,7 @@ L’administrateur est responsable des tâches de nettoyage suivantes :
 5. Exécutez le script DeployMySqlProvider.ps1 à l’aide des paramètres suivants :
     - **Désinstaller**. Supprime le fournisseur de ressources et toutes les ressources associées.
     - **PrivilegedEndpoint**. Adresse IP ou nom DNS du point de terminaison privilégié.
+    - **AzureEnvironment**. L’environnement Azure utilisé pour le déploiement d’Azure Stack. Nécessaire uniquement pour les déploiements Azure AD.
     - **CloudAdminCredential**. Informations d’identification de l’administrateur du cloud, nécessaires pour accéder au point de terminaison privilégié.
     - **DirectoryTenantID**
     - **AzCredential**. Informations d’identification du compte d’administration de service Azure Stack. Utilisez les mêmes informations d’identification que celles utilisées pour le déploiement d’Azure Stack.

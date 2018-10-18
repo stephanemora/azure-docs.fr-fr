@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: be80c637a250e8a86727ce34f86832fef10426b7
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7c3e5c0cc8297ba60925d36d667e0b72a5072553
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616393"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380044"
 ---
 # <a name="tutorial-create-and-manage-standard-load-balancer-using-the-azure-portal"></a>Didacticiel : créer et gérer un Standard Load Balancer (équilibreur de charge standard) avec le portail Azure
 
@@ -137,7 +137,7 @@ Dans cette section, vous créez une règle du groupe de sécurité réseau pour 
 
 ## <a name="create-load-balancer-resources"></a>Créer les ressources d’équilibreur de charge
 
-Dans cette section, vous configurez les paramètres de l’équilibreur de charge pour un pool d’adresses principal, une sonde d’intégrité, puis spécifiez une règle de l’équilibreur.
+Dans cette section, vous allez configurer les paramètres de l’équilibreur de charge pour un pool d’adresses principal, mettre en place une sonde d’intégrité, puis spécifier une règle d’équilibrage.
 
 ### <a name="create-a-backend-address-pool"></a>Créer un pool d’adresses principal
 
@@ -208,7 +208,7 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’éq
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez créé un équilibreur de charge standard, associé des machines virtuelles à celui-ci, configuré la règle de trafic d’équilibreur de charge, la sonde d’intégrité, puis testé l’équilibreur de charge. Vous avez également supprimé une machine virtuelle de l’ensemble avec équilibrage de charge et rajouté la machine virtuelle au pool d’adresses principal. Pour en savoir plus sur Azure Load Balancer, consultez les didacticiels qui lui sont consacrés.
+Dans ce didacticiel, vous avez créé un équilibreur de charge standard, associé des machines virtuelles à celui-ci, configuré la règle de trafic d’équilibreur de charge, la sonde d’intégrité, puis testé l’équilibreur de charge. Vous avez également supprimé une machine virtuelle de l’ensemble à charge équilibrée et l’avez rajoutée au pool d’adresses principal. Pour en savoir plus sur Azure Load Balancer, consultez les didacticiels qui lui sont consacrés.
 
 > [!div class="nextstepaction"]
 > [Didacticiels Azure Load Balancer](tutorial-load-balancer-standard-public-zone-redundant-portal.md)

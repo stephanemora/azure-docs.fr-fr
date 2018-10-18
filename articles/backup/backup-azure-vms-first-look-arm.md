@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: sauvegardes; sauvegarde de machine virtuelle
-ms.openlocfilehash: c3bb198a65f907080023af707080f60c9c1fccbf
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fee0e20e232621764ba10d714b7ddfe9c759dafc
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398887"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717911"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 

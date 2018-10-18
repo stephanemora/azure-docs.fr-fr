@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 713c0f676067cb32a84361dd7801031295e2244f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669481"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634436"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -33,13 +33,23 @@ Les versions suivantes du système d’exploitation Windows sont officiellement 
 
 Les distributions Linux suivantes sont officiellement prises en charge. Toutefois, l’agent Linux peut également s’exécuter sur d’autres distributions, qui ne se trouvent pas dans la liste. Sauf indication contraire, toutes les versions mineures sont prises en charge pour chaque version majeure répertoriée.  
 
-* Amazon Linux 2012.09 à 2015.09 (x86/x64)
-* CentOS Linux 5, 6 et 7 (x86/x64)  
-* Oracle Linux 5, 6 et 7 (x86/x64)
-* Red Hat Enterprise Linux Server 5, 6 et 7 (x86/x64)
-* Debian GNU/Linux 6, 7 et 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 et 12 (x86/x64)
+### <a name="64-bit"></a>64 bits
+
+* CentOS 6 et 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 et 7
+* Red Hat Enterprise Linux Server 6 et 7
+* Debian GNU/Linux 8 et 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS et 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+### <a name="32-bit"></a>32 bits
+
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 et 9
+* Ubuntu Linux 14.04 LTS et 16.04 LTS
 
 ## <a name="enable-change-tracking-and-inventory"></a>Activer Change Tracking et Inventory
 
@@ -146,6 +156,7 @@ Autres limitations :
 La solution Change Tracking connaît les problèmes suivants :
 
 * Les mises à jour de correctif logiciel ne sont pas collectées pour les machines Windows 10 Creators Update et Windows Server 2016 Core RS3.
+* Pour les fichiers Windows, Change Tracking ne détecte pas l’ajout d’un fichier dans un chemin d’accès du dossier suivi
 
 ## <a name="change-tracking-data-collection-details"></a>Détails de la collecte de données de suivi des modifications
 

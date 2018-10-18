@@ -1,6 +1,6 @@
 ---
-title: Utiliser RBAC pour gérer les droits d’accès aux conteneurs et files d’attente du stockage Azure (préversion) | Microsoft Docs
-description: Utilisez RBA (contrôle d’accès en fonction du rôle) pour attribuer aux utilisateurs, aux groupes, aux principaux de service d’application ou aux identités Managed Service Identity des rôles qui leur permettent d’accéder aux données du Stockage Azure. Le Stockage Azure prend en charge les rôles intégrés et personnalisés pour les droits d’accès aux conteneurs et aux files d’attente.
+title: Utiliser RBAC pour gérer les droits d’accès aux conteneurs et files d’attente (préversion) - Stockage Azure (préversion) | Microsoft Docs
+description: Utilisez RBAC (contrôle d’accès en fonction du rôle) pour attribuer aux utilisateurs, aux groupes, aux principaux de service d’application ou aux identités de services gérés des rôles qui leur permettent d’accéder aux données des objets Blob et des files d’attente. Le Stockage Azure prend en charge les rôles intégrés et personnalisés pour les droits d’accès aux conteneurs et aux files d’attente.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c26eee05a59a10036138f81086b3f6a9e0de6d5d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298673"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737292"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gérer les droits d’accès aux données du Stockage Azure avec RBAC (préversion)
 
 Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](https://docs.microsoft.com/azure/role-based-access-control/overview). Le Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux conteneurs ou aux files d’attente. Quand un rôle RBAC est attribué à une identité Azure AD, celle-ci est autorisée à accéder aux ressources correspondantes, en fonction de l’étendue spécifiée. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, du compte de stockage ou d’un conteneur ou d’une file d’attente individuelle. Vous pouvez attribuer des droits d’accès aux ressources de stockage Azure à l’aide du Portail Azure, des outils en ligne de commande Azure et des API de gestion Azure. 
 
-Une identité Azure AD peut correspondre à un utilisateur, un groupe ou un principal du service d’application, ou éventuellement à une *identité Managed Service Identity*. Un principal de sécurité peut correspondre à un utilisateur, un groupe ou un principal du service d’application. Une [identité Managed Service Identity](../../active-directory/managed-identities-azure-resources/overview.md) est une identité administrée automatiquement, qui permet de s’authentifier à partir d’applications s’exécutant dans Machines virtuelles Azure, des applications de fonction, des groupes de machines virtuelles identiques, etc. Pour une vue d’ensemble de l’identité dans Azure AD, consultez [Comprendre les solutions d’identité Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+Une identité Azure AD peut correspondre à un utilisateur, un groupe ou un principal du service d’application, ou éventuellement à une identité managée pour ressources Azure. Un principal de sécurité peut correspondre à un utilisateur, un groupe ou un principal du service d’application. Une [identité managée pour ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md) est une identité administrée automatiquement, qui permet de s’authentifier à partir d’applications s’exécutant dans Machines virtuelles Azure, des applications de fonction, des groupes de machines virtuelles identiques, etc. Pour une vue d’ensemble de l’identité dans Azure AD, consultez [Comprendre les solutions d’identité Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
-## <a name="rbac-roles-for-azure-storage"></a>Rôles RBAC pour le Stockage Azure
+## <a name="rbac-roles-for-blobs-and-queues"></a>Rôles RBAC pour objets blob et files d’attente
 
 Le Stockage Azure prend en charge les rôles RBAC intégrés et personnalisés. Le Stockage Azure propose l’utilisation de ces rôles RBAC intégrés avec Azure AD :
 

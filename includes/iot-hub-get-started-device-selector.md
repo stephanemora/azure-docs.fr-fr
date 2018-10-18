@@ -3,6 +3,7 @@
 > * [Appareil simulé avec .NET](../articles/iot-hub/quickstart-send-telemetry-dotnet.md)
 > * [Appareil simulé avec Java](../articles/iot-hub/quickstart-send-telemetry-java.md)
 > * [Appareil simulé avec Node.js](../articles/iot-hub/quickstart-send-telemetry-node.md)
+> * [Appareil simulé avec Python](../articles/iot-hub/quickstart-send-telemetry-python.md)
 > * [Kit de développement IoT AZ3166 avec VS Code](../articles/iot-hub/iot-hub-arduino-iot-devkit-az3166-get-started.md)
 > * [Raspberry Pi avec Node.js](../articles/iot-hub/iot-hub-raspberry-pi-kit-node-get-started.md)
 > * [Raspberry Pi avec Python](../articles/iot-hub/iot-hub-raspberry-pi-kit-python-get-started.md)
@@ -12,3 +13,4 @@
 > * [Adafruit Feather HUZZAH ESP8266 avec Arduino IDE](../articles/iot-hub/iot-hub-arduino-huzzah-esp8266-get-started.md)
 > * [Sparkfun ESP8266 Thing Dev avec Arduino IDE](../articles/iot-hub/iot-hub-sparkfun-esp8266-thing-dev-get-started.md)
 > * [Adafruit Feather M0 avec Arduino IDE](../articles/iot-hub/iot-hub-adafruit-feather-m0-wifi-kit-arduino-get-started.md)
+> * [iOS avec Swift](../articles/iot-hub/quickstart-send-telemetry-ios.md)

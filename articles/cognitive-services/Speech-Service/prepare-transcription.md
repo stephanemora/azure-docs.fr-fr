@@ -1,6 +1,6 @@
 ---
-title: Instructions sur la transcription pour l’apprentissage de Speech
-description: Apprenez à préparer le texte pour personnaliser les modèles linguistiques et acoustiques, ainsi que les polices de voix pour le service Speech.
+title: Instructions concernant la transcription pour la formation du service de reconnaissance vocale
+description: Apprenez à préparer le texte pour personnaliser les modèles linguistiques et acoustiques, ainsi que les polices de voix pour le service de reconnaissance vocale.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: db324b6c5444955debdc6a3e09906a0de47ff819
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41937519"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721810"
 ---
-# <a name="transcription-guidelines-for-using-speech-service"></a>Instructions concernant la transcription pour l’utilisation du service Speech
+# <a name="transcription-guidelines-for-using-the-speech-service"></a>Instructions concernant la transcription pour l’utilisation du service de reconnaissance vocale
 
-Pour personnaliser la **reconnaissance vocale** ou la **synthèse vocale**, vous devez fournir le texte en même temps que la voix. Chaque ligne du texte correspond à un énoncé unique. Le texte devrait correspondre aussi exactement que possible à la reconnaissance vocale. Le texte est appelé une *transcription* et doit être créé dans un format spécifique.
+Pour personnaliser la **reconnaissance vocale** ou la **synthèse vocale**, vous devez fournir le texte en même temps que la voix. Chaque ligne du texte correspond à un énoncé unique. Le texte devrait correspondre autant que possible à la reconnaissance vocale. Le texte est appelé une *transcription* et doit être créé dans un format spécifique.
 
 Le service de reconnaissance vocale normalise l’entrée pour assurer l’homogénéité du texte. 
 
@@ -28,23 +28,23 @@ Cet article décrit les deux types de normalisations. Les instructions varient l
 
 Les données de texte doivent être écrites, un énoncé par ligne, en utilisant uniquement le jeu de caractères ASCII.
 
-Évitez l’utilisation des signes de ponctuation étendus (Latin-1) ou Unicode. Ces caractères peuvent être inclus par inadvertance lors de la préparation des données dans un programme de traitement de texte ou lors de la capture de données à partir de pages web. Remplacez ces caractères par des substituts ASCII appropriés. Par exemple : 
+Évitez l’utilisation des signes de ponctuation étendus (Latin-1) ou Unicode. Ces caractères peuvent être inclus par inadvertance lors de la préparation des données dans un programme de traitement de texte ou lors de la capture de données à partir de pages web. Remplacez les caractères par des substituts ASCII appropriés. Par exemple : 
 
 | Caractères à éviter | Substitution |
 |----- | ----- |
-| “Hello world” (guillemets doubles ouvrants et fermants) | "Hello world" (guillemets doubles droits) |
+| “Hello world” (guillemets doubles ouvrants et fermants) | "Hello world" (guillemets doubles) |
 | John’s day (apostrophe courbe) | John’s day (apostrophe) |
 | it was good—no, it was great! (tiret long) | it was good--no, it was great! (traits d’union) |
 
 ### <a name="text-normalization-rules-for-english"></a>Règles de normalisation de texte pour l’anglais
 
-Le service de reconnaissance vocale exécute les règles de normalisation suivantes.
+Le service de reconnaissance vocale exécute les règles de normalisation suivantes :
 
-*   Mise en minuscules de l’ensemble du texte
-*   Suppression de tous les signes de ponctuation, à l’exception des apostrophes à l’intérieur des mots
-*   Développement des nombres en forme orale, y compris les montants en dollars
+* Utilisation des lettres minuscules pour tout le texte
+* Suppression de tous les signes de ponctuation, à l’exception des apostrophes à l’intérieur des mots
+* Développement des nombres en forme orale, y compris les montants en dollars
 
-Voici quelques exemples
+Voici quelques exemples :
 
 | Texte d’origine | Après la normalisation |
 |----- | ----- |
@@ -57,13 +57,13 @@ Voici quelques exemples
 | Pi is about 3.14 | pi is about three point one four |
 | It costs $3.14 | it costs three fourteen |
 
-Appliquez la normalisation suivante à vos transcriptions de texte.
+Appliquez la normalisation suivante à vos transcriptions de texte :
 
-*   Les abréviations doivent être développées
-*   Les chaînes numériques non standard (par exemple, certaines dates ou les formules de comptabilité) doivent être écrites en mots
-*   Les mots contenant des caractères non alphabétiques ou des caractères alphanumériques mixtes doivent être retranscrits conformément à leur prononciation
-*   Laissez les abréviations prononcées comme des mots inchangées. Par exemple, radar, laser, RAM, NATO.
-*   Écrivez les abréviations prononcées comme des lettres distinctes sous forme de lettres séparées par des espaces. Par exemple, IBM, CPU, FBI, TBD, NaN. 
+* Les abréviations doivent être développées.
+* Les chaînes numériques non standard (par exemple, certaines dates ou les formules de comptabilité) doivent être écrites en mots.
+* Les mots contenant des caractères non alphabétiques ou des caractères alphanumériques mixtes doivent être retranscrits conformément à leur prononciation.
+* Laissez les abréviations prononcées comme des mots inchangées (par exemple, « radar », « laser », « RAM » ou « OTAN »).
+* Écrivez les abréviations prononcées comme des lettres distinctes sous forme de lettres séparées par des espaces (par exemple, « IMB », « CPU », «FBI », « TBD » ou «NaN »). 
 
 Voici quelques exemples :
 
@@ -93,14 +93,14 @@ Les données de texte téléchargées vers le service Custom Speech Service doiv
 
 ### <a name="text-normalization-rules-for-chinese"></a>Règles de normalisation de texte pour le chinois
 
-Le service de reconnaissance vocale exécute les règles de normalisation suivantes.
+Le service de reconnaissance vocale exécute les règles de normalisation suivantes :
 
-*   Suppression de tous les signes de ponctuation
-*   Développement des nombres vers la forme orale
-*   Conversion des lettres pleine largeur en lettres de demi-largeur
-*   Mise en majuscules de tous les mots anglais
+* Suppression de tous les signes de ponctuation
+* Développement des nombres vers la forme orale
+* Conversion des lettres pleine largeur en lettres de demi-largeur
+* Utilisation de lettres majuscules pour tous les mots anglais
 
-Voici quelques exemples.
+Voici quelques exemples :
 
 | Texte d’origine | Après la normalisation |
 |----- | ----- |
@@ -112,12 +112,12 @@ Voici quelques exemples.
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
-Appliquez la normalisation suivante à votre texte avant de l’importer.
+Appliquez la normalisation suivante à votre texte avant de l’importer :
 
-*   Les abréviations doivent être développées (sous la forme orale)
-*   Écrivez les chaînes numériques sous leur forme orale.
+* Les abréviations doivent être développées (sous la forme orale).
+* Écrivez les chaînes numériques sous leur forme orale.
 
-Voici quelques exemples.
+Voici quelques exemples :
 
 | Texte d’origine | Après la normalisation |
 |----- | ----- |
@@ -129,19 +129,19 @@ Voici quelques exemples.
 Les données de texte téléchargées vers le service de **reconnaissance vocale** doivent utiliser l’encodage UTF-8 avec un marqueur d’ordre d’octet. Le fichier doit être écrit un énoncé par ligne.
 
 > [!NOTE]
-> Les exemples suivants sont en allemand. Toutefois, ces instructions s’appliquent à toutes les langues autres que l’anglais US ou le chinois.
+> Les exemples suivants utilisent l’allemand. Toutefois, ces instructions s’appliquent à toutes les langues autres que l’anglais US ou le chinois.
 
 ### <a name="text-normalization-rules-for-german"></a>Règles de normalisation de texte pour l’allemand
 
-Le service de reconnaissance vocale exécute les règles de normalisation suivantes.
+Le service de reconnaissance vocale exécute les règles de normalisation suivantes :
 
-*   Mise en minuscules de l’ensemble du texte
-*   Suppression de tous les signes de ponctuation, y compris les différents types de guillemets ("test", 'test', "test„ ou « test » sont acceptés)
-*   Suppression des lignes contenant l’un des caractères spéciaux suivants ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬
-*   Développement des nombres en forme textuelle, y compris les montants en dollars ou en euros
-*   Les trémas sont acceptés uniquement sur les lettres a, o et u ; les autres seront remplacés par « th » ou ignorés
+* Utilisation des lettres minuscules pour tout le texte
+* Suppression de tous les signes de ponctuation, y compris les différents types de guillemets ("test", ’test’, "test„ et « test » sont acceptés)
+* Suppression des lignes contenant l’un des caractères spéciaux suivants ¢ ¤ ¥ ¦ § © ª ¬ ® ° ± ² µ × ÿ Ø¬¬
+* Développement des nombres en forme textuelle, y compris les montants en dollars ou en euros
+* Trémas acceptés uniquement sur les lettres a, o et u ; les autres seront remplacés par « th » ou ignorés
 
-Voici quelques exemples
+Voici quelques exemples :
 
 | Texte d’origine | Après la normalisation |
 |----- | ----- |
@@ -149,25 +149,25 @@ Voici quelques exemples
 | ¡Eine Frage! | eine frage |
 | wir, haben | wir haben |
 
-Appliquez la normalisation suivante à votre texte avant de l’importer.
+Appliquez la normalisation suivante à votre texte avant de l’importer :
 
-*   Le séparateur décimal doit être une virgule et non un point
-*   Le séparateur entre les heures et minutes doit être « : » et non « . » : 12:00 Uhr
-*   Les abréviations telles que « ca. » ne sont pas remplacées. Nous vous recommandons d’utiliser la forme complète.
-*   Les quatre principaux opérateurs mathématiques sont supprimés : +, -, \*, /. Nous vous recommandons de les remplacer par leur forme littérale : plus, minus, mal, geteilt.
-*   La même règle s’applique aux opérateurs de comparaison (=, <, >) - gleich, kleiner als, grösser als
-*   Utilisez la forme textuelle des fractions (par exemple, « drei viertel » au lieu de ¾)
-*   Remplacez le symbole € par la forme textuelle « Euro »
+* Le séparateur décimal doit être une virgule et non un point.
+* Le séparateur entre les heures et les minutes doit être « : » et non « . » (par exemple, 12:00 Uhr).
+* Les abréviations telles que « ca ». ne sont pas remplacées. Nous vous recommandons d’utiliser la forme complète.
+* Les quatre principaux opérateurs mathématiques (+, -, \*, /) sont supprimés. Nous vous recommandons de les remplacer par leur forme littérale : « plus », «minus », « mal » et « geteilt ».
+* La même règle s’applique aux opérateurs de comparaison (=, < et >). Nous vous recommandons de les remplacer par « gleich », « kleiner als » et « grösser als ».
+* Utilisez la forme textuelle des fractions (par exemple, « drei viertel » au lieu de ¾).
+* Remplacez le symbole € par la forme textuelle « Euro ».
 
-Voici quelques exemples.
+Voici quelques exemples :
 
 | Texte d’origine | Après la normalisation par l’utilisateur | Après la normalisation par le système
 |--------  | ----- | -------- |
-| Es ist 12.23Uhr | Es ist 12:23Uhr | es ist zwölf uhr drei und zwanzig uhr |
+| Es ist 12.23 Uhr | Es ist 12:23 Uhr | es ist zwölf uhr drei und zwanzig uhr |
 | {12.45} | {12,45} | zwölf komma vier fünf ||
 | 2 + 3 - 4 | 2 plus 3 minus 4 | zwei plus drei minus vier|
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
+- [Obtenir votre abonnement d’essai gratuit à Speech Service](https://azure.microsoft.com/try/cognitive-services/)
 - [Reconnaissance vocale dans C#](quickstart-csharp-dotnet-windows.md)

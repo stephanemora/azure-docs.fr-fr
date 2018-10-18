@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 05/05/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 223c038155d16f41f1599aa76081560739cd7095
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 12decd07934b45c3f2e8b9b098af305303641176
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34657374"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634776"
 ---
 # <a name="prepare-the-azure-infrastructure-for-sap-ha-by-using-a-windows-failover-cluster-and-shared-disk-for-sap-ascsscs"></a>Préparer l’infrastructure Azure pour la haute disponibilité SAP à l’aide d’un cluster de basculement Windows et d’un disque partagé pour SAP ASCS/SCS
 
@@ -305,7 +305,7 @@ Pour définir le modèle multi-SID ASCS/SCS, dans le [modèle multi-SID ASCS/SCS
   -  **Disponibilité du système** : Sélectionnez **HA** (haute disponibilité).
   -  **Nom d’utilisateur et mot de passe d’administrateur** : Créez un utilisateur pouvant être utilisé pour ouvrir une session sur la machine.
   -  **Sous-réseau nouveau ou existant** : Déterminez si un réseau virtuel et un sous-réseau doivent être créés ou si un sous-réseau existant doit être utilisé. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **existant**.
-  -  **ID du sous-réseau** : Définissez l’ID du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre VPN ou réseau virtuel ExpressRoute à utiliser pour connecter la machine virtuelle à votre réseau local. L'ID ressemble généralement à ceci :
+  -  **ID de sous-réseau** : si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L'ID ressemble généralement à ceci :
 
    /subscriptions/\<ID_abonnement\>/resourceGroups/\<Nom_groupe_ressources\>/providers/Microsoft.Network/virtualNetworks/\<nom_réseau_virtuel\>/subnets/\<nom_sous_réseau\>
 

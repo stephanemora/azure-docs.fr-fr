@@ -4,18 +4,18 @@ description: Décrit le partage de ressources avec des partenaires externes à l
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/24/2017
 ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7e0a65e4a5807cb9a6b39feecfd2d5b2643ea4a9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: fc789283e56d220f0068277544cb6494e265ee39
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330655"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981905"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Partage externe dans Office 365 et Azure Active Directory B2B Collaboration
 
@@ -38,9 +38,14 @@ Pour gérer le partage externe dans OneDrive/SharePoint Online avec Azure AD B2B
 
 ![Paramètre OneDrive/SharePoint Online de partage externe](media/o365-external-user/odsp-sharing-setting.png)
 
+Une fois le partage externe activé, la fonctionnalité de recherche d’utilisateurs invités existants dans le sélecteur de personnes SharePoint Online (SPO) est désactivée par défaut pour correspondre au comportement hérité.
+
+Vous pouvez activer cette fonctionnalité à l’aide du paramètre ShowPeoplePickerSuggestionsForGuestUsers au niveau du client et de la collection du site. Vous pouvez définir cette fonctionnalité à l’aide des applets de commande Set-SPOTenant et Set-SPOSite qui permettent aux membres de rechercher tous les utilisateurs invités existants dans le répertoire. Les modifications apportées à la portée du client n’affectent pas les sites SPO déjà configurés.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Qu'est-ce que la collaboration B2B d'Azure AD ?](what-is-b2b.md)
 * [Ajout d’un utilisateur B2B Collaboration à un rôle](add-guest-to-role.md)
 * [Déléguer des invitations B2B Collaboration](delegate-invitations.md)
 * [Groupes dynamiques et B2B Collaboration](use-dynamic-groups.md)
+* [Résolution des problèmes d’Azure Active Directory B2B Collaboration](troubleshoot.md)

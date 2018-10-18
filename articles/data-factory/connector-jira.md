@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Jira avec Azure Data Factory | Microsoft Docs
+title: Copier des données de Jira avec Azure Data Factory (préversion) | Microsoft Docs
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Jira vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 743c0322152b555137b2bc37641377c3cfb3d0b2
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f0bd0a57aff9767c78be63fc918b8689f7b06514
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37054617"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122703"
 ---
-# <a name="copy-data-from-jira-using-azure-data-factory"></a>Copier des données de Jira avec Azure Data Factory
+# <a name="copy-data-from-jira-using-azure-data-factory-preview"></a>Copier des données de Jira à l’aide d’Azure Data Factory (préversion)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données de Jira. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
@@ -45,11 +45,11 @@ Les propriétés prises en charge pour le service lié Jira sont les suivantes :
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **Jira** | OUI |
-| host | Adresse IP ou nom d’hôte du serveur Jira (par exemple, jira.exemple.com).  | OUI |
+| Type | La propriété de type doit être définie sur **Jira** | Oui |
+| host | Adresse IP ou nom d’hôte du serveur Jira (par exemple, jira.exemple.com).  | Oui |
 | port | Port TCP utilisé par le serveur Jira pour écouter les connexions clientes. La valeur par défaut est 443 si vous vous connectez via HTTPS, ou 8080 via HTTP.  | Non  |
-| username | Nom d’utilisateur utilisé pour accéder au service Jira.  | OUI |
-| password | Mot de passe correspondant au nom d’utilisateur indiqué dans le champ username. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
+| username | Nom d’utilisateur utilisé pour accéder au service Jira.  | Oui |
+| password | Mot de passe correspondant au nom d’utilisateur indiqué dans le champ username. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Oui |
 | useEncryptedEndpoints | Indique si les points de terminaison de la source de données sont chiffrés suivant le protocole HTTPS. La valeur par défaut est true.  | Non  |
 | useHostVerification | Indique si le nom d’hôte du certificat du serveur doit correspondre à celui du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
 | usePeerVerification | Indique s’il faut vérifier l’identité du serveur en cas de connexion SSL. La valeur par défaut est true.  | Non  |
@@ -105,7 +105,7 @@ Pour copier des données de Jira, définissez le type de source dans l’activit
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type de la source d’activité de copie doit être définie sur **JiraSource** | OUI |
+| Type | La propriété de type de la source d’activité de copie doit être définie sur **JiraSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
 
 **Exemple :**

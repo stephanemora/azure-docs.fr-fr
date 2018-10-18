@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 0386406f5fc81a007d55bd5358e7a6b333f63b04
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f48dc07e27c6cb01a842f1f6d720ed6476028ef7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048331"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542310"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Ajout d’un utilisateur dans le portail Azure
 
@@ -31,12 +31,12 @@ ms.locfileid: "43048331"
 Accordez « R-X » ou « RWX », si nécessaire, sur les dossiers contenant les données d’entrée et les données de sortie.
 
 
-## <a name="optionally-add-the-user-to-the-azure-data-lake-store-role-reader-role"></a>Ajoutez, si vous le souhaitez, l’utilisateur au rôle **Lecteur** d’Azure Data Lake Store.
-1.  Recherchez votre compte Azure Data Lake Store.
+## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>Ajoutez, si vous le souhaitez, l’utilisateur au rôle **Lecteur** d’Azure Data Lake Storage Gen1.
+1.  Cherchez votre compte Azure Data Lake Storage Gen1.
 2.  Cliquez sur **Utilisateurs**.
 3. Cliquez sur **Add**.
 4.  Sélectionnez un rôle RBAC Azure à assigner à ce groupe.
-5.  Assignez le rôle Lecteur. Ce rôle dispose de l’ensemble minimal d’autorisations requises pour parcourir/gérer les données stockées dans des ADL. Assignez ce rôle si le groupe n’est pas conçu pour gérer les services Azure.
+5.  Assignez le rôle Lecteur. Ce rôle dispose de l’ensemble minimal d’autorisations requises pour parcourir/gérer les données stockées dans des ADLSGen1. Assignez ce rôle si le groupe n’est pas conçu pour gérer les services Azure.
 6.  Saisissez le nom du groupe.
 7.  Cliquez sur **OK**.
 

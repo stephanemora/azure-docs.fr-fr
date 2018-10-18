@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8e1c194ea2ebc0e06918c8389c9ee6f72afb3e86
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: fb7ec0a6e96a9665782f85cf8a7fc496e20a9a5e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887786"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576028"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Augmenter l’échelle d’un cluster Service Fabric en ajoutant un jeu de mise à l’échelle de Machine virtuelle
 Cet article décrit comment mettre à l’échelle un cluster Azure Service Fabric en ajoutant un groupe de machines virtuelles identiques à un cluster existant. Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les groupes de machines virtuelles identiques constituent une ressource de calcul Azure que vous utilisez pour déployer et gérer une collection de machines virtuelles en tant que groupe. Chaque type de nœud défini dans un cluster Azure est [ configuré comme un groupe identique distinct](service-fabric-cluster-nodetypes.md). Chaque type de nœud peut alors faire l’objet d’une gestion séparée. Une fois que vous avez créé un cluster Service Fabric, vous pouvez mettre à l’échelle le type de nœud d’un cluster verticalement (changement des ressources des nœuds), mettre à niveau le système d’exploitation des machines virtuelles du type de nœud, ou ajouter un groupe de machines virtuelles identiques à un cluster existant.  Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.  Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
@@ -34,7 +34,7 @@ Cet article décrit comment mettre à l’échelle un cluster Azure Service Fabr
 Voici la procédure pour mettre à jour la taille et le système d’exploitation des machines virtuelles du type de nœud principal.  Après la mise à niveau, la taille des machines virtuelles du type de nœud principal sera Standard D4_V2 et leur système d’exploitation sera Windows Server 2016 Datacenter avec Conteneurs.
 
 > [!WARNING]
-> Avant de tenter cette procédure sur un cluster de production, nous vous recommandons d’examiner les exemples de modèles et de vérifier la procédure sur un cluster de test. Par ailleurs, le cluster n’est pas disponible pendant un temps.
+> Avant de tenter cette procédure sur un cluster de production, nous vous recommandons d’examiner les exemples de modèles et de vérifier la procédure sur un cluster de test. Par ailleurs, le cluster n’est pas disponible pendant un temps. Vous ne pouvez PAS modifier plusieurs VMSS déclarés en raison d’un même NodeType en parallèle. Vous devrez effectuer des opérations de déploiement séparées pour appliquer les modifications à chaque VMSS NodeType individuellement.
 
 1. Déployez le cluster initial avec deux types de nœuds et deux groupes identiques (un groupe identique par type de nœud) en utilisant ces exemples de fichiers de [modèle](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) et de [paramètres](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json).  Les deux groupes identiques ont la taille Standard D2_V2 et exécutent Windows Server 2012 R2 Datacenter.  Attendez que le cluster procède à la mise à niveau de référence.   
 2. Facultatif : Déployez un exemple avec état dans le cluster.

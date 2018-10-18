@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 02/09/2018
-ms.author: sdash ; mbullwin
-ms.openlocfilehash: c97b45616a58035dd5a1d7e832212fb90694ccce
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.topic: conceptual
+ms.date: 09/13/2018
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: cf5f85d4f7e9dbe1278e9dc4290967d781b398f3
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632821"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
@@ -31,11 +33,6 @@ Il existe deux types de tests de disponibilité :
 
 Vous pouvez créer jusqu’à 100 tests de disponibilité par ressource d’application.
 
-
-> [!NOTE] 
-> * Les emplacements de test de disponibilité ont récemment été déplacés vers les centres de données Azure. Ce déplacement permet d’ajouter des emplacements avec le réseau croissant de centres de données Azure.  
-> * Vous n’avez pas besoin de mettre à jour les tests. Tous les tests sont migrés et en cours d’exécution à partir de nouveaux emplacements. 
->* Pour plus d’informations, reportez-vous à la [mise à jour de service](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/).
 
 ## <a name="create"></a>Ouvrir une ressource pour vos rapports de test de disponibilité
 
@@ -53,15 +50,17 @@ Ouvrez le panneau de disponibilité et ajoutez un test.
 ![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 * **L’URL** peut être n’importe quelle page web que vous souhaitez tester, mais elle doit être visible à partir de l’Internet public. L’URL peut contenir une chaîne de requête. Vous pouvez donc, par exemple, tester un peu votre base de données. Si l’URL correspond à une redirection, nous allons la suivre, jusqu’à 10 redirections.
-* **Analyser les demandes dépendantes** : si cette option est activée, le test demande des images, des scripts, des fichiers de style et d’autres fichiers qui font partie de la page web de test. Le temps de réponse enregistré inclut le temps qui a été nécessaire pour obtenir ces fichiers. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test. 
-
-    Si l’option n’est pas cochée, le test ne demande que le fichier à l’URL spécifiée.
+* **Analyser les demandes dépendantes** : si cette option est activée, le test demande des images, des scripts, des fichiers de style et d’autres fichiers qui font partie de la page web de test. Le temps de réponse enregistré inclut le temps qui a été nécessaire pour obtenir ces fichiers. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test. Si l’option n’est pas cochée, le test ne demande que le fichier à l’URL spécifiée.
 
 * **Autoriser de nouvelles tentatives**: si cette option est cochée, une nouvelle tentative de test sera effectuée après un court intervalle en cas d’échec du test. L’échec est signalé uniquement après trois tentatives infructueuses. Les tests suivants sont ensuite effectués selon la fréquence de test habituelle. La nouvelle tentative est temporairement suspendue jusqu’à la réussite de la tentative suivante. Cette règle est appliquée indépendamment à chaque emplacement de test. Nous recommandons cette option. En moyenne, environ 80 % des échecs disparaissent lors de la nouvelle tentative.
 
 * **Fréquence de test**: définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec, par défaut, une fréquence de cinq minutes et cinq emplacements de test, votre site sera testé en moyenne une fois par minute.
 
 * **emplacements de test** sont les lieux d’où nos serveurs envoient des requêtes web à votre URL. Choisissez-en plusieurs de façon à distinguer les problèmes de votre site web des problèmes de réseau. Vous pouvez sélectionner jusqu’à 16 emplacements.
+
+> [!NOTE] 
+> * Nous vous recommandons vivement de tester à partir de plusieurs emplacements afin d’éviter les fausses alarmes causées par des problèmes temporaires rencontrés avec un emplacement spécifique.
+> * L’activation de l’option « Analyser les requêtes dépendantes » entraîne une vérification plus stricte. Le test peut échouer pour les cas difficiles à remarquer en parcourant le site manuellement.
 
 * **Critères de réussite**:
 
@@ -70,58 +69,6 @@ Ouvrez le panneau de disponibilité et ajoutez un test.
     **Réponse HTTP**: le code d’état retourné est comptabilisé comme un succès. 200 est le code qui indique qu’une page web normale a été retournée.
 
     **Correspondance de contenu**: une chaîne telle que « Bienvenue ! Nous vérifions qu’une correspondance exacte respectant la casse est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser.
-* Des **alertes** vous sont envoyées par défaut, en cas de défaillance dans trois emplacements en cinq minutes. Une défaillance dans un emplacement est susceptible d’être un problème réseau et non un problème relatif à votre site. Cependant, vous pouvez modifier le seuil de manière à ce qu’il soit plus ou moins sensible. Vous pouvez également modifier les destinataires des courriers électroniques.
-
-    Vous pouvez configurer un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) qui est appelé lorsqu’une alerte est déclenchée. (Mais notez qu’à l’heure actuelle, les paramètres de requête ne sont pas transmis en tant que propriétés.)
-
-### <a name="test-more-urls"></a>Test d'autres URL
-Ajoutez d’autres tests. Exemple : outre le test de votre page d’accueil, vous pouvez vérifier que votre base de données fonctionne correctement en testant une recherche sur l’URL.
-
-
-## <a name="monitor"></a>Consulter les résultats des tests de disponibilité
-
-Au bout de quelques minutes, cliquez sur **Actualiser** pour afficher les résultats de test. 
-
-![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
-
-Le nuage de points montre des exemples de résultats de test contenant des détails de l’étape de test de diagnostic. Le moteur de test stocke les détails de diagnostic pour les tests qui présentent des erreurs. Pour les tests réussis, les détails de diagnostic sont stockés pour un sous-ensemble des exécutions. Pointez sur les points verts/rouges pour voir l’horodatage, la durée, l’emplacement et le nom du test. Cliquez sur n’importe quel point dans le nuage de points pour afficher les détails du résultat de test.  
-
-Sélectionnez un test ou emplacement spécifique, ou réduisez la période de temps pour voir plus de résultats autour de la période d’intérêt. Utilisez l’Explorateur de recherche pour voir les résultats de toutes les exécutions, ou utilisez les requêtes Analytics pour exécuter des rapports personnalisés sur ces données.
-
-Outre les résultats bruts, il existe deux mesures de disponibilité dans Metrics Explorer : 
-
-1. Disponibilité : pourcentage des tests qui ont réussi, sur toutes les exécutions de test. 
-2. Durée du test : durée moyenne du test sur toutes les exécutions de test.
-
-Vous pouvez appliquer des filtres sur le nom du test et sur l’emplacement pour analyser les tendances d’un test et/ou d’un emplacement en particulier.
-
-## <a name="edit"></a>Examiner et modifier des tests
-
-Dans la page de résumé, sélectionnez un test spécifique. Ici, vous pouvez voir ses résultats spécifiques et le modifier ou le désactiver temporairement.
-
-![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
-
-Vous souhaiterez peut-être désactiver les tests de disponibilité ou les règles d’alerte associées lorsque vous effectuez la maintenance de votre service. 
-
-## <a name="failures"></a>Si vous constatez des erreurs
-Cliquez sur un point rouge.
-
-![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
-
-
-À partir d’un résultat de test de disponibilité, vous pouvez :
-
-* Vérifier la réponse reçue à partir de votre serveur.
-* Diagnostiquer la défaillance à l’aide des données de télémétrie côté serveur collectées pendant le traitement de l’instance de requête en échec.
-* Enregistrer un problème ou un élément de travail dans Git ou VSTS pour suivre le problème. Le bogue contient un lien vers cet événement.
-* Ouvrir le résultat du test web dans Visual Studio.
-
-*Le résultat semble correct, mais une erreur est signalée ?* Consultez le [FAQ](#qna) pour prendre connaissance des méthodes permettant de réduire le bruit.
-
-
-> [!TIP]
-> Nous vous recommandons un test à partir d’au moins 2 emplacements pour obtenir une analyse fiable.
->
 
 ## <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple, si vous analysez un site Web commercial, vous pouvez vérifier que l’ajout d’articles au panier d’achat fonctionne correctement.
@@ -176,20 +123,6 @@ Utilisez Visual Studio Enterprise pour enregistrer une session web.
 
     Définissez les emplacements de test, la fréquence et les paramètres d’alerte comme pour les tests ping.
 
-#### <a name="3-see-the-results"></a>3. Afficher les résultats
-
-Visualisez les résultats de votre test et les échecs éventuels de la même manière que les tests d’URL unique.
-
-En outre, vous pouvez télécharger les résultats des tests pour les afficher dans Visual Studio.
-
-#### <a name="too-many-failures"></a>Trop d’échecs ?
-
-* Un échec est souvent dû à un test trop long. Le test ne doit pas durer plus de deux minutes.
-
-* N’oubliez pas que toutes les ressources d’une page doivent se charger correctement pour que le test réussisse, y compris les scripts, les feuilles de style, les images, etc.
-
-* Le test web doit être entièrement contenu dans le script .webtest : vous ne pouvez pas utiliser de fonctions codées dans le test.
-
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Ajout de plug-ins de temps et de nombres aléatoires à votre test à plusieurs étapes
 Supposons que vous testiez un outil qui obtient des données temporelles, telles que des actions à partir d’un flux externe. Lorsque vous enregistrez votre test web, vous devez utiliser des heures spécifiques, mais vous les définissez en tant que paramètres de test, à savoir StartTime et EndTime.
 
@@ -212,6 +145,87 @@ Les plug-ins de test web vous permettent de paramétrer les heures.
     ![Dans le paramètre de test, utilisez {{nom du plug-in}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
 Maintenant, téléchargez votre test sur le portail. Il utilise les valeurs dynamiques à chaque exécution du test.
+
+
+## <a name="monitor"></a>Consulter les résultats des tests de disponibilité
+
+Au bout de quelques minutes, cliquez sur **Actualiser** pour afficher les résultats de test. 
+
+![Summary results on the home blade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
+
+Le nuage de points montre des exemples de résultats de test contenant des détails de l’étape de test de diagnostic. Le moteur de test stocke les détails de diagnostic pour les tests qui présentent des erreurs. Pour les tests réussis, les détails de diagnostic sont stockés pour un sous-ensemble des exécutions. Pointez sur les points verts/rouges pour voir l’horodatage, la durée, l’emplacement et le nom du test. Cliquez sur n’importe quel point dans le nuage de points pour afficher les détails du résultat de test.  
+
+Sélectionnez un test ou emplacement spécifique, ou réduisez la période de temps pour voir plus de résultats autour de la période d’intérêt. Utilisez l’Explorateur de recherche pour voir les résultats de toutes les exécutions, ou utilisez les requêtes Analytics pour exécuter des rapports personnalisés sur ces données.
+
+Outre les résultats bruts, il existe deux mesures de disponibilité dans Metrics Explorer : 
+
+1. Disponibilité : pourcentage des tests qui ont réussi, sur toutes les exécutions de test. 
+2. Durée du test : durée moyenne du test sur toutes les exécutions de test.
+
+Vous pouvez appliquer des filtres sur le nom du test et sur l’emplacement pour analyser les tendances d’un test et/ou d’un emplacement en particulier.
+
+## <a name="edit"></a>Examiner et modifier des tests
+
+Dans la page de résumé, sélectionnez un test spécifique. Ici, vous pouvez voir ses résultats spécifiques et le modifier ou le désactiver temporairement.
+
+![Edit or disable a web test](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
+
+Vous souhaiterez peut-être désactiver les tests de disponibilité ou les règles d’alerte associées lorsque vous effectuez la maintenance de votre service. 
+
+## <a name="failures"></a>Si vous constatez des erreurs
+Cliquez sur un point rouge.
+
+![Click a red dot](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
+
+À partir d’un résultat de test de disponibilité, vous pouvez voir les détails de la transaction pour tous les composants. Ici, vous pouvez :
+
+* Vérifier la réponse reçue à partir de votre serveur.
+* Diagnostiquer la défaillance à l’aide des données de télémétrie côté serveur corrélées qui ont été collectées pendant le traitement du test de disponibilité en échec.
+* Enregistrer un problème ou un élément de travail dans Git ou VSTS pour suivre le problème. Le bogue contient un lien vers cet événement.
+* Ouvrir le résultat du test web dans Visual Studio.
+
+Vous pouvez en découvrir plus sur l’expérience de diagnostic des transactions de bout en bout [ici](app-insights-transaction-diagnostics.md).
+
+Cliquez sur la ligne d’une exception pour afficher les détails de l’exception côté serveur qui a provoqué l’échec du test de disponibilité synthétique. Vous pouvez également obtenir la [capture instantanée de débogage](app-insights-snapshot-debugger.md) pour des diagnostics de niveau code plus riches.
+
+![Diagnostics côté serveur](./media/app-insights-monitor-web-app-availability/open-instance-4.png)
+
+## <a name="alerts"></a> Alertes de disponibilité
+Vous pouvez obtenir les types de règles d’alerte suivants sur les données de disponibilité à l’aide de l’expérience d’alertes classiques :
+1. Emplacements de X en dehors de Y signalant des échecs pendant une certaine période
+2. Le pourcentage de disponibilité des agrégats descend sous un certain seuil
+3. La durée moyenne des tests augmente au-dessus d’un certain seuil
+
+### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>L’alerte sur les emplacements de X en dehors de Y signalant des échecs
+La règle d’alerte pour les emplacements de X en dehors de Y est activée par défaut dans l’[expérience des nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts) lorsque vous créez un nouveau test de disponibilité. Vous pouvez décliner en sélectionnant l’option « classique » ou en choisissant de désactiver la règle d’alerte.
+
+![Créer l’expérience](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
+
+**Important** : avec les [nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), le niveau de gravité et les préférences de notification des règles d’alerte des [groupes d’actions](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **doivent être** configurés dans l’expérience d’alertes. Sans les étapes suivantes, vous recevrez les notifications dans le portail uniquement. 
+
+1. Après avoir enregistré le test de disponibilité, cliquez sur le nouveau nom de test pour accéder à ses détails. Cliquez sur « Modifier l’alerte », ![Modifier après l’enregistrement](./media/app-insights-monitor-web-app-availability/editaftersave.png)
+
+2. Définissez le niveau de gravité et la description des règles souhaités, et surtout, le groupe d’actions disposant des préférences de notification que vous souhaitez utiliser pour cette règle d’alerte.
+![Modifier après l’enregistrement](./media/app-insights-monitor-web-app-availability/setactiongroup.png)
+
+
+> [!NOTE]
+> * Configurez les groupes d’actions pour recevoir des notifications lorsque l’alerte se déclenche en suivant les étapes ci-dessus. Sans cette étape, vous recevrez les notifications dans le portail uniquement lorsque la règle se déclenche.
+>
+### <a name="alert-on-availability-metrics"></a>Créer une alerte sur les mesures de disponibilité
+À l’aide des [nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), vous pouvez créer une alerte sur les mesures de disponibilité des agrégats segmentés et sur la durée des tests :
+
+1. Sélectionnez une ressource Application Insights dans l’expérience Mesures, puis sélectionnez une mesure de disponibilité : ![Sélection des mesures de disponibilité](./media/app-insights-monitor-web-app-availability/selectmetric.png)
+
+2. L’option Configurer les alertes dans le menu vous redirigera vers la nouvelle expérience où vous pouvez sélectionner des tests ou des emplacements spécifiques sur lesquels il est possible de configurer une règle d’alerte. Ici, vous pouvez également configurer les groupes d’actions pour cette règle d’alerte.
+    ![Configuration des alertes de disponibilité](./media/app-insights-monitor-web-app-availability/availabilitymetricalert.png)
+
+### <a name="alert-on-custom-analytics-queries"></a>Créer des alertes sur les requêtes d’analytique personnalisées
+À l’aide des [nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), vous pouvez créer des alertes sur les [requêtes dans les journaux personnalisées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Avec des requêtes personnalisées, vous pouvez créer des alertes sur une condition arbitraire qui peut vous aider à obtenir le signal le plus fiable pour des problèmes de disponibilité. C’est également très pertinent si vous envoyez les résultats de disponibilité personnalisés à l’aide du Kit de développement logiciel (SDK) TrackAvailability. 
+
+> [!Tip]
+> * Les mesures sur les données de disponibilité incluent tous les résultats de disponibilité personnalisés que vous pouvez soumettre en appelant notre Kit de développement logiciel (SDK) TrackAvailability. Vous pouvez utiliser la prise en charge de la création d’alertes sur les mesures pour créer des alertes sur les résultats de disponibilité personnalisés.
+>
 
 ## <a name="dealing-with-sign-in"></a>Gestion de la connexion
 Si vos utilisateurs se connectent à votre application, vous disposez de différentes options pour simuler la connexion et tester les pages suivant la connexion. L’approche que vous utilisez dépend du type de sécurité fourni par l’application.
@@ -249,11 +263,10 @@ Si votre test doit se connecter à l’aide d’OAuth, l’approche générale e
 * Paramétrez les jetons, en définissant le paramètre lorsque le jeton est retourné par l’authentificateur et en l’utilisant dans la requête soumise sur le site.
   (Visual Studio tente de paramétrer le test, mais ne paramètre pas correctement les jetons.)
 
-
 ## <a name="performance-tests"></a>Tests de performance
 Vous pouvez effectuer un test de charge sur votre site web. Comme pour le test de disponibilité, vous pouvez envoyer des requêtes uniques ou des requêtes à plusieurs étapes à partir de nos points de présence dans le monde. Contrairement à un test de disponibilité, de nombreuses demandes sont envoyées, afin de simuler la présence de plusieurs utilisateurs simultanés.
 
-Dans le panneau Vue d’ensemble, ouvrez **Paramètres**, **Tests de performance**. Lorsque vous créez un test, vous êtes invité à vous connecter à Visual Studio Team Services ou à créer un compte.
+Dans le panneau Vue d’ensemble, ouvrez **Paramètres**, **Tests de performance**. Lorsque vous créez un test, vous êtes invité à vous connecter à Azure DevOps ou à créer un compte.
 
 Une fois le test terminé, les temps de réponse et les taux de réussite s’affichent.
 
@@ -268,50 +281,68 @@ Une fois le test terminé, les temps de réponse et les taux de réussite s’af
 * [Utilisez des scripts PowerShell pour configurer un test de disponibilité](app-insights-powershell.md#add-an-availability-test) automatiquement.
 * Configurez un [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) qui est appelé lorsqu’une alerte est déclenchée.
 
-## <a name="qna"></a>Des questions ? Des problèmes ?
+## <a name="qna"></a> FAQ
+
+* *Le site me semble OK, mais j’observe des échecs de tests. Pourquoi Application Insights m’envoie-t-il des alertes ?*
+
+    * Est-ce que l’option « Analyser les requêtes dépendantes » est activée pour le test ? Cela entraîne une vérification stricte des ressources telles que les scripts, les images, etc. Ces types de d’échecs peuvent être difficiles à remarquer sur un navigateur. Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement. Pour désensibiliser le test à ces échecs de ressource, il vous suffit de décocher la case « Analyser les requêtes dépendantes » dans la configuration du test. 
+
+    * Pour réduire la probabilité de bruit des spots réseau temporaires, etc., vérifiez que la case à cocher de configuration « Permettre les nouvelles tentatives pour les échecs des tests web » est activée. Vous pouvez également procéder aux tests à partir de plusieurs emplacements et gérer le seuil de la règle d’alerte en conséquence afin d’empêcher des problèmes propres aux emplacements provoquant des alertes injustifiées.
+
+    * Cliquez sur un des points rouges à partir de l’expérience de disponibilité, ou sur tout échec de disponibilité à partir du navigateur de recherche pour afficher les détails de la raison pour laquelle nous avons signalé l’échec. Le résultat de test, ainsi que les données de télémétrie côté serveur corrélées (si activées), doivent aider à comprendre pourquoi le test a échoué. Les causes courantes des problèmes temporaires proviennent du réseau ou de la connexion. 
+
+    * Est-ce que le délai d’attente du test est arrivé à expiration ? Nous abandonnons les tests après 2 minutes. Si votre test Ping ou multiétape prend plus de 2 minutes, nous le signalerons comme un échec. Pensez à diviser le test en plusieurs parties qui peuvent être effectuées dans des délais plus courts.
+
+    * Est-ce qu’un échec est signalé pour tous vos emplacements, ou seulement certains d’entre eux ? Si des échecs ne sont signalés que pour certains, cela peut être dû à des problèmes de réseau/CDN. Là encore, cliquer sur les points rouges peut aider à comprendre pourquoi l’emplacement a signalé des échecs.
+
+* *Je n’ai pas reçu d’e-mail lorsque l’alerte s’est déclenchée, a été résolue, ou les deux ?*
+
+    Vérifiez la configuration des alertes classiques pour confirmer que votre adresse e-mail est répertoriée directement, ou que vous êtes sur une liste de distribution qui est configurée pour recevoir des notifications. Le cas échéant, vérifiez ensuite la configuration de la liste de distribution pour confirmer qu’elle peut recevoir des e-mails externes. Vérifiez également si votre administrateur de messagerie dispose de stratégies configurées qui pourraient provoquer ce problème.
+
+* *Je n’ai pas reçu la notification webhook ?*
+
+    Vérifiez que l’application qui reçoit la notification webhook est disponible et traite correctement les requêtes webhook. Pour plus d’informations, consultez [ceci](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook).
+
 * *Échecs intermittents des tests avec une erreur de violation de protocole.*
 
     L’erreur (« violation de protocole... CR doit être suivi par LF ») indique un problème lié au serveur (ou aux dépendances). Il se produit lorsque des en-têtes mal formés sont définis dans la réponse. Ce problème peut être provoqué par des équilibreurs de charge ou des réseaux de distribution de contenu (CDN). Plus précisément, certains en-têtes peuvent ne pas utiliser CRLF pour indiquer la fin de ligne, ce qui enfreint la spécification HTTP et entraîne donc l’échec de la validation au niveau WebRequest .NET. Examinez la réponse pour repérer les en-têtes qui peuvent ne pas être conformes.
     
     Remarque : l’URL peut ne pas être en échec sur les navigateurs qui présentent une validation approximative des en-têtes HTTP. Consultez ce billet de blog pour obtenir une explication détaillée de ce problème : http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
-* *Le site vous semble OK, mais vous observez des échecs des tests.*
-
-    * Vérifiez toutes les images, les scripts, les feuilles de style et tout autre fichier chargé par la page. Si l’un d’eux échoue, le test signale une erreur, même si la page html principale se charge correctement. Pour désensibiliser le test à ces échecs de ressource, il vous suffit de décocher la case « Analyser les requêtes dépendantes » dans la configuration du test. 
-
-    * Pour réduire la probabilité de bruit des spots réseau temporaires, etc., vérifiez que la case à cocher de configuration « Permettre les nouvelles tentatives pour les échecs des tests web » est activée. Vous pouvez également procéder aux tests à partir de plusieurs emplacements et gérer le seuil de la règle d’alerte en conséquence afin d’empêcher des problèmes propres aux emplacements provoquant des alertes injustifiées.
     
 * *Je ne vois pas les données de télémétrie côté serveur associées pour diagnostiquer les échecs des tests.*
     
-    Si Application Insights est défini pour votre application côté serveur, cela peut être en raison d’un [échantillonnage](app-insights-sampling.md) en cours.
+    Si Application Insights est défini pour votre application côté serveur, cela peut être en raison d’un [échantillonnage](app-insights-sampling.md) en cours. Sélectionnez un résultat de disponibilité différent.
+
 * *Puis-je appeler du code à partir de mon test web ?*
 
     Non. Les étapes du test doivent se trouver dans le fichier .webtest. Et vous ne pouvez pas appeler d’autres tests web ou utiliser des boucles. En revanche, il existe un certain nombre de plug-ins qui peuvent s’avérer utiles.
+
 * *Le protocole HTTPS est-il pris en charge ?*
 
     Nous prenons en charge TLS 1.1 et TLS 1.2.
 * *Quelle est la différence entre les « tests Web » et les « tests de disponibilité » ?*
 
     Les deux conditions peuvent être référencées indifféremment. « Tests de disponibilité » est un terme plus générique qui inclut les tests ping d’URL uniques en plus des tests web à plusieurs étapes.
+    
 * *J’aimerais utiliser les tests de disponibilité sur notre serveur interne qui s’exécute derrière un pare-feu.*
 
     Il existe deux solutions possibles :
     
     * Configurez votre pare-feu pour autoriser les demandes entrantes provenant des [adresses IP de nos agents de test web](app-insights-ip-addresses.md).
     * Écrivez votre propre code pour tester régulièrement votre serveur interne. Exécutez le code en tant que processus en arrière-plan sur un serveur test derrière votre pare-feu. Le processus de test peut envoyer ses résultats à Application Insights à l’aide de l’API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) dans le package du kit de développement logiciel (SDK) principal. Cela nécessite que votre serveur de test ait un accès sortant au point de terminaison d’ingestion Application Insights, mais ce risque de sécurité est beaucoup plus faible que l’alternative, qui consiste à autoriser les demandes entrantes. Les résultats n’apparaissent pas dans les panneaux de tests web de disponibilité, mais ils s’affichent comme résultats de disponibilité dans Analytics, Search et Metric Explorer.
+
 * *Le chargement d’un test web multi-étapes échoue*
 
-    La limite de taille est de 300 Ko.
+    Certaines raisons à cause desquelles cela peut se produire :
+    * La limite de taille est de 300 Ko.
+    * Les boucles ne sont pas prises en charge.
+    * Les références à d’autres tests web ne sont pas prises en charge.
+    * Les sources de données ne sont pas prises en charge.
 
-    Les boucles ne sont pas prises en charge.
-
-    Les références à d’autres tests web ne sont pas prises en charge.
-
-    Les sources de données ne sont pas prises en charge.
 * *Mon test à plusieurs étapes ne se termine pas.*
 
-    Chaque test possède une limite de 100 demandes.
+    Chaque test possède une limite de 100 demandes. En outre, le test s’arrête s’il s’exécute pendant plus de deux minutes.
 
-    Le test s’arrête s’il s’exécute pendant plus de deux minutes.
 * *Comment puis-je exécuter un test avec des certificats clients ?*
 
     Désolé, ce n’est pas pris en charge.

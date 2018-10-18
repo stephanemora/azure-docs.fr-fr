@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 8a5d880d0238e38fbbaa9de22fc1baf604f0fc07
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206035"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733462"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Connecter une application cliente Node.js générique à votre application Azure IoT Central (Node.js)
 
@@ -121,7 +121,7 @@ Les étapes suivantes montrent comment créer une application cliente qui implé
     var ConnectionString = require('azure-iot-device').ConnectionString;
     ```
 
-1. Ajoutez les déclarations de variable suivantes au fichier :
+1. Ajoutez les déclarations de variable ci-après au fichier :
 
     ```javascript
     var connectionString = '{your device connection string}';
@@ -129,7 +129,11 @@ Les étapes suivantes montrent comment créer une application cliente qui implé
     var client = clientFromConnectionString(connectionString);
     ```
 
-    Remplacez l’espace réservé `{your device connection string}` par la chaîne de connexion de votre appareil. Vous avez copié cette valeur depuis la page des détails de connexion quand vous avez ajouté votre appareil réel. Dans cet exemple, nous initialisons `targetTemperature` à zéro ; vous pouvez aussi prendre la valeur actuellement lue sur l’appareil ou une valeur du jumeau d’appareil. 
+  > [!NOTE]
+   > Azure IoT Central utilise désormais le Service IoT Hub Device Provisioning (DPS) Azure pour toutes les connexions d’appareil. Suivez ces instructions pour [obtenir la chaîne de connexion d’appareil](concepts-connectivity.md#getting-device-connection-string) et continuez le didacticiel.
+
+
+    Remplacez l’espace réservé `{your device connection string}` par la chaîne de connexion de l’appareil. Dans cet exemple, nous initialisons `targetTemperature` à zéro ; vous pouvez aussi prendre la valeur actuellement lue sur l’appareil ou une valeur du jumeau d’appareil. 
 
 1. Pour envoyer des mesures de télémétrie, d’état et d’événement à votre application Azure IoT Central, ajoutez la fonction suivante au fichier :
 

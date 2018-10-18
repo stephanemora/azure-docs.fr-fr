@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 73ffcf5e2ced63fddaf0f5ef2ca7e72a7d94b966
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 653a4675d546432eea8478ba6203be1df71ec4f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786818"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731391"
 ---
 #    <a name="named-entity-recognition-cognitive-skill"></a>Compétence cognitive Reconnaissance d’entités nommées
 
 La compétence **Reconnaissance d’entités nommées** extrait les entités nommées du texte. Les types d’entités disponibles sont les suivants : `person`, `location` et `organization`.
+
+> [!NOTE]
+> La recherche cognitive est disponible en version préliminaire publique. L’exécution d’ensemble de compétences, ainsi que l’extraction et la normalisation d’images, sont actuellement proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
@@ -39,7 +42,7 @@ Les paramètres respectent la casse.
 | Nom d’entrée      | Description                   |
 |---------------|-------------------------------|
 | languageCode  | facultatif. La valeur par défaut est `"en"`.  |
-| text          | Texte à analyser.          |
+| texte          | Texte à analyser.          |
 
 ## <a name="skill-outputs"></a>Sorties de la compétence
 

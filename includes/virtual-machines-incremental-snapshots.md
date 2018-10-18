@@ -1,3 +1,20 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: storage
+author: roygara
+ms.service: storage
+ms.topic: include
+ms.date: 09/15/2018
+ms.author: rogarana
+ms.custom: include file
+ms.openlocfilehash: 88a9348ea7d6282b7410d5a323fd482dc82416c6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45978925"
+---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Sauvegarder les disques de machines virtuelles Azure non gérés avec des captures instantanées incrémentielles
 ## <a name="overview"></a>Vue d’ensemble
 Azure Storage offre la possibilité de prendre des instantanés d’objets blob. Les instantanés capturent l’état de l’objet blob à un instant précis. Dans cet article, nous décrivons un scénario dans lequel vous pouvez gérer des sauvegardes de disques de machine virtuelle à l’aide de captures instantanées. Vous pouvez utiliser cette méthode comme une alternative à Azure Backup et Recovery Service et si vous voulez créer une stratégie de sauvegarde personnalisée pour vos disques de machine virtuelle.
@@ -62,7 +79,7 @@ Dans cette section, nous décrivons un scénario qui implique une stratégie de 
 
 Prenez une machine virtuelle Azure de série DS avec un disque P30 de stockage Premium attaché. Le disque P30 appelé *mypremiumdisk* est stocké dans un compte de stockage Premium appelé *mypremiumaccount*. Un compte de stockage standard appelé *mybackupstdaccount* est utilisé pour stocker la sauvegarde de *mypremiumdisk*. Nous voulons conserver un instantané de *mypremiumdisk* toutes les 12 heures.
 
-Pour en savoir plus sur la création d’un compte de stockage et de disques, consultez [À propos des comptes de stockage Azure](../articles/storage/storage-create-storage-account.md).
+Pour plus d’informations sur la création d’un compte de stockage, consultez la section [Créer un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
 
 Pour en savoir plus sur la sauvegarde de machines virtuelles Azure, reportez-vous à [Planifier les sauvegardes de machine virtuelle Azure](../articles/backup/backup-azure-vms-introduction.md).
 

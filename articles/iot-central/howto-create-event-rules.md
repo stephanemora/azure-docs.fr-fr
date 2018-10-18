@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 40c7b2865795f8c6a5cfbabe4d59aea1715d4a57
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 889f3928ee72c035035abb635eb71ec0b06a3b45
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42140706"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730152"
 ---
-# <a name="create-an-eevent-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Créer une règle d’événement et configurer des notifications dans votre application Azure IoT Central
+# <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Créer une règle d’événement et configurer des notifications dans votre application Azure IoT Central
+
+*Cet article s’applique aux opérateurs, aux créateurs et aux administrateurs.*
 
 Vous pouvez utiliser Azure IoT Central pour surveiller à distance vos appareils connectés. Les règles d’Azure IoT Central vous permettent de surveiller vos appareils quasiment en temps réel et d’appeler automatiquement des actions, comme l’envoi d’un e-mail ou le déclenchement de Microsoft Flow. En quelques clics seulement, vous pouvez définir la condition pour surveiller les données de vos appareils et configurer l’action correspondante. Cet article explique comment créer des règles pour surveiller les événements envoyés par l’appareil.
 
@@ -37,10 +39,10 @@ Pour permettre la création d’une règle d’événement, le modèle d’appar
     ![Pas encore de règles](media\howto-create-event-rules\Rules_Landing_Page.png)
 
 
-1. Sous l’onglet **Règles**, cliquez sur **+ Nouvelle règle** pour voir les types de règles que vous pouvez créer.
+1. Sous l’onglet **Règles**, cliquez sur **Modifier un modèle** puis sur **+ Nouvelle règle** pour voir les types de règles que vous pouvez créer.
 
 
-1. Cliquez sur la vignette **Événement** pour créer une règle.
+1. Cliquez sur la vignette **Événement** pour créer une règle de surveillance d’événement.
 
     ![Types de règles](media\howto-create-event-rules\Rule_Types.png)
 
@@ -92,6 +94,8 @@ Cette section vous indique comment configurer les actions à effectuer lorsque l
    ![Configurer une action](media\howto-create-event-rules\Configure_Action.png)
 
 1. Pour enregistrer la règle, choisissez **Enregistrer**. La règle est active au bout de quelques minutes et commence à surveiller les événements envoyés à votre application. Quand la condition spécifiée dans la règle est remplie, la règle déclenche l’action d’envoi d’e-mail configurée.
+
+1. Choisissez **Terminé** pour quitter le mode **Modifier le modèle**.
 
 Vous pouvez ajouter d’autres actions à la règle, par exemple Microsoft Flow et des Webhooks. Vous pouvez ajouter jusqu’à 5 actions par règle.
 

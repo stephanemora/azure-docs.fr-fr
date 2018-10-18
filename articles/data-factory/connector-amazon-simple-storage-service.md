@@ -8,18 +8,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/25/2018
+ms.date: 09/13/2018
 ms.author: jingwang
-ms.openlocfilehash: 3635e8bf1d9ba4061da5b8f416a3b755f7064000
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: bdbf0b74b6e851e0dd84ff5d9aafb84d878d8ea2
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045634"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542072"
 ---
 # <a name="copy-data-from-amazon-simple-storage-service-using-azure-data-factory"></a>Copie de données d’Amazon Simple Storage Service à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
-> * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
+> * [Version 1](v1/data-factory-amazon-simple-storage-service-connector.md)
 > * [Version actuelle](connector-amazon-simple-storage-service.md)
 
 Cet article explique comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis Amazon S3. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
@@ -35,7 +35,10 @@ Plus spécifiquement, ce connecteur Amazon S3 prend en charge la copie de fichie
 Pour copier des données à partir d’Amazon S3, assurez-vous que vous disposez des autorisations suivantes :
 
 - `s3:GetObject` et `s3:GetObjectVersion` pour les opérations d’objet Amazon S3 ;
-- `s3:ListBucket` ou `s3:GetBucketLocation` pour les opérations de compartiment Amazon S3. Si vous utilisez l’Assistant de copie de Data Factory, l’élément `s3:ListAllMyBuckets` est également requis.
+- `s3:ListBucket` ou `s3:GetBucketLocation` pour les opérations de compartiment Amazon S3. 
+
+>[!NOTE]
+>Lorsque vous utilisez l’interface utilisateur graphique de Data Factory pour la création, l’autorisation `s3:ListAllMyBuckets` est également nécessaire pour les opérations telles que « tester la connexion » et « parcourir/accéder à des chemins de fichiers ». Si vous ne souhaitez pas accorder cette autorisation, ignorez « tester la connexion » dans la page de création de service lié et spécifiez directement le chemin d’accès dans les paramètres du jeu de données.
 
 Pour obtenir la liste complète des autorisations Amazon S3, consultez l’article [Spécification des autorisations d’une stratégie](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-with-s3-actions.html).
 

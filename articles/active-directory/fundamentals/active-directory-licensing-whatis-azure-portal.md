@@ -1,28 +1,26 @@
 ---
-title: Présentation des licences basées sur le groupe dans Azure AD | Microsoft Docs
-description: Description des licences basées sur les groupes Azure Active Directory, de leur fonctionnement et des bonnes pratiques
+title: À quoi correspondent les licences basées sur les groupes dans Azure Active Directory ? | Microsoft Docs
+description: Apprenez-en plus sur les licences basées sur les groupes Azure Active Directory, leur fonctionnement et les bonnes pratiques
 services: active-directory
 keywords: Gestion des licences Azure AD
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/13/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 5f5aab6a8514636e8be09deb773748080871b9d4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7848b52bcf5204a871920cbfab8a0e95223654d4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005229"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735899"
 ---
-# <a name="group-based-licensing-basics-in-azure-active-directory"></a>Principes de base des licences basées sur les groupes dans Azure Active Directory
+# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>À quoi correspondent les licences basées sur les groupes dans Azure Active Directory ?
 
 Les services cloud payants Microsoft, comme Office 365, Enterprise Mobility + Security, Dynamics 365 et d’autres produits similaires, requièrent des licences. Ces licences sont affectées à chaque utilisateur qui a besoin d’accéder à ces services. Pour gérer les licences, les administrateurs utilisent l’un des portails de gestion (Office ou Azure) et des applets de commande PowerShell. Azure Active Directory (Azure AD) est l’infrastructure de base qui prend en charge la gestion de tous les services cloud Microsoft. Azure AD stocke des informations sur les états d’affectation de licence pour les utilisateurs.
 

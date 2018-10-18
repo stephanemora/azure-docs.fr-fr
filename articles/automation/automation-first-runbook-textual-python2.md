@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/26/2018
+ms.date: 09/11/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 386c2ecfdac44158f5d87034657491fa9598e3ad
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: b621c6b9af60637e8bb818545746923c22926ac4
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018220"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984969"
 ---
 # <a name="my-first-python-runbook"></a>Mon premier runbook Python
 
@@ -92,7 +92,7 @@ Dans ce cas, vous n’avez pas encore de version publiée car vous venez de cré
 ## <a name="add-authentication-to-manage-azure-resources"></a>Ajouter une authentification pour gérer les ressources Azure
 
 Vous avez testé et publié votre runbook, mais jusqu’à présent, il ne fait rien d’utile. Vous souhaitez qu’il gère les ressources Azure.
-Pour gérer les ressources Azure, le script doit s’authentifier à l’aide des informations d’identification de votre [compte Automation](automation-offering-get-started.md).
+Pour gérer les ressources Azure, le script doit s’authentifier à l’aide des informations d’identification de votre compte Automation. Pour vous aider, vous pouvez utiliser le [package d’utilitaire Azure Automation](https://github.com/azureautomation/azure_automation_utility) dans le but de faciliter l’authentification et l’interaction avec les ressources Azure.
 
 > [!NOTE]
 > Le compte Automation doit avoir été créé avec la fonctionnalité de principal de service pour qu’un certificat puisse être exécuté.
@@ -100,7 +100,7 @@ Pour gérer les ressources Azure, le script doit s’authentifier à l’aide de
 
 1. Ouvrez l’éditeur textuel en cliquant sur **Modifier** dans le volet MyFirstRunbook-Python.
 
-1. Ajoutez le code suivant pour vous authentifier dans Azure :
+2. Ajoutez le code suivant pour vous authentifier dans Azure :
 
    ```python
    import os
@@ -160,7 +160,7 @@ async_vm_start = compute_client.virtual_machines.start("MyResourceGroup", "TestV
 async_vm_start.wait()
 ```
 
-_MyResourceGroup_ étant le nom du groupe de ressource qui contient la machine virtuelle, et _TestVM_ le nom de la machine virtuelle que vous souhaitez démarrer. 
+_MyResourceGroup_ étant le nom du groupe de ressource qui contient la machine virtuelle, et _TestVM_ le nom de la machine virtuelle que vous souhaitez démarrer.
 
 Testez et exécutez une nouvelle fois le Runbook pour vérifier qu’il démarre la machine virtuelle.
 

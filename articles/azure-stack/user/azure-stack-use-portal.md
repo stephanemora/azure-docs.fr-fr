@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 7ca29ee359349f69c3d5ff21bd9db3f93358206a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 7ccf746cfd9645b63c2810bff83cfb0c4fa55d65
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34724310"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713732"
 ---
 # <a name="use-the-azure-stack-portal"></a>Utiliser le portail Azure Stack
 
@@ -37,7 +37,7 @@ Votre opérateur Azure Stack (fournisseur de services ou administrateur au sein 
 
 ## <a name="customize-the-dashboard"></a>Personnaliser le tableau de bord
 
-Le tableau de bord contient un ensemble de vignettes par défaut. Vous pouvez sélectionner **Modifier le tableau de bord** pour modifier le tableau de bord par défaut, ou **Nouveau tableau de bord** pour créer un tableau de bord personnalisé. Vous pouvez facilement personnaliser un tableau de bord en ajoutant ou supprimant des vignettes. Par exemple, pour ajouter une vignette Compute, sélectionnez **Nouveau**. Cliquez avec le bouton droit sur **Compute**, puis sélectionnez **Épingler au tableau de bord**.
+Le tableau de bord contient un ensemble de vignettes par défaut. Vous pouvez sélectionner **Modifier le tableau de bord** pour modifier le tableau de bord par défaut, ou **Nouveau tableau de bord** pour créer un tableau de bord personnalisé. Vous pouvez facilement personnaliser un tableau de bord en ajoutant ou supprimant des vignettes. Par exemple, pour ajouter une vignette Compute, sélectionnez **+ Créer une ressource**. Cliquez avec le bouton droit sur **Compute**, puis sélectionnez **Épingler au tableau de bord**.
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Créer un abonnement et parcourir les ressources disponibles
 
@@ -45,7 +45,7 @@ Si vous n’avez pas encore d’abonnement, la première chose à faire est de v
 
 - Sélectionnez la vignette **Place de marché** du tableau de bord.
 - Dans la vignette **Toutes les ressources**, sélectionnez **Créer des ressources**.
-- Dans le volet de navigation de gauche, sélectionnez **Nouveau**.
+- Dans le volet de navigation de gauche, sélectionnez **+ Créer une ressource**.
 
 ## <a name="learn-how-to-use-available-services"></a>Découvrir comment utiliser les services disponibles
 

@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 1f7856edef3bb93300fce0ff00d9434400e239f8
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917039"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391366"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles et des serveurs physiques VMware répliqués vers Azure
 
@@ -64,10 +64,10 @@ Vérifiez les propriétés de la machine virtuelle et que la machine virtuelle e
 
 ## <a name="run-a-failover-to-azure"></a>Effectuer un basculement vers Azure
 
-1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle > **Basculer**.
+1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine virtuelle > **Basculer**.
 
 2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
-   - **Dernier** (par défaut) : cette option traite d’abord toutes les données envoyées à Site Recovery. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle Azure créée après le basculement a toutes les données qui ont été répliquées vers Site Recovery quand le basculement a été déclenché.
+   - **Dernier** : cette option traite d’abord toutes les données envoyées à Site Recovery. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle Azure créée après le basculement a toutes les données qui ont été répliquées vers Site Recovery quand le basculement a été déclenché.
    - **Dernier point traité** : cette option bascule la machine virtuelle vers le dernier point de récupération traité par Site Recovery. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
    - **Dernier point de cohérence des applications** : cette option bascule la machine virtuelle vers le dernier point de récupération de cohérence des applications traité par Site Recovery.
    - **Personnalisé** : spécifiez un point de récupération.
@@ -82,11 +82,14 @@ Dans certains scénarios, le basculement nécessite un traitement supplémentair
 
 ## <a name="connect-to-failed-over-virtual-machine-in-azure"></a>Se connecter à une machine virtuelle ayant basculé dans Azure
 
-1. Après le basculement, accédez à la machine virtuelle et validez-la en vous [connectant](../virtual-machines/windows/connect-logon.md) à cette machine.
-2. Après la validation, cliquez sur **Valider** pour finaliser le point de récupération de la machine virtuelle une fois le basculement effectué. Tous les autres points de récupération disponibles sont supprimés. Cette étape termine l’activité de basculement.
+1. Si vous souhaitez vous connecter à des machines virtuelles Azure à l’aide de RDP/SSH après le basculement, respectez les exigences récapitulées dans le tableau [ici](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+2. Après le basculement, accédez à la machine virtuelle et validez-la en vous [connectant](../virtual-machines/windows/connect-logon.md) à cette machine.
+3. Après la validation, cliquez sur **Valider** pour finaliser le point de récupération de la machine virtuelle une fois le basculement effectué. Tous les autres points de récupération disponibles sont supprimés. Cette étape termine l’activité de basculement.
 
 >[!TIP]
 > La fonction de **modification du point de récupération** vous aide à sélectionner un autre point de récupération après le basculement, si le comportement de la machine virtuelle ayant basculé ne vous satisfait pas. Après la **validation**, cette option n’est plus disponible.
+
+Suivez les étapes décrites [ici](site-recovery-failover-to-azure-troubleshoot.md) pour résoudre les problèmes de connectivité après le basculement.
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Préparation à la reprotection de la machine virtuelle Azure
 

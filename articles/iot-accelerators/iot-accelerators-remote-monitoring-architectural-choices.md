@@ -6,14 +6,14 @@ manager: camerons
 ms.author: timlav
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 04/30/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 6c4bf0e4bf0a6c1a791cf762ec9bb44ed5c0b1bd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 09c5981701ffdee5f2e5dba47cc98c91d5df7526
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34627686"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603904"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Choix d’architecture de la surveillance à distance
 
@@ -40,7 +40,10 @@ Le hub IoT Azure est utilisé en tant que passerelle cloud de solution de survei
 Pour le traitement des flux de données, la solution de surveillance à distance utilise Azure Stream Analytics pour le traitement des règles complexes.  Pour les clients qui souhaitent des règles plus simples, nous avons également un microservice personnalisé avec une prise en charge du traitement des règles simples, bien que cette configuration ne fasse pas partie du déploiement prêt à l’emploi. L’architecture de référence recommande d’utiliser Azure Functions pour le traitement des règles simples et Azure Stream Analytics pour le traitement des règles complexes.  
 
 ### <a name="storage"></a>Stockage
-Pour le stockage, Azure Cosmos DB est utilisé pour tous les besoins de stockage : stockage à froid, stockage à chaud, stockage des règles et alarmes. Nous sommes actuellement en train de passer au stockage Blob Azure, comme recommandé par l’architecture de référence.  Azure Cosmos DB est la solution recommandée pour le stockage à chaud à usage général pour les applications IoT même si des solutions comme Azure Time Series Insights et Azure Data Lake conviennent à de nombreux cas d’utilisation.
+En ce qui concerne le stockage, l’accélérateur de solution de surveillance à distance utilise à la fois Azure Time Series Insights et Azure Cosmos DB. Azure Time Series Insights stocke les messages provenant de IoT Hub à partir de vos appareils connectés. L’accélérateur de solution utilise Azure Cosmos DB pour tous les autres systèmes de stockage tels que le stockage à froid, des définitions de règles, des alarmes et des paramètres de configuration. Azure Cosmos DB est la solution recommandée pour le stockage à chaud à usage général pour les applications IoT même si des solutions comme Azure Time Series Insights et Azure Data Lake conviennent à de nombreux cas d’utilisation. Avec Azure Time Series Insight, vous bénéficiez d’informations plus détaillées sur les données de vos capteurs Time Series et vous identifiez rapidement les tendances et les anomalies. Cela vous permet d’effectuer des analyses de la cause première et d’éviter des temps d’arrêt coûteux. 
+
+> [!NOTE]
+> Time Series Insights n’est pas encore disponible dans le cloud Azure en Chine. Les nouveaux déploiements d’accélérateur de solution de surveillance à distance dans le cloud Azure en Chine utilisent Cosmos DB pour l’intégralité du stockage.
 
 ### <a name="business-integration"></a>Intégration d’entreprise
 L’intégration d’entreprise dans la solution de surveillance à distance est limitée à la génération des alarmes, qui sont placées dans le stockage à chaud. D’autres intégrations d’entreprise peuvent être effectuées en intégrant la solution à Azure Logic Apps.

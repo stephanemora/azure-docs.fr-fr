@@ -1,6 +1,6 @@
 ---
-title: Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité de service managée | Microsoft Docs
-description: Découvrez comment sécuriser la connectivité de la base de données à l’aide d’une identité de service managée, et comment appliquer cette technique à d’autres services Azure.
+title: Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée | Microsoft Docs
+description: Découvrez comment sécuriser la connectivité de la base de données à l’aide d’une identité managée, et comment appliquer cette technique à d’autres services Azure.
 services: app-service\web
 documentationcenter: dotnet
 author: cephalin
@@ -14,24 +14,24 @@ ms.topic: tutorial
 ms.date: 04/17/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 173588c0200666c52f3ac0a5d2e70d667cfe3294
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 3125db03dc13f70524fd094736f50b563ef712a4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445559"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379925"
 ---
-# <a name="tutorial-secure-sql-database-connection-with-managed-service-identity"></a>Didacticiel : sécuriser la connexion SQL Database avec une identité de service managée
+# <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Tutoriel : Sécuriser la connexion Azure SQL Database à partir d’App Service à l’aide d’une identité managée
 
-[App Service](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques dans Azure. Ce service offre également une [identité de service managée](app-service-managed-service-identity.md) pour votre application, qui constitue une solution clé en main pour la sécurisation de l’accès à [Azure SQL Database](/azure/sql-database/) et à d’autres services Azure. Les identités de service managées dans App Service sécurisent votre application en éliminant les secrets de cette dernière, telles que les informations d’identification dans les chaînes de connexion. Dans ce didacticiel, vous allez ajouter l’identité de service managée à l’exemple d’application web ASP.NET que vous avez créé dans le cadre du [Tutoriel : Création d’une application ASP.NET dans Azure avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). Lorsque vous aurez terminé, votre exemple d’application se connectera à SQL Database en toute sécurité sans nécessiter aucun nom d’utilisateur ni mot de passe.
+[App Service](app-service-web-overview.md) offre un service d’hébergement web hautement évolutif appliquant des mises à jour correctives automatiques dans Azure. Il offre également une [identité managée](app-service-managed-service-identity.md) pour votre application, qui constitue une solution clé en main permettant de sécuriser l’accès à [Azure SQL Database](/azure/sql-database/) et à d’autres services Azure. Les identités managées dans App Service sécurisent votre application en en éliminant les secrets, par exemple les informations d’identification dans les chaînes de connexion. Dans ce tutoriel, vous allez ajouter l’identité managée à l’exemple d’application web ASP.NET que vous avez créé dans [Tutoriel : Créer une application ASP.NET dans Azure avec SQL Database](app-service-web-tutorial-dotnet-sqldatabase.md). Lorsque vous aurez terminé, votre exemple d’application se connectera à SQL Database en toute sécurité sans nécessiter aucun nom d’utilisateur ni mot de passe.
 
 Vous apprendrez à :
 
 > [!div class="checklist"]
-> * activer une identité de service managée ;
-> * accorder à l’identité de service un accès à SQL Database ;
+> * activer les identités managées ;
+> * accorder à l’identité managée un accès à SQL Database ;
 > * configurer le code de l’application pour l’authentification auprès de SQL Database à l’aide de l’authentification Azure Active Directory ;
-> * accorder des privilèges minimaux à l’identité de service dans SQL Database.
+> * accorder des privilèges minimaux à l’identité managée dans SQL Database.
 
 > [!NOTE]
 > L’authentification Azure Active Directory est _différente_ de [l’authentification Windows intégrée](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) dans Active Directory (AD DS) local. AD DS et Azure Active Directory utilisent des protocoles d’authentification totalement différents. Pour plus d’informations, consultez [The difference between Windows Server AD DS and Azure AD](../active-directory/fundamentals/understand-azure-identity-solutions.md#the-difference-between-windows-server-ad-ds-and-azure-ad) (Différence entre Windows Server AD DS et Azure AD).
@@ -46,9 +46,9 @@ Cet article reprend à l’endroit où s’interrompait le [Tutoriel : Création
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="enable-managed-service-identity"></a>Activer une identité de service managée
+## <a name="enable-managed-identities"></a>Activer les identités managées
 
-Pour activer une identité de service pour votre application Azure, utilisez la commande [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) dans le service Cloud Shell. Dans la commande ci-après, remplacez *\<app name>* par votre propre valeur.
+Pour activer une identité managée pour votre application Azure, utilisez la commande [az webapp identity assign](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign) dans Cloud Shell. Dans la commande ci-après, remplacez *\<app name>* par votre propre valeur.
 
 ```azurecli-interactive
 az webapp identity assign --resource-group myResourceGroup --name <app name>
@@ -73,13 +73,13 @@ az ad sp show --id <principalid>
 
 ## <a name="grant-database-access-to-identity"></a>Accorder à l’identité un accès à la base de données
 
-Vous allez à présent accorder à l’identité de service de votre application un accès à la base de données en utilisant la commande [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) dans le Cloud Shell. Dans la commande ci-après, remplacez *\<server_name>* et <principalid_from_last_step> par vos propres valeurs. Tapez un nom d’administrateur pour *\<admin_user>*.
+Maintenant, accordez à l’identité managée de votre application un accès à la base de données en utilisant la commande [`az sql server ad-admin create`](/cli/azure/sql/server/ad-admin?view=azure-cli-latest#az-sql-server-ad-admin_create) dans Cloud Shell. Dans la commande ci-après, remplacez *\<server_name>* et <principalid_from_last_step> par vos propres valeurs. Tapez un nom d’administrateur pour *\<admin_user>*.
 
 ```azurecli-interactive
 az sql server ad-admin create --resource-group myResourceGroup --server-name <server_name> --display-name <admin_user> --object-id <principalid_from_last_step>
 ```
 
-L’identité de service managée a désormais accès à votre serveur Azure SQL Database.
+L’identité managée a à présent accès à votre serveur Azure SQL Database.
 
 ## <a name="modify-connection-string"></a>Modifier la chaîne de connexion
 
@@ -119,7 +119,7 @@ public MyDatabaseContext(SqlConnection conn) : base(conn, true)
 }
 ```
 
-Ce constructeur configure un objet SqlConnection personnalisé pour l’utilisation d’un jeton d’accès pour Azure SQL Database à partir d’App Service. Votre application App Service utilise ce jeton d’accès pour s’authentifier auprès d’Azure SQL Database avec son identité de service managée. Pour plus d’informations, consultez la section [Obtention de jetons pour les ressources Azure](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). L’instruction `if` vous permet de continuer à tester votre application localement avec LocalDB.
+Ce constructeur configure un objet SqlConnection personnalisé pour l’utilisation d’un jeton d’accès pour Azure SQL Database à partir d’App Service. Votre application App Service utilise ce jeton d’accès pour s’authentifier auprès d’Azure SQL Database avec son identité managée. Pour plus d’informations, consultez la section [Obtention de jetons pour les ressources Azure](app-service-managed-service-identity.md#obtaining-tokens-for-azure-resources). L’instruction `if` vous permet de continuer à tester votre application localement avec LocalDB.
 
 > [!NOTE]
 > Pour l’instant, `SqlConnection.AccessToken` est uniquement pris en charge dans .NET Framework 4.6 et les versions ultérieures, et non dans [.NET Core](https://www.microsoft.com/net/learn/get-started/windows).
@@ -141,7 +141,7 @@ Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le proje
 
 ![Publier à partir de l’Explorateur de solutions](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Dans la page de publication, cliquez sur **Publier**. Lorsque la nouvelle page web affiche votre liste des tâches, votre application se connecte à la base de données à l’aide de l’identité de service managée.
+Dans la page de publication, cliquez sur **Publier**. Lorsque la nouvelle page web affiche votre liste des tâches, votre application se connecte à la base de données à l’aide de l’identité managée.
 
 ![Application web Azure après l’activation de Code First Migration](./media/app-service-web-tutorial-dotnet-sqldatabase/this-one-is-done.png)
 
@@ -151,11 +151,11 @@ Vous devriez désormais être en mesure de modifier la liste des tâches comme a
 
 ## <a name="grant-minimal-privileges-to-identity"></a>Accorder des privilèges minimaux à l’identité
 
-Au cours des étapes précédentes, vous avez probablement remarqué que votre identité de service managée était connectée à SQL Server en tant qu’administrateur Azure AD. Pour accorder des privilèges minimaux à votre identité de service managée, vous devez vous connecter au serveur Azure SQL Database en tant qu’administrateur Azure AD, puis ajouter un groupe Azure Active Directory contenant cette identité de service. 
+Au cours des étapes précédentes, vous avez probablement remarqué que votre identité managée était connectée à SQL Server en tant qu’administrateur Azure AD. Pour accorder des privilèges minimaux à votre identité managée, connectez-vous au serveur Azure SQL Database en tant qu’administrateur Azure AD, puis ajoutez un groupe Azure Active Directory contenant cette identité managée. 
 
-### <a name="add-managed-service-identity-to-an-azure-active-directory-group"></a>Ajouter l’identité de service managée à un groupe Azure Active Directory
+### <a name="add-managed-identity-to-an-azure-active-directory-group"></a>Ajouter l’identité managée à un groupe Azure Active Directory
 
-Dans le Cloud Shell, ajoutez l’identité de service managée pour votre application dans un nouveau groupe Azure Active Directory appelé _myAzureSQLDBAccessGroup_, comme indiqué dans le script suivant :
+Dans Cloud Shell, ajoutez l’identité managée de votre application dans un nouveau groupe Azure Active Directory nommé _myAzureSQLDBAccessGroup_, comme dans le script suivant :
 
 ```azurecli-interactive
 groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -168,7 +168,7 @@ Si vous souhaitez visualiser la sortie JSON complète pour chaque commande, supp
 
 ### <a name="reconfigure-azure-ad-administrator"></a>Reconfigurer l’administrateur Azure AD
 
-Précédemment, vous avez attribué l’identité de service managée en tant qu’administrateur Azure AD pour votre service SQL Database. Vous ne pouvez pas utiliser cette identité pour une connexion interactive (en vue d’ajouter des utilisateurs de base de données) ; vous devez donc utiliser votre utilisateur Azure AD réel. Pour ajouter votre utilisateur Azure AD, suivez la procédure décrite à la section [Approvisionner un administrateur Azure Active Directory pour votre serveur Azure SQL Database](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
+Vous avez jusqu’ici attribué l’identité managée en tant qu’administrateur Azure AD de votre service SQL Database. Vous ne pouvez pas utiliser cette identité pour une connexion interactive (en vue d’ajouter des utilisateurs de base de données) ; vous devez donc utiliser votre utilisateur Azure AD réel. Pour ajouter votre utilisateur Azure AD, suivez la procédure décrite à la section [Approvisionner un administrateur Azure Active Directory pour votre serveur Azure SQL Database](../sql-database/sql-database-aad-authentication-configure.md#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server). 
 
 ### <a name="grant-permissions-to-azure-active-directory-group"></a>Accorder des autorisations au groupe Azure Active Directory
 
@@ -204,10 +204,10 @@ GO
 Vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * activer une identité de service managée ;
-> * accorder à l’identité de service un accès à SQL Database ;
+> * Activer les identités managées
+> * Accorder à l’identité managée un accès à SQL Database
 > * configurer le code de l’application pour l’authentification auprès de SQL Database à l’aide de l’authentification Azure Active Directory ;
-> * accorder des privilèges minimaux à l’identité de service dans SQL Database.
+> * Accorder des privilèges minimaux à l’identité managée dans SQL Database
 
 Passez au tutoriel suivant pour découvrir comment mapper un nom DNS personnalisé à votre application web.
 

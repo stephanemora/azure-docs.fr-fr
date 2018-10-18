@@ -1,56 +1,65 @@
 ---
-title: Gérer les membres d’un groupe dans Azure AD | Microsoft Docs
-description: Comment ajouter ou supprimer des utilisateurs et des appareils dans un groupe d’Azure Active Directory
+title: Comment ajouter ou supprimer les membres d’un groupe avec Azure Active Directory | Microsoft Docs
+description: Découvrez comment ajouter ou supprimer des utilisateurs et des appareils dans un groupe à l’aide d’Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 08/28/2017
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: 947b0c11aba211530e3ae25d6617079bcaf2995f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 7c1a83d83dcbf247550c66602a6f53d4ef0d7930
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860397"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733362"
 ---
-# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Gérer l’appartenance à un groupe des utilisateurs dans votre client Azure Active Directory
-Cet article explique comment gérer les membres d’un groupe dans Azure Active Directory (Azure AD).
+# <a name="how-to-add-or-remove-group-members-using-azure-active-directory"></a>Comment : ajouter ou supprimer les membres d’un groupe avec Azure Active Directory
+À l’aide d’Azure Active Directory, vous pouvez continuer à ajouter et supprimer les membres d’un groupe.
 
-## <a name="how-do-i-find-the-members-and-manage-them"></a>Comment trouver les membres et les gérer ?
-1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
-2. Sélectionnez **Tous les services**, entrez **Utilisateurs et groupes** dans la zone de texte, puis sélectionnez **Entrée**.
+## <a name="to-add-group-members"></a>Pour ajouter des membres à un groupe
 
-   ![Ouvrir la gestion des utilisateurs](./media/active-directory-groups-members-azure-portal/search-user-management.png)
-3. Dans le panneau **Utilisateurs et groupes**, sélectionnez **Tous les groupes**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com) à l’aide d’un compte Administrateur général pour le répertoire.
 
-   ![Ouvrir le panneau de groupes](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
-4. Dans le panneau **Utilisateurs et groupes - Tous les groupes** , sélectionnez un groupe.
-5. Dans le panneau **Groupe - *NomGroupe*** , sélectionnez **Membres**.
+2. Sélectionnez **Azure Active Directory**, puis sélectionnez **Groupes**.
 
-   ![Ouverture du panneau Membres](./media/active-directory-groups-members-azure-portal/view-group-members.png)
-6. Pour ajouter des membres au groupe, dans le panneau **Groupe - Membres**, sélectionnez **Ajouter des membres**.
+3. Sur la page **Groupes - Tous les groupes**, recherchez et sélectionnez le groupe auquel vous souhaitez ajouter le membre. Dans le cas présent, utilisez notre groupe créé précédemment, **Stratégie GPM - Ouest**.
 
-   ![Commande Ajouter des membres](./media/active-directory-groups-members-azure-portal/add-group-members-command.png)
-7. Dans le panneau **Membres**, sélectionnez un ou plusieurs utilisateurs ou appareils à ajouter au groupe, puis cliquez sur le **Sélectionner** en bas du panneau pour les ajouter au groupe. La zone **Utilisateur** filtre l’affichage en fonction de la correspondance de votre entrée avec une partie ou l’intégralité d’un nom d’utilisateur ou d’appareil. Dans cette zone aucun caractère générique n’est accepté.
-8. Pour supprimer des membres du groupe, dans le panneau **Groupe - Membres** , sélectionnez un membre.
-9. Dans le panneau ***NomMembre***, sélectionnez la commande **Supprimer**, puis confirmez votre choix dans l’invite de commandes.
+    ![Page Groupes - Tous les groupes avec le nom de groupe en surbrillance](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
-   ![Commande Supprimer des membres](./media/active-directory-groups-members-azure-portal/remove-group-members-command.png)
-10. Lorsque vous avez terminé la modification des membres du groupe, sélectionnez **Enregistrer**.
+4. Sur la page **Vue d’ensemble de la stratégie GPM - Ouest**, sélectionnez **Membres** dans la zone **Gérer**.
 
-## <a name="additional-information"></a>Informations supplémentaires
-Ces articles fournissent des informations supplémentaires sur Azure Active Directory.
+    ![Page Vue d’ensemble de la stratégie GPM - Ouest avec l’option Membres mise en surbrillance](media/active-directory-groups-members-azure-portal/group-overview-blade.png)
 
-* [Consulter les groupes existants](active-directory-groups-view-azure-portal.md)
-* [Création d’un nouveau groupe et ajout de membres](active-directory-groups-create-azure-portal.md)
-* [Gérer les paramètres d’un groupe](active-directory-groups-settings-azure-portal.md)
-* [Gérer l’appartenance à un groupe](active-directory-groups-membership-azure-portal.md)
-* [Gérer les règles dynamiques pour les utilisateurs dans un groupe](../users-groups-roles/groups-dynamic-membership.md)
+5. Sélectionnez **Ajouter des membres**, puis recherchez et sélectionnez chacun des membres que vous souhaitez ajouter au groupe, puis choisissez **Sélectionner**.
+
+    Vous recevrez un message indiquant que les membres ont été ajoutés avec succès.
+
+    ![Page Ajouter des membres avec la recherche de membre affichée](media/active-directory-groups-members-azure-portal/update-members.png)
+
+6. Actualisez l’écran pour voir tous les noms des membres ajoutés au groupe.
+
+## <a name="to-remove-group-members"></a>Pour supprimer des membres du groupe
+
+1. Sur la page **Groupes - Tous les groupes**, recherchez et sélectionnez le groupe duquel vous souhaitez supprimer le membre. Là encore, nous allons utiliser **Stratégie GPM - Ouest**.
+
+2. Sélectionnez **Membres** à partir de la zone **Gérer**. Recherchez et sélectionnez le nom du membre à supprimer, puis sélectionnez **Supprimer**.
+
+    ![Page d’informations sur les membres avec l’option Supprimer](media/active-directory-groups-members-azure-portal/remove-members-from-group.png)
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- [Afficher vos groupes et vos membres](active-directory-groups-view-azure-portal.md)
+
+- [Modifier vos paramètres de groupe](active-directory-groups-settings-azure-portal.md)
+
+- [Gérer l’accès aux ressources à l’aide des groupes](active-directory-manage-groups.md)
+
+- [Gérer les règles dynamiques pour les utilisateurs dans un groupe](../users-groups-roles/groups-create-rule.md)
+
+- [Associer ou ajouter un abonnement Azure à Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

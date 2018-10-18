@@ -3,7 +3,7 @@ title: Ajouter des nœuds d’échelle dans Azure Stack | Microsoft Docs
 description: Ajouter des nœuds pour mettre à l’échelle les unités dans Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
-ms.author: brenduns
+ms.date: 09/17/2018
+ms.author: jeffgilb
 ms.reviewer: thoroet
-ms.openlocfilehash: 02602243bcb4e426ebf4984e387da8e8c148232e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 3ce74cdb610f2902133459b913f53bb7809cb4b7
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41946615"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982995"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Ajouter de nouveaux nœuds d’unité d’échelle dans Azure Stack
 
@@ -64,7 +64,7 @@ Pour ajouter de nouveaux nœuds, vous pouvez vous servir du portail d’administ
 ### <a name="use-the-admin-portal"></a>Utiliser le portail d’administration
 
 1. Connectez-vous au portail d’administration d’Azure Stack en tant qu’opérateur Azure Stack.
-2. Accédez à **Nouveau** > **Capacité** > **Nœud d’unité d’échelle**.
+2. Accédez à **+ Créer une ressource** > **Capacité** > **Nœud d’unité d’échelle**.
    ![Nœud d’unité d’échelle](media/azure-stack-add-scale-node/select-node1.png)
 3. Dans le volet **Ajouter un nœud**, sélectionnez la *région*, puis l’*unité d’échelle* à laquelle vous souhaitez ajouter le nœud. Spécifiez également l’*adresse BMC* du nœud d’unité d’échelle que vous ajoutez. Vous ne pouvez ajouter qu’un seul nœud à la fois.
    ![Ajouter les détails du nœud](media/azure-stack-add-scale-node/select-node2.png)
@@ -142,4 +142,4 @@ Voici les problèmes couramment rencontrés lors de l’ajout d’un nœud.
 
 
 ## <a name="next-steps"></a>Étapes suivantes 
-Examiner les [Actions de nœud](azure-stack-node-actions.md) 
+[Ajouter des adresses IP publiques](azure-stack-add-ips.md) 

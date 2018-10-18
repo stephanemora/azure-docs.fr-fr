@@ -5,19 +5,19 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fb820d124fd9b5e882cad538ad436532d7865fbc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: f1899817ee2d0efec4ab561a64f24e49cb173c29
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37923487"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720767"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs Hyper-V locaux à la récupération d’urgence vers Azure
 
-Ce didacticiel vous montre comment préparer votre infrastructure Hyper-V locale quand vous souhaitez répliquer des machines virtuelles Hyper-V vers Azure, dans le cadre de la récupération d’urgence. Les hôtes Hyper-V peuvent être gérés par System Center Virtual Machine Manager (VMM), mais ce n’est pas une condition obligatoire.  Ce tutoriel vous montre comment effectuer les opérations suivantes :
+Ce didacticiel vous montre comment préparer votre infrastructure Hyper-V locale quand vous souhaitez répliquer des machines virtuelles Hyper-V vers Azure, dans le cadre de la récupération d’urgence. Les hôtes Hyper-V peuvent être gérés par System Center Virtual Machine Manager (VMM), mais ce n’est pas une condition obligatoire.  Ce didacticiel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Examinez les exigences pour Hyper-V et VMM, le cas échéant.
@@ -60,13 +60,15 @@ Préparez VMM pour le mappage réseau comme suit :
 ## <a name="verify-internet-access"></a>Vérifiez l’accès à Internet
 
 1. Pour les besoins de ce didacticiel, la configuration la plus simple pour les hôtes Hyper-V et le serveur VMM consiste à accéder directement à Internet sans utiliser de proxy. 
-2. Assurez-vous que les hôtes Hyper-V et le serveur VMM, le cas échéant, peuvent accéder à ces URL : 
-
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
+2. Veillez à ce que les hôtes Hyper-V, et le serveur VMM le cas échéant, puissent accéder aux URL requises ci-dessous.   
 3. Si vous contrôlez l’accès par adresse IP, vérifiez les points suivants :
     - Assurez-vous que les règles de pare-feu basées sur une adresse IP peuvent se connecter aux [plages d’adresses IP de centres de données Azure](https://www.microsoft.com/download/confirmation.aspx?id=41653), ainsi qu’au port HTTPS (443).
     - Autorisez les plages d’adresse IP pour la région Azure de votre abonnement.
+    
+### <a name="required-urls"></a>URL requises
+
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement

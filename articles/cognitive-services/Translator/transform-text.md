@@ -1,20 +1,21 @@
 ---
-title: Transformer un texte avec l’API de traduction de texte Microsoft Translator Text | Microsoft Docs
-description: Transformez un texte avec l’API de traduction de texte Microsoft Translator Text.
+title: Transformer du texte - API de traduction de texte Translator Text
+titlesuffix: Azure Cognitive Services
+description: Transformez du texte à l’aide de l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 5aa88f471a33a668b8385e46c2105a3139c142cb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e5061e322b4f0edb416f321cefef73776b9165ff
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368641"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123944"
 ---
 # <a name="how-to-use-the-transformtext-method"></a>Guide pratique pour utiliser la méthode TransformText
 
@@ -25,7 +26,7 @@ La méthode TransformText est une fonction de normalisation de texte pour les r�
 
 La méthode est un service RESTful qui utilise GET via HTTP. Elle prend en charge la sérialisation XML et JSON simple.
 
-## <a name="parameters"></a>Paramètres
+## <a name="parameters"></a>parameters
 
 | Paramètre | Description |
 |:---|:---|

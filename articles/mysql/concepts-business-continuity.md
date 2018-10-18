@@ -2,19 +2,19 @@
 title: Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL
 description: Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 127255514c434717be07886b1b1739027d3a14ea
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8d0a8ac1aedcac26f6ac67e0e1f2a9d265a9b576
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263562"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714341"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Vue d’ensemble de la continuité d’activité avec Azure Database pour MySQL
 
@@ -32,7 +32,7 @@ Le tableau suivant compare l’ERT et le RPO pour les fonctionnalités disponibl
 | Géo-restauration à partir de sauvegardes répliquées géographiquement | Non pris en charge | ERT < 12 h<br/>RPO < 1 h | ERT < 12 h<br/>RPO < 1 h |
 
 > [!IMPORTANT]
-> Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées. Vous ne pouvez pas restaurer un serveur supprimé.
+> Il n’est **pas** possible de restaurer des serveurs supprimés. Si vous supprimez le serveur, toutes les bases de données qui appartiennent au serveur sont également supprimées, sans pouvoir être restaurées.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Récupérer un serveur après une erreur d’utilisateur ou d’application
 
@@ -49,7 +49,7 @@ Vous pouvez attendre que votre serveur redevienne disponible une fois la panne r
 L’autre solution consiste à utiliser la fonctionnalité de géorestauration d’Azure Database pour MySQL qui restaure le serveur à partir de sauvegardes géoredondantes. Ces sauvegardes sont accessibles même en cas de non-connexion de la région dans laquelle votre serveur est hébergé. Vous pouvez effectuer une restauration à partir de ces sauvegardes dans n’importe quelle autre région et remettre votre serveur en ligne.
 
 > [!IMPORTANT]
-> La géorestauration n’est possible que si vous avez provisionné le serveur avec le stockage de sauvegardes géoredondantes.
+> La géorestauration n’est possible que si vous avez provisionné le serveur avec le stockage de sauvegardes géoredondantes. Si vous souhaitez basculer des sauvegardes redondantes localement aux sauvegardes géoredondantes pour un serveur existant, vous devez effectuer une copie de sauvegarde de votre serveur existant en utilisant pg_dump et la restaurer vers un serveur nouvellement créé configuré avec des sauvegardes géoredondantes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,22 +1,23 @@
 ---
-title: S’inscrire à l’API Analyse de texte (Microsoft Cognitive Services sur Azure) | Microsoft Docs
+title: S’inscrire pour l’API Analyse de texte
+titleSuffix: Azure Cognitive Services
 description: Instructions d’inscription pour utiliser l’analyse de texte et l’utilisation dans les limites.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: get-started-article
-ms.date: 3/07/2018
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: dfa5ba138a2e0db75dfc097ca2430fe9c82e826f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a369d6028cc2957113de01dab0371ad5305a0c68
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623248"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605525"
 ---
-# <a name="how-to-sign-up-for-text-analytics-api"></a>Comment s’inscrire à l’API Analyse de texte
+# <a name="how-to-sign-up-for-the-text-analytics-api"></a>S’inscrire pour l’API Analyse de texte
 
 Les ressources Analyse de texte sont disponibles 24h/24 et 7 j/7 dans le cloud. Avant de pouvoir télécharger votre contenu pour analyse, vous devez vous inscrire pour obtenir une clé d’accès. Chaque appel à l’API nécessite une clé d’accès avec la demande.
 

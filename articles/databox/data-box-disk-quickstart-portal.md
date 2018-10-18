@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/28/2018
+ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143421"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378344"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Démarrage rapide : Déployer le disque Azure Data Box via le portail Azure (préversion)
 
@@ -68,12 +68,12 @@ Le Data Box Disk est envoyé dans un colis UPS Express. Ouvrez la boîte et vér
 
 Cette étape prend environ 5 minutes.
 
-1. Utilisez le câble inclus pour connecter le disque à un ordinateur Windows exécutant une version prise en charge. Pour plus d’informations sur les versions de système d’exploitation prises en charge, accédez à [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md) (Conditions requises pour Azure Data Box Disk). 
+1. Utilisez le câble inclus pour connecter le disque à un ordinateur Windows/Linux sous une version prise en charge. Pour plus d’informations sur les versions de système d’exploitation prises en charge, accédez à [Azure Data Box Disk system requirements](data-box-disk-system-requirements.md) (Conditions requises pour Azure Data Box Disk). 
 2. Pour déverrouiller le disque :
 
     1. Dans le portail Azure, accédez à **Général > Détails de l’appareil** et obtenez la clé d’accès.
-    2. Téléchargez et extrayez l’outil de déverrouillage de Data Box Disk sur l’ordinateur utilisé pour copier les données vers des disques. 
-    3. Exécutez *DataBoxDiskUnlock.exe* et fournissez la clé d’accès. Pour toute réinsertion de disque, réexécutez l’outil de déverrouillage et fournissez la clé d’accès. **N’utilisez pas la boîte de dialogue BitLocker ni la clé BitLocker pour déverrouiller le disque.** 
+    2. Téléchargez et extrayez l’outil de déverrouillage Data Box Disk propre au système d’exploitation sur l’ordinateur utilisé pour copier les données sur des disques. 
+    3. Exécutez l’outil de déverrouillage Data Box Disk et indiquez la clé d'accès. Pour toute réinsertion de disque, réexécutez l’outil de déverrouillage et fournissez la clé d’accès. **N’utilisez pas la boîte de dialogue BitLocker ni la clé BitLocker pour déverrouiller le disque.** Pour plus d’informations sur le déverrouillage de disques, voir [Déverrouiller des disques sur un client Windows]() ou [Déverrouiller des disques sur un client Linux]().
     4. La lettre de lecteur affectée au disque est affichée par l’outil. Notez la lettre de lecteur du disque. Elle est utilisée dans les étapes suivantes.
 
 ## <a name="copy-data-and-verify"></a>Copier des données et vérifier
@@ -86,9 +86,9 @@ Le temps nécessaire à cette opération dépend de la taille de vos données.
 
     > [!NOTE] 
     > - Tous les conteneurs et objets blob doivent être conformes aux [conventions d’affectation de noms Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Si ces règles ne sont pas respectées, le chargement des données vers Azure échoue.
-    > - Assurez-vous que les fichiers ne dépassent pas ~4,7 Tio pour les objets blob de blocs et ~ 8 Tio pour les objets blob de pages.
+    > - Les fichiers ne doivent pas dépasser ~4,75 Tio pour les objets blob de blocs ou ~ 8 Tio pour les objets blob de pages.
 
-2. (Facultatif) Une fois la copie terminée, nous vous recommandons d’exécuter `AzureExpressDiskService.cmd` fourni dans le dossier *AzureImportExport* pour générer des sommes de contrôle pour la validation. Selon la taille des données, cette étape peut prendre un certain temps. 
+2. (Facultatif) Une fois la copie terminée, nous vous recommandons d’exécuter `DataBoxDiskValidation.cmd` fourni dans le dossier *AzureImportExport* pour générer des sommes de contrôle pour la validation. Selon la taille des données, cette étape peut prendre un certain temps. 
 3. Débranchez le lecteur. 
 
 

@@ -14,21 +14,21 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/17/2016
 ms.author: tarcher
-ms.openlocfilehash: 76679ea0ff2c1e88d1923488717a245351437165
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 045250f0b0f97cbefe05b36f1c8d4480244a172d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036464"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575845"
 ---
 # <a name="using-nodejs-modules-with-azure-applications"></a>Utilisation de modules Node.js avec des applications Azure
-Ce document fournit des instructions sur l'utilisation de modules Node.js avec des applications hébergées sur Azure. Il vous explique comment vous assurer que votre application utilise une version spécifique d'un module et vous présente l'utilisation de modules natifs avec Azure.
+Ce document fournit des instructions sur l'utilisation de modules Node.js avec des applications hébergées sur Azure. Il vous explique comment vous assurer que votre application utilise une version spécifique d’un module et vous présente l’utilisation de modules natifs avec Azure.
 
 Si vous savez utiliser les modules Node.js, les fichiers **package.json** et **npm-shrinkwrap.json**, vous trouverez ci-dessous un résumé rapide des sujets abordés dans cet article :
 
 * Azure App Service comprend les fichiers **package.json** et **npm-shrinkwrap.json** et peut installer des modules basés sur les entrées de ces fichiers.
 
-* Azure Cloud Services s'attend à ce que tous les modules soient installés dans l'environnement de développement et que le répertoire **node\_modules** soit inclus dans le déploiement du package. Il est possible d'activer la prise en charge pour l'installation des modules en utilisant les fichiers **package.json** ou **npm-shrinkwrap.json** sur Cloud Services. Néanmoins, cette configuration requiert la personnalisation des scripts par défaut utilisés pour les projets Cloud Services. Pour obtenir un exemple de configuration de cet environnement, consultez la page [Tâche de démarrage d'Azure permettant d'exécuter l’installation npm pour éviter le déploiement des modules de nœuds](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
+* Azure Cloud Services s’attend à ce que tous les modules soient installés dans l’environnement de développement et que le répertoire **node\_modules** soit inclus dans le déploiement du package. Il est possible d'activer la prise en charge pour l'installation des modules en utilisant les fichiers **package.json** ou **npm-shrinkwrap.json** sur Cloud Services. Néanmoins, cette configuration requiert la personnalisation des scripts par défaut utilisés pour les projets Cloud Services. Pour obtenir un exemple de configuration de cet environnement, consultez la page [Tâche de démarrage d'Azure permettant d'exécuter l’installation npm pour éviter le déploiement des modules de nœuds](https://github.com/woloski/nodeonazure-blog/blob/master/articles/startup-task-to-run-npm-in-azure.markdown)
 
 > [!NOTE]
 > Les machines virtuelles Azure ne sont pas abordées dans cet article, car l’expérience de déploiement sur une machine virtuelle dépend du système d'exploitation hébergé par cette dernière.
@@ -38,7 +38,7 @@ Si vous savez utiliser les modules Node.js, les fichiers **package.json** et **n
 ## <a name="nodejs-modules"></a>Modules Node.js
 Les modules sont des packages JavaScript chargeables qui fournissent une fonctionnalité spécifique à votre application. Les modules sont habituellement installés à l'aide de l'outil de ligne de commandes **napm**. Néanmoins, certains modules (le module http par exemple) sont intégrés au package Node.js principal.
 
-Lorsque les modules sont installés, ils sont stockés dans le répertoire **node\_modules** à la racine de la structure de répertoires de votre application. Chaque module du répertoire **modules\_de nœuds** conserve son propre répertoire **modules\_de nœuds** qui comporte tous les modules dont il dépend. Cette structure se répète pour chaque module, tout au long de la chaîne de dépendance. Cet environnement permet que chaque module installé soit doté de ses propres exigences de version pour les modules dont il dépend, ce qui peut néanmoins résulter en une structure de répertoires assez volumineuse.
+Lorsque les modules sont installés, ils sont stockés dans le répertoire **node\_modules** à la racine de la structure de répertoires de votre application. Chaque module du répertoire **node\_modules** conserve son propre répertoire qui comporte tous les modules dont il dépend. Cette structure se répète pour chaque module, tout au long de la chaîne de dépendance. Cet environnement permet que chaque module installé soit doté de ses propres exigences de version pour les modules dont il dépend, ce qui peut néanmoins résulter en une structure de répertoires assez volumineuse.
 
 Lors du déploiement du répertoire **modules\_de nœuds** dans votre application, la taille du déploiement est accrue comparée à l'utilisation d’un fichier **package.json** ou **npm-shrinkwrap.json**. Néanmoins, ce type de déploiement garantit que la version des modules utilisés en production est la même que ceux utilisés en développement.
 
@@ -51,7 +51,7 @@ Azure App Service ne prend pas en charge tous les modules natifs et risque de ne
 
   * Avant de compiler, vérifiez que votre installation locale de Node.js dispose de la bonne architecture et que la version est aussi proche que possible de celle utilisée dans Azure (les valeurs peuvent être vérifiées lors de l’exécution dans les propriétés **process.arch** et **process.version**).
 
-* Azure App Service peut être configuré pour exécuter des scripts Shell ou Bash personnalisés pendant le déploiement, ce qui vous permet d'exécuter des commandes personnalisées et de configurer précisément l'exécution de **npm install** . Pour afficher une vidéo montrant comment procéder, consultez [Scripts de déploiement de site Web personnalisés avec Kudu].
+* Azure App Service peut être configuré pour exécuter des scripts Shell ou Bash personnalisés pendant le déploiement, ce qui vous permet d'exécuter des commandes personnalisées et de configurer précisément l'exécution de **npm install** . Pour afficher une vidéo montrant comment procéder, consultez [Scripts de déploiement de site Web personnalisés avec Kudu](https://azure.microsoft.com/resources/videos/custom-web-site-deployment-scripts-with-kudu/).
 
 ### <a name="using-a-packagejson-file"></a>Utilisation du fichier package.json
 
@@ -85,10 +85,10 @@ Lorsque votre application est prête pour la production, vous pouvez verrouiller
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Maintenant que vous savez comment utiliser les modules Node.js avec Azure, découvrez comment [spécifier la version de Node.js], [créer et déployer une application web Node.js](app-service/app-service-web-get-started-nodejs.md) et [utiliser l'interface de ligne de commande Azure pour Mac et Linux].
+Maintenant que vous savez comment utiliser les modules Node.js avec Azure, découvrez comment [spécifier la version de Node.js](https://github.com/squillace/staging/blob/master/articles/nodejs-specify-node-version-azure-apps.md), [créer et déployer une application web Node.js](app-service/app-service-web-get-started-nodejs.md) et [utiliser l'interface de ligne de commande Azure pour Mac et Linux](https://azure.microsoft.com/blog/using-windows-azure-with-the-command-line-tools-for-mac-and-linux/).
 
 Pour plus d’informations, consultez le [Centre pour développeurs Node.js](/nodejs/azure/).
 
-[spécifier la version de Node.js]: nodejs-specify-node-version-azure-apps.md
-[utiliser l'interface de ligne de commande Azure pour Mac et Linux]:cli-install-nodejs.md
-[Scripts de déploiement de site Web personnalisés avec Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo
+[specify the Node.js version]: nodejs-specify-node-version-azure-apps.md
+[How to use the Azure Command-Line Interface for Mac and Linux]:cli-install-nodejs.md
+[Custom Website Deployment Scripts with Kudu]: https://channel9.msdn.com/Shows/Azure-Friday/Custom-Web-Site-Deployment-Scripts-with-Kudu-with-David-Ebbo

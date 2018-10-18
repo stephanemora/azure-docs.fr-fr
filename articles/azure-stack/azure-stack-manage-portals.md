@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: cea59d061dadfa3e10330cbce7b6005a286524cc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 058e1f9abbf094fb49a21191f60195df53615451
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024164"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985292"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Utilisation du portail administrateur dans Azure Stack
 
@@ -70,7 +70,9 @@ Les portails administrateur et utilisateur sont secondés par des instances dist
 
 ### <a name="customize-the-dashboard"></a>Personnaliser le tableau de bord
 
-Le tableau de bord contient une série de vignettes par défaut. Vous pouvez sélectionner **Modifier le tableau de bord** pour modifier le tableau de bord par défaut, ou **Nouveau tableau de bord** pour ajouter un tableau de bord personnalisé. Vous pouvez facilement ajouter des vignettes à un tableau de bord. Par exemple, vous pouvez sélectionner **Nouveau**, cliquer avec le bouton droit sur **Offres + plans**, puis sélectionner **Épingler au tableau de bord**.
+Le tableau de bord contient une série de vignettes par défaut. Vous pouvez sélectionner **Modifier le tableau de bord** pour modifier le tableau de bord par défaut, ou **Nouveau tableau de bord** pour ajouter un tableau de bord personnalisé. Vous pouvez facilement ajouter des vignettes à un tableau de bord. Par exemple, vous pouvez sélectionner **+ Create a resource** (+ Créer une ressource), cliquer avec le bouton droit sur **Offers + Plans** (Offres + plans), puis sélectionner **Pin to dashboard** (Épingler au tableau de bord).
+
+Parfois, il se peut qu’un tableau de bord vide s’affiche dans le portail. Pour récupérer le tableau de bord, cliquez sur **Modifier le tableau de bord**, puis cliquez avec le bouton droit sur **Rétablir l’état par défaut**.
 
 ### <a name="quick-access-to-online-documentation"></a>Accès rapide à la documentation en ligne
 

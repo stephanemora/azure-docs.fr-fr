@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 08/24/2018
-ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.date: 09/11/2018
+ms.openlocfilehash: 3512cb7eda9f9e5a6e18dc83f6523029b17a9de2
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918084"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391468"
 ---
 # <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Déployer des applications sur des groupes de machines virtuelles identiques dans Azure avec Ansible
 Ansible vous permet d’automatiser le déploiement et la configuration de ressources dans votre environnement. Vous pouvez utiliser Ansible pour déployer vos applications sur Azure. Cet article vous montre comment déployer une application Java sur un groupe de machines virtuelles identiques Azure.  
@@ -31,7 +31,7 @@ Ansible vous permet d’automatiser le déploiement et la configuration de resso
 
 ## <a name="get-host-information"></a>Obtenir des informations sur l’hôte
 
-Cette section montre comment utiliser Ansible pour récupérer des informations sur l’hôte pour un groupe de machines virtuelles Azure. Voici un exemple de playbook Ansible. Le code obtient les adresses IP publiques et l’équilibreur de charge dans le groupe de ressources spécifié, et crée un groupe hôte nommé **saclesethosts** dans l’inventaire. 
+Cette section montre comment utiliser Ansible pour récupérer des informations sur l’hôte pour un groupe de machines virtuelles Azure. Voici un exemple de playbook Ansible. Le code récupère les adresses IP publiques et l’équilibreur de charge dans le groupe de ressources spécifié, et crée un groupe hôte nommé **saclesethosts** dans l’inventaire. 
 
 Enregistrez l’exemple de playbook suivant en tant que `get-hosts-tasks.yml` : 
 

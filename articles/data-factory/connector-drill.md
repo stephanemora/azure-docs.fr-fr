@@ -1,5 +1,5 @@
 ---
-title: Copier des données de Drill avec Azure Data Factory | Microsoft Docs
+title: Copier des données de Drill avec Azure Data Factory (préversion) | Microsoft Docs
 description: Découvrez comment utiliser l’activité de copie dans un pipeline Azure Data Factory pour copier des données de Drill vers des banques de données réceptrices prises en charge.
 services: data-factory
 documentationcenter: ''
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: jingwang
-ms.openlocfilehash: 31dcae5dde53a9a3933c15dcf3b6869ec943cbea
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 166dffc6f79784b9a62cea4cb545aee32001441d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050282"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124675"
 ---
-# <a name="copy-data-from-drill-using-azure-data-factory"></a>Copier des données de Drill avec Azure Data Factory
+# <a name="copy-data-from-drill-using-azure-data-factory-preview"></a>Copier des données de Drill avec Azure Data Factory (préversion)
 
 Cet article décrit comment utiliser l’activité de copie dans Azure Data Factory pour copier des données depuis Drill. Il s’appuie sur l’article [Vue d’ensemble de l’activité de copie](copy-activity-overview.md).
 
@@ -45,7 +45,7 @@ Les propriétés prises en charge pour le service lié Drill sont les suivantes 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **Drill** | OUI |
+| Type | La propriété type doit être définie sur **Drill** | Oui |
 | connectionString | Une chaîne de connexion ODBC pour se connecter à Drill. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | OUI |
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
@@ -101,7 +101,7 @@ Pour copier des données de Drill, définissez le type de source dans l’activi
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **DrillSource** | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **DrillSource** | Oui |
 | query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple : `"SELECT * FROM MyTable"`. | OUI |
 
 **Exemple :**

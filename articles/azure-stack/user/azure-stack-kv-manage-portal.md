@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: sethm
-ms.openlocfilehash: 91035f84d02810d838127ecf6a2f6424ef5df6cf
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 51c04a567ff953c4e84930e3feae448f78627683
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41953967"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713933"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Gérer Key Vault dans Azure Stack en utilisant le portail
 
@@ -27,14 +27,13 @@ Vous pouvez gérer Key Vault dans Azure Stack à l’aide du portail Azure Stack
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Vous devez vous abonner à une offre qui inclut le service Azure Key Vault.
 
 ## <a name="create-a-key-vault"></a>Création d’un coffre de clés
 
 1. Connectez-vous au [portail utilisateur](https://portal.local.azurestack.external).
 
-2. Dans le tableau de bord, sélectionnez **Nouveau** > **Sécurité + Identité** > **Coffre de clés**.
+2. Dans le tableau de bord, sélectionnez **+ Créer une ressource** > **Sécurité + Identité** > **Coffre de clés**.
 
     ![Écran Coffre de clés](media/azure-stack-kv-manage-portal/image1.png)
 
