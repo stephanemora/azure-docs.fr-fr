@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 05/30/2018
 ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 54a81e6c5c6e1fe5c37b985e40174dc369edfe6d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: cf6604730ab3bd9ee04fac36e703022f63dcb949
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630407"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49090363"
 ---
 # <a name="report-azure-stack-usage-data-to-azure"></a>Signaler les données d’utilisation Azure Stack à Azure 
 
@@ -95,10 +95,6 @@ Pour les systèmes multinœuds Azure Stack, les abonnements Contrat Entreprise e
 ## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>La génération de rapports de données d’utilisation fonctionne-t-elle avec les clouds souverains ?
 
 Dans le Kit de développement Azure Stack, la génération de rapports d’utilisation de données exige que les abonnements soient créés dans le système Azure global. Les abonnements créés dans l’un des clouds souverains (clouds Azure Government, Azure Germany et Azure China) ne peuvent pas être inscrits auprès d’Azure. Ils ne prennent donc pas en charge les rapports de données d’utilisation.
-
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Comment les utilisateurs peuvent-ils identifier les données d’utilisation Azure Stack dans le portail de facturation Azure ?
-
-Les utilisateurs peuvent voir les données d’utilisation Azure Stack dans le fichier des détails d’utilisation. Pour savoir comment obtenir le fichier des détails d’utilisation, reportez-vous à l’article [Télécharger l’utilisation à partir du Centre des comptes Azure (.csv)](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Le fichier des détails d’utilisation contient les compteurs Azure Stack qui identifient le stockage et les machines virtuelles Azure Stack. Toutes les ressources utilisées dans Azure Stack sont signalées dans la zone nommée « Azure Stack ».
 
 ## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Pourquoi l’utilisation signalée dans Azure Stack ne correspond-il pas au rapport généré à partir du Centre des comptes Azure ?
 
