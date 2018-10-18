@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: 6ff28443dda65e91fa69fececaff95aa8e872603
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: f613fb9bd3e9cf6d070b34403bab617e23261c56
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604235"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47226439"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Utiliser Virtual Kubelet avec Azure Kubernetes Service (AKS)
 
@@ -36,7 +36,7 @@ Pour installer Virtual Kubelet, [Helm](https://docs.helm.sh/using_helm/#installi
 
 ### <a name="for-rbac-enabled-clusters"></a>Pour les clusters où RBAC est activé
 
-Si RBAC est activé dans votre cluster AKS, vous devez créer un compte de service et une liaison de rôle pour une utilisation avec Tiller. Pour plus d’informations, consultez [Contrôle d'accès à Helm basé sur un rôle][helm-rbac]. Pour créer un compte de service et une liaison de rôle, créez un fichier nommé *rbac-virtualkubelet.yaml* et collez la définition suivante :
+Si RBAC est activé dans votre cluster AKS, vous devez créer un compte de service et une liaison de rôle pour une utilisation avec Tiller. Pour plus d’informations, consultez [Contrôle d'accès à Helm basé sur un rôle][helm-rbac]. Pour créer un compte de service et une liaison de rôle, créez un fichier nommé *rbac-virtual-kubelet.yaml* et collez-y la définition suivante :
 
 ```yaml
 apiVersion: v1
@@ -59,7 +59,7 @@ subjects:
     namespace: kube-system
 ```
 
-Appliquez le compte de service et la liaison avec la commande [kubectl apply][kubectl-apply] et spécifiez votre fichier *rbac-virtualkubelet.yaml*, comme indiqué dans l’exemple suivant :
+Appliquez le compte de service et la liaison avec la commande [kubectl apply][kubectl-apply] et spécifiez votre fichier *rbac-virtual-kubelet.yaml*, comme indiqué dans l’exemple suivant :
 
 ```
 $ kubectl apply -f rbac-virtual-kubelet.yaml
@@ -182,7 +182,9 @@ spec:
       nodeSelector:
         kubernetes.io/hostname: virtual-kubelet-virtual-kubelet-win
       tolerations:
-      - key: azure.com/aci
+      - key: virtual-kubelet.io/provider
+        operator: Equal
+        value: azure
         effect: NoSchedule
 ```
 

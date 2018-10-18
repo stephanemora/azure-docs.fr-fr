@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: d298cfe22328db68cfbb6b4c7fc82b2de0c186b1
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424226"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423593"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Guide de prise en main pour les développeurs Azure
 
@@ -58,7 +58,7 @@ Vous pouvez créer des applications web, des back-ends d’applications mobiles 
 
 Comme ces trois types d’application partagent le runtime App Service, vous pouvez héberger un site web, prendre en charge les clients mobiles et exposer vos API dans Azure, tout cela depuis un même projet ou une même solution. Pour plus d’informations sur App Service, consultez l’article [Vue d’ensemble de Web Apps](../../app-service/app-service-web-overview.md).
 
-App Service a été conçu en tenant compte de DevOps. Il prend en charge divers outils de déploiement d’intégration continue et de publication, notamment les webhooks GitHub, Jenkins, Visual Studio Team Services, TeamCity, etc.
+App Service a été conçu en tenant compte de DevOps. Il prend en charge divers outils de déploiement d’intégration continue et de publication, notamment les webhooks GitHub, Jenkins, Azure DevOps, TeamCity, etc.
 
 Vous pouvez migrer vos applications existantes vers App Service en utilisant l’[outil de migration en ligne](https://www.migratetoazure.net/).
 
@@ -186,7 +186,7 @@ Lorsque votre application est en cours d’exécution dans Azure, vous devez êt
 
 ### <a name="devops-integration"></a>Intégration DevOps
 
-Qu’il s’agisse de mettre en service des machines virtuelles ou de publier vos applications web avec une intégration continue, Azure s’intègre à la plupart des outils DevOps répandus. Avec la prise en charge d’outils tels que Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, VSTS, etc., vous pouvez travailler avec les outils dont vous disposez déjà et optimiser votre expérience.
+Qu’il s’agisse de mettre en service des machines virtuelles ou de publier vos applications web avec une intégration continue, Azure s’intègre à la plupart des outils DevOps répandus. Avec la prise en charge d’outils tels que Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps, etc., vous pouvez travailler avec les outils dont vous disposez déjà et optimiser votre expérience.
 
 >**Essayez-le** : [essayez plusieurs intégrations DevOps](https://azure.microsoft.com/try/devops/).
 
@@ -261,7 +261,7 @@ En tant que développeurs, nous aimons plonger directement dans le code et essay
 
 ### <a name="what-is-an-azure-account"></a>Qu’est-ce qu’un compte Azure ?
 
-Pour pouvoir créer ou utiliser un abonnement Azure, vous devez disposer d’un compte Azure. Un compte Azure est simplement une identité dans Azure AD ou dans un annuaire, telle qu’une organisation professionnelle ou un établissement scolaire, qui est approuvée par Azure AD. Si vous n’appartenez pas à une organisation comme celle-ci, vous pouvez toujours créer un abonnement à l’aide de votre compte Microsoft, qui est approuvé par Azure AD. Pour en savoir plus sur l’intégration de Windows Server Active Directory sur site avec Azure AD, consultez [Intégration de vos identités locales avec Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
+Pour pouvoir créer ou utiliser un abonnement Azure, vous devez disposer d’un compte Azure. Un compte Azure est simplement une identité dans Azure AD ou dans un annuaire, telle qu’une organisation professionnelle ou un établissement scolaire, qui est approuvée par Azure AD. Si vous n’appartenez pas à une organisation comme celle-ci, vous pouvez toujours créer un abonnement à l’aide de votre compte Microsoft, qui est approuvé par Azure AD. Pour en savoir plus sur l’intégration de Windows Server Active Directory sur site avec Azure AD, consultez [Intégration de vos identités locales avec Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
 Chaque abonnement Azure dispose d’une relation d’approbation avec une instance Azure AD. Cela signifie qu'il approuve ce répertoire pour authentifier les utilisateurs, les services et les appareils. Plusieurs abonnements peuvent approuver le même annuaire, mais un abonnement n’approuve qu’un seul annuaire. Pour en savoir plus, consultez [Association des abonnements Azure avec Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -269,19 +269,7 @@ Outre des identités de compte Azure individuelles, également appelées *utilis
 
 ### <a name="manage-your-subscriptions"></a>Gérer vos abonnements
 
-Un abonnement est une unité logique de services Azure qui est liée à un compte Azure. Chaque compte associé a un rôle dans un abonnement. La facturation des services Azure est effectuée abonnement par abonnement. Pour obtenir la liste des offres d’abonnement disponibles par type, consultez [Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
-
-#### <a name="administrator-roles"></a>Rôles d’administrateur
-
-Un abonnement Azure a plusieurs rôles d’administrateur de compte que vous pouvez assigner à tout moment.
-
--   **Administrateur de compte** : ce rôle a un contrôle total sur l’abonnement et correspond au compte responsable de la facturation.
-
--   **Administrateur de services fédérés** : ce rôle a le contrôle sur tous les services figurant dans l’abonnement. Par défaut, il s’agit du même compte que l’administrateur de compte.
-
--   **Coadministrateur** : ce rôle a les mêmes privilèges d’accès que l’administrateur de services fédérés, à ceci près qu’il ne peut pas changer la manière dont l’abonnement est associé à un annuaire Azure.
-
-Pour en savoir plus sur les rôles d’administrateur, consultez [Ajout ou modification de rôles d’administrateur Azure](../../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription).
+Un abonnement est un regroupement logique de services Azure, associé à un compte Azure. Un seul compte Azure peut contenir plusieurs abonnements. La facturation des services Azure est effectuée par abonnement. Pour obtenir la liste des offres d’abonnement disponibles par type, consultez [Détails de l’offre Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Les abonnements Azure sont dotés d’un Administrateur de compte ayant un contrôle total sur l’abonnement et d’un Administrateur de service ayant le contrôle sur tous les services de l’abonnement. Pour plus d’informations sur les administrateurs d’abonnements classiques, consultez [Ajouter ou changer des administrateurs d’abonnements Azure](../../billing/billing-add-change-azure-subscription-administrator.md). En plus des administrateurs, les comptes individuels peuvent bénéficier d’un contrôle détaillé des ressources Azure en utilisant [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md).
 
 #### <a name="resource-groups"></a>Groupes de ressources
 
@@ -293,11 +281,11 @@ Azure Resource Explorer est un excellent outil de visualisation des ressources q
 
 Lorsque vous autorisez l’accès à des ressources Azure, il est toujours recommandé de fournir aux utilisateurs les privilèges minimaux nécessaires pour effectuer une tâche donnée.
 
--   **Contrôle d’accès en fonction du rôle (RBAC)** : dans Azure, vous pouvez accorder l’accès aux comptes d’utilisateur (principaux) dans une étendue spécifiée : abonnement, groupe de ressources ou ressources individuelles. RBAC vous permet de déployer un ensemble de ressources dans un groupe de ressources et d’accorder des autorisations à un utilisateur ou un groupe spécifique. Il permet également de limiter l’accès aux seules ressources qui appartiennent au groupe de ressources cible. Vous pouvez également accorder l’accès à une ressource unique, telle qu’une machine virtuelle ou un réseau virtuel. Pour accorder l’accès, vous assignez un rôle à l’utilisateur, au groupe ou au principal de service. Il existe de nombreux rôles prédéfinis et vous pouvez également définir vos propres rôles personnalisés.
+-   **Contrôle d’accès en fonction du rôle (RBAC)** : dans Azure, vous pouvez accorder l’accès aux comptes d’utilisateur (principaux) dans une étendue spécifiée : abonnement, groupe de ressources ou ressources individuelles. RBAC vous permet de déployer un ensemble de ressources dans un groupe de ressources et d’accorder des autorisations à un utilisateur ou un groupe spécifique. Il permet également de limiter l’accès aux seules ressources qui appartiennent au groupe de ressources cible. Vous pouvez également accorder l’accès à une ressource unique, telle qu’une machine virtuelle ou un réseau virtuel. Pour accorder l’accès, vous assignez un rôle à l’utilisateur, au groupe ou au principal de service. Il existe de nombreux rôles prédéfinis et vous pouvez également définir vos propres rôles personnalisés. Pour en savoir plus, consultez [Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?](../../role-based-access-control/overview.md).
 
-    >**Quand l’utiliser** : lorsque vous avez besoin d’une gestion affinée des accès pour les utilisateurs et les groupes.
+    >**Quand l’utiliser** : quand vous avez besoin de gérer avec précision l’accès des utilisateurs et des groupes ou que vous devez faire d’un utilisateur le propriétaire d’un abonnement.
 
-    >**Démarrer** : pour en savoir plus, consultez [Prise en main de la gestion des accès dans le portail Azure](../../role-based-access-control/overview.md).
+    >**Démarrer** : pour plus d’informations, consultez [Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 -   **Objets Principal de service** : en plus de fournir l’accès aux groupes et principaux d’utilisateur, vous pouvez accorder le même accès à un principal de service.
 
@@ -322,9 +310,3 @@ Azure fournit un ensemble d’API REST de facturation qui donnent accès à la c
 Bien qu’il soit difficile d’estimer les coûts à l’avance, Azure intègre une [calculatrice de prix](https://azure.microsoft.com/pricing/calculator/) que vous pouvez utiliser pour estimer le coût des ressources déployées. Vous pouvez également utiliser le panneau Facturation dans le portail et les API REST de facturation pour estimer les coûts futurs en fonction de votre consommation actuelle.
 
 >**Démarrer** : consultez [Vue d’ensemble des API de facturation Azure et RateCard](../../billing-usage-rate-card-overview.md).
-
-#### <a name="set-up-billing-alerts"></a>Configurer des alertes de facturation
-
-Une fois que vous avez déployé votre application ou votre solution sur Azure, vous pouvez créer des alertes qui vous envoient un e-mail lorsque vous vous approchez des limites de dépenses définies dans ces alertes.
-
->**Démarrer** : pour en savoir plus, consultez [Configurer des alertes de facturation pour vos abonnements Microsoft Azure](../../billing-set-up-alerts.md).

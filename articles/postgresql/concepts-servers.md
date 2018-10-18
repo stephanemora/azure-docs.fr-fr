@@ -4,17 +4,16 @@ description: Cet article indique les éléments à prendre en considération et 
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
-manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 05/22/2018
-ms.openlocfilehash: f877f6df51cd7aed29260331d27d5c96f0584afc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.date: 09/27/2018
+ms.openlocfilehash: 8fcb5e8371d6c813eb7f0ab4d23a5aac5c41fb3b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640011"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47404637"
 ---
 # <a name="azure-database-for-postgresql-servers"></a>Serveurs Azure Database pour PostgreSQL
 Cet article présente des considérations et des instructions relatives à l’utilisation des serveurs Azure Database pour PostgreSQL.
@@ -24,15 +23,15 @@ Un serveur de base de données Azure pour PostgreSQL est un point d’administra
 
 Un serveur de base de données Azure pour PostgreSQL :
 
-- est créé dans un abonnement Azure ;
-- représente la ressource parente des bases de données ;
-- fournit un espace de noms aux bases de données ;
-- constitue un conteneur avec une sémantique à durée de vie longue (la suppression d’un serveur entraîne la suppression des bases de données autonomes qu’il contient) ;
-- colocalise les ressources d’une région ;
-- fournit un point de terminaison de connexion pour l’accès au serveur et aux bases de données (.postgresql.database.azure.com) ;
-- fournit l’étendue des stratégies de gestion qui s’appliquent à ses bases de données : connexions, pare-feu, utilisateurs, rôles, configurations, etc. ;
-- est disponible dans plusieurs versions (pour plus d’informations, consultez [Versions de bases de données PostgreSQL prises en charge](concepts-supported-versions.md)).
-- peut être étendu par les utilisateurs (pour plus d’informations, consultez la page [Extensions de PostgreSQL](concepts-extensions.md)).
+- Est créé dans un abonnement Azure.
+- Représente la ressource parente des bases de données.
+- Fournit un espace de noms aux bases de données.
+- Constitue un conteneur avec une sémantique à durée de vie longue (la suppression d’un serveur entraîne la suppression des bases de données autonomes qu’il contient).
+- Colocalise les ressources d’une région.
+- Fournit un point de terminaison de connexion pour l’accès au serveur et aux bases de données (.postgresql.database.azure.com).
+- Fournit l’étendue des stratégies de gestion qui s’appliquent à ses bases de données : connexions, pare-feu, utilisateurs, rôles, configurations, etc.
+- Est disponible dans plusieurs versions. Pour plus d’informations, consultez [Versions de bases de données PostgreSQL prises en charge](concepts-supported-versions.md).
+- Peut être étendu par les utilisateurs. Pour plus d’informations, consultez [Extensions de PostgreSQL](concepts-extensions.md).
 
 Dans une base de données Azure Database pour serveur PostgreSQL, vous pouvez créer une ou plusieurs bases de données. Vous pouvez choisir de créer une seule base de données par serveur pour utiliser toutes les ressources, ou de créer plusieurs bases de données pour partager les ressources. Les tarifs sont structurés par serveur, en fonction de la configuration du niveau tarifaire, des vCores et du stockage (Go). Pour plus d’informations, consultez [Niveaux tarifaires](./concepts-pricing-tiers.md).
 
@@ -56,6 +55,7 @@ L’attribut de superutilisateur PostgreSQL est affecté à azure_superuser, qui
 Un serveur Azure Database pour PostgreSQL a deux bases de données par défaut : 
 - **postgres** : une base de données par défaut à laquelle vous pouvez vous connecter une fois que votre serveur est créé.
 - **azure_maintenance** : cette base de données est utilisée pour séparer les processus qui fournissent le service managé des actions de l’utilisateur. Vous n’avez pas accès à cette base de données.
+- **azure_sys** -Une base de données pour le Magasin des requêtes. Cette base de données n’accumule pas les données lorsque le Magasin des requêtes est désactivé ; il s’agit du paramètre par défaut. Pour plus d’informations, consultez [Vue d’ensemble du Magasin des requêtes](concepts-query-store.md).
 
 
 ## <a name="server-parameters"></a>Paramètres de serveur

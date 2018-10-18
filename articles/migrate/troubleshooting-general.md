@@ -4,14 +4,14 @@ description: Fournit une vue d'ensemble des problèmes connus dans le service Az
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/28/2018
 ms.author: raynew
-ms.openlocfilehash: ca34f27e1d22c6235ec0d6b965d49ec5266f17f6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 906c6e56b670dfc26b5905a453fd43a3c72086c3
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126359"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47433495"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Résoudre les problèmes d’Azure Migrate
 
@@ -34,6 +34,12 @@ Pour activer la collecte des données de performances des disques et du réseau,
 ### <a name="i-installed-agents-and-used-the-dependency-visualization-to-create-groups-now-post-failover-the-machines-show-install-agent-action-instead-of-view-dependencies"></a>J’ai installé des agents et utilisé la visualisation des dépendances pour créer des groupes. Maintenant, après le basculement, les machines affichent l’action « Installer l’agent » au lieu de « Afficher les dépendances ».
 * Après un basculement planifié ou non planifié, les machines sur site sont désactivées et les machines équivalentes sont lancées dans Azure. Ces machines acquièrent une adresse MAC différente. Elles peuvent acquérir une adresse IP différente selon que l'utilisateur a choisi de conserver ou non l'adresse IP sur site. Si les adresses MAC et IP diffèrent, Azure Migrate n'associe pas les machines sur site avec les données de dépendance Service Map et demande à l'utilisateur d'installer des agents au lieu d'afficher les dépendances.
 * Après un basculement de test, les machines sur site restent activées comme prévu. Les machines équivalentes lancées dans Azure acquièrent une adresse MAC différente et peuvent acquérir une adresse IP différente. À moins que l’utilisateur ne bloque le trafic Log Analytics provenant de ces machines, Azure Migrate n’associe pas les machines locales aux données de dépendance Service Map et demande à l’utilisateur d’installer des agents au lieu d’afficher les dépendances.
+
+### <a name="i-specified-an-azure-geography-while-creating-a-migration-project-how-do-i-find-out-the-exact-azure-region-where-the-discovered-metadata-would-be-stored"></a>J’ai spécifié une zone géographique Azure ; au moment de la création d’un projet de migration, comment faire pour trouver la région Azure exacte où sont stockées les métadonnées découvertes ?
+
+Vous pouvez accéder à la section **Bases** de la page **Vue d’ensemble** du projet pour identifier l’emplacement exact auquel les métadonnées sont stockées. L’emplacement est sélectionné de façon aléatoire dans la zone géographique par Azure Migrate et vous ne pouvez pas le modifier. Si vous souhaitez uniquement créer un projet dans une région spécifique, vous pouvez utiliser les API REST pour créer le projet de migration, puis passer la région souhaitée.
+
+   ![Emplacement du projet](./media/troubleshooting-general/geography-location.png)
 
 ## <a name="collector-errors"></a>Erreurs du collecteur
 
@@ -86,9 +92,11 @@ Le collecteur Azure Migrate télécharge PowerCLI et l’installe sur l’applia
 
 ### <a name="error-unhandledexception-internal-error-occured-systemiofilenotfoundexception"></a>Erreur UnhandledException une erreur interne s’est produite : System.IO.FileNotFoundException
 
-Il s’agit d’un problème rencontré sur les versions de collecteur 1.0.9.5 et inférieures. Si vous utilisez une version de collecteur 1.0.9.2 ou les versions pre-GA comme 1.0.8.59, vous êtes confronté à ce problème. Suivez le [lien vers les forums indiqué ici pour une réponse plus détaillée](https://social.msdn.microsoft.com/Forums/azure/en-US/c1f59456-7ba1-45e7-9d96-bae18112fb52/azure-migrate-connect-to-vcenter-server-error?forum=AzureMigrate).
+Ce problème peut être lié à l’installation de VMware PowerCLI. Suivez les étapes ci-dessous pour le résoudre :
 
-[Mettez à niveau votre collecteur pour résoudre le problème](https://aka.ms/migrate/col/checkforupdates).
+1. Si vous n’utilisez pas la dernière version de l’appliance collecteur, [mettez à niveau Collector vers la dernière version](https://aka.ms/migrate/col/checkforupdates) et vérifiez si le problème a été résolu.
+2. Si vous avez déjà la dernière version du collecteur, installez manuellement [VMware PowerCLI 6.5.2](https://www.powershellgallery.com/packages/VMware.PowerCLI/6.5.2.6268016) et vérifiez si le problème a été résolu.
+3. Si la méthode ci-dessus ne résout pas le problème, accédez au dossier C:\Program Files\ProfilerService et supprimez les fichiers VMware.dll et VimService65.dll du dossier, puis redémarrez le service « Azure Migrate Collector » dans le gestionnaire de services Windows (ouvrez « Exécuter » et tapez « services.msc » pour ouvrir Windows Service Manager).
 
 ### <a name="error-unabletoconnecttoserver"></a>Erreur UnableToConnectToServer
 
@@ -102,6 +110,37 @@ Si le problème se produit toujours dans la dernière version, cela peut être d
 2. Si l’étape 1 échoue, essayez de vous connecter au serveur vCenter sur l’adresse IP.
 3. Identifiez le numéro de port correct pour se connecter au serveur vCenter.
 4. Enfin, vérifiez si le serveur vCenter est en cours d’exécution.
+
+## <a name="troubleshoot-dependency-visualization-issues"></a>Résoudre les problèmes de visualisation des dépendances
+
+### <a name="i-installed-the-microsoft-monitoring-agent-mma-and-the-dependency-agent-on-my-on-premises-vms-but-the-dependencies-are-now-showing-up-in-the-azure-migrate-portal"></a>J’ai installé MMA (Microsoft Monitoring Agent) et l’agent de dépendances sur mes machines virtuelles locales, mais les dépendances apparaissent maintenant dans le portail Azure Migrate.
+
+Une fois que vous avez installé les agents, Azure Migrate prend généralement 15 à 30 minutes pour afficher les dépendances dans le portail. Si vous avez attendu plus de 30 minutes, vérifiez que l’agent MMA peut communiquer avec l’espace de travail OMS en suivant les étapes ci-dessous :
+
+Pour les machines virtuelles Windows :
+1. Accédez au **Panneau de configuration** et lancez **Microsoft Monitoring Agent**.
+2. Accédez à l’onglet **Azure Log Analytics (OMS)** dans la fenêtre contextuelle des propriétés MMA.
+3. Vérifiez que **l’état** de l’espace de travail est vert.
+4. Si l’état n’est pas vert, essayez de supprimer l’espace de travail et de le rajouter à MMA.
+        ![État MMA](./media/troubleshooting-general/mma-status.png)
+
+Pour les machines virtuelles, vérifiez que les commandes d’installation pour les agents MMA et de dépendances se sont déroulées correctement.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Quels sont les systèmes d’exploitation pris en charge par MMA ?
+
+La liste des systèmes d’exploitation Windows pris en charge par MMA est disponible [ici](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+La liste des systèmes d’exploitation Linux pris en charge par MMA est disponible [ici](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Quels sont les systèmes d’exploitation pris en charge par l’agent de dépendances ?
+
+La liste des systèmes d’exploitation Windows pris en charge par l’agent de dépendances est disponible [ici](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+La liste des systèmes d’exploitation Linux pris en charge par l’agent de dépendances est disponible [ici](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="i-am-unable-to-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Je n’arrive pas à visualiser des dépendances dans Azure Migrate pour une durée supérieure à une heure ?
+Azure Migrate vous permet de visualiser des dépendances pour une durée maximale d’une heure. Même si Azure Migrate vous permet de revenir en arrière dans l’historique jusqu’à une date spécifique sur une période d’un mois, la durée maximale pour laquelle vous pouvez visualiser des dépendances est 1 heure. Par exemple, vous pouvez utiliser la fonctionnalité de durée dans la carte des dépendances pour voir les dépendances d’hier, mais uniquement pour une fenêtre d’une heure.
+
+### <a name="i-am-unable-to-visualize-dependencies-for-groups-with-more-than-10-vms"></a>Je n’arrive pas à visualiser les dépendances de groupes ayant plus de 10 machines virtuelles ?
+Vous pouvez [visualiser les dépendances de groupes](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) ayant 10 machines virtuelles maximum. Si vous avez ce type de groupe, nous vous recommandons de diviser le groupe en groupes plus petits pour visualiser les dépendances.
 
 ## <a name="troubleshoot-readiness-issues"></a>Résoudre les problèmes de disponibilité
 

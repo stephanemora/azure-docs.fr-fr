@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
-ms.author: tonguyen
-ms.openlocfilehash: 9396e954305ecc9ff6cbdd664c6cb71846bd5bfa
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.author: cwatson
+ms.openlocfilehash: 6b497fd9f4280c36adcbeb4d94e469525c9dad6e
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919124"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422998"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Éviter les charges inattendues avec la gestion de la facturation et des coûts dans Azure
 
@@ -54,17 +54,6 @@ Pour plus d’informations sur les prix, reportez-vous à cette [FAQ](https://az
 En général, lorsque vous ajoutez un service dans le portail Azure, une vue présentant une estimation similaire du coût par mois vous est proposée. Par exemple, lorsque vous choisissez la taille de votre machine virtuelle Windows, vous pouvez voir l’estimation du coût mensuel pour les heures de calcul :
 
 ![Exemple : le coût d’une machine virtuelle A1 Windows est estimé à 66,96 USD par mois](./media/billing-getting-started/vm-size-cost.PNG)
-
-### <a name="set-up-billing-alerts"></a>Configurer des alertes de facturation
-
-Configurez des alertes de facturation pour recevoir des e-mails lorsque les coûts d’utilisation dépassent un certain montant. Si vous disposez de crédits mensuels, configurez des alertes pour être averti lorsqu’un montant spécifique a été utilisé. Pour plus d’informations, consultez [Configurer des alertes de facturation pour vos abonnements Microsoft Azure](billing-set-up-alerts.md).
-
-![Capture d’écran d’un e-mail d’alerte de facturation](./media/billing-getting-started/billing-alert.png)
-
-> [!NOTE]
-> Cette fonctionnalité étant encore en version préliminaire, il est recommandé de vérifier régulièrement l’utilisation.
-
-Pour configurer votre première alerte, vous pouvez vous baser sur l’estimation du coût obtenue à l’aide de la calculatrice de prix.
 
 ### <a name="spending-limit"></a> Vérifiez si la limite de dépense est activée
 
@@ -166,7 +155,7 @@ Les vues des coûts d’entreprise sont actuellement en préversion publique. É
     - Vous êtes administrateur de service et l’administrateur de votre inscription a désactivé le paramètre « d’affichage des frais pour l’administrateur de service ».  Contactez l’administrateur en charge de votre inscription pour obtenir l’accès. 
     - Vous avez acheté Azure par le biais d’un partenaire et ce dernier n’a pas publié d’informations tarifaires.  
 - Quand des paramètres liés à l’accès aux coûts sont mis à jour dans le portail d’entreprise, il existe un délai d’attente de quelques minutes avant que les modifications ne soient répercutées dans le portail Azure.
-- La limite de dépense, les alertes de facturation et les conseils de facturation ne concernent pas les abonnements EA.
+- La limite de dépense et les conseils de facturation ne s’appliquent pas aux abonnements EA.
 
 ### <a name="check-your-subscription-and-access"></a>Vérifiez votre abonnement et votre accès
 

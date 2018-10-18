@@ -13,19 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
-ms.author: genli
-ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.author: cwatson
+ms.openlocfilehash: 614102d65407485d31963afa9185400938a7d95b
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43670089"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423083"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Comprendre la limite de dépense d’Azure et comment la désactiver
 
 Dans Azure, il existe une limite de dépense pour vous empêcher de dépasser la quantité de vos crédits. Pour tout nouveau client optant pour un essai ou une offre incluant des crédits s’étalant sur plusieurs mois, la limite de dépense est activée par défaut. La limite de dépense est de 0 $. Elle ne peut pas être modifiée. La limite de dépense n’est pas disponible pour les abonnements faisant l’objet d’un paiement à l’utilisation et les plans d’engagement. Pour plus d’informations, consultez la [liste complète des offres Azure et la disponibilité de la limite de dépense](https://azure.microsoft.com/support/legal/offer-details/).
-
-**Vous recherchez des alertes de facturation ?** Consultez [Configurer des alertes de facturation ou de crédit pour vos abonnements Azure](billing-set-up-alerts.md).
 
 ## <a name="what-happens-when-i-reach-the-spending-limit"></a>Que se passe-t-il lorsque j’atteins la limite de dépense ?
 
@@ -64,7 +62,7 @@ Pour supprimer votre limite de dépense, procédez comme suit :
 
 La limite de dépense peut vous empêcher de déployer ou d’utiliser certains services Microsoft et tiers. Voici les situations dans lesquelles vous devez lever la limite de dépense liée à votre abonnement.
 
-* Vous prévoyez de déployer des images internes telles qu’Oracle et des services tels que Visual Studio Team Services. Cette situation entraîne presque immédiatement un dépassement de votre limite de dépense, qui a pour effet de désactiver votre abonnement.
+* Vous prévoyez de déployer des images internes telles qu’Oracle et des services tels qu’Azure DevOps Services. Cette situation entraîne presque immédiatement un dépassement de votre limite de dépense, qui a pour effet de désactiver votre abonnement.
 * Vous avez des services dont le fonctionnement ne peut pas être interrompu.
 * Vous avez des services et ressources utilisant des paramètres tels que des adresses IP virtuelles que vous ne voulez pas perdre. Ces paramètres sont perdus en cas de désallocation des services et ressources.
 
@@ -78,7 +76,7 @@ Cette fonctionnalité est disponible uniquement lorsque la limite de dépense a 
 
 ### <a name="how-do-i-set-a-custom-spending-limit"></a>Comment faire pour définir une limite de dépense personnalisée ?
 
-Nous ne proposons pas de limites de dépense personnalisées pour le moment. Toutefois, vous pouvez choisir d’[utiliser des alertes de facturation pour contrôler vos dépenses](billing-set-up-alerts.md).
+Les limites de dépense personnalisées ne sont pas disponibles.
 
 ### <a name="does-the-spending-limit-prevent-all-charges-from-azure"></a>La limite de dépense empêche-t-elle tous les frais facturés par Azure ?
 

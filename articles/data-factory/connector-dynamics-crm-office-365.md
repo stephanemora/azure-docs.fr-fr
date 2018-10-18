@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/02/2018
+ms.date: 09/26/2018
 ms.author: jingwang
-ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: ce3c494dc0b8c962c8dae0af38d3cb5476cdf48b
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574672"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47406173"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Copier des données à partir et vers Dynamics 365 (Common Data Service) ou Dynamics CRM à l’aide d’Azure Data Factory
 
@@ -158,7 +158,8 @@ Pour copier des données depuis et vers Dynamics, définissez la propriété de 
 | entityName | Nom logique de l’entité à récupérer. | Non pour la source (si « query » est spécifié dans la source de l’activité) ; Oui pour le récepteur |
 
 > [!IMPORTANT]
->- Lorsque vous copiez des données à partir de Dynamics, la section « structure » est requise dans le jeu de données Dynamics. Il définit le nom de colonne et le type de données pour les données Dynamics que vous souhaitez copier. Pour en savoir plus, consultez [Dataset structure](concepts-datasets-linked-services.md#dataset-structure) (Structure du jeu de données) et [Mappage de type de données pour Dynamics](#data-type-mapping-for-dynamics).
+>- Quand vous copiez des données à partir de Dynamics, la section « structure » est facultative, mais recommandée dans le jeu de données Dynamics pour garantir un résultat de copie déterministe. Il définit le nom de colonne et le type de données pour les données Dynamics que vous souhaitez copier. Pour en savoir plus, consultez [Dataset structure](concepts-datasets-linked-services.md#dataset-structure) (Structure du jeu de données) et [Mappage de type de données pour Dynamics](#data-type-mapping-for-dynamics).
+>- Quand vous importez un schéma dans l’interface utilisateur de création, ADF déduit le schéma en échantillonnant les premières lignes du résultat de requête Dynamics pour initialiser la construction de la structure, dans laquelle les colonnes de cas sans valeurs seront omises. Vous pouvez examiner le schéma/la structure du jeu de données Dynamics et y ajouter des colonnes si nécessaire, ce qui sera respecté pendant l’exécution de la copie.
 >- Lorsque vous copiez des données vers Dynamics, la section « structure » est facultative dans le jeu de données Dynamics. Les colonnes à copier sont déterminées par le schéma de données source. Si votre source est un fichier CSV sans en-tête, spécifiez la « structure » dans le jeu de données d’entrée avec le nom de colonne et le type de données. Ils sont mappés aux champs dans le fichier CSV un par un dans l’ordre.
 
 **Exemple :**

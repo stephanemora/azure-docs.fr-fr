@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 09/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783336"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452154"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -163,7 +163,7 @@ Pendant l’exécution de l’opération, vous continuez à recevoir le code d�
 
 ## <a name="services-that-can-be-moved"></a>Services pouvant être déplacés
 
-Les services qui permettent le déplacement vers un nouveau groupe de ressources et un nouvel abonnement sont les suivants :
+La liste suivante fournit une synthèse générale des services Azure qui peuvent être déplacés vers un nouveau groupe de ressources et un nouvel abonnement. Pour plus d’informations, consultez [Prise en charge de l’opération de déplacement pour les ressources](move-support-resources.md).
 
 * Analysis Services
 * API Management
@@ -173,6 +173,9 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Automatisation
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure Database pour MySQL
+* Azure Database pour PostgreSQL
+* Azure DevOps : les organisations Azure DevOps ayant acheté des extensions non-Microsoft doivent [annuler leurs achats](https://go.microsoft.com/fwlink/?linkid=871160) avant de pouvoir déplacer le compte entre des abonnements.
 * Azure Maps
 * Azure Relay
 * Azure Stack - Inscriptions
@@ -193,6 +196,7 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * DNS
 * Event Grid
 * Event Hubs
+* Front Door
 * Clusters HDInsight - voir [Limitations de HDInsight](#hdinsight-limitations)
 * Iot Central
 * IoT Hubs
@@ -201,44 +205,41 @@ Les services qui permettent le déplacement vers un nouveau groupe de ressources
 * Log Analytics
 * Logic Apps
 * Machine Learning : les services web Machine Learning Studio peuvent être déplacés uniquement vers un groupe de ressources d’un même abonnement. Les autres ressources Machine Learning peuvent être déplacées entre les abonnements.
+* Managed Disks : consultez [Limitations des machines virtuelles pour les contraintes](#virtual-machines-limitations)
 * Identité managée (affectée par l’utilisateur)
 * Media Services
-* Mobile Engagement
 * Notification Hubs
 * Operational Insights
 * Operations Management
 * Tableaux de bord du portail
 * Power BI : Power BI Embedded et Collection d’espaces de travail Power BI
 * IP publique - consultez [Limitations de l’IP publique](#pip-limitations)
-* Cache Redis
+* Cache Redis : si l’instance de Cache Redis est configurée avec un réseau virtuel, l’instance ne peut pas être déplacée vers un autre abonnement. Consultez [Limitations des réseaux virtuels](#virtual-networks-limitations).
 * Scheduler
 * Recherche
 * Service Bus
 * Service Fabric
 * Service Fabric Mesh
 * Service SignalR
-* Stockage
+* Stockage : les comptes de stockage dans des régions différentes ne peuvent pas être déplacés dans la même opération. Utilisez à la place des opérations distinctes pour chaque région.
 * Storage (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
 * Stream Analytics - Les tâches Stream Analytics ne peuvent pas être déplacées lorsqu’elles sont en cours d’exécution.
 * Serveur de base de données SQL : la base de données et le serveur doivent résider dans le même groupe de ressources. Lorsque vous déplacez un serveur SQL, toutes ses bases de données sont également déplacées. Ce comportement s’applique aux bases de données Azure SQL Database et Azure SQL Data Warehouse.
 * Time Series Insights
 * Traffic Manager
-* Machines virtuelles : les machines virtuelles avec des disques managés ne peuvent pas être déplacées. Voir [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
-* Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
-* Groupes identiques de machines virtuelles : consultez [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
+* Machines virtuelles : pour les machines virtuelles avec des disques managés, consultez [Limitations des machines virtuelles](#virtual-machines-limitations)
+* Machines virtuelles (classiques) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
+* Groupes de machines virtuelles identiques : consultez [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
 * Réseaux virtuels : consultez [Limitations relatives aux réseaux virtuels](#virtual-networks-limitations)
-* Visual Studio Team Services : les comptes VSTS comportant des achats d’extension autres que Microsoft doivent [annuler leurs achats](https://go.microsoft.com/fwlink/?linkid=871160) avant de déplacer leur compte entre différents abonnements.
 * Passerelle VPN
 
 ## <a name="services-that-cannot-be-moved"></a>Services ne pouvant pas être déplacés
 
-Les services qui ne permettent pas actuellement le déplacement d’une ressource sont les suivants :
+La liste suivante fournit une synthèse générale des services Azure qui ne peuvent pas être déplacés vers un nouveau groupe de ressources et un nouvel abonnement. Pour plus d’informations, consultez [Prise en charge de l’opération de déplacement pour les ressources](move-support-resources.md).
 
 * Services de domaine AD
 * Service de contrôle d’intégrité hybride Active Directory
 * Application Gateway
-* Azure Database pour MySQL
-* Azure Database pour PostgreSQL
 * Azure Database Migration
 * Azure Databricks
 * Azure Migrate
@@ -254,7 +255,6 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 * Lab Services : le déplacement vers un nouveau groupe de ressources dans le même abonnement est activé, mais le déplacement entre abonnements ne l’est pas.
 * Équilibreurs de charge - consultez [Limitations de l’équilibreur de charge](#lb-limitations)
 * Applications gérées
-* Disques gérés : consultez [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
 * Microsoft Genomics
 * NetApp
 * IP publique - consultez [Limitations de l’IP publique](#pip-limitations)
@@ -267,22 +267,62 @@ Les services qui ne permettent pas actuellement le déplacement d’une ressourc
 
 ## <a name="virtual-machines-limitations"></a>Limitations relatives aux machines virtuelles
 
-Les disques managés ne prennent pas en charge le déplacement. Cette restriction signifie également que plusieurs ressources associées ne peuvent pas être déplacées. Vous ne pouvez pas déplacer :
+Le déplacement des disques managés est pris en charge à compter du 24 septembre 2018. 
 
-* Disques managés
-* Machines virtuelles avec des disques managés
-* Images créées à partir de disques managés
-* Instantanés créés à partir de disques managés
-* Groupes à haute disponibilité comprenant des machines virtuelles avec des disques managés
+1. Vous devrez vous inscrire pour activer cette fonctionnalité.
 
-Bien que vous ne puissiez pas déplacer un disque managé, vous pouvez créer une copie, puis créer une nouvelle machine virtuelle à partir du disque managé existant. Pour plus d'informations, consultez les pages suivantes :
+  ```azurepowershell-interactive
+  Register-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
 
-* Copier des disques managés dans le même abonnement ou un abonnement différent avec [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md) ou [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md)
-* Créer une machine virtuelle en utilisant un disque de système d’exploitation managé existant avec [PowerShell](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm-from-managed-os-disks.md) ou [Azure CLI](../virtual-machines/scripts/virtual-machines-linux-cli-sample-create-vm-from-managed-os-disks.md).
+  ```azurecli-interactive
+  az feature register --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
 
-Les machines virtuelles auxquelles des plans sont associés créées à partir de ressources de la Place de marché ne peuvent pas être déplacées entre des groupes de ressources ou des abonnements. Déprovisionnez la machine virtuelle dans l’abonnement actuel, puis redéployez-la dans le nouvel abonnement.
+1. La demande d’inscription retourne initialement un état `Registering`. Vous pouvez vérifier l’état actuel avec :
 
-Les machines virtuelles avec un certificat stocké dans Key Vault peuvent être déplacées vers un nouveau groupe de ressources dans le même abonnement, mais pas entre abonnements.
+  ```azurepowershell-interactive
+  Get-AzureRmProviderFeature -FeatureName ManagedResourcesMove -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az feature show --namespace Microsoft.Compute --name ManagedResourcesMove
+  ```
+
+1. Attendez quelques minutes pour l’état passe à `Registered`.
+
+1. Une fois que la fonctionnalité est inscrite, inscrivez le fournisseur de ressources `Microsoft.Compute`. Effectuez cette étape même si le fournisseur de ressources a déjà été enregistré.
+
+  ```azurepowershell-interactive
+  Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
+  ```
+
+  ```azurecli-interactive
+  az provider register --namespace Microsoft.Compute
+  ```
+
+Cette prise en charge signifie que vous pouvez également déplacer :
+
+* Des machines virtuelles avec des disques managés
+* Des images managées
+* Des captures instantanées managées
+* Des groupes à haute disponibilité comprenant des machines virtuelles avec des disques managés
+
+Voici les contraintes qui ne sont pas encore prises en charge :
+
+* Les machines virtuelles avec un certificat stocké dans Key Vault peuvent être déplacées vers un nouveau groupe de ressources dans le même abonnement, mais pas entre abonnements.
+* Les machines virtuelles configurées avec Sauvegarde Azure. Utilisez la solution de contournement ci-dessous pour déplacer ces machines virtuelles
+  * Recherchez l’emplacement de votre machine virtuelle.
+  * Recherchez un groupe de ressources avec le modèle de nommage suivant : `AzureBackupRG_<location of your VM>_1`, par exemple AzureBackupRG_westus2_1
+  * Si vous utilisez le portail Azure, cochez « Afficher les types masqués »
+  * Si vous utilisez PowerShell, utilisez l’applet de commande `Get-AzureRmResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
+  * Si vous utilisez l’interface CLI, utilisez `az resource list -g AzureBackupRG_<location of your VM>_1`
+  * Recherchez maintenant la ressource du type `Microsoft.Compute/restorePointCollections` avec le modèle de nommage `AzureBackup_<name of your VM that you're trying to move>_###########`
+  * Supprimez cette ressource
+  * Une fois la suppression terminée, vous pouvez déplacer votre machine virtuelle
+* Les groupes de machines virtuelles identiques avec un équilibreur de charge de référence SKU Standard ou avec une adresse IP publique de référence SKU Standard ne peuvent pas être déplacés
+* Les machines virtuelles auxquelles des plans sont associés créées à partir de ressources de la Place de marché ne peuvent pas être déplacées entre des groupes de ressources ou des abonnements. Déprovisionnez la machine virtuelle dans l’abonnement actuel, puis redéployez-la dans le nouvel abonnement.
+
 
 ## <a name="virtual-networks-limitations"></a>Limitations de réseaux virtuels
 

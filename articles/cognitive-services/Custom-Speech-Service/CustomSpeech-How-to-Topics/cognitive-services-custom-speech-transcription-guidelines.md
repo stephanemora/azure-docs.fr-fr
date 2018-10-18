@@ -1,24 +1,25 @@
 ---
-title: 'Instructions concernant la transcription : Custom Speech Service'
-titlesuffix: Azure Cognitive Services
-description: Découvrez comment préparer vos données pour Custom Speech Service.
+title: Instructions concernant la transcription dans Custom Speech Service sur Azure | Microsoft Docs
+description: Apprenez à préparer vos données pour Custom Speech Service dans Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: a5daca2dbb3fc792850264bca7d8b0c59e7c8faa
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 6c64b89c2eb933e9bcc24bdc3097e7a0b2aab368
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220616"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342464"
 ---
 # <a name="transcription-guidelines"></a>Instructions concernant la transcription
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Pour garantir la meilleure utilisation de vos données de texte pour la personnalisation de modèles de langage et acoustiques, suivez les instructions sur la transcription suivantes. Ces instructions sont spécifiques à une langue.
 
 ## <a name="text-normalization"></a>Normalisation du texte

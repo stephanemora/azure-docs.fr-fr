@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a2855ca5dbb76d3fcc30c4b1007c20bb48c91c9b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e164488a1bf176d5b6c0e28a84cd1ec22cae4cce
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141502"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423576"
 ---
 # <a name="import-a-power-bi-desktop-file"></a>Importer un fichier Power BI Desktop
 
@@ -22,10 +22,13 @@ Vous pouvez importer un modèle de données dans un fichier Power BI Desktop (pb
 **Restrictions**   
 
 - L’importation à partir d’un fichier pbix utilise la fonctionnalité de concepteur web dans le portail, disponible en **préversion**. Les fonctionnalités disponibles sont limitées. Pour un développement et un test de modèles plus avancés, utilisez plutôt Visual Studio (SSDT) et SQL Server Management Studio (SSMS).
+- Si votre modèle de données est créé dans la mise à jour de Power BI Desktop de juillet 2018 (2.60.5169.3201) ou ultérieure, vérifiez qu’aucune fonctionnalité en préversion n’est activée. Les fonctionnalités en préversion ne sont pas encore prises en charge dans Azure Analysis Services.  
+Si vous recevez l’erreur suivante lors de l’importation, c’est que le fichier pbix a des fonctionnalités en préversion activées qui ne sont pas encore prises en charge dans Azure Analysis Services.
+
+    ![Avertissement de niveau de compatibilité](./media/analysis-services-import-pbix/aas-import-pbix-cl-warning.png)   
 - Vous devez disposer des autorisations d’administrateur de serveur pour importer à partir d’un fichier pbix.
 - Le modèle pbix peut se connecter aux sources de données **Azure SQL Database** et **Azure SQL Data Warehouse** uniquement.
 - Le modèle pbix ne peut pas avoir de connexions DirectQuery ou en temps réel. 
-- L’importation risque d’échouer si votre modèle de données pbix contient des métadonnées non prises en charge dans Analysis Services.
 
 
 ## <a name="to-import-from-pbix"></a>Importation à partir de pbix

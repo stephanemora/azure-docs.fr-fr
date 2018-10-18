@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 93b0a7e382c27cab5f050166ec8fa89fc7cf6b96
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: e2dabc66a906d35525f51bf9a1c09b62430ded55
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576100"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434005"
 ---
 # <a name="azure-logging-and-auditing"></a>Journalisation et audit Azure
 
@@ -351,7 +351,7 @@ Il existe quatre façons de [collecter des journaux et des métriques pour les s
 
 
 ## <a name="log-integration-with-on-premises-siem-systems"></a>Intégration des journaux avec les systèmes SIEM locaux
-Avec [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324), vous pouvez intégrer des journaux bruts de vos ressources Azure à votre système SIEM local.
+Avec [Azure Log Integration](https://www.microsoft.com/download/details.aspx?id=53324), vous pouvez intégrer des journaux bruts de vos ressources Azure à vos systèmes SIEM (Security Information and Event Management) locaux.
 
 ![Diagramme Log Integration](./media/azure-log-audit/azure-log-audit-fig9.png)
 

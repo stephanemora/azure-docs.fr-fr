@@ -1,21 +1,21 @@
 ---
 title: 'Didacticiel : créer un locataire Azure Active Directory B2C | Microsoft Docs'
 description: Découvrez comment préparer l’inscription de vos applications en créant un locataire Azure Active Directory B2C à l’aide du portail Azure.
-services: active-directory-b2c
+services: B2C
 author: davidmu1
 manager: mtillman
-ms.service: active-directory-b2c
+ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/26/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cc48cd3eb40d93c26a68caf843a89f7bbfb46c6c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 7571e5f4d95320ab92fa3b69b0ea1f05ff9c771f
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236891"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408400"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Didacticiel : créer un locataire Azure Active Directory B2C
 
@@ -31,35 +31,25 @@ Vous découvrirez comment inscrire une application dans le didacticiel suivant.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
-Connectez-vous au [portail Azure](https://portal.azure.com/).
-
 ## <a name="create-an-azure-ad-b2c-tenant"></a>Créer un client Azure AD B2C
 
-1. Choisissez **Créer une ressource** dans le coin supérieur gauche du portail Azure.
-2. Dans la zone de recherche au-dessus de la liste des ressources de la Place de marché Azure, recherchez et sélectionnez **Active Directory B2C**, puis cliquez sur **Créer**.
-3. Choisissez **Créer un locataire Azure AD B2C**, entrez un nom d’organisation et un nom de domaine initial, qui est utilisé dans le nom du locataire, sélectionnez le pays, puis cliquez sur **Créer**. Soyez sûr du pays du locataire, car il ne peut pas être modifié ultérieurement.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
+2. Vérifiez que vous utilisez l’annuaire qui contient votre abonnement en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui le contient. Il s’agit d’un annuaire différent de celui qui contiendra votre locataire Azure AD B2C.
 
-    ![Créer un client](./media/tutorial-create-tenant/create-tenant.png)
+    ![Basculer vers l’annuaire de l’abonnement](./media/tutorial-create-tenant/switch-directory-subscription.png)
 
-    Dans cet exemple, le nom du locataire est contoso0522Tenant.onmicrosoft.com
+3. Choisissez **Créer une ressource** dans le coin supérieur gauche du portail Azure.
+4. Recherchez et sélectionnez **Active Directory B2C**, puis cliquez sur **Créer**.
+5. Choisissez **Créer un locataire Azure AD B2C**, entrez un nom d’organisation et un nom de domaine initial, qui est utilisé dans le nom du locataire, sélectionnez le pays (vous ne pourrez pas le changer ultérieurement), puis cliquez sur **Créer**.
 
-Pour commencer à gérer votre nouveau locataire, cliquez sur le mot **ici** qui signifie **cliquez ici pour gérer votre nouveau répertoire**. Un message de **dépannage** indiquant que vous devez lier votre abonnement au nouveau locataire s’affiche. 
+    ![Créer un locataire](./media/tutorial-create-tenant/create-tenant.png)
 
-## <a name="link-your-tenant-to-your-subscription"></a>Lier votre locataire à votre abonnement
+    Dans cet exemple, le nom du locataire est contoso0926Tenant.onmicrosoft.com.
 
-Vous devez lier votre locataire Azure AD B2C à votre abonnement Azure pour activer toutes les fonctionnalités et payer les frais d’utilisation. Si vous ne liez le locataire à votre abonnement, vos applications ne fonctionneront pas correctement.
+6. Dans la page **Créer un locataire B2C ou lier à un locataire existant**, choisissez **Lier un locataire Azure AD B2C existant à mon abonnement Azure**, sélectionnez le locataire que vous avez créé, sélectionnez votre abonnement, cliquez sur **Créer** et entrez un nom pour le groupe de ressources qui contiendra le locataire, sélectionnez l’emplacement, puis cliquez sur **Créer**.
+7. Pour commencer à utiliser votre nouveau locataire, vérifiez que vous utilisez l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui le contient.
 
-1. Assurez-vous que vous utilisez le répertoire qui contient l’abonnement que vous souhaitez associer au nouveau locataire en activant le répertoire dans le coin supérieur droit du portail Azure.
-
-    ![Changer de répertoires](./media/tutorial-create-tenant/switch-directories.png)
-
-    Puis en sélectionnant le répertoire qui contient votre abonnement.
-
-    ![Sélectionner le répertoire](./media/tutorial-create-tenant/select-directory.png)
-
-2. Choisissez **Créer une ressource** dans le coin supérieur gauche du portail Azure.
-3. Dans la zone de recherche au-dessus de la liste des ressources de la Place de marché Azure, recherchez et sélectionnez **Active Directory B2C**, puis cliquez sur **Créer**.
-4. Choisissez **Lier un locataire Azure AD B2C existant à mon abonnement Azure**, sélectionnez le locataire que vous avez créé, sélectionnez votre abonnement, entrez *myContosoTenantRG* pour le nom de groupe de ressources, acceptez l’emplacement, puis cliquez sur **Créer**.
+    ![Basculer vers l’annuaire du locataire](./media/tutorial-create-tenant/switch-directories.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

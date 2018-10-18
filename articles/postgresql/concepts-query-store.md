@@ -6,20 +6,20 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/24/2018
-ms.openlocfilehash: 149840157c5e9bb47be70f669b2078585fe4b56c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 09/26/2018
+ms.openlocfilehash: 03f22a7975e8f331efa9dcc30fd088f32bee1649
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953021"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393485"
 ---
 # <a name="monitor-performance-with-the-query-store"></a>Superviser les performances avec le Magasin des requêtes
 
 **S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
 
 > [!IMPORTANT]
-> La fonctionnalité Magasin des requêtes est en préversion publique.
+> La fonctionnalité de Magasin des requêtes est en préversion publique dans un nombre limité de régions.
 
 
 La fonctionnalité Magasin des requêtes dans Azure Database pour PostgreSQL fournit un moyen de suivre les performances des requêtes dans le temps. Le Magasin des requêtes simplifie la résolution des problèmes de performances en vous aidant à identifier rapidement les requête dont l’exécution est la plus longue et qui consomment le plus de ressources. Le Magasin des requêtes capture automatiquement un historique des requêtes et des statistiques d’exécution, et les conserve pour que vous les passiez en revue. Il sépare les données par fenêtres de temps afin que vous puissiez voir les modèles d’utilisation des bases de données. Les données de tous les utilisateurs, des bases de données et des requêtes sont stockées dans une base de données nommée **azure_sys** dans l’instance Azure Database pour PostgreSQL.
@@ -117,7 +117,7 @@ Cette vue retourne toutes les données du Magasin des requêtes. Il existe une l
 |query_id   |bigint  || Code de hachage interne, calculé à partir de l’arborescence d’analyse de l’instruction|
 |query_sql_text |Varchar(10000)  || Texte d’une instruction représentative. Différentes requêtes ayant la même structure sont regroupées en clusters ; ce texte est le texte de la première des requêtes du cluster.|
 |plan_id    |bigint |   |ID du plan correspondant à cette requête, pas encore disponible|
-|start_time |timestamp  ||  Les requêtes sont agrégées par intervalle de planification : l’intervalle de temps d’un compartiment est de 15 minutes par défaut, mais il est configurable. Il s’agit de l’heure de début correspondant à l’intervalle de planification pour cette entrée.|
+|start_time |timestamp  ||  Les requêtes sont agrégées par intervalle de planification : la durée d’un compartiment est de 15 minutes par défaut. Il s’agit de l’heure de début correspondant à l’intervalle de planification pour cette entrée.|
 |end_time   |timestamp  ||  Heure de fin correspondant à l’intervalle de planification pour cette entrée.|
 |calls  |bigint  || Nombre de fois où la requête s’est exécutée|
 |total_time |double précision   ||  Durée totale d’exécution de la requête, en millisecondes|
@@ -168,6 +168,10 @@ Query_store.qs_reset() retourne void
 Query_store.staging_data_reset() retourne void
 
 `staging_data_reset` ignore toutes les statistiques collectées en mémoire par le Magasin des requêtes (autrement dit, les données en mémoire qui n’ont pas encore été vidées dans la base de données). Cette fonction peut uniquement être exécutée par le rôle d’administrateur de serveur.
+
+## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
+- Si un serveur PostgreSQL a le paramètre default_transaction_read_only activé, le Magasin des requêtes ne peut pas capturer les données.
+- La fonctionnalité Magasin des requêtes peut être interrompue si elle rencontre des requêtes Unicode longues (>= 6 000 octets).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

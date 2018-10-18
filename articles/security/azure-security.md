@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a1cd2ecc738434fc8d5de03ef538be3ea896fa2b
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 81eb23a0955bbc6a5f9dcd95c6874f0c5a8c286c
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971004"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434028"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation d’Azure Security
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Nous savons que la sécurité est la priorité dans le cloud et combien il est important que vous trouviez des informations précises et à jour sur la sécurité Azure. L’une des meilleures raisons d’utiliser Azure pour vos applications et services est de tirer parti de sa large gamme de fonctionnalités et outils de sécurité. Ces outils et fonctionnalités permettent de créer des solutions sécurisées sur la plateforme Azure sécurisée. Microsoft Azure assure la confidentialité, l’intégrité et la disponibilité des données client, tout en permettant la gestion transparente des responsabilités.
 
 Le présent livre blanc « Présentation d’Azure Security » propose une vue complète des fonctions de sécurité de Microsoft Azure pour vous aider à mieux comprendre la collection des contrôles de sécurité implémentés dans Microsoft Azure, en prenant en compte les perspectives opérationnelles de Microsoft et celles du client.
@@ -69,7 +69,7 @@ Vous pouvez consulter les fonctionnalités répertoriées ci-après pour vous as
 ### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>Fonctionnalités de sécurité fournies par Azure pour sécuriser les données et applications
 En fonction du modèle de service cloud, la responsabilité de la personne chargée de la gestion de la sécurité de l’application ou du service varie. La plateforme Azure propose des fonctionnalités pour vous aider à remplir ces tâches via des fonctionnalités intégrées et des solutions pour partenaires qui peuvent être déployées dans un abonnement Azure.
 
-Les fonctionnalités intégrées sont organisées en six (6) zones fonctionnelles : opérations, applications, stockage, mise en réseau, calcul et identité. Des informations supplémentaires sur les fonctionnalités et fonctions disponibles dans ces six (6) zones de la plateforme Azure sont fournies par le biais des informations de synthèse.
+Les fonctionnalités intégrées sont organisées en six (6) zones fonctionnelles : opérations, applications, stockage, réseau, calcul et identité. Des informations supplémentaires sur les fonctionnalités et fonctions disponibles dans ces six (6) zones de la plateforme Azure sont fournies par le biais des informations de synthèse.
 
 ## <a name="operations"></a>Opérations
 Cette section contient des informations supplémentaires sur les fonctionnalités clés des opérations de sécurité et des informations de synthèse sur ces fonctionnalités.
@@ -285,7 +285,7 @@ Traffic Manager fournit un large éventail de méthodes de routage du trafic pou
 ### <a name="internal-dns"></a>DNS interne
 Vous pouvez gérer la liste des serveurs DNS utilisés dans un réseau virtuel à partir du portail de gestion ou du fichier de configuration réseau. Le client peut ajouter jusqu’à 12 serveurs DNS par réseau virtuel. Quand vous spécifiez des serveurs DNS, assurez-vous de les indiquer dans l’ordre approprié pour l’environnement du client. Les listes de serveurs DNS ne fonctionnent pas sur le modèle du tourniquet (round-robin). Elles sont utilisées dans l’ordre où elles sont spécifiées. Si le premier serveur DNS de la liste est accessible, le client utilise ce serveur DNS, qu’il fonctionne correctement ou non. Pour modifier l’ordre des serveurs DNS pour le réseau virtuel du client, supprimez-les de la liste et rajoutez-les dans l’ordre souhaité par le client. DNS prend en charge la notion de disponibilité dans la triade relative à la sécurité : confidentialité, intégrité et disponibilité.
 
-### <a name="azure-dns"></a>Azure DNS
+### <a name="azure-dns"></a>DNS Azure
 Le [système DNS (Domain Name System)](https://technet.microsoft.com/library/bb629410.aspx) se charge de traduire (ou résoudre) un nom de site web ou de service en une adresse IP. [DNS Azure](https://docs.microsoft.com/azure/dns/dns-overview) est un service d’hébergement pour les domaines DNS qui offre une résolution de noms à l’aide de l’infrastructure Microsoft Azure. En hébergeant vos domaines dans Azure, vous pouvez gérer vos enregistrements DNS avec les mêmes informations d’identification, les mêmes API, les mêmes outils et la même facturation que vos autres services Azure. DNS prend en charge la notion de disponibilité dans la triade relative à la sécurité : confidentialité, intégrité et disponibilité.
 ### <a name="log-analytics-nsgs"></a>Groupes de sécurité réseau Log Analytics
 Vous pouvez activer les catégories de journaux de diagnostic suivantes pour les groupes de sécurité réseau :

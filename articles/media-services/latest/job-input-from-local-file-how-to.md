@@ -4,19 +4,19 @@ description: Cette rubrique montre comment créer une entrée de travail à part
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/25/2018
 ms.author: juliako
-ms.openlocfilehash: 94e7192e13397ad8ec973d92f4c538f430c9cd60
-ms.sourcegitcommit: e14229bb94d61172046335972cfb1a708c8a97a5
+ms.openlocfilehash: 66bd03b03289f568c019588f1b8ac1317ab9c076
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34160003"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47222012"
 ---
 # <a name="create-a-job-input-from-a-local-file"></a>Créer une entrée de travail à partir d’un fichier local
 
@@ -36,4 +36,4 @@ Le code suivant montre comment créer une ressource d’entrée et l’utiliser 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créez une entrée de travail à partir d’une URL HTTP(s)](job-input-from-http-how-to.md).
+[Créer une entrée de travail à partir d’une URL HTTPS](job-input-from-http-how-to.md).

@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 3f2fa055af63ab3920fec79ad93c25b8ea7e5ed9
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6d79cdf279022320f654fbbeadb870f82db88cab
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42141869"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47392775"
 ---
 # <a name="azure-batch-rendering-capabilities"></a>Fonctionnalités de rendu Azure Batch
 
@@ -50,9 +50,12 @@ Les applications qui seront utilisées et pour lesquelles il existe des frais de
 * Spécifiez la propriété `applicationLicenses` lors de la [création d’un pool](https://docs.microsoft.com/rest/api/batchservice/pool/add#request-body).  Les valeurs suivantes peuvent être spécifiées dans le tableau de chaînes : « vray », « arnold », « 3dsmax », « maya ».
 * Lorsque vous spécifiez une ou plusieurs applications, leur coût est ajouté à celui des machines virtuelles.  Les prix des applications sont listés dans la [page des prix Azure Batch](https://azure.microsoft.com/pricing/details/batch/#graphic-rendering).
 
+> [!NOTE]
+> Si, au lieu de cela, vous vous connectez à un serveur de licences pour utiliser les applications de rendu, ne spécifiez pas la propriété `applicationLicenses`.
+
 Vous pouvez utiliser le portail Azure ou Batch Explorer pour sélectionner des applications et afficher leur prix.
 
-Si vous tentez d’utiliser une application alors qu’elle n’a pas été spécifiée dans la propriété `applicationLicenses` de la configuration du pool, l’exécution de l’application échoue avec une erreur de licence et du code de sortie différent de zéro.
+Si vous tentez d’utiliser une application alors que celle-ci n’a pas été spécifiée dans la propriété `applicationLicenses` de la configuration du pool ou qu’elle n’atteint pas un serveur de licences, l’exécution de l’application échoue avec une erreur de licence et un code de sortie différent de zéro.
 
 ### <a name="environment-variables-for-pre-installed-applications"></a>Variables d’environnement pour applications préinstallées
 

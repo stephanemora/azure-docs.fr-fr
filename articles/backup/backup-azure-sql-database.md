@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: c3321fb64c423b1b3c80f48fb97a70cc7dbc83f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
+ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433562"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47434243"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Sauvegarder des bases de données SQL Server sur Azure
 
@@ -823,6 +823,10 @@ Déclenchez une sauvegarde complète. Les sauvegardes de fichier journal commenc
 ### <a name="can-i-protect-sql-always-on-availability-groups-where-the-primary-replica-is-on-premises"></a>Puis-je protéger les groupes de disponibilité SQL Always On dans lesquels le réplica principal est sur site ?
 
 Non. Sauvegarde Azure protège les serveurs SQL en cours d’exécution dans Azure. Si un groupe de disponibilité (AG) est réparti entre les machines Azure et sur site, l’AG peut être protégé uniquement si le réplica principal est en cours d’exécution dans Azure. En outre, Sauvegarde Azure protège uniquement les nœuds en cours d’exécution dans la même région Azure que le coffre Recovery Services.
+
+### <a name="can-i-protect-sql-always-on-availability-groups-which-are-spread-across-azure-regions"></a>Puis-je protéger des groupes de disponibilité AlwaysOn SQL qui sont répartis entre des régions Azure ?
+Le coffre Recovery Services de Sauvegarde Azure peut détecter et protéger tous les nœuds qui se trouvent dans la même région que le coffre Recovery Services. Si vous avez un groupe de disponibilité AlwaysOn SQL s’étendant sur plusieurs régions Azure, vous devez configurer la sauvegarde à partir de la région où se trouve le nœud principal. Sauvegarde Azure pourra alors détecter et protéger toutes les bases de données du groupe de disponibilité selon la préférence de sauvegarde. Si la préférence de sauvegarde n’est pas satisfaite, les sauvegardes échouent et vous recevez l’alerte d’échec.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: ab0fa22e9ba776db3d4af301499545f6e0822478
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: 034d59c39628a08c389c5ceb67c5872bbea10d59
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34070163"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47223166"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de connectivité et de mise en réseau pour Azure Cloud Services : questions fréquentes (FAQ)
 
@@ -110,3 +110,19 @@ Ce fichier contient les plages d’adresses IP (dont les plages de calcul, SQL e
 ## <a name="how-can-i-use-azure-resource-manager-virtual-networks-with-cloud-services"></a>Comment utiliser des réseaux virtuels Azure Resource Manager avec des services cloud ? 
 
 Des services cloud ne peuvent pas être placés dans des réseaux virtuels Azure Resource Manager. Des réseaux virtuels Resource Manager et réseaux virtuels de déploiement classiques peuvent être connectés par le biais d’une homologation. Pour en savoir plus, consultez [Homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md).
+
+
+## <a name="how-can-i-get-the-list-of-public-ips-used-by-my-cloud-services"></a>Comment puis-je obtenir la liste des adresses IP publiques utilisées par mes services cloud ?
+
+Vous pouvez utiliser le script PS suivant pour obtenir la liste des adresses IP publiques pour les services cloud dans votre abonnement
+
+    $services = Get-AzureService  | Group-Object -Property ServiceName
+
+    foreach ($service in $services) 
+    {
+        "Cloud Service '$($service.Name)'"
+
+        $deployment = Get-AzureDeployment -ServiceName $service.Name 
+        "VIP - " +  $deployment.VirtualIPs[0].Address
+        "================================="
+    }

@@ -15,13 +15,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/11/2018
-ms.author: genli
-ms.openlocfilehash: d76d02ba326cf93582c03937b3ab54d806acaff1
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.author: cwatson
+ms.openlocfilehash: 3fc7e316289201f5a800b56a7dc63f559c1f90a2
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34067603"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47422658"
 ---
 # <a name="why-is-my-azure-subscription-disabled-and-how-do-i-reactivate-it"></a>Pourquoi mon abonnement Azure est-il désactivé et comment puis-je le réactiver ?
 
@@ -38,7 +38,7 @@ Les abonnements Azure avec un crédit tel que Essai gratuit et Visual Studio Ent
 > [!NOTE] 
 > Si vous utilisez un abonnement d’essai gratuit et que vous supprimez la limite de dépense, votre abonnement est converti en paiement à l’utilisation au terme de l’essai gratuit. Vous conservez votre crédit restant pendant les 30 jours complets suivant la création de l’abonnement. Vous avez également accès aux services gratuits pendant 12 mois.
 
-Pour surveiller et gérer l’activité de facturation pour Azure, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](billing-getting-started.md) et [Configurer des alertes de facturation pour vos abonnements Microsoft Azure](billing-set-up-alerts.md).
+Pour superviser et gérer l’activité de facturation pour Azure, consultez [Éviter les coûts inattendus avec la gestion de la facturation et des coûts dans Azure](billing-getting-started.md).
 
 
 ## <a name="your-bill-is-past-due"></a>Votre facture est en retard

@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/19/2018
-ms.openlocfilehash: 94d196ceecc0b63b9f0b0fe94f71363dc2086c30
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.date: 09/22/2018
+ms.openlocfilehash: b6e6e8eeea7ee442ccdbb0524cafb2f51ff30268
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213648"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47409607"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migration de votre base de données PostgreSQL par vidage et restauration
 Vous pouvez utiliser la commande [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) pour extraire une base de données PostgreSQL vers un fichier de vidage, et la commande [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) pour restaurer la base de données PostgreSQL à partir d’un fichier d’archive créé par pg_dump.
@@ -36,12 +36,9 @@ Par exemple, si vous avez un serveur local contenant une base de données appel�
 pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.dump
 ```
 
-> [!IMPORTANT]
-> Copiez les fichiers de sauvegarde dans un magasin/objet blob Azure et effectuez la restauration à partir de celui-ci. Cette opération doit être beaucoup plus rapide que l’exécution de la restauration sur Internet.
-> 
 
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Restauration des données dans la base de données cible pour PostrgeSQL à l’aide de pg_restore
-Une fois que vous avez créé la base de données cible, vous pouvez utiliser la commande pg_restore et le paramètre -d, --dbname pour restaurer les données dans la base de données cible à partir du fichier de vidage.
+Après avoir créé la base de données cible, vous pouvez utiliser la commande pg_restore et le paramètre -d, --dbname pour restaurer les données dans la base de données cible à partir du fichier de vidage.
 ```bash
 pg_restore -v --no-owner –-host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
 ```
@@ -57,6 +54,34 @@ Dans cet exemple, restaurez les données à partir du fichier de vidage **testdb
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
+
+## <a name="optimizing-the-migration-process"></a>Optimisation du processus de migration
+
+Une façon de migrer votre base de données PostgreSQL existante vers le service Azure Database pour PostgreSQL consiste à sauvegarder la base de données sur la source et à la restaurer dans Azure. Pour réduire le temps nécessaire pour effectuer la migration, envisagez d’utiliser les paramètres suivants avec les commandes de sauvegarde et de restauration.
+
+> [!NOTE]
+> Pour obtenir des informations détaillées sur la syntaxe, consultez les articles [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) et [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
+>
+
+### <a name="for-the-backup"></a>Pour la sauvegarde
+- Effectuez la sauvegarde avec le commutateur -Fc pour pouvoir effectuer la restauration en parallèle afin de l’accélérer. Par exemple : 
+
+    ```
+    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
+    ```
+
+### <a name="for-the-restore"></a>Pour la restauration
+- Nous vous suggérons de déplacer le fichier de sauvegarde vers une machine virtuelle Azure dans la même région que le serveur Azure Database pour PostgreSQL vers lequel vous effectuez la migration, et d’effectuer l’opération pg_restore à partir de cette machine virtuelle pour réduire la latence du réseau. Nous vous recommandons également de créer la machine virtuelle en activant l’[accélération réseau](..\virtual-network\create-vm-accelerated-networking-powershell.md).
+- Cela doit être déjà fait par défaut, mais ouvrez le fichier de vidage pour vérifier que les instructions de création d’index figurent après l’insertion des données. Si tel n’est pas le cas, placez les instructions de création d’index après que les données ont été insérées.
+- Restaurez avec les commutateurs -Fc et -j *#* pour mettre en parallèle la restauration. *#* est le nombre de cœurs présents sur le serveur cible. Vous pouvez également essayer avec *#* défini sur le double du nombre de cœurs du serveur cible pour voir l’impact. Par exemple : 
+
+    ```
+    pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump
+    ```
+
+- Vous pouvez également modifier le fichier de vidage en ajoutant la commande *set synchronous_commit = off;* au début, et la commande *set synchronous_commit = on;* à la fin. Ne pas l’activer à la fin, avant que les applications modifient les données, peut entraîner une perte de données par la suite.
+
+Pensez à tester et valider ces commandes dans un environnement de test avant de les utiliser en production.
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour migrer une base de données PostgreSQL par exportation et importation, consultez l’article [Migrer votre base de données PostgreSQL par exportation et importation](howto-migrate-using-export-and-import.md).

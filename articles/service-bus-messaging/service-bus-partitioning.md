@@ -6,14 +6,14 @@ author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/06/2018
 ms.author: spelluru
-ms.openlocfilehash: 821d9bf3c844da030d1d351e895704a81678fb4e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2ca2063158634dfa42da094b77c70a2730e82176
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699469"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423168"
 ---
 # <a name="partitioned-queues-and-topics"></a>Files d’attente et rubriques partitionnées
 
@@ -140,7 +140,7 @@ Service Bus prend en charge le transfert automatique des messages à partir de, 
 
 Actuellement, Service Bus impose les limites suivantes aux files d’attente et rubriques partitionnées :
 
-* Les files d’attente et les rubriques partitionnées ne sont pas prises en charge dans le niveau de messagerie Premium.
+* Les files d’attente et les rubriques partitionnées ne sont pas prises en charge dans le niveau de messagerie Premium. Les sessions sont prises en charge dans le premier niveau à l’aide de SessionId. 
 * Les rubriques et files d’attente partitionnées ne prennent pas en charge l’envoi de messages appartenant à des sessions différentes dans une transaction unique.
 * Service Bus permet actuellement de disposer jusqu’à 100 rubriques ou files d’attente par espace de noms. Chaque file d’attente ou rubrique partitionnée est comptabilisée dans le quota de 10 000 entités par espace de noms (non applicable au niveau Premium).
 

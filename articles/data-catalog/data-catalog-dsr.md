@@ -2,18 +2,18 @@
 title: Sources de données prises en charge dans Azure Data Catalog
 description: Cet article répertorie les spécifications des sources de données prises en charge actuellement.
 services: data-catalog
-author: steelanddata
-ms.author: maroche
+author: markingmyname
+ms.author: maghan
 ms.assetid: fd4345ca-2ed8-4c5e-9c4b-f954be2fc9f9
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 0f7ee285e77b9e54e2ff720f10f0d24c5b764014
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 56fa449bd665457ab1b98b67bb42ec52e0742c5f
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042937"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47410185"
 ---
 # <a name="supported-data-sources-in-azure-data-catalog"></a>Sources de données prises en charge dans Azure Data Catalog
 
@@ -369,7 +369,7 @@ Vous pouvez publier des métadonnées à l’aide d’une API publique ou d’un
       <td>✓</td>
       <td>✓</td>
       <td></td>
-      <td></td>
+      <td>Seules les collections héritées d’Azure DocumentDB et les collections d’API SQL dans Azure Cosmos DB sont compatibles. Les API Cosmos DB plus récentes ne sont pas encore prises en charge. Choisissez Azure DocumentDB dans la liste des sources de données.</td>
     </tr>
     <tr>
       <td>Table ODBC générique</td>
@@ -534,32 +534,6 @@ Si vous souhaitez qu’une source de données spécifique soit prise en charge, 
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; domain
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; account
             <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; name
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Container</td>
-      <td>Virtual cluster</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
-        
-      </td>
-    </tr>
-    <tr>
-      <td>Cosmos</td>
-      <td>Table</td>
-      <td>Stream, stream set, view</td>
-      <td>
-        
-            Protocol: cosmos
-            <br>Authentication: {basic, windows}
-            <br>Address:
-            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; url
         
       </td>
     </tr>

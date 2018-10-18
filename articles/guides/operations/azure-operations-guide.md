@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: c10e071100410f6d5d995d88657bdd85c08a9715
+ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190423"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47423491"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Prise en main pour les opérateurs informatiques Azure
 
@@ -73,7 +73,7 @@ Azure fournit plusieurs offres de calcul PaaS, notamment le composant Web Apps d
 
 #### <a name="saas-software-as-a-service"></a>SaaS : Software as a Service
 
-SaaS est un logiciel qui est hébergé et géré de manière centralisée. Il s’appuie généralement sur une architecture multilocataire, où une seule version de l’application est utilisée pour tous les clients. Il peut être monté en charge parallèle sur plusieurs instances pour garantir des performances optimales dans tous les emplacements. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Les éditeurs de logiciels SaaS sont responsables de tous les composants de la pile logicielle afin de vous faire gérer uniquement les services fournis.
+SaaS est un logiciel qui est hébergé et géré de manière centralisée. Il s’appuie généralement sur une architecture multilocataire, où une seule version de l’application est utilisée pour tous les clients. Un scale-out peut être effectué sur plusieurs instances pour garantir des performances optimales dans tous les emplacements. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Le logiciel SaaS est généralement concédé sous licence, par abonnement mensuel ou annuel. Les éditeurs de logiciels SaaS sont responsables de tous les composants de la pile logicielle afin de vous faire gérer uniquement les services fournis.
 
 Microsoft Office 365 constitue un bon exemple pour illustrer une offre SaaS. Les abonnés payent un abonnement mensuel ou annuel pour obtenir Microsoft Exchange, Microsoft OneDrive et le reste de la suite Microsoft Office en tant que service. Les abonnés bénéficient toujours de la version la plus récente et n’ont pas besoin de gérer le serveur Exchange. Par rapport à l’installation et à la mise à jour annuelle d’Office, cette solution est moins onéreuse et demande moins d’efforts.
 
@@ -125,7 +125,7 @@ Services de création et de fonctionnement des applications :
 
 ### <a name="network-services"></a>Services réseau
 
-Services de mise en réseau au sein d’Azure et entre Azure et les centres de données locaux :
+Services réseau au sein d’Azure et entre Azure et les centres de données locaux :
 
 - Réseau virtuel Azure
 
@@ -149,7 +149,7 @@ L’un des avantages à utiliser Azure est de pouvoir déployer des applications
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Le portail Azure est une application web qui peut être utilisée pour créer, gérer et supprimer des services et des ressources Azure. Le portail Azure se trouve à l’adresse [Shell.Azure.com](https://portal.azure.com). Il comprend un tableau de bord personnalisable et des outils de gestion des ressources Azure. Il fournit également des informations de facturation et d’abonnement. Pour plus d’informations, consultez [Présentation du portail Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) et [Gérer des ressources Azure sur le portail](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+Le portail Azure est une application web qui peut être utilisée pour créer, gérer et supprimer des services et des ressources Azure. Le portail Azure se trouve à l’adresse [portal.azure.com](https://portal.azure.com). Il comprend un tableau de bord personnalisable et des outils de gestion des ressources Azure. Il fournit également des informations de facturation et d’abonnement. Pour plus d’informations, consultez [Présentation du portail Microsoft Azure](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) et [Gérer des ressources Azure sur le portail](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
 ### <a name="resources"></a>Ressources
 
@@ -185,7 +185,7 @@ Les administrateurs peuvent accéder à Azure PowerShell et Azure CLI par l’in
 
 ## <a name="azure-subscriptions"></a>Abonnements Azure
 
-Un abonnement est un regroupement logique de services Azure, associé à un compte Azure. Un seul compte Azure peut contenir plusieurs abonnements. La facturation des services Azure est effectuée par abonnement. Les abonnements Azure sont dotés d’un administrateur de compte ayant un contrôle total sur l’abonnement et d’un administrateur de service ayant le contrôle sur tous les services de l’abonnement. En plus des administrateurs, les comptes individuels peuvent bénéficier d’un contrôle détaillé des ressources Azure par le biais de RBAC (contrôle d’accès en fonction du rôle).
+Un abonnement est un regroupement logique de services Azure, associé à un compte Azure. Un seul compte Azure peut contenir plusieurs abonnements. La facturation des services Azure est effectuée par abonnement. Les abonnements Azure sont dotés d’un Administrateur de compte ayant un contrôle total sur l’abonnement et d’un Administrateur de service ayant le contrôle sur tous les services de l’abonnement. Pour plus d’informations sur les administrateurs d’abonnements classiques, consultez [Ajouter ou changer des administrateurs d’abonnements Azure](../../billing/billing-add-change-azure-subscription-administrator.md). En plus des administrateurs, les comptes individuels peuvent bénéficier d’un contrôle détaillé des ressources Azure en utilisant [RBAC (contrôle d’accès en fonction du rôle)](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Sélectionner et activer un abonnement Azure
 
@@ -205,13 +205,9 @@ Si vous dépassez le montant du crédit, vos services sont désactivés jusqu’
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Accorder un accès administratif à un abonnement Azure
 
-Plusieurs rôles d’administrateur de compte sont disponibles et peuvent être modifiés à tout moment. Les deux rôles clés sont les suivants :
+RBAC possède plusieurs rôles prédéfinis que vous pouvez utiliser pour assigner des autorisations. Pour faire d’un utilisateur un administrateur d’un abonnement Azure, attribuez-lui le rôle [Propriétaire](../../role-based-access-control/built-in-roles.md#owner) au niveau de l’abonnement. Le rôle Propriétaire donne à l’utilisateur un accès total à toutes les ressources de l’abonnement, ainsi que le droit de déléguer l’accès à d’autres personnes.
 
-- **Administrateur de service** Ce rôle est autorisé à gérer les services Azure. Par défaut, il bénéficie d’un accès au même compte que l’administrateur de compte.
-
-- **Coadministrateur** Ce rôle a le même accès que l’administrateur de service. Toutefois, il ne peut pas changer l’association d’un abonnement à des annuaires Azure.
-
-Pour plus d’informations, consultez [Ajouter ou modifier des rôles d’administrateur Azure](../../billing/billing-add-change-azure-subscription-administrator.md).
+Pour plus d’informations, consultez [Gérer l’accès à l’aide de RBAC et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Afficher les informations de facturation dans le portail Azure
 
@@ -232,10 +228,6 @@ Pour plus d’informations, consultez [Obtenir une vue d’ensemble de votre con
 ### <a name="forecast-cost-with-the-pricing-calculator"></a>Prévoir le coût à l’aide de la calculatrice de prix
 
 Le tarif de chaque service dans Azure est différent. De nombreux services Azure fournissent des niveaux De base, Standard et Premium. En règle générale, chaque niveau propose plusieurs tranches de prix et de performances. À l’aide de la [Calculatrice de prix en ligne](http://azure.microsoft.com/pricing/calculator), vous pouvez faire des estimations. La calculatrice offre une grande souplesse en permettant d’estimer le coût sur une seule ressource ou sur un groupe de ressources.
-
-### <a name="set-up-billing-alerts"></a>Configurer des alertes de facturation
-
-Dès que vous avez déployé votre application ou votre solution sur Azure, vous pouvez créer des alertes qui vous envoient un e-mail lorsque vous approchez des plafonds de dépense définis dans ces alertes. Pour plus d’informations, consultez [Configurer des alertes de facturation pour vos abonnements Microsoft Azure](../../billing/billing-set-up-alerts.md).
 
 ## <a name="azure-resource-manager"></a>Azure Resource Manager
 
@@ -307,21 +299,21 @@ Vous pouvez accorder l’accès fonctionnel aux comptes d’utilisateur dans une
 
 Pour accorder l’accès, vous assignez un rôle à l’utilisateur ou au groupe d’utilisateurs. Il existe de nombreux rôles prédéfinis. Vous pouvez également définir vos propres rôles personnalisés.
 
-Voici quelques exemples de rôles intégrés à Azure :
+Voici quelques exemples de [rôles intégrés dans Azure](../../role-based-access-control/built-in-roles.md) :
 
 - **Propriétaire** : un utilisateur disposant de ce rôle peut tout gérer, y compris l’accès.
 
 - **Lecteur** : un utilisateur disposant de ce rôle peut lire les ressources de tous les types (à l’exception des secrets), mais ne peut pas apporter de modifications.
 
-- **Contributeur de la machine virtuelle** : un utilisateur disposant de ce rôle peut gérer des machines virtuelles, mais ne peut pas gérer le réseau virtuel sur lequel il est connecté, ni le compte de stockage où réside le fichier VHD.
+- **Contributeur de machines virtuelles** : un utilisateur disposant de ce rôle peut gérer des machines virtuelles, mais ne peut pas gérer le réseau virtuel sur lequel il est connecté, ni le compte de stockage où réside le fichier VHD.
 
-- **Contributeur de SQL DB** : un utilisateur disposant de ce rôle peut gérer des bases de données SQL, mais pas leurs stratégies de sécurité.
+- **Contributeur de SQL DB** : un utilisateur disposant de ce rôle peut gérer des bases de données SQL, mais pas leurs stratégies de sécurité.
 
-- **Gestionnaire de sécurité SQL** : un utilisateur disposant de ce rôle peut gérer les stratégies de sécurité des serveurs et bases de données SQL.
+- **Gestionnaire de sécurité SQL** : un utilisateur disposant de ce rôle peut gérer les stratégies de sécurité des serveurs et bases de données SQL.
 
-- **Contributeur de compte de stockage** : un utilisateur disposant de ce rôle peut gérer les comptes de stockage, mais ne peut pas en gérer l’accès.
+- **Contributeur de comptes de stockage** : un utilisateur disposant de ce rôle peut gérer les comptes de stockage, mais ne peut pas en gérer l’accès.
 
-Pour en savoir plus, consultez [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../../role-based-access-control/role-assignments-portal.md).
+Pour plus d’informations, consultez [Gérer l’accès à l’aide de RBAC et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Machines virtuelles Azure
 
@@ -341,7 +333,7 @@ Vous pouvez déployer Machines virtuelles Azure par l’intermédiaire du portai
 
 #### <a name="portal"></a>Portail
 
-Pour déployer une machine virtuelle en utilisant le portail Azure, vous avez besoin uniquement d’un abonnement Azure actif et d’un accès à un navigateur web. Vous pouvez sélectionner de nombreuses images de systèmes d’exploitation avec des configurations différentes. Toutes les exigences au niveau du stockage et de la mise en réseau sont configurées au cours du déploiement. Pour plus d’informations, consultez « Créer une machine virtuelle dans le portail Azure » pour [Windows](../../virtual-machines/windows/quick-create-portal.md) et [Linux](../../virtual-machines/linux/quick-create-portal.md).
+Pour déployer une machine virtuelle en utilisant le portail Azure, vous avez besoin uniquement d’un abonnement Azure actif et d’un accès à un navigateur web. Vous pouvez sélectionner de nombreuses images de systèmes d’exploitation avec des configurations différentes. Toutes les exigences au niveau du stockage et du réseau sont configurées au cours du déploiement. Pour plus d’informations, consultez « Créer une machine virtuelle dans le portail Azure » pour [Windows](../../virtual-machines/windows/quick-create-portal.md) et [Linux](../../virtual-machines/linux/quick-create-portal.md).
 
 En plus de déployer une machine virtuelle à partir du portail Azure, vous pouvez déployer un modèle Azure Resource Manager à partir de ce même portail. Toutes les ressources, telles que définies dans le modèle, sont alors déployées et configurées. Pour plus d’informations, consultez [Déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../../azure-resource-manager/resource-group-template-deploy-portal.md).
 

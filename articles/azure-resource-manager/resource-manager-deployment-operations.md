@@ -5,26 +5,24 @@ services: azure-resource-manager,virtual-machines
 documentationcenter: ''
 tags: top-support-issue
 author: tfitzmac
-manager: timlt
-editor: tysonn
 ms.assetid: ''
 ms.service: azure-resource-manager
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-multiple
 ms.workload: infrastructure
-ms.date: 04/23/2018
+ms.date: 09/28/2018
 ms.author: tomfitz
-ms.openlocfilehash: 523ea3bf5d41231ab3281f9d8eb1fac8c3dfb55f
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 9320e3089e02e1ca6b6bcce0287946baaf0558d9
+ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34359143"
+ms.lasthandoff: 09/28/2018
+ms.locfileid: "47452035"
 ---
 # <a name="view-deployment-operations-with-azure-resource-manager"></a>Afficher les opérations de déploiement avec Azure Resource Manager
 
-Vous pouvez afficher les opérations d’un déploiement via le portail Azure. Il est plus intéressant d’afficher les opérations lorsque vous recevez une erreur lors du déploiement ; cet article porte donc sur l’affichage des opérations ayant échoué. Le portail fournit une interface qui vous permet de rechercher facilement les erreurs et de déterminer des corrections potentielles.
+Vous pouvez afficher les opérations d’un déploiement via le portail Azure. Voir les opérations est plus particulièrement intéressant quand vous avez reçu une erreur lors du déploiement : cet article se concentre donc sur la visualisation des opérations qui ont échoué. Le portail fournit une interface qui vous permet de rechercher facilement les erreurs et de déterminer des corrections potentielles.
 
 Vous pouvez dépanner votre déploiement en examinant les journaux d'audit ou les opérations de déploiement. Cet article illustre les deux méthodes. Pour obtenir de l’aide afin de résoudre des erreurs de déploiement spécifiques, consultez [Résoudre les erreurs courantes lors du déploiement de ressources sur Azure avec Azure Resource Manager](resource-manager-common-deployment-errors.md).
 
@@ -67,7 +65,13 @@ Pour afficher les opérations de déploiement, procédez comme suit :
   Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup | Where-Object ProvisioningState -eq Failed
   ```
    
-2. Chaque déploiement comprend plusieurs opérations. Chaque opération représente une étape dans le processus de déploiement. Pour découvrir la cause du problème rencontré lors d’un déploiement, vous devez généralement afficher les détails concernant les opérations de déploiement. Vous pouvez afficher l'état des opérations avec **Get-AzureRmResourceGroupDeploymentOperation**.
+1. Pour obtenir l’ID de corrélation, utilisez :
+
+  ```powershell
+  (Get-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -DeploymentName azuredeploy).CorrelationId
+  ```
+
+1. Chaque déploiement comprend plusieurs opérations. Chaque opération représente une étape dans le processus de déploiement. Pour découvrir la cause du problème rencontré lors d’un déploiement, vous devez généralement afficher les détails concernant les opérations de déploiement. Vous pouvez afficher l'état des opérations avec **Get-AzureRmResourceGroupDeploymentOperation**.
 
   ```powershell 
   Get-AzureRmResourceGroupDeploymentOperation -ResourceGroupName ExampleGroup -DeploymentName vmDeployment
@@ -85,7 +89,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
                    serviceRequestId:0196828d-8559-4bf6-b6b8-8b9057cb0e23...}
   ```
 
-3. Pour obtenir plus d’informations sur les opérations ayant échoué, récupérez les propriétés des opérations dont l’état est **Failed** .
+1. Pour obtenir plus d’informations sur les opérations ayant échoué, récupérez les propriétés des opérations dont l’état est **Failed** .
 
   ```powershell
   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object ProvisioningState -eq Failed
@@ -108,7 +112,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
   ```
 
     Notez le serviceRequestId et le trackingId de l’opération. L’élément serviceRequestId peut être utile lorsque vous travaillez avec le support technique pour résoudre un problème de déploiement. Vous utiliserez le trackingId à l’étape suivante afin de vous concentrer sur une opération en particulier.
-4. Pour obtenir le message d’état d’une opération ayant échoué, utilisez la commande suivante :
+1. Pour obtenir le message d’état d’une opération ayant échoué, utilisez la commande suivante :
 
   ```powershell
   ((Get-AzureRmResourceGroupDeploymentOperation -DeploymentName Microsoft.Template -ResourceGroupName ExampleGroup).Properties | Where-Object trackingId -eq f4ed72f8-4203-43dc-958a-15d041e8c233).StatusMessage.error
@@ -121,7 +125,7 @@ Pour afficher les opérations de déploiement, procédez comme suit :
   ----           -------                                                                        -------
   DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. {}
   ```
-4. Chaque opération de déploiement dans Azure inclut le contenu de la demande et de la réponse. Le contenu de la demande représente ce que vous avez envoyé à Azure pendant le déploiement (par exemple, la création d’une machine virtuelle, le disque de système d’exploitation et d’autres ressources). Le contenu de la réponse représente ce qu’Azure a renvoyé depuis votre demande de déploiement. Au cours du déploiement, vous pouvez utiliser le paramètre **DeploymentDebugLogLevel** pour spécifier que la demande et/ou la réponse doivent être conservées dans le journal. 
+1. Chaque opération de déploiement dans Azure inclut le contenu de la demande et de la réponse. Le contenu de la demande représente ce que vous avez envoyé à Azure pendant le déploiement (par exemple, la création d’une machine virtuelle, le disque de système d’exploitation et d’autres ressources). Le contenu de la réponse représente ce qu’Azure a renvoyé depuis votre demande de déploiement. Au cours du déploiement, vous pouvez utiliser le paramètre **DeploymentDebugLogLevel** pour spécifier que la demande et/ou la réponse doivent être conservées dans le journal. 
 
   Vous obtenez ces informations à partir du journal et les enregistrez localement en utilisant les commandes PowerShell suivantes :
 

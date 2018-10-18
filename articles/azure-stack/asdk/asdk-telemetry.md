@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/17/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: bfd16901c5ce036719a1ed19e9a5b5c6ef52be93
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: e50cb33acc95567a24afb19f88f88a3f586e0124
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34257422"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47224748"
 ---
 # <a name="azure-stack-telemetry"></a>Télémétrie Azure Stack
 
@@ -85,13 +85,13 @@ Les niveaux de télémétrie sont cumulés et répartis dans quatre niveaux (0 �
 **1 (De base)**. Données de sécurité, données de base relatives à l’intégrité et données concernant la qualité. Informations de base relatives à l’appareil, y compris, les données concernant la qualité, la compatibilité des applications, l’utilisation des applications et les données issues du niveau de sécurité. La définition du niveau de télémétrie sur De base a pour effet d’activer la télémétrie Azure Stack. Les données recueillies à ce niveau comprennent :
 
 - Des **informations de base relatives à l’appareil** qui aident à comprendre les types et les configurations des instances natives et virtualisées de Windows Server 2016 au sein de l’écosystème, y compris :
- - Les attributs de la machine, comme le fabricant OEM, le modèle.
- - Les attributs du réseau, tels que le nombre et la vitesse des adaptateurs réseau.
- - Les attributs du processeur et de la mémoire, tels que le nombre de cœurs, la taille de la mémoire.
- - Les attributs du stockage, tels que le nombre de disques, le type et la taille.
+  - Les attributs de la machine, comme le fabricant OEM, le modèle.
+  - Les attributs du réseau, tels que le nombre et la vitesse des adaptateurs réseau.
+  - Les attributs du processeur et de la mémoire, tels que le nombre de cœurs, la taille de la mémoire.
+  - Les attributs du stockage, tels que le nombre de disques, le type et la taille.
 - Une **fonction de télémétrie**, y compris le pourcentage d’événements chargés, supprimés et la dernière heure de chargement.
 - Des **informations relatives à la qualité** qui permettent à Microsoft de comprendre les performances d’Azure Stack. Par exemple, le nombre d’alertes critiques sur une configuration matérielle spécifique.
-- ** Données de compatibilité qui aident à identifier les fournisseurs de ressources installés sur un système ou une machine virtuelle, ainsi qu’à identifier les problèmes de compatibilité potentiels.
+- **Données de compatibilité** qui permet d’identifier les fournisseurs de ressources installés sur un système ou une machine virtuelle, ainsi que d’identifier les problèmes de compatibilité potentiels.
 
 **2 (Amélioré)**. Informations supplémentaires, y compris : comment le système d’exploitation et les autres services Azure Stack sont utilisés, comment ils fonctionnent, données de fiabilité avancées et données issues des niveaux de base et de sécurité.
 

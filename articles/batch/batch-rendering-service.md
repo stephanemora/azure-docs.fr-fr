@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 4101f6819dff81376dcab47adb57e4b8ef35e094
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: fc26e1d32332bb0ed9624b7442e38ea79b7bfb1d
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036724"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47393551"
 ---
 # <a name="rendering-using-azure"></a>Rendu à l’aide d’Azure
 
@@ -69,7 +69,7 @@ Azure Batch est utilisé pour nombreuses charges de travail, mais les fonctionna
   * Des images de machine virtuelle de la Place de marché Azure contenant des applications graphiques et de rendu populaires sont disponibles, vous évitant ainsi de les applications vous-même ou de créer vos propres images personnalisées avec les applications installées. 
 * Licence avec paiement à l’utilisation pour les applications de rendu :
   * Vous pouvez choisir de payer pour les applications à la minute, en plus de payer pour les machines virtuelles de calcul, vous évitant ainsi d’acheter des licences et d’éventuellement configurer un serveur de licences pour les applications.  Le paiement à l’utilisation implique également qu’il est possible de répondre à une charge changeante et inattendue car il n’existe pas un nombre déterminé de licences.
-  * Il est également possible d’utiliser les applications préinstallées avec vos propres licences et de ne pas utiliser la licence avec paiement à l’utilisation.
+  * Il est également possible d’utiliser les applications préinstallées avec vos propres licences et de ne pas utiliser la licence avec paiement à l’utilisation. Pour cela, vous installez généralement un serveur de licences local ou dans Azure, et vous utilisez un réseau virtuel Azure pour connecter le pool de rendu au serveur de licences.
 * Plug-ins pour les applications de conception de modélisation clientes :
   * Les plug-ins permettent aux utilisateurs finaux d’utiliser Azure Batch directement à partir de l’application cliente, telle qu’Autodesk Maya, leur permettant ainsi de créer des pools, de soumettre des travaux et d’utiliser plus de capacité de calcul pour des rendus plus rapides.
 * Intégration du gestionnaire de rendu :

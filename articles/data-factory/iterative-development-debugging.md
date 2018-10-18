@@ -4,7 +4,7 @@ description: Apprenez à développer et déboguer les pipelines de Data Factory 
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 05/14/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: a4d3f991dbba8a686c7242aabff11d9228300777
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 610f0c8691714bf30415347dd2775b6fa3625c11
+ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865163"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47391091"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Développement et débogage itératifs dans Azure Data Factory
 
@@ -40,13 +40,22 @@ Après la réussite d’une série de tests, ajoutez d’autres activités à vo
 
 ![Annuler une série de tests](media/iterative-development-debugging/iterative-development-image3.png)
 
-Lorsque vous effectuez des séries de tests, vous n’êtes pas obligé de publier vos modifications sur la fabrique de données avant de sélectionner **Déboguer**. Cela est utile dans les scénarios où vous souhaitez vous assurer que les modifications fonctionnent comme prévu avant de mettre à jour le flux de travail de la fabrique de données.
+Lorsque vous effectuez des séries de tests, vous n’êtes pas obligé de publier vos modifications sur la fabrique de données avant de sélectionner **Déboguer**. Cette fonctionnalité est utile dans les scénarios où vous souhaitez vous assurer que les modifications fonctionnent comme prévu avant de mettre à jour le flux de travail de la fabrique de données.
 
-## <a name="more-info-about-debugging"></a>Plus d’informations sur le débogage
+> [!IMPORTANT]
+> En sélectionnant **Déboguer**, le pipeline est exécuté. Par exemple, si le pipeline contient une activité de copie, la série de tests copie des données de la source vers la destination. Par conséquent, nous vous recommandons d’utiliser des dossiers test pour vos activités de copie et autres lors du débogage. Une fois que vous avez débogué le pipeline, basculez vers les dossiers que vous souhaitez utiliser lors des opérations normales.
 
-1. Les séries de tests lancées avec la fonctionnalité **Déboguer** ne sont pas disponibles dans la liste sur l’onglet **Surveiller**. Seules s’affichent les séries de tests déclenchées au moyen des déclencheurs **Déclencher maintenant**, **Planification** ou **Fenêtre bascule** sur l’onglet **Surveiller**. Vous pouvez voir la dernière série de tests lancée grâce à la fonctionnalité **Déboguer** dans la fenêtre **Sortie** du canevas du pipeline.
+## <a name="visualizing-debug-runs"></a>Visualisation des exécutions de débogage
 
-2. En sélectionnant **Déboguer**, le pipeline est exécuté. Par exemple, si le pipeline contient une activité de copie, la série de tests copie des données de la source vers la destination. Par conséquent, nous vous recommandons d’utiliser des dossiers test pour vos activités de copie et autres lors du débogage. Une fois que vous avez débogué le pipeline, basculez vers les dossiers que vous souhaitez utiliser lors des opérations normales.
+Vous pouvez visualiser toutes les exécutions de débogage qui sont en cours pour votre fabrique de données au même endroit. Sélectionnez **View debug runs** (Afficher les exécutions de débogage) dans le coin supérieur droit de la page. Cette fonctionnalité est utile dans les scénarios où des pipelines maîtres lancent des exécutions de débogage pour les pipelines enfants, et où vous voulez un seul affichage pour voir toutes les exécutions de débogage actives.
+
+![Sélectionner l’icône View active debug runs (Afficher les exécutions de débogage actives)](media/iterative-development-debugging/view-debug-runs-image1.png)
+
+![Exemple de liste des exécutions de débogage actives](media/iterative-development-debugging/view-debug-runs-image2.png)
+
+## <a name="monitoring-debug-runs"></a>Supervision des exécutions de débogage
+
+Les séries de tests lancées avec la fonctionnalité **Déboguer** ne sont pas disponibles dans la liste sur l’onglet **Surveiller**. Seules s’affichent les séries de tests déclenchées au moyen des déclencheurs **Déclencher maintenant**, **Planification** ou **Fenêtre bascule** sur l’onglet **Surveiller**. Vous pouvez voir la dernière série de tests lancée grâce à la fonctionnalité **Déboguer** dans la fenêtre **Sortie** du canevas du pipeline.
 
 ## <a name="setting-breakpoints-for-debugging"></a>Paramétrer des points d’arrêt pour le débogage
 

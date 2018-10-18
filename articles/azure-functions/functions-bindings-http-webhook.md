@@ -1,6 +1,6 @@
 ---
-title: Liaisons HTTP et webhook Azure Functions
-description: Découvrez comment utiliser des déclencheurs et des liaisons HTTP et webhook dans Azure Functions.
+title: Déclencheurs et liaisons HTTP d’Azure Functions
+description: Découvrez comment utiliser des déclencheurs et des liaisons HTTP dans Azure Functions.
 services: functions
 documentationcenter: na
 author: ggailey777
@@ -11,18 +11,18 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 41870f4f3cf4a0aba461021b4787e1ba004e5ead
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e989152ece19168138597a96d1246ec64498ce69
+ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095111"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47227552"
 ---
-# <a name="azure-functions-http-and-webhook-bindings"></a>Liaisons HTTP et webhook Azure Functions
+# <a name="azure-functions-http-triggers-and-bindings"></a>Déclencheurs et liaisons HTTP d’Azure Functions
 
-Cet article explique comment utiliser des liaisons HTTP dans Azure Functions. Azure Functions prend en charge les déclencheurs HTTP et les liaisons de sortie.
+Cet article explique comment utiliser des déclencheurs et des liaisons de sortie HTTP dans Azure Functions.
 
-Vous pouvez personnaliser un déclencheur HTTP pour répondre aux [webhooks](https://en.wikipedia.org/wiki/Webhook). Un déclencheur webhook accepte uniquement une charge utile JSON et valide l’objet JSON. Il existe des versions spéciales du déclencheur webhook qui en facilitent la gestion depuis certains fournisseurs, comme GitHub et Slack.
+Vous pouvez personnaliser un déclencheur HTTP pour répondre aux [webhooks](https://en.wikipedia.org/wiki/Webhook).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -276,7 +276,7 @@ module.exports = function(context, req) {
 
 ### <a name="trigger---java-example"></a>Déclencheur - exemple Java
 
-L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction Java ](functions-reference-java.md) qui utilise la liaison. La fonction retourne une réponse 200 en guise de code d’état HTTP avec un corps de requête qui fait précéder le corps de requête déclencheur d’un message d’accueil « Hello ».
+L’exemple suivant montre une liaison de déclencheur dans un fichier *function.json* et une [fonction Java ](functions-reference-java.md) qui utilise la liaison. La fonction retourne une réponse 200 comme code d’état HTTP, avec un corps de requête qui fait précéder le corps de requête déclencheur d’un message d’accueil « Hello ».
 
 
 Voici le fichier *function.json* :
@@ -312,164 +312,6 @@ public HttpResponseMessage<String> hello(@HttpTrigger(name = "req", methods = {"
     }
 }
 ```
-     
-## <a name="trigger---webhook-example"></a>Déclencheur - exemple de webhook
-
-Consultez l’exemple propre à un langage particulier :
-
-* [C#](#webhook---c-example)
-* [Script C# (.csx)](#webhook---c-script-example)
-* [F#](#webhook---f-example)
-* [JavaScript](#webhook---javascript-example)
-
-### <a name="webhook---c-example"></a>Webhook - exemple C#
-
-L’exemple suivant montre une [fonction C#](functions-dotnet-class-library.md) qui envoie un message HTTP 200 en réponse à une requête JSON générique.
-
-```cs
-[FunctionName("HttpTriggerCSharp")]
-public static HttpResponseMessage Run([HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
-{
-    return req.CreateResponse(HttpStatusCode.OK);
-}
-```
-
-### <a name="webhook---c-script-example"></a>Webhook - exemple de script C#
-
-L’exemple suivant montre une liaison de déclencheur de webhook dans un fichier *function.json* et une [fonction de script C#](functions-reference-csharp.md) qui utilise la liaison. Cette fonction enregistre les commentaires relatifs aux problèmes GitHub.
-
-Voici le fichier *function.json* :
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-La section [configuration](#trigger---configuration) décrit ces propriétés.
-
-Voici le code Script C# :
-
-```csharp
-#r "Newtonsoft.Json"
-
-using System;
-using System.Net;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
-
-public static async Task<object> Run(HttpRequestMessage req, TraceWriter log)
-{
-    string jsonContent = await req.Content.ReadAsStringAsync();
-    dynamic data = JsonConvert.DeserializeObject(jsonContent);
-
-    log.Info($"WebHook was triggered! Comment: {data.comment.body}");
-
-    return req.CreateResponse(HttpStatusCode.OK, new {
-        body = $"New GitHub comment: {data.comment.body}"
-    });
-}
-```
-
-### <a name="webhook---f-example"></a>Webhook - exemple F#
-
-L’exemple suivant montre une liaison de déclencheur de webhook dans un fichier *function.json* et une [fonction F#](functions-reference-fsharp.md) qui utilise la liaison. Cette fonction enregistre les commentaires relatifs aux problèmes GitHub.
-
-Voici le fichier *function.json* :
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-La section [configuration](#trigger---configuration) décrit ces propriétés.
-
-Voici le code F# :
-
-```fsharp
-open System.Net
-open System.Net.Http
-open FSharp.Interop.Dynamic
-open Newtonsoft.Json
-
-type Response = {
-    body: string
-}
-
-let Run(req: HttpRequestMessage, log: TraceWriter) =
-    async {
-        let! content = req.Content.ReadAsStringAsync() |> Async.AwaitTask
-        let data = content |> JsonConvert.DeserializeObject
-        log.Info(sprintf "GitHub WebHook triggered! %s" data?comment?body)
-        return req.CreateResponse(
-            HttpStatusCode.OK,
-            { body = sprintf "New GitHub comment: %s" data?comment?body })
-    } |> Async.StartAsTask
-```
-
-### <a name="webhook---javascript-example"></a>Webhook - exemple JavaScript
-
-L’exemple suivant montre une liaison de déclencheur de webhook dans un fichier *function.json* et une [fonction JavaScript](functions-reference-node.md) qui utilise la liaison. Cette fonction enregistre les commentaires relatifs aux problèmes GitHub.
-
-Voici les données de liaison dans le fichier *function.json* :
-
-```json
-{
-  "bindings": [
-    {
-      "type": "httpTrigger",
-      "direction": "in",
-      "webHookType": "github",
-      "name": "req"
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "res"
-    }
-  ],
-  "disabled": false
-}
-```
-
-La section [configuration](#trigger---configuration) décrit ces propriétés.
-
-Voici le code JavaScript :
-
-```javascript
-module.exports = function (context, data) {
-    context.log('GitHub WebHook triggered!', data.comment.body);
-    context.res = { body: 'New GitHub comment: ' + data.comment.body };
-    context.done();
-};
-```
 
 ## <a name="trigger---attributes"></a>Déclencheur - attributs
 
@@ -480,7 +322,7 @@ Vous pouvez définir le niveau d’autorisation et des méthodes HTTP autorisée
 ```csharp
 [FunctionName("HttpTriggerCSharp")]
 public static HttpResponseMessage Run(
-    [HttpTrigger(AuthorizationLevel.Anonymous, WebHookType = "genericJson")] HttpRequestMessage req)
+    [HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequestMessage req)
 {
     ...
 }
@@ -500,29 +342,18 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 | <a name="http-auth"></a>**authLevel** |  **AuthLevel** |Détermine, le cas échéant, les clés qui doivent être présentes dans la requête pour appeler la fonction. Le niveau d’autorisation peut être l’une des valeurs suivantes : <ul><li><code>anonymous</code>&mdash;Aucune clé API n’est obligatoire.</li><li><code>function</code>&mdash;Une clé API spécifique à la fonction est obligatoire. Il s’agit de la valeur par défaut si aucune valeur n’est fournie.</li><li><code>admin</code>&mdash;La clé principale est obligatoire.</li></ul> Pour plus d’informations, consultez la section sur les [clés d’autorisation](#authorization-keys). |
 | **methods** |**Méthodes** | Tableau des méthodes HTTP auxquelles la fonction répond. À défaut de spécification, la fonction répond à toutes les méthodes HTTP. Consultez [Personnaliser le point de terminaison HTTP](#customize-the-http-endpoint). |
 | **route** | **Itinéraire** | Définit le modèle de routage, en contrôlant les URL de requête auxquelles votre fonction répond. La valeur par défaut est `<functionname>`. Pour plus d’informations, consultez [Personnaliser le point de terminaison HTTP](#customize-the-http-endpoint). |
-| **webHookType** | **WebHookType** |Configure le déclencheur HTTP pour qu’il agisse en tant que récepteur de [Webhook](https://en.wikipedia.org/wiki/Webhook) pour le fournisseur spécifié. Ne définissez pas la propriété `methods` si vous définissez cette propriété. Le type de webhook peut être l’une des valeurs suivantes :<ul><li><code>genericJson</code>&mdash;Point de terminaison webhook à usage général sans logique pour un fournisseur spécifique. Ce paramètre limite les requêtes à celles utilisant HTTP POST et le type de contenu `application/json`.</li><li><code>github</code>&mdash;La fonction répond aux [Webhooks GitHub](https://developer.github.com/webhooks/). N’utilisez pas la propriété _authLevel_ avec des webhooks GitHub. Pour plus d’informations, consultez la section sur les webhooks GitHub plus loin dans cet article.</li><li><code>slack</code>&mdash;La fonction répond aux [Webhooks Slack](https://api.slack.com/outgoing-webhooks). N’utilisez pas la propriété _authLevel_ avec des webhooks Slack. Pour plus d’informations, consultez la section sur les webhooks Slack plus loin dans cet article.</li></ul>|
+| **webHookType** | **WebHookType** | _Prise en charge uniquement pour le runtime version 1.x._<br/><br/>Configure le déclencheur HTTP pour qu’il agisse en tant que récepteur de [Webhook](https://en.wikipedia.org/wiki/Webhook) pour le fournisseur spécifié. Ne définissez pas la propriété `methods` si vous définissez cette propriété. Le type de webhook peut être l’une des valeurs suivantes :<ul><li><code>genericJson</code>&mdash;Point de terminaison webhook à usage général sans logique pour un fournisseur spécifique. Ce paramètre limite les requêtes à celles utilisant HTTP POST et le type de contenu `application/json`.</li><li><code>github</code>&mdash;La fonction répond aux [Webhooks GitHub](https://developer.github.com/webhooks/). N’utilisez pas la propriété _authLevel_ avec des webhooks GitHub. Pour plus d’informations, consultez la section sur les webhooks GitHub plus loin dans cet article.</li><li><code>slack</code>&mdash;La fonction répond aux [Webhooks Slack](https://api.slack.com/outgoing-webhooks). N’utilisez pas la propriété _authLevel_ avec des webhooks Slack. Pour plus d’informations, consultez la section sur les webhooks Slack plus loin dans cet article.</li></ul>|
 
 ## <a name="trigger---usage"></a>Déclencheur - utilisation
 
-Pour les fonctions C# et F #, vous pouvez déclarer le type de votre entrée de déclenchement en tant que `HttpRequestMessage` ou type personnalisé. Si vous choisissez `HttpRequestMessage`, vous obtenez un accès complet à l’objet de la requête. Pour un type personnalisé, le runtime Functions tente d’analyser le corps de la requête JSON pour définir les propriétés de l’objet. 
+Pour les fonctions C# et F #, vous pouvez déclarer le type de votre entrée de déclenchement en tant que `HttpRequestMessage` ou type personnalisé. Si vous choisissez `HttpRequestMessage`, vous obtenez un accès complet à l’objet de la requête. Pour un type personnalisé, le runtime tente d’analyser le corps de la requête JSON pour définir les propriétés de l’objet.
 
 Dans le cas des fonctions JavaScript, le runtime Functions fournit le corps de requête plutôt que l’objet de requête. Pour plus d’informations, consultez l’[exemple de déclencheur JavaScript](#trigger---javascript-example).
 
-### <a name="github-webhooks"></a>Webhooks GitHub
-
-Pour répondre aux webhooks GitHub, commencez par créer votre fonction avec un déclencheur HTTP, puis définissez la propriété **webHookType** sur `github`. Ensuite, copiez son URL et sa clé API dans la page **Ajouter un Webhook** de votre dépôt GitHub. 
-
-![](./media/functions-bindings-http-webhook/github-add-webhook.png)
-
-Pour voir un exemple, consultez [Créer une fonction déclenchée par un webhook GitHub](functions-create-github-webhook-triggered-function.md).
-
-### <a name="slack-webhooks"></a>Webhooks Slack
-
-La webhook de Slack génère un jeton à votre place au lieu de vous laisser le spécifier. Vous devez donc configurer une clé spécifique de la fonction avec le jeton reçu de Slack. Consultez [Clés d’autorisation](#authorization-keys).
 
 ### <a name="customize-the-http-endpoint"></a>Personnaliser le point de terminaison HTTP
 
-Par défaut, lorsque vous créez une fonction pour un déclencheur HTTP ou un WebHook, la fonction est adressable avec un itinéraire de la forme :
+Par défaut, quand vous créez une fonction pour un déclencheur HTTP, la fonction est adressable avec une route de la forme :
 
     http://<yourapp>.azurewebsites.net/api/<funcname> 
 
@@ -603,47 +434,92 @@ Par défaut, tous les itinéraires de fonction sont préfixés par *api*. Vous p
 
 ### <a name="authorization-keys"></a>Clés d’autorisation
 
-Les déclencheurs HTTP vous permettent d’utiliser des clés pour une sécurité accrue. Un déclencheur HTTP standard peut les utiliser comme une clé API, en exigeant que la clé soit présente dans la requête. Les webhooks peuvent utiliser des clés pour autoriser des demandes de plusieurs façons, selon ce que le fournisseur prend en charge.
+Functions vous permet d’utiliser des clés pour rendre plus difficile l’accès à vos points de terminaison de fonctions HTTP pendant le développement.  Un déclencheur HTTP standard peut exiger la présence d’une telle clé d’API dans la requête. 
+
+> [!IMPORTANT]
+> Alors que les clés peuvent aider à masquer vos points de terminaison HTTP pendant le développement, elles ne sont pas destinées à sécuriser un déclencheur HTTP en production. Pour plus d’informations, consultez [Sécuriser un point de terminaison HTTP en production](#secure-an-http-endpoint-in-production).
 
 > [!NOTE]
-> Lors de l’exécution de fonctions en local, l’autorisation est désactivée, peu importe l’ensemble `authLevel` dans `function.json`. Dès que vous publiez dans Azure Functions, `authLevel` prend effet immédiatement.
-
-Les clés sont stockées dans votre Function App dans Azure, et chiffrées au repos. Pour afficher vos clés, créez-en de nouvelles, ou restaurez des clés avec de nouvelles valeurs, accédez à l’une de vos fonctions au sein du portail, puis sélectionnez « Gérer ». 
+> Dans le runtime Functions 1.x, les fournisseurs de webhooks peuvent utiliser des clés pour autoriser des requêtes de plusieurs façons, selon ce que le fournisseur prend en charge. Ceci est expliqué dans [Webhooks et clés](#webhooks-and-keys). Le runtime version 2.x n’inclut pas la prise en charge intégrée pour les fournisseurs de webhooks.
 
 Il existe deux types de clés :
 
-- **Clés d’hôte** : ces clés sont partagées par toutes les fonctions au sein de la Function App. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de la Function App.
-- **Clés de fonction** : ces clés s’appliquent uniquement aux fonctions spécifiques sous lesquelles elles sont définies. Utilisées en tant que clés API, elles permettent d’accéder uniquement à ces fonctions.
+* **Clés d’hôte** : ces clés sont partagées par toutes les fonctions au sein de la Function App. Utilisées en tant que clés API, elles permettent d’accéder à toute fonction au sein de la Function App.
+* **Clés de fonction** : ces clés s’appliquent uniquement aux fonctions spécifiques sous lesquelles elles sont définies. Utilisées en tant que clés API, elles permettent d’accéder uniquement à ces fonctions.
 
 Chaque clé est nommée pour référence et il existe une clé par défaut (nommée « default ») au niveau fonction et hôte. Les clés de fonction prennent le pas sur les clés d’hôte. Quand deux clés portent le même nom, la clé de fonction est toujours utilisée.
 
-La **clé principale** est une clé d’hôte par défaut nommée « _master » qui est définie pour chaque application de fonction. Cette clé ne peut pas être révoquée. Elle fournit un accès administratif aux API de runtime. L’utilisation de `"authLevel": "admin"` dans le JSON de liaison nécessite que cette clé soit présentée à la requête. Une autre clé entraînerait un échec de l’autorisation.
+Chaque application de fonction a également une **clé principale** spéciale. Cette clé est une clé d’hôte nommée `_master`, qui fournit un accès pour l’administration aux API du runtime. Cette clé ne peut pas être révoquée. Quand vous définissez un niveau d’autorisation de `admin`, les requêtes doivent utiliser la clé principale ; toute autre clé provoque l’échec de l’autorisation.
 
-> [!IMPORTANT]  
-> En raison des autorisations élevées qu’accorde la clé principale, vous ne devez pas partager celle-ci avec des tiers, ou la distribuer dans des applications clientes natives. Faites preuve de prudence lorsque vous choisissez le niveau d’autorisation administrateur.
+> [!CAUTION]  
+> En raison des autorisations élevées dans votre application de fonction accordées par la clé principale, vous ne devez pas partager celle-ci avec des tiers, ou la distribuer dans des applications clientes natives. Faites preuve de prudence lorsque vous choisissez le niveau d’autorisation administrateur.
+
+### <a name="obtaining-keys"></a>Obtention de clés
+
+Les clés sont stockées dans votre Function App dans Azure, et chiffrées au repos. Pour voir vos clés, en créer de nouvelles ou affecter de nouvelles valeurs aux clés, accédez à une de vos fonctions déclenchées par HTTP dans le [portail Azure](https://portal.azure.com), puis sélectionnez **Gérer**.
+
+![Gérez les clés de fonction dans le portail.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+
+Il n’existe pas d’API prise en charge pour obtenir des clés de fonction par programmation.
 
 ### <a name="api-key-authorization"></a>Autorisation de clé API
 
-Par défaut, un déclencheur HTTP nécessite qu’une clé API se trouve dans la requête HTTP. Votre requête HTTP doit donc ressembler à ceci :
+La plupart des modèles de déclencheur HTTP nécessitent une clé d’API dans la requête. Ainsi, votre requête HTTP doit se présenter comme l’URL suivante :
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-Cette clé peut être incluse dans une variable de chaîne de requête nommée `code` ou dans un en-tête HTTP `x-functions-key`. La valeur de la clé peut être toute clé de fonction définie pour la fonction, ou toute clé d’hôte.
+La clé peut être incluse dans une variable de chaîne de requête nommée `code`, comme ci-dessus. Elle peut également être incluse dans un en-tête HTTP `x-functions-key`. La valeur de la clé peut être toute clé de fonction définie pour la fonction, ou toute clé d’hôte.
 
 Vous pouvez autoriser les requêtes anonymes, qui ne nécessitent pas de clés. Vous pouvez également exiger que la clé principale soit utilisée. Pour modifier le niveau d’autorisation par défaut, utilisez la propriété `authLevel` dans le JSON de liaison. Pour plus d’informations, consultez [Déclencheur - configuration](#trigger---configuration).
 
-### <a name="keys-and-webhooks"></a>Clés et webhooks
+> [!NOTE]
+> Lors de l’exécution de fonctions localement, l’autorisation est désactivée, quel que soit le paramètre de niveau d’authentification spécifié. Après la publication sur Azure, le paramètre `authLevel` de votre déclencheur est appliqué.
 
-Une autorisation de webhook est gérée par le composant récepteur de webhook, qui fait partie du déclencheur HTTP, et le mécanisme varie en fonction du type de webhook. Toutefois, chaque mécanisme dépend d’une clé. Par défaut, la clé de fonction nommée « default » est utilisée. Pour utiliser une autre clé, configurez le fournisseur de webhook pour envoyer le nom de clé avec la requête de l’une des manières suivantes :
 
-- **Chaîne de requête** : le fournisseur passe le nom de clé dans le paramètre de chaîne de requête `clientid` (par exemple, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
-- **En-tête de demande** : le fournisseur transmet le nom de clé dans l’en-tête `x-functions-clientid`.
+
+### <a name="secure-an-http-endpoint-in-production"></a>Sécuriser un point de terminaison HTTP en production
+
+Pour sécuriser complètement vos points de terminaison de fonction en production, vous devez envisager d’implémenter une des options suivantes de sécurité au niveau de l’application de fonction :
+
+* Activer l’authentification / autorisation App Service pour votre application de fonction. La plateforme App Service vous permet d’utiliser Azure Active Directory (AAD) et plusieurs fournisseurs d’identité tiers pour authentifier les clients. Vous pouvez utiliser ceci pour implémenter des règles d’autorisation personnalisées pour vos fonctions, et vous pouvez utiliser les informations utilisateur dans le code de votre fonction. Pour plus d’informations, consultez [Authentification et autorisation dans Azure App Service](../app-service/app-service-authentication-overview.md).
+
+* Utilisez Gestion des API Azure pour authentifier les requêtes. Gestion des API Azure offre une variété d’options de sécurité des API pour les requêtes entrantes. Pour plus d’informations, consultez [Stratégies d’authentification dans Gestion des API](../api-management/api-management-authentication-policies.md). Avec Gestion des API Azure en place, vous pouvez configurer votre application de fonction pour qu’elle accepte seulement les requêtes provenant de l’adresse IP de votre instance Gestion des API Azure. Pour plus d’informations, consultez [Restriction des adresses IP](ip-addresses.md#ip-address-restrictions).
+
+* Déployez votre application de fonction sur un environnement Azure App Service. L’environnement App Service fournit un environnement d’hébergement dédié où exécuter vos fonctions. L’environnement App Service vous permet de configurer une passerelle frontend unique que vous pouvez utiliser pour authentifier toutes les requêtes entrantes. Pour plus d’informations, consultez [Configuration d’un pare-feu d’applications Web (WAF) pour un environnement App Service](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
+
+Quand vous utilisez une de ces méthodes de sécurité au niveau de l’application de fonction, vous devez définir le niveau d’authentification de la fonction déclenchée par HTTP sur `anonymous`.
+
+### <a name="webhooks"></a>Webhooks
+
+> [!NOTE]
+> Le mode Webhook est disponible seulement pour la version 1.x du runtime Functions.
+
+Le mode Webhook fournit une validation supplémentaire pour les charges utiles de webhook. Dans la version 2.x, le déclencheur HTTP de base fonctionne néanmoins toujours et constitue l’approche recommandée pour les webhooks.
+
+#### <a name="github-webhooks"></a>Webhooks GitHub
+
+Pour répondre aux webhooks GitHub, commencez par créer votre fonction avec un déclencheur HTTP, puis définissez la propriété **webHookType** sur `github`. Ensuite, copiez son URL et sa clé API dans la page **Ajouter un Webhook** de votre dépôt GitHub. 
+
+![](./media/functions-bindings-http-webhook/github-add-webhook.png)
+
+Pour voir un exemple, consultez [Créer une fonction déclenchée par un webhook GitHub](functions-create-github-webhook-triggered-function.md).
+
+#### <a name="slack-webhooks"></a>Webhooks Slack
+
+La webhook de Slack génère un jeton à votre place au lieu de vous laisser le spécifier. Vous devez donc configurer une clé spécifique de la fonction avec le jeton reçu de Slack. Consultez [Clés d’autorisation](#authorization-keys).
+
+### <a name="webhooks-and-keys"></a>Webhooks et clés
+
+Une autorisation de webhook est gérée par le composant récepteur de webhook, qui fait partie du déclencheur HTTP, et le mécanisme varie en fonction du type de webhook. Chaque mécanisme s’appuie sur une clé. Par défaut, la clé de fonction nommée « default » est utilisée. Pour utiliser une autre clé, configurez le fournisseur de webhook pour envoyer le nom de clé avec la requête de l’une des manières suivantes :
+
+* **Chaîne de requête** : le fournisseur passe le nom de clé dans le paramètre de chaîne de requête `clientid` (par exemple, `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`).
+* **En-tête de demande** : le fournisseur transmet le nom de clé dans l’en-tête `x-functions-clientid`.
 
 ## <a name="trigger---limits"></a>Déclencheur : limites
 
-La longueur de la requête HTTP est limitée à 100 Mo (104 857 600 octets), et la longueur de l’URL à 4 Ko (4 096 octets). Ces limites sont spécifiées par l’élément `httpRuntime` du [fichier Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) du runtime.
+La longueur de la requête HTTP est limitée à 100 Mo (104 857 600 octets) et la longueur de l’URL à 4 Ko (4 096 octets). Ces limites sont spécifiées par l’élément `httpRuntime` du [fichier Web.config](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config) du runtime.
 
-Si une fonction utilisant le déclencheur HTTP ne se termine pas en 2,5 minutes environ, la passerelle arrivera à expiration et retournera une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan) (Mise à l’échelle et hébergement – Plan de consommation). 
+Si une fonction utilisant le déclencheur HTTP ne se termine pas au bout d’environ 2,5 minutes, la passerelle arrive à expiration et retourne une erreur HTTP 502. La fonction continuera à s’exécuter, mais ne pourra pas renvoyer de réponse HTTP. Pour les fonctions à exécution longues, nous vous recommandons de suivre des modèles asynchrones et de retourner un emplacement où vous pouvez effectuer un test ping de l’état de la requête. Pour plus d’informations sur la durée d’exécution d’une fonction, consultez [Scale and hosting - Consumption plan](functions-scale.md#consumption-plan) (Mise à l’échelle et hébergement – Plan de consommation). 
 
 ## <a name="trigger---hostjson-properties"></a>Déclencheur - propriétés de host.json
 
@@ -657,7 +533,7 @@ Utilisez la liaison de sortie HTTP pour répondre à l’expéditeur de la deman
 
 ## <a name="output---configuration"></a>Sortie - configuration
 
-Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*. Pour les bibliothèques de classes C#, aucune propriété d’attribut ne correspond à ces propriétés *function.json*. 
+Le tableau suivant décrit les propriétés de configuration de liaison que vous définissez dans le fichier *function.json*. Pour les bibliothèques de classes C#, aucune propriété d’attribut ne correspond à ces propriétés de *function.json*. 
 
 |Propriété  |Description  |
 |---------|---------|
@@ -669,7 +545,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 
 Pour envoyer une réponse HTTP, utilisez les modèles de réponse standard du langage. Dans un script C# ou C#, choisissez le type de retour de fonction `HttpResponseMessage` ou `Task<HttpResponseMessage>`. En C#, aucun attribut de valeur renvoyée n’est requis.
 
-Par obtenir des exemples de réponse, consultez l’[exemple de déclencheur](#trigger---example) et l’[exemple de webhook](#trigger---webhook-example).
+Par obtenir des exemples de réponse, consultez [l’exemple de déclencheur](#trigger---example).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,13 +8,13 @@ editor: jasonwhowell
 manager: kfile
 ms.service: mysql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: ff4a28e2f9a0149016d0e47c24e4665ab2e0500d
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.date: 09/26/2018
+ms.openlocfilehash: 4aecc4941f2181216ea537c0019152ce822ac4b0
+ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265501"
+ms.lasthandoff: 09/27/2018
+ms.locfileid: "47408929"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Connecter un service Azure App Service existant à un serveur de base de données Azure pour MySQL
 Cette rubrique explique comment connecter un service Azure App Service existant à votre serveur de base de données Azure pour MySQL.
@@ -24,24 +24,15 @@ Connectez-vous au [portail Azure](https://portal.azure.com). Créez un serveur d
 
 Il existe actuellement deux solutions pour activer l’accès à partir d’un service Azure App Service vers une base de données Azure pour MySQL. Ces deux solutions impliquent de configurer des règles de pare-feu au niveau du serveur.
 
-## <a name="solution-1---create-a-firewall-rule-to-allow-all-ips"></a>Solution 1 - Créer une règle de pare-feu pour autoriser toutes les adresses IP
-La base de données Azure pour MySQL fournit une sécurité d’accès à l’aide d’un pare-feu afin de protéger vos données. Lors de la connexion d’un service Azure App Service à une base de données Azure pour MySQL, gardez à l’esprit que les adresses IP sortantes d’App Service sont dynamiques par nature. 
-
-Pour garantir la disponibilité de votre service Azure App Service, nous recommandons d’utiliser cette solution pour autoriser TOUTES les adresses IP.
-
-> [!NOTE]
-> Microsoft travaille à une solution à long terme pour éviter d’autoriser toutes les adresses IP des services Azure à se connecter à la base de données Azure pour MySQL.
+## <a name="solution-1---allow-azure-services"></a>Solution 1 - Autoriser les services Azure
+La base de données Azure pour MySQL fournit une sécurité d’accès à l’aide d’un pare-feu afin de protéger vos données. Lors de la connexion d’un service Azure App Service à une base de données Azure pour MySQL, gardez à l’esprit que les adresses IP sortantes d’App Service sont dynamiques par nature. Choisir l’option « Autoriser l’accès aux services Azure » permet au service d’application de se connecter au serveur MySQL.
 
 1. Dans le panneau du serveur MySQL, sous le titre Paramètres, cliquez sur **Sécurité de la connexion** pour ouvrir le panneau Sécurité de la connexion pour la base de données Azure pour MySQL.
 
-   ![Portail Azure - cliquez sur Sécurité des connexions](./media/howto-manage-firewall-using-portal/1-connection-security.png)
+   ![Portail Azure - cliquez sur Sécurité des connexions](./media/howto-connect-webapp/1-connection-security.png)
 
-2. Entrez **NOM DE LA RÈGLE**, **ADRESSE IP DE DÉBUT** et **ADRESSE IP DE FIN**, puis cliquez sur **Enregistrer**.
-   - Nom de la règle : Allow-All-IPs
-   - Adresse IP de début : 0.0.0.0
-   - Adresse IP de fin : 255.255.255.255
-
-   ![Portail Azure - Ajouter toutes les adresses IP](./media/howto-connect-webapp/1_2-add-all-ips.png)
+2. Sélectionnez **ON** dans **Autoriser l’accès aux services Azure**, puis **Enregistrer**.
+   ![Portail Azure - Autoriser l’accès à Azure](./media/howto-connect-webapp/allow-azure.png)
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Solution 2 - Créer une règle de pare-feu pour autoriser explicitement des adresses IP sortantes
 Vous pouvez ajouter explicitement toutes les adresses IP sortantes de votre service Azure App Service.
