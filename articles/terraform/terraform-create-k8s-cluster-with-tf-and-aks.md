@@ -28,7 +28,7 @@ Dans ce tutoriel, découvrez comment effectuer les tâches suivantes pour créer
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
+- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
 - **Configuration de Terraform** : suivez les instructions de l’article [Terraform et configurer l’accès à Azure](/azure/virtual-machines/linux/terraform-install-configure)
 
@@ -43,19 +43,19 @@ La première étape consiste à créer le répertoire qui contient vos fichiers 
 
     ![Invite Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
 
-1. Remplacez le répertoire par le répertoire `clouddrive`.
+1. Déplacez vous dans le répertoire `clouddrive` :
 
     ```bash
     cd clouddrive
     ```
 
-1. Créez un répertoire nommé `terraform-aks-k8s`.
+1. Créez un répertoire nommé `terraform-aks-k8s` :
 
     ```bash
     mkdir terraform-aks-k8s
     ```
 
-1. Remplacez les répertoires par le nouveau répertoire :
+1. Déplacez vous dans le répertoire `terraform-aks-k8s` :
 
     ```bash
     cd terraform-aks-k8s
@@ -331,7 +331,7 @@ Si la session Cloud Shell expire, vous pouvez effectuer les étapes suivantes po
 
 1. Démarrez une session Cloud Shell.
 
-1. Accédez au répertoire qui contient vos fichiers de configuration Terraform.
+1. Déplacez vous dans le répertoire qui contient vos fichiers de configuration Terraform.
 
     ```bash
     cd /clouddrive/terraform-aks-k8s
