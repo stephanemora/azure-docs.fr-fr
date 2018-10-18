@@ -4,19 +4,19 @@ description: Utilisez Azure Event Grid pour vous abonner à un événement de mo
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/20/2018
 ms.author: juliako
-ms.openlocfilehash: e9df0cd24ef890765b78c25a073d671889be10a7
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e7268a066acf41c454de0c66aa21603199d85a60
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38723741"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034839"
 ---
 # <a name="route-azure-media-services-events-to-a-custom-web-endpoint-using-cli"></a>Acheminer des événements Azure Media Services vers un point de terminaison web personnalisé à l’aide de CLI
 
@@ -26,17 +26,14 @@ En règle générale, vous envoyez des événements à un point de terminaison q
 
 En suivant les instructions de cet article, vous voyez que les données d’événement ont été envoyées à un point de terminaison.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="prerequisites"></a>Prérequis
 
-Connectez-vous au [portail Azure](http://portal.azure.com) et lancez **CloudShell** pour exécuter les commandes CLI, comme indiqué dans les étapes suivantes.
+- Avoir un abonnement Azure actif.
+- [Créer un compte Media Services](create-account-cli-how-to.md).
 
-[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+    Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services.
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, Azure CLI version 2.0 ou une version ultérieure est indispensable pour poursuivre la procédure décrite dans cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
-
-Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du compte Media Services, le nom de stockage et le nom de ressource.
+- Installer [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Cet article nécessite la version 2.0 ou ultérieure d’Azure CLI. Exécutez `az --version` pour trouver la version qui est à votre disposition. Vous pouvez également utiliser [Azure Cloud Shell](https://shell.azure.com/bash).
 
 ## <a name="enable-event-grid-resource-provider"></a>Activer le fournisseur de ressources Event Grid
 
@@ -132,7 +129,7 @@ Appuyez sur **Enregistrer et exécuter** en haut de la fenêtre.
 
 Vous vous abonnez à un article pour indiquer à Event Grid les événements que vous souhaitez suivre. L’exemple suivant montre l’abonnement au compte Media Services que vous avez créé et transmet l’URL à partir du webhook Fonction Azure que vous avez créé en tant que point de terminaison de la notification d’événement. 
 
-Remplacez `<event_subscription_name>` par un nom unique pour votre abonnement aux événements. Pour `<resource_group_name>` et `<ams_account_name>`, utilisez les valeurs que vous avez créées précédemment.  Pour `<endpoint_URL>`, collez votre URL de point de terminaison. Supprimez *&clientID=default* de l’URL. En spécifiant un point de terminaison lors de l’abonnement, Event Grid gère le routage d’événements vers ce point de terminaison. 
+Remplacez `<event_subscription_name>` par un nom unique pour votre abonnement aux événements. Pour `<resource_group_name>` et `<ams_account_name>`, servez-vous des valeurs que vous avez utilisées au moment de la création du compte Media Services. Pour `<endpoint_URL>`, collez votre URL de point de terminaison. Supprimez *&clientID=default* de l’URL. En spécifiant un point de terminaison lors de l’abonnement, Event Grid gère le routage d’événements vers ce point de terminaison. 
 
 ```cli
 amsResourceId=$(az ams account show --name <ams_account_name> --resource-group <resource_group_name> --query id --output tsv)
@@ -145,7 +142,9 @@ az eventgrid event-subscription create \
 
 La valeur ID de ressource du compte Media Services ressemble à ceci :
 
+```
 /subscriptions/81212121-2f4f-4b5d-a3dc-ba0015515f7b/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amstestaccount
+```
 
 ## <a name="test-the-events"></a>Tester les événements
 
@@ -153,7 +152,7 @@ Exécutez un travail d’encodage. Par exemple, comme décrit dans le démarrage
 
 Vous avez déclenché l’événement, et Event Grid a envoyé le message au point de terminaison configuré lors de l’abonnement. Recherchez le webhook que vous avez créé précédemment. Cliquez sur **Surveiller** et **Actualiser**. Vous voyez les événements de modification de l’état du travail : « En file d’attente », « Planifié », « Traitement », « Terminé », « Erreur », « Annulé », « Annulation en cours ».  Pour plus d’informations, consultez les [schémas d’événement Media Services](media-services-event-schemas.md).
 
-Par exemple : 
+L’exemple suivant montre le schéma de l’événement JobStateChange :
 
 ```json
 [{
@@ -172,16 +171,6 @@ Par exemple :
 ```
 
 ![Tester les événements](./media/job-state-events-cli-how-to/test_events.png)
-
-## <a name="clean-up-resources"></a>Supprimer les ressources
-
-Si vous envisagez de continuer à utiliser ce compte de stockage et l’abonnement à un événement, ne supprimez pas les ressources créées dans cet article. Sinon, utilisez la commande suivante pour supprimer les ressources créées avec cet article.
-
-Remplacez `<resource_group_name>` par le nom du groupe de ressources que vous avez créé plus haut.
-
-```azurecli-interactive
-az group delete --name <resource_group_name>
-```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

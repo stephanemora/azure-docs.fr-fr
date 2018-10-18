@@ -3,12 +3,12 @@ layout: HubPage
 hide_bc: true
 title: Documentation Microsoft Azure
 description: Découvrez comment créer et gérer des applications performantes à l’aide des services cloud Microsoft Azure. Accédez à la documentation associée, à des exemples de code, à des didacticiels et bien plus encore.
-ms.openlocfilehash: 16d1466180e90d45b7c2adf00ab699bb39d5d785
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: db35de8eead8ce0242fd67fbcee8a43a3b2498cc
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302455"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056756"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -905,12 +905,6 @@ ms.locfileid: "44302455"
                                             </a>
                                         </li>
                                         <li>
-                                            <a href="/azure/mobile-engagement/">
-                                                <img src="media/index/MobileEngagement.svg" alt="" />
-                                                <p>Mobile Engagement</p>
-                                            </a>
-                                        </li>
-                                        <li>
                                             <a href="/azure/notification-hubs/">
                                                 <img src="media/index/NotificationHubs.svg" alt="" />
                                                 <p>Notification Hubs</p>
@@ -1635,25 +1629,6 @@ ms.locfileid: "44302455"
                                                 <div class="cardText">
                                                     <h3>Recherche</h3>
                                                     <p>Service de recherche entièrement géré</p>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/azure/mobile-engagement/">
-                                    <div class="cardSize">
-                                        <div class="cardPadding">
-                                            <div class="card">
-                                                <div class="cardImageOuter">
-                                                    <div class="cardImage">
-                                                        <img src="media/index/MobileEngagement.svg" alt="" />
-                                                    </div>
-                                                </div>
-                                                <div class="cardText">
-                                                    <h3>Mobile Engagement</h3>
-                                                    <p>Augmentez l’utilisation des applications et la rétention des utilisateurs</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -3313,12 +3288,12 @@ ms.locfileid: "44302455"
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI 2.0 </h3>
+                                                <h3>Azure CLI </h3>
                                                 <p>
                                                     <a href="/cli/azure">Prise en main</a>
                                                 </p>
                                                 <p>
-                                                    <a href="/cli/azure/install-azure-cli">Télécharger Azure CLI 2.0</a>
+                                                    <a href="/cli/azure/install-azure-cli">Télécharger Azure CLI</a>
                                                 </p>
                                                 <p>
                                                     <a href="/cli/azure">Référence</a>
@@ -3363,7 +3338,7 @@ ms.locfileid: "44302455"
                                                 </div>
                                             </div>
                                             <div class="cardText">
-                                                <h3>Azure CLI </h3>
+                                                <h3>Azure classic CLI </h3>
                                                 <p>
                                                     <a href="/azure/xplat-cli-install?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json">Prise en main</a>
                                                 </p>

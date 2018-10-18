@@ -4,24 +4,39 @@ description: Explique comment créer une évaluation à l’aide des dépendance
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621077"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47163424"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Grouper des machines à l’aide du mappage de dépendances de machine
 
 Cet article explique comment créer un groupe de machines pour l’évaluation [Azure Migrate](migrate-overview.md) en visualisant les dépendances de machine. On utilise généralement cette méthode pour évaluer des groupes de machines virtuelles avec un niveau supérieur de confiance en vérifiant par recoupement les dépendances de machine avant d’exécuter une évaluation. La visualisation des dépendances peut vous aider à planifier efficacement votre migration vers Azure. Elle vous permet de ne rien oublier et vous épargne les pannes inopinées pendant la migration vers Azure. Vous pouvez découvrir tous les systèmes interdépendants qui doivent migrer en même temps et déterminer si un système en cours d’exécution continue de servir les utilisateurs ou si une mise hors service peut être envisagée au lieu de la migration.
 
 
-## <a name="prepare-machines-for-dependency-mapping"></a>Préparer des machines au mappage de dépendances
-Pour voir les dépendances de machines, vous devez télécharger et installer des agents sur chacune des machines locales à évaluer. Si, par ailleurs, certaines de vos machines n’ont pas de connexion Internet, il vous faudra télécharger et y installer la [passerelle OMS](../log-analytics/log-analytics-oms-gateway.md).
+## <a name="prepare-for-dependency-visualization"></a>Préparer la visualisation des dépendances
+Azure Migrate s’appuie sur la solution Service Map dans Log Analytics pour permettre la visualisation des dépendances des machines.
+
+### <a name="associate-a-log-analytics-workspace"></a>Associer un espace de travail Log Analytics
+Pour tirer parti de la visualisation des dépendances, vous pouvez associer un espace de travail Log Analytics, nouveau ou existant, à un projet Azure Migrate. Vous ne pouvez créer ou attacher un espace de travail que dans l’abonnement où le projet de migration est créé.
+
+- Pour attacher un espace de travail Log Analytics à un projet, dans **Vue d’ensemble**, accédez à la section **Bases** du projet, puis cliquez sur **Requiert une configuration**
+
+    ![Associer un espace de travail Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- Quand vous créez un espace de travail, vous devez spécifier un nom pour celui-ci. L’espace de travail est ensuite créé dans le même abonnement que le projet de migration et dans une région appartenant à la même [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que le projet de migration.
+- L’option **Utiliser l’existant** répertorie uniquement les espaces de travail qui sont créés dans les régions où Service Map est disponible. Si vous avez un espace de travail dans une région où Service Map n’est pas disponible, il n’est pas répertorié dans la liste déroulante.
+
+> [!NOTE]
+> Vous ne pouvez pas changer l’espace de travail associé à un projet de migration.
 
 ### <a name="download-and-install-the-vm-agents"></a>Téléchargement et installation des agents de machines virtuelles
+Une fois que vous avez configuré un espace de travail, vous devez télécharger et installer des agents sur chacune des machines locales à évaluer. Si, par ailleurs, certaines de vos machines n’ont pas de connexion Internet, il vous faudra télécharger et y installer la [passerelle OMS](../log-analytics/log-analytics-oms-gateway.md).
+
 1. Dans **Vue d’ensemble**, cliquez sur **Gérer** > **Machines** et sélectionnez la machine souhaitée.
 2. Dans la colonne **Dépendances**, cliquez sur **Installer des agents**.
 3. Sur la page **Dépendances**, téléchargez et installez Microsoft Monitoring Agent (MMA) et l’agent de dépendances sur chacune des machines virtuelles à évaluer.
@@ -40,6 +55,7 @@ Pour installer l’agent sur une machine Windows :
 4. Dans **Options d’installation de l’agent**, sélectionnez **Azure Log Analytics** > **Suivant**.
 5. Cliquez sur **Ajouter** pour ajouter un nouvel espace de travail Log Analytics. Collez l’ID et la clé de l’espace de travail que vous avez copiés sur le portail. Cliquez sur **Suivant**.
 
+[Découvrez plus en détail](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems) la liste des systèmes d’exploitation Windows pris en charge par MMA.
 
 Pour installer l’agent sur une machine Linux :
 
@@ -48,6 +64,7 @@ Pour installer l’agent sur une machine Linux :
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
+[Découvrez plus en détail](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems) la liste des systèmes d’exploitation Linux pris en charge par MMA.
 
 ### <a name="install-the-dependency-agent"></a>Installer l’agent de dépendances
 1. Pour installer l’agent de dépendances sur une machine Windows, double-cliquez sur le fichier d’installation et suivez l’Assistant.
@@ -55,7 +72,7 @@ Pour installer l’agent sur une machine Linux :
 
     ```sh InstallDependencyAgent-Linux64.bin```
 
-Découvrez-en plus sur la prise en charge de l’agent de dépendances pour les systèmes d’exploitation [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) et [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems).
+Apprenez-en davantage sur la prise en charge de l’agent de dépendances pour les systèmes d’exploitation [Windows](../monitoring/monitoring-service-map-configure.md#supported-windows-operating-systems) et [Linux](../monitoring/monitoring-service-map-configure.md#supported-linux-operating-systems).
 
 [En savoir plus](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) sur la façon dont vous pouvez utiliser des scripts pour installer l’agent de dépendances.
 
@@ -87,5 +104,6 @@ Une fois le groupe créé, nous vous recommandons d’installer les agents sur t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Découvrez plus en détail](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) les questions fréquemment posées au sujet de la visualisation des dépendances.
 - [Découvrez comment](how-to-create-group-dependencies.md) affiner le groupe en visualisant les dépendances de groupe.
 - [Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.

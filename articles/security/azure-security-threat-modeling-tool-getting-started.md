@@ -1,6 +1,6 @@
 ---
-title: "Bien démarrer - Outil Microsoft de modélisation des menaces - Azure | Documents Microsoft"
-description: "Il s’agit d’une vue d’ensemble plus approfondie qui met en évidence l’outil de modélisation des menaces en action."
+title: Bien démarrer - Outil Microsoft de modélisation des menaces - Azure | Documents Microsoft
+description: Il s’agit d’une vue d’ensemble plus approfondie qui met en évidence l’outil de modélisation des menaces en action.
 services: security
 documentationcenter: na
 author: RodSan
@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: rodsan
-ms.openlocfilehash: 73d6b42e7a97d6041f6213a1f7d060806734d763
-ms.sourcegitcommit: 68aec76e471d677fd9a6333dc60ed098d1072cfc
+ms.openlocfilehash: 340c92d2830069a9d957f4ece79416a707062629
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/18/2017
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096772"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Bien démarrer avec l’outil de modélisation des menaces
 
@@ -85,7 +86,7 @@ Ce que Ricardo vient de montrer à Cristina est un DFD, abréviation de **[diagr
 
 ## <a name="analyzing-threats"></a>Analyse des menaces
 
-Après avoir cliqué sur la vue d’analyse à partir de la sélection du menu icône (fichier avec la loupe), il est dirigé vers la liste des menaces trouvées pour l’outil de modélisation des menaces à partir du modèle par défaut, qui utilise l’approche SDL appelée **[STRIDE (usurpation d’identité, falsification, divulgation d’informations, déni de Service et élévation de privilèges)](https://en.wikipedia.org/wiki/STRIDE_(security))**. L’idée est que le logiciel relève d’un jeu de menaces prévisibles, qui peut être trouvé à l’aide de ces 6 catégories.
+Après avoir cliqué sur la vue d’analyse à partir de la sélection du menu icône (fichier avec la loupe), il est dirigé vers la liste des menaces générées trouvées par l’outil Threat Modeling Tool en fonction du modèle par défaut, qui utilise l’approche SDL appelée **[STRIDE (usurpation d’identité, falsification, répudiation, divulgation d’informations, déni de service et élévation de privilèges)](https://en.wikipedia.org/wiki/STRIDE_(security))**. L’idée est que le logiciel relève d’un jeu de menaces prévisibles, qui peut être trouvé à l’aide de ces 6 catégories.
 
 Cette approche est similaire à la sécurisation de votre maison en vous assurant que chaque porte et fenêtre a un mécanisme de verrouillage en place avant d’ajouter un système d’alarme ou de pourchasser le voleur.
 

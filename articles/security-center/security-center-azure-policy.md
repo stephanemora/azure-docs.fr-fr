@@ -1,6 +1,6 @@
 ---
-title: Intégration des stratégies de sécurité Azure Security Center avec Azure Policy | Microsoft Docs
-description: Ce document est conçu pour vous aider à configurer l’intégration de stratégies de sécurité Azure Security Center avec Azure Policy.
+title: Définition de stratégies de sécurité Azure Security Center de manière individuelle ou dans le cadre de stratégies Azure Policy | Microsoft Docs
+description: Ce document vous aide à définir des stratégies dans Azure Security Center ou dans Azure Policy.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,20 +9,27 @@ editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 09/5/2018
 ms.author: terrylan
-ms.openlocfilehash: b3d6d15d41fece613290deb2c77e980caa5dcfef
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 3c198ea44953c0b2e72a544cd0e83b6592d9a81f
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018561"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47032070"
 ---
-# <a name="integrate-security-center-security-policies-with-azure-policy"></a>Intégrer des stratégies de sécurité Security Center avec Azure Policy
-Cet article est conçu pour vous aider à configurer les stratégies de sécurité Azure Security Center offertes par [Azure Policy](../azure-policy/azure-policy-introduction.md).
+# <a name="setting-security-policies-in-security-center-or-in-azure-policy"></a>Définition de stratégies de sécurité dans Security Center ou dans Azure Policy
+
+Cet article vous aide à configurer des stratégies de sécurité Azure Security Center. Les stratégies Azure Security Center s’intègrent avec les stratégies Azure Policy. Vous pouvez donc les définir soit dans Security Center sur un abonnement spécifique, soit dans [Azure Policy](../azure-policy/azure-policy-introduction.md), qui vous permet de définir des stratégies sur plusieurs groupes d’administration et plusieurs abonnements.
+
+## <a name="what-are-security-policies"></a>Que sont les stratégies de sécurité ?
+Une stratégie de sécurité définit la configuration souhaitée de vos charges de travail, tout en garantissant leur conformité aux exigences de sécurité réglementaires. Dans Azure Security Center, vous pouvez définir les stratégies de vos abonnements Azure, et les adapter à votre type de charge de travail ou à la sensibilité de vos données. Par exemple, les applications qui utilisent des données réglementées, telles que les informations d’identification personnelle, peuvent nécessiter un niveau de sécurité plus élevé que d’autres charges de travail. Pour définir des stratégies sur des abonnements ou des groupes d’administration, configurez-les dans [Azure Policy](../azure-policy/azure-policy-introduction.md).
+
+> [!NOTE]
+> Si vous avez préalablement configuré des stratégies de sécurité sur un abonnement qui fait partie d’un groupe d’administration, ou qui a plusieurs affectations de stratégies, ces stratégies apparaissent grisées dans Security Center afin que vous puissiez gérer la stratégie au niveau du groupe d’administration à partir de la page Azure Policy. 
 
 ## <a name="how-security-policies-work"></a>Fonctionnement des stratégies de sécurité
 Security Center crée automatiquement une stratégie de sécurité par défaut, pour chacun de vos abonnements Azure. Vous pouvez modifier les stratégies dans Security Center ou utiliser Azure Policy pour effectuer les opérations suivantes :
@@ -40,12 +47,21 @@ Une stratégie Azure est constituée des composants suivants :
 
 Une ressource est évaluée par rapport aux stratégies qui lui sont affectées, et reçoit un taux de conformité en fonction du nombre de stratégies avec lesquelles la ressource est conforme.
 
+## <a name="who-can-edit-security-policies"></a>Qui peut modifier des stratégies de sécurité ?
+Security Center utilise le contrôle d’accès en fonction du rôle (RBAC) qui fournit des rôles intégrés susceptibles d’être assignés à des utilisateurs, des groupes et des services dans Azure. Lorsque les utilisateurs ouvrent Security Center, ils ne voient que les informations associées aux ressources auxquelles ils ont accès. Autrement dit, les utilisateurs se voient assigner le rôle de propriétaire, contributeur ou lecteur, pour l’abonnement ou le groupe de ressources auquel appartiennent les ressources. Outre ces rôles, il existe deux rôles propres à Security Center :
+
+- Lecteur Sécurité : l’utilisateur ayant ce rôle a des droits d’affichage dans Security Center. Il peut afficher les suggestions, les alertes, la stratégie et l’intégrité, mais il ne peut pas apporter de modifications.
+- Administrateur Sécurité : l’utilisateur ayant ce rôle a les mêmes droits d’affichage que le lecteur Sécurité, mais il peut en plus mettre à jour la stratégie de sécurité, et ignorer les alertes et les suggestions.
+
 ## <a name="edit-security-policies"></a>Modifier des stratégies de sécurité
 Vous pouvez modifier la stratégie de sécurité par défaut pour chacun de vos groupes d’administration et abonnements Azure dans Security Center. Pour modifier une stratégie de sécurité, vous devez avoir le rôle d’administrateur de la sécurité, de propriétaire ou de collaborateur pour l’abonnement concerné ou le groupe de gestion dans laquelle elle se trouve. Pour afficher vos stratégies de sécurité dans Security Center :
 
+> [!NOTE]
+> Les stratégies définies sur un abonnement qui fait partie d’un groupe d’administration, ou qui a plusieurs affectations de stratégies, apparaissent grisées dans Security Center. Vous pouvez modifier ces stratégies dans [Azure Policy](../azure-policy/azure-policy-introduction.md). 
+
 1. Dans le tableau de bord **Security Center**, sous **STRATÉGIE ET CONFORMITÉ**, sélectionnez **Stratégie de sécurité**. **Gestion de stratégie** s’ouvre.
 
-    ![Le volet Gestion de stratégie](./media/security-center-azure-policy/security-center-policies-fig10.png)
+    ![Le volet Gestion des stratégies](./media/security-center-azure-policy/security-center-policies-fig10.png)
 
   Gestion de stratégie affiche le nombre de groupes d’administration, d’abonnements et d’espaces de travail, ainsi que votre structure de groupes d’administration.
 
@@ -95,7 +111,7 @@ Référez-vous au tableau suivant afin de comprendre les définitions de straté
 Si votre organisation dispose de plusieurs abonnements, vous pouvez avoir besoin d’un moyen de gérer efficacement l’accès, les stratégies et la conformité de ces abonnements. Les groupes d’administration Azure fournissent un niveau d’étendue au-dessus des abonnements. Vous organisez les abonnements en conteneurs appelés « groupes d’administration » et vous appliquez vos stratégies de gouvernance aux groupes d’administration. Tous les abonnements d’un groupe d’administration héritent automatiquement des stratégies appliquées à ce groupe d’administration. Chaque annuaire reçoit un groupe d’administration de niveau supérieur unique appelé groupe d’administration « racine ». Ce groupe d’administration racine est intégré à la hiérarchie et contient tous les groupes d’administration et abonnements. Il permet d’appliquer des stratégies globales et des affectations RBAC au niveau de l’annuaire. Pour configurer des groupes d’administration pour une utilisation avec Azure Security Center, suivez les instructions de l’article [Gagner en visibilité au niveau locataire dans Azure Security Center](security-center-management-groups.md). 
 
 > [!NOTE]
-> Il est important de bien comprendre la hiérarchie des groupes d’administration et des abonnements. Pour en savoir plus sur les groupes d’administration, l’administration racine et l’accès aux groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../azure-resource-manager/management-groups-overview.md#root-management-group-for-each-directory).
+> Il est important de bien comprendre la hiérarchie des groupes d’administration et des abonnements. Pour en savoir plus sur les groupes d’administration, l’administration racine et l’accès aux groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../governance/management-groups/index.md#root-management-group-for-each-directory).
 >
 >
 

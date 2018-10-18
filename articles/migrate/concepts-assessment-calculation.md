@@ -4,14 +4,14 @@ description: Offre une vue d’ensemble des calculs d’évaluation dans le serv
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 092f0844854c13898fd7f07ce9b7ddea98ff01ed
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: f7f06636e025eda604caa65ca82d4dd7eb909d3f
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286271"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47165685"
 ---
 # <a name="assessment-calculations"></a>Calculs d’évaluation
 
@@ -39,8 +39,8 @@ Azure Migrate passe en revue les propriétés suivantes de la machine virtuelle 
 **Propriété** | **Détails** | **État de préparation pour Azure**
 --- | --- | ---
 **Type de démarrage** | Azure prend en charge les machines virtuelles avec le type de démarrage BIOS, et non UEFI. | Préparé sous condition si le type de démarrage est UEFI.
-**Cœurs** | Le nombre de cœurs des machines doit être inférieur ou égal au nombre maximal de cœurs (32) pris en charge pour une machine virtuelle Azure.<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération les cœurs utilisés pour la comparaison. Si un facteur de confort est spécifié dans les paramètres de l’évaluation, le nombre de cœurs utilisés est multiplié par le facteur de confort.<br/><br/> En l’absence d’historique des performances, Azure Migrate utilise les cœurs alloués, sans appliquer le facteur de confort. | Prêt si inférieur ou égal aux limites.
-**Mémoire** | La taille de la mémoire de la machine doit être inférieure ou égale à la mémoire maximale (3 892 Go sur la série Azure M Standard_M128m&nbsp;<sup>2</sup>) autorisée pour une machine virtuelle Azure. [Plus d’informations](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération la mémoire utilisée pour la comparaison. Si un facteur de confort est spécifié, la mémoire utilisée est multipliée par le facteur de confort.<br/><br/> En l’absence d’historique, la mémoire allouée est utilisée, sans appliquer le facteur de confort.<br/><br/> | Prêt si dans les limites.
+**Cœurs** | Le nombre de cœurs des machines doit être inférieur ou égal au nombre maximal de cœurs (128) pris en charge pour une machine virtuelle Azure.<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération les cœurs utilisés pour la comparaison. Si un facteur de confort est spécifié dans les paramètres de l’évaluation, le nombre de cœurs utilisés est multiplié par le facteur de confort.<br/><br/> En l’absence d’historique des performances, Azure Migrate utilise les cœurs alloués, sans appliquer le facteur de confort. | Prêt si inférieur ou égal aux limites.
+**Mémoire** | La taille de la mémoire de la machine doit être inférieure ou égale à la mémoire maximale (3 892 Go sur la série Azure M Standard_M128m&nbsp;<sup>2</sup>) autorisée pour une machine virtuelle Azure. [Plus d’informations](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)<br/><br/> Si l’historique des performances est disponible, Azure Migrate prend en considération la mémoire utilisée pour la comparaison. Si un facteur de confort est spécifié, la mémoire utilisée est multipliée par le facteur de confort.<br/><br/> En l’absence d’historique, la mémoire allouée est utilisée, sans appliquer le facteur de confort.<br/><br/> | Prêt si dans les limites.
 **Disque de stockage** | La taille allouée d’un disque doit être inférieure ou égale à 4 To (4 096 Go).<br/><br/> Le nombre de disques attachés à la machine doit être inférieur ou égal à 65, disque du système d’exploitation compris. | Prêt si dans les limites.
 **Mise en réseau** | Au maximum 32 cartes réseau doivent être attachées à une machine. | Prêt si dans les limites.
 
@@ -61,7 +61,8 @@ Windows Server 2008 R2 avec tous les Service Packs | Azure assure un support com
 Windows Server 2008 (32 bits et 64 bits) | Azure assure un support complet. | Disponible pour Azure
 Windows Server 2003, 2003 R2 | La date limite de prise en charge de ces systèmes d’exploitation est passée, et leur prise en charge dans Azure nécessite un [Custom Support Agreement (CSA)](https://aka.ms/WSosstatement). | Préparé pour Azure sous condition. Envisagez une mise à niveau du système d’exploitation avant de migrer vers Azure.
 Windows 2000, 98, 95, NT, 3.1, MS-DOS | La date limite de prise en charge de ces systèmes d’exploitation est passée. La machine peut démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est fournie par Azure. | Préparé pour Azure sous condition. Nous vous recommandons d’effectuer une mise à niveau du système d’exploitation avant de migrer vers Azure.
-Clients Windows 7, 8 et 10 | Azure assure un support avec abonnement Visual Studio uniquement. | Préparé pour Azure sous condition
+Clients Windows 7, 8 et 10 | Azure assure un support avec [abonnement Visual Studio uniquement](https://docs.microsoft.com/azure/virtual-machines/windows/client-images). | Préparé pour Azure sous condition
+Windows 10 Pro Desktop | Azure fournit la prise en charge avec les [droits d’hébergement multilocataire](https://docs.microsoft.com/azure/virtual-machines/windows/windows-desktop-multitenant-hosting-deployment). | Préparé pour Azure sous condition
 Windows Vista, XP Professionnel | La date limite de prise en charge de ces systèmes d’exploitation est passée. La machine peut démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est fournie par Azure. | Préparé pour Azure sous condition. Nous vous recommandons d’effectuer une mise à niveau du système d’exploitation avant de migrer vers Azure.
 Linux | Azure approuve ces [systèmes d’exploitation Linux](../virtual-machines/linux/endorsed-distros.md). D’autres systèmes d’exploitation Linux peuvent démarrer dans Azure, mais nous vous recommandons d’effectuer une mise à niveau du système d’exploitation vers une version approuvée avant de migrer vers Azure. | Disponible pour Azure si la version est approuvée.<br/><br/>Préparé pour Azure sous condition si la version n’est pas approuvée.
 Autres systèmes d’exploitation<br/><br/> (par exemple, Oracle Solaris, Apple Mac OS, FreeBSD, etc.) | Azure n’approuve pas ces systèmes d’exploitation. La machine peut démarrer dans Azure, mais aucune prise en charge du système d’exploitation n’est fournie par Azure. | Préparé pour Azure sous condition. Nous vous recommandons d’installer un système d’exploitation pris en charge avant de migrer vers Azure.  
@@ -71,9 +72,6 @@ Systèmes d’exploitation 32 bits | La machine peut démarrer dans Azure, mais
 ## <a name="sizing"></a>Dimensionnement
 
 Une fois qu’une machine a été marquée comme disponible pour Azure, Azure Migrate dimensionne la machine virtuelle et ses disques pour Azure. Si le critère de dimensionnement spécifié dans les propriétés de l’évaluation est le dimensionnement basé sur les performances, Azure Migrate prend en compte l’historique des performances de la machine pour identifier la taille et le type de disque de la machine virtuelle dans Azure. Cette méthode est utile dans les scénarios où vous avez suralloué la machine virtuelle locale, mais où l’utilisation est faible et vous souhaitez dimensionner correctement les machines virtuelles dans Azure afin de réduire les coûts.
-
-> [!NOTE]
-> Azure Migrate collecte l’historique des performances des machines virtuelles locales à partir de vCenter Server. Pour garantir un dimensionnement correct, vérifiez que le paramètre de statistiques dans vCenter Server est défini au niveau 3, et attendez au moins une journée avant de lancer la détection des machines virtuelles locales. Si le paramètre de statistiques dans vCenter Server est inférieur au niveau 3, les données de performances pour le disque et le réseau ne sont pas collectées.
 
 Si vous ne souhaitez pas prendre en compte l’historique des performances pour le dimensionnement des machines virtuelles et que vous voulez migrer la machine virtuelle telle quelle sur Azure, vous pouvez spécifier le critère de dimensionnement *Localement*. Dans ce cas, Azure Migrate dimensionne les machines virtuelles d’après la configuration locale sans prendre en compte les données d’utilisation. Dans ce cas, le dimensionnement du disque est effectué en fonction du type de stockage que vous spécifiez dans les propriétés de l’évaluation (disque Standard ou disque Premium).
 
@@ -119,14 +117,24 @@ Pour le dimensionnement basé sur les performances, Azure Migrate a besoin des d
    61 %-80 % | 4 étoiles
    81 %-100 % | 5 étoiles
 
-Tous les points de données d’une évaluation peuvent ne pas être disponibles pour l’une des raisons suivantes :
-- Le paramètre des statistiques dans vCenter Server n’est pas défini sur le niveau 3. Si le paramètre des statistiques dans vCenter Server est inférieur au niveau 3, les données de performances pour le disque et le réseau ne sont pas collectées à partir de vCenter Server. Dans ce cas, la recommandation fournie par Azure Migrate pour le disque et le réseau n’est pas basée sur l’utilisation. Sans tenir compte des E/S par seconde/du débit du disque, Azure Migrate ne peut pas déterminer si le disque a besoin d’un disque premium dans Azure. Dans ce cas, Azure Migrate recommande donc des disques standard pour tous les disques.
-- Le paramètre des statistiques dans vCenter Server a été défini sur le niveau 3 pour une durée plus courte, avant le lancement de la découverte. Par exemple, intéressons-nous au scénario dans lequel vous faites passer le paramètre de statistiques au niveau 3 aujourd’hui et lancez la découverte en utilisant l’appliance de collecteur demain (après 24 heures). Si vous créez une évaluation pour une journée, vous disposez de tous les points de données, et le niveau de confiance de l’évaluation est de 5 étoiles. Mais si vous modifiez la durée des performances dans les propriétés d’évaluation pour la définir à un mois, le niveau de confiance diminue, car les données de performances du disque et du réseau pour le mois dernier ne sont pas disponibles. Si vous souhaitez prendre en compte les données de performances du dernier mois, il est recommandé de conserver le paramètre des statistiques vCenter Server au niveau 3 pendant un mois avant d’exécuter la découverte.
-- Plusieurs machines virtuelles ont été arrêtées pendant la période de calcul de l’évaluation. Si des machines virtuelles ont été mises hors tension pendant un certain temps, vCenter Server ne disposera pas des données de performances pour cette période.
-- Quelques machines virtuelles ont été créées pendant la période de calcul de l’évaluation. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, l’historique des performances des nouvelles machines virtuelles ne sera pas disponible pour toute la durée définie.
+   Voici les raisons pour lesquelles une évaluation pourrait obtenir un niveau de confiance faible :
 
-> [!NOTE]
-> Si le niveau de confiance d’une évaluation est inférieur à 4 étoiles, nous vous recommandons de faire passer les paramètres de statistiques vCenter Server au niveau 3, de patienter pendant toute la période que vous souhaitez prendre en compte pour l’évaluation (1 jour/1 semaine/1 mois), puis de procéder à la découverte et à l’évaluation. Si l’exemple précédent ne peut pas être effectué, le dimensionnement basé sur les performances est susceptible de manquer de fiabilité et il est recommandé de basculer vers le *dimensionnement Localement* en changeant les propriétés de l’évaluation.
+   **Découverte unique**
+
+   - Le paramètre des statistiques dans vCenter Server n’est pas défini sur le niveau 3. Comme le modèle de découverte unique dépend des paramètres de statistiques de vCenter Server, si le paramètre des statistiques dans vCenter Server est inférieur au niveau 3, les données de performances pour le disque et le réseau ne sont pas collectées à partir de vCenter Server. Dans ce cas, la recommandation fournie par Azure Migrate pour le disque et le réseau n’est pas basée sur l’utilisation. Sans tenir compte des E/S par seconde/du débit du disque, Azure Migrate ne peut pas déterminer si le disque a besoin d’un disque premium dans Azure. Dans ce cas, Azure Migrate recommande donc des disques standard pour tous les disques.
+   - Le paramètre des statistiques dans vCenter Server a été défini sur le niveau 3 pour une durée plus courte, avant le lancement de la découverte. Par exemple, intéressons-nous au scénario dans lequel vous faites passer le paramètre de statistiques au niveau 3 aujourd’hui et lancez la découverte en utilisant l’appliance de collecteur demain (après 24 heures). Si vous créez une évaluation pour une journée, vous disposez de tous les points de données, et le niveau de confiance de l’évaluation est de 5 étoiles. Mais si vous modifiez la durée des performances dans les propriétés d’évaluation pour la définir à un mois, le niveau de confiance diminue, car les données de performances du disque et du réseau pour le mois dernier ne sont pas disponibles. Si vous souhaitez prendre en compte les données de performances du dernier mois, il est recommandé de conserver le paramètre des statistiques vCenter Server au niveau 3 pendant un mois avant d’exécuter la découverte.
+
+   **Découverte en continu**
+
+   - Vous n’avez pas profilé votre environnement pour la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez l’évaluation avec une durée des performances définie sur 1 jour, vous devez attendre au moins un jour après le démarrage de la découverte pour collecter tous les points de données.
+
+   **Raisons courantes**  
+
+   - Plusieurs machines virtuelles ont été arrêtées pendant la période de calcul de l’évaluation. Si des machines virtuelles ont été mises hors tension pendant un certain temps, vous ne pourrez pas collecter les données de performances pour cette période.
+   - Quelques machines virtuelles ont été créées pendant la période de calcul de l’évaluation. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, l’historique des performances des nouvelles machines virtuelles ne sera pas disponible pour toute la durée définie.
+
+   > [!NOTE]
+   > Si le niveau de confiance d’une évaluation est inférieur à 4 étoiles, pour un modèle de découverte unique, nous vous recommandons de faire passer les paramètres de statistiques vCenter Server au niveau 3, de patienter pendant toute la période que vous souhaitez prendre en compte pour l’évaluation (1 jour/1 semaine/1 mois), puis de procéder à la découverte et à l’évaluation. Pour le modèle de découverte en continu, attendez au moins un jour que l’appliance profile l’environnement, puis *recalculez* l’évaluation. Si vous ne pouvez pas effectuer ce qui précède, le dimensionnement basé sur les performances est susceptible de manquer de fiabilité ; nous vous recommandons alors de basculer vers le *dimensionnement local* en changeant les propriétés de l’évaluation.
 
 ## <a name="monthly-cost-estimation"></a>Estimation des coûts mensuels
 

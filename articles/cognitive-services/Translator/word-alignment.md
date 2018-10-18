@@ -1,20 +1,21 @@
 ---
-title: Informations concernant l’alignement des mots avec l’API de traduction de texte Microsoft Translator Text | Microsoft Docs
-description: Recevez des informations sur l’alignement des mots à partir de l’API de traduction de texte Microsoft Translator Text.
+title: Informations concernant l’alignement des mots - API de traduction de texte Translator Text
+titlesuffix: Azure Cognitive Services
+description: Recevez des informations sur l’alignement des mots à partir de l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9d8284db61235284ec0d5a1594c34687c89560e9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 16334dbcb4631bd927069620e73c1c4474ff99fa
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368660"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126256"
 ---
 # <a name="how-to-receive-word-alignment-information"></a>Guide pratique pour recevoir des informations concernant l’alignement des mots
 

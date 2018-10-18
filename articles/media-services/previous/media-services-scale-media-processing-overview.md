@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 81fab8903c0101d0e4aae8a392f05129651cd762
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 698a85244d5341224dd9f513c5617b9086e36844
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368627"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033071"
 ---
 # <a name="scaling-media-processing-overview"></a>Vue d’ensemble de la mise à l’échelle du traitement multimédia
 Cette page fournit une vue d’ensemble de la procédure de mise à l’échelle du traitement multimédia et de ses avantages. 
@@ -30,12 +30,12 @@ Un compte Media Services est associé à un Type d'unité réservé qui détermi
 En plus de spécifier le type d’unité réservée, vous pouvez spécifier d’approvisionner votre compte avec des unités réservées. Le nombre d’unités réservées approvisionnées détermine le nombre de tâches multimédias qui peuvent être traitées simultanément dans un compte donné. Si, par exemple, votre compte a cinq unités réservées, les cinq tâches multimédias sont exécutées simultanément tant qu’il y a des tâches à traiter. Les autres tâches restent dans la file d'attente et sont sélectionnées séquentiellement pour le traitement quand l'exécution d'une tâche se termine. Si aucune unité réservée n'est approvisionnée pour un compte donné, les tâches sont sélectionnées séquentiellement. Dans ce cas, le temps d'attente entre l'achèvement d'une tâche et le démarrage de la suivante dépend de la disponibilité des ressources dans le système.
 
 ## <a name="choosing-between-different-reserved-unit-types"></a>Choix entre les différents types d’unités réservées
-Le tableau suivant vous permet de prendre de décision lors du choix entre les différentes vitesses d’encodage. Il fournit également quelques cas de référence et des URL SAP que vous pouvez utiliser pour télécharger des vidéos sur lesquelles vous pouvez effectuer vos propres tests :
+Le tableau suivant vous aide à choisir entre les différentes vitesses d’encodage. Il fournit également quelques cas de test d’évaluation sur [une vidéo que vous pouvez télécharger](https://nimbuspmteam.blob.core.windows.net/asset-46f1f723-5d76-477e-a153-3fd0f9f90f73/SeattlePikePlaceMarket_7min.ts?sv=2015-07-08&sr=c&si=013ab6a6-5ebf-431e-8243-9983a6b5b01c&sig=YCgEB8DxYKK%2B8W9LnBykzm1ZRUTwQAAH9QFUGw%2BIWuc%3D&se=2118-09-21T19%3A28%3A57Z) pour effectuer vos propres tests :
 
 | Scénarios | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | Cas d’utilisation prévue |Encodage à débit binaire unique. <br/>Fichiers avec une résolution SD ou inférieure, insensibles à l’heure, à moindre coût. |Encodage à débit binaire unique et à débit binaire multiple.<br/>Utilisation normale de l’encodage SD et HD. |Encodage à débit binaire unique et à débit binaire multiple.<br/>Vidéos avec une résolution HD complète et 4K. Encodage sensible à l’heure, plus rapide. |
-| Référence |L’encodage en fichier MP4 à débit binaire unique, à la même résolution, prend environ 11 minutes. |L’encodage avec la présélection « H264 – Vitesse de transmission simple – 720p » prend environ 5 minutes.<br/><br/>L’encodage avec la présélection « H264 – Vitesse de transmission multiple – 720p » prend environ 11,5 minutes. |L’encodage avec la présélection « H264 à débit binaire simple 1080p » prend environ 2,7 minutes.<br/><br/>L’encodage avec la présélection « H264 à débit binaire multiple 1080p » prend environ 5,7 minutes. |
+| Vidéo de tests d’évaluation de 7 minutes |L’encodage en fichier MP4 à débit binaire unique, à la même résolution, prend environ 5 minutes. |L’encodage avec la présélection « H264 – Vitesse de transmission simple – 720p » prend environ 8 minutes.<br/><br/>L’encodage avec la présélection « H264 – Vitesse de transmission multiple – 720p » prend environ 16,8 minutes. |L’encodage avec la présélection « H264 à débit binaire simple 1080p » prend environ 4 minutes.<br/><br/>L’encodage avec la présélection « H264 à débit binaire multiple 1080p » prend environ 8 minutes. |
 
 
 ## <a name="considerations"></a>Considérations

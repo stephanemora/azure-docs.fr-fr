@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: f71d4c7dc94fedfd598ab87c51366ba9fb1f184a
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: a076ee5275a4d053613902a1980542590263385c
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063033"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47034267"
 ---
 # <a name="set-up-a-device-template"></a>Configurer un modèle d’appareil
 
@@ -63,7 +63,7 @@ Les mesures sont les données qui proviennent de votre appareil. Vous pouvez ajo
 - Les mesures de type **état** représentent l’état de l’appareil ou de ses composants sur une période de temps. Par exemple, vous pouvez définir le mode d’un ventilateur avec deux états possibles : **En fonctionnement** et **Arrêté**.
 
 ### <a name="create-a-telemetry-measurement"></a>Créer une mesure de télémétrie
-Pour ajouter une nouvelle mesure de télémétrie, sélectionnez le bouton **+ Nouvelle mesure**. Sélectionnez **Télémétrie** comme type de mesure, puis entrez les détails dans le formulaire **Créer une télémétrie**.
+Pour ajouter une nouvelle mesure de télémétrie, sélectionnez **Modifier le modèle**, puis cliquez sur le bouton **+ Nouvelle mesure**. Sélectionnez **Télémétrie** comme type de mesure, puis entrez les détails dans le formulaire **Créer une télémétrie**.
 
 > [!NOTE]
 > Quand un appareil réel est connecté, soyez attentif au nom de la mesure signalée par l’appareil. Le nom doit correspondre exactement à l’entrée **Nom du champ** d’une mesure.
@@ -72,12 +72,13 @@ Par exemple, vous pouvez ajouter une nouvelle mesure de télémétrie de tempér
 
 ![Formulaire « Créer une télémétrie » contenant des détails sur la mesure de température](./media/howto-set-up-template/measurementsform.png)
 
-Après avoir sélectionné **Enregistrer**, la mesure **Température** figure dans la liste des mesures. Un opérateur peut afficher la visualisation des données de température recueillies par l’appareil.
+Une fois que vous avez sélectionné **Terminé**, la mesure **Température** figure dans la liste des mesures. Un opérateur peut afficher la visualisation des données de température recueillies par l’appareil.
 
-![Graphique Mesure](./media/howto-set-up-template/measurementsgraph.png)
+> [!NOTE]
+  Le type de données de la mesure de télémétrie est « double ».
 
 ### <a name="create-an-event-measurement"></a>Créer une mesure d’événement
-Pour ajouter une nouvelle mesure d’événement, sélectionnez le bouton **+ Nouvelle mesure**. Sélectionnez **Événement** comme type de mesure, puis entrez les détails dans le formulaire **Créer un événement**.
+Pour ajouter une nouvelle mesure d’événement, sélectionnez **Modifier le modèle**, puis cliquez sur le bouton **+ Nouvelle mesure**. Sélectionnez **Événement** comme type de mesure, puis entrez les détails dans le formulaire **Créer un événement**.
 
 Indiquez les détails de l’événement dans les champs **Nom d’affichage**, **Nom du champ** et **Gravité**. Vous pouvez choisir parmi les trois niveaux de gravité disponibles : **Erreur**, **Avertissement** et **Information**.  
 
@@ -85,17 +86,19 @@ Par exemple, vous pouvez ajouter un nouvel événement **Erreur du moteur du ven
 
 ![Formulaire « Créer un événement » contenant des détails sur un événement du moteur du ventilateur](./media/howto-set-up-template/eventmeasurementsform.png)
 
-Après avoir sélectionné **Enregistrer**, la mesure **Erreur du moteur du ventilateur** figure dans la liste des mesures. Un opérateur peut afficher la visualisation des données d’événement envoyées par l’appareil.
+Une fois que vous avez sélectionné **Terminé**, la mesure **Erreur du moteur du ventilateur** figure dans la liste des mesures. Un opérateur peut afficher la visualisation des données d’événement envoyées par l’appareil.
 
 ![Graphique de mesure d’événement](./media/howto-set-up-template/eventmeasurementschart.png)
 
-Pour afficher des détails supplémentaires sur l’événement, sélectionnez l’icône de l’événement sur le graphique :
+Pour afficher des détails supplémentaires sur l’événement, sélectionnez l’icône de l’événement sur le graphique.
 
 ![Détails sur l’événement « Erreur du moteur du ventilateur »](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
+> [!NOTE]
+  Le type de données de la mesure Événement est « chaîne ».
 
 ### <a name="create-a-state-measurement"></a>Créer une mesure d’état
-Pour ajouter une nouvelle mesure d’état, sélectionnez le bouton **+ Nouvelle mesure**. Sélectionnez **État** comme type de mesure, puis entrez les détails dans le formulaire **Créer un état**.
+Pour ajouter une nouvelle mesure d’état, sélectionnez **Modifier le modèle**, puis cliquez sur le bouton **+ Nouvelle mesure**. Sélectionnez **État** comme type de mesure, puis entrez les détails dans le formulaire **Créer un état**.
 
 Indiquez les détails de l’état dans les champs **Nom d’affichage**, **Nom du champ** et **Valeurs**. Chaque valeur peut aussi être assortie d’un nom d’affichage qui sera utilisé quand la valeur s’affichera dans les graphiques et les tableaux.
 
@@ -103,14 +106,14 @@ Par exemple, vous pouvez ajouter un nouvel état **Mode du ventilateur**, dont l
 
 ![Formulaire « Modifier l’état » contenant des détails sur le mode du ventilateur](./media/howto-set-up-template/statemeasurementsform.png)
 
-Après avoir sélectionné **Enregistrer**, la mesure d’état **Mode du ventilateur** figure dans la liste des mesures. L’opérateur peut afficher la visualisation des données d’état envoyées par l’appareil.
+Une fois que vous avez sélectionné **Terminé**, la mesure d’état **Mode du ventilateur** figure dans la liste des mesures. L’opérateur peut afficher la visualisation des données d’état envoyées par l’appareil.
 
 ![Graphique de mesure d’état](./media/howto-set-up-template/statemeasurementschart.png)
 
 Si l’appareil envoie un trop grand nombre de points de données sur une courte période, la mesure d’état s’affiche avec un visuel différent, comme le montre la capture d’écran suivante. Si vous cliquez sur le graphique, tous les points de données de cette période sont affichés par ordre chronologique. Vous pouvez également réduire l’intervalle de temps pour voir la mesure tracée sur le graphique.
 
-![Détails sur la mesure d’état « Mode du ventilateur statique »](./media/howto-set-up-template/statemeasurementsdetail.png)
-
+> [!NOTE]
+  Le type de données de la mesure État est « chaîne ».
 
 ## <a name="settings"></a>Paramètres
 
@@ -127,17 +130,17 @@ Les paramètres peuvent avoir un parmi trois états. L’appareil signale ces é
 
 - **Erreur** : l’appareil a retourné une erreur.
 
-Par exemple, vous pouvez ajouter un nouveau paramètre de vitesse du ventilateur :
+Par exemple, vous pouvez ajouter un nouveau paramètre de vitesse du ventilateur en sélectionnant **Modifier le modèle** et en entrant le nouveau paramètre :
 
 ![Formulaire « Configurer le nombre » contenant des détails sur les paramètres de vitesse](./media/howto-set-up-template/settingsform.png)
 
 Une fois que vous avez sélectionné **Enregistrer**, le paramètre **Vitesse du ventilateur** apparaît sous forme de vignette et peut être utilisé pour changer la vitesse du ventilateur de l’appareil.
 
-Après avoir créé une vignette, vous pouvez essayer votre nouveau paramètre. Désactivez d’abord le mode Conception en haut à droite de l’écran.
+Après avoir créé une vignette, vous pouvez essayer votre nouveau paramètre. Tout d’abord, sélectionnez **Terminé** en haut à droite de l’écran.
 
 ![Onglet « Paramètres » avec le commutateur « Mode Conception » pour la vignette](./media/howto-set-up-template/settingstile.png)
 
-## <a name="properties"></a>Propriétés
+## <a name="properties"></a>properties
 
 Les propriétés sont les métadonnées associées à l’appareil, comme l’emplacement et le numéro de série de l’appareil. Vous pouvez ajouter plusieurs propriétés à votre modèle d’appareil qui apparaissent sous forme de vignettes sous l’onglet **Propriétés**. Un opérateur peut spécifier les valeurs des propriétés quand il crée un appareil et les modifier à tout moment. Vous pouvez ajouter six types de propriété : nombre, texte, date, bascule, propriété d’appareil et étiquette.
 
@@ -149,7 +152,7 @@ Il existe deux catégories de propriété :
 > [!NOTE]
 > Pour les propriétés d’appareil, quand un appareil réel est connecté, soyez attentif au nom de la propriété signalée par l’appareil. Le nom doit correspondre exactement à l’entrée **Nom du champ** de la propriété. Pour les propriétés d’application, le nom du champ est à votre libre choix dès lors qu’il est unique dans le modèle d’appareil.
 
-Par exemple, vous pouvez ajouter l’emplacement de l’appareil en tant que nouvelle propriété :
+Par exemple, vous pouvez ajouter un emplacement d’appareil comme nouvelle propriété en sélectionnant **Modifier le modèle** et en entrant la nouvelle propriété :
 
 ![Formulaire « Configurer le texte » sous l’onglet « Propriétés »](./media/howto-set-up-template/propertiesform.png)
 
@@ -157,7 +160,7 @@ Une fois que vous avez sélectionné **Enregistrer**, l’emplacement de l’app
 
 ![Vignette Emplacement](./media/howto-set-up-template/propertiestile.png)
 
-Après avoir créé une vignette, vous pouvez changer la valeur de la propriété. Désactivez d’abord le mode Conception en haut à droite de l’écran.
+Après avoir créé une vignette, vous pouvez changer la valeur de la propriété. Tout d’abord, sélectionnez **Terminé** en haut à droite de l’écran.
 
 ### <a name="create-a-location-property-through-azure-maps"></a>Créer une propriété d’emplacement via Azure Maps
 Vous pouvez indiquer le contexte géographique des données d’emplacement dans Azure IoT Central et cartographier les coordonnées de latitude et de longitude d’une adresse postale. Vous pouvez aussi simplement cartographier les coordonnées de latitude et de longitude. Azure Maps active cette fonctionnalité dans IoT Central.
@@ -169,7 +172,7 @@ Vous pouvez ajouter deux types de propriété d’emplacement :
 #### <a name="add-location-as-an-application-property"></a>Ajouter un emplacement en tant que propriété d’application 
 Vous pouvez créer une propriété d’emplacement sous forme de propriété d’application en utilisant Azure Maps dans votre application Azure IoT Central. Par exemple, vous pouvez ajouter l’adresse d’installation de l’appareil. 
 
-1. Sous l’onglet **Propriétés**, vérifiez que le **Mode Conception** est **Activé**.
+1. Sous l’onglet **Propriétés**, sélectionnez **Modifier le modèle**.
 
    ![Onglet « Propriétés » avec le mode Conception activé](./media/howto-set-up-template/locationcloudproperty1.png)
 
@@ -182,17 +185,13 @@ Vous pouvez créer une propriété d’emplacement sous forme de propriété d�
    - **Emplacement sous forme d’adresse**
    - **Emplacement sous forme de coordonnées** 
 
-4. Sélectionnez **Enregistrer**. 
-
-   ![Propriété d’emplacement avec l’adresse d’installation ajoutée](./media/howto-set-up-template/locationcloudproperty3.png)
-
-Un opérateur peut désormais mettre à jour la valeur de l’emplacement dans le formulaire du champ de l’emplacement. 
+4. Sélectionnez **Enregistrer** et **Terminé**. Un opérateur peut désormais mettre à jour la valeur de l’emplacement dans le formulaire du champ de l’emplacement. 
 
 #### <a name="add-location-as-a-device-property"></a>Ajouter un emplacement en tant que propriété d’appareil 
 
 Vous pouvez créer une propriété d’emplacement sous forme de propriété d’appareil signalée par cet appareil. Par exemple, si vous voulez effectuer le suivi de l’emplacement de l’appareil :
 
-1. Sous l’onglet **Propriétés**, vérifiez que le **Mode Conception** est **Activé**.
+1. Sous l’onglet **Propriétés**, sélectionnez **Modifier le modèle**.
 
    ![Onglet « Propriétés » avec le mode Conception activé](./media/howto-set-up-template/locationdeviceproperty1.png)
 
@@ -216,13 +215,13 @@ En quoi une commande est-elle différente d’un paramètre ?
 
 * **Commande** : les commandes vous permettent d’exécuter instantanément une commande sur l’appareil à distance à partir d’IoT Central. Si aucun appareil n’est connecté, la commande expire et échoue. Tel peut être le cas si vous souhaitez redémarrer un appareil.  
 
-Quand vous exécutez une commande, vous pouvez obtenir trois états différents, selon que l’appareil a reçu la commande ou non. 
+Quand vous exécutez une commande, vous pouvez obtenir trois états différents, selon que l’appareil a reçu la commande ou non.
 
-Par exemple, vous pouvez ajouter un nouvelle commande **Écho** :
+Par exemple, vous pouvez ajouter une nouvelle commande **Echo** en sélectionnant **Modifier le modèle**, en cliquant sur **+ Nouvelle commande**, puis en entrant la nouvelle commande :
 
 ![Formulaire « Configurer la commande » contenant les détails de l’écho](./media/howto-set-up-template/commandsecho.png)
 
-Après avoir sélectionné **Enregistrer**, la commande **Écho** s’affiche sous forme de vignette et est prête à être utilisée pour envoyer un écho à l’appareil.
+Une fois que vous avez sélectionné **Enregistrer** et **Terminé**, la commande **Echo** s’affiche sous forme de vignette et est prête à être utilisée pour envoyer un écho à l’appareil.
 
 Après avoir créé une vignette, vous pouvez essayer votre nouvelle commande.
 
@@ -232,11 +231,11 @@ Les règles permettent aux opérateurs de surveiller des appareils quasi en temp
 
 - La **règle de télémétrie**, qui se déclenche quand la télémétrie de l’appareil sélectionné dépasse un seuil spécifié. [Découvrez plus en détail les règles de télémétrie](howto-create-telemetry-rules.md).
 
-## <a name="dashboard"></a>Tableau de bord
+## <a name="dashboard"></a>tableau de bord
 
 Le tableau de bord est l’endroit où un opérateur peut accéder à des informations sur un appareil. Comme concepteur, vous pouvez ajouter des vignettes à cette page pour aider les opérateurs à comprendre comment l’appareil se comporte. Vous pouvez ajouter plusieurs vignettes de tableau de bord à votre modèle d’appareil. Vous pouvez ajouter six types de vignette de tableau de bord : image, graphique en courbes, graphique à barres, indicateur de performance clé (KPI), paramètres et propriétés, puis étiquette.
 
-Par exemple, vous pouvez ajouter une vignette **Paramètres et propriétés** pour montrer une sélection des valeurs actuelles de paramètres et de propriétés :
+Par exemple, vous pouvez ajouter une vignette **Paramètres et propriétés** pour montrer une sélection des valeurs actuelles de paramètres et de propriétés en sélectionnant **Modifier le modèle** et la vignette dans la bibliothèque :
 
 ![Formulaire « Configurer les détails de l’appareil » contenant les détails des paramètres et des propriétés](./media/howto-set-up-template/dashboardsettingsandpropertiesform.png)
 
@@ -248,12 +247,12 @@ Maintenant, quand un opérateur visualise le tableau de bord, il peut voir cette
 
 Si vous avez configuré une propriété d’emplacement précédemment dans la section [Créer une propriété d’emplacement via Azure Maps](#create-a-location-property-through-azure-maps), vous pouvez visualiser cet emplacement en utilisant une carte dans le tableau de bord de votre appareil.
 
-1. Sous l’onglet **Tableau de bord**, vérifiez que le **Mode Conception** est **Activé**.
+1. Sous l’onglet **Tableau de bord**, sélectionnez **Modifier le modèle**.
 
    ![Onglet « Tableau de bord » avec le mode Conception activé](./media/howto-set-up-template/locationcloudproperty4map.png)
 
 2. Dans le tableau de l’appareil, sélectionnez **Carte** dans la bibliothèque. 
-3. Donnez un titre et choisissez la propriété d’emplacement que vous avez configurée précédemment dans les propriétés de votre appareil.
+3. Donnez-lui un titre et choisissez la propriété d’emplacement que vous avez configurée dans les propriétés de votre appareil.
 
    ![Formulaire « Configurer la carte » contenant les détails de la vignette et les propriétés](./media/howto-set-up-template/locationcloudproperty5map.png)
 
@@ -261,11 +260,7 @@ Si vous avez configuré une propriété d’emplacement précédemment dans la s
 
    ![Vignette de la carte avec l’emplacement sélectionné](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-Vous pouvez redimensionner la carte à la taille souhaitée.
-
-Dès lors, quand un opérateur consulte le tableau de bord, il voit toutes les vignettes de tableau de bord que vous avez configurées, y compris la carte d’emplacement.
-
-![Vignettes dans le tableau de bord](./media/howto-set-up-template/locationcloudproperty7map.png) 
+Vous pouvez redimensionner la carte à la taille souhaitée. Dès lors, quand un opérateur consulte le tableau de bord, il voit toutes les vignettes de tableau de bord que vous avez configurées, y compris la carte d’emplacement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/20/2018
 ms.author: barclayn
-ms.openlocfilehash: 21438b107632166f3717c07b0fd01a56a2944f34
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 71351a979e8bb443864c975b91539c527bea7f2a
+ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294054"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47033425"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Chiffrement des données au repos d’Azure
 
@@ -79,7 +79,7 @@ Les clés de chiffrement des données chiffrées avec des clés de chiffrement d
 
 ## <a name="data-encryption-models"></a>Modèles de chiffrement des données
 
-Une compréhension des différents modèles de chiffrement, ainsi que leurs avantages et inconvénients, est essentielle pour comprendre comment les différents fournisseurs de ressources dans Azure implémentent le chiffrement au repos. Ces définitions sont partagées par tous les fournisseurs de ressources dans Azure, ce qui garantit un langage et une taxonomie communs. 
+Une compréhension des différents modèles de chiffrement, ainsi que de leurs avantages et inconvénients, est essentielle pour comprendre comment les différents fournisseurs de ressources dans Azure implémentent le chiffrement au repos. Ces définitions sont partagées par tous les fournisseurs de ressources dans Azure, ce qui garantit un langage et une taxonomie communs. 
 
 Il existe trois scénarios de chiffrement côté serveur :
 
@@ -259,28 +259,28 @@ Le chiffrement côté client des données d’Azure SQL Database est pris en cha
 |----------------------------------|--------------------|--------------------|--------------------|--------------------|
 |                                  | **Côté serveur à l’aide d’une clé gérée par le service**     | **Côté serveur à l’aide d’un coffre de clés géré par le client**             |  **Côté serveur à l’aide de locaux gérés par le client**                  | **Client utilisant une gestion par le client**      |
 | **Stockage et bases de données**        |                    |                    |                    |                    |                    |
-| Disque (IaaS)                      | -                  | Oui, RSA 2048 bits  | OUI               | -                  |
-| SQL Server (IaaS)                | OUI                | Oui, RSA 2048 bits  | OUI                | OUI                |
-| Azure SQL Database (PaaS)        | OUI                | Oui, RSA 2048 bits  | -                  | OUI                |
-| Stockage Azure (Objets blob de blocs/pages) | OUI                | Oui, RSA 2048 bits  | -                  | OUI                |
-| Stockage Azure (Fichiers)            | OUI                | Oui, RSA 2048 bits  | -                  | -                  |
-| Stockage Azure (Tables, Files d’attente)   | OUI                | -                  | -                  | OUI                |
-| Cosmos DB (Document DB)          | OUI                | -                  | -                  | -                  |
-| StorSimple                       | OUI                | -                  | -                  | OUI                |
-| Sauvegarde                           | -                  | -                  | -                  | OUI                |
+| Disque (IaaS)                      | -                  | Oui, RSA 2048 bits  | Oui               | -                  |
+| SQL Server (IaaS)                | Oui                | Oui, RSA 2048 bits  | Oui                | Oui                |
+| Azure SQL (Database/Data Warehouse) | Oui                | Oui, RSA 2048 bits  | -                  | Oui                |
+| Stockage Azure (Objets blob de blocs/pages) | Oui                | Oui, RSA 2048 bits  | -                  | Oui                |
+| Stockage Azure (Fichiers)            | Oui                | Oui, RSA 2048 bits  | -                  | -                  |
+| Stockage Azure (Tables, Files d’attente)   | Oui                | -                  | -                  | Oui                |
+| Cosmos DB (Document DB)          | Oui                | -                  | -                  | -                  |
+| StorSimple                       | Oui                | -                  | -                  | Oui                |
+| Sauvegarde                           | -                  | -                  | -                  | Oui                |
 | **Décisionnel &amp; Analytique**   |                    |                    |                    |                    |
-| Azure Data Factory               | OUI                | -                  | -                  | -                  |
+| Azure Data Factory               | Oui                | -                  | -                  | -                  |
 | Azure Machine Learning           | -                  | Préversion, RSA 2048 bits | -                  | -                  |
-| Azure Stream Analytics           | OUI                | -                  | -                  | -                  |
-| HDInsight (Azure Blob Storage)   | OUI                | -                  | -                  | -                  |
-| HDInsight (Data Lake Storage)    | OUI                | -                  | -                  | -                  |
-| Azure Data Lake Store            | OUI                | Oui, RSA 2048 bits  | -                  | -                  |
-| Azure Data Catalog               | OUI                | -                  | -                  | -                  |
-| Power BI                         | OUI                | -                  | -                  | -                  |
+| Azure Stream Analytics           | Oui                | -                  | -                  | -                  |
+| HDInsight (Azure Blob Storage)   | Oui                | -                  | -                  | -                  |
+| HDInsight (Data Lake Storage)    | Oui                | -                  | -                  | -                  |
+| Azure Data Lake Store            | Oui                | Oui, RSA 2048 bits  | -                  | -                  |
+| Azure Data Catalog               | Oui                | -                  | -                  | -                  |
+| Power BI                         | Oui                | -                  | -                  | -                  |
 | **Services IoT**                 |                    |                    |                    |                    |
-| IoT Hub                          | -                  | -                  | -                  | OUI                |
-| Service Bus                      | OUI                | -                  | -                  | OUI                |
-| Event Hubs                       | OUI                | -                  | -                  | -                  |
+| IoT Hub                          | -                  | -                  | -                  | Oui                |
+| Service Bus                      | Oui                | -                  | -                  | Oui                |
+| Event Hubs                       | Oui                | -                  | -                  | -                  |
 
 
 ## <a name="conclusion"></a>Conclusion

@@ -12,14 +12,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-xamarin-android
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/05/2017
+ms.date: 09/24/2018
 ms.author: panarasi
-ms.openlocfilehash: 97207b722b65ccf98c57304cd559b0927aacd5a4
-ms.sourcegitcommit: df4ddc55b42b593f165d56531f591fdb1e689686
+ms.openlocfilehash: d496801894560310a4225eae8a32fced52bcc428
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/04/2018
-ms.locfileid: "27595293"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47063538"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Ajout de l'authentification à votre application Xamarin.Android
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
@@ -125,6 +125,12 @@ L'application est mise à jour de manière à demander aux utilisateurs de cliqu
         </activity>
 
 6. Dans Visual Studio ou Xamarin Studio, exécutez le projet client sur un appareil ou un émulateur et connectez-vous avec le fournisseur d’identité que vous avez choisi. Lorsque vous êtes connecté, l'application affiche votre ID de connexion et la liste des tâches, et vous pouvez mettre à jour les données.
+
+## <a name="troubleshooting"></a>Résolution de problèmes
+
+**L’application a planté avec `Java.Lang.NoSuchMethodError: No static method startActivity`**
+
+Dans certains cas, des conflits dans les packages de support sont affichés seulement en tant qu’avertissement dans Visual Studio, mais l’application plante avec cette exception lors de l’exécution. Dans ce cas, vous devez vérifier que tous les packages de support référencés dans votre projet ont la même version. Le [package NuGet Azure Mobile Apps](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) comporte une dépendance `Xamarin.Android.Support.CustomTabs` à la plateforme Android. Par conséquent, si votre projet utilise des packages de support plus récents, vous devez installer directement ce package avec la version requise pour éviter les conflits.
 
 <!-- URLs. -->
 [Création d’une application Xamarin.Android]: app-service-mobile-xamarin-android-get-started.md

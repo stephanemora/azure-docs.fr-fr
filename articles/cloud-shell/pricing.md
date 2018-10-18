@@ -1,6 +1,6 @@
 ---
 title: Tarifs Azure Cloud Shell | Microsoft Docs
-description: Vue d’ensemble des prix d’Azure Cloud Shell
+description: Vue d’ensemble de la tarification d’Azure Cloud Shell
 services: ''
 documentationcenter: ''
 author: jluk
@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2017
 ms.author: juluk
-ms.openlocfilehash: 8c418a3681fa9d8ac70974ac2c0bcf1c826209aa
-ms.sourcegitcommit: 9a61faf3463003375a53279e3adce241b5700879
+ms.openlocfilehash: 16f7327659a0f5fe542375a4b7e3232ee14bb17c
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/15/2017
-ms.locfileid: "24809864"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158648"
 ---
-# <a name="pricing"></a>Tarification
-Bash dans Cloud Shell et PowerShell dans Cloud Shell (préversion) font l’objet des informations ci-dessous.
+# <a name="pricing"></a>Tarifs
+Bash dans Cloud Shell et PowerShell dans Cloud Shell font l’objet des informations ci-dessous.
 
 ## <a name="compute-cost"></a>Coût de calcul
 Azure Cloud Shell s’exécute sur une machine fournie gratuitement par Azure, mais requiert un partage de fichiers Azure à utiliser. 

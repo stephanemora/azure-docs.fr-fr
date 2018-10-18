@@ -4,28 +4,43 @@ description: Explique comment affiner une évaluation à l’aide du mappage de 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 09/25/2018
 ms.author: raynew
-ms.openlocfilehash: 37c4ce8638c8f0481151449317d6cd387b61b256
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9f95ffe47275cfda77efa294ca6e8ccebe0070eb
+ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622896"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47158612"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Affiner un groupe à l’aide du mappage de dépendances de groupe
 
-Cet article décrit comment affiner un groupe en visualisant les dépendances de tous les ordinateurs dans le groupe. On utilise généralement cette méthode pour affiner l’appartenance à un groupe existant, en vérifiant par recoupement les dépendances du groupe avant d’exécuter une évaluation. Affiner un groupe à l’aide de la visualisation des dépendances peut vous aider à planifier efficacement votre migration vers Azure. Vous pouvez découvrir tous les systèmes interdépendants devant migrer en même temps. Elle vous permet de ne rien oublier et vous épargne les pannes inopinées pendant la migration vers Azure. 
+Cet article décrit comment affiner un groupe en visualisant les dépendances de tous les ordinateurs dans le groupe. On utilise généralement cette méthode pour affiner l’appartenance à un groupe existant, en vérifiant par recoupement les dépendances du groupe avant d’exécuter une évaluation. Le fait d’affiner un groupe à l’aide de la visualisation des dépendances peut vous aider à planifier efficacement votre migration vers Azure. Vous pouvez découvrir tous les systèmes interdépendants devant migrer en même temps. Elle vous permet de ne rien oublier et vous épargne les pannes inopinées pendant la migration vers Azure.
 
 
 > [!NOTE]
 > Les groupes pour lesquels vous souhaitez visualiser les dépendances ne doivent pas contenir plus de 10 machines. Si vous avez plus de 10 machines dans le groupe, nous vous recommandons de le diviser en groupes plus petits pour tirer parti des fonctionnalités de visualisation de dépendance.
 
 
-# <a name="prepare-the-group-for-dependency-visualization"></a>Préparer le groupe à la visualisation de dépendance
-Pour afficher les dépendances d’un groupe, vous devez télécharger et installer des agents sur chacune des machines locales faisant partie du groupe. Si, par ailleurs, certaines de vos machines n’ont pas de connexion Internet, il vous faudra télécharger et y installer la [passerelle OMS](../log-analytics/log-analytics-oms-gateway.md).
+## <a name="prepare-for-dependency-visualization"></a>Préparer la visualisation des dépendances
+Azure Migrate s’appuie sur la solution Service Map dans Log Analytics pour permettre la visualisation des dépendances des machines.
+
+### <a name="associate-a-log-analytics-workspace"></a>Associer un espace de travail Log Analytics
+Pour tirer parti de la visualisation des dépendances, vous pouvez associer un espace de travail Log Analytics, nouveau ou existant, à un projet Azure Migrate. Vous ne pouvez créer ou attacher un espace de travail que dans l’abonnement où le projet de migration est créé.
+
+- Pour attacher un espace de travail Log Analytics à un projet, dans **Vue d’ensemble**, accédez à la section **Bases** du projet, puis cliquez sur **Requiert une configuration**
+
+    ![Associer un espace de travail Log Analytics](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- Quand vous créez un espace de travail, vous devez spécifier un nom pour celui-ci. L’espace de travail est ensuite créé dans le même abonnement que le projet de migration et dans une région appartenant à la même [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) que le projet de migration.
+- L’option **Utiliser l’existant** répertorie uniquement les espaces de travail qui sont créés dans les régions où Service Map est disponible. Si vous avez un espace de travail dans une région où Service Map n’est pas disponible, il n’est pas répertorié dans la liste déroulante.
+
+> [!NOTE]
+> Vous ne pouvez pas changer l’espace de travail associé à un projet de migration.
 
 ### <a name="download-and-install-the-vm-agents"></a>Téléchargement et installation des agents de machines virtuelles
+Pour afficher les dépendances d’un groupe, vous devez télécharger et installer des agents sur chacune des machines locales faisant partie du groupe. Si, par ailleurs, certaines de vos machines n’ont pas de connexion Internet, il vous faudra télécharger et y installer la [passerelle OMS](../log-analytics/log-analytics-oms-gateway.md).
+
 1. Dans **Vue d’ensemble**, cliquez sur **Gérer** > **Groupes**, accédez au groupe requis.
 2. Dans la liste des machines, dans la colonne **Agent de dépendances**, cliquez sur **Installation requise** pour afficher les instructions relatives au téléchargement et à l’installation des agents.
 3. Sur la page **Dépendances**, téléchargez et installez Microsoft Monitoring Agent (MMA) et l’agent de dépendances sur chacune des machines virtuelles faisant partie du groupe.
@@ -37,8 +52,8 @@ Pour installer l’agent sur une machine Windows :
 
 1. Double-cliquez sur l’agent téléchargé.
 2. Sur la page d’**accueil**, cliquez sur **Suivant**. Sur la page **Termes du contrat de licence**, cliquez sur **J’accepte** pour accepter la licence.
-3. Dans **Dossier de destination**, conservez ou modifiez le dossier d’installation par défaut > **Suivant**. 
-4. Dans **Options d’installation de l’agent**, sélectionnez **Azure Log Analytics** > **Suivant**. 
+3. Dans **Dossier de destination**, conservez ou modifiez le dossier d’installation par défaut > **Suivant**.
+4. Dans **Options d’installation de l’agent**, sélectionnez **Azure Log Analytics** > **Suivant**.
 5. Cliquez sur **Ajouter** pour ajouter un nouvel espace de travail Log Analytics. Collez l’ID et la clé de l’espace de travail que vous avez copiés sur le portail. Cliquez sur **Suivant**.
 
 
@@ -66,7 +81,7 @@ Une fois que vous avez installé les agents sur toutes les machines du groupe, v
 3. La carte des dépendances du groupe affiche les informations suivantes :
     - Connexions TCP entrantes (clients) et sortantes (serveurs) vers/depuis toutes les machines faisant partie du groupe
         - Les machines dépendantes sur lesquelles ne sont pas installés l’agent MMA et l’agent de dépendances sont regroupées par numéros de port
-        - Les machines dépendantes sur lesquelles sont installés l’agent MMA et l’agent de dépendances apparaissent sous forme de zones distinctes 
+        - Les machines dépendantes sur lesquelles sont installés l’agent MMA et l’agent de dépendances apparaissent sous forme de zones distinctes
     - Processus en cours d’exécution dans la machine (vous pouvez développer chaque zone de machine pour afficher les processus correspondants)
     - Propriétés de chaque machine telles que Nom de domaine complet, Système d’exploitation ou Adresse MAC (vous pouvez cliquer sur chaque zone de machine pour afficher ces détails)
 
@@ -86,5 +101,5 @@ Si vous souhaitez vérifier les dépendances d’une machine spécifique qui s�
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-[Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.
+- [Découvrez plus en détail](https://docs.microsoft.com/azure/migrate/resources-faq#dependency-visualization) les questions fréquemment posées au sujet de la visualisation des dépendances.
+- [Découvrez plus en détail](concepts-assessment-calculation.md) le mode de calcul des évaluations.

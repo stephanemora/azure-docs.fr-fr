@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 06a79250bac977fc4ade7853594c5307bb11d983
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4600ec9d76f682f0dedf8c802d23b32fd6126481
+ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336943"
+ms.lasthandoff: 09/26/2018
+ms.locfileid: "47181496"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Weibo à l’aide d’Azure Active Directory B2C
 
@@ -45,20 +45,13 @@ Pour utiliser un compte Weibo en tant que fournisseur d’identité dans Azure A
 6. Sélectionnez **保存以上信息** (Enregistrer).
 7. Sélectionnez **高级信息** (Informations avancées).
 8. Sélectionnez **编辑** (Modifier) en regard du champ pour OAuth2.0 **授权设置**(URL de redirection).
-9. Entrez `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` pour OAuth2.0 **授权设置**(URL de redirection). Par exemple, si votre `tenant_name` est contoso, définissez l’URL sur `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+9. Entrez `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` pour OAuth2.0 **授权设置**(URL de redirection). Par exemple, si le nom de votre locataire est contoso, définissez l’URL sur `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 10. Sélectionnez **提交** (Envoyer).  
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Configuration d’un compte Weibo en tant que fournisseur d’identité
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général de votre locataire Azure AD B2C.
-2. Assurez-vous que vous utilisez le répertoire qui contient votre locataire Azure AD B2C en l’activant dans l’angle supérieur droit du portail Azure. Sélectionnez les informations sur votre abonnement, puis cliquez sur **Changer de répertoire**. 
-
-    ![Basculez vers votre client Azure AD B2C.](./media/active-directory-b2c-setup-weibo-app/switch-directories.png)
-
-    Choisissez le répertoire qui contient votre locataire.
-
-    ![Sélectionner le répertoire](./media/active-directory-b2c-setup-weibo-app/select-directory.png)
-
+2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, recherchez et sélectionnez **Azure Active Directory B2C**.
 4. Cliquez sur **Fournisseurs d’identité**, puis sélectionnez **Ajouter**.
 5. Fournissez un **nom**. Par exemple, entrez *Weibo*.

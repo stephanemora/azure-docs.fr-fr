@@ -1,6 +1,6 @@
 ---
-title: Utiliser l’interface CLI 2.0 pour créer une application Azure AD et la configurer pour accéder à l’API Azure Media Services | Microsoft Docs
-description: Cette rubrique montre comment utiliser l’interface CLI 2.0 pour créer une application Azure AD et la configurer pour accéder à l’API d’Azure Media Services.
+title: Utiliser l’interface de ligne de commande Azure pour créer une application Azure AD et la configurer pour accéder à l’API Azure Media Services | Microsoft Docs
+description: Cette rubrique montre comment utiliser l’interface de ligne de commande Azure pour créer une application Azure AD et la configurer pour accéder à l’API d’Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -13,19 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/17/2017
 ms.author: juliako
-ms.openlocfilehash: 7685be97213f0b298499d474c0a6a772ca608fb2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: fcd0ea10bd39f9e7252e114e8d6401a4fe0ecadb
+ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782728"
+ms.lasthandoff: 09/25/2018
+ms.locfileid: "47096546"
 ---
-# <a name="use-cli-20-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Utiliser l’interface CLI 2.0 pour créer une application AAD et la configurer pour accéder à l’API Azure Media Services
+# <a name="use-azure-cli-to-create-an-aad-app-and-configure-it-to-access-azure-media-services-api"></a>Utiliser l’interface de ligne de commande Azure pour créer une application AAD et la configurer pour accéder à l’API Azure Media Services
 
-Cette rubrique vous montre comment utiliser l’interface CLI 2.0 pour créer une application Azure Active Directory (Azure AD) et un principal de service pour accéder aux ressources Azure Media Services. 
+Cette rubrique vous montre comment utiliser l’interface de ligne de commande Azure pour créer une application Azure Active Directory (Azure AD) et un principal de service pour accéder aux ressources Azure Media Services. 
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 - Un compte Azure. Pour plus d’informations, consultez la page [Version d’évaluation gratuite d’Azure](https://azure.microsoft.com/pricing/free-trial/). 
 - Un compte Media Services. Pour plus d’informations, voir [Création d’un compte Azure Media Services à l’aide du portail Azure](media-services-portal-create-account.md).
@@ -39,7 +38,7 @@ Cette rubrique vous montre comment utiliser l’interface CLI 2.0 pour créer u
 
 Pour plus d’informations, voir la [présentation d’Azure Cloud Shell](../../cloud-shell/overview.md).
 
-## <a name="create-an-azure-ad-app-and-configure-access-to-the-media-account-with-cli-20"></a>Créer une application Azure AD et configurer l’accès au compte multimédia avec l’interface CLI 2.0
+## <a name="create-an-azure-ad-app-and-configure-access-to-the-media-account-with-azure-cli"></a>Créer une application Azure AD et configurer l’accès au compte multimédia avec l’interface de ligne de commande Azure
  
 ```azurecli
 az login
@@ -61,7 +60,7 @@ Par exemple, il peut s’agir d’un des niveaux suivants :
 * Niveau de **groupe de ressources**.
 * Niveau de **ressource** (par exemple, compte multimédia).
 
-Pour plus d’informations, voir [Créer un principal du service avec Azure CLI 2.0](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli).
+Pour plus d’informations, consultez [Créez un principal du service avec Azure CLI](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Voir aussi [Gestion du contrôle d’accès en fonction du rôle avec l’interface de ligne de commande Azure](../../role-based-access-control/role-assignments-cli.md). 
 

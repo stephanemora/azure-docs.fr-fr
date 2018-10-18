@@ -11,14 +11,14 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 07/23/2018
+ms.date: 09/22/2018
 ms.author: bsiva
-ms.openlocfilehash: 6e5946f3f9dcf1c7d941054c844adcf683b485ab
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: d15a5b62a148e971c0740f01744fce308e502340
+ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308641"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "47056034"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrer des serveurs exécutant Windows Server2008 vers Azure
 
@@ -59,14 +59,11 @@ Le reste de ce didacticiel montre comment migrer des machines virtuelles VMware 
 
 ## <a name="limitations-and-known-issues"></a>Limitations et problèmes connus
 
-- Le serveur de configuration, les serveurs de processus supplémentaires et le service Mobilité utilisé pour migrer les serveurs Windows Server 2008 SP2 doivent exécuter la version 9.18.0.1 du logiciel Azure Site Recovery. Le programme d’installation unifié pour la version 9.18.0.1 du serveur de configuration et du serveur de processus peut être téléchargé à partir de [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup).
-
-- Un serveur de configuration ou de processus existant ne peut pas être utilisé pour migrer des serveurs exécutant Windows Server 2008 SP2. Un nouveau serveur de configuration doit être approvisionné avec la version 9.18.0.1 du logiciel Azure Site Recovery. Ce serveur de configuration doit être utilisé uniquement pour la migration de serveurs Windows vers Azure.
+- Le serveur de configuration, les serveurs de processus supplémentaires et le service Mobilité utilisé pour migrer les serveurs Windows Server 2008 SP2 doivent exécuter la version 9.19.0.0 ou une version ultérieure du logiciel Azure Site Recovery.
 
 - Les points de récupération cohérents d’application et la fonctionnalité de cohérence multimachine virtuelle ne sont pas pris en charge pour la réplication des serveurs exécutant Windows Server 2008 SP2. Les serveurs Windows Server 2008 SP2 doivent être migrés vers un point de récupération cohérent d’incident. Par défaut, des points de récupération cohérents d’incident sont générés toutes les 5 minutes. L’utilisation d’une stratégie de réplication avec une fréquence de capture instantanée de cohérence des applications configurée a pour effet que l’intégrité de la réplication devient critique à défaut de point de récupération cohérent d’application. Pour éviter les faux positifs, définissez la fréquence de capture instantanée de cohérence des applications dans la stratégie de réplication sur « Désactivé ».
 
 - Pour que le service Mobilité fonctionne, .NET Framework 3.5 Service Pack 1 doit être installé sur les serveurs migrés.
-
 
 - Si votre serveur dispose de disques dynamiques, vous remarquerez peut-être que, dans certaines configurations, ces disques sur le serveur basculé sont marqués hors connexion ou affichés en tant que disques étrangers. Vous pourriez également remarquer que l’état de mise en miroir défini pour les volumes en miroir des disques dynamiques est marqué « Échec de la redondance ». Vous pouvez résoudre ce problème à partir de diskmgmt.msc en important ces disques et en les réactivant manuellement.
 
@@ -109,48 +106,8 @@ Le nouveau coffre est ajouté à la zone **Tableau de bord** dans **Toutes les r
 
 ## <a name="prepare-your-on-premises-environment-for-migration"></a>Préparer votre environnement local pour la migration
 
-- Télécharger le programme d’installation du serveur de configuration (installation unifiée) à partir de [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup)
-- Suivez les étapes décrites ci-dessous pour configurer l’environnement source à l’aide du fichier du programme d’installation téléchargé à l’étape précédente.
-
-> [!IMPORTANT]
-> - Veillez à utiliser le fichier d’installation téléchargé à la première étape ci-dessus pour installer et inscrire le serveur de configuration. Ne téléchargez pas le fichier d’installation à partir du portail Azure. Le fichier d’installation disponible à l’adresse [https://aka.ms/asr-w2k8-migration-setup](https://aka.ms/asr-w2k8-migration-setup) est la seule version qui prenne en charge la migration de Windows Server 2008.
->
-> - Vous ne pouvez pas utiliser un serveur de configuration existant pour migrer des machines exécutant Windows Server 2008. Vous devez configurer un nouveau serveur de configuration en suivant le lien fourni ci-dessus.
->
-> - Suivez les étapes indiquées ci-dessous pour installer le serveur de configuration. N’essayez pas d’utiliser la procédure d’installation basée sur l’interface graphique utilisateur en exécutant l’installation unifiée directement. Cela entraînerait l’échec de la tentative d’installation avec une erreur incorrecte indiquant qu’il n’existe aucune connectivité Internet.
-
- 
-1) Téléchargez le fichier d’informations d’identification du coffre à partir du portail : dans le portail Azure, sélectionnez le coffre Recovery Services créé à l’étape précédente. Dans le menu de la page du coffre, sélectionnez **Infrastructure Site Recovery** > **Serveurs de configuration**. Cliquez ensuite sur **+Serveur**. Sélectionnez *Configuration Server for Physical* (Serveur de configuration pour serveur physique) dans le formulaire de type liste déroulante de la page qui s’ouvre. Cliquez sur le bouton Télécharger à l’étape 4 pour télécharger le fichier d’informations d’identification du coffre.
-
- ![Télécharger la clé d’inscription du coffre](media/migrate-tutorial-windows-server-2008/download-vault-credentials.png) 
-
-2) Copiez le fichier d’informations d’identification du coffre téléchargé à l’étape précédente et le fichier d’installation unifiée téléchargé précédemment sur le Bureau de la machine du serveur de configuration (ordinateur Windows Server 2012 R2 ou Windows Server 2016 sur lequel vous souhaitez installer le logiciel du serveur de configuration).
-
-3) Vérifiez que le serveur de configuration a une connectivité Internet et que l’horloge système ainsi que les paramètres de fuseau horaire sur l’ordinateur sont correctement configurés. Téléchargez le programme d’installation [MySQL 5.7](https://dev.mysql.com/get/Downloads/MySQLInstaller/mysql-installer-community-5.7.20.0.msi) et placez-le dans *C:\Temp\ASRSetup* (créez le répertoire s’il n’existe pas). 
-
-4) Créez un fichier d’informations d’identification MySQL avec les lignes suivantes et placez-le sur le Bureau dans **C:\Users\Administrator\MySQLCreds.txt**. Remplacez « Password~1 » ci-dessous par un mot de passe fort et approprié :
-
-```
-[MySQLCredentials]
-MySQLRootPassword = "Password~1"
-MySQLUserPassword = "Password~1"
-```
-
-5) Extrayez le contenu du fichier d’installation unifiée téléchargé sur le Bureau en exécutant la commande suivante :
-
-```
-cd C:\Users\Administrator\Desktop
-
-MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Users\Administrator\Desktop\9.18
-```
-  
-6) Installez le logiciel du serveur de configuration à l’aide du contenu extrait en exécutant les commandes suivantes :
-
-```
-cd C:\Users\Administrator\Desktop\9.18.1
-
-UnifiedSetup.exe /AcceptThirdpartyEULA /ServerMode CS /InstallLocation "C:\Program Files (x86)\Microsoft Azure Site Recovery" /MySQLCredsFilePath "C:\Users\Administrator\Desktop\MySQLCreds.txt" /VaultCredsFilePath <vault credentials file path> /EnvType VMWare /SkipSpaceCheck
-```
+- Pour migrer des machines virtuelles Windows Server 2008 s’exécutant sur VMware, [configurez le serveur de configuration local sur VMware](vmware-azure-tutorial.md#set-up-the-source-environment).
+- Si le serveur de configuration ne peut pas être configuré en tant que machine virtuelle VMware, [configurez le serveur de configuration localement sur un serveur physique ou une machine virtuelle](physical-azure-disaster-recovery.md#set-up-the-source-environment).
 
 ## <a name="set-up-the-target-environment"></a>Configurer l’environnement cible
 
