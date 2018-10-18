@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: 11aac0ab4476494f74453ca64a1b77964197adaa
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b090c1593b49bec4f51fea8d498860e8af8b2f4b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42751579"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053082"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Utiliser Key Vault pour stocker des clés Azure Cosmos DB et y accéder
 
@@ -56,7 +56,7 @@ Les étapes suivantes sont nécessaires pour stocker et lire les clés d’accè
 
 ## <a name="create-an-azure-web-application"></a>Créer une application web Azure
 
-1. Créez une application web Azure ou bien téléchargez l’application à partir du [dépôt GitHub](https://github.com/rsarosh/CosmosDB-KeyVault). Il s’agit d’une application MVC simple.  
+1. Créez une application web Azure ou bien téléchargez l’application à partir du [dépôt GitHub](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). Il s’agit d’une application MVC simple.  
 
 2. Décompressez l’application téléchargée et ouvrez le fichier **HomeController.cs**. Mettez à jour l’ID de secret dans la ligne suivante :
 
@@ -87,11 +87,9 @@ Maintenant, si vous exécutez l’application, vous pouvez lire le secret dans l
 
 ![Application déployée avec un secret](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
  
-De même, vous pouvez ajouter un utilisateur pour qu’il accède au coffre de clés. Vous devez vous ajouter vous-même au coffre de clés en cliquant sur « Stratégies d’accès », puis accorder toutes les autorisations dont vous avez besoin pour exécuter l’application à partir de Visual studio. Quand cette application s’exécute à partir de votre bureau, elle prend votre identité.
+De même, vous pouvez ajouter un utilisateur pour qu’il accède au coffre de clés. Vous devez vous ajouter vous-même au coffre de clés sélectionnant **Stratégies d’accès**, puis accorder toutes les autorisations dont vous avez besoin pour exécuter l’application à partir de Visual studio. Quand cette application s’exécute à partir de votre bureau, elle prend votre identité.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour configurer un pare-feu pour Azure Cosmos DB, consultez l’article sur la [prise en charge du pare-feu](firewall-support.md).
 * Pour configurer le point de terminaison de service de réseau virtuel, consultez l’article [Sécuriser l’accès à l’aide du point de terminaison de service de réseau virtuel](vnet-service-endpoint.md).
-
-

@@ -1,5 +1,5 @@
 ---
-title: Configurer des microservices Azure fiables | Microsoft Docs
+title: Configurer Reliable Services dans Azure Service Fabric | Microsoft Docs
 description: En savoir plus sur la configuration de Reliable Services avec état dans Azure Service Fabric.
 services: Service-Fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: f2af7c65d42cbbec28fd511be18c72a6cd3c3d0c
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: ee8010fbbadc011e04d6d43599d671a1f926bb5f
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39249017"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049654"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configuration des services fiables (Reliable Services) avec état
 Il existe deux ensembles de paramètres de configuration pour les services fiables (Reliable Services). L’un des ensembles est global pour tous les services fiables dans le cluster, alors que l’autre est spécifique à un service fiable.

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: jeedes
-ms.openlocfilehash: 55a271e49977feb6d8e5c188f1724b66db4cb4f5
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: a7d77df4d6be1572d2076684cfa4702cb32b5ed6
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42146366"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391910"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>Tutoriel : Intégration d’Azure Active Directory à plusieurs comptes Amazon Web Services (AWS)
 
@@ -317,6 +317,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 27. Une fois que les groupes sont créés, sélectionnez le groupe et affectez-le à l’application.
 
     ![Configurer l’authentification unique Add](./media/aws-multi-accounts-tutorial/graph-explorer-new5.png)
+
+> [!Note]
+> Les groupes imbriqués ne sont pas pris en charge lors de l’assignation de groupes.
 
 28. Pour assigner le rôle au groupe, sélectionnez le rôle et cliquez sur le bouton **Assigner** dans la partie inférieure de la page.
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39450439"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301189"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatiser les processus Application Insights en utilisant Logic Apps
 
@@ -25,7 +25,7 @@ Vous devez exécuter à plusieurs reprises les mêmes requêtes sur vos données
 
 Avec cette intégration, vous pouvez automatiser de nombreux processus sans écrire la moindre ligne de code. Vous pouvez créer une application logique avec le connecteur Application Insights pour automatiser rapidement tous les processus Application Insights. 
 
-Vous pouvez également ajouter des actions. La fonctionnalité Logic Apps d’Azure App Service met à votre disposition des centaines d’actions possibles. Par exemple, en utilisant une application logique, vous pouvez automatiquement envoyer une notification par e-mail ou créer un bogue dans Visual Studio Team Services. Vous pouvez également utiliser l’un des nombreux [modèles](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) disponibles pour contribuer à accélérer le processus de création de votre application logique. 
+Vous pouvez également ajouter des actions. La fonctionnalité Logic Apps d’Azure App Service met à votre disposition des centaines d’actions possibles. Par exemple, en utilisant une application logique, vous pouvez automatiquement envoyer une notification par e-mail ou créer un bogue dans Azure DevOps. Vous pouvez également utiliser l’un des nombreux [modèles](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) disponibles pour contribuer à accélérer le processus de création de votre application logique. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Créer une application logique pour Application Insights
 

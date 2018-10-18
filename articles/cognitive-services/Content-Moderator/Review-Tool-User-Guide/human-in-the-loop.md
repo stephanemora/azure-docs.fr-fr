@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
 ms.author: sajagtap
-ms.openlocfilehash: da657404e4cb8b86d67f56084a6f5a261bad4de2
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1c08b30c0e59aac21d24f75d88530ba51b67d6b4
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367956"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023931"
 ---
 # <a name="human-in-the-loop"></a>Humain dans la boucle
 
@@ -25,7 +25,7 @@ Vous obtenez les meilleurs résultats lorsque des humains et des machines collab
 Lorsqu’il est utilisé conjointement avec les API de modération assistée par ordinateur, l’outil de révision humaine vous permet d’accomplir ces tâches importantes en relation avec le cycle de vie de modération du contenu.
 
 1. Automatisez la création de révisions humaines à partir des résultats des API de modération sous-jacentes.
-2. Utilisez un outil (outil de révision et API) pour modérer plusieurs formats (texte, image et vidéo [à venir prochainement]).
+2. Utilisez un outil (outil de révision et API) pour modérer plusieurs formats (texte, image et vidéo).
 3. Affectez ou remontez les révisions de contenu à plusieurs équipes de révision organisées par catégorie de contenu ou niveau d’expérience.
 4. Utilisez les flux de travail par défaut ou définissez des flux de travail personnalisés avec des règles flexibles, et sans écrire de code.
 5. Ajoutez la révision humaine au processus d’une API ou à un processus métier en créant simplement un connecteur.

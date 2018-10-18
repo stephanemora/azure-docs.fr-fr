@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40e67dfd4ffa427ac47198e88994762a4a45cc94
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223665"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023349"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Référence des paramètres d’itinérance Windows 10
 Voici une liste complète de tous les paramètres destinés à l’itinérance ou à la sauvegarde dans Windows 10. 
@@ -44,10 +44,11 @@ Les groupes de paramètres suivants sont disponibles pour les utilisateurs finau
 
 * Thème : Arrière-plan du Bureau, Vignette de l’utilisateur, Position de la barre des tâches, etc. 
 * Paramètres Internet Explorer : Historique de navigation, URL saisies, Favoris, etc. 
-* Mots de passe : [Stockage sécurisé des informations d’identification Windows](https://technet.microsoft.com/library/jj554668.aspx), et notamment des profils Wi-Fi 
+* Mots de passe : Gestionnaire d'informations d'identification Windows, incluant le profils Wi-Fi 
 * Préférences linguistiques : Dictionnaire, Paramètres de langue système 
 * Options d’ergonomie : Narrateur, Loupe, Clavier visuel 
 * Autres paramètres Windows : consultez les détails de Paramètres Windows
+* Paramétrage du navigateur Edge : favoris Microsoft Edge, liste de lecture et autres paramètres
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -73,7 +74,7 @@ Les paramètres non itinérants ou la synchronisation n’appartiennent pas à u
 | **Données d’application**: les applications individuelles peuvent synchroniser des données |sauvegarde de synchronisation |sauvegarde de synchronisation |Interne |
 | **Liste d’applications**: liste des applications installées |X |backup |Autres |
 | **Bluetooth**: tous les paramètres Bluetooth |X |X | |
-| **Invite de commandes** : paramètres Defaults de l’invite de commandes |sync |X | |
+| **Invite de commandes** : paramètres Defaults de l’invite de commandes |sync |X |Interne |
 | **Informations d’identification**: stockage sécurisé des informations d’identification |sync |sync |password |
 | **Date, heure et région**: horaire automatique (synchronisation Internet) |sync |sync |Langage |
 | **Date, heure et région**: 24 heures |sync |X |Langage |

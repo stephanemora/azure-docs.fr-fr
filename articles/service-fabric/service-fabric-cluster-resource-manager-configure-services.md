@@ -1,6 +1,6 @@
 ---
-title: Spécifier des mesures et des paramètres de positionnement dans les microservices Azure | Microsoft Docs
-description: Description d’un service Service Fabric en spécifiant des mesures, des contraintes de positionnement et d’autres stratégies de positionnement.
+title: Spécifier des mesures et des paramètres de positionnement dans Azure Service Fabric | Microsoft Docs
+description: Découvrez comment décrire un service Service Fabric en spécifiant des métriques, des contraintes de positionnement et d’autres stratégies de positionnement.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 16e19a02bf12e30e81eb1743fc637bce435df914
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea781b5dbbf09c0a21fbcf781ae129295d02dbad
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210577"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054789"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Configuration des paramètres Cluster Resource Manager pour les services Service Fabric
 Service Fabric Cluster Resource Manager assure un contrôle précis des règles qui régissent chaque service nommé individuel. Chaque service nommé peut spécifier des règles pour son allocation dans le cluster. Chaque service nommé peut également définir l’ensemble de mesures à inclure dans ses rapports, notamment leur importance pour ce service. La configuration des services se décompose en trois tâches :
@@ -35,7 +35,7 @@ Les contraintes de placement sont utilisées pour contrôler sur quels nœuds du
 Les mesures correspondent à l’ensemble de ressources dont un de service nommé a besoin. La configuration de mesures d’un service détermine notamment la quantité d’une ressource que chaque réplica avec état ou instance sans état de ce service consomme par défaut. Les mesures comprennent également un poids qui indique l’importance de l’équilibrage de la mesure pour le service, dans le cas où un compromis est nécessaire.
 
 ## <a name="advanced-placement-rules"></a>Règles de placement avancées
-Il existe d’autres types de règles de placement qui sont utiles dans des scénarios moins courants. Voici quelques exemples :
+Il existe d’autres types de règles de placement qui sont utiles dans des scénarios moins courants. Voici quelques exemples :
 - Contraintes utiles avec des clusters dispersés géographiquement
 - Certaines architectures d’application
 

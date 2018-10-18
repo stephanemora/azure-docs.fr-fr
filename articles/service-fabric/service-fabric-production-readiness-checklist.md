@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: subramar
-ms.openlocfilehash: 5092bf377f6ab213a2db52e01fb7b89ff0c218ce
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 6ebe83794f23ed3cf637f668d2810b9ba7521084
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127472"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295868"
 ---
 # <a name="production-readiness-checklist"></a>Liste de vérification de disponibilité de la production
 
@@ -45,7 +45,7 @@ Votre application et le cluster sont prêts à accepter le trafic de production�
 15. Fixez un objectif de point de récupération (RPO) pour votre service, configurez un [processus de récupération d’urgence](service-fabric-disaster-recovery.md), puis testez-le.
 16. Planifiez la [mise à l’échelle](service-fabric-cluster-scaling.md) de votre cluster manuellement ou par programmation.
 17. Planifiez la [mise à jour corrective](service-fabric-patch-orchestration-application.md) de vos nœuds de cluster. 
-18. Établissez un pipeline d’intégration/livraison continue afin que vos dernières modifications soient testées en permanence. Par exemple, en utilisant [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) ou [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md).
+18. Établissez un pipeline d’intégration/livraison continue afin que vos dernières modifications soient testées en permanence. Par exemple, en utilisant [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) ou [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 19. Testez vos clusters de développement et de préproduction sous charge avec le [service d’analyse des défaillances](service-fabric-testability-overview.md), et provoquez un [chaos](service-fabric-controlled-chaos.md) contrôlé. 
 20. Planifiez la [mise à l’échelle](service-fabric-concepts-scalability.md) de vos applications. 
 

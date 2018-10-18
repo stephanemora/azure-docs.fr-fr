@@ -13,12 +13,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 561de3ac9073fe5cfdfadf2dc61d3f7807bf9e46
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42143801"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304082"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Publier une application web ASP.NET sur une machine virtuelle Azure à partir de Visual Studio
 
@@ -114,7 +114,7 @@ Vos paramètres doivent ressembler à ce qui suit :
 
 ### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>Configurer l’intégration continue/la livraison continue pour le déploiement automatisé sur Machines virtuelles Azure
 
-Pour configurer un pipeline de livraison continue avec Visual Studio Team Service, consultez [Déployer sur une machine virtuelle Windows](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+Pour configurer un pipeline de livraison continue avec Azure Pipelines, voir [Déployer sur une machine virtuelle Windows](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 0f053c0293488f19adcd058f1ba8304d8d238738
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 3ec67488b238118067e771baf3dd5124308a84cf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128304"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296191"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Résoudre les problèmes de baisse de performances d’une application web dans Azure App Service
 Cet article vous aide à résoudre les problèmes de baisse de performances d’une application web dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -88,7 +88,7 @@ Vous pouvez également analyser les performances de votre application à l’aid
 
 Chaque application web d’App Service fournit un point de terminaison de gestion extensible qui vous permet d’utiliser un ensemble performant d’outils déployés en tant qu’extensions de site. Les extensions incluent : 
 
-- Des éditeurs de code source, tels que [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
+- Éditeurs de code source tels que [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Des outils de gestion pour les ressources connectées, comme une base de données MySQL connectée à une application web.
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) est une extension de site d’analyse des performances qui est également disponible. Pour utiliser Application Insights, vous régénérez votre code avec un Kit de développement logiciel (SDK). Vous pouvez également installer une extension qui fournit l’accès à des données supplémentaires. Le Kit de développement logiciel (SDK) vous permet d'écrire un code pour surveiller plus en détail l'utilisation et les performances de votre application. Pour plus d’informations, consultez l’article [Analyse des performances dans les applications web](../application-insights/app-insights-web-monitor-performance.md).
@@ -158,7 +158,7 @@ Kudu fournit, entre autres, les éléments suivants :
 
 Autre fonctionnalité utile de Kudu, dans le cas où votre application lève des exceptions de première chance, vous pouvez utiliser Kudu et l’outil Procdump de SysInternals pour créer des vidages de mémoire. Ces vidages de mémoire sont des instantanés du processus et peuvent souvent vous aider à résoudre les problèmes plus complexes avec votre application web.
 
-Pour plus d’informations sur les fonctionnalités disponibles dans Kudu, consultez [Outils Team Services de Sites Web Azure que vous devez connaître](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Pour plus d'informations sur les fonctionnalités disponibles dans Kudu, voir [Outils Azure DevOps que vous devez connaître](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 

@@ -1,6 +1,6 @@
 | Ressource | Limite par défaut | Remarque |
 | --- | --- | --- |
-| Application Gateway |50 par abonnement | 100 au maximum |
+| Application Gateway |50 par abonnement | Maximum 1000 |
 | Configurations d’adresses IP frontales |2 |1 publique et 1 privée |
 | Ports de serveur frontal |20 | |
 | Pools d’adresses principales |20 | |

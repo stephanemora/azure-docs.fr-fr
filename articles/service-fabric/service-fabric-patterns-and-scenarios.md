@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/19/2018
 ms.author: ryanwi
-ms.openlocfilehash: 5c2cd38001a9645011bbab84cff3b9366aa64b1d
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3bd77891cc7508eeb1fee2152d37478c654a7e37
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206138"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294693"
 ---
 # <a name="service-fabric-patterns-and-scenarios"></a>Modèles et scénarios Service Fabric
 Si vous souhaitez créer des microservices à grande échelle à l’aide d’Azure Service Fabric, découvrez les conseils des experts qui ont conçu et créé cette plateforme en tant que service (PaaS). Prenez en main l’architecture appropriée, puis apprenez à optimiser les ressources de votre application. Le cours [Modèles et meilleures pratiques pour Service Fabric](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) répond aux questions fréquemment posées par les clients du monde réel sur les scénarios et domaines d’application de Service Fabric.
@@ -72,7 +72,7 @@ Découvrez des jeux au tour par tour, des jeux interactifs et l’hébergement d
 </table>
 
 ## <a name="continuous-delivery"></a>Livraison continue
-Explorez les concepts, y compris la livraison/l’intégration continue avec Visual Studio Team Services, le flux de travail de génération/création de package/publication, la configuration multi-environnement et le partage/la création de packages de services.
+Explorez les concepts, y compris la livraison/l’intégration continue avec Azure Pipelines, le flux de travail de génération/création de package/publication, la configuration multi-environnement et le partage/la création de packages de services.
 
 <table><tr><th>Vidéo</th><th>Présentation PowerPoint</th></tr>
 <tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=78h5ofSGD_305167344">

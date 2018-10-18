@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2018
 ms.author: genli
-ms.openlocfilehash: 59a9011edef49494288716ab16f30e28e440293b
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 5dd87c75638c3d084226becaace5c9454660c907
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195180"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303674"
 ---
 # <a name="troubleshoot-domain-and-ssl-certificate-problems-in-azure-web-apps"></a>Résoudre les problèmes de domaines et de certificats SSL dans les applications web Azure
 
@@ -87,7 +87,7 @@ Ce problème peut se produire pour l’une des raisons suivantes :
 - L’abonnement a atteint le nombre maximal d’achats autorisés pour un abonnement.
 
     **Solution** : les certificats App Service présentent une limite de 10 achats de certificats pour les types d’abonnement Contrat Entreprise et Paiement à l’utilisation. Pour les autres types d’abonnement, la limite est fixée à 3. Pour augmenter la limite, contactez le [support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- Le certificat App Service a été marqué comme une fraude. Vous recevez le message d’erreur suivant : « Votre certificat a été signalé comme étant une fraude potentielle. La demande est en cours d'examen. Si le certificat devient inutilisable sous 24 heures, contactez le support Azure. »
+- Le certificat App Service a été marqué comme une fraude. Vous recevez le message d’erreur suivant : « Votre certificat a été signalé comme étant une fraude potentielle. La demande est en cours de révision. Si le certificat devient inutilisable sous 24 heures, contactez le support Azure. »
 
     **Solution** : si le certificat est marqué comme Fraude et que le problème n’a pas été résolu après 24 heures, procédez aux étapes suivantes :
 
@@ -167,7 +167,7 @@ Ce problème se produit pour l’une des raisons suivantes :
 
 - Vous n’êtes pas le propriétaire de l’abonnement, vous n’êtes donc pas autorisé à acheter un domaine.
 
-    **Solution** : [ajoutez le rôle Propriétaire](../billing/billing-add-change-azure-subscription-administrator.md) à votre compte. Vous pouvez également contacter l’administrateur de l’abonnement pour obtenir l’autorisation d’acheter un domaine.
+    **Solution** : [assignez le rôle Propriétaire](../role-based-access-control/role-assignments-portal.md) à votre compte. Vous pouvez également contacter l’administrateur de l’abonnement pour obtenir l’autorisation d’acheter un domaine.
 - Vous avez atteint la limite d’achat de domaines pour votre abonnement. La limite actuelle est fixée à 20.
 
     **Solution** : pour demander une augmentation de la limite, contactez le [support Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

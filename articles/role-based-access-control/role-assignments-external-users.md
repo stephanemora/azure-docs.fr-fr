@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 58108bd2851050e96df1b5453ce96856374b7163
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437033"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304439"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>Gérer l’accès pour les utilisateurs externes à l’aide du contrôle d’accès en fonction du rôle
 
@@ -42,7 +42,7 @@ Il existe notamment deux cas courants d’utilisation de la fonctionnalité RBAC
 Les rôles RBAC peuvent être octroyés uniquement par les **propriétaires** de l’abonnement. Par conséquent, l’administrateur doit être connecté en tant qu’utilisateur ayant ce rôle préattribué ou ayant créé l’abonnement Azure.
 
 Dans le portail Azure, après vous être connecté en tant qu’administrateur, sélectionnez « abonnements », puis choisissez l’abonnement souhaité.
-![Panneau d’abonnement dans le portail Azure](./media/role-assignments-external-users/0.png) Par défaut, si l’utilisateur administrateur a acheté l’abonnement Azure, il apparaît en tant que **Administrateur de compte**, ce qui correspond au rôle d’abonnement. Pour plus d’informations sur les rôles d’abonnement Azure, voir [Ajouter ou modifier des rôles Administrateur Azure qui gèrent l’abonnement ou les services](../billing/billing-add-change-azure-subscription-administrator.md).
+![Panneau d’abonnement dans le portail Azure](./media/role-assignments-external-users/0.png) Par défaut, si l’utilisateur administrateur a acheté l’abonnement Azure, il apparaît en tant que **Administrateur de compte**, ce qui correspond au rôle d’abonnement. Pour plus d’informations sur les rôles d’abonnement Azure, voir [Ajouter ou modifier des administrateurs d’abonnements Azure](../billing/billing-add-change-azure-subscription-administrator.md).
 
 Dans cet exemple, l’utilisateur « alflanigan@outlook.com » est le **Propriétaire** de l’abonnement « Évaluation gratuite » dans le client AAD « Client Azure par défaut ». Étant donné que cet utilisateur est le créateur de l’abonnement Azure avec le compte Microsoft initial « Outlook » (compte Microsoft = Outlook, Live, etc.), le nom de domaine par défaut pour tous les autres utilisateurs ajoutés à ce client sera **« \@alflaniganuoutlook.onmicrosoft.com »**. Par conception, la syntaxe du nouveau domaine est formée par assemblage du nom d’utilisateur et du nom domaine de l’utilisateur qui a créé le client, avec ajout de l’extension **« .onmicrosoft.com »**.
 De plus, les utilisateurs peuvent se connecter avec un nom de domaine personnalisé dans le locataire (ils doivent d’abord l’ajouter et le vérifier pour le nouveau locataire). Pour plus d’informations sur la vérification d’un nom de domaine personnalisé dans un locataire Azure Active Directory, consultez [Ajouter un nom de domaine personnalisé à votre annuaire](/active-directory/active-directory-add-domain).

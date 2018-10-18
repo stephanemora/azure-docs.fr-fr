@@ -1,5 +1,5 @@
 ---
-title: Modifier les paramètres de ReliableDictionaryActorStateProvider dans les microservices Azure | Microsoft Docs
+title: Modifier les paramètres de ReliableDictionaryActorStateProvider dans les intervenants Azure Service Fabric | Microsoft Docs
 description: Découvrez comment configurer les acteurs avec état Azure Service Fabric de type ReliableDictionaryActorStateProvider.
 services: Service-Fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: 1c7e31f9da2b2f9fe7a3a7c64cd6927224cb9fa1
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 13cf9c148e36201bd8ee81d4072d8b8cd8660bd1
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017893"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053146"
 ---
 # <a name="configuring-reliable-actors--reliabledictionaryactorstateprovider"></a>Configuration de Reliable Actors - ReliableDictionaryActorStateProvider
 Vous pouvez modifier la configuration par défaut de ReliableDictionaryActorStateProvider en modifiant le fichier settings.xml généré dans la racine du package Visual Studio sous le dossier Config de l’acteur spécifié.

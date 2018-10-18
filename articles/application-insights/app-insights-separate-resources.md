@@ -1,8 +1,8 @@
 ---
-title: "Séparation des télémétries de développement, de test et de publication dans Azure Application Insights | Documents Microsoft"
-description: "Télémétrie directe de différentes ressources pour les tampons de développement, de test et de production."
+title: Séparation des télémétries de développement, de test et de publication dans Azure Application Insights | Documents Microsoft
+description: Télémétrie directe de différentes ressources pour les tampons de développement, de test et de production.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: 578e30f0-31ed-4f39-baa8-01b4c2f310c9
@@ -10,14 +10,15 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8d95958bce0597bfb16ef1c6b99b72ce9134e66f
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 88626c3a4bfd4a1ff3a2e9cbc8c3f2b1c5553295
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303623"
 ---
 # <a name="separating-telemetry-from-development-test-and-production"></a>Séparation des télémétries de développement, de test et de production
 
@@ -153,7 +154,7 @@ Quand il détient les informations de version, le module web Application Insight
 Toutefois, notez que le numéro de version de build est uniquement généré par Microsoft Build Engine, et non par la build de développement dans Visual Studio.
 
 ### <a name="release-annotations"></a>Annotations de version
-Si vous utilisez Visual Studio Team Services, vous pouvez [obtenir un marqueur d’annotation](app-insights-annotations.md) ajouté à vos graphiques lorsque vous publiez une nouvelle version. L’illustration suivante montre l’aspect de ce marqueur.
+Si vous utilisez Azure DevOps, vous pouvez [obtenir un marqueur d’annotation](app-insights-annotations.md) ajouté à vos graphiques lorsque vous publiez une nouvelle version. L’illustration suivante montre l’aspect de ce marqueur.
 
 ![Capture d’écran d’un exemple d’annotation de version sur un graphique](./media/app-insights-asp-net/release-annotation.png)
 ## <a name="next-steps"></a>Étapes suivantes

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: cephalin
-ms.openlocfilehash: 6800bf766deb2044d400f92dbe370fa15bdd5f00
-ms.sourcegitcommit: be0d1aaed5c0bbd9224e2011165c5515bfa8306c
+ms.openlocfilehash: 87c9cd5955dda1a379733e5ad48d58f8361f0e6b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/01/2017
-ms.locfileid: "26047600"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051474"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Utiliser un certificat SSL dans votre code d’application dans Azure App Service
 
@@ -28,7 +28,7 @@ Cette approche de l’utilisation de certificats SSL dans votre code se sert de 
 
 Lorsque vous laissez App Service gérer vos certificats SSL, vous pouvez conserver les certificats et votre code d’application séparément et protéger vos données sensibles.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Pour suivre cette procédure :
 
@@ -51,7 +51,7 @@ Tous vos certificats SSL importés et chargés pour cette application web sont a
 
 Dans le volet de navigation gauche, cliquez sur **Paramètres de l’application**.
 
-Ajoutez une application nommée `WEBSITE_LOAD_CERTIFICATES` et définissez sa valeur sur l’empreinte du certificat. Pour que plusieurs certificats soient accessibles, utilisez des valeurs d’empreinte séparées par des virgules. Pour que tous les certificats soient accessibles, définissez la valeur sur `*`. 
+Ajoutez une application nommée `WEBSITE_LOAD_CERTIFICATES` et définissez sa valeur sur l’empreinte du certificat. Pour que plusieurs certificats soient accessibles, utilisez des valeurs d’empreinte séparées par des virgules. Pour que tous les certificats soient accessibles, définissez la valeur sur `*`. Notez que cela aura pour effet de placer le certificat dans le magasin `CurrentUser\My`.
 
 ![Configurer les paramètres de l’application](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
 

@@ -10,15 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2017
-ms.author: mbullwin; aruna
-ms.openlocfilehash: 53a4d7fe1d92826b92866e170fd731edbd5ba1bf
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: aruna
+ms.author: mbullwin
+ms.openlocfilehash: 016d13a08ea3fe591529ad6dd29b25534d9c603d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33869544"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303742"
 ---
 # <a name="release-notes-for-developer-analytics-tools"></a>Notes de publication de Developer Analytics Tools
 
@@ -193,7 +194,7 @@ Ce faisant, vous ouvrez la boîte de dialogue de chargement HockeyApp, qui est s
 
 Vous remarquez un nouveau champ dans cet Assistant, qui permet de spécifier la version de l’application. Pour les applications Windows universelles, les informations sont renseignées à partir du manifeste. Malheureusement, les applications Windows Forms ne disposent pas de fonctionnalité équivalente. Vous devez spécifier ces informations manuellement.
 
-Le reste du flux est similaire à celui des applications Windows universelles : choisissez les options de build et de publication, ajoutez des notes de publication, chargez l’application et gérez-la dans le portail HockeyApp.
+Le reste du flux est similaire à celui des applications Windows universelles : choisissez les options Azure Pipelines, ajoutez des notes de publication, puis chargez et gérez l’application dans le portail HockeyApp.
 
 C’est aussi simple que cela. Faites le test et dites-nous ce que vous en pensez.
 
@@ -256,7 +257,7 @@ Cette version est fournie avec plusieurs nouvelles fonctionnalités et mises à 
 ### <a name="jump-from-an-exception-to-method-in-source-code"></a>Passage d’une exception à la méthode dans le code source
 Désormais, si vous visualisez les exceptions de votre application de production dans la fenêtre Recherche Application Insights, vous pouvez accéder directement à la méthode dans le code où l’exception se produit. Il vous suffit d’avoir chargé le projet correct. Application Insights s’occupe du reste ! (Pour en savoir plus sur la fenêtre Recherche Application Insights, consultez les notes de publication de la version 4.0 dans les sections suivantes.)
 
-Comment cela fonctionne-t-il ? Vous pouvez utiliser Recherche Application Insights même lorsqu’une solution n’est pas ouverte. La zone d’arborescence des appels de procédure affiche un message d’information, et nombre d’éléments de cette arborescence ne sont pas disponibles.
+Comment cela fonctionne-t-il ? Vous pouvez utiliser Recherche Application Insights même lorsqu’une solution n’est pas ouverte. La zone d’arborescence des appels de procédure affiche un message d’information, et nombre d’éléments de cette arborescence ne sont pas disponibles.
 
 Si les informations de fichier sont disponibles, certains éléments peuvent être des liens, mais l’élément d’information de la solution reste visible.
 

@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7eb82457d8c8d7e306dcbdac39510ce328cd925b
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 30cdb07f8e0d5481f34148b99fa86f2a1bb85e0b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41953966"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022194"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Considérations relatives à l’utilisation des machines virtuelles dans Azure Stack
 
@@ -36,7 +36,7 @@ Les machines virtuelles Azure Stack fournissent des ressources de calcul scalabl
 | Quotas de machine virtuelle | Les [limites de quota](../../azure-subscription-service-limits.md#service-specific-limits) sont définies par Microsoft. | L’administrateur du cloud Azure Stack doit assigner des quotas avant de mettre des machines virtuelles à la disposition des utilisateurs. |
 | Extensions de machine virtuelle |Azure prend en charge de nombreuses extensions de machine virtuelle. Pour connaître les extensions disponibles, consultez l’article [Extensions et fonctionnalités de machine virtuelle](../../virtual-machines/windows/extensions-features.md).| Azure Stack prend en charge certaines des extensions disponibles dans Azure. Notez que chaque extension a des versions spécifiques. L’administrateur du cloud Azure Stack peut choisir les extensions qu’il veut mettre à la disposition des utilisateurs. Pour obtenir la liste des extensions prises en charge, consultez la section [Extensions de machine virtuelle](#virtual-machine-extensions) dans cet article. |
 | Réseau de machines virtuelles | Les adresses IP publiques assignées à une machine virtuelle locataire sont accessibles via Internet.<br><br><br>Les machines virtuelles Azure ont un nom DNS fixe. | Les adresses IP publiques assignées à une machine virtuelle locataire sont accessibles uniquement au sein de l’environnement du Kit de développement Azure Stack. Un utilisateur doit pouvoir accéder au Kit de développement Azure Stack par le biais du [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) ou du [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) pour se connecter à une machine virtuelle créée dans Azure Stack.<br><br>Les machines virtuelles créées dans une instance Azure Stack spécifique ont un nom DNS basé sur la valeur définie par l’administrateur du cloud. |
-| Stockage de machine virtuelle | Prend en charge les [disques managés](../../virtual-machines/windows/managed-disks-overview.md). | Les disques managés ne sont pas encore pris en charge dans Azure Stack. |
+| Stockage de machine virtuelle | Prend en charge les [disques managés](../../virtual-machines/windows/managed-disks-overview.md). | Les disques managés sont pris en charge dans Azure Stack avec la version 1808 et les versions ultérieures. |
 | Versions d’API | Azure utilise toujours les dernières versions d’API pour toutes les fonctionnalités de machine virtuelle. | Azure Stack prend en charge certains services Azure et des versions d’API spécifiques pour ces services. Pour obtenir la liste des versions d’API prises en charge, consultez la section [Versions d’API](#api-versions) dans cet article. |
 |Groupes à haute disponibilité de machines virtuelles|Plusieurs domaines d’erreur (2 ou 3 par région)<br>Plusieurs domaines de mise à jour<br>Prise en charge des disques managés|Plusieurs domaines d’erreur (2 ou 3 par région)<br>Plusieurs domaines de mise à jour (20 max.)<br>Pas de prise en charge des disques managés|
 |Groupes identiques de machines virtuelles |Prise en charge du dimensionnement automatique des instances|Pas de prise en charge du dimensionnement automatique des instances.<br>Pour ajouter d’autres instances à un groupe identique, utilisez le portail, les modèles Resource Manager ou PowerShell.

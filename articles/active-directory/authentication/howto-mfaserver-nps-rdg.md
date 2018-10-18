@@ -10,16 +10,16 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: f5511486650d538bc136449c32babfd88efab86a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 99ed74a9664fbeeb65d90e51d0afcd97dd0b0ca0
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39159632"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346490"
 ---
 # <a name="remote-desktop-gateway-and-azure-multi-factor-authentication-server-using-radius"></a>Passerelle des services Bureau à distance et serveur Multi-Factor Authentication avec RADIUS
 
-Souvent, la passerelle du Bureau à distance (RD) utilise les services de stratégie réseau (NPS) locaux pour authentifier les utilisateurs. Cet article explique comment acheminer la demande RADIUS hors de la passerelle Bureau à distance (via le serveur NPS local) vers le serveur Multi-Factor Authentication. La combinaison d’Azure MFA et de la passerelle RD signifie que les utilisateurs peuvent accéder à leur environnement de travail à partir de n’importe quel emplacement, tout en exigeant une authentification forte. 
+Souvent, la passerelle du Bureau à distance (RD) utilise les [services de stratégie réseau (NPS)](https://docs.microsoft.com/windows-server/networking/core-network-guide/core-network-guide#BKMK_optionalfeatures) locaux pour authentifier les utilisateurs. Cet article explique comment acheminer la demande RADIUS hors de la passerelle Bureau à distance (via le serveur NPS local) vers le serveur Multi-Factor Authentication. La combinaison d’Azure MFA et de la passerelle RD signifie que les utilisateurs peuvent accéder à leur environnement de travail à partir de n’importe quel emplacement, tout en exigeant une authentification forte. 
 
 Étant donné que l’authentification Windows pour Terminal Services n’est pas prise en charge pour Server 2012 R2, utilisez la passerelle RD et RADIUS pour l’intégration au serveur MFA. 
 
@@ -28,6 +28,7 @@ Installez le serveur Multi-Factor Authentication sur un serveur distinct, qui en
 ## <a name="prerequisites"></a>Prérequis
 
 - Un serveur Azure MFA joint à un domaine. Si vous n’en avez pas déjà installé un, suivez les étapes décrites dans [Prise en main du serveur Azure Multi-Factor Authentication](howto-mfaserver-deploy.md).
+- Un serveur NPS configuré.
 - Une passerelle Bureau à distance qui s’authentifie avec les services de stratégie réseau.
 
 ## <a name="configure-the-remote-desktop-gateway"></a>Configurer la passerelle Bureau à distance

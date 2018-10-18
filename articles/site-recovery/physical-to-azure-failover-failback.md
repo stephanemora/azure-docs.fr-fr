@@ -5,22 +5,22 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: raynew
-ms.openlocfilehash: 93f62bac3e2207caa265b3fca6634656d64b1491
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4036ab6e62f4738f4b2906eb7571dc5d0e972988
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918235"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391145"
 ---
 # <a name="fail-over-and-fail-back-physical-servers-replicated-to-azure"></a>Basculer et restaurer automatiquement des serveurs physiques répliqués vers Azure
 
-Ce didacticiel explique comment basculer un serveur physique vers Azure. Une fois que vous avez procédé au basculement, vous restaurez automatiquement le serveur sur votre site local quand il est disponible. 
+Ce didacticiel explique comment basculer un serveur physique vers Azure. Une fois que vous avez procédé au basculement, vous restaurez automatiquement le serveur sur votre site local quand il est disponible.
 
 ## <a name="preparing-for-failover-and-failback"></a>Préparation pour le basculement et la restauration automatique
 
-Les serveurs physiques répliqués dans Azure à l’aide de Site Recovery peuvent être restaurés automatiquement en tant que machines virtuelles VMware. Vous avez besoin d’une infrastructure VMware locale pour la restauration automatique. 
+Les serveurs physiques répliqués dans Azure à l’aide de Site Recovery peuvent être restaurés automatiquement en tant que machines virtuelles VMware. Vous avez besoin d’une infrastructure VMware locale pour la restauration automatique.
 
 Le basculement et la restauration automatique comportent quatre étapes :
 
@@ -43,19 +43,25 @@ Vérifiez les propriétés du serveur et que le serveur est conforme aux [condit
 ## <a name="run-a-failover-to-azure"></a>Effectuer un basculement vers Azure
 
 1. Dans **Paramètres** > **Éléments répliqués**, cliquez sur la machine > **Basculement**.
-2. Dans **Basculer**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
-   - **Dernier** (par défaut) : cette option traite d’abord toutes les données envoyées à Site Recovery. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle Azure créée après le basculement a toutes les données qui ont été répliquées vers Site Recovery quand le basculement a été déclenché.
+2. Dans **Basculer**, sélectionnez un **point de récupération** vers lequel basculer. Vous pouvez utiliser l’une des options suivantes :
+   - **Dernier** : cette option traite d’abord toutes les données envoyées à Site Recovery. Elle fournit l’objectif de point de récupération (RPO) le plus faible, car la machine virtuelle Azure créée après le basculement a toutes les données qui ont été répliquées vers Site Recovery quand le basculement a été déclenché.
    - **Dernier point traité** : cette option bascule la machine vers le dernier point de récupération traité par Site Recovery. Cette option fournit un objectif de délai de récupération (RTO) faible, car aucun temps n’est consacré à traiter les données non traitées.
    - **Dernier point de cohérence des applications** : cette option bascule la machine vers le dernier point de récupération de cohérence des applications traité par Site Recovery.
    - **Personnalisé** : spécifiez un point de récupération.
 
 3. Sélectionnez **Arrêter la machine avant de commencer le basculement** si vous souhaitez que Site Recovery tente d’arrêter la machine source avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 4. Si vous avez préparé la connexion à la machine virtuelle Azure, connectez-vous pour la vérifier après le basculement.
-5. Après vérification, **validez** le basculement. Ceci supprime tous les points de récupération disponibles.
+5. Après vérification, **validez** le basculement. Cela supprime tous les points de récupération disponibles.
 
 > [!WARNING]
 > N’annulez pas un basculement en cours. Avant le début du basculement, la réplication de la machine s’arrête. Si vous annulez le basculement, celui-ci s’arrête, mais la machine n’est pas à nouveau répliquée.
-> Pour les serveurs physiques, le basculement nécessite un traitement supplémentaire qui dure environ huit à dix minutes. 
+> Pour les serveurs physiques, le basculement nécessite un traitement supplémentaire qui dure environ huit à dix minutes.
+
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Préparer la connexion aux machines virtuelles Azure après le basculement
+
+Si vous souhaitez vous connecter à des machines virtuelles Azure à l’aide de RDP/SSH après le basculement, respectez les exigences récapitulées dans le tableau [ici](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Suivez les étapes décrites [ici](site-recovery-failover-to-azure-troubleshoot.md) pour résoudre les problèmes de connectivité après le basculement.
 
 ## <a name="create-a-process-server-in-azure"></a>Créer un serveur de processus dans Azure
 
@@ -120,4 +126,3 @@ Les données doivent maintenant être de retour sur votre site local, mais elles
 2. Sélectionnez le serveur de processus qui est utilisé pour envoyer les données répliquées vers Azure, puis cliquez sur **OK**.
 
 Une fois que la reprotection est terminée, la machine virtuelle est répliquée vers Azure et vous pouvez effectuer un basculement si nécessaire.
-

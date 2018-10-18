@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: a9a6e513d95df5dafba82556f74ec209529ff58d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e77389411e52853efb52252a17c8612f0480fa61
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294909"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298640"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostic approfondi des applications et services web avec Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Pourquoi ai-je besoin d’Application Insights ?
@@ -152,7 +152,7 @@ Et lorsqu’Application Insights consigne une exception, vous pouvez afficher le
 Pendant le débogage, vous pouvez conserver les données de télémétrie dans votre ordinateur de développement, en les affichant dans Visual Studio mais sans les envoyer au portail. Cela évite de mélanger le débogage avec les données télémétriques de production.
 
 ### <a name="build-annotations"></a>Annotations de build
-Si vous utilisez Visual Studio Team Services pour générer et déployer votre application, les annotations de déploiement s’affichent sur les graphiques dans le portail. Si votre dernière version a eu un effet sur les mesures, cela devient évident.
+Si vous utilisez Azure DevOps pour générer et déployer votre application, les annotations de déploiement s’affichent sur les graphiques dans le portail. Si votre dernière version a eu un effet sur les mesures, cela devient évident.
 
 ![Annotations de build](./media/app-insights-devops/070.png)
 

@@ -3,23 +3,23 @@ title: Connexion de Microsoft Azure Application Gateway à Azure Security Center
 description: Découvrez comment intégrer Application Gateway et Azure Security Center pour améliorer la sécurité globale de vos ressources.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 6af354da-f27a-467a-8b7e-6cbcf70fdbcb
 ms.service: security-center
-ms.topic: article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 03/07/2018
-ms.author: terrylan
-ms.openlocfilehash: 7c15e5a86df7ff2a374aa9b62d2775b1eb035fc6
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.date: 08/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 5638b71147592ae71c741ca86da68ddfec668af5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29854281"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299064"
 ---
 # <a name="connecting-microsoft-azure-application-gateway-to-azure-security-center"></a>Connexion de Microsoft Azure Application Gateway à Azure Security Center
 Ce document vous aide à configurer l’intégration avec les pare-feu d’applications web (WAF) Application Gateway et le Security Center.
@@ -37,9 +37,9 @@ Le Security Center détecte les instances WAF précédemment déployées dans l�
 
 1. Connectez-vous au [portail Azure](https://azure.microsoft.com/features/azure-portal/).
 
-2. Dans le **menu Microsoft Azure**, sélectionnez **Security Center**. La fenêtre **Security Center - Vue d’ensemble** s’ouvre.
+2. Dans le **menu Microsoft Azure**, sélectionnez **Security Center**.
 
-3. Sous **Vue d’ensemble**, sélectionnez **Solutions de sécurité**.
+3. Sous **HYGIÈNE DE SÉCURITÉ DE LA RESSOURCE**, sélectionnez **Solutions de sécurité**.
 
   ![Vue d’ensemble de Security Center](./media/security-center-connect-application-gateway/overview.png)
 

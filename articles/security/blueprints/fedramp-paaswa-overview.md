@@ -8,16 +8,16 @@ ms.service: security
 ms.topic: article
 ms.date: 06/01/2018
 ms.author: jomolesk
-ms.openlocfilehash: 20aa842fb8168bc28a388c817f4e4eedbdd63ebd
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: eb8db75a8ff5af11b98ee2c61628f923a8422153
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34726641"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299931"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-fedramp"></a>Programme Blueprint Security and Compliance Azure : application web PaaS pour FedRAMP
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 [FedRAMP (Federal Risk and Authorization Management Program)](https://www.fedramp.gov/) est un programme déployé à l’échelle de l’administration américaine, visant à rationaliser l’approche en matière d’évaluation de la sécurité, d’autorisation et de surveillance continue des services et produits cloud. Ce document Azure Blueprint Security and Compliance vous fournit des instructions pour proposer une architecture de plateforme en tant que service (PaaS) Microsoft Azure permettant d’implémenter un sous-ensemble de contrôles FedRAMP High. Cette solution fournit des instructions pour le déploiement et la configuration des ressources Azure pour une architecture de référence commune, illustrant diverses façons dont les clients peuvent satisfaire à des exigences de conformité et de sécurité spécifiques, et sert de base aux clients souhaitant générer et configurer leurs propres solutions sur Azure.
 
@@ -28,7 +28,7 @@ Cette architecture de référence, ainsi que le guide de mise en œuvre du contr
 ## <a name="architecture-diagram-and-components"></a>Diagramme et composants de l’architecture
 Cette solution fournit une architecture de référence pour une application web PaaS avec un serveur principal Azure SQL Database. L’application web est hébergée dans un environnement Azure App Service dédié, privé et isolé dans un centre de données Azure. L’environnement équilibre la charge du trafic généré par l’application web entre des machines virtuelles gérées par Azure. Cette architecture inclut également des groupes de sécurité réseau, une passerelle d’application (Azure Application Gateway), un DNS (Azure DNS) et un équilibreur de charge (Azure Load Balancer). Operations Management Suite fournit également des analyses en temps réel de l’intégrité et de la sécurité du système. **Azure recommande de configurer une connexion VPN ou ExpressRoute pour la gestion et l’importation de données dans le sous-réseau de l’architecture de référence.**
 
-![Schéma de l’architecture de référence d’application web PaaS pour FedRAMP](images/fedramp-paaswa-architecture.png?raw=true) « Schéma de l’architecture de référence d’application web PaaS pour FedRAMP »
+![Diagramme de l’architecture de référence Application web PaaS pour FedRAMP](images/fedramp-paaswa-architecture.png?raw=true "Diagramme de l’architecture de référence Application web PaaS pour FedRAMP")
 
 Cette solution utilise les services Azure suivants. Les informations détaillées concernant l’architecture de déploiement se trouvent dans la section [Architecture de déploiement](#deployment-architecture).
 
@@ -42,7 +42,7 @@ Cette solution utilise les services Azure suivants. Les informations détaillée
         - Écouteur : port 443
 - réseau virtuel Azure
 - Groupes de sécurité réseau
-- Azure DNS
+- DNS Azure
 - Stockage Azure
 - Operations Management Suite
 - Azure Monitor
@@ -52,13 +52,13 @@ Cette solution utilise les services Azure suivants. Les informations détaillée
 - Azure Resource Manager
 
 ## <a name="deployment-architecture"></a>Architecture de déploiement
-La section ci-après décrit en détail les éléments nécessaires au déploiement et à l’implémentation.
+La section suivante décrit en détail les éléments nécessaires au déploiement et à l’implémentation.
 
 **Azure Resource Manager** : [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) permet aux clients d’utiliser les ressources de la solution en tant que groupe. Les clients peuvent déployer, mettre à jour ou supprimer toutes les ressources de la solution en une seule opération coordonnée. Les clients utilisent pour le déploiement un modèle pouvant fonctionner avec différents environnements, par exemple de test, intermédiaire et de production. Le Gestionnaire des ressources Azure Resource Manager offre des fonctionnalités de sécurité, d’audit et de marquage pour aider les clients à gérer leurs ressources après le déploiement de celles-ci.
 
 **App Service Environment v2** : l’[environnement Azure App Service (ASE)](https://docs.microsoft.com/azure/app-service/environment/intro) est une fonctionnalité d’Azure App Service qui fournit un environnement dédié et totalement isolé pour l’exécution sécurisée d’applications App Service à grande échelle.
 
-Un environnement App Service est isolé de façon n’exécuter les applications que d’un seul client, et est toujours déployé dans un réseau virtuel. Les clients ont un contrôle affiné sur le trafic réseau entrant et sortant des applications, et les applications peuvent établir des connexions sécurisées à haut débit sur les réseaux virtuels avec les ressources d’entreprise locales.
+Un environnement App Service est isolé de façon à n’exécuter les applications que d’un seul client, et est toujours déployé dans un réseau virtuel. Les clients ont un contrôle affiné sur le trafic réseau entrant et sortant des applications, et les applications peuvent établir des connexions sécurisées à haut débit sur les réseaux virtuels avec les ressources d’entreprise locales.
 
 L’utilisation d’un environnement App Service est autorisée pour les contrôles et configurations suivants :
 
@@ -73,17 +73,17 @@ L’utilisation d’un environnement App Service est autorisée pour les contrô
 
 La section [Instructions et recommandations](#guidance-and-recommendations) contient des informations supplémentaires sur les ASE.
 
-**Azure Web Apps** : [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) permet aux clients de créer et d’héberger des applications web écrites dans le langage de programmation de leur choix sans devoir gérer l’infrastructure. Il offre une mise à l’échelle automatique et une haute disponibilité, prend en charge à la fois Windows et Linux et permet des déploiements automatisés à partir de GitHub, Visual Studio Team Services ou n’importe quel référentiel Git.
+**Azure Web Apps** : [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) permet aux clients de créer et d’héberger des applications web écrites dans le langage de programmation de leur choix sans devoir gérer l’infrastructure. Il offre une mise à l’échelle automatique et une haute disponibilité, prend en charge à la fois Windows et Linux et permet des déploiements automatisés à partir de GitHub, Azure DevOps ou n’importe quel référentiel Git.
 
 ### <a name="virtual-network"></a>Réseau virtuel
 L’architecture définit un réseau privé virtuel avec l’espace d’adressage 10.200.0.0/16.
 
-**Groupes de sécurité réseau** : les [groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contiennent des listes de contrôle d’accès qui autorisent ou refusent le trafic au sein d’un réseau virtuel. Les groupes de sécurité réseau peuvent être utilisés pour sécuriser le trafic au niveau d’un sous-réseau ou d’une machine virtuelle. Les NSG disponibles sont les suivants :
+**Groupes de sécurité réseau** : les [groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg) contiennent des listes de contrôle d’accès qui autorisent ou refusent le trafic au sein d’un réseau virtuel. Les groupes de sécurité réseau peuvent être utilisés pour sécuriser le trafic au niveau d’un sous-réseau ou d’une machine virtuelle. Les groupes de sécurité réseau disponibles sont les suivants :
 - 1 groupe de sécurité réseau pour la passerelle d’application (Application Gateway) ;
 - 1 groupe de sécurité réseau pour l’environnement App Service (App Service Environment) ;
 - 1 groupe de sécurité réseau pour Azure SQL Database.
 
-Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouverts afin que la solution puisse fonctionner correctement et en toute sécurité. En outre, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
+Chaque groupe de sécurité du réseau a des ports et protocoles spécifiques ouverts afin que la solution puisse fonctionner correctement et en toute sécurité. En outre, les configurations suivantes sont activées pour chaque groupe de sécurité réseau :
   - Les [événements et journaux de diagnostic](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) sont activés et stockés dans un compte de stockage.
   - La solution Log Analytics d’OMS est connectée aux [diagnostics de NSG](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json).
 
@@ -94,7 +94,7 @@ Chaque groupe de sécurité réseau a des ports et protocoles spécifiques ouver
 **Azure Load Balancer** : l’[équilibreur de charge Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview) permet aux clients de mettre à l’échelle leurs applications et de créer une haute disponibilité pour les services. Load Balancer prend en charge les scénarios entrants et sortants, et offre une latence faible, un débit élevé et une montée en puissance jusqu’à plusieurs millions de flux pour toutes les applications TCP et UDP.
 
 ### <a name="data-in-transit"></a>Données en transit
-Par défaut, Azure chiffre toutes les communications avec les centres de données Azure. Toutes les transactions en direction du service Stockage Azure par le biais du Portail Azure s’effectuent via HTTPS.
+Par défaut, Azure chiffre toutes les communications avec les centres de données Azure. Toutes les transactions en direction du Stockage Azure passant par le portail Azure se produisent via HTTPS.
 
 ### <a name="data-at-rest"></a>Données au repos
 L’architecture protège les données au repos à l’aide d’un chiffrement, d’un audit de base de données et d’autres mesures.

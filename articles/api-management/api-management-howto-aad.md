@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c1696fc373975eb9857c40366829fbe6a535911
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141080"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391876"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Autoriser des comptes de développeurs à l’aide d’Azure Active Directory dans Gestion des API Azure
 
@@ -79,7 +79,10 @@ Cet article explique comment activer l’accès au portail des développeurs pou
 
     ![Cases à cocher pour les autorisations](./media/api-management-howto-aad/api-management-with-aad005.png)
 
+1. Sélectionnez **Accorder des autorisations** autoriser l’application.
+
     Pour plus d’informations sur les autorisations d’application et les autorisations déléguées, consultez [Accès à l’API Graph][Accessing the Graph API].
+    
 1. Dans le volet de gauche, copiez la valeur de **l’ID d’application**.
 
     ![Valeur de l’ID d’application](./media/api-management-howto-aad/application-id.png)
@@ -98,6 +101,7 @@ Cet article explique comment activer l’accès au portail des développeurs pou
     > Notez sa valeur. Une fois que vous fermez le volet de configuration d’Azure AD, la clé ne peut plus être affichée.
     > 
     > 
+
 1. Revenez à votre application Gestion des API. 
 
     Dans la fenêtre **Ajouter le fournisseur d’identité**, collez la clé dans la zone de texte **Clé secrète client**.
@@ -106,6 +110,7 @@ Cet article explique comment activer l’accès au portail des développeurs pou
     > Veillez à mettre à jour le **secret client** avant l’expiration de la clé. 
     >  
     >
+
 1. La fenêtre **Ajouter le fournisseur d’identité** contient également la zone de texte **Locataires autorisés**. Spécifiez les domaines des instances Azure AD auxquelles vous souhaitez accorder l’accès aux API de l’instance de service Gestion des API. Vous pouvez séparer plusieurs domaines par des sauts de ligne, des espaces ou des virgules.
 
     Vous pouvez spécifier plusieurs domaines dans la section **Locataires autorisés**. Pour qu’un utilisateur puisse se connecter à partir d’un autre domaine que le domaine d’origine dans lequel l’application a été enregistrée, l’administrateur général de l’autre domaine doit d’abord accorder à l’application l’autorisation d’accéder aux données de l’annuaire. Pour accorder l’autorisation, l’administrateur général doit :

@@ -1,6 +1,6 @@
 ---
 title: Mettre à jour la version du système d’exploitation dans Azure Security Center | Microsoft Docs
-description: Cet article vous montre comment implémenter la recommandation d’Azure Security Center **Mettre à jour la version du système d’exploitation**.
+description: Cet article vous montre comment implémenter la suggestion d’Azure Security Center **Mettre à jour la version du système d’exploitation**.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: aa372492-ecdb-4368-8fdd-d8ed31e216ee
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2016
 ms.author: terrylan
-ms.openlocfilehash: ce0d178914907750e5da59f223a4b1e04b9bb6fb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: cab773412005093f8acabe9bd6e93e8740b14ece
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23040664"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298403"
 ---
 # <a name="update-os-version-in-azure-security-center"></a>Mettre à jour la version du système d’exploitation dans Azure Security Center
 Pour les machines virtuelles des services cloud, Azure Security Center recommande que le système d’exploitation soit mis à jour si une version plus récente est disponible.  Seuls les rôles de travail et web des services cloud en cours d’exécution dans des emplacements de production sont surveillés.
@@ -41,7 +41,7 @@ Cet article vous a montré comment implémenter la recommandation de Security Ce
 * [Mettre à jour un service cloud](../cloud-services/cloud-services-update-azure-service.md)
 * [Configuration des services cloud](../cloud-services/cloud-services-how-to-configure-portal.md)
 
-Pour plus d’informations sur Security Center, consultez :
+Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :
 
 * [Définition des stratégies de sécurité dans Azure Security Center](security-center-policies.md) : découvrez comment configurer des stratégies de sécurité pour vos groupes de ressources et abonnements Azure.
 * [Gestion des recommandations de sécurité dans Azure Security Center](security-center-recommendations.md) : découvrez comment les recommandations peuvent vous aider à protéger vos ressources Azure.

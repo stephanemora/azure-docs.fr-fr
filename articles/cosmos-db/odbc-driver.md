@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 131ba3dfb8bd8ad8be893e26fcc22c5a0e65f145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 010556dae1649754df5199fb81c10efcf4c5a226
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431638"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049998"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Se connecter à Azure Cosmos DB à l’aide d’outils d’analyse décisionnelle avec le pilote ODBC
 
@@ -173,7 +173,7 @@ Vous pouvez définir et créer des vues dans le cadre du processus d’échantil
 
 Pour créer une vue de vos données, dans la fenêtre **Éditeur de schéma**, dans la colonne **View Definitions** (Définitions de la vue), cliquez sur **Add** (Ajouter) sur la ligne de la collection à échantillonner. Puis, dans la fenêtre **View Definitions** (Définitions de la vue), procédez comme suit :
 1. Cliquez sur **New** (Nouveau), entrez un nom pour la vue, par exemple, EmployeesfromSeattleView, puis cliquez **OK**.
-1. Dans la fenêtre **Modifier l’affichage**, entrez une requête Azure Cosmos DB. Utilisez obligatoirement une requête SQL Azure Cosmos DB, par exemple `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`, puis cliquez sur **OK**.
+1. Dans la fenêtre **Modifier l’affichage**, entrez une requête Azure Cosmos DB. Utilisez obligatoirement une requête SQL Azure Cosmos DB, par exemple `SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"`, puis cliquez sur **OK**.
 
 Vous pouvez créer autant de vues que vous le souhaitez. Une fois que vous avez terminé la définition des vues, vous pouvez échantillonner les données. 
 

@@ -8,17 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: d187d24725084296078f58447c19bda1ace13a69
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.openlocfilehash: b180acfb74f503447212044f0b6be5589e2dd452
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158787"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Guide des opérations et de planification du Centre de sécurité Azure
 Ce guide s’adresse aux informaticiens professionnels, aux architectes informatiques, aux analystes de la sécurité des informations et aux administrateurs de cloud dont les entreprises prévoient d’utiliser le Centre de sécurité Azure.
@@ -125,7 +126,7 @@ Une stratégie de sécurité définit la configuration souhaitée de vos charges
 
 Les stratégies Security Center comprennent les composants suivant :
 - [Collecte des données](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection) : paramètres de l’approvisionnement d’agent et de la collecte de données.
-- [Stratégie de sécurité](https://docs.microsoft.com/azure/security-center/security-center-policies) : [stratégie Azure](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) qui détermine les contrôles surveillés et recommandés par Security Center. Vous pouvez aussi utiliser une stratégie Azure pour créer des définitions, définir des stratégies supplémentaires et assigner des stratégies à des groupes d’administration.
+- [Stratégie de sécurité](https://docs.microsoft.com/azure/security-center/security-center-policies) : [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) qui détermine les contrôles surveillés et recommandés par Security Center. Vous pouvez aussi utiliser une stratégie Azure pour créer des définitions, définir des stratégies supplémentaires et assigner des stratégies à des groupes d’administration.
 - [Notifications par e-mail](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details) : paramètres des contacts de sécurité et des notifications.
 - [Niveau de tarification](https://docs.microsoft.com/azure/security-center/security-center-pricing) : sélection de tarification gratuite ou standard, qui détermine les fonctionnalités Security Center disponibles pour les ressources visées (à spécifier pour les abonnements, les groupes de ressources et les espaces de travail).
 

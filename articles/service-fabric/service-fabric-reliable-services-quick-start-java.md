@@ -1,5 +1,5 @@
 ---
-title: Créer votre premier microservice Azure fiable en Java | Microsoft Docs
+title: Créer votre premier service fiable Azure Service Fabric dans Java | Microsoft Docs
 description: Introduction à la création d'une application Microsoft Azure Service Fabric avec des services avec et sans état.
 services: service-fabric
 documentationcenter: java
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: suhuruli
-ms.openlocfilehash: 7e83f141791bb49130f7cf01086537f8ae08c406
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: d4e3419241d44744f8a692896848edb6cebb56a0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37019693"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049692"
 ---
 # <a name="get-started-with-reliable-services"></a>Prise en main de Reliable Services
 > [!div class="op_single_selector"]
@@ -236,7 +236,7 @@ Les opérations sur les tables de hachage fiables sont asynchrones. Ceci est dû
 Les opérations des tables de hachage fiables sont *transactionnelles*. Ainsi, vous pouvez conserver un état cohérent entre plusieurs tables de hachage fiables et opérations. Vous pouvez, par exemple, obtenir un élément de travail d’un Reliable Dictionary (dictionnaire fiable), effectuer une opération sur celui-ci et enregistrer le résultat dans une autre table de hachage fiable, le tout dans une transaction unique. Ces opérations sont traitées comme une seule opération atomique, ce qui garantit soit son succès total, soit son échec total. Si une erreur se produit une fois que vous avez retiré l’élément de la file d’attente, mais avant d’enregistrer le résultat, la transaction entière est annulée et l’élément reste dans la file d’attente à des fins de traitement.
 
 
-## <a name="build-the-application"></a>Création de l'application
+## <a name="build-the-application"></a>Créer l’application
 
 La génération de modèles automatique Yeoman inclut un script Gradle permettant de créer l’application et des scripts bash permettant le déploiement et la suppression de l’application. Pour exécuter l’application, commencez par créer l’application avec Gradle :
 

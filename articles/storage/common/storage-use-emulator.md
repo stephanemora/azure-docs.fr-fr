@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888081"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052541"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>Utilisation de l’émulateur de stockage Azure pour le développement et le test
 
@@ -68,7 +68,7 @@ Vous pouvez utiliser l’outil en ligne de commande de l’émulateur de stockag
 
   Vous pouvez également exécuter la commande suivante, qui indique à l'émulateur d'utiliser l'instance SQL Server par défaut :
 
-  `AzureStorageEmulator.exe init /server .\\`
+  `AzureStorageEmulator.exe init /server .`
 
   En guise d’alternative, vous pouvez exécuter la commande suivante, qui réinitialise la base de données en rétablissant l’instance LocalDB par défaut :
 
@@ -93,10 +93,10 @@ Certaines bibliothèques clientes de stockage Azure, telles que la bibliothèque
 Vous pouvez également générer un jeton SAP à l’aide d’Azure PowerShell. L’exemple suivant génère un jeton SAP avec des autorisations complètes sur un conteneur de blobs :
 
 1. Installez Azure PowerShell si vous ne l’avez pas encore (à l’aide de la version la plus récente de cmdlets d’Azure PowerShell). Pour connaître la procédure d’installation, consultez l’article [Install and configure Azure PowerShell](/powershell/azure/install-azurerm-ps) (Installation et configuration d’Azure PowerShell).
-2. Ouvrez Azure PowerShell et exécutez les commandes suivantes, en remplaçant `ACCOUNT_NAME` et `ACCOUNT_KEY==` par vos propres informations d’identification, et `CONTAINER_NAME` par un nom de votre choix :
+2. Ouvrez Azure PowerShell et exécutez les commandes suivantes, en remplaçant `CONTAINER_NAME` par un nom de votre choix :
 
 ```powershell
-$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+$context = New-AzureStorageContext -Local
 
 New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
@@ -108,7 +108,7 @@ New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryT
 L’URI de la signature d’accès partagé obtenue pour le nouveau conteneur doit être semblable à ce qui suit :
 
 ```
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
 La signature d’accès partagé créée avec cet exemple est valide une journée. La signature accorde un accès complet (lecture, écriture, suppression et liste) aux blobs du conteneur.

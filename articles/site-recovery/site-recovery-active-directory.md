@@ -9,23 +9,22 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: manayar
-ms.openlocfilehash: 3a2ad35a5382394a6886ed14dcc4f659762f2833
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 28ea6c58eed110cfb57f3feaa6b828289bd20e64
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172236"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054544"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Utiliser Azure Site Recovery pour protéger Active Directory et DNS
 
 Les applications d'entreprise telles que SharePoint, Dynamics AX et SAP dépendent du bon fonctionnement d'Active Directory et de l'infrastructure DNS. Lorsque vous configurez une récupération d’urgence pour des applications, pour vous assurer que l’application fonctionne correctement, vous devez souvent récupérer Active Directory et DNS avant d’autres composants d’application.
 
-Vous pouvez utiliser [Site Recovery](site-recovery-overview.md) pour créer une récupération d’urgence pour Active Directory. Quand une interruption se produit, vous pouvez déclencher un basculement. Vous pouvez avoir un Active Directory opérationnel quelques minutes. Si vous avez déployé Active Directory pour plusieurs applications dans votre site principal, par exemple pour SharePoint et SAP, vous pouvez basculer le site complet. Vous pouvez commencer par basculer Active Directory à l’aide de Site Recovery. Basculez ensuite les autres applications à l’aide des plans de récupération spécifiques à l’application.
+Vous pouvez utiliser [Site Recovery](site-recovery-overview.md) pour créer une récupération d’urgence pour Active Directory. Quand une interruption se produit, vous pouvez déclencher un basculement. Vous pouvez avoir un Active Directory opérationnel quelques minutes. Si vous avez déployé Active Directory pour plusieurs applications dans votre site principal, par exemple pour SharePoint et SAP, vous pouvez basculer le site complet. Vous commencer par basculer Active Directory à l’aide d’Azure Site Recovery. Basculez ensuite les autres applications à l’aide des plans de récupération spécifiques à l’application.
 
 Cet article explique comment créer une solution de récupération d’urgence pour Active Directory. Il inclut les conditions préalables et les instructions de basculement. Avant de commencer, vous devez vous familiariser avec Active Directory et Site Recovery.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Si vous procédez à une récupération vers Azure, [préparez les ressources Azure](tutorial-prepare-azure.md), y compris un abonnement, un réseau virtuel Azure, un compte de stockage et un coffre Recovery Services.
 * Vérifiez les [exigences de prise en charge](site-recovery-support-matrix-to-azure.md) pour tous les composants.

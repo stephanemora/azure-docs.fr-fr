@@ -14,17 +14,17 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/04/2018
 ms.author: ellacroi
-ms.openlocfilehash: b2b0a0bbc91115de22eda98df91fb104eb5972ed
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: b02ab403c82fd781af72c3b1f08e843c3fc770e3
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34825887"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094941"
 ---
 # <a name="promote-your-business-with-microsoft"></a>Promouvoir votre entreprise avec Microsoft  
 Microsoft a pour objectif de soutenir ses partenaires (vous) et de simplifier la vente de votre application ou offre dans les vitrines de la Place de marché. Grâce au référencement sur la Place de marché, vous accédez aux programmes et ressources sur la Place de marché. 
 
-Si vous n’êtes pas encore inscrit au Microsoft Partner Network (MPN), veuillez le faire avant de continuer.  
+Si vous n’êtes pas encore inscrit au Microsoft Partner Network (MPN), veuillez vous inscrire avant de continuer.  
 *   Pour plus d’informations sur MPN, consultez la page Microsoft Partner Network à l’adresse [partner.microsoft.com](https://partner.microsoft.com).  
 
 MPN fournit des conseils sur les rubriques suivantes.  

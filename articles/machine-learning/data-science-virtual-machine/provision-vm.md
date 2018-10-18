@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782652"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298199"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Provisionner la machine virtuelle DSVM Windows sur Azure
 La machine virtuelle Microsoft Data Science Virtual Machine (DSVM) est une image de machine virtuelle Azure. Elle est préinstallée et configurée avec plusieurs outils utilisés dans le cadre de l’analytique données et du machine learning. Les outils suivants sont inclus :
@@ -40,7 +40,7 @@ La machine virtuelle Microsoft Data Science Virtual Machine (DSVM) est une image
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/). Un logiciel de machine learning et d’exploration de données visuelle en langage Java.
   * [Apache Drill](https://drill.apache.org/). Un moteur de requêtes SQL sans schéma pour Apache Hadoop, NoSQL et le stockage cloud.  Il prend en charge les interfaces ODBC et JDBC pour l’interrogation de NoSQL et des fichiers à partir d’outils décisionnels standard tels que Power BI, Excel et Tableau.
 * Bibliothèques dans les langages R et Python à utiliser dans Azure Machine Learning et d’autres services Azure.
-* Git, incluant Git Bash, pour travailler avec les référentiels de code source, notamment GitHub et Visual Studio Team Services. Git fournit plusieurs utilitaires en ligne de commande Linux populaires, qui sont accessibles à la fois sur Git Bash et à partir d’une invite de commandes. Awk, sed, perl, grep, find, wget et curl en sont des exemples.
+* Git, incluant Git Bash, pour travailler avec les référentiels de code source, notamment GitHub et Azure DevOps. Git fournit plusieurs utilitaires en ligne de commande Linux populaires, qui sont accessibles à la fois sur Git Bash et à partir d’une invite de commandes. Awk, sed, perl, grep, find, wget et curl en sont des exemples.
 
 La science des données consiste à itérer sur une séquence de tâches :
 

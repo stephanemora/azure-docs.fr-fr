@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: d0c74bd2ba7a4a77a16d481ddb3b76f90a923254
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: a3dadfc4257d43f9df1b93f5d486e5577b7889d6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989507"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055309"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexation dans Azure Cosmos DB : API MongoDB
 
@@ -83,7 +83,7 @@ Dans l’exemple ci-dessus, si la clause ```"university":1``` a été omise, une
 
 Pour activer l’expiration de document dans une collection particulière, un [« index TTL » (index de durée de vie)](../cosmos-db/time-to-live.md) doit être créé. Un index TTL est un index sur le champ _ts avec une valeur « expireAfterSeconds ».
  
-Exemple :
+Exemple :
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex({"_ts":1}, {expireAfterSeconds: 10})
 ```

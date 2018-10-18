@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: cd107ddc5ac443daee592c40bbed451c913a8a3b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aba6a1f7028ac09cad8acf587fd56dcc2c16919b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444587"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295716"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>FAQ d’Azure App Service sur Linux
 
@@ -74,7 +74,7 @@ Oui, vous devez définir le paramètre d’application `WEBSITE_WEBDEPLOY_USE_SC
 
 Si le déploiement Git sur votre application web Linux échoue, choisissez l’une des options suivantes pour déployer le code de votre application :
 
-- Utilisez la fonctionnalité de livraison continue (préversion) : vous pouvez stocker le code source de votre application dans un dépôt Git Team Services ou un dépôt GitHub pour utiliser la livraison continue Azure. Pour plus d’informations, consultez [Configurer la livraison continue pour une application web Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Utilisez la fonctionnalité de livraison continue (préversion) : vous pouvez stocker le code source de votre application dans un dépôt Git Azure DevOps ou un dépôt GitHub pour utiliser la livraison continue Azure. Pour plus d’informations, consultez [Configurer la livraison continue pour une application web Linux](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
 - Utilisez l’[API de déploiement ZIP](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file) : pour utiliser cette API, [connectez-vous via SSH à votre application web](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) et accédez au dossier où vous souhaitez déployer votre code. Exécutez le code suivant :
 
