@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 07/31/2018
-ms.openlocfilehash: a6ad40f90e12bbf4dd85c3cbd22839d39a734ca1
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5f76d18662105df6d278e09e047baa13773ab4ac
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391163"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319351"
 ---
 # <a name="deploy-to-azure-app-service-by-using-the-jenkins-plugin"></a>Déployer sur Azure App Service à l’aide du plug-in Jenkins 
 
@@ -36,8 +36,10 @@ Si vous ne disposez pas encore d’un serveur maître Jenkins, commencez par uti
 * [Azure App Service](https://plugins.jenkins.io/azure-app-service) version 0.1
 
 Vous pouvez utiliser le plug-in Jenkins pour déployer une application web dans n’importe quel langage pris en charge par Web Apps, comme C#, PHP, Java et Node.js. Dans ce didacticiel, nous utilisons une [simple application web Java pour Azure](https://github.com/azure-devops/javawebappsample). Pour dupliquer (fork) le référentiel dans votre propre compte GitHub, cliquez sur le bouton **Fork** dans l’angle supérieur droit de l’interface GitHub.  
+
 > [!NOTE]
 > Java JDK et Maven sont obligatoires pour la génération du projet Java. Installez ces composants sur le serveur maître Jenkins ou l’agent de la machine virtuelle si vous utilisez l’agent à des fins d’intégration continue. Si vous déployez une application Java SE, ZIP est également nécessaire sur le serveur de builds.
+>
 
 Pour installer les composants, connectez-vous à l’instance Jenkins avec le protocole SSH et exécutez les commandes suivantes :
 
@@ -48,7 +50,7 @@ sudo apt-get install -y maven
 
 Pour déployer sur Web App pour conteneurs, installez Docker sur le serveur maître Jenkins ou l’agent de machine virtuelle qui est utilisé pour la génération. Pour obtenir des instructions, consultez [Installer Docker sur Ubuntu](https://docs.docker.com/engine/installation/linux/ubuntu/).
 
-##<a name="service-principal"></a> Ajouter un principal de service Azure aux informations d’identification Jenkins
+## <a name="service-principal"></a> Ajouter un principal de service Azure aux informations d’identification Jenkins
 
 Un principal de service Azure est nécessaire pour les déploiements sur Azure. 
 

@@ -1,24 +1,25 @@
 ---
-title: Utiliser un point de terminaison de reconnaissance vocale personnalisé - Custom Speech Service
-titlesuffix: Azure Cognitive Services
-description: Découvrez comment utiliser un point de terminaison de reconnaissance vocale personnalisé avec Custom Speech Service.
+title: Utiliser un point de terminaison vocal personnalisé avec Custom Speech Service sur Azure | Microsoft Docs
+description: Découvrez comment créer un point de terminaison de reconnaissance vocale personnalisé avec Custom Speech Service dans Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 98c1b58e58490199b0258dfcc8df183c3fe9a8bd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9f1a21d6f099bc27c81e8c254f7df73d6c3e585d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223370"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341798"
 ---
 # <a name="use-a-custom-speech-to-text-endpoint"></a>Utiliser un point de terminaison de reconnaissance vocale personnalisé
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Vous pouvez envoyer des requêtes à un point de terminaison de reconnaissance vocale Azure Custom Speech Service de la même façon que vous pouvez le faire sur le point de terminaison vocal Cognitive Services par défaut. Ces points de terminaison sont identiques en termes de fonction aux points de terminaison par défaut de l’API Microsoft Speech. Ainsi, cette même fonctionnalité, disponible via la bibliothèque de client ou l’API REST pour l’API Microsoft Speech, est également disponible pour votre point de terminaison personnalisé.
 
 Les points de terminaison que vous créez à l’aide de ce service peuvent traiter différentes quantités de requêtes simultanées. Le volume varie selon le niveau tarifaire de votre abonnement. Si trop de requêtes sont reçues, une erreur se produit. Le niveau gratuit a une limite mensuelle des requêtes.

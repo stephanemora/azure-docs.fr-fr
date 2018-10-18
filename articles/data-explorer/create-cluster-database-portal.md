@@ -2,18 +2,18 @@
 title: 'Démarrage rapide : Créer un cluster et une base de données pour l’Explorateur de données Azure'
 description: Dans ce guide de démarrage rapide, vous allez apprendre à créer un cluster et une base de données pour l’Explorateur de données Azure et ingérer (charger) des données.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 3280709c59edfd5d8e810c7ab33aa615e13f4b93
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6aff31c662a845028a02cecd7a99837f92bc87e5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974712"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394219"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Démarrage rapide : Créer un cluster et une base de données pour l’Explorateur de données Azure
 
@@ -75,7 +75,7 @@ Vous êtes maintenant prêt pour la deuxième étape du processus : la créatio
     **Paramètre** | **Valeur suggérée** | **Description du champ**
     |---|---|---|
     | Nom de la base de données | *TestDatabase* | Ce nom de base de données doit être unique dans le cluster.
-    | Période de conservation | *3650* | Intervalle de temps pendant lequel vous avez la garantie d’avoir les données à disposition pour les interroger. Cet intervalle se mesure à partir du moment où les données sont ingérées.
+    | Période de rétention | *3650* | Intervalle de temps pendant lequel vous avez la garantie d’avoir les données à disposition pour les interroger. Cet intervalle se mesure à partir du moment où les données sont ingérées.
     | Période de cache | *31* | Intervalle de temps pendant lequel les données fréquemment interrogées restent disponibles dans le stockage SSD ou la RAM, plutôt que dans un stockage à plus long terme.
     | | | |
 

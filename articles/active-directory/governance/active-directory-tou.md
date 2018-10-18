@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 09/04/2018
 ms.author: rolyon
-ms.openlocfilehash: 9fa966999e220ea4357d5b5c37f0038c75fe2339
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b6cc81a49875739a61aa397a65eb70c6b4f082ef
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45607109"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393981"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main la fonctionnalité Conditions d’utilisation d’Azure Active Directory.
@@ -242,4 +242,4 @@ R : Vous pouvez [consulter les conditions d’utilisation précédemment accept�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Meilleures pratiques l’accès conditionnel dans Azure Active Directory](../../cognitive-services/qnamaker/concepts/best-practices.md)
+- [Meilleures pratiques l’accès conditionnel dans Azure Active Directory](../../active-directory/conditional-access/best-practices.md)

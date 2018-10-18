@@ -15,24 +15,24 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2017
 ms.author: cherylmc
-ms.openlocfilehash: 0c5d045cb949f5393bb2d9da54715b2b84229c36
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 2c92db96820b9796ba2c952affcb3b3eef5b985e
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036286"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319844"
 ---
 # <a name="delete-a-virtual-network-gateway-using-powershell-classic"></a>Supprimer une passerelle de réseau virtuel avec PowerShell (classique)
+
 > [!div class="op_single_selector"]
 > * [Resource Manager - Portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
 > * [Resource Manager - PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
 > * [Classic - PowerShell](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
 >
->
 
 Cet article vous aide à supprimer une passerelle VPN dans le modèle de déploiement classique à l’aide de PowerShell. Une fois la passerelle de réseau virtuel supprimée, modifiez le fichier de configuration réseau pour supprimer les éléments que vous n’utilisez plus.
 
-##<a name="connect"></a>Étape 1 : Connectez-vous à Azure
+## <a name="connect"></a>Étape 1 : Connectez-vous à Azure
 
 ### <a name="1-install-the-latest-powershell-cmdlets"></a>1. Installez les dernières applets de commande PowerShell.
 
@@ -92,7 +92,7 @@ Pour supprimer les informations de référence de site, apportez des modificatio
  </Gateway>
 ```
 
-Exemple :
+Exemple :
 
 ```
 <Gateway>
@@ -101,7 +101,7 @@ Exemple :
  </Gateway>
 ```
 
-###<a name="lns"></a>Sites de réseau local
+### <a name="lns"></a>Sites de réseau local
 
 Supprimez les sites locaux que vous n’utilisez plus. Selon la configuration que vous avez créée, il est possible qu’un **LocalNetworkSite** ne soit pas répertorié.
 
@@ -148,7 +148,7 @@ Si vous aviez une connexion P2S à votre réseau virtuel, vous avez un **VPNClie
  </Gateway>
 ```
 
-Exemple :
+Exemple :
 
 ```
 <Gateway>
@@ -171,7 +171,7 @@ Supprimez le **GatewaySubnet** qui correspond au réseau virtuel.
  </Subnets>
 ```
 
-Exemple :
+Exemple :
 
 ```
 <Subnets>

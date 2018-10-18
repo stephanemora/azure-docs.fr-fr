@@ -3,23 +3,23 @@ title: Mappage de réseaux virtuels entre deux régions Azure dans Azure Site Re
 description: Azure Site Recovery coordonne la réplication, le basculement et la récupération des machines virtuelles et des serveurs physiques. Informez-vous sur le basculement dans Microsoft Azure ou un centre de données secondaire.
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 editor: ''
 ms.assetid: 44813a48-c680-4581-a92e-cecc57cc3b1e
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: aed804a257376308c668ce0c2f3e8ce652ee9b3f
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 95e6a388d0638d2fd477d33aaf7c39cf120e29aa
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42143995"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353427"
 ---
 # <a name="map-virtual-networks-in-different-azure-regions"></a>Mapper des réseaux virtuels dans différentes régions Azure
 
@@ -106,7 +106,7 @@ Si les sous-réseaux source et cible ont un espace d’adressage différent, l�
 La machine virtuelle basculée serait affectée avec : la prochaine adresse IP disponible à partir de la fin de la plage d’adresses de sous-réseau, soit : 10.0.0.254 </br>
 
 **Remarque :** le terme **réseau virtuel de production** est appelé « réseau cible » mappé lors de la configuration de la récupération d’urgence.
-####<a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Si le réseau cible choisi n’est pas le réseau virtuel de production, mais dispose de la même plage de sous-réseau en tant que réseau de production 
+#### <a name="2-if-the-target-network-chosen-is-not-the-production-vnet-but-has-the-same-subnet-range-as-production-network"></a>2. Si le réseau cible choisi n’est pas le réseau virtuel de production, mais dispose de la même plage de sous-réseau en tant que réseau de production
 
 - L’adresse IP de récupération (adresse IP cible) sera une adresse IP statique avec la **même adresse IP** (c’est-à-dire, l’adresse IP statique configurée) que celle réservée pour le basculement. À condition que la même adresse IP soit disponible.
 - Si l’adresse IP statique configurée est déjà affectée à une autre machine virtuelle/périphérique, l’adresse IP de récupération sera la prochaine adresse IP disponible à partir de la fin de la plage d’adresses du sous-réseau.

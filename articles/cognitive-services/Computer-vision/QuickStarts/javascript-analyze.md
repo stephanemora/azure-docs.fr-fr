@@ -3,23 +3,23 @@ title: 'Démarrage rapide : Analyser une image distante - REST, JavaScript - Vis
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous analysez une image en utilisant l’API Vision par ordinateur avec JavaScript.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: e6874bde0231199b6a6805b5f27842d80dab6aaf
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 3f826b622ed88d861d687fe7a6cb9b1304f6d779
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631104"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342142"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-javascript-in-computer-vision"></a>Démarrage rapide : Analyser une image distante à l’aide de l’API REST et JavaScript dans Vision par ordinateur
 
-Dans ce guide de démarrage rapide, vous analysez une image stockée à distance pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la méthode [Analyser une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des caractéristiques visuelles à partir du contenu d’une image.
+Dans ce guide de démarrage rapide, vous analysez une image stockée à distance pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la [méthode d’analyse d’une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
 
@@ -36,7 +36,7 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
     1. Remplacez la valeur de `subscriptionKey` par votre clé d’abonnement.
     1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Remplacez éventuellement la valeur de l’attribut `value` du contrôle `inputImage` par l’URL d’une autre image que vous voulez analyser.
-1. Enregistrez le code dans un fichier avec une extension `.html`. Par exemple : `analyze-image.html`.
+1. Enregistrez le code dans un fichier avec une extension `.html`. Par exemple : `analyze-image.html`.
 1. Ouvrez une fenêtre de navigateur.
 1. Dans le navigateur, faites glisser et déposez le fichier dans la fenêtre du navigateur.
 1. Quand la page web s’affiche dans le navigateur, choisissez le bouton **Analyser l’image**.
@@ -211,7 +211,7 @@ Une réponse correcte est retournée au format JSON. L’exemple de page web ana
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’en avez plus besoin, supprimez le fichier.
+Lorsque vous n’en avez plus besoin, supprimez le fichier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

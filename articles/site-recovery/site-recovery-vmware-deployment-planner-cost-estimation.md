@@ -6,14 +6,14 @@ author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/06/2018
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: a946ecb31697591a7490c80496c02c5f907c6f36
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7470dab537a8ab248228b9c445e1124e7ec9c444
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182380"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387801"
 ---
 # <a name="cost-estimation-report-of-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery  
 
@@ -125,7 +125,7 @@ Pour ajouter manuellement des machines virtuelles :
 
 **Nombre d’extractions de la récupération d’urgence par an** : nombre de fois que vous effectuez des extractions de la récupération d’urgence en une année. Par défaut, il est de 4 fois par an. Vous pouvez modifier la période pour des machines virtuelles spécifiques ou appliquer la nouvelle valeur à toutes les machines virtuelles en saisissant la nouvelle valeur sur la ligne du haut et en cliquant sur le bouton « Appliquer à tous ». Le coût total de l’extraction de la récupération d’urgence est calculé en fonction du nombre d’extractions de la récupération d’urgence et la période de cette dernière.  
 
-**Durée de chaque extraction de la récupération d’urgence (en jours)** : durée de chaque extraction de la récupération d’urgence. Par défaut, elle est de 7 jours tous les 90 jours selon l’[avantage Récupération d’urgence de la Software Assurance](https://azure.microsoft.com/en-in/pricing/details/site-recovery). Vous pouvez modifier la période pour des machines virtuelles spécifiques ou appliquer la nouvelle valeur à toutes les machines virtuelles en saisissant la nouvelle valeur sur la ligne du haut et en cliquant sur le bouton « Appliquer à tous ». Le coût total de l’extraction de la récupération d’urgence est calculé en fonction du nombre d’extractions de la récupération d’urgence et la période de cette dernière.
+**Durée de chaque extraction de la récupération d’urgence (en jours)** : durée de chaque extraction de la récupération d’urgence. Par défaut, elle est de 7 jours tous les 90 jours selon l’[avantage Récupération d’urgence de la Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Vous pouvez modifier la période pour des machines virtuelles spécifiques ou appliquer la nouvelle valeur à toutes les machines virtuelles en saisissant la nouvelle valeur sur la ligne du haut et en cliquant sur le bouton « Appliquer à tous ». Le coût total de l’extraction de la récupération d’urgence est calculé en fonction du nombre d’extractions de la récupération d’urgence et la période de cette dernière.
   
 **Type de système d’exploitation** : type de système d’exploitation de la machine virtuelle. Il peut s’agir de Windows ou de Linux. Si le type de système d’exploitation est Windows, Azure Hybrid Use Benefit peut être appliqué à cette machine virtuelle. 
 

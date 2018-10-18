@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 06/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 1cae7253a4bfcb4f83baf003a4d9d3c367d8f014
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 6c8dc240172451118fd75b042ba267740999882d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064322"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321765"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Résoudre les problèmes liés aux Runbooks Workers hybrides
 
@@ -24,7 +24,7 @@ Cet article fournit des informations sur la résolution des problèmes liés aux
 
 Le Runbook Worker hybride dépend d’un agent pour communiquer avec votre compte Automation et ainsi enregistrer le worker, recevoir des travaux de runbook et signaler l’état. Pour Windows, cet agent est Microsoft Monitoring Agent. Pour Linux, il s’agit de l’Agent OMS pour Linux.
 
-###<a name="runbook-execution-fails"></a>Scénario : Échec de l’exécution d’un Runbook
+### <a name="runbook-execution-fails"></a>Scénario : Échec de l’exécution d’un Runbook
 
 #### <a name="issue"></a>Problème
 
@@ -42,7 +42,7 @@ Voici quelques causes possibles :
 
 * Les Runbooks ne peuvent pas s’authentifier auprès des ressources locales.
 
-* Le Worker hybride est derrière un pare-feu ou un proxy.
+* Le worker hybride est derrière un pare-feu ou un proxy
 
 * Les Runbooks ne peuvent pas s’authentifier auprès des ressources locales.
 
@@ -62,7 +62,7 @@ Vérifiez dans le journal des événements **Microsoft-SMA** la présence d’un
 
 Le Runbook Worker hybride Linux dépend de l’agent OMS pour Linux pour communiquer avec votre compte Automation et ainsi enregistrer le Worker, recevoir des travaux de runbook et signaler l’état. Si l’inscription du worker échoue, voici les causes possibles de l’erreur :
 
-###<a name="oms-agent-not-running"></a>Scénario : L’Agent OMS pour Linux n’est pas en cours d’exécution
+### <a name="oms-agent-not-running"></a>Scénario : L’Agent OMS pour Linux n’est pas en cours d’exécution
 
 Si l’agent OMS pour Linux n’est pas en cours d’exécution, le Runbook Worker hybride Linux ne peut pas communiquer avec Azure Automation. Vérifiez que l’agent est en cours d’exécution en entrant la commande suivante : `ps -ef | grep python`. Vous devez voir une sortie similaire à celle qui suit, les processus python avec le compte d’utilisateur **nxautomation**. Si les solutions Update Management ou Azure Automation ne sont pas activées, aucun des processus suivants n’est activé.
 
@@ -82,7 +82,7 @@ La liste suivante présente les processus démarrés pour un Runbook Worker hybr
 
 Si l’agent OMS pour Linux n’est pas en cours d’exécution, exécutez la commande suivante pour démarrer le service : `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
-###<a name="class-does-not-exist"></a>Scénario : La classe spécifiée n’existe pas
+### <a name="class-does-not-exist"></a>Scénario : La classe spécifiée n’existe pas
 
 Si vous voyez l’erreur **La classe spécifiée n’existe pas...** dans `/var/opt/microsoft/omsconfig/omsconfig.log`, alors l’agent OMS pour Linux a besoin d’une mise à jour. Exécutez la commande suivante pour réinstaller l’agent OMS :
 
@@ -94,7 +94,7 @@ wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/inst
 
 Le Runbook Worker hybride Windows dépend de l’agent Microsoft Monitoring Agent pour communiquer avec votre compte Automation, et ainsi enregistrer le Worker, recevoir des travaux de Runbook et signaler l’état. Si l’inscription du worker échoue, voici les causes possibles de l’erreur :
 
-###<a name="mma-not-running"></a>Scénario : Microsoft Monitoring Agent n’est pas en cours d’exécution
+### <a name="mma-not-running"></a>Scénario : Microsoft Monitoring Agent n’est pas en cours d’exécution
 
 #### <a name="issue"></a>Problème
 
@@ -108,7 +108,7 @@ Si le service Windows de Microsoft Monitoring Agent n’est pas en cours d’ex�
 
 Vérifiez que l’agent est en cours d’exécution en entrant la commande suivante dans PowerShell : `Get-Service healthservice`. Si le service est arrêté, entrez la commande suivante dans PowerShell pour démarrer le service : `Start-Service healthservice`.
 
-###<a name="event-4502"></a> Événement 4502 dans le journal Operations Manager
+### <a name="event-4502"></a> Événement 4502 dans le journal Operations Manager
 
 #### <a name="issue"></a>Problème
 
@@ -126,7 +126,7 @@ Les journaux sont stockés localement sur chaque Worker hybride à l’emplaceme
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez l’un des canaux suivants pour obtenir de l’aide :
+Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
 
 * Obtenez des réponses de la part d’experts Azure via les [Forums Windows](https://azure.microsoft.com/support/forums/)
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), qui est le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées : réponses, support technique et experts.

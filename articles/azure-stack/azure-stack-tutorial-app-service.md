@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/05/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 0171dba639e480a04cdd1c7f23d546d01121fb42
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 0a9b87ccfd49ba04a8dff8ef48bea023ff94b222
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35247396"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340716"
 ---
 # <a name="tutorial-make-web-and-api-apps-available-to-your-azure-stack-users"></a>Tutoriel : Mettre des applications web et API à la disposition des utilisateurs Azure Stack
 
@@ -90,7 +90,7 @@ Pour cet exemple, nous allons créer un système de gestion de contenu de platef
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Déployer le fournisseur de ressources App Service

@@ -3,23 +3,23 @@ title: 'Démarrage rapide : Analyser une image locale - REST, Python - Vision pa
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous analysez une image locale en utilisant l’API Vision par ordinateur avec Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 48a6602c9f3029cc008f3db7d4701499c14e7ce1
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: ff06a06fb22abba3b666828f0594e70e4db99f57
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633858"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341989"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-python-in-computer-vision"></a>Démarrage rapide : Analyser une image locale à l’aide de l’API REST et Python dans Vision par ordinateur
 
-Dans ce guide de démarrage rapide, vous analysez une image stockée localement pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la méthode [Analyser une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des caractéristiques visuelles à partir du contenu d’une image.
+Dans ce guide de démarrage rapide, vous analysez une image stockée localement pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la [méthode d’analyse d’une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image.
 
 Vous pouvez exécuter ce démarrage rapide étape par étape à l’aide d’un bloc-notes Jupyter sur [MyBinder](https://mybinder.org). Pour lancer Binder, sélectionnez le bouton suivant :
 
@@ -29,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous souhaitez exécuter l’exemple localement, [Python](https://www.python.org/downloads/) doit être installé.
+- Si vous souhaitez exécuter l’exemple en local, [Python](https://www.python.org/downloads/) doit être installé.
 - Vous devez avoir une clé d’abonnement pour Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="create-and-run-the-sample"></a>Créer et exécuter l’exemple
@@ -41,9 +41,9 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
     1. Remplacez la valeur de `subscription_key` par votre clé d’abonnement.
     1. Si nécessaire, remplacez la valeur de `vision_base_url` par l’URL du point de terminaison de la ressource Vision par ordinateur dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Remplacez éventuellement la valeur de `image_path` par le chemin et le nom de fichier d’une autre image que vous souhaitez analyser.
-1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `analyze-local-image.py`.
+1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `analyze-local-image.py`.
 1. Ouvrir une fenêtre d’invite de commandes.
-1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python analyze-local-image.py`.
+1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python analyze-local-image.py`.
 
 ```python
 import requests
@@ -95,7 +95,7 @@ _ = plt.title(image_caption, size="x-large", y=-0.1)
 
 ## <a name="examine-the-response"></a>Examiner la réponse
 
-Une réponse correcte est retournée au format JSON. La page web d’exemple analyse et affiche une réponse réussie dans la fenêtre d’invite de commandes, comme dans l’exemple suivant :
+Une réponse correcte est retournée au format JSON. La page Web d’exemple analyse et affiche une réponse correcte dans la fenêtre d’invite de commande, comme dans l’exemple suivant :
 
 ```json
 {
@@ -169,9 +169,9 @@ Une réponse correcte est retournée au format JSON. La page web d’exemple ana
 }
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’en avez plus besoin, supprimez le fichier.
+Lorsque vous n’en avez plus besoin, supprimez le fichier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

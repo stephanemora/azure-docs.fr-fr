@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/24/2018
 ms.author: iainfou
 ms.custom: H1Hack27Feb2017, mvc, devcenter
-ms.openlocfilehash: caf3607dbd33d75916ff65b0ab498fa228e2a823
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: cc61ed7d83b7ff4858b97a0b05f149cf4e7c9952
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068909"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394919"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster"></a>Guide de démarrage rapide : déployer un cluster Azure Kubernetes Service (AKS)
 
@@ -100,12 +100,15 @@ Un fichier manifeste Kubernetes définit un état souhaité pour le cluster, inc
 Créez un fichier nommé `azure-vote.yaml` et copiez-y le code YAML suivant. Si vous travaillez dans Azure Cloud Shell, vous pouvez créer ce fichier à l’aide de vi ou de Nano comme si vous travailliez sur un système virtuel ou physique.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azure-vote-back
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-back
   template:
     metadata:
       labels:
@@ -135,12 +138,15 @@ spec:
   selector:
     app: azure-vote-back
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: azure-vote-front
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: azure-vote-front
   template:
     metadata:
       labels:
@@ -224,16 +230,16 @@ Pour afficher l’état, la durée de fonctionnement et l’utilisation des ress
 
 1. Ouvrez le portail Azure avec un navigateur web [https://portal.azure.com][azure-portal].
 1. Sélectionnez votre groupe de ressources, par exemple *myResourceGroup*, puis sélectionnez votre cluster AKS, tel que *myAKSCluster*.
-1. Sous **Surveillance** à gauche, choisissez **Insights (préversion)**
-1. Dans la partie supérieure, choisissez **+ Ajouter un filtre**
-1. Sélectionnez *Espace de nom* comme propriété, puis choisissez *\<Tout sauf kube-system\>*
-1. Choisissez d’afficher les **Conteneurs**.
+1. Sous **Surveillance** à gauche, choisissez **Insights (préversion)**.
+1. Dans la partie supérieure, choisissez **+ Ajouter un filtre**.
+1. Sélectionnez *Espace de noms* en guise de propriété, puis choisissez *\<Tout sauf kube-system\>*.
+1. Choisissez de visualiser les **Conteneurs**.
 
-Les conteneurs *azure-vote-back* et *azure-vote-front* sont affichés, comme illustré dans l’exemple suivant :
+Les conteneurs *azure-vote-back* et *azure-vote-front* s’affichent, comme illustré dans l’exemple suivant :
 
 ![Afficher l’intégrité des conteneurs en cours d’exécution dans AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Pour afficher les journaux pour le pod `azure-vote-front`, sélectionnez le lien **Afficher les journaux de conteneurs** sur le côté droit de la liste de conteneurs. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
+Pour visualiser les journaux relatifs au pod `azure-vote-front`, sélectionnez le lien **Afficher les journaux de conteneurs** sur le côté droit de la liste de conteneurs. Vous pourrez voir les flux *stdout* et *stderr* du conteneur.
 
 ![Afficher les journaux de conteneurs dans AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 

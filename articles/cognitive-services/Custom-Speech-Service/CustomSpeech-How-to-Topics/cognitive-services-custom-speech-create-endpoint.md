@@ -1,24 +1,25 @@
 ---
-title: Créer un point de terminaison de reconnaissance vocale personnalisé - Custom Speech Service
-titlesuffix: Azure Cognitive Services
-description: Découvrez comment créer un point de terminaison de reconnaissance vocale personnalisé avec Custom Speech Service.
+title: Créer un point de terminaison vocal personnalisé avec Custom Speech Service sur Azure | Microsoft Docs
+description: Découvrez comment créer un point de terminaison de reconnaissance vocale personnalisé avec Custom Speech Service dans Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 958e97f708e7c6920bcb0d65d91656fcf00cd71a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 7b7bbf89f04e4c8b12df46c2a7100a08001eb7d1
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47219021"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340799"
 ---
 # <a name="create-a-custom-speech-to-text-endpoint"></a>Créer un point de terminaison de reconnaissance vocale personnalisé
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Une fois que vous avez créé des modèles acoustiques ou des modèles de langage personnalisés, vous pouvez déployer ces derniers dans un point de terminaison de reconnaissance vocale personnalisé. 
 
 ## <a name="create-an-endpoint"></a>Création d’un point de terminaison

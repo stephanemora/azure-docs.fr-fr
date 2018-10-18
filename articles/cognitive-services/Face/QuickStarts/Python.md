@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Détecter les visages dans une image - API Visage, P
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez détecter les visages d’une image à l’aide de l’API Visage avec Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/24/2018
-ms.author: nolachar
-ms.openlocfilehash: 7e1185fed1892dbd2c60434cfceec555bf7b0bc5
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: pafarley
+ms.openlocfilehash: 581c2a7d4508833647d4dbb9861000fddd75cde8
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129208"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339579"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-python"></a>Démarrage rapide : Détecter les visages dans une image à l’aide de Python
 

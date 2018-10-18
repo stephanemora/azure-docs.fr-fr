@@ -12,14 +12,15 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: 26f303318320eb8b039503666841e518f75348e4
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: a114833b40fe834aa0108d1a2f3821f0b7cbddbc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42140092"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321850"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du Stockage File d’attente Azure et des services connectés de Visual Studio (ASP.NET)
+
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
 
 ## <a name="overview"></a>Vue d’ensemble
@@ -28,7 +29,7 @@ Le stockage de files d’attente Azure fournit une messagerie cloud entre les co
 
 Ce didacticiel montre comment écrire du code ASP.NET pour des scénarios courants en utilisant des entités de stockage de file d’attente Azure. Ces scénarios incluent des tâches courantes telles que la création d’une file d’attente Azure, l'ajout, la modification, la lecture et la suppression de messages de file d’attente.
 
-##<a name="prerequisites"></a>Prérequis
+## <a name="prerequisites"></a>Prérequis
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 * [Compte Azure Storage](../storage/common/storage-quickstart-create-account.md)
@@ -452,7 +453,7 @@ Cette section montre comment obtenir la longueur de la file d’attente (nombre 
     queue.FetchAttributes();
     ```
 
-6. Accédez à la propriété **CloudQueue.ApproximateMessageCount** pour obtenir la longueur de la file d’attente.
+1. Accédez à la propriété **CloudQueue.ApproximateMessageCount** pour obtenir la longueur de la file d’attente.
  
     ```csharp
     int? nMessages = queue.ApproximateMessageCount;

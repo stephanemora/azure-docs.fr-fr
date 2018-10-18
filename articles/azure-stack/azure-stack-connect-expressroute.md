@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: eee4407af8d7def94061002941d758a99237645f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: c30e70802d125744432f428f903f6ac6789f631e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078696"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389223"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Connexion d’Azure Stack à Azure à l’aide d’Azure ExpressRoute
 
@@ -313,7 +313,7 @@ Les ressources que vous déployez dans Azure sont semblables aux ressources dép
 
 L’infrastructure réseau Azure donnée en exemple est configurée de la façon suivante :
 
-* Un modèle de réseau virtuel Hub (192.168.2.0/24) et Spoke (10.100.0.0./16) standard. Pour plus d’informations sur une topologie de réseau Hub et Spoke, consultez [Implémenter une topologie de réseau Hub et Spoke dans Azure](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
+* Un modèle de réseau virtuel Hub (192.168.2.0/24) et Spoke (10.100.0.0./16) standard. Pour plus d’informations sur une topologie de réseau Hub et Spoke, consultez [Implémenter une topologie de réseau Hub et Spoke dans Azure](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke).
 * Les charges de travail sont déployées dans le réseau virtuel Spoke et le circuit ExpressRoute est connecté au réseau virtuel Hub.
 * Les deux réseaux virtuels sont connectés à l’aide de l’homologation de réseau virtuel.
 

@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: ee2a72a65902347a2e58f79d0f621c9d08178104
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d9cf46a1fd28985d9ca98d173bbef17380b7de21
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410304"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354391"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Opérations du fournisseur de ressources Azure Resource Manager
 
@@ -3346,8 +3346,6 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Joint un pool d’adresses principales d’équilibrage de charge. |
 > | Action | Microsoft.Network/loadBalancers/backendAddressPools/read | Obtient une définition de pool d’adresses principales d’équilibrage de charge. |
 > | Action | Microsoft.Network/loadBalancers/delete | Supprime un équilibrage de charge. |
-> | Action | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Joint une configuration d’adresse IP frontale d’équilibrage de charge |
-> | Action | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Obtient une définition de configuration d’adresse IP frontale d’équilibrage de charge. |
 > | Action | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Joint un pool NAT entrant d’équilibrage de charge. |
 > | Action | Microsoft.Network/loadBalancers/inboundNatPools/read | Obtient une définition de pool NAT entrant d’équilibrage de charge. |
 > | Action | Microsoft.Network/loadBalancers/inboundNatRules/delete | Supprime une règle NAT entrante d’équilibrage de charge. |
@@ -3477,10 +3475,6 @@ Les opérations du fournisseur de ressources évoluent sans cesse. Pour obtenir 
 > | Action | Microsoft.Network/publicIPAddresses/dnsAliases/read | Obtient une ressource Alias DNS d’adresse IP publique |
 > | Action | Microsoft.Network/publicIPAddresses/dnsAliases/write | Crée une ressource Alias DNS d’adresse IP publique |
 > | Action | Microsoft.Network/publicIPAddresses/join/action | Joint une adresse IP publique. |
-> | Action | Microsoft.Network/publicIPAddresses/loadBalancerPools/delete | Supprime un pool principal d’équilibrage de charge pour l’adresse IP publique |
-> | Action | Microsoft.Network/publicIPAddresses/loadBalancerPools/join/action | Joint un pool principal d’équilibrage de charge pour l’adresse IP publique |
-> | Action | Microsoft.Network/publicIPAddresses/loadBalancerPools/read | Obtient une définition de pool principal d’équilibrage de charge pour l’adresse IP publique |
-> | Action | Microsoft.Network/publicIPAddresses/loadBalancerPools/write | Crée ou met à jour un pool principal d’équilibrage de charge pour l’adresse IP publique |
 > | Action | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/read | Obtient les paramètres de diagnostic de l’adresse IP publique |
 > | Action | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/diagnosticSettings/write | Crée ou met à jour les paramètres de diagnostic de l’adresse IP publique |
 > | Action | Microsoft.Network/publicIPAddresses/providers/Microsoft.Insights/logDefinitions/read | Obtient les définitions de journal de l’adresse IP publique |

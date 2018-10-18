@@ -3,18 +3,18 @@ title: Azure Traffic Manager avec Azure Site Recovery | Microsoft Docs
 description: Explique comment utiliser Azure Traffic Manager avec Azure Site Recovery pour la migration et la reprise après sinistre
 services: site-recovery
 documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 0be013a1b8d2c619d58034157240eafb241c4e59
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 8f303ec3349b0003ef764e437c6f06cf498dcc57
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919034"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353252"
 ---
 # <a name="azure-traffic-manager-with-azure-site-recovery"></a>Azure Traffic Manager avec Azure Site Recovery
 
@@ -67,14 +67,14 @@ La **société C** exécute des applications avec des points de terminaison publ
 
 La configuration est la suivante :
 - La **société C** crée un [profil Traffic Manager](../traffic-manager/traffic-manager-create-profile.md).
-- En utilisant la méthode de routage **Priorité**, la **société C** crée deux points de terminaison : **Principal** pour la région source (Azure Asie de l’Est) et **Basculement** pour la région de récupération (Azure Asie du Sud-Est). **Principal** reçoit la Priorité 1 et **Basculement** reçoit la Priorité 2.
+- En utilisant la méthode de routage **Priorité**, la **société C** crée deux points de terminaison : **Principal** pour la région source (Azure Asie Est) et **Basculement** pour la région de récupération (Azure Asie Sud-Est). **Principal** reçoit la Priorité 1 et **Basculement** reçoit la Priorité 2.
 - Étant donné que le point de terminaison **Principal** est hébergé dans Azure, il peut également être un point de terminaison [Azure](../traffic-manager/traffic-manager-endpoint-types.md#azure-endpoints).
 - Avec Azure Site Recovery, le site Azure de récupération ne comprend pas de machines virtuelles ou d’applications qui s’exécutent avant le basculement. Par conséquent, le point de terminaison **Basculement** peut également être créé comme un point de terminaison [Externe](../traffic-manager/traffic-manager-endpoint-types.md#external-endpoints).
-- Par défaut, le trafic utilisateur est dirigé vers la région source (Asie de l’Est), car ce point de terminaison a la priorité la plus élevée. Aucun trafic n’est dirigé vers la région de récupération si le point de terminaison **Principal** est sain.
+- Par défaut, le trafic utilisateur est dirigé vers la région source (Asie Est), car ce point de terminaison a la priorité la plus élevée. Aucun trafic n’est dirigé vers la région de récupération si le point de terminaison **Principal** est sain.
 
 ![Azure vers Azure avant le basculement](./media/concepts-traffic-manager-with-site-recovery/azure-failover-before.png)
 
-En cas d’incident, la **société C** peut déclencher un [basculement](azure-to-azure-tutorial-failover-failback.md) et récupérer ses applications dans la région Azure de récupération. Quand Azure Traffic Manager détecte que le point de terminaison Principal n’est plus sain, il utilise automatiquement le point de terminaison **Basculement** dans la réponse DNS, et les utilisateurs se connectent à l’application qui a été récupérée dans la région Azure de récupération (Asie du Sud-Est).
+En cas d’incident, la **société C** peut déclencher un [basculement](azure-to-azure-tutorial-failover-failback.md) et récupérer ses applications dans la région Azure de récupération. Quand Azure Traffic Manager détecte que le point de terminaison Principal n’est plus sain, il utilise automatiquement le point de terminaison **Basculement** dans la réponse DNS, et les utilisateurs se connectent à l’application qui a été récupérée dans la région Azure de récupération (Asie Sud-Est).
 
 ![Azure vers Azure après le basculement](./media/concepts-traffic-manager-with-site-recovery/azure-failover-after.png)
 
@@ -100,7 +100,7 @@ Pour éviter ce problème et garantir la résilience des applications, la **soci
 
 ![Application multirégion après](./media/concepts-traffic-manager-with-site-recovery/geographic-application-after.png)
 
-Par exemple, si le point de terminaison Centre de l’Allemagne échoue, l’application peut rapidement être récupérée vers la région Nord-Est de l’Allemagne. Le nouveau point de terminaison gère le trafic en provenance d’Allemagne avec un temps d’arrêt minimal pour les utilisateurs. De même, une panne de point de terminaison dans la région Europe de l’Ouest peut être gérée en récupérant la charge de travail d’application vers la région Europe du Nord, et en utilisant Azure Traffic Manager pour gérer les redirections DNS vers le point de terminaison disponible.
+Par exemple, si le point de terminaison Centre de l’Allemagne échoue, l’application peut rapidement être récupérée vers la région Nord-Est de l’Allemagne. Le nouveau point de terminaison gère le trafic en provenance d’Allemagne avec un temps d’arrêt minimal pour les utilisateurs. De même, une panne de point de terminaison dans la région Europe Ouest peut être gérée en récupérant la charge de travail d’application vers la région Europe Nord, et en utilisant Azure Traffic Manager pour gérer les redirections DNS vers le point de terminaison disponible.
 
 La configuration ci-dessus peut être développée pour inclure autant de combinaisons de régions et de points de terminaison que nécessaire. Traffic Manager permet jusqu’à 10 niveaux de profils imbriqués et n’autorise pas les boucles au sein de la configuration imbriquée.
 

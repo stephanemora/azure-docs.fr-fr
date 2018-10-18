@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Générer une miniature - REST, Go - Vision par ordi
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous générez une miniature d’une image en utilisant l’API Vision par ordinateur avec Go.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: e49c664fc17750d427d33fbb49b3af9ea10002ad
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 9c2d460d3c8cfb4aac6e09eeb26ac23c98f82b24
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629541"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341614"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-go-in-computer-vision"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST et Go dans Vision par ordinateur
 
@@ -37,10 +37,10 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
     1. Remplacez la valeur de `subscriptionKey` par votre clé d’abonnement.
     1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [Obtenir la miniature](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Remplacez éventuellement la valeur de `imageUrl` par l’URL d’une autre image à partir de laquelle vous souhaitez générer une miniature.
-1. Enregistrez le code dans un fichier avec une extension `.go`. Par exemple : `get-thumbnail.go`.
+1. Enregistrez le code dans un fichier avec une extension `.go`. Par exemple : `get-thumbnail.go`.
 1. Ouvrir une fenêtre d’invite de commandes.
-1. À l’invite, exécutez la commande `go build` pour compiler le package à partir du fichier. Par exemple : `go build get-thumbnail.go`.
-1. À l’invite, exécutez le package compilé. Par exemple : `get-thumbnail`.
+1. À l’invite, exécutez la commande `go build` pour compiler le package à partir du fichier. Par exemple : `go build get-thumbnail.go`.
+1. À l’invite, exécutez le package compilé. Par exemple : `get-thumbnail`.
 
 ```go
 package main

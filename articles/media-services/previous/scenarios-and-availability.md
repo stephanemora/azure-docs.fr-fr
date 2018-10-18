@@ -4,21 +4,21 @@ description: Cette rubrique offre une vue d’ensemble des scénarios Microsoft 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 07/10/2017
-ms.author: juliako;anilmur
-ms.openlocfilehash: 8381cdfffd34ffa25d1b87be3a3aca3de69c2802
-ms.sourcegitcommit: 6cf20e87414dedd0d4f0ae644696151e728633b6
+ms.date: 10/15/2018
+ms.author: juliako
+ms.openlocfilehash: 0e9537f09049d5fe056819e6f8b9718cfc52f489
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34809276"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352807"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scénarios et disponibilité des fonctionnalités Media Services dans les centres de données
 
@@ -28,7 +28,7 @@ AMS fonctionne dans plusieurs centres de données à travers le monde. Ces centr
 
 Cette rubrique décrit les scénarios courants pour distribuer votre contenu [en direct](#live_scenarios) ou [à la demande](#vod_scenarios). Cette rubrique présente également des informations sur la disponibilité des fonctionnalités et services dans les centres de données.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 ### <a name="prerequisites"></a>Prérequis
 
@@ -158,7 +158,7 @@ Les clients AMS peuvent mettre à l’échelle les points de terminaison de stre
     Pour plus d’informations, consultez [Mise à l’échelle du traitement multimédia](media-services-portal-scale-media-processing.md).
 * Vous pouvez aussi mettre à l’échelle votre compte Media Services en lui ajoutant des comptes de stockage. Chaque compte de stockage est limité à 500 To. Pour développer votre capacité stockage au-delà des limites par défaut, vous pouvez choisir de rattacher plusieurs comptes de stockage à un même compte Media Services. Pour plus d’informations, consultez [Gérer les comptes de stockage](meda-services-managing-multiple-storage-accounts.md).
 
-##<a id="availability"></a> Disponibilité des fonctionnalités Media Services dans les centres de données
+## <a id="availability"></a> Disponibilité des fonctionnalités Media Services dans les centres de données
 
 Cette section présente des informations sur la disponibilité des fonctionnalités Media Services dans les centres de données.
 
@@ -183,7 +183,7 @@ En fonction de leurs besoins, les clients Media Services peuvent choisir un poin
 
 #### <a name="availability"></a>Disponibilité
 
-Disponible dans tous les centres de données, à l’exception des régions suivantes : Allemagne, Sud du Brésil, Inde-Ouest, Inde-Sud et Inde-Centre. 
+Disponible dans tous les centres de données, à l’exception des régions suivantes : Allemagne, Brésil Sud, Inde Ouest, Inde Sud et Inde Centre. 
 
 ### <a name="encoding-media-processors"></a>Processeurs multimédia d’encodage
 
@@ -249,8 +249,8 @@ Pour plus d’informations, consultez la section sur la [mise à l’échelle](#
 |Nom du type d’unité réservée|Statut|Centres de données
 |---|---|---|
 |S1|GA|Tous|
-|S2|GA|Tous, à l’exception des régions Sud du Brésil et Inde-Ouest|
-|S3|GA|Tous, à l’exception de la région Inde-Ouest|
+|S2|GA|Tous, à l’exception des régions Brésil Sud et Inde Ouest|
+|S3|GA|Tous, à l’exception de la région Inde Ouest|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

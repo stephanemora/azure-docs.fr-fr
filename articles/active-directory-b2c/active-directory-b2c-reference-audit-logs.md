@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1697830f699c9cd50548bcfcdd038348db314020
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 67e57faf37697697bee74597a40db39149699fe5
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38969657"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320235"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Accès aux journaux d’audit Azure AD B2C
 
@@ -24,7 +24,7 @@ Azure Active Directory B2C (Azure AD B2C) produit des journaux d’audit contena
 > [!IMPORTANT]
 > Les journaux d’audit sont uniquement conservés pendant sept jours. Envisagez de télécharger et stocker vos journaux en utilisant l’une des méthodes indiquées ci-dessous si vous avez besoin d’une période de rétention plus longue. 
 
-##<a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Vue d’ensemble des activités disponibles dans la catégorie B2C des journaux d’audit
+## <a name="overview-of-activities-available-in-the-b2c-category-of-audit-logs"></a>Vue d’ensemble des activités disponibles dans la catégorie B2C des journaux d’audit
 La catégorie **B2C** des journaux d’audit contient les types d’activités suivants :
 |Type d’activité |Description  |
 |---------|---------|
@@ -38,10 +38,10 @@ La catégorie **B2C** des journaux d’audit contient les types d’activités s
 > [!NOTE]
 > Pour les activités CRUD des objets utilisateur, reportez-vous à la catégorie **Annuaire principal**.
 
-##<a name="example-activity"></a>Exemple d’activité
+## <a name="example-activity"></a>Exemple d’activité
 L’exemple ci-dessous montre les données capturées quand un utilisateur se connecte avec un fournisseur d’identité externe : ![Journaux d’audit - exemple](./media/active-directory-b2c-reference-audit-logs/audit-logs-example.png)
 
-##<a name="accessing-audit-logs-through-the-azure-portal"></a>Accès aux journaux d’audit par le biais du portail Azure
+## <a name="accessing-audit-logs-through-the-azure-portal"></a>Accès aux journaux d’audit par le biais du portail Azure
 1. Accédez au [portail Azure](https://portal.azure.com). Vérifiez que vous êtes dans votre annuaire B2C.
 2. Cliquez sur **Azure Active Directory** dans la barre des favoris à gauche. 
     
@@ -62,18 +62,18 @@ La liste des activités journalisées pendant les sept derniers jours apparaît.
 - Si vous cliquez sur une ligne spécifique dans la liste, une zone contextuelle affiche sur la droite d’autres attributs associés à l’activité.
 - Cliquez sur **Télécharger** pour télécharger les activités dans un fichier csv.
 
-##<a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Accès aux journaux d’audit par le biais de l’API de création de rapports Azure AD
+## <a name="accessing-audit-logs-through-the-azure-ad-reporting-api"></a>Accès aux journaux d’audit par le biais de l’API de création de rapports Azure AD
 Les journaux d’audit sont publiés dans le même pipeline que les autres activités Azure Active Directory, afin d’être accessibles par le biais de l’[API de création de rapports Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference). 
 
-###<a name="prerequisites"></a>Prérequis
+### <a name="prerequisites"></a>Prérequis
 Pour vous authentifier auprès de l’API de création de rapports Azure AD, vous devez tout d’abord inscrire une application. Veillez à suivre les étapes indiquées dans [Prérequis pour accéder à l’API de création de rapports Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-reporting-api-getting-started/).
 
-###<a name="accesing-the-api"></a>Accès à l’API
+### <a name="accesing-the-api"></a>Accès à l’API
 Pour télécharger les journaux d’audit Azure AD B2C par le biais de l’API, filtrez les journaux sur la catégorie **B2C**. Pour filtrer par catégorie, utilisez le paramètre de chaîne de requête lors de l’appel du point de terminaison de l’API de création de rapport Azure AD, comme indiqué ci-dessous :
 
 `https://graph.windows.net/your-b2c-tentant.onmicrosoft.com/activities/audit?api-version=beta&$filter=category eq 'B2C'`
 
-###<a name="powershell-script"></a>Script PowerShell
+### <a name="powershell-script"></a>Script PowerShell
 Le script suivant donne un exemple d’utilisation de PowerShell pour interroger l’API de création de rapports Azure AD et stocker les résultats sous forme de fichier JSON :
 
 ```powershell

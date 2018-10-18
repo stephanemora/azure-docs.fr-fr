@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 493beb254852464765d506c61c7ae6ce3b3835d3
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41917694"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362889"
 ---
 # <a name="virtual-network-peering"></a>Homologation de réseaux virtuels
 
@@ -92,7 +92,7 @@ Pour en savoir plus sur les autorisations requises pour créer une homologation 
 
 Un coût nominal s’applique pour le trafic entrant et sortant qui utilise une connexion d’homologation de réseau virtuel. Pour plus d’informations sur la tarification de VNet Peering (homologation de réseaux virtuels) et Global VNet Peering, consultez la [page des tarifs](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Le transit par passerelle est une propriété d’homologation qui permet à un réseau virtuel d’exploiter la passerelle VPN du réseau virtuel homologué pour la mise en œuvre d’une connectivité intersite ou de réseau virtuel à réseau virtuel. Le trafic qui transite par une passerelle distante dans ce scénario est soumis à des [frais de passerelle VPN](https://azure.microsoft.com/en-us/pricing/details/vpn-gateway/) et n’entraîne pas de [frais d’homologation de réseau virtuel (Virtuel Peering)](https://azure.microsoft.com/pricing/details/virtual-network). Par exemple, si VNetA a une passerelle VPN pour la connectivité locale et que VNetB est homologué pour VNetA avec les propriétés appropriées configurées, le trafic à partir de VNetB au niveau local est facturé uniquement selon le prix du trafic sortant par passerelle VPN. Les frais d’homologation de réseau virtuel (VNet Peering) ne s’appliquent pas. Découvrez comment [configurer un transit par passerelle VPN pour l’homologation des réseaux virtuels](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Le transit par passerelle est une propriété d’homologation qui permet à un réseau virtuel d’exploiter la passerelle VPN du réseau virtuel homologué pour la mise en œuvre d’une connectivité intersite ou de réseau virtuel à réseau virtuel. Le trafic qui transite par une passerelle distante dans ce scénario est soumis à des [frais de passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway/) et n’entraîne pas de [frais d’homologation de réseau virtuel (Virtuel Peering)](https://azure.microsoft.com/pricing/details/virtual-network). Par exemple, si VNetA a une passerelle VPN pour la connectivité locale et que VNetB est homologué pour VNetA avec les propriétés appropriées configurées, le trafic à partir de VNetB au niveau local est facturé uniquement selon le prix du trafic sortant par passerelle VPN. Les frais d’homologation de réseau virtuel (VNet Peering) ne s’appliquent pas. Découvrez comment [configurer un transit par passerelle VPN pour l’homologation des réseaux virtuels](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

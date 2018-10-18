@@ -7,13 +7,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 07/23/2018
-ms.openlocfilehash: d3d3ed8aaac16bc0a8cf817f4972ed3b771ed8d0
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 10/11/2018
+ms.openlocfilehash: 6cd3938844d7f6977c7b0912acffbfb1679dc42e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093552"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387378"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Déployer sur Azure Kubernetes Service (AKS) à l’aide de Jenkins et du modèle de déploiement bleu/vert
 
@@ -32,7 +32,7 @@ Dans ce tutoriel, vous allez apprendre à effectuer les tâches suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 - [Compte GitHub](https://github.com) : Vous avez besoin d’un compte GitHub pour cloner l’exemple de référentiel.
-- [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) : vous utilisez Azure CLI 2.0 pour créer le cluster Kubernetes.
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : vous utilisez Azure CLI 2.0 pour créer le cluster Kubernetes.
 - [Chocolatey](https://chocolatey.org) : gestionnaire de packages que vous utilisez pour installer kubectl.
 - [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) : interface de ligne de commande que vous utilisez pour exécuter des commandes sur des clusters Kubernetes.
 - [jq](https://stedolan.github.io/jq/download/) : processeur JSON léger en ligne de commande.
@@ -82,9 +82,6 @@ Dans cette section, vous allez effectuer les étapes suivantes :
 - Créer un cluster Kubernetes managé à l’aide d’Azure CLI 2.0.
 - Apprendre à configurer un cluster manuellement ou à l’aide du script d’installation.
 - Créer une instance du service Azure Container Registry.
-
-> [!NOTE]   
-> AKS se trouve actuellement en mode préliminaire. Pour plus d’informations sur l’activation de la préversion pour votre abonnement Azure, consultez [Guide de démarrage rapide : déployer un cluster Azure Kubernetes Service (AKS)](/azure/aks/kubernetes-walkthrough#enabling-aks-preview-for-your-azure-subscription).
 
 ### <a name="use-the-azure-cli-20-to-create-a-managed-kubernetes-cluster"></a>Créer un cluster Kubernetes managé à l’aide d’Azure CLI 2.0
 Afin de créer un cluster Kubernetes managé avec [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), veillez à utiliser la version 2.0.25 ou ultérieure d’Azure CLI.
@@ -279,7 +276,7 @@ Si vous exécutez la build plusieurs fois, elle passe par les déploiements bleu
 
 Pour en savoir plus sur le déploiement sans interruption de service, consultez ce [modèle de démarrage rapide](https://github.com/Azure/azure-quickstart-templates/tree/master/301-jenkins-aks-zero-downtime-deployment). 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’avez plus besoin des ressources que vous avez créées dans ce tutoriel, vous pouvez les supprimer.
 

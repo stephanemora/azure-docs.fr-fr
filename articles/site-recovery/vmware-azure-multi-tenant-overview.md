@@ -2,19 +2,19 @@
 title: Vue d’ensemble de la prise en charge de l’architecture multilocataire pour la réplication de machines virtuelles VMware sur Azure (CSP) à l’aide d’Azure Site Recovery | Microsoft Docs
 description: Fournit une vue d’ensemble de la prise en charge d’Azure Site Recovery pour les abonnements de locataire dans un environnement multilocataires, via le programme CSP.
 services: site-recovery
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 2f1a158b6ff4ec603c77f834212cb92fa862b424
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 4cd0c3baf385a864e2173de9bbce897bb5066dae
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919935"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352869"
 ---
 # <a name="overview-of-multi-tenant-support-for-vmware-replication-to-azure-with-csp"></a>Prise en charge de l’architecture multilocataire pour la réplication de VMware vers Azure avec CSP
 

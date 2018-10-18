@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: diberry
-ms.openlocfilehash: acd9d9ff0b97bf0eaaca2f8ae9a6909e18e320d6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ad21754b3f55a0d14bb43a2898d5bd4b8b8150ae
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47168128"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385904"
 ---
 # <a name="tutorial-luis-bot-in-nodejs"></a>Tutoriel : Bot LUIS en Node.js
 À l’aide de Node.js, vous pouvez créer un bot conversationnel intégré avec compréhension de la langue (LUIS). Ce bot utilise l’application HomeAutomation pour implémenter une solution de bot. Le bot est créé avec le [bot d’application web](https://docs.microsoft.com/azure/bot-service/) Azure et [Bot Framework version](https://github.com/Microsoft/botbuilder-js) v4.
@@ -350,9 +350,9 @@ Dans le fichier `bot.js`, ajoutez du code pour gérer les nouvelles intentions.
 ## <a name="learn-more-about-bot-framework"></a>En savoir plus sur Bot Framework
 Le service de bot Azure utilise le SDK de Bot Framework. Découvrez le SDK et Bot Framework :
 
-* Documentation [d’Azure Bot Service](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
+* Documentation [d’Azure Bot Service](https://docs.microsoft.com/azure/bot-service/bot-service-overview-introduction?view=azure-bot-service-4.0) v4
 * [Exemples Bot Builder](https://github.com/Microsoft/botbuilder-samples)
-* [SDK Bot Builder](https://docs.microsoft.com/en-us/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
+* [SDK Bot Builder](https://docs.microsoft.com/javascript/api/botbuilder-core/?view=botbuilder-ts-latest)
 * [Outils de Bot Builder](https://github.com/Microsoft/botbuilder-tools)
 
 ## <a name="next-steps"></a>Étapes suivantes

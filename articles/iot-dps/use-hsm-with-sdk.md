@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: arjmands
 ms.custom: mvc
-ms.openlocfilehash: c94b5d4800f5776b51247c6ec2f6662a6ab26abc
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 4ab558b680a0d00d1b9bdfbcb1529219f6c37b37
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145753"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319249"
 ---
 # <a name="how-to-use-different-attestation-mechanisms-with-device-provisioning-service-client-sdk-for-c"></a>Utiliser différents mécanismes d’attestation avec le Kit de développement logiciel (SDK) Device Provisioning Service Client pour C
 
@@ -143,6 +143,7 @@ Générez le kit de développement logiciel (SDK) avant de créer l’inscriptio
 Si vous utilisez TPM, suivez les instructions de [« Créer et approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel C de périphérique pour le service IoT Hub Device Provisioning »](./quick-create-simulated-device.md) pour créer une entrée d’inscription d’appareil dans votre service Device Provisioning Service et simuler le premier démarrage.
 
 ### <a name="x509"></a>X **.** 509
+
 1. Pour inscrire un appareil dans le service d’approvisionnement, vous devez noter la paire de clé de type EK et l’ID d’inscription de chaque appareil, qui sont affichés dans l’outil d’approvisionnement fourni par le kit de développement logiciel (SDK) Client. Exécutez la commande suivante pour imprimer le certificat d’autorité de certification racine (pour les groupes d’inscription) et le certificat de nœud terminal (pour l’inscription individuelle) :
       ```
       ./azure-iot-sdk-c/dps_client/tools/x509_device_provision/x509_device_provision.exe
@@ -185,4 +186,3 @@ Une fois l’appareil approvisionné avec le service d’approvisionnement, cett
   ```
   IOTHUB_CLIENT_LL_HANDLE handle = IoTHubClient_LL_CreateFromDeviceAuth(iothub_uri, device_id, iothub_transport);
   ```
-

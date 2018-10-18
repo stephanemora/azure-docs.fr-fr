@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/31/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
-ms.openlocfilehash: e6c94ef1172ea6380a94d5907c24069ed8c48ff5
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.openlocfilehash: 7509d00815f56dc46bd276ffc67c4c607c54070a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29118786"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338894"
 ---
 # <a name="azure-stack-integrated-systems-connection-models"></a>Modèles de connexion des systèmes intégrés Azure Stack
 Si vous vous intéressez aux systèmes intégrés Azure Stack, prenez connaissance de [plusieurs points relatifs à l’intégration des centres de données](azure-stack-datacenter-integration.md) pour le déploiement Azure Stack, afin de prévoir l’intégration entre le système et votre centre de données. En outre, vous devez définir avec précision comment vous allez intégrer Azure Stack dans votre environnement de cloud hybride. Cet article fournit une vue d’ensemble de ces décisions, y compris celles relatives à la connexion à Azure, au magasin d’identités et au modèle de facturation.
@@ -38,15 +38,15 @@ Vous pouvez choisir de déployer Azure Stack en le connectant ou non à internet
 
 |Options|Déploiement connecté à Azure|Déploiement déconnecté d’Azure|
 |-----|-----|-----|
-|Azure AD|![Prise en charge](media/azure-stack-connection-models/check.png)| |
-|AD FS|![Prise en charge](media/azure-stack-connection-models/check.png)|![Prise en charge](media/azure-stack-connection-models/check.png)|
-|Facturation à l’utilisation|![Prise en charge](media/azure-stack-connection-models/check.png)| |
-|Facturation selon la capacité|![Prise en charge](media/azure-stack-connection-models/check.png)|![Prise en charge](media/azure-stack-connection-models/check.png)|
-|Télécharger les packages de mise à jour directement sur Azure Stack|![Prise en charge](media/azure-stack-connection-models/check.png)|  |
+|Azure AD|![Pris en charge](media/azure-stack-connection-models/check.png)| |
+|AD FS|![Pris en charge](media/azure-stack-connection-models/check.png)|![Pris en charge](media/azure-stack-connection-models/check.png)|
+|Facturation à l’utilisation|![Pris en charge](media/azure-stack-connection-models/check.png)| |
+|Facturation selon la capacité|![Pris en charge](media/azure-stack-connection-models/check.png)|![Pris en charge](media/azure-stack-connection-models/check.png)|
+|Télécharger les packages de mise à jour directement sur Azure Stack|![Pris en charge](media/azure-stack-connection-models/check.png)|  |
 
 Une fois que vous avez choisi le modèle de connexion à Azure à utiliser pour le déploiement Azure Stack, vous devrez prendre d’autres décisions liées au modèle de connexion pour sélectionner le magasin d’identités et le mode de facturation. 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 [Décisions de déploiement Azure Stack connecté à Azure](azure-stack-connected-deployment.md)
 

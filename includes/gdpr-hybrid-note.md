@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/01/2018
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: 2848a14ed3fd8b9ef7019c67d30fe51c15d2b298
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 236ba117fd324a75ecc20ea7f94e110d75e3ee63
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38943681"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400146"
 ---
 >[!Note]
->Si vous souhaitez afficher ou supprimer des données personnelles, consultez l’article [Demandes des personnes concernées pour Windows concernant le RGPD](https://docs.microsoft.com/en-us/microsoft-365/compliance/gdpr-dsr-windows). Si vous recherchez des informations générales sur le RGPD, consultez la [section RGPD du portail Approbation de services](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).
+>Si vous souhaitez afficher ou supprimer des données personnelles, consultez l’article [Demandes des personnes concernées pour Windows concernant le RGPD](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-windows). Si vous recherchez des informations générales sur le RGPD, consultez la [section RGPD du portail Approbation de services](https://servicetrust.microsoft.com/ViewPage/GDPRGetStarted).

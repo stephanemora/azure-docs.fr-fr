@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Générer une miniature - REST, C# - Vision par ordi
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous générez une miniature d’une image en utilisant l’API Vision par ordinateur avec C#.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: f6353f0f99d34121e29de46c62e6f840a69806ed
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: b3822fee5d729064375e5088cb207aebfa74f8ac
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630747"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342024"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-c35-in-computer-vision"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST et C&#35; dans Vision par ordinateur
 
@@ -212,7 +212,7 @@ StatusCode: 200, ReasonPhrase: 'OK', Version: 1.1, Content: System.Net.Http.Stre
 }
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’en avez plus besoin, supprimez la solution Visual Studio. Pour cela, ouvrez l’Explorateur de fichiers, accédez au dossier où vous avez créé la solution Visual Studio, puis supprimez le dossier.
 

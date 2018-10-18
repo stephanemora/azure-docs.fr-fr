@@ -7,17 +7,17 @@ ms.subservice: security
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: becczhang
-ms.author: rebeccaz
+author: aliceku
+ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 08/07/2017
-ms.openlocfilehash: f965a008ed5973a544dba686e54e041ca6ef7673
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 6675a68222e09be9a092ad21ee318a53a0a39ca5
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165991"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311301"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Supprimer un protecteur Transparent Data Encryption (TDE) à l’aide de PowerShell
 ## <a name="prerequisites"></a>Prérequis
@@ -30,7 +30,7 @@ Ce guide pratique décrit comment répondre à un protecteur TDE potentiellement
 
 Les procédures suivantes doivent uniquement être effectuées dans les cas extrêmes ou dans des environnements de test. Lisez attentivement ce guide pratique, car la suppression de protecteurs TDE activement utilisés d’Azure Key Vault peut entraîner **une perte de données**. 
 
-Si vous suspectez qu’une clé est compromise, en cas d’accès non autorisé d’un utilisateur ou d’un service à cette clé, par exemple, nous vous recommandons de supprimer cette clé.
+Si vous suspectez qu’une clé est compromise, en cas d’accès non autorisé d’un utilisateur ou d’un service à cet clé, par exemple, nous vous recommandons de supprimer cette clé.
 
 Gardez à l’esprit qu’une fois le protecteur TDE supprimé dans Key Vault, **toutes les connexions aux bases de données chiffrées du serveur sont bloquées et mises hors connexion, ces bases de données sont ensuite supprimées dans les 24 heures**. Les anciennes sauvegardes chiffrées avec la clé compromise ne sont plus accessibles.
 

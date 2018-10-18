@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Extraire du texte imprimé (OCR) - REST, Node.js - V
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous extrayez le texte imprimé d’une image en utilisant l’API Vision par ordinateur avec Node.js.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: af22b17d52b654438ae52c1eb85e523dbaf638fa
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 02ff205f2408fed19d7831e7a1344eac2bc6f261
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628911"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344266"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-nodejs-in-computer-vision"></a>Démarrage rapide : Extraire du texte imprimé (OCR) à l’aide de l’API REST et Node.js dans Vision par ordinateur
 
@@ -48,9 +48,9 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
     1. Remplacez la valeur de `subscriptionKey` par votre clé d’abonnement.
     1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Remplacez éventuellement la valeur de `imageUrl` par l’URL d’une autre image à partir de laquelle vous voulez extraire le texte imprimé.
-1. Enregistrez le code dans un fichier avec une extension `.js`. Par exemple : `get-printed-text.js`.
+1. Enregistrez le code dans un fichier avec une extension `.js`. Par exemple : `get-printed-text.js`.
 1. Ouvrir une fenêtre d’invite de commandes.
-1. À l’invite, utilisez la commande `node` pour exécuter le fichier. Par exemple : `node get-printed-text.js`.
+1. À l’invite, utilisez la commande `node` pour exécuter le fichier. Par exemple : `node get-printed-text.js`.
 
 ```nodejs
 'use strict';

@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Extraire du texte imprimé (OCR) - REST, Java - Visi
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous extrayez le texte imprimé d’une image en utilisant l’API Vision par ordinateur avec Java.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: a0b5967e8796f494e14dde3728c785191c2882d5
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 83675a146d6d43ce5bc25b24809924d7be1331dd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632498"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339965"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-java-in-computer-vision"></a>Démarrage rapide : Extraire du texte imprimé (OCR) à l’aide de l’API REST et Java dans Vision par ordinateur
 
@@ -57,7 +57,7 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
    1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dans la région Azure où vous avez obtenu vos clés d’abonnement.
    1. Remplacez éventuellement la valeur de `imageToAnalyze` par l’URL d’une autre image à partir de laquelle vous voulez extraire le texte imprimé.
 1. Enregistrez les modifications, puis générez le projet Java.
-1. Si vous utilisez un IDE, exécutez `Main`. Sinon, ouvrez une fenêtre d’invite de commandes et utilisez la commande `java` pour exécuter la classe compilée. Par exemple : `java Main`.
+1. Si vous utilisez un IDE, exécutez `Main`. Sinon, ouvrez une fenêtre d’invite de commandes et utilisez la commande `java` pour exécuter la classe compilée. Par exemple : `java Main`.
 
 ```java
 public class Main {

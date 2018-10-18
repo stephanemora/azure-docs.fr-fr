@@ -11,23 +11,24 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/20/2018
-ms.openlocfilehash: 6418694097c472afd6a2c706e55a9026ab03dcff
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 6c43e5bf311d94ff2e5b5c31217c5071ea26746c
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162711"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351860"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Créer et gérer des pools élastiques dans Azure SQL Database
 
-Avec un pool élastique, on détermine la quantité de ressources qui lui sont nécessaires pour gérer la charge de travail de ses bases de données ainsi que la quantité de ressources allouées à chaque base de données mise en pool. 
+Avec un pool élastique, on détermine la quantité de ressources qui lui sont nécessaires pour gérer la charge de travail de ses bases de données ainsi que la quantité de ressources allouées à chaque base de données mise en pool.
 
 ## <a name="azure-portal-manage-elastic-pools-and-pooled-databases"></a>Portail Azure : Gérer des pools élastiques et des bases de données mises en pool
 
 Tous les paramètres du pool se trouvent au même endroit : le panneau **Configurer le pool**. Pour accéder au panneau, recherchez un pool élastique dans le portail, puis cliquez sur **Configurer le pool** en haut du panneau ou dans le menu des ressources situé sur la gauche.
 
 Vous pouvez effectuer n’importe quelle combinaison de modifications parmi les suivantes, et les enregistrer dans un même ensemble :
+
 1. Modifier le niveau de service du pool
 2. Mettre à l’échelle les performances (DTU ou vCore) et le stockage
 3. Ajouter ou supprimer des bases de données dans le pool
@@ -36,7 +37,7 @@ Vous pouvez effectuer n’importe quelle combinaison de modifications parmi les 
 
 ![Panneau de configuration du pool élastique](./media/sql-database-elastic-pool-manage-portal/configure-pool.png)
 
-## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell : Gérer des pools élastiques et des bases de données mises en pool 
+## <a name="powershell-manage-elastic-pools-and-pooled-databases"></a>PowerShell : Gérer des pools élastiques et des bases de données mises en pool
 
 Pour créer et gérer les pools élastiques SQL Database et des bases de données mises en pool avec Azure PowerShell, utilisez les cmdlets PowerShell suivantes. Si vous devez installer ou mettre à niveau PowerShell, consultez la section relative à [l’installation du module Azure PowerShell](/powershell/azure/install-azurerm-ps). Pour créer et gérer les serveurs logiques pour un pool élastique, consultez l’article décrivant comment [créer et gérer des serveurs logiques](sql-database-logical-servers.md). Pour créer et gérer des règles de pare-feu, consultez l’article expliquant comment [créer et gérer des règles de pare-feu à l’aide de PowerShell](sql-database-firewall-configure.md#manage-firewall-rules-using-azure-powershell).
 
@@ -56,10 +57,8 @@ Pour créer et gérer les pools élastiques SQL Database et des bases de donnée
 |[Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase)|Définit les propriétés d’une base de données, ou déplace une base de données existante dans un pool élastique, en dehors de celui-ci ou entre des pools élastiques.|
 |[Remove-AzureRmSqlDatabase](/powershell/module/azurerm.sql/remove-azurermsqldatabase)|Supprime une base de données.|
 
-
 > [!TIP]
 > La création d’un grand nombre de bases de données dans un pool élastique peut prendre du temps si elle se fait par le biais du portail ou d’applets de commande PowerShell qui créent une seule base de données à la fois. Pour automatiser la création dans un pool élastique, consultez [CreateOrUpdateElasticPoolAndPopulate](https://gist.github.com/billgib/d80c7687b17355d3c2ec8042323819ae).
->
 
 ## <a name="azure-cli-manage-elastic-pools-and-pooled-databases"></a>Azure CLI : Gérer des pools élastiques et des bases de données mises en pool
 
@@ -100,18 +99,18 @@ Pour créer et gérer des pools élastiques SQL Database et des bases de donnée
 
 | Commande | Description |
 | --- | --- |
-|[Pools élastiques - Créer ou mettre à jour](/rest/api/sql/elasticpools/createorupdate)|Crée un pool élastique ou met à jour un pool élastique existant.|
-|[Pools élastiques - Supprimer](/rest/api/sql/elasticpools/delete)|Supprime le pool élastique.|
-|[Pools élastiques - Obtenir](/rest/api/sql/elasticpools/get)|Obtenir un pool élastique.|
-|[Pools élastiques - Lister par serveur](/rest/api/sql/elasticpools/listbyserver)|Renvoie une liste de pools élastiques dans un serveur.|
-|[Pools élastiques - Mettre à jour](/rest/api/sql/elasticpools/update)|Met à jour un pool élastique existant.|
-|[Activités de pool élastique](/rest/api/sql/elasticpoolactivities)|Retourne les activités de pool élastique.|
-|[Activités de bases de données du pool élastique](/rest/api/sql/elasticpooldatabaseactivities)|Retourne l’activité sur les bases de données à l’intérieur d’un pool élastique.|
-|[Bases de données - Créer ou mettre à jour](/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
-|[Bases de données - Obtenir](/rest/api/sql/databases/get)|Obtient une base de données.|
-|[Bases de données - Lister par pool élastique](/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
-|[Bases de données - Lister par serveur](/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
-|[Bases de données - Mettre à jour](/rest/api/sql/databases/update)|Met à jour une base de données existante.|
+|[Pools élastiques - Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|Crée un pool élastique ou met à jour un pool élastique existant.|
+|[Pools élastiques - Supprimer](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|Supprime le pool élastique.|
+|[Pools élastiques - Obtenir](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|Obtenir un pool élastique.|
+|[Pools élastiques - Lister par serveur](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Renvoie une liste de pools élastiques dans un serveur.|
+|[Pools élastiques - Mettre à jour](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Met à jour un pool élastique existant.|
+|[Activités de pool élastique](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Retourne les activités de pool élastique.|
+|[Activités de bases de données du pool élastique](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Retourne l’activité sur les bases de données à l’intérieur d’un pool élastique.|
+|[Bases de données - Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Crée une base de données ou met à jour une base de données existante.|
+|[Bases de données - Obtenir](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Obtient une base de données.|
+|[Bases de données - Lister par pool élastique](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
+|[Bases de données - Lister par serveur](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Retourne une liste de bases de données d’un serveur.|
+|[Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Met à jour une base de données existante.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

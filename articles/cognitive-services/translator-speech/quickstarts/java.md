@@ -10,16 +10,17 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ROBOTS: NOINDEX
-ms.openlocfilehash: dde7d3dc7c1a744da9a22c0e4c0a483a186aa327
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4147e164434109a90a2a044565a1fb0b2e1b48bf
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969459"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386500"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Démarrage rapide : API de traduction de conversation Translator Speech avec Java 
 <a name="HOLTop"></a>
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Cet article explique comment utiliser l’API de traduction de conversation Translator Speech pour traduire des mots prononcés dans un fichier .wav.
 
@@ -38,7 +39,7 @@ Il vous faudra les fichiers suivants.
 - [javax-websocket-client-impl-9.4.11.v20180605.jar (ou une version ultérieure)](https://mvnrepository.com/artifact/org.eclipse.jetty.websocket/javax-websocket-client-impl)
 - [jetty-client-9.4.11.v20180605.jar (ou une version ultérieure)](https://mvnrepository.com/artifact/org.eclipse.jetty/jetty-client)
 
-Vous devez disposer d’un fichier .wav nommé « speak.wav » dans le même dossier que le fichier exécutable que vous compilez à partir du code ci-dessous. Ce fichier .wav doit être au format PCM standard 16 bits, 16kHz, monocanal. Vous pouvez obtenir un fichier .wav de ce type auprès de [l’API Synthèse vocale](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+Vous devez disposer d’un fichier .wav nommé « speak.wav » dans le même dossier que le fichier exécutable que vous compilez à partir du code ci-dessous. Ce fichier .wav doit être au format PCM standard 16 bits, 16kHz, monocanal. Vous pouvez obtenir un fichier .wav de ce type auprès de [l’API Synthèse vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 Vous devez disposer d’un [compte d’API Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec **l’API de traduction de conversation Microsoft Translator Speech**. Vous devez disposer d’une clé d’abonnement payant à partir de votre [tableau de bord Azure](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

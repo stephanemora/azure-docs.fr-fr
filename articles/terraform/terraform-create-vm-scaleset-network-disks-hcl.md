@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 06/04/2018
-ms.openlocfilehash: 9b6a7187827622443c3cb29566dfb5eef840d595
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7ae97274b03dda4dcf5150c8faacc7d406dad9fd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666193"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389613"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Utiliser Terraform pour créer un groupe de machines virtuelles identiques Azure
 
@@ -38,7 +38,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser [Azure Cloud Shell](/azure
 
 - **Installation de Terraform** : suivez les instructions de l’article [Installer et configurer Terraform pour approvisionner les machines virtuelles et d’autres infrastructures dans Azure](/azure/virtual-machines/linux/terraform-install-configure).
 
-- **Création d’une paire de clés SSH** : si vous n’avez pas encore de paire de clés SSH, suivez les instructions dans l’article [Étapes rapides : Créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Création d’une paire de clés SSH** : si vous n’avez pas encore de paire de clés SSH, suivez les instructions dans l’article [Étapes rapides : Créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys).
 
 ## <a name="create-the-directory-structure"></a>Créer la structure de répertoire
 

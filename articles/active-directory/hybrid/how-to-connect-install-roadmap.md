@@ -12,14 +12,14 @@ ms.topic: get-started-article
 ms.date: 09/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 1fdfea3ac6b84088002521700e1d50d17398be31
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 04d950b0a8001fd76e3754b73a9d7c4c5fe2893d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46303092"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318637"
 ---
-#<a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Feuille de route pour l’installation d’Azure AD Connect et d’Azure AD Connect Health
+# <a name="azure-ad-connect-and-azure-ad-connect-health-installation-roadmap"></a>Feuille de route pour l’installation d’Azure AD Connect et d’Azure AD Connect Health
 
 ## <a name="install-azure-ad-connect"></a>Installer Azure AD Connect
 
@@ -169,7 +169,6 @@ Ce portail vous permet d’afficher des alertes, de surveiller les performances 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-
 - [Matériel et prérequis](how-to-connect-install-prerequisites.md) 
 - [Paramètres Express](how-to-connect-install-express.md)
 - [Paramètres personnalisés](how-to-connect-install-custom.md)
@@ -178,6 +177,3 @@ Ce portail vous permet d’afficher des alertes, de surveiller les performances 
 - [Fédération avec Azure AD Connect](how-to-connect-fed-whatis.md)
 - [Installation des agents Azure AD Connect Health](how-to-connect-health-agent-install.md) 
 - [Synchronisation d’Azure AD Connect](how-to-connect-sync-whatis.md)
-
-
-

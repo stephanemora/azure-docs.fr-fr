@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Générer une miniature - REST, PHP - Vision par ord
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous générez une miniature d’une image en utilisant l’API Vision par ordinateur avec PHP.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 5cc432a2f6a471ec1d5dfd4acae8733df7065e4f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 3a652e4b937dc3600ffe7af7231322b14bd52e05
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631651"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342028"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-php-in-computer-vision"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST et PHP dans Vision par ordinateur
 
@@ -48,7 +48,7 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
     1. Remplacez la valeur de `subscriptionKey` par votre clé d’abonnement.
     1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [Obtenir la miniature](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Remplacez éventuellement la valeur de `imageUrl` par l’URL d’une autre image pour laquelle vous souhaitez générer une miniature.
-1. Enregistrez le code dans un fichier avec une extension `.php`. Par exemple : `get-thumbnail.php`.
+1. Enregistrez le code dans un fichier avec une extension `.php`. Par exemple : `get-thumbnail.php`.
 1. Ouvrez une fenêtre de navigateur avec prise en charge de PHP.
 1. Faites glisser et déposez le fichier dans la fenêtre du navigateur.
 

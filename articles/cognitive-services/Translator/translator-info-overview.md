@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
 ms.author: nolachar
-ms.openlocfilehash: 47ac3c81b85424a5cacab00863cd88fab9463fb9
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124658"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385022"
 ---
 # <a name="what-is-translator-text-api"></a>Qu’est-ce que l’API de traduction de texte Translator Text ?
 
@@ -27,7 +27,7 @@ L’API de traduction de texte Translator Text fait partie de la [collection d�
 
 Microsoft Translator est un service de traduction informatique. Au cœur de ce service figurent l’API de traduction de texte Translator Text et [l’API de traduction de conversation Translator Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-translation) qui alimentent différents produits et services Microsoft et que des milliers d’entreprises à travers le monde utilisent dans leurs applications et flux de travail pour proposer leur contenu à un public international.
 
-La traduction vocale est également disponible par le biais de la [préversion du service Cognitive Services Speech](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/), qui combine l’API de traduction de conversation Translator Speech, l’API Reconnaissance vocale Bing et le service Custom Speech Service (préversion) existants au sein d’un service unifié et entièrement personnalisable.  
+La traduction vocale est également disponible par le biais de la [préversion du service Cognitive Services Speech](https://docs.microsoft.com/azure/cognitive-services/speech-service/), qui combine l’API de traduction de conversation Translator Speech, l’API Reconnaissance vocale Bing et le service Custom Speech Service (préversion) existants au sein d’un service unifié et entièrement personnalisable.  
 
 Découvrez-en plus sur le [service Microsoft Translator](https://www.microsoft.com/en-us/translator/home.aspx).
 

@@ -8,12 +8,12 @@ ms.devlang: powershell
 ms.topic: sample
 ms.date: 8/13/2018
 ms.author: victorh
-ms.openlocfilehash: 63b34b6ddc1809031dc66fb3e41fa4a22d9f4a03
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 7f1986a9a59087d084577e980233ff87360a17e0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182788"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390106"
 ---
 # <a name="create-an-azure-firewall-test-environment"></a>Créer un environnement de test pour Pare-feu Azure
 
@@ -32,7 +32,7 @@ Si vous devez procéder à une mise à niveau, vous pouvez utiliser `PowerShellG
 > [!NOTE]
 >Les autres versions de Windows vous obligent à installer `PowerShellGet` avant de pouvoir les utiliser. Vous pouvez exécuter `Get-Module -Name PowerShellGet -ListAvailable | Select-Object -Property Name,Version,Path` pour déterminer s’il est installé sur votre système. Si la sortie est vide, vous devez installer la dernière version de [Windows Management Framework](https://www.microsoft.com/download/details.aspx?id=54616).
 
-Pour plus d’informations, consultez [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/en-us/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0).
+Pour plus d’informations, consultez [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.4.0).
 
 Toute installation d’Azure PowerShell existante effectuée avec l’outil Web Platform Installer sera en conflit avec l’installation de PowerShellGet et devra être supprimée.
 
@@ -66,7 +66,7 @@ Ce script utilise les commandes suivantes pour créer un groupe de ressources, u
 | [New-AzureRmNetworkSecurityGroup](/powershell/module/azurerm.network/new-azurermnetworksecuritygroup) |Crée des règles NSG qui autorisent ou bloquent des ports spécifiques sur des sous-réseaux donnés. |
 | [Set-AzureRmVirtualNetworkSubnetConfig](/powershell/module/azurerm.network/set-azurermvirtualnetworksubnetconfig) | Associe les groupes de sécurité réseau à des sous-réseaux. |
 | [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress) | Crée une adresse IP publique pour accéder à la machine virtuelle à partir d’Internet. |
-| [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Crée des interfaces réseau virtuelles et les attaches aux sous-réseaux frontaux et principaux du réseau virtuel. |
+| [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface) | Crée des interfaces réseau virtuelles et les attache aux sous-réseaux frontaux et principaux du réseau virtuel. |
 | [New-AzureRmVMConfig](/powershell/module/azurerm.compute/new-azurermvmconfig) | Crée une configuration de machine virtuelle. Cette configuration inclut des informations telles que le nom de la machine virtuelle, le système d’exploitation et les informations d’identification d’administration. La configuration est utilisée lors de la création de machines virtuelles. |
 | [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm) | Création d’une machine virtuelle |
 |[Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Supprime un groupe de ressources et toutes les ressources contenues. |

@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 70b7af1701c13e6a5d7644f04e4502f76ef7743a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2363f7f2e17bfc451ea9fd5486ba60fbc8ccb993
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43187843"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364283"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Tutoriel : Créer une application web Node.js et MongoDB dans Azure
 
@@ -56,7 +56,7 @@ Pour suivre ce tutoriel :
 
 ## <a name="test-local-mongodb"></a>Tester la base de données MongoDB locale
 
-Ouvrez la fenêtre du terminal et `cd` dans le répertoire `bin` de votre installation MongoDB. Vous pouvez utiliser cette fenêtre de terminal pour exécuter toutes les commandes de ce didacticiel.
+Ouvrez la fenêtre du terminal et `cd` dans le répertoire `bin` de votre installation MongoDB. Vous pouvez utilisez cette fenêtre de terminal pour exécuter toutes les commandes de ce didacticiel.
 
 Exécutez `mongo` dans le terminal pour vous connecter à votre serveur MongoDB local.
 
@@ -136,7 +136,7 @@ Pour MongoDB, ce didacticiel utilise [Azure Cosmos DB](/azure/documentdb/). Cosm
 ### <a name="create-a-cosmos-db-account"></a>Création d’un compte Cosmos DB
 
 > [!NOTE]
-> La création de bases de données Azure Cosmos DB dans votre propre abonnement Azure au cours de ce didacticiel peut entraîner un coût. Pour utiliser un compte Azure Cosmos DB gratuit pendant sept jours, vous pouvez utiliser l’expérience [Essayez gratuitement Azure Cosmos DB](https://azure.microsoft.com/en-us/try/cosmosdb/). Cliquez simplement sur le bouton **Créer** dans la vignette MongoDB pour créer une base de données MongoDB gratuite sur Azure. Une fois la base de données créée, accédez à la **Chaîne de connexion** dans le portail et récupérez votre chaîne de connexion Azure Cosmos DB que vous utiliserez plus loin dans le didacticiel.
+> La création de bases de données Azure Cosmos DB dans votre propre abonnement Azure au cours de ce didacticiel peut entraîner un coût. Pour utiliser un compte Azure Cosmos DB gratuit pendant sept jours, vous pouvez utiliser l’expérience [Essayez gratuitement Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/). Cliquez simplement sur le bouton **Créer** dans la vignette MongoDB pour créer une base de données MongoDB gratuite sur Azure. Une fois la base de données créée, accédez à la **Chaîne de connexion** dans le portail et récupérez votre chaîne de connexion Azure Cosmos DB que vous utiliserez plus loin dans le didacticiel.
 >
 
 Dans Cloud Shell, créez un compte Cosmos DB à l’aide de la commande [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).

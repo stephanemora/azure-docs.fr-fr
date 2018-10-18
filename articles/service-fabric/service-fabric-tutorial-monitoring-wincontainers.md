@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 06/08/2018
 ms.author: dekapur
 ms.custom: mvc
-ms.openlocfilehash: 9eea0cabebb67095d4c6c813e7d13c885a447db4
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 24b4cbe0eb13a41ccd6ae98db90d4bf0cf7d22a7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378888"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311216"
 ---
 # <a name="tutorial-monitor-windows-containers-on-service-fabric-using-log-analytics"></a>Tutoriel : surveiller des conteneurs Windows sur Service Fabric à l’aide de Log Analytics
 
@@ -42,7 +42,7 @@ Avant de commencer ce didacticiel, vous devez :
 
 ## <a name="setting-up-log-analytics-with-your-cluster-in-the-resource-manager-template"></a>Configurer Log Analytics avec un cluster dans le modèle Resource Manager
 
-Si vous avez utilisé le [modèle fourni](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/Tutorial) dans la première partie de ce didacticiel, il devrait normalement inclure les ajouts suivants à un modèle Azure Resource Manager Service Fabric générique. Si, au contraire, vous cherchez à configurer votre propre cluster pour surveiller des conteneurs avec Log Analytics :
+Si vous avez utilisé le [modèle fourni](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) dans la première partie de ce didacticiel, il devrait normalement inclure les ajouts suivants à un modèle Azure Resource Manager Service Fabric générique. Si, au contraire, vous cherchez à configurer votre propre cluster pour surveiller des conteneurs avec Log Analytics :
 
 * Apportez les modifications suivantes à votre modèle Resource Manager.
 * Déployez-le avec PowerShell pour mettre à niveau votre cluster en [déployant le modèle](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-creation-via-arm). Azure Resource Manager se rend compte que la ressource existe, et par conséquent la déploie comme une mise à niveau.

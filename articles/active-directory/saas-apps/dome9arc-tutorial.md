@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2018
 ms.author: jeedes
-ms.openlocfilehash: 934520764749b5abce9aefe22b8eb9a5d8e490f2
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 0b6730d6c365484dc19273069785e6824218113e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746489"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387852"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-dome9-arc"></a>Didacticiel : Intégration d’Azure Active Directory à Dome9 Arc
 
@@ -150,7 +150,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     d. Cliquez sur **OK**.
     
     > [!NOTE]
-    > Pour plus d’informations sur la configuration des rôles d’une application, cliquez sur [ce lien](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-enterprise-app-role-management).
+    > Pour plus d’informations sur la configuration des rôles d’une application, cliquez sur [ce lien](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management).
 
 7. Dans la section **Certificat de signature SAML**, cliquez sur **Téléchargez le certificat (Base64)** puis enregistrez le fichier du certificat sur votre ordinateur.
 

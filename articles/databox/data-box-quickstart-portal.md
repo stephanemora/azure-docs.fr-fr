@@ -2,24 +2,18 @@
 title: Démarrage rapide pour Microsoft Azure Data Box | Microsoft Docs
 description: Découvrez comment déployer rapidement votre Azure Data Box dans le portail Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 10/04/2018
 ms.author: alkohli
-ms.openlocfilehash: fe15167a5e88dbc9a97383c9a074a32c91f4219a
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: a2f8d295ca161ff2263f53b8faa407c7a42a4c6b
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48784635"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385834"
 ---
 # <a name="quickstart-deploy-azure-data-box-using-the-azure-portal"></a>Démarrage rapide : Déployer Azure Data Box via le portail Azure
 
@@ -35,7 +29,7 @@ Avant de commencer :
     - Contrat Entreprise (EA) Microsoft. En savoir plus sur les [abonnements EA](https://azure.microsoft.com/pricing/enterprise-agreement/).
     - Fournisseur de solutions cloud (CSP). En savoir plus sur le [programme Azure CSP](https://docs.microsoft.com/azure/cloud-solution-provider/overview/azure-csp-overview).
     - Consommation : paiement à l’utilisation. Plus d’informations sur les [abonnements avec paiement à l’utilisation](https://azure.microsoft.com/offers/ms-azr-0003p/) Azure.
-    - Microsoft Azure Sponsorship. En savoir plus sur le [programme Azure Sponsorship](https://azure.microsoft.com/en-in/offers/ms-azr-0036p/). 
+    - Microsoft Azure Sponsorship. En savoir plus sur le [programme Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). 
 
 - Vous disposez d’un accès propriétaire ou contributeur à l’abonnement pour créer une commande Data Box.
 - Passez en revue les [consignes de sécurité pour votre Data Box](data-box-safety.md).

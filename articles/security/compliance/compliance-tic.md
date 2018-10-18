@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: dlap
-ms.openlocfilehash: 637f837ec2421f0bef5131a33c709087b891aa0f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d52785dd7569560f4b6986080b14723762537ec8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505109"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388307"
 ---
 # <a name="trusted-internet-connections-guidance"></a>Recommandations relatives à l’initiative Trusted Internet Connections
 
@@ -40,7 +40,7 @@ L’initiative inclut également des stratégies de sécurité, des instructions
 
 Il existe trois options principales pour la connexion aux services Azure :
 
-- Connexion Internet directe : accès aux services Azure directement via une connexion Internet ouverte. Le vecteur et la connexion sont publics. La confidentialité repose sur le chiffrement au niveau du transport et de l’application. La bande passante est limitée par la connectivité du site à Internet. Utilisez plusieurs fournisseurs actifs pour garantir la résilience.
+- Connexion Internet directe : accès aux services Azure directement via une connexion Internet ouverte. Le vecteur et la connexion sont publics. Le chiffrement au niveau du transport et de l’application est responsable de la confidentialité. La bande passante est limitée par la connectivité du site à Internet. Utilisez plusieurs fournisseurs actifs pour garantir la résilience.
 - Réseau privé virtuel (VPN, Virtual private network) : connexion confidentielle au réseau virtuel Azure via une passerelle VPN.
 Le vecteur est public parce qu’il transite par une connexion Internet standard d’un site, mais la connexion est chiffrée dans un tunnel afin de garantir la confidentialité. La bande passante est limitée en fonction des périphériques VPN et de la configuration choisie. Les connexions point à site Azure sont généralement limitées à 100 Mbits/s, tandis que les connexions site à site sont limitées à 1,25 Gbits/s.
 - Azure ExpressRoute : ExpressRoute est une connexion directe aux services Microsoft. Établie via un Fiber Channel isolé, la connexion peut être publique ou privée, selon la configuration utilisée. La bande passante est généralement limitée à un maximum de 10 Gbits/s.
@@ -223,7 +223,7 @@ Les exemples de stratégies suivants peuvent être utiles pour des scénarios de
 
 ### <a name="network-watcher-traffic-analytics"></a>Analyse du trafic par Network Watcher
 
-L’[analyse du trafic](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) par Network Watcher utilise des données de journal de flux et d’autres journaux pour fournir une vue d’ensemble du trafic réseau. Ces données sont utiles pour l’audit de conformité TIC et pour identifier des points problématiques. Vous pouvez utiliser le tableau de bord de haut niveau pour filtrer rapidement les machines virtuelles qui communiquent avec Internet et obtenir une liste ciblée pour le routage TIC.
+L’[analyse du trafic](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) par Network Watcher utilise des données de journal de flux et d’autres journaux pour fournir une vue d’ensemble du trafic réseau. Ces données sont utiles pour l’audit de conformité TIC et pour identifier des points problématiques. Vous pouvez utiliser le tableau de bord de haut niveau pour filtrer rapidement les machines virtuelles qui communiquent avec Internet et obtenir une liste ciblée pour le routage TIC.
 
 ![Traffic Analytics](media/tic-traffic-analytics-1.png)
 

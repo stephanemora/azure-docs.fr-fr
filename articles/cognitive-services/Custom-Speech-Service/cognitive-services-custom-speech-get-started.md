@@ -1,24 +1,24 @@
 ---
-title: Prise en main de Custom Speech Service
-titlesuffix: Azure Cognitive Services
+title: Prise en main de l’API Custom Speech Service sur Azure | Microsoft Docs
 description: Abonnez-vous au service Discours personnalisé et liez les activités de service à un abonnement Azure pour former un modèle et effectuer un déploiement.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: ae72edd626bd91dea7cd2812a3ef821b905f59a4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 4bbd4c57556fd4bfd176c915e26be4a4d198418a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225240"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339931"
 ---
 # <a name="get-started-with-custom-speech-service"></a>Prise en main du service Discours personnalisé
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Découvrez les principales fonctionnalités du service Discours personnalisé et apprenez à créer, déployer et utiliser des modèles de langage et acoustiques pour vos besoins en application. Vous pouvez trouver plus de documentations et guides étape par étape une fois inscrit sur le portail du service Discours personnalisé.
 
@@ -42,7 +42,7 @@ Si vous vous intéressez à l’optimisation des performances pour un seul locut
 Vous pouvez trouver une description détaillée de la marche à suivre pour créer un modèle acoustique personnalisé à [cette adresse](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-acoustic-model.md).
 
 ## <a name="creating-a-custom-language-model"></a>Création d’un modèle de langage personnalisé
-La procédure de création d’un modèle de langage personnalisé est similaire à la création d’un modèle acoustique personnalisé, sauf qu’il n’y ait aucune donnée vocale, seulement du texte. Le texte doit être composé de plusieurs exemples de requêtes et d’énoncés susceptibles d’être soumis par les utilisateurs, ou déjà soumis et renseignés par ces derniers dans votre application.
+La procédure de création d’un modèle de langage personnalisé est similaire à la création d’un modèle acoustique personnalisé, sauf qu’il n’y aucune donnée vocale, seulement du texte. Le texte doit être composé de plusieurs exemples de requêtes et d’énoncés susceptibles d’être soumis par les utilisateurs, ou déjà soumis et renseignés par ces derniers dans votre application.
 
 Vous pouvez trouver une description détaillée de la marche à suivre pour créer un modèle de langage personnalisé à [cette adresse](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-language-model.md).
 
@@ -52,7 +52,7 @@ Une fois que vous avez créé des modèles acoustiques et/ou des modèles de lan
 Vous pouvez trouver une description détaillée de la marche à suivre pour créer un point de terminaison de reconnaissance vocale personnalisé à [cette adresse](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-create-endpoint.md).
 
 ## <a name="using-a-custom-speech-endpoint"></a>Utilisation d’un point de terminaison de reconnaissance vocale personnalisé
-Les requêtes peuvent être envoyées au point de terminaison de reconnaissance vocale CRIS d’une façon similaire au point de terminaison de reconnaissance vocale par défaut d’Azure Cognitive Services. Remarque : ces points de terminaison sont identiques en termes de fonction aux points de terminaison par défaut de l’API Microsoft Speech. Ainsi, cette même fonctionnalité, disponible via la bibliothèque de client ou l’API REST pour l’API Microsoft Speech, est également disponible pour votre point de terminaison personnalisé.
+Les requêtes peuvent être envoyées au point de terminaison de reconnaissance vocale CRIS d’une façon similaire au point de terminaison de reconnaissance vocale par défaut de Microsoft Cognitive Services. Remarque : ces points de terminaison sont identiques en termes de fonction aux points de terminaison par défaut de l’API Microsoft Speech. Ainsi, cette même fonctionnalité, disponible via la bibliothèque de client ou l’API REST pour l’API Microsoft Speech, est également disponible pour votre point de terminaison personnalisé.
 
 Vous pouvez trouver une description détaillée de la marche à suivre pour utiliser un point de terminaison de reconnaissance vocale personnalisé à [cette adresse](CustomSpeech-How-to-Topics/cognitive-services-custom-speech-use-endpoint.md).
 
@@ -61,6 +61,6 @@ Remarque : les points de terminaison créés via CRIS peuvent traiter un nombre 
 
 Le service suppose que les données audio sont transmises en temps réel. Si elles sont envoyées plus rapidement, la requête sera considérée en exécution jusqu’à la fin de sa durée en temps réel.
 
-* [Vue d’ensemble](cognitive-services-custom-speech-home.md)
+* [Vue d'ensemble](cognitive-services-custom-speech-home.md)
 * [FORUM AUX QUESTIONS](cognitive-services-custom-speech-faq.md)
 * [Glossaire](cognitive-services-custom-speech-glossary.md)
