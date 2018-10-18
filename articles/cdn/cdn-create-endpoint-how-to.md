@@ -3,8 +3,8 @@ title: Créer un point de terminaison CDN Azure | Microsoft Docs
 description: Cet article explique comment créer un point de terminaison Azure Content Delivery Network (CDN), y compris les paramètres avancés.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.service: cdn
 ms.workload: media
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/12/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 16a939c69d9ed9be597306765f316ffe32db6665
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: a3fd85d1dbcba769f47e537e0231f63110752492
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094034"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093678"
 ---
 # <a name="create-an-azure-cdn-endpoint"></a>Créer un point de terminaison CDN Azure
 Cet article décrit tous les paramètres de création d’un point de terminaison [Azure Content Delivery Network (CDN)](cdn-overview.md) dans un profil CDN existant. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients. Pour créer rapidement un profil et un point de terminaison, consultez [Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure](cdn-create-new-endpoint.md).
@@ -65,7 +65,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com) avec votre compte Az
 8. Pour **Protocole** et **Port de l’origine**, spécifiez les protocoles et les ports utilisés pour accéder à vos ressources au niveau du serveur d’origine. Vous devez sélectionner au moins un protocole (HTTP ou HTTPS). Utilisez le domaine fourni par CDN (_<endpointname>_.azureedge.net) pour accéder au contenu HTTPS. 
    
    > [!NOTE]
-   > La valeur **Port de l’origine** ne concerne que le port utilisé par le point de terminaison pour récupérer des informations à partir du serveur d’origine. Le point de terminaison est uniquement disponible pour les clients sur les ports HTTP et HTTPS par défaut (80 et 443), quelle que soit la valeur **port d’origine**.  
+   > La valeur **Port de l’origine** ne concerne que le port utilisé par le point de terminaison pour récupérer des informations à partir du serveur d’origine. Le point de terminaison est uniquement disponible pour les clients sur les ports HTTP et HTTPS par défaut (80 et 443), quel que soit la valeur **port d’origine**.  
    > 
    > Les points de terminaison **CDN Azure fournis par Akamai** n’autorisent pas la plage de ports TCP complète pour les ports d’origine. Pour obtenir la liste des ports d’origine non autorisés, consultez l’article [Azure CDN from Akamai Allowed Origin Ports](https://msdn.microsoft.com/library/mt757337.aspx)(Ports d’origine autorisés du CDN Azure fourni par Akamai).  
    > 

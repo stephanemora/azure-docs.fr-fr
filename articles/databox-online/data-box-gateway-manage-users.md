@@ -1,26 +1,19 @@
 ---
 title: Gestion des utilisateurs par Azure Data Box Gateway | Microsoft Docs
 description: Décrit comment utiliser le Portail Azure pour gérer les utilisateurs de votre Azure Data Box Gateway.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: gateway
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 3bd368cf19edf1370aaeef54d3ba0e4fd26ac239
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 8adec2986a286e55ee71f0fddca695d1800b5317
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070438"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167186"
 ---
 # <a name="use-the-azure-portal-to-manage-users-on-your-azure-data-box-gateway"></a>Utilisation du Portail Azure pour gérer les utilisateurs de votre Azure Data Box Gateway 
 
@@ -33,7 +26,7 @@ Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
 > * Ajouter un utilisateur
-> * Modifier un utilisateur
+> * Modification d’une planification
 > * Supprimer un utilisateur 
 
 ## <a name="about-users"></a>À propos des utilisateurs
@@ -48,7 +41,7 @@ Les autorisations des utilisateurs sont d’abord définies à la création de l
 
 ## <a name="add-a-user"></a>Ajouter un utilisateur
 
-Pour ajouter un utilisateur, effectuez les étapes suivantes dans le Portail Azure.
+Pour ajouter une planification, procédez comme suit dans le Portail Azure.
 
 1. Dans le Portail Azure, accédez à votre ressource Data Box Gateway, puis accédez à **Vue d’ensemble**. Cliquez sur **+ Ajouter un utilisateur** dans la barre de commandes.
 
@@ -68,7 +61,7 @@ Pour ajouter un utilisateur, effectuez les étapes suivantes dans le Portail Azu
 
 Vous pouvez modifier le mot de passe associé à un utilisateur une fois l’utilisateur créé. Sélectionnez et cliquez dans la liste des utilisateurs. Entrez et confirmez le nouveau mot de passe. Enregistrez les modifications.
  
-![Modifier un utilisateur](media/data-box-gateway-manage-users/modify-user-1.png)
+![Modification d’une planification](media/data-box-gateway-manage-users/modify-user-1.png)
 
 
 ## <a name="delete-a-user"></a>Supprimer un utilisateur

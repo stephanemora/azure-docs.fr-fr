@@ -3,8 +3,8 @@ title: Limiter l’accès à votre contenu CDN Azure par pays | Microsoft Docs
 description: Découvrez comment limiter l’accès à votre contenu CDN Azure par pays, par le biais de la fonctionnalité de filtrage géographique.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 12c17cc5-28ee-4b0b-ba22-2266be2e786a
 ms.service: cdn
@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/19/2018
-ms.author: v-deasim
-ms.openlocfilehash: 661356aeb2369bc1bbddd6caee57b256dd9e1212
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.author: magattus
+ms.openlocfilehash: 471a7e3704f10674c8a1d9bdf26df5f0aaf8519b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285013"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093304"
 ---
 # <a name="restrict-azure-cdn-content-by-country"></a>Limiter l’accès à votre contenu CDN Azure par pays
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Par défaut, lorsqu’un utilisateur demande du contenu, ce dernier est fourni, quel que soit l’emplacement d’où vient la demande. Cependant, dans certains cas, vous souhaiterez limiter l’accès à votre contenu par pays. Avec la *filtrage géographique*, vous pouvez créer des règles sur les chemins d’accès spécifiques de votre point de terminaison CDN pour autoriser ou bloquer le contenu dans certains pays.
 
 > [!IMPORTANT]

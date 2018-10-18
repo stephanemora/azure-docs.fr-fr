@@ -3,8 +3,8 @@ title: 'Démarrage rapide : Créer un point de terminaison et un profil CDN Azur
 description: Ce démarrage rapide décrit l’activation du réseau de distribution de contenu (Content Delivery Network, CDN) en créant un profil et un point de terminaison CDN.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 05/24/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: cf0a0b10d8df3b119f5abbd8060f8821d54172bb
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b1e287ee949aedf084d4390fe672f0fe41899c34
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607869"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091760"
 ---
 # <a name="quickstart-create-an-azure-cdn-profile-and-endpoint"></a>Démarrage rapide : Créer un point de terminaison et un profil de réseau de distribution de contenu Azure
 Dans ce démarrage rapide, vous allez activer le CDN Azure en créant un profil et un point de terminaison CDN. Après avoir créé un profil et un point de terminaison, vous pouvez commencer à distribuer du contenu à vos clients.
@@ -53,9 +53,9 @@ Une fois que vous avez créé un profil CDN, vous pouvez l’utiliser pour crée
 
     | Paramètre | Valeur |
     | ------- | ----- |
-    | **Name** | Entrez *my-endpoint-123* comme nom d’hôte de point de terminaison. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez en entrer un autre. Ce nom sert à accéder à vos ressources en cache au niveau du domaine _&lt;endpoint name&gt;_.azureedge.net.|
+    | **Name** | Entrez *my-endpoint-123* comme nom d’hôte de point de terminaison. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez en saisir un autre. Ce nom sert à accéder à vos ressources en cache au niveau du domaine _&lt;endpoint name&gt;_.azureedge.net.|
     | **Type d’origine** | Sélectionnez **Stockage**. | 
-    | **Nom d’hôte de l’origine** | Entrez *mystorageacct123.blob.core.windows.net* pour votre nom d’hôte. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez en entrer un autre. |
+    | **Nom d’hôte de l’origine** | Entrez *mystorageacct123.blob.core.windows.net* pour votre nom d’hôte. Ce nom doit être globalement unique. S’il est déjà utilisé, vous pouvez en saisir un autre. |
     | **Chemin de l’origine** | Laisser vide. |
     | **En-tête de l’hôte d’origine** | Laissez la valeur générée par défaut. |  
     | **Protocole** | Laissez les options **HTTP** et **HTTPS** par défaut sélectionnées. |

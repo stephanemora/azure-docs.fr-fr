@@ -4,15 +4,15 @@ description: Cet article explique comment exécuter le planificateur de déploie
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 432e1164e56c6afadfc76ec980de99837c106dc5
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9da79884973c620bbf8b6a191f3dd6db5bd19064
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919984"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094188"
 ---
 # <a name="run-azure-site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Exécuter le planificateur de déploiement Azure Site Recovery pour le déploiement de Hyper-V vers Azure
 
@@ -222,7 +222,7 @@ ASRDeploymentPlanner.exe -Operation GenerateReport -virtualization Hyper-V -Dire
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -DesiredRPO 5
 ```
 
-#### <a name="generate-a-report-for-the-south-india-azure-region-with-indian-rupee-and-a-specific-offer-id"></a>Générer un rapport pour la région Azure du sud de l’Inde avec la roupie indienne et l’ID d’offre spécifique
+#### <a name="generate-a-report-for-the-south-india-azure-region-with-indian-rupee-and-a-specific-offer-id"></a>Générer un rapport pour la région Azure Inde Sud avec la roupie indienne et l’ID d’offre spécifique
 ```
 ASRDeploymentPlanner.exe -Operation GenerateReport -Virtualization Hyper-V -Directory "E:\Hyper-V_ProfiledData" -VMListFile "E:\Hyper-V_ProfiledData\ProfileVMList1.txt"  -SubscriptionID 4d19f16b-3e00-4b89-a2ba-8645edf42fe5 -OfferID MS-AZR-0148P -TargetRegion southindia -Currency INR
 ```

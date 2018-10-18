@@ -12,19 +12,19 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 8b0681165fe84dd54f3b81f610c6698998e881de
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 3cab94744a2ab87dce0a145665e957e1fed0dd2f
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125491"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167543"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Créer votre première fonction avec Java et Eclipse (préversion)
 
 > [!NOTE] 
 > Java pour Azure Functions est actuellement disponible en préversion.
 
-Cet article vous explique comment créer un projet de fonction [serverless](https://azure.microsoft.com/overview/serverless-computing/) avec l’environnement de développement intégré (IDE) Eclipse et Apache Maven, comment le tester et le déboguer, puis comment le déployer sur Azure Functions. 
+Cet article vous explique comment créer un projet de fonction [serverless](https://azure.microsoft.com/solutions/serverless/) avec l’environnement de développement intégré (IDE) Eclipse et Apache Maven, comment le tester et le déboguer, puis comment le déployer sur Azure Functions. 
 
 <!-- TODO ![Access a Hello World function from the command line with cURL](media/functions-create-java-maven/hello-azure.png) -->
 
@@ -37,7 +37,7 @@ Pour développer une application de fonction avec Java et Eclipse, vous devez av
 -  [Java Developer Kit (JDK)](https://www.azul.com/downloads/zulu/) version 8.
 -  [Apache Maven](https://maven.apache.org) version 3.0 ou ultérieure.
 -  [Eclipse](https://www.eclipse.org/downloads/packages/), avec prise en charge de Java et Maven.
--  [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
+-  [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > Pour pouvoir effectuer ce démarrage rapide, vous devez définir la variable d’environnement JAVA_HOME sur l’emplacement d’installation du JDK.
