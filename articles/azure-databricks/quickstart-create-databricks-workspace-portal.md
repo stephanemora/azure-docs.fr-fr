@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: a48fa931ab01e794da5d9afa9f3681ed86306559
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: becf592d07f650c00263e26ccff2ad8525310dac
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731867"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363469"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure
 
@@ -61,7 +61,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 ## <a name="create-a-spark-cluster-in-databricks"></a>Créer un cluster Spark dans Databricks
 
 > [!NOTE] 
-> Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/en-us/free/).  
+> Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/).  
 
 1. Dans le portail Azure, accédez à l’espace de travail Databricks que vous avez créé, puis cliquez sur **Initialiser l’espace de travail**.
 
@@ -196,7 +196,7 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 
      ![Personnaliser le graphique à barres](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Personnaliser le graphique à barres")
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Une fois l’article terminé, vous pouvez arrêter le cluster. Pour cela, dans l’espace de travail Azure Databricks, dans le volet gauche, sélectionnez **Clusters**. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions**, puis sélectionnez l’icône **Arrêter**.
 

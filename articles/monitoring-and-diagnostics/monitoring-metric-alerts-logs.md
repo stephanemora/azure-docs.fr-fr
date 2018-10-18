@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: abfe7f0b39463a842b1eb167661af7da90bc9eca
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bed0c15504323aba4ebf680273870720a8ff833a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980846"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388296"
 ---
 # <a name="create-metric-alerts-for-logs-in-azure-monitor"></a>Créer des alertes de métrique de journaux dans Azure Monitor  
 
@@ -58,11 +58,11 @@ Pour des exemples et des informations détaillées, consultez [Creating and mana
 - Le signal choisi pour l’alerte de métrique pour *l’espace de travail Log Analytics* sélectionné est de type **Métrique**.
 - Filtrage d’une ressource ou de conditions spécifiques à l’aide de filtres de dimension ; les métriques de journaux sont multidimensionnelles.
 - Lors de la configuration de *Signal Logic* (Logique du signal), une alerte unique peut être créée pour s’étendre à plusieurs valeurs de dimension (comme Ordinateur).
-- Si vous n’utilisez **pas** le Portail Azure pour créer une alerte de métrique pour *l’espace de travail Log Analytics* sélectionné, l’utilisateur doit commencer par créer manuellement une règle explicite pour convertir les données de journal en métriques à l’aide [d’Azure Monitor - Règles de requête planifiées](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules
+- Si vous n’utilisez **pas** le Portail Azure pour créer une alerte de métrique pour *l’espace de travail Log Analytics* sélectionné, l’utilisateur doit commencer par créer manuellement une règle explicite pour convertir les données de journal en métriques à l’aide [d’Azure Monitor - Règles de requête planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules
 ).
 
 > [!NOTE]
-> Lors de la création d’une alerte de métrique pour l’espace de travail Log Analytics via le Portail Azure, la règle correspondante pour la conversion de données de journal en métriques via [Azure Monitor - Règles de requête planifiées](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules) est automatiquement créée en arrière-plan, *sans qu’une action ou intervention de l’utilisateur ne soit nécessaire*. Pour créer une alerte de métrique pour des journaux autrement qu’avec le Portail Azure, consultez la section [Modèle de ressource pour les alertes de métrique pour des journaux](#resource-template-for-metric-alerts-for-logs) sur les exemples de méthodes de création d’une règle de conversion de journal en métrique basée sur ScheduledQueryRule avant la création d’une alerte de métrique, sinon il n’y aura pas de données pour l’alerte de métrique sur les journaux créée.
+> Lors de la création d’une alerte de métrique pour l’espace de travail Log Analytics via le Portail Azure, la règle correspondante pour la conversion de données de journal en métriques via [Azure Monitor - Règles de requête planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) est automatiquement créée en arrière-plan, *sans qu’une action ou intervention de l’utilisateur ne soit nécessaire*. Pour créer une alerte de métrique pour des journaux autrement qu’avec le Portail Azure, consultez la section [Modèle de ressource pour les alertes de métrique pour des journaux](#resource-template-for-metric-alerts-for-logs) sur les exemples de méthodes de création d’une règle de conversion de journal en métrique basée sur ScheduledQueryRule avant la création d’une alerte de métrique, sinon il n’y aura pas de données pour l’alerte de métrique sur les journaux créée.
 
 ## <a name="resource-template-for-metric-alerts-for-logs"></a>Modèle de ressource pour les alertes de métrique pour des journaux
 Comme indiqué précédemment, le processus de création des alertes de métrique à partir des journaux est double :

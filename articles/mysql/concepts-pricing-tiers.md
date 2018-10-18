@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/27/2018
-ms.openlocfilehash: c390f6cbc9f7ced8113b4e6053dec1adcaf761a1
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.date: 10/10/2018
+ms.openlocfilehash: e3d0e54c32a08c613407f1a90c78cc63be929078
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422594"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091791"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Niveaux tarifaires Azure Database pour MySQL
 
@@ -45,8 +45,8 @@ Les ressources de calcul sont fournies en tant que vCores, représentant le proc
 
 | **Région Azure** | **Gen 4** | **Gen 5** |
 |:---|:----------:|:--------------------:|
-| USA Centre | X | X |
-| USA Est | X | X |
+| USA Centre |  | X |
+| USA Est |  | X |
 | USA Est 2 | X | X |
 | USA Centre Nord | X | X |
 | USA Centre Sud | X | X |

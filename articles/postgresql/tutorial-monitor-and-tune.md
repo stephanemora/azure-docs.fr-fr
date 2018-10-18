@@ -7,12 +7,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 2e4d625cd123583baa30fde8e9826f5b57da49fe
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: ef8809afa2da36f44384d784e32532b7b121e3a9
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393585"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379142"
 ---
 # <a name="tutorial-monitor-and-tune-azure-database-for-postgresql"></a>Tutoriel : Superviser et optimiser Azure Database pour PostgreSQL
 
@@ -28,7 +28,7 @@ Azure Database pour PostgreSQL a des fonctionnalités qui vous aident à compren
 Vous avez besoin d’un serveur Azure Database pour PostgreSQL avec PostgreSQL version 9.6 ou 10. Vous pouvez suivre les étapes du [tutoriel consacré à la création](tutorial-design-database-using-azure-portal.md) pour créer un serveur.
 
 > [!IMPORTANT]
-> **Magasin des requêtes**, **Query Performance Insight** et **Recommandation sur les performances** sont en préversion publique dans un nombre limité de régions.
+> **Magasin des requêtes**, **Analyse des performances des requêtes** et **Recommandation sur les performances** sont en préversion publique.
 
 ## <a name="enabling-data-collection"></a>Activation de la collecte des données
 Le [Magasin des requêtes](concepts-query-store.md) capture un historique des statistiques sur les requêtes et les attentes sur votre serveur, et les stocke dans la base de données **azure_sys** sur votre serveur. Il s’agit d’une fonctionnalité avec option d’adhésion. Pour l’activer :

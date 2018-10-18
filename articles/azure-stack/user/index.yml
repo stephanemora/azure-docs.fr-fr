@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: e10dbc5ef0899134a1d629a058412b1eb36df335
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 88bc55bfcf1fef825ab7475f6008d49ed274d534
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163407"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393216"
 documentType: LandingData
 title: Documentation sur les utilisateurs Azure Stack
 metadata:
@@ -18,7 +18,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 09/25/2018
+  ms.date: 10/16/2018
   ms.author: jeffgilb
 abstract:
   description: Azure Stack est une plateforme cloud hybride qui vous permet d’utiliser les services Azure à partir du centre de données de votre entreprise ou de votre fournisseur de services. En tant que développeur, vous pouvez générer des applications sur Azure Stack. Vous pouvez ensuite les déployer sur Azure Stack, sur Azure ou vous pouvez générer des applications réellement hybrides qui tirent parti de la connectivité entre un cloud Azure Stack et Azure. Découvrez comment créer des ressources et déployer des applications avec nos didacticiels et nos guides de démarrage rapide.<br/><br/>Si vous êtes un opérateur Azure Stack gérant les services d’infrastructure et d’offres, consultez la <a href="/azure/azure-stack/">documentation pour opérateur</a>.<br/><br/>Si vous êtes un opérateur Azure Stack intéressé par le Kit de développement Azure Stack (ASDK), un déploiement à nœud unique d’Azure Stack que vous pouvez télécharger et utiliser gratuitement, consultez notre <a href="/azure/azure-stack/asdk">Documentation ASDK</a>.
@@ -73,8 +73,6 @@ sections:
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-staged-data-analytics">Créer une solution d’analyse des données mises en lots avec Azure et Azure Stack</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-cloud-burst">Créer des solutions de mise à l’échelle dans le cloud avec Azure</a>
     - html: <a href="/azure/azure-stack/user/azure-stack-solution-geo-distributed">Créer une solution d’application géolocalisée avec Azure et Azure Stack</a>
-    - html: <a href="/azure/azure-stack/user/azure-stack-tutorial-sql">Créer des bases de données SQL hautement disponibles</a>
-    - html: <a href="/azure/azure-stack/user/azure-stack-tutorial-mysql">Créer des bases de données MySQL hautement disponibles</a>
 - title: Informations de référence
   items:
   - type: list

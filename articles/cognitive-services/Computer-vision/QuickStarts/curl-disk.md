@@ -3,23 +3,23 @@ title: 'Démarrage rapide : Analyser une image locale - REST, cURL - Vision par 
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous analysez une image locale en utilisant l’API Vision par ordinateur avec cURL.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: v-deken
-ms.openlocfilehash: 1952d0045550362a242ce1c105c58bd65c815ea6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: c7c3cf2bae66e1739c4a62e1ce823542d0dfce36
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631240"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339914"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-curl-in-computer-vision"></a>Démarrage rapide : Analyser une image locale à l’aide de l’API REST et cURL dans Vision par ordinateur
 
-Dans ce guide de démarrage rapide, vous analysez une image stockée localement pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la méthode [Analyser une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des caractéristiques visuelles à partir du contenu d’une image.
+Dans ce guide de démarrage rapide, vous analysez une image stockée localement pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la [méthode d’analyse d’une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
 
@@ -36,7 +36,7 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 1. Modifiez la commande comme ci-dessous :
     1. Remplacez la valeur de `<subscriptionKey>` par votre clé d’abonnement.
     1. Si nécessaire, remplacez l’URL de requête (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze`) par l’URL du point de terminaison de la méthode [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) dans la région Azure où vous avez obtenu vos clés d’abonnement.
-    1. Remplacez la valeur de `<localImage>` par le chemin complet et le nom de fichier de l’image à analyser. Par exemple : `@C:/Pictures/ImageToAnalyze.jpg`.
+    1. Remplacez la valeur de `<localImage>` par le chemin complet et le nom de fichier de l’image à analyser. Par exemple : `@C:/Pictures/ImageToAnalyze.jpg`.
     1. Éventuellement, changez le paramètre de langue dans l’URL de requête (`language=en`) pour utiliser une autre langue prise en charge.
 1. Ouvrir une fenêtre d’invite de commandes.
 1. Collez la commande à partir de l’éditeur de texte dans la fenêtre d’invite de commandes, puis exécutez la commande.
@@ -105,7 +105,7 @@ Une réponse correcte est retournée au format JSON. L’exemple d’application
 }
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’en avez plus besoin, fermez la fenêtre d’invite de commandes et l’éditeur de texte.
 

@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: cf21b11f76592f5df2d81e6bdc10413c79fe895e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 510bc258aae80582e85478936c3281198e89d755
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979224"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343161"
 ---
 # <a name="chunked-transfer-encoding"></a>Encodage de transfert en bloc
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Pour transcrire la reconnaissance vocale, l’API de reconnaissance vocale de Microsoft vous permet d’envoyer le contenu audio en un seul bloc ou de le fractionner en petits blocs. Pour envoyer le contenu audio au service de manière efficace et réduire la latence de la transcription, il est recommandé d’utiliser [l’encodage de transfert en bloc](https://en.wikipedia.org/wiki/Chunked_transfer_encoding). D’autres implémentations peuvent entraîner une latence perçue par l’utilisateur plus élevée. Pour plus d’informations, consultez la page [Flux audio](../concepts.md#audio-streams).
 

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: c7ccfd53b52416c8216b90f93f8d08f382c859d8
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 6e3026ea3aca897ab63f4ad7d72eac438fdb7199
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042102"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389109"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Migration du portail OMS vers Azure
 
@@ -98,7 +98,7 @@ Avec la prise en charge des [requêtes sur plusieurs ressources](log-analytics-c
 
 
 ## <a name="azure-network-security-group-analytics"></a>Azure Network Security Group Analytics
-La [solution Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) sera remplacée par [Traffic Analytics](https://azure.microsoft.com/en-in/blog/traffic-analytics-in-preview/) récemment lancé qui offre une visibilité sur l’activité des utilisateurs et des applications sur les réseaux cloud. Traffic Analytics vous permet d’auditer l’activité réseau de votre organisation, de sécuriser les applications et les données, d’optimiser les performances de la charge de travail et de rester en conformité. 
+La [solution Azure Network Security Group Analytics](log-analytics-azure-networking-analytics.md#azure-network-security-group-analytics-solution-in-log-analytics) sera remplacée par [Traffic Analytics](https://azure.microsoft.com/blog/traffic-analytics-in-preview/) récemment lancé qui offre une visibilité sur l’activité des utilisateurs et des applications sur les réseaux cloud. Traffic Analytics vous permet d’auditer l’activité réseau de votre organisation, de sécuriser les applications et les données, d’optimiser les performances de la charge de travail et de rester en conformité. 
 
 Cette solution analyse les journaux de flux NSG et fournit des insights sur les éléments suivants.
 

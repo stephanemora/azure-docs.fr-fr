@@ -10,23 +10,21 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 3b4ab55f4bd8bbd66f2edc8c262524169c79d7f5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 960d2d402f223b306aa6ff05b567d13525e3d525
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46975631"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340356"
 ---
 # <a name="what-is-bing-speech"></a>Quelle est la Reconnaissance vocale Bing ?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 L’API Microsoft Bing Speech basée sur le cloud fournit aux développeurs un moyen simple de créer des fonctionnalités vocales puissantes dans leurs applications, telles que la commande vocale, le dialogue utilisateur via la conversation naturelle, ainsi que la transcription et la dictée. L’API Microsoft Speech prend en charge la conversion par *reconnaissance vocale* et par *synthèse vocale*.
 
 - L’API **Reconnaissance vocale** convertit la parole en texte qui peut servir d’entrée ou de commandes pour contrôler votre application.
 - L’API **Synthèse vocale** convertit le texte en flux audio qui peuvent être relus à l’utilisateur de votre application.
-
-> [!NOTE] 
-> En mai 2018, nous avons publié le nouveau [service Speech](../speech-service/overview.md) en préversion publique. Nous vous encourageons à l’[essayer gratuitement](../speech-service/get-started.md).
 
 ## <a name="speech-to-text-speech-recognition"></a>Reconnaissance vocale
 

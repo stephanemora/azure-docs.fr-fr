@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6a64d85cc476c7494a1730959b96e9480115cd90
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 56f48f6676b3c878effe788316024e642c17ff5a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046365"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400221"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images de machine virtuelle personnalisées. La galerie d’images partagées fournit trois propositions de valeur principales
 - Gestion simple
@@ -146,7 +146,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 
 **Q.** Puis-je créer une version d’image à partir d’un disque spécialisé ?
 
- R. Non, nous ne prenons pas encore en charge les disques spécialisés sous forme d’images. Si vous avez un disque spécialisé, vous devez [créer une machine virtuelle à partir du disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) en attachant le disque spécialisé à une nouvelle machine virtuelle. Une fois que la machine virtuelle est en cours d’exécution, suivez les instructions pour créer une image managée à partir de la [machine virtuelle Windows] (https://docs.microsoft.com/en-us/azure/virtual-machines/windows/tutorial-custom-images) ou [machine virtuelle Linux](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/tutorial-custom-images). Dès que vous avez une image managée généralisée, vous pouvez démarrer le processus de création d’une description et d’une version de l’image partagée.
+ R. Non, nous ne prenons pas encore en charge les disques spécialisés sous forme d’images. Si vous avez un disque spécialisé, vous devez [créer une machine virtuelle à partir du disque dur virtuel](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal#create-a-vm-from-a-disk) en attachant le disque spécialisé à une nouvelle machine virtuelle. Une fois que la machine virtuelle est en cours d’exécution, suivez les instructions pour créer une image managée à partir de la [machine virtuelle Windows] (https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-custom-images) ou [machine virtuelle Linux](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-custom-images). Dès que vous avez une image managée généralisée, vous pouvez démarrer le processus de création d’une description et d’une version de l’image partagée.
 
 
 **Q.** Puis-je créer une galerie d’images partagées, une définition d’image et une version d’image dans le portail Azure ?

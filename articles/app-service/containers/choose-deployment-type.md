@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2018
 ms.author: msangapu
-ms.openlocfilehash: 012f78fc07f237e8ed532246c81a3c86bb6ab4ac
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c619ae164f8f8b6e94d9061c4346de58bd6cb795
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33764340"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319436"
 ---
 # <a name="custom-image-multi-container-or-built-in-platform-image"></a>Image personnalisée, groupe de plusieurs conteneurs ou image de plateforme intégrée ?
 
@@ -30,7 +30,7 @@ ms.locfileid: "33764340"
 - **Déploiement de plusieurs conteneurs**: dockerise votre application sur plusieurs conteneurs à l’aide d’un fichier de configuration Docker Compose ou Kubernetes. Pour plus d’informations, consultez [Prise en charge des applications pour plusieurs conteneurs](#multi-container-apps-supportability).
 - **Déploiement d’application avec une image de plateforme intégrée** : nos images de plateforme intégrées contiennent des runtimes et des dépendances Web App courants, tels que Node et PHP. Appliquez l’une des [méthodes de déploiement Azure App Service](../app-service-deploy-local-git.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json) pour déployer votre application sur le stockage de votre application web, puis utilisez une image de plateforme intégrée pour l’exécuter.
 
-##<a name="which-method-is-right-for-your-app"></a>Quelle est la méthode la plus adaptée à votre application ? 
+## <a name="which-method-is-right-for-your-app"></a>Quelle est la méthode la plus adaptée à votre application ? 
 
 Les principaux facteurs à prendre en compte sont les suivants :
 

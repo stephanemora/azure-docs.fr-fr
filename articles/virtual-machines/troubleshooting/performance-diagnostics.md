@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: f79be44d33a327f3ead8d950885cb5d47ce3a015
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 67778a269aa962b3184bf55c692154570e8357ba
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411715"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387382"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostics de performances pour les machines virtuelles Azure
 
@@ -103,7 +103,7 @@ Après le chargement, un nouveau rapport de diagnostics est répertorié dans le
 Utilisez le bouton de barre d’outils **Paramètres** pour modifier le compte de stockage où les insights et la sortie des diagnostics peuvent être stockés. Vous pouvez utiliser le même compte de stockage pour plusieurs machines virtuelles qui utilisent les diagnostics de performances. Quand vous changez le compte de stockage, les anciens rapports et insights ne sont pas supprimés. Toutefois, ils ne s’affichent plus dans la liste de rapports de diagnostics. 
 
 ## <a name="review-insights-and-performance-diagnostics-report"></a>Passer en revue les insights et le rapport de diagnostics de performances
-Chaque exécution de diagnostics contient une liste d’insights et de recommandations, des ressources affectées, des fichiers journaux et d’autres informations de diagnostics riches qui sont collectées, ainsi qu’un rapport pour une lecture hors connexion. Pour obtenir une liste complète de toutes les données de diagnostic collectées, consultez [Quelles informations sont collectées par PerfInsights ?](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
+Chaque exécution de diagnostics contient une liste d’insights et de recommandations, des ressources affectées, des fichiers journaux et d’autres informations de diagnostics riches qui sont collectées, ainsi qu’un rapport pour une lecture hors connexion. Pour obtenir une liste complète de toutes les données de diagnostic collectées, consultez [Quelles informations sont collectées par PerfInsights ?](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#what-kind-of-information-is-collected-by-perfinsights) 
 
 ### <a name="select-a-performance-diagnostics-report"></a>Sélectionner un rapport de diagnostics de performances
 Vous pouvez utiliser la liste de rapports de diagnostics pour rechercher tous les rapports de diagnostics qui ont été exécutés. La liste inclut des informations sur l’analyse utilisée ainsi que les insights trouvés et leurs niveaux d’impact. Sélectionnez une ligne pour afficher plus de détails.
@@ -123,7 +123,7 @@ Vous pouvez sélectionner un insight pour afficher plus de détails sur les ress
 ![Capture d’écran du détail d’un insight associé aux diagnostics de performances](media/performance-diagnostics/insight-detail.png)
 
 ### <a name="download-and-review-the-full-performance-diagnostics-report"></a>Télécharger et passer en revue l’intégralité du rapport de diagnostics de performances
-Vous pouvez utiliser le bouton **Télécharger le rapport** pour télécharger un rapport HTML qui contient des informations de diagnostics riches supplémentaires, telles que le stockage et la configuration réseau, les compteurs de performances, les traces, la liste de processus et les journaux. Le contenu dépend de l’analyse sélectionnée. Pour une résolution des problèmes avancée, le rapport peut contenir des informations supplémentaires et des diagrammes interactifs qui sont liés à l’utilisation élevée du processeur, à l’utilisation élevée du disque et aux processus qui consomment trop de mémoire. Pour plus d’informations sur le rapport de diagnostics de performances, consultez [Passer en revue le rapport de diagnostics](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
+Vous pouvez utiliser le bouton **Télécharger le rapport** pour télécharger un rapport HTML qui contient des informations de diagnostics riches supplémentaires, telles que le stockage et la configuration réseau, les compteurs de performances, les traces, la liste de processus et les journaux. Le contenu dépend de l’analyse sélectionnée. Pour une résolution des problèmes avancée, le rapport peut contenir des informations supplémentaires et des diagrammes interactifs qui sont liés à l’utilisation élevée du processeur, à l’utilisation élevée du disque et aux processus qui consomment trop de mémoire. Pour plus d’informations sur le rapport de diagnostics de performances, consultez [Passer en revue le rapport de diagnostics](https://docs.microsoft.com/azure/virtual-machines/windows/how-to-use-perfinsights#review-the-diagnostics-report).
 
 ## <a name="manage-performance-diagnostics-reports"></a>Gérer les rapports de diagnostics de performances
 Vous pouvez supprimer un ou plusieurs rapports de diagnostics de performances à l’aide du bouton **Supprimer le rapport**.

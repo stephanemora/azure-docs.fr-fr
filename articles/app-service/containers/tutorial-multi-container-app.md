@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: msangapu
 ms.custom: mvc
-ms.openlocfilehash: ff3659bd0f4001424ce27484f08a645f364c2ef6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c8002b10e2c7c0823cd59bf300283d04fca5ce2e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054636"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390208"
 ---
 # <a name="tutorial-create-a-multi-container-preview-app-in-web-app-for-containers"></a>Didacticiel : Création d’une application à plusieurs conteneurs (version préliminaire) à l’aide d’Azure Web App pour conteneurs
 
@@ -235,7 +235,7 @@ Une fois la base de données créée, Cloud Shell affiche des informations simil
 
 ### <a name="configure-database-variables-in-wordpress"></a>Configuration des variables de la base de données dans WordPress
 
-Pour connecter l’application WordPress à ce nouveau serveur MySQL, vous devez configurer quelques variables d’environnement spécifiques à WordPress, y compris le chemin d’accès de l’autorité de certification SSL défini par `MYSQL_SSL_CA`. Le [certificat racine CyberTrust Baltimore](https://www.digicert.com/digicert-root-certificates.htm) de [DigiCert](http://www.digicert.com/) est fourni dans [l’image personnalisée](https://docs.microsoft.com/en-us/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) ci-dessous.
+Pour connecter l’application WordPress à ce nouveau serveur MySQL, vous devez configurer quelques variables d’environnement spécifiques à WordPress, y compris le chemin d’accès de l’autorité de certification SSL défini par `MYSQL_SSL_CA`. Le [certificat racine CyberTrust Baltimore](https://www.digicert.com/digicert-root-certificates.htm) de [DigiCert](http://www.digicert.com/) est fourni dans [l’image personnalisée](https://docs.microsoft.com/azure/app-service/containers/tutorial-multi-container-app#use-a-custom-image-for-mysql-ssl-and-other-configurations) ci-dessous.
 
 Pour effectuer ces modifications, utilisez la commande [az webapp config appsettings set](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) dans Cloud Shell. Les paramètres d’application respectent la casse et sont séparés par des espaces.
 

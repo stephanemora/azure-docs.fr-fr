@@ -1,25 +1,19 @@
 ---
 title: Configuration système Microsoft Azure Data Box Gateway | Microsoft Docs
 description: En savoir plus sur la configuration logicielle et réseau requise pour Azure Data Box Gateway
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
-ms.service: databox-edge-gateway
-ms.devlang: NA
+ms.service: databox
+ms.subservice: gateway
 ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 09/24/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: 915190f6f2773d22d14c75be1140f96b7dd40559
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f70cd5de29cc3050142dfff905acae2008dab115
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991570"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379120"
 ---
 # <a name="azure-data-box-gateway-system-requirements-preview"></a>Configuration système Azure Data Box Gateway (préversion)
 
@@ -118,7 +112,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 |     Modèle d’URL                                                                                                                                                                                                                                                                                                                                                                                                                                       |     Composant/Fonctionnalité                                                                             |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------|
-|    https://*.databoxedge.azure.com/*<br>https://*.accesscontrol.windows.net/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Service Azure Data Box Gateway<br>Service de contrôle d’accès<br>Azure Service Bus<br>Service d’authentification    |
+|    https://*.databoxedge.azure.com/*<br>https://*.servicebus.windows.net/*<br>https://login.windows.net                                                                                                                                                                                                                                                                                                        |    Service Azure Data Box Gateway<br>Azure Service Bus<br>Service d’authentification    |
 |    http://*.backup.windowsazure.com                                                                                                                                                                                                                                                                                                                                                                                                                   |    Activation d’appareil                                                                                    |
 |    http://crl.microsoft.com/pki/*   http://www.microsoft.com/pki/*                                                                                                                                                                                                                                                                                                                                                                                    |    Révocation de certificat                                                                               |
 |    https://*.core.windows.net/*   https://*.data.microsoft.com   http://*.msftncsi.com                                                                                                                                                                                                                                                                                                                                                                |    Comptes de stockage Azure et surveillance                                                                |
@@ -134,7 +128,7 @@ Dans la plupart des cas, nous vous recommandons de définir librement les règle
 
 La configuration suivante s’applique à la bande passante Internet minimale disponible pour vos appareils Data Box Gateway.
 
-- Votre instance Data Box Gateway a une bande passante Internet dédiée de 20 Mbits/s (ou plus) disponible à tout moment. La bande passante ne doit pas être partagée avec d’autres applications. 
+- Votre instance Data Box Gateway est dotée d’une bande passante Internet dédiée de 20 Mbits/s (ou plus) disponible à tout moment. La bande passante ne doit pas être partagée avec d’autres applications. 
 - Votre instance Data Box Gateway a une bande passante Internet dédiée de 32 Mbits/s (ou plus) lorsque vous utilisez la limitation de bande passante.
 
 ## <a name="next-step"></a>Étape suivante

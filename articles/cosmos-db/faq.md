@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: de67d71a209ea0889b4dc5c87fed254700cb9916
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722201"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395127"
 ---
 # <a name="azure-cosmos-db-faq"></a>FAQ Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Notions fondamentales concernant Cosmos DB Azure
@@ -250,7 +250,7 @@ En ce qui concerne l’API REST, il existe un certain nombre d’options liées 
 
 De plus, l’API Table d’Azure Cosmos DB prend uniquement en charge le format JSON (ATOM n’est pas pris en charge).
 
-Si les signatures d‘accès partagé sont prises en charge par Azure Cosmos DB, certaines stratégies ne le sont pas, notamment celles liées aux opérations de gestion comme le droit de créer des tables.
+Si les signatures d‘accès partagé sont prises en charge par Azure Cosmos DB, certaines stratégie ne le sont pas, notamment celles liées aux opérations de gestion comme le droit de créer des tables.
 
 Pour le kit SDK .NET en particulier, certaines classes et méthodes ne sont pas prises en charge par Azure Cosmos DB pour l’instant.
 
@@ -466,7 +466,7 @@ Azure Cosmos DB utilise le [partitionnement horizontal](partition-data.md) pour 
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Comment puis-je me protéger contre les attaques par injection à l’aide de pilotes Gremlin ? 
 
-La majorité des pilotes Tinkerpop Gremlin natifs offrent la possibilité de fournir un dictionnaire de paramètres pour l’exécution des requêtes. Voici un exemple montrant comment le faire sous [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) et [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+La majorité des pilotes Tinkerpop Gremlin natifs offrent la possibilité de fournir un dictionnaire de paramètres pour l’exécution des requêtes. Voici un exemple montrant comment le faire sous [Gremlin.Net](http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet) et [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Pourquoi reçois-je le message d’erreur « Erreur de compilation de requête Gremlin : Impossible de trouver une méthode » ?
 
@@ -604,11 +604,11 @@ simpleStatement.SetOutgoingPayload(outgoingPayload);
 ``` 
 
 ### <a name="what-happens-when-throughput-is-exceeded"></a>Que se passe-t-il lorsque le débit est dépassé ? 
-Azure Cosmos DB fournit des garanties de performances et de latence avec des limites supérieures pour les opérations. Cette garantie est possible lorsque le moteur peut assurer la gouvernance des opérations du client. Cela dépend de la définition du débit, qui est pour vous l’assurance de bénéficier du débit et de la latence garantis, car la plateforme réserve cette capacité et garantit le succès des opérations. Lorsque vous dépassez cette capacité, vous obtenez un message d’erreur de surcharge indiquant que la capacité a été dépassée. Surcharge 0x1001 : impossible de traiter la requête, car « le taux de demandes est élevé ». Il est alors indispensable d’identifier les opérations et les volumes à l’origine de ce problème. Vous pouvez avoir une idée de la capacité consommée dépassant la capacité provisionnée grâce aux indicateurs de performance sur le portail. Vous devez ensuite vérifier que la capacité est consommée de manière équilibrée entre toutes les partitions sous-jacentes. Si vous constatez que la plupart du débit est consommé par une seule partition, il y a une asymétrie de la charge de travail. 
+Azure Cosmos DB fournit des garanties de performances et de latence avec des limites supérieures pour les opérations. Cette garantie est possible lorsque le moteur peut assurer la gouvernance des opérations du client. Cela dépend de la définition du débit, qui est pour vous l’assurance de bénéficier du débit et de la latence garantis, car la plateforme réserve cette capacité et garantit le succès des opérations. Lorsque vous dépassez cette capacité, vous obtenez un message d’erreur de surcharge indiquant que la capacité a été dépassée. Surcharge 0x1001 : impossible de traiter la requête, car « le taux de demandes est élevé ». Il est alors indispensable d’identifier les opérations et les volumes à l’origine de ce problème. Vous pouvez avoir un une idée de la capacité consommée dépassant la capacité provisionnée grâce aux indicateurs de performance sur le portail. Vous devez ensuite vérifier que la capacité est consommée de manière équilibrée entre toutes les partitions sous-jacentes. Si vous constatez que la plupart du débit est consommé par une seule partition, il y a une asymétrie de la charge de travail. 
 
 Des indicateurs de performance sont disponibles pour vous montrer l’utilisation du débit au fil des heures, jours et semaines, sur les différentes partitions, ou sous forme agrégée. Pour plus d’informations, consultez la section [Surveillance et débogage à l’aide de métriques dans Azure Cosmos DB](use-metrics.md).
 
-Les journaux de diagnostic sont expliqués dans l’article [Journalisation des diagnostics Azure Cosmos DB](logging.md).
+Les journaux de diagnostic sont expliquées dans l’article [Journalisation des diagnostics Azure Cosmos DB](logging.md).
 
 ### <a name="does-the-primary-key-map-to-the-partition-key-concept-of-azure-cosmos-db"></a>La clé primaire est-elle mappée sur le concept de clé de partition d’Azure Cosmos DB ?
 Oui, la clé de partition est utilisée pour placer l’entité au bon emplacement. Dans Microsoft Azure Cosmos DB, elle est utilisée pour trouver la bonne partition logique qui est stockée sur une partition physique. Le concept de partitionnement est également expliqué dans l’article [Partitionner et mettre à l’échelle dans Azure Cosmos DB](partition-data.md). Ce qu’il faut retenir, c’est qu’une partition logique ne doit pas dépasser la limite de 10 Go aujourd’hui. 
@@ -625,7 +625,7 @@ Azure Cosmos DB peut stocker des données illimitées en effectuant un scale-out
 Oui, il est possible de créer plusieurs tables avec l’API Cassandra Apache. Chacune de ces tables est traitée en tant qu’unité de débit et de stockage. 
 
 ### <a name="is-it-possible-to-create-multiple-tables-in-succession"></a>Est-il possible de créer plusieurs tables successivement ?
-Azure Cosmos DB est un système de gouvernance des ressources pour les activités liées au plan de données et au plan de contrôle. Les conteneurs comme les collections et les tables sont des entités de runtime qui sont provisionnées pour une certaine capacité de débit. La création de ces conteneurs en succession rapide n’est pas une activité prévue et est limitée. Si vous avez des tests qui déposent/créent des tables immédiatement, essayez de les espacer.
+Azure Cosmos DB est un système de gouvernance des ressources pour les activités liées au plan de données et au plan de contrôle. Les conteneurs comme les collections et les tables sont des entités de runtime qui sont provisionnées pour une certaine capacité de débit. La création de ces conteneurs en succession rapide n’est pas une activité prévue et est limitée. Si vous avez des tests qui déposent/crént des tables immédiatement, essayez de les espacer.
 
 ### <a name="what-is-maximum-number-of-tables-which-can-be-created"></a>Quel est le nombre maximal de tables qu’il est possible de créer ?
 Il n’existe aucune limite physique sur le nombre de tables, envoyez un e-mail à l’adresse [askcosmosdbcassandra@microsoft.com](mailto:askcosmosdbcassandra@microsoft.com) si vous avez très grand nombre de tables à créer (où la taille stable totale dépasse 10 To de données), au lieu de seulement quelques dizaines ou centaines, comme d’ordinaire. 

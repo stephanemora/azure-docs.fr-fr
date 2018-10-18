@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: 281867e30c78c7ed36ac739c8ae1a902463199cd
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 79600909387b1876b112219b5b9b1e45ba4054b7
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34166452"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340073"
 ---
 # <a name="options-with-hpc-pack-to-create-and-manage-a-cluster-for-linux-hpc-workloads-in-azure"></a>Options de HPC Pack pour créer et gérer un cluster pour des charges de travail HPC Linux dans Azure
 [!INCLUDE [virtual-machines-common-hpcpack-cluster-options](../../../includes/virtual-machines-common-hpcpack-cluster-options.md)]
@@ -38,7 +38,6 @@ Parcourez les [Images HPC Pack sur Azure Marketplace](https://azuremarketplace.m
 
 ## <a name="hpc-pack-2012-r2-cluster-in-classic-deployment-model"></a>Cluster HPC Pack 2012 R2 dans un modèle de déploiement classique
 * [Créer un cluster HPC Linux avec le script de déploiement HPC Pack IaaS](../windows/classic/hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
-* [Configuration d’un cluster Linux RDMA pour exécuter des applications MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Didacticiel : Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Didacticiel : Exécution de NAMD avec Microsoft HPC Pack sur des nœuds de calcul Linux dans Azure](classic/hpcpack-cluster-namd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)
 * [Didacticiel : Exécuter OpenFOAM avec Microsoft HPC Pack sur un cluster Linux RDMA dans Azure](classic/hpcpack-cluster-openfoam.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json)

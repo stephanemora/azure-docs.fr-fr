@@ -4,7 +4,7 @@ description: Déplacer des données vers ou depuis le stockage d’objets blobs 
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 96a1b5fb-34d1-4b9b-8d99-2bb8289e0398
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 2f73a08d14d02b4e4b441b6ac85c6ceb97b9f173
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 1a0d8106c6a48494a938ee7a9da6f43f467516f6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004980"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394015"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Déplacer des données vers ou depuis Stockage Blob Azure à l’aide de connecteurs SSIS
 Le [Feature Pack SQL Server Integration Services pour Azure](https://msdn.microsoft.com/library/mt146770.aspx) fournit des composants permettant de se connecter à Azure, de transférer des données entre des sources de données Azure et des sources de données sur site et de traiter les données stockées dans Azure.

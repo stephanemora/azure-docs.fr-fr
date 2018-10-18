@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 700465279a43a8490c5863e7181c4c4d009ee97b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: abd751cf867fea2e634161c4cf0b1e84acbe18c6
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857922"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354102"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutoriel : Lier un certificat SSL existant à des applications web Azure
 
@@ -64,45 +64,7 @@ Pour l’utiliser dans App Service, un certificat doit remplir toutes les condit
 > [!NOTE]
 > Les **certificats de chiffrement à courbe elliptique (ECC)** sont compatibles avec App Service, mais ce sujet sort du cadre de cet article. Consultez votre autorité de certification sur les étapes à suivre pour créer des certificats ECC.
 
-## <a name="prepare-your-web-app"></a>Préparation de votre application web
-
-Pour lier un certificat SSL personnalisé à votre application web, votre [plan App Service](https://azure.microsoft.com/pricing/details/app-service/) doit se trouver dans le niveau **De base**, **Standard**, **Premium** ou **Isolé**. Au cours de cette étape, vous allez vous assurer que votre application web se trouve dans le niveau de tarification pris en charge.
-
-### <a name="log-in-to-azure"></a>Connexion à Azure
-
-Ouvrez le [portail Azure](https://portal.azure.com).
-
-### <a name="navigate-to-your-web-app"></a>Accès à votre application web
-
-Dans le menu de gauche, cliquez sur **App Services** puis sur le nom de votre application web.
-
-![Sélectionner de l’application web](./media/app-service-web-tutorial-custom-ssl/select-app.png)
-
-Vous accédez à la page de gestion de votre application web.  
-
-### <a name="check-the-pricing-tier"></a>Vérification du niveau tarifaire
-
-Dans la navigation de gauche de la page de votre application web, accédez à la section **Paramètres** et sélectionnez **Monter en puissance (plan App Service)**.
-
-![Menu Monter en puissance](./media/app-service-web-tutorial-custom-ssl/scale-up-menu.png)
-
-Vérifiez que votre application web ne se trouve pas dans le niveau **F1** ou **D1**. Le niveau actuel de votre application web est encadré d’un rectangle bleu foncé.
-
-![Vérification du niveau de tarification](./media/app-service-web-tutorial-custom-ssl/check-pricing-tier.png)
-
-Le certificat SSL personnalisé n’est pas pris en charge pour les niveaux **F1** et **D1**. Si vous avez besoin de monter en puissance, consultez la section ci-après. Sinon, fermez la page **Augmentation de la taille des instances**  et passez à [Charger et lier votre certificat SSL](#upload).
-
-### <a name="scale-up-your-app-service-plan"></a>Évolution de votre plan App Service
-
-Sélectionnez un niveau payant (**B1**, **B2**, **B3**, ou n’importe quel niveau dans la catégorie **Production**). Pour obtenir des options supplémentaires, cliquez sur **Afficher d’autres options**.
-
-Cliquez sur **Appliquer**.
-
-![Sélection du niveau tarifaire](./media/app-service-web-tutorial-custom-ssl/choose-pricing-tier.png)
-
-Lorsque la notification suivante s’affiche, cela signifie que la montée en charge est terminée.
-
-![Notification de montée en puissance](./media/app-service-web-tutorial-custom-ssl/scale-notification.png)
+[!INCLUDE [Prepare your web app](../../includes/app-service-ssl-prepare-app.md)]
 
 <a name="upload"></a>
 

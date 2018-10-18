@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Générer une miniature - REST, Ruby - Vision par or
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous générez une miniature d’une image en utilisant l’API Vision par ordinateur avec Ruby.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 117e1fcc49aea5b3cef3e8d3b299a1eec90527db
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 16cfadb1b1dec90324739427656a6587ba6314cc
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632940"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343042"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-ruby-in-computer-vision"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST et Ruby dans Vision par ordinateur
 
@@ -37,9 +37,9 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
     1. Remplacez `<Subscription Key>` par votre clé d’abonnement.
     1. Si nécessaire, remplacez `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze` par l’URL du point de terminaison de la méthode [Obtenir la miniature](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fb) dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Remplacez éventuellement `https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\` par l’URL d’une autre image pour laquelle vous souhaitez générer une miniature.
-1. Enregistrez le code dans un fichier avec une extension `.rb`. Par exemple : `get-thumbnail.rb`.
+1. Enregistrez le code dans un fichier avec une extension `.rb`. Par exemple : `get-thumbnail.rb`.
 1. Ouvrir une fenêtre d’invite de commandes.
-1. À l’invite, utilisez la commande `ruby` pour exécuter l’exemple. Par exemple : `ruby get-thumbnail.rb`.
+1. À l’invite, utilisez la commande `ruby` pour exécuter l’exemple. Par exemple : `ruby get-thumbnail.rb`.
 
 ```ruby
 require 'net/http'
@@ -79,7 +79,7 @@ Une réponse réussie est retournée sous forme de données binaires qui représ
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’en avez plus besoin, supprimez le fichier.
+Lorsque vous n’en avez plus besoin, supprimez le fichier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

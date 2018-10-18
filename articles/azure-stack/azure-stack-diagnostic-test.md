@@ -5,21 +5,20 @@ services: azure-stack
 author: mattbriggs
 manager: femila
 cloud: azure-stack
-ms.assetid: D44641CB-BF3C-46FE-BCF1-D7F7E1D01AFA
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/15/2018
 ms.author: mabrigg
 ms.reviewer: hectorl
-ms.openlocfilehash: a70c736489b25f6e8fd0d838c4c7b4b4db96a4f2
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3f4dc6e4136d8d2e3eb1ca5e822306aae2217e3b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188261"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340849"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Exécuter un test de validation pour Azure Stack
 
@@ -64,7 +63,7 @@ Valide l’état du système Azure Stack. L’applet de commande décrit l’ét
 
 | Paramètre               | Valeur           | Obligatoire | Default |
 | ---                     | ---             | ---      | ---     |
-| ServiceAdminCredentials | PSCredential    | Non        | FALSE   |
+| ServiceAdminCredentials | Chaîne    | Non        | FALSE   |
 | DoNotDeployTenantVm     | SwitchParameter | Non        | FALSE   |
 | AdminCredential         | PSCredential    | Non        | N/D      |
 | Liste                    | SwitchParameter | Non        | FALSE   |

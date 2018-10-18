@@ -2,18 +2,18 @@
 title: 'Démarrage rapide : Interroger des données dans l’Explorateur de données Azure'
 description: Dans ce guide de démarrage rapide, vous allez apprendre à interroger et partager des données dans l’Explorateur de données Azure.
 services: data-explorer
-author: mgblythe
-ms.author: mblythe
+author: orspod
+ms.author: v-orspod
 ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: ab29152dde4d567e8552295b3dff4f4088bdf5b8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b9bc52e07bccf931593cd2dbddd68e973d1b26c
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977653"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394355"
 ---
 # <a name="quickstart-query-data-in-azure-data-explorer"></a>Démarrage rapide : Interroger des données dans l’Explorateur de données Azure
 
@@ -182,7 +182,7 @@ L’Explorateur de données est actuellement en préversion, vos commentaires su
 
 1. Entrez vos commentaires et sélectionnez **Envoyer**.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous n’avez pas créé aucune ressource dans ce guide de démarrage rapide, mais si vous souhaitez supprimer un ou les deux clusters de l’application, cliquez avec le bouton droit sur le cluster et sélectionnez **Supprimer la connexion**.
 

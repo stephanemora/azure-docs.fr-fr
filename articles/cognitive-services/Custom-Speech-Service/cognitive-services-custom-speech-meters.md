@@ -1,24 +1,24 @@
 ---
-title: Compteurs et quotas de service - Custom Speech
-titlesuffix: Azure Cognitive Services
+title: Compteurs et quotas Custom Speech Service sur Azure | Microsoft Docs
 description: Informations à propos des compteurs et des quotas de Custom Speech Service sur Azure.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 07/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 68fba1d6038a044336ba6aecd3ff163d29131b1d
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: bd39976691aab0c2333afe9fafc9c5a8cc518b67
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224696"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339557"
 ---
 # <a name="custom-speech-service-meters-and-quotas"></a>Compteurs et quotas Custom Speech Service
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Avec le service cloud Custom Speech Service, vous pouvez personnaliser des modèles vocaux pour la transcription de la reconnaissance vocale en texte.
 
@@ -50,7 +50,7 @@ Moyennant surcoût, vous pouvez choisir de désactiver les traces audio pour un 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur l’utilisation de Custom Speech Service, accédez au [portail de Custom Speech Service](https://cris.ai).
 
-* [Démarrer](cognitive-services-custom-speech-get-started.md)
+* [Prise en main](cognitive-services-custom-speech-get-started.md)
 * [FORUM AUX QUESTIONS](cognitive-services-custom-speech-faq.md)
 * [Glossaire](cognitive-services-custom-speech-glossary.md)
  

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: dekapur
-ms.openlocfilehash: 7aa7fc2620fa02af4a720a97eece3c0734252245
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: feb9d0a01cbba75fc9868f5a603d494c5c09ae2e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141503"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386295"
 ---
 # <a name="manage-applications-and-services-as-azure-resource-manager-resources"></a>Gérer des applications et services en tant que ressources Azure Resource Manager
 
@@ -264,7 +264,7 @@ L’extrait de code suivant montre les différents types de ressources qui peuve
 Si votre cluster est déjà disponible et que des applications que vous souhaitez gérer en tant que ressources Resource Manager y sont déjà déployées, au lieu de supprimer les applications et de les redéployer, vous pouvez utiliser un appel PUT avec les mêmes API pour que les applications soient reconnues en tant que ressources Resource Manager. 
 
 > [!NOTE]
-> Pour permettre à une mise à niveau de cluster d’ignorer les applications non saines, le client peut spécifier « maxPercentUnhealthyApplications: 100 » dans la section « upgradeDescription/healthPolicy ». Les descriptions détaillées de tous les paramètres se trouvent dans la [documentation sur les stratégies de mise à niveau de cluster pour les API REST des structures fabric de service](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
+> Pour permettre à une mise à niveau de cluster d’ignorer les applications non saines, le client peut spécifier « maxPercentUnhealthyApplications: 100 » dans la section « upgradeDescription/healthPolicy ». Les descriptions détaillées de tous les paramètres se trouvent dans la [documentation sur les stratégies de mise à niveau de cluster pour les API REST des structures fabric de service](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterupgradepolicy).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

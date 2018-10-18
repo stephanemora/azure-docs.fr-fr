@@ -1,24 +1,24 @@
 ---
-title: 'Didacticiel : Créer un modèle acoustique - Custom Speech Service'
-titlesuffix: Azure Cognitive Services
-description: Dans ce didacticiel, découvrez comment créer un modèle acoustique avec Custom Speech Service.
+title: Didacticiel permettant de créer un modèle acoustique avec Custom Speech Service - Microsoft Cognitive Services | Microsoft Docs
+description: Dans ce didacticiel, vous apprenez à créer un modèle acoustique avec Custom Speech Service dans Microsoft Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
 ms.topic: tutorial
 ms.date: 05/03/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 72c5a0dfb8f33f273ba850378c1fefeef82b4d7a
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 53e93a08782ba66e69b903c32c4c3c7417e5a801
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220214"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344572"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutoriel : Créer un modèle acoustique personnalisé
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Dans ce didacticiel, vous créez un modèle acoustique personnalisé pour les données de reconnaissance vocale que vous souhaitez faire reconnaître par votre application. La création d’un modèle acoustique personnalisé est pratique si votre application est conçue pour une utilisation dans un environnement spécifique, par exemple une usine bruyante, ou par une population d’utilisateurs particulière.
 
@@ -140,4 +140,4 @@ Vous voyez maintenant une nouvelle entrée dans le tableau des modèles acoustiq
 Dans ce didacticiel, vous avez développé un modèle acoustique personnalisé pour une utilisation avec des transcriptions et des fichiers audio. Pour créer un fichier de langue personnalisé à utiliser avec des fichiers texte, passez au didacticiel sur la création d’un modèle de langage personnalisé.
 
 > [!div class="nextstepaction"]
-> [Créer un modèle acoustique personnalisé](cognitive-services-custom-speech-create-language-model.md)
+> [Créer un modèle de langage personnalisé](cognitive-services-custom-speech-create-language-model.md)

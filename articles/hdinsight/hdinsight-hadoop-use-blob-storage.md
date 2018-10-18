@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 91be34468dae0fb1c24080fbe53c3c8056e8c1a3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3f045000791ff2e760cdd69aa524d5222fd76d06
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967845"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389477"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Utiliser le stockage Azure avec des clusters Azure HDInsight
 
@@ -60,7 +60,7 @@ Voici des points à prendre en compte lorsque vous utilisez un compte de stockag
 * **Conteneurs publics ou objets blob publics dans les comptes de stockage qui ne sont PAS connectés à un cluster :** vous avez l’autorisation en lecture seule pour les objets blob dans les conteneurs.
   
   > [!NOTE]
-  > Des conteneurs publics vous permettent d'obtenir une liste de tous les objets blob disponibles, ainsi que ses métadonnées. Vous pouvez accéder aux objets blob d'un objet blob public uniquement si vous connaissez leur URL exacte. Pour plus d’informations, consultez <a href="https://docs.microsoft.com/en-us/azure/storage/blobs/storage-manage-access-to-resources">Gérer l’accès aux conteneurs et aux objets blob</a>.
+  > Des conteneurs publics vous permettent d'obtenir une liste de tous les objets blob disponibles, ainsi que ses métadonnées. Vous pouvez accéder aux objets blob d'un objet blob public uniquement si vous connaissez leur URL exacte. Pour plus d’informations, consultez <a href="https://docs.microsoft.com/azure/storage/blobs/storage-manage-access-to-resources">Gérer l’accès aux conteneurs et aux objets blob</a>.
   > 
   > 
 * **Conteneurs privés dans les comptes de stockage qui ne sont PAS connectés à un cluster :** vous ne pouvez pas accéder aux objets blob se trouvant dans les conteneurs, sauf si vous définissez le compte de stockage quand vous envoyez des travaux WebHCat. Une explication sera fournie plus loin dans cet article.

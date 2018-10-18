@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Utiliser un modèle de domaine - REST, Python - Visi
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous utilisez un modèle de domaine pour identifier des célébrités et des monuments dans une image à l’aide de l’API Vision par ordinateur avec Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 93027e2f9cd3a9b0e9c6ef261b8af876022632a4
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: f8ba4709f8263119dd5134040797f085ee8239ff
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632447"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339467"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-python-in-computer-vision"></a>Démarrage rapide : Utiliser un modèle de domaine à l’aide de l’API REST et Python dans Vision par ordinateur
 
@@ -29,7 +29,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous souhaitez exécuter l’exemple localement, [Python](https://www.python.org/downloads/) doit être installé.
+- Si vous souhaitez exécuter l’exemple en local, [Python](https://www.python.org/downloads/) doit être installé.
 - Vous devez avoir une clé d’abonnement pour Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="create-and-run-the-landmarks-sample"></a>Créer et exécuter l’exemple des monuments
@@ -41,9 +41,9 @@ Pour créer et exécuter l’exemple des monuments, effectuez les étapes suivan
     1. Remplacez la valeur de `subscription_key` par votre clé d’abonnement.
     1. Si nécessaire, remplacez la valeur de `vision_base_url` par l’URL du point de terminaison de la ressource Vision par ordinateur dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Remplacez éventuellement la valeur de `image_url` par l’URL d’une autre image dans laquelle vous voulez détecter les monuments.
-1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `get-landmarks.py`.
+1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `get-landmarks.py`.
 1. Ouvrir une fenêtre d’invite de commandes.
-1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python get-landmarks.py`.
+1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python get-landmarks.py`.
 
 ```python
 import requests
@@ -95,7 +95,7 @@ _ = plt.title(landmark_name, size="x-large", y=-0.1)
 
 ## <a name="examine-the-response-for-the-landmarks-sample"></a>Examiner la réponse pour l’exemple des monuments
 
-Une réponse correcte est retournée au format JSON. La page web d’exemple analyse et affiche une réponse réussie dans la fenêtre d’invite de commandes, comme dans l’exemple suivant :
+Une réponse correcte est retournée au format JSON. La page Web d’exemple analyse et affiche une réponse correcte dans la fenêtre d’invite de commande, comme dans l’exemple suivant :
 
 ```json
 {
@@ -125,9 +125,9 @@ Pour créer et exécuter l’exemple des monuments, effectuez les étapes suivan
     1. Remplacez la valeur de `subscription_key` par votre clé d’abonnement.
     1. Si nécessaire, remplacez la valeur de `vision_base_url` par l’URL du point de terminaison de la ressource Vision par ordinateur dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Remplacez éventuellement la valeur de `image_url` par l’URL d’une autre image dans laquelle vous voulez détecter les célébrités.
-1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `get-celebrities.py`.
+1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `get-celebrities.py`.
 1. Ouvrir une fenêtre d’invite de commandes.
-1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python get-celebrities.py`.
+1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python get-celebrities.py`.
 
 ```python
 import requests
@@ -172,7 +172,7 @@ _ = plt.title(celebrity_name, size="x-large", y=-0.1)
 
 ## <a name="examine-the-response-for-the-celebrities-sample"></a>Examiner la réponse pour l’exemple des célébrités
 
-Une réponse correcte est retournée au format JSON. La page web d’exemple analyse et affiche une réponse réussie dans la fenêtre d’invite de commandes, comme dans l’exemple suivant :
+Une réponse correcte est retournée au format JSON. La page Web d’exemple analyse et affiche une réponse correcte dans la fenêtre d’invite de commande, comme dans l’exemple suivant :
 
 
 ```json
@@ -200,7 +200,7 @@ Une réponse correcte est retournée au format JSON. La page web d’exemple ana
 }
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’en avez plus besoin, supprimez les fichiers des deux exemples.
 

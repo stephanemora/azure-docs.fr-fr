@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 5b85a548d692b06a6da009432678d9c02242cb50
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f79b148558e7881f852ccd57916b0b0f31a98219
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996823"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342328"
 ---
 # <a name="quickstart-use-the-bing-speech-recognition-api-in-c35-for-net-on-windows"></a>Guide de démarrage rapide : Utiliser l’API Reconnaissance vocale Bing en C&#35; pour .NET sur Windows
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 Cette page explique comment développer une application Windows basique qui utilise l’API Reconnaissance vocale pour convertir du contenu audio en texte. La bibliothèque de client permet la diffusion en continu en temps réel, ce qui signifie que quand votre application cliente envoie du contenu audio au service, elle reçoit simultanément et de manière asynchrone des résultats de reconnaissance partiels.
 

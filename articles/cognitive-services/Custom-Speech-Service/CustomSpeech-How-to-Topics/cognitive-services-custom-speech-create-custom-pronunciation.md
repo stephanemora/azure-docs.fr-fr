@@ -1,24 +1,25 @@
 ---
-title: Utiliser la prononciation personnalisée - Custom Speech Service
-titlesuffix: Azure Cognitive Services
-description: Découvrez comment créer un modèle de langage avec Custom Speech Service.
+title: Utiliser une prononciation personnalisée avec Custom Speech Service sur Azure | Microsoft Docs
+description: Découvrez comment créer un modèle de langage avec Custom Speech Service dans Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 11/23/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6442eec3e622282ecf6a3bf884110cd435fc18be
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1e9de9755ef4baee7e2a0e6c093e2cf27cb4281f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223472"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339812"
 ---
 # <a name="enable-custom-pronunciation"></a>Activer la prononciation personnalisée
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 La prononciation personnalisée permet aux utilisateurs de définir l’écriture et la forme phonétiques d’un mot ou d’un terme. Cela peut être utile pour traiter les termes personnalisés tels que les noms ou les acronymes. Vous avez uniquement besoin d’un fichier de prononciation (un simple fichier .txt).
 
 Voici comment cela fonctionne. Dans un simple fichier .txt, vous pouvez saisir plusieurs entrées de prononciation personnalisées. La structure est comme suit :

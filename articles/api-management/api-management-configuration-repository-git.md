@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: apimpm
-ms.openlocfilehash: 8c4ae9c7b8be8cf390ad4ad6d99cd1ec41cd3d08
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: ce4ff33a8af9cf864ad4902599a0ab18b2b27182
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42146362"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387223"
 ---
 # <a name="how-to-save-and-configure-your-api-management-service-configuration-using-git"></a>Comment enregistrer et configurer votre configuration du service Gestion des API à l’aide de Git
 
@@ -219,14 +219,14 @@ Le dernier paramètre, `$ref-policy`, correspond au fichier d’instructions de 
 ### <a name="apis-folder"></a>Dossier apis
 Le dossier `apis` contient un dossier pour chaque API dans l’instance de service, qui renferme les éléments suivants.
 
-* `apis\<api name>\configuration.json` : cet élément représente la configuration de l’API et contient des informations sur l’URL du service principal et sur les opérations. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir une API spécifique](https://docs.microsoft.com/en-us/rest/api/apimanagement/api/get) avec `export=true` au format `application/json`.
-* `apis\<api name>\api.description.html` : cet élément décrit l’API et correspond à la propriété `description` de [l’entité API](https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.storage.table._entity_property).
-* `apis\<api name>\operations\` : ce dossier contient des fichiers `<operation name>.description.html` correspondant aux opérations dans l’API. Chaque fichier contient la description d’une opération unique dans l’API, qui correspond à la propriété `description` de [l’entité Operation](https://docs.microsoft.com/en-us/rest/api/visualstudio/operations/list#operationproperties) dans l’API REST.
+* `apis\<api name>\configuration.json` : cet élément représente la configuration de l’API et contient des informations sur l’URL du service principal et sur les opérations. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir une API spécifique](https://docs.microsoft.com/rest/api/apimanagement/api/get) avec `export=true` au format `application/json`.
+* `apis\<api name>\api.description.html` : cet élément décrit l’API et correspond à la propriété `description` de [l’entité API](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table._entity_property).
+* `apis\<api name>\operations\` : ce dossier contient des fichiers `<operation name>.description.html` correspondant aux opérations dans l’API. Chaque fichier contient la description d’une opération unique dans l’API, qui correspond à la propriété `description` de [l’entité Operation](https://docs.microsoft.com/rest/api/visualstudio/operations/list#operationproperties) dans l’API REST.
 
 ### <a name="groups-folder"></a>Dossier groups
 Le dossier `groups` contient un dossier pour chaque groupe défini dans l’instance de service.
 
-* `groups\<group name>\configuration.json` : cet élément correspond à la configuration du groupe. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un groupe spécifique](https://docs.microsoft.com/en-us/rest/api/apimanagement/group/get) .
+* `groups\<group name>\configuration.json` : cet élément correspond à la configuration du groupe. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un groupe spécifique](https://docs.microsoft.com/rest/api/apimanagement/group/get) .
 * `groups\<group name>\description.html` : cet élément décrit le groupe et correspond à la propriété `description` de [l’entité groupe](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-group-entity).
 
 ### <a name="policies-folder"></a>Dossier policies
@@ -246,7 +246,7 @@ Le dossier `portalStyles` contient la configuration et les feuilles de style pou
 ### <a name="products-folder"></a>Dossier products
 Le dossier `products` contient un dossier pour chaque produit défini dans l’instance de service.
 
-* `products\<product name>\configuration.json` : cet élément correspond à la configuration du produit. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un produit spécifique](https://docs.microsoft.com/en-us/rest/api/apimanagement/product/get) .
+* `products\<product name>\configuration.json` : cet élément correspond à la configuration du produit. Vous pouvez obtenir les mêmes informations en appelant l’opération [Obtenir un produit spécifique](https://docs.microsoft.com/rest/api/apimanagement/product/get) .
 * `products\<product name>\product.description.html` : cet élément décrit le produit et correspond à la propriété `description` de [l’entité produit](https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-product-entity) dans l’API REST.
 
 ### <a name="templates"></a>modèles

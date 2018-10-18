@@ -1,26 +1,19 @@
 ---
 title: Gestion des planifications de bande passante sur Azure Data Box Gateway | Microsoft Docs
 description: Décrit comment utiliser le Portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Data Box Gateway.
-services: databox-edge-gateway
-documentationcenter: NA
+services: databox
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: gateway
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 10/09/2018
 ms.author: alkohli
-ms.openlocfilehash: d1049ef66ad02987c6523e4b5ec5dd9959e0fa47
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: e4bc5de9345bcb65f82ca7ac0095b3e0fd3907e9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070361"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165996"
 ---
 # <a name="use-the-azure-portal-to-manage-bandwidth-schedules-on-your-azure-data-box-gateway"></a>Utiliser le Portail Azure pour gérer les planifications de bande passante sur votre ressource Azure Data Box Gateway  
 

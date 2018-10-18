@@ -8,14 +8,14 @@
 ## [Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 ## [Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md)
 ## [Azure PowerShell](data-lake-analytics-get-started-powershell.md)
-## [interface de ligne de commande Azure](data-lake-analytics-get-started-cli.md)
+## [Interface de ligne de commande Azure](data-lake-analytics-get-started-cli.md)
 
 # Procédures
 
 ## Gérer Data Lake Analytics
 ### [Portail Azure](data-lake-analytics-manage-use-portal.md)
 ### Ligne de commande
-#### [interface de ligne de commande Azure](data-lake-analytics-manage-use-cli.md)
+#### [Interface de ligne de commande Azure](data-lake-analytics-manage-use-cli.md)
 #### [Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 ### Kits de développement logiciel (SDK)
 #### [.NET](data-lake-analytics-manage-use-dotnet-sdk.md)
@@ -63,7 +63,7 @@
 ### [Planifier des tâches avec SSIS](data-lake-analytics-schedule-jobs-ssis.md)
 
 ## Intégration et déploiement continus
-### [Vue d’ensemble](data-lake-analytics-cicd-overview.md)
+### [Vue d'ensemble](data-lake-analytics-cicd-overview.md)
 ### [Configurer des tests](data-lake-analytics-cicd-test.md)
 ### [Kit de développement logiciel (SDK) U-SQL](data-lake-analytics-u-sql-sdk.md)
 
@@ -71,7 +71,7 @@
 ## [Azure PowerShell](/powershell/module/azurerm.datalakeanalytics)
 ## [.NET](/dotnet/api/microsoft.azure.management.datalake.analytics)
 ## [Node.JS](https://www.npmjs.com/package/azure-arm-datalake-analytics)
-## [Python](https://docs.microsoft.com/en-us/python/api/overview/azure/data-lake-analytics?view=azure-python)
+## [Python](https://docs.microsoft.com/python/api/overview/azure/data-lake-analytics?view=azure-python)
 ## [REST](/rest/api/datalakeanalytics/)
 ## [INTERFACE DE LIGNE DE COMMANDE](https://docs.microsoft.com/cli/azure/dla)
 

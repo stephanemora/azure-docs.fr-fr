@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 07d1d1f7050437306d5c2737b9f62b5615753869
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: de48789c42ccd2d7e090af6f430f323b16416e9c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980421"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389783"
 ---
 # <a name="manage-azure-file-shares-using-azure-cli"></a>Gérer les partages de fichiers Azure à l’aide d’Azure CLI
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows, Linux et macOS. Cet article vous explique les bases de l’utilisation des partages de fichiers Azure à l’aide d’Azure CLI. Découvrez comment : 
@@ -180,7 +180,7 @@ Même si la commande `az storage file copy start` est pratique pour déplacer de
 Une autre tâche utile que vous pouvez effectuer avec un partage de fichiers Azure consiste à créer des instantanés de partage. Un instantané conserve une copie d’un point dans le temps d’un partage de fichiers Azure. Les instantanés de partage sont similaires à des technologies de systèmes d’exploitation que vous connaissez peut-être déjà :
 - Les instantanés du [Gestionnaire de Volume logique (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) pour les systèmes Linux
 - Les instantanés du [système de fichiers Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) pour macOS
-- Le [service VSS](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) pour les systèmes de fichiers Windows comme NTFS et ReFS
+- Le [service VSS](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) pour les systèmes de fichiers Windows comme NTFS et ReFS
 
 Vous pouvez créer un instantané de partage à l’aide de la commande [`az storage share snapshot`](/cli/azure/storage/share#az_storage_share_snapshot) :
 
@@ -254,7 +254,7 @@ az storage share delete \
     --snapshot $SNAPSHOT
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Lorsque vous avez terminé, vous pouvez exécuter la commande [`az group delete`](/cli/azure/group#delete) pour supprimer le groupe de ressources et toutes les ressources associées : 
 
 ```azurecli-interactive 

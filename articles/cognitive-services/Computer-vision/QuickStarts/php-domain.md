@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Utiliser un modèle de domaine - REST, PHP - Vision 
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous utilisez un modèle de domaine pour identifier des monuments dans une image à l’aide de l’API Vision par ordinateur avec PHP.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 40a4fa90442a5771f6b221a25ddca46d3ebc4f5c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 176e11615fe2f2c1b58b7608dfd5cbd349f9e547
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45629489"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340067"
 ---
 # <a name="quickstart-use-a-domain-model-using-the-rest-api-and-php-in-computer-vision"></a>Démarrage rapide : Utiliser un modèle de domaine à l’aide de l’API REST et PHP dans Vision par ordinateur
 
@@ -49,7 +49,7 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
     1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [Reconnaître le contenu de domaine spécifique](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Remplacez éventuellement la valeur de `imageUrl` par l’URL d’une autre image que vous voulez analyser.
     1. Si vous le souhaitez, remplacez la valeur du paramètre de requête `domain` par `celebrites` pour utiliser le modèle de domaine `celebrities` au lieu du modèle de domaine `landmarks`.
-1. Enregistrez le code dans un fichier avec une extension `.php`. Par exemple : `use-domain-model.php`.
+1. Enregistrez le code dans un fichier avec une extension `.php`. Par exemple : `use-domain-model.php`.
 1. Ouvrez une fenêtre de navigateur avec prise en charge de PHP.
 1. Faites glisser et déposez le fichier dans la fenêtre du navigateur.
 

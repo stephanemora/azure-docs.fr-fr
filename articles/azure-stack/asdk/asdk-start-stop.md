@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/11/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: dfb565803746ecdda9b36a4e12a3c3f2b4d9e0d0
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 98ae7fe0fde922aee28ffc05b64d223a40085447
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31426287"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340917"
 ---
 # <a name="start-and-stop-the-azure-stack-development-kit-asdk"></a>Démarrer et arrêter le Kit de développement Azure Stack (ASDK)
 Il n’est pas recommandé de simplement redémarrer l’ordinateur hôte ASDK. Au lieu de cela, suivez les procédures décrites dans cet article pour arrêter et redémarrer correctement les services ASDK. 
@@ -89,4 +89,4 @@ Exécutez ces étapes si les services Azure Stack ne démarrent pas correctement
 Si l’exécution de l’applet **Start-AzureStack** provoque une défaillance, consultez le [forum du support Azure Stack](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurestack) afin de bénéficier de recommandations sur la résolution des problèmes liés à votre instance ASDK. 
 
 ## <a name="next-steps"></a>Étapes suivantes 
-Pour plus d’informations sur l’outil de diagnostic Azure Stack et la journalisation des erreurs, consultez la section [Outils de diagnostic Azure Stack](.\.\azure-stack-diagnostics.md).
+Pour plus d’informations sur les outils de diagnostic Azure Stack et sur la journalisation des problèmes, consultez l’article [Outils de diagnostic Azure Stack](.\.\azure-stack-diagnostics.md).

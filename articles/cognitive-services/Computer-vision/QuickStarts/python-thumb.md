@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Générer une miniature - REST, Python - Vision par 
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous générez une miniature d’une image en utilisant l’API Vision par ordinateur avec Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: c5809b3dd62d87e2a1f3bde762d17bef6d5732ae
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: b98c78e0845d6390fee66dd6518acd7b8eb91f37
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632923"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342260"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-python-in-computer-vision"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST et Python dans Vision par ordinateur
 
@@ -33,7 +33,7 @@ Pour utiliser l’API Vision par ordinateur, vous avez besoin d’une clé d’a
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Si vous souhaitez exécuter l’exemple localement, [Python](https://www.python.org/downloads/) doit être installé.
+- Si vous souhaitez exécuter l’exemple en local, [Python](https://www.python.org/downloads/) doit être installé.
 - Vous devez avoir une clé d’abonnement pour Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="create-and-run-the-sample"></a>Créer et exécuter l’exemple
@@ -45,9 +45,9 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
     1. Remplacez la valeur de `subscription_key` par votre clé d’abonnement.
     1. Si nécessaire, remplacez la valeur de `vision_base_url` par l’URL du point de terminaison de la ressource Vision par ordinateur dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Remplacez éventuellement la valeur de `image_url` par l’URL d’une autre image pour laquelle vous souhaitez générer une miniature.
-1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `get-thumbnail.py`.
+1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `get-thumbnail.py`.
 1. Ouvrir une fenêtre d’invite de commandes.
-1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python get-thumbnail.py`.
+1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python get-thumbnail.py`.
 
 ```python
 import requests

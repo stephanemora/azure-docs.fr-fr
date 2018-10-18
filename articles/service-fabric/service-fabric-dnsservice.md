@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: a420033d96a1366a79f5f2032693c38d7eca4ac3
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830971"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387936"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Service DNS dans Azure Service Fabric
 Le service DNS est un service système facultatif que vous pouvez activer dans votre cluster pour détecter d’autres services utilisant le protocole DNS. 
@@ -132,7 +132,7 @@ Une fois l’application déployée, l’instance de service dans Service Fabric
 
 ![points de terminaison de service](./media/service-fabric-dnsservice/service-fabric-explorer-dns.png)
 
-L’exemple suivant définit sur `statefulsvc.app` le nom DNS d’un service avec état. Le service utilise un schéma de partitionnement nommé. Notez que les noms de partition sont en minuscules. Il est nécessaire de respecter la casse pour les partitions qui seront ciblés dans les requêtes DNS ; pour plus d’informations, consultez la section [Exécution de requêtes DNS sur une partition de service avec état](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
+L’exemple suivant définit sur `statefulsvc.app` le nom DNS d’un service avec état. Le service utilise un schéma de partitionnement nommé. Notez que les noms de partition sont en minuscules. Il est nécessaire de respecter la casse pour les partitions qui seront ciblés dans les requêtes DNS ; pour plus d’informations, consultez la section [Exécution de requêtes DNS sur une partition de service avec état](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#preview-making-dns-queries-on-a-stateful-service-partition).
 
 ```xml
     <Service Name="Stateful1" ServiceDnsName="statefulsvc.app" />

@@ -4,21 +4,21 @@ description: En savoir plus sur l’octroi d’une licence pour le kit de portag
 services: media-services
 documentationcenter: ''
 author: willzhan
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/05/2018
-ms.author: willzhan;juliako
-ms.openlocfilehash: 724d9779293a520cf843013d096f8a99f6b06c0f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/15/2018
+ms.author: willzhan
+ms.openlocfilehash: d7026c9f41043ea03c870c2c81edc11d122d6d0b
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952122"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379075"
 ---
 # <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Concevoir un système de protection de contenu multi-DRM avec contrôle d’accès 
 
@@ -50,7 +50,7 @@ Le tableau suivant récapitule la prise en charge des systèmes DRM natifs sur 
 | **Plateforme cliente** | **DRM natif** | **EME** |
 | --- | --- | --- | --- |
 | **Téléviseurs connectés, décodeurs** | PlayReady, Widevine et/ou autres | EME/Navigateur incorporé pour PlayReady et/ou Widevine|
-| **Windows 10** | PlayReady | MS Edge/IE11 pour PlayReady|
+| **Windows 10** | PlayReady | MS Edge/IE11 pour PlayReady|
 | **Appareils Android (téléphone, tablette, TV)** |Widevine |Chrome pour Widevine |
 | **iOS** | FairPlay | Safari pour FairPlay (à partir d’iOS 11.2) |
 | **macOS** | FairPlay | Safari pour FairPlay (à partir de Safari 9+ sur Mac OS X 10.11+ El Capitan)|

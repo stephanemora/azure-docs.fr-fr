@@ -3,8 +3,8 @@ title: Optimisation de la diffusion multimédia en continu avec Azure CDN
 description: Optimisation de la diffusion en continu de fichiers multimédias pour une distribution lisse
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: v-deasim
-ms.openlocfilehash: 8a2b69aaa601e1d00152f57841a4d67f98680181
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: magattus
+ms.openlocfilehash: 9802296170f07bb8599058e230798f647e900d4d
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766170"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093695"
 ---
 # <a name="media-streaming-optimization-with-azure-cdn"></a>Optimisation de la diffusion multimédia en continu avec Azure CDN 
  
@@ -67,7 +67,7 @@ L’optimisation des livraisons de données multimédias générale ou en vidéo
  
 Vous pouvez configurer votre point de terminaison CDN pour optimiser la distribution de fichiers volumineux via le portail Azure. Pour ce faire, vous pouvez également utiliser les API REST ou tout Kit de développement logiciel (SDK) client. Les étapes suivantes montrent le processus par le biais du portail Azure pour un profil **CDN Azure Standard fourni par Akamai** :
 
-1. Pour ajouter un point de terminaison, sur la page **Profil CDN** d’Akamai, sélectionnez **Point de terminaison**.
+1. Pour ajouter un point de terminaison, dans une page **Profil CDN** d’Akamai, sélectionnez **Point de terminaison**.
   
     ![Nouveau point de terminaison](./media/cdn-media-streaming-optimization/cdn-new-akamai-endpoint.png)
 

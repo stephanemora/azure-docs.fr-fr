@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Analyse d’une image distante - REST, Python - API 
 titleSuffix: Azure Cognitive Services
 description: Dans ce démarrage rapide, vous analysez une image distante à l’aide de l’API Vision par ordinateur avec Python.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 1fc7c58ec4e5c200ae62c70698db7ec813d82703
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.author: pafarley
+ms.openlocfilehash: 8f8503277ec03bd6036431bcacd3719dac7378de
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883939"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338730"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-python-in-computer-vision"></a>Démarrage rapide : Analyse d’une image distante à l’aide de l’API REST et de Python dans l’API Vision par ordinateur
 
@@ -30,18 +30,18 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - Si vous souhaitez exécuter l’exemple en local, [Python](https://www.python.org/downloads/) doit être installé.
-- Vous devez disposer d’une clé d’abonnement pour la Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
+- Vous devez avoir une clé d’abonnement pour Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
-## <a name="create-and-run-the-sample"></a>Création et exécution de l’exemple
+## <a name="create-and-run-the-sample"></a>Créer et exécuter l’exemple
 
-Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
+Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
 
-1. Copiez le code suivant dans un éditeur de texte.
-1. Apportez les modifications suivantes au code si nécessaire :
+1. Copiez le code ci-après dans un éditeur de texte.
+1. Modifiez le code comme ci-dessous :
     1. Remplacez la valeur de `subscription_key` par votre clé d’abonnement.
     1. Si nécessaire, remplacez la valeur de `vision_base_url` par l’URL du point de terminaison de la ressource Vision par ordinateur à partir de la région Azure dans laquelle vous avez obtenu vos clés d’abonnement.
     1. Le cas échéant, remplacez la valeur de `image_url` par l’URL d’une image différente que vous souhaitez analyser.
-1. Enregistrez le code en tant que fichier ayant une extension `.py`. Par exemple : `analyze-image.py`.
+1. Enregistrez le code dans un fichier avec une extension `.py`. Par exemple : `analyze-image.py`.
 1. Ouvrir une fenêtre d’invite de commandes.
 1. À l’invite, utilisez la commande `python` pour exécuter l’exemple. Par exemple : `python analyze-image.py`.
 
@@ -175,7 +175,7 @@ Lorsque vous n’en avez plus besoin, supprimez le fichier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez une application Python qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent, ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Pour tester rapidement avec l’API Vision par ordinateur, essayez la [console de test de l’API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
+Explorez une application Python qui utilise l’API Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent, ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Pour tester rapidement l’API Vision par ordinateur, essayez la [console de test Open API](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa/console).
 
 > [!div class="nextstepaction"]
 > [Tutoriel sur l’API Vision par ordinateur Python](../Tutorials/PythonTutorial.md)

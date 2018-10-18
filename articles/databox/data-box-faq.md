@@ -2,25 +2,18 @@
 title: FAQ Microsoft Azure Data Box | Microsoft Docs sur les données
 description: Contient des questions fréquemment posées et des réponses au sujet d’Azure Data Box, une solution de cloud qui vous permet de transférer de grandes quantités de données dans Azure.
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: overview
-ms.custom: ''
-ms.tgt_pltfrm: NA
-ms.workload: TBD
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: e47ffbe15291275a7104d5e201a597d084cdbdd9
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 5a95675d5e37adec5fb1f1542daad329484a2a4c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47422862"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092608"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum aux Questions
 
@@ -98,7 +91,7 @@ R.  Dans le portail Azure, affichez votre commande Data Box, puis accédez à **
 ### <a name="q-can-i-use-a-linux-host-computer-to-connect-and-copy-the-data-on-to-the-data-box"></a>Q. Puis-je utiliser un ordinateur hôte Linux pour me connecter et copier les données sur Data Box ?
 R.  Oui. Vous pouvez utiliser Data Box pour vous connecter à des clients SMB et NFS. Pour plus d’informations, accédez à la liste des [systèmes d’exploitation pris en charge](data-box-system-requirements.md) pour votre ordinateur hôte.
 
-### <a name="q-my-data-box-is-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>Q. Ma Data Box a été expédiée, mais je souhaite maintenant annuler ma commande. Pourquoi le bouton Annuler n’est-il pas disponible ?
+### <a name="q-my-data-box-is-dispatched-but-now-i-want-to-cancel-this-order-why-is-the-cancel-button-not-available"></a>Q. Ma Data Box a été expédié, mais je souhaite maintenant annuler ma commande. Pourquoi le bouton Annuler n’est-il pas disponible ?
 R.  Vous pouvez annuler votre commande Data Box uniquement si celle-ci n’a pas encore été traitée. Une fois la commande Data Box traitée, vous ne pouvez plus l’annuler. 
 
 ### <a name="q-can-i-connect-a-data-box-at-the-same-to-multiple-host-computers-to-transfer-data"></a>Q. Puis-je connecter une Data Box à plusieurs ordinateurs hôtes simultanément pour transférer des données ?

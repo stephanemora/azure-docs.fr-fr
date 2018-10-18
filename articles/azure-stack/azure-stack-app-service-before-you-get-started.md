@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/20/2018
 ms.author: anwestg
-ms.openlocfilehash: e5fc6b5d396a45d15548cfdd8f445158147ad12f
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 08fcaa44fc807f986324b8304010792af99fd838
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41947754"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387994"
 ---
 # <a name="before-you-get-started-with-app-service-on-azure-stack"></a>Avant de commencer avec App Service sur Azure Stack
 
@@ -310,7 +310,7 @@ Procédez comme suit :
 3. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).
 4. Exécutez le script **Create-AADIdentityApp.ps1**. Lorsque vous y êtes invité, entrez l’ID de locataire Azure AD que vous utilisez pour votre déploiement Azure Stack. Par exemple, entrez **myazurestack.onmicrosoft.com**.
 5. Dans la fenêtre **Informations d’identification**, entrez votre compte administrateur et votre mot de passe pour le service Azure AD. Sélectionnez **OK**.
-6. Entrez le chemin d’accès au fichier du certificat et le mot de passe du certificat pour le [certificat créé précédemment](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Le certificat par défaut créé pour cette étape est **sso.appservice.local.azurestack.external.pfx**.
+6. Entrez le chemin d’accès au fichier du certificat et le mot de passe du certificat pour le [certificat créé précédemment](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Le certificat par défaut créé pour cette étape est **sso.appservice.local.azurestack.external.pfx**.
 7. Le script crée une nouvelle application dans l’instance de locataire Azure AD. Notez l’ID d’application qui est retourné dans la sortie PowerShell. Vous avez besoin de ces informations lors de l’installation.
 8. Ouvrez une nouvelle fenêtre de navigateur et connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur du service Azure Active Directory.
 9. Ouvrez le fournisseur de ressources Azure AD.
@@ -350,11 +350,11 @@ Les administrateurs doivent configurer l’authentification unique pour :
 Procédez comme suit :
 
 1. Ouvrez une instance PowerShell en tant que azurestack\Azurestackadmin.
-2. Accédez à l’emplacement où les scripts ont été téléchargés et extraits dans [l’étape des prérequis](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
+2. Accédez à l’emplacement où les scripts ont été téléchargés et extraits dans [l’étape des prérequis](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#download-the-azure-app-service-on-azure-stack-installer-and-helper-scripts).
 3. [Installez PowerShell pour Azure Stack](azure-stack-powershell-install.md).
 4. Exécutez le script **Create-ADFSIdentityApp.ps1**.
 5. Dans la fenêtre **Informations d’identification**, entrez votre compte administrateur et votre mot de passe pour le cloud AD FS. Sélectionnez **OK**.
-6. Entrez le chemin d’accès au fichier du certificat et le mot de passe du certificat pour le [certificat créé précédemment](https://docs.microsoft.com/en-gb/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Le certificat par défaut créé pour cette étape est **sso.appservice.local.azurestack.external.pfx**.
+6. Entrez le chemin d’accès au fichier du certificat et le mot de passe du certificat pour le [certificat créé précédemment](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-before-you-get-started#certificates-required-for-azure-app-service-on-azure-stack). Le certificat par défaut créé pour cette étape est **sso.appservice.local.azurestack.external.pfx**.
 
 ```PowerShell
     Create-ADFSIdentityApp.ps1

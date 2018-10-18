@@ -14,12 +14,12 @@ ms.tgt_pltfrm: Azure
 ms.workload: na
 ms.date: 01/05/2017
 ms.author: hascipio; v-divte
-ms.openlocfilehash: 893b0ee70f577d9240d577e76062eea36b704058
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2a3c317dc9abdb861a007be9aaed714089e9f453
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989870"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388192"
 ---
 # <a name="guide-to-create-a-virtual-machine-image-for-the-azure-marketplace"></a>Guide à la création d’une image de machine virtuelle pour Azure Marketplace
 Cet article, **étape 2**, vous guide dans la préparation des disques durs virtuels (VHD) que vous allez déployer dans Azure Marketplace. Vos disques durs virtuels constituent le fondement de votre référence SKU. Le processus varie selon que vous fournissez une référence SKU Linux ou Windows. Cet article aborde ces deux scénarios. Ce processus peut être exécuté parallèlement à la procédure de [création de compte et d’enregistrement][link-acct-creation].
@@ -199,14 +199,14 @@ Consultez les liens ci-dessous pour obtenir des conseils sur la capture de la ma
 
 * [API](https://msdn.microsoft.com/library/mt163560.aspx)
 * [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [interface de ligne de commande Azure](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Interface de ligne de commande Azure](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="generalize-image"></a>Généraliser une image
 Consultez les liens ci-dessous pour obtenir des conseils sur la capture de la machine virtuelle à l’aide de l’API, de PowerShell ou de l’interface de ligne de commande Azure.
 
 * [API](https://msdn.microsoft.com/library/mt269439.aspx)
 * [PowerShell](../virtual-machines/windows/capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-* [interface de ligne de commande Azure](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Interface de ligne de commande Azure](../virtual-machines/linux/capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ### <a name="42-deploy-a-vm-from-a-user-vm-image"></a>4.2 Déployer une machine virtuelle à partir d’une image de machine virtuelle d’utilisateur
 Pour déployer une machine virtuelle à partir d’une image de machine virtuelle d’utilisateur, vous pouvez utiliser le [Portail Azure](https://manage.windowsazure.com) ou PowerShell actuel.
@@ -433,7 +433,7 @@ Voici les étapes pour générer l’URL SAS avec Azure Classic CLI
 
 [!INCLUDE [outdated-cli-content](../../includes/contains-classic-cli-content.md)]
 
-1.  Téléchargez Azure Classic CLI [ici](https://azure.microsoft.com/en-in/documentation/articles/xplat-cli-install/). Vous y trouverez également les différents liens pour **[Windows](http://aka.ms/webpi-azure-cli)** et  **[Mac OS](http://aka.ms/mac-azure-cli)**.
+1.  Téléchargez Azure Classic CLI [ici](https://azure.microsoft.com/documentation/articles/xplat-cli-install/). Vous y trouverez également les différents liens pour **[Windows](http://aka.ms/webpi-azure-cli)** et  **[Mac OS](http://aka.ms/mac-azure-cli)**.
 
 2.  Après le téléchargement, veuillez effectuer l’installation
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/11/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 6acea70ca929310fe37f36fe98698e6adb76101b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 922e7ed5d55f50b2069dad71ead73d9ef4475ed0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997826"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389902"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Stockage Blob Azure : niveaux de stockage Premium (préversion), chaud, froid et archive
 
@@ -113,7 +113,7 @@ Les objets blob des trois niveaux de stockage peuvent coexister au sein d’un m
 Les données stockées dans le niveau d’accès Premium ne peuvent pas être déplacées dans le niveau chaud, froid ou archive avec [Définir le niveau du blob](/rest/api/storageservices/set-blob-tier) ou à l’aide de la gestion du cycle de vie du stockage d’objets blob Azure. Pour déplacer les données, effectuez une copie synchrone des objets blob du niveau Premium dans le niveau chaud, en utilisant la nouvelle [API Put Block From URL](/rest/api/storageservices/put-block-from-url) ou une version d’AzCopy qui prend en charge cette API. L’API *Put Block From URL* copie les données sur le serveur de manière synchrone, ce qui signifie que l’appel est effectué uniquement quand toutes les données ont été déplacées de l’emplacement d’origine sur le serveur vers l’emplacement de destination.
 
 ### <a name="blob-lifecycle-management"></a>Gestion de cycle de vie des objets blob
-La gestion du cycle de vie du stockage d’objets blob Azure (préversion) offre une stratégie enrichie, basée sur des règles, que vous pouvez utiliser pour faire passer vos données au niveau d’accès le plus adapté et faire expirer les données à la fin de leur cycle de vie. Consultez [Gérer le cycle de vie du stockage Blob Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) pour en savoir plus.  
+La gestion du cycle de vie du stockage d’objets blob Azure (préversion) offre une stratégie enrichie, basée sur des règles, que vous pouvez utiliser pour faire passer vos données au niveau d’accès le plus adapté et faire expirer les données à la fin de leur cycle de vie. Consultez [Gérer le cycle de vie du stockage Blob Azure](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) pour en savoir plus.  
 
 ### <a name="blob-level-tiering-billing"></a>Facturation de la hiérarchisation au niveau de l’objet blob
 

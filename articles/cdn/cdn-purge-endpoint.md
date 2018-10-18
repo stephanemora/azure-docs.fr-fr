@@ -3,8 +3,8 @@ title: Purger un point de terminaison CDN Azure | Microsoft Docs
 description: Découvrez comment vider tout le contenu mis en cache à partir d’un point de terminaison CDN Azure.
 services: cdn
 documentationcenter: ''
-author: zhangmanling
-manager: erikre
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 0b50230b-fe82-4740-90aa-95d4dde8bd4f
 ms.service: cdn
@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
-ms.author: mazha
-ms.openlocfilehash: 262a8f7385ba5f74d21991772599540260a145fc
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: magattus
+ms.openlocfilehash: a3777533fc967e1974b99375496dd3777fa9fb3a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765164"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093848"
 ---
 # <a name="purge-an-azure-cdn-endpoint"></a>Purger un point de terminaison CDN Azure
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les nœuds de périmètre CDN Azure mettent en cache les éléments multimédias jusqu’à l’expiration de leur durée de vie.  Une fois la durée de vie de l’élément multimédia expirée, lorsqu’un client demande l’élément multimédia à partir du nœud de périmètre, ce dernier récupère une nouvelle copie mise à jour de l’élément pour répondre à la demande du client et actualiser le cache.
 
 La bonne pratique pour vous assurer que vos utilisateurs obtiennent toujours la dernière copie de vos éléments multimédia consiste à établir une version de vos ressources pour chaque mise à jour et à les publier en tant que nouvelles URL.  CDN récupère immédiatement les nouveaux éléments multimédia pour les demandes suivantes du client.  Il est parfois souhaitable de vider le contenu mis en cache sur tous les nœuds de périmètre et de tous les forcer à récupérer de nouveaux éléments multimédias mis à jour.  Ce besoin peut être dû à des mises à jour de votre application web, ou à la nécessité de mettre à jour rapidement les éléments multimédias qui contiennent des informations incorrectes.

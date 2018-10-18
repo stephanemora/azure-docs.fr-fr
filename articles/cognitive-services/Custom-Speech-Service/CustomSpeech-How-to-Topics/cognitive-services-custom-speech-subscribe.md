@@ -1,24 +1,25 @@
 ---
-title: Obtenir des clés d’abonnement - Custom Speech Service
-titlesuffix: Azure Cognitive Services
-description: Découvrez comment obtenir des clés d’abonnement pour les appels au service Custom Speech Service.
+title: Obtenir des clés d’abonnement pour Custom Speech Service sur Azure | Microsoft Docs
+description: Découvrez comment obtenir des clés d’abonnement pour les appels vers Custom Speech Service dans Cognitive Services.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: conceptual
+ms.topic: article
 ms.date: 02/08/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: e4694928baf98bdb0d6aacead8dffec6bb73d6f7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 84ef657af2cc3dc4a7168a815b5e51d6f4f33fd7
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47224759"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338367"
 ---
 # <a name="obtain-subscription-keys"></a>Obtenir des clés d’abonnement
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
+
 Pour commencer à utiliser Custom Speech Service Azure, vous devez d’abord lier votre compte d’utilisateur à un abonnement Azure. Des abonnements de niveaux gratuits et payants sont disponibles. Pour plus d’informations sur les niveaux, veuillez consulter la [page de tarification](https://www.microsoft.com/cognitive-services/en-us/pricing).
 
 ## <a name="get-a-subscription-key"></a>Obtenir une clé d’abonnement

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/05/2018
 ms.author: jdial
-ms.openlocfilehash: 124653f95dedbb1606e85cbfcd8229c026cf7341
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d57f34da261d51707caf499bfdf1fffa344b72a9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960649"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385513"
 ---
 # <a name="check-resource-usage-against-limits"></a>Vérifier l’utilisation des ressources par rapport aux limites
 
@@ -49,7 +49,7 @@ Dans cet article, vous apprendrez comment afficher le nombre de chaque type de r
 
 Vous pouvez exécuter les commandes qui suivent dans [Azure Cloud Shell](https://shell.azure.com/powershell), ou en exécutant PowerShell à partir de votre ordinateur. Azure Cloud Shell est un interpréteur de commandes interactif gratuit. Il contient des outils Azure courants préinstallés et configurés pour être utilisés avec votre compte. Si vous exécutez PowerShell depuis votre ordinateur, vous devez utiliser le module PowerShell *AzureRM*, version 6.0.1 ou ultérieure. Exécutez `Get-Module -ListAvailable AzureRM` sur votre ordinateur pour trouver la version installée. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également exécuter `Login-AzureRmAccount` pour vous connecter à Azure.
 
-Consultez votre utilisation par rapport aux limites avec [Get-AzureRmNetworkUsage](https://docs.microsoft.com/en-us/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). L’exemple suivant obtient l’utilisation des ressources où au moins une ressource est déployée dans l’emplacement USA Est :
+Consultez votre utilisation par rapport aux limites avec [Get-AzureRmNetworkUsage](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermnetworkusage?view=azurermps-6.8.0). L’exemple suivant obtient l’utilisation des ressources où au moins une ressource est déployée dans l’emplacement USA Est :
 
 ```azurepowershell-interactive
 Get-AzureRmNetworkUsage `

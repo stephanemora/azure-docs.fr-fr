@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: e5915157c1ff2c1f58779e5c3b1d784241464b32
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 372670a482ec984fcc9bd9c28ca3a8625e959a77
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669044"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320643"
 ---
 # <a name="how-to-get-azure-multi-factor-authentication"></a>Comment obtenir Azure Multi-Factor Authentication ?
 
@@ -23,6 +23,7 @@ Lorsqu’il s’agit de protéger vos comptes, la vérification en deux étapes
 
 > [!IMPORTANT]
 > Cet article est destiné à vous guider pour vous aider à comprendre les différentes manières d’acheter Azure Multi-Factor Authentication. Pour obtenir des détails spécifiques sur la tarification et la facturation, vous devez toujours consulter la [page de tarification Multi-Factor Authentication](https://azure.microsoft.com/pricing/details/multi-factor-authentication/).
+>
 
 ## <a name="available-versions-of-azure-multi-factor-authentication"></a>Versions disponibles d’Azure Multi-Factor Authentication
 
@@ -43,6 +44,7 @@ Le tableau suivant fournit la liste des fonctionnalités qui sont disponibles da
 
 > [!NOTE]
 > Ce tableau de comparaison répertorie les fonctionnalités de chaque version de Multi-Factor Authentication. Si vous disposez du service Azure Multi-Factor Authentication complet, certaines fonctionnalités peuvent être disponibles ou non, selon que vous utilisez [MFA dans le cloud ou localement](concept-mfa-whichversion.md).
+>
 
 | Fonctionnalité | Authentification multifacteur pour Office 365 | Authentification multifacteur pour administrateurs Azure AD | Azure Multi-Factor Authentication |
 | --- |:---:|:---:|:---:|
@@ -93,11 +95,13 @@ Quand vous utilisez un fournisseur Azure Multi-Factor Authentication, vous avez 
   > Exemple de facturation 1 : 5 000 utilisateurs sont activés pour MFA à la date du jour. Le système MFA divise ce nombre par 31 et indique 161,29 utilisateurs pour ce jour. Le lendemain, vous activez 15 utilisateurs supplémentaires. Le système MFA indique alors 161,77 utilisateurs pour ce jour. À la fin du cycle de facturation, le nombre total d’utilisateurs facturés sur votre abonnement Azure se monte à environ 5 000.
   >
   > Exemple de facturation 2 : certains de vos utilisateurs disposent de licences tandis que d’autres en sont dépourvus. Vous disposez donc d’un fournisseur Azure MFA par utilisateur pour compenser la différence. Il existe 4 500 licences Enterprise Mobility + Security sur votre client, mais 5 000 utilisateurs sont activés pour MFA. Votre abonnement Azure est facturé pour 500 utilisateurs, calculé au prorata et indiqué quotidiennement sous la forme de 16,13 utilisateurs.
+  >
 
-2. **Par authentification** : pour les entreprises qui souhaitent activer la vérification en deux étapes pour un nombre important d’utilisateurs qui s’authentifient ponctuellement. La facturation est basée sur le nombre de demandes de vérification en deux étapes, que ces vérifications réussissent ou soient refusées. Cette facturation apparaît sur votre relevé d’utilisation Azure dans des packs de 10 authentifications. Elle est consignée quotidiennement.
+1. **Par authentification** : pour les entreprises qui souhaitent activer la vérification en deux étapes pour un nombre important d’utilisateurs qui s’authentifient ponctuellement. La facturation est basée sur le nombre de demandes de vérification en deux étapes, que ces vérifications réussissent ou soient refusées. Cette facturation apparaît sur votre relevé d’utilisation Azure dans des packs de 10 authentifications. Elle est consignée quotidiennement.
 
   > [!NOTE]
   > Exemple de facturation 3 : aujourd’hui, le service Azure MFA a reçu 3 105 demandes de vérification en deux étapes. Votre abonnement Azure est facturé pour 310,5 packs d’authentification.
+  >
 
 Il est important de noter que vous pouvez posséder des licences, mais être toujours facturé pour une configuration basée sur la consommation. Si vous configurez un fournisseur Azure MFA par authentification, vous êtes facturé pour toutes les demandes de vérification en deux étapes, y compris pour celles qui ont été effectuées par les utilisateurs disposant de licences. Si vous configurez un fournisseur Azure MFA par utilisateur sur un domaine qui n’est pas lié à votre client Azure AD, vous êtes facturé par utilisateur activé même si vos utilisateurs possèdent des licences sur Azure AD.
 

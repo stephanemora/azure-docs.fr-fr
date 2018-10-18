@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/04/2017
 ms.author: tomsh
-ms.openlocfilehash: ef404b106d600f5cb25a46319d75c8978148b466
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: d0826d60d766874ddd186bcf406ea987134dab16
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895867"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385853"
 ---
 # <a name="azure-service-fabric-security-checklist"></a>Liste de contrôle pour la sécurité Azure Service Fabric
 Cet article fournit une liste de contrôle facile à utiliser qui vous aide à sécuriser votre environnement Azure Service Fabric.
@@ -43,7 +43,7 @@ Utilisez la liste de contrôle suivante pour vous assurer que vous n’avez pas 
 |[ServerCertificate](https://docs.microsoft.com/azure/service-fabric/service-fabric-windows-cluster-x509-security)| <ul><li>Ce certificat est présenté au client lorsqu’il tente de se connecter à ce cluster. Vous pouvez utiliser deux certificats de serveur différents : un certificat principal et un certificat secondaire pour la mise à niveau.</li></ul>|
 |ClientCertificateThumbprints| <ul><li>Il s’agit du jeu de certificats que vous souhaitez installer sur les clients authentifiés. </li></ul>|
 |ClientCertificateCommonNames| <ul><li>Définissez le nom commun du premier certificat client pour CertificateCommonName. L’élément CertificateIssuerThumbprint est l’empreinte numérique relative à l’émetteur de ce certificat. </li></ul>|
-|ReverseProxyCertificate| <ul><li>Il s’agit d’un certificat facultatif à spécifier si vous souhaitez sécuriser votre [Proxy inverse](https://docs.microsoft.com/en-in/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
+|ReverseProxyCertificate| <ul><li>Il s’agit d’un certificat facultatif à spécifier si vous souhaitez sécuriser votre [Proxy inverse](https://docs.microsoft.com/azure/service-fabric/service-fabric-reverseproxy). </li></ul>|
 |Key Vault| <ul><li>Permet de gérer des certificats pour des clusters Service Fabric dans Azure.  </li></ul>|
 
 

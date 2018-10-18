@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: d0f2669610f2086c29d52d95c9796e6a2939622e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9d2fa8ec96f629ff85d785897398bc9af52ab3bc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985439"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165757"
 ---
 # <a name="azure-active-directory-b2b-collaboration-code-and-powershell-samples"></a>Code Azure Active Directory B2B Collaboration et exemples PowerShell
 
@@ -34,14 +34,14 @@ Vous pouvez inviter des utilisateurs externes en bloc dans une organisation à p
 
 3. Connectez-vous à votre architecture cliente
 
-    ```
+    ```powershell
     $cred = Get-Credential
     Connect-AzureAD -Credential $cred
     ```
 
 4. Exécutez l’applet de commande PowerShell
 
-  ```
+  ```powershell
   $invitations = import-csv C:\data\invitations.csv
   $messageInfo = New-Object Microsoft.Open.MSGraph.Model.InvitedUserMessageInfo
   $messageInfo.customizedMessageBody = "Hey there! Check this out. I created an invitation through PowerShell"
@@ -56,7 +56,7 @@ Cette applet de commande envoie une invitation aux adresses e-mail stockées dan
 ## <a name="code-sample"></a>Exemple de code
 Ici, nous indiquons comment appeler l’API d’invitation, en mode « Application uniquement », afin d’obtenir l’URL d’échange pour la ressource à laquelle vous invitez l’utilisateur B2B. L’objectif est d’envoyer un e-mail d’invitation personnalisé. L’e-mail peut être composé avec un client HTTP, pour vous permettre d’en personnaliser l’apparence et de l’envoyer via l’API Graph.
 
-```
+```csharp
 namespace SampleInviteApp
 {
     using System;

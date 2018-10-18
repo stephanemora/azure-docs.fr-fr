@@ -10,15 +10,16 @@ ms.component: translator-speech
 ms.topic: reference
 ms.date: 05/18/2018
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 46aeab52014a28d1a962195de802d0e000b62509
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1fc48687141ea8a7e8cb30d3438d81e8f1088e4f
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978707"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340441"
 ---
 # <a name="translator-speech-api"></a>API de traduction de conversation Translator Speech
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 Ce service offre une API de diffusion en continu pour la transcription de parole conversationnelle dans une langue en texte dans une autre langue. L’API intègre également des fonctionnalités de synthèse vocale pour prononcer le texte traduit. L’API de traduction de conversation Translator Speech permet, par exemple, des scénarios de traduction en temps réel de conversations, comme dans Skype Translator.
 

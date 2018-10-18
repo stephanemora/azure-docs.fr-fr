@@ -13,19 +13,19 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 865dfa1f3adbcea5907c309c8cbf2daa30513fd6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 3de3a7b15f2ebef549f925f6604956ca16f4551b
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855748"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388090"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API Application Insights pour les événements et les mesures personnalisés
 
 Insérez quelques lignes de code dans votre application pour découvrir ce qu’en font les utilisateurs ou pour faciliter le diagnostic des problèmes. Vous pouvez envoyer la télémétrie depuis des applications de périphérique et de bureau, des clients web et des serveurs web. Utilisez l’API des données de télémétrie principales [Azure Application Insights](app-insights-overview.md) pour envoyer des événements et métriques personnalisés, ainsi que vos propres versions de la télémétrie standard. Cette API est la même que celle utilisée par les collecteurs de données standard d’Application Insights.
 
 > [!NOTE]
-> `TrackMetric()` ne constitue plus la méthode d’envoi de métriques personnalisés par défaut pour vos applications .NET. La [version 2.60-beta 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) du Kit de développement logiciel (SDK) .NET d’Application Insights introduit une nouvelle méthode, [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet). À partir de la [version 2.72](https://docs.microsoft.com/en-us/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) du Kit de développement logiciel (SDK) .NET d’Application Insights, cette fonctionnalité fait partie intégrante de la version stable.
+> `TrackMetric()` ne constitue plus la méthode d’envoi de métriques personnalisés par défaut pour vos applications .NET. La [version 2.60-beta 3](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/CHANGELOG.md#version-260-beta3) du Kit de développement logiciel (SDK) .NET d’Application Insights introduit une nouvelle méthode, [`TelemetryClient.GetMetric()`](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet). À partir de la [version 2.72](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.getmetric?view=azure-dotnet) du Kit de développement logiciel (SDK) .NET d’Application Insights, cette fonctionnalité fait partie intégrante de la version stable.
 
 ## <a name="api-summary"></a>Résumé des API
 

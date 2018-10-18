@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/01/2018
 ms.author: jonbeck
-ms.openlocfilehash: a63b8a36ba2dd4040df59c6ac9ba12261ccf9b3d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: cefcad9c427770c083e6451c088ce5cfc10a68f2
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855202"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394449"
 ---
 # <a name="sizes-for-windows-virtual-machines-in-azure"></a>Tailles des machines virtuelles Windows dans Azure
 
@@ -49,9 +49,9 @@ Cet article décrit les tailles et options disponibles pour les machines virtuel
 
 Pour plus d’informations sur l’utilisation de l’API REST pour demander la taille des machines virtuelles, consultez les rubriques suivantes :
 
-- [Répertorier les tailles disponibles des machines virtuelles pour le redimensionnement](https://docs.microsoft.com/rest/api/compute/virtualmachines/listavailablesizes)
-- [Répertorier les tailles disponibles des machines virtuelles pour un abonnement](https://docs.microsoft.com/rest/api/compute/virtualmachinesizes/list)
-- [Répertorier les tailles de machine virtuelle disponibles dans un groupe à haute disponibilité](https://docs.microsoft.com/rest/api/compute/availabilitysets/listavailablesizes)
+- [Répertorier les tailles disponibles des machines virtuelles pour le redimensionnement](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_listavailablesizes)
+- [Répertorier les tailles disponibles des machines virtuelles pour un abonnement](https://docs.microsoft.com/rest/api/compute/virtualmachines/virtualmachines_listall)
+- [Répertorier les tailles de machine virtuelle disponibles dans un groupe à haute disponibilité](https://docs.microsoft.com/rest/api/compute/availabilitysets/availabilitysets_listavailablesizes)
 
 ## <a name="acu"></a>ACU
 

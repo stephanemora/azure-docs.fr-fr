@@ -8,12 +8,12 @@ services: mariadb
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 9b22890bceba6205c995a01105cdf11a08a9c10b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 551fe303994f6c72f8a4bf39e76f12c62f58026b
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998744"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309533"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>Migrer votre base de données MariaDB dans Azure Database for MariaDB par sauvegarde et restauration
 Cet article décrit deux méthodes courantes pour sauvegarder et restaurer des bases de données dans votre serveur Azure Database for MariaDB.
@@ -30,7 +30,9 @@ Pour parcourir ce guide pratique, vous aurez besoin des éléments suivants :
 Utilisez les outils et utilitaires courants comme MySQL Workbench, mysqldump, Toad ou Navicat pour vous connecter à distance et restaurer les données dans Azure Database for MariaDB. Utilisez ces outils sur votre ordinateur client disposant d’une connexion web pour se connecter au serveur Azure Database for MariaDB. Utilisez une connexion chiffrée SSL pour appliquer les bonnes pratiques de sécurité. Consultez également [Configurer la connectivité SSL dans Azure Database for MariaDB](concepts-ssl-connection-security.md). Il est inutile de déplacer les fichiers de vidage dans un emplacement spécifique du cloud lors de la migration vers Azure Database for MariaDB. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>Utilisations courantes de la sauvegarde et de la restauration
-Vous pouvez utiliser des utilitaires MySQL comme mysqldump et mysqlpump pour sauvegarder et charger des bases de données sur un serveur Azure Database for MariaDB dans de nombreux scénarios courants. <!--In other scenarios, you may use the [Import and Export](concepts-migrate-import-export.md) approach instead.-->
+Vous pouvez utiliser des utilitaires MySQL comme mysqldump et mysqlpump pour sauvegarder et charger des bases de données sur un serveur Azure Database for MariaDB dans de nombreux scénarios courants. 
+
+<!--In other scenarios, you may use the [Import and Export](howto-migrate-import-export.md) approach instead.-->
 
 - Utilisez les sauvegardes de base de données lors de la migration de la base de données entière. Cette recommandation s’applique lors du déplacement d’une grande quantité de données ou quand vous souhaitez minimiser l’interruption de service pour les applications ou sites en ligne. 
 -  Vérifiez que toutes les tables de la base de données utilisent le moteur de stockage InnoDB lors du chargement de données dans Azure Database for MariaDB. Azure Database for MariaDB prend uniquement en charge le moteur de stockage InnoDB, et aucun autre. Si vos tables sont configurées avec d’autres moteurs de stockage, convertissez-les au format de moteur InnoDB avant la migration vers Azure Database for MariaDB.

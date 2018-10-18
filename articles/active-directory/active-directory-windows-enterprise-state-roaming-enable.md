@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 56df09f461458071093088159d3b468755b0e4ad
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 71d8bfa116fd4d0e824d80da26df7271121a595c
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434940"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311369"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Activer Enterprise State Roaming dans Azure Active Directory
 Enterprise State Roaming est disponible pour toute organisation disposant d’une licence Azure AD Premium ou Enterprise Mobility + Security (EMS). Pour plus d’informations sur l’obtention d’un abonnement Azure AD, consultez la page [du produit Azure AD](https://azure.microsoft.com/services/active-directory) .
@@ -32,9 +32,9 @@ Lorsque vous activez Enterprise State Roaming, votre organisation reçoit automa
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com/).
 
-2. Sélectionnez **Azure Active Directory** &gt; **Appareils** &gt; **Enterprise State Roaming**.
+1. Sélectionnez **Azure Active Directory** &gt; **Appareils** &gt; **Enterprise State Roaming**.
 
-3. Sélectionnez **Les utilisateurs peuvent synchroniser les paramètres et les données d’application entre les appareils**. Pour plus d’informations, consultez [Comment configurer les paramètres de l’appareil](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
+1. Sélectionnez **Les utilisateurs peuvent synchroniser les paramètres et les données d’application entre les appareils**. Pour plus d’informations, consultez [Comment configurer les paramètres de l’appareil](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
   ![Image du paramètre d’appareil «Les utilisateurs peuvent synchroniser les paramètres et les données d’application sur différents appareils»](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
   
@@ -57,15 +57,15 @@ Procédez comme suit pour afficher un rapport d’état de synchronisation d’a
 
 1. Connectez-vous au [Centre d’administration Azure AD](https://aad.portal.azure.com/).
 
-2. Sélectionnez **Azure Active Directory** &gt; **Utilisateurs** &gt; **Tous les utilisateurs**.
+1. Sélectionnez **Azure Active Directory** &gt; **Utilisateurs** &gt; **Tous les utilisateurs**.
 
-3. Sélectionnez l’utilisateur, puis **Appareils**.
+1. Sélectionnez l’utilisateur, puis **Appareils**.
 
-4. Sous **Afficher**, sélectionnez **Paramètres de synchronisation des appareils et données d’application** pour afficher l’état de synchronisation.
+1. Sous **Afficher**, sélectionnez **Paramètres de synchronisation des appareils et données d’application** pour afficher l’état de synchronisation.
   
   ![image du paramètre de synchronisation d’appareils et des données](./media/active-directory-windows-enterprise-state-roaming-enable/sync-status.png)
   
-5. Si des appareils se synchronisent pour cet utilisateur, vous les verrez comme illustré ici.
+1. Si des appareils se synchronisent pour cet utilisateur, vous les verrez comme illustré ici.
   
   ![image de la colonne de synchronisation d’appareils et des données](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
 

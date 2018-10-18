@@ -12,18 +12,18 @@ ms.topic: quickstart
 ms.date: 08/10/2018
 ms.author: routlaw, glenga
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 16d6dd6a589256ad98a37465e64e847778d0cc7e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 7483ac4521b0b997111dcc5705ba8c28a8443299
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092591"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116400"
 ---
 # <a name="create-your-first-function-with-java-and-maven-preview"></a>Créer votre première fonction dans Azure avec Java et Maven (aperçu)
 
 [!INCLUDE [functions-java-preview-note](../../includes/functions-java-preview-note.md)]
 
-Ce démarrage rapide vous guide dans la création d’un projet de fonction [sans serveur](https://azure.microsoft.com/overview/serverless-computing/) avec Maven, dans le test de ce projet localement et son déploiement sur Azure Functions. Quand vous avez terminé, vous disposez d’une application de fonction déclenchée par HTTP qui s’exécute dans Azure.
+Ce démarrage rapide vous guide dans la création d’un projet de fonction [sans serveur](https://azure.microsoft.com/solutions/serverless/) avec Maven, dans le test de ce projet localement et son déploiement sur Azure Functions. Quand vous avez terminé, vous disposez d’une application de fonction déclenchée par HTTP qui s’exécute dans Azure.
 
 ![Accéder à une fonction Hello World à partir de la ligne de commande avec cURL](media/functions-create-java-maven/hello-azure.png)
 
@@ -34,7 +34,7 @@ Pour développer une application de fonction avec Java, les éléments suivants 
 
 -  [Java Developer Kit (JDK)](https://www.azul.com/downloads/zulu/) version 8.
 -  [Apache Maven](https://maven.apache.org) version 3.0 ou ultérieure.
--  [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
+-  [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure)
 
 > [!IMPORTANT] 
 > Pour pouvoir effectuer ce démarrage rapide, vous devez définir la variable d’environnement JAVA_HOME sur l’emplacement d’installation du JDK.

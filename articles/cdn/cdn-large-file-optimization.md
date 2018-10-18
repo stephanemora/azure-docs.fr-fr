@@ -3,8 +3,8 @@ title: Optimisation avec Azure CDN des téléchargements de fichiers volumineux
 description: Cet article explique comment optimiser les téléchargements de fichiers volumineux.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/01/2018
-ms.author: v-deasim
-ms.openlocfilehash: 2bdb6bdea7b6180e34458883d026161403e4cb58
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: magattus
+ms.openlocfilehash: 9793348b47763e6de10992b9a8a4606fc532cc4d
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33766204"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094018"
 ---
 # <a name="large-file-download-optimization-with-azure-cdn"></a>Optimisation avec Azure CDN des téléchargements de fichiers volumineux
 
@@ -81,7 +81,7 @@ L’optimisation des fichiers volumineux est efficace lorsque certaines conditio
 
 ### <a name="configure-an-akamai-cdn-endpoint-to-optimize-delivery-of-large-files"></a>Configurer un point de terminaison CDN Akamai pour optimiser la distribution de fichiers volumineux
 
-Vous pouvez configurer votre point de terminaison **Azure CDN Standard d’Akamai** pour optimiser la distribution de fichiers volumineux par le biais du portail Azure. Pour ce faire, vous pouvez également utiliser les API REST ou tout Kit de développement logiciel (SDK) client. Les étapes suivantes montrent le processus par le biais du portail Azure pour un profil **Azure CDN Standard d’Akamai** :
+Vous pouvez configurer votre point de terminaison **Azure CDN Standard d’Akamai** pour optimiser la distribution de fichiers volumineux par le biais du portail Azure. Pour ce faire, vous pouvez également utiliser les API REST ou tout Kit de développement logiciel (SDK) client. Les étapes suivantes montrent le processus par le biais du portail Azure pour un profil **CDN Azure Standard fourni par Akamai** :
 
 1. Pour ajouter un point de terminaison, dans une page **Profil CDN** d’Akamai, sélectionnez **Point de terminaison**.
 

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6193a515f0d8136e0d420b7554cf26fee8f50953
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: a80577bb226cbec080edf5e06dbd0f31c80a5890
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173099"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321425"
 ---
 # <a name="how-to-use-multi-value-entities-with-a-conversation-learner-model"></a>Utiliser des entités à valeurs multiples avec un modèle d’Apprenant de conversation
 Ce tutoriel montre la propriété « valeur multiple » des entités.
@@ -24,7 +24,7 @@ Ce tutoriel montre la propriété « valeur multiple » des entités.
 
 [![Aperçu du didacticiel 6](http://aka.ms/cl-tutorial-06-preview)](http://aka.ms/blis-tutorial-06)
 
-##<a name="requirements"></a>Configuration requise
+## <a name="requirements"></a>Configuration requise
 Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.
 
     npm run tutorial-general
@@ -58,13 +58,13 @@ Concrètement, si une entité est marquée comme « valeur multiple », chaque
 1. Cliquez sur Actions, puis sur Nouvelle action
 2. Dans Réponse, tapez « Quelle garniture voulez-vous ? ».
 3. Dans Entités disqualifiantes, entrez Garnitures.
-3. Click Create
+3. Cliquez sur Create.
 
 Ensuite, créez la deuxième action.
 
 1. Cliquez sur Actions, puis sur Nouvelle Action pour en créer une deuxième.
 3. En réponse, tapez « Voici vos garnitures : $Toppings ».
-4. Click Create
+4. Cliquez sur Create.
 
 Vous avez maintenant deux actions.
 
@@ -87,7 +87,7 @@ Nous pouvons également ajouter :
 
 7. Entrez « ajouter des poivrons ».
     - Cliquez sur « poivrons » sous la détection d’entité, puis sélectionnez des ingrédients.
-3. Cliquez sur Attribuer un score aux actions.
+3. Cliquez sur Score Actions (Actions de score).
     - Maintenant, les « poivrons » s’affichent comme valeur supplémentaire dans les garnitures.
 6. Sélectionnez « Voici vos garnitures : $Toppings ».
 
@@ -96,7 +96,7 @@ Nous allons supprimer une garniture et en ajouter une :
 2. Tapez « supprimer les poivrons et ajouter du salami ».
 1. Cliquez sur « poivrons », puis sur le x rouge pour les supprimer.
 2. Cliquez sur « poivrons » et sélectionnez « Garnitures ».
-3. Cliquez sur Attribuer un score aux actions.
+3. Cliquez sur Score Actions (Actions de score).
     - « poivrons » a été supprimé et « salami » a été ajouté.
 6. Sélectionnez « Voici vos garnitures : $Toppings ».
 
@@ -104,7 +104,7 @@ Maintenant nous allons essayez de tout supprimer :
 
 6. Entrez « supprimer champignons, supprimer fromage et supprimer salami ».
 7. Cliquez sur chacun des trois, puis sélectionnez « -Garnitures ».
-7. Cliquez sur Attribuer un score aux actions.
+7. Cliquez sur Score Actions (Actions de score).
     - Toutes les garnitures sont désactivées.
 2. Sélectionnez « Quelles garnitures voulez-vous ? »
 3. Cliquez sur Apprentissage terminé

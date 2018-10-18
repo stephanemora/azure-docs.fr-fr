@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/15/2017
 ms.author: dobett
-ms.openlocfilehash: 340453448d38db66558e59edb845f2caf4454cf9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: defb9f72148e319b36954a8d448d5f441621fc43
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104148"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321578"
 ---
 # <a name="get-started-with-device-twins-netnet"></a>Bien démarrer avec les jumeaux d’appareils (.NET/.NET)
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
@@ -236,4 +236,4 @@ Utilisez les ressources suivantes :
 
 * Pour savoir comment configurer des appareils à l’aide des propriétés de jumeau d’appareil souhaitées, suivez le tutoriel [Utiliser des propriétés souhaitées pour configurer des appareils](tutorial-device-twins.md).
 
-* Pour savoir comment contrôler les appareils de façon interactive (par exemple pour mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur), suivez le tutoriel [Utiliser des méthodes directes](quickstart-control-device-node.md).
+* Pour savoir comment contrôler les appareils de façon interactive (par exemple pour mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur), suivez le tutoriel [Utiliser des méthodes directes](quickstart-control-device-dotnet.md).

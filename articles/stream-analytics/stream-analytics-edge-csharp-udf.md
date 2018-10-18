@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: cad5ec059c88290b94919c58ff6bd1071a2b8fdf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d593930705c7455d03e20af2affd2de3c418d4a5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972097"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389066"
 ---
 # <a name="tutorial-write-a-c-user-defined-function-for-an-azure-stream-analytics-edge-job-in-visual-studio-preview"></a>Tutoriel : Écrire une fonction C# définie par l’utilisateur pour un travail de périphérie Azure Stream Analytics dans Visual Studio (préversion)
 
@@ -37,7 +37,7 @@ Avant de commencer, veillez à effectuer les prérequis suivants :
 
 ## <a name="create-a-container-in-your-azure-storage-account"></a>Créez un conteneur dans votre compte Stockage Azure.
 
-Le conteneur que vous créez servira à stocker le package C# compilé et à déployer celui-ci sur votre appareil IoT Edge. Utilisez un conteneur dédié pour chaque travail Stream Analytics. La réutilisation du même conteneur pour plusieurs travaux de périphérie Stream Analytics n’est pas prise en charge. Si vous avez déjà un compte de stockage avec des conteneurs existants, vous pouvez les utiliser. Sinon, vous devez [créer un conteneur](https://docs.microsoft.com/en-us/azure/storage/blobs/storage-quickstart-blobs-portal). 
+Le conteneur que vous créez servira à stocker le package C# compilé et à déployer celui-ci sur votre appareil IoT Edge. Utilisez un conteneur dédié pour chaque travail Stream Analytics. La réutilisation du même conteneur pour plusieurs travaux de périphérie Stream Analytics n’est pas prise en charge. Si vous avez déjà un compte de stockage avec des conteneurs existants, vous pouvez les utiliser. Sinon, vous devez [créer un conteneur](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 
 
 ## <a name="create-a-stream-analytics-edge-project-in-visual-studio"></a>Créer un projet de périphérie Stream Analytics dans Visual Studio
 
@@ -62,7 +62,7 @@ Le conteneur que vous créez servira à stocker le package C# compilé et à dé
     |**Paramètre**  |**Valeur suggérée**  |
     |---------|---------|
     |Source de l’assembly  |  Référence de projet local ou code-behind   |
-    |Ressource  |  Choisissez des données du compte actuel.   |
+    |Ressource  |  Choisissez des données du compte actuel   |
     |Abonnement  |  Choisissez votre abonnement.   |
     |Compte de stockage  |  Choisissez votre compte de stockage.   |
     |Conteneur  |  Choisissez le conteneur que vous avez créé dans votre compte de stockage.   |
@@ -146,7 +146,7 @@ Une fois que vous avez testé votre requête localement, sélectionnez **Envoyer
 ![Envoyer votre travail de périphérie Stream Analytics sur Azure à partir de Visual Studio](./media/stream-analytics-edge-csharp-udf/stream-analytics-udf-submit-job.png)
 
 ## <a name="deploy-to-iot-edge-devices"></a>Déployer sur des appareils IoT Edge
-Votre travail Stream Analytics est maintenant prêt à être déployé en tant que module IoT Edge. Suivez le [guide de démarrage rapide sur IoT Edge](https://docs.microsoft.com/en-us/azure/iot-edge/quickstart) pour créer un hub IoT, inscrire un appareil IoT Edge, et installer et démarrer le runtime IoT Edge sur votre appareil. Ensuite, suivez le tutoriel [Déployer la tâche](https://docs.microsoft.com/en-us/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) pour déployer votre travail Stream Analytics en tant que module IoT Edge. 
+Votre travail Stream Analytics est maintenant prêt à être déployé en tant que module IoT Edge. Suivez le [guide de démarrage rapide sur IoT Edge](https://docs.microsoft.com/azure/iot-edge/quickstart) pour créer un hub IoT, inscrire un appareil IoT Edge, et installer et démarrer le runtime IoT Edge sur votre appareil. Ensuite, suivez le tutoriel [Déployer la tâche](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics#deploy-the-job) pour déployer votre travail Stream Analytics en tant que module IoT Edge. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

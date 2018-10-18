@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 37b11eea5c37103c0bc296a5f466658fbc77ed24
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42145113"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365252"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications web dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
@@ -82,7 +82,7 @@ Vous pouvez activer simultanément toute combinaison de système de fichiers, st
 Bien que ces trois emplacements de stockage fournissent les mêmes informations de base pour les événements consignés, le **stockage table** et le **stockage blob** consignent davantage d’informations, telles que l’ID d’instance, l’ID de thread et un horodatage plus précis, que lorsque vous optez pour la journalisation dans le **système de fichiers**.
 
 > [!NOTE]
-> Les informations stockées dans le **stockage table** ou le **stockage blob** ne sont accessibles qu’à l’aide d’un client de stockage ou d’une application capable d’utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/en-us/downloads/).
+> Les informations stockées dans le **stockage table** ou le **stockage blob** ne sont accessibles qu’à l’aide d’un client de stockage ou d’une application capable d’utiliser directement ces systèmes de stockage. Par exemple, Visual Studio 2013 contient un Explorateur de stockage qui peut être utilisé pour explorer un système de stockage de tables ou d'objets blob, tandis que HDInsight peut accéder aux données stockées dans un stockage d'objets blob. Vous pouvez également écrire une application qui accède à Azure Storage en utilisant l'un des [Kits de développement logiciel (SDK) Azure](https://azure.microsoft.com/downloads/).
 >
 > [!NOTE]
 > Les diagnostics peuvent également être activés à partir du module Azure PowerShell via la cmdlet **Set-AzureWebsite** . Si vous n’avez pas installé Azure PowerShell ou si vous ne l’avez pas configuré pour utiliser votre abonnement Azure, consultez [Installer et configurer Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-5.6.0).

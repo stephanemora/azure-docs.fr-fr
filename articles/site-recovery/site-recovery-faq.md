@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: raynew
-ms.openlocfilehash: cd0af3bc9489452dfc98efaa3ded768a8ca775ab
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 71d96d7e88404c1f8b617370ef5cc841aad882f8
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079478"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390038"
 ---
 # <a name="azure-site-recovery-frequently-asked-questions-faq"></a>Azure Site Recovery : Forum Aux Questions (FAQ)
 Cet article contient les questions fréquemment posées sur Microsoft Azure Site Recovery. Si, après avoir lu cet article, vous avez des questions, posez-les sur le [forum Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
@@ -70,7 +70,7 @@ Pour protéger les machines virtuelles VMware, vous avez besoin d’un hypervise
 Oui. Lorsque vous utilisez Site Recovery pour coordonner la réplication et le basculement dans vos succursales, vous obtenez une orchestration unifiée et l’affichage de toutes les charges de travail de vos succursales dans un emplacement central. Vous pouvez facilement exécuter les basculements et gérer la récupération d’urgence de toutes les succursales à partir de votre siège social, sans vous rendre dans ces succursales.
 
 ## <a name="pricing"></a>Tarifs
-Pour toute questions relative à la tarification, consultez la FAQ sous [Tarification d'Azure Site Recovery](https://azure.microsoft.com/en-in/pricing/details/site-recovery/).
+Pour toute questions relative à la tarification, consultez la FAQ sous [Tarification d'Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
 
 ## <a name="security"></a>Sécurité
 ### <a name="is-replication-data-sent-to-the-site-recovery-service"></a>Les données de réplication sont-elles envoyées vers le service Site Recovery ?

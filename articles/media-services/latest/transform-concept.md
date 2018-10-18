@@ -4,23 +4,23 @@ description: Lorsque vous utilisez Media Services, vous devez créer une transfo
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: b755e0573098d3dbed1bea18a40af634be609f76
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: 214d4d3d11255e417f3df1e5f6e648b2a30225ea
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34272078"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377306"
 ---
 # <a name="transforms-and-jobs"></a>Transformations et travaux
 
-## <a name="overview"></a>Vue d'ensemble 
+## <a name="overview"></a>Vue d’ensemble 
 
 La dernière version de l’API REST Azure Media Services (v3) introduit une nouvelle ressource de workflow basée sur un modèle pour le codage et/ou l’analyse des vidéos, appelée **transformation**. Les **transformations** peuvent être utilisées pour configurer les tâches courantes de codage ou d’analyse des vidéos. Chaque **transformation** décrit un simple workflow de tâches pour le traitement de vos fichiers vidéo ou audio. 
 
@@ -56,7 +56,7 @@ Le tableau suivant présente les propriétés du travail ainsi que leurs défini
 |properties.description |chaîne|Description détaillée facultative du travail.|
 |properties.lastModified |chaîne|Date et heure UTC de dernière modification de la transformation, au format « AAAA-MM-JJThh:mm:ssZ ».|
 |properties.outputs |JobOutput[]:JobOutputAsset[] |Sorties du travail.|
-|properties.priority |Priority |Priorité avec laquelle le travail doit être traité. Les travaux de priorité plus élevée sont traités avant ceux de priorité plus faible. Si aucune valeur n’est définie, la priorité par défaut est « normale ».
+|properties.priority |Priorité |Priorité avec laquelle le travail doit être traité. Les travaux de priorité plus élevée sont traités avant ceux de priorité plus faible. Si aucune valeur n’est définie, la priorité par défaut est « normale ».
 |properties.state |JobState |État actuel du travail.
 |Type|chaîne|Type de la ressource.|
 
@@ -78,5 +78,4 @@ Supposons que vous souhaitez extraire la première image de toutes vos vidéos s
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Diffuser des fichiers vidéo en continu](stream-files-dotnet-quickstart.md)
+[Diffuser des fichiers vidéo en continu](stream-files-dotnet-quickstart.md)

@@ -14,21 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
 ms.author: alkohli
-ms.openlocfilehash: e6e792c31f9856bcaf1d777e534dcac8d8be3dd3
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: b1ea195ab0b06c4ca0fab37fe7e5701229b34938
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37113525"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387036"
 ---
 # <a name="use-the-new-authentication-for-your-storsimple"></a>Utiliser la nouvelle authentification pour votre StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le service StorSimple Device Manager s’exécute dans Microsoft Azure et se connecte à plusieurs appareils StorSimple. Actuellement, le service Gestionnaire de périphériques StorSimple utilise un service de contrôle d’accès (ACS) pour authentifier le service sur votre appareil StorSimple. Ce mécanisme d’ACS sera bientôt mis hors service et remplacé par une authentification Azure Active Directory (AAD). Pour plus d’informations, consultez les annonces suivantes sur la mise hors service d’ACS et l’utilisation de l’authentification AAD.
 
 - [Azure Active Directory est l’avenir d’Azure ACS](https://cloudblogs.microsoft.com/enterprisemobility/2015/02/12/the-future-of-azure-acs-is-azure-active-directory/)
-- [Modifications prochaines du service Microsoft Azure Access Control Service](https://azure.microsoft.com/en-in/blog/acs-access-control-service-namespace-creation-restriction/)
+- [Modifications prochaines du service Microsoft Azure Access Control Service](https://azure.microsoft.com/blog/acs-access-control-service-namespace-creation-restriction/)
 
 Cet article décrit en détail l’authentification AAD et la nouvelle clé d’inscription du service associé, ainsi que les modifications apportées aux règles de pare-feu applicables aux appareils StorSimple. Les informations contenues dans cet article ne s’appliquent qu’aux appareils de la gamme StorSimple 8000.
 

@@ -5,15 +5,15 @@ services: site-recovery
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: d5b3bf62999c197c437e55a66ee6ba935bdc6ea8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428528"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387240"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery 
 
@@ -143,7 +143,7 @@ Pour ajouter manuellement des machines virtuelles :
 
 **Nombre de tests de récupération d’urgence en un an** : nombre de fois où vous réalisez des tests de récupération d’urgence en une année. Par défaut, ces tests sont effectués 4 fois par an. Vous pouvez modifier la période pour les machines virtuelles spécifiques ou appliquer la nouvelle valeur à toutes les machines virtuelles. Entrez la nouvelle valeur dans la ligne du haut, puis sélectionnez **Apply to all** (Appliquer à tous). Le coût total des tests de récupération d’urgence est calculé en fonction du nombre de tests de récupération d’urgence par an et de la durée de chaque test. 
 
-**Durée de chaque test de récupération d’urgence (en jours)** : la durée de chaque test de récupération d’urgence. Par défaut, elle est de 7 jours tous les 90 jours selon l’[avantage Récupération d’urgence de la Software Assurance](https://azure.microsoft.com/en-in/pricing/details/site-recovery). Vous pouvez modifier la période pour certaines machines virtuelles spécifiques ou appliquer une nouvelle valeur à toutes les machines virtuelles. Entrez une nouvelle valeur dans la ligne du haut, puis sélectionnez **Apply to all** (Appliquer à tous). Le coût total des tests de récupération d’urgence est calculé en fonction du nombre de tests de récupération d’urgence par an et de la durée de chaque test.
+**Durée de chaque test de récupération d’urgence (en jours)** : la durée de chaque test de récupération d’urgence. Par défaut, elle est de 7 jours tous les 90 jours selon l’[avantage Récupération d’urgence de la Software Assurance](https://azure.microsoft.com/pricing/details/site-recovery). Vous pouvez modifier la période pour certaines machines virtuelles spécifiques ou appliquer une nouvelle valeur à toutes les machines virtuelles. Entrez une nouvelle valeur dans la ligne du haut, puis sélectionnez **Apply to all** (Appliquer à tous). Le coût total des tests de récupération d’urgence est calculé en fonction du nombre de tests de récupération d’urgence par an et de la durée de chaque test.
  
 **Type de système d’exploitation** : le type de système d’exploitation exécuté sur la machine virtuelle. Il peut s’agir de Windows ou de Linux. Si le système d’exploitation est de type Windows, Azure Hybrid Use Benefit peut être appliqué à cette machine virtuelle. 
 

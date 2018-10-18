@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 04/20/2018
 ms.author: kumud
 ms:custom: mvc
-ms.openlocfilehash: bc9883ee64f2d682a6b7b69bd1fb168cddd60001
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: bfd0c8a60c909076809a6a727677cdc4f10046f2
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38539989"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320424"
 ---
 # <a name="get-started"></a>Démarrage rapide : Créer un équilibreur de charge public à l’aide d’Azure PowerShell
 Ce démarrage rapide vous montre comment créer un équilibreur de charge de base à l’aide d’Azure PowerShell. Pour tester l’équilibreur de charge, vous déployez deux machines virtuelles exécutant un serveur Windows, puis vous équilibrez la charge d’une application web entre les machines virtuelles.
@@ -206,7 +206,7 @@ $nsg = New-AzureRmNetworkSecurityGroup`
 -SecurityRules $rule1,$rule2
 ```
 
-###<a name="create-nics"></a>Créer des cartes réseau
+### <a name="create-nics"></a>Créer des cartes réseau
 Créez des cartes réseau virtuelles avec [New-AzureRmNetworkInterface](/powershell/module/azurerm.network/new-azurermnetworkinterface). L’exemple suivant crée deux cartes réseau virtuelles. (Une carte d’interface réseau virtuelle pour chaque machine virtuelle que vous créez pour votre application dans les étapes suivantes). Vous pouvez créer des machines virtuelles et des cartes d’interface réseau virtuelles supplémentaires à tout moment et les ajouter à l’équilibreur de charge :
 
 ```azurepowershell-interactive
@@ -323,7 +323,7 @@ Vous pouvez alors entrer l’adresse IP publique dans un navigateur web. Le site
 Pour visualiser la distribution de trafic par l’équilibreur de charge sur les deux machines virtuelles exécutant votre application, vous pouvez forcer l’actualisation de votre navigateur web.
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, vous pouvez utiliser la commande [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources, la machine virtuelle et toutes les ressources associées.
 

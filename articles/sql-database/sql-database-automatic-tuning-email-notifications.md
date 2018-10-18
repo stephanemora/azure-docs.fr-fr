@@ -11,19 +11,19 @@ author: danimir
 ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: 86639be7c4d934929272e6d578485bfc8bfb9cc9
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/15/2018
+ms.openlocfilehash: 1177703dc67e81e537d7682dcf9bbeb475748315
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064099"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353932"
 ---
 # <a name="email-notifications-for-automatic-tuning"></a>Notifications par e-mail pour le réglage automatique
 
 Des recommandations relatives au réglage de SQL Database sont générées par le [réglage automatique](sql-database-automatic-tuning.md) Azure SQL Database. Cette solution surveille et analyse en permanence les charges de travail des bases de données SQL, et fournit pour chaque base de données des recommandations de réglage personnalisées liées à la création d’index, la suppression d’index et l’optimisation des plans d’exécution de requête.
 
-Les recommandations de réglage automatique Azure SQL Database peuvent être consultées dans le [portail Azure](sql-database-advisor-portal.md) ou récupérées avec des appels [API REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/listbydatabaseadvisor) ou à l’aide de commandes [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) et [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Cet article est basé sur l’utilisation d’un script PowerShell pour récupérer les recommandations de réglage automatique.
+Les recommandations de réglage automatique Azure SQL Database peuvent être consultées dans le [portail Azure](sql-database-advisor-portal.md) ou récupérées avec des appels [API REST](https://docs.microsoft.com/rest/api/sql/databaserecommendedactions/databaserecommendedactions_listbydatabaseadvisor) ou à l’aide de commandes [T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/) et [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/get-azurermsqldatabaserecommendedaction). Cet article est basé sur l’utilisation d’un script PowerShell pour récupérer les recommandations de réglage automatique.
 
 ## <a name="automate-email-notifications-for-automatic-tuning-recommendations"></a>Automatiser les notifications par e-mail pour les recommandations de réglage automatique
 
@@ -99,7 +99,7 @@ Si vous avez plusieurs abonnements, vous pouvez les ajouter en les séparant par
 #
 # Microsoft Azure SQL Database team, 2018-01-22.
 
-# Set subscriptions : IMPORTANT – REPLACE <SUBSCRIPTION_ID_WITH_DATABASES> WITH YOUR SUBSCRIPTION ID 
+# Set subscriptions : IMPORTANT – REPLACE <SUBSCRIPTION_ID_WITH_DATABASES> WITH YOUR SUBSCRIPTION ID
 $subscriptions = ("<SUBSCRIPTION_ID_WITH_DATABASES>", "<SECOND_SUBSCRIPTION_ID_WITH_DATABASES>", "<THIRD_SUBSCRIPTION_ID_WITH_DATABASES>")
 
 # Get credentials
@@ -112,8 +112,8 @@ $advisors = ("CreateIndex", "DropIndex");
 $results = @()
 
 # Loop through all subscriptions
-foreach($subscriptionId in $subscriptions) {    
-    Select-AzureRmSubscription -SubscriptionId $subscriptionId    
+foreach($subscriptionId in $subscriptions) {
+    Select-AzureRmSubscription -SubscriptionId $subscriptionId
     $rgs = Get-AzureRmResourceGroup
 
     # Loop through all resource groups
@@ -122,7 +122,7 @@ foreach($subscriptionId in $subscriptions) {
 
         # Loop through all resource types
         foreach($resourceType in $resourceTypes) {
-            $resources = Get-AzureRmResource -ResourceGroupName $rgname -ResourceType $resourceType    
+            $resources = Get-AzureRmResource -ResourceGroupName $rgname -ResourceType $resourceType
 
             # Loop through all databases
             # Extract resource groups, servers and databases
@@ -141,7 +141,7 @@ foreach($subscriptionId in $subscriptions) {
                 if ($resourceId -match ".*/DATABASES/(?<content>.*)") {
                     $DatabaseName = $matches['content']
                 } else {
-                    continue 
+                    continue
                 }
 
                 # Skip if master
@@ -163,7 +163,7 @@ foreach($subscriptionId in $subscriptions) {
                             $results += $object
                         }
                     }
-                }                
+                }
             }
         }
     }
@@ -174,7 +174,7 @@ $table = $results | Format-List
 Write-Output $table
 ```
 
-Cliquez sur le bouton « **Enregistrer** » dans le coin supérieur droit pour enregistrer le script. Une fois satisfait du script, cliquez sur le bouton « **Publier** » pour publier ce runbook. 
+Cliquez sur le bouton « **Enregistrer** » dans le coin supérieur droit pour enregistrer le script. Une fois satisfait du script, cliquez sur le bouton « **Publier** » pour publier ce runbook.
 
 Dans le volet principal du runbook, vous pouvez cliquer sur le bouton « **Démarrer** » pour **tester** le script. Cliquez sur « **Sortie** » pour afficher les résultats du script exécuté. Cette sortie sera le contenu de votre e-mail. L’exemple de sortie du script est visible dans la capture d’écran suivante.
 
@@ -186,7 +186,7 @@ Avec les étapes ci-dessus, le script PowerShell pour récupérer les recommanda
 
 ## <a name="automate-the-email-jobs-with-microsoft-flow"></a>Automatiser les tâches de messagerie avec Microsoft Flow
 
-Pour terminer la solution, la dernière étape consiste à créer un flux d’automation dans Microsoft Flow composé de trois actions (tâches) : 
+Pour terminer la solution, la dernière étape consiste à créer un flux d’automation dans Microsoft Flow composé de trois actions (tâches) :
 
 1. «**Azure Automation - Créer une tâche** » : sert à exécuter le script PowerShell pour récupérer les recommandations de réglage automatique à l’intérieur du runbook Azure Automation.
 2. « **Azure Automation - Obtenir la sortie de tâche** » : sert à récupérer la sortie à partir du script PowerShell exécuté.
@@ -205,25 +205,28 @@ Les prérequis pour cette étape consistent à créer un compte [Microsoft Flow]
 L’étape suivante consiste à ajouter trois tâches (créer, obtenir la sortie et envoyer un e-mail) au flux récurrent nouvellement créé. Pour ajouter les tâches requises au flux, effectuez les étapes suivantes :
 
 1. Créez une action pour exécuter le script PowerShell afin de récupérer les recommandations de réglage.
-- Sélectionnez « **+ Nouvelle étape** », suivi de « **Ajouter une action** » dans le volet de flux Récurrence.
-- Dans le champ de recherche, tapez « **automation** » et sélectionnez « **Azure Automation - Créer une tâche** » dans les résultats de recherche.
-- Dans le volet Créer une tâche, configurez les propriétés de la tâche. Pour cette configuration, vous aurez besoin des détails de votre ID d’abonnement Azure, groupe de ressources et compte Automation **notés précédemment** dans le **volet Compte Automation**. Pour en savoir plus sur les options disponibles dans cette section, consultez [Azure Automation - Créer une tâche](https://docs.microsoft.com/connectors/azureautomation/#create-job).
-- Terminez la création de cette action en cliquant sur « **Enregistrer le flux** ».
+
+   - Sélectionnez « **+ Nouvelle étape** », suivi de « **Ajouter une action** » dans le volet de flux Récurrence.
+   - Dans le champ de recherche, tapez « **automation** » et sélectionnez « **Azure Automation - Créer une tâche** » dans les résultats de recherche.
+   - Dans le volet Créer une tâche, configurez les propriétés de la tâche. Pour cette configuration, vous aurez besoin des détails de votre ID d’abonnement Azure, groupe de ressources et compte Automation **notés précédemment** dans le **volet Compte Automation**. Pour en savoir plus sur les options disponibles dans cette section, consultez [Azure Automation - Créer une tâche](https://docs.microsoft.com/connectors/azureautomation/#create-job).
+   - Terminez la création de cette action en cliquant sur « **Enregistrer le flux** ».
 
 2. Créez une action pour récupérer la sortie du script PowerShell exécuté.
-- Sélectionnez « **+ Nouvelle étape** », suivi de « **Ajouter une action** » dans le volet de flux Récurrence.
-- Dans le champ de recherche, tapez « **automation** » et sélectionnez « **Azure Automation - Obtenir la sortie de la tâche** » dans les résultats de recherche. Pour en savoir plus sur les options disponibles dans cette section, consultez [Azure Automation - Obtenir la sortie de la tâche](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
-- Renseignez les champs requis (comme lors de la création de la tâche précédente). Renseignez votre ID d’abonnement Azure, groupe de ressources et compte Automation (tels qu’ils figurent dans le volet Compte Automation).
-- Cliquez dans le champ « **ID de tâche** » pour afficher le menu « **Contenu dynamique** ». Dans ce menu, sélectionnez l’option « **ID de tâche** ».
-- Terminez la création de cette action en cliquant sur « **Enregistrer le flux** ».
+
+   - Sélectionnez « **+ Nouvelle étape** », suivi de « **Ajouter une action** » dans le volet de flux Récurrence.
+   - Dans le champ de recherche, tapez « **automation** » et sélectionnez « **Azure Automation - Obtenir la sortie de la tâche** » dans les résultats de recherche. Pour en savoir plus sur les options disponibles dans cette section, consultez [Azure Automation - Obtenir la sortie de la tâche](https://docs.microsoft.com/connectors/azureautomation/#get-job-output).
+   - Renseignez les champs requis (comme lors de la création de la tâche précédente). Renseignez votre ID d’abonnement Azure, groupe de ressources et compte Automation (tels qu’ils figurent dans le volet Compte Automation).
+   - Cliquez dans le champ « **ID de tâche** » pour afficher le menu « **Contenu dynamique** ». Dans ce menu, sélectionnez l’option « **ID de tâche** ».
+   - Terminez la création de cette action en cliquant sur « **Enregistrer le flux** ».
 
 3. Créez une action pour envoyer un e-mail à l’aide de l’intégration d’Office 365
-- Sélectionnez « **+ Nouvelle étape** », suivi de « **Ajouter une action** » dans le volet de flux Récurrence.
-- Dans le champ de recherche, tapez « **Envoyer un message électronique** » et sélectionnez « **Outlook Office 365 - Envoyer un message électronique** » dans les résultats de recherche.
-- Dans le champ « **À** », tapez l’adresse e-mail à laquelle vous devez envoyer l’e-mail de notification.
-- Dans le champ « **Objet** », tapez l’objet de votre e-mail, par exemple « Notification par e-mail concernant les recommandations de réglage automatique ».
-- Cliquez dans le champ « **Corps** » pour afficher le menu « **Contenu dynamique** ». Dans ce menu, sous « **Obtenir la sortie de la tâche** », sélectionnez « **Contenu** ». 
-- Terminez la création de cette action en cliquant sur « **Enregistrer le flux** ».
+
+   - Sélectionnez « **+ Nouvelle étape** », suivi de « **Ajouter une action** » dans le volet de flux Récurrence.
+   - Dans le champ de recherche, tapez « **Envoyer un message électronique** » et sélectionnez « **Outlook Office 365 - Envoyer un message électronique** » dans les résultats de recherche.
+   - Dans le champ « **À** », tapez l’adresse e-mail à laquelle vous devez envoyer l’e-mail de notification.
+   - Dans le champ « **Objet** », tapez l’objet de votre e-mail, par exemple « Notification par e-mail concernant les recommandations de réglage automatique ».
+   - Cliquez dans le champ « **Corps** » pour afficher le menu « **Contenu dynamique** ». Dans ce menu, sous « **Obtenir la sortie de la tâche** », sélectionnez « **Contenu** ».
+   - Terminez la création de cette action en cliquant sur « **Enregistrer le flux** ».
 
 > [!TIP]
 > Pour envoyer des e-mails automatiques à plusieurs destinataires, créez des flux distincts. Dans ces flux supplémentaires, changez l’adresse e-mail du destinataire dans le champ « À » et la ligne objet de l’e-mail dans le champ « Objet ». La création de runbooks dans Azure Automation avec des scripts PowerShell personnalisés (par exemple avec changement de l’ID d’abonnement Azure) permet de personnaliser encore davantage les scénarios automatisés, par exemple en envoyant des e-mails de recommandations de réglage automatisé à des destinataires distincts pour des abonnements distincts.
@@ -247,7 +250,7 @@ La version finale de l’e-mail automatisé ressemble à l’e-mail suivant reç
 
 En ajustant le script PowerShell, vous pouvez personnaliser la sortie et la mise en forme de l’e-mail automatisé en fonction de vos besoins.
 
-Vous pouvez personnaliser davantage la solution pour générer des notifications par e-mail basées sur un événement de réglage spécifique, envoyées à plusieurs destinataires, pour plusieurs bases de données ou abonnements, en fonction de vos scénarios personnalisés. 
+Vous pouvez personnaliser davantage la solution pour générer des notifications par e-mail basées sur un événement de réglage spécifique, envoyées à plusieurs destinataires, pour plusieurs bases de données ou abonnements, en fonction de vos scénarios personnalisés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

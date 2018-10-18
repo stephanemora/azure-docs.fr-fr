@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 034731ac2c965d6b9b682c62b9866870e558ff6d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c3354786d7320caee0dfe2f0eca44909d77f2fe
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964665"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386849"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Démarrage rapide : créer un compte de stockage Azure Data Lake Storage Gen2 (Préversion)
 
@@ -224,4 +224,4 @@ az group delete --name myResourceGroup
 
 Dans ce guide de démarrage rapide, vous avez créé un compte de stockage Data Lake Storage Gen2. Pour savoir comment charger et télécharger des objets blob vers/à partir de votre compte de stockage, passez au guide de démarrage rapide du stockage Blob.
 
-* [Déplacer des données vers et depuis Stockage Blob Azure à l’aide d’AzCopy](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)
+* [Déplacer des données vers et depuis Stockage Blob Azure à l’aide d’AzCopy](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

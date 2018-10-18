@@ -3,8 +3,8 @@ title: Didacticiel - Configurer HTTPS sur un domaine personnalisé Azure CDN | M
 description: Dans ce didacticiel, vous allez apprendre à activer et désactiver HTTPS sur votre domaine personnalisé de point de terminaison Microsoft Azure CDN.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 10337468-7015-4598-9586-0b66591d939b
 ms.service: cdn
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/29/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5d13c565302ae16b6fb2894f6a5a3843f47f9547
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c7540ed2715d13921f005ed9b217f7bfb9cd0a0a
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342223"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092081"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Tutoriel : Configurer HTTPS sur un domaine personnalisé Azure CDN
 
@@ -41,7 +41,7 @@ Voici quelques-uns des attributs clés de la fonctionnalité HTTPS personnalisé
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
-> - activer le protocole HTTPS sur votre domaine personnalisé ;
+> - Activer le protocole HTTPS sur votre domaine personnalisé.
 > - utiliser un certificat géré par le CDN ; 
 > - utiliser votre propre certificat ;
 > - Valider le domaine
@@ -321,9 +321,9 @@ Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > - Activer le protocole HTTPS sur votre domaine personnalisé.
-> - Utiliser un certificat géré par le CDN. 
-> - Utiliser votre propre certificat.
-> - Valider le domaine.
+> - utiliser un certificat géré par le CDN ; 
+> - utiliser votre propre certificat ;
+> - valider le domaine ;
 > - Désactiver le protocole HTTPS sur votre domaine personnalisé.
 
 Passez au tutoriel suivant pour apprendre à configurer HTTPS sur votre point de terminaison CDN.

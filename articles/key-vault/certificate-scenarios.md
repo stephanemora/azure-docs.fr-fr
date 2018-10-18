@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: d5cc634451c5412f9a3339c8d2d26654c4d5c1b8
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 60920aaa62d8472eaca8f929c62ce1c0af08f9a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298911"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385632"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Prise en main des certificats Key Vault
 Les scénarios suivants décrivent plusieurs utilisations principales du service de gestion des certificats Key Vault, notamment les étapes supplémentaires requises pour créer votre premier certificat dans le coffre de clés.
@@ -83,7 +83,7 @@ Remarque : cette procédure (jusqu’à la fin de l’étape 3.1) est une opéra
       -   Informations de renouvellement - > par exemple 90 jours avant l’expiration  
 
   - La création de certificat est généralement un processus asynchrone. Elle implique l’interrogation de votre coffre de clés pour connaître l’état de l’opération de création d’un certificat.  
-[Opération d’obtention du certificat](https://docs.microsoft.com/en-us/rest/api/keyvault/getcertificateoperation)  
+[Opération d’obtention du certificat](https://docs.microsoft.com/rest/api/keyvault/getcertificateoperation)  
       -   État : terminé, en échec avec informations sur l’erreur ou annulé.  
       -   Une opération d’annulation peut être lancée en raison du délai de création. L’annulation peut ou non être effective.  
 

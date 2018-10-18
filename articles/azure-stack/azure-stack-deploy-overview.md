@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/04/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.custom: mvc
-ms.openlocfilehash: a0e742ab3ac43cc7977761dd94c9689e3a7c2e0b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: bf07fe56c65e53f5485b9927e0d704f80842cf3a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235183"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338696"
 ---
 # <a name="quickstart-evaluate-the-azure-stack-development-kit"></a>Démarrage rapide : évaluer le Kit de développement Azure Stack
 
@@ -66,7 +66,7 @@ Une fois que l’ordinateur hôte démarre sur le disque dur virtuel, vous pouve
 
 Après avoir installé le Kit de développement Azure Stack, nous vous recommandons d’effectuer quelques vérifications post-installation et des modifications de configuration.
 
-**Outils**
+**outils**
 
 Installez les outils Azure Stack PowerShell et GitHub, et vérifiez le succès de votre installation à l’aide de la cmdlet test-AzureStack.
 
@@ -91,4 +91,4 @@ Vous devez inscrire Azure Stack auprès d’Azure pour pouvoir ensuite [téléch
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Félicitations ! En effectuant les étapes décrites dans ce démarrage rapide, vous obtenez un environnement ASDK avec un portail d’[administrateur](https://adminportal.local.azurestack.external) et un portail d’[utilisateur](https://portal.local.azurestack.external).
+Félicitations ! En effectuant les étapes décrites dans ce démarrage rapide, vous obtenez un environnement ASDK avec un portail d’[administrateur](https://adminportal.local.azurestack.external) et un portail d’[utilisateur](https://portal.local.azurestack.external).

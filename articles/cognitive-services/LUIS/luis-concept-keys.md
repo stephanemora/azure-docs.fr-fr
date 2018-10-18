@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a4bd20f9f8a6a8317e161b1d84e948391cd08140
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d0e7c3f7aeb42fd1525519b7908b1be6fc48aa65
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034924"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362515"
 ---
 # <a name="keys-in-luis"></a>Clés dans LUIS
 LUIS utilise deux clés : [création](#programmatic-key) et [point de terminaison](#endpoint-key). La clé de création est générée automatiquement lorsque vous créez votre compte LUIS. Lorsque vous êtes prêt à publier votre application LUIS, vous devez [créer la clé de point de terminaison](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [l’affecter](luis-how-to-manage-keys.md#assign-endpoint-key) à votre application LUIS et [l’utiliser avec la requête de point de terminaison](#use-endpoint-key-in-query). 
@@ -60,7 +60,7 @@ Le point de terminaison LUIS accepte deux styles de requêtes, les deux utilisan
 |[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>valeur de chaîne de requête pour `subscription-key`<br><br>Modifiez la valeur de requête de votre point de terminaison de la `subscription-key` de la clé de création (démarrage) à la nouvelle clé du point de terminaison afin d’utiliser le quota de clé de terminaison de LUIS. Si vous créez la clé et si vous l’affectez, mais que vous ne modifiez pas la valeur de requête de point de terminaison pour subscription-key, vous n’utilisez pas votre quota de clé de point de terminaison.|
 |[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> valeur de l’en-tête pour `Ocp-Apim-Subscription-Key`<br><br>Modifiez la valeur de requête de votre point de terminaison de la `Ocp-Apim-Subscription-Key` de la clé de création (démarrage) à la nouvelle clé du point de terminaison afin d’utiliser le quota de clé de terminaison de LUIS. Si vous créez la clé et si vous l’affectez, mais que vous ne modifiez pas la valeur de requête de point de terminaison pour `Ocp-Apim-Subscription-Key`, vous n’utilisez pas votre quota de clé de point de terminaison.|
 
-L’ID d’application utilisé dans les URL précédentes, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, est l’application IoT publique utilisée pour la [démonstration interactive](https://azure.microsoft.com/en-us/services/cognitive-services/language-understanding-intelligent-service/). 
+L’ID d’application utilisé dans les URL précédentes, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, est l’application IoT publique utilisée pour la [démonstration interactive](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 
 
 ## <a name="api-usage-of-ocp-apim-subscription-key"></a>Utilisation de l’API par Ocp-Apim-Subscription-Key
 Les API LUIS utilisent l’en-tête, `Ocp-Apim-Subscription-Key`. Le nom de l’en-tête ne change pas en fonction de la clé et de l’ensemble d’API que vous utilisez. Définissez l’en-tête sur la clé de création pour les API de création. Si vous utilisez le point de terminaison, définissez l’en-tête sur la clé du point de terminaison. 

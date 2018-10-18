@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 05/14/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: hector.linares
-ms.openlocfilehash: 734ee0e6ffb0dab660a2b63b431780208e0e0484
-ms.sourcegitcommit: d78bcecd983ca2a7473fff23371c8cfed0d89627
+ms.openlocfilehash: 3c27aecf18fcb5e14347d8f02d71891b351292be
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/14/2018
-ms.locfileid: "34165262"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341835"
 ---
 # <a name="protect-virtual-machines-deployed-on-azure-stack"></a>Protéger des machines virtuelles déployées sur Azure Stack
 
@@ -98,7 +98,7 @@ Considérations importantes à prendre en compte pour la sauvegarde de machines 
     - Tenez compte des sauvegardes échelonnées lorsque vous intégrez un grand nombre de nouvelles machines virtuelles (si la sauvegarde est requise).
     - Évaluez les produits de sauvegarde qui peuvent capturer et transmettre des données de sauvegarde de manière efficace pour réduire le contenu de la ressource sur la solution.
     - Évaluez les produits de sauvegarde qui stockent de manière efficace les données de sauvegarde à l’aide de sauvegardes incrémentielles ou différentielles pour réduire le besoin de sauvegardes complètes sur toutes les machines virtuelles de l’environnement.
- - **Restore**
+ - **Restauration**
     - Les produits de sauvegarde peuvent restaurer des disques virtuels, des données d’application dans une machine virtuelle existante, ou la ressource de machine virtuelle entière et les disques virtuels associés. Le choix du schéma de restauration dépend du type de restauration envisagé pour l’application ; il aura un impact sur le temps de récupération de l’application. Par exemple, il peut être plus facile de redéployer un serveur SQL à partir d’un modèle, puis de restaurer les bases de données au lieu de restaurer la machine virtuelle entière ou un ensemble de machines virtuelles.
 
 ### <a name="replicationmanual-failover"></a>Réplication/basculement manuel

@@ -9,12 +9,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 85b4630492d5f5b3fb71d563b0947d8a72ae4e1d
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 99f9259c9fa73a9ba4842b2684cde8a44f73145a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886531"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389664"
 ---
 # <a name="quickstart-create-train-and-publish-your-knowledge-base"></a>Démarrage rapide : Créer, entraîner et publier votre base de connaissances
 
@@ -41,7 +41,7 @@ Vous pouvez créer une base de connaissances QnA Maker à partir de votre propre
 
 5. À l’étape 3, nommez votre base de connaissances **Mon exemple de base de connaissances QnA**.
 
-6. Pour ajouter du contenu à votre base de connaissances, sélectionnez trois types de sources de données. À l’étape 4, sous **Populate your KB** (Remplissez votre base de connaissances), ajoutez l’URL de [FAQ sur la récupération BitLocker](https://docs.microsoft.com/en-us/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) dans la zone **URL**.
+6. Pour ajouter du contenu à votre base de connaissances, sélectionnez trois types de sources de données. À l’étape 4, sous **Populate your KB** (Remplissez votre base de connaissances), ajoutez l’URL de [FAQ sur la récupération BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview-and-requirements-faq) dans la zone **URL**.
 
    ![Sélectionner une base de connaissances de service QnA](../media/qnamaker-quickstart-kb/add-datasources.png)
 

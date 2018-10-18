@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 03/26/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 72f320279d23dc701f045ee6db1681a355f98808
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 4964b6d531d777ea5080e51fbff5a589efd5249d
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022284"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386866"
 ---
 # <a name="managing-azure-file-shares-with-azure-powershell"></a>Gestion des partages de fichiers Azure avec Azure PowerShell 
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Les partages de fichiers Azure peuvent être montés dans Windows, Linux et macOS. Ce guide vous explique les bases de l’utilisation du partage de fichiers avec PowerShell. Dans cet article, vous apprendrez comment :
@@ -165,7 +165,7 @@ Bien que la cmdlet `Start-AzureStorageFileCopy` soit pratique pour déplacer des
 
 ## <a name="create-and-modify-share-snapshots"></a>Créer et modifier des instantanés de partage
 Avec un partage de fichiers Azure, vous pouvez aussi créer des instantanés de partage. Un instantané conserve un point dans le temps pour un partage de fichiers Azure. Les instantanés de partage sont similaires aux technologies de systèmes d’exploitation que vous connaissez peut-être déjà comme :
-- Le [service VSS](https://docs.microsoft.com/en-us/windows/desktop/VSS/volume-shadow-copy-service-portal) pour les systèmes de fichiers Windows comme NTFS et ReFS
+- Le [service VSS](https://docs.microsoft.com/windows/desktop/VSS/volume-shadow-copy-service-portal) pour les systèmes de fichiers Windows comme NTFS et ReFS
 - Les instantanés du [Gestionnaire de Volume logique (LVM)](https://en.wikipedia.org/wiki/Logical_Volume_Manager_(Linux)#Basic_functionality) pour les systèmes Linux
 - Les instantanés du [système de fichiers Apple (APFS)](https://developer.apple.com/library/content/documentation/FileManagement/Conceptual/APFS_Guide/Features/Features.html) pour macOS. 
 
@@ -216,7 +216,7 @@ Pour supprimer un instantané de partage, exécutez la cmdlet [Remove-AzureStora
 Remove-AzureStorageShare -Share $snapshot
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Lorsque vous avez terminé, vous pouvez utiliser la cmdlet [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) pour supprimer le groupe de ressources et toutes les ressources associées. 
 
 ```azurepowershell-interactive

@@ -4,8 +4,8 @@ description: Explorer des données et générer des fonctionnalités dans une ma
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
-editor: ''
+manager: cgronlun
+editor: cgronlun
 ms.assetid: 3949fb2c-ffab-49fb-908d-27d5e42f743b
 ms.service: machine-learning
 ms.component: team-data-science-process
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2017
 ms.author: deguhath
-ms.openlocfilehash: 39bdbce4ada225c0fa7df8559f68b591ccfc68b7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 350e634ce87e2f61352beb194b4468828aea60c6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838654"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394950"
 ---
 # <a name="heading"></a>Traitement des données d’une machine virtuelle SQL Server sur Azure
 Ce document décrit l'exploration des données et la génération de fonctionnalités pour les données stockées dans une machine virtuelle SQL Server sur Azure. Cela est possible avec le retraitement des données à l'aide de SQL ou en utilisant un langage de programmation comme Python.

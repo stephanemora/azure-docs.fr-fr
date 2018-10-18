@@ -4,7 +4,7 @@ description: Création d’une table SQL et chargement de données dans une tab
 services: machine-learning
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 50f8b862-4d32-44b2-a1e2-4fbc8024acaa
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: f9e456ec28695c63384f1c4fdd4b04ec37fefc14
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 99141b7542cc9adadadda6ada670b644d3aba5f3
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45728809"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393641"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Déplacement de données vers une base de données SQL Azure pour Azure Machine Learning
 Cette rubrique présente les options de déplacement des données à partir de fichiers plats (formats CSV ou TSV) ou de données stockées sur un ordinateur SQL Server local vers une base de données Azure SQL. Ces tâches permettant de déplacer des données vers le cloud font partie du processus TDSP (Team Data Science Process).
@@ -36,7 +36,7 @@ Le tableau suivant récapitule les options de déplacement de données vers une 
 | <b>SOURCE</b> | <b>DESTINATION : base de données SQL Azure</b> |
 | --- | --- |
 | <b>Fichier plat (mise en forme CSV ou TSV)</b> |[Requête SQL Bulk Insert](#bulk-insert-sql-query) |
-| <b>Serveur SQL Server local</b> |1.[Exporter dans un fichier plat](#export-flat-file)<br> 2. [Assistant Migration de la base de données SQL](#insert-tables-bcp)<br> 3. [Sauvegarde et restauration de base de données](#db-migration)<br> 4. [Azure Data Factory](#adf) |
+| <b>Serveur SQL Server local</b> |1.[Exporter dans un fichier plat](#export-flat-file)<br> 2. [Assistant Migration de la base de données SQL](#insert-tables-bcp)<br> 3. [Sauvegarde et restauration de base de données](#db-migration)<br> 4. [Azure Data Factory](#adf) |
 
 ## <a name="prereqs"></a>Configuration requise
 Les procédures décrites ici nécessitent :

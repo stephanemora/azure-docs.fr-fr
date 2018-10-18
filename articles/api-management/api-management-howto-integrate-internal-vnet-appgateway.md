@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: sasolank
-ms.openlocfilehash: ce4fd27c89f529b9c12999689152c3025648d2ce
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c85aa2f7a41511d809405f3b92c9ded2eb0693ad
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038129"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319861"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>Intégrer le service Gestion des API dans un réseau virtuel interne avec Application Gateway
 
-##<a name="overview"></a> Vue d'ensemble
+## <a name="overview"></a> Vue d'ensemble
 
 Le service Gestion des API peut être configuré dans un réseau virtuel en mode interne, ce qui le rend uniquement accessible à partir du réseau virtuel. Azure Application Gateway est un service PAAS qui propose un équilibreur de charge de couche 7. Il agit comme un service proxy inverse et fournit dans son offre un pare-feu d’applications web (WAF).
 
@@ -43,7 +43,7 @@ Pour suivre les étapes décrites dans cet article, vous devez disposer des él�
 
 * Des certificats : pfx et cer pour le nom d’hôte de l’API, et pfx pour le nom d’hôte du portail des développeurs.
 
-##<a name="scenario"></a> Scénario
+## <a name="scenario"></a> Scénario
 
 Dans cet article, nous allons étudier comment utiliser un seul et même service Gestion des API pour les consommateurs internes et externes, et l’utiliser comme serveur frontal sur les API locales et cloud. Vous allez également voir comment exposer uniquement un sous-ensemble de vos API (dans cet exemple, elles sont mises en surbrillance en vert) pour une consommation externe, à l’aide de la fonctionnalité disponible dans Application Gateway.
 
@@ -349,7 +349,7 @@ Le nom DNS de la passerelle Application Gateway doit être utilisé pour créer 
 Get-AzureRmPublicIpAddress -ResourceGroupName $resGroupName -Name "publicIP01"
 ```
 
-##<a name="summary"></a> Résumé
+## <a name="summary"></a> Résumé
 Le service Gestion des API Azure configuré dans un réseau virtuel fournit une interface de passerelle unique pour l’ensemble des API configurées, qu’elles soient hébergées en local ou dans le cloud. L’intégration d’Application Gateway au service Gestion des API vous permet d’activer facilement l’accessibilité d’API particulières sur Internet, tout en fournissant un pare-feu d’applications web en tant que pare-feu frontal pour votre instance de service Gestion des API.
 
 ##<a name="next-steps"></a>Étapes suivantes

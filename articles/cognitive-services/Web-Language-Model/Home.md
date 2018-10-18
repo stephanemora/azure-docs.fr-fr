@@ -11,17 +11,17 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: f6cfaa05a6107d3e1ef689103da43960ea4df366
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 79b126fc33175b7cd6df96ab07cd7b726d6065a7
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48039989"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389936"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Qu’est-ce que l’API Modèle de langage web ? (Préversion)
 
 > [!IMPORTANT]
-> La préversion de Web Language Model a été désactivée le 9 août 2018. Nous vous recommandons d’utiliser les [modules d’analyse de texte Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/studio-module-reference/text-analytics) pour le traitement et l’analyse de texte.
+> La préversion de Web Language Model a été désactivée le 9 août 2018. Nous vous recommandons d’utiliser les [modules d’analyse de texte Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) pour le traitement et l’analyse de texte.
 
 L’API Web Language Model de Microsoft est un service cloud basé sur REST, fournissant des outils de pointe pour le traitement en langage naturel. À l’aide de cette API, votre application peut tirer parti de la puissance de Big Data par le biais de modèles de langage entraînés sur les corpus issus du web et collectés par Bing sur le marché en-US.
 

@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: diberry
-ms.openlocfilehash: 4df7ad95891a07cd4a01589651f441189dad136b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 2646cc39197145e797f61d0c2d9e6d944ed19351
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887068"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388457"
 ---
 # <a name="create-a-new-knowledge-base-in-python"></a>Créer une base de connaissances dans Python
 
@@ -33,7 +33,7 @@ Vous devez avoir un [compte d’API Cognitive Services](https://docs.microsoft.c
 
 ![Clé de service du tableau de bord Azure](../media/sub-key.png)
 
-Pour obtenir de l’aide supplémentaire avec Visual Studio et Python : [Utiliser Python dans Visual Studio sur Windows](https://docs.microsoft.com/en-us/visualstudio/python/overview-of-python-tools-for-visual-studio).
+Pour obtenir de l’aide supplémentaire avec Visual Studio et Python : [Utiliser Python dans Visual Studio sur Windows](https://docs.microsoft.com/visualstudio/python/overview-of-python-tools-for-visual-studio).
 
 ## <a name="create-knowledge-base"></a>Créer une base de connaissances
 
@@ -137,8 +137,8 @@ req = {
     }
   ],
   "urls": [
-    "https://docs.microsoft.com/en-in/azure/cognitive-services/qnamaker/faqs",
-    "https://docs.microsoft.com/en-us/bot-framework/resources-bot-framework-faq"
+    "https://docs.microsoft.com/azure/cognitive-services/qnamaker/faqs",
+    "https://docs.microsoft.com/bot-framework/resources-bot-framework-faq"
   ],
   "files": []
 }

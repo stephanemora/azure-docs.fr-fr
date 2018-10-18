@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: acac0a866d1f494830be45c23ebca6844431c9de
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 97ac49ff5cc50621fd902f77c2543a428c7e8bae
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40225358"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384750"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurer BFD sur ExpressRoute
 
@@ -78,7 +78,7 @@ Entre les pairs BFD, le plus lent des deux pairs détermine la vitesse de transm
 Pour plus d’informations ou d'aide, consultez les liens suivants :
 
 - [Création et modification d’un circuit ExpressRoute][CreateCircuit]
-- [Créer et modifier le routage d’un circuit ExpressRoute][CreatePeering]
+- [Créer et modifier le routage le routage pour un circuit ExpressRoute][CreatePeering]
 
 <!--Image References-->
 [1]: ./media/expressroute-bfd/BFD_Need.png "BFD accélère les temps de détection des défaillances des liaisons"
@@ -86,7 +86,7 @@ Pour plus d’informations ou d'aide, consultez les liens suivants :
 <!--Link References-->
 [CreateCircuit]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager 
 [CreatePeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-routing-portal-resource-manager
-[ResetPeering]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-howto-reset-peering
+[ResetPeering]: https://docs.microsoft.com/azure/expressroute/expressroute-howto-reset-peering
 
 
 

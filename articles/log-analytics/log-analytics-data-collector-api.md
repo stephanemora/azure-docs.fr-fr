@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 297ba626d8b80d9362476ca4578e34140df5f91a
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: f0a982e8a0cb358e29375e05c1752a33b15ec255
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248651"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319708"
 ---
 # <a name="send-data-to-log-analytics-with-the-http-data-collector-api-public-preview"></a>Transmettre des données à Log Analytics avec l’API Collecteur de données HTTP (préversion publique)
 Cet article vous montre comment utiliser l’API Collecte de données HTTP pour transmettre des données à Log Analytics à partir d’un client API REST.  Il explique comment mettre en forme les données collectées par le script ou l’application, les inclure dans une requête et faire en sorte que Log Analytics autorise cette requête.  Il est illustré par des exemples pour PowerShell, C# et Python.
@@ -101,7 +101,7 @@ Les exemples fournis dans les sections suivantes comportent un exemple de code p
 ## <a name="request-body"></a>Corps de la demande
 Le corps du message doit être au format JSON. Il doit inclure un ou plusieurs enregistrements avec les paires nom de propriété/valeur au format suivant :
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -114,7 +114,7 @@ Le corps du message doit être au format JSON. Il doit inclure un ou plusieurs e
 
 Vous pouvez regrouper plusieurs enregistrements par lot dans une seule requête en utilisant le format suivant. Tous les enregistrements doivent être du même type.
 
-```
+```json
 [
     {
         "property 1": "value1",
@@ -218,7 +218,7 @@ Pour chaque exemple, procédez comme suit pour définir les variables de l’en-
 Vous pouvez également modifier les variables pour le type de journal et les données JSON.
 
 ### <a name="powershell-sample"></a>Exemple de code PowerShell
-```
+```powershell
 # Replace with your Workspace ID
 $CustomerId = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  
 
@@ -301,7 +301,7 @@ Post-LogAnalyticsData -customerId $customerId -sharedKey $sharedKey -body ([Syst
 ```
 
 ### <a name="c-sample"></a>Exemple de code C#
-```
+```csharp
 using System;
 using System.Net;
 using System.Net.Http;
@@ -387,7 +387,7 @@ namespace OIAPIExample
 ```
 
 ### <a name="python-2-sample"></a>Exemple de Python 2
-```
+```python
 import json
 import requests
 import datetime

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 0addad1db4d9f897736a7793c5489897bca2cd38
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 32174af9edcd6da7b87b6b38c0824fa7f07aa8f9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093424"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384885"
 ---
 # <a name="security-services-and-technologies-available-on-azure"></a>Services et technologies de sécurité disponibles sur Azure
 
@@ -33,7 +33,7 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 |de diffusion en continu|Description|
 |--------|--------|
 |[Azure&nbsp;Security&nbsp;Center](../security-center/security-center-intro.md)| Solution de protection des charges de travail cloud qui fournit une gestion de la sécurité et une protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides.|
-|[Azure Key Vault](../key-vault/key-vault-overview.md)| Magasin de secrets sécurisé pour les mots de passe, les chaînes de connexion et d’autres informations dont vous avez besoin pour que vos applications continuent de fonctionner. |
+|[Azure Key Vault](../key-vault/key-vault-overview.md)| Magasin de secrets sécurisé pour les mots de passe, les chaînes de connexion et d’autres informations dont vous avez besoin pour que vos applications continuent de fonctionner. |
 |[Log Analytics](../log-analytics/log-analytics-overview.md)|Service de surveillance qui collecte des données de télémétrie et d’autres données, et qui fournit un langage de requête et un moteur analytique permettant d’obtenir des insights sur le fonctionnement de vos applications et de vos ressources. Peut être utilisé seul ou avec d’autres services, comme Security Center. |
 |[Dev/Test Labs Azure](../devtest-lab/devtest-lab-overview.md)|Service permettant aux développeurs et aux testeurs de créer rapidement des environnements dans Azure, tout en réduisant le temps perdu et les coûts.  |
 
@@ -48,7 +48,7 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 | [Signatures d’accès partagé Azure Storage](../storage/common/storage-dotnet-shared-access-signature-part-1.md)|Une signature d'accès partagé fournit un accès délégué aux ressources de votre compte de stockage.  |
 |[Clés de compte de stockage Azure](../storage/common/storage-create-storage-account.md)| Méthode de contrôle d’accès pour le stockage Azure, qui est utilisée pour l’authentification lors de l’accès au compte de stockage. |
 |[Partages de fichiers Azure avec chiffrement SMB 3.0](../storage/files/storage-files-introduction.md)|Technologie de sécurité réseau qui permet le chiffrement automatique du réseau pour le protocole de partage de fichiers Server Message Block (SMB). |
-|[Azure Storage Analytics](https://docs.microsoft.com/en-us/rest/api/storageservices/Storage-Analytics)| Technologie de journalisation et de génération de métriques pour les données dans votre compte de stockage. |
+|[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/Storage-Analytics)| Technologie de journalisation et de génération de métriques pour les données dans votre compte de stockage. |
 
 <!------>
 
@@ -58,8 +58,8 @@ Au fil du temps, cette liste sera modifiée et développée, tout comme Azure. V
 | [Pare-feu&nbsp;SQL&nbsp;Azure](../sql-database/sql-database-firewall-configure.md)|Fonctionnalité de contrôle d’accès réseau qui protège la base de données contre les attaques réseau. |
 |[Chiffrement&nbsp;au niveau des cellules&nbsp;SQL&nbsp;Azure](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/)| Technologie de sécurité des bases de données qui fournit un chiffrement à un niveau granulaire.  |
 | [Chiffrement de connexion&nbsp;SQL&nbsp;Azure](../sql-database/sql-database-control-access.md)|Pour assurer la sécurité, SQL Database contrôle l’accès avec des règles de pare-feu qui limitent la connectivité par adresse IP, des mécanismes d’authentification qui obligent les utilisateurs à prouver leur identité, et des mécanismes d’autorisation qui les restreignent à certaines actions et données. |
-| [Chiffrement systématique SQL Azure](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protège les données sensibles, comme les numéros de carte bancaire ou les numéros d’identification (par exemple les numéros de sécurité sociale), stockées dans Azure SQL Database ou dans des bases de données SQL Server.  |
-| [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Fonctionnalité de sécurité de base de données qui chiffre le stockage de toute une base de données. |
+| [Chiffrement systématique SQL Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine?view=sql-server-2017)|Protège les données sensibles, comme les numéros de carte bancaire ou les numéros d’identification (par exemple les numéros de sécurité sociale), stockées dans Azure SQL Database ou dans des bases de données SQL Server.  |
+| [Azure&nbsp;SQL&nbsp;Transparent Data Encryption](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql?view=azuresqldb-current)| Fonctionnalité de sécurité de base de données qui chiffre le stockage de toute une base de données. |
 | [Audit de base de données SQL Azure](../sql-database/sql-database-auditing.md)|Fonctionnalité d’audit de base de données qui suit les événements de base de données et les consigne dans un journal d’audit, dans votre compte de stockage Azure.  |
 
 

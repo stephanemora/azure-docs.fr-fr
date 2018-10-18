@@ -3,8 +3,8 @@ title: Contrôler le comportement de mise en cache d’Azure CDN avec des règle
 description: Vous pouvez utiliser les règles de mise en cache CDN pour définir ou modifier le comportement d’expiration du cache par défaut, globalement et avec des conditions, telles qu’un chemin d’URL et des extensions de fichier.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.service: cdn
 ms.workload: tbd
@@ -12,13 +12,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: 4095ed763de378a673908d033d87b2aa6d72f13c
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: magattus
+ms.openlocfilehash: 10275b2938ce66a2816b1d4a5589a5e88ee22e80
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260004"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093916"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-caching-rules"></a>Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache
 
@@ -108,7 +108,7 @@ Quand ces règles sont définies, une requête pour _&lt;nom_d’hôte_du_point_
 > [!NOTE] 
 > Les fichiers qui sont mis en cache avant une modification de règle conservent leur paramètre de durée de cache d’origine. Pour réinitialiser leur durée de cache, vous devez [vider le fichier](cdn-purge-endpoint.md). 
 >
-> Les changements de configuration Azure CDN peuvent prendre un certain temps pour se propager sur le réseau : 
+> La propagation sur le réseau des changements de configuration d’Azure CDN peut prendre un certain temps : 
 > - Pour les profils du **CDN Azure Standard fourni par Akamai**, la propagation s’effectue généralement dans un délai d’une minute. 
 > - Pour les profils du **CDN Azure Standard fourni par Verizon**, la propagation s’effectue généralement dans un délai de 10 minutes.  
 >
@@ -116,4 +116,4 @@ Quand ces règles sont définies, une requête pour _&lt;nom_d’hôte_du_point_
 ## <a name="see-also"></a>Voir aussi
 
 - [Comment fonctionne la mise en cache](cdn-how-caching-works.md)
-- [Didacticiel : Définir des règles de mise en cache d’Azure CDN](cdn-caching-rules-tutorial.md)
+- [Tutoriel : Définir des règles de mise en cache d’Azure CDN](cdn-caching-rules-tutorial.md)

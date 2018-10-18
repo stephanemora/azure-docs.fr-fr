@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/13/2017
 ms.author: asteen
 ms.reviewer: asteen
-ms.openlocfilehash: 30b3fbd415fac1e11a77b3905cb01e5935a62839
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fefc508679a309262d07a582fc8f5bdf9f67cfe5
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34350863"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310112"
 ---
 # <a name="whats-new-in-enterprise-application-management-in-azure-active-directory"></a>Nouveautés relatives à la gestion des applications d’entreprise dans Azure Active Directory 
 
@@ -53,19 +53,19 @@ En plus d’ajouter des applications pré-intégrées à partir de la galerie, v
 **Pour ajouter votre propre application** :
 
 1. Cliquez sur le lien **Ajouter votre propre application** en haut de la galerie d’applications. 
-2. Deux options vous sont proposées : **Deploying an existing application** (Déployer une application existante) ou **Developing a new application** (Développer une nouvelle application). Découvrez ci-dessous la différence entre ces deux options et leur utilisation.
+1. Deux options vous sont proposées : **Deploying an existing application** (Déployer une application existante) ou **Developing a new application** (Développer une nouvelle application). Découvrez ci-dessous la différence entre ces deux options et leur utilisation.
 
 ### <a name="deploying-existing-applications"></a>Déploiement d’applications existantes
 
 1. Si votre application est déjà en cours d’exécution et que vous souhaitez simplement l’intégrer dans Azure AD pour l’authentification unique ou l’approvisionnement, choisissez l’option **Deploying an existing application** (Déployer une application existante). Choisissez un nom pour votre application, cliquez sur **Add** (Ajouter).
-2. Et voilà ! Plus besoin de connaître tous les détails relatifs à votre application en amont : vous pouvez maintenant configurer le fonctionnement de votre nouvelle application en explorant le menu à gauche et en configurant l’application comme vous le souhaitez à tout moment.
+1. Et voilà ! Plus besoin de connaître tous les détails relatifs à votre application en amont : vous pouvez maintenant configurer le fonctionnement de votre nouvelle application en explorant le menu à gauche et en configurant l’application comme vous le souhaitez à tout moment.
 
   ![Ajout d’une application existante en un seul clic](./media/active-directory-enterprise-apps-whats-new-azure-portal/04.png)
  
 ### <a name="developing-new-applications"></a>Développement de nouvelles applications
 
 1. Si vous développez une nouvelle application, vous pouvez accéder au Registre d’application directement à partir de la galerie :
-2. Cliquez sur l’option permettant d’**ajouter votre propre application** à partir de la galerie d’applications, sélectionnez **développer une application existante** et vous verrez un lien d’accès rapide à droite de la fonction d’ajout d’application.
+1. Cliquez sur l’option permettant d’**ajouter votre propre application** à partir de la galerie d’applications, sélectionnez **développer une application existante** et vous verrez un lien d’accès rapide à droite de la fonction d’ajout d’application.
 
   ![Ajout d’une application venant d’être développée en quelques clics](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
@@ -86,20 +86,20 @@ Après avoir ajouté une application, qu’elle soit à vous ou pré-intégrée,
 
 
 ## <a name="updated-application-proxy-configuration"></a>Mise à jour de la configuration du proxy d’application
+
 À présent, supposons que l’une des nouvelles applications ajoutées est exécutée dans votre environnement local et que vous souhaitez l’intégrer à Azure AD.  L’un des aspects les plus intéressants de la nouvelle expérience de configuration d’application au sein du nouveau portail Azure AD est qu’elle fractionne le mode d’authentification de l’application à partir de sa configuration de proxy d’application. Ainsi, vous pouvez facilement exposer les applications fédérées ou à authentification unique par mot de passe exécutées dans votre réseau d’entreprise directement dans le cloud, sans avoir à créer plusieurs instances de ces applications.
 
 Vous pouvez aussi configurer les nouvelles applications ajoutées pour être utilisées avec le proxy d’application Azure AD directement à partir du nouveau portail, y compris les applications qui prennent en charge des expériences d’authentification Windows natives.
 
   ![Configuration d’une application pour utiliser l’option Authentification Windows intégrée](./media/active-directory-enterprise-apps-whats-new-azure-portal/08.png)
  
-
 Pour configurer une application d’authentification Windows native avec le proxy d’application :
 1. Cliquez sur l’élément de navigation Authentification unique et choisissez **Authentification Windows intégrée** dans les paramètres d’authentification, puis configurez les paramètres à votre convenance.
-2. Outre ces nouveaux modes d’authentification pris en charge, vous pouvez maintenant charger des certificats à partir de domaines personnalisés pour prendre en charge les applications qui s’exécutent sur des points de terminaison sécurisés au sein de votre organisation.  
+1. Outre ces nouveaux modes d’authentification pris en charge, vous pouvez maintenant charger des certificats à partir de domaines personnalisés pour prendre en charge les applications qui s’exécutent sur des points de terminaison sécurisés au sein de votre organisation.  
  
    ![Chargement d’un certificat à utiliser avec le proxy d’application](./media/active-directory-enterprise-apps-whats-new-azure-portal/09.png)
 
-3. Pour charger un nouveau certificat pour votre application locale préférée, cliquez sur l’option **Application proxy** (Proxy d’application) à partir du menu de navigation à gauche, cliquez sur le sélecteur **Certificate** (Certificat) et chargez un fichier de certificat que nous pouvons utiliser pour chiffrer les demandes à partir de notre point de terminaison cloud dans votre application.
+1. Pour charger un nouveau certificat pour votre application locale préférée, cliquez sur l’option **Application proxy** (Proxy d’application) à partir du menu de navigation à gauche, cliquez sur le sélecteur **Certificate** (Certificat) et chargez un fichier de certificat que nous pouvons utiliser pour chiffrer les demandes à partir de notre point de terminaison cloud dans votre application.
 
 ## <a name="advanced-federated-single-sign-on-configuration"></a>Configuration d’une authentification unique fédérée avancée
 
@@ -107,10 +107,9 @@ Si vous utilisez actuellement des applications fédérées, vous disposez de nom
  
   ![Personnalisation des attributs utilisateur du jeton SAML transmis à une application fédérée](./media/active-directory-enterprise-apps-whats-new-azure-portal/10.png)
 
-
 Pour contrôler la nouvelle configuration d’authentification unique fédérée :
 1. Ouvrez le volet **Authentification unique** d’une application fédérée à partir du menu de navigation de gauche et vérifiez que le mode *Authentification basée sur SAML** est sélectionné. 
-2. Ensuite, activez la case sous le titre **User Attributes** (Attributs utilisateur) afin de modifier tous les attributs inclus dans le jeton SAML transmis à cette application.
+1. Ensuite, activez la case sous le titre **User Attributes** (Attributs utilisateur) afin de modifier tous les attributs inclus dans le jeton SAML transmis à cette application.
 
 Vous pouvez également créer, substituer et gérer les certificats utilisés pour l’authentification unique fédérée, ainsi que modifier les personnes informées lorsque votre certificat est sur le point d’expirer. Ces nouvelles options apparaîtront sous le titre **Certificats** dans le même volet d’authentification unique.
  
@@ -124,7 +123,7 @@ Enfin, nous avons également étendu l’ensemble des paramètres URL SAML pris 
 **Pour configurer le paramètre d’état du relais** :
 
 1. Cochez la case **Afficher les paramètres d’URL avancés** sous le titre **Domaine et URL** dans le volet de configuration de l’authentification unique. 
-2. Un ensemble de nouvelles zones d’entrée d’URL s’affiche pour vous permettre de définir ce paramètre et d’autres paramètres d’URL SAML.
+1. Un ensemble de nouvelles zones d’entrée d’URL s’affiche pour vous permettre de définir ce paramètre et d’autres paramètres d’URL SAML.
 
 ## <a name="bring-your-own-password-sso-applications"></a>Apport de vos propres applications avec authentification unique par mot de passe
 
@@ -135,8 +134,8 @@ Nous savons que toutes les applications ne prennent pas immédiatement en charge
 **Pour contrôler la fonctionnalité « Bring your own applications »**  :
 
 1. Après avoir défini le mode d’authentification unique pour une application personnalisée ajoutée à **Authentification par mot de passe**, entrez l’URL de rendu de l’écran de connexion à l’application, puis 
-2. Cliquez sur **Enregistrer**.  
-2. Une fois cela effectué, nous décomposons automatiquement cette URL pour afficher les zones de saisie du mot de passe et du nom d’utilisateur. Vous pouvez ensuite utiliser Azure AD pour transmettre en toute sécurité les mots de passe à cette application à l’aide de l’extension de navigateur du volet accès.
+1. Cliquez sur **Enregistrer**.  
+1. Une fois cela effectué, nous décomposons automatiquement cette URL pour afficher les zones de saisie du mot de passe et du nom d’utilisateur. Vous pouvez ensuite utiliser Azure AD pour transmettre en toute sécurité les mots de passe à cette application à l’aide de l’extension de navigateur du volet accès.
 
 ## <a name="configure-self-service-application-access"></a>Configuration de l’accès aux applications en libre-service
 
@@ -147,7 +146,7 @@ Une fois que vous avez ajouté un grand nombre de nouvelles applications, vous p
 **Pour configurer et gérer l’accès aux applications en libre-service** :
 
 1. Pour commencer, vous pouvez sélectionner l’option **Libre-service** à partir du menu de navigation à gauche de l’application et définissez l’option **Allow users to request access to this application?** (Autoriser les utilisateurs à demander l’accès à cette application ?) sur **Yes** (Oui). 
-2. Cela vous permet de spécifier les personnes autorisées à approuver l’accès à cette application, et à quel groupe les utilisateurs du libre-service sont ajoutés. De plus, si l’application est configurée pour l’authentification unique par mot de passe, une autre option vous permet également d’autoriser si vous le souhaitez ces approbateurs à gérer les mots de passe affectés à l’application.
+1. Cela vous permet de spécifier les personnes autorisées à approuver l’accès à cette application, et à quel groupe les utilisateurs du libre-service sont ajoutés. De plus, si l’application est configurée pour l’authentification unique par mot de passe, une autre option vous permet également d’autoriser si vous le souhaitez ces approbateurs à gérer les mots de passe affectés à l’application.
 
 ## <a name="feedback"></a>Commentaires
 

@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Extraire du texte imprimé (OCR) - REST, PHP - Visio
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous extrayez le texte imprimé d’une image en utilisant l’API Vision par ordinateur avec PHP.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 14c03f2079e695fcd3cac8535b2888d71f41c913
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 10be09c4d18cc7bc395937e1a175a5bfcd1e5d7e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633229"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340237"
 ---
 # <a name="quickstart-extract-printed-text-ocr-using-the-rest-api-and-php-in-computer-vision"></a>Démarrage rapide : Extraire du texte imprimé (OCR) à l’aide de l’API REST et PHP dans Vision par ordinateur
 
@@ -48,7 +48,7 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
     1. Remplacez la valeur de `subscriptionKey` par votre clé d’abonnement.
     1. Si nécessaire, remplacez la valeur de `uriBase` par l’URL du point de terminaison de la méthode [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc) dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Remplacez éventuellement la valeur de `imageUrl` par l’URL d’une autre image à partir de laquelle vous voulez extraire le texte imprimé.
-1. Enregistrez le code dans un fichier avec une extension `.php`. Par exemple : `get-printed-text.php`.
+1. Enregistrez le code dans un fichier avec une extension `.php`. Par exemple : `get-printed-text.php`.
 1. Ouvrez une fenêtre de navigateur avec prise en charge de PHP.
 1. Faites glisser et déposez le fichier dans la fenêtre du navigateur.
 
@@ -216,7 +216,7 @@ Une réponse correcte est retournée au format JSON. L’exemple de site web ana
 }
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’en avez plus besoin, supprimez le fichier, puis désinstallez le package `HTTP_Request2` PHP5. Pour désinstaller le package, effectuez les étapes suivantes :
 

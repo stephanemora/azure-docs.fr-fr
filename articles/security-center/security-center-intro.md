@@ -1,6 +1,6 @@
 ---
-title: Qu’est-ce qu’Azure Security Center ? | Microsoft Docs
-description: Découvrez Azure Security Center, ses fonctionnalités principales et son fonctionnement.
+title: Qu’est-ce que l’Azure Security Center ? | Microsoft Docs
+description: Découvrez le Centre de sécurité Azure, ses fonctionnalités principales et son fonctionnement.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -13,16 +13,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/20/2018
+ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: bd0e517845b9cfcbe6090dff8d656edcca782c83
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1b0a6c6d6daa686404021afb2e10b25bb9f54191
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126290"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319383"
 ---
-# <a name="what-is-azure-security-center"></a>Qu’est-ce qu’Azure Security Center ?
+# <a name="what-is-azure-security-center"></a>Qu’est-ce que le Centre de sécurité Azure ?
 Azure Security Center fournit des fonctionnalités unifiées de gestion de la sécurité et de protection avancée contre les menaces sur l’ensemble des charges de travail cloud hybrides. Avec Security Center, vous pouvez appliquer des stratégies de sécurité sur l’ensemble de vos charges de travail, limiter votre exposition aux menaces, détecter et répondre aux attaques.
 
 Pourquoi utiliser Security Center ?
@@ -34,7 +34,7 @@ Pourquoi utiliser Security Center ?
 - **Défenses cloud avancées** : minimisez les menaces avec un accès juste-à-temps aux ports de gestion, et des contrôles d’applications adaptatifs exécutés sur vos machines virtuelles.
 - **Solutions de sécurité intégrées** : collectez, recherchez et analysez les données de sécurité d’un large éventail de sources, notamment les solutions partenaires connectées.
 
-La **vue d’ensemble de Security Center** fournit un aperçu rapide de l’état de sécurité de vos charges de travail Azure et non-Azure, ce qui vous permet de détecter et d’évaluer la sécurité de vos charges de travail, ainsi que d’identifier et d’atténuer les risques. Le tableau de bord intégré offre des insights instantanés sur les alertes de sécurité et les vulnérabilités nécessitant votre attention.
+La **vue d’ensemble de Security Center** fournit un aperçu rapide de l’état de sécurité de vos charges de travail Azure et autres qu’Azure, ce qui vous permet de détecter et d’évaluer la sécurité de vos charges de travail, ainsi que d’identifier et d’atténuer les risques. Le tableau de bord intégré offre des insights instantanés sur les alertes de sécurité et les vulnérabilités nécessitant votre attention.
 
 ![Vue d’ensemble][1]
 
@@ -88,7 +88,7 @@ Le degré de sécurisation Azure Security Center examine vos recommandations de 
 ### <a name="health-monitoring"></a>Surveillance de l’intégrité
 La sélection d’un type de ressource sous **Monitoring de l’intégrité de la ressource** fournit une liste de ressources ainsi que toutes les vulnérabilités qui ont été identifiées. Les types de ressources sont calcul et applications, réseau, données et stockage, et identité et accès.
 
-Nous avons sélectionné **Calcul et applications**. Sous **Calcul**, vous trouverez quatre onglets :
+Nous avons sélectionné **Calcul et applications**. Sous **Compute**, vous trouverez quatre onglets :
 
 - **Vue d’ensemble** : la surveillance et les recommandations identifiées par Security Center.
 - **Machines virtuelles et ordinateurs** : liste de vos machines virtuelles et ordinateurs, et état actuel de leur sécurité.
@@ -100,7 +100,7 @@ Nous avons sélectionné **Calcul et applications**. Sous **Calcul**, vous trouv
 Pour plus d’informations, consultez [Monitoring de l’intégrité de la sécurité](security-center-monitoring.md).
 
 ## <a name="actionable-recommendations"></a>Recommandations exploitables
-Security Center analyse l’état de sécurité de vos ressources Azure et non-Azure pour identifier les vulnérabilités de sécurité potentielles. La sélection de **Recommandations** sous **Ressources** fournit une liste de recommandations de sécurité, par ordre de priorité, qui vous guide tout au long du processus de gestion des problèmes de sécurité.
+Security Center analyse l’état de sécurité de vos ressources Azure et autres qu’Azure pour identifier les vulnérabilités de sécurité potentielles. La sélection de **Recommandations** sous **Ressources** fournit une liste de recommandations de sécurité, par ordre de priorité, qui vous guide tout au long du processus de gestion des problèmes de sécurité.
 
 ![Recommandations][4]
 
@@ -113,7 +113,7 @@ La partie droite du tableau de bord, sous **Ressources**, fournit une liste de r
 
 Il s’agit de la recommandation à l’impact le plus fort qui existe dans votre environnement. En résolvant cette recommandation, vous améliorez votre conformité de façon optimale. Dans cet exemple, la recommandation consiste à « appliquer le chiffrement de disque ». La sélection de **Améliorez votre conformité** fournit une description de la recommandation et une liste de ressources affectées.
 
-![Appliquer le chiffrement de disque][12]
+![Apply disk encryption][12]
 
 ## <a name="threat-protection"></a>Protection contre les menaces
 Cette zone offre une visibilité sur les alertes de sécurité détectées dans vos ressources, avec le niveau de gravité de ces alertes.
@@ -161,7 +161,7 @@ Pour plus d’informations, consultez [Intégrer des solutions de sécurité](se
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour utiliser Security Center, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
+- Pour utiliser le Centre de sécurité, vous devez disposer d’un abonnement à Microsoft Azure. Si vous n’avez pas d’abonnement, vous pouvez vous inscrire à un [essai gratuit](https://azure.microsoft.com/free/).
 - Le niveau tarifaire Gratuit de Security Center est activé avec votre abonnement Azure. Pour tirer parti des fonctionnalités avancées de gestion de la sécurité et de détection des menaces, vous devez mettre à niveau vers le niveau tarifaire Standard. Le niveau Standard est gratuit les 60 premiers jours. Pour plus d’informations, consultez la [page de tarification de Security Center](https://azure.microsoft.com/pricing/details/security-center/).
 - Si vous êtes prêt à activer Security Center Standard dès maintenant, le [démarrage rapide : Intégrer votre abonnement Azure à Security Center Standard](security-center-get-started.md) vous guidera.
 

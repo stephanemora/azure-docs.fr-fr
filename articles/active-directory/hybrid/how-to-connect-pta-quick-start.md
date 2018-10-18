@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29517f057599c7bf108d1c4d525b6c67c1b6b46a
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8b45acebf95d5bf24ff2045f5739c8584f374842
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305168"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320456"
 ---
 # <a name="azure-active-directory-pass-through-authentication-quick-start"></a>Authentification directe Azure Active Directory : Démarrage rapide
 
@@ -48,7 +48,7 @@ Vérifiez que les prérequis suivants sont remplis.
 2. Installez la [version la plus récente d’Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) sur le serveur identifié à l’étape précédente. Si vous exécutez déjà Azure AD Connect, vérifiez qu’il s’agit de la version 1.1.750.0 ou d’une version ultérieure.
 
     >[!NOTE]
-    >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la synchronisation de hachage de mot de passe. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470).
+    >Les versions 1.1.557.0, 1.1.558.0, 1.1.561.0 et 1.1.614.0 d’Azure AD Connect comportent un problème lié à la synchronisation de hachage de mot de passe. Si vous _ne prévoyez pas_ d’utiliser la synchronisation de hachage de mot de passe en même temps que l’authentification directe, lisez les [Notes de publication Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-version-history#116470).
 
 3. Identifiez un ou plusieurs serveurs supplémentaires (exécutant Windows Server 2012 R2 ou version ultérieure) sur lesquels vous pouvez exécuter des agents d’authentification autonomes. Ces serveurs supplémentaires sont nécessaires pour garantir une haute disponibilité des requêtes de connexion. Ajoutez ces serveurs à la même forêt Active Directory que celle des utilisateurs dont vous devez valider les mots de passe.
 
@@ -57,13 +57,13 @@ Vérifiez que les prérequis suivants sont remplis.
 
 4. S’il existe un pare-feu entre vos serveurs et Azure AD, configurez les éléments suivants :
    - Assurez-vous que les agents d’authentification peuvent effectuer des requêtes *sortantes* vers Azure AD sur les ports suivants :
-   
+
     | Numéro de port | Utilisation |
     | --- | --- |
     | **80** | Télécharge les listes de révocation de certificats lors de la validation du certificat SSL |
     | **443** | Gère toutes les communications sortantes avec le service |
     | **8080** (facultatif) | Les agents d’authentification signalent leur état toutes les dix minutes sur le port 8080 (si le port 443 n’est pas disponible). Cet état est affiché sur le portail Azure AD. Le port 8080 _n’est pas utilisé_ pour les connexions utilisateur. |
-   
+
     Si votre pare-feu applique les règles en fonction des utilisateurs d’origine, ouvrez ces ports au trafic provenant des services Windows exécutés en tant que service réseau.
    - Si votre pare-feu ou votre proxy autorise la mise en liste verte de DNS, vous pouvez y placer les connexions vers **\*.msappproxy.net** et **\*.servicebus.windows.net**. Dans le cas contraire, autorisez l’accès aux [plages d’adresses IP du centre de données Azure](https://www.microsoft.com/download/details.aspx?id=41653), qui sont mises à jour chaque semaine.
    - Vos agents d’authentification doivent accéder à **login.windows.net** et à **login.microsoftonline.net** pour l’inscription initiale. Par conséquent, ouvrez également votre pare-feu pour ces URL.
@@ -132,13 +132,13 @@ La deuxième solution consiste à créer et à exécuter un script de déploieme
 
 1. Exécutez la commande suivante pour installer un agent d’authentification : `AADConnectAuthAgentSetup.exe REGISTERCONNECTOR="false" /q`.
 2. Vous pouvez inscrire l’agent d’authentification auprès de notre service à l’aide de Windows PowerShell. Créez un objet d’informations d’identification PowerShell `$cred` qui contient un nom d’utilisateur et un mot de passe d’administrateur général pour votre locataire. Exécutez la commande suivante, en remplaçant *\<username\>* et *\<password\>*  :
-   
+
         $User = "<username>"
         $PlainPassword = '<password>'
         $SecurePassword = $PlainPassword | ConvertTo-SecureString -AsPlainText -Force
         $cred = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $User, $SecurePassword
 3. Accédez à **C:\Program Files\Microsoft Azure AD Connect Authentication Agent** et exécutez le script suivant en utilisant l’objet `$cred` que vous venez de créer :
-   
+
         RegisterConnector.ps1 -modulePath "C:\Program Files\Microsoft Azure AD Connect Authentication Agent\Modules\" -moduleName "AppProxyPSModule" -Authenticationmode Credentials -Usercredentials $cred -Feature PassthroughAuthentication
 
 ## <a name="next-steps"></a>Étapes suivantes
@@ -151,4 +151,3 @@ La deuxième solution consiste à créer et à exécuter un script de déploieme
 - [Présentation approfondie de sécurité](how-to-connect-pta-security-deep-dive.md) : obtenez des informations techniques sur l’authentification directe.
 - [Authentification unique transparente Azure AD](how-to-connect-sso.md) : explorez en détail cette fonctionnalité complémentaire.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) : utilisez le Forum Azure Active Directory pour consigner de nouvelles demandes de fonctionnalités.
-

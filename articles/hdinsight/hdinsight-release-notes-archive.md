@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jasonh
-ms.openlocfilehash: 1dd0e33b3ec6cc5521d5087d48e9e5467911c2b6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f3be4b5e74c0c5cac9acd281b86e55c96b011763
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43109761"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363790"
 ---
 # <a name="archived-release-notes-for-azure-hdinsight"></a>Notes de publication archivées pour Azure HDInsight
 
@@ -24,7 +24,7 @@ Pour obtenir les mises à jour des notes de publication Azure HDInsight les **pl
 > Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [l’article sur le contrôle de version de HDInsight](hdinsight-component-versioning.md).
 
 ## <a name="notes-for-06272018---release-of-new-open-source-versions-adls-gen2-etc-on-hdinsight-36"></a>Notes du 27/06/2018 – Lancement de nouvelles versions open source, ADLS Gen2, etc. sur HDInsight 3.6
-La version de HDInsight de juin 2018 est une version riche en mises à jour et fonctionnalités pour nos clients. Pour plus de détails, lisez ce [billet](https://azure.microsoft.com/en-us/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/).
+La version de HDInsight de juin 2018 est une version riche en mises à jour et fonctionnalités pour nos clients. Pour plus de détails, lisez ce [billet](https://azure.microsoft.com/blog/enterprises-get-deeper-insights-with-hadoop-and-spark-updates-on-azure-hdinsight/).
 
 Les points essentiels sont exposés ci-dessous. Les notes de publication détaillées, les bogues résolus, les problèmes connus, etc., sont répertoriés dans [Notes de publication pour Azure HDInsight](hdinsight-release-notes.md).
 

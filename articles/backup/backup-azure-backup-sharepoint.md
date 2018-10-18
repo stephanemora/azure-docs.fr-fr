@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/29/2016
 ms.author: adigan
-ms.openlocfilehash: 728850fe70fb3f9e64b0fa25b4ceebb1a1b51cd4
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 7331b1c99425500b58d186cedab1e83dd20e3684
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606651"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389817"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure
 Vous sauvegardez une batterie de serveurs SharePoint sur Microsoft Azure à l’aide de System Center Data Protection Manager (DPM) de la même façon que vous sauvegardez d’autres sources de données. Azure Backup offre une flexibilité dans la planification d’une sauvegarde pour créer des points de sauvegarde quotidiens, hebdomadaires, mensuels ou annuels, et vous offre des options de stratégie de conservation pour les différents points de sauvegarde. DPM vous permet de stocker des copies sur disque local pour bénéficier d’objectifs de temps de récupération (RTO) rapides, ainsi que de stocker des copies sur Azure pour une conservation à long terme économique.
@@ -123,7 +123,7 @@ Une fois que vous avez configuré DPM et la batterie de serveurs SharePoint comm
     ![Online_backup_schedule](./media/backup-azure-backup-sharepoint/specify-online-backup-schedule.png)
     
     > [!NOTE]
-    > DPM fournit un maximum de deux sauvegardes quotidiennes sur Azure à des heures différentes. Azure Backup peut également contrôler la quantité de bande passante WAN qui peut être utilisée pour les sauvegardes aux heures de pointe et aux heures creuses, à l’aide de la [limitation réseau Azure Backup](https://azure.microsoft.com/en-in/documentation/articles/backup-configure-vault/#enable-network-throttling).
+    > DPM fournit un maximum de deux sauvegardes quotidiennes sur Azure à des heures différentes. Azure Backup peut également contrôler la quantité de bande passante WAN qui peut être utilisée pour les sauvegardes aux heures de pointe et aux heures creuses, à l’aide de la [limitation réseau Azure Backup](https://azure.microsoft.com/documentation/articles/backup-configure-vault/#enable-network-throttling).
     > 
     > 
 11. Selon la planification de sauvegarde que vous avez sélectionnée, sur la page **Spécifier la stratégie de rétention en ligne** , sélectionnez la stratégie de rétention pour les points de sauvegarde quotidiens, hebdomadaires, mensuels et annuels.

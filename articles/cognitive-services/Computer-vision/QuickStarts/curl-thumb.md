@@ -3,19 +3,19 @@ title: 'Démarrage rapide : Générer une miniature - REST, cURL - Vision par or
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous générez une miniature d’une image en utilisant l’API Vision par ordinateur avec cURL.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: afe9aad1981c53d2ce0e06d68a4b36401272e333
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 51c6a8e5693602cdc839de80f268891c247c63a9
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634657"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344062"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-rest-api-and-curl-in-computer-vision"></a>Démarrage rapide : Générer une miniature à l’aide de l’API REST et cURL dans Vision par ordinateur
 
@@ -70,7 +70,7 @@ curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Co
 
 Une réponse réussie ajoute l’image miniature dans le fichier spécifié dans `<thumbnailFile>`. Si la requête échoue, la réponse contient un code d’erreur et un message pour vous aider à déterminer la cause du problème.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’en avez plus besoin, fermez la fenêtre d’invite de commandes et l’éditeur de texte.
 

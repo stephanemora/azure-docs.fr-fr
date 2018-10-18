@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 77154d596eb9202c4f9d1063ba7f4e1ec4855181
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 33be58ae3ac5fcc8d0b35b240f9f378ccce134cc
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665003"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387682"
 ---
 # <a name="deploy-and-manage-a-storsimple-cloud-appliance-in-azure-update-3-and-later"></a>Déployer et gérer une appliance cloud StorSimple dans Azure (Update 3 et versions ultérieures)
 
@@ -265,7 +265,7 @@ Pour arrêter tous les frais, vous devez supprimer l’appliance cloud. Pour sup
 ## <a name="troubleshoot-internet-connectivity-errors"></a>Résolution des problèmes de connectivité Internet
 La création d’une appliance cloud échoue si vous ne disposez d’aucune connectivité à Internet. Pour résoudre les problèmes de connectivité Internet, procédez comme suit dans le portail Azure :
 
-1. [Création d’une machine virtuelle Windows dans le portail Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/quick-create-portal). Cette machine virtuelle doit utiliser le même compte de stockage, le même réseau virtuel et le même sous-réseau que ceux utilisés par votre appliance cloud. S’il existe déjà un hôte Windows Server dans Azure en utilisant le même compte de stockage, le même réseau virtuel et le même sous-réseau, vous pouvez également l’utiliser pour résoudre vos problèmes de connectivité Internet.
+1. [Création d’une machine virtuelle Windows dans le portail Azure](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal). Cette machine virtuelle doit utiliser le même compte de stockage, le même réseau virtuel et le même sous-réseau que ceux utilisés par votre appliance cloud. S’il existe déjà un hôte Windows Server dans Azure en utilisant le même compte de stockage, le même réseau virtuel et le même sous-réseau, vous pouvez également l’utiliser pour résoudre vos problèmes de connectivité Internet.
 2. Connectez-vous à distance à la machine virtuelle créée à l’étape précédente.
 3. Ouvrez une fenêtre de commande à l’intérieur de la machine virtuelle (Win + R, puis tapez `cmd`).
 4. À l’invite, entrez la commande suivante :

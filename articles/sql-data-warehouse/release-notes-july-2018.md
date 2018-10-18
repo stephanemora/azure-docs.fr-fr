@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/06/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 5c54505625f40d7c0bd00111e2ff260dc9afaf1c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: c7d2211ca69fcd18588ea1b20b638b2970b8439c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288002"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318838"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-july-2018"></a>Nouveautés dans Azure SQL Data Warehouse Juillet 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les modifications qui ont été introduites en juillet 2018.
@@ -30,7 +30,7 @@ Au-delà des performances d’exécution, le rapport [Gigaom Research](https://g
 ![Azure SQL Data Warehouse est plus rapide et moins cher que Amazon Redshift](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/cb76447e-621e-414b-861e-732ffee5345a.png)
 <sub>Source : [Gigaom Research Analyst Report: Data Warehouse in the Cloud Benchmark (Rapport d’analyste Gigaom Research : Data Warehouse dans le benchmark sur cloud)](https://gigaom.com/report/data-warehouse-in-the-cloud-benchmark/)</sub>
 
-###<a name="query-concurrency"></a>Simultanéité de requête
+### <a name="query-concurrency"></a>Simultanéité de requête
 SQL Data Warehouse garantit également que les données sont accessibles dans votre organisation. Microsoft a amélioré le service pour prendre en charge 128 requêtes simultanées, afin que plusieurs utilisateurs puissent interroger la même base de données sans être bloqués par d’autres demandes. En comparaison, Amazon Redshift limite le nombre maximal de requêtes simultanées à 50, limitant l’accès aux données au sein de l’organisation.
 
 SQL Data Warehouse offre ces performances de requêtes et ces gains de simultanéité de requêtes sans augmentation des prix et en s’appuyant sur son architecture unique avec stockage et calcul découplés.

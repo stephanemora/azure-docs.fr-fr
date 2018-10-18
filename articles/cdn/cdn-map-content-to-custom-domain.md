@@ -3,8 +3,8 @@ title: Tutoriel - Ajouter un domaine personnalisé à votre point de terminaison
 description: Dans ce tutoriel, vous mappez le contenu du point de terminaison Azure CDN à un domaine personnalisé.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.service: cdn
 ms.workload: media
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 06/11/2018
-ms.author: v-deasim
+ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 30dbe6590cc1d70dfc026330a09645c86be24288
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 67621cb95cbf5072ab7b72770f43c0b68785c78e
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39036885"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092098"
 ---
 # <a name="tutorial-add-a-custom-domain-to-your-azure-cdn-endpoint"></a>Tutoriel : Ajouter un domaine personnalisé à votre point de terminaison Azure CDN
 Ce didacticiel montre comment ajouter un domaine personnalisé à un point de terminaison de réseau de distribution de contenu (CDN) Azure. Lorsque vous utilisez un point de terminaison CDN pour diffuser du contenu, un domaine personnalisé est nécessaire si vous souhaitez que votre nom de domaine soit visible dans l’URL du CDN. Un nom de domaine visible peut être pratique pour vos clients et utile à des fins de personnalisation. 
@@ -207,7 +207,7 @@ Par exemple, la procédure pour le bureau d’enregistrement de domaines GoDaddy
 8. Sélectionnez **Supprimer** pour supprimer l’enregistrement CNAME.
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Dans les étapes précédentes, vous avez ajouté un domaine personnalisé à un point de terminaison CDN. Si vous ne voulez plus associer votre point de terminaison avec un domaine personnalisé, vous pouvez supprimer le domaine personnalisé en procédant comme suit :
  

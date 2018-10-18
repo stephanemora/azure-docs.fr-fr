@@ -4,25 +4,22 @@ description: Suivez les étapes de ce démarrage rapide pour créer un compte Az
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cflower
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 03/27/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: abed9fd8d466b582b534b365f4be4257f4986435
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: de54571308b737b9160a39ee4ba5d4b2d9f15775
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736000"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376531"
 ---
 # <a name="quickstart-create-an-azure-media-services-account"></a>Démarrage rapide : créer un compte Azure Media Services
-
-> [!NOTE]
-> La dernière version d’Azure Media Services (30/03/2018) est préversion. Cette version est également appelée v3. 
 
 Que vous soyez un développeur ou un créateur de contenu multimédia, pour stocker, chiffrer, encoder, gérer et diffuser du contenu multimédia dans Azure, vous devez créer un compte Media Services. Lorsque vous créez un compte Media Services, vous devez fournir l’ID d’une ressource de compte de stockage Azure. Le compte de stockage spécifié est lié à votre compte Media Services. Cette ressource de compte de stockage doit se trouver dans la même zone géographique que le compte Media Services.  
 
@@ -78,7 +75,7 @@ Vous trouverez ci-dessous les commandes Azure CLI qui créent un nouveau compte 
 az ams create -n <myamsaccountname> -g <myresourcegroup> --storage-account <storageaccountforams>
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment le compte Media Services que vous avez créé dans ce guide de démarrage rapide, supprimez le groupe de ressources.
 

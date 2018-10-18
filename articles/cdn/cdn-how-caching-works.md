@@ -3,8 +3,8 @@ title: Fonctionnement de la mise en cache | Microsoft Docs
 description: La mise en cache est le processus de stockage local des données afin que les requêtes futures relatives à ces dernières soient plus rapidement accessibles.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: akucer
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/30/2018
-ms.author: v-deasim
-ms.openlocfilehash: bb0824995972b49febdb1695e41f45fbd0966cd1
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.author: magattus
+ms.openlocfilehash: 563c073e781e2a2bee88b4ecdcdc82541c21ec4f
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33765788"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092387"
 ---
 # <a name="how-caching-works"></a>Comment la mise en cache fonctionne
 
@@ -126,7 +126,7 @@ Le tableau suivant décrit le comportement de mise en cache par défaut des prod
 
 |    | Microsoft : distribution web générale | Verizon : distribution web générale | Verizon : DSA | Akamai : distribution web générale | Akamai : DSA | Akamai : téléchargement de fichiers volumineux | Akamai : diffusion multimédia en continu générale ou VOD |
 |------------------------|--------|-------|------|--------|------|-------|--------|
-| **Honorer l’origine**       | OUI    | OUI   | Non    | OUI    | Non    | OUI   | OUI    |
+| **Honorer l’origine**       | Oui    | Oui   | Non    | Oui    | Non    | OUI   | Oui    |
 | **Durée de cache CDN** | 2 jours |7 jours | Aucun | 7 jours | Aucun | 1 jour | 1 an |
 
 **Honorer l’origine** : indique s’il faut honorer les [ en-têtes de la directive du cache prises en charges](#http-cache-directive-headers) s’il y en a dans la réponse HTTP du serveur d’origine.

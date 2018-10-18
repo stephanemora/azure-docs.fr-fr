@@ -4,20 +4,20 @@ description: Suivez les étapes décrites dans ce didacticiel pour charger un fi
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/16/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 5cc109467f9affa9cf5f43342203e8d4298269e0
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: e49b450ef2c731e9ddbafa0c8366d9eae29dc5ef
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115204"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377425"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Tutoriel : charger, encoder et diffuser en continu des vidéos à l’aide de REST
 
@@ -36,7 +36,7 @@ Ce didacticiel vous explique les procédures suivantes :
 > * Configurer Postman
 > * Envoyer des requêtes à l’aide de Postman
 > * Tester l’URL de diffusion en continu
-> * Supprimer les ressources
+> * Supprimer des ressources
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -350,7 +350,7 @@ En règle générale, vous devez supprimer tous les éléments à l’exception 
 
 Pour supprimer une ressource, sélectionnez l’opération « Supprimer... » sous la ressource que vous souhaitez supprimer.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes de stockage et Media Services que vous avez créés pour ce didacticiel, supprimez le groupe de ressources créé précédemment. Vous pouvez utiliser l’outil **CloudShell**.
 

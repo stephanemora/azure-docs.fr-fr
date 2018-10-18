@@ -3,23 +3,23 @@ title: 'Démarrage rapide : Analyser une image locale - REST, C# - Vision par or
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous analysez une image locale en utilisant l’API Vision par ordinateur avec C#.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2018
-ms.author: v-deken
-ms.openlocfilehash: 572d352b04debca0ab3afdea6d86a7383370050f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: 72b9663de0317620ca9760e3b1863ab60b37514a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634113"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343184"
 ---
 # <a name="quickstart-analyze-a-local-image-using-the-rest-api-and-c35-in-computer-vision"></a>Démarrage rapide : Analyser une image locale à l’aide de l’API REST et C&#35; dans Vision par ordinateur
 
-Dans ce guide de démarrage rapide, vous analysez une image stockée localement pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la méthode [Analyser une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des caractéristiques visuelles à partir du contenu d’une image.
+Dans ce guide de démarrage rapide, vous analysez une image stockée localement pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la [méthode d’analyse d’une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
 
@@ -246,7 +246,7 @@ Une réponse correcte est retournée au format JSON. L’exemple d’application
 }
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’en avez plus besoin, supprimez la solution Visual Studio. Pour cela, ouvrez l’Explorateur de fichiers, accédez au dossier où vous avez créé la solution Visual Studio, puis supprimez le dossier.
 

@@ -3,8 +3,8 @@ title: Contrôler le comportement de mise en cache du CDN Azure avec des chaîne
 description: La mise en cache des chaînes de requête du CDN Azure contrôle la manière dont les fichiers sont mis en cache lorsqu’une requête Web contient une chaîne de requête. Cet article décrit la chaîne de requête mise en cache dans les produits CDN Azure Premium fournis par Verizon.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: 99db4a85-4f5f-431f-ac3a-69e05518c997
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/11/2018
-ms.author: v-deasim
-ms.openlocfilehash: 3777689af72f580645826a1ca4e31ca84bd65dab
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.author: magattus
+ms.openlocfilehash: 2f0a361d53489e22ccc8e41406e5b86b423ea2f6
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260832"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091400"
 ---
 # <a name="control-azure-cdn-caching-behavior-with-query-strings---premium-tier"></a>Contrôler le comportement de mise en cache du CDN Azure avec des chaînes de requête - niveau premium
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "35260832"
 > * [Niveau Premium](cdn-query-string-premium.md)
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Avec Azure Content Delivery Network (CDN), vous pouvez contrôler la manière dont les fichiers sont mis en cache pour une requête web qui contient une chaîne de requête. Dans une requête web contenant une chaîne de requête, la chaîne de requête représente la partie de la demande qui apparaît après le point d’interrogation (?). Une chaîne de requête peut contenir une ou plusieurs paires clé-valeur où le nom du champ et sa valeur sont séparés par un signe égal (=). Chaque paire clé-valeur est séparée par une esperluette (&). Par exemple, http:\//www.contoso.com/content.mov?field1=value1&field2=value2. S’il existe plusieurs paires clé-valeur dans la chaîne de requête d’une demande, leur ordre n’a pas d’importance. 
 
 > [!IMPORTANT]

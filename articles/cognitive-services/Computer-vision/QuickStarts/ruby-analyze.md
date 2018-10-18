@@ -3,23 +3,23 @@ title: 'Démarrage rapide : Analyser une image distante - REST, Ruby - Vision pa
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous analysez une image en utilisant l’API Vision par ordinateur avec Ruby.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: bf17e8213ad2bbdc793f979471d9861578cac8e2
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.author: pafarley
+ms.openlocfilehash: a00b7d8fd56c28edd220d90f85df76892a54db6a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45628860"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341566"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-ruby-in-computer-vision"></a>Démarrage rapide : Analyser une image distante à l’aide de l’API REST et Ruby dans Vision par ordinateur
 
-Dans ce guide de démarrage rapide, vous analysez une image stockée à distance pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la méthode [Analyser une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des caractéristiques visuelles à partir du contenu d’une image.
+Dans ce guide de démarrage rapide, vous analysez une image stockée à distance pour extraire des caractéristiques visuelles à l’aide de l’API REST de Vision par ordinateur. Avec la [méthode d’analyse d’une image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa), vous pouvez extraire des fonctionnalités visuelles en fonction du contenu de l’image.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) avant de commencer.
 
@@ -38,9 +38,9 @@ Pour créer et exécuter l’exemple, effectuez les étapes suivantes :
     1. Si nécessaire, remplacez `https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/analyze` par l’URL du point de terminaison de la méthode [Analyser l’image](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) dans la région Azure où vous avez obtenu vos clés d’abonnement.
     1. Si vous le souhaitez, remplacez la valeur du paramètre de requête `language` par une autre langue. 
     1. Remplacez éventuellement `http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg\` par l’URL d’une autre image que vous voulez analyser.
-1. Enregistrez le code dans un fichier avec une extension `.rb`. Par exemple : `analyze-image.rb`.
+1. Enregistrez le code dans un fichier avec une extension `.rb`. Par exemple : `analyze-image.rb`.
 1. Ouvrir une fenêtre d’invite de commandes.
-1. À l’invite, utilisez la commande `ruby` pour exécuter l’exemple. Par exemple : `ruby analyze-image.rb`.
+1. À l’invite, utilisez la commande `ruby` pour exécuter l’exemple. Par exemple : `ruby analyze-image.rb`.
 
 ```ruby
 require 'net/http'
@@ -178,9 +178,9 @@ Une réponse correcte est retournée au format JSON. L’exemple analyse et affi
 
 ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Quand vous n’en avez plus besoin, supprimez le fichier.
+Lorsque vous n’en avez plus besoin, supprimez le fichier.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

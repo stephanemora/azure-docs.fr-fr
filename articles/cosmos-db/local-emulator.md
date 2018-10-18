@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/20/2018
 ms.author: danoble
-ms.openlocfilehash: a5481f9b2b443a0860ce0df5643427f357e1c294
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: ce42d30b816599f7eaf90ce5a92164c6b85cfa36
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785369"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094171"
 ---
 # <a name="use-the-azure-cosmos-db-emulator-for-local-development-and-testing"></a>Utilisation de l’émulateur Azure Cosmos DB pour le développement local et le test
 
@@ -35,7 +35,9 @@ ms.locfileid: "48785369"
 </tr>
 </table>
   
-L’émulateur Azure Cosmos DB fournit un environnement local qui émule le service Azure Cosmos DB à des fins de développement. L’émulateur Azure Cosmos DB vous permet de développer et de tester votre application localement, sans créer d’abonnement Azure et sans frais. Lorsque vous êtes satisfait du fonctionnement de votre application dans l’émulateur Azure Cosmos DB, vous pouvez commencer à utiliser un compte Azure Cosmos DB dans le cloud. Vous pouvez utiliser l’émulateur Azure Cosmos DB avec toutes les API : SQL, MongoDB, Cassandra, Gremlin et Table.
+L’émulateur Azure Cosmos DB fournit un environnement local qui émule le service Azure Cosmos DB à des fins de développement. L’émulateur Azure Cosmos DB vous permet de développer et de tester votre application localement, sans créer d’abonnement Azure et sans frais. Lorsque vous êtes satisfait du fonctionnement de votre application dans l’émulateur Azure Cosmos DB, vous pouvez commencer à utiliser un compte Azure Cosmos DB dans le cloud. 
+
+Pour le moment, l’Explorateur de données de l’émulateur ne prend en charge que les collections d’API SQL et MongoDB. Les conteneurs Cassandra, Graph et Table ne sont pas entièrement pris en charge. 
 
 Cet article décrit les tâches suivantes : 
 
