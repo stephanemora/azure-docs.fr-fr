@@ -57,7 +57,7 @@ Commencez par créer le service web frontal de l’application Voting. Le servic
 
 1. Lancez Eclipse.
 
-2. Créez un projet via **Fichier**->**Nouveau**->**Autre**->**Service Fabric** -> **Projet Service Fabric**.
+2. Créez un projet via **Fichier** -> **Nouveau** -> **Autre** -> **Service Fabric** -> **Projet Service Fabric**.
 
     ![Boîte de dialogue Nouveau projet dans Eclipse](./media/service-fabric-tutorial-create-java-app/create-sf-proj-wizard.png)
 
@@ -85,7 +85,7 @@ Ce tableau contient une brève description de chaque élément de l’Explorateu
 
 ### <a name="add-html-and-javascript-to-the-votingweb-service"></a>Ajouter du code HTML et Javascript au service VotingWeb
 
-To add UI that can be rendered by the stateless service, add an HTML file in the *VotingApplication/VotingWebPkg/Code*. Ce fichier HTML est ensuite rendu par le serveur HTTP léger incorporé dans le service Java sans état.
+Pour ajouter une interface utilisateur pouvant être visible par le service sans état, ajoutez un fichier HTML dans le dossier *VotingApplication/VotingWebPkg/Code*. Ce fichier HTML est ensuite rendu par le serveur HTTP léger incorporé dans le service Java sans état.
 
 1. Développez le répertoire *VotingApplication* pour atteindre le répertoire *VotingApplication/VotingWebPkg/Code*.
 
