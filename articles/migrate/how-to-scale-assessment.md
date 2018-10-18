@@ -57,7 +57,7 @@ Planifiez vos découvertes et vos évaluations en fonction des contraintes suiva
 
 | **Entité** | **Limite de la machine** |
 | ---------- | ----------------- |
-| projet    | 1 500             |
+| Projet    | 1 500             |
 | Découverte  | 1 500             |
 | Évaluation | 1 500             |
 
@@ -205,7 +205,7 @@ Nous vous recommandons de définir le niveau commun le plus élevé (niveau 3) p
 
 Le tableau ci-dessous répertorie également les résultats d’évaluation qui sont impactés si les données d’un compteur particulier ne sont pas collectées.
 
-| Compteur                                 | Level | Niveau par appareil | Évaluation de l'impact                    |
+| Compteur                                 | Niveau | Niveau par appareil | Évaluation de l'impact                    |
 | --------------------------------------- | ----- | ---------------- | ------------------------------------ |
 | cpu.usage.average                       | 1     | N/D               | Taille de machine virtuelle recommandée et coût         |
 | mem.usage.average                       | 1     | N/D               | Taille de machine virtuelle recommandée et coût         |
