@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 33d5560f2bfef04678cf7a2236fd920385d68aac
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: c32c4f97a963485e87e36afc44e9cea2ebcebd90
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452154"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394407"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -110,7 +110,7 @@ Contactez le [support technique](https://portal.azure.com/#blade/Microsoft_Azure
 
 ## <a name="validate-move"></a>Valider le déplacement
 
-[L’opération de validation du déplacement](/rest/api/resources/resources/validatemoveresources) vous permet de tester votre scénario de déplacement sans réellement déplacer les ressources. Utilisez cette opération pour déterminer si le déplacement sera effectué. Pour exécuter cette opération, vous avez besoin des éléments suivants :
+[L’opération de validation du déplacement](/rest/api/resources/resources/resources_validatemoveresources) vous permet de tester votre scénario de déplacement sans réellement déplacer les ressources. Utilisez cette opération pour déterminer si le déplacement sera effectué. Pour exécuter cette opération, vous avez besoin des éléments suivants :
 
 * Nom du groupe de ressources source
 * ID de ressource du groupe de ressources cible
@@ -228,8 +228,8 @@ La liste suivante fournit une synthèse générale des services Azure qui peuven
 * Time Series Insights
 * Traffic Manager
 * Machines virtuelles : pour les machines virtuelles avec des disques managés, consultez [Limitations des machines virtuelles](#virtual-machines-limitations)
-* Machines virtuelles (classiques) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
-* Groupes de machines virtuelles identiques : consultez [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
+* Virtual Machines (classique) : consultez [Limitations relatives au déploiement classique](#classic-deployment-limitations)
+* Groupes identiques de machines virtuelles : consultez [Limitations relatives aux machines virtuelles](#virtual-machines-limitations)
 * Réseaux virtuels : consultez [Limitations relatives aux réseaux virtuels](#virtual-networks-limitations)
 * Passerelle VPN
 
@@ -303,10 +303,10 @@ Le déplacement des disques managés est pris en charge à compter du 24 septemb
 
 Cette prise en charge signifie que vous pouvez également déplacer :
 
-* Des machines virtuelles avec des disques managés
+* Machines virtuelles avec des disques gérés
 * Des images managées
 * Des captures instantanées managées
-* Des groupes à haute disponibilité comprenant des machines virtuelles avec des disques managés
+* Groupes à haute disponibilité comprenant des machines virtuelles avec des disques gérés
 
 Voici les contraintes qui ne sont pas encore prises en charge :
 

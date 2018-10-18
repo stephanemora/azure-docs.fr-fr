@@ -2,24 +2,20 @@
 title: Installation du runtime d’Azure Functions | Microsoft Docs
 description: Installation de la préversion 2 du runtime Azure Functions
 services: functions
-documentationcenter: ''
 author: apwestgarth
 manager: stefsch
-editor: ''
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/28/2017
 ms.author: anwestg
-ms.openlocfilehash: f8ce27bf28f73818932f2ac9056d4fdd573679e8
-ms.sourcegitcommit: a48e503fce6d51c7915dd23b4de14a91dd0337d8
+ms.openlocfilehash: 1ad1d2c74be97afcb62f3f8e8161111f4938f645
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/05/2017
-ms.locfileid: "26290655"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093666"
 ---
 # <a name="install-the-azure-functions-runtime-preview-2"></a>Installer la préversion 2 du runtime Azure Functions
 
@@ -32,7 +28,7 @@ Si vous souhaitez installer la préversion 2 du runtime d’Azure Functions, su
 1. Terminez la configuration de la préversion 2 du runtime Azure Functions.
 1. Créer votre première fonction dans la préversion du runtime Azure Functions
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Avant d’installer la version préliminaire du runtime d’Azure Functions, vous devez disposer des ressources suivantes :
 
@@ -106,7 +102,7 @@ Pour terminer l’installation du runtime d’Azure Functions, vous devez termin
 
 Pour créer votre première fonction dans la préversion du runtime Azure Functions
 
-1. Accédez au **portail du runtime Azure Functions** en tant que https://<machinename>.<domain> par exemple https://mycomputer.mydomain.com
+1. Accédez au **portail du runtime Azure Functions** en tant que https://<machinename>.<domain> Par exemple https://mycomputer.mydomain.com
 1. Vous êtes invité à vous **connecter**. Avec un déploiement dans un domaine, utilisez le nom d'utilisateur et le mot de passe de votre compte de domaine. Sinon, utilisez le nom d'utilisateur et le mot de passe de votre compte local pour vous connecter au portail.
 
 ![Connexion au portail de la préversion du runtime Azure Functions][14]

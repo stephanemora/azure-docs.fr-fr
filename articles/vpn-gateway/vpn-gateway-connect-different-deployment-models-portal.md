@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/13/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5e51027455da1f8be34d99c79bc79bc37df57d14
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 6a585155e1d1050498754f5b9a7ec3dfc82d7a2c
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38721553"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319929"
 ---
 # <a name="connect-virtual-networks-from-different-deployment-models-using-the-portal"></a>Connecter des réseaux virtuels utilisant des modèles de déploiement différents dans le portail
 
 Cet article vous explique comment connecter des réseaux virtuels classiques à des réseaux virtuels Resource Manager afin de permettre aux ressources situées dans les modèles de déploiement distincts de communiquer entre elles. Les étapes décrites dans cet article utilisent principalement le portail Azure, mais vous pouvez également créer cette configuration à l’aide de PowerShell en sélectionnant l’article dans cette liste.
 
 > [!div class="op_single_selector"]
-> * [Portail](vpn-gateway-connect-different-deployment-models-portal.md)
+> * [Portal](vpn-gateway-connect-different-deployment-models-portal.md)
 > * [PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
 > 
 > 
@@ -54,7 +54,7 @@ Nom du sous-réseau = Subnet-1 <br>
 Plage d’adresses de sous-réseau = 10.0.0.0/27 <br>
 Abonnement = abonnement à utiliser <br>
 Groupe de ressources = ClassicRG <br>
-Emplacement = Ouest des États-Unis <br>
+Emplacement = USA Ouest <br>
 Sous-réseau de passerelle = 10.0.0.32/28 <br>
 Site local = RMVNetLocal <br>
 
@@ -63,7 +63,7 @@ Site local = RMVNetLocal <br>
 Nom du réseau virtuel = RMVNet <br>
 Espace d’adressage = 192.168.0.0/16 <br>
 Groupe de ressources = RG1 <br>
-Emplacement = Est des États-Unis <br>
+Emplacement = USA Est <br>
 Nom du sous-réseau = Subnet-1 <br>
 Plage d’adresses = 192.168.1.0/24 <br>
 Sous-réseau de passerelle = 192.168.0.0/26 <br>
@@ -71,7 +71,7 @@ Nom de passerelle de réseau virtuel = RMGateway <br>
 Type de passerelle = VPN <br>
 Type de VPN = Route-based <br>
 Référence (SKU) = VpnGw1 <br>
-Emplacement = Est des États-Unis <br>
+Emplacement = USA Est <br>
 Réseau virtuel = RMVNet <br> (associer la passerelle VPN à ce réseau virtuel) Première configuration IP = rmgwpip <br> (adresse IP publique de passerelle) Passerelle de réseau local = ClassicVNetLocal <br>
 Nom de connexion = RMtoClassic
 
@@ -83,8 +83,8 @@ Le tableau suivant montre comment les réseaux virtuels et les sites locaux sont
 
 | Réseau virtuel | Espace d'adressage | Région | Se connecte au site de réseau local |
 |:--- |:--- |:--- |:--- |
-| ClassicVNet |(10.0.0.0/24) |États-Unis de l’Ouest | RMVNetLocal (192.168.0.0/16) |
-| RMVNet | (192.168.0.0/16) |Est des États-Unis |ClassicVNetLocal (10.0.0.0/24) |
+| ClassicVNet |(10.0.0.0/24) |USA Ouest | RMVNetLocal (192.168.0.0/16) |
+| RMVNet | (192.168.0.0/16) |USA Est |ClassicVNetLocal (10.0.0.0/24) |
 
 ## <a name="classicvnet"></a>Section 1 - Configurer les paramètres de réseau virtuel classique
 
@@ -145,7 +145,7 @@ Dans cette section, vous créez la passerelle de réseau virtuel et la passerell
 * Nom du réseau virtuel = RMVNet <br>
 * Espace d’adressage = 192.168.0.0/16 <br>
 * Groupe de ressources = RG1 <br>
-* Emplacement = Est des États-Unis <br>
+* Emplacement = USA Est <br>
 * Nom du sous-réseau = Subnet-1 <br>
 * Plage d’adresses = 192.168.1.0/24 <br>
 
@@ -170,7 +170,7 @@ Vous devez d’abord créer un sous-réseau de passerelle pour pouvoir configure
 * Type de passerelle = VPN <br>
 * Type de VPN = Route-based <br>
 * Référence (SKU) = VpnGw1 <br>
-* Emplacement = Est des États-Unis <br>
+* Emplacement = USA Est <br>
 * Réseau virtuel = RMVNet <br>
 * Première configuration IP = rmgwpip <br>
 
@@ -182,8 +182,8 @@ Vous devez d’abord créer un sous-réseau de passerelle pour pouvoir configure
 
 | Réseau virtuel | Espace d'adressage | Région | Se connecte au site de réseau local |Adresse IP publique de la passerelle|
 |:--- |:--- |:--- |:--- |:--- |
-| ClassicVNet |(10.0.0.0/24) |États-Unis de l’Ouest | RMVNetLocal (192.168.0.0/16) |L’adresse IP publique qui est affectée à la passerelle ClassicVNet|
-| RMVNet | (192.168.0.0/16) |Est des États-Unis |ClassicVNetLocal (10.0.0.0/24) |L’adresse IP publique qui est affectée à la passerelle RMVNet.|
+| ClassicVNet |(10.0.0.0/24) |USA Ouest | RMVNetLocal (192.168.0.0/16) |L’adresse IP publique qui est affectée à la passerelle ClassicVNet|
+| RMVNet | (192.168.0.0/16) |USA Est |ClassicVNetLocal (10.0.0.0/24) |L’adresse IP publique qui est affectée à la passerelle RMVNet.|
 
 La passerelle de réseau local spécifie la plage d’adresses et l’adresse IP publique associées à votre réseau virtuel classique et à la passerelle de réseau virtuel. Si vous effectuez ces étapes en guise d’exercice, consultez les exemples de valeurs.
 
@@ -294,7 +294,7 @@ Set-AzureVNetGatewayKey -VNetName "Group ClassicRG ClassicVNet" `
 -LocalNetworkSiteName "172B9E16_RMVNetLocal" -SharedKey abc123
 ```
 
-##<a name="verify"></a>Section 6 - Vérifier vos connexions
+## <a name="verify"></a>Section 6 - Vérifier vos connexions
 
 Vous pouvez vérifier vos connexions à l’aide du portail Azure ou de PowerShell. Lors de la vérification, vous devrez peut-être patienter quelques minutes, le temps que la connexion soit créée. Lorsqu’une connexion est réussie, l’état de connectivité passe de « Connexion » à « Connecté ».
 

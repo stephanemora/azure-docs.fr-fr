@@ -3,19 +3,19 @@ title: 'Didacticiel : Créer une application de traitement d’image - C#'
 titleSuffix: Computer Vision - Cognitive Services - Azure
 description: Explorez une application Windows de base qui utilise l’API Vision par ordinateur dans Microsoft Cognitive Services. Effectuez une reconnaissance OCR, créez des miniatures et utilisez des fonctionnalités visuelles dans une image.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: nolachar
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
 ms.date: 08/28/2018
-ms.author: v-deken
-ms.openlocfilehash: 9ea562e7fa2ec3e32da2f0f1453db36dda319303
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.author: pafarley
+ms.openlocfilehash: d1fa468874cdc51bad3421f700a69f3ffb268635
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295850"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342651"
 ---
 # <a name="tutorial-build-an-image-processing-app---c35"></a>Didacticiel : Créer une application de traitement d’image - C#
 
@@ -305,7 +305,7 @@ La méthode `UploadAndThumbnailImageAsync` crée une instance `ComputerVisionCli
 
 La méthode `RecognizeUrlAsync` crée une instance `ComputerVisionClient` à l’aide de l’URL de point de terminaison et de la clé d’abonnement spécifiées. Elle appelle la méthode `ComputerVisionClient.GenerateThumbnailAsync`, en soumettant la largeur, la hauteur, l’URL de l’image et l’utilisation éventuelle du rognage intelligent, puis retourne le résultat en tant que `Stream`. Les méthodes héritées de la classe `ImageScenarioPage` présentent les résultats retournés dans la page de scénario.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le dossier dans lequel vous avez cloné le référentiel `Microsoft/Cognitive-Vision-Windows`. Si vous avez choisi d’utiliser les exemples d’image, supprimez également le dossier dans lequel vous avez cloné le référentiel `Microsoft/Cognitive-Face-Windows`.
 

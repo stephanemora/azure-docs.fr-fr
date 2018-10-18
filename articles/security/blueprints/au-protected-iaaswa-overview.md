@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: b269a145c78aaf025ef05a4562cf55124c17e2ee
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: f25e054f0273d770807dad6788f184a876a00fe7
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818003"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319198"
 ---
 # <a name="azure-security-and-compliance-blueprint---iaas-web-application-for-australia-protected"></a>Blueprint de sécurité et de conformité Azure : application web IaaS pour Australia Protected
 
@@ -79,7 +79,6 @@ Cette solution crée une machine virtuelle en tant qu’hôte bastion joint au d
 -   [Extension Diagnostics Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-extensions-diagnostics-template)
 -   [Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption) avec Azure Key Vault
 -   [Stratégie d’arrêt automatique](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) pour réduire la consommation des ressources de machine virtuelle non utilisées
--   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) activé afin que les informations d’identification et autres secrets soient utilisés dans un environnement protégé, isolé du système d’exploitation en cours d’exécution
 
 ### <a name="virtual-network"></a>Réseau virtuel
 L’architecture définit un réseau privé virtuel avec l’espace d’adressage 10.200.0.0/16.
@@ -110,7 +109,7 @@ L’architecture protège les données au repos à l’aide d’un chiffrement, 
 
 **SQL Server** : l’instance Azure SQL Database utilise les mesures suivantes pour la sécurité des bases de données :
 -   [L’audit SQL Server](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine?view=sql-server-2017) suit les événements de base de données et les écrit dans des journaux d’audit.
--   [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) effectue le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux de transactions afin de protéger les informations au repos. Transparent Data Encryption protège les données stockées des accès non autorisés.
+-   [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017) effectue le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux de transactions afin de protéger les informations au repos. Transparent Data Encryption protège les données des accès non autorisés.
 -   Des [règles de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) empêchent tout accès aux serveurs de base de données sans autorisation appropriée. Le pare-feu octroie l’accès à la base de données en fonction de l’adresse IP d’origine de chaque demande.
 -   Des [colonnes Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-wizard?view=sql-server-2017) garantissent que les données sensibles n’apparaissent jamais en tant que texte en clair à l’intérieur du système de base de données. Une fois le chiffrement des données activé, seules des applications clientes ou des serveurs d’applications ayant accès aux clés peuvent accéder aux données en texte clair.
 - [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking?view=sql-server-2017) limite l’exposition des données sensibles en masquant celles-ci aux utilisateurs ou aux applications dépourvus de privilèges. Le masquage dynamique des données peut découvrir automatiquement les données potentiellement sensibles et suggérer les masques appropriés à appliquer. Ceci permet de réduire l’accès à ces données sensibles afin qu’elles ne quittent pas la base de données via un accès non autorisé. **Les clients doivent ajuster les paramètres de masquage dynamique des données pour respecter leur schéma de base de données.**
@@ -127,7 +126,7 @@ De plus, les fonctionnalités Azure Active Directory suivantes aident à gérer 
 **Azure Multi-Factor Authentication** : pour protéger les identités, l’authentification multifacteur doit être implémentée. [Azure Multi-Factor Authentication](https://azure.microsoft.com/services/multi-factor-authentication/) est une solution facile à utiliser, évolutive et fiable, qui fournit une deuxième méthode d’authentification permettant de protéger vos utilisateurs. Azure Multi-Factor Authentication utilise la puissance du cloud, et s’intègre à Active Directory local et à vos applications personnalisées. Cette protection est étendue aux scénarios critiques impliquant de grands volumes.
 
 ### <a name="security"></a>Sécurité
-**Gestion des secrets** : la solution utilise [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pour gérer les clés et les secrets. Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Les fonctionnalités suivantes d’Azure Key Vault aident les clients à protéger les données et à y accéder :
+**Gestion des secrets** : la solution utilise [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) pour gérer les clés et les secrets. Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Les fonctionnalités Azure Key Vault ci-après aident les clients à protéger les données et à y accéder :
 
 - Les stratégies d’accès avancées sont configurées en fonction des besoins.
 - Les stratégies d’accès Key Vault sont définies avec des autorisations minimales requises pour les clés et les secrets.
@@ -138,21 +137,21 @@ De plus, les fonctionnalités Azure Active Directory suivantes aident à gérer 
 - Les opérations de chiffrement autorisées pour les clés sont restreintes à celles qui sont nécessaires.
 - La solution est intégrée à Azure Key Vault pour gérer les secrets et clés de chiffrement de disque de machine virtuelle IaaS.
 
-**Gestion des correctifs** : les machines virtuelles Windows déployées dans le cadre de cette architecture de référence sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution inclut également le service [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro) qui permet de créer des déploiements mis à jour pour corriger des machines virtuelles si nécessaire.
+**Gestion des correctifs** : les machines virtuelles Windows déployées dans le cadre de cette architecture de référence sont configurées par défaut pour recevoir des mises à jour automatiques du service Windows Update. Cette solution inclut également le service [Azure Automation](https://docs.microsoft.com/azure/automation/automation-intro), qui permet de créer des déploiements de mises à jour pour corriger des machines virtuelles si nécessaire.
 
 **Protection contre les programmes malveillants** : [Microsoft Antimalware](https://docs.microsoft.com/azure/security/azure-security-antimalware) pour Machines Virtuelles fournit une protection en temps réel qui permet d’identifier et de supprimer des virus, des logiciels espions et d’autres logiciels malveillants grâce à des alertes configurables vous avertissant quand des logiciels malveillants ou indésirables connus tentent de s’installer ou de s’exécuter sur des machines virtuelles protégées.
 
-**Azure Security Center** : Avec [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), les clients peuvent appliquer et gérer de façon centralisée des stratégies de sécurité entre charges de travail, limiter l’exposition aux menaces, ainsi que détecter les attaques et y répondre. Par ailleurs, Azure Security Center accède aux configurations existantes des services Azure pour fournir des recommandations de configuration et de service dans le but d’améliorer la situation de sécurité et de protéger les données.
+**Azure Security Center** : avec [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), les clients peuvent appliquer et gérer de façon centralisée des stratégies de sécurité entre les charges de travail, limiter l’exposition aux menaces, ainsi que détecter les attaques et y répondre. Par ailleurs, Azure Security Center accède aux configurations existantes des services Azure pour fournir des recommandations en matière de configuration et de service. Cela contribue à l’amélioration du dispositif de sécurité et à la protection des données.
 
 Azure Security Center utilise diverses fonctionnalités de détection pour avertir les clients des attaques potentielles qui ciblent leur environnement. Ces alertes fournissent de précieuses informations sur le déclencheur de l’alerte, les ressources ciblées et la source de l’attaque. Azure Security Center a un ensemble [d’alertes de sécurité prédéfinies](https://docs.microsoft.com/azure/security-center/security-center-alerts-type), qui sont déclenchées en cas de menace ou d’activité suspecte. Les [règles d’alerte personnalisées](https://docs.microsoft.com/azure/security-center/security-center-custom-alert) d’Azure Security Center permettent aux clients de définir de nouvelles alertes de sécurité basées sur les données déjà collectées dans leur environnement.
 
-Azure Security Center fournit des incidents et des alertes de sécurité hiérarchisés, pour simplifier la découverte et la résolution des problèmes potentiels de sécurité. Un [rapport d’intelligence des menaces](https://docs.microsoft.com/azure/security-center/security-center-threat-report) est généré pour chaque menace détectée afin d’aider les équipes chargées de traiter les incidents à examiner et à contrecarrer les menaces.
+Azure Security Center fournit des incidents et des alertes de sécurité hiérarchisés, ce qui permet aux clients de découvrir et de résoudre plus facilement les problèmes de sécurité potentiels. Un [rapport d’intelligence des menaces](https://docs.microsoft.com/azure/security-center/security-center-threat-report) est généré pour chaque menace détectée afin d’aider les équipes chargées de traiter les incidents à examiner et à contrecarrer les menaces.
 
 En outre, cette architecture de référence utilise [l’évaluation des vulnérabilités](https://docs.microsoft.com/azure/security-center/security-center-vulnerability-assessment-recommendations) dans Azure Security Center. Une fois sa configuration terminée, un agent partenaire (par ex. Qualys) commence à signaler les données de vulnérabilité à la plateforme de gestion du partenaire. La plateforme de gestion du partenaire fournit à son tour des données sur la vulnérabilité et la surveillance des données à Azure Security Center, permettant aux clients d’identifier rapidement les machines virtuelles vulnérables.
 
-**Azure Application Gateway** : L’architecture réduit le risque de failles de sécurité à l’aide d’Azure Application Gateway avec un pare-feu d’applications web configuré et l’ensemble de règles OWASP activé. Les autres fonctionnalités incluent notamment :
+**Azure Application Gateway** : l’architecture réduit le risque de failles de sécurité à l’aide d’Azure Application Gateway avec le pare-feu d’applications web configuré et l’ensemble de règles OWASP activé. Les autres fonctionnalités incluent notamment :
 
-- [SSL de bout en bout](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
+- [End-to-end-SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - Activation du [déchargement SSL](https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-portal)
 - Désactivation de [TLS versions 1.0 et 1.1](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell)
 - [Pare-feu d’applications web](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-application-firewall-overview) (mode de prévention)
@@ -173,13 +172,13 @@ Les services Azure assurent une journalisation complète de l’activité du sys
 - **Journaux d’activité :** les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des informations sur les opérations effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
 - **Journaux de diagnostic :** les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sont tous les journaux émis par toutes les ressources. Ils incluent les journaux des événements système de Windows, les journaux de Stockage Azure, les journaux d’audit du Key Vault, ainsi que les journaux de pare-feu et d’accès d’Application Gateway. Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise.
 
-**Log Analytics** : ces journaux sont consolidés dans [Log Analytics](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de rapports basés sur des tableaux de bord. Une fois collectées, les données sont organisées en différentes tables en fonction du type de données. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. Par ailleurs, Azure Security Center s’intègre à Log Analytics pour permettre aux clients d’utiliser des requêtes Log Analytics afin d’accéder à leurs données d’événement de sécurité et de les combiner avec des données provenant d’autres services.
+**Log Analytics** : ces journaux sont consolidés dans [Log Analytics](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de tableaux de bord. Une fois collectées, les données sont organisées en différentes tables en fonction du type de données. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. Par ailleurs, Azure Security Center s’intègre à Log Analytics pour permettre aux clients d’utiliser des requêtes Log Analytics afin d’accéder à leurs données d’événement de sécurité et de les combiner avec des données provenant d’autres services.
 
 Les [solutions de gestion](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Log Analytics suivantes sont également incluses dans cette architecture :
--   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions propres à l’infrastructure de serveur déployée.
+-   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions spécifiques de l’infrastructure de serveur déployée.
 - [SQL Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-sql-assessment) : la solution SQL Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit aux clients une liste hiérarchisée de recommandations spécifiques pour l’infrastructure de serveur déployée.
 - [Agent Health](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth) : la solution de contrôle d’intégrité des agents indique le nombre d’agents déployés et leur répartition géographique, ainsi que le nombre d’agents qui ne répondent pas et qui envoient des données opérationnelles.
--   [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : la solution Activity Log Analytics facilite l’analyse des journaux d’activité de tous les abonnements Azure d’un client.
+-   [Activity Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity) : la solution Activity Log Analytics facilite l’analyse des journaux d’activité Azure de tous les abonnements Azure d’un client.
 
 **Azure Automation** : [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) stocke, exécute et gère les runbooks. Dans cette solution, des runbooks aident à collecter les journaux d’Azure SQL Server. La solution Automation [Change Tracking](https://docs.microsoft.com/azure/automation/automation-change-tracking) permet aux clients d’identifier facilement les changements dans l’environnement.
 

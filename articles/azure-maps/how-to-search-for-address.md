@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 293b6af1d591c0c9763c2914713fe892392ae7ea
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d25142cecd62fc34a08939d5f1915ba9b2cee749
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578138"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387427"
 ---
 # <a name="find-an-address-using-the-azure-maps-search-service"></a>Rechercher une adresse à l’aide du service Azure Maps Search
 
@@ -59,7 +59,7 @@ La plupart des requêtes de recherche utilisent par défaut le paramétrage `max
 
 4. Cliquez sur **Send** (Envoyer), puis examinez le corps de la réponse.
 
-    La chaîne de requête ambiguë « pizza » a retourné 10 [résultats de point d’intérêt](https://docs.microsoft.com/en-us/rest/api/maps/search/getsearchpoi#searchpoiresponse) dans les catégories « pizza » et « restaurant ». Chaque résultat retourne une adresse postale, les valeurs latitude/longitude, un point de vue et les points d’entrée de l’emplacement.
+    La chaîne de requête ambiguë « pizza » a retourné 10 [résultats de point d’intérêt](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi#searchpoiresponse) dans les catégories « pizza » et « restaurant ». Chaque résultat retourne une adresse postale, les valeurs latitude/longitude, un point de vue et les points d’entrée de l’emplacement.
   
     Les résultats peuvent varier pour cette requête et ne sont pas liés à un emplacement de référence particulier. Vous pouvez utiliser le paramètre **countrySet** pour ne spécifier que les pays que votre application doit couvrir ; en effet, le comportement par défaut consiste à rechercher dans le monde entier, ce qui peut engendrer des résultats superflus.
 

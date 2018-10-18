@@ -3,7 +3,7 @@ title: Principes de bases de l’administration d’Azure Stack | Microsoft Docs
 description: Découvrez tout ce qu’il faut savoir pour administrer Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: jeffgilb
 manager: femila
 editor: ''
 ms.assetid: 856738a7-1510-442a-88a8-d316c67c757c
@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
-ms.author: mabrigg
-ms.openlocfilehash: ead76fd2f03a5d445f9fdbb6c10edb852fd046cf
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.date: 10/15/2018
+ms.author: jeffgilb
+ms.openlocfilehash: 37b8eff2d4ed89c90f1fa6f128673ed5bacaaa90
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585762"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339948"
 ---
 # <a name="azure-stack-administration-basics"></a>Principes de bases de l’administration d’Azure Stack
 Si vous débutez avec l’administration d’Azure Stack, vous devez prendre connaissance de plusieurs choses. Ce guide fournit une vue d’ensemble de votre rôle en tant qu’opérateur Azure Stack, et explique ce que vous devez dire à vos utilisateurs pour qu’ils deviennent rapidement productifs.
@@ -144,6 +144,6 @@ Pour le Kit de développement, vous pouvez poser des questions relatives au supp
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Gestion des régions dans Azure Stack](azure-stack-region-management.md)
+[Gestion des régions dans Azure Stack](azure-stack-region-management.md)
 
 

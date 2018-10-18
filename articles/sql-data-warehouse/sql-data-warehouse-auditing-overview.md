@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 04/11/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: c894fed56393e1504f54999e57bba6f9ffed27a7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 18a6234eb56902625fdcc8f150a41b7551d229cc
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288252"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318535"
 ---
 # <a name="auditing-in-azure-sql-data-warehouse"></a>Audit dans Azure SQL Data Warehouse
 
@@ -112,7 +112,7 @@ Avant de configurer l'audit, assurez-vous que vous utilisez bien un [« Client 
 
 ## <a id="subheading-3"></a>Analyse des journaux et des rapports d’audit
 
-###<a name="server-level-policy-audit-logs"></a>Journaux d’audit avec stratégie au niveau du serveur
+### <a name="server-level-policy-audit-logs"></a>Journaux d’audit avec stratégie au niveau du serveur
 Les journaux d’audit au niveau du serveur sont écrits dans des **Blobs d’ajout** dans un stockage Blob Azure avec votre abonnement Azure. Ils sont enregistrés sous la forme d’une collection de fichiers d’objets blob dans un conteneur nommé **sqldbauditlogs**.
 
 Pour plus d’informations sur la hiérarchie du dossier de stockage, sur les conventions de nommage et sur le format des journaux, consultez le [document de référence sur le format des journaux d’audit d’objets blob](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -147,7 +147,7 @@ Plusieurs méthodes vous permettent d’afficher des journaux d’audit d’obje
 
 
 <br>
-###<a name="database-level-policy-audit-logs"></a>Journaux d’audit avec stratégie au niveau de la base de données
+### <a name="database-level-policy-audit-logs"></a>Journaux d’audit avec stratégie au niveau de la base de données
 Les journaux d’audit au niveau de la base de données sont agrégés dans une collection de tables de stockage avec un préfixe **SQLDBAuditLogs** au sein du compte de stockage Azure que vous avez choisi lors de la configuration. Vous pouvez afficher les fichiers journaux à l'aide d'un outil tel que l'[Explorateur de stockage Azure](http://azurestorageexplorer.codeplex.com).
 
 Un modèle de rapport de tableau de bord préconfiguré est disponible sous forme de [feuille de calcul Excel téléchargeable](http://go.microsoft.com/fwlink/?LinkId=403540) afin de vous aider à analyser rapidement les données de journal. Pour utiliser le modèle sur vos journaux d’audit, il vous faut Excel 2013 ou une version ultérieure et Power Query, téléchargeable [ici](http://www.microsoft.com/download/details.aspx?id=39379).

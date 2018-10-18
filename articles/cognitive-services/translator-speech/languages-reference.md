@@ -10,15 +10,16 @@ ms.component: translator-speech
 ms.topic: conceptual
 ms.date: 05/18/18
 ms.author: v-jansko
-ROBOTS: NOINDEX
-ms.openlocfilehash: 9fbbba7ed5e81cae1d30c5a480b9f7f7a13342c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b7005811898df9132be6bc199e26f6c6dc358618
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986419"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345201"
 ---
 # <a name="translator-speech-api-languages"></a>API de traduction de conversation Translator Speech : Languages
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-translator-speech-deprecation-note.md)]
 
 La traduction de conversation Translator Speech continue d’étendre la liste des langues prises en charge par ses services. Utilisez cette API pour découvrir l’ensemble des langues qui peuvent actuellement être utilisées avec le service Translator Speech.
 
@@ -36,7 +37,7 @@ Un client utilise le paramètre de requête `scope` pour définir les ensembles 
 * **Traduction de texte :** utiliser le paramètre de requête `scope=text` pour récupérer l’ensemble de langues disponibles pour traduire du texte transcrit.
 * **Synthèse vocale :** utiliser le paramètre de requête `scope=tts` pour récupérer l’ensemble de langues et de voix disponibles pour synthétiser le texte traduit en parole.
 
-Un client peut récupérer simultanément plusieurs ensembles de langues en spécifiant une liste de choix séparés par des virgules. Par exemple : `scope=speech,text,tts`.
+Un client peut récupérer simultanément plusieurs ensembles de langues en spécifiant une liste de choix séparés par des virgules. Par exemple : `scope=speech,text,tts`.
 
 Une réponse correcte est un objet JSON avec une propriété pour chaque ensemble demandé.
 

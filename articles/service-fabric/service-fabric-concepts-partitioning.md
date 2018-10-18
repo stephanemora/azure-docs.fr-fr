@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/30/2017
 ms.author: msfussell
-ms.openlocfilehash: 9072a25b55bf461ad7dcc8393b98a66d87866d48
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ae7eba9997c4f567eb7b07e23ab42c9ac7740698
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42141301"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388107"
 ---
 # <a name="partition-service-fabric-reliable-services"></a>Partitionnement des services fiables Service Fabric
 Cet article présente les concepts de base pour le partitionnement des services fiables d’Azure Service Fabric. Le code source utilisé dans cet article est également disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
@@ -365,7 +365,7 @@ Comme nous ne voulons littéralement qu’une partition par lettre, nous pouvons
 Le code source complet de cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started/tree/classic/Services/AlphabetPartitions).
 
 ## <a name="reliable-services-and-actor-forking-subprocesses"></a>Sous-processus de duplication Reliable Services et Actor
-Service Fabric ne prend pas en charge les sous-processus de duplication de Reliable Services et Reliable Actors. Un exemple de la raison de cette absence de prise en charge est le fait que [CodePackageActivationContext](https://docs.microsoft.com/en-us/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) ne peut pas être utilisé pour inscrire un sous-processus non pris en charge et les jetons d’annulation sont uniquement envoyés à des processus enregistrés ; engendrant toutes sortes de problèmes, telles que les échecs de mise à niveau, lorsque les sous-processus ne ferment pas une fois le jeton d’annulation reçu par le processus parent. 
+Service Fabric ne prend pas en charge les sous-processus de duplication de Reliable Services et Reliable Actors. Un exemple de la raison de cette absence de prise en charge est le fait que [CodePackageActivationContext](https://docs.microsoft.com/dotnet/api/system.fabric.codepackageactivationcontext?view=azure-dotnet) ne peut pas être utilisé pour inscrire un sous-processus non pris en charge et les jetons d’annulation sont uniquement envoyés à des processus enregistrés ; engendrant toutes sortes de problèmes, telles que les échecs de mise à niveau, lorsque les sous-processus ne ferment pas une fois le jeton d’annulation reçu par le processus parent. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d'informations sur les concepts propres à Service Fabric, consultez les articles suivants :

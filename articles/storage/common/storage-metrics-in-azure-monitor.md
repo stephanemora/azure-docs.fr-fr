@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/05/2017
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 99a1832d82005fabd6f8b62aea6ad7722b317a13
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 8fe4fdfa88a5aea4b8df49d9c00fa7f6b1768209
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367880"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49363433"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Mesures de stockage Azure dans Azure Monitor
 
@@ -403,7 +403,7 @@ Les anciennes mesures sont disponibles en parallèle avec les mesures gérées d
 
 **Le stockage Azure prend-il en charge les métriques de disques managés ou de disques non managés ?**
 
-Non, le Calcul Azure prend en charge les métriques sur les disques. Consultez l’[article](https://azure.microsoft.com/en-us/blog/per-disk-metrics-managed-disks/) pour plus de détails.
+Non, le Calcul Azure prend en charge les métriques sur les disques. Consultez l’[article](https://azure.microsoft.com/blog/per-disk-metrics-managed-disks/) pour plus de détails.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

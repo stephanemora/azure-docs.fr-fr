@@ -2,25 +2,19 @@
 title: Démarrage rapide pour Microsoft Azure Data Box Disk | Microsoft Docs
 description: Utilisez ce guide de démarrage rapide pour déployer rapidement votre disque Azure Data Box dans le portail Azure
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: disk
 ms.topic: quickstart
-ms.tgt_pltfrm: NA
-ms.workload: NA
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: b4ec329fc5b1f3df9e6641bee3e1378c3a4d09c6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378344"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365232"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Démarrage rapide : Déployer le disque Azure Data Box via le portail Azure (préversion)
 
@@ -28,7 +22,7 @@ Ce démarrage rapide explique comment déployer le disque Azure Data Box à l’
 
 Pour obtenir des instructions détaillées sur le déploiement pas à pas, accédez à [Tutorial: Order Azure Data Box Disk](data-box-disk-deploy-ordered.md) (Didacticiel : commander un disque Azure Data Box). 
 
-Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F).
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!IMPORTANT]
 > Data Box Disk est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de déployer cette solution.
@@ -112,7 +106,7 @@ Le temps nécessaire à cette opération dépend de la taille de vos données.
     1. Vérifiez les journaux d’erreurs pour connaître les échecs éventuels et prendre les mesures appropriées.
     2. Vérifiez que vos données se trouvent dans les comptes de stockage avant de les supprimer de la source.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Cette étape dure 2 à 3 minutes.
 

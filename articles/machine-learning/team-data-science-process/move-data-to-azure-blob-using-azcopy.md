@@ -4,7 +4,7 @@ description: Déplacer des données vers et depuis le stockage d’objets blob A
 services: machine-learning,storage
 documentationcenter: ''
 author: deguhath
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: c309ceb2-0e83-4a07-b16d-c997dcd62d5c
 ms.service: machine-learning
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: a25a35bc05781c6a52e21d697233ba1187ebeccf
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 41e89aab65b19e22ad6f8fe0d3087c4e7f5430ab
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838413"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393402"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage-using-azcopy"></a>Déplacer des données vers et depuis Stockage Blob Azure à l’aide d’AzCopy
 AzCopy est un utilitaire de ligne de commande conçu pour charger, télécharger et copier des données vers et à partir d'un stockage de fichiers, d'objets blob et de tables Microsoft Azure.

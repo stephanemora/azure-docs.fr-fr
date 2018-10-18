@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 87bcd23983c1d973f7e90caf806092c909b7b9e4
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 103da0c65bcf9b9bd24130082f844b9bd12a9a02
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032544"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389715"
 ---
 # <a name="create-a-qna-maker-service"></a>Créer un service QnA Maker
 
@@ -41,10 +41,10 @@ Cette configuration déploie plusieurs ressources Azure. Ensemble, ces ressource
     * Choisissez **l’abonnement** dans lequel la ressource QnA Maker sera déployée.
     * Sélectionnez le **Niveau tarifaire de gestion** pour les services d’administration de QnA Maker (portail et API de gestion). Consultez [ici](https://aka.ms/qnamaker-pricing) plus d’informations sur la tarification des références SKU.
     * Créez un nouveau **Groupe de ressources** (recommandé) ou utilisez un groupe de ressources existant dans lequel déployer cette ressource QnA Maker.
-    * Choisissez le **Niveau tarifaire de recherche** du service Recherche Azure. Si l’option de niveau Gratuit est grisée, cela signifie que vous disposez déjà d’un niveau Recherche Azure Gratuit déployé dans votre abonnement. Dans ce cas, vous devrez commencer par le niveau De base de la Recherche Azure. Consultez les détails sur la tarification de la Recherche Azure [ici](https://azure.microsoft.com/en-us/pricing/details/search/).
+    * Choisissez le **Niveau tarifaire de recherche** du service Recherche Azure. Si l’option de niveau Gratuit est grisée, cela signifie que vous disposez déjà d’un niveau Recherche Azure Gratuit déployé dans votre abonnement. Dans ce cas, vous devrez commencer par le niveau De base de la Recherche Azure. Consultez les détails sur la tarification de la Recherche Azure [ici](https://azure.microsoft.com/pricing/details/search/).
     * Choisissez **l’emplacement de recherche** où vous souhaitez que les données de Recherche Azure soient déployées. Les restrictions relatives à l’emplacement de stockage des données client indiquent l’emplacement que vous choisissez pour la Recherche Azure.
     * Attribuez un nom à votre App Service dans **Nom de l’application**.
-    * Par défaut, App Service utilise le niveau Standard (S1). Vous pouvez modifier le plan après sa création. Pour plus d'informations, consultez [Tarification d’App Service](https://azure.microsoft.com/en-in/pricing/details/app-service/).
+    * Par défaut, App Service utilise le niveau Standard (S1). Vous pouvez modifier le plan après sa création. Pour plus d'informations, consultez [Tarification d’App Service](https://azure.microsoft.com/pricing/details/app-service/).
     * Choisissez **l’emplacement du site web** où App Service sera déployé.
 
         > [!NOTE]

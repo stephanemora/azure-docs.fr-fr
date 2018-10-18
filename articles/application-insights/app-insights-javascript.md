@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 70269fc71fcb2ef9158b50d3bb281097abee0740
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992210"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167050"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 Apprenez-en plus sur les performances et l’utilisation de votre page web ou de votre application. Ajoutez [Application Insights](app-insights-overview.md) à votre script de page pour obtenir le minutage des chargements de page et des appels AJAX, le nombre d’exceptions du navigateur et d’échecs d’AJAX et leurs détails, ainsi que le nombre d’utilisateurs et de sessions. Toutes ces données peuvent être segmentées par page, par version de système d’exploitation ou de navigateur client, par emplacement géographique et en fonction d’autres aspects. Vous pouvez définir des alertes en cas de dépassement d’un certain nombre d’échecs ou de ralentissement du chargement des pages. Et en insérant des suivis d’appel dans votre code JavaScript, vous pouvez suivre l’utilisation des différentes fonctionnalités de votre application de page web.
@@ -48,12 +48,6 @@ Si vous n'en avez pas, créez-la.
 *Vous avez déjà des questions ?* [Plus d’informations sur la création d’une ressource](app-insights-create-new-resource.md).
 
 ### <a name="add-the-sdk-script-to-your-app-or-web-pages"></a>Ajoutez le script du Kit de développement logiciel (SDK) à votre application ou vos pages web
-Dans Démarrage rapide, récupérez le script pour les pages Web :
-
-![Dans le panneau de vue d’ensemble de l’application, cliquez sur Démarrage rapide, Obtenir le code pour analyser mes pages web. Copiez le script](./media/app-insights-javascript/02-monitor-web-page.png)
-
-> [!NOTE]
-> L’expérience de *prise en main* varie selon le type d’application que vous sélectionnez lors de la création de votre ressource Application Insights. Si le script de votre application n’est pas présent, comme dans la capture d’écran précédente, utilisez le script suivant.
 
 ```HTML
 <!-- 
@@ -127,7 +121,7 @@ Ouvrez le panneau Navigateurs pour afficher la synthèse des données de perform
 
 ![Dans portal.azure.com, ouvrez les ressources de votre application, puis cliquez sur Paramètres, Navigateur.](./media/app-insights-javascript/03.png)
 
-Pas encore de données ? Cliquez sur **Actualiser** en haut de la page. Toujours rien ? Consultez la rubrique [Résolution des problèmes](app-insights-troubleshoot-faq.md).
+Pas encore de données ? Cliquez sur **Actualiser en haut de la page. Toujours rien ? Consultez la rubrique [Résolution des problèmes](app-insights-troubleshoot-faq.md).
 
 Le panneau navigateur est un [Panneau Metrics Explorer](app-insights-metrics-explorer.md) avec filtres prédéfinis et des sélections de graphique. Si vous le souhaitez, vous pouvez modifier l’intervalle de temps, les filtres et la configuration des graphiques, puis enregistrer le résultat en tant que favori. Cliquez sur **Paramètres par défaut** pour revenir à la configuration d’origine du panneau.
 

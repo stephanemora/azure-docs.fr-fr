@@ -4,22 +4,21 @@ description: Cette rubrique fournit des suggestions sur la façon de résoudre l
 services: media-services
 documentationcenter: ''
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 3a7f6c1d-ce57-4fa4-a7a6-edb526b3ffbf
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 84e3e9fc18671d7199eeaf638377a6681cf09fb4
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: e6b135e14f06ecf4edfbb97913c411f55711854a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940922"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351450"
 ---
 # <a name="troubleshooting-guide-for-live-streaming"></a>Guide de dépannage de la vidéo en flux continu
 Cet article fournit des suggestions sur la résolution de certains problèmes de streaming en direct.
@@ -54,9 +53,6 @@ Cette section fournit des suggestions sur la façon de résoudre les problèmes 
 > Si, après avoir suivi la procédure de dépannage, vous ne pouvez toujours pas diffuser en continu avec succès, envoyez un ticket de support en utilisant le portail Azure.
 > 
 > 
-
-## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

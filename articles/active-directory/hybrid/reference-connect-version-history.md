@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f3b80af1dfaca921efbe656356e85aeb353a576b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 93bd141b591cda5ec6ff1d9d042222070d3146e6
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310678"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390310"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -112,7 +112,7 @@ Améliorations et nouvelles fonctionnalités
 
 ### <a name="fixed-issues"></a>Problèmes résolus 
 
-- Cette version met à jour l’installation de SQL Server Express vers SQL Server 2012 SP4, qui, entre autres, fournit des correctifs pour plusieurs vulnérabilités de sécurité.  Cliquez [ici](https://support.microsoft.com/en-ca/help/4018073/sql-server-2012-service-pack-4-release-information) pour plus d’informations sur SQL Server 2012 SP4.
+- Cette version met à jour l’installation de SQL Server Express vers SQL Server 2012 SP4, qui, entre autres, fournit des correctifs pour plusieurs vulnérabilités de sécurité.  Cliquez [ici](https://support.microsoft.com/help/4018073/sql-server-2012-service-pack-4-release-information) pour plus d’informations sur SQL Server 2012 SP4.
 - Traitement des règles de synchronisation : les règles de synchronisation de jointure sortante sans condition de jointure doivent être supprimées si la règle de synchronisation parente n’est plus applicable.
 - Plusieurs correctifs d’accessibilité ont été appliqués à l’interface de Synchronization Service Manager et à l’éditeur de règles de synchronisation
 - Assistant Azure AD Connect : erreur de création de compte de connecteur AD quand Azure AD Connect est un groupe de travail.

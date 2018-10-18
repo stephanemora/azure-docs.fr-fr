@@ -3,8 +3,8 @@ title: Variables HTTP pour le moteur de règles Azure CDN | Microsoft Docs
 description: Les variables HTTP vous permettent de récupérer les métadonnées de requête et de réponse HTTP.
 services: cdn
 documentationcenter: ''
-author: dksimpson
-manager: cfowler
+author: mdgattuso
+manager: danielgi
 editor: ''
 ms.assetid: ''
 ms.service: cdn
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: v-deasim
-ms.openlocfilehash: 36c1b20219fabd1b7c02247d9a93bb7b7cfc898d
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: magattus
+ms.openlocfilehash: 39084fd8408a123e8152ad96fa92025fd04ed42b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "34011456"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092811"
 ---
 # <a name="http-variables-for-azure-cdn-rules-engine"></a>Variables HTTP pour le moteur de règles Azure CDN
 Les variables HTTP vous permettent de récupérer les métadonnées de requête et de réponse HTTP. Ces métadonnées peuvent ensuite servir à modifier une requête ou une réponse de façon dynamique. L’utilisation de variables HTTP est limitée aux fonctionnalités de moteur de règles suivantes :
@@ -36,11 +36,11 @@ Le tableau suivant décrit les variables HTTP prises en charge. Une valeur vide 
 
 | NOM | Variable | Description | Exemple de valeur |
 | ---- | -------- | ----------- | ------------ |
-| ASN (demandeur) | %{geo_asnum} | Indique le numéro de système autonome du demandeur. <br /><br />**Déconseillé :** %{virt_dst_asnum}. <br />Cette variable est déconseillée au profit de %{geo_asnum}. Bien que les règles utilisant cette variable déconseillée continuent à fonctionner, vous devez les mettre à jour pour utiliser la nouvelle variable. | AS15133 |
+| ASN (demandeur) | %{geo_asnum} | Indique le numéro de système autonome du demandeur. <br /><br />**Déprécié :** %{virt_dst_asnum}. <br />Cette variable est dépréciée au profit de %{geo_asnum}. Bien que les règles utilisant cette variable dépréciée continuent à fonctionner, vous devez les mettre à jour pour utiliser la nouvelle variable. | AS15133 |
 | Ville (demandeur) | %{geo_city} | Indique la ville du demandeur. | Los Angeles |
-| Continent (demandeur) | %{geo_continent} | Indique le continent du demandeur au travers de son abréviation. <br />Les valeurs autorisées sont : <br />AF : Afrique<br />AS : Asie<br />EU : Europe<br />NA : Amérique du Nord<br />OC : Océanie<br />SA : Amérique du Sud<br /><br />**Déconseillé :** %{virt_dst_continent}. <ber />Cette variable est déconseillée au profit de %{geo_continent}. <br />Bien que les règles utilisant cette variable déconseillée continuent à fonctionner, vous devez les mettre à jour pour utiliser la nouvelle variable.| N/A |
+| Continent (demandeur) | %{geo_continent} | Indique le continent du demandeur au travers de son abréviation. <br />Les valeurs autorisées sont : <br />AF : Afrique<br />AS : Asie<br />EU : Europe<br />NA : Amérique du Nord<br />OC : Océanie<br />SA : Amérique du Sud<br /><br />**Déprécié :** %{virt_dst_continent}. <ber />Cette variable est dépréciée au profit de %{geo_continent}. <br />Bien que les règles utilisant cette variable dépréciée continuent à fonctionner, vous devez les mettre à jour pour utiliser la nouvelle variable.| N/A |
 | Valeur du cookie | %{cookie_Cookie} | Retourne la valeur correspondant à la clé de cookie identifiée par le terme Cookie. | Exemple d’utilisation : <br />%{cookie__utma}<br /><br />Exemple de valeur :<br />111662281.2.10.1222100123 |
-| Pays (demandeur) | %{geo_country} | Indique le pays d’origine du demandeur au travers de son code pays. <br />**Déconseillé :** %{virt_dst_country}. <br /><br />Cette variable est déconseillée au profit de %{geo_country}. Bien que les règles utilisant cette variable déconseillée continuent à fonctionner, vous devez les mettre à jour pour utiliser la nouvelle variable. | FR |
+| Pays (demandeur) | %{geo_country} | Indique le pays d’origine du demandeur au travers de son code pays. <br />**Déprécié :** %{virt_dst_country}. <br /><br />Cette variable est dépréciée au profit de %{geo_country}. Bien que les règles utilisant cette variable dépréciée continuent à fonctionner, vous devez les mettre à jour pour utiliser la nouvelle variable. | FR |
 | Designated Market Area (demandeur) | %{geo_dma_code} |Spécifie le marché des médias du demandeur au moyen de son code de région. <br /><br />Ce champ est uniquement applicable aux requêtes provenant des États-Unis.| 745 |
 | Méthode de requête HTTP | %{request_method} | Indique la méthode de requête HTTP. | GET |
 | Code d’état HTTP | %{status} | Indique le code d’état HTTP de la réponse. | 200 |

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: a660b36f383eaf1fd0e868200ad7f59aba0f8225
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 52e034f9a0c11c2b27888d181304bc16c3369e4a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145522"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49390021"
 ---
 # <a name="how-to-integrate-azure-api-management-with-azure-application-insights"></a>Guide pratique pour intégrer la Gestion des API Azure avec Azure Application Insights
 
@@ -51,7 +51,7 @@ Pour pouvoir utiliser Azure Application Insights, il faut commencer par créer u
     ![Enregistreur d'événements App Insights](media/api-management-howto-app-insights/apim-app-insights-logger-2.png)  
 
 > [!NOTE]
-> En arrière-plan, une entité [Enregistreur d’événements](https://docs.microsoft.com/en-us/rest/api/apimanagement/logger/createorupdate) est créée dans votre instance de gestion des API, qui contient la clé d’instrumentation de l’instance Application Insights.
+> En arrière-plan, une entité [Enregistreur d’événements](https://docs.microsoft.com/rest/api/apimanagement/logger/createorupdate) est créée dans votre instance de gestion des API, qui contient la clé d’instrumentation de l’instance Application Insights.
 
 ## <a name="enable-application-insights-logging-for-your-api"></a>Activer la journalisation Application Insights pour l’API
 
@@ -68,7 +68,7 @@ Pour pouvoir utiliser Azure Application Insights, il faut commencer par créer u
 10. Cliquez sur **Enregistrer**.
 
 > [!NOTE]
-> En arrière-plan, une entité [Diagnostic](https://docs.microsoft.com/en-us/rest/api/apimanagement/diagnostic/createorupdate) nommée « applicationinsights » est créée au niveau de l’API.
+> En arrière-plan, une entité [Diagnostic](https://docs.microsoft.com/rest/api/apimanagement/diagnostic/createorupdate) nommée « applicationinsights » est créée au niveau de l’API.
 
 | Nom du paramètre                        | Type de valeur                        | Description                                                                                                                                                                                                                                                                                                                                      |
 |-------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -123,5 +123,5 @@ Il est également utile d’ignorer la journalisation des en-têtes et du corps 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-+ Découvrez plus en détail [Azure Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/).
++ Découvrez plus en détail [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/).
 + Étudiez la possibilité de [journalisation avec Azure Event Hubs](api-management-howto-log-event-hubs.md).

@@ -5,6 +5,7 @@ services: machine-learning, team-data-science-process
 documentationcenter: ''
 author: deguhath
 ms.author: deguhath
+manager: cgronlun
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
@@ -14,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2018
-ms.openlocfilehash: 427ea1f3f22855b2c54beacbfb89a8f7fd37cce0
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: ee2e797f3838b8b6b36174d14c73e97fe9790315
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246484"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49392810"
 ---
 # <a name="skin-cancer-image-classification-with-the-azure-machine-learning-package-for-computer-vision-and-team-data-science-process"></a>Classification d’images de cancer de la peau avec le package Azure Machine Learning de la vision par ordinateur et le processus TDSP
 
-Cet article vous montre comment utiliser le [package Azure Machine Learning de la vision par ordinateur](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) pour former, tester et déployer un modèle de *classification d’images*. Cet exemple utilise la structure et les modèles TDSP dans [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation). L’exemple complet est fourni dans cette procédure pas à pas. Il utilise le kit de ressources [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) comme infrastructure d’apprentissage profond, et la formation est effectuée sur une machine GPU [Machine virtuelle de science des données](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview). Le déploiement utilise l’interface CLI d’opérationnalisation d’Azure Machine Learning.
+Cet article vous montre comment utiliser le [package Azure Machine Learning de la vision par ordinateur](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest) pour former, tester et déployer un modèle de *classification d’images*. Cet exemple utilise la structure et les modèles TDSP dans [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation). L’exemple complet est fourni dans cette procédure pas à pas. Il utilise le kit de ressources [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/cognitive-toolkit/) comme infrastructure d’apprentissage profond, et la formation est effectuée sur une machine GPU [Machine virtuelle de science des données](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview). Le déploiement utilise l’interface CLI d’opérationnalisation d’Azure Machine Learning.
 
 Beaucoup d’applications dans le domaine de la vision par ordinateur peuvent être chargées comme des problèmes de classification d’images. Celles-ci incluent la création de modèles répondant à des questions simples telles que « Est-ce qu’un objet est présent dans l’image ? » où l’objet peut être un chien, une voiture ou un navire. Cela comprend également des réponses à des questions plus complexes, par exemple : « Quel est le degré de gravité de la maladie oculaire mise en évidence par le scanner de la rétine de ce patient ? ». Le package Azure Machine Learning de la vision par ordinateur rationalise le traitement des données de classification d’images ainsi que le pipeline de modélisation. 
 
@@ -32,7 +33,7 @@ Cet article est un document de synthèse relatif à l’exemple. Une documentati
 
 ## <a name="team-data-science-process-walkthrough"></a>Procédure pas à pas du processus TDSP
 
-Cette procédure pas à pas utilise le cycle de vie du [processus TDSP](https://docs.microsoft.com/en-us/azure/machine-learning/team-data-science-process/overview). La procédure pas à pas couvre les étapes du cycle de vie indiquées ci-dessous.
+Cette procédure pas à pas utilise le cycle de vie du [processus TDSP](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/overview). La procédure pas à pas couvre les étapes du cycle de vie indiquées ci-dessous.
 
 ### <a name="1-data-acquisitionhttpsgithubcomazuremachinelearningsamples-amlvisionpackage-isicimageclassificationblobmastercode01dataacquisitionandunderstanding"></a>[1. Acquisition de données](https://github.com/Azure/MachineLearningSamples-AMLVisionPackage-ISICImageClassification/blob/master/code/01_data_acquisition_and_understanding)
 Le jeu de données CITI (International Skin Imaging Collaboration) est utilisé pour la classification d’images. La CITI est un partenariat entre le milieu universitaire et l’industrie visant à faciliter l’application de l’imagerie cutanée numérique pour étudier et aider à réduire la mortalité par mélanome. [L’archive CITI](https://isic-archive.com/#images) contient plus de 13 000 images de lésions cutanées étiquetées bénignes ou malignes. Téléchargez un exemple d’images à partir de l’archive CITI.
@@ -71,13 +72,13 @@ Les sous-étapes sont décrites en détail dans l’application Jupyter Notebook
 Cette étape met en œuvre le modèle qui a été produit depuis l’étape de modélisation. Elle présente la configuration et les conditions préalables requises. La consommation du service web y est également expliquée. Dans ce didacticiel, vous allez apprendre à générer des modèles d’apprentissage profond avec le package Azure Machine Learning pour la vision de l’ordinateur et à les mettre en œuvre dans Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Consultez les documents complémentaires sur le [package Azure Machine Learning de la vision par ordinateur](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest).
+- Consultez les documents complémentaires sur le [package Azure Machine Learning de la vision par ordinateur](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest).
 - Consultez la documentation de prise en main du [processus TDSP (Team Data Science Process)](https://aka.ms/tdsp).
 
 
 ## <a name="references"></a>Références
 
-* [Package Azure Machine Learning de la vision par ordinateur](https://docs.microsoft.com/en-us/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
-* [Azure Machine Learning Workbench](https://docs.microsoft.com/en-us/azure/machine-learning/service/quickstart-installation)
+* [Package Azure Machine Learning de la vision par ordinateur](https://docs.microsoft.com/python/api/overview/azure-machine-learning/computer-vision?view=azure-ml-py-latest)
+* [Azure Machine Learning Workbench](https://docs.microsoft.com/azure/machine-learning/service/quickstart-installation)
 * [Machine virtuelle de science des données](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview)
 

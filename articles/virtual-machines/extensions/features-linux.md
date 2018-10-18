@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: aefb9142e5954b2e4598c73eb36fa25de99e9584
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 255fe84f0d155902b2a3ac477a1e677efef42bb4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452256"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386653"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensions et fonctionnalités de machine virtuelle pour Linux
 
@@ -65,7 +65,7 @@ Les paquets d’extensions sont téléchargés à partir du dépôt d’extensio
 > [!IMPORTANT]
 > Si vous avez bloqué l’accès à l’adresse *168.63.129.1* à l’aide du pare-feu invité, les extensions échouent, que vous utilisiez, ou non, une version prise en charge.
 
-Les agents peuvent être utilisés uniquement pour télécharger les paquets d’extensions et signaler l’état. Par exemple, si une installation d’extension doit télécharger un script à partir de GitHub (script personnalisé) ou accéder au service Stockage Azure (sauvegarde Azure), vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau (NSG) supplémentaires. Les exigences varient selon les extensions, car ces dernières sont des applications à part entière. Dans le cas des extensions qui exigent un accès au service Stockage Azure, vous pouvez autoriser cet accès à l’aide de balises de service NSG Azure pour le [Stockage](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview#service-tags).
+Les agents peuvent être utilisés uniquement pour télécharger les paquets d’extensions et signaler l’état. Par exemple, si une installation d’extension doit télécharger un script à partir de GitHub (script personnalisé) ou accéder au service Stockage Azure (sauvegarde Azure), vous devez ouvrir des ports de pare-feu/de groupe de sécurité réseau (NSG) supplémentaires. Les exigences varient selon les extensions, car ces dernières sont des applications à part entière. Dans le cas des extensions qui exigent un accès au service Stockage Azure, vous pouvez autoriser cet accès à l’aide de balises de service NSG Azure pour le [Stockage](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 Pour rediriger les requêtes de trafic d’agent, l’agent Linux prend en charge les serveurs proxy. Toutefois, cette prise en charge des serveurs proxy ne s’applique pas aux extensions. Vous devez configurer chaque extension individuelle pour qu’elle fonctionne avec un proxy.
 
@@ -259,7 +259,7 @@ Dans la sortie de l’exemple précédent, le parent ou la version de package d�
 
 La valeur « Goal state agent » est la version de la mise à jour automatique.
 
-Nous vous recommandons vivement que la mise à jour automatique soit toujours activée pour l’agent, [AutoUpdate.Enabled=y](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/update-agent). Dans le cas contraire, vous devez conserver manuellement la mise à jour de l’agent, et ne pas obtenir les correctifs de sécurité et les corrections de bogues.
+Nous vous recommandons vivement que la mise à jour automatique soit toujours activée pour l’agent, [AutoUpdate.Enabled=y](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent). Dans le cas contraire, vous devez conserver manuellement la mise à jour de l’agent, et ne pas obtenir les correctifs de sécurité et les corrections de bogues.
 
 #### <a name="extension-updates"></a>Mises à jour des extensions
 
@@ -408,7 +408,7 @@ Vous pouvez également supprimer une extension dans le portail Azure en procéda
 | Extension de script personnalisé pour Linux |Exécuter des scripts sur une machine virtuelle Azure |[Extension de script personnalisé pour Linux](custom-script-linux.md) |
 | Extension d’accès aux machines virtuelles |Récupérer l’accès à une machine virtuelle Azure |[Extension d’accès aux machines virtuelles](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Extension Diagnostics Azure |Gérer les diagnostics Azure |[Extension Diagnostics Azure](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Extension d’accès aux machines virtuelles Azure |Gérer les utilisateurs et les informations d’identification |[Extension d’accès aux machines virtuelles pour Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Extension d’accès aux machines virtuelles Azure |Gérer les utilisateurs et les informations d’identification |[Extension d’accès aux machines virtuelles pour Linux](https://azure.microsoft.com/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

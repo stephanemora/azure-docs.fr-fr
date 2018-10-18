@@ -7,18 +7,18 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/27/2018
-ms.openlocfilehash: 72bf467cc0f2ba195aa4f25228bc9e08605cd4ee
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 41b3dcc03f7cfbfee11798738a3b2daaf5e96741
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48018588"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365286"
 ---
 # <a name="use-managed-identities-to-authenticate-azure-stream-analytics-jobs-to-azure-data-lake-storage-gen1-output-preview"></a>Utiliser des identités managées pour authentifier les travaux Azure Stream Analytics avec la sortie Azure Data Lake Storage Gen1 (préversion)
 
 Azure Stream Analytics prend en charge l’authentification des identités managées avec la sortie Azure Data Lake Storage (ADLS) Gen1. L’identité est une application managée inscrite auprès d’Azure Active Directory. Elle représente un travail Stream Analytics spécifique et peut servir à l’authentification auprès d’une ressource cible. Les identités managées n’ont pas les limitations des méthodes d’authentification basée sur l’utilisateur, comme la réauthentification obligatoire après un changement de mot de passe ou l’expiration du jeton d’utilisateur tous les 90 jours. De plus, les identités managées facilitent l’automatisation des déploiements de travaux Stream Analytics dont la sortie est générée dans Azure Data Lake Storage Gen1.
 
-Consultez le billet de blog [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/en-us/blog/eight-new-features-in-azure-stream-analytics/) pour vous inscrire à cette préversion et en savoir plus sur les nouvelles fonctionnalités.
+Consultez le billet de blog [Eight new features in Azure Stream Analytics](https://azure.microsoft.com/blog/eight-new-features-in-azure-stream-analytics/) pour vous inscrire à cette préversion et en savoir plus sur les nouvelles fonctionnalités.
 
 Cet article vous montre deux façons d’activer une identité managée pour un travail Azure Stream Analytics dont la sortie est générée dans Azure Data Lake Storage Gen1 : à l’aide du portail Azure et par le biais d’un déploiement de modèle Azure Resource Manager.
 

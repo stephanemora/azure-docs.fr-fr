@@ -10,15 +10,16 @@ ms.component: bing-speech
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: zhouwang
-ROBOTS: NOINDEX
-ms.openlocfilehash: 6ee61a38615ac8cbf4c4fcf6b8d631c5f9a8f7d1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0bbc6b638d11335e6d46501fa651996f05957dd5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962774"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341818"
 ---
 # <a name="bing-speech-websocket-protocol"></a>Protocole WebSocket pour la reconnaissance vocale Bing
+
+[!INCLUDE [Deprecation note](../../../../includes/cognitive-services-bing-speech-api-deprecation-note.md)]
 
 La Reconnaissance vocale Bing est une plateforme cloud qui propose les algorithmes les plus avancés pour la conversion de contenu vocal en texte. Le protocole de la reconnaissance vocale Bing définit la [configuration de la connexion](#connection-establishment) entre les applications clientes et le service, et les messages de reconnaissance vocale échangés entre les différentes parties ([messages provenant du client](#client-originated-messages) et [messages provenant du service](#service-originated-messages)). En outre, les [messages de télémétrie](#telemetry-schema) et la [gestion des erreurs](#error-handling) sont décrits.
 

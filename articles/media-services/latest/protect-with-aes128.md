@@ -4,21 +4,21 @@ description: Transmettez votre contenu chiffré à l'aide de clés de chiffremen
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: 3e5de521570a587b049702dabd3e3692c4227796
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 8d071f64df0097b4029884a9efa84c6f2708fd44
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114791"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376599"
 ---
 # <a name="use-aes-128-dynamic-encryption-and-the-key-delivery-service"></a>Utiliser le chiffrement dynamique AES-128 et le service de distribution des clés
 
@@ -27,7 +27,7 @@ Vous pouvez utiliser Media Services pour transmettre du contenu HTTP Live Stream
 L’article est basé sur l’exemple [EncryptWithAES](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithAES). L’exemple montre comment créer un encodage de transformation qui utilise une présélection intégrée pour un encodage à débit adaptatif et ingère un fichier directement à partir d’une [URL HTTPS source](job-input-from-http-how-to.md). L’élément multimédia de sortie est ensuite publié à l’aide du chiffrement AES (ClearKey). La sortie de l’exemple est une URL menant au lecteur multimédia Azure, y compris le manifeste DASH et le jeton AES nécessaires pour lire le contenu. L’exemple définit l’expiration du jeton JWT à sur 1 heure. Vous pouvez ouvrir un navigateur et coller l’URL obtenue pour lancer la page de démonstration du lecteur multimédia Azure avec l’URL et le jeton déjà renseignés pour vous au format suivant : ```https://ampdemo.azureedge.net/?url= {dash Manifest URL} &aes=true&aestoken=Bearer%3D{ JWT Token here}```.
 
 > [!NOTE]
-> Vous pouvez chiffrer chaque élément multimédia avec plusieurs types de chiffrement (AES-128, PlayReady, Widevine, FairPlay). Consultez les [protocoles de diffusion en continu et les types de chiffrement](content-protection-overview.md#streaming-protocols-and-encryption-types) pour identifier la meilleure combinaison.
+> Vous pouvez chiffrer chaque ressource avec plusieurs types de chiffrement (AES-128, PlayReady, Widevine, FairPlay). Consultez les [protocoles de diffusion en continu et les types de chiffrement](content-protection-overview.md#streaming-protocols-and-encryption-types) pour identifier la meilleure combinaison.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -75,7 +75,7 @@ Avant de créer une [transformation](https://docs.microsoft.com/rest/api/media/t
 
 Comme indiqué ci-dessus, l’objet [Transformation](https://docs.microsoft.com/rest/api/media/transforms) est la formule et un [travail](https://docs.microsoft.com/rest/api/media/jobs) est la requête réelle envoyée à Media Services pour appliquer cette **transformation** à un contenu vidéo ou audio d’entrée donné. Le **travail** spécifie des informations telles que l’emplacement de la vidéo d’entrée et celui de la sortie.
 
-Dans ce didacticiel, nous créons l’entrée du travail à partir d’un fichier qui est ingéré directement depuis une [URL HTTPS source](job-input-from-http-how-to.md).
+Dans ce tutoriel, nous créons l’entrée du travail à partir d’un fichier qui est ingéré directement depuis une [URL HTTPS source](job-input-from-http-how-to.md).
 
 [!code-csharp[Main](../../../media-services-v3-dotnet-tutorials/AMSV3Tutorials/EncryptWithAES/Program.cs#SubmitJob)]
 
@@ -104,7 +104,7 @@ Une fois l’encodage terminé, et la stratégie de clé de contenu configurée,
 
 Le processus de création de l’élément **StreamingLocator** est appelé publication. Par défaut, l’élément **StreamingLocator** est valide immédiatement après avoir effectué les appels d’API et dure jusqu’à ce qu’il soit supprimé, sauf si vous configurez les durées de début et de fin optionnelles. 
 
-Lors de la création d’un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier le **StreamingPolicyName** souhaité. Dans ce didacticiel, nous utilisons un des éléments PredefinedStreamingPolicies, ce qui indique à Azure Media Services comment publier le contenu en vue de la diffusion en continu. Dans cet exemple, le chiffrement AES Envelope est appliqué (également appelé chiffrement ClearKey, car la clé est envoyée au client de la lecture via HTTPS et pas une licence DRM).
+Lors de la création d’un élément [StreamingLocator](https://docs.microsoft.com/rest/api/media/streaminglocators), vous devez spécifier le **StreamingPolicyName** souhaité. Dans ce tutoriel, nous utilisons un des éléments PredefinedStreamingPolicies, ce qui indique à Azure Media Services comment publier le contenu en vue de la diffusion en continu. Dans cet exemple, le chiffrement AES Envelope est appliqué (également appelé chiffrement ClearKey, car la clé est envoyée au client de la lecture via HTTPS et pas une licence DRM).
 
 > [!IMPORTANT]
 > Lorsque vous utilisez une stratégie [StreamingPolicy](https://docs.microsoft.com/rest/api/media/streamingpolicies) personnalisée, vous devez concevoir un ensemble limité de ces stratégies pour votre compte Media Services et les réutiliser pour vos éléments StreamingLocators chaque fois que les mêmes protocoles et options de chiffrement sont nécessaires. Votre compte Media Services a un quota en matière de nombre d’entrées de stratégie StreamingPolicy. Vous ne devez pas créer une stratégie StreamingPolicy pour chaque élément StreamingLocator.

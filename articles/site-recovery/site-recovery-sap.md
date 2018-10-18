@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 95e5c53da2556293fc676fa5b1db9b4585038300
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922737"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318688"
 ---
 # <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Protéger un déploiement d’applications SAP NetWeaver multiniveau à l’aide de Site Recovery
 
@@ -71,10 +71,10 @@ Pour la récupération d’urgence, vous devez être en mesure de basculer vers 
 #### <a name="vms-running-sap-web-dispatcher-pool"></a>Machines virtuelles exécutant un pool SAP Web Dispatcher 
 Le composant Web Dispatcher sert d’équilibreur de charge pour le trafic SAP entre les serveurs d’applications SAP. Pour assurer la haute disponibilité du composant Web Dispatcher, Azure Load Balancer est utilisé pour implémenter l’installation Web Dispatcher parallèle dans une configuration de tourniquet pour la distribution du trafic HTTP(S) parmi les Web Dispatchers disponibles dans le pool des équilibreurs. Il sera répliqué à l’aide d’Azure Site Recovery (ASR), et des scripts d’automatisation serviront à configurer l’équilibrage de charge dans la région de récupération d’urgence. 
 
-####<a name="vms-running-application-servers-pool"></a>Machines virtuelles exécutant un pool de serveurs d’applications
+#### <a name="vms-running-application-servers-pool"></a>Machines virtuelles exécutant un pool de serveurs d’applications
 Pour gérer les groupes de connexion des serveurs d’applications ABAP, la transaction SMLG est utilisée. Elle s’appuie sur la fonction d’équilibrage de charge au sein du serveur de messages des services centraux pour répartir la charge de travail entre le pool de serveurs d’applications pour le trafic des clients SAP GUI et RFC. Elle sera répliquée à l’aide d’Azure Site Recovery 
 
-####<a name="vms-running-sap-central-services-cluster"></a>Machines virtuelles exécutant un cluster des services centraux SAP
+#### <a name="vms-running-sap-central-services-cluster"></a>Machines virtuelles exécutant un cluster des services centraux SAP
 Cette architecture de référence exécute les services centraux sur les machines virtuelles de la couche application. Les services centraux représentent un point de défaillance unique (SPOF) potentiel lors du déploiement sur une seule machine virtuelle — un déploiement classique quand la haute disponibilité ne constitue pas une exigence.<br>
 
 Pour implémenter une solution à haute disponibilité, il est possible d’utiliser soit un cluster de disque partagé, soit un cluster de partage de fichiers. Afin de configurer des machines virtuelles pour un cluster de disque partagé, utilisez Cluster de basculement Windows Server. Le témoin de cloud est recommandé en tant que témoin de quorum. 
@@ -110,7 +110,7 @@ Voici la recommandation pour la récupération d’urgence de chaque niveau util
 **Machines virtuelles Active directory** |  Réplication Active Directory 
 **Serveurs de bases de données SQL** |  Réplication SQL Always On
 
-##<a name="replicate-virtual-machines"></a>Répliquer des machines virtuelles
+## <a name="replicate-virtual-machines"></a>Répliquer des machines virtuelles
 
 Pour commencer la réplication de toutes les machines virtuelles d’application SAP vers le centre de données de reprise d’activité Azure, suivez les instructions dans [Répliquer une machine virtuelle vers Azure](azure-to-azure-walkthrough-enable-replication.md).
 
@@ -142,7 +142,7 @@ Afin de vous assurer du bon fonctionnement de vos applications, vous pouvez êtr
 
 Vous pouvez déployer les scripts Azure Site Recovery les plus couramment utilisés dans votre compte Automation en cliquant sur le bouton « Déployer dans Azure » ci-dessous. Lorsque vous utilisez n’importe quel script publié, assurez-vous de suivre les instructions dans le script.
 
-[![Déploiement sur Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Déployer sur Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 1. Ajoutez un script d’action préalable au « Groupe 1 » pour basculer le groupe de disponibilité SQL. Utilisez le script « ASR-SQL-FailoverAG » publié dans les exemples de script. Assurez-vous de suivre les instructions dans le script et apportez les modifications requises dans le script en conséquence.
 2. Ajoutez un script d’action postérieure pour attribuer un équilibrage de charge sur les machines virtuelles de niveau web basculées (Groupe 1). Utilisez le script « ASR-AddSingleLoadBalancer » publié dans les exemples de script. Assurez-vous de suivre les instructions dans le script et apportez les modifications requises dans le script en conséquence.

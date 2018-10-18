@@ -7,19 +7,19 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/26/2018
-ms.openlocfilehash: c449aaff9741250cfcfaaa4ee490aafc857c4369
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 54a86a7ea1852efba0776451291820f4174a1f1f
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395302"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377570"
 ---
 # <a name="best-practices-for-query-store"></a>Bonnes pratiques relatives au Magasin des requêtes
 
 **S’applique à :** Azure Database pour PostgreSQL 9.6 et 10
 
 > [!IMPORTANT]
-> La fonctionnalité de Magasin des requêtes est en préversion publique dans un nombre limité de régions.
+> La fonctionnalité Magasin des requêtes est en préversion publique.
 
 
 Cet article décrit les bonnes pratiques relatives à l’utilisation du Magasin des requêtes dans Azure Database pour PostgreSQL.

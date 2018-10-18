@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 611eabd377705af7758276a3d920f9cb4c38ac55
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 4f2ceae349c921ce0d83fb7401e3b18404722763
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304708"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362906"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : forum aux questions
 
@@ -92,7 +92,7 @@ Si vous consultez le panneau Authentification directe dans le [Centre d’admini
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>J'utilise déjà AD FS pour me connecter Azure AD. Comment basculer vers l’authentification directe ?
 
-Si vous procédez à une migration depuis AD FS (ou d’autres technologies de fédération) vers l’authentification directe, nous vous recommandons vivement de vous référer à notre guide de déploiement détaillé, publié [ici](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx).
+Si vous procédez à une migration depuis AD FS (ou d’autres technologies de fédération) vers l’authentification directe, nous vous recommandons vivement de vous référer à notre guide de déploiement détaillé, publié [ici](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true).
 
 ## <a name="can-i-use-pass-through-authentication-in-a-multi-forest-active-directory-environment"></a>Puis-je utiliser l’authentification directe dans un environnement à plusieurs forêts Active Directory ?
 
@@ -132,7 +132,7 @@ La désinstallation d’un agent d’authentification directe à partir d’un s
 ## <a name="next-steps"></a>Étapes suivantes
 - [Limitations actuelles](how-to-connect-pta-current-limitations.md) : découvrez les scénarios pris en charge et ceux qui ne le sont pas.
 - [Démarrage rapide](how-to-connect-pta-quick-start.md) : soyez opérationnel sur l’authentification directe Azure AD.
-- [Migrer à partir d’AD FS vers l’authentification directe](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
+- [Migrer à partir d’AD FS vers l’authentification directe](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx?raw=true) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
 - [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [Présentation technique approfondie](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne l'authentification directe.
 - [Résoudre les problèmes](tshoot-connect-pass-through-authentication.md) : découvrez comment résoudre les problèmes courants liés à la fonctionnalité d’authentification directe.

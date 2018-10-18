@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 07/12/2018
 ms.author: ryanwi,mikhegn
 ms.custom: mvc
-ms.openlocfilehash: 68ff8ae6a055ee609e3b4f87c4847c6f2a55a9da
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 443d37f5b45db9495c09d68300c9ea4978466eb9
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300696"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388226"
 ---
 # <a name="tutorial-deploy-a-service-fabric-application-to-a-cluster-in-azure"></a>Tutoriel : Déployer une application Service Fabric sur un cluster dans Azure
 
@@ -57,7 +57,7 @@ git clone https://github.com/Azure-Samples/service-fabric-dotnet-quickstart
 
 ## <a name="publish-to-a-service-fabric-cluster"></a>Publier sur un cluster Service Fabric
 
-À présent que l’application est prête, vous pouvez la déployer sur un cluster directement à partir de Visual Studio. Un [cluster Service Fabric](https://docs.microsoft.com/en-gb/azure/service-fabric/service-fabric-deploy-anywhere) est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés.
+À présent que l’application est prête, vous pouvez la déployer sur un cluster directement à partir de Visual Studio. Un [cluster Service Fabric](https://docs.microsoft.com/azure/service-fabric/service-fabric-deploy-anywhere) est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés.
 
 Pour ce didacticiel, vous avez deux options pour le déploiement de l’application de vote vers un cluster Service Fabric à l’aide de Visual Studio :
 

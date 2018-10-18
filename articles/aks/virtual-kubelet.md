@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: iainfou
-ms.openlocfilehash: f613fb9bd3e9cf6d070b34403bab617e23261c56
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b52e491162dcf17eff2ca07bc067586358aa9a35
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226439"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393286"
 ---
 # <a name="use-virtual-kubelet-with-azure-kubernetes-service-aks"></a>Utiliser Virtual Kubelet avec Azure Kubernetes Service (AKS)
 
@@ -45,7 +45,7 @@ metadata:
   name: tiller
   namespace: kube-system
 ---
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: tiller
@@ -88,11 +88,11 @@ Ces arguments sont disponibles pour la commande `aks install-connector`.
 | Argument : | Description | Obligatoire |
 |---|---|:---:|
 | `--connector-name` | Nom du connecteur ACI.| Oui |
-| `--name` `-n` | Nom du cluster géré. | Oui |
-| `--resource-group` `-g` | Nom du groupe de ressources. | Oui |
+| `--name``-n` | Nom du cluster géré. | Oui |
+| `--resource-group``-g` | Nom du groupe de ressources. | Oui |
 | `--os-type` | Type de système d’exploitation des instances de conteneur. Valeurs autorisées : Both, Linux, Windows. Par défaut : Linux. | Non  |
 | `--aci-resource-group` | Le groupe de ressources dans lequel créer les groupes de conteneurs ACI. | Non  |
-| `--location` `-l` | L’emplacement de création des groupes de conteneurs ACI. | Non  |
+| `--location``-l` | L’emplacement de création des groupes de conteneurs ACI. | Non  |
 | `--service-principal` | Principal de service utilisé pour l’authentification auprès des API Azure. | Non  |
 | `--client-secret` | Secret associé au principal du service. | Non  |
 | `--chart-url` | URL du chart Helm qui installe le connecteur ACI. | Non  |
@@ -118,12 +118,15 @@ virtual-kubelet-virtual-kubelet-win     Ready     agent     4m        v1.8.3
 Créez un fichier nommé `virtual-kubelet-linux.yaml` et copiez-y le YAML suivant. Remplacez la valeur `kubernetes.io/hostname` avec le nom du nœud Virtual Kubelet pour Linux. Veuillez noter que [nodeSelector][node-selector] et [toleration][toleration] sont utilisés pour planifier le conteneur au niveau du nœud.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: aci-helloworld
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:
@@ -163,12 +166,15 @@ aci-helloworld-2559879000-8vmjw     1/1       Running   0          39s       52.
 Créez un fichier nommé `virtual-kubelet-windows.yaml` et copiez-y le YAML suivant. Remplacez la valeur `kubernetes.io/hostname` avec le nom du nœud Virtual Kubelet pour Linux. Veuillez noter que [nodeSelector][node-selector] et [toleration][toleration] sont utilisés pour planifier le conteneur au niveau du nœud.
 
 ```yaml
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nanoserver-iis
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+      app: aci-helloworld
   template:
     metadata:
       labels:

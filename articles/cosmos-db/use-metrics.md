@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 792e0b3f8fdfe4ab1b79fec5f45d0587033eca0d
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5c9dded95fe3ae36a716544368e3dc44c9b86afe
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055197"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365490"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Surveillance et débogage à l’aide de métriques dans Azure Cosmos DB
 
@@ -54,7 +54,8 @@ Une fois que vous avez identifié la clé de partition qui est à l’origine du
 
 ## <a name="comparing-data-size-against-index-size"></a>Comparaison entre la taille des données et la taille de l’index
 
-Dans Azure Cosmos DB, la consommation totale du stockage correspond à la somme de la taille des données et de la taille de l’index. En règle générale, la taille de l’index correspond à une fraction de la taille des données. Dans le panneau Métriques du [portail Azure](https://portal.azure.com), l’onglet Stockage présente la répartition de la consommation du stockage entre les données et l’index. Vous pouvez également connaître l’utilisation actuelle du stockage dans le SDK, au moyen d’une lecture de collection.
+Dans Azure Cosmos DB, la consommation totale du stockage correspond à la somme de la taille des données et de la taille de l’index. En règle générale, la taille de l’index correspond à une fraction de la taille des données. Dans le panneau Métriques du [portail Azure](https://portal.azure.com), l’onglet Stockage présente la répartition de la consommation du stockage entre les données et l’index. 
+
 ```csharp
 // Measure the document size usage (which includes the index size)  
 ResourceResponse<DocumentCollection> collectionInfo = await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri("db", "coll")); 

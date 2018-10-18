@@ -8,18 +8,19 @@ manager: deguhath
 editor: cgronlun
 ms.assetid: b8fbef77-3e80-4911-8e84-23dbf42c9bee
 ms.service: machine-learning
+ms.component: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: deguhath
-ms.openlocfilehash: 9e5018bc4c7b90897f7f8c91169410284217b172
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: acad053712d237fdb86934faa7c5c4546c630387
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577002"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394556"
 ---
 # <a name="twitter-sentiment-classification-with-azure-machine-learning-aml-package-for-text-analytics-amlpta-and-team-data-science-process-tdsp"></a>Classification des sentiments Twitter avec le package Azure Machine Learning pour l’analyse de texte et le processus TDSP (Team Data Science Process)
 
