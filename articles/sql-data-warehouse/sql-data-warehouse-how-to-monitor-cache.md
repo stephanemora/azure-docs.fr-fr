@@ -10,12 +10,12 @@ ms.component: monitor and tune
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cf2fcb2ce99d4c6c670e5afdb1c4208158ea4de
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1d366850bc886dc48afc59ffaf0958b39314ebb1
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095956"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385530"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Procédure de surveillance du cache Gen2
 L’architecture de stockage Gen2 nivelle automatiquement vos segments columnstore les plus fréquemment interrogés dans un cache résidant sur des disques SSD basés sur NVMe conçus pour les entrepôts de données Gen2. Les performances sont optimisées lorsque vos requêtes récupèrent des segments qui résident dans le cache. Cet article décrit la procédure de surveillance et de résolution des problèmes de lenteur des performances des requêtes en déterminant si votre charge de travail exploite lu cache Gen2 de façon optimale.  
@@ -43,7 +43,7 @@ La matrice ci-dessous décrit les scénarios en fonction des valeurs des métriq
 
 **Scénario 2 :** Votre jeu de données de travail en cours ne peut pas tenir dans le cache, ce qui provoque un faible pourcentage d’accès au cache en raison de lectures physiques. Tenez compte de la montée en puissance de votre niveau de performance, puis réexécutez votre charge de travail pour remplir le cache.
 
-**Scénario 3 :** Il est probable que votre requête s’exécute lentement pour des raisons non liées au cache. [Résolvez les problèmes](https://docs.microsoft.com/en-us/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) d’autres éléments qui peuvent ralentir vos requêtes. Vous pouvez également envisager une [descente en puissance de votre instance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) pour réduire la taille du cache afin de diminuer les coûts. 
+**Scénario 3 :** Il est probable que votre requête s’exécute lentement pour des raisons non liées au cache. [Résolvez les problèmes](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) d’autres éléments qui peuvent ralentir vos requêtes. Vous pouvez également envisager une [descente en puissance de votre instance](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-manage-monitor) pour réduire la taille du cache afin de diminuer les coûts. 
 
 **Scénario 4 :** Vous aviez un cache froid, ce qui pourrait être la raison pour laquelle votre requête a été lente. Envisagez de réexécuter votre requête, car votre jeu de données de travail doit maintenant être mis en cache. 
 

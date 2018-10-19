@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: cynthn
-ms.openlocfilehash: f79b1d4c1afc4d5a516a46a9bf6cb1790034b279
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 58fd3afa37d965cfbe21dcf23823ddb8425442b9
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987230"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116709"
 ---
 # <a name="time-sync-for-linux-vms-in-azure"></a>Synchronisation de l’heure pour les machines virtuelles Linux dans Azure
 
@@ -42,9 +42,9 @@ Sur un matériel autonome, le système d’exploitation Linux lit uniquement l�
 
 Les interactions de la machine virtuelle avec l’hôte peuvent également influer sur l’horloge. Au cours de la [maintenance avec préservation de la mémoire](maintenance-and-updates.md#memory-preserving-maintenance), les machines virtuelles sont interrompues jusqu’à 30 secondes. Par exemple, avant le début de la maintenance, l’horloge de la machine virtuelle affiche 10:00:00 pendant 28 secondes. Une fois que la machine virtuelle reprend, l’horloge affiche toujours 10:00:00 et est donc décalée de 28 secondes. Pour corriger cela, le service VMICTimeSync surveille ce qu’il se passe sur l’hôte et demande des modifications sur les machines virtuelles pour compenser.
 
-Si la synchronisation de l’heure ne fonctionne pas, l’horloge de la machine virtuelle accumule les erreurs. S’il n’y a qu’une seule machine virtuelle, l’effet n’est pas forcément significatif, sauf si la charge de travail nécessite une synchronisation extrêmement précise de l’horloge. Mais dans la plupart des cas, nous possédons plusieurs machines virtuelles interconnectées qui utilisent l’heure pour suivre les transactions. L’heure doit donc être cohérente tout au long du déploiement. Lorsque l’heure est différente d’une machine virtuelle à l’autre, vous pouvez rencontrer les effets suivants :
+Si la synchronisation de l’heure ne fonctionne pas, l’horloge de la machine virtuelle accumule les erreurs. S’il n’y a qu’une seule machine virtuelle, l’effet n’est pas forcément significatif, sauf si la charge de travail nécessite une synchronisation extrêmement précise de l’horloge. Mais dans la plupart des cas, nous possédons plusieurs machines virtuelles interconnectées qui utilisent l’heure pour suivre les transactions. L’heure doit donc être cohérente tout au long du déploiement. Lorsque l’heure est différente d’une machine virtuelle à l’autre, vous pouvez rencontrer les effets suivants :
 
-- Les protocoles de sécurité, comme Kerberos, ou les technologies dépendantes d’un certificat reposent sur la précision de l’heure entre les systèmes. 
+- L’authentification échoue. Les protocoles de sécurité, comme Kerberos, ou les technologies dépendantes du certificat reposent sur la précision de l’heure entre les systèmes.
 - Il est très difficile de déterminer ce qu’il peut se passer dans un système si l’heure des journaux (ou d’autres données) diffère. Un même événement peut avoir l’air de s’être produit à différents moments, rendant la corrélation difficile.
 - Si l’horloge est désactivée, la facturation peut être calculée de manière incorrecte.
 
