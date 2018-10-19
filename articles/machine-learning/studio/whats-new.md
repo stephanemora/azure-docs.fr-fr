@@ -49,7 +49,7 @@ ms.locfileid: "34836070"
 * Intègre un nouveau modèle de déploiement de service web multi-régions et basé sur un abonnement, qui utilise des API basées sur Resource Manager afin d’exploiter le fournisseur de ressources Resource Manager pour les services web.
 * Présente de nouveaux [plans de tarification](https://azure.microsoft.com/pricing/details/machine-learning/) et des capacités de gestion en utilisant le nouveau fournisseur de ressources Resource Manager pour la facturation.
   * Vous pouvez à présent [déployer votre service web dans plusieurs régions](how-to-deploy-to-multiple-regions.md) sans avoir à créer un abonnement dans chaque région.
-* Fournit des [statistiques d’utilisation](manage-new-webservice.md)du service web.
+* Fournit des [statistiques d’utilisation](manage-new-webservice.md) du service web.
 * Simplifie le test des appels de demande distante d’Azure Machine Learning à l’aide d’exemples de données.
 * Fournit une nouvelle page de test de service d’exécution de lot avec des exemples de données et un historique des travaux soumis.
 
