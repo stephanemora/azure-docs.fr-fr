@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 676d5e553e2929ae09d447141ca315fd1cc448e3
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e45954389c8dd1b484a7009460c541bf35266973
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448821"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713848"
 ---
 # <a name="permissions-on-the-azureiotsolutionscom-site"></a>Autorisations sur le site azureiotsolutions.com
 
@@ -62,7 +62,7 @@ Pour plus d’informations sur les utilisateurs et les rôles dans AAD, consulte
 
 Les rôles d’administration Azure permettent de contrôler la fonctionnalité de mappage d’un abonnement Azure sur un client AAD.
 
-Pour plus d’informations sur les rôles d’administrateur Azure, consultez l’article [Guide pratique pour ajouter ou modifier le coadministrateur, l’administrateur de services fédérés et l’administrateur de compte][lnk-admin-roles].
+En savoir plus sur les rôles d’administrateur Azure dans l’article [Ajout ou modification des administrateurs d’abonnements Azure][lnk-admin-roles].
 
 ## <a name="faq"></a>Forum Aux Questions
 
@@ -93,7 +93,7 @@ Pour en savoir plus sur les accélérateurs de solution IoT, consultez [Personna
 [img-flowchart]: media/iot-accelerators-permissions/flowchart.png
 
 [lnk-azureiotsolutions]: https://www.azureiotsolutions.com
-[lnk-rm-github-repo]: https://github.com/Azure/azure-iot-remote-monitoring
+[lnk-rm-github-repo]: https://github.com/Azure/remote-monitoring-services-dotnet
 [lnk-pm-github-repo]: https://github.com/Azure/azure-iot-predictive-maintenance
 [lnk-cf-github-repo]: https://github.com/Azure/azure-iot-connected-factory
 [lnk-aad-admin]:../active-directory/users-groups-roles/directory-assign-admin-roles.md
@@ -102,6 +102,5 @@ Pour en savoir plus sur les accélérateurs de solution IoT, consultez [Personna
 [lnk-assign-app-roles]:../active-directory/manage-apps/assign-user-or-group-access-portal.md
 [lnk-service-admins]: https://azure.microsoft.com/support/changing-service-admin-and-co-admin
 [lnk-admin-roles]: ../billing/billing-add-change-azure-subscription-administrator.md
-[lnk-resource-cs]: https://github.com/Azure/azure-iot-remote-monitoring/blob/master/DeviceAdministration/Web/Security/RolePermissions.cs
 [lnk-help-support]: https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade
 [lnk-customize]: iot-accelerators-remote-monitoring-customize.md

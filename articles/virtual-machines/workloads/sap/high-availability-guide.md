@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 57d3566e973f2bcd0ecea43173df5f65c96b404f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1b2f6df1e5688bf9bc47056c7b05cf6ac16026c6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34658415"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634861"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure
 
@@ -802,9 +802,7 @@ Pour définir le modèle multi-SID ASCS/SCS, dans le [modèle multi-SID ASCS/SCS
   -  **Disponibilité du système**. Sélectionnez la haute disponibilité **(HA)**.
   -  **Nom d’utilisateur et mot de passe d’administrateur**. Créez un nouvel utilisateur pouvant être utilisé pour ouvrir une session sur la machine.
   -  **Sous-réseau nouveau ou existant**. Déterminez s’il faut créer un réseau virtuel et un sous-réseau, ou utiliser un sous-réseau existant. Si vous disposez déjà d’un réseau virtuel connecté à votre réseau local, sélectionnez **existant**.
-  -  **ID du sous-réseau**. Définissez l'ID du sous-réseau auquel les machines virtuelles doivent être connectées. Sélectionnez le sous-réseau de votre réseau privé virtuel (VPN) ou réseau virtuel ExpressRoute pour connecter la machine virtuelle à votre réseau local. L'ID ressemble généralement à ceci :
-
-   /subscriptions/<*subscription id*>/resourceGroups/<*resource group name*>/providers/Microsoft.Network/virtualNetworks/<*virtual network name*>/subnets/<*subnet name*>
+  -  **ID du sous-réseau**. Si vous voulez déployer la machine virtuelle dans un réseau virtuel existant où vous avez défini un sous-réseau auquel la machine virtuelle doit être attribuée, nommez l’ID de ce sous-réseau spécifique. L’ID se présente généralement comme suit : /subscriptions/<*id_abonnement*>/resourceGroups/<*nom_groupe_ressources*>/providers/Microsoft.Network/virtualNetworks/<*nom_réseau_virtuel*>/subnets/<*nom_sous-réseau*>
 
 Le modèle déploie une instance d’équilibrage de charge Azure qui prend en charge plusieurs systèmes SAP.
 

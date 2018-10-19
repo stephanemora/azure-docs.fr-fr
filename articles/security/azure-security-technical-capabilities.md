@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 6643db7b732cc5b01ce7602eb3d679c130c46720
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972194"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721327"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 
@@ -41,9 +41,9 @@ Avec Microsoft Azure, vous pouvez :
 
 - Protéger vos activités.
 
-## <a name="scope"></a>Thème abordé
+## <a name="scope"></a>Étendue
 
-L’idée-force de ce livre blanc s’intéresse aux fonctions et fonctionnalités de sécurité prenant en charge les composants essentiels de Microsoft Azure, c’est-à-dire [Stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Databases](https://docs.microsoft.com/azure/sql-database/), le [modèle de machine virtuelle de Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/) ainsi que les outils et l’infrastructure qui les gèrent tous. Ce livre blanc cible principalement les fonctionnalités techniques de Microsoft Azure qui sont mises à votre disposition et à celle de vos clients pour protéger la sécurité et la confidentialité de leurs données.
+L’idée-force de ce livre blanc s’intéresse aux fonctions et fonctionnalités de sécurité prenant en charge les composants essentiels de Microsoft Azure, c’est-à-dire [Stockage Microsoft Azure](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), le [modèle de machine virtuelle de Microsoft Azure](https://docs.microsoft.com/azure/virtual-machines/), ainsi que les outils et l’infrastructure qui les gèrent tous. Ce livre blanc cible principalement les fonctionnalités techniques de Microsoft Azure qui sont mises à votre disposition et à celle de vos clients pour protéger la sécurité et la confidentialité de leurs données.
 
 L’importance de comprendre ce modèle de responsabilité partagée est vitale pour les clients qui migrent vers le cloud. Les fournisseurs de cloud offrent des avantages considérables en termes d’efforts sur la conformité et la sécurité, mais ces avantages ne soustraient pas le client à sa responsabilité de protection de ses utilisateurs, de ses applications et de ses offres de service.
 

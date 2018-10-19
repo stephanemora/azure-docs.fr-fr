@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: a295cad2bf1cafce4dc64909174e9417daa7918e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 370700f8d146dd626e6e13deceb09dcaea34a9f3
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235446"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983948"
 ---
 # <a name="azure-devtest-labs-faq"></a>FAQ d’Azure DevTest Labs
 Obtenez des réponses aux questions les plus fréquemment posées sur Azure DevTest Labs.
@@ -88,17 +88,17 @@ Pour savoir comment créer des rôles personnalisés et assigner des autorisatio
 
 **Automatisation et intégration CI/CD**
 ## <a name="does-devtest-labs-integrate-with-my-cicd-toolchain"></a>DevTest Labs est-il intégré à ma chaîne d’outils CI/CD ?
-Si vous utilisez Visual Studio Team Services, vous pouvez utiliser une [extension des tâches Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) pour automatiser votre pipeline de versions dans DevTest Labs. Voici quelques-unes des tâches que vous pouvez effectuer avec cette extension :
+Si vous utilisez Azure DevOps, vous pouvez utiliser une [extension des tâches Azure DevTest Labs](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) pour automatiser votre pipeline de mise en production dans DevTest Labs. Voici quelques-unes des tâches que vous pouvez effectuer avec cette extension :
 
-* Créer et déployer automatiquement une machine virtuelle. Vous pouvez également configurer la machine virtuelle avec la build la plus récente en utilisant des tâches de copie de fichiers Azure ou de PowerShell Team Services.
+* Créer et déployer automatiquement une machine virtuelle. Vous pouvez également configurer la machine virtuelle avec la build la plus récente en utilisant des tâches Copie de fichiers Azure, PowerShell ou Azure DevOps Services.
 * Capturer automatiquement l’état d’une machine virtuelle après le test, afin de reproduire un bogue sur la même machine virtuelle pour un examen approfondi.
 * Supprimer la machine virtuelle à la fin du pipeline de versions quand elle n’est plus nécessaire.
 
-Les billets de blog suivants offrent des conseils et des informations sur l’utilisation de l’extension Team Services :
+Les billets de blog suivants offrent des conseils et des informations sur l’utilisation de l’extension Azure DevOps Services :
 
-* [DevTest Labs et l’extension Visual Studio Team Services](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Déployer une nouvelle machine virtuelle dans un laboratoire DevTest Labs existant à partir de Team Services](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [Utiliser la gestion des mises en production Team Services pour des déploiements en continu vers DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [DevTest Labs and the Azure DevOps extension](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/) (DevTest Labs et extension Azure DevOps)
+* [Deploy a new VM in an existing DevTest Labs lab from Azure DevOps Services](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS) (Déploiement d’une nouvelle machine virtuelle dans un labo DevTest Labs à partir d’Azure DevOps Services)
+* [Using Azure DevOps Services release management for continuous deployments to DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs) (Utilisation de la gestion des mises en production Azure DevOps Services pour des déploiements en continu vers DevTest Labs)
 
 Pour d’autres chaînes d’outils d’intégration continue (CI)/livraison continue (CD), vous pouvez réaliser les mêmes scénarios en déployant des [modèles Azure Resource Manager](https://aka.ms/dtlquickstarttemplate) à l’aide des [applets de commande Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md) et des [SDK .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). De plus, vous pouvez utiliser les [API REST pour DevTest Labs](http://aka.ms/dtlrestapis) pour une intégration à votre chaîne d’outils.  
 
@@ -112,7 +112,7 @@ Une image personnalisée est un disque dur virtuel (VHD). Une formule est une im
 
 ## <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>Comment puis-je créer plusieurs machines virtuelles à partir du même modèle en une seule fois ?
 Vous avez deux options pour créer simultanément plusieurs machines virtuelles à partir du même modèle :
-* Vous pouvez utiliser [l’extension de tâches Visual Studio Team Services](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
+* Vous pouvez utiliser [l’extension Azure DevOps Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
 * Vous pouvez [générer un modèle Resource Manager](devtest-lab-add-vm.md#save-azure-resource-manager-template) quand vous créez une machine virtuelle et [déployer le modèle Resource Manager à partir de Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Comment puis-je déplacer mes machines virtuelles Azure existantes dans mon laboratoire DevTest Labs ?
@@ -172,7 +172,7 @@ Vous pouvez supprimer des machines virtuelles de votre laboratoire dans le porta
     # Get the VMs from that lab.
     $labVMs = Get-AzureRmResource | Where-Object {
               $_.ResourceType -eq 'microsoft.devtestlab/labs/virtualmachines' -and
-              $_.ResourceName -like "$($lab.ResourceName)/*"}
+              $_.Name -like "$($lab.Name)/*"}
 
     # Delete the VMs.
     foreach($labVM in $labVMs)

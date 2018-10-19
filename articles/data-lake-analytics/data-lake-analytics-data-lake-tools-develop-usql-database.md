@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 98dc33cc961c5c90fc3f6737a1cc470d4a753fd0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048755"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734922"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Utiliser un projet de base de données U-SQL afin de développer une base de données U-SQL pour Azure Data Lake
 
@@ -57,7 +57,7 @@ Pour un objet assembly, l’outil fournit un éditeur d’interface utilisateur 
 
 La sortie de build du projet de base de données U-SQL est un package de déploiement de base de données U-SQL dont le nom est suivi du suffixe `.usqldbpack`. Le package `.usqldbpack` est un fichier .zip où toutes les instructions DDL se trouvent dans le script U-SQL du dossier **DDL**, et tous les fichiers .dll et fichiers supplémentaires se trouvent dans le dossier **Temp**.
 
-En savoir plus sur la [génération d’un projet de base de données U-SQL avec une ligne de commande MSBuild et une tâche de génération Visual Studio Team Services](data-lake-analytics-cicd-overview.md).
+En savoir plus sur la [génération d’un projet de base de données U-SQL avec une ligne de commande MSBuild et une tâche de génération Azure DevOps Services](data-lake-analytics-cicd-overview.md).
 
 ## <a name="deploy-a-u-sql-database"></a>Déployer une base de données U-SQL
 
@@ -94,7 +94,7 @@ Vous pouvez déployer une base de données U-SQL via un projet de base de donné
 
 `PackageDeploymentTool.exe` fournit les interfaces de programmation et de ligne de commande qui vous aident à déployer des bases de données U-SQL. Le SDK est inclus dans le [package Nuget du SDK U-SQL](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), qui se trouve à l’emplacement `build/runtime/PackageDeploymentTool.exe`.
 
-[En savoir plus sur le kit de développement logiciel (SDK) et sur la manière de configurer le pipeline CI/CD pour le déploiement de base de données U-SQL](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-visual-studio-team-service).
+[En savoir plus sur le kit de développement logiciel (SDK) et sur la manière de configurer le pipeline CI/CD pour le déploiement de base de données U-SQL](data-lake-analytics-cicd-overview.md).
 
 ## <a name="reference-a-u-sql-database-project"></a>Référencer un projet de base de données U-SQL
 

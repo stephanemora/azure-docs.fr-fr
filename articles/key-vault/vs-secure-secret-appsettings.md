@@ -11,19 +11,19 @@ ms.service: ''
 ms.workload: web, azure
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 61cb9fadd60ba35f11e2f3ade94bc647fac9ed72
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 1635d0fa51fb56f30dc7cf5864e49000d30cc25d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235921"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719781"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Enregistrement en toute sécurité des paramètres d’application de secret d’une application web
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Cet article décrit comment enregistrer en toute sécurité des paramètres de configuration d’application de secret pour des applications Azure.
 
 Tous les paramètres de configuration d’application web sont généralement enregistrés dans des fichiers de configuration tels que Web.config. Cette pratique entraîne l’archivage des paramètres de secret tels que les informations d’identification de cloud dans des systèmes de contrôle de code source publics, par exemple GitHub. Il peut toutefois être difficile de suivre les meilleures pratiques de sécurité en raison de la surcharge requise pour modifier le code source et pour reconfigurer des paramètres de développement.
@@ -40,7 +40,7 @@ Si vous créez un prototype rapide ou que vous n’avez pas accès à Internet, 
 Si vous exécutez une application de console .NET Core, utilisez Key Vault pour enregistrer votre secret en toute sécurité.
 
 ### <a name="save-secret-settings-in-azure-key-vault"></a>Enregistrer les paramètres de secret dans Azure Key Vault
-Si vous développez un projet d’équipe et que vous devez partager le code source en toute sécurité, utilisez [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
+Si vous développez un projet et si vous devez partager le code source en toute sécurité, utilisez [Azure Key Vault](https://azure.microsoft.com/services/key-vault/).
 
 1. Créez un Key Vault dans votre abonnement Azure. Renseignez tous les champs obligatoires dans l’interface utilisateur et cliquez sur *Créer* au bas du panneau
 
@@ -106,14 +106,13 @@ Si vous écrivez un prototype rapide et que vous ne souhaitez pas approvisionner
 2. Créez un fichier similaire à ci-dessous. Enregistrez-le dans un emplacement en dehors de votre dossier de projet.
 
     ```xml
-
-       <root>
-              <secrets ver="1.0">
-                     <secret name="secret1" value="foo_one" />
-                        <secret name="secret2" value="foo_two" />
-                       </secrets>
-      </root>
-      ```
+    <root>
+        <secrets ver="1.0">
+            <secret name="secret1" value="foo_one" />
+            <secret name="secret2" value="foo_two" />
+        </secrets>
+    </root>
+    ```
 
 3. Définissez le fichier de secret en tant que générateur de configuration dans votre fichier Web.config. Placez cette section avant la section *appSettings*.
 

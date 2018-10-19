@@ -1,6 +1,6 @@
 ---
-title: Comparaison d’Azure Data Lake Store avec Azure Storage Blob | Microsoft Docs
-description: Comparaison d’Azure Data Lake Store avec Azure Storage Blob
+title: Comparaison d’Azure Data Lake Storage Gen1 avec Azure Storage Blob | Microsoft Docs
+description: Comparaison d’Azure Data Lake Storage Gen1 avec Azure Storage Blob
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,28 +12,28 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 0b374e92a1e1d9828bc8c095e29e1dfdfd13275b
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: d24a268cf389dfe9dec914b2d27bbe8e466ea675
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39492909"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737190"
 ---
-# <a name="comparing-azure-data-lake-store-and-azure-blob-storage"></a>Comparaison d’Azure Data Lake Store et d’Azure Blob Storage
-Le tableau de cet article résume les différences entre Azure Data Lake Store et Azure Blob Storage pour certains aspects essentiels du traitement des données volumineuses. Azure Blob Storage est un magasin d’objets extensible généraliste conçu pour s’adapter à une large gamme de scénarios de stockage. Azure Data Lake Store est un référentiel hyperscale optimisé pour les charges de travail d’analyse des données volumineuses.
+# <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Comparaison d’Azure Data Lake Storage Gen1 et d’Azure Storage Blob
+Le tableau de cet article résume les différences entre Azure Data Lake Storage Gen1 et Azure Storage Blob pour certains aspects essentiels du traitement des données volumineuses. Azure Blob Storage est un magasin d’objets extensible généraliste conçu pour s’adapter à une large gamme de scénarios de stockage. Azure Data Lake Storage Gen1 est un référentiel à très grande échelle qui est optimisé pour les charges de travail d’analyse du Big Data.
 
-|  | Azure Data Lake Store | un stockage Azure Blob |
+|  | Azure Data Lake Storage Gen1 | un stockage Azure Blob |
 | --- | --- | --- |
 | Objectif |Stockage optimisé pour les charges de travail d’analyse de données volumineuses |Magasin d’objets polyvalent adapté à un large éventail de scénarios de stockage, y compris l’analyse Big Data |
 | Cas d'utilisation |Données par lots, interactives, d’analyse de diffusion en continu et d’apprentissage machine (par exemple, fichiers journaux, données IoT, données sur le parcours de navigation, jeux de données volumineux) |N’importe quel type de données texte ou binaires, par exemple données d’application backend, de sauvegarde, de stockage de médias pour le streaming, et d’usage général Prise en charge complète des charges de travail d’analytique, données par lots, données interactives, analytique de streaming et données d’apprentissage automatique (par exemple, fichiers journaux, données IoT, données sur le parcours de navigation, jeux de données volumineux) |
-| Concepts clés |Le compte Data Lake Store contient des dossiers, qui contiennent des données stockées sous forme de fichiers |Le compte de stockage a des conteneurs, qui possèdent des données sous la forme d’objets BLOB |
+| Concepts clés |Le compte Data Lake Storage Gen1 contient des dossiers, qui contiennent des données stockées sous forme de fichiers |Le compte de stockage a des conteneurs, qui possèdent des données sous la forme d’objets BLOB |
 | Structure |Système de fichiers hiérarchique |Magasin d’objets avec espace de noms plat |
 | API |API REST sur HTTPS |API REST sur HTTP/HTTPS |
 | API côté serveur |[API REST compatible WebHDFS](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[API REST d’Azure Blob Storage](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Client de système de fichiers Hadoop |Oui |Oui |
-| Opérations de données - authentification |Basées sur les [Identités Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Basées sur les secrets partagés - [Clés d’accès au compte](../storage/common/storage-create-storage-account.md#manage-your-storage-account) et [Clés de signature d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
+| Opérations de données - authentification |Basées sur les [Identités Azure Active Directory](../active-directory/develop/authentication-scenarios.md) |Basées sur les secrets partagés - [Clés d’accès au compte](../storage/common/storage-account-manage.md#access-keys) et [Clés de signature d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Opérations de données - protocole d’authentification |OAuth 2.0. Les appels doivent contenir un JWT (jeton web JSON) valide émis par Azure Active Directory |Code d’authentification de message basé sur hachage (HMAC). Les appels doivent contenir un hachage SHA-256 codé en Base64 sur une partie de la requête HTTP. |
-| Opérations de données - autorisation |Listes de contrôle d’accès (ACL) POSIX.  Les listes ACL basées sur les identités Azure Active Directory peuvent être définies aux niveaux fichier et dossier. |Pour l’autorisation au niveau des comptes – utilisez des [clés d’accès au compte](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Pour l’autorisation au niveau d'un compte, d'un conteneur ou d'un objet blob - utilisez des [clés de signature d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Opérations de données - autorisation |Listes de contrôle d’accès (ACL) POSIX.  Les listes ACL basées sur les identités Azure Active Directory peuvent être définies aux niveaux fichier et dossier. |Pour l’autorisation au niveau des comptes – utilisez des [clés d’accès au compte](../storage/common/storage-account-manage.md#access-keys)<br>Pour l’autorisation au niveau d'un compte, d'un conteneur ou d'un objet blob - utilisez des [clés de signature d’accès partagé](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Opérations de données - Audit |Disponible. Pour plus d’informations, voir [ici](data-lake-store-diagnostic-logs.md) . |Disponible |
 | Chiffrement des données au repos |<ul><li>Transparent, côté serveur</li> <ul><li>Avec des clés gérées par le service</li><li>Avec des clés gérées par le client dans Azure KeyVault</li></ul></ul> |<ul><li>Transparent, côté serveur</li> <ul><li>Avec des clés gérées par le service</li><li>Avec des clés gérées par le client dans Azure KeyVault (préversion)</li></ul><li>chiffrement côté client</li></ul> |
 | Opérations de gestion (par exemple, créer un compte) |[Le contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md) (RBAC) fournit par Azure pour la gestion des comptes ; |[Le contrôle d’accès en fonction du rôle](../role-based-access-control/overview.md) (RBAC) fournit par Azure pour la gestion des comptes ; |

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7aa7cd2e5b1cf1346a5a7b1f82ec9c7933dd1112
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041423"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542478"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Comment gérer les appareils dans le portail Azure
 
@@ -123,7 +123,7 @@ En tant qu’administrateur, vous pouvez gérer les appareils inscrits ou joints
 
 ### <a name="manage-an-intune-device"></a>Gérer un appareil Intune
 
-Si vous êtes administrateur Intune, vous pouvez gérer les appareils marqués comme étant des appareils **Microsoft Intune**. Un administrateur peut voir d’autres appareils. 
+Si vous êtes administrateur Intune, vous pouvez gérer les appareils marqués comme étant des appareils **Microsoft Intune**. 
 
 ![Gérer un appareil Intune](./media/device-management-azure-portal/31.png)
 

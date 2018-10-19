@@ -1,40 +1,34 @@
 ---
-title: Informations sur les menaces dans Azure Security Center | Microsoft Docs
-description: Découvrez comment utiliser la fonctionnalité d’informations sur les menaces dans Azure Security Center pour identifier les menaces potentielles sur vos machines virtuelles et ordinateurs.
+title: Threat intelligence et carte des alertes de sécurité dans Azure Security Center | Microsoft Docs
+description: Découvrez comment utiliser les fonctionnalités de carte des alertes de sécurité et Threat Intelligence dans Azure Security Center pour identifier les menaces potentielles sur vos machines virtuelles et ordinateurs.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: d82d52e05d85fbd5197f84f032a55dd9c74f9d1f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434188"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714426"
 ---
-# <a name="threat-intelligence-in-azure-security-center"></a>Informations sur les menaces dans Azure Security Center
-Cet article vous aide à utiliser les informations sur les menaces d’Azure Security Center pour traiter les problèmes relatifs à la sécurité.
+# <a name="security-alerts-map-and-threat-intelligence"></a>Carte des alertes de sécurité et informations sur les menaces
+Cet article vous aide à utiliser la carte des alertes de sécurité et la carte Threat Intelligence basée sur les événements de sécurité d’Azure Security Center pour résoudre les problèmes liés à la sécurité.
 
-## <a name="what-is-threat-intelligence"></a>Que sont les informations sur les menaces ?
-Grâce à l’option Informations sur les menaces disponible dans Security Center, les administrateurs informatiques peuvent détecter les menaces de sécurité pour l’environnement. Par exemple, ils peuvent déterminer si un ordinateur particulier fait partie d’un botnet. Un ordinateur peut devenir un nœud d’un botnet si un pirate installe de manière illicite un programme malveillant qui connecte secrètement l’ordinateur à la commande et au contrôle. Les informations sur les menaces peuvent également identifier les menaces potentielles provenant de canaux de communication obscurs, tel que le dark web.
+## <a name="how-the-security-alerts-map-works"></a>Fonctionnement de la carte des alertes de sécurité
+Security Center vous fournit une carte qui vous aide à identifier les menaces de sécurité qui pèsent sur l’environnement. Par exemple, vous pouvez déterminer si un ordinateur particulier fait partie d’un botnet et connaître l’origine de la menace. Un ordinateur peut devenir un nœud d’un botnet si un attaquant installe de manière illicite un programme malveillant qui interagit secrètement avec les commandes et contrôles qui gèrent le botnet. 
 
-Pour générer ces informations sur les menaces, Security Center utilise des données provenant de nombreuses sources au sein de Microsoft. Security Center utilise ces données afin d’identifier les menaces potentielles pour votre environnement. Le volet **Informations sur les menaces** est composé de trois options principales :
+Pour générer cette carte, Security Center utilise des données provenant de nombreuses sources au sein de Microsoft. Security Center utilise ces données afin d’établir la carte des menaces potentielles qui pèsent sur votre environnement. 
 
-- Detected threat types (Types de menaces détectés)
-- Origine de la menace
-- Threat intelligence map (Carte d’informations sur les menaces)
-
-
-## <a name="when-should-you-use-threat-intelligence"></a>Quand devez-vous utiliser les informations sur les menaces ?
 Le [processus de réponse aux incidents de sécurité](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) contient une étape consistant à identifier la gravité du ou des systèmes compromis. Pendant cette phase, vous devez effectuer les tâches suivantes :
 
 - Déterminer la nature de l’attaque.
@@ -43,29 +37,38 @@ Le [processus de réponse aux incidents de sécurité](https://docs.microsoft.co
 - Identifier les systèmes qui ont été compromis.
 - Identifier les fichiers consultés et déterminer leur sensibilité.
 
-Vous pouvez utiliser des informations sur les menaces dans Security Center pour ces tâches.
+Vous pouvez vous aider de la carte des alertes de sécurité de Security Center pour effectuer ces tâches.
 
-## <a name="access-the-threat-intelligence"></a>Accéder aux informations sur les menaces
-Pour visualiser les informations sur les menaces actuelles pour votre environnement, vous devez d’abord sélectionner l’espace de travail où résident vos informations. Si vous ne disposez pas de plusieurs espaces de travail, vous ne verrez pas le sélecteur d’espace de travail, et vous accéderez directement au tableau de bord **Informations sur les menaces**. Pour accéder au tableau de bord :
+## <a name="access-the-security-alerts-map"></a>Accès à la carte des alertes de sécurité
+Pour visualiser les menaces qui pèsent actuellement sur votre environnement, ouvrez la carte des alertes de sécurité :
+
+1. Ouvrez le tableau de bord **Security Center**.
+2. Dans le volet gauche, sous **Protection contre les menaces**, sélectionnez **Carte des alertes de sécurité**. La carte s’ouvre.
+3. Pour obtenir plus d’informations sur l’alerte et recevoir les étapes de correction à suivre, cliquez sur le point d’alerte sur la carte et suivez les instructions. 
+ 
+La carte des alertes de sécurité est basée sur les alertes. Ces alertes sont basées sur les activités pour lesquelles une communication réseau a été associée à une adresse IP qui a été résolue, afin de déterminer si l’adresse IP est une adresse IP à risque connue (par exemple, un cryptomineur connu) ou une adresse IP qui n’est pas reconnue comme étant risquée. La carte fournit des alertes sur les abonnements que vous avez sélectionnés précédemment dans Azure. 
+
+Les alertes figurant sur la carte sont affichées en fonction de l’emplacement géographique de leur origine détectée ; elles sont également à code de couleurs par niveau de gravité. 
+    ![Informations Threat Intelligence](./media/security-center-threat-intel/security-center-alert-map.png)
+
+## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Affichage du tableau de bord Threat Intelligence basé sur les événements
+Pour afficher la carte Threat Intelligence basée sur les événements de sécurité bruts, vous pouvez suivre cette procédure. Cette carte affiche uniquement les événements qui impliquent une adresse IP considérée comme risquée, par exemple une adresse IP d’un botnet connu.
 
 1. Ouvrez le tableau de bord **Security Center**.
 
-1. Dans le volet gauche, sous **Protection contre les menaces**, cliquez sur **Threat intelligence**. Une carte s’ouvre.
+1. Dans le volet gauche, sous **Protection contre les menaces**, sélectionnez **Carte des alertes de sécurité**. La carte s’ouvre.
+2. Dans l’angle supérieur droit, cliquez sur **Accéder à la carte des événements de sécurité**.
+3. Sélectionnez l’espace de travail pour lequel vous souhaitez afficher le tableau de bord.
+4. En haut de la carte, sélectionnez **Afficher Threat intelligence classique**. Le tableau de bord **Threat intelligence** s’affiche.
 
-    ![Threat intelligence map (Carte d’informations sur les menaces)](./media/security-center-threat-intel/security-center-threat-intel.png)
-
-1. En haut de la carte, sélectionnez **Afficher Threat intelligence classique**. Le tableau de bord **Threat intelligence** s’affiche.
-
-    ![Tableau de bord Informations sur les menaces](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
-
-    > [!NOTE]
-    > Si la colonne située complètement à droite affiche **PLAN DE MISE À NIVEAU**, cet espace de travail utilise l’abonnement gratuit. Effectuez une mise à niveau vers le niveau Standard pour utiliser cette fonctionnalité. Si la colonne située complètement à droite affiche **MISE À JOUR REQUISE**, mettez à jour [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center.
-    >
-1. Si vous avez plusieurs espaces de travail à examiner, hiérarchisez l’examen en fonction de la colonne **Adresse IP malveillante**. Elle indique le nombre actuel d’adresses IP malveillantes dans cet espace de travail. Sélectionnez l’espace de travail que vous souhaitez utiliser. Le tableau de bord **Informations sur les menaces** s’affiche.
+   > [!NOTE]
+   > Si la colonne située complètement à droite affiche **PLAN DE MISE À NIVEAU**, cet espace de travail utilise l’abonnement gratuit. Effectuez une mise à niveau vers le niveau Standard pour utiliser cette fonctionnalité. Si la colonne située complètement à droite affiche **MISE À JOUR REQUISE**, mettez à jour [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) pour utiliser cette fonctionnalité. Pour en savoir plus sur le plan de tarification, consultez la tarification dans Azure Security Center.
+   >
+5. Si vous avez plusieurs espaces de travail à examiner, hiérarchisez l’examen en fonction de la colonne **Adresse IP malveillante**. Elle indique le nombre actuel d’adresses IP malveillantes dans cet espace de travail. Sélectionnez l’espace de travail que vous souhaitez utiliser. Le tableau de bord **Informations sur les menaces** s’affiche.
 
     ![Informations sur les menaces](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-1. Le tableau de bord est divisé en quatre vignettes :
+6. Le tableau de bord est divisé en quatre vignettes :
 
     a.  **Types de menaces**. récapitule les types de menaces détectés dans l’espace de travail sélectionné.
 

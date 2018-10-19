@@ -1,40 +1,26 @@
 ---
-title: 'Create and install P2S VPN client configuration files for Azure certificate authentication: PowerShell: Azure (Créer et installer des fichiers de configuration du client VPN pour des connexions P2S : Azure PowerShell) | Microsoft Docs'
-description: Créez et installez des fichiers de configuration du client VPN Windows, Linux (strongSwan) et Mac OS X pour l’authentification de certificat P2S.
+title: 'Create and install P2S VPN client configuration files for Azure certificate authentication: Azure (Créer et installer des fichiers de configuration du client VPN pour des connexions P2S : Azure) | Microsoft Docs'
+description: Créez et installez des fichiers de configuration du client VPN Windows, Linux, Linux (strongSwan) et Mac OS X pour l’authentification de certificat P2S.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2ae16d76dce01488403e9f13684e719f92eb80c5
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: cdb1fa7dd9bada5615a0dcd706184a5213ff917b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235829"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299251"
 ---
-# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-point-to-site-configurations"></a>Créer et installer des fichiers de configuration du client VPN pour des configurations d’authentification de certificat point à site Azure natives
+# <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Créer et installer des fichiers de configuration du client VPN avec des configurations d’authentification par certificat de connexions P2S Azure natives
 
-Les fichiers de configuration du client VPN se trouvent dans un fichier zip. Les fichiers de configuration fournissent les paramètres nécessaires à un client natif Windows, Mac IKEv2 VPN ou Linux pour une connexion point à site à un réseau virtuel qui utilise une authentification par certificat Azure native.
+Les fichiers de configuration du client VPN se trouvent dans un fichier zip. Les fichiers de configuration fournissent les paramètres nécessaires à un client natif Windows, Mac IKEv2 VPN ou à des clients Linux pour une connexion point à site à un réseau virtuel qui utilise une authentification par certificat Azure native. Pour plus d’informations sur les connexions point à site, consultez [À propos des VPN point à site](point-to-site-about.md).
 
 >[!IMPORTANT]
 >[!INCLUDE [TLS](../../includes/vpn-gateway-tls-change.md)]
 >
-
-### <a name="workflow"></a>Workflow P2S
-
-  1. Configurez la passerelle VPN Azure pour une connexion P2S.
-  2. Générez le certificat racine et les certificats client. Chargez la clé publique du certificat racine dans Azure et installez les certificats client sur les appareils client. Les certificats sont utilisés pour authentifier les utilisateurs qui se connectent.
-  3. Obtenez la configuration du client VPN pour l’option d’authentification de votre choix et utilisez-la pour installer le client VPN sur vos appareils Windows et Mac. Cela vous permet de vous connecter à des réseaux virtuels Azure via une connexion point à site.
 
 >[!NOTE]
 >Les fichiers de configuration du client sont spécifiques à la configuration VPN du réseau virtuel. Si vous apportez des modifications à la configuration du VPN en point à site après avoir généré les fichiers de configuration du client VPN, comme le type de protocole ou d’authentification du VPN, veillez à générer de nouveaux fichiers de configuration du client VPN pour vos appareils utilisateurs.
@@ -68,7 +54,7 @@ Vous pouvez générer des fichiers de configuration client à l’aide de PowerS
   ```
 2. Copiez l’URL dans votre navigateur pour télécharger le fichier zip, puis décompressez le fichier pour afficher les dossiers.
 
-## <a name="installwin"></a>Installer - Windows
+## <a name="installwin"></a>Windows
 
 Vous pouvez utiliser le même package de configuration du client VPN sur chaque ordinateur client Windows, tant que la version correspond à l’architecture du client. Pour obtenir la liste des systèmes d’exploitation clients pris en charge, consultez la section Point à site de la [FAQ sur la passerelle VPN](vpn-gateway-vpn-faq.md#P2S).
 
@@ -84,9 +70,9 @@ Suivez les étapes suivantes pour configurer le client VPN Windows natif pour un
 3. Sur l’ordinateur client, accédez à **Paramètres réseau**, puis cliquez sur **VPN**. La connexion VPN indique le nom du réseau virtuel auquel elle se connecte. 
 4. Avant de tenter de vous connecter, vérifiez que vous avez installé un certificat client sur l’ordinateur client. Un certificat client est requis pour l’authentification lors de l’utilisation du type d’authentification de certificat Azure natif. Pour plus d’informations sur la génération de certificats, consultez [Générer des certificats](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Pour plus d’informations sur l’installation d’un certificat client, consultez [Installer un certificat client](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-## <a name="installmac"></a>Installer - Mac (OS X)
+## <a name="installmac"></a>Mac (OS X)
 
-Azure ne fournit pas de fichier mobileconfig pour l’authentification par certificat Azure native. Vous devez configurer manuellement le client VPN IKEv2 natif sur chaque Mac qui se connectera à Azure. Le dossier **Générique** contient toutes les informations dont vous avez besoin pour la configuration. Si vous ne voyez pas le dossier Générique dans votre téléchargement, il est probable qu’IKEv2 n’était pas sélectionné comme type de tunnel. Une fois IKEv2 sélectionné, générez à nouveau le fichier zip pour récupérer le dossier Générique. Ce dossier contient les fichiers suivants :
+ Vous devez configurer manuellement le client VPN IKEv2 natif sur chaque Mac qui se connectera à Azure. Azure ne fournit pas de fichier mobileconfig pour l’authentification par certificat Azure native. Le dossier **Générique** contient toutes les informations dont vous avez besoin pour la configuration. Si vous ne voyez pas le dossier Générique dans votre téléchargement, il est probable qu’IKEv2 n’était pas sélectionné comme type de tunnel. Une fois IKEv2 sélectionné, générez à nouveau le fichier zip pour récupérer le dossier Générique.<br>Ce dossier contient les fichiers suivants :
 
 * Le fichier **VpnSettings.xml**, qui contient d’importants paramètres tels que l’adresse et le type de tunnel du serveur. 
 * Le fichier **VpnServerRoot.cer**, qui contient le certificat racine requis pour valider la passerelle VPN Azure lors de la configuration de la connexion P2S.
@@ -100,6 +86,7 @@ Cliquez sur **Ajouter** pour importer.
   
     >[!NOTE]
     >Il se peut qu’un double-clic sur le certificat n’affiche pas la boîte de dialogue **Ajouter**, mais le certificat est installé dans le magasin approprié. Vous pouvez vérifier le certificat dans le trousseau de connexion sous la catégorie des certificats.
+    >
   
 2. Vérifiez que vous avez installé un certificat client émis par le certificat racine que vous avez téléchargé vers Azure lors de la configuration de vos paramètres P2S. Cela est différent du VPNServerRoot que vous avez installé à l’étape précédente. Le certificat client est utilisé pour l’authentification et est obligatoire. Pour plus d’informations sur la génération de certificats, consultez [Générer des certificats](vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert). Pour plus d’informations sur l’installation d’un certificat client, consultez [Installer un certificat client](point-to-site-how-to-vpn-client-install-azure-cert.md).
 3. Ouvrez la boîte de dialogue **Réseau** dans **Préférences réseau**, puis cliquez sur l’icône **+** pour créer un profil de connexion du client VPN pour une connexion P2S au réseau virtuel Azure.
@@ -124,7 +111,7 @@ Cliquez sur **Ajouter** pour importer.
   ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
 9. Dans la boîte de dialogue **Réseau**, cliquez sur **Appliquer** pour enregistrer toutes les modifications. Cliquez ensuite sur **Connexion** pour lancer la connexion P2S au réseau virtuel Azure.
 
-## <a name="installlinux"></a>Installer - Linux (strongSwan)
+## <a name="linuxgui"></a>Linux (interface graphique utilisateur strongSwan)
 
 ### <a name="extract-the-key-and-certificate"></a>Extraire la clé et le certificat
 
@@ -144,9 +131,9 @@ Pour ce faire, procédez comme suit :
   C:\ OpenSLL-Win64\bin> openssl pkcs12 -in clientcert.pfx -nokeys -out publiccert.pem -nodes
   ```
 
-### <a name="install"></a>Installer
+### <a name="install"></a>Installer et configurer
 
-Les instructions suivantes ont été créées à l’aide de strongSwan 5.5.1 sur Ubuntu 17.0.4. Ubuntu 16.0.10 ne prend pas en charge l’interface graphique utilisateur strongSwan. Si vous souhaitez utiliser Ubuntu 16.0.10, vous devez utiliser la ligne de commande. Les exemples ci-dessous ne correspondent pas aux écrans affichés, selon votre version de Linux et strongSwan.
+Les instructions suivantes ont été créées à l’aide de strongSwan 5.5.1 sur Ubuntu 17.0.4. Ubuntu 16.0.10 ne prend pas en charge l’interface graphique utilisateur strongSwan. Si vous souhaitez utiliser Ubuntu 16.0.10, vous devez utiliser la [ligne de commande](#linuxinstallcli). Les exemples ci-dessous ne correspondent pas aux écrans affichés, selon votre version de Linux et strongSwan.
 
 1. Ouvrez le **Terminal** pour installer **strongSwan** et son gestionnaire de réseau en exécutant la commande dans l’exemple. Si vous recevez une erreur concernant *libcharon-extra-plugins*, remplacez-le par « strongswan-plugin-eap-mschapv2 ».
 
@@ -171,8 +158,56 @@ Les instructions suivantes ont été créées à l’aide de strongSwan 5.5.1 su
   ![demander une adresse IP interne](./media/point-to-site-vpn-client-configuration-azure-cert/inneripreq.png)
 8. Cliquez sur l’icône du **gestionnaire de réseau** (flèche vers le haut/flèche vers le bas), puis survolez **Connexions VPN**. La connexion VPN que vous avez créée apparaît. Cliquez pour lancer la connexion.
 
+## <a name="linuxinstallcli"></a>Linux (interface de ligne de commande strongSwan)
+
+### <a name="install-strongswan"></a>Installer strongSwan
+
+Vous pouvez utiliser les commandes d’interface de ligne de commande suivantes ou les étapes strongSwan de l’[interface graphique utilisateur](#install) pour installer strongSwan.
+
+1. `apt-get install strongswan-ikev2 strongswan-plugin-eap-tls`
+2. `apt-get install libstrongswan-standard-plugins`
+
+### <a name="install-and-configure"></a>Installer et configurer
+
+1. Téléchargez le package client VPN à partir du portail Azure.
+2. Extrayez le fichier.
+3. À partir du dossier **Générique**, copiez ou déplacez le VpnServerRoot.cer dans /etc/ipsec.d/cacerts.
+4. À partir du dossier **Générique**, copiez ou déplacez client.p12 cp dans /etc/ipsec.d/private/.
+5. Ouvrez le fichier VpnSettings.xml et copiez la valeur <VpnServer>. Vous utiliserez cette valeur à l'étape suivante.
+6. Ajustez les valeurs de l’exemple ci-dessous, puis ajoutez l’exemple à la configuration /etc/ipsec.conf.
+  
+  ```
+  conn azure
+  keyexchange=ikev2
+  type=tunnel
+  leftfirewall=yes
+  left=%any
+  leftauth=eap-tls
+  leftid=%client # use the DNS alternative name prefixed with the %
+  right= Enter the VPN Server value here# Azure VPN gateway address
+  rightid=%Enter the VPN Server value here# Azure VPN gateway address, prefixed with %
+  rightsubnet=0.0.0.0/0
+  leftsourceip=%config
+  auto=add
+  ```
+6. Ajoutez le code suivant à */etc/ipsec.secrets*.
+
+  ```
+  : P12 client.p12 'password' # key filename inside /etc/ipsec.d/private directory
+  ```
+
+7. Exécutez les commandes suivantes :
+
+  ```
+  # ipsec restart
+  # ipsec up azure
+  ```
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Revenez à l’article pour [terminer la configuration P2S](vpn-gateway-howto-point-to-site-rm-ps.md).
 
-Pour des informations de résolution des problèmes P2S, consultez [Résolution des connexions point à site Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md) et [Résoudre des connexions VPN à partir de clients VPN Mac OS X](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md).
+Pour dépanner les connexions P2S, consultez les articles suivants :
+
+  * [Résolution des problèmes de connexion de point à site Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
+  * [Résoudre les problèmes de connexion VPN à partir de clients Mac OS X](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)

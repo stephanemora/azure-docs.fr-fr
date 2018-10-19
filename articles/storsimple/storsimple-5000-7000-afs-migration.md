@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: d54394a8dc74d04f1922a78826b10a4a421d193b
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: aad5b2d2e451f33a3f4f365fa0702eef5d698e4e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814588"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729161"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Migrer des données d’un appareil StorSimple 5000-7000 vers Azure File Sync
 
@@ -56,8 +56,7 @@ Vous trouverez ci-dessous les prérequis pour la migration d’appareils d’anc
 - Les volumes StorSimple sont montés sur l’hôte et contiennent des partages de fichiers.
 - L’hôte a une capacité de stockage local suffisante pour contenir vos données en cache local.
 - L’accès au niveau propriétaire à l’abonnement Azure que vous allez utiliser pour déployer Azure File Sync. Vous pouvez rencontrer des problèmes lors de la création d’un point de terminaison cloud pour votre groupe de synchronisation si vous n’avez pas d’autorisations de niveau propriétaire ou administrateur.
-- Accédez à un [compte de stockage Usage général v2](https://docs.microsoft.com/azure/storage/common/storage-account-options) avec un partage de fichiers Azure vers lequel vous souhaitez effectuer la synchronisation. Pour plus d’informations, consultez 
- - L’article [Créer un compte de stockage à usage général](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal#create-a-general-purpose-storage-account).
+- Accédez à un [compte de stockage à usage général v2](https://docs.microsoft.com/azure/storage/common/storage-account-overview) avec un partage de fichiers Azure vers lequel vous souhaitez effectuer la synchronisation. Pour plus d’informations, consultez la rubrique [Création d’un compte de stockage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) .
  - L’article [Créer un partage de fichiers via le portail Azure](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal).
 
 ## <a name="migration-process"></a>Processus de migration

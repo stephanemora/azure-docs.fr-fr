@@ -4,17 +4,17 @@ description: En savoir plus sur les encodeurs recommandés par Media Services
 services: media-services
 keywords: encodage;encodeurs;média
 author: dbgeorge
-manager: jasonsue
-ms.author: dwgeo
-ms.date: 11/10/2017
+manager: johndeu
+ms.author: johndeu
+ms.date: 09/13/2018
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: d0c5536d2339470eac058250cc14e1f250b86d90
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: c90d6a5784fe9d80df4fab304b6122d3fa24d0b5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785718"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605162"
 ---
 # <a name="recommended-on-premises-encoders"></a>Encodeurs locaux recommandés
 Lorsque vous êtes en diffusion continue avec Azure Media Services, vous pouvez spécifier la manière dont vous souhaitez que votre canal reçoive le flux d’entrée. Si vous choisissez d’utiliser un encodeur local avec un canal d’encodage live, votre encodeur doit transmettre un flux à débit unique de haute qualité en tant que sortie. Si vous choisissez d’utiliser un encodeur local avec un canal de transmission directe, votre encodeur doit transmettre un flux à multidébit en tant que sortie, avec toutes les qualités de sortie souhaitées. Pour plus d’informations, consultez [Vidéo en flux continu avec des encodeurs locaux](media-services-live-streaming-with-onprem-encoders.md).
@@ -22,18 +22,24 @@ Lorsque vous êtes en diffusion continue avec Azure Media Services, vous pouvez 
 Azure Media Services recommande l’utilisation d’un des encodeurs live suivants, qui possèdent une sortie RTMP :
 - Adobe Flash Media Live Encoder 3.2
 - Haivision Makito X HEVC
-- Telestream Wirecast 8.1
+- Haivision KB
+- Telestream Wirecast 8.1+
+- Telestream Wirecast S
 - Teradek Slice 756
 - TriCaster 8000
 - Tricaster Mini HD-4
+- OBS Studio
+- VMIX
+- xStream
+- Switcher Studio (iOS)
 
-Azure Media Services recommande l’utilisation d’un des encodeurs live suivants, qui possèdent une sortie Smooth Streaming à multidébit :
+Azure Media Services recommande l’utilisation d’un des encodeurs live suivants, qui possèdent une sortie Smooth Streaming multidébit MP4 fragmentée :
+- Media Excel Hero Live et Hero 4K (UHD/HEVC)
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
 - Elemental Live
 - Envivio 4Caster C4 Gen III
 - Imagine Communications Selenio MCP3
-- Media Excel Hero Live
 
 > [!NOTE]
 > Un encodeur live peut envoyer un flux unique à un canal de transmission directe, mais cette configuration n’est pas recommandée, car elle n’offre pas de streaming à débit adaptatif au client.
@@ -48,9 +54,10 @@ Vérification du canal de transmission directe
 4. Créez un événement en temps réel publié
 5. Exécutez votre encodeur live pendant environ 10 minutes
 6. Arrêtez l’événement en temps réel
-7. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live
-8. Réinitialisez l’état du canal après la création de chaque exemple.
-9. Répétez les étapes 3 à 8 pour toutes les configurations prises en charge par votre encodeur (avec et sans signalisation des annonces/légendes/différentes vitesses de codage)
+7. Créez, démarrez un point de terminaison de streaming, utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour regarder l’élément multimédia archivé pour vous assurer que la lecture est dépourvue de problèmes visibles pour tous les niveaux de qualité (vous pouvez également regarder et valider du contenu via l’URL d’aperçu pendant la session active avant l’étape 6)
+8. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live
+9. Réinitialisez l’état du canal après la création de chaque exemple.
+10. Répétez les étapes 3 à 9 pour toutes les configurations prises en charge par votre encodeur (avec et sans signalisation des annonces/légendes/différentes vitesses de codage)
 
 Vérification du canal d’encodage live
 1. Créez ou visitez votre compte Azure Media Services
@@ -59,9 +66,10 @@ Vérification du canal d’encodage live
 4. Créez un événement en temps réel publié
 5. Exécutez votre encodeur live pendant environ 10 minutes
 6. Arrêtez l’événement en temps réel
-7. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live
-8. Réinitialisez l’état du canal après la création de chaque exemple.
-9. Répétez les étapes 3 à 8 pour toutes les configurations prises en charge par votre encodeur (avec et sans signalisation des annonces/légendes/différentes vitesses de codage)
+7. Créez, démarrez un point de terminaison de streaming, utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour regarder l’élément multimédia archivé pour vous assurer que la lecture est dépourvue de problèmes visibles pour tous les niveaux de qualité (vous pouvez également regarder et valider du contenu via l’URL d’aperçu pendant la session active avant l’étape 6)
+8. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live
+9. Réinitialisez l’état du canal après la création de chaque exemple.
+10. Répétez les étapes 3 à 9 pour toutes les configurations prises en charge par votre encodeur (avec et sans signalisation des annonces/légendes/différentes vitesses de codage)
 
 Vérification de longévité
 1. Créez ou visitez votre compte Azure Media Services
@@ -69,7 +77,8 @@ Vérification de longévité
 3. Configurez votre encodeur pour transmettre un flux live à multidébit.
 4. Créez un événement en temps réel publié
 5. Exécutez votre encodeur en temps réel pendant une semaine ou plus
-6. Arrêtez l’événement en temps réel
-7. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live
+6. Utilisez un lecteur, par exemple [Lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html) pour regarder de temps en temps le streaming en direct (ou l’élément multimédia archivé) afin de vous assurer que la lecture est dépourvue de problèmes visibles
+7. Arrêtez l’événement en temps réel
+8. Enregistrez l’ID de la ressource, l’URL de streaming publié pour l’archive en temps réel, ainsi que les paramètres et la version utilisée à partir de votre encodeur live
 
 Enfin, envoyez vos paramètres enregistrés et paramètres d’archivage en temps réel à Media Services par courrier électronique à amsstreaming@microsoft.com. Lors de la réception, Media Services effectue les tests de vérification sur les exemples de votre encodeur live. Vous pouvez contacter Media Services pour toute question concernant ce processus.

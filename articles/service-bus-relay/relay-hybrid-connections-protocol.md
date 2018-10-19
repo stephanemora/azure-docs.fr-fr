@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: clemensv
-ms.openlocfilehash: 306a21add76261dce99c954a2ba373e4b5047a75
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 913e702cc72472e81937bfe3b0939695daadc011
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33895406"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543509"
 ---
 # <a name="azure-relay-hybrid-connections-protocol"></a>Protocole de connexions hybrides Azure Relay
 
@@ -146,8 +146,8 @@ Voici les options de paramètres des chaînes de requête.
 
 | Paramètre        | Obligatoire | Description
 | ---------------- | -------- | -------------------------------------------
-| `sb-hc-action`   | OUI      | Pour le rôle d’écouteur, le paramètre doit être **sb-hc-action=listen**
-| `{path}`         | OUI      | Chemin de l’espace de noms encodé au format URL de la connexion hybride préconfigurée sur laquelle cet écouteur doit être inscrit. Cette expression est ajoutée à la partie fixe `$hc/` du chemin.
+| `sb-hc-action`   | Oui      | Pour le rôle d’écouteur, le paramètre doit être **sb-hc-action=listen**
+| `{path}`         | Oui      | Chemin de l’espace de noms encodé au format URL de la connexion hybride préconfigurée sur laquelle cet écouteur doit être inscrit. Cette expression est ajoutée à la partie fixe `$hc/` du chemin.
 | `sb-hc-token`    | Oui\*    | L’écouteur doit fournir un jeton d’accès partagé Service Bus valide et encodé au format URL pour l’espace de noms ou la connexion hybride qui confère le droit **d’écoute**.
 | `sb-hc-id`       | Non        | Cet ID facultatif fourni par le client permet un suivi de diagnostic de bout en bout.
 
@@ -206,8 +206,8 @@ L’URL doit être utilisée telle quelle pour établir le socket d’acceptatio
 
 | Paramètre      | Obligatoire | Description
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | OUI      | Pour accepter un socket, le paramètre doit être `sb-hc-action=accept`
-| `{path}`       | OUI      | (voir le paragraphe suivant)
+| `sb-hc-action` | Oui      | Pour accepter un socket, le paramètre doit être `sb-hc-action=accept`
+| `{path}`       | Oui      | (voir le paragraphe suivant)
 | `sb-hc-id`     | Non        | Voir la description précédente de **id**.
 
 `{path}` est le chemin de l’espace de noms encodé au format URL de la connexion hybride préconfigurée sur laquelle cet écouteur doit être inscrit. Cette expression est ajoutée à la partie fixe `$hc/` du chemin.
@@ -243,8 +243,8 @@ En cas d’erreur, le service peut répondre ceci :
 
 | Paramètre                   | Obligatoire | Description                              |
 | ----------------------- | -------- | ---------------------------------------- |
-| sb-hc-statusCode        | OUI      | Code d’état HTTP numérique.                |
-| sb-hc-statusDescription | OUI      | Motif du rejet lisible. |
+| sb-hc-statusCode        | Oui      | Code d’état HTTP numérique.                |
+| sb-hc-statusDescription | Oui      | Motif du rejet lisible. |
 
 L’URI obtenu est ensuite utilisé pour établir une connexion WebSocket.
 
@@ -378,7 +378,7 @@ L’URL `address` de l’objet `request` doit être utilisée telle quelle pour 
 
 | Paramètre      | Obligatoire | Description
 | -------------- | -------- | -------------------------------------------------------------------
-| `sb-hc-action` | OUI      | Pour accepter un socket, le paramètre doit être `sb-hc-action=request`
+| `sb-hc-action` | Oui      | Pour accepter un socket, le paramètre doit être `sb-hc-action=request`
 
 En cas d’erreur, le service peut répondre ceci :
 
@@ -436,8 +436,8 @@ Voici les options de paramètres des chaînes de requête :
 
 | Paramètre          | Requis ? | Description
 | -------------- | --------- | -------------------------- |
-| `sb-hc-action` | OUI       | Pour le rôle de l’expéditeur, le paramètre doit être `sb-hc-action=connect`.
-| `{path}`       | OUI       | (voir le paragraphe suivant)
+| `sb-hc-action` | Oui       | Pour le rôle de l’expéditeur, le paramètre doit être `sb-hc-action=connect`.
+| `{path}`       | Oui       | (voir le paragraphe suivant)
 | `sb-hc-token`  | Oui\*     | L’écouteur doit fournir un jeton d’accès partagé Service Bus valide et encodé au format URL pour l’espace de noms ou la connexion hybride qui confère le droit **d’envoi**.
 | `sb-hc-id`     | Non         | ID facultatif qui permet le suivi de diagnostic de bout en bout et est accessible à l’écouteur pendant la liaison d’acceptation.
 

@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: f47654d056a26f5a58b1ccc2c200f774bee1f19f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348199"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979548"
 ---
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "37348199"
 | Nombre total de cœurs de machine virtuelle par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> par région | Contacter le support technique |
 | Nombre de cœurs de gamme de machine virtuelle (Dv2, F, etc.) par [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> par région | Contacter le support technique |
 | [Coadministrateurs](../articles/billing-add-change-azure-subscription-administrator.md) par abonnement |Illimité |Illimité |
-| [Comptes de stockage](../articles/storage/common/storage-create-storage-account.md) par région et par abonnement |200 |200<sup>2</sup> |
+| [Comptes de stockage](../articles/storage/common/storage-quickstart-create-account.md) par région et par abonnement |200 |200<sup>2</sup> |
 | [Groupes de ressources](../articles/azure-resource-manager/resource-group-overview.md) par abonnement |980 |980 |
 | [Groupes à haute disponibilité](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) par abonnement |2 000 par région |2 000 par région |
 | Lectures API Resource Manager |15 000 par heure |15 000 par heure |
@@ -31,6 +31,7 @@ ms.locfileid: "37348199"
 | Calculs de balise unique par abonnement<sup>3</sup> | 10 000 | 10 000 |
 | [Services cloud](../articles/cloud-services/cloud-services-choose-me.md) par abonnement |Non applicable<sup>4</sup> |Non applicable<sup>4</sup> |
 | [Groupes d'affinités](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) par abonnement |Non applicable<sup>4</sup> |Non applicable<sup>4</sup> |
+| [Déploiements de niveau d’abonnement](../articles/azure-resource-manager/deploy-to-subscription.md) par emplacement | 800 | 800 |
 
 <sup>1</sup>Les limites par défaut varient selon le type de catégorie d’offre, comme Essai gratuit ou Paiement à l’utilisation, et selon la gamme (Dv2, F, G, etc.).
 
@@ -41,7 +42,7 @@ ms.locfileid: "37348199"
 <sup>4</sup>Ces fonctionnalités ne sont plus nécessaires avec les groupes de ressources Azure et Azure Resource Manager.
 
 > [!NOTE]
-> Il est important de noter qu’une limite totale régionale et une limite régionale par gamme de taille (Dv2, F, etc.) s’appliquent séparément aux cœurs de machine virtuelle.  Par exemple, considérons un abonnement dont le nombre total limite de cœurs de machine virtuelle est de 30 pour la région Est, de 30 pour la gamme A et de 30 pour la gamme D.  Cet abonnement serait autorisé à déployer 30 machines virtuelles A1, ou 30 machines virtuelles D1, ou encore une combinaison de ces deux types de machines dans la limite de 30 cœurs au total (par exemple, 10 machines virtuelles A1 et 20 machines virtuelles D1).  
+> Il est important de noter qu’une limite totale régionale et une limite régionale par gamme de taille (Dv2, F, etc.) s’appliquent séparément aux cœurs de machine virtuelle.  Par exemple, considérons un abonnement dont le nombre total limite de cœurs de machine virtuelle est de 30 pour la région USA Est, de 30 pour la gamme A et de 30 pour la gamme D.  Cet abonnement serait autorisé à déployer 30 machines virtuelles A1, ou 30 machines virtuelles D1, ou encore une combinaison de ces deux types de machines dans la limite de 30 cœurs au total (par exemple, 10 machines virtuelles A1 et 20 machines virtuelles D1).  
 > <!-- -->
 > 
 > 

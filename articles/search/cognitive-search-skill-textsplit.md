@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: dbb9261cfce0a8437cfe76121fa16aa87c4b3393
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 583d2ac5a8ac4c236612cdfe78595da1812c56fa
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33786798"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730764"
 ---
 #   <a name="text-split-cognitive-skill"></a>Compétence cognitive Fractionnement de texte
 
 La compétence **Fractionnement de texte** découpe le texte en segments. Vous pouvez choisir de décomposer le texte en phrases ou en pages d’une longueur donnée. Cette opération est particulièrement utile si d’autres compétences en aval imposent des critères de longueur maximale du texte. 
+
+> [!NOTE]
+> La recherche cognitive est disponible en version préliminaire publique. L’exécution des compétences, l’extraction d’images et la normalisation sont actuellement proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SplitSkill 
@@ -39,7 +42,7 @@ Les paramètres respectent la casse.
 
 | Nom du paramètre       | Description      |
 |----------------------|------------------|
-| text  | Texte à fractionner en sous-chaînes. |
+| texte  | Texte à fractionner en sous-chaînes. |
 | languageCode  | (Facultatif) Code de langue du document.  |
 
 ## <a name="skill-outputs"></a>Sorties de la compétence 

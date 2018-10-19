@@ -2,19 +2,19 @@
 title: Utiliser Azure Data Lake Tools pour Visual Studio Code
 description: Découvrez comment utiliser Azure Data Lake Tools pour Visual Studio Code pour créer, tester et exécuter des scripts U-SQL.
 services: data-lake-analytics
+ms.service: data-lake-analytics
 author: Jejiang
 ms.author: jejiang
 ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
-ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: b06b4c4484e3f41b64ff2d60ce558726c555a2e3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: e470d27ccfea68f628b793f9afd695bb363e295a
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047909"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630833"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Utiliser Azure Data Lake Tools pour Visual Studio Code
 
@@ -24,7 +24,7 @@ Dans cet article, vous allez apprendre à utiliser Azure Data Lake Tools pour Vi
 
 ## <a name="prerequisites"></a>Prérequis
 
-Azure Data Lake Tools pour VS Code prend en charge Windows, Linux et MacOS.  
+Azure Data Lake Tools pour VS Code prend en charge Windows, Linux et MacOS. L’exécution locale et le débogage local de U-SQL fonctionnent uniquement pour les utilisateurs de Windows.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
@@ -220,6 +220,8 @@ L’exécution locale de U-SQL teste vos données locales et valide votre script
 - Déboguer votre code-behind C# 
 - Examiner le code 
 - Valider votre script localement
+
+La fonctionnalité d’exécution locale et de débogage local fonctionne uniquement dans des environnements Windows, et elle n’est pas prise en charge sur les systèmes d’exploitation MacOS et Linux.
 
 Pour obtenir des instructions sur l’exécution locale et le débogage local, consultez [Exécution locale et débogage local U-SQL avec Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 

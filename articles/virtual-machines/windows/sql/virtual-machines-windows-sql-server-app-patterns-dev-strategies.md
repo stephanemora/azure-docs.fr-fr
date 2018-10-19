@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: ninarn
-ms.openlocfilehash: 6bfb3092d6b4776499f957183613c951174b1a50
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 18de5b3d71922effa72414a6a52b126a34076cf3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36754127"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722127"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-in-azure-virtual-machines"></a>Modèles d'application et stratégies de développement pour SQL Server dans les machines virtuelles Azure
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-both-include.md)]
@@ -58,7 +58,7 @@ Cet article décrit plusieurs modèles d’application qui peuvent convenir à d
 * Vous avez besoin d’une compatibilité complète avec une version locale de SQL Server tout en voulant déplacer des applications existantes vers Azure en l’état.
 * Vous souhaitez exploiter les fonctionnalités de l’environnement Azure mais la base de données SQL Azure ne prend pas en charge les fonctionnalités requises par votre application. Cela peut inclure les éléments suivants :
   
-  * **Taille de la base de données**: au moment de la mise à jour de cet article, le service Base de données SQL prend en charge une base de données pouvant contenir jusqu’à 1 To de données. Si votre application nécessite plus de 1 To de données et que vous ne souhaitez pas mettre en œuvre des solutions de partitionnement personnalisé, nous vous recommandons d’utiliser SQL Server sur une machine virtuelle Azure. Pour plus d’informations, consultez [Croissance externe (scale out) des bases de données Azure SQL Database](https://msdn.microsoft.com/library/azure/dn495641.aspx), [Modèle d’achat DTU](../../../sql-database/sql-database-service-tiers-dtu.md) et [Modèle achats vCore](../../../sql-database/sql-database-service-tiers-vcore.md)(préversion).
+  * **Taille de la base de données**: au moment de la mise à jour de cet article, le service Base de données SQL prend en charge une base de données pouvant contenir jusqu’à 1 To de données. Si votre application nécessite plus de 1 To de données et que vous ne souhaitez pas mettre en œuvre des solutions de partitionnement personnalisé, nous vous recommandons d’utiliser SQL Server sur une machine virtuelle Azure. Pour plus d’informations, consultez [Montée en charge de la base de données Azure SQL Database](https://msdn.microsoft.com/library/azure/dn495641.aspx), [Modèle d’achat DTU](../../../sql-database/sql-database-service-tiers-dtu.md) et [Modèle achats vCore](../../../sql-database/sql-database-service-tiers-vcore.md)(préversion).
   * **Conformité HIPAA** : les clients du secteur de la santé et les fournisseurs de logiciels indépendants (ISV) peuvent choisir le service [SQL Server dans des machines virtuelles Azure](virtual-machines-windows-sql-server-iaas-overview.md) au lieu du service [Base de données SQL Azure](../../../sql-database/sql-database-technical-overview.md), car le service SQL Server sur une machine virtuelle Azure est couvert par le contrat HIPAA Business Associate Agreement (BAA). Pour plus d’informations sur la conformité, consultez le [Centre de confidentialité Microsoft Azure - Conformité](https://azure.microsoft.com/support/trust-center/compliance/).
   * **Fonctionnalités au niveau de l’instance**: à ce stade, le service Base de données SQL ne prend pas en charge les fonctionnalités qui résident en dehors de la base de données (comme les serveurs liés, les travaux de l’Agent, FileStream, Service Broker, etc.). Pour plus d’informations, consultez la section [Instructions et limitations de la Base de données SQL Azure](https://msdn.microsoft.com/library/azure/ff394102.aspx).
 

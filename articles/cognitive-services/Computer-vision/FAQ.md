@@ -1,22 +1,24 @@
 ---
-title: FAQ sur l’API Vision par ordinateur | Microsoft Docs
-description: Obtenez des réponses aux questions fréquentes concernant l’API Vision par ordinateur dans Cognitive Services.
+title: FAQ portant sur l’API Vision par ordinateur
+titlesuffix: Azure Cognitive Services
+description: Obtenez des réponses aux questions fréquentes concernant l’API Vision par ordinateur dans Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 5c862dd2fb26a005f4e785673a4e9358ecf9286f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5c0a4e981a290b9a758c8401a75e546c61618b45
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367949"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983899"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur l’API Vision par ordinateur
+
 ### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-computer-vision-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Si vous ne trouvez pas les réponses à vos questions dans cette FAQ, essayez d’interroger la communauté de l’API Vision par ordinateur sur [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou de contacter le [support technique sur UserVoice](https://cognitive.uservoice.com/).
 
 -----

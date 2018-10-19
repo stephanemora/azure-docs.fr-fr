@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 93f406a1d5e4a8c2ce5ad1db0c3936dd3ad2bfb9
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 609dc8aa1305833fb3677de6fbe95cf490237a4a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38992185"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731119"
 ---
 ## <a name="configuring-homepage"></a>Configuration de la page d’accueil
 
 La page d’accueil est la page qui se charge quand les utilisateurs autorisés accèdent à l’URL de l’application. Si vous avez sélectionné les modèles d’application « Exemple Contoso » ou « Exemple Devkits » lors de la création de votre application, votre application a des pages d’accueil prédéfinies. Par contre, si vous avez sélectionné le modèle d’application « Application personnalisée », votre page d’accueil est vide.
 
-Par exemple, voici la page d’accueil pour les applications basées sur le modèle « Exemple Contoso ». Pour personnaliser la page d’accueil de votre application, **activez** d’abord le **Mode Création** en haut à droite. 
+Par exemple, voici la page d’accueil pour les applications basées sur le modèle « Exemple Contoso ». Pour personnaliser la page d’accueil de votre application, commencez par sélectionner **Modifier** en haut à droite. 
 
 ![Page d’accueil pour les applications basées sur le modèle « Exemple Contoso »](media\howto-configure-homepage\image1.png)
 
-Une fois le **Mode Création** **activé**, la bibliothèque de tableaux de bord s’ouvre dans un panneau à gauche. Il existe de nombreux types de vignettes et de primitives de tableau de bord que vous pouvez ajouter pour personnaliser votre page d’accueil.
+Après que vous avez sélectionné **Modifier**, la bibliothèque de tableaux de bord s’ouvre dans un panneau à gauche. Il existe de nombreux types de vignettes et de primitives de tableau de bord que vous pouvez ajouter pour personnaliser votre page d’accueil.
 
 ![Bibliothèque de tableaux de bord](media\howto-configure-homepage\image2.png)
 
-Par exemple, vous pouvez ajouter une vignette **Paramètres et propriétés** pour montrer une sélection des valeurs actuelles de paramètres et de propriétés. Pour cela, sélectionnez d’abord un **modèle d’appareil**, puis sélectionnez une **instance d’appareil**. Après cela, indiquez un titre pour la vignette, puis sélectionnez un **paramètre** ou une **propriété** à afficher. Dans ce cas, nous avons sélectionné **Fan Speed** (Vitesse du ventilateur). Cliquer sur **Enregistrer** fait que cette vignette apparaît sur la page d’accueil.
+Par exemple, vous pouvez ajouter une vignette **Paramètres et propriétés** pour montrer une sélection des valeurs actuelles de paramètres et de propriétés. Pour cela, sélectionnez d’abord un **modèle d’appareil**, puis sélectionnez une **instance d’appareil**. Après cela, indiquez un titre pour la vignette, puis sélectionnez un **paramètre** ou une **propriété** à afficher. Dans ce cas, nous avons sélectionné **Set Temperature** (Définir la température). Cliquez sur **Terminé** pour que cette vignette s’affiche dans la page d’accueil.
 
 ![Formulaire « Configurer les détails de l’appareil » contenant les détails des paramètres et des propriétés](media\howto-configure-homepage\image3.png)
 

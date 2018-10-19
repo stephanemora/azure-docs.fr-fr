@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8ac151a70a81f78dab5ed1f30df51a1121a42cbd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029014"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722008"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Faire pivoter les clés secrètes dans Azure Stack
 
@@ -42,7 +42,7 @@ Certificats de service d’infrastructure pour les services accessibles de l’e
     - ADFS<sup>*</sup>
     - Graph<sup>*</sup>
 
-    > <sup>*</sup> Applicable uniquement si le fournisseur d’identité de l’environnement est AD FS (services de fédération Active Directory).
+   <sup>*</sup> Applicable uniquement si le fournisseur d’identité de l’environnement est AD FS (services de fédération Active Directory).
 
 > [!NOTE]
 > Toutes les autres clés et chaînes sécurisées, y compris les mots de passe BMC et switch ainsi que les mots de passe de compte utilisateur et administrateur sont toujours mis à jour manuellement par l’administrateur. 
@@ -53,17 +53,17 @@ Afin de maintenir l’intégrité de l’infrastructure Azure Stack, les opérat
 
 Azure Stack prend en charge la rotation des secrets avec des certificats externes obtenus auprès d’une nouvelle autorité de certification dans les contextes suivants :
 
-|Autorité de certification de certificats installée|Autorité de certification vers laquelle effectuer la rotation|Prise en charge|Versions d’Azure Stack prises en charge|
-|-----|-----|-----|-----|-----|
+|Autorité de certification de certificats installée|Autorité de certification vers laquelle effectuer la rotation|Pris en charge|Versions d’Azure Stack prises en charge|
+|-----|-----|-----|-----|
 |De : Autorité de certification de certificats autosignés|Vers : Autorité de certification d’entreprise|Non pris en charge||
 |De : Autorité de certification de certificats autosignés|Vers : Autorité de certification de certificats autosignés|Non pris en charge||
-|De : Autorité de certification de certificats autosignés|Vers : Autorité de certification publique<sup>*</sup>|Prise en charge|1803 et ultérieure|
+|De : Autorité de certification de certificats autosignés|Vers : Autorité de certification publique<sup>*</sup>|Pris en charge|1803 et ultérieure|
 |De : Autorité de certification d’entreprise|Vers : Autorité de certification d’entreprise|Pris en charge à condition que les clients utilisent la MÊME autorité de certification d’entreprise que celle utilisée au moment du déploiement|1803 et ultérieure|
 |De : Autorité de certification d’entreprise|Vers : Autorité de certification de certificats autosignés|Non pris en charge||
-|De : Autorité de certification d’entreprise|Vers : Autorité de certification publique<sup>*</sup>|Prise en charge|1803 et ultérieure|
+|De : Autorité de certification d’entreprise|Vers : Autorité de certification publique<sup>*</sup>|Pris en charge|1803 et ultérieure|
 |De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification d’entreprise|Non pris en charge|1803 et ultérieure|
 |De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification de certificats autosignés|Non pris en charge||
-|De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification publique<sup>*</sup>|Prise en charge|1803 et ultérieure|
+|De : Autorité de certification publique<sup>*</sup>|Vers : Autorité de certification publique<sup>*</sup>|Pris en charge|1803 et ultérieure|
 
 <sup>*</sup> Les autorités de certification publiques mentionnées ici sont celles qui font partie du programme de certification racine approuvé Windows. La liste complète est disponible dans la rubrique [Programme de certification racine approuvé Microsoft : Participants (depuis le 27 juin 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 
@@ -79,12 +79,11 @@ Pour remédier à ces alertes, exécutez la rotation des secrets en suivant les 
 
 ## <a name="pre-steps-for-secret-rotation"></a>Étapes préliminaires à la rotation des secrets
 
+   > [!IMPORTANT]  
+   > Vérifiez qu’une rotation des secrets n’a pas été exécutée dans votre environnement. Si une rotation des secrets a déjà été effectuée, mettez à jour Azure Stack vers la version 1807 ou ultérieure avant d’exécuter une rotation des secrets. 
 1.  Notifiez vos utilisateurs de toute opération de maintenance. Planifiez les fenêtres de maintenance normale pendant les heures creuses, autant que possible. Les opérations de maintenance peuvent affecter les opérations du portail et les charges de travail des utilisateurs.
-
     > [!note]  
     > Les étapes suivantes s’appliquent uniquement lorsque vous effectuez la rotation des secrets externes Azure Stack.
-
-2. Vérifiez qu’une rotation des secrets n’a pas été exécutée dans votre environnement au cours du mois passé. Pour l’instant, Azure Stack ne prend en charge qu’une rotation des secrets par mois. 
 3. Préparez un nouveau jeu de certificats externes de remplacement. Le nouveau jeu répond aux spécifications de certificat décrites sur la page [Exigences de certificat pour infrastructure à clé publique Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
 4.  Stockez une sauvegarde des certificats utilisés pour la rotation dans un emplacement de sauvegarde sécurisé. Si votre rotation s’exécute puis échoue, remplacez les certificats dans le partage de fichiers par les copies de sauvegarde avant d’exécuter à nouveau la rotation. Remarque : vous devez conserver des copies de sauvegarde dans l’emplacement de sauvegarde sécurisé.
 5.  Créez un partage de fichiers auquel vous pouvez accéder depuis les machines virtuelles ERCS. Le partage de fichiers doit être accessible en lecture et en écriture pour l’identité **CloudAdmin**.
@@ -111,6 +110,8 @@ Pour effectuer la rotation d’un secret interne et externe :
     Une chaîne sécurisée du mot de passe utilisée pour tous les fichiers de certificat pfx créés.
 4. Patientez pendant la rotation de vos secrets.  
 Lorsque la rotation des secrets a réussi, la console affiche **Overall action status: Success** (état global de l’action : réussite). 
+    > [!note]  
+    > En cas d’échec de la rotation des secrets, suivez les instructions dans le message d’erreur et réexécutez start-secretrotation avec le paramètre **-Rerun**. Contactez le support si vous rencontrez des échecs répétés de rotation des secrets. 
 5. Une fois la rotation des secrets réussie, supprimez vos certificats du partage créé lors de l’étape préliminaire et stockez-les dans leur emplacement de sauvegarde sécurisé. 
 
 ## <a name="walkthrough-of-secret-rotation"></a>Procédure pas à pas de rotation des secrets
@@ -137,6 +138,10 @@ Pour effectuer uniquement la rotation des secrets internes Azure Stack :
 
 1. Créez une session PowerShell avec le [point de terminaison privilégié](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. Dans la session de point de terminaison privilégié, exécutez **Start-SecretRotation** sans arguments.
+3. Patientez pendant la rotation de vos secrets.  
+Lorsque la rotation des secrets a réussi, la console affiche **Overall action status: Success** (état global de l’action : réussite). 
+    > [!note]  
+    > En cas d’échec de la rotation des secrets, suivez les instructions dans le message d’erreur et réexécutez start-secretrotation avec le paramètre **-Rerun**. Contactez le support si vous rencontrez des échecs répétés de rotation des secrets. 
 
 ## <a name="start-secretrotation-reference"></a>Référence Start-SecretRotation
 
@@ -158,9 +163,10 @@ La cmdlet Start-SecretRotation effectue la rotation des secrets de l’infrastru
 
 | Paramètre | type | Obligatoire | Position | Default | Description |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | Chaîne  | False  | named  | Aucun  | Le chemin d’accès au partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets internes et externes. Le répertoire de fin doit être **\Certificates**. |
+| PfxFilesPath | Chaîne  | False  | named  | Aucun  | Le chemin d’accès au partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets externes et de tous les secrets. Le répertoire de fin doit être **\Certificates**. |
 | CertificatePassword | SecureString | False  | named  | Aucun  | Le mot de passe pour tous les certificats fournis dans le -PfXFilesPath. Valeur requise si PfxFilesPath est fourni lors de la rotation des secrets internes et externes. |
-|
+| PathAccessCredential | PSCredential | False  | named  | Aucun  | Les informations d’identification PowerShell du partage de fichiers pour le répertoire **\Certificates** contenant tous les certificats de points de terminaison réseau externe. Uniquement requis lors de la rotation de secrets externes et de tous les secrets.  |
+| Rerun | SwitchParameter | False  | named  | Aucun  | Rerun doit être utilisé à chaque nouvelle tentative de rotation des secrets après un échec. |
 
 ### <a name="examples"></a>Exemples
  

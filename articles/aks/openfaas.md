@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 03/05/2018
 ms.author: juda
 ms.custom: mvc
-ms.openlocfilehash: b5484233c7d3d32e51098baad8c22ec51df8f0d8
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: dc0f4bd1e5b07e30f3c89807fbbbc908b3149810
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35260615"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542529"
 ---
 # <a name="using-openfaas-on-aks"></a>Utilisation d’OpenFaaS avec AKS
 
-[OpenFaaS][open-faas] est un framework qui permet de créer des fonctions serverless sur des conteneurs. Ce projet open source a été très largement adopté par la communauté. Ce document décrit en détail l’installation et l’utilisation d’OpenFaas sur un cluster Azure Kubernetes Service (AKS).
+[OpenFaaS][open-faas] est une infrastructure qui permet de créer des fonctions serverless sur des conteneurs. Ce projet open source a été très largement adopté par la communauté. Ce document décrit en détail l’installation et l’utilisation d’OpenFaas sur un cluster Azure Kubernetes Service (AKS).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -68,7 +68,7 @@ helm install --namespace openfaas -n openfaas \
   --set rbac=false chart/openfaas/
 ```
 
-Output:
+Sortie :
 
 ```
 NAME:   openfaas
@@ -221,7 +221,7 @@ Testez la fonction à l’aide de curl. Remplacez l’adresse IP par l’adresse
 curl -s http://52.186.64.52:8080/function/cosmos-query
 ```
 
-Output:
+Sortie :
 
 ```json
 [{"ID":"","Name":"two_person","FriendlyName":"","PortionSize":"","MealsPerWeek":"","Price":72,"Description":"Our basic plan, delivering 3 meals per week, which will feed 1-2 people."}]

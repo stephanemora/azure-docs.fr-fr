@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: bd440e0ef017e2bf116e80ad049883e2338efddb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42140054"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298945"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Déploiement continu vers Azure App Service
-Cet article vous explique comment configurer un déploiement continu pour [Azure App Service](app-service-web-overview.md). Azure App Service permet un déploiement continu depuis BitBucket, GitHub et [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) en extrayant les mises à jour les plus récentes de votre référentiel existant pour les envoyer dans l’un de ces services.
+Cet article vous explique comment configurer un déploiement continu pour [Azure App Service](app-service-web-overview.md). Azure App Service permet un déploiement continu depuis BitBucket, GitHub et [Azure DevOps Services](https://www.visualstudio.com/team-services/) en extrayant les mises à jour les plus récentes de votre référentiel existant pour les envoyer dans l’un de ces services.
 
 Pour savoir comment configurer manuellement le déploiement continu à partir d’un référentiel cloud non répertorié par le portail Azure (par exemple, [GitLab](https://gitlab.com/)), consultez la section [Configurer manuellement un déploiement continu](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-Publiez votre référentiel préparé sur l’un des services pris en charge. Pour plus d’informations sur la publication de votre projet sur ces services, consultez [Création d’un dépôt (GitHub)], [Création d’un dépôt (BitBucket)] et [Prise en main de VSTS].
+Publiez votre référentiel préparé sur l’un des services pris en charge. Pour plus d’informations sur la publication de votre projet sur ces services, consultez [Création d’un dépôt (GitHub)], [Création d’un dépôt (BitBucket)] et [Bien démarrer avec les solutions Azure DevOps Services].
 
 ## <a name="deploy-continuously-from-github"></a>Déployer en continu depuis GitHub
 
@@ -47,18 +47,18 @@ Sur la page **Fournisseur de générations**, choisissez le fournisseur de gén�
 
 Sur la page **Configurer**, sélectionnez l’organisation, le référentiel et la branche à partir de laquelle vous souhaitez effectuer un déploiement continu. Lorsque vous avez terminé, cliquez sur **Continuer**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Option 2 : utiliser la livraison continue avec VSTS
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>Option 2 : utiliser la livraison continue d’Azure DevOps Services
 
 > [!NOTE]
-> Pour qu’Azure App Service puisse créer la build nécessaire et libérer des définitions dans le compte VSTS, votre compte Azure doit avoir pour rôle celui de **Propriétaire** dans votre abonnement Azure.
+> Pour qu’App Service puisse créer les Azure Pipelines nécessaires dans votre organisation Azure DevOps Services, votre compte Azure doit avoir le rôle de **propriétaire** dans votre abonnement Azure.
 >
 
 Sur la page **Configurer**, dans la section **Code**, sélectionnez l’organisation, le référentiel et la branche à partir de laquelle vous souhaitez effectuer un déploiement continu. Lorsque vous avez terminé, cliquez sur **Continuer**.
 
-Sur la page **Configurer**, dans la section **Build**, configurez un nouveau compte VSTS ou indiquez un compte existant. Lorsque vous avez terminé, cliquez sur **Continuer**.
+Dans la page **Configurer**, dans la section **Générer**, configurez une nouvelle organisation Azure DevOps Services ou spécifiez une organisation existante. Lorsque vous avez terminé, cliquez sur **Continuer**.
 
 > [!NOTE]
-> Si vous voulez utiliser un compte VSTS existant qui ne figure pas dans la liste, vous devez [associer le compte VSTS à votre abonnement Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Si vous souhaitez utiliser une organisation Azure DevOps Services existante non répertoriée, vous devez [lier l’organisation Azure DevOps Services à votre abonnement Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Sur la page **Test**, choisissez si vous voulez activer les tests de charge, puis cliquez sur **Continuer**.
 
@@ -90,11 +90,11 @@ Sur la page **Synthèse**, vérifiez les options, puis cliquez sur **Terminer**.
 
 Une fois la configuration terminée, les nouvelles validations dans le référentiel sélectionné sont déployées en continu dans votre application App Service.
 
-## <a name="deploy-continuously-from-vsts"></a>Déployer en continu depuis VSTS
+## <a name="deploy-continuously-from-azure-devops-services"></a>Déployer en continu à partir d’Azure DevOps Services
 
-Pour activer le déploiement continu avec VSTS, accédez à votre page d’application Azure App Service dans le [portail Azure](https://portal.azure.com).
+Pour activer le déploiement continu avec Azure DevOps Services, accédez à votre page d’application Azure App Service dans le [portail Azure](https://portal.azure.com).
 
-Dans le menu de gauche, cliquez sur **Centre de déploiement** > **VSTS** > **Autoriser**. 
+Dans le menu de gauche, cliquez sur **Centre de déploiement** > **Azure DevOps Services** > **Continuer**. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
@@ -102,20 +102,20 @@ Sur la page **Fournisseur de générations**, choisissez le fournisseur de gén�
 
 ### <a name="option-1-use-app-service-kudu-build-server"></a>Option 1 : utiliser le serveur de builds Kudu App Service
 
-Sur la page **Configurer**, sélectionnez le compte VSTS, le projet, le référentiel et la branche à partir de laquelle vous souhaitez effectuer un déploiement continu. Lorsque vous avez terminé, cliquez sur **Continuer**.
+Sur la page **Configurer**, sélectionnez l’organisation, le projet, le référentiel et la branche Azure DevOps Services à partir de laquelle vous souhaitez effectuer un déploiement continu. Lorsque vous avez terminé, cliquez sur **Continuer**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Option 2 : utiliser la livraison continue avec VSTS
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>Option 2 : utiliser la livraison continue d’Azure DevOps Services
 
 > [!NOTE]
-> Pour qu’Azure App Service puisse créer la build nécessaire et libérer des définitions dans le compte VSTS, votre compte Azure doit avoir pour rôle celui de **Propriétaire** dans votre abonnement Azure.
+> Pour qu’App Service puisse créer les Azure Pipelines nécessaires dans votre organisation Azure DevOps Services, votre compte Azure doit avoir le rôle de **propriétaire** dans votre abonnement Azure.
 >
 
-Sur la page **Configurer**, dans la section **Code**, sélectionnez le compte VSTS, le projet, le référentiel et la branche à partir de laquelle vous souhaitez effectuer un déploiement continu. Lorsque vous avez terminé, cliquez sur **Continuer**.
+Sur la page **Configurer**, dans la section **Code**, sélectionnez l’organisation, le projet, le référentiel et la branche Azure DevOps Services à partir de laquelle vous souhaitez effectuer un déploiement continu. Lorsque vous avez terminé, cliquez sur **Continuer**.
 
 > [!NOTE]
-> Si vous voulez utiliser un compte VSTS existant qui ne figure pas dans la liste, vous devez [associer le compte VSTS à votre abonnement Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Si vous souhaitez utiliser une organisation Azure DevOps Services existante non répertoriée, vous devez [lier l’organisation Azure DevOps Services à votre abonnement Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-Sur la page **Configurer**, dans la section **Build**, indiquez l’infrastructure de langage que VSTS doit utiliser afin d’exécuter les tâches de build pour le référentiel sélectionné. Lorsque vous avez terminé, cliquez sur **Continuer**.
+Sur la page **Configurer**, dans la section **Build**, indiquez l’infrastructure de langage qu’Azure DevOps Services doit utiliser afin d’exécuter les tâches de build pour le référentiel sélectionné. Lorsque vous avez terminé, cliquez sur **Continuer**.
 
 Sur la page **Test**, choisissez si activer les tests de charge, puis cliquez sur **Continuer**.
 
@@ -131,7 +131,7 @@ Une fois la configuration terminée, les nouvelles validations dans le référen
 
 Pour désactiver le déploiement continu, accédez à votre page d’application Azure App Service dans le [portail Azure](https://portal.azure.com).
 
-Dans le menu de gauche, cliquez sur **Centre de déploiement** > **GitHub**, **VSTS** ou **BitBucket** > **Déconnecter**.
+Dans le menu de gauche, cliquez sur **Centre de déploiement** > **GitHub**, **Azure DevOps Services** ou **BitBucket** > **Déconnecter**.
 
 ![](media/app-service-continuous-deployment/disable.png)
 
@@ -153,4 +153,4 @@ Dans le menu de gauche, cliquez sur **Centre de déploiement** > **GitHub**, **V
 
 [Création d’un dépôt (GitHub)]: https://help.github.com/articles/create-a-repo
 [Création d’un dépôt (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[Prise en main de VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
+[Bien démarrer avec les solutions Azure DevOps Services]: https://www.visualstudio.com/docs/vsts-tfs-overview

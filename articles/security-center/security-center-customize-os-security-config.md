@@ -3,23 +3,23 @@ title: Personnaliser les configurations de la sécurité du système d’exploit
 description: Cet article explique comment personnaliser les évaluations de Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: ''
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/25/2018
-ms.author: terrylan
-ms.openlocfilehash: f12441a960db9f1c45bca2a5b95f3669923c7e3d
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.date: 18/30/2018
+ms.author: rkarlin
+ms.openlocfilehash: 08174a6781772abdebd9e203a3433a1a4ac82859
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28200008"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378361"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Personnaliser les configurations de la sécurité du système d’exploitation dans Azure Security Center (version préliminaire)
 
@@ -53,29 +53,27 @@ Pour personnaliser la configuration par défaut de la sécurité du système d�
 
 1.  Ouvrez le tableau de bord **Security Center**.
 
-2.  Dans le volet gauche, sélectionnez **Stratégie de sécurité**.  
-    La fenêtre **Security Center - Stratégie de sécurité** s’ouvre.
+2.  Dans le volet gauche, sélectionnez **Stratégie de sécurité**.      
 
-    ![Liste des stratégies de sécurité](media/security-center-customize-os-security-config/open-security-policy.png)
+    ![Liste des stratégies de sécurité](media/security-center-customize-os-security-config/manual-provision.png)
 
-3.  Sélectionnez l’abonnement sur lequel portera la personnalisation.
+3.  Dans la ligne de l’abonnement que vous souhaitez personnaliser, cliquez sur **Modifier les paramètres**.
 
-4. Dans **Composants de la stratégie**, sélectionnez **Modifier les configurations de la sécurité**.  
-    La fenêtre **Modifier les configurations de la sécurité** s’ouvre.
-
+4. Sélectionnez **Modifier les configurations de la sécurité**.  
+    
     ![La fenêtre Modifier les configurations de la sécurité](media/security-center-customize-os-security-config/blade.png)
 
-5. Dans le volet droit, suivez les étapes de téléchargement, de modification et de chargement du fichier modifié.
+5. Suivez les étapes pour télécharger, modifier et charger le fichier modifié.
 
    > [!NOTE]
    > Par défaut, le fichier de configuration téléchargé est au format *json*. Vous trouverez les instructions à suivre pour modifier ce fichier dans la rubrique [Personnaliser le fichier de configuration](#customize-the-configuration-file).
    >
 
-   Une fois le fichier enregistré, la configuration s’applique à l’ensemble des machines virtuelles et des ordinateurs connectés à tous les espaces de travail de l’abonnement sélectionné. Généralement, le processus prend quelques minutes mais peut nécessiter plus de temps, en fonction de la taille de l’infrastructure.
-
 6. Pour valider la modification, sélectionnez **Enregistrer**. Sinon, la stratégie n’est pas stockée.
 
     ![Bouton Enregistrer](media/security-center-customize-os-security-config/save-successfully.png)
+
+   Une fois le fichier enregistré, la configuration s’applique à l’ensemble des machines virtuelles et des ordinateurs connectés aux espaces de travail de l’abonnement sélectionné. Généralement, le processus prend quelques minutes mais peut nécessiter plus de temps, en fonction de la taille de l’infrastructure.
 
 À tout moment, vous pouvez réinitialiser la configuration de stratégie actuelle à son état par défaut. Pour ce faire, dans la fenêtre **Modifier les règles de configuration de la sécurité du système d’exploitation**, sélectionnez **Réinitialiser**. Pour confirmer cette option, sélectionnez **Oui** dans la fenêtre contextuelle de confirmation.
 
@@ -116,9 +114,7 @@ Chaque catégorie possède son propre ensemble d’attributs. Vous pouvez modifi
 
 -   **state** : chaîne qui peut contenir l’option *Disabled* ou *Enabled* (« Désactivé » ou « activé ») Dans cette préversion privée, la chaîne respecte la casse.
 
-Ce sont les seuls champs configurables. Si vous ne respectez pas le format ou la taille de fichier, vous ne pourrez pas enregistrer la modification. Le message d’erreur suivant apparaît si le fichier n’a pas pu être traité :
-
-![Message d’erreur de configuration de sécurité](media/security-center-customize-os-security-config/invalid-json.png)
+Ce sont les seuls champs configurables. Si vous ne respectez pas le format ou la taille de fichier, vous ne pourrez pas enregistrer la modification. Un message d’erreur indique que vous devez pour charger un fichier de configuration JSON valide.
 
 Pour obtenir une liste des erreurs potentielles, consultez la rubrique [Codes d’erreur](#error-codes).
 
@@ -267,9 +263,7 @@ Exemple de nouvelle règle personnalisée :
 
 ## <a name="file-upload-failures"></a>Échecs de chargement de fichier
 
-Si le fichier de configuration soumis n’est pas valide en raison d’erreurs dans les valeurs ou dans la mise en forme, une erreur d’échec s’affiche. Il est possible de télécharger un rapport .csv détaillé des erreurs pour résoudre et corriger les erreurs avant de soumettre à nouveau un fichier de configuration corrigé.
-
-![Message d’erreur d’échec de l’action d’enregistrement](media/security-center-customize-os-security-config/invalid-configuration.png)
+Si le fichier de configuration soumis n’est pas valide en raison d’erreurs dans les valeurs ou dans la mise en forme, une erreur d’échec s’affiche, comme **Échec de l’action d’enregistrement**. Il est possible de télécharger un rapport .csv détaillé des erreurs pour résoudre et corriger les erreurs avant de soumettre à nouveau un fichier de configuration corrigé.
 
 Exemple de fichier d’erreur :
 
@@ -300,7 +294,7 @@ Le tableau suivant répertorie l’ensemble des erreurs potentielles :
 | BaselineRulesetIdMustBeUnique            | L’ensemble de règles de base spécifié *{0}* doit être unique.                                                                                           |
 | BaselineRulesetNotFound                  | L’ensemble de règles correspondant à l’ID *{0}* et au nom *{1}* est introuvable dans la configuration spécifiée. Il n’est pas possible de supprimer un ensemble de règles.                                |
 | BaselineRuleSourceNotMatch               | Une règle correspondant à l’ID *{0}* est déjà définie.                                                                                                       |
-| BaselineRuleTypeDoesntMatch              | Le type de règle par défaut est « *{0}*.                                                                                                              |
+| BaselineRuleTypeDoesntMatch              | Le type de règle par défaut est *{0}*.                                                                                                              |
 | BaselineRuleTypeDoesntMatchError         | Le type réel de la règle est *{0}*, alors que la propriété *ruleType* est *{1}*.                                                                          |
 | BaselineRuleUnpermittedChangesError      | Seules les propriétés *expectedValue* et *state* sont modifiables.                                                                       |
 | BaselineTooManyRules                     | Le nombre maximal de règles personnalisées autorisées est de {0} règles. La configuration donnée comporte {1} règles, {2} règles par défaut et {3} règles personnalisées. |
@@ -311,13 +305,13 @@ Le tableau suivant répertorie l’ensemble des erreurs potentielles :
 | ErrorParsingIsDefaultProperty            | La valeur *configurationStatus* spécifiée, *{0}*, n’est pas valide. Elle ne peut être que *Default* (« par défaut ») ou *Custom* (« personnalisé »).                                         |
 | InCompatibleViewVersion                  | La version de l’affichage *{0}* n’est *pas* prise en charge sur ce type d’espace de travail.                                                                                   |
 | InvalidBaselineConfigurationGeneralError | La configuration de base spécifiée comporte une ou plusieurs erreurs de validation de type.                                                          |
-| ViewConversionError                      | La vue est une version antérieure à celle prise en charge par l’espace de travail. La conversion de l’affichage a échoué : {0}.                                                                 |
+| ViewConversionError                      | La vue est une version antérieure à celle prise en charge par l’espace de travail. La conversion de l’affichage a échoué : {0}.                                                                 |
 
 Si vous ne disposez pas d’autorisations suffisantes, vous risquez de recevoir une erreur d’échec général, telle que représentée ici :
 
 ![Message d’erreur d’échec de l’action d’enregistrement](media/security-center-customize-os-security-config/general-failure-error.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a montré comment personnaliser les évaluations de la configuration de la sécurité du système d’exploitation dans Security Center. Pour en savoir plus sur les règles de configuration et sur la correction, consultez les pages :
 
 - [Règles de base et identificateurs de configuration courants de Security Center](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335).

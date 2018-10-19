@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: f744b9bacfb43b5cf4ba81e19d8e543561bcec61
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 7c96f362793ca2697eb2c92c07ff38d2fe6caad2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842751"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716874"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migration de Contoso : réhéberger une application locale sur des machines virtuelles Azure et un groupe de disponibilité SQL Server AlwaysOn
 
@@ -33,9 +33,9 @@ Article 6 : Réhéberger une application sur des machines virtuelles Azure et da
 [Article 8 : Réhéberger une application Linux sur des machines virtuelles Azure et un serveur Azure MySQL](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migre l’application osTicket Linux vers des machines virtuelles Azure à l’aide d’Azure Site Recovery et la base de données de l’application vers une instance Azure MySQL Server à l’aide de MySQL Workbench. | Disponible
 [Article 9 : Refactoriser une application sur Azure Web Apps et Azure SQL Database](contoso-migration-refactor-web-app-sql.md) | Contoso migre l’application SmartHotel360 vers Azure Web App et la base de données de l’application vers une instance Azure SQL Server avec l’Assistant Migration de données. | Disponible
 [Article 10 : Refactoriser une application Linux sur Azure Web Apps et Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Contoso migre son application osTicket Linux vers Azure Web App dans plusieurs régions Azure à l’aide d’Azure Traffic Manager, intégré à GitHub de façon à assurer une livraison continue. Contoso migre la base de données d’application vers une instance d’Azure Database pour MySQL. | Disponible 
-[Article 11 : Refactoriser TFS sur VSTS](contoso-migration-tfs-vsts.md) | Contoso migre son déploiement local de Team Foundation Server vers Visual Studio Team Services dans Azure. | Disponible
-[Article 12 : Réarchitecturer une application sur des conteneurs Azure et Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migre son application SmartHotel360 vers Azure. Ensuite, l’entreprise restructure la couche web de l’application comme un conteneur Windows s’exécutant dans Azure Service Fabric, et la base de données avec Azure SQL Database. | Disponible
-[Article 13 : Regénérer une application dans Azure](contoso-migration-rebuild.md) | Contoso regénère son application SmartHotel360 en utilisant une série de fonctionnalités et de services Azure, notamment Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services et Azure Cosmos DB. | Disponible
+[Article 11 : Refactoriser TFS sur Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migre son déploiement local de Team Foundation Server vers Azure DevOps Services dans Azure. | Disponible
+[Article 12 : Réarchitecturer une application sur des conteneurs Azure et Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migre son application SmartHotel vers Azure. Ensuite, l’entreprise restructure la couche web de l’application comme un conteneur Windows s’exécutant dans Azure Service Fabric, et la base de données avec Azure SQL Database. | Disponible
+[Article 13 : Regénérer une application dans Azure](contoso-migration-rebuild.md) | Contoso régénère son application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, notamment Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services et Azure Cosmos DB. | Disponible
 
 
 Dans cet article, Contoso migre l’application à deux niveaux Windows .NET SmartHotel360 s’exécutant sur des machines virtuelles VMware vers Azure. Si vous souhaitez utiliser cette application, elle est disponible en open source et vous pouvez la télécharger à partir de [GitHub](https://github.com/Microsoft/SmartHotel360).
@@ -107,7 +107,7 @@ Contoso évalue la conception proposée en dressant une liste des avantages et d
 **Considération** | **Détails**
 --- | ---
 **Avantages** | WEBVM est déplacé vers Azure sans changement, ce qui simplifie la migration.<br/><br/> Le niveau SQL Server s’exécute sur SQL Server 2017 et Windows Server 2016. Ceci rend obsolète leur système d’exploitation Windows Server 2008 R2 en cours d’exécution. SQL Server 2017 prend en charge les spécifications techniques et les objectifs de Contoso. Il assure une compatibilité intégrale lors de la migration depuis SQL Server 2008 R2.<br/><br/> Contoso peut exploiter leur investissement dans Software Assurance en utilisant Azure Hybrid Benefit.<br/><br/> Un déploiement SQL Server haute disponibilité dans Azure assure une tolérance de panne afin que la couche de données d’application ne soit plus un point de basculement unique.
-**Inconvénients** | WEBVM exécute Windows Server 2008 R2. Le système d’exploitation est pris en charge par Azure pour certains rôles (juillet 2018). [Plus d’informations](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)<br/><br/> La couche web de l’application reste un point de basculement unique.</br><br/> Contoso devra continuer à prendre en charge la couche web comme une machine virtuelle Azure au lieu d’opter pour un service managé, comme Azure App Service.<br/><br/> Avec la solution choisie, Contoso devra continuer à gérer deux machines virtuelles SQL Server au lieu de passer à une plateforme managée comme Azure SQL Managed Instance. En outre, avec Software Assurance, Contoso pourrait remplacer leurs licences existantes par des tarifs préférentiels sur Azure SQL Managed Instance.
+**Inconvénients** | WEBVM exécute Windows Server 2008 R2. Le système d’exploitation est pris en charge par Azure pour certains rôles (juillet 2018). [Plus d’informations](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines)<br/><br/> La couche web de l’application reste un point de basculement unique.</br><br/> Contoso devra continuer à prendre en charge la couche web comme une machine virtuelle Azure au lieu d’opter pour un service managé, comme Azure App Service.<br/><br/> Avec la solution choisie, Contoso devra continuer à gérer deux machines virtuelles SQL Server au lieu de passer à une plateforme managée comme Azure SQL Database Managed Instance. En outre, avec Software Assurance, Contoso pourrait remplacer leurs licences existantes par des tarifs préférentiels sur Azure SQL Database Managed Instance.
 
 
 ### <a name="azure-services"></a>Services Azure

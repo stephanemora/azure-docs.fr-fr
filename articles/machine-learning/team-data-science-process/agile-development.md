@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: b57b77f5adfa3fb73372ac8297f408fb339b5d79
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a032127d249f944d08cc6578a03f1a7e5a658361
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837427"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301087"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Développement Agile de projets de science des données
 
@@ -31,7 +31,7 @@ Cet article fournit des instructions pour les procédures suivantes :
 2. **Ajouter des éléments de travail** à une planification sprint. 
 
 > [!NOTE]
-> Les étapes nécessaires à la configuration d’un environnement d’équipe TDSP à l’aide de Visual Studio Team Services (VSTS) sont décrites dans les instructions suivantes. Ces instructions indiquent comment accomplir ces tâches avec VSTS, car c’est de cette façon que le processus TDSP est implémenté chez Microsoft.  Les éléments (3) et (4) de la liste précédente font partie des avantages que présente l’utilisation de VSTS. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui sera différente. Par exemple, l’élément de la section 6 (**Lier un élément de travail à une branche Git**) peut ne pas être aussi simple qu’avec VSTS.
+> Les étapes nécessaires à la configuration d’un environnement d’équipe TDSP à l’aide d’Azure DevOps Services sont décrites dans les instructions suivantes. Ces instructions indiquent comment accomplir ces tâches avec Azure DevOps Services, car c’est de cette façon que le processus TDSP est implémenté chez Microsoft.  Les éléments (3) et (4) de la liste précédente font partie des avantages que présente l’utilisation d’Azure DevOps Services. Si une autre plateforme d’hébergement de code est utilisée pour votre groupe, les tâches que doit effectuer le responsable d’équipe ne changent généralement pas. En revanche, c’est la façon dont vont s’effectuer ces tâches qui sera différente. Par exemple, l’élément de la section 6 (**Lier un élément de travail à une branche Git**) peut ne pas être aussi simple qu’avec Azure DevOps Services.
 >
 >
 
@@ -42,7 +42,7 @@ La figure suivante montre le flux de travail classique de planification sprint, 
 
 ##  1. <a name='Terminology-1'></a>Terminologie 
 
-Dans le framework de planification sprint TDSP, il existe quatre types **d’éléments de travail** fréquemment utilisés : **Caractéristique**, **Récit**, **Tâche** et **Bogue**. Chaque projet d’équipe met à jour un backlog de tous les éléments de travail. Il n’existe pas de backlog au niveau du dépôt Git, sous les projets d’équipe. Voici leurs définitions :
+Dans le framework de planification sprint TDSP, il existe quatre types **d’éléments de travail** fréquemment utilisés : **Caractéristique**, **Récit**, **Tâche** et **Bogue**. Chaque projet met à jour un backlog de tous les éléments de travail. Il n’existe pas de backlog au niveau du dépôt Git, sous les projets. Voici leurs définitions :
 
 - **Caractéristique** : une caractéristique correspond à un engagement de projet. Les différents engagements pris auprès d’un client sont considérés comme des caractéristiques distinctes. De même, il est préférable de considérer les différentes phases d’un projet client comme des caractéristiques distinctes. Si vous choisissez un format tel que ***NomClient-NomEngagement*** pour nommer vos caractéristiques, vous pourrez facilement connaître le contexte du projet ou de l’engagement grâce au nom qu’il porte.
 - **Récit** : les récits sont des éléments de travail qui sont nécessaires pour mener une caractéristique (un projet) de bout en bout. Voici quelques exemples de récits :
@@ -69,14 +69,14 @@ Dans le framework de planification sprint TDSP, il existe quatre types **d’él
 
 ## 2. <a name='SprintPlanning-2'></a>Planification sprint 
 
-La planification sprint est utile pour la définition des priorités d’un projet, ainsi que pour la planification et l’allocation des ressources. De nombreux scientifiques des données sont engagés dans plusieurs projets à la fois, qui peuvent durer des mois. Les projets évoluent souvent à des rythmes différents. Sur le serveur VSTS, vous pouvez facilement créer, gérer et effectuer le suivi des éléments de travail de votre projet d’équipe, ainsi qu’effectuer une planification sprint en vue de garantir le bon déroulement du projet. 
+La planification sprint est utile pour la définition des priorités d’un projet, ainsi que pour la planification et l’allocation des ressources. De nombreux scientifiques des données sont engagés dans plusieurs projets à la fois, qui peuvent durer des mois. Les projets évoluent souvent à des rythmes différents. Sur les Azure DevOps Services, vous pouvez facilement créer, gérer et effectuer le suivi des éléments de travail de votre projet, ainsi qu’effectuer une planification sprint en vue de garantir le bon déroulement du projet. 
 
-Pour obtenir des instructions relatives à la planification sprint dans VSTS, cliquez sur [ce lien](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning). 
+Pour obtenir des instructions relatives à la planification sprint dans Azure DevOps Services, cliquez sur [ce lien](https://www.visualstudio.com/en-us/docs/work/scrum/sprint-planning). 
 
 
 ## 3. <a name='AddFeature-3'></a>Ajouter une caractéristique  
 
-Une fois que vous avez créé le dépôt de votre projet sous un projet d’équipe, accédez à la page **Vue d’ensemble** de l’équipe, puis cliquez sur **Gérer le travail**.
+Une fois que vous avez créé le dépôt de votre projet sous un projet, accédez à la page **Vue d’ensemble** de l’équipe, puis cliquez sur **Gérer le travail**.
 
 ![2](./media/agile-development/2-sprint-team-overview.png)
 
@@ -161,11 +161,11 @@ Cet article explique comment configurer un modèle de processus de science des d
 
 Une fois le modèle de processus de science des données créé, vous pouvez créer vos éléments de travail de science des données correspondant au cycle de vie TDSP et effectuer leur suivi.
 
-1. Quand vous créez un projet d’équipe, sélectionnez « Agile\AgileDataScienceProcess » comme **Processus d’élément de travail** :
+1. Quand vous créez un projet, sélectionnez « Agile\AgileDataScienceProcess » comme **Processus d’élément de travail** :
 
     ![15](./media/agile-development/15-newproject.png)
 
-2. Accédez au projet d’équipe créé, puis cliquez sur **Travail** -> **Backlogs**.
+2. Accédez au projet créé, puis cliquez sur **Travail** -> **Backlogs**.
 
 3. Rendez « TDSP Projects » visible en cliquant sur **Configurer les paramètres de l’équipe**, cochez « TDSP Projects », puis enregistrez.
 

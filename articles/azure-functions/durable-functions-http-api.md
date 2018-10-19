@@ -3,23 +3,19 @@ title: API HTTP dans Fonctions durables - Azure
 description: Découvrez comment implémenter des API HTTP dans l’extension Fonctions durables d’Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 09/29/2017
+ms.topic: conceptual
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3c000e268c4c926991c3f1928f226065a436c6d2
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: c6d7268a8501c602354d21edc5a0feaae9b1a0b2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "36264883"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575472"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>API HTTP dans Fonctions durables (Azure Functions)
 
@@ -49,6 +45,7 @@ Cet exemple de fonction produit les données de réponse JSON suivantes. Le type
 | statusQueryGetUri |L’URL de l’état de l’instance d’orchestration. |
 | sendEventPostUri  |L’URL « Raise event » de l’instance d’orchestration. |
 | terminatePostUri  |L’URL « d’arrêt » de l’instance d’orchestration. |
+| rewindPostUri     |URL de «rembobinage» de l’instance d’orchestration. |
 
 Voici un exemple de réponse :
 
@@ -56,13 +53,14 @@ Voici un exemple de réponse :
 HTTP/1.1 202 Accepted
 Content-Length: 923
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 
 {
     "id":"34ce9a28a6834d8492ce6a295f1a80e2",
-    "statusQueryGetUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "sendEventPostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "terminatePostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
+    "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
 > [!NOTE]
@@ -114,7 +112,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent :
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
+GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>response
@@ -125,6 +123,7 @@ Plusieurs valeurs de code d’état possibles peuvent être retournées.
 * **HTTP 202 (acceptée)** : l’instance spécifiée est en cours d’exécution.
 * **HTTP 400 (Bad Request)** : l’instance spécifiée a échoué ou a été arrêtée.
 * **HTTP 404 (Not Found)** : l’instance spécifiée n’existe pas ou n’a pas démarré.
+* **HTTP 500 (Erreur interne du serveur)**: l’instance spécifiée a échoué avec une exception non prise en charge.
 
 La charge utile de réponse pour les cas **HTTP 200** et **HTTP 202** est un objet JSON avec les champs suivants :
 
@@ -210,7 +209,7 @@ GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connecti
 Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent : 
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 #### <a name="response"></a>response
@@ -267,7 +266,7 @@ Voici un exemple de charges utiles de réponse incluant l’état de l’orchest
 ```
 
 > [!NOTE]
-> Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans la table d’instances. Vous trouverez plus d’informations sur la table d’instances dans la documentation [Performances et mise à l’échelle dans Fonctions durables (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table).
+> Cette opération peut être très gourmande en E/S pour le stockage Azure s’il y a un grand nombre de lignes dans la table d’instances. Vous trouverez plus d’informations sur la table d’instances dans la documentation [Performances et mise à l’échelle dans Fonctions durables (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table).
 > 
 
 ### <a name="raise-event"></a>Raise event
@@ -285,7 +284,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent :
 
 ```http
-POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
 Les paramètres de requête pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que les paramètres uniques suivants :
@@ -325,13 +324,13 @@ Arrête une instance d’orchestration en cours d’exécution.
 Pour Functions 1.0, le format de la demande est le suivant :
 
 ```http
-DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent :
 
 ```http
-DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 Les paramètres de la demande pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que le paramètre unique suivant.
@@ -351,7 +350,47 @@ Plusieurs valeurs de code d’état possibles peuvent être retournées.
 Voici un exemple de demande qui met fin à une instance en cours d’exécution et affiche la raison **buggy** (bogué) :
 
 ```
-DELETE /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+```
+
+Les réponses pour cette API sont vides.
+
+## <a name="rewind-instance-preview"></a>Instance de rembobinage (préversion)
+
+Restaure une instance d’orchestration ayant échoué dans un état en cours d’exécution au travers de la relecture des dernières opérations ayant échoué.
+
+#### <a name="request"></a>Requête
+
+Pour Functions 1.0, le format de la demande est le suivant :
+
+```http
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+Le format de Functions 2.0 a les mêmes paramètres, mais avec un préfixe d’URL légèrement différent :
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+Les paramètres de la demande pour cette API incluent l’ensemble par défaut mentionné précédemment, ainsi que le paramètre unique suivant.
+
+| Champ       | Type de paramètre  | Type de données | Description |
+|-------------|-----------------|-----------|-------------|
+| motif      | Chaîne de requête    | chaîne    | facultatif. Motif de rembobinage de l’instance d’orchestration. |
+
+#### <a name="response"></a>response
+
+Plusieurs valeurs de code d’état possibles peuvent être retournées.
+
+* **HTTP 202 (Accepté)** : la requête de rembobinage a été acceptée pour traitement.
+* **HTTP 404 (Not Found)** : l’instance spécifiée est introuvable.
+* **HTTP 410 (Supprimé)** : l’instance spécifiée est terminée.
+
+Voici un exemple de requête qui rembobine une instance ayant échoué et affiche la raison **corrigé** :
+
+```
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/rewind?reason=fixed&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 ```
 
 Les réponses pour cette API sont vides.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 5/23/2018
 ms.author: anmola
-ms.openlocfilehash: 5672f5fffd9c93f710f8001285380fdbfcab0c5d
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d3ed1ff46bf4c82a172954828ec74bae80241288
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386974"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44056805"
 ---
 # <a name="containerize-your-service-fabric-reliable-services-and-reliable-actors-on-windows"></a>Conteneuriser vos services Service Fabric Reliable Actors et Reliable Services sur Windows
 
@@ -103,7 +103,7 @@ Ce document fournit des conseils pour rendre votre service opérationnel à l’
 </Policies>
  ```
 
-9. Pour configurer le mode d’isolation de conteneur, voir [Configurer le mode d’isolation]( https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows prend en charge deux modes d’isolation pour les conteneurs : Processus et Hyper-V. Les extraits de code suivants montrent comment le mode d’isolation est spécifié dans le fichier manifeste de l’application.
+9. Pour configurer le mode d’isolation de conteneur, voir [Configurer le mode d’isolation]( https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-containers#configure-isolation-mode). Windows prend en charge deux modes d’isolation pour les conteneurs : Processus et Hyper-V. Les extraits de code suivants montrent comment le mode d’isolation est spécifié dans le fichier manifeste de l’application.
 
  ```xml
 <Policies>

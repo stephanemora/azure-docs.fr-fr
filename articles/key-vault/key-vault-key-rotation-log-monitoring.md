@@ -3,7 +3,7 @@ title: Configuration d’Azure Key Vault avec une rotation des clés et un audit
 description: Utilisez cette procédure pour configurer la rotation des clés et la surveillance des journaux de Key Vault.
 services: key-vault
 documentationcenter: ''
-author: swgriffith
+author: barclayn
 manager: mbaldwin
 tags: ''
 ms.assetid: 9cd7e15e-23b8-41c0-a10a-06e6207ed157
@@ -11,23 +11,30 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 03/01/2018
-ms.author: stgriffi
-ms.openlocfilehash: 01f1f719545b554b22ef79b38f95087341c65e83
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.topic: conceptual
+ms.date: 06/12/2018
+ms.author: barclayn
+ms.openlocfilehash: bf3aba431e7b417b2213bc3410fd7722d7888d15
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302015"
 ---
-# <a name="set-up-azure-key-vault-with-end-to-end-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit de bout en bout
+# <a name="set-up-azure-key-vault-with-key-rotation-and-auditing"></a>Configurer Azure Key Vault avec une rotation des clés et un audit
+
 ## <a name="introduction"></a>Introduction
-Une fois votre coffre de clés (Key Vault) créé, vous pouvez commencer à l’utiliser pour stocker vos clés et secrets. Vos applications ne doivent plus nécessairement conserver vos clés et secrets, mais les demanderont au coffre de clés en cas de besoin. Cela vous permet de mettre à jour les clés et les secrets sans affecter le comportement de votre application, et de disposer ainsi de toute une multitude de possibilités de gestion des clés et secrets.
+
+Une fois que vous avez un coffre de clés, vous pouvez commencer à l’utiliser pour stocker les clés et les secrets. Vos applications ne doivent plus nécessairement conserver vos clés et secrets, mais peuvent les demander au coffre en cas de besoin. Cela vous permet de mettre à jour les clés et les secrets sans affecter le comportement de votre application, et de disposer ainsi de toute une multitude de possibilités de gestion des clés et secrets.
 
 >[!IMPORTANT]
 > Les exemples de cet article sont fournis à titre d’illustration uniquement. Ils ne sont pas conçus pour être utilisés pour la production. 
 
-Cet article présente un exemple d’utilisation d’Azure Key Vault pour stocker un secret, dans notre exemple une clé de compte de stockage Azure à laquelle une application accède. Il vous propose également une démonstration d’implémentation d’une rotation planifiée de cette clé de compte de stockage. Pour finir, il vous présente, par le biais d’une démonstration, comment contrôler les journaux d’audit du coffre de clés et déclencher des alertes en cas de requêtes inattendues.
+Cet article vous guide tout au long des procédures suivantes :
+
+- Un exemple d’utilisation d’Azure Key Vault pour stocker un secret. Dans ce didacticiel, le secret stocké est la clé de compte de stockage Azure qui fait l’objet d’un accès par une application. 
+- Il vous propose également une démonstration d’implémentation d’une rotation planifiée de cette clé de compte de stockage.
+- Il démontre comment contrôler les journaux d’audit du coffre de clés et déclencher des alertes en cas de requêtes inattendues.
 
 > [!NOTE]
 > Ce didacticiel n’a pas pour vocation d’expliquer en détail la configuration initiale de votre coffre de clés. Pour plus d’informations, consultez [Prise en main d’Azure Key Vault](key-vault-get-started.md). Pour connaître la marche à suivre avec l’interface de ligne de commande interplateforme, consultez la rubrique [Gestion de Key Vault à l’aide de l’interface de ligne de commande (CLI)](key-vault-manage-with-cli2.md).
@@ -35,6 +42,7 @@ Cet article présente un exemple d’utilisation d’Azure Key Vault pour stocke
 >
 
 ## <a name="set-up-key-vault"></a>Configuration d’Azure Key Vault
+
 Pour qu’une application puisse récupérer un secret dans Key Vault, vous devez tout d’abord créer le secret et le télécharger dans votre coffre. Procédez en démarrant une session Azure PowerShell et en vous connectant à votre compte Azure avec la commande suivante :
 
 ```powershell
@@ -68,6 +76,7 @@ $secretvalue = ConvertTo-SecureString <storageAccountKey> -AsPlainText -Force
 
 Set-AzureKeyVaultSecret -VaultName <vaultName> -Name <secretName> -SecretValue $secretvalue
 ```
+
 Ensuite, obtenez l’URI pour le secret que vous avez créé. Il sera utilisé dans une étape ultérieure lorsque vous appellerez le coffre de clés pour récupérer votre secret. Exécutez la commande PowerShell suivante et notez la valeur de l’ID, qui correspond à l’URI du secret :
 
 ```powershell
@@ -75,36 +84,31 @@ Get-AzureKeyVaultSecret –VaultName <vaultName>
 ```
 
 ## <a name="set-up-the-application"></a>Configurer d’application
+
 Maintenant que vous disposez d’une clé secrète stockée, vous pouvez utiliser le code pour la récupérer et l’utiliser. Quelques étapes sont nécessaires pour y parvenir. La première et la plus importante d’entre elles consiste à enregistrer votre application dans Azure Active Directory et à fournir à Key Vault des informations sur votre application afin qu’il autorise les requêtes provenant de votre application.
 
 > [!NOTE]
-> Votre application doit être créée sur le même client Azure Active Directory que votre coffre de clés.
+> Votre application doit être créée sur le même locataire Azure Active Directory que votre coffre de clés.
 >
 >
 
-Ouvrez l’onglet des applications d’Azure Active Directory.
+1. Accédez à Azure Active Directory.
+2. Choisissez **Inscriptions d’applications** 
+3. Choisissez **Nouvelle inscription d’application** pour ajouter une application à votre Azure Active Directory.
 
-![Ouvrir des applications dans Azure Active Directory](./media/keyvault-keyrotation/AzureAD_Header.png)
+    ![Ouvrir des applications dans Azure Active Directory](./media/keyvault-keyrotation/azure-ad-application.png)
 
-Choisissez **AJOUTER** pour ajouter une application à votre Azure Active Directory.
+4. Dans la section **Créer**, conservez le type d’application **APPLICATION WEB ET/OU API WEB** et donnez un nom à votre application. Attribuez à votre application une **URL DE CONNEXION**. Vous pouvez utiliser ce que vous voulez dans le cadre de cette démonstration.
 
-![Choisir AJOUTER](./media/keyvault-keyrotation/Azure_AD_AddApp.png)
+    ![Créer une inscription d’application](./media/keyvault-keyrotation/create-app.png)
 
-Conservez le type d’application **APPLICATION WEB ET/OU API WEB** et donnez un nom à votre application.
+5. Une fois l’application ajoutée à Azure Active Directory, vous accédez à la page de l’application. Sélectionnez **Paramètres**, puis sélectionnez des propriétés. Copiez la valeur figurant dans **ID de l’application**. Il sera nécessaire dans des étapes ultérieures.
 
-![Nommer l’application](./media/keyvault-keyrotation/AzureAD_NewApp1.png)
+Ensuite, générez une clé pour votre application afin qu’elle puisse interagir avec votre Azure Active Directory. Vous pouvez créer une clé en accédant à la section **Clés** sous **Paramètres**. Notez la clé générée par votre application Azure Active Directory pour pouvoir l’utiliser dans une étape ultérieure. Notez que la clé ne sera plus disponible lorsque vous aurez quitté cette section. 
 
-Attribuez à votre application une **URL DE CONNEXION** et un **URI ID D’APPLICATION**. Pour cette démonstration, il peut s’agir de n’importe quel URL/URI, et vous pouvez les modifier ultérieurement si nécessaire.
+![Clés d’application Azure Active Directory](./media/keyvault-keyrotation/create-key.png)
 
-![Fournir les URI nécessaires](./media/keyvault-keyrotation/AzureAD_NewApp2.png)
-
-Une fois l’application ajoutée à Azure Active Directory, vous accédez à la page de l’application. Cliquez sur l’onglet **Configurer**, puis recherchez et copiez la valeur de **l’ID client**. Notez l’ID client pour les étapes ultérieures.
-
-Ensuite, générez une clé pour votre application afin qu’elle puisse interagir avec votre Azure Active Directory. Vous pouvez la créer dans la section **Clés** de l’onglet **Configuration**. Notez la clé générée par votre application Azure Active Directory pour pouvoir l’utiliser dans une étape ultérieure.
-
-![Clés d’application Azure Active Directory](./media/keyvault-keyrotation/Azure_AD_AppKeys.png)
-
-Avant de créer des appels de votre coffre de clés par votre application, vous devez fournir au coffre de clés des informations sur votre application et ses autorisations. La commande suivante récupère le nom du coffre et l’ID client dans votre application Azure Active Directory et accorde à l’application un accès **Get** à votre coffre de clés.
+Avant de créer des appels de votre coffre de clés par votre application, vous devez fournir au coffre de clés des informations sur votre application et ses autorisations. La commande suivante récupère le nom du coffre et l’ID de l’application dans votre application Azure Active Directory et accorde à l’application un accès **Get** à votre coffre de clés.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <clientIDfromAzureAD> -PermissionsToSecrets Get
@@ -160,6 +164,7 @@ var sec = kv.GetSecretAsync(<SecretID>).Result.Value;
 Lorsque vous exécutez votre application, vous devez désormais vous authentifier auprès d’Azure Active Directory et récupérer votre valeur secrète dans Azure Key Vault.
 
 ## <a name="key-rotation-using-azure-automation"></a>Rotation des clés à l’aide d’Azure Automation
+
 Diverses options de mise en œuvre d’une stratégie de rotation sont possibles pour les valeurs que vous stockez sous forme de secrets Azure Key Vault. La rotation des secrets peut être manuelle, elle peut également être effectuée par programmation à l’aide d’appels d’API ou à l’aide d’un script Automation. Dans cet article, vous utiliserez Azure PowerShell et Azure Automation pour modifier une clé d’accès de compte de stockage Azure. Ensuite, vous mettrez à jour un secret de coffre de clés avec cette nouvelle clé.
 
 Pour qu’Azure Automation puisse définir des valeurs secrètes dans votre coffre de clés, vous devez obtenir l’ID client pour la connexion nommée AzureRunAsConnection créée pendant la définition de votre instance Azure Automation. Vous pouvez obtenir cet ID en choisissant **Actifs** dans votre instance Azure Automation. Sélectionnez ensuite **Connexions**, puis le principal du service **AzureRunAsConnection**. Notez **l’ID d’application**.
@@ -237,7 +242,7 @@ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $SecretName -Secre
 Dans le volet de l’éditeur, choisissez le volet **Test** pour tester votre script. Une fois le script exécutez sans erreur, vous pouvez sélectionner **Publier**, puis appliquer une planification du runbook dans le volet de configuration du runbook.
 
 ## <a name="key-vault-auditing-pipeline"></a>Pipeline d’audit de Key Vault
-Lorsque vous configurez un coffre de clés, vous pouvez activer la fonction d’audit afin de collecter des journaux de demandes d’accès au coffre de clés. Ces journaux sont stockés dans un compte de stockage Azure spécifié et peuvent être récupérés, contrôlés et analysés. Le scénario suivant utilise Azure Functions, Azure Logic Apps et des journaux d’audit du coffre de clés afin de créer un pipeline pour envoyer un e-mail lorsqu’une application qui ne correspond pas à l’ID de l’application web récupère´des secrets du coffre.
+Lorsque vous configurez un coffre de clés, vous pouvez activer la fonction d’audit afin de collecter des journaux de demandes d’accès au coffre de clés. Ces journaux sont stockés dans un compte de stockage Azure spécifié et peuvent être récupérés, contrôlés et analysés. Le scénario suivant utilise des fonctions Azure, des applications logiques Azure et des journaux d’audit du coffre de clés afin de créer un pipeline pour envoyer un e-mail lorsqu’une application qui ne correspond pas à l’ID de l’application web récupère des secrets dans le coffre.
 
 Vous devez tout d’abord activer la journalisation sur votre coffre de clés. Vous pouvez utiliser pour cela les commandes PowerShell suivantes (pour plus de détails, consultez [key-vault-logging](key-vault-logging.md)) :
 
@@ -406,6 +411,7 @@ Et ajoutez un fichier appelé project.json avec le contenu suivant :
        }
     }
 ```
+
 Lorsque vous cliquez sur **Enregistrer**, Azure Functions télécharge les fichiers binaires nécessaires.
 
 Basculez vers l’onglet **Intégration** et donnez un nom explicite au paramètre du minuteur à utiliser dans la fonction. Dans le code précédent, le minuteur est appelé *myTimer*. Spécifiez une [expression CRON](../app-service/web-sites-create-web-jobs.md#CreateScheduledCRON) comme suit : 0 \* \* \* \* \* pour le minuteur qui activera l’exécution de la fonction une fois par minute.
@@ -417,6 +423,7 @@ Ajoutez une sortie de type *Stockage Blob Azure*. Elle pointe vers le fichier sy
 À ce stade, la fonction est prête. N’oubliez pas de revenir à l’onglet **Développement** et d’enregistrer le code. Dans la fenêtre de résultat, recherchez d’éventuelles erreurs de compilation et corrigez-les. S’il est compilé, le code doit maintenant vérifier les journaux du coffre de clés chaque minute et placer tout nouvel événement dans la file d’attente Service Bus définie. Vous devez voir des informations de journalisation dans la fenêtre du journal à chaque déclenchement de la fonction.
 
 ### <a name="azure-logic-app"></a>Application logique Azure
+
 Vous devez ensuite créer une application logique Azure qui sélectionne les événements que la fonction place dans la file d’attente Service Bus, analyse le contenu et envoie un e-mail lorsqu’une condition est remplie.
 
 [Créez une application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) en accédant à **Nouveau &gt; Application logique**.

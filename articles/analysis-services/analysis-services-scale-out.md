@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 09/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 7c0aa2d43001100a392f8882316b7998838d90b9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840987"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121926"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Montée en charge d’Azure Analysis Services
 
@@ -27,9 +27,11 @@ Avec la montée en charge, vous pouvez créer un pool de requêtes comportant ju
 
 Quel que soit le nombre de réplicas de requête dont vous disposez dans un pool de requêtes, le traitement des charges de travail n’est pas distribué entre les réplicas de requête. Un seul serveur est utilisé comme serveur de traitement. Les réplicas de requête servent uniquement les requêtes sur les modèles synchronisés entre chaque réplica de requête dans le pool de requêtes. 
 
-Lors de la montée en charge, de nouveaux réplicas de requête sont ajoutés au pool de requêtes de façon incrémentielle. Les nouvelles ressources de réplica de requête peuvent mettre jusqu'à cinq minutes pour être incluses dans le pool de requêtes et être prêtes à recevoir des requêtes et des connexions client. Lorsque tous les nouveaux réplicas de requête sont opérationnels, les nouvelles connexions client sont équilibrées en charge sur toutes les ressources de pool de requêtes. Les connexions client existantes ne sont pas modifiées à partir de la ressource à laquelle ils sont actuellement connectés.  Lors d’une mise à l’échelle à la baisse, toutes les connexions client existantes à une ressource de pool de requêtes en cours de suppression du pool de requêtes sont arrêtées. Elles sont reconnectées à une ressource de pool de requêtes restante lorsque l’opération de diminution de la taille des instances est terminée.
+Lors de la montée en charge, de nouveaux réplicas de requête sont ajoutés au pool de requêtes de façon incrémentielle. Les nouvelles ressources de réplica de requête peuvent mettre jusqu’à cinq minutes pour être incluses dans le pool de requêtes. Lorsque tous les nouveaux réplicas de requête sont opérationnels, les nouvelles connexions client sont équilibrées en charge sur toutes les ressources de pool de requêtes. Les connexions client existantes ne sont pas modifiées à partir de la ressource à laquelle ils sont actuellement connectés.  Lors d’une mise à l’échelle à la baisse, toutes les connexions client existantes à une ressource de pool de requêtes en cours de suppression du pool de requêtes sont arrêtées. Elles sont reconnectées à une ressource de pool de requêtes restante lorsque l’opération de diminution de la taille des instances est terminée, ce qui peut prendre jusqu’à cinq minutes.
 
 Lors du traitement des modèles, une fois les opérations de traitement terminées, une synchronisation doit être effectuée entre le serveur de traitement et les réplicas de requête. Lors de l’automatisation des opérations de traitement, il est important de configurer une opération de synchronisation après la réussite des opérations de transformation. La synchronisation peut être effectuée manuellement dans le portail, ou à l’aide de PowerShell ou de l’API REST. 
+
+### <a name="separate-processing-from-query-pool"></a>Traitement distinct à partir du pool de requêtes
 
 Pour optimiser les performances des opérations de traitement et de requête, vous pouvez choisir de séparer votre serveur de traitement du pool de requêtes. Lorsqu’ils sont séparés, les connexions client existantes et nouvelles sont attribuées aux réplicas de requête dans le pool de requêtes uniquement. Si les opérations de traitement ne prennent qu’un court laps de temps, vous pouvez choisir de séparer votre serveur de traitement du pool de requêtes uniquement pendant le temps nécessaire à la réalisation des opérations de traitement et de synchronisation, puis de le réinclure dans le pool de requêtes. 
 
@@ -53,14 +55,13 @@ Le nombre de réplicas de requête que vous pouvez configurer est limité par la
 
 1. Dans le portail, cliquez sur **Montée en charge**. Utilisez le curseur pour sélectionner le nombre de serveurs réplica de requête. Le nombre de réplicas que vous choisissez s’ajoute à votre serveur existant.
 
-2. Dans **Séparer le serveur de traitement du pool de requêtes**, sélectionnez Oui pour exclure votre serveur de traitement des serveurs de requêtes.
+2. Dans **Séparer le serveur de traitement du pool de requêtes**, sélectionnez Oui pour exclure votre serveur de traitement des serveurs de requêtes. Les connexions client utilisant la chaîne de connexion par défaut (sans :rw) sont redirigées vers des réplicas dans le pool de requêtes. 
 
    ![Curseur de montée en charge](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
 3. Cliquez sur **Enregistrer** pour provisionner vos nouveaux serveurs réplica de requête. 
 
 Les modèles tabulaires sur votre serveur principal sont synchronisés avec les serveurs réplica. Quand la synchronisation est terminée, le pool de requêtes commence la distribution des requêtes entrantes entre les serveurs réplica. 
-
 
 ## <a name="synchronization"></a>Synchronisation 
 
@@ -88,8 +89,6 @@ Pour définir le nombre de réplicas de la requête, utilisez [Set-AzureRmAnalys
 
 Pour exécuter la synchronisation, utilisez [Sync-AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
-
-
 ## <a name="connections"></a>connexions
 
 Dans la page Vue d’ensemble de votre serveur, vous voyez deux noms de serveur. Si vous n’avez pas encore configuré la montée en charge pour un serveur, les deux noms de serveur fonctionnent de la même façon. Une fois le scale-out configuré pour un serveur, vous devez spécifier le nom du serveur approprié en fonction du type de connexion. 
@@ -99,6 +98,12 @@ Pour les connexions de clients d’utilisateur finaux, comme Power BI Desktop, E
 Pour SSMS, SSDT et les chaînes de connexion dans PowerShell, les applications de fonction Azure et AMO, utilisez **Nom du serveur d’administration**. Le nom du serveur d’administration inclut un qualificateur `:rw` (lecture-écriture) spécial. Toutes les opérations de traitement se produisent sur le serveur d’administration.
 
 ![Noms de serveur](media/analysis-services-scale-out/aas-scale-out-name.png)
+
+## <a name="troubleshoot"></a>Résolution des problèmes
+
+**Problème :** les utilisateurs obtiennent l’erreur **Cannot find server ’\<Name of the server>’ instance in connection mode ’ReadOnly’** (Impossible de trouver l’instance de serveur ’<Nom du serveur>’ en mode de connexion ’Lecture seule’).
+
+**Solution :** lors de la sélection de l’option **Separate the processing server from the querying pool** (Séparer le serveur de traitement du pool de requêtes), les connexions client utilisant la chaîne de connexion par défaut (sans :rw) sont redirigées vers des réplicas de pool de requêtes. Si les réplicas du pool de requêtes ne sont pas encore en ligne, car la synchronisation n’est pas terminée, les connexions client redirigées peuvent échouer. Pour empêcher l’échec des connexions, choisissez de ne pas séparer le serveur de traitement du pool de requêtes jusqu’à ce qu’un Scale-out et une opération de synchronisation soient terminés. Vous pouvez utiliser les métriques Mémoire et QPU pour surveiller l’état de synchronisation.
 
 ## <a name="related-information"></a>Informations connexes
 

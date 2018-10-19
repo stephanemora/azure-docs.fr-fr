@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: d90a9f8bd32924eef6533e602957aa1704cfdae9
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 5bd1b534386f38f8dd3a78bbd98ffd012875351f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190471"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736153"
 ---
 #    <a name="text-merge-cognitive-skill"></a>Compétence cognitive Fusion de texte
 
 La compétence **Fusion de texte** consolide en un champ unique du texte issu d’une collection de champs. 
+
+> [!NOTE]
+> La recherche cognitive est disponible en version préliminaire publique. L’exécution des compétences, l’extraction d’images et la normalisation sont actuellement proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.MergeSkill

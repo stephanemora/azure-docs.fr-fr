@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 9f84686f8689a40cf002035053236b415481488f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 496ffdcb5cc2e7b208a53dc8c1d8ba4c0818945f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838348"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719968"
 ---
 # <a name="access-datasets-with-python-using-the-azure-machine-learning-python-client-library"></a>Accédez aux jeux de données avec Python grâce à la bibliothèque cliente Python d'Azure Machine Learning
 L’aperçu de la bibliothèque cliente Python de Microsoft Azure Machine Learning offre un accès sécurisé à vos jeux de données Azure Machine Learning à partir d’un environnement Python local et permet la création et la gestion de jeux de données dans un espace de travail.
@@ -65,7 +65,7 @@ Si vous avez installé git sur votre ordinateur, vous pouvez utiliser pip pour l
 ## <a name="datasetAccess"></a>Utilisation des extraits de code Studio pour accéder aux jeux de données
 La bibliothèque cliente Python vous offre un accès par programme à vos jeux de données existants à partir des expériences qui ont été exécutées.
 
-Depuis l'interface web Studio, vous pouvez générer des extraits de code qui incluent toutes les informations nécessaires pour télécharger et désérialiser des jeux de données en tant qu'objets DataFrame de Pandas sur votre ordinateur local.
+Depuis l’interface web Studio, vous pouvez générer des extraits de code qui incluent toutes les informations nécessaires pour télécharger et désérialiser des jeux de données en tant qu’objets DataFrame de pandas sur votre ordinateur local.
 
 ### <a name="security"></a>Sécurité relative à l'accès aux données
 Les extraits de code fournis par Studio pour une utilisation avec la bibliothèque cliente Python incluent l'ID de votre d'espace de travail et le jeton d'autorisation. Ceux-ci vous permettent un accès complet à votre espace de travail et doivent être protégés, par exemple avec un mot de passe.
@@ -197,7 +197,7 @@ D'autres sont des valeurs affectées par Azure ML :
 Consultez la classe `SourceDataset` pour plus d'informations sur les métadonnées disponibles.
 
 ### <a name="read-contents"></a>Lire le contenu
-Les extraits de code fournis par Machine Learning Studio téléchargent automatiquement et désérialisent le jeu de données vers un objet DataFrame de Pandas. Cette opération est effectuée à l'aide de la méthode `to_dataframe` :
+Les extraits de code fournis par Machine Learning Studio téléchargent automatiquement et désérialisent le jeu de données vers un objet DataFrame de pandas. Cette opération est effectuée à l'aide de la méthode `to_dataframe` :
 
     frame = ds.to_dataframe()
 
@@ -220,7 +220,7 @@ Vous pouvez également ouvrir un simple flux vers le contenu :
 ### <a name="create-a-new-dataset"></a>Créer un nouveau jeu de données
 La bibliothèque cliente Python vous permet de télécharger des jeux de données depuis votre programme Python. Ces jeux de données sont alors disponibles pour une utilisation dans votre espace de travail.
 
-Si vous avez vos données dans un DataFrame de Pandas, utilisez le code suivant :
+Si vous avez vos données dans un DataFrame de pandas, utilisez le code suivant :
 
     from azureml import DataTypeIds
 
@@ -242,7 +242,7 @@ Si vos données sont déjà sérialisées, vous pouvez utiliser :
         description='my description'
     )
 
-La bibliothèque cliente Python est en mesure de sérialiser une trame de données Pandas aux formats suivants (ces constantes sont dans la classe `azureml.DataTypeIds` ) :
+La bibliothèque cliente Python est en mesure de sérialiser un DataFrame de pandas aux formats suivants (ces constantes sont dans la classe `azureml.DataTypeIds` ) :
 
 * Texte brut
 * CSV générique

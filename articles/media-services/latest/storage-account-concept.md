@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 03/19/2018
 ms.author: juliako
-ms.openlocfilehash: 6d4c21867b0b46508f348300ae2b9553a75d23b2
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 883aecaa82f1a83af22bf345d364c2b43776e559
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782568"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732207"
 ---
 # <a name="storage-accounts"></a>Comptes de stockage
 
@@ -27,7 +27,7 @@ Vous devez disposer d’un compte de stockage **principal** et vous pouvez avoir
 >[!NOTE]
 > Les comptes Blob uniquement ne sont pas autorisés en tant que comptes **principaux**. 
 
-Nous vous recommandons d’utiliser GPv2 pour pouvoir choisir entre des niveaux de stockage chaud ou froid. Pour plus d’informations sur les comptes de stockage, consultez [Options du compte de stockage Azure](../../storage/common/storage-account-options.md). 
+Nous vous recommandons d’utiliser GPv2 pour pouvoir choisir entre des niveaux de stockage chaud ou froid. Pour plus d’informations sur les comptes de stockage, consultez la [présentation générale du compte de stockage Azure](../../storage/common/storage-account-overview.md). 
 
 ## <a name="assets-in-a-storage-account"></a>Ressources d’un compte de stockage
 

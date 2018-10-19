@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f349dab23b9156d3a5656e8275533ebe6a82cdf9
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173082"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540899"
 ---
 # <a name="wait-and-non-wait-actions"></a>Actions d’attente et de non-attente
 
@@ -39,7 +39,7 @@ Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécutio
 
 ### <a name="create-a-new-model"></a>Créer un modèle
 
-1. Dans l’interface utilisateur web, cliquez sur Nouveau modèle.
+1. Dans l’interface utilisateur web, cliquez sur New Model
 2. Dans Name, entrez WaitNonWait. Cliquez ensuite sur Create.
 
 ### <a name="create-the-first-wait-action"></a>Créer la première action d’attente
@@ -54,14 +54,14 @@ Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécutio
 1. Cliquez sur New Action.
 2. Dans Response, tapez « Cows say moo ».
 3. Décochez la case Wait for Response.
-4. Click Create
+4. Cliquez sur Create.
 
 ### <a name="create-a-second-non-wait-action"></a>Créer une deuxième action de non-attente
 
 1. Cliquez sur New Action.
 2. Dans Response, tapez « Ducks say quack ».
 3. Décochez la case Wait for Response.
-4. Click Create
+4. Cliquez sur Create.
 
 ![](../media/tutorial2_actions.PNG)
 

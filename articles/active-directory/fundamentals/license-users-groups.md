@@ -1,97 +1,144 @@
 ---
-title: Attribuer des licences à des utilisateurs dans Azure AD | Microsoft Docs
-description: Découvrez comment accorder une licence à vos utilisateurs et à vous-même dans Azure Active Directory.
+title: Assigner ou supprimer des licences Azure Active Directory | Microsoft Docs
+description: Assignez ou supprimez des licences Azure Active Directory de vos utilisateurs ou groupes à l’aide d’Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: f8b932bc-8b4f-42b5-a2d3-f2c076234a78
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: quickstart
-ms.date: 08/22/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: lizross
-ms.reviewer: jeffgilb
+ms.reviewer: jeffsta
 custom: it-pro
-ms.openlocfilehash: 6fc1d808fb712f7acb60e490663cb7301e22153c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e1b0b2f84c67e30c3bb998554dc662b002744003
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856087"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603878"
 ---
-# <a name="quickstart-license-users-in-azure-active-directory"></a>Guide de démarrage rapide : Utilisateurs sous licence dans Azure Active Directory
-Les services Azure AD basés sur des licences reposent sur l’activation d’un abonnement Azure Active Directory (Azure AD) dans votre client Azure. Une fois l’abonnement actif, les fonctionnalités de service sont gérées par des administrateurs Azure AD et utilisées par des utilisateurs sous licence. Quand vous achetez Enterprise Mobility + Security, Azure AD Premium ou Azure AD Basic, votre locataire est mis à jour avec l’abonnement, notamment sa période de validité et les licences prépayées. Les informations de votre abonnement, notamment le nombre de licences attribuées ou disponibles, sont accessibles par l’intermédiaire du portail Azure sous **Azure Active Directory** en ouvrant la vignette **Licences**. Le panneau **Licences** constitue également l’emplacement idéal pour gérer vos attributions de licence.
+# <a name="how-to-assign-or-remove-azure-active-directory-licenses"></a>Procédure : Assigner ou supprimer des licences Azure Active Directory
+De nombreux services Azure Active Directory (Azure AD) nécessitent que vous activiez un produit Azure AD et que vous assigniez une licence à chacun de vos utilisateurs ou groupes (et membres associés) pour ce produit. Seuls les utilisateurs disposant de licences actives seront en mesure d’accéder et d’utiliser les services Azure AD sous licence.
 
-Bien qu’il suffise d’obtenir un abonnement pour configurer les fonctionnalités payantes, vous devez quand même attribuer des licences utilisateur pour les fonctionnalités Azure AD payantes. Une licence doit être attribuée à tout utilisateur ayant besoin d’accéder à une fonctionnalité Azure AD payante ou géré par le biais de ce type de fonctionnalité. L’attribution de licence est un mappage entre un utilisateur et un service acheté, comme Azure AD Premium, Azure AD Basic ou Enterprise Mobility + Security.
+## <a name="available-product-editions"></a>Éditions disponibles du produit
+Il existe plusieurs éditions disponibles pour le produit Azure AD.
 
-Vous pouvez utiliser l’[attribution de licence basée sur le groupe](active-directory-licensing-whatis-azure-portal.md) pour configurer des règles telles que les suivantes :
-* Tous les utilisateurs de votre annuaire obtiennent automatiquement une licence
-* Toute personne avec le poste approprié obtient une licence
-* Vous pouvez déléguer la décision à d’autres responsables au sein de l’organisation (à l’aide de [groupes en libre-service](../users-groups-roles/groups-self-service-management.md))
+- Azure AD Gratuit
 
-> [!TIP]
-> Pour obtenir une discussion détaillée de l’attribution des licences à des groupes, avec notamment des scénarios avancés et des scénarios d’attribution de licences Office 365, consultez [Affecter des licences à un groupe d’utilisateurs dans Azure Active Directory](../users-groups-roles/licensing-groups-assign.md).
+- Azure AD Standard
 
-## <a name="assign-licenses-to-users-and-groups"></a>Attribuer des licences aux utilisateurs et groupes
-Avec un abonnement actif, vous devez d’abord vous attribuer une licence et actualiser votre navigateur afin de bien afficher toutes les fonctionnalités attendues incluses dans votre abonnement. L’étape suivante consiste à attribuer des licences aux utilisateurs qui doivent accéder aux fonctionnalités Azure AD payantes. Un moyen simple d’attribuer des licences consiste à les attribuer à des groupes d’utilisateurs plutôt qu’à des personnes. Quand vous attribuez des licences à un groupe, tous les membres de ce groupe disposent d’une licence. Si des utilisateurs sont ajoutés au groupe ou en sont supprimés, la licence appropriée leur est automatiquement attribuée ou retirée. 
+- Azure AD Premium 1 (Azure AD P1)
 
-> [!NOTE]
-> Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, l’administrateur doit spécifier la propriété **Emplacement d’utilisation** pour l’utilisateur. Vous pouvez définir cette propriété sous **Utilisateur** &gt; **Profil** &gt; **Paramètres** dans le portail Azure. Quand vous attribuez une licence à un groupe, tout utilisateur dont l’emplacement d’utilisation n’est pas spécifié hérite de l’emplacement de l’annuaire.
+- Azure AD Premium 2 (Azure AD P2)
 
-Pour attribuer une licence, sous **Azure Active Directory** &gt; **Licences** &gt; **Tous les produits**, sélectionnez un ou plusieurs produits, puis sélectionnez **Affecter** dans la barre de commandes.
+Pour obtenir des informations spécifiques sur chacune des éditions du produit et sur les licences associées, consultez [De quelle licence ai-je besoin ?](../authentication/concept-sspr-licensing.md).
 
-![Sélectionner une licence à attribuer](./media/license-users-groups/select-license-to-assign.png)
+## <a name="view-your-product-edition-and-license-details"></a>Afficher les informations d’édition et de licence du produit
+Vous pouvez afficher les produits disponibles, y compris les licences individuelles, en recherchant les dates d’expiration en attente et le nombre d’affectations disponibles.
 
-Vous pouvez utiliser le panneau **Utilisateurs et groupes** pour sélectionner plusieurs utilisateurs ou groupes ou pour désactiver des plans de service dans le produit. Utilisez la zone de recherche en haut pour rechercher des noms d’utilisateurs et de groupes.
+### <a name="to-find-your-product-and-license-details"></a>Trouver le produit et les informations de licence
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) à l’aide d’un compte d’administrateur général pour le répertoire.
 
-![Sélectionner un utilisateur ou un groupe pour l’attribution de licences](./media/license-users-groups/select-user-for-license-assignment.png)
+2. Sélectionnez **Azure Active Directory**, puis **Licences**.
 
-Quand vous attribuez une licence au groupe, un certain temps peut être nécessaire pour que tous les utilisateurs héritent de la licence, en fonction de la taille du groupe. Vous pouvez suivre l’avancement du traitement dans le panneau **Groupe**, sous la vignette **Licences**.
+    La page **Licences** s’affiche.
 
-![Statut d’affectation de licence](./media/license-users-groups/license-assignment-status.png)
+    ![Page Licences, indique le nombre de produits achetés et de licences affectées](media/license-users-groups/license-details-blade.png)
+    
+3. Sélectionnez le lien **Produits achetés** pour afficher la page **Produits** et les informations **Assigné**, **Disponible**, et **Arrive bientôt à expiration** pour chaque édition spécifique du produit.
 
-Des erreurs d’affectation peuvent se produire lors de l’affectation des licences Azure AD, mais elles restent relativement rares lors de la gestion des produits Azure AD et Enterprise Mobility + Security. Les erreurs d’attribution se limitent aux problèmes suivants :
-- Conflit d’attribution : lorsqu’un utilisateur a précédemment reçu une licence incompatible avec la licence actuelle. Dans ce cas, l’affectation de la nouvelle licence nécessite la suppression de la licence active.
-- Dépassement du nombre de licences disponibles : quand le nombre d’utilisateurs des groupes attribués dépasse le nombre de licences disponibles, le statut d’affectation d’un utilisateur reflète l’échec de l’affectation du fait de licences manquantes.
+    ![Page Produits, avec les éditions du produit et les informations de licences associées](media/license-users-groups/license-products-blade-with-products.png)
 
-### <a name="azure-ad-b2b-collaboration-licensing"></a>Affectation de licences Azure Active Directory B2B Collaboration
+4. Sélectionnez un nom d’édition de produit pour afficher ses utilisateurs et groupes sous licence.
 
-La collaboration B2B vous permet d’inviter des utilisateurs invités dans votre locataire Azure AD pour fournir l’accès à des services Azure AD et à toutes ressources Azure que vous mettez à disposition.  
+## <a name="assign-licenses-to-users-or-groups"></a>Attribuer des licences aux utilisateurs ou aux groupes
+Assurez-vous que toutes les personnes devant utiliser un service Azure AD sous licence disposent de la licence appropriée. C’est à vous qu’il appartient d’ajouter des droits de licence à des utilisateurs individuels ou à un groupe entier.
 
-L’invitation d’utilisateurs B2B et leur attribution à une application dans Azure AD n’entraînent aucun frais. Jusqu’à 10 applications par utilisateur invité et trois rapports de base sont également gratuits pour les utilisateurs B2B Collaboration. Si des licences appropriées sont affectées à votre utilisateur dans le locataire Azure AD du partenaire, il disposera également d’une licence dans votre locataire.
+>![Remarque] La gestion des licences par groupe est une fonctionnalité d’évaluation publique d’Azure AD, disponible avec un plan de licence Azure AD payante. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).<br><br>Pour plus d’informations sur l’ajout d’utilisateurs, consultez [Comment ajouter ou supprimer des utilisateurs dans Azure Active Directory](add-users-azure-active-directory.md). Pour plus d’informations sur la création de groupes et l’ajout de membres, consultez [Créer un groupe de base et ajouter des membres](active-directory-groups-create-azure-portal.md).
 
-Cela n’est pas obligatoire, mais si vous souhaitez fournir l’accès à des fonctionnalités Azure AD payantes, vous devez accorder à ces utilisateurs invités B2B des licences Azure AD appropriées. Un locataire invitant avec une licence Azure payée peut accorder des droits d’utilisateur B2B Collaboration à cinq utilisateurs invités supplémentaires. Pour plus d’informations et pour voir des scénarios, consultez le [Guide d’attribution de licences pour Azure Active Directory B2B Collaboration](../b2b/licensing-guidance.md).
+### <a name="to-assign-a-license-to-a-specific-user"></a>Attribuer une licence à un utilisateur spécifique
+1. Sur la page **Produits**, sélectionnez le nom de l’édition que vous souhaitez affecter à l’utilisateur. Par exemple, _l’offre 2 d’Azure Active Directory Premium_.
 
-## <a name="view-assigned-licenses"></a>Visualiser les licences attribuées
+    ![Page Produits, avec l’édition du produit en surbrillance](media/license-users-groups/license-products-blade-with-product-highlight.png)
 
-Un récapitulatif des licences attribuées et disponibles est disponible sous **Azure Active Directory** &gt; **Licences** &gt; **Tous les produits**.
+2. Sur la page **Offre 2 d’Azure Active Directory Premium**, sélectionnez **Affecter**.
 
-![Afficher le récapitulatif des licences](./media/license-users-groups/view-license-summary.png)
+    ![Page Produits, avec l’option Affecter en surbrillance](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
 
-Une liste détaillée des utilisateurs et groupes attribués est disponible quand vous sélectionnez un produit spécifique. La liste **Utilisateurs sous licence** affiche tous les utilisateurs consommant actuellement une licence et indique si la licence a été attribuée directement à l’utilisateur ou si elle est héritée d’un groupe.
+3. Sur la page **Affecter**, sélectionnez **Utilisateurs et groupes**, puis recherchez et sélectionnez l’utilisateur auquel vous souhaitez affecter la licence. Par exemple, _Mary Parker_.
 
-![Afficher le détail des licences](./media/license-users-groups/view-license-detail.png)
+    ![Page Affecter une licence, avec les options Sélectionner et Rechercher en surbrillance](media/license-users-groups/assign-license-blade-with-highlight.png)
 
-De même, la liste **Groupes sous licence** montre tous les groupes auxquels des licences ont été attribuées. Sélectionnez un utilisateur ou un groupe pour ouvrir le panneau **Licences**, qui montre toutes les licences attribuées à cet objet.
+4. Sélectionnez **Options d’affectation**. Assurez-vous que les options de licence appropriées sont activées, puis sélectionnez **OK**.
+
+    ![Page Options de licence, affiche toutes les options disponibles dans l’édition](media/license-users-groups/license-option-blade-assignments.png)
+
+    La page **Affecter une licence** s’actualise pour indiquer qu’un utilisateur est sélectionné et que les attributions sont configurées.
+
+    >[!NOTE]
+    >Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un utilisateur, vous devez spécifier l’**Emplacement d’utilisation**. Vous pouvez définir cette valeur dans la zone **Azure Active Directory &gt; Utilisateurs &gt; Profil &gt; Paramètres** dans Azure AD.
+
+5. Sélectionnez **Attribuer**.
+
+    L’utilisateur est ajouté à la liste des utilisateurs sous licence et a accès aux services Azure AD inclus.
+
+### <a name="to-assign-a-license-to-an-entire-group"></a>Attribuer une licence à un groupe entier
+1. Sur la page **Produits**, sélectionnez le nom de l’édition que vous souhaitez affecter à l’utilisateur. Par exemple, _l’offre 2 d’Azure Active Directory Premium_.
+
+    ![Panneau Produits, avec l’édition du produit en surbrillance](media/license-users-groups/license-products-blade-with-product-highlight.png)
+
+2. Sur la page **Offre 2 d’Azure Active Directory Premium**, sélectionnez **Affecter**.
+
+    ![Page Produits, avec l’option Affecter en surbrillance](media/license-users-groups/license-products-blade-with-assign-option-highlight.png)
+
+3. Sur la page **Affecter**, sélectionnez **Utilisateurs et groupes**, puis recherchez et sélectionnez le groupe auquel vous souhaitez affecter la licence. Par exemple, _MDM policy - West_ (Stratégie GPM - Ouest).
+
+    ![Page Affecter une licence, avec les options Sélectionner et Rechercher en surbrillance](media/license-users-groups/assign-group-license-blade-with-highlight.png)
+
+4. Sélectionnez **Options d’affectation**. Assurez-vous que les options de licence appropriées sont activées, puis sélectionnez **OK**.
+
+    ![Page Options de licence, affiche toutes les options disponibles dans l’édition](media/license-users-groups/license-option-blade-group-assignments.png)
+
+    La page **Affecter une licence** s’actualise pour indiquer qu’un utilisateur est sélectionné et que les attributions sont configurées.
+
+    >[!NOTE]
+    >Certains services Microsoft ne sont pas disponibles dans tous les emplacements. Avant de pouvoir attribuer une licence à un groupe, vous devez spécifier l’**Emplacement d’utilisation** pour tous les membres. Vous pouvez définir cette valeur dans la zone **Azure Active Directory &gt; Utilisateurs &gt; Profil &gt; Paramètres** dans Azure AD. Tout utilisateur dont l’emplacement d’utilisation n’est pas spécifié hérite de l’emplacement du locataire.
+
+5. Sélectionnez **Attribuer**.
+
+    Le groupe est ajouté à la liste des groupes sous licence et tous les membres ont accès aux services Azure AD inclus.
+
 
 ## <a name="remove-a-license"></a>Supprimer une licence
+Vous pouvez supprimer une licence d’un utilisateur ou d’un groupe depuis la page **Licences**.
 
-Pour supprimer une licence, accédez à l’utilisateur ou au groupe et ouvrez la vignette **Licences**. Sélectionnez la licence, puis cliquez sur **Supprimer**.
+### <a name="to-remove-a-license-from-a-specific-user"></a>Pour supprimer une licence d’un utilisateur spécifique
+1. Dans la page **Utilisateurs sous licence** de l’édition du produit, sélectionnez l’utilisateur dont vous souhaitez supprimer la licence. Par exemple, _Alain Charon_.
 
-![Supprimer une licence](./media/license-users-groups/remove-license.png)
+2. Sélectionnez **Supprimer la licence**.
 
-Les licences héritées par l’utilisateur à partir d’un groupe ne peuvent pas être supprimées directement. Au lieu de cela, supprimez l’utilisateur du groupe à partir duquel il a hérité de la licence.
+    ![Page Utilisateurs sous licence, avec l’option Supprimer une licence en surbrillance](media/license-users-groups/license-products-user-blade-with-remove-option-highlight.png)
 
+### <a name="to-remove-a-license-from-a-group"></a>Pour supprimer une licence d’un groupe
+1. Dans la page **Groupes sous licence** de l’édition du produit, sélectionnez le groupe dont vous souhaitez supprimer la licence. Par exemple, _MDM policy - West_ (Stratégie GPM - Ouest).
+
+2. Sélectionnez **Supprimer la licence**.
+
+    ![Page Groupes sous licence, avec l’option Supprimer une licence en surbrillance](media/license-users-groups/license-products-group-blade-with-remove-option-highlight.png)
+
+>[!Important]
+>Les licences héritées par un utilisateur à partir d’un groupe ne peuvent pas être supprimées directement. Au lieu de cela, vous devez supprimer l’utilisateur du groupe à partir duquel il a hérité de la licence.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce guide de démarrage rapide vous a expliqué comment attribuer des licences aux utilisateurs et aux groupes dans l’annuaire Azure AD. 
+Une fois que vous avez assigné vos licences, vous pouvez exécuter les procédures suivantes :
 
-Vous pouvez utiliser le lien suivant pour configurer les attributions de licences d’abonnement dans Azure AD à travers le portail Azure.
+- [Identifier et résoudre les problèmes d’affectation de licence](../users-groups-roles/licensing-groups-resolve-problems.md)
 
-> [!div class="nextstepaction"]
-> [Attribuer des licences Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Overview) 
+- [Ajouter des utilisateurs sous licence à un groupe pour la gestion des licences](../users-groups-roles/licensing-groups-migrate-users.md)
+
+- [Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory](../users-groups-roles/licensing-group-advanced.md)
+
+- [Ajouter ou modifier les informations de profil](active-directory-users-profile-azure-portal.md)

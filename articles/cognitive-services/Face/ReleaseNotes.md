@@ -1,25 +1,25 @@
 ---
-title: Notes de publication du service API Visage | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: 'Notes de publication : service API Visage'
+titleSuffix: Azure Cognitive Services
 description: Les notes de publication du service API Visage intègrent un historique des modifications apportées aux différentes versions.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 918b3ea5dbaaa44e4eee1a679354c7becffd4686
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6fd3d33d40b0ed142127e46dd7c9173de39947c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370308"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121989"
 ---
 # <a name="face-api-release-notes"></a>Notes de publication d’API Visage
 
-Cet article fait référence à la version 1.0 du service API Visage de Microsoft.
+Cet article fait référence à la version 1.0 du service API Visage.
 
 ### <a name="release-changes-in-may-2018"></a>Modifications apportées à la version de mai 2018
 

@@ -1,6 +1,6 @@
 ---
-title: Affichage des journaux de diagnostic d’Azure Data Lake Store | Microsoft Docs
-description: 'Comprendre comment configurer les journaux de diagnostic et y accéder pour Azure Data Lake Store  '
+title: Affichage des journaux de diagnostic d’Azure Data Lake Storage Gen1 | Microsoft Docs
+description: 'Comprendre comment configurer les journaux de diagnostic et y accéder pour Data Lake Storage Gen1 '
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,31 +12,30 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ed401b1d68463bc03f7931e80e2bfb18d9449970
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 91cbebecc227d24337b2d1b421dd1611bf0fac46
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199056"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44390794"
 ---
-# <a name="accessing-diagnostic-logs-for-azure-data-lake-store"></a>Accès aux journaux de diagnostic d’Azure Data Lake Store
-Découvrez comment activer la journalisation des diagnostics pour votre compte Data Lake Store et comment afficher les journaux collectés pour votre compte.
+# <a name="accessing-diagnostic-logs-for-azure-data-lake-storage-gen1"></a>Accès aux journaux de diagnostic d’Azure Data Lake Storage Gen1
+Découvrez comment activer la journalisation des diagnostics pour votre compte Azure Data Lake Storage Gen1 et comment afficher les journaux collectés pour votre compte.
 
-Les organisations peuvent activer la journalisation de diagnostic pour leur compte Azure Data Lake Store afin de collecter des pistes d’audit d’accès aux données qui fournissent des informations telles que la liste des utilisateurs qui accèdent aux données, la fréquence à laquelle les données sont consultées, la quantité de données stockée sur le compte, etc. Quand cette fonctionnalité est activée, les diagnostics et/ou les demandes sont enregistrés sur la base du meilleur effort. Les entrées de journal des demandes et des diagnostics sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service.
+Les organisations peuvent activer la journalisation de diagnostic pour leur compte Azure Data Lake Storage Gen1 afin de collecter des pistes d’audit d’accès aux données qui fournissent des informations telles que la liste des utilisateurs qui accèdent aux données, la fréquence à laquelle les données sont consultées, la quantité de données stockée sur le compte, etc. Quand cette fonctionnalité est activée, les diagnostics et/ou les demandes sont enregistrés sur la base du meilleur effort. Les entrées de journal des demandes et des diagnostics sont créées uniquement si des demandes sont effectuées sur le point de terminaison de service.
 
 ## <a name="prerequisites"></a>Prérequis
-
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
-* **Compte Azure Data Lake Store**. Suivez les instructions de [Prise en main d’Azure Data Lake Store avec le portail Azure](data-lake-store-get-started-portal.md).
+* **Compte Azure Data Lake Storage Gen1**. Suivez les instructions de [Prise en main d’Azure Data Lake Storage Gen1 avec le portail Azure](data-lake-store-get-started-portal.md).
 
-## <a name="enable-diagnostic-logging-for-your-data-lake-store-account"></a>Activer la journalisation de diagnostic pour votre compte Data Lake Store
+## <a name="enable-diagnostic-logging-for-your-data-lake-storage-gen1-account"></a>Activer la journalisation de diagnostic pour votre compte Azure Data Lake Storage Gen1
 1. Inscrivez-vous au nouveau [portail Azure](https://portal.azure.com).
-2. Ouvrez votre compte Data Lake Store et, dans le panneau de votre compte Data Lake Store, cliquez sur **Journaux de diagnostic**.
-3. Dans le panneau **Journaux de diagnostic**, cliquez sur **Activer les diagnostics**.
+2. Ouvrez votre compte Azure Data Lake Storage Gen1 et dans le panneau de votre compte Azure Data Lake Storage Gen1, cliquez sur **Paramètres de diagnostic**.
+3. Dans le panneau **Paramètres de diagnostic**, cliquez sur **Activer les diagnostics**.
 
     ![Activer la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/turn-on-diagnostics.png "Activer les journaux de diagnostic")
 
-3. Dans le panneau **Diagnostic** , apportez les modifications suivantes pour configurer la journalisation de diagnostic.
+3. Dans le panneau **Paramètres de diagnostic**, apportez les modifications suivantes pour configurer la journalisation des diagnostics.
    
     ![Activer la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/enable-diagnostic-logs.png "Activer les journaux de diagnostic")
    
@@ -55,24 +54,24 @@ Les organisations peuvent activer la journalisation de diagnostic pour leur comp
 
 Une fois que vous avez activé les paramètres de diagnostic, vous pouvez consulter les journaux dans l’onglet **Journaux de diagnostic** .
 
-## <a name="view-diagnostic-logs-for-your-data-lake-store-account"></a>Afficher les journaux de diagnostic de votre compte Data Lake Store
-Il existe deux manières d’afficher les données de journal de votre compte Data Lake Store :
+## <a name="view-diagnostic-logs-for-your-data-lake-storage-gen1-account"></a>Afficher les journaux de diagnostic de votre compte Azure Data Lake Storage Gen1
+Il existe deux manières d’afficher les données de journal de votre compte Data Lake Storage Gen1.
 
-* À partir de la vue des paramètres Data Lake Store
+* À partir de la vue des paramètres du compte Data Lake Storage Gen1
 * À partir du compte de Stockage Azure dans lequel les données sont stockées
 
-### <a name="using-the-data-lake-store-settings-view"></a>Utilisation de la vue des paramètres Data Lake Store
-1. Dans le panneau **Paramètres** de votre compte Data Lake Store, cliquez sur **Journaux de diagnostic**.
+### <a name="using-the-data-lake-storage-gen1-settings-view"></a>Utilisation de la vue des paramètres Azure Data Lake Storage Gen1
+1. Dans le panneau **Paramètres** de votre compte Azure Data Lake Storage Gen1, cliquez sur **Journaux de diagnostic**.
    
-    ![Afficher la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Afficher les journaux de diagnostic") 
-2. Dans le panneau **Journaux de diagnostic**, vous devez voir les journaux classés par **journaux d’audit** et **journaux de demande**.
+    ![Afficher les journaux de diagnostic](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs.png "Afficher les journaux de diagnostic") 
+2. Dans le panneau **Journaux de diagnostic**, vous devez voir les journaux classés par **journaux d’audit** et **journaux de requête**.
    
-   * Les journaux de demande capturent chaque demande d’API effectuée sur le compte Data Lake Store.
-   * Les journaux d’audit sont similaires aux journaux de demande, mais ils fournissent une analyse beaucoup plus détaillée des opérations effectuées sur le compte Data Lake Store. Par exemple, un simple appel d’API de chargement dans les journaux de demande peut entraîner plusieurs opérations « Ajouter » dans les journaux d’audit.
+   * Les journaux de requête capturent chaque demande d’API effectuée sur le compte Azure Data Lake Storage Gen1.
+   * Les journaux d’audit sont similaires aux journaux de requête, mais ils fournissent une analyse beaucoup plus détaillée des opérations effectuées sur le compte Data Lake Storage Gen1. Par exemple, un simple appel d’API de chargement dans les journaux de demande peut entraîner plusieurs opérations « Ajouter » dans les journaux d’audit.
 3. Pour télécharger les journaux, cliquez sur le lien **Télécharger** en regard de chaque entrée de journal.
 
 ### <a name="from-the-azure-storage-account-that-contains-log-data"></a>À partir du compte de Stockage Azure qui contient des données de journal
-1. Ouvrez le panneau du compte de Stockage Azure associé au Data Lake Store pour la journalisation, puis cliquez sur Objets blob. Le panneau **Service Blob** répertorie deux conteneurs.
+1. Ouvrez le panneau du compte de Stockage Azure associé au Data Lake Storage Gen1 pour la journalisation, puis cliquez sur Objets blob. Le panneau **Service Blob** répertorie deux conteneurs.
    
     ![Afficher la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account.png "Afficher les journaux de diagnostic")
    
@@ -82,9 +81,9 @@ Il existe deux manières d’afficher les données de journal de votre compte Da
    
     ![Afficher la journalisation des diagnostics](./media/data-lake-store-diagnostic-logs/view-diagnostic-logs-storage-account-structure.png "Afficher les journaux de diagnostic")
    
-    Par exemple, le chemin d’accès complet à un journal d’audit peut être `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
+    Par exemple, le chemin d’accès complet à un journal d’audit peut être `https://adllogs.blob.core.windows.net/insights-logs-audit/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=04/m=00/PT1H.json`
    
-    De même, le chemin complet d’un journal de requête peut être `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestore/y=2016/m=07/d=18/h=14/m=00/PT1H.json`.
+    De même, le chemin complet d’un journal de requête peut être `https://adllogs.blob.core.windows.net/insights-logs-requests/resourceId=/SUBSCRIPTIONS/<sub-id>/RESOURCEGROUPS/myresourcegroup/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/mydatalakestorage/y=2016/m=07/d=18/h=14/m=00/PT1H.json`.
 
 ## <a name="understand-the-structure-of-the-log-data"></a>Comprendre la structure des données de journal
 Les journaux d’audit et de demande sont au format JSON. Dans cette section, nous examinons la structure JSON des journaux de demande et d’audit.
@@ -99,7 +98,7 @@ Voici un exemple d’entrée dans le journal de demande au format JSON. Chaque o
         ,
         {
              "time": "2016-07-07T21:02:53.456Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
+             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
              "category": "Requests",
              "operationName": "GETCustomerIngressEgress",
              "resultType": "200",
@@ -146,14 +145,14 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
         ,
         {
              "time": "2016-07-08T19:08:59.359Z",
-             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_store_account_name>",
+             "resourceId": "/SUBSCRIPTIONS/<subscription_id>/RESOURCEGROUPS/<resource_group_name>/PROVIDERS/MICROSOFT.DATALAKESTORE/ACCOUNTS/<data_lake_storage_gen1_account_name>",
              "category": "Audit",
              "operationName": "SeOpenStream",
              "resultType": "0",
              "resultSignature": "0",
              "correlationId": "381110fc03534e1cb99ec52376ceebdf;Append_BrEKAmg;25.66.9.145",
              "identity": "A9DAFFAF-FFEE-4BB5-A4A0-1B6CBBF24355",
-             "properties": {"StreamName":"adl://<data_lake_store_account_name>.azuredatalakestore.net/logs.csv"}
+             "properties": {"StreamName":"adl://<data_lake_storage_gen1_account_name>.azuredatalakestore.net/logs.csv"}
         }
         ,
         . . . .
@@ -179,7 +178,7 @@ Voici un exemple d’entrée dans le journal d’audit au format JSON. Chaque ob
 | StreamName |Chaîne |Le chemin d’accès vers l’emplacement où l’opération a eu lieu. |
 
 ## <a name="samples-to-process-the-log-data"></a>Exemples de traitement des données de journal
-Quand vous envoyez des journaux depuis Azure Data Lake Store vers Azure Log Analytics (voir [Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) pour plus d’informations sur l’utilisation de Log Analytics), la requête suivante retourne une table contenant une liste de noms d’affichage d’utilisateurs, l’heure des événements et le nombre d’événements par heure d’événement, ainsi qu’un graphique. Vous pouvez facilement la modifier pour afficher le GUID de l’utilisateur ou d’autres attributs :
+Quand vous envoyez des journaux depuis Azure Data Lake Storage Gen1 vers Azure Log Analytics (voir [Consulter ou analyser les données collectées avec la recherche dans les journaux Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) pour plus d’informations sur l’utilisation de Log Analytics), la requête suivante retourne une table contenant une liste de noms d’affichage d’utilisateurs, l’heure des événements et le nombre d’événements par heure d’événement, ainsi qu’un graphique. Vous pouvez facilement la modifier pour afficher le GUID de l’utilisateur ou d’autres attributs :
 
 ```
 search *
@@ -188,9 +187,9 @@ search *
 ```
 
 
-Azure Data Lake Store fournit un exemple de traitement et d’analyse des données de journal. Vous pouvez trouver l’exemple à l’adresse [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
+Azure Data Lake Storage Gen1 fournit un exemple de traitement et d’analyse des données de journal. Vous pouvez trouver l’exemple à l’adresse [https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample](https://github.com/Azure/AzureDataLake/tree/master/Samples/AzureDiagnosticsSample). 
 
 ## <a name="see-also"></a>Voir aussi
-* [Présentation d'Azure Data Lake Store](data-lake-store-overview.md)
-* [Sécuriser les données dans Data Lake Store](data-lake-store-secure-data.md)
+* [Vue d’ensemble d’Azure Data Lake Storage Gen1](data-lake-store-overview.md)
+* [Sécuriser les données dans Data Lake Storage Gen1](data-lake-store-secure-data.md)
 

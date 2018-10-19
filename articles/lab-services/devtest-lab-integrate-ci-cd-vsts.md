@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 108abe45b4b296e0d7928f2da00a06ac43e1ccbe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438781"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301206"
 ---
-# <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue VSTS
-Vous pouvez utiliser l’extension *Azure DevTest Labs Tasks* installée dans Visual Studio Team Services (VSTS) pour intégrer facilement votre pipeline de génération et mise en production CI/CD à Azure DevTest Labs. L’extension installe trois tâches : 
+# <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Intégrer Azure DevTest Labs à votre pipeline de livraison et d’intégration continue Azure DevOps
+Vous pouvez utiliser l’extension *Azure DevTest Labs Tasks* installée dans Azure DevOps pour intégrer facilement votre pipeline de génération et mise en production CI/CD à Azure DevTest Labs. L’extension installe trois tâches : 
 * Créer une machine virtuelle
 * Créer une image personnalisée à partir d’une machine virtuelle
 * Supprimer une machine virtuelle 
@@ -85,16 +85,16 @@ Cette section décrit comment créer le modèle Azure Resource Manager que vous 
 
 1. Archivez le script dans votre système de contrôle de code source. Nommez le, par exemple, **GetLabVMParams.ps1**.
 
-   Quand vous exécutez ce script sur l’agent dans le cadre de la définition de mise en production et que vous utilisez des tâches telles que *Copie de fichiers Azure* ou *PowerShell sur des ordinateurs cibles*, le script collecte les valeurs dont vous avez besoin pour déployer votre application sur la machine virtuelle. Normalement, vous utilisez ces tâches pour déployer des applications sur une machine virtuelle Azure. Les tâches requièrent des valeurs telles que le nom du groupe de ressources de la machine virtuelle, une adresse IP et un nom de domaine complet (FQDN).
+   Quand vous exécutez ce script sur l’agent dans le cadre du pipeline de mise en production et que vous utilisez des tâches telles que *Copie de fichiers Azure* ou *PowerShell sur des ordinateurs cibles*, le script collecte les valeurs dont vous avez besoin pour déployer votre application sur la machine virtuelle. Normalement, vous utilisez ces tâches pour déployer des applications sur une machine virtuelle Azure. Les tâches requièrent des valeurs telles que le nom du groupe de ressources de la machine virtuelle, une adresse IP et un nom de domaine complet (FQDN).
 
-## <a name="create-a-release-definition-in-release-management"></a>Créer une définition de mise en production Release Management
-Pour créer la définition de mise en production, effectuez les étapes suivantes :
+## <a name="create-a-release-pipeline-in-release-management"></a>Créer un pipeline de mise en production Release Management
+Pour créer le pipeline de mise en production, effectuez les étapes suivantes :
 
 1. Sous l’onglet **Mises en production** du hub **Build et mise en production**, sélectionnez le bouton portant un signe plus (+).
 1. Dans la fenêtre **Créer une définition de mise en production**, sélectionnez le modèle **Vide**, puis sélectionnez **Suivant**.
-1. Sélectionnez **Choisir plus tard**, puis sélectionnez **Créer** pour créer une définition de mise en production avec un environnement par défaut et aucun artefact lié.
-1. Pour ouvrir le menu contextuel, dans la nouvelle définition de mise en production, sélectionnez les points de suspension (...) en regard du nom de l’environnement, puis sélectionnez **Configurer les variables**. 
-1. Dans la fenêtre **Configurer l’environnement**, pour les variables que vous utilisez dans les tâches de définition de mise en production, entrez les valeurs suivantes :
+1. Sélectionnez **Choisir plus tard**, puis sélectionnez **Créer** pour créer un pipeline de mise en production avec un environnement par défaut et aucun artefact lié.
+1. Pour ouvrir le menu contextuel, dans le nouveau pipeline de mise en production, sélectionnez les points de suspension (...) en regard du nom de l’environnement, puis sélectionnez **Configurer les variables**. 
+1. Dans la fenêtre **Configurer l’environnement**, pour les variables que vous utilisez dans les tâches de pipeline de mise en production, entrez les valeurs suivantes :
 
    a. Pour **vmName**, entrez le nom que vous avez assigné à la machine virtuelle quand vous avez créé le modèle Resource Manager dans le portail Azure.
 
@@ -106,13 +106,13 @@ Pour créer la définition de mise en production, effectuez les étapes suivante
 
 L’étape suivante du déploiement consiste à créer la machine virtuelle à utiliser en tant qu’image de référence pour les déploiements suivants. Vous créez la machine virtuelle au sein de votre instance Azure DevTest Lab à l’aide de la tâche spécialement conçue à cet effet. 
 
-1. Dans la définition de mise en production, sélectionnez **Ajouter des tâches**.
+1. Dans le pipeline de mise en production, sélectionnez **Ajouter des tâches**.
 1. Sous l’onglet **Déployer**, ajoutez une tâche *Azure DevTest Labs - Créer une machine virtuelle*. Configurez la tâche comme indiqué ci-dessous :
 
    > [!NOTE]
    > Pour créer la machine virtuelle à utiliser pour les déploiements suivants, consultez [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Pour **Abonnement RM Azure**, sélectionnez une connexion dans la liste **Connexions au service Azure disponibles**, ou créez une connexion d’autorisations plus limitée à votre abonnement Azure. Pour plus d’informations, consultez [Point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Pour **Abonnement RM Azure**, sélectionnez une connexion dans la liste **Connexions au service Azure disponibles**, ou créez une connexion d’autorisations plus limitée à votre abonnement Azure. Pour plus d’informations, consultez [Point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
    b. Pour **Nom du lab**, sélectionnez le nom de l’instance que vous avez créée.
 
@@ -135,14 +135,14 @@ L’étape suivante du déploiement consiste à créer la machine virtuelle à u
    ```
 
 1. Exécutez le script que vous avez créé pour collecter les détails de la machine virtuelle DevTest Labs. 
-1. Dans la définition de mise en production, sélectionnez **Ajouter des tâches** puis, sous l’onglet **Déployer**, ajoutez une tâche *Azure PowerShell*. Configurez la tâche comme indiqué ci-dessous :
+1. Dans le pipeline de mise en production, sélectionnez **Ajouter des tâches** puis, sous l’onglet **Déployer**, ajoutez une tâche *Azure PowerShell*. Configurez la tâche comme indiqué ci-dessous :
 
    > [!NOTE]
    > Pour collecter les détails de la machine virtuelle DevTest Labs, consultez [Deploy: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) (Déployer : Azure PowerShell) et exécutez le script.
 
    a. Pour **Type de connexion Azure**, sélectionnez **Azure Resource Manager**.
 
-   b. Pour **Abonnement RM Azure**, sélectionnez une connexion dans la liste sous **Connexions au service Azure disponibles**, ou créez une connexion d’autorisations plus limitée à votre abonnement Azure. Pour plus d’informations, consultez [Point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   b. Pour **Abonnement RM Azure**, sélectionnez une connexion dans la liste sous **Connexions au service Azure disponibles**, ou créez une connexion d’autorisations plus limitée à votre abonnement Azure. Pour plus d’informations, consultez [Point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
    c. Pour **Type de script**, sélectionnez **Fichier de script**.
  
@@ -154,22 +154,22 @@ L’étape suivante du déploiement consiste à créer la machine virtuelle à u
       ```
       -labVmId '$(labVMId)'
       ```
-    Le script collecte les valeurs requises et les stocke dans des variables d’environnement au sein de la définition de mise en production afin que vous puissiez facilement y faire référence dans les étapes suivantes.
+    Le script collecte les valeurs requises et les stocke dans des variables d’environnement au sein du pipeline de mise en production afin que vous puissiez facilement y faire référence dans les étapes suivantes.
 
 1. Déployez votre application sur la nouvelle machine virtuelle DevTest Labs. Les tâches que vous utilisez normalement pour déployer l’application sont *Copie de fichiers Azure* et *PowerShell sur des ordinateurs cibles*.
-   Les informations sur la machine virtuelle dont vous avez besoin pour les paramètres de ces tâches sont stockées dans trois variables de configuration nommées **labVmRgName**, **labVMIpAddress** et **labVMFqdn** au sein de la définition de mise en production. Si vous souhaitez uniquement tester la création d’une machine virtuelle DevTest Labs et d’une image personnalisée, sans y déployer d’application, vous pouvez ignorer cette étape.
+   Les informations sur la machine virtuelle dont vous avez besoin pour les paramètres de ces tâches sont stockées dans trois variables de configuration nommées **labVmRgName**, **labVMIpAddress** et **labVMFqdn** au sein du pipeline de mise en production. Si vous souhaitez uniquement tester la création d’une machine virtuelle DevTest Labs et d’une image personnalisée, sans y déployer d’application, vous pouvez ignorer cette étape.
 
 ### <a name="create-an-image"></a>Créer une image
 
 L’étape suivante consiste à créer, dans votre instance Azure DevTest Labs, une image de la machine virtuelle qui vient d’être déployée. Vous pouvez ensuite utiliser l’image pour créer des copies de la machine virtuelle à la demande chaque fois que vous souhaitez exécuter une tâche de développement ou exécuter des tests. 
 
-1. Dans la définition de mise en production, sélectionnez **Ajouter des tâches**.
+1. Dans le pipeline de mise en production, sélectionnez **Ajouter des tâches**.
 1. Sous l’onglet **Déployer**, ajoutez une tâche **Azure DevTest Labs - Créer une image personnalisée**. Configurez-le comme suit :
 
    > [!NOTE]
    > Pour créer l’image, consultez [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Pour **Abonnement RM Azure**, dans la liste **Connexions au service Azure disponibles**, sélectionnez une connexion, ou créez une connexion d’autorisations plus limitée à votre abonnement Azure. Pour plus d’informations, consultez [Point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Pour **Abonnement RM Azure**, dans la liste **Connexions au service Azure disponibles**, sélectionnez une connexion, ou créez une connexion d’autorisations plus limitée à votre abonnement Azure. Pour plus d’informations, consultez [Point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
    b. Pour **Nom du lab**, sélectionnez le nom de l’instance que vous avez créée.
 
@@ -185,17 +185,17 @@ L’étape suivante consiste à créer, dans votre instance Azure DevTest Labs, 
 
 La dernière étape consiste à supprimer la machine virtuelle que vous avez déployée dans votre instance Azure DevTest Labs. Normalement, vous supprimez la machine virtuelle après avoir exécuté les tâches de développement ou exécuté les tests dont vous avez besoin sur la machine virtuelle déployée. 
 
-1. Dans la définition de mise en production, sélectionnez **Ajouter des tâches** puis, sous l’onglet **Déployer**, ajoutez une tâche *Azure DevTest Labs - Supprimer la machine virtuelle*. Configurez-le comme suit :
+1. Dans le pipeline de mise en production, sélectionnez **Ajouter des tâches** puis, sous l’onglet **Déployer**, ajoutez une tâche *Azure DevTest Labs – Supprimer la machine virtuelle*. Configurez-le comme suit :
 
       > [!NOTE]
       > Pour supprimer la machine virtuelle, consultez [Azure DevTest Labs Tasks](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Pour **Abonnement RM Azure**, sélectionnez une connexion dans la liste **Connexions au service Azure disponibles**, ou créez une connexion d’autorisations plus limitée à votre abonnement Azure. Pour plus d’informations, consultez [Point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Pour **Abonnement RM Azure**, sélectionnez une connexion dans la liste **Connexions au service Azure disponibles**, ou créez une connexion d’autorisations plus limitée à votre abonnement Azure. Pour plus d’informations, consultez [Point de terminaison de service Azure Resource Manager](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
  
    b. Pour **ID de la machine virtuelle du lab**, si vous avez changé le nom par défaut de la variable d’environnement qui a été automatiquement renseignée avec l’ID de la machine virtuelle du lab par une tâche antérieure, modifiez-le ici. La valeur par défaut est **$(labVMId)**.
 
-1. Entrez un nom pour la définition de mise en production, puis enregistrez-le.
-1. Créez une mise en production, sélectionnez la build la plus récente et déployez-la sur l’environnement unique dans la définition.
+1. Entrez un nom pour le pipeline de mise en production, puis enregistrez-le.
+1. Créez une mise en production, sélectionnez la build la plus récente et déployez-la sur l’environnement unique dans le pipeline.
 
 À chaque étape, actualisez l’affichage de votre instance DevTest Labs dans le portail Azure pour réafficher la machine virtuelle et l’image en cours de création, ainsi que la machine virtuelle qui est supprimée.
 
@@ -207,5 +207,5 @@ Vous pouvez maintenant utiliser l’image personnalisée pour créer des machine
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [Créer des environnements à plusieurs machines virtuelles avec les modèles Resource Manager](devtest-lab-create-environment-from-arm.md).
 * Découvrez les autres modèles Resource Manager à démarrage rapide pour l’automatisation de DevTest Labs à partir du [dépôt DevTest Labs GitHub public](https://github.com/Azure/azure-quickstart-templates).
-* Si nécessaire, consultez la page [VSTS Troubleshooting](https://docs.microsoft.com/vsts/build-release/actions/troubleshooting) (Résolution des problèmes liés à VSTS).
+* Si nécessaire, consultez la page [Azure DevOps Troubleshooting](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting) (Résolution des problèmes liés à Azure DevOps).
  

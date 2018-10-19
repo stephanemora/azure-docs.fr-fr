@@ -9,30 +9,31 @@ editor: ''
 ms.assetid: ''
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/17/2018
+ms.date: 9/10/2018
 ms.author: tomsh
-ms.openlocfilehash: cc922762f84b3a0658d503c4bfa6eb0079173e4e
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9ecdc0b7d2d21962dbfc7c14e9fff3fd969dd018
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841545"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721090"
 ---
 # <a name="azure-security-white-papers"></a>Livres blancs sur la sécurité Azure
 | | |
 |-|-|
 |[Introduction&nbsp;à&nbsp;la sécurité&nbsp;Azure](azure-security.md)|Décrit la collection de contrôles de sécurité implémentés dans Azure du côté des opérations de Microsoft et du client. Fournit une vue d’ensemble complète au niveau des contrôles de sécurité orientés client disponibles avec Azure.|
+|[Meilleures pratiques de sécurité pour les solutions Azure](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)|Ensemble de meilleures pratiques de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.|
 |[Détection avancée des menaces](azure-threat-detection.md)|Vous guide parmi les approches Azure en matière d’évaluation des vulnérabilités des menaces, de diagnostics et d’analyse. Explique comment Microsoft utilise les mécanismes de détection des menaces avancés pour sécuriser la plateforme. Explique également comment Microsoft inclut ces mécanismes dans les services et fonctionnalités publics.|
 |[Chiffrement des données au repos d’Azure](azure-security-encryption-atrest.md)|Se concentre sur la façon dont les données sont protégées au repos sur Azure et sur les divers composants impliqués dans l’implémentation de la protection des données. Passe en revue les avantages et les inconvénients des principales approches de protection de la gestion.|
 |[Journalisation et audit Azure](azure-log-audit.md)|Fournit une introduction à la génération, la collecte et l’analyse des journaux de sécurité à partir des services hébergés sur Azure. Ces journaux peuvent vous aider à obtenir des informations détaillées sur la sécurité dans vos déploiements Azure. |
 |[Sécurité du réseau Azure](abstract-azure-network-security.md)|Vous présente la grande variété de contrôles réseau que vous pouvez configurer pour améliorer la sécurité des solutions que vous déployez dans Azure. Les contrôles de sécurité réseau orientés client sont principalement abordés.|
 |[Azure Functions et sécurité de plateforme serverless](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Ce livre blanc téléchargeable présente les avantages de l’informatique serverless tout en fournissant des considérations sur la sécurité et des atténuations dans le contexte d’Azure. |
-|[Sécurité des conteneurs dans Microsoft Azure](abstract-container-security-microsoft-azure.md)|Décrit les conteneurs, le déploiement et la gestion des conteneurs, ainsi que les services de plateforme natifs. Décrit également les problèmes de sécurité d’exécution qui se posent lors de l’utilisation de conteneurs sur la plateforme Azure. |
+|[Sécurité des conteneurs dans Microsoft Azure](abstract-container-security-microsoft-azure.md)|Décrit les conteneurs, le déploiement et la gestion des conteneurs, ainsi que les services de plateforme natifs. Il décrit également les problèmes de sécurité d’exécution qui se posent lors de l’utilisation de conteneurs sur la plateforme Azure. |
 |[Azure Operational Security](abstract-azure-operational-security.md)|Fournit une vue d’ensemble complète au niveau des services et technologies de sécurité opérationnelle orientés client disponibles avec Azure.|
-|[Fonctionnalités techniques de la sécurité Azure](azure-security-technical-capabilities.md)|Se concentre sur les fonctions de sécurité et les fonctionnalités prenant en charge le Stockage Azure, les bases de données Azure SQL, le modèle de machine virtuelle Azure et les outils et l’infrastructure qui gèrent tout cela.|
+|[Fonctionnalités techniques de la sécurité Azure](azure-security-technical-capabilities.md)|Se concentre sur les fonctions de sécurité et les fonctionnalités prenant en charge le Stockage Azure, Azure SQL Database, le modèle de machine virtuelle Azure et les outils et l’infrastructure qui gèrent tout cela.|
 |[Guide de sécurité du Stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Fournit une vue d’ensemble de chaque fonctionnalité de sécurité qui peut être utilisée avec le Stockage Azure. Aborde la sécurité du plan de gestion, la sécurité du plan de données, le chiffrement au repos, le chiffrement en déplacement et l’analyse de stockage.|
 |[Classification des données pour l’adoption du cloud](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |Ce document téléchargeable présente les notions de base de la classification des données et leur valeur dans le contexte du cloud computing. Ce document est une précieuse ressource pour les organisations qui évaluent le cloud computing pour une utilisation prochaine ou pour celles qui utilisent actuellement des services cloud et cherchent des méthodes pour optimiser la gestion des données.|
 |[Gouvernance dans Azure](governance-in-azure.md)|Décrit les fonctionnalités de sécurité et de gouvernance intégrées à Azure. Les principaux problèmes de gouvernance abordés sont : l’implémentation de stratégies, processus et procédures pour les objectifs de votre organisation ; la sécurité et la conformité continue aux normes de l’organisation ; la surveillance et la génération d’alertes.

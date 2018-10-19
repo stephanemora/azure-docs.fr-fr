@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/26/2018
+ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: edbd1885dd529e4ccd38f2012d56865a2147f64d
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: ae03e1498d948e7d044561c3e6bea8c343d7b165
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30842269"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713967"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilité de SAP HANA dans l’ensemble des régions Azure
 
@@ -39,10 +39,15 @@ Le réseau virtuel Azure utilise une autre plage d’adresses IP. Les adresses I
 
 ## <a name="simple-availability-between-two-azure-regions"></a>Disponibilité simple entre deux régions Azure
 
-Vous pouvez choisir de ne pas mettre en place de configuration de disponibilité dans une seule région, mais vous avez toujours la possibilité d’avoir la charge de travail prise en charge en cas d’incident. Les systèmes de non-production sont des cas typiques. Même si vous pouvez tolérer que le système soit hors service pendant une demi-journée, voire une journée entière, vous ne pouvez pas vous permettre qu’il soit indisponible pendant 48 heures ou plus. Pour que la configuration soit moins coûteuse, exécutez un autre système moins important dans la machine virtuelle. L’autre système fonctionne en tant que destination. Vous pouvez également dimensionner la machine virtuelle dans la région secondaire pour qu’elle soit plus petite et choisir de ne pas précharger les données. Étant donné que le basculement se fait manuellement, et qu’il comporte de nombreuses étapes pour basculer la pile d’application complète, le temps supplémentaire nécessaire pour mettre hors service, redimensionner et redémarrer la machine virtuelle est acceptable.
+Vous pouvez choisir de ne pas mettre en place de configuration de disponibilité dans une seule région, mais vous avez toujours la possibilité d’avoir la charge de travail prise en charge en cas d’incident. Les systèmes de non-production sont des cas typiques. Même si vous pouvez tolérer que le système soit hors service pendant une demi-journée, voire une journée entière, vous ne pouvez pas vous permettre qu’il soit indisponible pendant 48 heures ou plus. Pour que la configuration soit moins coûteuse, exécutez un autre système moins important dans la machine virtuelle. L’autre système fonctionne en tant que destination. Vous pouvez également dimensionner la machine virtuelle dans la région secondaire pour qu’elle soit plus petite et choisir de ne pas précharger les données. Étant donné que le basculement se fait manuellement et qu’il comporte de nombreuses étapes supplémentaires pour basculer la pile d’applications complète, le temps supplémentaire nécessaire pour arrêter, redimensionner et redémarrer la machine virtuelle est acceptable.
 
-> [!NOTE]
-> Même si vous n’utilisez pas le préchargement de données dans la cible de réplication du système HANA, vous avez besoin d’au moins 64 Go de mémoire. Vous avez également besoin de suffisamment de mémoire en plus des 64 Go pour conserver les données de stockage de lignes dans la mémoire de l’instance cible.
+Si vous utilisez le scénario de partage de la cible de récupération d’urgence avec un système d’assurance qualité sur une machine virtuelle, vous devez prendre en compte les éléments suivants :
+
+- Il existe deux [modes d’opération](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) avec delta_datashipping et logreplay, disponibles pour ce type de scénario
+- Les deux modes d’opération ont des besoins en mémoire différents sans préchargement des données
+- Il se peut que delta_datashipping nécessite beaucoup moins de mémoire sans l’option de préchargement que logreplay. Consultez le chapitre 4.3 du document SAP [Comment effectuer une réplication de système pour SAP HANA](https://archive.sap.com/kmuuid2/9049e009-b717-3110-ccbd-e14c277d84a3/How%20to%20Perform%20System%20Replication%20for%20SAP%20HANA.pdf)
+- La mémoire requise pour le mode d’opération logreplay sans préchargement n’est pas déterministe et varie selon les structures columnstore chargées. Dans les cas extrêmes, vous pouvez avoir besoin de 50 % de la mémoire de l’instance principale. La mémoire pour le mode d’opération logreplay ne dépend pas du fait que vous ayez choisi l’ensemble de données préchargées ou non.
+
 
 ![Schéma représentant deux machines virtuelles sur deux régions](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)
 
@@ -63,10 +68,10 @@ Dans de tels cas, vous pouvez configurer ce que SAP nomme une [configuration de 
 
 ![Schéma représentant trois machines virtuelles sur deux régions](./media/sap-hana-availability-two-region/three_vm_HSR_async_2regions_ha_and_dr.PNG)
 
-Cette configuration offre un objectif de point de récupération égal à 0, avec un objectif de délai de récupération faible, dans la région primaire. La configuration fournit également un objectif de point de récupération acceptable en cas de migration vers la région secondaire. Les délais d’objectifs de délai de récupération dans la région secondaire dépendent du préchargement ou non des données. De nombreux clients utilisent la machine virtuelle dans la région secondaire pour exécuter un test du système. Dans ce cas d’usage, les données ne peuvent pas être préchargées.
+Avec le mode d’opération logreplay, cette configuration offre un objectif de point de récupération égal à 0, avec un objectif de délai de récupération faible, dans la région primaire. La configuration fournit également un objectif de point de récupération acceptable en cas de migration vers la région secondaire. Les délais d’objectifs de délai de récupération dans la région secondaire dépendent du préchargement ou non des données. De nombreux clients utilisent la machine virtuelle dans la région secondaire pour exécuter un test du système. Dans ce cas d’usage, les données ne peuvent pas être préchargées.
 
-> [!NOTE]
-> Comme vous utilisez le mode de fonctionnement **logreplay** pour la réplication du système HANA du niveau 1 au niveau 2 (réplication synchrone dans la région primaire), la réplication entre le niveau 2 et le niveau 3 (réplication vers un site secondaire) ne peut se faire en mode de fonctionnement **delta_datashipping**. Pour plus d’informations sur les modes de fonctionnement et sur quelques restrictions, consultez l’article SAP [Operation Modes for SAP HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) (Modes de fonctionnement pour la réplication du système SAP HANA). 
+> [!IMPORTANT]
+> Les modes d’opération entre les différents niveaux doivent être homogènes. Vous **ne pouvez pas** utiliser logreplay comme mode d’opération entre le niveau 1 et le niveau 2, et delta_datashipping pour fournir le niveau 3. Vous pouvez uniquement choisir un mode d’opération ou l’autre, qui doit être cohérent pour tous les niveaux. Étant donné que delta_datashipping ne permet pas d’offrir un objectif de point de récupération égal à 0, le seul mode d’opération raisonnable pour ce type de configuration multiniveau reste logreplay. Pour plus d’informations sur les modes de fonctionnement et sur quelques restrictions, consultez l’article SAP [Operation Modes for SAP HANA System Replication](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) (Modes de fonctionnement pour la réplication du système SAP HANA). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -13,15 +13,15 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.custom: ''
-ms.date: 06/07/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f0d7daa479f6e6ea345e010962488c1ecad5b7e2
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: c6b2387360973cd4e65b5a1e4ba483abf5ea9070
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34849955"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716024"
 ---
 # <a name="deploy-the-asdk-from-the-command-line"></a>Déployer l’ASDK à partir de la ligne de commande
 Le Kit de développement Azure Stack est un environnement de développement et de test que vous pouvez déployer pour évaluer et présenter les fonctionnalités et services Azure Stack. Pour l’installer et le rendre opérationnel, vous devez préparer l’environnement matériel nécessaire et exécuter plusieurs scripts (cette opération peut prendre plusieurs heures). Une fois que vous aurez effectué ces étapes préalables, vous pourrez vous connecter aux portails de l’administrateur et de l’utilisateur pour commencer à utiliser Azure Stack.
@@ -51,12 +51,12 @@ Utilisez PowerShell pour configurer l’ordinateur hôte ASDK pour qu’il déma
 Pour configurer l’ordinateur hôte ASDK pour qu’il démarre à partir de CloudBuilder.vhdx :
 
   1. Lancez une invite de commandes en tant qu’administrateur.
-  2. Exécutez `bcdedit /copy {current} /d "Azure Stack"`.
+  2. Exécutez `bcdedit /copy {current} /d "Azure Stack"`
   3. Copiez (CTRL + C) la valeur CLSID renvoyée, y compris les caractères {} requis. Cette valeur correspond à {CLSID} et devra être collée (CTRL + V ou clic droit) dans les étapes restantes.
-  4. Exécutez `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx`. 
-  5. Exécutez `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx`. 
-  6. Exécutez `bcdedit /set {CLSID} detecthal on`. 
-  7. Exécutez `bcdedit /default {CLSID}`.
+  4. Exécutez `bcdedit /set {CLSID} device vhd=[C:]\CloudBuilder.vhdx` 
+  5. Exécutez `bcdedit /set {CLSID} osdevice vhd=[C:]\CloudBuilder.vhdx` 
+  6. Exécutez `bcdedit /set {CLSID} detecthal on` 
+  7. Exécutez `bcdedit /default {CLSID}`
   8. Pour vérifier les paramètres de démarrage, exécutez `bcdedit`. 
   9. Vérifiez que le fichier CloudBuilder.vhdx a été déplacé à la racine du lecteur C:\ (C:\CloudBuilder.vhdx) et redémarrez l’ordinateur hôte du kit de développement. Une fois redémarré, l’ordinateur hôte ASDK démarre à partir du disque dur de la machine virtuelle CloudBuilder.vhdx pour que vous puissiez commencer le déploiement du Kit. 
 
@@ -91,6 +91,8 @@ Exécutez les commandes PowerShell suivantes pour déployer le kit de développe
   ```
 
 Après quelques minutes dans l’installation d’ASDK, vous serez invité à entrer des informations d’identification Azure AD. Vous devez fournir vos informations d’identification d’administrateur général d’Azure AD pour votre locataire Azure AD. 
+
+Après le déploiement, l’autorisation d’administrateur général Azure Active Directory n’est pas nécessaire. Toutefois, certaines opérations peuvent demander des informations d’identification d’administrateur général. Par exemple, un script d’installation d’un fournisseur de ressources ou une nouvelle fonctionnalité peut avoir besoin d’une autorisation spécifique. Vous pouvez temporairement réactiver les autorisations d’administrateur général du compte ou utiliser un compte d’administrateur général distinct qui est propriétaire de l’*abonnement fournisseur par défaut*.
 
 ### <a name="deploy-azure-stack-using-ad-fs"></a>Déployer Azure Stack à l’aide d’AD FS 
 Pour déployer le kit de développement **à l’aide d’AD FS comme fournisseur d’identité**, exécutez les commandes PowerShell suivantes (vous avez simplement besoin d’ajouter le paramètre -UseADFS) : 
@@ -165,7 +167,7 @@ Vous devez inscrire Azure Stack auprès d’Azure pour pouvoir ensuite [téléch
 **[Inscrire Azure Stack auprès d’Azure](asdk-register.md)**
 
 ## <a name="next-steps"></a>Étapes suivantes
-Félicitations ! Après toutes ces étapes, l’environnement pour le Kit de développement est prêt, avec les portails de l’[administrateur](https://adminportal.local.azurestack.external) et de l’[utilisateur](https://portal.local.azurestack.external). 
+Félicitations ! Après toutes ces étapes, l’environnement pour le Kit de développement est prêt, avec les portails de l’[administrateur](https://adminportal.local.azurestack.external) et de l’[utilisateur](https://portal.local.azurestack.external). 
 
 [Tâches de configuration après l’installation du kit ASDK](asdk-post-deploy.md)
 

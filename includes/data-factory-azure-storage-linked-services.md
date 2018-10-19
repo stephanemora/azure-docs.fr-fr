@@ -6,7 +6,7 @@ Le **service lié Stockage Azure** vous permet de lier un compte de stockage Azu
 | Type |La propriété de type doit être définie sur : **AzureStorage** |Oui |
 | connectionString |Spécifier les informations requises pour la connexion au stockage Azure pour la propriété connectionString. |Oui |
 
-Pour plus d’informations sur l’affichage ou la copie de la clé de compte pour un stockage Azure, consultez l’article [Affichage, copie et régénération de clés d’accès de stockage](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
+Pour connaître les étapes à suivre pour afficher/copier la clé de compte pour un service Stockage Azure, consultez la section suivante : [Clés d’accès](../articles/storage/common/storage-account-manage.md#access-keys).
 
 **Exemple :**  
 

@@ -8,20 +8,20 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5099ca70503ba2ed4ae8f4969a9199816c4986fb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047453"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302569"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Intégration continue et déploiement continu dans Azure IoT Edge
 
-Cet article montre comment utiliser les fonctionnalités d’intégration continue et de déploiement continu de Visual Studio Team Services (VSTS) et Microsoft Team Foundation Server (TFS) pour compiler, tester et déployer des applications rapidement et efficacement sur un appareil Azure IoT Edge. 
+Cet article montre comment utiliser les fonctionnalités d’intégration continue et de déploiement continu d’Azure DevOps Services et Microsoft Team Foundation Server (TFS) pour compiler, tester et déployer des applications rapidement et efficacement sur un appareil Azure IoT Edge. 
 
 Dans cet article, vous allez apprendre à :
 * Créer et archiver un exemple de solution IoT Edge contenant des tests unitaires
-* Installer l’extension Azure IoT Edge pour votre compte VSTS
+* Installez l’extension Azure IoT Edge pour votre compte Azure DevOps.
 * Configurer l’intégration continue (CI) pour compiler la solution et exécuter les tests unitaires
 * Configurer le déploiement continu (CD) pour déployer la solution et afficher les réponses
 
@@ -277,31 +277,31 @@ Dans cette section, vous allez créer un exemple de solution IoT Edge contenant 
 
     ![Test unitaire](./media/how-to-ci-cd/unit-test.png)
 
-7. Enregistrez ces projets, puis archivez-les dans votre référentiel VSTS ou TFS.
+7. Enregistrez ces projets, puis archivez-les dans votre référentiel Azure DevOps ou TFS.
     
 
 > [!NOTE]
-> Pour plus d’informations sur l’utilisation de référentiels de code VSTS, consultez [Share your code with Visual Studio and VSTS Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts) (Partager votre code avec Visual Studio et VSTS Git).
+> Pour plus d’informations sur l’utilisation d’Azure Repos, consultez [Share your code with Visual Studio and Azure Repos](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts) (Partager votre code avec Visual Studio et Azure Repos).
 
 
 ## <a name="configure-continuous-integration"></a>Configurer l’intégration continue
-Dans cette section, vous allez créer une définition de build configurée pour s’exécuter automatiquement quand vous archivez des modifications apportées à l’exemple de solution IoT Edge et qui exécutera automatiquement les tests unitaires qu’elle contient.
+Dans cette section, vous allez créer un pipeline de build configurée pour s’exécuter automatiquement quand vous archivez des modifications apportées à l’exemple de solution IoT Edge et qui exécutera automatiquement les tests unitaires qu’elle contient.
 
-1. Connectez-vous à votre compte VSTS (**https://**_votre-compte_**.visualstudio.com**) et ouvrez le projet dans lequel vous avez activé l’exemple d’application.
+1. Connectez-vous à votre organisation Azure DevOps (**https://**_votre-compte_**.visualstudio.com**) et ouvrez le projet dans lequel vous avez activé l’exemple d’application.
 
     ![Code archivé](./media/how-to-ci-cd/init-project.png)
 
-1. Rendez-vous sur la page [Azure IoT Edge For VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) (Azure IoT Edge pour VSTS) sur Visual Studio Marketplace. Cliquez sur **Get it free** (Obtenir gratuitement) et suivez les instructions de l’Assistant pour ajouter cette extension à votre compte VSTS ou la télécharger sur votre serveur TFS.
+1. Visitez [Azure IoT Edge pour Azure DevOps](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) sur la place de marché Azure DevOps. Cliquez sur **Get it free** (Obtenir gratuitement) et suivez les instructions de l’Assistant pour ajouter cette extension à votre organisation Azure DevOps ou la télécharger sur votre serveur TFS.
 
     ![Installer l’extension](./media/how-to-ci-cd/install-extension.png)
 
-1. Dans votre compte VSTS, ouvrez le Hub **Générer et publier**, puis, dans l’onglet **Builds**, choisissez **+ Nouvelle définition**. Si vous disposez déjà de définitions de build, choisissez le bouton **+ Nouveau** à la place. 
+1. Dans votre compte Azure DevOps, ouvrez le Hub **Générer &amp;et publier**, puis, dans l’onglet **Builds**, choisissez **+ Nouveau pipeline**. Si vous disposez déjà de pipelines de build, choisissez le bouton **+ Nouveau** à la place. 
 
     ![Nouvelle build](./media/how-to-ci-cd/add-new-build.png)
 
-1. Si vous y êtes invité, sélectionnez le type de source **VSTS Git**, puis sélectionnez le projet, le référentiel et la branche où se trouve votre code. Choisissez **Continuer**.
+1. Si vous y êtes invité, sélectionnez le type de source **Azure DevOps Git**, puis sélectionnez le projet, le référentiel et la branche où se trouve votre code. Choisissez **Continuer**.
 
-    ![Sélectionner VSTS Git](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Sélectionner le dépôt Git Azure DevOps](./media/how-to-ci-cd/select-vsts-git.png)
 
 1. Dans la fenêtre **Sélectionner un modèle**, cliquez sur **Processus vide**.
 
@@ -343,9 +343,9 @@ Dans cette section, vous allez créer une définition de build configurée pour 
 
     ![Déclencheur](./media/how-to-ci-cd/configure-trigger.png)
 
-1. Enregistrez la nouvelle définition de build et mettez une nouvelle build en file d’attente. Cliquez sur le bouton **Enregistrer et mettre en file d’attente**.
+1. Enregistrez le nouveau pipeline de build et mettez une nouvelle build en file d’attente. Cliquez sur le bouton **Enregistrer et mettre en file d’attente**.
 
-1. Cliquez sur le lien vers la build dans la barre de message qui s’affiche. Vous pouvez également accéder à la définition de build pour afficher la dernière tâche de build mise en file d’attente.
+1. Cliquez sur le lien vers la build dans la barre de message qui s’affiche. Vous pouvez également accéder au pipeline de build pour afficher la dernière tâche de build mise en file d’attente.
 
     ![Créer](./media/how-to-ci-cd/build-def.png)
 

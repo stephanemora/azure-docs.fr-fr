@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/1/2018
+ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 998f35c8957b63d73d7a3d15be76711198fa4833
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745705"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717673"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Créer et gérer des groupes d’actions sur le Portail Azure
 ## <a name="overview"></a>Vue d’ensemble ##
@@ -33,9 +33,9 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 1. Sur le [Portail](https://portal.azure.com), sélectionnez **Moniteur**. Le panneau **Moniteur** consolide tous vos paramètres et données de monitorage sur un même affichage.
 
     ![Le service « Moniteur »](./media/monitoring-action-groups/home-monitor.png)
-1. Dans la section **Paramètres**, sélectionnez **Groupes d’actions**.
+1. Sélectionnez **Alertes**, puis **Gérer les groupes d’actions**.
 
-    ![L’onglet « Groupes d’actions »](./media/monitoring-action-groups/action-groups-blade.png)
+    ![Bouton Gérer les groupes d’actions](./media/monitoring-action-groups/manage-action-groups.png)
 1. Sélectionnez **Ajouter un groupe d’actions** et renseignez les champs.
 
     ![La commande « Ajouter un groupe d’actions »](./media/monitoring-action-groups/add-action-group.png)
@@ -83,6 +83,7 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 
 <dt>Runbook</dt>
 <dd>Vous pouvez avoir jusqu’à 10 actions de runbook dans un groupe d’actions</dd>
+<dd>Consultez l’article [Limites du service d’abonnement Azure](../azure-subscription-service-limits.md) pour connaître les limites de charges utiles de runbook</dd>
 
 <dt>SMS</dt>
 <dd>Vous pouvez avoir jusqu’à 10 actions de SMS dans un groupe d’actions</dd>
@@ -96,6 +97,17 @@ Pour plus d’informations sur l’utilisation de modèles Azure Resource Manage
 <dt>Webhook</dt>
 <dd>Vous pouvez avoir jusqu’à 10 actions de Webhook dans un groupe d’actions
 <dd>Logique de nouvelle tentative : le délai d’expiration d’une réponse est de 10 secondes. L’appel de webhook sera retenté 2 fois au maximum lorsque les codes d’état HTTP suivants sont renvoyés (408, 429, 503, 504) ou quand le point de terminaison HTTP ne répond pas. La première nouvelle tentative se produit après 10 secondes. La deuxième et la dernière nouvelles tentatives se produisent après 100 secondes.</dd>
+<dd>Plage d’adresses IP sources
+<ul>
+    <li>13.106.57.181</li>
+    <li>13.106.54.3</li>
+    <li>13.106.54.19</li>
+    <li>13.106.38.142</li>
+    <li>13.106.38.148</li>
+    <li>13.106.57.196</li>
+</ul>
+Pour recevoir des mises à jour sur les modifications apportées à ces adresses IP, nous vous recommandons de configurer une [alerte Service Health](./monitoring-service-notifications.md) qui surveille les notifications d’information relatives au service Groupes d’actions.
+</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>Gérer des groupes d’actions ##

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 1fd5905b8ea3f87fe6cfc2a830b73b8120a717dd
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341475"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982876"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Limitations dans Azure Database pour MySQL
 Les sections suivantes abordent la capacité, la prise en charge du moteur de stockage, la prise en charge des privilèges, la prise en charge des instructions de manipulation des données et les limites fonctionnelles du service de base de données. Vous pouvez aussi consulter les [limitations générales](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) qui sont applicables au moteur de base de données MySQL.
@@ -41,7 +41,7 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 
 ## <a name="storage-engine-support"></a>Prise en charge du moteur de stockage
 
-### <a name="supported"></a>Prise en charge
+### <a name="supported"></a>Pris en charge
 - [InnoDB](https://dev.mysql.com/doc/refman/5.7/en/innodb-introduction.html)
 - [MEMORY](https://dev.mysql.com/doc/refman/5.7/en/memory-storage-engine.html)
 
@@ -59,7 +59,7 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 
 ## <a name="data-manipulation-statement-support"></a>Prise en charge des instructions de manipulation des données
 
-### <a name="supported"></a>Prise en charge
+### <a name="supported"></a>Pris en charge
 - `LOAD DATA INFILE` est prise en charge, mais le paramètre `[LOCAL]` doit être spécifié et dirigé vers un chemin d'accès UNC (stockage Azure monté via SMB).
 
 ### <a name="unsupported"></a>Non pris en charge
@@ -72,7 +72,7 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 - La diminution de la taille de stockage du serveur n’est pas prise en charge.
 
 ### <a name="server-version-upgrades"></a>Mises à niveau de la version du serveur
-- La migration automatique entre les versions principales du moteur de base de données n’est pas prise en charge pour le moment.
+- La migration automatique entre les versions principales du moteur de base de données n’est pas prise en charge pour le moment. Si vous souhaitez mettre à niveau vers la version principale suivante, effectuez une [sauvegarde et une restauration](./concepts-migrate-dump-restore.md) vers un serveur créé avec la nouvelle version du moteur.
 
 ### <a name="point-in-time-restore"></a>Restauration dans le temps
 - Lorsque vous utilisez la fonctionnalité PITR, le nouveau serveur est créé avec la même configuration que le serveur sur lequel il est basé.
@@ -80,9 +80,6 @@ Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l
 
 ### <a name="vnet-service-endpoints"></a>Points de terminaison de service VNet
 - Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.
-
-### <a name="subscription-management"></a>Gestion des abonnements
-- Le déplacement dynamique de serveurs créés au préalable entre les groupes de ressources et d’abonnements n’est pas pris en charge pour le moment.
 
 ## <a name="current-known-issues"></a>Problèmes connus
 - L’instance de serveur MySQL affiche la mauvaise version de serveur une fois la connexion établie. Pour obtenir la version de moteur correcte de l’instance de serveur, utilisez la commande `select version();`.

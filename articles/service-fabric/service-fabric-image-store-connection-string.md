@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/27/2018
 ms.author: alexwun
-ms.openlocfilehash: 7d164fea62afac83c4fe2216c56a9980d9279f3a
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 8a11f9c9ebc2dd0b0eabf7a34d5ef38ae4e29309
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207126"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719068"
 ---
 # <a name="understand-the-imagestoreconnectionstring-setting"></a>Comprendre le paramètre ImageStoreConnectionString
 
@@ -45,9 +45,9 @@ Le fait d’héberger le magasin d’images dans un service système au sein mê
 
 Le fournisseur du système de fichiers est utilisé à la place du service de magasin d’images pour les clusters à boîtier unique locaux pendant le développement, de façon à démarrer le cluster un peu plus vite. La différence est généralement faible, mais c’est une optimisation utile à la plupart des gens lors du développement. Il est également possible de déployer un cluster à boîtier unique local avec les autres types de fournisseurs de stockage, mais il n’y a généralement aucune raison de le faire dans la mesure où le flux de travail de développement / test reste le même quel que soit le fournisseur. Le fournisseur de stockage Azure n’est disponible que pour la prise en charge héritée des anciens clusters ayant été déployés avant l’arrivée du fournisseur de service du magasin d’images.
 
-En outre, ni le fournisseur du système de fichiers, ni le fournisseur de stockage Azure ne doivent être utilisés pour partager un magasin d’images entre plusieurs clusters. En effet, cela provoquerait l’endommagement des données de configuration de cluster, puisque chaque cluster peut écrire des données conflictuelles dans le magasin d’images. Pour partager des packages d’applications provisionnées entre plusieurs clusters, utilisez des fichiers [sfpkg][12], que vous pouvez charger vers n’importe quel magasin externe ayant un URI de téléchargement.
+En outre, ni le fournisseur du système de fichiers, ni le fournisseur de stockage Azure ne doivent être utilisés pour partager un magasin d’images entre plusieurs clusters. En effet, cela endommagerait les données de configuration de cluster, puisque chaque cluster peut écrire des données conflictuelles dans le magasin d’images. Pour partager des packages d’applications provisionnées entre plusieurs clusters, utilisez des fichiers [sfpkg][12], que vous pouvez charger vers n’importe quel magasin externe ayant un URI de téléchargement.
 
-Par conséquent, si ImageStoreConnectionString est configurable, on utilise en général simplement le paramètre par défaut. En cas de publication sur Azure avec Visual Studio, le paramètre est automatiquement défini en conséquence. Pour un déploiement par programmation sur des clusters hébergés dans Azure, la chaîne de connexion est toujours « fabric:ImageStore ». En cas de doute, sa valeur peut toujours être vérifiée en récupérant le manifeste de cluster par [PowerShell](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) ou [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Les clusters de test et de production locaux doivent également être toujours configurés pour utiliser le fournisseur de service de magasin d’images.
+Par conséquent, si ImageStoreConnectionString est configurable, on utilise simplement le paramètre par défaut. En cas de publication sur Azure avec Visual Studio, le paramètre est automatiquement défini en conséquence. Pour un déploiement par programmation sur des clusters hébergés dans Azure, la chaîne de connexion est toujours « fabric:ImageStore ». En cas de doute, sa valeur peut toujours être vérifiée en récupérant le manifeste de cluster par [PowerShell](https://docs.microsoft.com/powershell/module/servicefabric/get-servicefabricclustermanifest), [.NET](https://msdn.microsoft.com/library/azure/mt161375.aspx) ou [REST](https://docs.microsoft.com/rest/api/servicefabric/get-a-cluster-manifest). Les clusters de test et de production locaux doivent également être toujours configurés pour utiliser le fournisseur de service de magasin d’images.
 
 ### <a name="next-steps"></a>Étapes suivantes
 [Déployer et supprimer des applications avec PowerShell][10]
