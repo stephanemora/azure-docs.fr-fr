@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 6993895b6f2b836308b8ed7c375212c3fae12768
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: c21b4b8996d7dae62c2aa1937c2876a66f6f82bd
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305918"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320558"
 ---
-#<a name="azure-ad-connect-device-options"></a>Azure AD Connect : options d’appareil
+# <a name="azure-ad-connect-device-options"></a>Azure AD Connect : options d’appareil
 
 La documentation ci-après fournit des informations sur les différentes options d’appareil disponibles dans Azure AD Connect. Vous pouvez utiliser Azure AD Connect pour configurer les deux opérations suivantes : 
 * **Joindre Hybrid Azure AD** : si votre environnement comporte une empreinte locale AD et que vous souhaitez profiter d’Azure AD, vous pouvez implémenter des appareils joints Azure AD hybrides. Ces appareils sont joints à la fois à votre service Active Directory local et à Azure Active Directory.
@@ -34,7 +34,7 @@ La documentation ci-après fournit des informations sur les différentes options
     ![Tâche Configurer les options de l’appareil](./media/how-to-connect-device-options/deviceoptions.png) 
 
     La page **Vue d’ensemble** affiche les détails.
-    ![Vue d’ensemble](./media/how-to-connect-device-options/deviceoverview.png)
+    ![Vue d'ensemble](./media/how-to-connect-device-options/deviceoverview.png)
 
     >[!NOTE]
     > La nouvelle tâche Configurer les options de l’appareil est uniquement disponible dans la version 1.1.819.0 et dans les versions ultérieures.
