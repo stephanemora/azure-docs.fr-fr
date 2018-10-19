@@ -1,22 +1,24 @@
 ---
-title: Expressions de requête structurée dans l’API Service d’exploration des connaissances | Microsoft Docs
-description: Découvrez comment utiliser des expressions de requête structurée dans l’API Service d’exploration de la base de connaissances (KES) dans Cognitive Services.
+title: Expressions de requête structurée - API Service d’exploration des connaissances
+titlesuffix: Azure Cognitive Services
+description: Découvrez comment utiliser des expressions de requête structurée dans l’API Service d’exploration de la base de connaissances (KES).
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 070ee311a1153bc9fb59870dce68f385a43b15f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bdde2dfc9ab8e8ffdf7123c916538a8c98ecfce9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368061"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129163"
 ---
 # <a name="structured-query-expression"></a>Expression de requête structurée
+
 Une expression de requête structurée spécifie un ensemble d’opérations à évaluer par rapport à l’index de données.  Il se compose d’expressions de requête d’attribut et de fonctions de niveau supérieur.  Utilisez la méthode [*evaluate*](evaluateMethod.md) pour calculer le nombre d’objets correspondant à l’expression.  Voici un exemple du domaine de publications académiques qui retourne les publications créées par Jaime Teevan depuis l’année 2013.
 
 `And(Composite(Author.Name=='jaime teevan'),Y>=2013)`
@@ -24,6 +26,7 @@ Une expression de requête structurée spécifie un ensemble d’opérations à 
 Les expressions de requête structurée peuvent être obtenues à partir de requêtes [*interpret*](interpretMethod.md), où la sortie sémantique de chaque interprétation est une expression de requête structurée qui retourne les objets d’index correspondant à la requête en langage naturel d’entrée.  Sinon, elles peuvent être créées manuellement à l’aide de la syntaxe décrite dans cette section.
 
 ## <a name="attribute-query-expression"></a>Expression de requête d’attribut
+
 Une expression de requête d’attribut identifie un ensemble d’objets selon leur correspondance à un attribut spécifique.  Différentes opérations de mise en correspondance sont prises en charge selon le type d’attribut et l’opération indexée spécifiés dans le [schéma](SchemaFormat.md) :
 
 | type | Opération | Exemples |
@@ -45,9 +48,11 @@ Pour les attributs avec des synonymes associés, une expression de requête peut
 
 
 ## <a name="functions"></a>Fonctions
+
 Il existe un ensemble prédéfini de fonctions permettant la construction d’expressions de requête plus élaborées à partir de requêtes d’attribut de base.
 
 ### <a name="and-function"></a>Et fonction
+
 `And(expr1, expr2)`
 
 Retourne l’intersection de deux expressions de requête d’entrée.
@@ -57,6 +62,7 @@ L’exemple suivant retourne les publications académiques publiées durant l’
 `And(Year=2000, Keyword=='information retrieval')`
 
 ### <a name="or-function"></a>Ou fonction
+
 `Or(expr1, expr2)`
 
 Retourne l’union de deux expressions de requête d’entrée.
@@ -66,6 +72,7 @@ L’exemple suivant retourne les publications académiques publiées durant l’
 `And(Year=2000, Or(Keyword='information retrieval', Keyword='user modeling'))`
 
 ### <a name="composite-function"></a>Fonction composite
+
 `Composite(expr)`
 
 Retourne une expression qui encapsule une expression interne composée de requêtes sur les sous-attributs d’un attribut composite commun.  L’encapsulation nécessite l’attribut composite de n’importe quel objet de données correspondant pour obtenir au moins une valeur qui satisfait individuellement l’expression interne.  Notez qu’une expression de requête sur les sous-attributs d’un attribut composite doit être encapsulée à l’aide de la fonction Composite() avant d’être combinée avec d’autres expressions de requête.

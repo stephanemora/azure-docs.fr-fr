@@ -34,6 +34,7 @@
 ## Administrer un domaine géré
 ### [Administrer un domaine géré](active-directory-ds-admin-guide-administer-domain.md)
 ### [Administrer DNS sur un domaine géré](active-directory-ds-admin-guide-administer-dns.md)
+### [Mettre à jour les notifications par e-mail](active-directory-ds-notifications.md)
 ### Configurer le protocole LDAP sécurisé pour un domaine géré
 #### [Tâche 1 : Obtenir un certificat pour le protocole LDAP sécurisé](active-directory-ds-admin-guide-configure-secure-ldap.md)
 #### [Tâche 2 : Exporter le certificat LDAP sécurisé](active-directory-ds-admin-guide-configure-secure-ldap-export-pfx.md)

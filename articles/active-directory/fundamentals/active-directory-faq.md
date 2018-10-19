@@ -1,26 +1,22 @@
 ---
-title: FAQ Azure AD | Microsoft Docs
-description: Le Forum Aux Questions sur Azure Active Directory répond aux questions courantes concernant Azure et Azure Active Directory, la gestion des mots de passe et l’accès aux applications.
+title: FAQ Azure Active Directory | Microsoft Docs
+description: Découvrez les questions et réponses courantes concernant Azure et Azure Active Directory, la gestion des mots de passe et l’accès aux applications.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: eb9eebb4f5fff4a0c3dc7729387cfbc4b13a12f1
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143645"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294903"
 ---
 # <a name="azure-active-directory-faq"></a>Forum Aux Questions sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -48,14 +44,13 @@ Les services Azure AD payants comme Enterprise Mobility + Security complètent 
 
 - - -
 
-**Q : Quelles sont les différences entre l’administrateur de l’abonnement et l’administrateur du répertoire ?**
+**Q : Quelles sont les différences entre Propriétaire et Administrateur général ?**
 
-**R :** Par défaut, le rôle d’administrateur d’abonnement vous est attribué dès lors que vous vous abonnez à Azure. Un administrateur d’abonnement peut utiliser un compte Microsoft ou un compte professionnel ou scolaire provenant du répertoire auquel l’abonnement Azure est associé.  Ce rôle est autorisé à gérer les services sur le portail Azure.
+**R :** Par défaut, le rôle Propriétaire de ressources Azure est affecté à la personne qui souscrit un abonnement Azure. Un Propriétaire peut utiliser un compte Microsoft ou un compte professionnel ou scolaire provenant du répertoire auquel l’abonnement Azure est associé.  Ce rôle est autorisé à gérer les services sur le portail Azure.
 
-Si d’autres personnes doivent se connecter et accéder aux services à l’aide de l’abonnement, vous pouvez les ajouter en tant que coadministrateurs. Ce rôle possède les mêmes privilèges d’accès que l’administrateur de services fédérés, à ceci près qu’il ne peut pas modifier la manière dont les abonnements sont associés aux répertoires Azure.  Pour plus d’informations sur les administrateurs d’abonnements, consultez [Ajout ou modification de rôles d’administrateur Azure](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator) et [Association des abonnements Azure avec Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
+Si d’autres personnes doivent se connecter et accéder aux services à l’aide de l’abonnement, vous pouvez leur assigner le [rôle intégré](../../role-based-access-control/built-in-roles.md) approprié. Pour plus d’informations, consultez [Gérer les accès à l’aide de RBAC et du portail Azure](../../role-based-access-control/role-assignments-portal.md).
 
-
-Azure AD propose un autre ensemble de rôles administratifs pour gérer le répertoire et les fonctionnalités liées à l’identité.  Ces administrateurs ont accès à diverses fonctionnalités du portail Azure. Le rôle de l’administrateur détermine les opérations qu’il peut effectuer : créer ou modifier des utilisateurs, attribuer des rôles d’administrateur à d’autres personnes, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc.  Pour plus d’informations sur les administrateurs de répertoires Azure AD et leurs rôles, consultez [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
+Par défaut, le rôle d’administrateur général de l’annuaire est affecté à la personne qui souscrit un abonnement Azure. L’Administrateur général a accès à toutes les fonctionnalités de répertoire d’Azure AD. Azure AD dispose d’un autre ensemble de rôles d’administrateur qui permet de gérer le répertoire et les fonctionnalités liées à l’identité. Ces administrateurs ont accès à diverses fonctionnalités dans le portail Azure. Le rôle de l’administrateur détermine les opérations qu’il peut effectuer : créer ou modifier des utilisateurs, assigner des rôles d’administrateur à d’autres personnes, réinitialiser les mots de passe utilisateur, gérer les licences utilisateur et les domaines, etc.  Pour plus d’informations sur les administrateurs de répertoires Azure AD et leurs rôles, consultez [Attribuer des rôles d’administrateur à un utilisateur dans Azure Active Directory](active-directory-users-assign-role-azure-portal.md) et [Attribution de rôles d’administrateur dans Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 Par ailleurs, les services Azure AD payants comme Enterprise Mobility + Security complètent d’autres services web, tels qu’Office 365 et Microsoft Azure, avec des solutions avancées de gestion et de sécurité à l’échelle de l’entreprise.
 
@@ -77,7 +72,7 @@ Par ailleurs, les services Azure AD payants comme Enterprise Mobility + Securit
 
 **R :** Vous pouvez connecter votre annuaire local à Azure AD à l’aide d’Azure AD Connect.
 
-Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](../connect/active-directory-aadconnect.md).
+Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **Q : Comment configurer l’authentification unique entre mon annuaire local et mes applications cloud ?**
@@ -86,7 +81,7 @@ Pour plus d’informations, consultez [Intégration des identités locales avec 
 
 L’implémentation du SSO à partir de l’emplacement local peut être facilement mise en œuvre à l’aide de solutions de fédération telles que les services de fédération Active Directory (AD FS) ou en configurant la synchronisation du hachage de mot de passe. Vous pouvez facilement déployer les deux options à l’aide de l’Assistant de configuration Azure AD Connect.
 
-Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](../connect/active-directory-aadconnect.md).
+Pour plus d’informations, consultez [Intégration des identités locales avec Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 - - -
 **Q : Azure AD fournit-il un portail en libre-service aux utilisateurs de mon organisation ?**
@@ -100,7 +95,7 @@ Pour plus d’informations, consultez [Présentation du volet d’accès](../use
 
 **R :** Oui. L’édition Azure AD Premium offre l’outil Azure AD Connect Health. Azure AD Connect Health vous permet de surveiller et d’analyser votre infrastructure d’identité locale et les services de synchronisation.  
 
-Pour plus d’informations, consultez [Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud](../connect-health/active-directory-aadconnect-health.md).  
+Pour plus d’informations, consultez [Surveillez votre infrastructure d’identité locale et vos services de synchronisation dans le cloud](../hybrid/whatis-hybrid-identity-health.md).  
 
 - - -
 ## <a name="password-management"></a>Gestion des mots de passe
@@ -163,7 +158,7 @@ Pour obtenir une liste complète des applications déjà intégrées, voir [Mark
 
 Pour plus d'informations, consultez les pages suivantes :
 
-* [Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.](../application-config-sso-how-to-configure-federated-sso-non-gallery.md)
+* [Configuration de l'authentification unique pour les applications ne faisant pas partie de la galerie d'applications Azure Active Directory.](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
 * [Utilisation de SCIM pour activer la configuration automatique des utilisateurs et des groupes d’Azure Active Directory sur des applications](../manage-apps/use-scim-to-provision-users-and-groups.md)
 
 - - -
@@ -208,7 +203,7 @@ Pour plus d’informations, consultez [Sécurisation de l’accès à Office 36
 
 **R :** Azure AD vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans de nombreuses applications SaaS cloud populaires.
 
-Pour plus d’informations, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../active-directory-saas-app-provisioning.md).
+Pour plus d’informations, consultez [Automatisation de l’approvisionnement et de l’annulation de l’approvisionnement des utilisateurs pour les applications SaaS avec Azure Active Directory](../manage-apps/user-provisioning.md).
 
 - - -
 **Q : Puis-je configurer une connexion LDAP sécurisée avec Azure AD ?**

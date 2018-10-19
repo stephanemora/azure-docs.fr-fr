@@ -1,25 +1,25 @@
 ---
-title: Redimensionner et rogner les miniatures Bing | Microsoft Docs
-description: Découvrez comment redimensionner et rogner les miniatures incluses dans une réponse Bing.
+title: Redimensionner et rogner les miniatures Bing - API Recherche d’images Bing
+description: Découvrez comment redimensionner et rogner les miniatures incluses dans une réponse de l’API Recherche d’images Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: F4FFAE91-A003-4F7C-8E60-83A142485E28
 ms.service: cognitive-services
 ms.component: bing-image-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 98c4caa50ca5e861f4276e26983ef501d17bd349
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: de82cc5554af91294dda3826dfb394cc94dbf3d0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41929796"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296225"
 ---
 # <a name="resizing-and-cropping-thumbnail-images"></a>Redimensionnement et rognage des images miniatures
 
-Lors du traitement d’une requête de recherche, Bing génère des informations de miniatures pour toutes les images dans sa [réponse](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Ces informations peuvent être utilisées pour afficher la totalité ou un sous-ensemble des miniatures retournées. Si vous affichez un sous-ensemble, offrez une option pour afficher les images restantes. 
+Lors du traitement d’une requête de recherche, Bing génère des informations de miniatures pour toutes les images dans sa [réponse](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/concepts/bing-image-search-get-images#bing-image-search-response-format). Ces informations peuvent être utilisées pour afficher la totalité ou un sous-ensemble des miniatures retournées. Si vous affichez un sous-ensemble, offrez une option pour afficher les images restantes.
 
 
 <!-- Removing image until we can replace it with a sanatized version.
@@ -38,8 +38,8 @@ Pour obtenir des insights sur l’image, par exemple les pages web dans lesquell
 
 ## <a name="resizing-and-cropping-thumbnails"></a>Redimensionnement et rognage des miniatures
 
-Vous pouvez également redimensionner et développer des miniatures, par exemple lorsque le curseur de l’utilisateur passe sur ces éléments. 
+Vous pouvez également redimensionner et développer des miniatures, par exemple lorsque le curseur de l’utilisateur passe sur ces éléments.
 > [!NOTE]
-> Veillez à attribuer l’image si vous la développez. Vous pouvez par exemple extraire l’hôte de [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) et l’afficher sous l’image. 
+> Veillez à attribuer l’image si vous la développez. Vous pouvez par exemple extraire l’hôte de [hostPageDisplayUrl](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image-hostpagedisplayurl) et l’afficher sous l’image.
 
 [!INCLUDE [cognitive-services-bing-resize-crop-thumbnails](../../../includes/cognitive-services-bing-resize-crop-thumbnails.md)]

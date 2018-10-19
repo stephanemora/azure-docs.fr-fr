@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3bdb5bc2aa47a51cc95a4274fbf20ba5d0515130
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 9a75e7ed8ce25384d39afb22ef50b5453ef543ba
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094279"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129673"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Informations de référence pour les développeurs de scripts C# (.csx) Azure Functions
 
@@ -35,6 +35,29 @@ L’expérience de scripts C# pour Azure Functions repose sur le [Kit SDK Azure 
 Le format *.csx* vous permet d’écrire de façon moins « réutilisable » et de vous concentrer uniquement sur l’écriture d’une fonction C#. Au lieu de tout encapsuler dans un espace de noms et une classe, définissez simplement une méthode `Run`. Ajoutez les éventuels références d’assemblys et espaces de noms au début du fichier, comme d’habitude.
 
 Les fichiers *.csx* d’une application de fonction sont compilés quand une instance est initialisée. Cette étape de compilation signifie que des opérations telles qu’un démarrage à froid peuvent être plus longues à effectuer pour les fonctions de script C# par rapport aux bibliothèques de classes C#. C’est également la raison pour laquelle les fonctions de script C# sont modifiables dans le portail Azure, alors que les bibliothèques de classes C# ne le sont pas.
+
+## <a name="folder-structure"></a>Structure de dossiers
+
+La structure de dossiers pour un projet de script C# est similaire à la structure ci-après :
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+Il existe un fichier partagé [host.json] (functions-host-json.md) que vous pouvez utiliser pour configurer l’application de fonction. Chaque fonction a son propre fichier de code (.csx) et un fichier de configuration de liaison (function.json).
+
+Les extensions de liaison requises dans la [version 2.x](functions-versions.md) du runtime Functions sont définies dans le fichier `extensions.csproj`, les fichiers de bibliothèque proprement dits se trouvant dans le dossier `bin`. Quand vous développez localement, vous devez [inscrire les extensions de liaison](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Quand vous développez des fonctions dans le portail Azure, cet enregistrement est effectué pour vous.
 
 ## <a name="binding-to-arguments"></a>Liaison aux arguments
 
@@ -336,8 +359,10 @@ Les assemblys suivants peuvent être référencés par nom simple (par exemple, 
 ## <a name="referencing-custom-assemblies"></a>Référencer des assemblys personnalisés
 
 Pour référencer un assembly personnalisé, vous pouvez utiliser soit un assembly *partagé*, soit un assembly *privé* :
-- Les assemblys partagés sont communs à toutes les fonctions d’une application de fonction. Pour référencer un assembly personnalisé, chargez-le dans un dossier nommé `bin` dans le [dossier racine de votre application de fonction](functions-reference.md#folder-structure) (wwwroot). 
-- Les assemblys privés font partie du contexte d’une fonction donnée et sont compatibles avec le chargement indépendant de versions différentes. Les assemblys privés doivent être chargés dans un dossier `bin` du répertoire de la fonction. Référencez les assemblys avec le nom de fichier, par exemple `#r "MyAssembly.dll"`. 
+
+* Les assemblys partagés sont communs à toutes les fonctions d’une application de fonction. Pour référencer un assembly personnalisé, chargez-le dans un dossier nommé `bin` dans le [dossier racine de votre application de fonction](functions-reference.md#folder-structure) (wwwroot).
+
+* Les assemblys privés font partie du contexte d’une fonction donnée et sont compatibles avec le chargement indépendant de versions différentes. Les assemblys privés doivent être chargés dans un dossier `bin` du répertoire de la fonction. Référencez les assemblys avec le nom de fichier, par exemple `#r "MyAssembly.dll"`.
 
 Pour plus d’informations sur le téléchargement de fichiers vers votre conteneur de fonctions, consultez la section sur la [gestion des packages](#using-nuget-packages).
 

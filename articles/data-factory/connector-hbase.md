@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: f47e85b47f262e30e9160f11604220aa8055be5d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 10867974c6f1c3fae6965b1888db3c4448b26a38
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701715"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364090"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Copier des données de HBase avec Azure Data Factory 
 
@@ -45,7 +45,7 @@ Les propriétés suivantes sont prises en charge pour le service lié HBase :
 | Type | La propriété type doit être définie sur **HBase**. | Oui |
 | host | Adresse IP ou nom d’hôte du serveur HBase (par exemple, `[clustername].azurehdinsight.net`， `192.168.222.160)  | Oui |
 | port | Port TCP utilisé par l’instance HBase pour écouter les connexions clientes. Valeur par défaut : 9090. Si vous êtes connecté à Azure HDInsights, spécifiez le port 443. | Non  |
-| httpPath | URL partielle correspondant au serveur HBase (par ex., `/hbaserest0`)  | Non  |
+| httpPath | URL partielle correspondant au serveur HBase (par exemple, `/hbaserest0` lors de l’utilisation de cluster HDInsights). | Non  |
 | authenticationType | Mécanisme d’authentification à utiliser pour se connecter au serveur HBase. <br/>Valeurs autorisées : **Anonymous**, **Basic**. | Oui |
 | username | Nom d’utilisateur utilisé pour se connecter à l’instance HBase.  | Non  |
 | password | Mot de passe correspondant au nom d’utilisateur. Marquez ce champ en tant que SecureString afin de le stocker en toute sécurité dans Data Factory, ou [référencez un secret stocké dans Azure Key Vault](store-credentials-in-key-vault.md). | Non  |
@@ -56,7 +56,7 @@ Les propriétés suivantes sont prises en charge pour le service lié HBase :
 | connectVia | [Runtime d’intégration](concepts-integration-runtime.md) à utiliser pour la connexion à la banque de données. Vous pouvez utiliser un runtime d’intégration auto-hébergé ou un runtime d’intégration Azure (si votre banque de données est accessible publiquement). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
 >[!NOTE]
->Si votre cluster ne prend pas en charge les sessions persistantes comme HDInsight, ajoutez explicitement un index de nœud à la fin du paramètre de chemin http, par exemple, spécifiez `/hbaserest0` au lieu de `/hbaserest`.
+>Si votre cluster ne prend pas en charge les sessions persistantes comme HDInsight, ajoutez explicitement un index de nœud à la fin du paramètre de chemin HTTP, par exemple, spécifiez `/hbaserest0` au lieu de `/hbaserest`.
 
 **Exemple HDInsights HBase :**
 

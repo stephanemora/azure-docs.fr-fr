@@ -1,22 +1,24 @@
 ---
-title: Forum Aux Questions relatif au service de l’API Visage | Microsoft Docs
+title: 'Forum Aux Questions (FAQ) : API Visage'
+titlesuffix: Azure Cognitive Services
 description: Vous trouverez ici des réponses aux questions les plus posées sur le service de l’API Visage.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: sbowles
-ms.openlocfilehash: da2f75deef8a8beea3ba23b6a39eb6d2fe104b54
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9b30fa0fbbd655c03800dadb19cc2568d404204d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367960"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129554"
 ---
 # <a name="face-api-frequently-asked-questions"></a>Forum Aux Questions (FAQ) sur l’API Visage
+
 ### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-face-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Si vous ne trouvez pas les réponses à vos questions dans ce Forum Aux Questions, interrogez la communauté de l’API Visage sur [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) ou contactez le support technique sur [UserVoice](https://cognitive.uservoice.com/).
 
 -----
@@ -36,7 +38,7 @@ L’API Visage réussit souvent dans des situations difficiles comme celles-ci, 
 
 **Réponse** : cela signifie que l’algorithme a rencontré des problèmes lors de l’analyse de l’image. Causes possibles :
 * Les formats d’image d’entrée pris en charge incluent JPEG, PNG, GIF (la première image), BMP.
-* La taille du fichier image ne doit pas dépasser 4 Mo.
+* La taille du fichier image ne doit pas dépasser 4 Mo
 * Les visages sont détectables selon une plage de tailles allant de 36 x 36 à 4 096 x 4 096 pixels. Les visages en dehors de cette plage ne sont pas détectés.
 * Certains visages peuvent ne pas être détectés en raison de difficultés techniques, par exemple, les prises très rapprochées (portrait) et les occlusions importantes. Les prises frontales et quasi-frontales produisent les meilleurs résultats.
 

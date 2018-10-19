@@ -61,12 +61,12 @@ items:
       href: how-to-transform-data.md
     - name: Écrire des données
       href: how-to-write-data.md
-  - name: Accéder aux données
-    href: how-to-access-data.md
   - name: Entraîner des modèles
     items:
     - name: Configurer des environnements d’entraînement
       href: how-to-set-up-training-targets.md
+    - name: Accéder aux données lors d’une formation
+      href: how-to-access-data.md
     - name: Créer des estimateurs
       href: how-to-train-ml-models.md
       items:
@@ -74,8 +74,6 @@ items:
         href: how-to-train-pytorch.md
       - name: TensorFlow
         href: how-to-train-tensorflow.md
-    - name: Créer et déployer des modèles ONNX
-      href: how-to-build-deploy-onnx.md
   - name: Ajuster des modèles
     items:
     - name: Optimiser les hyperparamètres
@@ -89,6 +87,10 @@ items:
       href: how-to-configure-auto-train.md
     - name: Utiliser des cibles de calcul distantes
       href: how-to-auto-train-remote.md
+  - name: Modèles ONNX
+    items:
+    - name: Créer et déployer des modèles ONNX
+      href: how-to-build-deploy-onnx.md
   - name: Déployer des modèles
     items:
     - name: Où déployer les modèles
@@ -339,9 +341,9 @@ items:
       href: ../desktop-workbench/frequently-asked-questions.md
     - name: Anciens problèmes
       href: ../desktop-workbench/known-issues-and-troubleshooting-guide.md
-ms.openlocfilehash: 6e0224a614bdf457e210b00f186bd531b5053bf4
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e408b78c66ddbd809d36c4aa8451b53031ba4d5a
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113679"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428264"

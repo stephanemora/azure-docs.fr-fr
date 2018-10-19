@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 6c196d16258e4bf000f998899086c7a6d0197fba
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8c3d632063c8ed9347aa870d0971cc09dc1a658e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038218"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129537"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -72,7 +72,7 @@ Pour contourner ce problème, nous vous recommandons d’utiliser une redirectio
 La prise en charge complète des domaines nus dans Traffic Manager est suivie dans notre backlog de fonctionnalités. Vous pouvez inscrire votre prise en charge pour cette demande de fonctionnalité en [votant pour celle-ci sur le site de commentaires de notre communauté](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Traffic Manager considère-t-il l’adresse de sous-réseau client lors du traitement des requêtes DNS ? 
-Oui, dans le cadre de recherches pour les méthodes de routage géographique et basé sur les performances, Traffic Manager tient compte, en plus de l’adresse IP source de la requête DNS qu’il reçoit (en général l’adresse IP du programme de résolution DNS), de l’adresse de sous-réseau du client si celle-ci est incluse dans la requête par le programme de résolution qui effectue la demande pour le compte de l’utilisateur final.  
+Oui, dans le cadre de recherches pour les méthodes de routage géographique, basé sur les performances et le sous-réseau, Traffic Manager tient compte, en plus de l’adresse IP source de la requête DNS qu’il reçoit (en général l’adresse IP du programme de résolution DNS), de l’adresse de sous-réseau du client si celle-ci est incluse dans la requête par le programme de résolution qui effectue la demande pour le compte de l’utilisateur final.  
 Plus précisément, le document [RFC 7871 – Client Subnet in DNS Queries](https://tools.ietf.org/html/rfc7871) fournit un [mécanisme d’extension pour DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) qui peut passer l’adresse de sous-réseau du client à partir de programmes de résolution qui le prennent en charge.
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>Qu’est-ce que le TTL du DNS et comment affecte-t-il mes utilisateurs ?
@@ -133,6 +133,39 @@ Une région ne peut être affectée qu’à un seul point de terminaison dans un
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Existe-t-il des restrictions quant à la version de l’API qui prend en charge ce type de routage ?
 
 Oui, seules les versions de l’API 2017-03-01 et plus récentes prennent en charge le type de routage Géographique. Les anciennes versions de l’API ne peuvent pas être utilisées pour créer des profils de type de routage géographique ou affecter des régions géographiques à des points de terminaison. Si une ancienne version de l’API est utilisée pour récupérer les profils d’un abonnement Azure, les profils de type de routage géographique ne sont pas retournés. En outre, si vous utilisez des versions anciennes de l’API, les profils retournés qui contiennent des points de terminaison avec une affectation de régions géographiques n’affichent pas les régions géographiques affectées.
+
+## <a name="traffic-manager-subnet-traffic-routing-method"></a>Méthode de routage du trafic en fonction du sous-réseau de Traffic Manager
+
+### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Quels sont les cas d’utilisation dans lesquels le routage en fonction du sous-réseau est utile ?
+Le routage en fonction du sous-réseau permet de différencier l’expérience que vous offrez à des ensembles spécifiques d’utilisateurs identifiés par l’adresse IP source de l’adresse IP de leurs requêtes DNS. Par exemple, vous pouvez afficher un contenu différent si les utilisateurs se connectent à un site Web depuis votre siège social. Vous pouvez aussi limiter l’accès des utilisateurs de certains fournisseurs de services Internet aux seuls points de terminaison qui prennent uniquement en charge les connexions IPv4 si ces fournisseurs de services Internet offrent des performances moindres avec IPv6.
+Il est possible d’utiliser la méthode de routage en fonction du sous-réseau conjointement à d’autres profils dans un ensemble de profils imbriqués. Par exemple, si vous souhaitez utiliser la méthode de routage géographique pour la délimitation géographique des utilisateurs, et que vous souhaitez appliquer une autre méthode de routage pour un fournisseur d’accès spécifique, vous pouvez avoir une profil avec la méthode de routage en fonction du sous-réseau comme profil parent et passer outre ce fournisseur de services Internet pour utiliser un profil enfant spécifique, et avoir le profil géographique standard pour tous les autres.
+
+### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Comment Traffic Manager connaît-il l’adresse IP de l’utilisateur final ?
+Les appareils des utilisateurs finaux ont généralement recours à un programme de résolution DNS qui effectue la recherche DNS en leur nom. L’adresse IP sortante de ces programmes de résolution est ce que Traffic Manager considère comme adresse IP source. En outre, la méthode de routage en fonction du sous-réseau recherche également s’il existe des informations de sous-réseau client étendu (ECS) EDNS0 transmises avec la requête. En présence d’informations ECS, cette adresse est utilisée pour déterminer le routage. En l’absence d’informations ECS, l’adresse IP source de la requête est utilisée pour le routage.
+
+### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>Comment puis-je spécifier des adresses IP avec le routage en fonction du sous-réseau ?
+Les adresses IP à associer à un point de terminaison peuvent être spécifiées de deux manières. Tout d’abord, vous pouvez utiliser la notation d’octet décimale à quatre points avec une adresse de début et une adresse de fin pour spécifier la plage (par exemple, 1.2.3.4-5.6.7.8 ou 3.4.5.6-3.4.5.6). Ensuite, vous pouvez utiliser la notation CIDR pour spécifier la plage (par exemple, 1.2.3.0/24). Vous pouvez spécifier plusieurs plages et utiliser les deux types de notation dans un ensemble de plages. Quelques restrictions s’appliquent.
+-   Les plages d’adresses ne peuvent pas se chevaucher, dans la mesure où chaque adresse IP doit être mappée avec un seul point de terminaison unique.
+-   L’adresse de début ne peut pas être supérieure à l’adresse de fin.
+-   Dans le cas de la notation CIDR, l’adresse IP avant « / » doit être l’adresse de début de la plage (par exemple, 1.2.3.0/24 est valide, mais 1.2.3.4.4/24 ne l’est pas).
+
+### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Comment puis-je spécifier un point de terminaison de secours avec le routage en fonction du sous-réseau ?
+Dans un profil avec le routage en fonction du sous-réseau, si vous avez un point de terminaison qui n’est mappé avec aucun sous-réseau, toute requête qui ne correspond pas à d’autres points de terminaison est redirigée vers ce point. Il est vivement recommandé d’avoir un point de terminaison de secours dans votre profil, car Traffic Manager renvoie une réponse NXDOMAIN si une requête arrive et qu’elle n’est mappée avec aucun point de terminaison, ou si elle est mappée avec un point de terminaison défectueux.
+
+### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>Que se passe-t-il si un point de terminaison est désactivé dans un profil de type de routage en fonction du sous-réseau ?
+Dans un profil avec le routage en fonction du sous-réseau, si vous avez un point de terminaison désactivé, Traffic Manager se comporte comme si ce point de terminaison et les mappages de sous-réseau n’existent pas. Si une requête susceptible de correspondre à son mappage d’adresse IP est reçue et que le point de terminaison est désactivé, Traffic Manager renvoie un point de terminaison de secours (sans mappage). Si ce point de terminaison n’est pas présent, il renvoie une réponse NXDOMAIN.
+
+## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Méthode de routage du trafic MultiValue de Traffic Manager
+
+### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>Quels sont les cas d’utilisation dans lesquels le routage MultiValue est utile ?
+Le routage MultiValue renvoie plusieurs points de terminaison intègres dans une réponse unique à une requête. Principal avantage : si un point de terminaison est défectueux, le client dispose de davantage d’options pour effectuer une nouvelle tentative sans autre appel DNS (qui peut renvoyer la même valeur à partir d’un cache en amont). Cela s’applique pour les applications sensibles à la disponibilité pour minimiser le temps d’arrêt.
+Autre utilisation de la méthode de routage MultiValue : si un point de terminaison est « à double hébergement » pour les adresses IPv4 et IPv6, et que vous souhaitez permettre à l’appelant de choisir entre ces deux options lorsqu’il établit une connexion au point de terminaison.
+
+### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>Combien de points de terminaison sont renvoyés avec le routage MultiValue ?
+Vous pouvez spécifier le nombre maximal de points de terminaison à renvoyer lors de la réception d’une requête. La valeur maximale possible pour cette configuration est 10.
+
+### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>Obtiendrais-je le même ensemble de points de terminaison avec le routage MultiValue ?
+Nous ne pouvons pas garantir que le même ensemble de points de terminaison est renvoyé pour chaque requête. Cela dépend également du fait que certains des points de terminaison peuvent devenir défectueux, auquel cas ils ne sont pas inclus dans la réponse.
 
 ## <a name="real-user-measurements"></a>Mesures des utilisateurs réels
 
@@ -257,7 +290,7 @@ Oui. Les emplacements intermédiaires de services cloud peuvent être configuré
 
 Traffic Manager ne fournit pas actuellement de serveurs de noms adressables en IPv6. Toutefois, il prend en charge les clients IPv6 connectés à des points de terminaison IPv6. Un client n’effectue pas de requêtes DNS directement vers Traffic Manager. Au lieu de cela, il utilise un service DNS récursif. Un client utilisant uniquement IPv6 envoie des requêtes au service DNS récursif via IPv6. Après quoi le service récursif doit être en mesure de contacter les serveurs de noms Traffic Manager à l’aide du protocole IPv4.
 
-Traffic Manager répond avec le nom DNS du point de terminaison. Pour prendre en charge un point de terminaison IPv6, un enregistrement AAAA DNS pointant le nom DNS du point de terminaison vers l’adresse IPv6 doit exister. Les contrôles d’intégrité Traffic Manager n’acceptent que les adresses IPv4. Le service doit exposer un point de terminaison IPv4 sur le même nom DNS.
+Traffic Manager répond avec le nom DNS ou l’adresse IP du point de terminaison. Pour prendre en charge un point de terminaison IPv6, il existe deux options. Vous pouvez ajouter le point de terminaison en tant que nom DNS associé à un enregistrement AAAA. Traffic Manager contrôle alors l’intégrité de ce point de terminaison et le renvoie en tant qu’un enregistrement CNAME dans la réponse à la requête. Vous pouvez également ajouter ce point de terminaison directement à l’aide de l’adresse IPv6, auquel cas Traffic Manager renvoie un enregistrement de type AAAA dans la réponse à la requête. 
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Puis-je utiliser Traffic Manager avec plusieurs applications web dans la même région ?
 
@@ -300,6 +333,46 @@ Traffic manager ne peut pas fournir de validation de certificat :
 * Les certificats SNI côté serveur ne sont pas pris en charge.
 * Les certificats clients ne sont pas pris en charge.
 
+### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Dois-je utiliser une adresse IP ou un nom DNS lors de l’ajout d’un point de terminaison ?
+Traffic Manager prend en charge l’ajout de points de terminaison de trois façons : nom DNS, adresse IPv4 et adresse IPv6. Si le point de terminaison est ajouté en tant qu’adresse IPv4 ou IPv6, la réponse à la requête est un type d’enregistrement A ou AAAA, respectivement. Si le point de terminaison a été ajouté en tant que nom DNS, la réponse à la requête est un type d’enregistrement CNAME. Notez que l’ajout de points de terminaison en tant qu’adresse IPv4 ou IPv6 est autorisé uniquement si le point de terminaison est externe.
+L’ensemble des méthodes de routage et des paramètres de surveillance sont pris en charge par les trois types d’adressage de point de terminaison.
+
+### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>Quels types d’adresses IP puis-je utiliser lors de l’ajout d’un point de terminaison ?
+Traffic Manager permet d’utiliser des adresses IPv4 ou IPv6 pour spécifier des points de terminaison. Il existe quelques restrictions, répertoriées ci-dessous :
+- Les adresses correspondant aux espaces d’adressage IP privé réservés ne sont pas autorisées. Ces adresses sont celles signalées dans RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544 et RFC 5771.
+- L’adresse ne doit pas contenir de numéros de port (vous pouvez spécifier les ports à utiliser dans les paramètres de configuration de profil). 
+- Deux points de terminaison d’un même profil ne peuvent pas avoir la même adresse IP cible.
+
+### <a name="can-i-use-different-endpoint-addressing-types-within-a-single-profile"></a>Puis-je utiliser différents types d’adressage de point de terminaison dans un même profil ?
+Non, Traffic Manager ne permet pas de combiner des types d’adressage de point de terminaison au sein d’un profil, sauf dans le cas d’un profil avec le type de routage MultiValue, où vous pouvez combiner les types d’adressage IPv4 et IPv6.
+
+### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>Que se passe-t-il lorsque le type d’enregistrement d’une requête entrante est différent du type d’enregistrement associé au type d’adressage des points de terminaison ?
+Lors de la réception d’une requête sur un profil, Traffic Manager commence par rechercher le point de terminaison à renvoyer en fonction de la méthode de routage spécifiée et l’état d’intégrité des points de terminaison. Il examine ensuite le type d’enregistrement demandé dans la requête entrante et le type d’enregistrement associé au point de terminaison avant de renvoyer une réponse basée sur le tableau ci-dessous.
+
+Pour les profils avec une méthode de routage différente de MultiValue :
+|Requête entrante|    Type de point de terminaison|  Réponse fournie|
+|--|--|--|
+|TOUTES |  A / AAAA / CNAME |  Point de terminaison cible| 
+|A |    A / CNAME | Point de terminaison cible|
+|A |    AAAA |  NODATA |
+|AAAA | AAAA / CNAME |  Point de terminaison cible|
+|AAAA | A | NODATA |
+|CNAME |    CNAME | Point de terminaison cible|
+|CNAME  |A / AAAA | NODATA |
+|
+Pour les profils avec la méthode de routage MultiValue :
+
+|Requête entrante|    Type de point de terminaison | Réponse fournie|
+|--|--|--|
+|TOUTES |  Combinaison de A et AAAA | Points de terminaison cibles|
+|A |    Combinaison de A et AAAA | Uniquement des points de terminaison de cibles de type A|
+|AAAA   |Combinaison de A et AAAA|     Uniquement des points de terminaison cibles de type A|
+|CNAME |    Combinaison de A et AAAA | NODATA |
+
+### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>Puis-je utiliser un profil avec des points de terminaison IPv4/IPv6 dans un profil imbriqué ?
+Oui, avec l’exception qu’un profil de type MultiValue ne peut pas être un profil parent dans un profil imbriqué.
+
+
 ### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>J’ai arrêté un point de terminaison d’application web/service cloud Azure dans mon profil Traffic Manager, mais je ne reçois pas de trafic même après un redémarrage. Comment puis-je résoudre ce problème ?
 
 Quand un point de terminaison d’application web/service cloud Azure est arrêté, Traffic Manager cesse de vérifier son intégrité et redémarre les vérifications d’intégrité uniquement après avoir détecté le redémarrage du point de terminaison. Pour éviter ce délai, désactivez puis réactivez ce point de terminaison dans le profil Traffic Manager après avoir redémarré le point de terminaison.   
@@ -326,9 +399,13 @@ Traffic Manager fournit plusieurs paramètres qui peuvent vous aider à contrôl
 
 Les paramètres de surveillance de Traffic Manager sont définis au niveau du profil. Si vous devez utiliser un autre paramètre de surveillance pour un seul point de terminaison, il convient de définir ce point de terminaison comme [profil imbriqué](traffic-manager-nested-profiles.md) dont les paramètres de surveillance sont différents du profil parent.
 
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>Quel en-tête hôte est utilisé pour les contrôles d’intégrité des points de terminaison ?
+### <a name="how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints"></a>Comment puis-je attribuer des en-têtes HTTP aux contrôles d’intégrité Traffic Manager pour mes points de terminaison ?
+Traffic Manager permet de spécifier des en-têtes personnalisés dans les contrôles d’intégrité HTTP(S) lancés sur vos points de terminaison. Si vous souhaitez spécifier un en-tête personnalisé, vous pouvez le faire au niveau du profil (applicable à tous les points de terminaison) ou au niveau du point de terminaison. Si un en-tête est défini à deux niveaux, celui spécifié au niveau du point de terminaison prévaut sur celui au niveau du profil.
+Il est courant de spécifier des en-têtes d’hôte afin que les requêtes de Traffic Manager soient correctement acheminées vers un point de terminaison hébergé dans un environnement mutualisé. Un autre cas d’usage consiste à identifier les requêtes de Traffic Manager à partir des journaux de requête d’un point de terminaison HTTP(S).
 
-Traffic Manager utilise des en-têtes d’hôte pour les contrôles d’intégrité HTTP et HTTPS. L’en-tête d’hôte utilisé par Traffic Manager est le nom du point de terminaison cible configuré dans le profil. La valeur utilisée dans l’en-tête hôte ne peut pas être spécifiée séparément de la propriété cible.
+## <a name="what-host-header-do-endpoint-health-checks-use"></a>Quel en-tête hôte est utilisé pour les contrôles d’intégrité des points de terminaison ?
+Si aucun paramètre d’en-tête hôte personnalisé n’est fourni, l’en-tête d’hôte utilisé par Traffic Manager est le nom DNS de la cible de point de terminaison configuré dans le profil, s’il est disponible. 
+
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Quelles sont les adresses IP à l’origine des contrôles d’intégrité ?
 

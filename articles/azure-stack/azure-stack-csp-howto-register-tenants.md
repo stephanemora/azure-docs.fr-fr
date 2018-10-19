@@ -3,7 +3,7 @@ title: Ajouter des locataires pour l’utilisation et la facturation sur Azure S
 description: Les étapes requises permettent d’ajouter un utilisateur final à Azure Stack géré par un fournisseur de services cloud.
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: brenduns
+ms.date: 09/19/2018
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: eef1a2f82dc73a1c53b89bb3c9d145f87212ffcc
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382686"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498570"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Ajouter un locataire pour l’utilisation et la facturation sur Azure Stack
 
@@ -69,9 +69,9 @@ Mettez à jour votre inscription avec l’abonnement du nouveau client. Azure si
 ### <a name="new-azurermresource-powershell-parameters"></a>Paramètres PowerShell New-AzureRmResource
 | Paramètre | Description |
 | --- | --- | 
-|registrationSubscriptionID | L’abonnement Azure qui était utilisé au moment de l’inscription initiale d’Azure Stack. |
-| customerSubscriptionID | L’abonnement Azure (pas Azure Stack) appartenant au client à inscrire. Doit être créé dans l’offre de fournisseur de services cloud ; dans la pratique, cela signifie via l’Espace partenaires. Si un client dispose de plus d’un locataire Azure Active Directory, cet abonnement doit être créé dans le locataire qui sera utilisé pour se connecter à Azure Stack.
-| resourceGroup | Le groupe de ressources Azure dans lequel est stockée votre inscription. 
+|registrationSubscriptionID | L’abonnement Azure qui était utilisé au moment de l’inscription initiale d’Azure Stack.|
+| customerSubscriptionID | L’abonnement Azure (pas Azure Stack) appartenant au client à inscrire. Doit être créé dans l’offre de fournisseur de services cloud ; dans la pratique, cela signifie via l’Espace partenaires. Si un client dispose de plus d’un locataire Azure Active Directory, cet abonnement doit être créé dans le locataire qui sera utilisé pour se connecter à Azure Stack. L’ID d’abonnement client doit utiliser des lettres minuscules. |
+| resourceGroup | Le groupe de ressources Azure dans lequel est stockée votre inscription. |
 | registrationName | Le nom de l’inscription de votre compte Azure Stack. Il s’agit d’un objet stocké dans Azure. | 
 | properties | Spécifie les propriétés de la ressource. Utilisez ce paramètre pour spécifier les valeurs des propriétés spécifiques au type de ressource.
 

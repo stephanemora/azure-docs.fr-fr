@@ -9,15 +9,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 723006d37ed0570e32790a0bb70a3dce5a87ade8
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43346668"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465807"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Surveiller les groupes de ressources avec Azure Monitor (préversion)
 
@@ -109,6 +109,11 @@ Les performances offrent leur propre galerie de classeurs. Pour App Service, le 
 Dans ce cas, si vous sélectionnez Modifier, vous verrez que cet ensemble de visualisations est alimenté par des métriques Azure Monitor.
 
  ![Capture d’écran de l’affichage des performances avec des métriques Azure](.\media\resource-group-insights\0012-performance-metrics.png)
+
+## <a name="troubleshooting"></a>Résolution de problèmes
+
+### <a name="enabling-access-to-alerts"></a>Activation de l’accès aux alertes
+Azure Monitor pour les groupes de ressources a besoin de certaines autorisations pour accéder à l’état d’alerte des ressources dans votre groupe de ressources. Si vous voyez un message d’erreur lors du chargement des alertes, vous ne disposez pas des autorisations suffisantes. Demandez à l’administrateur de vous accorder le rôle de **propriétaire** ou **contributeur** pour l’abonnement contenant le groupe de ressources.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

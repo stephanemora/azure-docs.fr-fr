@@ -105,6 +105,7 @@
 #### [Archiver les journaux d’activité dans un compte de stockage Azure](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Intégrer les journaux d’activité à Splunk à l’aide d’Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
 #### [Intégrer les journaux d’activité à SumoLogic à l’aide d’Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
+#### [Intégrer les journaux d’activité à Log Analytics à l’aide d’Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md)
 
 ### Informations de référence
 #### [Rétention](reports-monitoring/reference-reports-data-retention.md)

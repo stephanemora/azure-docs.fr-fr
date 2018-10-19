@@ -1,6 +1,6 @@
 ---
-title: 'Authentification de service à service : Kit de développement logiciel (SDK) .NET avec Data Lake Store à l’aide d’Azure Active Directory | Microsoft Docs'
-description: Découvrez comment procéder à une authentification de service à service auprès de Data Lake Store à l’aide d’Azure Active Directory au moyen du Kit de développement logiciel (SDK) .NET.
+title: 'Authentification de service à service : SDK .NET avec Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory | Microsoft Docs'
+description: Découvrez comment procéder à une authentification de service à service auprès d’Azure Data Lake Storage Gen1 en utilisant Azure Active Directory et le Kit de développement logiciel (SDK) .NET.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 388b84024a031a181625404ec1429087982dffbe
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: bd03c0801fed0da6d9a87466bc33819f6afa4578
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625489"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296921"
 ---
-# <a name="service-to-service-authentication-with-data-lake-store-using-net-sdk"></a>Authentification de service à service auprès de Data Lake Store à l’aide du Kit de développement logiciel (SDK) .NET
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-net-sdk"></a>Authentification de service à service auprès d’Azure Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET
 > [!div class="op_single_selector"]
 > * [À l’aide de Java](data-lake-store-service-to-service-authenticate-java.md)
 > * [Utilisation du kit de développement logiciel (SDK) .NET](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -27,7 +27,7 @@ ms.locfileid: "34625489"
 > 
 >  
 
-Dans cet article, vous allez apprendre à utiliser le Kit de développement logiciel (SDK) .NET pour effectuer une authentification de service à service auprès d’Azure Data Lake Store. Pour plus d’informations sur l’authentification des utilisateurs finals auprès d’Azure Data Lake Store à l’aide du Kit de développement logiciel (SDK) .NET, consultez l’article [End-user authentication with Data Lake Store using .NET SDK (Authentification des utilisateurs finals auprès de Data Lake Store à l’aide du Kit de développement logiciel (SDK) .NET)](data-lake-store-end-user-authenticate-net-sdk.md).
+Dans cet article, vous allez apprendre à utiliser le Kit de développement logiciel (SDK) .NET pour effectuer une authentification de service à service auprès d’Azure Data Lake Storage Gen1. Pour plus d’informations sur l’authentification des utilisateurs finaux auprès de Data Lake Storage Gen1 à l’aide du Kit de développement logiciel (SDK) .NET, consultez la rubrique [Authentification des utilisateurs finaux auprès de Data Lake Storage Gen1 avec le Kit de développement logiciel (SDK) .NET](data-lake-store-end-user-authenticate-net-sdk.md).
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -35,7 +35,7 @@ Dans cet article, vous allez apprendre à utiliser le Kit de développement logi
 
 * **Un abonnement Azure**. Consultez la page [Obtention d’un essai gratuit d’Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Créez une application « web » Azure Active Directory**. Vous devez avoir suivi la procédure [Authentification de service à service auprès de Data Lake Store à l’aide d’Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Créez une application « web » Azure Active Directory**. Vous devez avoir suivi la procédure indiquée dans [Authentification de service à service auprès de Data Lake Storage Gen1 à l’aide d’Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="create-a-net-application"></a>Créer une application .NET
 1. Ouvrez Visual Studio et créez une application console.
@@ -78,7 +78,7 @@ Dans cet article, vous allez apprendre à utiliser le Kit de développement logi
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 
 ## <a name="service-to-service-authentication-with-client-secret"></a>Authentification de service à service avec une clé secrète client
-Ajoutez cet extrait de code dans votre application cliente .NET. Remplacez les valeurs d’espace réservé par les valeurs récupérées à partir d’une application web Azure AD (répertoriée comme condition préalable).  Cet extrait de code vous permet d’authentifier votre application **de façon non interactive** auprès de Data Lake Store à l’aide de la clé secrète client/clé de l’application web Azure AD. 
+Ajoutez cet extrait de code dans votre application cliente .NET. Remplacez les valeurs d’espace réservé par les valeurs récupérées à partir d’une application web Azure AD (répertoriée comme condition préalable).  Cet extrait de code permet d’authentifier votre application **de façon non interactive** auprès de Data Lake Storage Gen1 à l’aide de la clé secrète client/clé de l’application web Azure AD. 
 
     private static void Main(string[] args)
     {    
@@ -97,7 +97,7 @@ L’extrait de code précédent utilise une fonction d’assistance `GetCreds_SP
 
 ## <a name="service-to-service-authentication-with-certificate"></a>Authentification de service à service avec un certificat
 
-Ajoutez cet extrait de code dans votre application cliente .NET. Remplacez les valeurs d’espace réservé par les valeurs récupérées à partir d’une application web Azure AD (répertoriée comme condition préalable). Cet extrait de code vous permet d’authentifier votre application **de façon non interactive** auprès de Data Lake Store à l’aide du certificat d’une application web Azure AD. Pour plus d’informations sur la création d’une application Azure AD, consultez [Créer un principal du service avec un certificat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
+Ajoutez cet extrait de code dans votre application cliente .NET. Remplacez les valeurs d’espace réservé par les valeurs récupérées à partir d’une application web Azure AD (répertoriée comme condition préalable). Cet extrait de code permet d’authentifier votre application **de façon non interactive** auprès de Data Lake Storage Gen1 à l’aide du certificat d’une application web Azure AD. Pour plus d’informations sur la création d’une application Azure AD, consultez [Créer un principal du service avec un certificat](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-self-signed-certificate).
 
     
     private static void Main(string[] args)
@@ -116,9 +116,9 @@ Ajoutez cet extrait de code dans votre application cliente .NET. Remplacez les v
 L’extrait de code précédent utilise une fonction d’assistance `GetCreds_SPI_Cert`. Le code de cette fonction d’assistance est disponible [ici sur Github](https://github.com/Azure-Samples/data-lake-analytics-dotnet-auth-options#getcreds_spi_cert).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans cet article, vous avez appris à utiliser l’authentification de service à service auprès d’Azure Data Lake Store avec le Kit de développement logiciel (SDK) .NET. Vous pouvez à présent consulter les articles ci-après, qui expliquent comment utiliser le Kit de développement logiciel (SDK) .NET pour travailler avec Azure Data Lake Store.
+Dans cet article, vous avez appris à utiliser l’authentification de service à service auprès d’Azure Data Lake Storage Gen1 avec le Kit de développement logiciel (SDK) .NET. Vous pouvez à présent consulter les articles ci-après, qui expliquent comment utiliser le Kit de développement logiciel (SDK) .NET pour travailler avec Data Lake Storage Gen1.
 
-* [Opérations de gestion des comptes sur Data Lake Store à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-get-started-net-sdk.md)
-* [Opérations de données sur Data Lake Store à l’aide du kit de développement logiciel (SDK) .NET](data-lake-store-data-operations-net-sdk.md)
+* [Opérations de gestion du compte sur Data Lake Storage Gen1 à l’aide du SDK .NET](data-lake-store-get-started-net-sdk.md)
+* [Opérations sur les données dans Data Lake Storage Gen1 à l’aide du SDK .NET](data-lake-store-data-operations-net-sdk.md)
 
 

@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2018
+ms.date: 09/19/2018
 ms.author: terrylan
-ms.openlocfilehash: ec8e4b1edfe815670664de83edf98a9e478101d2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 309dddcea1022d9f14c1d4492f5564f2a4ad3b6f
+ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144341"
+ms.lasthandoff: 09/20/2018
+ms.locfileid: "46498502"
 ---
 # <a name="azure-network-security-overview"></a>Vue d’ensemble de la sécurité du réseau Azure
 
-Azure inclut une infrastructure réseau solide pour prendre en charge les exigences de connectivité de vos applications et services. La connectivité réseau est possible entre les ressources hébergées dans Azure, entre les ressources hébergées sur site et dans Azure, mais aussi vers et à partir d’Internet et d’Azure.
+La sécurité du réseau pourrait être définie comme le processus de protection des ressources contre les accès non autorisés ou les attaques en appliquant des contrôles au trafic réseau. L’objectif est de vous assurer que seul le trafic légitime est autorisé. Azure inclut une infrastructure réseau solide pour prendre en charge les exigences de connectivité de vos applications et services. La connectivité réseau est possible entre les ressources hébergées dans Azure, entre les ressources hébergées sur site et dans Azure, mais aussi vers et à partir d’Internet et d’Azure.
 
 Cet article explique quelques options que propose Azure dans le domaine de la sécurité du réseau. Vous en apprendrez plus sur :
 
@@ -77,7 +77,11 @@ En savoir plus :
 
 #### <a name="asc-just-in-time-vm-access"></a>Accès juste-à-temps aux machines virtuelles pour ASC
 
-Le [Centre de sécurité Azure](../security-center/security-center-just-in-time.md) gère les NSG sur les machines virtuelles et verrouillent l’accès à la machine virtuelle jusqu’à ce qu’un utilisateur avec les permissions de contrôle d’accès en fonction du rôle [(RBAC)](../role-based-access-control/overview.md) appropriées demande l’accès. Quand l’utilisateur est autorisé avec succès, ASC modifie les NSG pour autoriser l’accès aux ports sélectionnés pendant la durée spécifiée. Passé ce délai, les NSG sont restaurés à leur état sécurisé précédent.
+Le [Centre de sécurité Azure](../security-center/security-center-intro.md) gère les NSG sur les machines virtuelles et verrouillent l’accès à la machine virtuelle jusqu’à ce qu’un utilisateur avec les permissions de contrôle d’accès en fonction du rôle [(RBAC)](../role-based-access-control/overview.md) appropriées demande l’accès. Quand l’utilisateur est autorisé avec succès, ASC modifie les NSG pour autoriser l’accès aux ports sélectionnés pendant la durée spécifiée. Passé ce délai, les NSG sont restaurés à leur état sécurisé précédent.
+
+En savoir plus :
+
+* [Gérer l’accès Juste à temps à la machine virtuelle](../security-center/security-center-just-in-time.md)
 
 #### <a name="service-endpoints"></a>Points de terminaison de service
 

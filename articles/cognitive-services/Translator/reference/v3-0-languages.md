@@ -1,35 +1,36 @@
 ---
-title: Méthode de langue de l’API de traduction de texte Translator Text | Microsoft Docs
-description: Permet d’utiliser la méthode de langue de l’API de traduction de texte Translator Text.
+title: Méthode Languages de l’API de traduction de texte Translator Text
+titlesuffix: Azure Cognitive Services
+description: Utilisez la méthode Languages de l’API de traduction de texte Translator Text.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 93c06218a560faf439f05903438d021b372ce257
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 51f15bd9c75f24be0d477d10de55c93a51cfbf3f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369692"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129639"
 ---
-# <a name="text-api-30-languages"></a>API de traduction de texte 3.0 : langues
+# <a name="translator-text-api-30-languages"></a>API de traduction de texte Translator Text 3.0 : Languages
 
-Permet d’obtenir l’ensemble des langues actuellement prises en charge par d’autres opérations de l’API de texte. 
+Permet d’obtenir l’ensemble des langues actuellement prises en charge par d’autres opérations de l’API de traduction de texte Translator Text. 
 
 ## <a name="request-url"></a>URL de la demande
 
-Envoyez une requête `GET` à :
+Envoyez une demande `GET` à :
 ```HTTP
 https://api.cognitive.microsofttranslator.com/languages?api-version=3.0
 ```
 
 ## <a name="request-parameters"></a>Paramètres de la demande
 
-Les paramètres transmis à la chaîne de requête sont les suivants :
+Les paramètres de demande transmis à la chaîne de requête sont les suivants :
 
 <table width="100%">
   <th width="20%">Paramètre de requête.</th>
@@ -237,13 +238,13 @@ La liste des langues prises en charge ne changera pas souvent. Pour économiser 
   </tr>
   <tr>
     <td>X-RequestId</td>
-    <td>Valeur générée par le service pour identifier la requête. Elle sert à des fins de dépannage.</td>
+    <td>Valeur générée par le service pour identifier la demande. Elle sert à des fins de dépannage.</td>
   </tr>
 </table> 
 
 ## <a name="response-status-codes"></a>Codes d’état de réponse
 
-Les codes d’état HTTP qu’une requête peut renvoyer sont les suivants. 
+Voici les codes d’état HTTP qu’une demande peut retourner. 
 
 <table width="100%">
   <th width="20%">Code d’état</th>
@@ -258,19 +259,19 @@ Les codes d’état HTTP qu’une requête peut renvoyer sont les suivants.
   </tr>
   <tr>
     <td>400</td>
-    <td>L’un des paramètres de requête est manquant ou non valide. Corrigez les paramètres de requête avant de réessayer.</td>
+    <td>L’un des paramètres de requête est manquant ou non valide. Corrigez les paramètres de demande avant de réessayer.</td>
   </tr>
   <tr>
     <td>429</td>
-    <td>L’appelant envoie trop de requêtes.</td>
+    <td>L’appelant envoie trop de demandes.</td>
   </tr>
   <tr>
     <td>500</td>
-    <td>Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la requête dans l’en-tête de réponse,`X-RequestId` et identificateur du client à partir de l’en-tête de requête `X-ClientTraceId`.</td>
+    <td>Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>Serveur temporairement indisponible. relancez la requête. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la requête dans l’en-tête de réponse,`X-RequestId` et identificateur du client à partir de l’en-tête de requête `X-ClientTraceId`.</td>
+    <td>Serveur temporairement indisponible. relancez la requête. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de la défaillance, identificateur de la demande dans l’en-tête de réponse,`X-RequestId` et identificateur du client dans l’en-tête de demande `X-ClientTraceId`.</td>
   </tr>
 </table> 
 

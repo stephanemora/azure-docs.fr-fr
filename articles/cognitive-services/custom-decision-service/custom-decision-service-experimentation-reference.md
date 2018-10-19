@@ -1,19 +1,21 @@
 ---
-title: Expérimentation - Azure Cognitive Services | Microsoft Docs
-description: Cet article est un guide pour l’expérimentation du service Décision personnalisée Azure.
+title: Expérimentation - Service Décision personnalisée
+titlesuffix: Azure Cognitive Services
+description: Cet article est un guide destiné à l’expérimentation du service Décision personnalisée.
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: b0ac0bc049d556423493f0c48dd9a548929bcd41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eec2c82b779fa5421bc9ac58107ef56f8c71bd1e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370224"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366547"
 ---
 # <a name="experimentation"></a>Expérimentation
 

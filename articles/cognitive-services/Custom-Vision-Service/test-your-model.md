@@ -1,20 +1,21 @@
 ---
-title: Tester et recycler un modèle - Service Vision personnalisée - Azure Cognitive Services | Microsoft Docs
+title: Tester et recycler un modèle - Service Vision personnalisée
+titlesuffix: Azure Cognitive Services
 description: Découvrez comment tester une image puis comment l’utiliser pour recycler le modèle.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 1933b1a45844ac99308baebe59b49687a957abfa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5830257cf246e059cbccb654462f709df981e06b
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369108"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367948"
 ---
 # <a name="test-and-retrain-a-model-with-custom-vision-service"></a>Tester et recycler un modèle avec Service Vision personnalisée
 
@@ -40,21 +41,21 @@ Pour utiliser l’image précédemment envoyée pour former le modèle, procéde
 
 1. Pour afficher des images envoyées au classifieur, ouvrez la [page web Service Vision personnalisée](https://customvision.ai) et sélectionnez l’onglet __Prédictions__.
 
-    ![Image de l’onglet Prédictions](./media/test-your-model/predictions-tab.png)
+    ![Image de l’onglet des prédictions](./media/test-your-model/predictions-tab.png)
 
     > [!TIP]
-    > L’affichage par défaut montre des images issues de l’itération actuelle. Vous pouvez utiliser le champ de liste déroulante __Itération__ pour afficher les images envoyées au cours des itérations précédentes.
+    > La vue par défaut montre des images à partir de l’itération active. Vous pouvez utiliser la zone déroulante __Iteration__ pour voir les images envoyées au cours des précédentes itérations.
 
-2. Pointez la souris sur une image pour afficher les balises qui ont été prédites par le classifieur.
+2. Pointez sur une image pour lire les mots clés qui ont été prédits par le classifieur.
 
     > [!TIP]
     > Les images étant classées par ordre de priorité, celles pouvant apporter des avantages plus importants pour le classifieur sont placées en haut. Pour sélectionner un tri différent, utilisez la section __Trier__.
 
-    Pour ajouter une image à vos données pour former le modèle, sélectionnez l’image, sélectionnez la balise, puis __Save and close__ (Enregistrer et fermer). L’image est supprimée de l’onglet __Prédictions__ et ajoutée aux images de formation. Vous pouvez l’afficher en sélectionnant l’onglet __Training Images__ (Images de formation).
+    Pour ajouter une image à vos données pour former le modèle, sélectionnez l’image, sélectionnez la balise, puis __Save and close__ (Enregistrer et fermer). L’image est supprimée des __prédictions__ et ajoutée aux images d’entraînement. Vous pouvez la voir en sélectionnant l’onglet __Training Images__ (Images d’entraînement).
 
-    ![Image de la page de balisage](./media/test-your-model/tag-image.png)
+    ![Image de la page d’étiquetage](./media/test-your-model/tag-image.png)
 
-3. Utilisez le bouton __Former__ pour recycler le classifieur.
+3. Utilisez le bouton __Train__ (Entraîner) pour ré-entraîner le classifieur.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
