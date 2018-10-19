@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 87c7029836bf28464fd48e17480119a4dcb1201c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42139868"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304048"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Activer une connexion Bureau à distance pour un rôle dans Azure Cloud Services avec Visual Studio
 
@@ -30,7 +30,7 @@ Le Bureau à distance vous permet d'accéder au bureau d'un rôle en cours d'ex�
 
 L’assistant publication que Visual Studio fournit aux services cloud inclut une option pour activer le Bureau à distance pendant le processus de publication à l’aide des informations d’identification que vous fournissez. L’utilisation de cette option est appropriée lorsque vous utilisez Visual Studio 2017 version 15.4 et les versions antérieures.
 
-Avec Visual Studio 2017 version 15.5 et les versions ultérieures, toutefois, il est recommandé d’éviter d’activer le Bureau à distance via l’Assistant publication, sauf si vous êtes l’unique développeur. Pour toute situation dans laquelle le projet peut être ouvert par d’autres développeurs, activez plutôt Bureau à distance via le portail Azure, via PowerShell ou depuis une définition de mise en production dans un flux de travail de déploiement continu. Cette recommandation est due à une modification de la façon dont Visual Studio communique avec le Bureau à distance sur le service cloud de la machine virtuelle, comme expliqué dans cet article.
+Avec Visual Studio 2017 version 15.5 et les versions ultérieures, toutefois, il est recommandé d’éviter d’activer le Bureau à distance via l’Assistant publication, sauf si vous êtes l’unique développeur. Pour toute situation dans laquelle le projet peut être ouvert par d’autres développeurs, activez plutôt Bureau à distance via le portail Azure, via PowerShell ou depuis un pipeline de mise en production dans un flux de travail de déploiement continu. Cette recommandation est due à une modification de la façon dont Visual Studio communique avec le Bureau à distance sur le service cloud de la machine virtuelle, comme expliqué dans cet article.
 
 ## <a name="configure-remote-desktop-through-visual-studio-2017-version-154-and-earlier"></a>Configurer le Bureau à distance via Visual Studio 2017 version 15.4 et versions antérieures
 
@@ -82,9 +82,9 @@ Si vous partagez le projet avec une équipe, il est alors préférable de désac
 
 ### <a name="deploying-from-a-build-server-with-visual-studio-2017-version-155-and-later"></a>Déploiement à partir d’un serveur de builds avec Visual Studio 2017 15.5 et versions ultérieures
 
-Vous pouvez déployer un projet de service cloud à partir d’un serveur de builds (par exemple, avec Visual Studio Team Services) sur lequel Visual Studio 2017 15.5 ou une version ultérieure est installée sur l’agent de build. Avec cette configuration, le déploiement s’opère dans le même ordinateur que celui sur lequel le certificat de chiffrement est disponible.
+Vous pouvez déployer un projet de service cloud à partir d’un serveur de builds (par exemple, avec Azure DevOps Services) sur lequel Visual Studio 2017 15.5 ou une version ultérieure est installée sur l’agent de build. Avec cette configuration, le déploiement s’opère dans le même ordinateur que celui sur lequel le certificat de chiffrement est disponible.
 
-Pour utiliser l’extension RDP à partir de Visual Studio Team Services, incluez les détails suivants dans votre définition de build :
+Pour utiliser l’extension RDP à partir d’Azure DevOps Services, incluez les détails suivants dans votre pipeline de build :
 
 1. Incluez `/p:ForceRDPExtensionOverPlugin=true` dans vos arguments MSBuild pour vous assurer que le déploiement fonctionne avec l’extension RDP plutôt que le plug-in RDP. Par exemple : 
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: deguhath
-ms.openlocfilehash: abb1c7a3f597804a84f06462b1e50bb5a63fb9b3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 78bbdb244d9bd52a06623f7a6fa3bca123ef3828
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34837359"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300067"
 ---
 # <a name="collaborative-coding-with-git"></a>Développement collaboratif avec Git
 
@@ -28,13 +28,13 @@ Dans cet article, nous expliquons comment développer le code de projets de scie
 
 ## 1. <a name='Linkaworkitemwithagitbranch-1'></a>Lier un élément de travail à une branche Git 
 
-VSTS fournit un moyen pratique de connecter un élément de travail (un récit ou une tâche) à une branche Git. En effet, il vous permet de lier votre récit ou votre tâche directement au code associé. 
+Azure DevOps Services fournit un moyen pratique de connecter un élément de travail (un récit ou une tâche) à une branche Git. En effet, il vous permet de lier votre récit ou votre tâche directement au code associé. 
 
 Pour connecter un élément de travail à une nouvelle branche, double-cliquez sur un élément de travail, puis, dans la fenêtre contextuelle, cliquez sur **Créer une branche** sous **+ Ajouter un lien**.  
 
 ![1](./media/collaborative-coding-with-git/1-sprint-board-view.png)
 
-Fournissez les informations concernant cette nouvelle branche, telles que son nom ou son dépôt Git de base. Le dépôt Git choisi doit être celui situé sous le projet d’équipe auquel appartient l’élément de travail. La branche de base peut être la branche master ou une autre branche existante.
+Fournissez les informations concernant cette nouvelle branche, telles que son nom ou son dépôt Git de base. Le dépôt Git choisi doit être celui situé sous le projet auquel appartient l’élément de travail. La branche de base peut être la branche master ou une autre branche existante.
 
 ![2](./media/collaborative-coding-with-git/2-create-a-branch.png)
 
@@ -70,11 +70,11 @@ Maintenant, supposons que vous apportiez des modifications à la branche *data\_
 
 ![5.](./media/collaborative-coding-with-git/5-sprint-push-to-branch.png)
 
-## 3. <a name='CreateapullrequestonVSTS-3'></a>Créer une demande de tirage (pull request) dans VSTS 
+## 3. <a name='CreateapullrequestonVSTS-3'></a>Créer une demande de tirage sur Azure DevOps Services 
 
-Lorsque vous êtes prêt, après quelques validations et envois (push), à fusionner la branche actuelle avec la branche de base, vous pouvez envoyer une **demande de tirage (pull request)** sur le serveur VSTS. 
+Lorsque vous êtes prêt, après quelques validations et envois (push), à fusionner la branche actuelle avec la branche de base, vous pouvez soumettre une **demande de tirage (pull request)** sur Azure DevOps Services. 
 
-Dans la page principale de votre projet d’équipe, cliquez sur **CODE**. Sélectionnez la branche à fusionner et le nom du dépôt Git avec lequel vous souhaitez fusionner la branche. Ensuite, cliquez sur **Demandes de tirage (Pull requests)**, puis cliquez sur **Nouvelle demande de tirage (Pull request)** pour créer une revue de demande de tirage avant que le travail de la branche ne soit fusionné avec sa branche de base.
+Dans la page principale de votre projet, cliquez sur **CODE**. Sélectionnez la branche à fusionner et le nom du dépôt Git avec lequel vous souhaitez fusionner la branche. Ensuite, cliquez sur **Demandes de tirage (Pull requests)**, puis cliquez sur **Nouvelle demande de tirage (Pull request)** pour créer une revue de demande de tirage avant que le travail de la branche ne soit fusionné avec sa branche de base.
 
 ![6.](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 

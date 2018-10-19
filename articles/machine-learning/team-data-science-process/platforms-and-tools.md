@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 4b0c5d55c8a62dadbe11382997f4d258e66e1a31
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0c5cfaad096b5702f321eead1f3da0d9225f4b53
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951139"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302858"
 ---
-# <a name="platforms-and-tools-for-data-science-team-projects"></a>Plateformes et outils pour les projets d’équipe de science des données
+# <a name="platforms-and-tools-for-data-science-projects"></a>Plateformes et outils pour les projets de science des données
 
 Microsoft fournit une gamme complète de services, et de ressources de données et d’analytique pour les plateformes cloud et locales. Vous pouvez déployer ces services et ressources pour faciliter et faire évoluer l’exécution de vos projets de science des données. [Team Data Science Process](overview.md) (TDSP) fournit aux équipes des conseils pour implémenter les projets de science des données de façon collaborative, en garantissant la traçabilité et la gestion des versions.  Pour obtenir une description des rôles des membres de l’équipe de science des données et des tâches qui leur incombent dans le cadre de ce processus, consultez [Rôles et tâches du processus TDSP](roles-tasks.md).
 
@@ -29,7 +29,7 @@ Les équipes de science des données qui utilisent le processus TDSP ont accès 
 
 - Instances Data Science Virtual Machine (Windows et CentOS Linux)
 - Clusters HDInsight Spark
-- SQL Data Warehouse
+- SQL Data Warehouse
 - Azure Data Lake
 - Clusters HDInsight Hive
 - Stockage Fichier Azure
@@ -126,7 +126,7 @@ Pour installer Git sur les machines Linux (CentOS), exécutez la commande bash s
 
 ### <a name="generate-public-ssh-key-on-linux-centos-machines"></a>Générer une clé SSH publique sur les machines Linux (CentOS)
 
-Si vous exécutez les commandes Git sur des machines Linux (CentOS), vous devez ajouter la clé SSH publique de votre machine sur votre serveur VSTS pour que celui-ci reconnaisse la machine. Vous devez d’abord générer une clé SSH publique, puis l’ajouter aux clés publiques SSH dans la page de vos paramètres de sécurité VSTS. 
+Si vous exécutez les commandes Git sur une machine Linux (CentOS), vous devez ajouter la clé SSH publique de votre machine à vos Azure DevOps Services pour que ceux-ci reconnaissent la machine. Vous devez d’abord générer une clé SSH publique, puis l’ajouter aux clés publiques SSH dans la page de vos paramètres de sécurité Azure DevOps Services. 
 
 - Pour générer la clé SSH, exécutez les deux commandes suivantes : 
 
@@ -136,7 +136,7 @@ Si vous exécutez les commandes Git sur des machines Linux (CentOS), vous devez 
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Copiez l’intégralité de la clé ssh, y compris *ssh-rsa*. 
-- Connectez-vous à votre serveur VSTS. 
+- Connectez-vous à vos Azure DevOps Services. 
 - Cliquez sur **<Votre nom\>** en haut à droite de la page et cliquez sur **Sécurité**. 
     
     ![](./media/platforms-and-tools/resources-2-user-setting.png)

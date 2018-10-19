@@ -8,25 +8,25 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666430"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025274"
 ---
 # <a name="deploy-a-configuration-server"></a>Déployer un serveur de configuration
 
 Vous devez déployer un serveur de configuration local quand vous utilisez [Azure Site Recovery](site-recovery-overview.md) pour la récupération d’urgence de machines virtuelles VMware et de serveurs physiques sur Azure. Le serveur de configuration coordonne la communication entre les machines locales VMware et Azure. Il gère également la réplication des données. Cet article vous guide tout au long des étapes nécessaires pour déployer le serveur de configuration lorsque vous répliquez des machines virtuelles WMware sur Azure. [Suivez cet article](physical-azure-set-up-source.md) si vous avez besoin de configurer un serveur de configuration pour la réplication du serveur physique.
 
 >[!TIP]
-Cliquez [ici](vmware-azure-architecture.md) pour en savoir plus sur le rôle du serveur de configuration dans l’architecture d’Azure Site Recovery.
+Pour en savoir plus sur le rôle du serveur de configuration dans l’architecture d’Azure Site Recovery, voir [ici](vmware-azure-architecture.md).
 
 ## <a name="deployment-of-configuration-server-through-ova-template"></a>Déploiement du serveur de configuration avec le modèle OVA
 
 Le serveur de configuration doit être configuré comme une machine virtuelle VMware hautement disponible avec certaines exigences matérielles et dimensionnelles minimales. Pour un déploiement simple et pratique, Site Recovery fournit un modèle OVA (Open Virtualization Application) téléchargeable pour configurer le serveur de configuration conformément à toutes les exigences listées ci-dessous.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 Les conditions matérielles minimales pour un serveur de configuration sont synthétisées dans le tableau suivant.
 
@@ -42,7 +42,7 @@ Les conditions minimales de taille pour le serveur de configuration varient selo
 | 12 processeurs virtuels (2 sockets * 6 cœurs \@ 2,5 GHz) |18 Go |600 Go |500 Go à 1 To |Répliquez entre 100 et 150 machines. |
 | 16 processeurs virtuels (2 sockets * 8 cœurs \@ 2,5 GHz) |32 Go |1 To |1 To à 2 To |Répliquez entre 150 et 200 machines. |
 
-Si vous répliquez plusieurs machines virtuelles VMware, lisez les [considérations relatives à la planification de la capacité](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Exécutez [l’outil du planificateur de déploiement](site-recovery-deployment-planner.md) pour la réplication de VMware.
+Si vous répliquez plusieurs machines virtuelles VMware, lisez les [considérations relatives à la planification de la capacité](site-recovery-plan-capacity-vmware.md). Exécutez [l’outil du planificateur de déploiement](site-recovery-deployment-planner.md) pour la réplication de VMware.
 
 ## <a name="download-the-template"></a>Téléchargez le modèle
 
@@ -121,19 +121,19 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 1. Puis-je utiliser la machine virtuelle sur laquelle le serveur de configuration est installé à des fins différentes ?
 
-    **Non**. Nous vous recommandons d’utiliser la machine virtuelle pour le seul usage de serveur de configuration. Veillez à suivre toutes les spécifications mentionnées dans la [section précédente](vmware-azure-deploy-configuration-server.md#Prerequisites) pour une gestion efficace de la récupération d’urgence.
+    **Non**. Nous vous recommandons d’utiliser la machine virtuelle pour le seul usage de serveur de configuration. Veillez à suivre toutes les spécifications mentionnées dans [Conditions préalables](#prerequisites) pour une gestion efficace de la récupération d’urgence.
 2. Peut-on remplacer le coffre déjà inscrit dans le serveur de configuration par un nouveau ?
 
     **Non**. Une fois le coffre inscrit auprès du serveur de configuration, il n’est plus modifiable.
 3. Peut-on utiliser le même serveur de configuration pour protéger à la fois des machines physiques et des machines virtuelles ?
 
-    **Oui**. Un même serveur de configuration peut être utilisé pour répliquer des machines physiques et virtuelles. Toutefois, une machine physique ne peut être restaurée automatiquement que vers une machine virtuelle VMware.
-4. Quelle est l’utilité d’un serveur de configuration et où est-il utilisé ?
+    **Oui**. Le même serveur de configuration peut être utilisé pour répliquer des machines physiques et virtuelles. Toutefois, une machine physique ne peut être restaurée automatiquement que vers une machine virtuelle VMware.
+4. Quel est le rôle d’un serveur de configuration et où est-il utilisé ?
 
-    Pour plus d’informations sur le serveur de configuration et ses fonctionnalités, référez-vous à notre [architecture Azure Site Recovery](vmware-azure-architecture.md).
+    Pour plus d’informations sur le serveur de configuration et ses fonctionnalités, voir [Architecture de la réplication VMware vers Azure](vmware-azure-architecture.md).
 5. Où peut-on trouver la dernière version du serveur de configuration ?
 
-    Reportez-vous à cet article pour connaître la procédure de mise à niveau du serveur de configuration [via le portail](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Vous pouvez également la télécharger directement à partir du [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver).
+    Pour savoir comment mettre à niveau le serveur de configuration via le portail, voir [Mettre à niveau le serveur de configuration](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). Vous pouvez également la télécharger directement à partir du [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver).
 6. Où puis-je télécharger la phrase secrète du serveur de configuration ?
 
     Reportez-vous à [cet article](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) pour télécharger la phrase secrète.
@@ -143,7 +143,7 @@ Si vous souhaitez ajouter une carte d’interface réseau supplémentaire au ser
 
 ## <a name="upgrade-the-configuration-server"></a>Mettre à niveau le serveur de configuration
 
-Pour mettre à niveau le serveur de configuration sur la version la plus récente, lisez les étapes indiquées [ici](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+Pour mettre à niveau le serveur de configuration vers la version la plus récente, suivez ces [étapes](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 
 ## <a name="manage-the-configuration-server"></a>Gérer le serveur de configuration
 

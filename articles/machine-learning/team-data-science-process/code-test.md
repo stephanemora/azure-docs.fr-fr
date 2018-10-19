@@ -1,5 +1,5 @@
 ---
-title: 'Tester les codes de science des données dans Azure avec le jeu de données UCI Adult Income : Team Data Science Process et Visual Studio Team Services'
+title: 'Tester les codes de science des données dans Azure avec le jeu de données UCI Adult Income : Team Data Science Process et Azure DevOps Services'
 description: Tester les codes de science des données avec les données de prédiction UCI Adult Income
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad0a8b5b0bb9afbbe626c9481961f20ccd4797bf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439495"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294689"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Tester les codes de science des données avec le jeu de données de prédiction UCI Adult Income
 Cet article donne des recommandations préliminaires pour tester les codes dans un flux de travail de science des données. Ce type de test permet aux chercheurs de données de vérifier leur code systématiquement et efficacement pour en garantir la qualité et le résultat. Nous nous basons sur un projet TDSP (Team Data Science Process) [qui utilise le jeu de données UCI Adult Income](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) que nous avons publié précédemment afin de montrer comment tester les codes. 
@@ -37,8 +37,8 @@ Cet article remplace le terme « test unitaire » par « test de code ». Il fai
 
 Cet article contient des ressources utiles qui serviront de référence.
 
-## <a name="visual-studio-team-services-for-the-testing-framework"></a>Visual Studio Team Services pour l’infrastructure de test
-Cet article décrit comment exécuter et automatiser les tests à l’aide de Visual Studio Team Services (VSTS). Vous pouvez tout à fait utiliser d’autres outils. Nous montrons également comment configurer un build automatique à l’aide de VSTS et des agents de build. Pour les agents de build, nous utilisons des machines virtuelles Azure Data Science (DSVM).
+## <a name="azure-devops-for-the-testing-framework"></a>Azure DevOps pour l’infrastructure de test
+Cet article décrit comment exécuter et automatiser les tests à l’aide d’Azure DevOps. Vous pouvez tout à fait utiliser d’autres outils. Nous montrons également comment configurer une build automatique à l’aide d’Azure DevOps et d’agents de build. Pour les agents de build, nous utilisons des machines virtuelles Azure Data Science (DSVM).
 
 ## <a name="flow-of-code-testing"></a>Flux du test de code
 Le flux de travail global d’un test de code dans un projet de science des données prend la forme suivante : 
@@ -48,7 +48,7 @@ Le flux de travail global d’un test de code dans un projet de science des donn
     
 ## <a name="detailed-steps"></a>Procédure détaillée
 
-Utilisez les étapes suivantes pour configurer et exécuter un test de code et une build automatique à l’aide d’un agent de build et de VSTS :
+Utilisez les étapes suivantes pour configurer et exécuter un test de code et une build automatique à l’aide d’un agent de build et d’Azure DevOps :
 
 1. Créez un projet dans l’application de bureau Visual Studio :
 
@@ -60,7 +60,7 @@ Utilisez les étapes suivantes pour configurer et exécuter un test de code et u
 
     ![Explorateur de solutions](./media/code-test/solution_explorer_in_vs.PNG)
 
-1. Insérez le code de votre projet dans le référentiel de code de projet VSTS : 
+1. Insérez le code de votre projet dans le référentiel de code de projet Azure DevOps : 
 
     ![Référentiel de code de projet](./media/code-test/create_repo.PNG)
 
@@ -108,13 +108,13 @@ Utilisez les étapes suivantes pour configurer et exécuter un test de code et u
 
     ![Exécution des tests](./media/code-test/run_tests.PNG)
 
-1. Archivez votre code dans le référentiel de projet à l’aide des commandes Git. Votre travail le plus récent apparaîtra sous peu dans VSTS.
+1. Archivez votre code dans le référentiel de projet à l’aide des commandes Git. Votre travail le plus récent apparaîtra sous peu dans Azure DevOps.
 
     ![Commandes Git pour archiver le code](./media/code-test/git_check_in.PNG)
 
-    ![Travail le plus récent dans VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
+    ![Travail le plus récent dans Azure DevOps](./media/code-test/git_check_in_most_recent_work.PNG)
 
-1. Configurez la build automatique et le test dans VSTS :
+1. Configurez la build automatique et le test dans Azure DevOps :
 
     a. Dans le référentiel du projet, sélectionnez **Build and Release** (Générer et libérer), puis **+New** (+Nouveau) pour créer un nouveau processus de build.
 
@@ -128,7 +128,7 @@ Utilisez les étapes suivantes pour configurer et exécuter un test de code et u
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-    d. Donnez un nom à la build et sélectionnez l’agent. Vous pouvez choisir ici la valeur par défaut si vous souhaitez utiliser une machine DSVM et terminer le processus de génération. Pour plus d’informations sur la configuration des agents, voir [Créer et libérer des agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
+    d. Donnez un nom à la build et sélectionnez l’agent. Vous pouvez choisir ici la valeur par défaut si vous souhaitez utiliser une machine DSVM et terminer le processus de génération. Pour plus d’informations sur la configuration des agents, voir [Créer et libérer des agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
     
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
@@ -142,17 +142,17 @@ Utilisez les étapes suivantes pour configurer et exécuter un test de code et u
     
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-    g. Sélectionnez **Save & Queue** (Enregistrer et mettre en file d’attente) pour terminer le processus de définition de la build.
+    g. Sélectionnez **Save & Queue** (Enregistrer et mettre en file d’attente) pour terminer le processus de pipeline de build.
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Désormais, à chaque fois qu’une nouvelle validation sera transmise au référentiel du code, le processus de génération démarrera automatiquement. (Nous utilisons ici le référentiel de référence, mais vous pouvez définir n’importe quelle branche.) Le processus exécute le fichier **test1.py** sur l’ordinateur agent, l’objectif étant de s’assurer que tous les éléments définis dans le code s’exécutent correctement. 
 
-Si les alertes sont correctement définies, vous serez averti par courrier électronique une fois la build terminée. Vous pouvez également vérifier l’état de la build dans VSTS. En cas d’échec, vous pouvez vérifier les détails de la build et déterminer quelle partie est défaillante.
+Si les alertes sont correctement définies, vous serez averti par courrier électronique une fois la build terminée. Vous pouvez également vérifier l’état de la build dans Azure DevOps. En cas d’échec, vous pouvez vérifier les détails de la build et déterminer quelle partie est défaillante.
 
 ![Notification par courrier électronique de la réussite de la build](./media/code-test/email_build_succeed.PNG)
 
-![Notification dans VSTS de la réussite de la build](./media/code-test/vs_online_build_succeed.PNG)
+![Notification dans Azure DevOps de la réussite de la build](./media/code-test/vs_online_build_succeed.PNG)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez le [référentiel UCI Income Prediction](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) pour obtenir des exemples concrets de tests unitaires pour les scénarios de science des données.
@@ -161,5 +161,5 @@ Si les alertes sont correctement définies, vous serez averti par courrier élec
 ## <a name="references"></a>Références
 * [Processus Team Data Science Process](https://aka.ms/tdsp)
 * [Outils de test Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
-* [Ressources de test VSTS](https://www.visualstudio.com/team-services/)
+* [Ressources de test Azure DevOps](https://www.visualstudio.com/team-services/)
 * [Machines virtuelles Data Science](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

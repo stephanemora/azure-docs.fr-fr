@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: ae8739a65efbe7662a8f72e961d772fecaf4b527
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42142106"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303691"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Déploiement Git local vers Azure App Service
 
@@ -101,10 +101,10 @@ Vous pouvez voir une automation spécifique au runtime dans la sortie, comme MSB
 
 Accédez à votre application pour vérifier que le contenu a été déployé.
 
-## <a name="deploy-from-local-git-with-vsts-builds"></a>Déployer à partir de Git local avec les builds VSTS
+## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Déployer à partir de Git local avec des builds Azure DevOps Services
 
 > [!NOTE]
-> Pour qu’Azure App Service puisse créer la version nécessaire et libérer des définitions dans votre compte VSTS, votre compte Azure doit avoir le rôle de **Propriétaire** dans votre abonnement Azure.
+> Pour qu’App Service puisse créer les Azure Pipelines nécessaires dans votre organisation Azure DevOps Services, votre compte Azure doit avoir le rôle de **propriétaire** dans votre abonnement Azure.
 >
 
 Pour permettre un déploiement Git local pour votre application avec le serveur de build Kudu, accédez à votre application dans le [portail Azure](https://portal.azure.com).
@@ -113,22 +113,22 @@ Dans le volet de navigation de gauche de la page de votre application, cliquez s
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Cliquez sur **Livraison continue VSTS** > **Continuer**.
+Cliquez sur **Livraison continue d’Azure DevOps Services** > **Continuer**.
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-Sur la page **Configurer**, configurez un nouveau compte VSTS ou spécifiez un compte existant. Lorsque vous avez terminé, cliquez sur **Continuer**.
+Dans la page **Configurer**, configurez une nouvelle organisation Azure DevOps Services ou spécifiez une organisation existante. Lorsque vous avez terminé, cliquez sur **Continuer**.
 
 > [!NOTE]
-> Si vous voulez utiliser un compte VSTS existant qui ne figure pas dans la liste, vous devez [associer le compte VSTS à votre abonnement Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Si vous souhaitez utiliser une organisation Azure DevOps Services existante non répertoriée, vous devez [lier l’organisation Azure DevOps Services à votre abonnement Azure](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 Sur la page **Test**, choisissez si vous voulez activer les tests de charge, puis cliquez sur **Continuer**.
 
 En fonction du [niveau tarifaire](https://azure.microsoft.com/pricing/details/app-service/plans/) de votre plan App Service, une page proposant un **déploiement intermédiaire** s’affiche parfois. Choisissez si vous voulez activer des emplacements de déploiement, puis cliquez sur **Continuer**.
 
-Sur la page **Synthèse**, vérifiez les options, puis cliquez sur **Terminer**.
+Sur la page **Résumé**, vérifiez les options, puis cliquez sur **Terminer**.
 
-Quelques minutes sont nécessaire pour que le compte VSTS soit prêt. Lorsqu’il est prêt, copiez l’URL du référentiel Git dans le centre de déploiement.
+Il faut quelques minutes pour que l’organisation Azure DevOps Services soit prête. Lorsqu’il est prêt, copiez l’URL du référentiel Git dans le centre de déploiement.
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
@@ -138,7 +138,7 @@ De retour dans la _fenêtre du terminal local_, ajoutez un référentiel distant
 git remote add vsts <url>
 ```
 
-Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application à l’aide de la commande suivante. Lorsque vous y êtes invité par Git Credential Manager, connectez-vous à votre compte utilisateur visualstudio.com. Pour découvrir d’autres méthodes d’authentification, consultez [Vue d’ensemble de l’authentification VSTS](/vsts/git/auth-overview?view=vsts).
+Effectuez une transmission de type push vers le référentiel distant Azure pour déployer votre application à l’aide de la commande suivante. Lorsque vous y êtes invité par Git Credential Manager, connectez-vous à votre compte utilisateur visualstudio.com. Pour découvrir d’autres méthodes d’authentification, voir [Vue d’ensemble de l’authentification Azure DevOps Services](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: e560eb9e0bbce09c541bfc66ea760ea3e636f841
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0807bc5df9d4ee8782ae017dbb7ed63c38a13443
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528712"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304677"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Surveiller, diagnostiquer et résoudre les problèmes liés à Microsoft Azure Storage
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -73,7 +73,7 @@ Pour obtenir un guide pratique de bout en bout pour la résolution des problème
   * [Annexe 2 : utilisation de Wireshark pour capturer le trafic réseau]
   * [Annexe 3 : utilisation de l’analyseur de message Microsoft pour capturer le trafic réseau]
   * [Annexe 4 : utilisation d’Excel pour afficher les métriques et les données de journalisation]
-  * [Annexe 5 : analyse avec Application Insights pour Visual Studio Team Services]
+  * [Annexe 5 : analyse avec Application Insights pour Azure DevOps]
 
 ## <a name="introduction"></a>Introduction
 Ce guide vous explique comment utiliser des fonctionnalités telles que Azure Storage Analytics, la journalisation côté client dans la bibliothèque cliente de Azure Storage, et d’autres outils tiers permettant d’identifier, diagnostiquer et résoudre les problèmes liés à Azure Storage.
@@ -125,7 +125,7 @@ Vous pouvez utiliser le [portail Azure](https://portal.azure.com) pour afficher 
 Le [portail Azure](https://portal.azure.com) peut également envoyer des notifications des incidents qui affectent les divers services Azure.
 Remarque : ces informations étaient auparavant accessibles avec les données d’historique, sur le [tableau de bord du service Azure](http://status.azure.com).
 
-Le [portail Azure](https://portal.azure.com) recueille les informations d’état à l’intérieur des centres de données Azure (analyse de l’intérieur vers l’extérieur), mais vous pouvez également adopter une approche de l’extérieur vers l’intérieur et générer des transactions synthétiques qui accèdent périodiquement à votre application web Azure à partir de plusieurs emplacements. Les services offerts par [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) et Application Insights pour Visual Studio Team Services sont des exemples de cette approche. Pour plus d’informations sur Application Insights pour Visual Studio Team Services, consultez «[Annexe 5 : analyse avec Application Insights pour Visual Studio Team Services](#appendix-5)».
+Le [portail Azure](https://portal.azure.com) recueille les informations d’état à l’intérieur des centres de données Azure (analyse de l’intérieur vers l’extérieur), mais vous pouvez également adopter une approche de l’extérieur vers l’intérieur et générer des transactions synthétiques qui accèdent périodiquement à votre application web Azure à partir de plusieurs emplacements. Les services offerts par [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) et Application Insights pour Azure DevOps sont des exemples de cette approche. Pour plus d’informations sur Application Insights pour Azure DevOps, consultez l’«[Annexe 5 : analyse avec Application Insights pour Azure DevOps](#appendix-5)».
 
 ### <a name="monitoring-capacity"></a>Analyse de la capacité
 Les métriques de stockage enregistrent uniquement les métriques de capacité pour le service d’objet blob, car les objets blob constituent généralement la majeure partie des données stockées (lors de l'écriture, il n'est pas possible d'utiliser les métriques de stockage pour analyser la capacité de vos tables et files d'attente). Ces données sont accessibles dans la table **$MetricsCapacityBlob** si vous avez activé l'analyse pour le service d'objet blob. Les métriques de stockage enregistrent ces données une fois par jour, et vous pouvez utiliser la valeur de la **RowKey** pour déterminer si la ligne contient une entité associée à des données utilisateur (valeur **data**) ou des données d’analyse (valeur **analytics**). Chaque entité stockée contient des informations sur la quantité de stockage utilisée (**Capacity** mesurée en octets) et le nombre actuel de conteneurs (**ContainerCount**) et d’objets blob (**ObjectCount**) utilisés dans le compte de stockage. Pour plus d’informations sur les métriques de capacité stockées dans la table **$MetricsCapacityBlob** , consultez [Schéma de table de métriques Storage Analytics](http://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -799,8 +799,8 @@ Pour importer vos données de journalisation du stockage dans Excel, après les 
 
 À l’étape 1 du **Text Import Wizard**, sélectionnez **Semicolon** comme unique délimiteur et guillemet double comme **Text qualifier**. Ensuite, cliquez sur **Finish** et sélectionnez l'emplacement des données dans votre classeur.
 
-### <a name="appendix-5"></a>Annexe 5 : analyse avec Application Insights pour Visual Studio Team Services
-Vous pouvez également utiliser la fonctionnalité Application Insights pour Visual Studio Team Services dans le cadre de votre analyse de performances et de disponibilité. Cet outil permet de :
+### <a name="appendix-5"></a>Annexe 5 : analyse avec Application Insights pour Azure DevOps
+Vous pouvez également utiliser la fonctionnalité Application Insights pour Azure DevOps dans le cadre de votre analyse des performances et de la disponibilité. Cet outil permet de :
 
 * Vous assurer que votre service Web est disponible et réactif. Que votre application soit destinée à un site web ou à un appareil qui utilise un service web, il peut tester votre URL toutes les quelques minutes depuis différents emplacements de par le monde et vous signaler tout problème éventuel.
 * Rapidement diagnostiquer tous les problèmes ou exceptions de performances rencontrés par votre service Web. Découvrez si l'UC ou d'autres ressources sont en difficulté, obtenez les traces de la pile à partir des exceptions et effectuez des recherches aisées dans les suivis de journalisation. Si les performances de l’application chutent en deçà des limites acceptables, Microsoft peut vous envoyer un e-mail. Vous pouvez analyser les services Web .NET et Java.
@@ -865,7 +865,7 @@ Plus d’informations sont disponibles dans [Présentation d’Application Insig
 [Annexe 2 : utilisation de Wireshark pour capturer le trafic réseau]: #appendix-2
 [Annexe 3 : utilisation de l’analyseur de message Microsoft pour capturer le trafic réseau]: #appendix-3
 [Annexe 4 : utilisation d’Excel pour afficher les métriques et les données de journalisation]: #appendix-4
-[Annexe 5 : analyse avec Application Insights pour Visual Studio Team Services]: #appendix-5
+[Annexe 5 : analyse avec Application Insights pour Azure DevOps]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png

@@ -173,7 +173,7 @@ Les informations suivantes présentent des exemples de données collectées par 
 
 > Selon le type d’élément de travail importé dans Log Analytics, l’événement **ServiceDesk_CL** contient les champs suivants :
 
-**Élément de travail :****Incidents**  
+**Élément de travail :** **Incidents**  
 ServiceDeskWorkItemType_s="Incident"
 
 **Champs**
@@ -200,7 +200,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Ordinateur
 
 
-**Élément de travail :****Demandes de modification**
+**Élément de travail :** **Demandes de modification**
 
 ServiceDeskWorkItemType_s="ChangeRequest"
 

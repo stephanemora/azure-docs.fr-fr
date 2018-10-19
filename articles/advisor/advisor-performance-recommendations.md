@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/16/2016
 ms.author: makohli
-ms.openlocfilehash: c2d7cc21b1546c9594a2ef174927777f583a6841
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 9516534216c4a2c0f61e33ea3cbf1bbcb2ab58c7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42144196"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301308"
 ---
 # <a name="advisor-performance-recommendations"></a>Recommandations Azure Advisor en matière de performances
 
@@ -60,6 +60,10 @@ L’asymétrie des données peut provoquer des déplacement des données ou des 
 ## <a name="create-or-update-outdated-table-statistics-on-your-sql-data-warehouse-table-to-increase-query-performance"></a>Créer ou mettre à jour les statistiques de table obsolètes sur votre table d’entrepôt de données SQL pour augmenter les performances de requête
 
 Advisor identifie les tables qui n’ont pas de [statistiques de table](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics) à jour et recommande la création ou mise à jour des statistiques de table. L’optimiseur de requête d’entrepôt de données SQL utilise des statiques à jour pour estimer la cardinalité ou le nombre de lignes dans le résultat de requête qui permet à l’optimiseur de requête de créer un plan de requête de haute qualité pour de meilleures performances.
+
+## <a name="migrate-your-storage-account-to-azure-resource-manager-to-get-all-of-the-latest-azure-features"></a>Migrer votre compte de stockage vers Azure Resource Manager pour obtenir toutes les dernières fonctionnalités Azure
+
+Migrez le modèle de déploiement de votre compte de stockage vers Azure Resource Manager (ARM) pour tirer parti des déploiements de modèles, d’options de sécurité supplémentaires, et de la possibilité de mettre à niveau votre compte vers GPv2 pour bénéficier des dernières fonctionnalités de Stockage Azure. Advisor identifie les comptes de stockage autonomes utilisant le modèle de déploiement classique et recommande une migration vers le modèle de déploiement ARM. 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Comment accéder aux recommandations en matière de performances dans le conseiller
 

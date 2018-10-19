@@ -11,28 +11,38 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 07/24/2018
+ms.date: 09/07/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 1a1635e0ba16bdc0fa6dc90aa0e1a417f43e04ac
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: de1d29d3ab1b370257c3a2d6b6ff9f677197fc2a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190174"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303062"
 ---
 # <a name="email-notifications-in-pim"></a>Notifications par e-mail dans PIM
 
-Lorsque des événements clés se produisent dans Azure AD Privileged Identity Management (PIM), des notifications par e-mail sont envoyées à l’administrateur ou à l’utilisateur concerné. Par exemple, PIM envoie des e-mails pour les événements suivants :
+Lorsque des événements clés se produisent dans Azure AD Privileged Identity Management (PIM), des notifications par e-mail sont envoyées. Par exemple, PIM envoie des e-mails pour les événements suivants :
 
 - Quand l’activation d’un rôle privilégié est en attente d’approbation
-- Quand une demande d’activation d’un rôle privilégié est approuvée
+- Quand une demande d’activation de rôle privilégié est approuvée
 - Quand un rôle privilégié est activé
 - Quand un rôle privilégié est attribué
 - Quand Azure AD PIM est activé
 
-À compter de fin juillet 2018, les notifications par e-mail envoyées via PIM auront un nouvel expéditeur et une nouvelle conception visuelle. Cette mise à jour va impacter PIM pour Azure AD et PIM pour les ressources Azure. Tous les événements qui déclenchaient l’envoi d’une notification par e-mail dans la version précédente continueront d’envoyer des notifications. Le contenu de certains e-mails seront mises à jour, fournissant plus d’informations ciblées.
+Des notifications par e-mail sont envoyées aux administrateurs suivants :
+
+- Administrateur de rôle privilégié
+- Security Administrator
+
+Des notifications par e-mail sont également envoyées à l’utilisateur final auquel le rôle privilégié est assigné pour les événements suivants :
+
+- Quand une demande d’activation de rôle privilégié est approuvée
+- Quand un rôle privilégié est attribué
+
+Depuis fin juillet 2018, les notifications par e-mail envoyées via PIM ont un nouvel expéditeur et une nouvelle conception visuelle. Cette mise à jour va impacter PIM pour Azure AD et PIM pour les ressources Azure. Tous les événements qui déclenchaient l’envoi d’une notification par e-mail dans la version précédente continueront d’envoyer des notifications. Le contenu de certains e-mails seront mises à jour, fournissant plus d’informations ciblées.
 
 ## <a name="sender-email-address"></a>Adresse e-mail de l’expéditeur
 

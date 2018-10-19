@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 295772b70529f79c7a4c135d8ea7c12a1c661fe6
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4b13d2d277721d37a6b96f6640377c875f0b5c0f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206434"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161575"
 ---
 # <a name="disaster-recovery-in-azure-service-fabric"></a>Récupération d’urgence dans Azure Service Fabric
 Pour fournir une haute disponibilité, il est essentiel que les services puissent survivre à tous les types d’échecs. Ceci est particulièrement important pour les échecs inattendus et hors de votre contrôle. Cet article décrit certains modes d’échec courants qui peuvent aboutir à une situation critique s’ils ne sont pas modélisés et gérés correctement. Il traite également des atténuations de risques et des actions à entreprendre si un incident se produit. L’objectif est de limiter ou d’éliminer le risque de temps d’arrêt ou de perte de données en cas de défaillances, planifiées ou non.
@@ -96,12 +96,12 @@ Pour les services avec état, la situation varie selon que les services sont per
  - Une perte de quorum se produit lorsque la majorité des réplicas d’un service avec état sont défaillants en même temps, y compris le réplica principal.
 2. Déterminez si la perte de quorum est permanente ou non
  - La plupart du temps, ces défaillances sont passagères. Les processus sont redémarrés, les nœuds sont redémarrés, les machines virtuelles sont relancées et les partitions réseau sont réparées. Cependant, il arrive que les défaillances soient permanentes. 
-    - Pour les services non persistants, la défaillance d’un quorum ou de plusieurs réplicas aboutit _immédiatement_ à une perte de quorum permanente. Quand Service Fabric détecte une perte de quorum dans un service avec état non persistant, il passe immédiatement à l’étape 3 en déclarant une perte de données (potentielle). La déclaration de perte de données est logique. En effet, Service Fabric sait qu’il est inutile d’attendre le retour des réplicas, car même s’ils pouvaient être récupérés, ils seraient vides.
+    - Pour les services non persistants, la défaillance d’un quorum ou de plusieurs réplicas aboutit _immédiatement_ à une perte de quorum permanente. Quand Service Fabric détecte une perte de quorum dans un service avec état non persistant, il passe immédiatement à l’étape 3 en déclarant une perte (potentielle) de données. La déclaration de perte de données est logique. En effet, Service Fabric sait qu’il est inutile d’attendre le retour des réplicas, car même s’ils pouvaient être récupérés, ils seraient vides.
     - Pour les services persistants avec état, lorsqu’une défaillance de quorum ou de plusieurs réplicas se produit, Service Fabric se met à attendre le retour des réplicas et la restauration du quorum. Cela entraîne une interruption de service pour les _opérations d’écriture_ dans la partition (ou « jeu de réplicas ») concernée. Cependant, les opérations de lecture sont toujours possibles, avec toutefois une moins bonne garantie de cohérence. Par défaut, Service Fabric attend la restauration du quorum indéfiniment, car le fait de continuer sans attendre la restauration peut entraîner une perte de données et présente d’autres risques. Vous pouvez remplacer la valeur `QuorumLossWaitDuration` par défaut, bien que cela ne soit pas recommandé. À ce stade, tous les efforts devraient plutôt être consacrés à la restauration des réplicas défaillants. Pour cela, vous devez restaurer les nœuds arrêtés et faire en sorte que les lecteurs où est stocké l’état permanent local puissent être remontés. Si la perte de quorum est provoquée par l’échec d’un processus, Service Fabric essaie automatiquement de recréer ces processus et de redémarrer les réplicas qu’ils contiennent. En cas d’échec, Service Fabric signale des erreurs d’intégrité. Si ces erreurs peuvent être résolues, les réplicas sont généralement restaurés. Parfois, cependant, les réplicas ne peuvent pas être restaurés. Ce sera le cas, par exemple, si les lecteurs sont tous défaillants ou si les ordinateurs ont été détruits. Dans ces cas-là, nous avons une perte de quorum permanente. Pour indiquer à Service Fabric de cesser d’attendre les réplicas défaillants, un administrateur de cluster doit déterminer quelles partitions de quels services sont affectées, et appeler l’API `Repair-ServiceFabricPartition -PartitionId` ou ` System.Fabric.FabricClient.ClusterManagementClient.RecoverPartitionAsync(Guid partitionId)`.  Cette API permet de spécifier l’ID de la partition à faire passer de l’état de perte de quorum à celui de perte de données potentielle.
 
-> [!NOTE]
-> L’utilisation de cette API autrement que pour cibler certaines partitions n’est _jamais_ sûre. 
->
+  > [!NOTE]
+  > L’utilisation de cette API autrement que pour cibler certaines partitions n’est _jamais_ sûre. 
+  >
 
 3. Déterminez si une perte de données a bien eu lieu et restaurez-les à partir des sauvegardes
   - Lorsque Service Fabric appelle la méthode `OnDataLossAsync`, c’est toujours dans le cas d’une perte de données _supposée_. Service Fabric vérifie que cet appel est remis au _meilleur_ réplica restant. Il s’agira du réplica qui a le plus progressé. La raison pour laquelle nous parlons toujours de perte de données _supposée_ est parce qu’il est possible que le réplica restant ait le même état que celui du réplica principal au moment où il est devenu défaillant. Toutefois, sans cet état auquel le comparer, il n’existe aucun moyen pour Service Fabric ou les opérateurs de s’en assurer. À ce stade, Service Fabric sait également que les autres réplicas ne pourront pas être restaurés. C’est la décision que nous avons prise lorsque nous avons arrêté d’attendre la résolution de la perte de quorum. Le meilleur plan d’action pour le service est généralement de tout stopper et d’attendre une intervention de l’administrateur. Qu’est-ce que fait une implémentation classique de la méthode `OnDataLossAsync` ?

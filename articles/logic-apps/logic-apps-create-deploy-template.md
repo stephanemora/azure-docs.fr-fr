@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 85928ec6-d7cb-488e-926e-2e5db89508ee
 ms.date: 10/18/2016
-ms.openlocfilehash: 68e655490470db6aade53c6f3523d0c9d87c3fbd
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 393543bbb1891e14ed67487aff26a7bda1eebcd5
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123463"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304235"
 ---
 # <a name="create-azure-resource-manager-templates-for-deploying-logic-apps"></a>Créer des modèles Azure Resource Manager pour déployer des applications logiques
 
@@ -173,7 +173,7 @@ Si vous disposez d’un projet de groupe de ressources existant, vous pouvez ajo
 
 ## <a name="deploy-a-logic-app-template"></a>Déployer un modèle d’application logique
 
-Vous pouvez procéder au déploiement à l’aide d’outils tels que PowerShell, API REST, [Visual Studio Team Services Release Management](#team-services) et le déploiement de modèles par le biais du powershell Azure.
+Vous pouvez procéder au déploiement à l’aide d’outils tels que PowerShell, API REST, [Azure DevOps Release Management](#team-services) et le déploiement de modèles par le biais du portail Azure.
 Nous vous recommandons également de créer un [fichier de paramètres](../azure-resource-manager/resource-group-template-deploy.md#parameter-files) pour stocker les valeurs du paramètre.
 Découvrez comment [déployer des ressources à l’aide de modèles Resource Manager](../azure-resource-manager/resource-group-template-deploy.md) ou [déployer des ressources à l’aide de modèles Resource Manager et du portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md).
 
@@ -185,13 +185,13 @@ Pour autoriser les connexions OAuth, ouvrez l’application logique dans le Conc
 Vous trouverez un exemple de script sur GitHub sous le projet [LogicAppConnectionAuth](https://github.com/logicappsio/LogicAppConnectionAuth) .
 
 <a name="team-services"></a>
-## <a name="visual-studio-team-services-release-management"></a>Visual Studio Team Services Release Management
+## <a name="azure-devops-release-management"></a>Release Management dans Azure DevOps
 
-Le déploiement et la gestion d’un environnement passent souvent par l’utilisation d’un outil tel que Release Management dans Visual Studio Team Services avec un modèle de déploiement d’application logique. Visual Studio Team Services inclut une tâche de [déploiement d’un groupe de ressources Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) que vous pouvez ajouter dans n’importe quel pipeline de build ou de version. Vous devez disposer d’un [principal de service](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) pour obtenir l’autorisation de déployer, après quoi vous pouvez générer la définition de version.
+Le déploiement et la gestion d’un environnement passent souvent par l’utilisation d’un outil tel que Release Management dans Azure DevOps, avec un modèle de déploiement d’application logique. Azure DevOps inclut une tâche de [déploiement de groupe de ressources Azure](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/DeployAzureResourceGroup) que vous pouvez ajouter à tout pipeline de build ou de mise en production. Vous devez disposer d’un [principal de service](https://blogs.msdn.microsoft.com/visualstudioalm/2015/10/04/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/) pour obtenir l’autorisation de déployer, après quoi vous pouvez générer le pipeline de mise en production.
 
-1. Dans Release Management, sélectionnez **Vide** pour créer une définition vide.
+1. Dans Release Management, sélectionnez **Vide** pour créer un pipeline vide.
 
-    ![Créer une définition vide][1]
+    ![Créer une pipeline vide][1]
 
 2. Choisissez toute ressource dont vous avez besoin pour ce faire, notamment probablement le modèle d’application logique généré manuellement ou dans le cadre du processus de création.
 3. Ajoutez une tâche de **déploiement d’un groupe de ressources Azure** .

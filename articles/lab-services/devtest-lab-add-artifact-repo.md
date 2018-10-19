@@ -1,6 +1,6 @@
 ---
 title: Ajouter un dépôt Git à un laboratoire dans Azure DevTest Labs | Microsoft Docs
-description: Découvrez comment ajouter un dépôt GitHub ou Visual Studio Team Services Git pour vos sources d’artefacts personnalisés dans Azure DevTest Labs.
+description: Découvrez comment ajouter un dépôt GitHub ou un Git Azure DevOps Services pour votre source d’artefacts personnalisés dans Azure DevTest Labs.
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: spelluru
@@ -14,30 +14,30 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 80724a7d8d2b5cec19bdbce27cdafd4a9c09eb47
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e6c6f36d877f220bcc8d83b75750f54f85dcc198
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452496"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299880"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Ajouter un dépôt Git pour stocker des artefacts personnalisés et des modèles Resource Manager
 
-Vous pouvez [créer des artefacts personnalisés](devtest-lab-artifact-author.md) pour les machines virtuelles dans votre laboratoire ou [utiliser des modèles Azure Resource Manager pour créer un environnement de test personnalisé](devtest-lab-create-environment-from-arm.md). Vous devez ajouter un dépôt Git privé pour les artefacts ou les modèles Resource Manager que votre équipe crée. Le dépôt peut être hébergé sur [GitHub](https://github.com) ou sur [Visual Studio Team Services](https://visualstudio.com).
+Vous pouvez [créer des artefacts personnalisés](devtest-lab-artifact-author.md) pour les machines virtuelles dans votre laboratoire ou [utiliser des modèles Azure Resource Manager pour créer un environnement de test personnalisé](devtest-lab-create-environment-from-arm.md). Vous devez ajouter un dépôt Git privé pour les artefacts ou les modèles Resource Manager que votre équipe crée. Le référentiel peut être hébergé sur [GitHub](https://github.com) ou sur [Azure DevOps Services](https://visualstudio.com).
 
 Nous mettons à votre disposition un [dépôt GitHub d’artefacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) que vous pouvez déployer tel quel, ou vous pouvez les personnaliser pour vos laboratoires. Quand vous personnalisez ou créez un artefact, vous ne pouvez pas stocker l’artefact dans le dépôt public. Vous devez créer votre propre dépôt privé pour les artefacts personnalisés et pour les artefacts que vous créez. 
 
 Quand vous créez une machine virtuelle, vous pouvez enregistrer le modèle Resource Manager, le personnaliser éventuellement, puis l’utiliser pour créer des machines virtuelles supplémentaires. Vous devez créer votre propre dépôt privé afin de stocker vos modèles Resource Manager personnalisés.  
 
 * Pour découvrir comment créer un dépôt GitHub, consultez [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Pour découvrir comment créer un projet Team Services qui a un dépôt Git, consultez [Se connecter à Visual Studio Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Pour découvrir comment créer un projet Azure DevOps Services qui a un dépôt Git, voir [Se connecter à Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 La figure suivante illustre un dépôt contenant des artefacts dans GitHub :  
 
 ![Exemple de dépôt d’artefacts GitHub](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
 ## <a name="get-the-repository-information-and-credentials"></a>Obtention des informations de référentiel et des informations d’identification
-Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations essentielles de votre dépôt. Les sections suivantes expliquent comment obtenir les informations requises pour les dépôts qui sont hébergés sur GitHub ou Visual Studio Team Services.
+Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations essentielles de votre dépôt. Les sections suivantes expliquent comment obtenir les informations requises pour les dépôts qui sont hébergés sur GitHub ou Azure DevOps Services.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>Obtenir l’URL de clonage du dépôt GitHub et le jeton d’accès personnel
 
@@ -52,7 +52,7 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
 9. Fermez GitHub.   
 10. Passez à la section [Connecter votre laboratoire au référentiel](#connect-your-lab-to-the-repository).
 
-### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>Obtenir l’URL de clonage du dépôt Visual Studio Team Services et le jeton d’accès personnel
+### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>Obtenir l’URL du clone Azure Repos et le jeton d’accès personnel
 
 1. Accédez à la page d’accueil de votre collection d’équipe (par exemple, https://contoso-web-team.visualstudio.com)), puis sélectionnez votre projet.
 2. Sur la page d’accueil du projet, sélectionnez **Code**.
@@ -79,9 +79,9 @@ Pour ajouter un dépôt à votre laboratoire, obtenez d’abord des informations
     ![Bouton pour ajouter un dépôt](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. Sur la seconde page **Référentiels**, spécifiez les informations suivantes :
   1. **Nom**. Entrez un nom pour le dépôt.
-  2. **URL Git Clone**. Entrez l’URL de clonage Git HTTPS que vous avez précédemment copiée à partir de GitHub ou Visual Studio Team Services.
+  2. **URL Git Clone**. Entrez l’URL de clonage Git HTTPS que vous avez précédemment copiée à partir de GitHub ou d’Azure DevOps Services.
   3. **Branche**. Pour obtenir vos définitions, entrez la branche.
-  4. **Jeton d’accès personnel**. Entrez le jeton d’accès personnel que vous avez obtenu à partir de GitHub ou Visual Studio Team Services.
+  4. **Jeton d’accès personnel**. Entrez le jeton d’accès personnel que vous avez obtenu à partir de GitHub ou Azure DevOps Services.
   5. **Chemins de dossiers**. Entrez au moins un chemin de dossier relatif à l’URL du clone contenant votre artefact ou vos définitions de modèle Resource Manager. Quand vous spécifiez un sous-répertoire, veillez à inclure la barre oblique dans le chemin du dossier.
 
      ![Zone Référentiels](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)

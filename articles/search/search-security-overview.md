@@ -6,14 +6,14 @@ manager: cgronlun
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 06/19/2018
+ms.date: 09/06/2018
 ms.author: heidist
-ms.openlocfilehash: 888f7c3ced0ef48cff222bffdbf0f278fa5f42b3
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: 4b1307aa00fae26d7425c9a95ed673b11ba2e9b4
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36285727"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092629"
 ---
 # <a name="security-and-data-privacy-in-azure-search"></a>Sécurité et confidentialité dans Recherche Azure
 
@@ -23,9 +23,7 @@ L’architecture de sécurité de Recherche Azure inclut la sécurité physique,
 
 ## <a name="standards-compliance-iso-27001-soc-2-hipaa"></a>Conformité aux normes : ISO 27001, SOC 2, HIPAA
 
-Une liste partielle de la conformité aux normes comprend HIPAA et SOC 2 Type 2 pour les fonctionnalités mises à la disposition générale. Les fonctionnalités de préversion sont certifiées dans le cadre de la disponibilité générale et ne doivent pas être utilisées dans les solutions ayant des exigences spécifiques en termes de normes. La certification de la conformité est documentée dans [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Présentation de la conformité Microsoft Azure) et [Trust Center](https://www.microsoft.com/en-us/trustcenter) (Centre de confidentialité). 
-
-La certification pour les normes suivantes a été [annoncée en juin 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/).
+Recherche Azure est certifiée pour les normes suivantes, comme [annoncé en juin 2018](https://azure.microsoft.com/blog/azure-search-is-now-certified-for-several-levels-of-compliance/) :
 
 + [ISO 27001:2013](https://www.iso.org/isoiec-27001-information-security.html) 
 + [Conformité à la norme SOC 2 Type 2](https://www.aicpa.org/interestareas/frc/assuranceadvisoryservices/aicpasoc2report.html) Pour accéder au rapport complet sur la conformité d’[Azure et d’Azure Government à SOC 2 de type II](https://servicetrust.microsoft.com/ViewPage/MSComplianceGuide?command=Download&downloadType=Document&downloadId=93292f19-f43e-4c4e-8615-c38ab953cf95&docTab=4ce99610-c9c0-11e7-8c2c-f908a777fa4d_SOC%20%2F%20SSAE%2016%20Reports). 
@@ -35,13 +33,15 @@ La certification pour les normes suivantes a été [annoncée en juin 2018](http
 + [PCI DSS Level 1](https://en.wikipedia.org/wiki/Payment_Card_Industry_Data_Security_Standard)
 + [Australia IRAP Unclassified DLM](https://asd.gov.au/infosec/irap/certified_clouds.htm)
 
+La conformité aux normes s’applique aux fonctionnalités généralement disponibles. Les fonctionnalités en préversion sont certifiées lors de leur transition vers la disponibilité générale, et ne doivent pas être utilisées dans des solutions soumises à des exigences strictes en termes de normes. La certification de la conformité est documentée dans [Overview of Microsoft Azure compliance](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Présentation de la conformité Microsoft Azure) et [Trust Center](https://www.microsoft.com/en-us/trustcenter) (Centre de confidentialité). 
+
 ## <a name="encrypted-transmission-and-storage"></a>Stockage et transmission chiffrés
 
 Le chiffrement s’étend dans tout le pipeline d’indexation : des connexions aux données indexées stockées dans Recherche Azure, en passant par la transmission.
 
 | Calque de sécurité | Description |
 |----------------|-------------|
-| Chiffrement en transit | Recherche Azure écoute le port HTTPS 443. Sur la plateforme, les connexions aux services Azure sont chiffrées. |
+| Chiffrement en transit <br>(HTTPS/SSL/TLS) | Recherche Azure écoute le port HTTPS 443. Sur la plateforme, les connexions aux services Azure sont chiffrées. <br/><br/>Toutes les interactions client-service de Recherche Azure sont compatibles SSL/TLS 1.2.  Veillez à utiliser TLSv1.2 pour les connexions SSL à votre service.|
 | Chiffrement au repos | Le chiffrement est entièrement internalisé dans le processus d’indexation, sans aucun impact mesurable sur la durée d’exécution de l’indexation ou la taille de l’index. Il se produit automatiquement lors de toutes les indexations, y compris lors des mises à jour incrémentielles d’un index qui n’est pas entièrement chiffré (créé avant janvier 2018).<br><br>En interne, le chiffrement est basé sur le [chiffrement du service de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-service-encryption), à l’aide du [chiffrement AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) 256 bits.|
 
 Le chiffrement est interne à Recherche Azure, tandis que les certificats et les clés de chiffrement sont gérés en interne par Microsoft et appliqués universellement. Vous ne pouvez pas activer ou désactiver le chiffrement, gérer ou substituer vos propres clés, ni afficher les paramètres de chiffrement dans le portail ou par programme. 

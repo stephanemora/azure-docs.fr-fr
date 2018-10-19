@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 2097ce5cf249e7ff895769142d63b6cf47eed06d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5d3833d3218a4b6252c9591bb67686ddc1c3cdf9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161005"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298572"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Configurer un serveur Azure Multi-Factor Authentication pour la haute disponibilité
 
@@ -29,7 +29,7 @@ L’architecture du service de serveur Azure MFA comprend plusieurs composants, 
 
 Un serveur MFA est un serveur Windows Server sur lequel le logiciel Azure Multi-Factor Authentication est installé. L’instance du serveur MFA doit être activée par le service MFA dans Azure pour fonctionner. Plusieurs serveurs MFA peuvent être installés localement.
 
-Par défaut, le premier serveur MFA installé devient le serveur MFA maître dès son activation par le service Azure MFA. Le serveur MFA maître possède une copie accessible en écriture de la base de données PhoneFactor.pfdata. Les installations ultérieures d’instances de serveur MFA sont appelées instances subordonnées. Les instances subordonnées MFA ont une copie en lecture seule répliquée de la base de données PhoneFactor.pfdata. Les serveurs MFA répliquent les informations par appel de procédure distante (RPC). Tous les serveurs MFA doivent collectivement être joints à un domaine ou être autonomes pour répliquer les informations.
+Par défaut, le premier serveur MFA installé devient le serveur MFA maître dès son activation par le service Azure MFA. Le serveur MFA maître possède une copie accessible en écriture de la base de données PhoneFactor.pfdata. Les installations ultérieures d’instances de serveur MFA sont qualifiées de subordonnées. Les instances subordonnées MFA ont une copie en lecture seule répliquée de la base de données PhoneFactor.pfdata. Les serveurs MFA répliquent les informations par appel de procédure distante (RPC). Tous les serveurs MFA doivent collectivement être joints à un domaine ou être autonomes pour répliquer les informations.
 
 Les serveurs MFA maître et subordonnés communiquent avec le service MFA quand une authentification à 2 facteurs est requise. Par exemple, quand un utilisateur tente d’accéder à une application qui exige une authentification à 2 facteurs, il est d’abord authentifié par un fournisseur d’identité, comme Active Directory (AD).
 
@@ -42,7 +42,7 @@ Si le serveur MFA maître est mis hors connexion, les authentifications peuvent 
 Considérez les points importants suivants pour équilibrer la charge du serveur Azure MFA et de ses composants associés.
 
 * **Utilisation de la norme RADIUS pour atteindre une haute disponibilité**. Si vous utilisez des serveurs Azure MFA en tant que serveurs RADIUS, vous pouvez potentiellement configurer un seul serveur MFA en tant que cible d’authentification RADIUS principale et les autres serveurs Azure MFA en tant que cibles d’authentification secondaires. Toutefois, cette méthode d’obtention d’une haute disponibilité risque de ne pas être pratique, car il existe un délai d’attente à observer en cas d’échec de l’authentification sur la cible d’authentification principale avant de pouvoir être authentifié sur la cible d’authentification secondaire. Il est plus efficace d’équilibrer la charge du trafic RADIUS entre le client RADIUS et les serveurs RADIUS (dans ce cas, les serveurs Azure MFA jouent le rôle de serveurs RADIUS) afin de pouvoir configurer les clients RADIUS avec une seule URL vers laquelle pointer.
-* **Besoin de promouvoir manuellement les serveurs subordonnés MFA**. Si le serveur Azure MFA maître est mis hors connexion, les serveurs Azure MFA secondaires continuent à traiter les demandes MFA. Toutefois, tant qu’un serveur MFA maître n’est pas disponible, les administrateurs ne peuvent pas ajouter d’utilisateurs ni modifier des paramètres MFA, et les utilisateurs ne peuvent pas apporter de modifications en utilisant leur portail. La promotion d’un serveur subordonné MFA au rôle de maître est toujours un processus manuel.
+* **Besoin de promouvoir manuellement les instances subordonnées MFA**. Si le serveur Azure MFA maître est mis hors connexion, les serveurs Azure MFA secondaires continuent à traiter les demandes MFA. Toutefois, tant qu’un serveur MFA maître n’est pas disponible, les administrateurs ne peuvent pas ajouter d’utilisateurs ni modifier des paramètres MFA, et les utilisateurs ne peuvent pas apporter de modifications en utilisant leur portail. La promotion d’une instance subordonnée MFA au rôle de maître est toujours un processus manuel.
 * **Possibilité de séparation des composants**. Le serveur Azure MFA comprend plusieurs composants qui peuvent être installés sur la même instance de Windows Server ou sur différentes instances. Ces composants incluent le portail utilisateur, le service web de l’application mobile et l’adaptateur (agent) ADFS. Cette séparation possible permet d’utiliser le proxy d’application web pour publier le portail utilisateur et le serveur web de l’application mobile à partir du réseau de périmètre. Une telle configuration renforce la sécurité globale de votre conception, comme indiqué dans le diagramme suivant. Le portail utilisateur MFA et le serveur web de l’application mobile peuvent aussi être déployés dans des configurations à charge équilibrée de haute disponibilité.
 
    ![Serveur MFA avec un réseau de périmètre](./media/howto-mfaserver-deploy-ha/mfasecurity.png)

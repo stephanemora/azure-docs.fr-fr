@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 09/10/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 1ef5d51db34e0d0a947a4d6ba6c7e614b1ac3384
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42144795"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348886"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installer et configurer une passerelle de données locale
 Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs Azure Analysis Services de la même région se connectent aux sources de données locales. Pour en savoir plus sur la passerelle, consultez la page [Passerelle de données locale](analysis-services-gateway.md).
@@ -37,6 +37,7 @@ Une passerelle de données locale est requise lorsqu’un ou plusieurs serveurs 
 * Une seule passerelle peut être installée sur un ordinateur.
 * Installez la passerelle sur un ordinateur qui reste activé et qui ne se met pas en veille.
 * N’installez pas la passerelle sur un ordinateur sans fil connecté à votre réseau. Les performances peuvent être réduites.
+* Lorsque vous installez la passerelle, le compte d’utilisateur à l’aide duquel vous êtes connecté à votre ordinateur doit avoir des privilèges de connexion en tant que service. Une fois l’installation terminée, le service de passerelle de données locale utilise le compte SERVICE\PBIEgwService NT pour se connecter en tant que service. Un autre compte peut être spécifié pendant l’installation ou dans Services une fois l’installation terminée. Assurez-vous que les paramètres de stratégie de groupe autorisent le compte avec lequel vous vous êtes connecté lors de l’installation et le compte de service que vous choisissez disposent de privilèges de connexion en tant que service.
 * Connectez-vous à Azure avec le compte Azure AD du même [locataire](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) que l’abonnement dans lequel vous inscrivez la passerelle. Les comptes Azure B2B (invité) ne sont pas pris en charge lors de l’installation et de l’inscription d’une passerelle.
 * Si les sources de données se trouvent sur un réseau virtuel (VNet) Azure, vous devez configurer la propriété de serveur [AlwaysUseGateway](analysis-services-vnet-gateway.md).
 * La passerelle (unifiée) décrite ici n’est pas prise en charge dans Azure Government, Azure Allemagne et les régions souveraines de Azure Chine. Utilisez la **passerelle locale dédiée pour Azure Analysis Services**, installée à partir du **Démarrage rapide** de votre serveur dans le portail. 
@@ -78,7 +79,7 @@ Pour créer une ressource de passerelle dans Azure, vous devez inscrire l’inst
 ## <a name="create-resource"></a>Créer une ressource de passerelle Azure
 Une fois que vous avez installé et inscrit votre passerelle, vous devez créer une ressource de passerelle dans votre abonnement Azure. Connectez-vous à Azure avec le même compte que celui utilisé lors de l’inscription de la passerelle.
 
-1. Dans le portail Azure, cliquez sur **Création d’un nouveau service** > **Enterprise Integration** > **Passerelle de données locale** > **Créer**.
+1. Dans le portail Azure, cliquez sur **Créer une ressource** > **Intégration** > **Passerelle de données locale**.
 
    ![Créer une ressource de passerelle](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 

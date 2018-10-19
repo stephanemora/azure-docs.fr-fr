@@ -1,30 +1,45 @@
+---
+title: Fichier Include
+description: Fichier Include
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 09/07/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: e80033d696de1b83da43fc27e5be9eca3b3f8757
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44169234"
+---
 ## <a name="create-a-device-identity"></a>Création d’une identité d’appareil
 
-Dans cette section, vous utilisez un outil Node.js appelé [iothub-explorer][iot-hub-explorer] pour créer une identité d’appareil pour ce didacticiel. Respectez la casse des ID d’appareil.
+Dans cette section, vous utilisez Azure CLI pour créer une identité d’appareil pour ce didacticiel. Azure CLI est préinstallé dans [Azure Cloud Shell](https://docs.microsoft.com/zure/cloud-shell/overview). Vous pouvez également l’[installer localement](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest). Les ID d’appareil respectent la casse.
 
-1. Dans votre environnement de ligne de commande, exécutez la commande suivante :
+1. Exécutez la commande suivante dans l’environnement de ligne de commande au sein duquel vous utilisez Azure CLI pour installer l’extension IoT :
 
-    `npm install -g iothub-explorer@latest`
+    ```cmd/sh
+    az extension add --name azure-cli-iot-ext
+    ```
 
-1. Exécutez ensuite la commande ci-dessous pour vous connecter à votre hub. Remplacez `{iot hub connection string}` par la chaîne de connexion IoT Hub que vous avez copié précédemment :
+1. Si vous exécutez Azure CLI localement, utilisez la commande suivante pour vous connecter à votre compte Azure (si vous utilisez le Cloud Shell, vous êtes automatiquement connecté et n’avez pas besoin d’exécuter cette commande) :
 
-    `iothub-explorer login "{iot hub connection string}"`
+    ```cmd/sh
+    az login
+    ```
 
-1. Enfin, créez une nouvelle identité d’appareil appelée `myDeviceId` avec la commande :
+1. Enfin, créez une nouvelle identité d’appareil nommée `myDeviceId` et récupérez la chaîne de connexion d’appareil à l’aide des commandes suivantes :
 
-    `iothub-explorer create myDeviceId --connection-string`
+    ```cmd/sh
+    az iot hub device-identity create --device-id myDeviceId --hub-name {Your IoT Hub name}
+    az iot hub device-identity show-connection-string --device-id myDeviceId --hub-name {Your IoT Hub name} -o table
+    ```
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
 Prenez note de la chaîne de connexion de l’appareil à partir du résultat. Cette chaîne de connexion est utilisée par l’application d’appareil pour se connecter à votre IoT Hub en tant qu’appareil.
 
-![][img-identity]
-
-Reportez-vous à [Prise en main d’IoT Hub][lnk-getstarted] pour créer des identités d’appareil par programme.
-
 <!-- images and links -->
-[img-identity]: media/iot-hub-get-started-create-device-identity/devidentity.png
-
-[iot-hub-explorer]: https://github.com/Azure/iothub-explorer/blob/master/readme.md
-
-[lnk-getstarted]: ../articles/iot-hub/quickstart-send-telemetry-dotnet.md
