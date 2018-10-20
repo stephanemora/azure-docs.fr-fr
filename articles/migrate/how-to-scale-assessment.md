@@ -1,4 +1,4 @@
-﻿---
+---
 title: Mettre à l’échelle la découverte et l’évaluation avec Azure Migrate | Microsoft Docs
 description: Décrit comment évaluer un grand nombre de machines locales avec le service Azure Migrate.
 author: rayne-wiselman
@@ -231,7 +231,7 @@ Pour la détection unique, le tableau ci-dessous répertorie les compteurs de pe
 
 Pour la détection continue, les mêmes compteurs étant collectés en temps réel (à intervalle de 20 secondes), il n’existe aucune dépendance sur le niveau de statistiques de vCenter. L’appliance regroupe ensuite les échantillons de 20 secondes pour créer un point de données unique pour toutes les périodes de 15 minutes en sélectionnant la valeur maximale dans les échantillons de 20 secondes, puis l’envoie à Azure.
 
-| Compteur                                 | Niveau | Niveau par appareil | Évaluation de l'impact                    |
+|Compteur                                  |Niveau    |Niveau par appareil  |Évaluation de l'impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
 |cpu.usage.average                        | 1       |N/D                |Taille de machine virtuelle recommandée et coût                    |
 |mem.usage.average                        | 1       |N/D                |Taille de machine virtuelle recommandée et coût                    |

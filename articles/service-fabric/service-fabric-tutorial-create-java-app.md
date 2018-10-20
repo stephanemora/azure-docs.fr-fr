@@ -57,7 +57,7 @@ Commencez par créer le service web frontal de l’application Voting. Le servic
 
 1. Lancez Eclipse.
 
-2. Créez un projet via **Fichier** -> **Nouveau** -> **Autre** -> **Service Fabric** -> **Projet Service Fabric**.
+2. Créez un projet via **Fichier**->**Nouveau**->**Autre**->**Service Fabric** -> **Projet Service Fabric**.
 
     ![Boîte de dialogue Nouveau projet dans Eclipse](./media/service-fabric-tutorial-create-java-app/create-sf-proj-wizard.png)
 

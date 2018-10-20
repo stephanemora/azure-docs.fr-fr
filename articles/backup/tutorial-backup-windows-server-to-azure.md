@@ -26,7 +26,7 @@ Vous pouvez utiliser Sauvegarde Azure pour protéger votre serveur Windows contr
 > [!div class="checklist"]
 > * Télécharger et configurer l’agent MARS
 > * Configurer les temps de sauvegarde et la planification de rétention pour les sauvegardes de votre serveur
-> * Effectuer une hoc sauvegarde ad-hoc
+> * Effectuer une sauvegarde ad-hoc
 
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
