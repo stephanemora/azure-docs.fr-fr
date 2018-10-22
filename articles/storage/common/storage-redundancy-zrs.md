@@ -1,6 +1,6 @@
 ---
-title: Générer des applications de stockage Azure hautement disponibles sur le stockage redondant dans une zone (ZRS) | Microsoft Docs
-description: Le stockage redondant dans une zone (ZRS) offre un moyen simple de générer des applications hautement disponibles. ZRS protège contre les défaillances matérielles dans le data center et contre certains sinistres régionaux.
+title: Générer des applications de stockage Azure hautement disponibles sur le stockage redondant interzone (ZRS) | Microsoft Docs
+description: Le stockage redondant interzone (ZRS) offre un moyen simple de générer des applications hautement disponibles. ZRS protège contre les défaillances matérielles dans le data center et contre certains sinistres régionaux.
 services: storage
 author: tolandmike
 ms.service: storage
@@ -15,7 +15,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/17/2018
 ms.locfileid: "45733614"
 ---
-# <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Stockage redondant dans une zone (ZRS) : applications de stockage Azure hautement disponibles
+# <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Stockage redondant interzone (ZRS) : applications de stockage Azure hautement disponibles
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## <a name="support-coverage-and-regional-availability"></a>Couverture du support et disponibilité régionale
