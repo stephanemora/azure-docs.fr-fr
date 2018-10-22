@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 09/20/2018
 ms.author: mtillman
-ms.openlocfilehash: 3be7c42b52f6af36451a79ea8592e983cc98f42b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 864240e45a616aa8c2e7f2d6b65f5c7550f0e50e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354357"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466407"
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -106,7 +106,7 @@ ms.locfileid: "49354357"
                                                             <a href="authentication/concept-registration-mfa-sspr-converged.md">Inscription convergée pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service</a>
                                                         </p>
                                                         <br><br>
-                                                        <h3><a href="b2b/index.yml">Business to business (B2B)</a></h3>
+                                                        <h3><a href="b2b/index.yml">Entreprise-entreprise (B2B)</a></h3>
                                                         <p>
                                                             <a href="b2b/b2b-quickstart-add-guest-users-portal.md">Ajouter des utilisateurs invités dans le portail</a><br>
                                                             <a href="b2b/b2b-tutorial-bulk-invite.md">Inviter en bloc des utilisateurs invités</a><br>

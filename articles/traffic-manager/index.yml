@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d7f1c1d523bc9c9d717accf7667c8bd7402bbc72
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ecfb8cff995d471a480226bc44164107b50eda84
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388369"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458018"
 documentType: LandingData
 title: Traffic Manager
 metadata:
@@ -19,7 +19,7 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 04/26/2018
+  ms.date: 10/15/2018
   ms.author: kumud
 abstract:
   description: Découvrez comment utiliser Azure Traffic Manager. Des guides de démarrage rapide, tutoriels, exemples, etc sont disponibles pour vous montrer comment gérer le trafic entrant pour des performances d’application optimales, et comment répartir le trafic entre des points de terminaison de service externe ou d’Azure.
@@ -43,10 +43,11 @@ sections:
     style: unordered
     items:
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-geographic-routing-method">Acheminer le trafic en fonction de l’emplacement géographique du point de terminaison</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-performance-routing-method">Acheminer le trafic pour une latence faible</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-improve-website-response">Acheminer le trafic pour une latence faible</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-weighted-routing-method">Répartir le trafic entre un ensemble de points de terminaison</a>
     - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Acheminer le trafic vers un point de terminaison prioritaire</a>
-    - html: <a href="/azure/traffic-manager/traffic-manager-configure-priority-routing-method">Acheminer le trafic en fonction du sous-réseau de l’utilisateur</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-weighted-endpoint-routing">Contrôler le trafic avec des points de terminaison pondérés</a>
+    - html: <a href="/azure/traffic-manager/tutorial-traffic-manager-subnet-routing">Acheminer le trafic en fonction du sous-réseau de l’utilisateur</a>
 - title: Formation vidéo gratuite Pluralsight
   items:
   - type: list
