@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: de856aed32b596209f7af2861b76ed6648d0caca
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2d22e995f489a6379a2f134b461b8bb17160919e
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067820"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113833"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Stream Analytics en tant que module IoT Edge - (prévision)
 
@@ -50,7 +50,7 @@ Un appareil Azure IoT Edge :
 
 Ressources cloud :
 
-* Un niveau Gratuit [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure. 
+* Un niveau gratuit ou standard [IoT Hub](../iot-hub/iot-hub-create-through-portal.md) dans Azure. 
 
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Créer un travail Azure Stream Analytics

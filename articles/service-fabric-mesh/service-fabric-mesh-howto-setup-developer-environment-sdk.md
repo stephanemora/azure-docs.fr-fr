@@ -9,12 +9,12 @@ ms.date: 08/08/2018
 ms.topic: get-started-article
 ms.service: service-fabric-mesh
 manager: jeconnoc
-ms.openlocfilehash: e95c0ad90503410601cc0764fdc559579a1dd13d
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 094cab324c7a7c66f5fcb57d488661109fcdabea
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41920974"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362668"
 ---
 # <a name="set-up-your-windows-development-environment-to-build-service-fabric-mesh-apps"></a>Configurer votre environnement de développement Windows pour créer des applications Service Fabric Mesh
 
@@ -69,7 +69,7 @@ Install-WindowsFeature Containers
 Installez le runtime, le kit de développement logiciel (SDK) et les outils Service Fabric Mesh dans l’ordre suivant.
 
 1. Installez le [Kit de développement logiciel (SDK) Service Fabric Mesh][download-sdkmesh] à l’aide de Web Platform Installer. Cela installera également le Kit de développement logiciel (SDK) et le runtime Microsoft Azure Service Fabric.
-2. Installez [l’extension Visual Studio Service Fabric Tools (préversion)][download-tools] à partir de Visual Studio Marketplace.
+2. Installez [l’extension Visual Studio Service Fabric Mesh Tools (préversion)][download-tools] à partir de Visual Studio Marketplace.
 
 ## <a name="build-a-cluster"></a>Générer un cluster
 

@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: d1776fc2347eb1a1f03a834b6a5f847ef5c551e4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 521b6423550bf3e2d0bc90212b7e3fe0cbeddfc4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948881"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167067"
 ---
 # <a name="tutorial-configure-an-azure-web-application-to-read-a-secret-from-key-vault"></a>Didacticiel : Configurer une application web Azure pour lire un secret dans le coffre de clés
 
@@ -126,10 +126,11 @@ Deux packages NuGet doivent être installés pour votre application web. Pour le
 1. Dans l’Explorateur de solutions, cliquez avec le bouton droit de la souris sur le nom de votre site web.
 2. Sélectionnez **Gérer les packages NuGet pour la solution...**.
 3. Cochez la case en regard de la zone de recherche. **Inclure la version préliminaire**
-4. Recherchez les deux packages NuGet répertoriés ci-dessous et acceptez qu’ils soient ajoutés à votre solution :
+4. Recherchez les trois packages NuGet répertoriés ci-dessous et acceptez qu’ils soient ajoutés à votre solution :
 
     * [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) : facilite la récupération de jetons d’accès dans les scénarios d’authentification de Service-à-Service-Azure. 
     * [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) : contient les méthodes permettant d’interagir avec Azure Key Vault.
+    * [Microsoft.Extensions.Configuration.AzureKeyVault](https://www.nuget.org/packages/Microsoft.Extensions.Configuration.AzureKeyVault/) : contient les extensions `IConfiguration` pour Azure Key Vault
 
 5. Utilisez l’Explorateur de solutions pour ouvrir `Program.cs` et remplacez le contenu du fichier Program.cs par le code suivant. Remplacez ```<YourKeyVaultName>``` par le nom de votre coffre de clés :
 
@@ -244,7 +245,7 @@ az webapp identity assign --name "WebKeyVault" --resource-group "ContosoResource
 
 Maintenant votre compte dans Azure et l’identité de l’application ont le droit de lire des informations dans Azure Key Vault. Quand vous actualisez la page, la page d’accueil du site doit s’afficher. Si vous sélectionnez **À propos de**, vous voyez la valeur que vous avez stockée dans Key Vault.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Pour supprimer un groupe de ressources et toutes ses ressources, utilisez la commande **az group delete**.
 

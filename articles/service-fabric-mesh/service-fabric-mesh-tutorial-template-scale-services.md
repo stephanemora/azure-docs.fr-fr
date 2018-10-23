@@ -15,16 +15,16 @@ ms.workload: NA
 ms.date: 09/18/2018
 ms.author: ryanwi
 ms.custom: mvc, devcenter
-ms.openlocfilehash: bf0b38c8c2d465abe9f2e129110df41c349c3d07
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4d6839fea3ce0eb74cdf87396716cdc69c0cd1a0
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055371"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165979"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Didacticiel : Mettre à l’échelle une application en cours d’exécution dans Service Fabric Mesh
 
-Ce tutoriel est le deuxième d’une série. Découvrez comment mettre à l’échelle manuellement le nombre d’instances de service d’une application qui a été [déployée sur Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md).  Lorsque vous avez terminé, vous avez .
+Ce tutoriel est le deuxième d’une série. Découvrez comment mettre à l’échelle manuellement le nombre d’instances de service d’une application qui a été [déployée sur Service Fabric Mesh](service-fabric-mesh-tutorial-template-deploy-app.md). Après avoir terminé, vous disposerez d’un service frontal exécutant trois instances et d’un service de données exécutant deux instances.
 
 Dans ce deuxième volet, vous apprenez à :
 
@@ -69,9 +69,9 @@ Dans le modèle de déploiement de la ressource d’application, chaque service 
 
 ### <a name="modify-the-deployment-template-parameters"></a>Modifier les paramètres du modèle de déploiement
 
-Si votre modèle contient des valeurs que vous prévoyez de changer une fois l’application déployée ou que vous aimeriez pouvoir changer d’un déploiement à l’autre (si vous prévoyez de réutiliser ce modèle pour d’autres déploiements), la bonne pratique consiste à paramétrer les valeurs.
+Si votre modèle contient des valeurs que vous prévoyez de changer une fois l’application déployée, ou que vous souhaitez pouvoir changer d’un déploiement à l’autre (si vous prévoyez de réutiliser ce modèle pour d’autres déploiements), la bonne pratique consiste à paramétrer les valeurs.
 
-Auparavant, l’application était déployée à l’aide des fichiers de [modèle de déploiement mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) et de [paramètres mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
+L’application a été déployée à l’aide des fichiers de [modèle de déploiement mesh_rp.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.json) et de [paramètres mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json).
 
 Ouvrez le fichier de [paramètres mesh_rp.windows.parameter.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/todolist/mesh_rp.windows.parameters.json) localement et définissez la valeur de *frontEndReplicaCount* sur 3 et la valeur de *serviceReplicaCount* sur 2 :
 
@@ -144,7 +144,7 @@ Une fois que votre modèle a été modifié, mettez à niveau votre application.
 
 ### <a name="upgrade-your-application"></a>Mettre à niveau votre application
 
-Pendant son exécution, vous pouvez mettre à niveau l’application en redéployant le modèle et le fichier de paramètres mis à jour :
+Pendant son exécution, vous pouvez mettre à niveau l’application en redéployant le modèle et le fichier de paramètres mis à jour :
 
 ```azurecli
 az mesh deployment create --resource-group myResourceGroup --template-file c:\temp\mesh_rp.windows.json --parameters c:\temp\mesh_rp.windows.parameters.json

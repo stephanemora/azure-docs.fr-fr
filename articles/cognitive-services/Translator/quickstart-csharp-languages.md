@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 967e978518debb5aef071807b1482d6f225c062f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 82e051895bd5ba8542fa32aa147b050a25c43c84
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367710"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318388"
 ---
 # <a name="quickstart-get-supported-languages-with-c35"></a>Démarrage rapide : Obtenir les langues prises en charge avec C&#35;
 
 Dans ce démarrage rapide, vous allez obtenir une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text.
-
-Le code source pour cet exemple est disponible sur [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,6 +28,9 @@ Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downl
 Pour utiliser l’API de traduction de texte Translator Text, vous avez également besoin d’une clé d’abonnement. Consultez [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Comment s’inscrire à l’API de traduction de texte Translator Text).
 
 ## <a name="languages-request"></a>Requête Langues
+
+> [!TIP]
+> Obtenez le code le plus récent à partir de [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 Le code suivant permet d’obtenir une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples, à l’aide de la méthode [Langues](./reference/v3-0-languages.md).
 

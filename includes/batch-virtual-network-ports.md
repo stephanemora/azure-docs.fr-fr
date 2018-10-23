@@ -1,28 +1,109 @@
-- Le réseau virtuel doit se trouver dans la même **région** et le même **abonnement** Azure que le compte Batch.
+---
+title: Fichier Include
+description: Fichier Include
+services: batch
+documentationcenter: ''
+author: dlepow
+manager: jeconnoc
+editor: ''
+ms.assetid: ''
+ms.service: batch
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: ''
+ms.date: 10/05/2018
+ms.author: danlep
+ms.custom: include file
+ms.openlocfilehash: 9246dea7fa12e5ac9378203e96352e917679525b
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312562"
+---
+### <a name="general-requirements"></a>Conditions générales
 
-- Pour les pools créés avec une configuration de machine virtuelle, seuls les réseaux virtuels basés sur Azure Resource Manager sont pris en charge. Pour les pools créés avec une configuration de services cloud, seuls les réseaux virtuels classiques sont pris en charge.
-  
-- Pour utiliser un réseau virtuel classique, le principal du service `MicrosoftAzureBatch` doit jouer le rôle de contrôle d’accès en fonction du rôle (RBAC) `Classic Virtual Machine Contributor` pour le réseau virtuel spécifié. Pour utiliser un réseau virtuel basé sur Azure Resource Manager, vous devez disposer d’autorisations pour accéder au réseau virtuel et déployer des machines virtuelles dans le sous-réseau.
+* Le réseau virtuel doit se trouver dans la même région et le même abonnement que le compte Batch utilisé pour créer le pool.
 
-- Le sous-réseau spécifié pour le pool doit avoir suffisamment d’adresses IP non attribuées pour contenir le nombre de machines virtuelles ciblées pour le pool, autrement dit, la somme des propriétés `targetDedicatedNodes` et `targetLowPriorityNodes` du pool. Si le sous-réseau ne dispose pas de suffisamment d’adresses IP non attribuées, le pool alloue partiellement les nœuds de calcul, et une erreur de redimensionnement se produit. 
+* Le pool utilisant le réseau virtuel peut avoir un maximum de 4096 nœuds.
 
-- Les pools dans la configuration de machine virtuelle déployés dans un réseau virtuel Azure allouent automatiquement des ressources de mise en réseau Azure supplémentaires. Les ressources suivantes sont nécessaires tous les 50 nœuds de pool dans un réseau virtuel : 1 groupe de sécurité réseau, 1 adresse IP publique et 1 équilibreur de charge. Ces ressources sont limitées par des [quotas](../articles/batch/batch-quota-limit.md) dans l’abonnement qui contient le réseau virtuel fourni lors de la création du pool Batch.
+* Le sous-réseau spécifié pour le pool doit avoir suffisamment d’adresses IP non attribuées pour contenir le nombre de machines virtuelles ciblées pour le pool, autrement dit, la somme des propriétés `targetDedicatedNodes` et `targetLowPriorityNodes` du pool. Si le sous-réseau ne dispose pas de suffisamment d’adresses IP non attribuées, le pool alloue partiellement les nœuds de calcul, et une erreur de redimensionnement se produit. 
 
-- Le réseau virtuel doit autoriser les communications à partir du service Batch pour pouvoir planifier des tâches sur les nœuds de calcul. Vous pouvez le vérifier en déterminant si le réseau virtuel comprend des groupes de sécurité réseau associés (NSG). Si la communication vers les nœuds de calcul dans le sous-réseau spécifié est refusée par un groupe de sécurité réseau, alors le service Batch définit l’état des nœuds de calcul sur **inutilisable**. 
+* Votre point de terminaison de Stockage Azure doit être résolu par tous les serveurs DNS personnalisés qui traitent votre réseau virtuel. Plus précisément, les URL sous la forme `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` et `<account>.blob.core.windows.net` doivent être résolvables. 
 
-- Si le réseau virtuel spécifié comporte des groupes de sécurité réseau (NSG) associés et/ou un pare-feu, configurez les ports entrants et sortants comme indiqué dans les tableaux suivants :
+Les exigences de réseau virtuel supplémentaires diffèrent si le pool Batch est dans la configuration de machine virtuelle ou dans la configuration des services cloud. Pour les nouveaux déploiements de pool dans un réseau virtuel, la configuration de machine virtuelle est recommandée.
 
+### <a name="pools-in-the-virtual-machine-configuration"></a>Pools dans la configuration de machine virtuelle
 
-  |    Port(s) de destination    |    Adresse IP source      |   Port source    |    Azure Batch ajoute-t-il des NSG ?    |    Élément requis pour permettre l’utilisation des machines virtuelles ?    |    Action que l’utilisateur doit effectuer   |
-  |---------------------------|---------------------------|----------------------------|----------------------------|-------------------------------------|-----------------------|
-  |   <ul><li>Pour les pools créés avec la configuration de machines virtuelles : 29876, 29877</li><li>Pour les pools créés avec une configuration de services cloud : 10100, 20100, 30100</li></ul>        |    * <br /><br />Bien que cela nécessite de « tout autoriser », le service Batch applique un groupe de sécurité réseau au niveau de l’interface réseau sur chaque machine virtuelle créée sous une configuration de machine virtuelle excluant toutes les adresses IP de service non-Batch. | * ou 443 |    Oui. Azure Batch ajoute des NSG au niveau des cartes réseau jointes aux machines virtuelles. Ces NSG autorisent le trafic uniquement à partir d’adresses IP du rôle de service Batch. Même si vous ouvrez ces ports à l’internet, le trafic sera bloqué au niveau de la carte réseau. |    Oui  |  Vous n’avez pas besoin de spécifier un NSG, car Azure Batch autorise uniquement les adresses IP Batch. <br /><br /> Toutefois, si vous ne spécifiez pas de NSG, assurez-vous que ces ports sont ouverts pour le trafic entrant.|
-  |    3389 (Windows), 22 (Linux)               |    Ordinateurs de l’utilisateur, utilisés à des fins de débogage, afin que vous puissiez accéder à distance aux machines virtuelles.    |   *  | Non                                     |    Non                     |    Ajoutez des NSG si vous souhaitez autoriser les utilisateurs à accéder à distance aux machines virtuelles (via RDP ou SSH).   |                                
+**Prise en charge des réseaux virtuels** : uniquement les réseaux virtuels basés sur Azure Resource Manager
 
+**ID de sous-réseau** : lorsque vous spécifiez le sous-réseau à l’aide de l’API Batch, utilisez l’*identificateur de ressource* du sous-réseau. L’identificateur du sous-réseau est au format :
 
-  |    Port(s) sortant(s)    |    Destination    |    Azure Batch ajoute-t-il des NSG ?    |    Élément requis pour permettre l’utilisation des machines virtuelles ?    |    Action que l’utilisateur doit effectuer    |
-  |------------------------|-------------------|----------------------------|-------------------------------------|------------------------|
-  |    443    |    Stockage Azure    |    Non     |    Oui    |    Si vous ajoutez des NSG, vérifiez que ce port est ouvert pour le trafic sortant.    |
+  ```
+  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/virtualNetworks/{network}/subnets/{subnet}
+  ```
 
-   Aussi, assurez-vous que votre point de terminaison de Stockage Azure peut être résolu par tous les serveurs DNS personnalisés qui traitent votre réseau virtuel. Plus précisément, les URL sous la forme `<account>.table.core.windows.net`, `<account>.queue.core.windows.net` et `<account>.blob.core.windows.net` doivent être résolvables. 
+**Autorisations** : vérifiez si vos stratégies ou verrous de sécurité l’abonnement ou le groupe de ressources du réseau virtuel restreignent les autorisations d’un utilisateur pour gérer le réseau virtuel.
 
-   Si vous ajoutez un NSG basé sur le Gestionnaire des ressources, vous pouvez utiliser des [balises de service](../articles/virtual-network/security-overview.md#service-tags) pour sélectionner les adresses IP de Stockage correspondant à la région spécifique des connexions sortantes. Notez que les adresses IP de Stockage doivent se trouver dans la même région que votre compte Batch et votre réseau virtuel. Les balises de service sont actuellement en préversion dans certaines régions Azure.
+**Ressources de mise en réseau supplémentaires** : Batch alloue automatiquement des ressources de mise en réseau supplémentaires dans le groupe de ressources contenant le réseau virtuel. Pour chaque 50 nœuds dédiés (ou chaque 20 nœuds de faible priorité), Batch alloue : un groupe de sécurité réseau (NSG), une adresse IP publique et un équilibreur de charge. Ces ressources sont limitées par les [quotas de ressources](../articles/azure-subscription-service-limits.md) de l’abonnement. Pour les grands pools, vous devrez peut-être demander une augmentation du quota pour une ou plusieurs de ces ressources.
+
+#### <a name="network-security-groups"></a>Groupes de sécurité réseau
+
+Le sous-réseau doit autoriser les communications entrantes issues du service Batch pour pouvoir planifier des tâches sur les nœuds de calcul, et également les communications sortantes pour communiquer avec le stockage Azure ou d’autres ressources. Pour les pools dans la configuration de machine virtuelle, Batch ajoute des groupes de sécurité réseau au niveau des interfaces réseau (NIC) attachées aux machines virtuelles. Ces groupes de sécurité réseau configurent automatiquement des règles de trafic entrant et sortant pour autoriser le trafic suivant :
+
+* Le trafic TCP entrant sur les ports 29876 et 29877 à partir d’adresses IP du rôle de service Batch. 
+* Le trafic TCP entrant sur le port 22 (nœuds Linux) ou le port 3389 (nœuds Windows) pour autoriser l’accès à distance.
+* Le trafic sortant sur n’importe quel port vers le réseau virtuel.
+* Le trafic sortant sur n’importe quel port vers internet.
+
+> [!IMPORTANT]
+> Soyez prudent si vous modifiez ou ajoutez des règles de trafic entrant ou sortant dans des groupes de sécurité réseau configurés par Batch. Si la communication vers les nœuds de calcul dans le sous-réseau spécifié est refusée par un groupe de sécurité réseau, alors le service Batch définit l’état des nœuds de calcul sur **inutilisable**.
+
+Vous n’avez pas besoin spécifier de groupes de sécurité réseau au niveau du sous-réseau, car Batch configure ses propres groupes de sécurité réseau. Cependant, si le sous-réseau spécifié comporte des groupes de sécurité réseau (NSG) associés et/ou un pare-feu, configurez les règles de sécurité du trafic entrant et sortant comme indiqué dans les tableaux suivants. Configurez le trafic entrant sur le port 3389 (Windows) ou 22 (Linux) uniquement si vous avez besoin d’autoriser l’accès à distance aux machines virtuelles du pool. Il n’est pas exigé que les machines virtuelles du pool soient utilisables.
+
+**Règles de sécurité entrantes**
+
+| Adresses IP sources | Ports source | Destination | Ports de destination | Protocole | Action |
+| --- | --- | --- | --- | --- | --- |
+Quelconque <br /><br />Bien que cela nécessite de « tout autoriser », le service Batch applique un groupe de sécurité réseau au niveau de l’interface réseau sur chaque machine virtuelle créée sous une configuration de machine virtuelle excluant toutes les adresses IP de service non-Batch. | * | Quelconque | 29876-29877 | TCP | AUTORISER |
+| Machines de l’utilisateur, utilisées à des fins de débogage pour un accès à distance aux machines virtuelles du pool. | * | Quelconque |  3389 (Windows), 22 (Linux) | TCP | AUTORISER |
+
+**Règles de sécurité de trafic entrant**
+
+| Source | Ports source | Destination | Identification de destination | Protocole | Action |
+| --- | --- | --- | --- | --- | --- |
+| Quelconque | 443 | [Balise du service](../articles/virtual-network/security-overview.md#service-tags) | Stockage (dans la même région que votre compte Batch et votre réseau virtuel)  | Quelconque | AUTORISER |
+
+### <a name="pools-in-the-cloud-services-configuration"></a>Pools dans la configuration des services cloud
+
+**Réseaux virtuels pris en charge** : réseaux virtuels classiques uniquement
+
+**ID de sous-réseau** : lorsque vous spécifiez le sous-réseau à l’aide de l’API Batch, utilisez l’*identificateur de ressource* du sous-réseau. L’identificateur du sous-réseau est au format :
+
+  ```
+  /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.ClassicVirtualNetwork /virtualNetworks/{network}/subnets/{subnet}
+  ```
+
+**Autorisations** : le `MicrosoftAzureBatch`principal du service doit jouer le rôle de contrôle d’accès en fonction du rôle (RBAC) `Classic Virtual Machine Contributor` pour le réseau virtuel spécifié.
+
+#### <a name="network-security-groups"></a>Groupes de sécurité réseau
+
+Le sous-réseau doit autoriser les communications entrantes issues du service Batch pour pouvoir planifier des tâches sur les nœuds de calcul, et également les communications sortantes pour communiquer avec le stockage Azure ou d’autres ressources.
+
+Il est inutile de spécifier un groupe de sécurité réseau, étant donné que Batch configure les communications entrantes uniquement à partir d’adresses IP Batch pour les nœuds du pool. Cependant, si le sous-réseau spécifié comporte des groupes de sécurité réseau associés et/ou un pare-feu, configurez les règles de sécurité du trafic entrant et sortant comme indiqué dans les tableaux suivants. Si la communication vers les nœuds de calcul dans le sous-réseau spécifié est refusée par un groupe de sécurité réseau, alors le service Batch définit l’état des nœuds de calcul sur **inutilisable**.
+
+ Configurer le trafic entrant sur le port 3389 (Windows) ou 22 (Linux) uniquement si vous avez besoin d’autoriser l’accès à distance aux nœuds du pool. Il n’est pas exigé que les nœuds du pool soient utilisables.
+
+**Règles de sécurité entrantes**
+
+| Adresses IP sources | Ports source | Destination | Ports de destination | Protocole | Action |
+| --- | --- | --- | --- | --- | --- |
+Quelconque <br /><br />Bien que cela nécessite réellement de « tout autoriser », le service Batch applique une règle ACL au niveau de chaque nœud, excluant toutes les adresses IP des services autres que Batch. | * | Quelconque | 10100, 20100, 30100 | TCP | AUTORISER |
+| Machines de l’utilisateur, utilisées à des fins de débogage pour un accès à distance aux machines virtuelles du pool. | * | Quelconque |  3389 (Windows), 22 (Linux) | TCP | AUTORISER |
+
+**Règles de sécurité de trafic entrant**
+
+| Source | Ports source | Destination | Ports de destination | Protocole | Action |
+| --- | --- | --- | --- | --- | --- |
+| Quelconque | * | Quelconque | 443  | Quelconque | AUTORISER |

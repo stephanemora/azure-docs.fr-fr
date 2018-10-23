@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/01/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: a98e29ef73275d097dc5c61b3b905193b80b79b3
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: f71db50678ad0f1b37e30a4120b90d47d9090942
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858580"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113850"
 ---
 # <a name="create-a-function-triggered-by-azure-blob-storage"></a>Créer une fonction déclenchée par un stockage Blob Azure
 
@@ -42,17 +42,17 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 ## <a name="create-a-blob-storage-triggered-function"></a>Créer une fonction déclenchée par le stockage Blob
 
-1. Développez votre Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre application de fonction, sélectionnez **Console du portail** puis **Continuer**. Sinon, passez à l’étape 3.
+1. Développez votre Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre application de fonction, sélectionnez **Dans le portail**, puis **Continuer**. Sinon, passez à l’étape 3.
 
    ![Page de démarrage rapide des fonctions sur le portail Azure](./media/functions-create-storage-blob-triggered-function/function-app-quickstart-choose-portal.png)
 
-1. Choisissez **Autres modèles** puis **Terminer et afficher les modèles**.
+1. Choisissez **Autres modèles**, puis **Terminer et afficher les modèles**.
 
     ![Page de démarrage rapide de la fonction Choisir d’autres modèles](./media/functions-create-storage-blob-triggered-function/add-first-function.png)
 
 1. Dans le champ Rechercher, tapez `blob`, puis choisissez le modèle **Déclencheur d’objet blob**.
 
-1. Si vous y êtes invité, sélectionnez **Installer** pour installer toutes les dépendances de l’extension Stockage Azure dans l’application de fonction. Une fois l’installation réussie, sélectionnez **Continuer**.
+1. Si vous y êtes invité, sélectionnez **Installer** pour installer l’extension Stockage Azure et toutes les dépendances dans l’application de fonction. Une fois l’installation réussie, sélectionnez **Continuer**.
 
     ![Installer des extensions de liaison](./media/functions-create-storage-blob-triggered-function/functions-create-blob-storage-trigger-portal.png)
 

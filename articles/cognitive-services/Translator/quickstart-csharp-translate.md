@@ -10,18 +10,16 @@ ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: e60b2a9ea7c56352a1b4dfb65537ba6dc57fcb68
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 2b524591f3af32e566b0ca364626daf7aaf4ace2
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365959"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318450"
 ---
 # <a name="quickstart-translate-text-with-c35"></a>Démarrage rapide : Traduire du texte avec C&#35;
 
 Dans ce démarrage rapide, vous traduisez du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text.
-
-Le code source pour cet exemple est disponible sur [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,6 +28,9 @@ Vous devez disposer de [Visual Studio 2017](https://www.visualstudio.com/downl
 Pour utiliser l’API de traduction de texte Translator Text, vous avez également besoin d’une clé d’abonnement. Consultez [How to sign up for the Translator Text API](translator-text-how-to-signup.md) (Comment s’inscrire à l’API de traduction de texte Translator Text).
 
 ## <a name="translate-request"></a>Requête Traduire
+
+> [!TIP]
+> Obtenez le code le plus récent à partir de [Github](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-C-Sharp).
 
 Le code suivant traduit le texte source d’une langue à une autre en utilisant la méthode [Traduire](./reference/v3-0-translate.md).
 

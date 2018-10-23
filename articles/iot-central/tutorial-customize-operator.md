@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: d99b76faf618439e51735d5f1096fd4f1cfd2364
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9b8293196114f55f633e67cf19cd0c9e60f6398e
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038287"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309458"
 ---
 # <a name="tutorial-customize-the-azure-iot-central-operators-view"></a>Didacticiel : Personnaliser la vue de l’opérateur d’Azure IoT Central
 
@@ -56,7 +56,7 @@ En tant que générateur, vous pouvez définir les informations qui s’affichen
 
     ![Page du tableau de bord de modèle d’appareil](media/tutorial-customize-operator/dashboard.png)
 
-4. Pour ajouter une vignette d’indicateur de performance clé au tableau de bord, choisissez **KPI** :
+4. Pour ajouter une vignette d’indicateur de performance clé (KPI) au tableau de bord, choisissez **KPI** :
 
     ![Ajouter un KPI](media/tutorial-customize-operator/addkpi.png)
 
@@ -81,7 +81,7 @@ En tant que générateur, vous pouvez définir les informations qui s’affichen
 
 ## <a name="configure-your-settings-layout"></a>Configurer la disposition de vos paramètres
 
-En tant que générateur, vous pouvez également configurer la vue de l’opérateur des paramètres d’appareil. Un opérateur utilise la page des paramètres de l’appareil pour configurer un appareil. Par exemple, un opérateur utilise la page des paramètres pour définir la température cible du réfrigérateur.
+En tant que générateur, vous pouvez également configurer la vue de l’opérateur des paramètres d’appareil. Un opérateur utilise la page des paramètres de l’appareil pour configurer un appareil. Par exemple, un opérateur utilise la page des paramètres pour définir la température cible d’un climatiseur connecté.
 
 1. Pour modifier la disposition des paramètres de votre climatiseur raccordé, choisissez **Paramètres**, puis sélectionnez **Modifier un modèle** :
 
@@ -117,7 +117,7 @@ En plus du tableau de bord et des paramètres, vous pouvez également configurer
 
 En mode **Modifier un modèle**, vous pouvez personnaliser les pages du tableau de bord, des paramètres et des propriétés pour un opérateur. Si vous n’êtes pas en mode **Modifier un modèle**, vous pouvez afficher l’application en tant qu’opérateur.
 
-1. Pour afficher votre climatiseur raccordé en tant qu’opérateur, vous devez cliquer sur **Terminé** pour arrêter la modification du modèle. Vous retournerez alors dans la vue de l’opérateur de l’appareil.
+1. Pour afficher votre climatiseur connecté en tant qu’opérateur, cliquez sur **Terminé** pour arrêter la modification du modèle, puis revenez à l’affichage de l’opérateur pour cet appareil.
 
 2. Pour mettre à jour l’emplacement de cet appareil, modifiez la valeur dans la vignette Emplacement et choisissez **Enregistrer** :
 

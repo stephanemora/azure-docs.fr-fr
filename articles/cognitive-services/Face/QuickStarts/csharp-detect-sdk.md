@@ -3,25 +3,23 @@ title: 'Démarrage rapide : Détecter les visages dans une image - SDK, C#'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez détecter les visages d’une image à l’aide de la bibliothèque de client C# Windows de l’API Visage de Cognitive Services.
 services: cognitive-services
-author: noellelacharite
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
 ms.date: 09/14/2018
-ms.author: nolachar
-ms.openlocfilehash: a9a7efd89f8e7462812064615d07acf12acbc3a3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.author: pafarley
+ms.openlocfilehash: b5fd10aaab28303079d3eef9c4c5c25207bb672e
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364097"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344980"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-c35---face"></a>Démarrage rapide : Détecter les visages dans une image à l’aide de C&#35; - Visage
 
 Dans ce guide de démarrage rapide, vous allez détecter des visages humains dans une image à l’aide de la bibliothèque de client Windows de l’API Visage.
-
-Le code source pour cet exemple est disponible sur [GitHub](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -30,6 +28,9 @@ Le code source pour cet exemple est disponible sur [GitHub](https://github.com/A
 * Le package NuGet de la bibliothèque de client [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview). Il n’est pas nécessaire de télécharger le package. Vous trouverez ci-dessous des instructions d’installation.
 
 ## <a name="detectwithurlasync-method"></a>Méthode DetectWithUrlAsync
+
+> [!TIP]
+> Récupérez le dernier code en tant que solution Visual Studio à partir de [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
 
 Les méthodes `DetectWithUrlAsync` et `DetectWithStreamAsync` permettent de wrapper [l’API de détection des visages](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) pour les images locales et distantes, respectivement. Vous pouvez utiliser ces méthodes pour détecter les visages dans une image et retourner les attributs des visages, notamment :
 

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e68050e4902183b899bf3fee31bef088b1a0faf2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4db494de87993a6434eaf5dbf441094578d72ea4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576066"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165962"
 ---
 # <a name="what-is-azure-maps"></a>Qu’est-ce qu’Azure Maps ?
 
@@ -23,6 +23,14 @@ Azure Maps est une collection de services géospatiaux qui s’appuient sur des 
 La vidéo suivante explique Azure Maps plus en détail :
 
 <iframe src="https://channel9.msdn.com/Shows/Azure-Friday/Azure-Location-Based-Services/player" width="960" height="540" allowFullScreen frameBorder="0"></iframe>
+
+## <a name="map-controls"></a>Contrôles de carte
+
+### <a name="web-control"></a>Contrôle web
+
+Le contrôle web Azure Maps vous permet de personnaliser des cartes interactives avec du contenu et des images qui vous sont propres pour les afficher dans vos applications web ou mobiles. Ce contrôle utilise WebGL, ce qui vous permet d’afficher d’importants jeux de données avec des performances élevées. Développez avec le contrôle à l’aide de JavaScript ou de TypeScript.
+
+![Contrôle web Azure Maps](media/about-azure-maps/Introduction_WebMapControl.png)
 
 ## <a name="services-in-azure-maps"></a>Services d’Azure Maps
 
@@ -87,7 +95,7 @@ Traffic Service est une suite de services web permettant aux développeurs de cr
 
 Consultez la page [Azure Maps Traffic APIs](https://docs.microsoft.com/rest/api/maps/traffic) (API Azure Maps Traffic) pour plus d’informations.
 
-### <a name="ip-to-location"></a>IP to Location
+### <a name="ip-to-location"></a>Localisation d’IP
 
 Le service IP to Location vous permet de prévisualiser le code pays à deux lettres récupéré d’une adresse IP donnée. Ce service peut vous aider à adapter et améliorer l’expérience utilisateur en personnalisant le contenu des applications en fonction de l’emplacement géographique.
 

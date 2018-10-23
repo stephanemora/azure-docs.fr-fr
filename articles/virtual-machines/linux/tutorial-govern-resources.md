@@ -11,15 +11,15 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/20/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 2d19488d9b4d6ae6c71610788345b45c38e51cfa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 715a8e5bab9e5d16b8c0e54298101df856d51a9a
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968813"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309857"
 ---
 # <a name="tutorial-learn-about-linux-virtual-machine-governance-with-azure-cli"></a>Tutoriel : Découvrir la gouvernance de machines virtuelles Linux avec Azure CLI
 
@@ -27,7 +27,7 @@ ms.locfileid: "46968813"
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
+Si vous choisissez d’installer et d’utiliser Azure CLI localement, ce didacticiel nécessite que vous exécutiez Azure CLI version 2.0.30 ou ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, voir [Installer Azure CLI]( /cli/azure/install-azure-cli).
 
 ## <a name="understand-scope"></a>Comprendre la portée
 
@@ -53,21 +53,19 @@ Pour gérer les solutions de machine virtuelle, il existe trois rôles de ressou
 
 * [Collaborateur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor)
 * [Collaborateur de réseau](../../role-based-access-control/built-in-roles.md#network-contributor)
-* [Collaborateur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
+* [Contributeur de compte de stockage](../../role-based-access-control/built-in-roles.md#storage-account-contributor)
 
-Au lieu d’affecter des rôles à des utilisateurs, il est souvent plus facile de [créer un groupe Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) et d’y regrouper les utilisateurs qui ont besoin d’effectuer des actions similaires. Ensuite, vous affectez ce groupe au rôle approprié. Pour simplifier, vous allez créer un groupe Azure Active Directory vide. Vous pouvez toujours affecter ce groupe à un rôle pour une étendue. 
+Au lieu d’assigner des rôles à des utilisateurs, il est souvent plus facile d’utiliser un groupe Azure Active Directory hébergeant les utilisateurs qui ont besoin d’effectuer des actions similaires. Ensuite, vous affectez ce groupe au rôle approprié. Pour cet article, utilisez un groupe existant pour la gestion de la machine virtuelle, ou utilisez le portail pour [créer un groupe Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-L’exemple suivant permet de créer un groupe Azure Active Directory nommé *VMDemoContributors* avec le pseudonyme de messagerie *vmDemoGroup*. Le pseudonyme de messagerie sert d’alias pour le groupe.
-
-```azurecli-interactive
-adgroupId=$(az ad group create --display-name VMDemoContributors --mail-nickname vmDemoGroup --query objectId --output tsv)
-```
-
-Le groupe ne se propage pas immédiatement dans Azure Active Directory après le retour de l’invite de commandes. Après avoir attendu 20 à 30 secondes, utilisez la commande [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour assigner le nouveau groupe Azure Active Directory au rôle Contributeur de machine virtuelle pour le groupe de ressources.  Si vous exécutez la commande suivante avant la propagation, vous recevrez le message d’erreur **Le principal <guid> n’existe pas dans le répertoire**. Essayez d’exécuter à nouveau la commande.
+Après avoir créé un groupe ou trouvé un groupe existant, utilisez la commande [az role assignment create](/cli/azure/role/assignment#az_role_assignment_create) pour assigner le nouveau groupe Azure Active Directory au rôle Contributeur de machine virtuelle pour le groupe de ressources.
 
 ```azurecli-interactive
+adgroupId=$(az ad group show --group <your-group-name> --query objectId --output tsv)
+
 az role assignment create --assignee-object-id $adgroupId --role "Virtual Machine Contributor" --resource-group myResourceGroup
 ```
+
+Si vous recevez une erreur indiquant **Principal <guid> does not exist in the directory** (Le principal n’existe pas dans le répertoire), cela signifie que le nouveau groupe ne s’est pas propagé dans Azure Active Directory. Essayez d’exécuter à nouveau la commande.
 
 En règle générale, vous répétez ce processus pour *Contributeur de réseaux* et *Contributeur de comptes de stockage*, pour être sûr que les utilisateurs sont affectés à la gestion des ressources déployées. Dans cet article, vous pouvez ignorer ces étapes.
 
@@ -165,7 +163,7 @@ az lock create --name LockNSG \
   --resource-type Microsoft.Network/networkSecurityGroups
 ```
 
-Pour tester les verrous, exécutez la commande suivante :
+Pour tester les verrous, essayez d’exécuter la commande suivante :
 
 ```azurecli-interactive 
 az group delete --name myResourceGroup
@@ -179,7 +177,7 @@ Vous allez appliquer des [balises](../../azure-resource-manager/resource-group-u
 
 [!INCLUDE [Resource Manager governance tags CLI](../../../includes/resource-manager-governance-tags-cli.md)]
 
-Pour appliquer des balises à une machine virtuelle, utilisez la commande [az resource tag](/cli/azure/resource#az_resource_tag). Les éventuelles balises existantes de la ressource ne seront pas conservées.
+Pour appliquer des balises à une machine virtuelle, utilisez la commande [az resource tag](/cli/azure/resource#az_resource_tag). Les balises existantes de la ressource ne sont pas conservées.
 
 ```azurecli-interactive
 az resource tag -n myVM \

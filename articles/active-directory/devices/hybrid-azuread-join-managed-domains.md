@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: b3a3baaf22fa9c382bb45a5b2a2065ef7678faf5
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c3c0d9bb6da00272cc7da0ad9f4fae978552c39b
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855950"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352608"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Tutoriel : Configurer une jonction Azure Active Directory hybride pour les domaines managés
 
@@ -172,7 +172,7 @@ Lorsque vous utilisez l’applet de commande **Get-MSolDevice** pour vérifier l
 
 - Un objet dont l’**id d’appareil** correspond à l’ID présent sur le client Windows doit exister.
 - La valeur de **DeviceTrustType** doit être **Domain Joined**. C’est l’équivalent de l’état **Joint à une version hybride d’Azure AD** dans la page Appareils du portail Azure AD.
-- La valeur de **Enabled** doit être **True** pour les appareils qui sont utilisés dans l’accès conditionnel. 
+- La valeur de **Enabled** doit être **True** et celle de **DeviceTrustLevel** doit être **Managed** pour les appareils qui sont utilisés dans l’accès conditionnel. 
 
 
 **Pour vérifier les détails du service :**

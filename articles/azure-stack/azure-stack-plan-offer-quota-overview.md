@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 10/12/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 70ed5d45701133434c708ad80aaafc58645297e8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ee336fb5a60998aaac1518a85b8b92f63d9d4b64
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077115"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318127"
 ---
 # <a name="plan-offer-quota-and-subscription-overview"></a>Vue d’ensemble des plans, des offres, des quotas et des abonnements
 
@@ -40,7 +40,7 @@ Pour fournir un service, suivez les grandes étapes suivantes :
 2. Créez un plan qui contient un ou plusieurs services. Ce faisant, vous sélectionnez ou créez des quotas qui définissent les limites de ressources de chacun des services du plan.
 3. Créez un offre qui contient un ou plusieurs plans. L’offre peut inclure des plans de base et des plans d’extension facultatifs.
 
-Une fois l’offre créée, vos utilisateurs peuvent s’y abonner pour accéder aux services et aux ressources qu’elle fournit. Ils peuvent s’abonner à autant d’offres qu’ils le souhaitent. Le diagramme suivant montre l’exemple simple d’un utilisateur qui s’est abonné à deux offres. Chaque offre comprend un ou deux plans, et chacun leur donne accès à des services.
+Une fois l’offre créée, vos utilisateurs peuvent s’y abonner pour accéder aux services et aux ressources qu’elle fournit. Ils peuvent s’abonner à autant d’offres qu’ils le souhaitent. La figure suivante montre l’exemple simple d’un utilisateur qui s’est abonné à deux offres. Chaque offre comprend un ou deux plans, et chacun leur donne accès à des services.
 
 ![Abonnement client avec offres et plans](media/azure-stack-key-features/image4.png)
 
@@ -50,9 +50,9 @@ Les plans regroupent un ou plusieurs services. En tant qu’opérateur Azure Sta
 
 ### <a name="quotas"></a>Quotas
 
-Pour mieux gérer votre capacité cloud, vous pouvez utiliser des quotas préconfigurés ou créer un quota pour chacun des services d’un plan. Les quotas définissent les limites de ressources supérieures qu’un abonnement utilisateur peut approvisionner ou consommer. Par exemple, un quota peut autoriser un utilisateur à créer jusqu’à cinq machines virtuelles. Vous définissez des quotas supplémentaires sur les machines virtuelles, comme la RAM et les cœurs de processeur.
+Pour mieux gérer votre capacité cloud, vous pouvez utiliser des *quotas* préconfigurés ou créer un quota pour chacun des services d’un plan. Les quotas définissent les limites de ressources supérieures qu’un abonnement utilisateur peut approvisionner ou consommer. Par exemple, un quota peut autoriser un utilisateur à créer jusqu’à cinq machines virtuelles.
 
-Vous pouvez configurer des quotas par région. Par exemple, un plan fournissant des services de calcul pour la région A peut avoir un quota de deux machines virtuelles avec 4 Go de RAM et 8 cœurs de processeur.
+Vous pouvez configurer des quotas par région. Par exemple, un plan fournissant des services de calcul pour la région A peut avoir un quota de deux machines virtuelles.
 
 >[!NOTE]
 >Dans le Kit de développement Azure Stack, une seule région (nommée *local*) est disponible.
@@ -75,7 +75,7 @@ Lorsque vous [créez une offre](azure-stack-create-offer.md), vous devez inclure
 
 ## <a name="subscriptions"></a>Abonnements
 
-L’abonnement est la forme sous laquelle les utilisateurs accèdent aux offres. Si vous êtes un opérateur Azure Stack chez un fournisseur de services, vos utilisateurs (clients) achètent vos services en s’abonnant à vos offres. Si vous êtes un opérateur Azure Stack au sein d’une organisation, vos utilisateurs (employés) peuvent s’abonner gratuitement aux services que vous proposez.
+L’abonnement est la forme sous laquelle les utilisateurs accèdent aux offres. Si vous êtes un opérateur Azure Stack chez un fournisseur de services, vos utilisateurs (locataires) achètent vos services en s’abonnant à vos offres. Si vous êtes un opérateur Azure Stack au sein d’une organisation, vos utilisateurs (employés) peuvent s’abonner gratuitement aux services que vous proposez.
 
 Chaque combinaison entre un utilisateur et une offre correspond à un abonnement unique. Un utilisateur peut avoir des abonnements à plusieurs offres, mais chaque abonnement s’applique à une seule offre. Les plans, les offres et les quotas s’appliquent uniquement à un abonnement donné. Ils ne sont pas partageables entre différents abonnements. Chaque ressource créée par un utilisateur est associée à un seul abonnement.
 
@@ -85,4 +85,4 @@ L’abonnement au fournisseur par défaut est automatiquement créé lors du dé
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Créer un plan](azure-stack-create-plan.md)
+Pour plus d’informations sur les plans et les offres, consultez [Créer un plan dans Azure Stack](azure-stack-create-plan.md).

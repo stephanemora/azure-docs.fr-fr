@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9a3b7383651d679b079818fb32bd8f98160d0a4c
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4fceaf5a3e573964919d365a67519b26278ca
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35235479"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310622"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Didacticiel : utiliser Azure IoT Central pour surveiller vos appareils
 
@@ -61,7 +61,7 @@ Le graphique sur le tableau de bord affiche un tracé de la température de l’
 
 Pour modifier la température cible de l’appareil, utilisez la page **Paramètres** :
 
-1. Choisissez **Paramètres**. Définissez **Set Temperature** (Température réglée) sur 100. Choisissez **Mettre à jour** pour envoyer la nouvelle température cible à l’appareil. Lorsque l’appareil accuse réception d’une modification de paramètre, la valeur du d’état devient **synchronisé** :
+1. Choisissez **Paramètres**. Définissez **Set Temperature** (Température réglée) sur 75. Choisissez **Mettre à jour** pour envoyer la nouvelle température cible à l’appareil. Lorsque l’appareil accuse réception d’une modification de paramètre, la valeur du d’état devient **synchronisé** :
 
     ![Mettre à jour les paramètres](media/tutorial-monitor-devices/change_settings.png)
 
@@ -71,7 +71,7 @@ Pour modifier la température cible de l’appareil, utilisez la page **Paramèt
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="nextstepaction"]
 > * Recevoir une notification

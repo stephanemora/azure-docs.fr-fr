@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 06/12/2018
 ms.author: kgremban
 ms.custom: mvc
-ms.openlocfilehash: 6e3571fb54f12ef3bb5519f572b8af5bf9247e7d
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: 107852bd2c4ec0b932008b498dde4ea77f8071a3
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37032693"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116334"
 ---
 # <a name="what-is-azure-iot-edge"></a>Qu’est-ce qu’Azure IoT Edge
 
@@ -55,7 +55,7 @@ Le runtime Azure IoT Edge active les logiques cloud et personnalisées sur les p
 * Il facilite la communication entre les modules et le périphérique IoT Edge.
 * Il facilite la communication entre le périphérique IoT Edge et le cloud.
 
-![Le runtime de IoT Edge envoie des informations et des rapports à IoT Hub][1]
+![Le runtime de IoT Edge envoie des informations et des rapports à IoT Hub](./media/about-iot-edge/runtime.png)
 
 Les choix liés à l’utilisation d’un appareil Azure IoT Edge vous reviennent entièrement. Le runtime est souvent utilisé pour déployer des IA sur des passerelles qui agrègent des données et les traitent à partir de plusieurs autres appareils locaux, mais ce n’est qu’une option. Les appareils feuilles peuvent également être des appareils Azure IoT Edge, qu’ils soient connectés à une passerelle ou directement dans le cloud.
 
@@ -71,15 +71,10 @@ Azure IoT Edge s’intègre parfaitement avec les accélérateurs de solution Az
 * Envoyer une charge de travail à un ensemble d’appareils.
 * Analyser les charges de travail en cours d’exécution sur des périphériques dans le champ.
 
-![Télémétrie, informations et les actions d’appareils sont coordonnées avec le cloud][2]
+![Télémétrie, informations et les actions d’appareils sont coordonnées avec le cloud](./media/about-iot-edge/cloud-interface.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Essayez ces concepts en [déployant IoT Edge sur un appareil simulé][lnk-quickstart].
+Essayez ces concepts en [déployant IoT Edge sur un appareil simulé](quickstart.md).
 
-<!-- Images -->
-[1]: ./media/about-iot-edge/runtime.png
-[2]: ./media/about-iot-edge/cloud-interface.png
-
-<!-- Links -->
-[lnk-quickstart]: quickstart.md
+ 

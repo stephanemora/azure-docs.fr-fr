@@ -9,28 +9,16 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: af06766d89804b2f3d0aaf061494fb836f6ec262
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 0199efbc1456206c67efb846b4381cae333e3749
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465603"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309040"
 ---
 # <a name="create-an-azure-iot-central-application"></a>Créer une application Azure IoT Central
 
-En tant que _générateur_, vous utilisez l’interface utilisateur d’Azure IoT Central pour définir votre application Microsoft Azure IoT Central. Ce démarrage rapide vous montre comment :
-
-- Créez une application Azure IoT Central qui contient un exemple de _modèle d’appareil_ et des _appareils_ simulés.
-- Affichez les fonctionnalités du modèle d’appareil **Machine de distribution réfrigérée** dans votre application.
-- Affichez les données de télémétrie et l’analyse de vos appareils **Réfrigérateur** simulés.
-
-Dans ce guide de démarrage rapide, vous affichez un appareil **Réfrigérateur** simulé à partir d’un modèle d’appareil. L’appareil simulé :
-
-* Envoie des données de télémétrie, comme la température et la pression, à votre application.
-* Rapporte des valeurs de propriété d’appareil, comme une alerte de mouvement, à votre application.
-* Comprend des paramètres d’appareil, comme la vitesse du ventilateur, que vous pouvez définir dans l’application.
-
-Lorsque vous créez un appareil simulé à partir d’un modèle d’appareil dans une application Azure IoT Central, l’appareil simulé vous permet de tester votre application avant de raccorder un appareil réel.
+En tant que _générateur_, vous utilisez l’interface utilisateur d’Azure IoT Central pour définir votre application Microsoft Azure IoT Central. Ce démarrage rapide vous montre comment créer une application Azure IoT Central qui contient un exemple de _modèle d’appareil_ et des _appareils_ simulés.
 
 ## <a name="create-the-application"></a>Création de l'application
 

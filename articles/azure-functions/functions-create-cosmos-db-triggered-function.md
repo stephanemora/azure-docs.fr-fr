@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 2c19a464a4437c3490b03baef6cc95a783a55c69
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: eb909384805c96ce656cacf86adceedc55613c0f
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48858589"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113656"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Créer une fonction déclenchée par Azure Cosmos DB
 
@@ -50,17 +50,17 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
 ## <a name="create-azure-cosmos-db-trigger"></a>Créer le déclencheur Azure Cosmos DB
 
-1. Développez votre Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre application de fonction, sélectionnez **Console du portail** puis **Continuer**. Sinon, passez à l’étape 3.
+1. Développez votre Function App, puis cliquez sur le bouton **+** en regard de **Fonctions**. S’il s’agit de la première fonction de votre application de fonction, sélectionnez **Dans le portail**, puis **Continuer**. Sinon, passez à l’étape 3.
 
    ![Page de démarrage rapide des fonctions sur le portail Azure](./media/functions-create-cosmos-db-triggered-function/function-app-quickstart-choose-portal.png)
 
-1. Choisissez **Autres modèles** puis **Terminer et afficher les modèles**.
+1. Choisissez **Autres modèles**, puis **Terminer et afficher les modèles**.
 
     ![Page de démarrage rapide de la fonction Choisir d’autres modèles](./media/functions-create-cosmos-db-triggered-function/add-first-function.png)
 
 1. Dans le champ Rechercher, tapez `cosmos`, puis choisissez le modèle **Déclencheur Azure Cosmos DB**.
 
-1. Si vous y êtes invité, sélectionnez **Installer** pour installer toutes les dépendances de l’extension Stockage Azure dans l’application de fonction. Une fois l’installation réussie, sélectionnez **Continuer**.
+1. Si vous y êtes invité, sélectionnez **Installer** pour installer l’extension Stockage Azure et toutes les dépendances dans l’application de fonction. Une fois l’installation réussie, sélectionnez **Continuer**.
 
     ![Installer des extensions de liaison](./media/functions-create-cosmos-db-triggered-function/functions-create-cosmos-db-trigger-portal.png)
 
