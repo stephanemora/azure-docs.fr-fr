@@ -43,19 +43,19 @@ La première étape consiste à créer le répertoire qui contient vos fichiers 
 
     ![Invite Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
 
-1. Déplacez vous dans le répertoire `clouddrive` :
+1. Déplacez-vous dans le répertoire `clouddrive`.
 
     ```bash
     cd clouddrive
     ```
 
-1. Créez un répertoire nommé `terraform-aks-k8s` :
+1. Créez un répertoire nommé `terraform-aks-k8s`.
 
     ```bash
     mkdir terraform-aks-k8s
     ```
 
-1. Déplacez vous dans le répertoire `terraform-aks-k8s` :
+1. Déplacez-vous dans le nouveau répertoire :
 
     ```bash
     cd terraform-aks-k8s
@@ -331,7 +331,7 @@ Si la session Cloud Shell expire, vous pouvez effectuer les étapes suivantes po
 
 1. Démarrez une session Cloud Shell.
 
-1. Déplacez vous dans le répertoire qui contient vos fichiers de configuration Terraform.
+1. Accédez au répertoire qui contient vos fichiers de configuration Terraform.
 
     ```bash
     cd /clouddrive/terraform-aks-k8s
