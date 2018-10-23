@@ -1,5 +1,5 @@
 ---
-title: 'Exemple : Charger et indexer des vidéos avec Video Indexer'
+title: Charger et indexer des vidéos avec Video Indexer
 titlesuffix: Azure Cognitive Services
 description: Cette rubrique montre comment utiliser les API pour charger et indexer vos vidéos avec Video Indexer.
 services: cognitive services
@@ -10,14 +10,14 @@ ms.component: video-indexer
 ms.topic: sample
 ms.date: 09/15/2018
 ms.author: juliako
-ms.openlocfilehash: f3889d1cddce92cbdd3049d4421bfdffc69da41e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 53dc65c3d2c56308dd298f33bb78047904810ae5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884304"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377828"
 ---
-# <a name="example-upload-and-index-your-videos"></a>Exemple : Charger et indexer vos vidéos  
+# <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
 Cet article montre comment charger une vidéo avec Azure Video Indexer. L’API Video Indexer fournit deux options de chargement : 
 

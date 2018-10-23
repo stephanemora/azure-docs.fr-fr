@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: fb13bcee411b4fa27bf3ce5cd62fa3a483ea23e6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 20dcad571a32638488ce111b5af55623f2305c57
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731886"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310434"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>Didacticiel : Configurer des règles et des actions pour votre appareil dans Azure IoT Central
 
@@ -96,6 +96,9 @@ Lorsque vous définissez une règle, vous définissez également une action à e
 Peu après l’enregistrement de la règle, elle devient active. Lorsque les conditions définies dans la règle sont remplies, votre application envoie un message à l’adresse e-mail que vous avez spécifiée dans l’action.
 
 ![Action Courrier électronique](media/tutorial-configure-rules/email.png)
+
+> [!NOTE]
+> Une fois le test terminé, désactivez la règle pour ne plus recevoir d’alertes dans votre boîte de réception. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

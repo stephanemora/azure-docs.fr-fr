@@ -9,20 +9,20 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 07/27/2018
-ms.openlocfilehash: fb874d06fbccc7e1db542a5d063b9b6acd35b83f
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 300b4a3e5c6c52f1c09f8e70a72f08406861a5d1
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240152"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400141"
 ---
 >[!IMPORTANT]
 >Les ressources que vous avez créées peuvent faire office de prérequis dans d’autres didacticiels et articles de procédure relatifs au service Azure Machine Learning. 
 
 
-Si vous ne prévoyez pas d’utiliser ce que vous avez créé ici, supprimez les ressources que vous venez de créer avec ce démarrage rapide afin d’éviter des frais.
+Si vous n’avez pas l’intention d’utiliser les ressources créées ici, supprimez-les pour éviter des frais.
 
-1. Dans le portail Azure, sélectionnez **Groupes de ressources** tout à gauche.  
+1. Dans le portail Azure, sélectionnez **Groupes de ressources** tout à gauche.
  
    ![Supprimer dans le portail Azure](./media/aml-delete-resource-group/delete-resources.png)
 
@@ -32,4 +32,4 @@ Si vous ne prévoyez pas d’utiliser ce que vous avez créé ici, supprimez les
 
 1. Saisissez le nom du groupe de ressources, puis sélectionnez **Supprimer**.
 
-   Si vous obtenez l’erreur « Impossible de supprimer la ressource avant la suppression des ressources imbriquées », vous devez d’abord supprimer toutes les ressources imbriquées. [Consultez cette section de dépannage](../articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account) pour plus d’informations. 
+   Si vous le message d’erreur « Impossible de supprimer la ressource avant la suppression des ressources imbriquées » s’affiche, vous devez d’abord supprimer toutes les ressources imbriquées. Pour plus d’informations sur la suppression des ressources imbriquées, consultez [cette section de dépannage](../articles/machine-learning/desktop-workbench/known-issues-and-troubleshooting-guide.md#cant-delete-experimentation-account). 

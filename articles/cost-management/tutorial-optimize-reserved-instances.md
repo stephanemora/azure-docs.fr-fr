@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/17/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: c50259f0df955c3a22edc979dfebc8bfb2059e16
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e705a0f57b598eb60932ca1056131cedc1416ffc
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987754"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394444"
 ---
 <!-- Intent: As a cloud-consuming administrator, I need to ensure that my reserved instances are optimized for cost and usage
 -->
@@ -41,7 +41,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer d’un compte Azure.
-- Vous devez disposer d’une inscription gratuite ou d’un abonnement payant pour Cloudyn.
+- Vous devez disposer d’une inscription à un essai gratuit ou d’un abonnement payant pour Cloudyn.
 - Vous devez avoir acheté des instances réservées dans Azure ou AWS.
 
 ## <a name="understand-azure-ri-costs"></a>Comprendre les coûts associés aux instances réservées Azure
@@ -125,7 +125,7 @@ Lorsque vous achetez une réservation, vous effectuez un paiement unique. Il exi
 
 Les rapports Actual Cost Analysis (Analyse du coût réel) et Analysis Over Time (Analyse dans le temps) affichent le montant total payé pour la réservation, à partir du mois de l’achat. Ils vous permettent de voir vos dépenses réelles sur une période donnée.
 
-Accédez à **Coût** > **Analyse des coûts** > dans le portail Cloudyn, puis sélectionnez **Analyse du coût réel** ou **Coûts réels dans le temps**. Définissez ensuite les filtres. Par exemple, filtrez sur le service Azure/VM et regroupez les résultats par Type de ressource et Modèle de prix. Consultez le graphique suivant :
+Accédez à **Coûts** > **Analyse des coûts** > dans le portail Cloudyn, puis sélectionnez **Analyse du coût réel** ou **Coûts réels dans le temps**. Définissez ensuite les filtres. Par exemple, filtrez sur le service Azure/VM et regroupez les résultats par Type de ressource et Modèle de prix. Consultez le graphique suivant :
 
 ![Coût réel de l’instance réservée](./media/tutorial-optimize-reserved-instances/azure05.png)
 
@@ -143,7 +143,7 @@ Pour calculer le coût amorti des instances réservées, l’outil tient compte 
 
 Le rapport Coût réel affiche un pic correspondant à un achat d’instance réservée le 16 novembre pour un montant de 747 $. Le rapport Coût amorti (voir l’image suivante) affiche un coût journalier partiel le 16 novembre. À partir du 17 novembre, le rapport affiche un coût amorti de l’instance réservée de 747 $/365 = 2,05 $. Par ailleurs, vous remarquerez également que la réservation achetée n’est pas utilisée. Vous pouvez donc l’optimiser en l’affectant à une autre taille de machine virtuelle.
 
-Pour l’afficher, accédez à **Coût** > **Analyse des coûts** >, puis sélectionnez **Amortized Cost Analysis** (Analyse des coûts amortis) ou **Amortized Cost Over Time** (Coûts amortis dans le temps).
+Pour l’afficher, accédez à **Coûts** > **Analyse des coûts** >, puis sélectionnez **Amortized Cost Analysis** (Analyse des coûts amortis) ou **Amortized Cost Over Time** (Coûts amortis dans le temps).
 
 ![Coût amorti de l’instance réservée](./media/tutorial-optimize-reserved-instances/azure07.png)
 

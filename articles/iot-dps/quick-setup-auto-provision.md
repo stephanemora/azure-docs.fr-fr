@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ce1586e472e1d1ea5ddd9ca5a426b1bea2b5b931
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 5533dacc4a782cbdb6026c4a4d5c5bed9e39147a
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42023879"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320150"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure
 
@@ -40,12 +40,12 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
     * **Abonnement** : choisissez l’abonnement que vous souhaitez utiliser pour créer cette instance de service Device Provisioning.
     * **Groupe de ressources :** ce champ vous permet de créer un nouveau groupe de ressources ou de sélectionner un groupe déjà existant pour contenir la nouvelle instance. Choisissez le même groupe de ressources qui contient l’IoT Hub que vous avez créé ci-dessus, par exemple, **TestResources**. En plaçant toutes les ressources associées dans un même groupe, vous pouvez les gérer toutes ensemble. Par exemple, si vous supprimez le groupe de ressources, vous supprimez également toutes les ressources contenues dans ce groupe. Pour plus d’informations, consultez [Utilisation des groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-portal.md).
     * **Emplacement :** sélectionnez l’emplacement le plus proche de vos périphériques.
-    * **Épingler au tableau de bord :** sélectionnez cette option pour épingler l’instance au tableau de bord pour la rendre plus facile à trouver.
 
     ![Entrée des informations de base sur votre instance de service Device Provisioning dans le panneau du Portail](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
-4. Une fois que le déploiement du service est achevé, son panneau de résumé s’ouvre automatiquement.
+4. Cliquez sur le bouton de notification pour surveiller la création de l’instance de ressource. Une fois que le service est déployé, cliquez sur **Épingler au tableau de bord**, puis sur **Accéder à la ressource**.
 
+    ![Notification Surveiller le déploiement](./media/quick-setup-auto-provision/pin-to-dashboard.png)
 
 ## <a name="link-the-iot-hub-and-your-device-provisioning-service"></a>Lier le IoT Hub à votre service d’approvisionnement d’appareil
 
@@ -67,7 +67,7 @@ Dans cette section, vous allez ajouter une configuration à l’instance de serv
 
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Les autres démarrages rapides de cette collection reposent sur ce démarrage rapide. Si vous souhaitez continuer à utiliser d’autres démarrages rapides ou les didacticiels, ne nettoyez pas les ressources créées lors de ce démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées lors de ce démarrage rapide dans le portail Azure.
 

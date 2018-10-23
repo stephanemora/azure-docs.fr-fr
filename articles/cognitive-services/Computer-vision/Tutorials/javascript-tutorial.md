@@ -10,18 +10,18 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.date: 09/19/2017
 ms.author: kefre
-ms.openlocfilehash: 6dc6eec729fc1be3f0a859834597bf2d5785d9bc
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: c024e517eb59c7d3b61408e477c94004ccb01a54
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984922"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341308"
 ---
 # <a name="tutorial-computer-vision-api-javascript"></a>Tutoriel : API Vision par ordinateur avec JavaScript
 
 Ce tutoriel montre les fonctionnalités de l’API REST Vision par ordinateur dans Azure Cognitive Services.
 
-Explorez une application JavaScript qui utilise l’API REST Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Cet exemple vous permet d’envoyer une URL d’image à des fins d’analyse ou de traitement. Vous pouvez utiliser cet exemple open source comme modèle pour générer votre propre application en JavaScript qui utilisera l’API REST Vision par ordinateur.
+Explorez une application JavaScript qui utilise l’API REST Vision par ordinateur pour effectuer une reconnaissance optique des caractères (OCR), créer des miniatures avec un rognage intelligent ainsi que détecter, classer, baliser et décrire des fonctionnalités visuelles, dont des visages, dans une image. Cet exemple vous permet d’envoyer une URL d’image à des fins d’analyse ou de traitement. Vous pouvez utiliser cet exemple open source comme modèle pour générer votre propre application JavaScript utilisant l’API REST Vision par ordinateur.
 
 L’application de formulaire JavaScript a déjà été écrite, mais sans fonctionnalité Vision par ordinateur. Dans ce tutoriel, vous ajoutez le code spécifique à l’API REST Vision par ordinateur pour compléter la fonctionnalité de l’application.
 
@@ -35,25 +35,27 @@ Ce tutoriel a été développé à l’aide d’un éditeur de texte simple.
 
 Avant de créer l’exemple, vous devez vous abonner à l’API Vision par ordinateur qui fait partie d’Azure Cognitive Services. Pour plus d’informations sur l’abonnement et la gestion des clés, consultez [Abonnements](https://azure.microsoft.com/try/cognitive-services/). Les clés primaire et secondaire peuvent toutes deux être utilisées dans ce tutoriel. 
 
-## <a name="download-the-tutorial-project"></a>Télécharger le projet du tutoriel
+## <a name="acquire-the-incomplete-tutorial-project"></a>Acquérir le projet du didacticiel incomplet
+
+### <a name="download-the-tutorial-project"></a>Télécharger le projet du tutoriel
 
 Clonez le [tutoriel Vision par ordinateur JavaScript Cognitive Services](https://github.com/Azure-Samples/cognitive-services-javascript-computer-vision-tutorial) ou téléchargez le fichier .zip et extrayez-le dans un répertoire vide.
 
 Si vous préférez utiliser le tutoriel terminé avec tout le code du tutoriel ajouté, vous pouvez utiliser les fichiers dans le dossier **Completed**.
 
-## <a name="add-the-tutorial-code"></a>Ajouter le code du tutoriel
+## <a name="add-the-tutorial-code-to-the-project"></a>Ajouter le code du didacticiel au projet
 
 L’application JavaScript est configurée avec six fichiers .html, un pour chaque fonctionnalité. Chaque fichier illustre une fonction différente de Vision par ordinateur (analyse, OCR, etc.). Les six sections du tutoriel n’ayant pas d’interdépendances, vous pouvez ajouter le code du tutoriel à un fichier, aux six fichiers ou seulement à deux fichiers. Vous pouvez également ajouter le code du tutoriel aux fichiers dans n’importe quel ordre.
 
 Allons-y.
 
-## <a name="analyze-an-image"></a>Analyser une image
+### <a name="analyze-an-image"></a>Analyser une image
 
-La fonctionnalité Analyser de Vision par ordinateur analyse une image pour détecter plus de 2 000 objets, êtres vivants, scènes et actions reconnaissables. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui décrit l’image avec des balises descriptives, une analyse des couleurs, des légendes et bien plus encore.
+La fonctionnalité Analyser de Vision par ordinateur scanne une image pour détecter plus de 2 000 objets, êtres vivants, paysages et actions reconnaissables. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui décrit l’image avec des balises descriptives, une analyse des couleurs, des légendes et bien plus encore.
 
 Pour compléter la fonctionnalité Analyser de l’application du tutoriel, effectuez les étapes suivantes :
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de la fonctionnalité Analyser : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
 
 Ouvrez le fichier **analyze.html** dans un éditeur de texte et recherchez la fonction **analyzeButtonClick** près du bas du fichier.
 
@@ -77,7 +79,7 @@ function analyzeButtonClick() {
 }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Étape 2 de la fonctionnalité Analyser : Ajouter le wrapper pour l’appel d’API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Ajouter le wrapper pour l’appel d’API REST
 
 La fonction **AnalyzeImage** inclut l’appel d’API REST dans un wrapper pour analyser une image. Lors d’un retour réussi, l’analyse JSON mise en forme s’affichera dans la zone de texte spécifiée et la légende s’affichera dans l’étendue spécifiée.
 
@@ -151,17 +153,17 @@ function AnalyzeImage(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="analyze-step-3-run-the-application"></a>Étape 3 de la fonctionnalité Analyser : Exécuter l’application
+#### <a name="run-the-application"></a>Exécution de l'application
 
 Enregistrez le fichier **analyze.html** et ouvrez-le dans un navigateur web. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image à analyser, puis cliquez sur le bouton **Analyze Image** (Analyser l’image) pour analyser une image et voir le résultat.
 
-## <a name="recognize-a-landmark"></a>Reconnaître un élément géographique
+### <a name="recognize-a-landmark"></a>Reconnaître un élément géographique
 
 La fonctionnalité Élément géographique de Vision par ordinateur analyse une image pour détecter des éléments géographiques naturels et construits par l’homme, tels que des montagnes ou des bâtiments célèbres. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui identifie les éléments géographiques trouvés dans l’image.
 
 Pour compléter la fonctionnalité Élément géographique de l’application du tutoriel, effectuez les étapes suivantes :
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de la fonctionnalité Élément géographique : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
 
 Ouvrez le fichier **landmark.html** dans un éditeur de texte et recherchez la fonction **landmarkButtonClick** près du bas du fichier.
 
@@ -185,7 +187,7 @@ function landmarkButtonClick() {
 }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Étape 2 de la fonctionnalité Élément géographique : Ajouter le wrapper pour l’appel d’API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Ajouter le wrapper pour l’appel d’API REST
 
 La fonction **IdentifyLandmarks** inclut l’appel d’API REST dans un wrapper pour analyser une image. Lors d’un retour réussi, l’analyse JSON mise en forme s’affichera dans la zone de texte spécifiée et la légende s’affichera dans l’étendue spécifiée.
 
@@ -258,17 +260,17 @@ function IdentifyLandmarks(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>Étape 3 de la fonctionnalité Élément géographique : Exécuter l’application
+#### <a name="run-the-application"></a>Exécution de l'application
 
 Enregistrez le fichier **landmark.html** et ouvrez-le dans un navigateur web. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image à analyser, puis cliquez sur le bouton **Analyze Image** (Analyser l’image) pour analyser une image et voir le résultat.
 
-## <a name="recognize-celebrities"></a>Reconnaître les célébrités
+### <a name="recognize-celebrities"></a>Reconnaître les célébrités
 
 La fonctionnalité Célébrités de Vision par ordinateur analyse une image pour détecter des personnes célèbres. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui identifie les célébrités trouvées dans l’image.
 
 Pour compléter la fonctionnalité Célébrités de l’application du tutoriel, effectuez les étapes suivantes :
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de la fonctionnalité Célébrités : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
 
 Ouvrez le fichier **celebrities.html** dans un éditeur de texte et recherchez la fonction **celebritiesButtonClick** près du bas du fichier.
 
@@ -292,7 +294,7 @@ function celebritiesButtonClick() {
 }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Étape 2 de la fonctionnalité Célébrités : Ajouter le wrapper pour l’appel d’API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Ajouter le wrapper pour l’appel d’API REST
 
 ```javascript
 /* Identify celebrities in the image at the specified URL by using Microsoft Cognitive Services 
@@ -361,17 +363,17 @@ function IdentifyCelebrities(sourceImageUrl, responseTextArea, captionSpan) {
 }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>Étape 3 de la fonctionnalité Célébrités : Exécuter l’application
+#### <a name="run-the-application"></a>Exécution de l'application
 
 Enregistrez le fichier **celebrities.html** et ouvrez-le dans un navigateur web. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image à analyser, puis cliquez sur le bouton **Analyze Image** (Analyser l’image) pour analyser une image et voir le résultat.
 
-## <a name="intelligently-generate-a-thumbnail"></a>Générer une miniature de façon intelligente
+### <a name="intelligently-generate-a-thumbnail"></a>Générer une miniature de façon intelligente
 
 La fonctionnalité Miniature de Vision par ordinateur génère une miniature à partir d’une image. À l’aide de la fonctionnalité **Rognage intelligent**, la fonctionnalité Miniature va identifier la zone d’intérêt dans une image et centrer la miniature sur cette zone pour générer des images miniatures plus agréables d’un point de vue esthétique.
 
 Pour compléter la fonctionnalité Miniature de l’application du tutoriel, effectuez les étapes suivantes :
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de la fonctionnalité Miniature : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
 
 Ouvrez le fichier **thumbnail.html** dans un éditeur de texte et recherchez la fonction **thumbnailButtonClick** près du bas du fichier.
 
@@ -403,7 +405,7 @@ function thumbnailButtonClick() {
 }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Étape 2 de la fonctionnalité Miniature : Ajouter le wrapper pour l’appel d’API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Ajouter le wrapper pour l’appel d’API REST
 
 La fonction **getThumbnail** inclut l’appel d’API REST dans un wrapper pour analyser une image. Lors d’un retour réussi, la miniature est affichée dans l’élément img spécifié.
 
@@ -482,11 +484,11 @@ function getThumbnail (sourceImageUrl, smartCropping, imageElement, responseText
 }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>Étape 3 de la fonctionnalité Miniature : Exécuter l’application
+#### <a name="run-the-application"></a>Exécution de l'application
 
 Enregistrez le fichier **thumbnail.html** et ouvrez-le dans un navigateur web. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image à analyser, puis cliquez sur le bouton **Generate Thumbnails** (Générer des miniatures) pour analyser une image et voir le résultat.
 
-## <a name="read-printed-text-ocr"></a>Lire du texte imprimé (OCR)
+### <a name="read-printed-text-ocr"></a>Lire du texte imprimé (OCR)
 
 La fonctionnalité Reconnaissance optique des caractères (OCR) de Vision par ordinateur analyse une image de texte imprimé. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui contient le texte et l’emplacement du texte dans l’image.
 
@@ -516,7 +518,7 @@ function ocrButtonClick() {
 }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>Étape 2 de la fonctionnalité OCR : Ajouter le wrapper pour l’appel d’API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Ajouter le wrapper pour l’appel d’API REST
 
 La fonction **ReadOcrImage** inclut l’appel d’API REST dans un wrapper pour analyser une image. Lors d’un retour réussi, l’analyse JSON mise en forme décrivant le texte et l’emplacement du texte s’affichera dans la zone de texte spécifiée.
 
@@ -577,17 +579,17 @@ function ReadOcrImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>Étape 3 de la fonctionnalité OCR : Exécuter l’application
+#### <a name="run-the-application"></a>Exécution de l'application
 
 Enregistrez le fichier **ocr.html** et ouvrez-le dans un navigateur web. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image de texte à lire, puis cliquez sur le bouton **Read Image** (Lire l’image) pour analyser une image et voir le résultat.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>Lire du texte manuscrit (Reconnaissance de l’écriture manuscrite)
+### <a name="read-handwritten-text-handwriting-recognition"></a>Lire du texte manuscrit (Reconnaissance de l’écriture manuscrite)
 
 La fonctionnalité Reconnaissance de l’écriture manuscrite de Vision par ordinateur analyse une image de texte manuscrit. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui contient le texte et l’emplacement du texte dans l’image.
 
 Pour compléter la fonctionnalité Reconnaissance de l’écriture manuscrite de l’application du tutoriel, effectuez les étapes suivantes :
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de la fonctionnalité Reconnaissance de l’écriture manuscrite : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
 
 Ouvrez le fichier **handwriting.html** dans un éditeur de texte et recherchez la fonction **handwritingButtonClick** près du bas du fichier.
 
@@ -610,7 +612,7 @@ function handwritingButtonClick() {
 }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Étape 2 de la fonctionnalité Reconnaissance de l’écriture manuscrite : Ajouter le wrapper pour l’appel d’API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Ajouter le wrapper pour l’appel d’API REST
 
 La fonction **ReadHandwrittenImage** inclut dans un wrapper les deux appels d’API REST nécessaires pour analyser une image. Étant donné que la reconnaissance de l’écriture manuscrite prend du temps, un processus en deux étapes est utilisé. Le premier appel envoie l’image pour traitement ; le deuxième appel récupère le texte détecté quand le traitement est terminé.
 
@@ -736,7 +738,7 @@ function ReadHandwrittenImage(sourceImageUrl, responseTextArea) {
 }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>Étape 3 de la fonctionnalité Reconnaissance de l’écriture manuscrite : Exécuter l’application
+#### <a name="run-the-application"></a>Exécution de l'application
 
 Enregistrez le fichier **handwriting.html** et ouvrez-le dans un navigateur web. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image de texte à lire, puis cliquez sur le bouton **Read Image** (Lire l’image) pour analyser une image et voir le résultat.
 

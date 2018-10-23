@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 587459be69fe250b3e73fb9eb9d5cd08cf2e7a42
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e1954ae9fcbb010c66e8a812e3e34477ac2bfc29
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953682"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395222"
 ---
 # <a name="tutorial-forecast-future-spending"></a>Didacticiel : Prévoir les dépenses futures
 
@@ -29,13 +29,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer d’un compte Azure.
-- Vous devez disposer d’une inscription gratuite ou d’un abonnement payant pour Cloudyn.
+- Vous devez disposer d’une inscription à un essai gratuit ou d’un abonnement payant pour Cloudyn.
 
 ## <a name="forecast-future-spending"></a>Prévoir les dépenses futures
 
 Cloudyn inclut des rapports de prévision des coûts pour vous aider à prévoir les dépenses au fil du temps, en fonction de votre utilisation. Ces rapports vous aident principalement à vous assurer que vos tendances de coûts n’excèdent pas les attentes de votre organisation. Vous utilisez un rapport du coût projeté pour le mois en cours (Current Month Projected Cost) et un rapport du coût projeté annuel (Annual Projected Cost). Ces deux rapports indiquent les dépenses futures projetées si votre utilisation reste relativement cohérente durant vos 30 derniers jours d’utilisation.
 
-Le rapport du coût projeté pour le mois en cours affiche les coûts de vos services. Il prend en compte les coûts depuis le début du mois en cours et du mois précédent pour afficher le coût projeté. Dans le menu des rapports en haut du portail, cliquez sur **Cost** > **Projection and Budget** > **Current Month Projected Cost**. L’image suivante en montre un exemple.
+Le rapport du coût projeté pour le mois en cours affiche les coûts de vos services. Il prend en compte les coûts depuis le début du mois en cours et du mois précédent pour afficher le coût projeté. Dans le menu des rapports en haut du portail, cliquez sur **Costs** > **Projection and Budget** > **Current Month Projected Cost**. L’image suivante en montre un exemple.
 
 ![Coût prévisionnel pour le mois en cours](./media/tutorial-forecast-spending/project-month01.png)
 
@@ -47,7 +47,7 @@ Suivez les mêmes étapes précédentes pour examiner les projections de coûts 
 
 Le rapport du coût projeté annuel (Annual Projected Cost) affiche le coût extrapolé de vos services pour les 12 prochains mois.
 
-Dans le menu des rapports en haut du portail, cliquez sur **Cost** > **Projection and Budget** > **Annual Projected Cost**. L’image suivante en montre un exemple.
+Dans le menu des rapports en haut du portail, cliquez sur **Costs** > **Projection and Budget** > **Annual Projected Cost**. L’image suivante en montre un exemple.
 
 ![Rapport du coût prévisionnel annuel](./media/tutorial-forecast-spending/project-annual01.png)
 

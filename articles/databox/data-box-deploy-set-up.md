@@ -2,24 +2,18 @@
 title: Configurer une Azure Data Box | Microsoft Docs
 description: Découvrez comment brancher des câbles et se connecter à une Azure Data Box
 services: databox
-documentationcenter: NA
 author: alkohli
-manager: twooley
-editor: ''
-ms.assetid: ''
 ms.service: databox
-ms.devlang: NA
+ms.subservice: pod
 ms.topic: tutorial
-ms.tgt_pltfrm: NA
-ms.workload: NA
-ms.date: 10/03/2018
+ms.date: 10/17/2018
 ms.author: alkohli
-ms.openlocfilehash: f9671e3acdb71affe2187258582254561785780e
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: c3766713c87dd721f7e4c9a90624192cdb402be9
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785630"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393828"
 ---
 # <a name="tutorial-cable-and-connect-to-your-azure-data-box"></a>Didacticiel : branchement des câbles et connexion à une Azure Data Box
 
@@ -58,7 +52,7 @@ Procédez comme suit pour brancher les câbles de l’appareil.
     
     ![Vue arrière d’une Data Box raccordée](media/data-box-deploy-set-up/data-box-cabled-dhcp.png)
 
-    1. Branchez le câble d’alimentation à l’emplacement d’entrée étiqueté. L’autre extrémité du câble d’alimentation doit être branchée sur une unité de distribution d’alimentation.
+    1. Branchez le câble d’alimentation à l’emplacement d’entrée étiqueté. L’autre extrémité du câble d’alimentation doit être branché sur une unité de distribution d’alimentation.
     2. Utilisez le câble RJ-45 CAT 6pour raccorder le port MGNT à un ordinateur portable.            
     3. Utilisez le câble réseau RJ-45 CAT 6A pour brancher le port DATA 3 à une extrémité. DATA 3 est configuré en tant que 10 GbE si vous utilisez un câble RJ-45 CAT 6A a et en tant que 1 GbE si vous utilisez un câble RJ-45 CAT 6.
     4. Utilisez les câbles en cuivre Twinax SFP+ 10 GbE 10 GbE pour raccorder respectivement les ports DATA 1 et DATA 2. 
@@ -91,6 +85,8 @@ Procédez comme suit pour configurer votre appareil à l’aide de l’interface
     - Si DHCP n’est pas activé, accédez à **Définir des interfaces réseau** et affectez des adresses IP statiques si nécessaire.
 
     ![Page du tableau de bord d’un appareil](media/data-box-deploy-set-up/data-box-dashboard-1.png)
+
+Une fois que les interfaces réseau de données sont configurées, vous pouvez également utiliser l’adresse IP de n’importe quelle interface, de DATA 1 à DATA 3, pour accéder aux interfaces utilisateur locales web à `https://<IP address of a data network interface>`. 
 
 Une fois que l’appareil est configuré, vous pouvez vous connecter aux partages de l’appareil et copier les données de votre ordinateur vers l’appareil. 
 

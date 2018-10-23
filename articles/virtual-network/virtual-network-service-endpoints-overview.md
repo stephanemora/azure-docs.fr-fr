@@ -3,7 +3,7 @@ title: Points de terminaison de service de réseau virtuel Azure | Microsoft Doc
 description: Découvrez comment activer l’accès direct aux ressources Azure à partir d’un réseau virtuel à l’aide de points de terminaison de service.
 services: virtual-network
 documentationcenter: na
-author: anithaa
+author: sumeetmittal
 manager: narayan
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/15/2018
-ms.author: anithaa
+ms.author: sumeet.mittal
 ms.custom: ''
-ms.openlocfilehash: 3bae20a7d6eea298dd09d24c0c5b53365784b3d0
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 77fad7b0035a9ba21d71e6c493a4f1a5bd9a2111
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239181"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395205"
 ---
 # <a name="virtual-network-service-endpoints"></a>Points de terminaison de service de réseau virtuel
 
@@ -42,6 +42,7 @@ Cette fonctionnalité est disponible pour les services et régions Azure suivant
 - **[Azure SQL Data Warehouse](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : disponible en préversion dans toutes les régions de cloud public Azure.
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : disponible en préversion.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** : disponible en préversion.
+- **[Azure Data Lake Store Gen 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)**: disponible en préversion.
 
 Pour obtenir les notifications les plus récentes, vérifiez la page [Mises à jour du réseau virtuel Microsoft Azure](https://azure.microsoft.com/updates/?product=virtual-network).
 
@@ -65,6 +66,10 @@ Les points de terminaison de service fournissent les avantages suivants :
 
 - Un point de terminaison de service de réseau virtuel fournit l’identité de votre réseau virtuel au service Azure. Une fois les points de terminaison de service activés dans votre réseau virtuel, vous pouvez sécuriser les ressources du service Azure pour votre réseau virtuel en ajoutant une règle de réseau virtuel aux ressources.
 - Aujourd’hui, le trafic du service Azure à partir d’un réseau virtuel utilise des adresses IP publiques en tant qu’adresses IP source. Avec les points de terminaison de service, le trafic de service change pour utiliser des adresses privées de réseau virtuel en tant qu’adresses IP source lors de l’accès au service Azure à partir d’un réseau virtuel. Ce changement permet d’accéder aux services sans avoir besoin d’adresses IP publiques réservées et utilisées dans les pare-feux IP.
+
+>[!NOTE]
+> Avec les points de terminaison de service, les adresses IP sources des machines virtuelles dans le sous-réseau pour le trafic de service passe d’une utilisation des adresses IPv4 publiques à une utilisation des adresses IPv4 privées. Les règles de pare-feu de service Azure existantes utilisant des adresses IP publiques Azure cesseront de fonctionner avec ce changement. Vérifiez que les règles de pare-feu de service Azure autorisent ce changement avant de définir des points de terminaison de service. Vous pouvez également rencontrer une interruption temporaire du trafic de service à partir de ce sous-réseau lors de la configuration des points de terminaison de service. 
+ 
 - __Sécurisation de l’accès du service Azure localement__ :
 
   Par défaut, les ressources du service Azure sécurisées pour des réseaux virtuels ne sont pas accessibles à partir des réseaux locaux. Si vous souhaitez autoriser le trafic depuis un réseau local, vous devez également autoriser les adresses IP publiques (généralement NAT) à partir de vos circuits locaux ou ExpressRoute. Ces adresses IP peuvent être ajoutées via la configuration du pare-feu IP des ressources du service Azure.
@@ -87,6 +92,7 @@ Les points de terminaison de service fournissent les avantages suivants :
 
   Le changement d’adresse IP affecte uniquement le trafic de service à partir de votre réseau virtuel. L’impact sur tout autre trafic adressé vers ou depuis des adresses IPv4 publiques affectées à vos machines virtuelles est inexistant. Si vous possédez des règles de pare-feu existantes à l’aide d’adresses IP publiques Azure pour les services Azure, ces règles cessent de fonctionner avec le changement pour les adresses privées de réseau virtuel.
 - Avec les points de terminaison de service, les entrées DNS pour les services Azure ne sont pas modifiées et continuent de résoudre les adresses IP assignées au service Azure.
+
 - Groupes de sécurité réseau (NSG) avec points de terminaison de service :
   - Par défaut, les groupes de sécurité réseau autorisent le trafic Internet sortant. Ainsi, ils peuvent également autoriser le trafic à partir de votre réseau virtuel vers les services Azure. Ce processus continue de fonctionner ainsi, avec les points de terminaison de service. 
   - Si vous souhaitez refuser tout trafic Internet sortant et autoriser le trafic uniquement vers des services Azure spécifiques, vous pouvez le faire avec [« Balises de service Azure »](security-overview.md#service-tags) dans vos groupes de sécurité réseau. Vous pouvez spécifier les services Azure pris en charge en tant que destination dans vos règles de groupe de sécurité réseau. La maintenance des adresses IP sous-tendant chaque balise est fournie par Azure. Pour plus d’informations, voir [Balises de Service Azure pour les groupes de sécurité réseau.](security-overview.md#service-tags) 

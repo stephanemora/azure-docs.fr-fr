@@ -12,12 +12,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 09/13/2018
 ms.custom: it-pro
-ms.openlocfilehash: 755c301651e7c49faa8b05b2b443c5cce1a03c90
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 08d32a99e2f1a77bcc7a5900b47e6771c33ec356
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46364042"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393319"
 ---
 # <a name="what-is-azure-active-directory"></a>Qu’est-ce qu’Azure Active Directory ?
 Azure Active Directory (Azure AD) est le service cloud Microsoft multilocataire de gestion des identités et des annuaires. Azure AD réunit les principaux services d’annuaire, la gestion des accès aux applications et la protection des identités dans une solution unique, offrant une plateforme basée sur des standards qui permet aux développeurs de contrôler l’accès à leurs applications en fonction d’une stratégie et de règles centralisées.
@@ -33,9 +33,9 @@ Azure AD vous permet de :
 
 -   Sécuriser l’accès aux applications avec des stratégies d’[authentification multifacteur](../authentication/concept-mfa-howitworks.md) basées sur des règles, aussi bien pour les applications locales que pour les applications cloud.
 
--   Améliorer la productivité des utilisateurs avec la [réinitialisation des mots de passe en libre-service](../user-help/user-help-reset-password.md) et les demandes d’accès aux applications et de groupe à l’aide du [portail MyApps](../user-help/active-directory-saas-access-panel-introduction.md).
+-   améliorer la productivité des utilisateurs avec la [réinitialisation des mots de passe en libre-service](../user-help/user-help-reset-password.md) et les demandes d’accès aux applications et de groupe à l’aide du [portail MyApps](../user-help/active-directory-saas-access-panel-introduction.md) ;
 
--   Tirer parti de la [haute disponibilité et fiabilité](https://docs.microsoft.com/azure/architecture/checklist/availability) d’une solution d’entreprise de gestion des identités et des accès basée sur le cloud de niveau international.
+-   tirer parti de la [haute disponibilité et fiabilité](https://docs.microsoft.com/azure/architecture/checklist/availability) d’une solution d’entreprise de gestion des identités et des accès basée sur le cloud de niveau international.
 
 ## <a name="who-uses-azure-ad"></a>Qui utilise Azure AD
 Azure AD est destiné aux administrateurs informatiques, aux développeurs d’applications et aux utilisateurs d’Office 365, Azure ou Dynamics CRM Online.

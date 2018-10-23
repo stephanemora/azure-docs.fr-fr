@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.date: 10/08/2018
 ms.author: spelluru
-ms.openlocfilehash: 46a9045cdf422ed4f14e5588b3342e8bfde2e4c8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 3cc87c0acbed317cccaccec687f27c23a1d32cf0
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888084"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319334"
 ---
 # <a name="what-is-azure-relay"></a>Qu’est-ce qu’Azure Relay ?
 Le service Azure Relay vous permet d’exposer en toute sécurité les services exécutés dans votre réseau d’entreprise sur le cloud public. Vous pouvez le faire sans ouvrir de connexion de pare-feu ni apporter de modifications intrusives à votre infrastructure réseau d’entreprise. 
@@ -81,10 +81,9 @@ Le diagramme suivant illustre comment les requêtes de relais entrantes sont gé
 4. La passerelle qui reçoit la requête recherche le relais dans le magasin de passerelles. 
 5. La passerelle transfère la requête de connexion à la passerelle appropriée mentionnée dans le magasin de passerelles. 
 6. La passerelle envoie une requête au client d’écoute pour qu’il crée un canal temporaire au nœud de passerelle le plus proche du client d’envoi. 
-7. Le client d’écoute crée maintenant un canal temporaire et envoie un message de réponse à la passerelle la plus proche du client d’envoi.
-8. La passerelle transfère le message de réponse au client d’envoi. 
-
-Lorsque la connexion au relais est établie, les clients peuvent échanger des messages via le nœud de passerelle utilisé pour le rendez-vous.
+7. Le client d’écoute crée un canal temporaire vers la passerelle la plus proche du client d’envoi. Maintenant que la connexion entre les clients est établie via une passerelle, ils peuvent échanger des messages entre eux. 
+8. La passerelle transfère tous les messages du client d’écoute au client d’envoi. 
+9. La passerelle transfère tous les messages du client d’envoi au client d’écoute.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Bien démarrer avec Websockets .NET](relay-hybrid-connections-dotnet-get-started.md)

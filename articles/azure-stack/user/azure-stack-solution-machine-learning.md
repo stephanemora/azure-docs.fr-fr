@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: c195f2ee24b61a57c098d5214a37f65e80845074
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 28ff8dbf073596e5f9565c56ae903af6af68f3e2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410202"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353708"
 ---
 # <a name="tutorial-create-an-edge-machine-learning-solution-with-azure-and-azure-stack"></a>Didacticiel : Créer une solution de périphérie de Machine Learning avec Azure et Azure Stack
 
@@ -210,7 +210,7 @@ Placez la nouvelle machine DSVM dans le même groupe de ressources que le compte
 
     d.  Pour le **compte de stockage Diagnostics**, sélectionnez le compte de stockage créé précédemment.
 
-    e.  Remarque : Une fois AAD activé et configuré pour l’abonnement Azure, Managed Service Identity peut aussi être activé.
+    e.  Remarque : Lorsqu’AAD est activé et configuré pour l’abonnement Azure, les identités managées des ressources Azure peuvent également être activées.
 
 2.  Sélectionnez **OK**.
 

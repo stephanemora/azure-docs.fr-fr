@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/18/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d504e0488d35c5c606468faa35bece1318503b4
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: bc1b52b97897cb1c635fb16e6ef9692de1ca8a44
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498519"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167254"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Gérer les mises à jour Windows à l’aide d’Azure Automation
 
@@ -116,7 +116,8 @@ Sous **Logique d’alerte**, pour **Seuil**, entrez **1**. Quand vous avez termi
 
 #### <a name="runbook-alert"></a>Alerte de runbook
 
-Pour les déploiements ayant échoué, vous devez être averti de l’échec du runbook principal. Dans le portail Azure, accédez au **Moniteur**, puis sélectionnez **Créer une alerte**.
+Pour les déploiements ayant échoué, vous devez signaler l’échec du runbook maître.
+Dans le portail Azure, accédez à **Surveiller**, puis sélectionnez **Créer une alerte**.
 
 Sous **1. Définir la condition de l’alerte**, cliquez sur **Sélectionner la cible**. Sous **Filtrer par type de ressource**, sélectionnez **Comptes Automation**. Sélectionnez votre compte Automation, puis **Terminé**.
 

@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: tutorial
 ms.author: kefre
 ms.date: 09/21/2017
-ms.openlocfilehash: cca35d031e860e014c8fd84b0daf6b4d60d18046
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 36a8a49ee49636d186ca217ae223b1eebf9bb54b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985845"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49340254"
 ---
 # <a name="tutorial-computer-vision-api-java"></a>Tutoriel : API Vision par ordinateur avec Java
 
@@ -45,7 +45,9 @@ Ce tutoriel a été développé à l’aide de l’IDE NetBeans, plus précisém
 
 Avant de créer l’exemple, vous devez vous abonner à l’API Vision par ordinateur qui fait partie d’Azure Cognitive Services. Pour plus d’informations sur l’abonnement et la gestion des clés, consultez [Abonnements](https://azure.microsoft.com/try/cognitive-services/). Les clés primaire et secondaire peuvent toutes deux être utilisées dans ce tutoriel. 
 
-## <a name="download-the-tutorial-project"></a>Télécharger le projet du tutoriel
+## <a name="acquire-the-incomplete-tutorial-project"></a>Acquérir le projet du didacticiel incomplet
+
+### <a name="download-the-tutorial-project"></a>Télécharger le projet du tutoriel
 
 1. Accédez au dépôt [Tutoriel sur l’API Vision par ordinateur avec Java dans Cognitive Services](https://github.com/Azure-Samples/cognitive-services-java-computer-vision-tutorial).
 1. Cliquez sur le bouton **Clone ou Download** (Cloner ou télécharger).
@@ -53,7 +55,7 @@ Avant de créer l’exemple, vous devez vous abonner à l’API Vision par ordin
 
 Il est inutile d’extraire le contenu du fichier .zip, car NetBeans importe le projet directement à partir de ce fichier.
 
-## <a name="import-the-tutorial-project"></a>Importer le projet du tutoriel
+### <a name="import-the-tutorial-project"></a>Importer le projet du tutoriel
 
 Importez le fichier **cognitive-services-java-computer-vision-tutorial-master.zip** dans NetBeans.
 
@@ -65,7 +67,7 @@ Importez le fichier **cognitive-services-java-computer-vision-tutorial-master.zi
 1. Double-cliquez sur **MainFrame.java** pour charger le fichier dans l’éditeur NetBeans. L’onglet **Design** (Conception) du fichier **MainFrame.java** s’affiche.
 1. Cliquez sur l’onglet **Source** pour afficher le code source Java.
 
-## <a name="build-and-run-the-tutorial-project"></a>Générer et exécuter le projet du tutoriel
+### <a name="build-and-run-the-tutorial-project"></a>Générer et exécuter le projet du tutoriel
 
 1. Appuyez sur **F6** pour générer et exécuter l’application du tutoriel.
 
@@ -75,19 +77,17 @@ Importez le fichier **cognitive-services-java-computer-vision-tutorial-master.zi
 
 1. Quittez l’application du tutoriel.
 
-## <a name="add-the-tutorial-code"></a>Ajouter le code du tutoriel
+## <a name="add-the-tutorial-code-to-the-project"></a>Ajoutez le code du didacticiel au projet
 
-L’application Java Swing est configurée avec six onglets. Chaque onglet illustre une fonctionnalité différente de Vision par ordinateur (analyse, OCR, etc.). Les six sections du tutoriel n’ont pas de dépendances entre elles. Vous pouvez donc ajouter une section, la totalité des six sections ou uniquement quelques sections. Vous pouvez aussi ajouter les sections dans n’importe quel ordre.
+L’application Java Swing est configurée avec six onglets. Chaque onglet illustre une fonctionnalité différente de Vision par ordinateur (analyse, OCR, etc.). Les six sections du didacticiel n’ont pas de dépendances entre elles. Vous pouvez donc ajouter une section, la totalité des six sections ou n’importe quel sous-ensemble. Vous pouvez ajouter les sections dans n’importe quel ordre.
 
-Allons-y.
+### <a name="analyze-an-image"></a>Analyser une image
 
-## <a name="analyze-an-image"></a>Analyser une image
-
-La fonctionnalité Analyser de Vision par ordinateur analyse une image pour détecter plus de 2 000 objets, êtres vivants, scènes et actions reconnaissables. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui décrit l’image avec des balises descriptives, une analyse des couleurs, des légendes et bien plus encore.
+La fonctionnalité Analyser de Vision par ordinateur scanne une image pour détecter plus de 2 000 objets, êtres vivants, paysages et actions reconnaissables. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui décrit l’image avec des balises descriptives, une analyse des couleurs, des légendes et bien plus encore.
 
 Pour compléter la fonctionnalité Analyser de l’application du tutoriel, effectuez les étapes suivantes :
 
-### <a name="analyze-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de la fonctionnalité Analyser : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
 
 La méthode du gestionnaire d’événements **analyzeImageButtonActionPerformed** efface le formulaire, affiche l’image spécifiée dans l’URL, puis appelle la méthode **AnalyzeImage** pour analyser l’image. Quand **AnalyzeImage** retourne le résultat, la méthode affiche la réponse JSON mise en forme dans la zone de texte **Response** (Réponse), extrait la première légende de **JSONObject**, et affiche la légende et son niveau de confiance.
 
@@ -140,7 +140,7 @@ Copiez et collez le code suivant dans la méthode **analyzeImageButtonActionPerf
     }
 ```
 
-### <a name="analyze-step-2-add-the-wrapper-for-the-rest-api-call"></a>Étape 2 de la fonctionnalité Analyser : Ajouter le wrapper pour l’appel d’API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Ajouter le wrapper pour l’appel d’API REST
 
 La méthode **AnalyzeImage** inclut l’appel d’API REST dans un wrapper pour analyser une image. La méthode retourne un **JSONObject** décrivant l’image, ou une valeur **Null** si une erreur s’est produite.
 
@@ -201,17 +201,17 @@ Copiez et collez la méthode **AnalyzeImage** juste en dessous de la méthode **
     }
  ```
 
-### <a name="analyze-step-3-run-the-application"></a>Étape 3 de la fonctionnalité Analyser : Exécuter l’application
+#### <a name="run-the-application"></a>Exécution de l'application
 
 Appuyez sur **F6** pour exécuter l’application. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Entrez une URL vers une image à analyser, puis cliquez sur le bouton **Analyze Image** (Analyser l’image) pour analyser une image et voir le résultat.
 
-## <a name="recognize-a-landmark"></a>Reconnaître un élément géographique
+### <a name="recognize-a-landmark"></a>Reconnaître un élément géographique
 
 La fonctionnalité Élément géographique de Vision par ordinateur analyse une image pour détecter des éléments géographiques naturels et construits par l’homme, tels que des montagnes ou des bâtiments célèbres. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui identifie les éléments géographiques trouvés dans l’image.
 
 Pour compléter la fonctionnalité Élément géographique de l’application du tutoriel, effectuez les étapes suivantes :
 
-### <a name="landmark-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de la fonctionnalité Élément géographique : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
 
 La méthode du gestionnaire d’événements **landmarkImageButtonActionPerformed** efface le formulaire, affiche l’image spécifiée dans l’URL, puis appelle la méthode **LandmarkImage** pour analyser l’image. Quand **LandmarkImage** retourne le résultat, la méthode affiche la réponse JSON mise en forme dans la zone de texte **Response** (Réponse), extrait le nom du premier élément géographique de **JSONObject**, et affiche l’élément géographique et son niveau de confiance dans la fenêtre.
 
@@ -264,7 +264,7 @@ Copiez et collez le code suivant dans la méthode **landmarkImageButtonActionPer
     }
 ```
 
-### <a name="landmark-step-2-add-the-wrapper-for-the-rest-api-call"></a>Étape 2 de la fonctionnalité Élément géographique : Ajouter le wrapper pour l’appel d’API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Ajouter le wrapper pour l’appel d’API REST
 
 La méthode **LandmarkImage** inclut l’appel d’API REST dans un wrapper pour analyser une image. La méthode retourne un **JSONObject** décrivant les éléments géographiques trouvés dans l’image, ou une valeur **Null** si une erreur s’est produite.
 
@@ -325,17 +325,17 @@ Copiez et collez la méthode **LandmarkImage** juste en dessous de la méthode *
     }
 ```
 
-### <a name="landmark-step-3-run-the-application"></a>Étape 3 de la fonctionnalité Élément géographique : Exécuter l’application
+#### <a name="run-the-application"></a>Exécution de l'application
 
 Appuyez sur **F6** pour exécuter l’application. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Cliquez sur l’onglet **Landmark** (Élément géographique), entrez une URL vers une image d’élément géographique, puis cliquez sur le bouton **Analyze Image** (Analyser l’image) pour analyser une image et voir le résultat.
 
-## <a name="recognize-celebrities"></a>Reconnaître les célébrités
+### <a name="recognize-celebrities"></a>Reconnaître les célébrités
 
 La fonctionnalité Célébrités de Vision par ordinateur analyse une image pour détecter des personnes célèbres. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui identifie les célébrités trouvées dans l’image.
 
 Pour compléter la fonctionnalité Célébrités de l’application du tutoriel, effectuez les étapes suivantes :
 
-### <a name="celebrities-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de la fonctionnalité Célébrités : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
 
 La méthode du gestionnaire d’événements **celebritiesImageButtonActionPerformed** efface le formulaire, affiche l’image spécifiée dans l’URL, puis appelle la méthode **CelebritiesImage** pour analyser l’image. Quand **CelebritiesImage** retourne le résultat, la méthode affiche la réponse JSON mise en forme dans la zone de texte **Response** (Réponse), extrait le nom de la première célébrité de **JSONObject**, et affiche la célébrité et son niveau de confiance dans la fenêtre.
 
@@ -388,7 +388,7 @@ Copiez et collez le code suivant dans la méthode **celebritiesImageButtonAction
     }
 ```
 
-### <a name="celebrities-step-2-add-the-wrapper-for-the-rest-api-call"></a>Étape 2 de la fonctionnalité Célébrités : Ajouter le wrapper pour l’appel d’API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Ajouter le wrapper pour l’appel d’API REST
 
 La méthode **CelebritiesImage** inclut l’appel d’API REST dans un wrapper pour analyser une image. La méthode retourne un **JSONObject** décrivant les célébrités trouvées dans l’image, ou une valeur **Null** si une erreur s’est produite.
 
@@ -449,17 +449,17 @@ Copiez et collez la méthode **CelebritiesImage** juste en dessous de la méthod
     }
 ```
 
-### <a name="celebrities-step-3-run-the-application"></a>Étape 3 de la fonctionnalité Célébrités : Exécuter l’application
+#### <a name="run-the-application"></a>Exécution de l'application
 
 Appuyez sur **F6** pour exécuter l’application. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Cliquez sur l’onglet **Celebrities** (Célébrités), entrez une URL vers une image de célébrité, puis cliquez sur le bouton **Analyze Image** (Analyser l’image) pour analyser une image et voir le résultat.
 
-## <a name="intelligently-generate-a-thumbnail"></a>Générer une miniature de façon intelligente
+### <a name="intelligently-generate-a-thumbnail"></a>Générer une miniature de façon intelligente
 
 La fonctionnalité Miniature de Vision par ordinateur génère une miniature à partir d’une image. À l’aide de la fonctionnalité **Rognage intelligent**, la fonctionnalité Miniature va identifier la zone d’intérêt dans une image et centrer la miniature sur cette zone pour générer des images miniatures plus agréables d’un point de vue esthétique.
 
 Pour compléter la fonctionnalité Miniature de l’application du tutoriel, effectuez les étapes suivantes :
 
-### <a name="thumbnail-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de la fonctionnalité Miniature : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
 
 La méthode du gestionnaire d’événements **thumbnailImageButtonActionPerformed** efface le formulaire, affiche l’image spécifiée dans l’URL, puis appelle la méthode **getThumbnailImage** pour créer la miniature. Quand **getThumbnailImage** retourne le résultat, la méthode affiche la miniature générée.
 
@@ -505,7 +505,7 @@ Copiez et collez le code suivant dans la méthode **thumbnailImageButtonActionPe
     }
 ```
 
-### <a name="thumbnail-step-2-add-the-wrapper-for-the-rest-api-call"></a>Étape 2 de la fonctionnalité Miniature : Ajouter le wrapper pour l’appel d’API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Ajouter le wrapper pour l’appel d’API REST
 
 La méthode **getThumbnailImage** inclut l’appel d’API REST dans un wrapper pour analyser une image. La méthode retourne un **BufferedImage** qui contient la miniature, ou une valeur **Null** si une erreur s’est produite. Le message d’erreur est retourné dans le premier élément du tableau de chaînes **jsonError**.
 
@@ -572,17 +572,17 @@ Copiez et collez la méthode **getThumbnailImage** suivante juste en dessous de 
     }
 ```
 
-### <a name="thumbnail-step-3-run-the-application"></a>Étape 3 de la fonctionnalité Miniature : Exécuter l’application
+#### <a name="run-the-application"></a>Exécution de l'application
 
 Appuyez sur **F6** pour exécuter l’application. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Cliquez sur l’onglet **Thumbnail** (Miniature), entrez une URL vers une image, puis cliquez sur le bouton **Generate Thumbnail** (Générer la miniature) pour analyser une image et voir le résultat.
 
-## <a name="read-printed-text-ocr"></a>Lire du texte imprimé (OCR)
+### <a name="read-printed-text-ocr"></a>Lire du texte imprimé (OCR)
 
 La fonctionnalité Reconnaissance optique des caractères (OCR) de Vision par ordinateur analyse une image de texte imprimé. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui contient le texte et l’emplacement du texte dans l’image.
 
 Pour compléter la fonctionnalité OCR de l’application du tutoriel, effectuez les étapes suivantes :
 
-### <a name="ocr-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de la fonctionnalité OCR : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
 
 La méthode du gestionnaire d’événements **ocrImageButtonActionPerformed** efface le formulaire, affiche l’image spécifiée dans l’URL, puis appelle la méthode **OcrImage** pour analyser l’image. Quand **OcrImage** retourne le résultat, la méthode affiche le texte détecté au format JSON dans la zone de texte **Response** (Réponse).
 
@@ -622,7 +622,7 @@ Copiez et collez le code suivant dans la méthode **ocrImageButtonActionPerforme
     }
 ```
 
-### <a name="ocr-step-2-add-the-wrapper-for-the-rest-api-call"></a>Étape 2 de la fonctionnalité OCR : Ajouter le wrapper pour l’appel d’API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Ajouter le wrapper pour l’appel d’API REST
 
 La méthode **OcrImage** inclut l’appel d’API REST dans un wrapper pour analyser une image. La méthode retourne un **JSONObject** des données JSON retournées de l’appel, ou une valeur **Null** si une erreur s’est produite.
 
@@ -683,17 +683,17 @@ Copiez et collez la méthode **OcrImage** suivante juste en dessous de la métho
     }
 ```
 
-### <a name="ocr-step-3-run-the-application"></a>Étape 3 de la fonctionnalité OCR : Exécuter l’application
+#### <a name="run-the-application"></a>Exécution de l'application
 
 Appuyez sur **F6** pour exécuter l’application. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Cliquez sur l’onglet **OCR**, entrez une URL vers une image de texte imprimé, puis cliquez sur le bouton **Read Image** (Lire l’image) pour analyser une image et voir le résultat.
 
-## <a name="read-handwritten-text-handwriting-recognition"></a>Lire du texte manuscrit (reconnaissance de l’écriture manuscrite)
+### <a name="read-handwritten-text-handwriting-recognition"></a>Lire du texte manuscrit (reconnaissance de l’écriture manuscrite)
 
 La fonctionnalité Reconnaissance de l’écriture manuscrite de Vision par ordinateur analyse une image de texte manuscrit. Une fois l’analyse terminée, la fonctionnalité retourne un objet JSON qui contient le texte et l’emplacement du texte dans l’image.
 
 Pour compléter la fonctionnalité Reconnaissance de l’écriture manuscrite de l’application du tutoriel, effectuez les étapes suivantes :
 
-### <a name="handwriting-recognition-step-1-add-the-event-handler-code-for-the-form-button"></a>Étape 1 de la fonctionnalité Reconnaissance de l’écriture manuscrite : Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
+#### <a name="add-the-event-handler-code-for-the-form-button"></a>Ajouter le code du gestionnaire d’événements pour le bouton de formulaire
 
 La méthode du gestionnaire d’événements **handwritingImageButtonActionPerformed** efface le formulaire, affiche l’image spécifiée dans l’URL, puis appelle la méthode **HandwritingImage** pour analyser l’image. Quand **HandwritingImage** retourne le résultat, la méthode affiche le texte détecté au format JSON dans la zone de texte **Response** (Réponse).
 
@@ -733,7 +733,7 @@ Copiez et collez le code suivant dans la méthode **handwritingImageButtonAction
     }
 ```
 
-### <a name="handwriting-recognition-step-2-add-the-wrapper-for-the-rest-api-call"></a>Étape 2 de la fonctionnalité Reconnaissance de l’écriture manuscrite : Ajouter le wrapper pour l’appel d’API REST
+#### <a name="add-the-wrapper-for-the-rest-api-call"></a>Ajouter le wrapper pour l’appel d’API REST
 
 La méthode **HandwritingImage** inclut dans un wrapper les deux appels d’API REST nécessaires pour analyser une image. Étant donné que la reconnaissance de l’écriture manuscrite prend du temps, un processus en deux étapes est utilisé. Le premier appel envoie l’image pour traitement ; le deuxième appel récupère le texte détecté quand le traitement est terminé.
 
@@ -841,7 +841,7 @@ Copiez et collez la méthode **HandwritingImage** suivante juste en dessous de l
     }
 ```
 
-### <a name="handwriting-recognition-step-3-run-the-application"></a>Étape 3 de la fonctionnalité Reconnaissance de l’écriture manuscrite : Exécuter l’application
+#### <a name="run-the-application"></a>Exécution de l'application
 
 Pour exécuter l’application, appuyez sur **F6**. Placez votre clé d’abonnement dans le champ **Clé d’abonnement** et vérifiez que vous utilisez la région correcte dans **Subscription Region** (Région d’abonnement). Cliquez sur l’onglet **Read Handwritten Text** (Lire du texte manuscrit), entrez une URL vers une image de texte manuscrit, puis cliquez sur le bouton **Read Image** (Lire l’image) pour analyser une image et voir le résultat.
 

@@ -192,18 +192,20 @@ items:
     items:
     - name: Migrer à partir d’Orchestrator
       href: automation-orchestrator-migration.md
-  - name: Résolution des problèmes
-    items:
-    - name: Mise en route
-      href: troubleshoot/onboarding.md
-    - name: Runbooks
-      href: troubleshoot/runbooks.md
-    - name: Configuration d’état souhaité
-      href: troubleshoot/desired-state-configuration.md
-    - name: Runbook Worker hybride
-      href: troubleshoot/hybrid-runbook-worker.md
-    - name: Update Management
-      href: troubleshoot/update-management.md
+- name: Résolution des problèmes
+  items:
+  - name: Mise en route
+    href: troubleshoot/onboarding.md
+  - name: Runbooks
+    href: troubleshoot/runbooks.md
+  - name: Configuration d’état (DSC)
+    href: troubleshoot/desired-state-configuration.md
+  - name: Runbook Worker hybride
+    href: troubleshoot/hybrid-runbook-worker.md
+  - name: Update Management
+    href: troubleshoot/update-management.md
+  - name: Résoudre les problèmes de l’agent de mise à jour
+    href: troubleshoot/update-agent-issues.md
 - name: Informations de référence
   items:
   - name: Azure PowerShell
@@ -236,9 +238,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-automation
   - name: vidéos
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation
-ms.openlocfilehash: 102f70d3c0ea4c87b47e2a0967da967b7eef73f6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 37f9efb0c82a9ccefab1b492d45b9060a1a9312e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040310"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645420"

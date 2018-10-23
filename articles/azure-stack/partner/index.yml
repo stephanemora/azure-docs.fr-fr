@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: 749dc6c2d329ae7055ee0a6adc429c378de51871
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 26c0353bddb9455b1bda8961f3c05e0f6c7cc176
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234392"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647712"
 documentType: LandingData
 title: Documentation sur les partenaires Azure Stack
 metadata:
@@ -27,14 +27,14 @@ sections:
 - title: Démarrage rapide en 5 minutes
   items:
   - type: paragraph
-    text: Découvrez comment intégrer vos machines virtuelles et vos ordinateurs à Security Center et comment connecter vos solutions de sécurité.
+    text: Découvrez comment utiliser le portail de validation en tant que service pour planifier des tests sur votre matériel.
   - type: list
     style: icon48
     items:
     - image:
         src: media/i_account-management.svg
       text: Utiliser le portail de validation en tant que service pour planifier votre premier test
-      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-your-first-test
+      href: /azure/azure-stack/partner/azure-stack-vaas-schedule-test-pass
 - title: Didacticiels pas à pas
   items:
   - type: paragraph
@@ -42,16 +42,6 @@ sections:
   - type: list
     style: unordered
     items:
-    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-test-vm">Déployer l’agent local et tester les machines virtuelles</a>
-    - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-automate-with-powershell">Automatiser la validation Azure Stack avec PowerShell</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-solution-new">Valider une nouvelle solution Azure Stack</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-oem-package">Valider les packages OEM</a>
     - html: <a href="/azure/azure-stack/partner/azure-stack-vaas-validate-microsoft-updates">Valider les mises à jour logicielles issues de Microsoft</a>
-- title: Informations de référence
-  items:
-  - type: list
-    style: cards
-    className: cardsD
-    items:
-    - title: Validation en tant que service
-      html: <a href="/azure/azure-stack/partner/azure-stack-vaas-parameters">Fichier de configuration de validation</a>

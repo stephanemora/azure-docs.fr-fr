@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 2f020bdf79811c959e07d753231fc133fe597861
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c7396d7322958442fab51417eb350f26f7ada78e
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855174"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352658"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Tutoriel : Configurer une jonction Azure Active Directory hybride pour les domaines fédérés
 
@@ -124,7 +124,7 @@ Pour configurer une jonction Azure AD hybride avec Azure AD Connect, vous avez b
 
     a. Sélectionnez la forêt.
 
-    b. Sélectionnez le service d’authentification. Vous devez sélectionner le serveur AD FS, sauf si votre organisation dispose uniquement de clients Windows 10.
+    b. Sélectionnez le service d’authentification. Vous devez sélectionner le serveur AD FS, sauf si votre organisation a exclusivement des clients Windows 10 et si vous avez configuré la synchronisation ordinateur/appareil ou si votre organisation utilise l’authentification unique fluide.
 
     c. Cliquez sur **Ajouter** pour indiquer les informations d’identification de l’administrateur d’entreprise.
 
@@ -194,7 +194,7 @@ Lorsque vous utilisez l’applet de commande **Get-MSolDevice** pour vérifier l
 
 - Un objet dont l’**id d’appareil** correspond à l’ID présent sur le client Windows doit exister.
 - La valeur de **DeviceTrustType** doit être **Domain Joined**. C’est l’équivalent de l’état **Joint à une version hybride d’Azure AD** dans la page Appareils du portail Azure AD.
-- La valeur de **Enabled** doit être **True** pour les appareils qui sont utilisés dans l’accès conditionnel. 
+- La valeur de **Enabled** doit être **True** et celle de **DeviceTrustLevel** doit être **Managed** pour les appareils qui sont utilisés dans l’accès conditionnel. 
 
 
 **Pour vérifier les détails du service :**

@@ -35,28 +35,26 @@
 
 # [Portail des partenaires cloud](./cloud-partner-portal-orig/cloud-partner-portal-getting-started-with-the-cloud-partner-portal.md) 
 
-<!-- remove comment markers after toc gets published with iot edge section  -->
-<!-- 
-## [Virtual machine offer](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
-### [Prerequisites](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
-### [Create VM offer](./cloud-partner-portal/virtual-machine/cpp-create-offer.md)
-#### [Offer Settings tab](./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md)
-#### [SKUs tab](./cloud-partner-portal/virtual-machine/cpp-skus-tab.md)
-#### [Test Drive tab](./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md)
-#### [Marketplace tab](./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md)
-#### [Support tab](./cloud-partner-portal/virtual-machine/cpp-support-tab.md)
-### [Create VM technical assets](./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
-#### [Create VHD](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)
-#### [Common VHD creation issues](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
-#### [Connect to VM](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
-#### [Configure VM](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
-#### [Deploy VM from VHDs](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
-##### [VHD Deployment Template (JSON)](./cpp-deploy-json-template.md)
-#### [Certify VM image](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
-#### [Get SAS URI](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
-#### [Common SAS URL issues](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
-### [Publish VM offer](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
-### [Update existing offer](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md) -->
+## [Offre de machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-virtual-machine-offer.md)
+### [Composants requis](./cloud-partner-portal/virtual-machine/cpp-prerequisites.md)
+### [Créer une offre de machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-create-offer.md)
+#### [Onglet des paramètres de l’offre](./cloud-partner-portal/virtual-machine/cpp-offer-settings-tab.md)
+#### [Onglet des références SKU](./cloud-partner-portal/virtual-machine/cpp-skus-tab.md)
+#### [Onglet de version d'évaluation](./cloud-partner-portal/virtual-machine/cpp-test-drive-tab.md)
+#### [Onglet de la Place de marché](./cloud-partner-portal/virtual-machine/cpp-marketplace-tab.md)
+#### [Onglet du support](./cloud-partner-portal/virtual-machine/cpp-support-tab.md)
+### [Créer des ressources techniques de machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-create-technical-assets.md)
+#### [Créer un disque dur virtuel](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md)
+#### [Problèmes courants relatifs à la création d’un disque dur virtuel](./cloud-partner-portal/virtual-machine/cpp-common-vhd-creation-issues.md)
+#### [Se connecter à une machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-connect-vm.md)
+#### [Configurer une machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-configure-vm.md)
+#### [Déployer une machine virtuelle à partir de disques durs virtuels](./cloud-partner-portal/virtual-machine/cpp-deploy-vm-vhd.md)
+##### [Modèle de déploiement de disque dur virtuel (JSON)](./cloud-partner-portal/virtual-machine/cpp-deploy-json-template.md)
+#### [Certifier l’image de machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-certify-vm.md)
+#### [Obtenir une URI SAP](./cloud-partner-portal/virtual-machine/cpp-get-sas-uri.md)
+#### [Problèmes courants relatifs aux URL SAP](./cloud-partner-portal/virtual-machine/cpp-common-sas-url-issues.md)
+### [Publier l’offre de machine virtuelle](./cloud-partner-portal/virtual-machine/cpp-publish-offer.md)
+### [Mettre à jour l’offre existante](./cloud-partner-portal/virtual-machine/cpp-update-existing-offer.md)
 
 <!-- Following legacy VM section was replaced.  -->
 <!-- 

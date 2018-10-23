@@ -4,23 +4,21 @@ description: Exemples de modèles Azure Resource Manager pour la fonctionnalité
 services: app-service
 documentationcenter: app-service
 author: tfitzmac
-manager: timlt
-editor: ggailey777
 tags: azure-service-management
 ms.service: app-service
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: app-service
-ms.date: 02/26/2018
+ms.date: 10/15/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 155b47fc4c664701ec0f21bdc5ae34f3d7f666ff
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: 627480fab7a28794a215642fda8e57280f19f19b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29933066"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345065"
 ---
 # <a name="azure-resource-manager-templates-for-web-apps"></a>Modèles Azure Resource Manager pour Web Apps
 
@@ -29,6 +27,8 @@ Le tableau suivant inclut des liens vers des modèles Azure Resource Manager pou
 | | |
 |-|-|
 |**Déploiement d’une application web**||
+| [Plan App Service et application web Linux de base](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-linux) | Déploie une application web Azure qui est configurée pour Linux. |
+| [Plan App Service et application web Windows de base](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-basic-windows) | Déploie une application web Azure qui est configurée pour Windows. |
 | [Application web liée à un référentiel GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-github-deploy)| Déploie une application web Azure qui extrait le code à partir de GitHub. |
 | [Application web avec des emplacements de déploiement personnalisés](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-custom-deployment-slots)| Déploie une application web Azure avec des environnements/emplacements de déploiement personnalisés. |
 |**Configuration d’une application web**||
@@ -37,7 +37,7 @@ Le tableau suivant inclut des liens vers des modèles Azure Resource Manager pou
 | [Application web avec un domaine personnalisé et SSL](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-custom-domain-and-ssl)| Déploie une application web Azure avec un nom d’hôte personnalisé et obtient un certificat d’application web issu de Key Vault pour la liaison SSL. |
 | [Application web avec l’extension GoLang](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-with-golang)| Déploie une application web Azure avec l’extension de site GoLang. Vous pouvez ensuite exécuter des applications web développées sur GoLang sur Azure. |
 | [Application web avec Java 8 et Tomcat 8](https://github.com/Azure/azure-quickstart-templates/tree/master/201-web-app-java-tomcat)| Déploie une application web Azure pour laquelle Java 8 et Tomcat 8 sont activés. Vous pouvez ensuite exécuter des applications Java dans Azure. |
-|**Application web Linux**||
+|**Application web Linux avec des ressources connectées**||
 | [Application web sur Linux avec MySQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-mysql) | Déploie une application web Azure sur Linux avec Azure Database pour MySQL. |
 | [Application web sur Linux avec PostgreSQL](https://github.com/Azure/azure-quickstart-templates/tree/master/101-webapp-linux-managed-postgresql) | Déploie une application web Azure sur Linux avec Azure Database pour PostgreSQL. |
 |**Application web avec des ressources connectées**||

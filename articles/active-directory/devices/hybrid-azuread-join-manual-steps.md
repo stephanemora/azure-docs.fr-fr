@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 4155ea7c24746f9d3381f2d1e4a1e08a7a56206a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4e3b7aff97cbcebe34e6af4755900e8888c5e57d
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049935"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352796"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride 
 
@@ -92,6 +92,8 @@ Si votre organisation envisage d’utiliser l’authentification unique transpar
 Si votre organisation utilise une configuration gérée (non fédérée) avec AD en local et n’utilise pas ADFS pour établir la fédération avec Azure AD, la jointure Azure AD hybride sous Windows 10 s’appuie sur les objets ordinateurs dans AD à synchroniser avec Azure AD. Assurez-vous que toutes les unités d’organisation qui contiennent les objets ordinateurs devant avoir une jointure Azure AD hybride peuvent être synchronisées dans la configuration de la synchronisation Azure AD Connect.
 
 Pour les appareils Windows 10 exécutant la version 1703 ou une version antérieure, si votre organisation nécessite un accès à Internet via un proxy sortant, vous devez implémenter la détection automatique de proxy web (WPAD) pour permettre aux ordinateurs Windows 10 de s’inscrire à Azure AD. 
+
+Tout d’abord, pour Windows 10 1803, même si un appareil tente de joindre un répertoire Azure AD hybride dans un domaine fédéré à l’aide d’AD FS et échoue, et si Azure AD Connect est configuré pour synchroniser les objets ordinateur/d’appareil avec Azure AD, alors l’appareil tentera d’effectuer la jointure Azure AD hybride à l’aide de l’ordinateur/appareil synchronisé.
 
 ## <a name="configuration-steps"></a>Configuration
 

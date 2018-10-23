@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 08295ceeb2ebe94a96eaade0a6443f0f59212d60
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394027"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342205"
 ---
 # <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
 
@@ -95,9 +95,9 @@ Les abonnés peuvent définir les messages qu’ils veulent recevoir d’une rub
 
 Si une erreur se produit et suscite un doute chez le client concernant le résultat d’une opération d’envoi, la [détection des doublons](duplicate-detection.md) lève ce type d’incertitude en permettant à l’expéditeur de renvoyer le même message, et à la file d’attente ou la rubrique d’ignorer les copies en double.
 
-### <a name="sas-rbac-and-msi"></a>SAS, RBAC et MSI
+### <a name="sas-rbac-and-managed-identities-for-azure-resources"></a>Protocoles SAP et RBAC, et identités managées pour les ressources Azure
 
-Service Bus prend en charge les protocoles de sécurité tel que les [Signatures d’accès partagé](service-bus-sas.md) (SAS), le [Contrôle d’accès en fonction du rôle](service-bus-role-based-access-control.md) (RBAC) et l’[Identité du service administré](service-bus-managed-service-identity.md) (MSI).
+Service Bus prend en charge les protocoles de sécurité tel que les [Signatures d’accès partagé](service-bus-sas.md) (SAP), le [Contrôle d’accès en fonction du rôle](service-bus-role-based-access-control.md) (RBAC) et les [Identités managées pour les ressources Azure](service-bus-managed-service-identity.md).
 
 ### <a name="geo-disaster-recovery"></a>Géorécupération d’urgence
 

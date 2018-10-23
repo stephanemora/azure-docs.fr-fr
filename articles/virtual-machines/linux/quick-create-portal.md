@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/14/2018
+ms.date: 10/12/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: fcc9f338ad69322091199ce9d5d2d1d6f9f2165e
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 78b20b977685989c10ba61a48afee7808c46f227
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227280"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320626"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Démarrage rapide : Créer une machine virtuelle Linux sur le Portail Azure
 
-Le Portail Azure peut être utilisé pour créer des machines virtuelles Azure. Cette méthode fournit une interface utilisateur sur navigateur permettant de créer les machines virtuelles et les ressources associées. Ce guide de démarrage rapide explique comment utiliser le Portail Azure pour déployer dans Azure une machine virtuelle Linux qui fonctionne sous Ubuntu. Pour voir votre machine virtuelle en action, vous établirez une connexion SSH à la machine virtuelle et installerez le serveur web NGINX.
+Le Portail Azure peut être utilisé pour créer des machines virtuelles Azure. Le Portail Azure est une interface utilisateur basée sur un navigateur permettant de créer des machines virtuelles et leurs ressources associées. Ce démarrage rapide explique comment utiliser le Portail Azure pour déployer une machine virtuelle Linux exécutant Ubuntu 16.04 LTS. Pour voir votre machine virtuelle en action, vous établissez également une connexion SSH à la machine virtuelle et installez le serveur web NGINX.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -33,21 +33,31 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Vous aurez besoin d’une paire de clés SSH pour suivre ce guide de démarrage rapide. Si vous disposez déjà d’une paire de clés SSH, vous pouvez ignorer cette étape.
 
-Pour créer une paire de clés SSH et ouvrir une session sur les machines virtuelles Linux, exécutez la commande suivante à partir d’un interpréteur de commandes Bash et suivez les instructions qui s’affichent à l’écran. Vous pouvez par exemple utiliser [Azure Cloud Shell](../../cloud-shell/overview.md) ou le [sous-système Windows pour Linux](/windows/wsl/install-win10). La sortie de la commande inclut le nom du fichier de clé publique. Copiez le contenu du fichier de clé publique (`cat ~/.ssh/id_rsa.pub`) dans le Presse-papiers :
+Ouvrez un interpréteur de commandes bash et utilisez [ssh-keygen](https://www.ssh.com/ssh/keygen/) pour créer une paire de clés SSH. Si vous n’avez pas d’interpréteur de commandes bash sur votre ordinateur local, vous pouvez utiliser [Azure Cloud Shell](https://shell.azure.com/bash).  
 
 ```bash
 ssh-keygen -t rsa -b 2048
 ```
 
+La commande ci-dessus génère des clés publiques et privées portant le nom par défaut `id_rsa` dans `~/.ssh directory`. La commande renvoie le chemin d’accès complet à la clé publique. Utilisez le chemin d’accès à la clé publique pour afficher son contenu avec `cat`.
+
+```bash 
+cat ~/.ssh/id_rsa.pub
+```
+
+Enregistrez la sortie de cette commande. Elle vous sera utile au moment de configurer votre compte administrateur pour vous connecter à votre machine virtuelle.
+
 Pour plus d’informations sur la création de paires de clés SSH, notamment l’utilisation de PuTTy, voir [Guide pratique pour utiliser des clés SSH avec Windows](ssh-from-windows.md).
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+Si vous créez votre paire de clés SSH à l’aide de Cloud Shell, elle est stockée dans un partage de fichiers Azure qui est [automatiquement monté par Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/persisting-shell-storage). Ne supprimez pas ce compte de stockage ou partage de fichiers tant que vous n’avez pas récupéré vos clés, faute de quoi vous perdrez votre accès à la machine virtuelle. 
 
-Connectez-vous au portail Azure à l’adresse suivante : http://portal.azure.com
+## <a name="sign-in-to-azure"></a>Connexion à Azure
+
+Connectez-vous au [Portail Azure](https://portal.azure.com).
 
 ## <a name="create-virtual-machine"></a>Créer une machine virtuelle
 
-1. Sélectionnez **Créer une ressource** dans le coin supérieur gauche du Portail Azure.
+1. Choisissez **Créer une ressource** en haut à gauche du Portail Azure.
 
 1. Dans la zone de recherche au-dessus de la liste des ressources de la Place de marché Azure, recherchez et sélectionnez **Ubuntu Server 16.04 LTS** de Canonical, puis choisissez **Créer**.
 
@@ -69,6 +79,10 @@ Connectez-vous au portail Azure à l’adresse suivante : http://portal.azure.co
 
 1. Conservez les valeurs par défaut restantes, puis sélectionnez le bouton **Vérifier + créer** en bas de la page.
 
+1. Sur la page **Create a virtual machine** (Créer une machine virtuelle), vous pouvez voir les détails de la machine virtuelle que vous allez créer. Lorsque vous êtes prêt, sélectionnez **Créer**.
+
+Quelques minutes sont nécessaires pour le déploiement de votre machine virtuelle. Lorsque le déploiement est terminé, passez à la section suivante.
+
     
 ## <a name="connect-to-virtual-machine"></a>Connexion à la machine virtuelle
 
@@ -78,32 +92,29 @@ Créez une connexion SSH avec la machine virtuelle.
 
     ![Portail 9](./media/quick-create-portal/portal-quick-start-9.png)
 
-2. Sur la page **Se connecter à la machine virtuelle**, conservez les options par défaut pour vous connecter par nom DNS sur le port 22. Dans **Se connecter à l’aide d’un compte local de machine virtuelle**, une commande de connexion s’affiche. Cliquez sur le bouton pour copier la commande. L’exemple suivant montre la commande de connexion SSH :
+2. Sur la page **Se connecter à la machine virtuelle**, conservez les options par défaut pour vous connecter par adresse IP sur le port 22. Dans **Se connecter à l’aide d’un compte local de machine virtuelle**, une commande de connexion s’affiche. Cliquez sur le bouton pour copier la commande. L’exemple suivant montre la commande de connexion SSH :
 
     ```bash
-    ssh azureuser@myvm-123abc.eastus.cloudapp.azure.com
+    ssh azureuser@10.111.12.123
     ```
 
-3. Collez la commande de connexion SSH dans un interpréteur de commandes, par exemple, Azure Cloud Shell ou Bash sur Ubuntu sous Windows pour créer la connexion. 
+3. Avec le même interpréteur de commandes bash que celui utilisé pour créer votre paire de clés (comme [Azure Cloud Shell](https://shell.azure.com/bash) ou votre interpréteur de commandes bash local), collez la commande de connexion SSH dans l’interpréteur de commandes pour créer une session SSH. 
 
 ## <a name="install-web-server"></a>Installer le serveur web
 
-Pour voir votre machine virtuelle en action, installez le serveur web NGINX. Pour mettre à jour les sources du package et installer la dernière version du package NGINX, exécutez les commandes suivantes dans votre session SSH :
+Pour voir votre machine virtuelle en action, installez le serveur web NGINX. Dans votre session SSH, mettez à jour vos sources de package, puis installez le dernier package NGINX.
 
 ```bash
-# update packages
 sudo apt-get -y update
-
-# install NGINX
 sudo apt-get -y install nginx
 ```
 
-Ensuite, quittez (`exit`) la session SSH et revenez aux propriétés de la machine virtuelle sur le Portail Azure.
+Lorsque vous avez terminé, tapez `exit` pour quitter la session SSH.
 
 
 ## <a name="view-the-web-server-in-action"></a>Voir le serveur web en action
 
-Une fois NGINX installé et le port 80 ouvert sur la machine virtuelle, le serveur web est accessible par Internet. Ouvrez un navigateur web et saisissez l’adresse IP publique de la machine virtuelle. L’adresse IP publique se trouve sur la page de présentation de la machine virtuelle, ou en haut de la page *Réseaux* sur laquelle vous ajoutez la règle de port d’entrée.
+Utilisez le navigateur web de votre choix pour visualiser la page d’accueil NGINX par défaut. Entrez l’adresse IP publique de la machine virtuelle comme adresse web. Vous trouverez l’adresse IP publique sur la page de vue d’ensemble de la machine virtuelle ou en tant que partie de la chaîne de connexion SSH que vous avez utilisée précédemment.
 
 ![Site par défaut NGINX](./media/quick-create-cli/nginx.png)
 

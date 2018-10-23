@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 03acd63ff00f0a3017297d1998289c8e68f0f290
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 5abb2447fa90ea5900afb86746cc17eff62c2d2e
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41917700"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166274"
 ---
 # <a name="get-started-receiving-messages-with-the-event-processor-host-in-net-standard"></a>Bien démarrer avec la réception de messages à l’aide de l’hôte du processeur d’événements dans .NET Standard
 
@@ -42,14 +42,19 @@ La première étape consiste à utiliser le [portail Azure](https://portal.azure
 
 ## <a name="create-an-azure-storage-account"></a>Création d'un compte Azure Storage  
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com).  
-2. Dans le panneau de navigation gauche du portail, cliquez sur **Créer une ressource**, puis sur **Stockage** et sur **Compte de stockage**.  
-3. Renseignez les champs dans la fenêtre du compte de stockage, puis cliquez sur **Créer**.
+1. Connectez-vous au [Portail Azure](https://portal.azure.com).  
+2. Dans le volet de navigation de gauche du portail, sélectionnez **Créer une ressource**, puis sélectionnez **Stockage** dans les catégories. Enfin, sélectionnez **Compte de stockage - blob, fichier, table, file d’attente**.  
+3. Renseignez les champs dans la fenêtre **Créer un compte de stockage**, puis sélectionnez **Vérifier + créer**. 
 
     ![Créer un compte de stockage][1]
 
-4. Après l’affichage du message **Déploiements réussis**, cliquez sur le nom du nouveau compte de stockage. Dans la fenêtre **Bases**, cliquez sur **Objets blob**. Quand la boîte de dialogue **Service Blob** s’ouvre, cliquez sur **+ Conteneur** en haut. Nommez le conteneur, puis fermez **Service Blob**.  
-5. Cliquez sur **Clés d’accès** dans la fenêtre de gauche, puis copiez le nom du conteneur de stockage, le compte de stockage et la valeur de **key1**. Enregistrez ces valeurs dans le Bloc-notes ou un autre emplacement temporaire.  
+4. Sur la page **Vérifier + créer**, sélectionnez **Créer** après avoir vérifié les valeurs des champs. 
+5. Après l’affichage du message **Déploiements réussis**, sélectionnez le nom du nouveau compte de stockage. 
+6. Dans la fenêtre **Bases**, sélectionnez **Objets blob**. 
+7. Sélectionnez **+ Conteneur** en haut. Nommez le conteneur.  
+8. Sélectionnez **Clés d’accès** dans la fenêtre de gauche, puis copiez le nom du conteneur de stockage, le compte de stockage et la valeur de **key1**. 
+
+    Enregistrez ces valeurs dans le Bloc-notes ou un autre emplacement temporaire.
 
 ## <a name="create-a-console-application"></a>Création d’une application console
 
