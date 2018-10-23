@@ -244,7 +244,6 @@
 
 #### Accès conditionnel
 ##### [Le client n’a pas respecté les pré-requis d’inscription d’appareils](active-directory-conditional-access.md)
-##### [Le client est bloqué en raison d’un réglage incorrect des stratégies d’accès conditionnel](active-directory-conditional-access-device-remediation.md)
 ##### [Comment et quand les règles de réseau d’entreprise prennent-elles effet ?](https://aka.ms/calocation)
 ##### [Comment augmenter le nombre d’appareils que l’utilisateur est autorisé à inscrire dans Azure AD ?](active-directory-azureadjoin-setup.md)
 ##### [Comment configurer un accès conditionnel pour Exchange Online ?](https://aka.ms/csforexchange)
