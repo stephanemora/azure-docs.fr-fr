@@ -14,7 +14,7 @@
 ### [Accéder aux API avec .NET](media-services-dotnet-get-started-with-aad.md)
 ### [Accéder aux API avec REST](media-services-rest-connect-with-aad.md)
 ### [Utiliser Azure CLI pour créer et configurer l’application AAD](media-services-cli-create-and-configure-aad-app.md)
-### [Utiliser Azure PowerShell pour créer et configurer l’application AAD](media-services-powershell-create-and-configure-aad-app.md)
+### [Utiliser Azure PowerShell pour créer et configurer l’application Azure AD](media-services-powershell-create-and-configure-aad-app.md)
 
 ## Proposer la vidéo à la demande
 ### [Portail Azure](media-services-portal-vod-get-started.md)

@@ -5,16 +5,16 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5b906b4a90dbceb62c6f2381d0ffa8bc1bee7ef1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1ed76b0505747831363ea829f1cb91b3e056282a
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47033819"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352444"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -58,7 +58,7 @@ Si l’espace de travail sélectionné a déjà la solution. La solution n’est
 
 Quand un ordinateur est ajouté aux solutions Update Management, Change Tracking et Inventaire, il est ajouté à l’une des deux recherches enregistrées dans votre espace de travail. Ces recherches enregistrées sont des requêtes qui contiennent les ordinateurs ciblés pour ces solutions.
 
-Accédez à votre compte Automation et sélectionnez **Recherches enregistrées** sous **Général**. Les deux recherches enregistrées utilisées par ces solutions sont présentées dans le tableau suivant :
+Accédez à votre compte Automation et sélectionnez **Recherches enregistrées** sous **Ggénéral**. Les deux recherches enregistrées utilisées par ces solutions sont présentées dans le tableau suivant :
 
 |NOM     |Catégorie  |Alias  |
 |---------|---------|---------|
@@ -93,11 +93,11 @@ Sélectionnez **Gérer des machines**. La page **Gérer des machines** s’ouvre
 
 ### <a name="all-available-machines"></a>Toutes les machines disponibles
 
-Pour activer la solution sur toutes les machines disponibles, sélectionnez **Activer sur toutes les machines disponibles**. La commande permettant d’ajouter des machines individuellement est alors désactivée. Cette tâche ajoute tous les noms des machines envoyant des informations à l’espace de travail dans la requête de recherche enregistrée de groupe d’ordinateurs.
+Pour activer la solution sur toutes les machines disponibles, sélectionnez **Activer sur toutes les machines disponibles**. La commande permettant d’ajouter des machines individuellement est alors désactivée. Cette tâche ajoute tous les noms des machines envoyant des informations à l’espace de travail dans la requête de recherche enregistrée de groupe d’ordinateurs. Quand cette option est sélectionnée, le bouton **Gérer des machines** est désactivé.
 
 ### <a name="all-available-and-future-machines"></a>Toutes les machines disponibles et futures
 
-Pour activer la solution sur toutes les machines disponibles et toutes les futures machines, sélectionnez **Activer sur toutes les machines disponibles et futures**. Cette option supprime les recherches enregistrées et les configurations d’étendue de l’espace de travail. Elle ouvre la solution à toutes les machines Azure et non-Azure qui envoient des informations à l’espace de travail.
+Pour activer la solution sur toutes les machines disponibles et toutes les futures machines, sélectionnez **Activer sur toutes les machines disponibles et futures**. Cette option supprime les recherches enregistrées et les configurations d’étendue de l’espace de travail. Elle ouvre la solution à toutes les machines Azure et non-Azure qui envoient des informations à l’espace de travail. Quand cette option est sélectionnée, le bouton **Gérer des machines** est désactivé.
 
 ### <a name="selected-machines"></a>Machines sélectionnées
 
@@ -105,7 +105,7 @@ Pour activer la solution sur une ou plusieurs machines, sélectionnez **Activer 
 
 ## <a name="unlink-workspace"></a>Supprimer le lien de votre espace de travail
 
-Les solutions suivantes sont dépendantes d’un espace de travail Log Analytics :
+Les solutions ci-après sont tributaires d’un espace de travail Log Analytics :
 
 * [Gestion des mises à jour](automation-update-management.md)
 * [Suivi des modifications](automation-change-tracking.md)
@@ -120,13 +120,13 @@ Après avoir supprimé ces solutions, vous pouvez effectuer les étapes suivante
 
 1. Dans le portail Azure, ouvrez votre compte Automation puis, dans la page de ce dernier, sélectionnez **Espace de travail lié** dans la section **Ressources associées** sur la gauche.
 
-1. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**.
+2. Dans la page Dissocier l’espace de travail, cliquez sur **Dissocier l’espace de travail**.
 
    ![Page Dissocier l’espace de travail](media/automation-onboard-solutions-from-automation-account/automation-unlink-workspace-blade.png).
 
    Vous recevez une invite de confirmation de la suppression.
 
-1. Pour suivre la progression de la suppression du lien de votre espace de travail Log Analytics dans Azure Automation, sélectionnez **Notifications** dans le menu.
+3. Pour suivre la progression de la suppression du lien de votre espace de travail Log Analytics dans Azure Automation, sélectionnez **Notifications** dans le menu.
 
 Si vous avez utilisé la solution de gestion de la mise à jour, vous pouvez (si vous le souhaitez) supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
 

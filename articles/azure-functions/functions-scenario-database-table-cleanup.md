@@ -11,17 +11,20 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 05/22/2017
 ms.author: glenga
-ms.openlocfilehash: a257948c97437d6045f705acb02054928d22ff89
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 024958d8a548313b53fc24ade5805de036a89afb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092867"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351913"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Utiliser Azure Functions pour se connecter à une base de données Azure SQL Database
 Cette rubrique vous montre comment utiliser Azure Functions pour créer une tâche planifiée qui nettoie des lignes dans une table d’une base de données Azure SQL Database. La nouvelle fonction de script C# est créée selon un modèle de déclencheur du minuteur prédéfini dans le Portail Azure. Pour prendre en charge ce scénario, vous devez également définir une chaîne de connexion de base de données comme paramètre d’application dans l’application de fonction. Ce scénario utilise une opération en bloc sur la base de données. 
 
 Pour que votre fonction traite des opérations de création, de lecture, de mise à jour et de suppression individuelles dans une table Mobile Apps, utilisez à la place des [liaisons Mobile Apps](functions-bindings-mobile-apps.md).
+
+> [!IMPORTANT]
+> Les exemples donnés dans ce document s’appliquent au Runtime 1.x. Vous pouvez trouver plus d’informations sur la création d’une application de fonction 1.x [ici](./functions-versions.md#creating-1x-apps).
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -57,7 +60,7 @@ Une Function App héberge l’exécution de vos fonctions dans Azure. Il est rec
 
     | Paramètre       | Valeur suggérée | Description             | 
     | ------------ | ------------------ | --------------------- | 
-    | **Name**  |  sqldb_connection  | Utilisé pour accéder à la chaîne de connexion stockée dans le code de votre fonction.    |
+    | **Nom**  |  sqldb_connection  | Utilisé pour accéder à la chaîne de connexion stockée dans le code de votre fonction.    |
     | **Valeur** | Chaîne copiée  | Collez la chaîne de connexion que vous avez copiée dans la section précédente et remplacez les espaces réservés `{your_username}` et `{your_password}` par des valeurs réelles. |
     | **Type** | Base de données SQL | Utilisez la connexion SQL Database par défaut. |   
 

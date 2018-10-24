@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b7de476c6b96856e9b783ed8182985846bb39cfa
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 27b7b4efdb14872ee2d841e17d2e253b6c7c30c3
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452392"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389766"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>SDK .NET Azure Cosmos DB pour l’API SQL : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.locfileid: "47452392"
 
 <tr><td>**Exemples**</td><td>[Exemples de code .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Démarrer**</td><td>[Prise en main du Kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-get-started.md)</td></tr>
+<tr><td>**Prise en main**</td><td>[Prise en main du Kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-get-started.md)</td></tr>
 
 <tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 
@@ -50,6 +50,14 @@ ms.locfileid: "47452392"
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
+
+* System.Net.Security mis à jour à 4.3.2.
+
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+
+* Améliorations du suivi des diagnostics
+
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 
 * Ajout de davantage de résilience aux erreurs temporaires sur les requêtes multirégions.
@@ -327,6 +335,8 @@ Toute requête envoyée à Azure Cosmos DB à l’aide d’un Kit de développem
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |15 octobre 2018 |--- |
+| [2.1.2](#2.1.2) |4 octobre 2018 |--- |
 | [2.1.1](#2.1.1) |27 septembre 2018 |--- |
 | [2.1.0](#2.1.0) |21 septembre 2018 |--- |
 | [2.0.0](#2.0.0) |07 septembre 2018 |--- |

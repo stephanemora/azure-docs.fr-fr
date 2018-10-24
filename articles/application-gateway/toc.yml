@@ -38,7 +38,7 @@ items:
     href: cli-samples.md
 - name: Concepts
   items:
-  - name: Arrêt SSL
+  - name: Protocole SSL de bout en bout
     href: ssl-overview.md
   - name: Vue d’ensemble des stratégies SSL
     href: application-gateway-ssl-policy-overview.md
@@ -74,11 +74,11 @@ items:
       href: application-gateway-ilb-arm.md
   - name: Configurer l’arrêt SSL
     items:
-    - name: Arrêt SSL avec le portail Azure
+    - name: Arrêt SSL - Portail
       href: create-ssl-portal.md
-    - name: Arrêt SSL avec Azure PowerShell
+    - name: Arrêt SSL - PowerShell
       href: tutorial-ssl-powershell.md
-    - name: Arrêt SSL de bout en bout avec Azure PowerShell
+    - name: Protocole SSL de bout en bout - PowerShell
       href: application-gateway-end-to-end-ssl-powershell.md
     - name: Renouveler les certificats
       href: renew-certificates.md
@@ -182,9 +182,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-application-gateway
   - name: Forum Aux Questions
     href: application-gateway-faq.md
-ms.openlocfilehash: 17ac6d23e6f8703d4cbb9d33e66b594d7d058d28
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7105df03e8dbef1f225c26c4b52243100118782f
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069232"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944247"

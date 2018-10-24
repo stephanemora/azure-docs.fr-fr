@@ -16,12 +16,6 @@ items:
       href: text-moderation-quickstart-dotnet.md
     - name: Vérifiez le contenu du fichier vidéo
       href: video-moderation-api.md
-- name: Exemples
-  items:
-  - name: Exemples du kit SDK .NET
-    href: samples-dotnet.md
-  - name: Exemples d’API REST en C#
-    href: samples-rest.md
 - name: Concepts
   items:
   - name: Modération d’image
@@ -36,48 +30,48 @@ items:
     href: workflow-api.md
 - name: Procédures
   items:
-  - name: Essayez Content Moderator
+  - name: Utilisez les services de modération
     items:
     - name: API de modération
       items:
-      - name: 'Images : console d’API'
-        href: try-image-api.md
-      - name: Vérifiez les images avec les listes personnalisées
-        href: image-lists-quickstart-dotnet.md
-      - name: 'Images personnalisées : console d’API'
-        href: try-image-list-api.md
-      - name: 'Texte : console d’API'
-        href: try-text-api.md
-      - name: Vérifiez le texte avec les conditions personnalisées
-        href: term-lists-quickstart-dotnet.md
-      - name: 'Conditions personnalisées : console d’API'
-        href: try-terms-list-api.md
+      - name: Utilisation du kit de développement logiciel (SDK) .NET
+        items:
+        - name: Vérifiez les images avec les listes personnalisées
+          href: image-lists-quickstart-dotnet.md
+        - name: Vérifiez le texte avec les conditions personnalisées
+          href: term-lists-quickstart-dotnet.md
+      - name: Utilisation d’API REST
+        items:
+        - name: 'Images : console d’API'
+          href: try-image-api.md
+        - name: 'Images personnalisées : console d’API'
+          href: try-image-list-api.md
+        - name: 'Texte : console d’API'
+          href: try-text-api.md
+        - name: 'Conditions personnalisées : console d’API'
+          href: try-terms-list-api.md
+  - name: Essayer l’outil de révision
+    items:
     - name: Consultation des API
       items:
-      - name: 'Tâches : console d’API'
-        href: try-review-api-job.md
-      - name: 'Tâches : .NET'
-        href: moderation-jobs-quickstart-dotnet.md
-      - name: 'Révisions : console d’API'
-        href: try-review-api-review.md
-      - name: 'Révisions : .NET'
-        href: moderation-reviews-quickstart-dotnet.md
-      - name: 'Revues de vidéos : .NET'
-        href: video-reviews-quickstart-dotnet.md
-      - name: 'Revues de la transcription de la vidéo : .NET'
-        href: video-transcript-reviews-quickstart-dotnet.md
-      - name: 'Flux de travail : console d’API'
-        href: try-review-api-workflow.md
-  - name: Premières applications Content Moderator
-    items:
-    - name: Modération du contenu Facebook
-      href: facebook-post-moderation.md
-    - name: Modération d’image eCommerce
-      href: ecommerce-retail-catalog-moderation.md
-    - name: Modération de vidéo et de transcription
-      href: video-transcript-moderation-review-tutorial-dotnet.md
-  - name: Outil de révision
-    items:
+      - name: Utilisation du kit de développement logiciel (SDK) .NET
+        items:
+        - name: 'Tâches : .NET'
+          href: moderation-jobs-quickstart-dotnet.md
+        - name: 'Révisions : .NET'
+          href: moderation-reviews-quickstart-dotnet.md
+        - name: 'Revues de vidéos : .NET'
+          href: video-reviews-quickstart-dotnet.md
+        - name: 'Revues de la transcription de la vidéo : .NET'
+          href: video-transcript-reviews-quickstart-dotnet.md
+      - name: Utilisation d’API REST
+        items:
+        - name: 'Tâches : console d’API'
+          href: try-review-api-job.md
+        - name: 'Révisions : console d’API'
+          href: try-review-api-review.md
+        - name: 'Flux de travail : console d’API'
+          href: try-review-api-workflow.md
     - name: Opérateur humain dans la boucle
       href: Review-Tool-User-Guide/human-in-the-loop.md
     - name: Utiliser les paramètres
@@ -98,6 +92,20 @@ items:
       href: Review-Tool-User-Guide/Workflows.md
     - name: Afficher le tableau de bord
       href: Review-Tool-User-Guide/View-Dashboard.md
+  - name: Premières applications Content Moderator
+    items:
+    - name: Modération du contenu Facebook
+      href: facebook-post-moderation.md
+    - name: Modération d’image eCommerce
+      href: ecommerce-retail-catalog-moderation.md
+    - name: Modération de vidéo et de transcription
+      href: video-transcript-moderation-review-tutorial-dotnet.md
+- name: Exemples
+  items:
+  - name: Exemples du kit SDK .NET
+    href: samples-dotnet.md
+  - name: Exemples d’API REST en C#
+    href: samples-rest.md
 - name: Informations de référence
   items:
   - name: API Content Moderator
@@ -134,9 +142,9 @@ items:
     href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
   - name: Webinaire à la demande
     href: https://info.microsoft.com/cognitive-services-content-moderator-ondemand.html
-ms.openlocfilehash: a6e9e2908a6365c1749e8a5d061779ebc37764e0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: d162bcaefdde1aceb171d2ad83b5386e54cea890
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428961"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944153"
