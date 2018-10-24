@@ -4,13 +4,13 @@
 
 ## [Qu’est-ce qu’Analysis Services ?](analysis-services-overview.md)
 
-# Guides de démarrage rapide
+# Démarrages rapides
 
 ## [Créer un serveur - Portail](analysis-services-create-server.md)
 ## [Créer un serveur – PowerShell](analysis-services-create-powershell.md)
 ## [Configuration d’un pare-feu de serveur - Portail](analysis-services-qs-firewall.md)
 
-# Tutoriels
+# Didacticiels
 
 ## [1 - Ajouter un exemple de modèle à partir du portail](analysis-services-create-sample-model.md) 
 ## [2 - Configurer les rôles d’utilisateur et d’administrateur de serveur](tutorials/analysis-services-tutorial-roles.md)
@@ -38,8 +38,8 @@
 ### [Gérer un serveur](analysis-services-manage.md)
 ### [Surveiller les indicateurs de performances du serveur](analysis-services-monitor.md)
 ### [Configurer la journalisation de diagnostic](analysis-services-logging.md)
-### [Créer un principal de service - Portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-### [Créer un principal de service - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+### [Créer un principal de service - Portail Azure](../active-directory/develop/howto-create-service-principal-portal.md)
+### [Créer un principal de service - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 ### [Ajouter un principal de service au rôle d’administrateur du serveur](analysis-services-addservprinc-admins.md)
 
 ## Modèle
