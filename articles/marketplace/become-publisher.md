@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 7aadb7b89cf1b338a257846882e34ff796df74b2
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 35feb1b2aa593d403b3b54781ddbba41964d15e5
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580716"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394831"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Devenir un éditeur sur la Place de marché dans le cloud
 
@@ -42,7 +42,7 @@ La participation à la place de marché cloud de Microsoft nécessite l’appart
 *   Pour vous inscrire à Microsoft Partner Network, accédez à la [page Adhésion](https://partner.microsoft.com/membership) et suivez les étapes pour démarrer votre inscription.  
 
 Une fois inscrit, enregistrez l’ID Microsoft Partner Network de votre organisation. Vous en aurez besoin à l’étape 3 lorsque vous soumettrez votre formulaire d’inscription sur la place de marché.
-*   Découvrez les avantages de [Microsoft Partner Network](https://partner.microsoft.com/en-us/commercial).
+*   Découvrez les avantages de [Microsoft Partner Network](https://partner.microsoft.com/commercial).
 *   Si votre organisation dispose d’un abonnement existant, vous joindrez votre organisation lors de l’inscription. Si vous utilisez l’[Espace partenaires](https://partnercenter.microsoft.com/partner/home), vous pourrez voir l’ID dans votre compte d’Espace partenaires. Si vous utilisez [Partner Membership Center (PMC)](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx), vous pourrez le voir dans votre compte Partner Membership Center. 
 
 ---  
@@ -54,18 +54,18 @@ Un compte Microsoft, par exemple, *@outlook.com ou @live.com*, est utilisé pour
 [! IMPORTANT] Notez qu’un compte Microsoft associé à votre e-mail professionnel ne vous autorise pas à accéder à ce portail.
 
 >[!Note]
->Si vous avez déjà un compte Microsoft, passez en revue les [Instructions pour la création d’un ID Microsoft dans le but de gérer un compte de place de marché](https://review.docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) afin de déterminer s’il peut être utilisé pour la publication sur la place de marché. 
+>Si vous avez déjà un compte Microsoft, passez en revue les [Instructions pour la création d’un ID Microsoft dans le but de gérer un compte de place de marché](https://docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) afin de déterminer s’il peut être utilisé pour la publication sur la place de marché. 
 
->Les utilisateurs avec un compte d’entreprise fédéré Azure Active Directory doivent lire [cet article](https://review.docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) avant d’essayer de créer ou d’utiliser votre compte Microsoft existant.
+>Les utilisateurs avec un compte d’entreprise fédéré Azure Active Directory doivent lire [cet article](https://docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) avant d’essayer de créer ou d’utiliser votre compte Microsoft existant.
 
-*   Pour obtenir de l’aide pour créer ou gérer votre compte Microsoft, visitez les [pages de support technique du compte Microsoft](https://support.microsoft.com/en-us/products/microsoft-account?category=manage-account).
+*   Pour obtenir de l’aide pour créer ou gérer votre compte Microsoft, visitez les [pages de support technique du compte Microsoft](https://support.microsoft.com/products/microsoft-account?category=manage-account).
 
 
 ---  
 
 ## <a name="3-submit-the-marketplace-registration-form"></a>3. Envoyer le formulaire d’inscription sur la place de marché  
 | 15 mn |  
-Complétez ce petit [formulaire d’inscription](https://azuremarketplace.microsoft.com/en-us/sell/signup) pour devenir éditeur sur la Place de marché. Les informations incluses dans ce formulaire serviront à créer un compte d’éditeur dans le portail Cloud Partner, lequel vous permettra de créer, publier et gérer des offres sur la place de marché.
+Complétez ce petit [formulaire d’inscription](https://azuremarketplace.microsoft.com/sell/signup) pour devenir éditeur sur la Place de marché. Les informations incluses dans ce formulaire serviront à créer un compte d’éditeur dans le portail Cloud Partner, lequel vous permettra de créer, publier et gérer des offres sur la place de marché.
 
 Il vous sera demandé de fournir les informations suivantes :
 *   Des détails relatifs à votre organisation, notamment votre ID Microsoft Partner Network (disponible dans l’[Espace partenaires](https://partnercenter.microsoft.com/partner/home) ou dans [Partner Membership Center](https://partners.microsoft.com/partnerprogram/PartnerMembershipCenter.aspx))
@@ -75,29 +75,29 @@ Il vous sera demandé de fournir les informations suivantes :
 ---  
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Se connecter au Portail Cloud Partner
 | 1 à 3 jours | <br>
-Notre équipe d’intégration de la Place de marché examinera et validera les détails d’inscription à la place de marché fournis à l’étape 3. Une fois ces détails approuvés, vous recevrez un e-mail de bienvenue avec des informations d’identification de compte et des conseils de connexion au [portail Cloud Partner](https://cloudpartner.azure.com).
+Notre équipe d’intégration de la Place de marché validera les détails de l’inscription à la Place de marché fournis à l’étape 3. Une fois ces détails approuvés, vous recevrez un e-mail de bienvenue avec des informations d’identification de compte et des conseils de connexion au [portail Cloud Partner](https://cloudpartner.azure.com).
 
 Vous utiliserez le [portail Cloud Partner](https://cloudpartner.azure.com) pour créer, publier et gérer des offres sur la place de marché. Une fois que vous aurez reçu l’e-mail de bienvenue et d’approbation, vous pouvez vous connecter immédiatement au [portail Cloud Partner](https://cloudpartner.azure.com) avec votre compte Microsoft pour accéder à des informations techniques supplémentaires sur la publication sur la place de marché et la création de votre offre. 
 *   Pour plus d’informations sur l’utilisation du portail Cloud Partner, [consultez l’article Prise en main de la section En savoir plus à l’adresse](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). Vous devez être connecté au portail Cloud Partner pour accéder à ces détails.
 *   Si vous avez des questions ou souhaitez planifier un appel de présentation de l’intégration, passez en revue d’autres articles de ce Guide de l’éditeur ou ouvrez une demande de support sous Type de problème > Intégration sur la place de marché à partir du portail Cloud Partner.
-*   Si vous n’avez pas reçu l’e-mail de bienvenue, vérifiez votre dossier Courrier indésirable pour rechercher un e-mail avec la ligne d’objet « Bienvenue dans Microsoft Marketplace ». Si votre dossier Courrier indésirable est vide, [contactez le support Microsoft](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Dans la page de support, sélectionnez : Type de problème > Intégration sur la place de marché.  Notre équipe d’intégration des éditeurs sur la place de marché sera heureuse de vous aider dans vos recherches. 
+*   Si vous n’avez pas reçu l’e-mail de bienvenue, vérifiez votre dossier Courrier indésirable pour rechercher un e-mail avec la ligne d’objet « Bienvenue dans Microsoft Marketplace ». Si votre dossier Courrier indésirable est vide, [contactez le support Microsoft](https://support.microsoft.com/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=&supportregion=&pesid=16230&forceorigin=esmc&ccsid=636595105151894820). Dans la page de support, sélectionnez : Type de problème > Intégration sur la place de marché.  Notre équipe d’intégration des éditeurs sur la place de marché sera heureuse de vous aider dans vos recherches. 
 
 
 ## <a name="5-register-in-dev-center-for-transact-publishing-option-only"></a>5. S’inscrire dans le Centre de développement (uniquement pour l’option de publication Transaction) 
 | 5 à 10 jours |  
-Un compte du [Centre de développement](https://developer.microsoft.com/en-us/store/register) est obligatoire pour les offres qui utilisent l’option de publication Transaction : elles incluent les machines virtuelles, les applications Azure et les applications SaaS configurées pour vendre via Azure. Les détails du compte du [Centre de développement](https://developer.microsoft.com/en-us/store/register) sont utilisés par Microsoft pour valider les informations légales, fiscales et bancaires de votre organisation qui sont utilisées à des fins de paiement lorsque vous vendez et facturez vos frais de licence logicielle via la Place de marché Azure. 
+Un compte du [Centre de développement](https://developer.microsoft.com/store/register) est obligatoire pour les offres qui utilisent l’option de publication Transaction : elles incluent les machines virtuelles, les applications Azure et les applications SaaS configurées pour vendre via Azure. Les détails du compte du [Centre de développement](https://developer.microsoft.com/store/register) sont utilisés par Microsoft pour valider les informations légales, fiscales et bancaires de votre organisation qui sont utilisées à des fins de paiement lorsque vous vendez et facturez vos frais de licence logicielle via la Place de marché Azure. 
 
-Le processus d’inscription au [Centre de développement](https://developer.microsoft.com/en-us/store/register) peut être démarré avant la création de votre offre dans le portail Cloud Partner, mais doit être terminé avant la publication de votre offre sur la place de marché. Étant donné la durée standard de 5 à 10 jours de cette étape, nous vous recommandons de commencer ce processus dès que possible si vous envisagez d’utiliser l’option de publication Transaction. 
+Le processus d’inscription au [Centre de développement](https://developer.microsoft.com/store/register) peut être démarré avant la création de votre offre dans le portail Cloud Partner, mais doit être terminé avant la publication de votre offre sur la place de marché. Étant donné la durée standard de 5 à 10 jours de cette étape, nous vous recommandons de commencer ce processus dès que possible si vous envisagez d’utiliser l’option de publication Transaction. 
 
-La personne procédant à l’inscription au [Centre de développement](https://developer.microsoft.com/en-us/store/register) doit agir en tant que représentant agréé de votre organisation et fournir des informations personnelles afin de valider son identité. Inscrivez-vous avec votre compte Microsoft, créé à l’étape 2, et utilisez le même compte Microsoft que vous avez utilisé pour accéder au portail Cloud Partner.
+La personne procédant à l’inscription au [Centre de développement](https://developer.microsoft.com/store/register) doit agir en tant que représentant agréé de votre organisation et fournir des informations personnelles afin de valider son identité. Inscrivez-vous avec votre compte Microsoft, créé à l’étape 2, et utilisez le même compte Microsoft que vous avez utilisé pour accéder au portail Cloud Partner.
 
-*   Pour obtenir un compte du [Centre de développement](https://developer.microsoft.com/en-us/store/register), [démarrez ici le processus d’inscription](https://developer.microsoft.com/en-us/store/register).
+*   Pour obtenir un compte du [Centre de développement](https://developer.microsoft.com/store/register), [démarrez ici le processus d’inscription](https://developer.microsoft.com/store/register).
 *   Pour plus d’informations sur la création d’un compte Microsoft, consultez la section *Créer un compte Microsoft*.
  
-Une fois l’inscription au [Centre de développement](https://developer.microsoft.com/en-us/store/register) terminée, liez votre profil Cloud Partner à votre compte du [Centre de développement](https://developer.microsoft.com/en-us/store/register) (voir la procédure détaillée ici). Cette étape doit être effectuée avant de publier votre offre de transaction. 
+Une fois l’inscription au [Centre de développement](https://developer.microsoft.com/store/register) terminée, liez votre profil Cloud Partner à votre compte du [Centre de développement](https://developer.microsoft.com/store/register) (voir la procédure détaillée ici). Cette étape doit être effectuée avant de publier votre offre de transaction. 
 
 >[!Note]
->Pour ne pas avoir à payer les frais d’inscription de 99 $ au Centre de développement, complétez le formulaire d’inscription sur la place de marché et vous recevrez votre code promotionnel par e-mail. 
+>Pour ne pas avoir à payer les frais d’inscription de 99 $ au Centre de développement, complétez le [formulaire d’inscription à la Place de marché](https://azuremarketplace.microsoft.com/en-us/sell/signup) et vous recevrez votre code promotionnel par e-mail. 
 
 >[!Important]
 >Avant de créer un compte du Centre de développement Microsoft, vérifiez que votre organisation n’a pas déjà un compte de Centre de développement, afin d’éviter des doublons de comptes. Pour plus d’informations, consultez la section [S’inscrire dans le centre de développement](https://docs.microsoft.com/azure/marketplace/register-dev-center).

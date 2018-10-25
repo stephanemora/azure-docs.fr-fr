@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/03/2018
 ms.author: srrengar
-ms.openlocfilehash: 38a026e8995bb7384c866dcd2f12588ca816009f
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a870c99718ecafe8af33e13be9aa46631888c8cb
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205771"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389681"
 ---
 # <a name="event-aggregation-and-collection-using-windows-azure-diagnostics"></a>Agrégation et collecte d’événements à l’aide des diagnostics Windows Azure
 > [!div class="op_single_selector"]
@@ -33,7 +33,6 @@ Lorsque vous exécutez un cluster Service Fabric dans Azure, il peut être inté
 Pour télécharger et collecter des journaux, vous pouvez utiliser l’extension Windows Azure Diagnostics (WAD), qui télécharge les journaux dans Azure Storage, ou envoyer les journaux à Azure Application Insights ou à des concentrateurs d’événements. Vous pouvez également utiliser un processus externe pour lire les événements à partir du stockage et les placer dans une plateforme d’analyse comme [Log Analytics](../log-analytics/log-analytics-service-fabric.md) ou autre solution d’analyse des journaux.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cet article fait référence aux outils suivants :
 
 * [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)
@@ -66,7 +65,7 @@ Une fois que vous avez entrepris d’agréger des événements dans le service S
 ## <a name="deploy-the-diagnostics-extension-through-azure-resource-manager"></a>Déployer l’extension Diagnostics par le biais d’Azure Resource Manager
 
 ### <a name="create-a-cluster-with-the-diagnostics-extension"></a>Créer un cluster avec l’extension Diagnostics
-Pour créer un cluster à l’aide de Resource Manager, vous devez ajouter le fichier de configuration Diagnostics JSON au modèle Resource Manager complet avant de créer le cluster. Nous fournissons un exemple de modèle Resource Manager de cluster à cinq machines virtuelles avec la configuration Diagnostics ajoutée dans le cadre de nos exemples de modèle Resource Manager. Vous pouvez le voir à cet emplacement dans la galerie d’exemples d’Azure : [cluster à cinq nœuds avec exemple de modèle Diagnostics Resource Manager](https://azure.microsoft.com/en-in/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
+Pour créer un cluster à l’aide de Resource Manager, vous devez ajouter le fichier de configuration Diagnostics JSON au modèle Resource Manager complet avant de créer le cluster. Nous fournissons un exemple de modèle Resource Manager de cluster à cinq machines virtuelles avec la configuration Diagnostics ajoutée dans le cadre de nos exemples de modèle Resource Manager. Vous pouvez le voir à cet emplacement dans la galerie d’exemples d’Azure : [cluster à cinq nœuds avec exemple de modèle Diagnostics Resource Manager](https://azure.microsoft.com/resources/templates/service-fabric-secure-cluster-5-node-1-nodetype/).
 
 Pour voir les paramètres de diagnostic dans le modèle Resource Manager, ouvrez le fichier azuredeploy.json et recherchez **IaaSDiagnostics**. Pour créer un cluster à l’aide de ce modèle, cliquez sur le bouton **Déployer sur Azure**, disponible via le lien précédent.
 
@@ -224,7 +223,7 @@ Il est également possible de collecter des journaux provenant d’autres canaux
 >Ce canal détaillé comporte un très gros volume d’événements ; si la collecte d’événements est activée à partir de ce canal, de nombreuses traces sont générées sur un intervalle court, ce qui risque de consommer de la capacité de stockage. Par conséquent, n’activez cette fonctionnalité qu’en cas de nécessité absolue.
 
 
-Pour activer le **Canal de données et de messages de base**, recommandé pour la journalisation complète, la configuration `EtwManifestProviderConfiguration` de `WadCfg` de votre modèle doit se présenter ainsi :
+Pour activer le **Canal opérationnel de base**, recommandé pour la journalisation complète avec le moins d’informations inutiles, la configuration `EtwManifestProviderConfiguration` de `WadCfg` de votre modèle doit se présenter ainsi :
 
 ```json
   "WadCfg": {
@@ -252,7 +251,7 @@ Pour activer le **Canal de données et de messages de base**, recommandé pour l
               {
                 "provider": "cbd93bc2-71e5-4566-b3a7-595d8eeca6e8",
                 "scheduledTransferLogLevelFilter": "Information",
-                "scheduledTransferKeywordFilter": "4611686018427387928",
+                "scheduledTransferKeywordFilter": "4611686018427387904",
                 "scheduledTransferPeriod": "PT5M",
                 "DefaultEvents": {
                   "eventDestination": "ServiceFabricSystemEventTable"

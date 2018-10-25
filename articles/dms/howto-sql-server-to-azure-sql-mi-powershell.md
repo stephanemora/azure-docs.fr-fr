@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 10/09/2018
-ms.openlocfilehash: 6760d2832b6c39759f9287797363fcd5a116ccfb
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9a0c427b8beec3984a9fdd5d41ba3705fd21fd4c
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883656"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364990"
 ---
 # <a name="migrate-sql-server-on-premises-to-azure-sql-db-using-azure-powershell"></a>Migrer l’instance SQL Server locale vers la base de données SQL Azure à l’aide d’Azure PowerShell
 Dans cet article, vous allez migrer la base de données **Adventureworks2012** restaurée vers une instance locale de SQL Server 2005 ou une version ultérieure ou Microsoft Azure SQL Database, à l’aide de Microsoft Azure PowerShell. Vous pouvez migrer des bases de données à partir d’une instance SQL Server locale vers Microsoft Azure SQL Database, à l’aide du module `AzureRM.DataMigration`, dans Microsoft Azure PowerShell.
@@ -195,7 +195,7 @@ $selectedAgentJobs = @("agentJob1", "agentJob2")
 ### <a name="create-and-start-a-migration-task"></a>Créer et démarrer une tâche de migration
 
 Utilisez la cmdlet `New-AzureRmDataMigrationTask` pour créer et démarrer une tâche de migration. Cette cmdlet attend les paramètres suivants :
-- *TaskType*. Le type de tâche de migration à créer pour le type de migration SQL Server vers Azure SQL Database Managed Instance *MigrateSqlServerSqlDbMi* est attendu. 
+- *TaskType*. Type de tâche de migration à créer pour une migration de SQL Server vers Azure SQL Database Managed Instance. Le type *MigrateSqlServerSqlDbMi* est attendu. 
 - *Resource Group Name*. Nom du groupe de ressources Azure dans lequel créer la tâche.
 - *ServiceName*. Instance Azure Database Migration Service dans laquelle créer la tâche.
 - *ProjectName*. Nom du projet Azure Database Migration Service dans lequel créer la tâche. 

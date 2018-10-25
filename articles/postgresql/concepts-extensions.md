@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 05/30/2018
-ms.openlocfilehash: 92321929c7929cc62321317c7e94e74ef77034ad
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: f9216800f0e91d71f1da3f2bac16ecfcbf8b4850
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970081"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376548"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql"></a>Extensions PostgreSQL dans une base de données Azure pour PostgreSQL
 PostgreSQL offre la possibilité d’étendre les fonctionnalités d’une base de données à l’aide des extensions. Les extensions permettent de regrouper plusieurs objets SQL liés dans un package unique ; elles peuvent être chargées ou supprimées de votre base de données d’une seule commande. Une fois chargées dans la base de données, les extensions peuvent fonctionner comme des fonctionnalités intégrées. Pour plus d’informations sur les extensions PostgreSQL, consultez la page [Empaqueter des objets liés dans une extension](https://www.postgresql.org/docs/9.6/static/extend-extensions.html).
@@ -88,6 +88,7 @@ Les tables suivantes répertorient les extensions PostgreSQL standard actuelleme
 | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | Fournit un moyen d’afficher les statistiques au niveau du tuple. |
 | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | Wrapper de données externes permettant d’accéder aux données stockées dans des serveurs externes PostgreSQL. |
 | [hypopg](https://hypopg.readthedocs.io/en/latest/) | Fournit un moyen de créer des index hypothétiques qui ne consomment pas de ressources processeur ou disque. |
+| [plv8](https://plv8.github.io/) | Une extension du langage Javascript pour PostgreSQL qui peut être utilisée pour des procédures stockées, des déclencheurs, etc. |
 
 ### <a name="postgis-extensions"></a>Extensions PostGIS
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/10/2018
 ms.author: douglasl
-ms.openlocfilehash: f1cc1b728a91c22f9b4b2062ed5c423314e561c8
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 64dacb33a8cd235e155a640d57d868f384f93d76
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017582"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959007"
 ---
 # <a name="transform-data-in-the-cloud-by-using-a-spark-activity-in-azure-data-factory"></a>Transformer des données dans le cloud à l’aide d’une activité Spark dans Azure Data Factory
 Dans ce didacticiel, vous utilisez le portail Azure pour créer un pipeline Azure Data Factory. Ce pipeline transforme les données à l’aide de l’activité Spark et un service lié HDInsight de la demande. 
@@ -151,7 +151,7 @@ Vous créez deux services liés dans cette section :
    
    e. Entrez l’ID du principal de service ayant l’autorisation de créer un cluster HDInsight pour **ID du principal de service**. 
    
-      Ce principal de service doit être membre du rôle Contributeur de l’abonnement ou du groupe de ressources dans lequel le cluster est créé. Pour plus d’informations, consultez [Créer une application Active Directory et un principal de service](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+      Ce principal de service doit être membre du rôle Contributeur de l’abonnement ou du groupe de ressources dans lequel le cluster est créé. Pour plus d’informations, consultez [Créer une application Active Directory et un principal de service](../active-directory/develop/howto-create-service-principal-portal.md).
    
    f. Pour **Clé du principal de service**, saisissez la clé. 
    

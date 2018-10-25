@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 02e7d9d26b389e82365f3447cceb5566244236f1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 618437d0007668800e0a14e8233db1676be2a364
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440906"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379261"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-linkedin-learning"></a>Didacticiel : Intégration d’Azure Active Directory à LinkedIn Learning
 
@@ -110,7 +110,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_01.png)
 
-1. Cliquez sur  **OU cliquez ici pour charger et copier les champs individuels du formulaire**, puis copiez l’**ID d’entité** et l’**URL ACS (Assertion Consumer Access)**.
+1. Cliquez sur  **OU cliquez ici pour charger et copier les champs individuels du formulaire**, puis copiez l’**ID d’entité** et l’**URL ACS (Assertion Consumer Service)**.
 
     ![Configurer l'authentification unique](./media/linkedinlearning-tutorial/tutorial_linkedin_admin_03.png)
 
@@ -122,7 +122,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dan
 
     b. Dans la zone de texte **URL de réponse**, entrez l’**URL ACS** copiée à partir du portail LinkedIn
 
-1. Si vous souhaitez configurer l’authentification unique en mode **Initié par SP**, cliquez sur l’option Afficher les paramètres d’URL avancés dans la section de configuration et configurez l’URL d’authentification avec le format suivant :
+1. Si vous souhaitez configurer l’authentification unique en mode **Démarré par le fournisseur de services**, cliquez sur l’option Afficher les paramètres d’URL avancés dans la section de configuration, qui vous permet de spécifier votre l’URL d’authentification.  Pour créer votre URL de connexion, copiez l’**URL ACS** et remplacez /saml/ par /login/.   Une fois cette opération effectuée, l’URL de connexion doit avoir le format suivant :
 
     `https://www.linkedin.com/checkpoint/enterprise/login/<AccountId>?application=learning&applicationInstanceId=<InstanceId>`
 

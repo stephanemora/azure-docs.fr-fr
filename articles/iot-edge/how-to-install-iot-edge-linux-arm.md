@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 9007ee95dc25854a55006284ce6fc574fd8e7968
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 874e72a0c76a5935f4a3451ba5ffbd6e9e3eecd6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948517"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393845"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)
 
@@ -29,7 +29,7 @@ Cet article répertorie les étapes pour installer le runtime Azure IoT Edge sur
 
 ## <a name="install-the-container-runtime"></a>Installer le runtime de conteneur
 
-Azure IoT Edge s’appuie sur un runtime de conteneur [compatible avec OCI][lnk-oci]. Pour les scénarios de production, nous vous recommandons vivement d’utiliser le moteur [basé sur Moby][lnk-moby] fourni ci-dessous. C’est le seul moteur de conteneur officiellement pris en charge avec Azure IoT Edge. Les images conteneur Docker CE/EE sont compatibles avec le runtime Moby.
+Azure IoT Edge s’appuie sur un runtime de conteneur [compatible avec OCI](https://www.opencontainers.org/). Pour les scénarios en production, nous vous recommandons vivement d’utiliser le moteur [basé sur Moby](https://mobyproject.org/) fourni ci-dessous. C’est le seul moteur de conteneur officiellement pris en charge avec Azure IoT Edge. Les images conteneur Docker CE/EE sont compatibles avec le runtime Moby.
 
 Les commandes ci-dessous permettent d’installer le moteur Moby et l’interface de ligne de commande (CLI). L’interface CLI est utile pour le développement, mais facultative pour les déploiements de production.
 
@@ -68,9 +68,9 @@ curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -
 sudo apt-get install -f
 ```
 
-## <a name="connect-your-device-to-an-iot-hub"></a>Connectez votre appareil à un IoT Hub 
+## <a name="connect-your-device-to-an-iot-hub"></a>Connectez votre appareil à un hub IoT 
 
-Configurez le runtime IoT Edge pour lier votre appareil physique à une identité d’appareil existante dans un IoT Hub Azure. 
+Configurez le runtime IoT Edge pour lier votre appareil physique à une identité d’appareil existante dans un hub IoT Azure. 
 
 Le démon peut être configuré à l’aide du fichier de configuration situé à l’emplacement `/etc/iotedge/config.yaml`. Le fichier étant protégé en écriture par défaut, vous pouvez avoir besoin d’autorisations élevées pour le modifier.
 
@@ -78,7 +78,7 @@ Un appareil IoT Edge unique peut être approvisionné manuellement à l’aide d
 
 ### <a name="option-1-manual-provisioning"></a>Option 1 : Provisionnement manuel
 
-Pour provisionner manuellement un appareil, vous devez lui fournir une [chaîne de connexion d’appareil][lnk-dcs] que vous pouvez créer en inscrivant un nouvel appareil dans votre IoT Hub.
+Pour provisionner manuellement un appareil, vous devez lui fournir une [chaîne de connexion d’appareil](how-to-register-device-portal.md) que vous pouvez créer en inscrivant un nouvel appareil dans votre hub IoT.
 
 
 Ouvrez le fichier de configuration. 
@@ -113,7 +113,7 @@ sudo systemctl restart iotedge
 
 ### <a name="option-2-automatic-provisioning"></a>Option 2 : Provisionnement automatique
 
-Pour provisionner automatiquement un appareil, [configurez le Service Device Provisioning et récupérez votre ID d’inscription d’appareil][lnk-dps]. Le provisionnement automatique fonctionne uniquement avec des appareils qui possèdent une puce de Module de plateforme sécurisée (TPM). Par exemple, les appareils Raspberry Pi ne sont pas équipés d’une puce TPM par défaut. 
+Pour provisionner automatiquement un appareil, [configurez le Service Device Provisioning et récupérez votre ID d’inscription d’appareil](how-to-auto-provision-simulated-device-linux.md). Le provisionnement automatique fonctionne uniquement avec des appareils qui possèdent une puce de Module de plateforme sécurisée (TPM). Par exemple, les appareils Raspberry Pi ne sont pas équipés d’une puce TPM par défaut. 
 
 Ouvrez le fichier de configuration. 
 
@@ -121,7 +121,7 @@ Ouvrez le fichier de configuration.
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Recherchez la section de provisionnement du fichier et supprimez les commentaires du mode de provisionnement **dps**. Mettez à jour les valeurs de **scope_id** et de **registration_id** avec les valeurs de votre IoT Hub Device Provisioning Service et de votre appareil IoT Edge avec TPM. 
+Recherchez la section de provisionnement du fichier et supprimez les commentaires du mode de provisionnement **dps**. Mettez à jour les valeurs de **scope_id** et de **registration_id** avec les valeurs de votre service IoT Hub Device Provisioning et de votre appareil IoT Edge avec TPM. 
 
    ```yaml
    # provisioning:
@@ -171,17 +171,10 @@ sudo iotedge list
 
 Vous avez besoin de privilèges élevés pour exécuter les commandes `iotedge`. Après l’installation du runtime, déconnectez-vous de votre machine et reconnectez-vous pour mettre à jour vos autorisations automatiquement. Dans l’intervalle, utilisez **sudo** devant les commandes `iotedge`.
 
-Sur des appareils avec contraintes de ressources, il est vivement recommandé d’affecter la valeur *false* à la variable d’environnement *OptimizeForPerformance* conformément aux instructions figurant dans le [guide de résolution des problèmes][lnk-trouble].
+Sur les appareils aux ressources limitées, il est vivement recommandé d’affecter la valeur *false* à la variable d’environnement *OptimizeForPerformance*, conformément aux instructions figurant dans le [guide de résolution des problèmes](troubleshoot.md#stability-issues-on-resource-constrained-devices).
 
 Si votre réseau comporte un serveur proxy, effectuez les étapes décrites dans [Configurer votre appareil IoT Edge pour communiquer via un serveur proxy](how-to-configure-proxy-support.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous ne parvenez pas à installer correctement le runtime Edge, consultez la page de [dépannage][lnk-trouble].
-
-<!-- Links -->
-[lnk-dcs]: how-to-register-device-portal.md
-[lnk-dps]: how-to-auto-provision-simulated-device-linux.md
-[lnk-trouble]: https://docs.microsoft.com/azure/iot-edge/troubleshoot#stability-issues-on-resource-constrained-devices
-[lnk-oci]: https://www.opencontainers.org/
-[lnk-moby]: https://mobyproject.org/
+Si vous ne parvenez pas à installer correctement le runtime Edge, consultez la page de [dépannage](troubleshoot.md#stability-issues-on-resource-constrained-devices).

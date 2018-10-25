@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 05f5ceb5a0f3529d7635f7aae0c3c41c19f0b1ad
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2bd30aad995e9d1f334988652477f8b017c187b9
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031949"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638288"
 ---
 # <a name="authoring-cycle"></a>Cycle de création
 LUIS apprend mieux dans un cycle itératif de modifications du modèle, d’énoncés d’exemples, de publication et de collecte des données à partir de requêtes du point de terminaison. 
@@ -34,7 +34,7 @@ LUIS a besoin d’exemples d’énoncés dans les intentions. Les exemples ont b
 
 Vous demandez à LUIS d’ignorer les énoncés qui ne sont pas pertinents dans le domaine de votre application en affectant l’énoncé à l’intention **None**. Les mots ou expressions que vous n’avez pas besoin d’extraire d’un énoncé n’ont pas besoin d’être étiquetés. Il n’existe aucune étiquette pour les mots ou expressions à ignorer. 
 
-## <a name="train-and-publish-the-app"></a>Entraîner et publier l’application
+## <a name="train-and-publish-the-app"></a>Former et publier l’application
 Une fois que vous avez entre 10 et 15 énoncés différents dans chaque intention, avec les entités requises étiquetées, effectuez l’entraînement et la publication. À partir de la notification de réussite de publication, suivez le lien pour obtenir vos points de terminaison. Veillez à créer votre application et à la publier afin qu’elle soit disponible dans les [régions de point de terminaison](luis-reference-regions.md) requises. 
 
 ## <a name="https-endpoint-testing"></a>Test de point de terminaison HTTPS

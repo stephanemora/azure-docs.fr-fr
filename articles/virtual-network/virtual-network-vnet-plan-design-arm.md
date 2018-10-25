@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: jdial
-ms.openlocfilehash: 1ec60300d179edf69e32dc07653b6c69c7cc8e52
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf540caebd5f993cdba0d85f4109a6e78e201658
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141071"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378752"
 ---
 # <a name="plan-virtual-networks"></a>Planifier des réseaux virtuels
 
@@ -93,7 +93,7 @@ Vous pouvez connecter un réseau virtuel à d’autres réseaux virtuels à l’
 
 ### <a name="peering"></a>Homologation
 
-Lorsque vous utilisez l’[homologation de réseau virtuel](virtual-network-peering-overview.md), les réseaux virtuels peuvent se trouver dans la même région, ou dans différentes régions Azure prises en charge. Les réseaux virtuels que vous sélectionnez peuvent se trouver dans le même abonnement, ou dans des abonnements Azure différents, tant que les deux abonnements sont affectés au même locataire Azure Active Directory. Avant de créer une homologation, il est recommandé de vous familiariser avec toutes les [exigences et contraintes de l’homologation](virtual-network-manage-peering.md#requirements-and-constraints). La bande passante entre des ressources figurant dans des réseaux virtuels homologués dans la même région est la même que si ces ressources se trouvaient dans le même réseau virtuel.
+Lorsque vous utilisez l’[homologation de réseau virtuel](virtual-network-peering-overview.md), les réseaux virtuels peuvent se trouver dans la même région, ou dans différentes régions Azure prises en charge. Les réseaux virtuels peuvent se trouver dans le même abonnement ou dans des abonnements Azure différents (voire dans des abonnements appartenant à des locataires Azure Active Directory différents). Avant de créer une homologation, il est recommandé de vous familiariser avec toutes les [exigences et contraintes de l’homologation](virtual-network-manage-peering.md#requirements-and-constraints). La bande passante entre des ressources figurant dans des réseaux virtuels homologués dans la même région est la même que si ces ressources se trouvaient dans le même réseau virtuel.
 
 ### <a name="vpn-gateway"></a>passerelle VPN
 

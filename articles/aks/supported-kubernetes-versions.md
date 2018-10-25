@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: saudas
-ms.openlocfilehash: 6b55825107ae8872b146b3ad4fde0ef4b917b71d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: d8da717b83b43395309c695a4f9edaeda8144a8b
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046233"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379193"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versions de Kubernetes prises en charge dans Azure Kubernetes Service (AKS)
 
@@ -32,6 +32,29 @@ Par exemple, si AKS introduit *1.11.x* aujourd’hui, la prise en charge est ég
 Quand une nouvelle version mineure est introduite, la version mineure et les publications des correctifs les plus anciennes prises en charge sont mises hors service. 15 jours avant la publication de la nouvelle version mineure et la mise hors service à venir de la version, une annonce est faite via les canaux de mise à jour d’Azure. Dans l’exemple ci-dessus où *1.11.x* est publiée, les versions mises hors service sont *1.7.g* + *1.7.h*.
 
 Quand vous déployez un cluster AKS dans le portail ou avec Azure CLI, le cluster est toujours défini sur la version mineure n-1 et le dernier correctif. Par exemple, si AKS prend en charge *1.11.x*, *1.10.a* + *1.10.b*, *1.9.c* + *1.9d* , *1.8.e* + *1.8f*, la version par défaut pour les nouveaux clusters est *1.10.b*.
+
+## <a name="list-currently-supported-versions"></a>Répertorier les versions prises en charge
+
+Pour savoir quelles sont les versions disponibles pour vos abonnement et région, utilisez la commande [az aks get-versions][az-aks-get-versions]. L’exemple suivant répertorie les versions Kubernetes disponibles pour la région *EastUS* :
+
+```azurecli-interactive
+az aks get-versions --location eastus --output table
+```
+
+La sortie est similaire à l’exemple suivant, qui montre que la version Kubernetes *1.11.3* est la version disponible la plus récente :
+
+```
+KubernetesVersion    Upgrades
+-------------------  ----------------------
+1.11.3               None available
+1.11.2               1.11.3
+1.10.8               1.11.2, 1.11.3
+1.10.7               1.10.8, 1.11.2, 1.11.3
+1.9.10               1.10.7, 1.10.8
+1.9.9                1.9.10, 1.10.7, 1.10.8
+1.8.15               1.9.9, 1.9.10
+1.8.14               1.8.15, 1.9.9, 1.9.10
+```
 
 ## <a name="faq"></a>Forum Aux Questions
 
@@ -65,3 +88,4 @@ Pour plus d’informations sur la mise à niveau de votre cluster, consultez [Me
 
 <!-- LINKS - Internal -->
 [aks-upgrade]: upgrade-cluster.md
+[az-aks-get-versions]: /cli/azure/aks#az-aks-get-versions

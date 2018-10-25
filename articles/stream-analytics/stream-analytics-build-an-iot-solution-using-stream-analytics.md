@@ -9,12 +9,12 @@ ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.openlocfilehash: 1610e8173d90be3c0b50f05e64d0e84e1c21ad0e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 88c58175f4886d4796ed4e32b41d030c9ee441fc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698041"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986882"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Créer une solution IoT à l’aide de Stream Analytics
 
@@ -109,7 +109,7 @@ Voici une brève description des colonnes :
 | Expiré |État d’inscription du véhicule : 0 si l’inscription est active, 1 si elle a expiré |
 
 ## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Configurer l’environnement pour Azure Stream Analytics
-Pour effectuer cette solution, vous avez besoin d’un abonnement Microsoft Azure. Si vous n’avez pas de compte Azure, vous pouvez [demander un essai gratuit](http://azure.microsoft.com/pricing/free-trial/).
+Pour effectuer cette solution, vous avez besoin d’un abonnement Microsoft Azure. Si vous n’avez pas de compte Azure, vous pouvez [demander un essai gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 Pour tirer pleinement parti de votre crédit Azure, suivez les instructions de la section « Nettoyer votre compte Azure » à la fin de cet article.
 

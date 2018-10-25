@@ -4,21 +4,21 @@ description: Cet article donne une vue d’ensemble de la protection du contenu 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 2a3e94d37a926bd36b780b45eb3d6cb29fb73597
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521752"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394258"
 ---
 # <a name="content-protection-overview"></a>Présentation de la protection du contenu
 
@@ -149,9 +149,7 @@ Cet exemple indique comment effectuer les opérations suivantes :
 
 2. Créer un élément StreamingLocator configuré pour diffuser en continu un élément multimédia chiffré. 
 
-  Dans le cas de cet exemple, nous définissons **StreamingPolicyName** sur **PredefinedStreamingPolicy.SecureStreaming** qui prend en charge le chiffrement d’enveloppe et de CENC et définit les deux clés de contenu sur le StreamingLocator. 
-
-  Si vous souhaitez également procéder à un chiffrement avec FairPlay, définissez l’élément **StreamingPolicyName** sur **PredefinedStreamingPolicy.SecureStreamingWithFairPlay**.
+  Par exemple, vous pouvez définir StreamingLocator.StreamingPolicyName sur la stratégie « Predefined_MultiDrmCencStreaming ». Cette stratégie indique que vous souhaitez que deux clés de contenu (enveloppe et CENC) soient générées et définies sur le localisateur. Par conséquent, les chiffrements d’enveloppe, de PlayReady et de Widevine sont appliqués (la clé est envoyée au client de la lecture en fonction des licences DRM configurées). Si vous voulez aussi chiffrer votre flux avec CBCS (FairPlay), utilisez l’élément «Predefined_MultiDrmStreaming».
 
 3. Créer un jeton de test.
 

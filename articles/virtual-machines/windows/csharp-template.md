@@ -3,7 +3,7 @@ title: Déployer une machine virtuelle à l’aide de C# et d’un modèle Resou
 description: Apprenez à utiliser C# et un modèle Resource Manager pour déployer une machine virtuelle Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/14/2017
-ms.author: cynthn
-ms.openlocfilehash: e57505b4bd89a79af076dc4cf132c844ae0abd1d
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: f3d83fa8ba5a78c7aacc7014e9ec50fb447bb1c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527822"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953686"
 ---
 # <a name="deploy-an-azure-virtual-machine-using-c-and-a-resource-manager-template"></a>Déployer une machine virtuelle Azure à l’aide de C# et d’un modèle Resource Manager
 Cet article explique la procédure de déploiement d’un modèle Azure Resource Manager à l’aide de C#. Le modèle que vous créez déploie une machine virtuelle unique exécutant Windows Server dans un nouveau réseau virtuel avec un seul sous-réseau.
@@ -29,7 +29,7 @@ Pour obtenir une description détaillée de la ressource de machine virtuelle, c
 
 Ces étapes prennent environ 10 minutes.
 
-## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
+## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 
 Lors de cette étape, assurez-vous que Visual Studio est installé et que vous créez une application console utilisée pour déployer le modèle.
 
@@ -185,7 +185,7 @@ Pour spécifier des valeurs pour les paramètres de ressource qui ont été déf
 
 ### <a name="create-the-authorization-file"></a>Créer le fichier d’autorisation
 
-Avant de commencer cette étape, vérifiez que vous avez accès à un [principal de service Active Directory](../../resource-group-authenticate-service-principal.md). Dans le principal de service, vous obtenez le jeton d'authentification des demandes pour Azure Resource Manager. Vous devez également enregistrer l’ID d’application, la clé d’authentification et l’ID de locataire dont vous avez besoin dans le fichier d’autorisation.
+Avant de commencer cette étape, vérifiez que vous avez accès à un [principal de service Active Directory](../../active-directory/develop/howto-authenticate-service-principal-powershell.md). Dans le principal de service, vous obtenez le jeton d'authentification des demandes pour Azure Resource Manager. Vous devez également enregistrer l’ID d’application, la clé d’authentification et l’ID de locataire dont vous avez besoin dans le fichier d’autorisation.
 
 1. Dans l’Explorateur de solutions, cliquez sur *myDotnetProject* > **Ajouter** > **Nouvel élément**, puis sélectionnez **Fichier texte** dans *Éléments Visual C#*. Nommez le fichier *azureauth.properties*, puis cliquez sur **Ajouter**.
 2. Ajoutez ces propriétés d’autorisation :

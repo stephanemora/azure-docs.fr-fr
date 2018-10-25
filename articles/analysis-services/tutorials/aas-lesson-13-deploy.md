@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 84cdae1694608814167641417781cd22c12656a4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f0528af5f3a6b7309d81c36ca5bc7a3faccfa293
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443926"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427108"
 ---
 # <a name="deploy"></a>Déployer
 
@@ -65,7 +65,7 @@ Cet article fait partie d’un didacticiel de modélisation tabulaire, qui doit 
 Cette leçon décrit la méthode la plus courante et la plus simple de déploiement d’un modèle tabulaire à partir de SSDT. Les options de déploiement avancé telles que l’Assistant Déploiement ou l’automatisation avec XMLA et AMO procurent une flexibilité et une cohérence supérieures, et prennent en charge des déploiements planifiés. Pour plus d’informations, consultez la section [Déploiement de solutions de modèle tabulaire](https://docs.microsoft.com/sql/analysis-services/tabular-models/tabular-model-solution-deployment-ssas-tabular).
 
 ## <a name="conclusion"></a>Conclusion  
-Félicitations ! Vous venez de terminer la création et le déploiement de votre premier modèle tabulaire Analysis Services. Ce didacticiel vous a guidé dans les tâches les plus courantes associées à la création d’un modèle tabulaire. Maintenant que votre modèle Internet Sales Adventure Works est déployé, vous pouvez utiliser SQL Server Management Studio pour le gérer, ainsi que pour créer des scripts de processus et un plan de sauvegarde. Les utilisateurs peuvent désormais se connecter au modèle à l’aide d’une application cliente de création de rapports telle que Microsoft Excel ou Power BI.  
+Félicitations ! Vous venez de terminer la création et le déploiement de votre premier modèle tabulaire Analysis Services. Ce didacticiel vous a guidé dans les tâches les plus courantes associées à la création d’un modèle tabulaire. Maintenant que votre modèle Internet Sales Adventure Works est déployé, vous pouvez utiliser SQL Server Management Studio pour le gérer, ainsi que pour créer des scripts de processus et un plan de sauvegarde. Les utilisateurs peuvent désormais se connecter au modèle à l’aide d’une application cliente de création de rapports telle que Microsoft Excel ou Power BI.  
 
 ![aas-lesson13-ssms](../tutorials/media/aas-lesson13-ssms.png)
   

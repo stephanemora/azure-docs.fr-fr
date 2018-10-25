@@ -5,15 +5,15 @@ author: msvijayn
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/01/2018
+ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 2e2db54f4c356a754144e17b11cf25fdf3f12d9f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bcede1f985937058196b75a93f539cb34da73992
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46994001"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365060"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 Cet article fournit des informations sur les alertes de journal, qui sont l’un des types d’alertes pris en charge dans les [Alertes Azure](monitoring-overview-unified-alerts.md), et qui permettent aux utilisateurs d’utiliser la plateforme d’analyse d’Azure comme base pour la génération d’alertes.
@@ -106,11 +106,11 @@ Imaginons maintenant que nous disposions d’une règle d’alerte de journal ap
 - À 13 h15, lorsque Contoso-Log-Alert a été exécutée par les alertes Azure, le résultat de la recherche dans les journaux a renvoyé 2 enregistrements. Ce résultat dépasse le seuil et déclenche l’alerte, puis déclenche le [groupe d’actions](monitoring-action-groups.md) associé.
 - À 13 h 20, lorsque Contoso-Log-Alert a été exécutée par l’alerte Azure, le résultat de la recherche dans les journaux a généré à nouveau 0 enregistrement. Ce résultat est inférieur au seuil et ne déclenche donc pas d’alerte.
 
-Mais dans ce scénario, à 13 h 15, les alertes Azure ne peuvent pas déterminer si les problèmes sous-jacents observés à 13 h 10 persistent et qu’il n’y a pas de nouvelles pannes. Comme la requête fournie par l’utilisateur est susceptible de prendre en compte des enregistrements antérieurs, les alertes Azure ne sont pas fiables. Pour plus de prudence, Contoso-Log-Alert se déclenche à nouveau à 13 h 15 par le biais du [groupe d’actions](monitoring-action-groups.md) configuré. Enfin, à 13 h 20, lorsque aucun enregistrement n’est visible, les alertes Azure ne peuvent pas avoir l’assurance que la cause des enregistrements a été résolue. Par conséquent, Contoso-Log-Alert ne va pas passer à l’état Résolu dans le tableau de bord Azure Alert et/ou les notifications envoyées indiquant la résolution de l’alerte.
+Mais dans ce scénario, à 13 h 15, les alertes Azure ne peuvent pas déterminer si les problèmes sous-jacents observés à 13 h 10 persistent et qu’il n’y a pas de nouvelles pannes. Comme la requête fournie par l’utilisateur est susceptible de prendre en compte des enregistrements antérieurs, les alertes Azure ne sont pas fiables. Pour plus de prudence, Contoso-Log-Alert se déclenche à nouveau à 13 h 15 par le biais du [groupe d’actions](monitoring-action-groups.md) configuré. Enfin, à 13 h 20, lorsque aucun enregistrement n’est visible, les alertes Azure ne peuvent pas avoir l’assurance que la cause des enregistrements a été résolue. Par conséquent, Contoso-Log-Alert ne va pas passer à l’état Résolu dans le tableau de bord Azure Alert et/ou les notifications envoyées indiquant la résolution de l’alerte.
 
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Tarification et facturation des alertes de journal
-La tarification applicable aux alertes de journal est présentée à la page [Tarification d’Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/). Dans les factures d’Azure, les Alertes de journal sont représentées comme étant de type `microsoft.insights/scheduledqueryrules` avec :
+La tarification applicable aux alertes de journal est présentée à la page [Tarification d’Azure Monitor](https://azure.microsoft.com/pricing/details/monitor/). Dans les factures d’Azure, les Alertes de journal sont représentées comme étant de type `microsoft.insights/scheduledqueryrules` avec :
 - Alertes de journal sur Application Insights, affichées avec le nom exact de l’alerte, ainsi que le groupe de ressources et les propriétés de l’alerte
 - Alertes de journal sur Log Analytics, affichées avec le nom de l’alerte sous la forme `<WorkspaceName>|<savedSearchId>|<scheduleId>|<ActionId>`, ainsi que le groupe de ressources et les propriétés de l’alerte
 

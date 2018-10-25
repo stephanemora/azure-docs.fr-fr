@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 935d4a3ba3fc3199177be5bd4e70f82239c3c971
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 59eb0ddad72f5e54a23a97a260477f84019eb62c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529685"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386339"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Résoudre les problèmes liés à Azure Files sous Windows
 
@@ -32,16 +32,17 @@ Lorsque vous essayez de monter un partage de fichiers depuis un centre de donné
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Cause 1 : Canal de communication non chiffrée
 
-Pour des raisons de sécurité, les connexions aux partages de fichiers Azure sont bloquées si le canal de communication n’est pas chiffré et si la tentative de connexion n’est pas effectuée depuis le centre de données sur lequel résident les partages de fichiers Azure. Le chiffrement du canal de communication n’est fourni que si le système d’exploitation client de l’utilisateur prend en charge le chiffrement SMB.
+Pour des raisons de sécurité, les connexions aux partages de fichiers Azure sont bloquées si le canal de communication n’est pas chiffré et si la tentative de connexion n’est pas effectuée depuis le centre de données sur lequel résident les partages de fichiers Azure. Les connexions non chiffrées dans le même centre de données peuvent également être bloquées si le paramètre [Transfert sécurisé requis](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est activé sur le compte de stockage. Le chiffrement du canal de communication n’est fourni que si le système d’exploitation client de l’utilisateur prend en charge le chiffrement SMB.
 
 Windows 8, Windows Server 2012 et les versions ultérieures de chaque demande de négociation système incluant SMB 3.0, prenant en charge le chiffrement.
 
 ### <a name="solution-for-cause-1"></a>Solution pour la cause 1
 
-Connectez-vous depuis un client qui :
+1. Vérifiez que le paramètre [Transfert sécurisé requis](https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est désactivé sur le compte de stockage.
+2. Connectez-vous depuis un client qui :
 
-- Dispose de la configuration requise de Windows 8 et Windows Server 2012 ou versions ultérieures
-- Se connecte depuis une machine virtuelle située dans le même centre de données que le compte de stockage Azure utilisé pour le partage de fichiers Azure
+    - Dispose de la configuration requise de Windows 8 et Windows Server 2012 ou versions ultérieures
+    - Se connecte depuis une machine virtuelle située dans le même centre de données que le compte de stockage Azure utilisé pour le partage de fichiers Azure
 
 ### <a name="cause-2-port-445-is-blocked"></a>Cause 2 : Le Port 445 est bloqué
 

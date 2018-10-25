@@ -1,6 +1,6 @@
 ---
-title: Intégration et déploiement continus dans Azure Data Factory | Microsoft Docs
-description: Apprenez à utiliser l’intégration et le déploiement continus pour déplacer les pipelines Data Factory d’un environnement (développement, test, production) vers un autre.
+title: Intégration et livraison continues dans Azure Data Factory | Microsoft Docs
+description: Découvrez comment utiliser l’intégration et la livraison continues pour déplacer les pipelines Data Factory d’un environnement (développement, test, production) à un autre.
 services: data-factory
 documentationcenter: ''
 author: douglaslMS
@@ -10,20 +10,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 10/09/2018
 ms.author: douglasl
-ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 89ea3d576f20f6e62730b40e0e4f4f8d5f798142
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42143831"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386976"
 ---
-# <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Intégration et déploiement continus dans Azure Data Factory
+# <a name="continuous-integration-and-delivery-cicd-in-azure-data-factory"></a>Intégration et livraison continues (CI/CD) dans Azure Data Factory
 
-L’intégration continue consiste à tester automatiquement et dès que possible chaque modification apportée à votre code base. Le déploiement continu fait suite au test effectué pendant l’intégration continue et transmet les modifications à un système de production ou intermédiaire.
+L’intégration continue consiste à tester automatiquement et dès que possible chaque modification apportée à votre code base. La livraison continue fait suite au test effectué pendant l’intégration continue, et envoie (push) les modifications à un système de production ou de préproduction.
 
-Pour Azure Data Factory, l’intégration et le déploiement continus impliquent de déplacer des pipelines Data Factory d’un environnement (développement, test, production) vers un autre. Pour procéder à l’intégration et au déploiement continus, vous pouvez utiliser l’intégration de l’interface utilisateur de la fabrique de données avec les modèles Azure Resource Manager. L’interface utilisateur de la fabrique de données peut générer un modèle Resource Manager lorsque vous sélectionnez les options du **modèle ARM**. Lorsque vous sélectionnez **Exporter un modèle ARM**, le portail génère le modèle Resource Manager pour la fabrique de données et un fichier de configuration qui inclut toutes vos chaînes de connexion et d’autres paramètres. Vous devez ensuite créer un fichier de configuration pour chaque environnement (développement, test, production). Le principal fichier de modèle Resource Manager reste le même pour tous les environnements.
+Pour Azure Data Factory, l’intégration et la livraison continues impliquent de déplacer des pipelines Data Factory d’un environnement (développement, test, production) vers un autre. Pour procéder à l’intégration et à la livraison continues, vous pouvez utiliser l’intégration de l’interface utilisateur de Data Factory avec les modèles Azure Resource Manager. L’interface utilisateur de la fabrique de données peut générer un modèle Resource Manager lorsque vous sélectionnez les options du **modèle ARM**. Lorsque vous sélectionnez **Exporter un modèle ARM**, le portail génère le modèle Resource Manager pour la fabrique de données et un fichier de configuration qui inclut toutes vos chaînes de connexion et d’autres paramètres. Vous devez ensuite créer un fichier de configuration pour chaque environnement (développement, test, production). Le principal fichier de modèle Resource Manager reste le même pour tous les environnements.
 
 Pour une présentation de neuf minutes et la démonstration de cette fonctionnalité, regardez la vidéo suivante :
 
@@ -53,9 +53,9 @@ Sélectionnez **Charger le fichier** pour sélectionner le modèle Resource Mana
 ![Ouvrez le mode Code pour afficher la chaîne de connexion](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Cycle de vie de l’intégration continue
-Voici le cycle de vie complet d’intégration et de déploiement continus que vous pouvez utiliser après avoir activé l’intégration du GIT VSTS dans l’interface utilisateur de la fabrique de données :
+Voici le cycle de vie complet de l’intégration et de la livraison continues que vous pouvez utiliser après avoir activé l’intégration d’Azure Repos Git dans l’interface utilisateur Data Factory :
 
-1.  Configurez une fabrique de données de développement avec VSTS dans laquelle tous les développeurs peuvent créer des ressources Data Factory, telles que des pipelines, des jeux de données et ainsi de suite.
+1.  Configurez une fabrique de données de développement avec Azure Repos, dans laquelle tous les développeurs peuvent créer des ressources Data Factory, telles que des pipelines, des jeux de données, etc.
 
 1.  Ensuite, les développeurs peuvent modifier des ressources, par exemple des pipelines. À mesure qu’ils apportent leurs modifications, ils peuvent sélectionner **Déboguer** pour voir comment le pipeline s’exécute avec les modifications les plus récentes.
 
@@ -67,25 +67,25 @@ Voici le cycle de vie complet d’intégration et de déploiement continus que v
 
 1.  Le modèle Resource Manager exporté peut être déployé avec différents fichiers de paramètres vers la fabrique de test et la fabrique de production.
 
-## <a name="automate-continuous-integration-with-vsts-releases"></a>Automatiser l’intégration continue avec les versions VSTS
+## <a name="automate-continuous-integration-with-azure-pipelines-releases"></a>Automatiser l’intégration continue aux versions d’Azure Pipelines
 
-Les étapes suivantes de configuration d’une version VSTS vous permettront d’automatiser le déploiement d’une fabrique de données dans plusieurs environnements.
+Les étapes suivantes de configuration d’une version Azure Pipelines vous permettront d’automatiser le déploiement d’une fabrique de données dans plusieurs environnements.
 
-![Diagramme d’intégration continue avec VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagramme de l’intégration continue à Azure Pipelines](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Configuration requise
 
--   Un abonnement Azure lié à Team Foundation Server ou VSTS utilisant le [*point de terminaison de service Azure Resource Manager*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   Un abonnement Azure lié à Team Foundation Server ou Azure Repos utilisant le [*point de terminaison de service Azure Resource Manager*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)
 
--   Une fabrique de données avec Git VSTS configuré.
+-   Une fabrique de données avec intégration d’Azure Repos Git
 
 -   Un coffre [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) contenant les secrets.
 
-### <a name="set-up-a-vsts-release"></a>Configurer une version VSTS
+### <a name="set-up-an-azure-pipelines-release"></a>Configurer une version d’Azure Pipelines
 
-1.  Accédez à votre page VSTS dans le même projet que celui configuré avec la fabrique de données.
+1.  Accédez à votre page Azure Repos dans le même projet que celui configuré avec la fabrique de données.
 
-1.  Cliquez sur le menu supérieur **Build et mise en production** &gt; **Versions** &gt; **Créer une définition de mise en production**.
+1.  Cliquez sur le menu supérieur **Azure Pipelines** &gt; **Versions** &gt; **Créer une définition de mise en production**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -113,15 +113,20 @@ Les étapes suivantes de configuration d’une version VSTS vous permettront d�
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  Enregistrez la définition de version.
+    g. Sélectionnez le mode de déploiement **incrémentiel**.
 
-1.  Créez une nouvelle version de cette définition de mise en production.
+    > [!WARNING]
+    > Si vous sélectionnez le mode de déploiement **Complet**, les ressources existantes peuvent être supprimées, y compris les ressources du groupe de ressources cible qui ne sont pas définies dans le modèle Resource Manager.
+
+1.  Enregistrez le pipeline de mise en production.
+
+1.  Créez une nouvelle version à partir du pipeline de mise en production.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Facultatif - Récupérer les secrets à partir d’Azure Key Vault
 
-Si vous avez des secrets à transmettre dans un modèle Azure Resource Manager, nous recommandons d’utiliser Azure Key Vault avec la version VSTS.
+Si vous avez des secrets à transmettre dans un modèle Azure Resource Manager, nous vous recommandons d’utiliser Azure Key Vault avec la version Azure Pipelines.
 
 Il existe deux moyens de gérer les secrets :
 
@@ -148,7 +153,7 @@ Il existe deux moyens de gérer les secrets :
 
     -   Le fichier de paramètres doit également être dans la branche de publication.
 
-1.  Ajoutez une [tâche Azure Key Vault](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) avant le déploiement Azure Resource Manager décrit dans la section précédente :
+1.  Ajoutez une [tâche Azure Key Vault](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) avant le déploiement Azure Resource Manager décrit dans la section précédente :
 
     -   Sélectionnez l’onglet **Tâches**, créez une tâche, recherchez **Azure Key Vault** et ajoutez-le.
 
@@ -156,13 +161,13 @@ Il existe deux moyens de gérer les secrets :
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>Accorder des autorisations à l’agent VSTS
-La tâche Azure Key Vault peut échouer la première fois avec une erreur Accès refusé. Téléchargez les journaux de la version, puis recherchez le fichier `.ps1` avec la commande pour accorder des autorisations à l’agent VSTS. Vous pouvez exécuter la commande directement, ou vous pouvez copier l’ID du principal à partir du fichier et ajouter manuellement la stratégie d’accès dans le portail Azure. (*Get* et *List* sont les autorisations minimales requises).
+### <a name="grant-permissions-to-the-azure-pipelines-agent"></a>Accorder des autorisations à l’agent Azure Pipelines
+La tâche Azure Key Vault peut échouer la première fois avec une erreur Accès refusé. Téléchargez les journaux de la version, puis recherchez le fichier `.ps1` avec la commande pour accorder des autorisations à l’agent Azure Pipelines. Vous pouvez exécuter la commande directement, ou vous pouvez copier l’ID du principal à partir du fichier et ajouter manuellement la stratégie d’accès dans le portail Azure. (*Get* et *List* sont les autorisations minimales requises).
 
 ### <a name="update-active-triggers"></a>Mettre à jour les déclencheurs actifs
 Le déploiement peut échouer si vous tentez de mettre à jour les déclencheurs actifs. Pour mettre à jour les déclencheurs actifs, vous devez les arrêter manuellement et les démarrer après le déploiement. Vous pouvez ajouter une tâche Azure Powershell à cet effet, comme indiqué dans l’exemple suivant :
 
-1.  Dans l’onglet Tâches de la version VSTS, recherchez **Azure Powershell** et ajoutez-le.
+1.  Dans l’onglet Tâches de la version, recherchez **Azure Powershell**, puis ajoutez-le.
 
 1.  Choisissez **Azure Resource Manager** en tant que type de connexion et sélectionnez votre abonnement.
 
@@ -178,9 +183,12 @@ Le déploiement peut échouer si vous tentez de mettre à jour les déclencheurs
 
 Vous pouvez suivre des étapes similaires et utiliser un code similaire (avec la fonction `Start-AzureRmDataFactoryV2Trigger`) pour redémarrer les déclencheurs après le déploiement.
 
+> [!IMPORTANT]
+> Dans les scénarios de déploiement et d’intégration continus, le type de runtime d’intégration doit être le même dans tous les environnements. Par exemple, si vous avez un runtime d’intégration *auto-hébergé* dans l’environnement de développement, les autres environnements (test, production) doivent également avoir un runtime d’intégration *auto-hébergé*. De même, si plusieurs étapes partagent un même runtime d’intégration, vous devez configurer ce runtime d’intégration comme étant *lié et auto-hébergé* dans tous les environnements (développement, test, production).
+
 ## <a name="sample-deployment-template"></a>Exemple de modèle de déploiement
 
-Voici un exemple de modèle de déploiement que vous pouvez importer dans VSTS.
+Voici un exemple de modèle de déploiement que vous pouvez importer dans Azure Pipelines.
 
 ```json
 {
@@ -720,7 +728,7 @@ Voici un exemple de modèle de déploiement que vous pouvez importer dans VSTS.
 
 ## <a name="sample-script-to-stop-and-restart-triggers-and-clean-up"></a>Exemple de script pour arrêter et redémarrer les déclencheurs et le nettoyage
 
-Voici un exemple de script pour arrêter les déclencheurs avant le déploiement et les redémarrer après. Le script inclut également le code pour supprimer les ressources qui ont été retirées.
+Voici un exemple de script pour arrêter les déclencheurs avant le déploiement et les redémarrer après. Le script inclut également le code pour supprimer les ressources qui ont été retirées. Pour installer la dernière version d’Azure PowerShell, consultez [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.9.0).
 
 ```powershell
 param
@@ -799,9 +807,9 @@ else {
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Utiliser des paramètres personnalisés avec le modèle Resource Manager
 
-Vous pouvez définir des paramètres personnalisés pour le modèle Resource Manager. Vous devez simplement disposer d’un fichier nommé `arm-template-parameters-definition.json` dans le dossier racine du référentiel. (Le nom du fichier doit correspondre exactement au nom indiqué ici.) Data Factory tente de lire le fichier à partir de la branche dans laquelle vous travaillez actuellement et pas uniquement à partir de la branche de collaboration. Si aucun fichier n’est trouvé, Data Factory utilise les définitions par défaut.
+Vous pouvez définir des paramètres personnalisés pour le modèle Resource Manager. Vous devez simplement disposer d’un fichier nommé `arm-template-parameters-definition.json` dans le dossier racine du référentiel. (Le nom du fichier doit correspondre exactement au nom indiqué ici.) Data Factory tente de lire le fichier à partir de la branche dans laquelle vous travaillez actuellement et pas uniquement à partir de la branche de collaboration. Si aucun fichier n’est trouvé, Data Factory utilise les paramètres et valeurs par défaut.
 
-L’exemple suivant indique un exemple de fichier de paramètres. Utilisez cet exemple comme référence pour créer votre propre fichier de paramètres personnalisé. Si le fichier que vous indiquez n’est pas le format JSON adéquat, Data Factory génère un message d’erreur dans la console du navigateur et rétablit les définitions par défaut indiquées dans l’interface utilisateur de Data Factory.
+L’exemple suivant indique un exemple de fichier de paramètres. Utilisez cet exemple comme référence pour créer votre propre fichier de paramètres personnalisé. Si le fichier que vous indiquez n’est pas au format JSON adéquat, Data Factory génère un message d’erreur dans la console du navigateur, puis rétablit les paramètres et valeurs par défaut indiqués dans l’interface utilisateur Data Factory.
 
 ```json
 {

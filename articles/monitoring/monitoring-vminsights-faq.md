@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 308a447ff99cd11ad6a28df0bdb515764b0f546b
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 282620342d2348868ceab5257de7415a9cb2147c
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063453"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49388355"
 ---
 # <a name="azure-monitor-for-vms-frequently-asked-questions"></a>Azure Monitor pour machines virtuelles Forum aux questions
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet d’Azure Monitor pour machines virtuelles dans Microsoft Azure. Si vous avez d’autres questions sur la solution, rendez-vous sur le [forum de discussion](https://feedback.azure.com/forums/34192--general-feedback) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
@@ -73,10 +73,10 @@ La fonctionnalité de mappage d’Azure Monitor pour machines virtuelles est bas
 
 ## <a name="why-do-my-performance-charts-show-dotted-lines"></a>Pourquoi des lignes pointillées apparaissent sur mes graphiques de performances ?
 
-Cela peut se produire pour plusieurs raisons.  Lorsqu’il manque des données, les lignes sont marquées en pointillé.  Si vous avez modifié la fréquence d’échantillonnage des données sur les compteurs de performance activés (le réglage par défaut correspond à une collecte de données toutes les 60 secondes), des lignes en pointillés peuvent apparaître sur le graphique si vous choisissez une plage horaire courte et une fréquence inférieure à celle utilisée sur le graphique (par exemple, la fréquence d’échantillonnage est de 10 minutes et chacun de ses compartiments correspond à 5 minutes).  Si vous choisissez un plus grand intervalle de temps pour la visualisation, les lignes du graphique devraient apparaître sous forme de lignes pleines plutôt que de points dans ce cas.
+Cela peut se produire pour plusieurs raisons.  Lorsqu’il manque des données, les lignes sont marquées en pointillés.  Si vous avez modifié la fréquence d’échantillonnage des données sur les compteurs de performance activés (le réglage par défaut correspond à une collecte de données toutes les 60 secondes), des lignes en pointillés peuvent apparaître sur le graphique si vous choisissez une plage horaire courte et une fréquence inférieure à celle utilisée sur le graphique (par exemple, la fréquence d’échantillonnage est de 10 minutes et chacun de ses compartiments correspond à 5 minutes).  Si vous choisissez un plus grand intervalle de temps pour la visualisation, les lignes du graphique devraient apparaître sous forme de lignes pleines plutôt que de points dans ce cas.
 
 ## <a name="are-groups-supported-with-azure-monitor-for-vms"></a>Les groupes sont-ils pris en charge avec Azure Monitor pour machines virtuelles ?
-La fonctionnalité Performance prend en charge les groupes en fonction des ressources sélectionnées dans un espace de travail spécifique, ainsi que le regroupement en fonction d’un groupe de machines virtuelles identiques Azure particulier et du service cloud.
+Oui, une fois que vous installez Dependency Agent, nous collectons des informations depuis les machines virtuelles pour afficher les groupes en fonction de l’abonnement, du groupe de ressources, des groupes de machines virtuelles identiques et des services cloud.  Si vous utilisez Service Map et que vous avez créé des groupes d’ordinateurs, ceux-ci sont également affichés.  Les groupes d’ordinateurs apparaissent également dans le filtre de groupes si vous les avez créés pour l’espace de travail que vous affichez. 
 
 ## <a name="how-do-i-see-the-details-for-what-is-driving-the-95th-percentile-line-in-the-aggregate-performance-charts"></a>Comment faire pour voir les détails de ce qui détermine la ligne du 95e percentile dans les graphiques de performance globale ?
 Par défaut, la liste est triée de façon à afficher les machines virtuelles ayant la valeur la plus élevée pour le 95e percentile de la métrique sélectionnée, à l’exception du graphique de la mémoire disponible qui affiche les machines ayant la valeur la plus faible pour le 5e percentile.  Si vous cliquez sur le graphique, la fenêtre **Top N List** s’ouvre avec la métrique appropriée sélectionnée.

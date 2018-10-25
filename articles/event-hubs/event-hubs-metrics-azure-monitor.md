@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: a2b6fbae4a7b49c5596d5f2a6f9305181a0717d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 02336d9f4d041d4c8d5ba973cf8802692ddad914
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979962"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946009"
 ---
 # <a name="azure-event-hubs-metrics-in-azure-monitor-preview"></a>Métriques Azure Event Hubs dans Azure Monitor (préversion)
 
@@ -66,7 +66,6 @@ Compte le nombre de requêtes d’opérations de données et de gestion.
 | Requêtes ayant réussi (préversion)   | Le nombre de requêtes réussies auprès de Azure Event Hubs sur une période spécifiée. <br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName |
 | Erreurs du serveur (préversion) | Le nombre de requêtes non traitées en raison d’une erreur sur Azure Event Hubs sur une période spécifiée. <br/><br/>Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName |
 |Erreurs utilisateur (préversion)|Le nombre de demandes non traitées en raison d’erreurs utilisateur sur une période spécifiée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
-|Demandes limitées (préversion)|Le nombre de demandes qui ont été limitées car l’utilisation d’une unité de débit a été dépassée.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 |Erreurs de quota dépassé (préversion)|Le nombre de requêtes a dépassé le quota disponible. Consultez [cet article](event-hubs-quotas.md) pour plus d’informations sur les quotas Event Hubs.<br/><br/> Unité : nombre <br/> Type d’agrégation : total <br/> Dimension : EntityName|
 
 ## <a name="throughput-metrics"></a>Métriques de débit

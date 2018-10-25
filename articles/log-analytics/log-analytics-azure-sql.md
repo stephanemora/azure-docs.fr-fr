@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
-ms.component: na
-ms.openlocfilehash: b7a7e2787128c74cd7d016c01b751d15628fb4b2
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.component: ''
+ms.openlocfilehash: d16f9add2cd31eb5a8db650798c241c3dcf2610f
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181989"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379302"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -141,7 +141,7 @@ Le tableau ci-après présente les perspectives prises en charge pour les deux v
 
 ### <a name="intelligent-insights-report"></a>Rapport Intelligent Insights
 
-Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) vous permet de suivre les performances des bases de données Azure SQL Database et Managed Instance. Toutes les analyses Intelligent Insights collectées peuvent être visualisées et sont accessibles par le biais de la perspective Insights.
+Azure SQL Database [Intelligent Insights](../sql-database/sql-database-intelligent-insights.md) vous permet de suivre les performances des bases de données Azure SQL Database et Managed Instance. Toutes les analyses Intelligent Insights collectées peut être visualisées et sont accessibles par le biais de la perspective Insights.
 
 ![Insights Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-insights.png)
 
@@ -158,6 +158,10 @@ Les pools élastiques et les bases de données SQL disposent de leurs propres ra
 En vous aidant de la durée de la requête et des attentes de requête, vous pouvez mettre en corrélation les performances des requêtes dans le rapport de requête. Ce rapport compare les performances des requêtes entre les différentes bases de données. Il identifie également les bases de données qui effectuent la requête sélectionnée correctement et celles qui le font lentement.
 
 ![Requêtes Azure SQL Analytics](./media/log-analytics-azure-sql/azure-sql-sol-queries.png)
+
+### <a name="pricing"></a>Tarifs
+
+La solution est gratuite, mais la consommation de la télémétrie de diagnostics qui dépasse les unités gratuites d’ingestion de données allouées chaque mois est facturée. Consultez [Tarifs de Log Analytics](https://azure.microsoft.com/en-us/pricing/details/monitor). Les unités gratuites d’ingestion de données fournies permettent de superviser gratuitement plusieurs bases de données chaque mois. Notez que les bases de données plus actives avec des charges de travail plus lourdes ingèrent plus de données que les bases de données inactives. Vous pouvez facilement suivre votre consommation d’ingestion de données dans la solution en sélectionnant l’espace de travail OMS dans le menu de navigation d’Azure SQL Analytics, puis en sélectionnant Utilisation et estimation des coûts.
 
 ### <a name="analyze-data-and-create-alerts"></a>Analyser les données et créer des alertes
 
@@ -256,6 +260,6 @@ AzureDiagnostics
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Utilisez les [Recherches de journal](log-analytics-log-searches.md) dans Log Analytics pour afficher les données détaillées sur Azure SQL.
+- Utilisez les [Recherches dans les journaux](log-analytics-log-searches.md) dans Log Analytics pour afficher les données SQL Azure détaillées.
 - [Créer un tableau de bord personnalisé](log-analytics-dashboards.md) comportant les données Azure SQL.
-- [Create and manage alert rules in Log Analytics with the OMS portal](log-analytics-alerts.md) (Créer et gérer des règles d’alerte dans Log Analytics dans Log Analytics à l’aide du portail OMS).
+- [Créer des alertes](log-analytics-alerts.md) quand des événements SQL Azure spécifiques se produisent.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: db4f83d0d407ad3d9e895759ea2a687662f5620a
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053293"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362600"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduction à la mise à l’échelle automatique
 La mise à l’échelle automatique est une fonctionnalité supplémentaire de Service Fabric pour mettre dynamiquement à l’échelle vos services selon la charge qu’ils présentent ou leur utilisation des ressources. La mise à l’échelle automatique offre une extensibilité idéale et permet le provisionnement d’instances ou de partitions supplémentaires de votre service à la demande. Tout le processus de mise à l’échelle automatique est automatisé et fluide, et après avoir configuré vos stratégies sur un service, aucune opération de mise à l’échelle manuelle n’est nécessaire au niveau du service. La mise à l’échelle automatique peut être activée au moment de la création du service ou à tout moment par la mise à jour du service.
@@ -120,7 +120,7 @@ Le second déclencheur est basé sur la charge de toutes les partitions d’un s
 * Le _seuil supérieur de charge_ est une valeur qui détermine le moment où la taille du service est **augmentée**. Si la charge moyenne de toutes les partitions du service est supérieure à cette valeur, la taille du service est augmentée.
 * _L’intervalle de mise à l’échelle_ détermine la fréquence à laquelle le déclencheur est vérifié. Une fois que le déclencheur est vérifié, le mécanisme est appliqué si une mise à l’échelle est nécessaire. Si la mise à l’échelle n’est pas nécessaire, aucune action n’est entreprise. Dans les deux cas, aucune nouvelle vérification du déclencheur n’est effectuée avant l’expiration suivante de l’intervalle de mise à l’échelle.
 
-Ce déclencheur peut être utilisé à la fois avec les services avec et sans état. Le seul mécanisme qui peut être utilisé avec ce déclencheur est AddRemoveIncrementalNamedParitionScalingMechanism. Quand la taille du service est augmentée, une nouvelle partition est ajoutée et quand la taille du service est diminuée, l’une des partitions existantes est supprimée. Il existe des restrictions qui sont vérifiées quand le service est créé ou mis à jour et la création/mise à jour du service échoue si ces conditions ne sont pas remplies :
+Ce déclencheur peut être utilisé à la fois avec les services avec et sans état. Le seul mécanisme qui peut être utilisé avec ce déclencheur est AddRemoveIncrementalNamedPartitionScalingMechanism. Quand la taille du service est augmentée, une nouvelle partition est ajoutée et quand la taille du service est diminuée, l’une des partitions existantes est supprimée. Il existe des restrictions qui sont vérifiées quand le service est créé ou mis à jour et la création/mise à jour du service échoue si ces conditions ne sont pas remplies :
 * Le schéma de partition nommé doit être utilisé pour le service.
 * Les noms de partition doivent être des nombres entiers consécutifs, comme « 0 », « 1 », etc.
 * Le nom de la première partition doit être « 0 ».
@@ -137,7 +137,7 @@ Comme avec le mécanisme qui utilise la mise à l’échelle en ajoutant ou supp
 * _Nombre minimum d’instances_ définit la limite inférieure de la mise à l’échelle. Si le nombre de partitions du service atteint cette limite, la taille du service n’est pas diminuée, quelle que soit la charge.
 
 > [!WARNING] 
-> Quand le mécanisme AddRemoveIncrementalNamedParitionScalingMechanism est utilisé avec des services avec état, Service Fabric ajoute ou supprime des partitions **sans notification ou avertissement**. Le repartitionnement des données n’est pas effectué lorsque le mécanisme de mise à l’échelle est déclenché. En cas d’opération de montée en puissance, les nouvelles partitions sont vides et, en cas de d’opération de descente en puissante, la **partition est supprimée avec toutes les données qu’elle contient**.
+> Quand le mécanisme AddRemoveIncrementalNamedPartitionScalingMechanism est utilisé avec des services avec état, Service Fabric ajoute ou supprime des partitions **sans notification ni avertissement**. Le repartitionnement des données n’est pas effectué lorsque le mécanisme de mise à l’échelle est déclenché. En cas d’opération de montée en puissance, les nouvelles partitions sont vides et, en cas de d’opération de descente en puissante, la **partition est supprimée avec toutes les données qu’elle contient**.
 
 ## <a name="setting-auto-scaling-policy"></a>Définition de la stratégie de mise à l’échelle automatique
 
@@ -146,7 +146,7 @@ Comme avec le mécanisme qui utilise la mise à l’échelle en ajoutant ou supp
 <ServiceScalingPolicies>
     <ScalingPolicy>
         <AverageServiceLoadScalingTrigger MetricName="servicefabric:/_MemoryInMB" LowerLoadThreshold="300" UpperLoadThreshold="500" ScaleIntervalInSeconds="600"/>
-        <AddRemoveIncrementalNamedParitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
+        <AddRemoveIncrementalNamedPartitionScalingMechanism MinPartitionCount="1" MaxPartitionCount="3" ScaleIncrement="1"/>
     </ScalingPolicy>
 </ServiceScalingPolicies>
 ```
@@ -155,7 +155,7 @@ Comme avec le mécanisme qui utilise la mise à l’échelle en ajoutant ou supp
 FabricClient fabricClient = new FabricClient();
 StatefulServiceUpdateDescription serviceUpdate = new StatefulServiceUpdateDescription();
 AveragePartitionLoadScalingTrigger trigger = new AverageServiceLoadScalingTrigger();
-PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedParitionScalingMechanism();
+PartitionInstanceCountScaleMechanism mechanism = new AddRemoveIncrementalNamedPartitionScalingMechanism();
 mechanism.MaxPartitionCount = 4;
 mechanism.MinPartitionCount = 1;
 mechanism.ScaleIncrement = 1;
@@ -171,7 +171,7 @@ await fabricClient.ServiceManager.UpdateServiceAsync(new Uri("fabric:/AppName/Se
 ```
 ### <a name="using-powershell"></a>Utilisation de PowerShell
 ```posh
-$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedParitionScalingMechanism
+$mechanism = New-Object -TypeName System.Fabric.Description.AddRemoveIncrementalNamedPartitionScalingMechanism
 $mechanism.MinPartitionCount = 1
 $mechanism.MaxPartitionCount = 3
 $mechanism.ScaleIncrement = 2

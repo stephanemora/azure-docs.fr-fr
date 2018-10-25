@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: a54403b7794d26d87c810f5cd20050db35c078f1
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 3ba8c93d158a6ff80c3db788924503e9d4e87242
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47054318"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378117"
 ---
 # <a name="how-to-configure-the-user-risk-policy"></a>Procédure : Configurer la stratégie de risque utilisateur
 
@@ -41,7 +41,7 @@ Tous les événements à risque qui ont été détectés pour un utilisateur et 
 La stratégie de risque utilisateur est une réponse automatisée que vous pouvez configurer pour un niveau de risque utilisateur spécifique. Avec une stratégie de risque utilisateur, vous pouvez bloquer l’accès à vos ressources ou demander une modification du mot de passe pour récupérer un compte utilisateur dans un état propre.
 
 
-## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Comment faire pour accéder à la stratégie de risque de connexion ?
+## <a name="how-do-i-access-the-user-risk-policy"></a>Comment faire pour accéder à la stratégie d’utilisateur à risque ?
    
 La stratégie de risque de connexion est disponible dans la section **Configurer** de la [page Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
@@ -51,7 +51,7 @@ La stratégie de risque de connexion est disponible dans la section **Configurer
 
 ## <a name="policy-settings"></a>Paramètres de stratégie
 
-Lorsque vous configurez la stratégie de risque de connexion, vous devez définir :
+Lorsque vous configurez la stratégie de connexion à risque, vous devez définir les paramètres suivants :
 
 - Les utilisateurs et les groupes auxquels la stratégie s’applique :
 

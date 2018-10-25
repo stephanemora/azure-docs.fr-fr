@@ -4,29 +4,29 @@ description: Cette rubrique fournit une vue d’ensemble du streaming en direct 
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: e9ecf1ba3022ca057fa09bad2413aa19d902ae23
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 533aa505c38d3cbfb46d70acecd43cc66614b13d
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972177"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378134"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Streaming en direct avec Azure Media Services v3
 
 La diffusion d’événements en flux continu avec Azure Media Services implique généralement les composants suivants :
 
 * Une caméra utilisée pour diffuser un événement.
-* Un encodeur vidéo dynamique qui convertit les signaux de la caméra (ou d’un autre appareil, tel qu’un ordinateur portable) en flux de données qui sont envoyés vers le service de streaming en direct Media Services. Les signaux peuvent également inclure des messages d’annonce SCTE-35 et des signaux d’annonce. 
-* Le service de streaming en direct Media Services vous permet de recevoir, de prévisualiser, d’empaqueter, d’enregistrer, de chiffrer et de diffuser du contenu pour vos clients ou dans un CDN en vue d’une diffusion ultérieure.
+* Un encodeur vidéo dynamique qui convertit les signaux de la caméra (ou d’un autre appareil, tel qu’un ordinateur portable) en flux de données qui sont envoyés vers le service de streaming en direct. Les signaux peuvent également inclure des messages d’annonce SCTE-35 et des signaux d’annonce. 
+* Le service de streaming en direct Media Services vous permet d’ingérer, de prévisualiser, d’empaqueter, d’enregistrer, de chiffrer et de diffuser du contenu pour vos clients ou dans un CDN en vue d’une diffusion ultérieure.
 
 Cet article fournit une description détaillée du service et inclut des schémas des principaux composants impliqués dans le streaming en direct avec Media Services.
 
@@ -40,6 +40,17 @@ Media Services vous permet de transmettre votre contenu chiffré dynamiquement (
 
 Si vous le souhaitez, vous pouvez également appliquer un **filtrage dynamique** pour contrôler le nombre de pistes, les formats et les débits binaires envoyés aux lecteurs. Media Services prend également en charge l’insertion de publicité.
 
+### <a name="new-live-encoding-improvements"></a>Nouvelles améliorations de l’encodage en direct
+
+La dernière version a fait l’objet des améliorations suivantes.
+
+- Nouveau mode de faible latence pour le direct (10 secondes de bout en bout).
+- Prise en charge améliorée de RTMP (stabilité accrue et meilleure prise en charge de l’encodeur source).
+- Ingestion sécurisée RTMPS.
+
+    Quand vous créez un événement en direct, vous obtenez maintenant 4 URL d’ingestion. Les 4 URL d’ingestion sont presque identiques, ont le même jeton de streaming (AppId) ; seule la partie du numéro de port est différente. Il existe deux URL principales et de secours pour RTMPS.   
+- Prise en charge d’un transcodage de 24 heures. 
+- Prise en charge améliorée de la signalisation des annonces dans RTMP via SCTE35.
 
 ## <a name="liveevent-types"></a>Types d’événements en temps réel
 
@@ -73,18 +84,18 @@ Le tableau suivant compare les fonctionnalités des deux types d’événements 
 
 | Fonctionnalité | Événement en temps réel à transmission directe | Événement en temps réel de base |
 | --- | --- | --- |
-| L’entrée à débit binaire unique est encodée en plusieurs débits binaires dans le cloud |Non  |OUI |
+| L’entrée à débit binaire unique est encodée en plusieurs débits binaires dans le cloud |Non  |Oui |
 | Résolution maximale, nombre de couches |4Kp30  |720p, 6 couches, 30 i/s |
 | Protocoles d’entrée |RTMP, Smooth Streaming |RTMP, Smooth Streaming |
 | Prix |Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) et cliquez sur l’onglet « Vidéo en direct » |Consultez la [page de tarification](https://azure.microsoft.com/pricing/details/media-services/) |
 | Durée maximale |24 x 7 |24 x 7 |
-| Prise en charge de l’insertion d’ardoises |Non  |OUI |
-| Prise en charge de la signalisation des annonces via l’API|Non  |OUI |
-| Prise en charge de la signalisation des annonces via le protocole SCTE35 intrabande|OUI |OUI |
-| Légendes CEA 608/708 pass-through |OUI |OUI |
-| Capacité de récupération suite à de brèves interruptions du flux de contribution |OUI |Non (défaillance de l’événement en temps réel après plus de six secondes sans données d’entrée)|
-| Prise en charge des groupes d’images d’entrée non uniformes |OUI |Non. L’entrée doit être constituée de groupes d’images fixes de 2 secondes |
-| Prise en charge de l’entrée à fréquence d’images variable |OUI |Non. L’entrée doit avoir une fréquence d’images fixe.<br/>Les variations mineures sont tolérées, par exemple pendant les scènes à mouvement élevé. Cependant, l’encodeur ne doit pas descendre à 10 images par seconde. |
+| Prise en charge de l’insertion d’ardoises |Non  |Oui |
+| Prise en charge de la signalisation des annonces via l’API|Non  |Oui |
+| Prise en charge de la signalisation des annonces via le protocole SCTE35 intrabande|Oui |Oui |
+| Légendes CEA 608/708 pass-through |Oui |Oui |
+| Capacité de récupération suite à de brèves interruptions du flux de contribution |Oui |Non (défaillance de l’événement en temps réel après plus de six secondes sans données d’entrée)|
+| Prise en charge des groupes d’images d’entrée non uniformes |Oui |Non. L’entrée doit être constituée de groupes d’images fixes de 2 secondes |
+| Prise en charge de l’entrée à fréquence d’images variable |Oui |Non. L’entrée doit avoir une fréquence d’images fixe.<br/>Les variations mineures sont tolérées, par exemple pendant les scènes à mouvement élevé. Cependant, l’encodeur ne doit pas descendre à 10 images par seconde. |
 | Auto-fermeture des événements en temps réel en cas de perte du flux d’entrée |Non  |Après 12 heures si aucune sortie en temps réel n’est en cours d’exécution |
 
 ## <a name="liveevent-states"></a>États des événements en temps réel 

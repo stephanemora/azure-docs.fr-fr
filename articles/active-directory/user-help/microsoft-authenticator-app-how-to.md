@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
 ms.reviewer: librown
-ms.openlocfilehash: 590f9e2a9cf531a1124f9cb132791f2956227d9c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: a88a0d9105942502b634f3be7c3279167ea590c6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046047"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393250"
 ---
 # <a name="get-started-with-the-microsoft-authenticator-app"></a>Prise en main de l’application Microsoft Authenticator
 
@@ -25,7 +25,7 @@ L’application Microsoft Authenticator empêche tout accès non autorisé aux c
 
 Lors de l’utilisation de l’application pour la vérification en deux étapes, elle peut fonctionner de l’une des deux façons suivantes :
 
-- **Notification.** L’application envoie une notification à votre appareil. Assurez-vous que la notification est juste, puis sélectionnez **Vérifier**. Si vous ne reconnaissez pas la notification, sélectionnez **Refuser**.
+- **Notification.** L’application envoie une notification à votre appareil. Assurez-vous que la notification est juste, puis sélectionnez **Vérifier**. Si vous ne reconnaissez pas la notification, sélectionnez **Refuser**. Après avoir cliqué sur **Refuser**, vous pouvez également marquer la demande comme frauduleuse.
 
 - **Code de vérification.** Après avoir tapé votre nom d’utilisateur et votre mot de passe, vous pouvez ouvrir l’application et copiez le code de vérification fourni dans l’écran **Comptes** sur l’écran de connexion. Le code de vérification agit comme un deuxième formulaire d’authentification.
 

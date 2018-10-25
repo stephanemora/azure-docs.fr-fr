@@ -3,18 +3,18 @@ title: À propos de la reconnaissance vocale
 description: Vue d’ensemble des fonctionnalités de l’API Reconnaissance vocale.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 7cb0257a7302221f80bb90c0a6c3446cde07290a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.author: erhopf
+ms.openlocfilehash: 5a19366f6aeec2422ec8671ba3c32f642b5e01ac
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434124"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361434"
 ---
 # <a name="about-the-speech-to-text-api"></a>À propos de l’API Reconnaissance vocale
 
@@ -26,7 +26,7 @@ L’API **Reconnaissance vocale** offre les fonctionnalités suivantes :
 
 - Reconnaissance continue en temps réel. La **Reconnaissance vocale** permet aux utilisateurs de transcrire de l’audio en texte en temps réel. Elle prend également en charge la réception des résultats intermédiaires des mots déjà reconnus. Le service reconnaît automatiquement à la fin de la parole. Les utilisateurs peuvent également choisir des options de mise en forme supplémentaires, dont la casse et la ponctuation, le masquage des vulgarités et la normalisation du texte inverse.
 
-- Résultats de **reconnaissance vocale** optimisés pour des scénarios interactifs de conversation et de dictée. Les résultats reconnus sont retournés à la fois sous forme Lexicale et Affichage (pour les résultats lexicaux, consultez DetailedSpeechRecognitionResult dans les exemples ou l’API).
+- Résultats retournés à la fois sous forme lexicale et sous forme écrite (pour les résultats sous forme lexicale, consultez DetailedSpeechRecognitionResult dans les exemples ou l’API).
 
 - Prise en charge de nombreuses langues parlées et dialectes. Pour obtenir la liste complète des langues prises en charge dans chaque mode de reconnaissance, voir [Langues prises en charge](language-support.md#speech-to-text).
 
@@ -34,9 +34,11 @@ L’API **Reconnaissance vocale** offre les fonctionnalités suivantes :
 
 - Compréhension du langage naturel. Grâce à l’intégration avec [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS), vous pouvez dériver de la parole des entités et des intentions. Les utilisateurs ne doivent pas nécessairement connaître le vocabulaire de votre application, et peuvent décrire ce qu’ils veulent avec leurs propres mots.
 
+- Le score de confiance est retourné par le service si vous spécifiez une sortie détaillée sur l’objet de configuration de reconnaissance vocale (propriété SpeechConfig.OutputFormat). Vous pouvez ensuite utiliser soit la méthode Best() sur le résultat, soit obtenir le score directement à partir du code JSON retourné par le service (semblable à Properties.GetProperty(PropertyId.SpeechServiceResponse_JsonResult)).
+
 ## <a name="api-capabilities"></a>Fonctionnalités de l’API
 
-Une grande partie des fonctionnalités de l’API **Reconnaissance vocale** (notamment concernant la personnalisation) sont disponibles par le biais de REST. Le tableau suivant récapitule les fonctionnalités de chaque méthode d’accès à l’API. Pour obtenir une liste complète des fonctionnalités et des détail de l’API, consultez [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/).
+Certaines des fonctionnalités de l’API **Reconnaissance vocale**, notamment concernant la personnalisation, sont disponibles par le biais de REST. Le tableau suivant récapitule les fonctionnalités de chaque méthode d’accès à l’API. Pour obtenir la liste complète des fonctionnalités et des détails de l’API, consultez [Informations de référence sur Swagger](https://westus.cris.ai/swagger/ui/index).
 
 | Cas d’utilisation | REST | Kits de développement logiciel (SDK) |
 |-----|-----|-----|----|
@@ -53,7 +55,7 @@ Une grande partie des fonctionnalités de l’API **Reconnaissance vocale** (not
 | Créer et gérer des déploiements de modèle | Oui | Non  |
 
 > [!NOTE]
-> L’API REST implémente une limitation des requêtes d’API à 25 toutes les cinqs secondes. Les en-têtes de messages vous informeront des limites
+> L’API REST implémente une limitation des requêtes d’API à 25 toutes les cinqs secondes. Les en-têtes de messages vous informeront des limites.
 
 \* *Les intentions et entités de LUIS peuvent être dérivées à l’aide d’un abonnement LUIS distinct. Avec cet abonnement, le Kit de développement logiciel (SDK) peut appeler LUIS pour vous, et fournir des résultats d’entité et d’intention, ainsi que des transcriptions de la parole. L’API REST vous permet d’appeler LUIS vous-même pour dériver des intentions et des entités avec votre abonnement LUIS.*
 

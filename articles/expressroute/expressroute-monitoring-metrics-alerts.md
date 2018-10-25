@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: fc8abee93983ce4ea06d0b433eb35ed22e0f61b4
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: fcdaf10ad30cee0e7b79304ff21d67560522875c
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47218069"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377795"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Supervision, métriques et alertes ExpressRoute
 
@@ -20,7 +20,7 @@ ms.locfileid: "47218069"
 
 ## <a name="circuit-metrics"></a>Métriques de circuit
 
-Pour accéder aux **Métriques**, cliquez sur la page ExpressRoute du circuit que vous souhaitez surveiller. Sous **Supervision**, vous pouvez visualiser les **Métriques**.
+Pour accéder aux **Métriques**, cliquez sur la page ExpressRoute du circuit que vous souhaitez surveiller. Sous **Supervision**, vous pouvez visualiser les **Métriques**. Sélectionnez BitsInPerSecond ou BitsOutPerSecond, et Aggregation. Si vous le souhaitez, vous pouvez appliquer le fractionnement, qui affiche les métriques par type d’appairage.
 
 ![métriques de circuit](./media/expressroute-monitoring-metrics-alerts/ermetricspeering.jpg)
 

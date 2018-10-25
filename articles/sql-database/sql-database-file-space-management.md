@@ -12,25 +12,35 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: a46192c79d32ddf5f178541c3be128893e8f6109
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 803bab4f0b91e2612abceedfa09baedaaea2a55e
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159939"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377935"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Gérer l’espace du fichier de la base de données SQL Azure
 Cet article décrit les différents types d’espace de stockage dans Azure SQL Database et les étapes à effectuer lorsque l’espace de fichier alloué aux bases de données et aux pools élastiques doit être géré explicitement.
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Dans Azure SQL Database, la plupart des métriques d’espace de stockage affichées dans le Portail Azure et les API suivantes mesurent le nombre de pages de données utilisées pour les bases de données et pools élastiques :
+Dans Azure SQL Database, il existe des modèles de charge de travail dans lesquels l’allocation des fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées. Ce scénario peut se produire quand l’espace utilisé augmente et que des données sont ensuite supprimées. La raison en est que l’espace de fichiers alloué n’est pas récupéré automatiquement quand des données sont supprimées.
+
+La surveillance de l’utilisation de l’espace de fichiers et la réduction des fichiers de données peuvent être nécessaires dans les scénarios suivants :
+- Autoriser la croissance des données dans un pool élastique quand l’espace de fichiers alloué pour ses bases de données atteint la taille maximale du pool.
+- Autoriser la réduction de la taille maximale d’une base de données unique ou d’un pool élastique.
+- Autoriser la modification d’une base de données unique ou d’un pool élastique pour les faire passer à un niveau de service ou à un niveau de performance avec une taille maximale inférieure.
+
+### <a name="monitoring-file-space-usage"></a>Surveillance de l’utilisation de l’espace de fichiers
+La plupart des métriques d’espace de stockage affichées dans le portail Azure et les API suivantes mesurent seulement la taille des pages de données utilisées :
 - API de métriques basées sur Azure Resource Manager dont l’API [get-metrics](https://docs.microsoft.com/powershell/module/azurerm.insights/get-azurermmetric) PowerShell
 - T-SQL : [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)
+
+Cependant, les API suivantes mesurent aussi la taille de l’espace alloué pour les bases de données et les pools élastiques :
 - T-SQL : [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL : [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Il existe des modèles de charges de travail dans lesquels l’allocation de fichiers de données sous-jacents aux bases de données peut dépasser le nombre de pages de données utilisées.  Ce scénario peut se produire lorsque l’espace utilisé augmente et que les données sont alors supprimées.  En effet, l’espace de fichier alloué n’est pas automatiquement récupéré lorsque les données sont supprimées.  Dans de tels scénarios, l’espace alloué à une base de données ou à un pool peut dépasser les limites prises en charge et, par conséquent, empêcher la croissance des données ou les modifications de taille de calcul. Pour résoudre ce problème, il convient de réduire les fichiers de données.
+### <a name="shrinking-data-files"></a>Réduction des fichiers de données
 
 Le service SQL DB ne réduit pas automatiquement les fichiers de données pour récupérer l’espace alloué inutilisé en raison de l’impact potentiel sur les performances de la base de données.  Toutefois, les clients peuvent réduire les fichiers de données en libre service lorsqu’ils le souhaitent en suivant les étapes décrites à la rubrique [Récupérer l’espace alloué non utilisé](#reclaim-unused-allocated-space). 
 
@@ -100,7 +110,7 @@ Il est essentiel d’appréhender les quantités d’espace de stockage suivante
 |**Espace de données utilisé**|L’espace de données total utilisé par toutes les bases de données dans le pool élastique.||
 |**Espace de données alloué**|L’espace de données total alloué par toutes les bases de données dans le pool élastique.||
 |**Espace de données alloué mais non utilisé**|La différence entre la quantité d’espace de données allouée et la quantité d’espace de données utilisée par toutes les bases de données dans le pool élastique.|Cette quantité représente la quantité maximale d’espace alloué au pool élastique qui peut être récupérée par la réduction des fichiers de données de la base de données.|
-|**Taille maximale des données**|La quantité maximale d’espace de données qui peut être utilisée par le pool élastique pour toutes ses bases de données.|L’espace alloué au pool élastique ne doit pas dépasser la taille maximale du pool élastique.  Si cela se produit, l’espace alloué non utilisé peut être récupéré par la réduction des fichiers de données de la base de données.|
+|**Taille maximale des données**|La quantité maximale d’espace de données qui peut être utilisée par le pool élastique pour toutes ses bases de données.|L’espace alloué au pool élastique ne doit pas dépasser la taille maximale du pool élastique.  Si cette condition se produit, l’espace alloué qui n’est pas utilisé peut être récupéré en réduisant les fichiers de données de la base de données.|
 ||||
 
 ## <a name="query-an-elastic-pool-for-storage-space-information"></a>Interroger un pool élastique pour des informations relatives à l’espace de stockage
@@ -121,7 +131,7 @@ ORDER BY end_time DESC
 
 ### <a name="elastic-pool-data-space-allocated-and-unused-allocated-space"></a>Espace de données alloué et espace alloué non utilisé du pool élastique
 
-Modifiez le script PowerShell suivant pour retourner une table répertoriant l’espace alloué et l’espace alloué non utilisé pour chaque base de données dans un pool élastique. La table trie les bases de données de celle présentant la plus grande quantité d’espace alloué non utilisé jusqu’à celle présentant la plus faible quantité d’espace alloué non utilisé.  Le résultat de la requête est exprimé en Mo.  
+Modifiez le script PowerShell suivant pour retourner une table répertoriant l’espace alloué et l’espace alloué non utilisé pour chaque base de données dans un pool élastique. La table trie les bases de données en commençant par celles qui ont la plus grande quantité d’espace alloué non utilisé jusqu’à celles qui en ont la plus petite quantité.  Le résultat de la requête est exprimé en Mo.  
 
 Les résultats de requête permettant de déterminer l’espace alloué à chaque base de données dans le pool peuvent être cumulés pour déterminer l’espace total alloué au pool élastique. L’espace de pool élastique alloué ne doit pas dépasser la taille maximale du pool élastique.  
 
@@ -191,17 +201,35 @@ ORDER BY end_time DESC
 
 ## <a name="reclaim-unused-allocated-space"></a>Récupérer l’espace alloué non utilisé
 
-Une fois les bases de données identifiées pour la récupération de l’espace alloué non utilisé, modifiez la commande suivante pour réduire les fichiers de données pour chaque base de données.
+### <a name="dbcc-shrink"></a>Réduire avec DBCC
+
+Une fois que les bases de données ont été identifiées pour la récupération de l’espace alloué non utilisé, changez le nom de la base de données dans la commande suivante pour réduire les fichiers de données pour chaque base de données.
 
 ```sql
 -- Shrink database data space allocated.
 DBCC SHRINKDATABASE (N'db1')
 ```
 
+Cette commande peut affecter les performances de la base de données pendant qu’elle s’exécute et si c’est possible, elle doit être exécutée pendant des périodes de faible utilisation.  
+
 Pour plus d’informations sur cette commande, consultez [SHRINKDATABASE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql). 
 
-> [!IMPORTANT] 
-> Envisagez de reconstruire les index de base de données. Une fois les fichiers de données de base de données réduits, les index peuvent se fragmenter et perdre en efficacité au niveau de l’optimisation des performances. Si cela se produit, les index doivent être reconstruits. Pour plus d’informations sur la fragmentation et la reconstruction d’index, consultez [Réorganiser et reconstruire des index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
+### <a name="auto-shrink"></a>Réduction automatique
+
+Vous pouvez aussi activer la réduction automatique pour une base de données.  La réduction automatique réduit la complexité de la gestion des fichiers, et elle a moins d’impact sur les performances des bases de données que SHRINKDATABASE ou SHRINKFILE.  La réduction automatique peut s’avérer particulièrement utile pour la gestion des pools élastiques avec de nombreuses bases de données.  Cependant, la réduction automatique est moins efficace pour récupérer de l’espace de fichiers que SHRINKDATABASE et SHRINKFILE.
+Pour activer la réduction automatique, changez le nom de la base de données dans la commande suivante.
+
+
+```sql
+-- Enable auto-shrink for the database.
+ALTER DATABASE [db1] SET AUTO_SHRINK ON
+```
+
+Pour plus d’informations sur cette commande, consultez les options de [DATABASE SET](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017). 
+
+### <a name="rebuild-indexes"></a>Reconstruire des index
+
+Une fois les fichiers de données d’une base de données sont réduits, les index peuvent se fragmenter et perdre en efficacité au niveau de l’optimisation des performances. En cas de dégradation des performances, vous pouvez envisager de reconstruire les index de la base de données. Pour plus d’informations sur la fragmentation et la reconstruction d’index, consultez [Réorganiser et reconstruire des index](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ae1fdb6239b7d04dc366d023a26d1307cbae68f3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 2ec5d469ba0708288881be3d905b492aa8aa4da6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46123723"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956608"
 ---
 # <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-azure-active-directory"></a>Authentification de service à service auprès d’Azure Data Lake Storage Gen1 en utilisant Azure Active Directory
 > [!div class="op_single_selector"]
@@ -39,7 +39,7 @@ Cet article traite de la création d’une **application web Azure AD pour l’a
 
 ## <a name="step-1-create-an-active-directory-web-application"></a>Étape 1 : Créer une application web Active Directory
 
-Créez et configurez une application web Azure AD pour l’authentification de service à service auprès d’Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory. Pour obtenir des instructions, consultez la page [Créer une application Azure AD](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Créez et configurez une application web Azure AD pour l’authentification de service à service auprès d’Azure Data Lake Storage Gen1 à l’aide d’Azure Active Directory. Pour obtenir des instructions, consultez la page [Créer une application Azure AD](../active-directory/develop/howto-create-service-principal-portal.md).
 
 Si vous suivez les instructions du lien précédent, veillez à sélectionner le type d’application **Application web / API**, comme l’illustre la capture d’écran suivante :
 
@@ -48,9 +48,9 @@ Si vous suivez les instructions du lien précédent, veillez à sélectionner le
 ## <a name="step-2-get-application-id-authentication-key-and-tenant-id"></a>Étape 2 : Obtenir un ID d’application, une clé d’authentification et un ID de locataire
 Quand vous vous connectez par programmation, vous avez besoin de l’ID de votre application. Si l’application s’exécute sous ses propres informations d’identification, vous avez également besoin d’une clé d’authentification.
 
-* Pour obtenir des instructions afin de récupérer l’ID de l’application et la clé d’authentification (également appelée clé secrète client), consultez la page [Obtenir la clé d’authentification et l’ID d’une application](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key).
+* Pour obtenir des instructions afin de récupérer l’ID de l’application et la clé d’authentification (également appelée clé secrète client), consultez la page [Obtenir la clé d’authentification et l’ID d’une application](../active-directory/develop/howto-create-service-principal-portal.md#get-application-id-and-authentication-key).
 
-* Pour obtenir des instructions afin de récupérer l’ID du locataire, consultez [Obtenir l’ID du locataire](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+* Pour obtenir des instructions afin de récupérer l’ID du locataire, consultez [Obtenir l’ID du locataire](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-id).
 
 ## <a name="step-3-assign-the-azure-ad-application-to-the-azure-data-lake-storage-gen1-account-file-or-folder"></a>Étape 3 : Affecter l’application Azure AD au dossier ou fichier de compte Azure Data Lake Storage Gen1
 

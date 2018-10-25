@@ -1,20 +1,20 @@
 ---
 title: Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search
 description: Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search
-author: chaosrealm
-manager: jlembicz
+ms.date: 10/17/2018
+author: mgottein
+manager: cgronlun
+ms.author: magottei
 services: search
 ms.service: search
 ms.devlang: rest-api
 ms.topic: conceptual
-ms.date: 04/20/2018
-ms.author: eugenesh
-ms.openlocfilehash: 5b4cd1c592c4cd965a0b5d9e4fb8eef84a6bea91
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: a4689093508c3287e60da9d4668393e71211fbdd
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003279"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405700"
 ---
 # <a name="indexing-json-blobs-with-azure-search-blob-indexer"></a>Indexation d’objets blob JSON avec l’indexeur d’objets blob Azure Search
 Cet article explique comment configurer un indexeur d’objets blob Recherche Azure pour extraire le contenu structuré d’objets blob JSON dans Stockage Blob Azure.

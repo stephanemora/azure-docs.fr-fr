@@ -4,19 +4,19 @@ description: Cette rubrique décrit le processus d’encodage lors de l’utilis
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 69c5516ee503d774b143bb2d83f09ea863a00b31
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 452502d5d6a0a35f642de7e14b2a7ee7fc573bfa
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091547"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378667"
 ---
 # <a name="encoding-with-azure-media-services"></a>Encodage avec Azure Media Services
 
@@ -26,9 +26,7 @@ Pour encoder avec Media Services v3, vous devez créer une transformation et un 
 
 Lors de l’encodage avec Azure Media Services, vous utilisez des préréglages pour indiquer comment traiter les fichiers multimédias en entrée. Par exemple, vous pouvez spécifier la résolution vidéo et/ou le nombre de canaux audio souhaité dans le contenu encodé. 
 
-Vous pouvez commencer rapidement à utiliser un des préréglages intégrés recommandés et basés sur les bonnes pratiques du secteur, ou vous pouvez choisir de créer un préréglage personnalisé pour les besoins de votre scénario ou de votre appareil. 
-
-Pour plus d’informations sur l’encodeur, consultez [Spécification OpenAPI](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/preview/2018-03-30-preview). 
+Vous pouvez commencer rapidement à utiliser un des préréglages intégrés recommandés et basés sur les bonnes pratiques du secteur, ou vous pouvez choisir de créer un préréglage personnalisé pour les besoins de votre scénario ou de votre appareil. Pour plus d’informations, consultez [Encodage avec Azure Media Services](encoding-concept.md). 
 
 ## <a name="built-in-presets"></a>Préréglages intégrés
 
@@ -63,13 +61,13 @@ Les tutoriels suivants montrent comment encoder votre contenu avec Media Service
 Les exemples de code suivant contiennent du code qui montre comment encoder avec Media Services :
 
 * [.NET Core](https://github.com/Azure-Samples/media-services-v3-dotnet-core-tutorials/tree/master/NETCore)
-* [interface de ligne de commande Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
+* [Interface de ligne de commande Azure](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/media-services)
 
 ### <a name="sdks"></a>Kits de développement logiciel (SDK)
 
 Vous pouvez utiliser un des kits SDK Media Services v3 pris en charge suivants pour encoder votre contenu.
 
-* [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
+* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/ams?view=azure-cli-latest)
 * [REST](https://docs.microsoft.com/rest/api/media/transforms)
 * [.NET](https://docs.microsoft.com/dotnet/api/overview/azure/mediaservices/management?view=azure-dotnet)
 * [Java](https://docs.microsoft.com/java/api/overview/azure/mediaservices)

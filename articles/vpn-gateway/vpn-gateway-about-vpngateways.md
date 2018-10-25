@@ -2,26 +2,18 @@
 title: Passerelle VPN Azure | Microsoft Docs
 description: En savoir plus sur les passerelles VPN et la façon dont vous pouvez les utiliser pour vous connecter à des réseaux virtuels Azure. Y compris les solutions de réseau virtuel à réseau virtuel et IPsec/IKE site à site entre locaux, ainsi que les VPN point à site.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
-ms.assetid: 2358dd5a-cd76-42c3-baf3-2f35aadc64c8
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: overview
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/19/2018
+ms.date: 10/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 01052d8058d1b1e3a03f584ad66da2ad79f4c425
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: d35e7cfbf55d0dc53214bbb7b1153c3270c611c2
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193204"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471320"
 ---
 # <a name="what-is-vpn-gateway"></a>Qu’est-ce qu’une passerelle VPN ?
 
@@ -77,7 +69,7 @@ Utilisez les graphiques et les descriptions pour sélectionner la topologie de c
 
 ### <a name="S2S"></a>Site à site
 
-Une connexion par passerelle VPN site à site (S2S) est une connexion via un tunnel VPN IPsec/IKE (S2S ou IKEv1). Les connexions S2S peuvent être utilisées pour les configurations hybrides et entre différents locaux. Une connexion site à site requiert un périphérique VPN local auquel est assignée une adresse IP publique, et qui ne se situe pas derrière un NAT. Pour plus d’informations sur la sélection d’un périphérique VPN, consultez [VPN Gateway FAQ - VPN devices](vpn-gateway-vpn-faq.md#s2s) (FAQ sur la passerelle VPN - Périphériques VPN).
+Une connexion par passerelle VPN site à site (S2S) est une connexion via un tunnel VPN IPsec/IKE (IKEv1 ou IKEv2). Les connexions S2S peuvent être utilisées pour les configurations hybrides et entre différents locaux. Une connexion site à site requiert un périphérique VPN local auquel est assignée une adresse IP publique, et qui ne se situe pas derrière un NAT. Pour plus d’informations sur la sélection d’un périphérique VPN, consultez [VPN Gateway FAQ - VPN devices](vpn-gateway-vpn-faq.md#s2s) (FAQ sur la passerelle VPN - Périphériques VPN).
 
 ![Exemple de connexion site à site de passerelle VPN Azure](./media/vpn-gateway-about-vpngateways/vpngateway-site-to-site-connection-diagram.png)
 

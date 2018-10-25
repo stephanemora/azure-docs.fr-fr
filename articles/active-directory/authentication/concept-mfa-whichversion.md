@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 0d68c88bdad63bb022babcc4a6ee4ee7c59ce58a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 696c331111fef9d6fc238b733e15230ab3ee1e56
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158450"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378014"
 ---
 # <a name="which-version-of-azure-mfa-is-right-for-my-organization"></a>Quelle version Azure MFA est adaptée à mon organisation ?
 
@@ -23,7 +23,7 @@ Avant de déterminer où et comment déployer l’authentification multifacteur 
 
 * [les éléments à protéger](#what-am-i-trying-to-secure)
 * [l’emplacement des utilisateurs](#where-are-the-users-located)
-* [les fonctionnalités nécessaires](#what-features-do-i-need)
+* [quelles sont les fonctionnalités nécessaires ?](#what-features-do-i-need)
 
 Chacune des sections suivantes fournit des informations détaillées pour vous aider à répondre à ces questions.
 
@@ -51,7 +51,7 @@ Ensuite, selon où se trouvent les utilisateurs de votre organisation, vous pouv
 | Azure AD et AD local à l’aide d’Azure AD Connect - avec synchronisation de hachage de mot de passe et authentification directe |● | |
 | Active Directory local | |● |
 
-## <a name="what-features-do-i-need"></a>Les fonctionnalités nécessaires
+## <a name="what-features-do-i-need"></a>Quelles sont les fonctionnalités nécessaires ?
 
 Le tableau suivant compare les fonctionnalités disponibles de Multi-Factor Authentication dans le cloud et du serveur Multi-Factor Authentication.
 
@@ -61,7 +61,7 @@ Le tableau suivant compare les fonctionnalités disponibles de Multi-Factor Auth
 | Code de vérification d'application mobile comme second facteur | ● | ● |
 | Appel téléphonique comme second facteur | ● | ● |
 | SMS unidirectionnel comme second facteur | ● | ● |
-| Jetons matériels comme second facteur | | ● |
+| Jetons matériels comme second facteur | ● (Préversion publique) | ● |
 | Mots de passe d’application pour les clients Office 365 qui ne prennent pas en charge MFA | ● | |
 | Contrôle d'administration sur les méthodes d'authentification | ● | ● |
 | Mode du code PIN | | ● |

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: a4758e5597876112fa7a85850786491e22af8c83
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037134"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378083"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service Réseau virtuel Azure
 
@@ -226,7 +226,7 @@ Oui, les réseaux virtuels créés dans des régions différentes peuvent accéd
 
 Oui, un point de terminaison de service de réseau virtuel et un pare-feu peuvent coexister. En règle générale, vous devez vérifier que l’accès au portail est toujours activé avant de configurer un point de terminaison de service de réseau virtuel pour vous permettre de voir les métriques associées au conteneur.
 
-### <a name="can-i-allow-access-to-other-azure-services-from-a-given-azure-region-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Puis-je « autoriser l’accès à d’autres services Azure à partir d’une région Azure donnée » quand l’accès au point de terminaison de service est activé pour Azure Cosmos DB ?  
+### <a name="can-i-accept-connections-from-within-public-azure-datacenters-when-service-endpoint-access-is-enabled-for-azure-cosmos-db"></a>Puis-je « Accepter les connexions provenant des centres de données Azure publics » quand l’accès aux points de terminaison de service est activé pour Azure Cosmos DB ?  
 
 Ceci est nécessaire uniquement quand vous souhaitez que votre compte Azure Cosmos DB soit accessible par d’autres services Azure internes tels qu’Azure Data Factory, Recherche Azure ou tout autre service déployé dans une région Azure donnée.
 

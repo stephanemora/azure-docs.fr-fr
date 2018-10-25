@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/10/2018
+ms.date: 10/17/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8cac3c8d3a1877ad7c93efc0954c2f07ecaa0a29
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: ea926a64e3df853d6845266ff20255b76d9ff387
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42142085"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386720"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Utilisation de modèles liés et imbriqués durant le déploiement de ressources Azure
 
@@ -28,6 +28,8 @@ Pour déployer votre solution, vous pouvez utiliser un modèle unique ou un mod�
 Pour les solutions petites et moyennes, un modèle unique est plus facile à comprendre et à gérer. Vous pouvez voir toutes les ressources et valeurs dans un même fichier. Pour les scénarios avancés, les modèles liés vous permettent de diviser la solution en composants ciblés et de réutiliser des modèles.
 
 Lorsque vous utilisez un modèle lié, vous créez un modèle principal qui reçoit les valeurs de paramètre au cours du déploiement. Le modèle principal contient tous les modèles liés et transmet des valeurs à ces modèles en fonction des besoins.
+
+Pour obtenir un tutoriel, consultez [Tutoriel : Créer des modèles Azure Resource Manager liés](./resource-manager-tutorial-create-linked-templates.md).
 
 ## <a name="link-or-nest-a-template"></a>Lier ou imbriquer un modèle
 
@@ -101,7 +103,7 @@ Pour établir un lien à un modèle externe et un fichier de paramètres, utilis
      "name": "linkedTemplate",
      "type": "Microsoft.Resources/deployments",
      "properties": {
-       "mode": "incremental",
+       "mode": "Incremental",
        "templateLink": {
           "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
           "contentVersion":"1.0.0.0"
@@ -119,7 +121,9 @@ Vous ne devez pas fournir la propriété `contentVersion` pour le modèle ou les
 
 ### <a name="external-template-and-inline-parameters"></a>Modèle externe et paramètres inclus
 
-Ou bien, vous pouvez fournir le paramètre inclus. Pour passer une valeur du modèle principal au modèle lié, utilisez des **paramètres**.
+Ou bien, vous pouvez fournir le paramètre inclus. Vous ne pouvez pas utiliser à la fois des paramètres inline et un lien vers un fichier de paramètres. Si `parametersLink` et `parameters` sont spécifiés tous les deux, le déploiement échoue.
+
+Pour passer une valeur du modèle principal au modèle lié, utilisez des **paramètres**.
 
 ```json
 "resources": [
@@ -128,7 +132,7 @@ Ou bien, vous pouvez fournir le paramètre inclus. Pour passer une valeur du mod
      "name": "linkedTemplate",
      "type": "Microsoft.Resources/deployments",
      "properties": {
-       "mode": "incremental",
+       "mode": "Incremental",
        "templateLink": {
           "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
           "contentVersion":"1.0.0.0"
@@ -199,7 +203,7 @@ Le modèle principal déploie le modèle lié et obtient la valeur retournée. R
             "name": "linkedTemplate",
             "type": "Microsoft.Resources/deployments",
             "properties": {
-                "mode": "incremental",
+                "mode": "Incremental",
                 "templateLink": {
                     "uri": "[uri(deployment().properties.templateLink.uri, 'helloworld.json')]",
                     "contentVersion": "1.0.0.0"
@@ -397,7 +401,7 @@ Le modèle suivant est lié au modèle précédent. Il crée trois adresses IP p
 
 Après le déploiement, vous pouvez récupérer les valeurs de sortie avec le script PowerShell suivant :
 
-```powershell
+```azurepowershell-interactive
 $loopCount = 3
 for ($i = 0; $i -lt $loopCount; $i++)
 {
@@ -407,9 +411,11 @@ for ($i = 0; $i -lt $loopCount; $i++)
 }
 ```
 
-Ou bien, le script Azure CLI :
+Vous pouvez aussi utiliser un script Azure CLI dans un interpréteur de commandes Bash :
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
+
 for i in 0 1 2;
 do
     name="linkedTemplate$i";
@@ -440,7 +446,7 @@ L’exemple suivant montre comment passer un jeton SAP lors de la liaison à un 
       "name": "linkedTemplate",
       "type": "Microsoft.Resources/deployments",
       "properties": {
-        "mode": "incremental",
+        "mode": "Incremental",
         "templateLink": {
           "uri": "[concat(uri(deployment().properties.templateLink.uri, 'helloworld.json'), parameters('containerSasToken'))]",
           "contentVersion": "1.0.0.0"
@@ -455,16 +461,18 @@ L’exemple suivant montre comment passer un jeton SAP lors de la liaison à un 
 
 Dans PowerShell, vous obtenez un jeton pour le conteneur et déployez les modèles avec les commandes suivantes. Notez que le paramètre **containerSasToken** est défini dans le modèle. Il ne s’agit pas d’un paramètre dans la commande **New-AzureRmResourceGroupDeployment**.
 
-```powershell
+```azurepowershell-interactive
 Set-AzureRmCurrentStorageAccount -ResourceGroupName ManageGroup -Name storagecontosotemplates
 $token = New-AzureStorageContainerSASToken -Name templates -Permission r -ExpiryTime (Get-Date).AddMinutes(30.0)
 $url = (Get-AzureStorageBlob -Container templates -Blob parent.json).ICloudBlob.uri.AbsoluteUri
 New-AzureRmResourceGroupDeployment -ResourceGroupName ExampleGroup -TemplateUri ($url + $token) -containerSasToken $token
 ```
 
-Dans l’interface de ligne de commande Azure, vous obtenez un jeton pour le conteneur et déployez les modèles avec le code suivant :
+Avec un script Azure CLI dans un interpréteur de commandes Bash, vous obtenez un jeton pour le conteneur et vous déployez les modèles avec le code suivant :
 
-```azurecli
+```azurecli-interactive
+#!/bin/bash
+
 expiretime=$(date -u -d '30 minutes' +%Y-%m-%dT%H:%MZ)
 connection=$(az storage account show-connection-string \
     --resource-group ManageGroup \
@@ -497,6 +505,7 @@ Les exemples suivants montrent des utilisations courantes des modèles liés.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+* Pour obtenir un tutoriel, consultez [Tutoriel : Créer des modèles Azure Resource Manager liés](./resource-manager-tutorial-create-linked-templates.md).
 * Pour obtenir des informations sur la définition de l’ordre de déploiement de vos ressources, consultez [Définition de dépendances dans les modèles Azure Resource Manager](resource-group-define-dependencies.md).
 * Pour savoir comment définir une seule ressource mais également créer de nombreuses instances de cette dernière, consultez [Création de plusieurs instances de ressources dans Azure Resource Manager](resource-group-create-multiple.md).
 * Pour connaître les étapes de configuration d’un modèle dans un compte de stockage et de génération d’un jeton SAP, consultez [Déployer des ressources avec des modèles Resource Manager et Azure PowerShell](resource-group-template-deploy.md) ou [Déployer des ressources avec des modèles Resource Manager et l’interface de ligne de commande Azure](resource-group-template-deploy-cli.md).

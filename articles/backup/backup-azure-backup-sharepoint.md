@@ -6,14 +6,14 @@ author: adigan
 manager: Nkolli1
 ms.service: backup
 ms.topic: conceptual
-ms.date: 09/29/2016
+ms.date: 10/18/2018
 ms.author: adigan
-ms.openlocfilehash: 7331b1c99425500b58d186cedab1e83dd20e3684
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b3b4d42d9a48d02639019f815cbf4fca15060771
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389817"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946043"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure"></a>Sauvegarder une batterie de serveurs SharePoint dans Azure
 Vous sauvegardez une batterie de serveurs SharePoint sur Microsoft Azure à l’aide de System Center Data Protection Manager (DPM) de la même façon que vous sauvegardez d’autres sources de données. Azure Backup offre une flexibilité dans la planification d’une sauvegarde pour créer des points de sauvegarde quotidiens, hebdomadaires, mensuels ou annuels, et vous offre des options de stratégie de conservation pour les différents points de sauvegarde. DPM vous permet de stocker des copies sur disque local pour bénéficier d’objectifs de temps de récupération (RTO) rapides, ainsi que de stocker des copies sur Azure pour une conservation à long terme économique.
@@ -29,7 +29,7 @@ Sauvegarde Azure pour DPM prend en charge les scénarios suivants :
 Quelques points doivent être confirmés avant de sauvegarder une batterie de serveurs SharePoint sur Azure.
 
 ### <a name="prerequisites"></a>Prérequis
-Avant de continuer, vérifiez que toutes les [conditions préalables](backup-azure-dpm-introduction.md#prerequisites) à l’utilisation de Microsoft Azure Backup pour protéger les charges de travail ont été remplies. Certaines tâches liées aux conditions préalables incluent : créer un coffre de sauvegarde, télécharger les informations d’identification du coffre, installer l’Agent Azure Backup et inscrire le serveur DPM/Azure Backup Server auprès du coffre.
+Avant de continuer, vérifiez que toutes les [conditions préalables](backup-azure-dpm-introduction.md#prerequisites-and-limitations) à l’utilisation de Microsoft Azure Backup pour protéger les charges de travail ont été remplies. Certaines tâches liées aux conditions préalables incluent : créer un coffre de sauvegarde, télécharger les informations d’identification du coffre, installer l’Agent Azure Backup et inscrire le serveur DPM/Azure Backup Server auprès du coffre.
 
 ### <a name="dpm-agent"></a>Agent DPM
 L’agent DPM doit être installé sur le serveur qui exécute SharePoint, les serveurs qui exécutent SQL et tous les serveurs qui font partie de la batterie de serveurs SharePoint. Pour plus d’informations sur la configuration de l’agent de protection, consultez [Configuration de l’agent de protection](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx).  La seule exception concerne l’installation de l’agent uniquement sur un seul serveur Web frontal (WFE). DPM n’a besoin de l’agent que sur un serveur WFE pour servir de point d’entrée pour la protection.

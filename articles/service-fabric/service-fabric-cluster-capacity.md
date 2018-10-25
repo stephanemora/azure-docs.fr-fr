@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d8f2dbe4885f1cb85ab5eb78ae4f06b2ad702d53
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348566"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389579"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Considérations en matière de planification de la capacité du cluster Service Fabric
 Pour un déploiement de production, la planification de la capacité est une étape importante. Voici certains éléments que vous devez prendre en compte dans ce processus.
@@ -83,7 +83,7 @@ Le niveau de durabilité est utilisé pour indiquer au système les privilèges 
 > [!WARNING]
 > Les types de nœud s’exécutant avec un niveau de durabilité Bronze n’obtiennent _aucun privilège_. Cela signifie que les travaux d’infrastructure qui affectent vos charges de travail sans état ne seront ni arrêtés ni différés. Utilisez Bronze uniquement pour les types de nœuds qui exécutent seulement des charges de travail sans état. Pour les charges de travail de production, il est recommandé d’exécuter Silver ou un niveau supérieur. 
 
-> Quel que soit le niveau de durabilité, la [désallocation](https://docs.microsoft.com/en-us/rest/api/compute/virtualmachinescalesets/deallocate) d’un groupe de machines virtuelles identiques a pour effet de détruire le cluster.
+> Quel que soit le niveau de durabilité, la [désallocation](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) d’un groupe de machines virtuelles identiques a pour effet de détruire le cluster.
 
 **Avantages de l’utilisation des niveaux de durabilité Silver ou Gold**
  
@@ -165,6 +165,7 @@ Pour les charges de travail de production :
 - Le disque SSD local de 14 Go est une configuration minimale requise. Notre recommandation minimale est de 50 Go. Pour vos charges de travail, en particulier lors de l’exécution de conteneurs Windows, des disques plus volumineux sont requis. 
 - Les références de machine virtuelle à cœur partiel telles que Standard A0 ne sont pas prises en charge pour les charges de travail de production.
 - La référence Standard A1 n’est pas prise en charge pour les charges de production pour des raisons de performances.
+- Les machines virtuelles de faible priorité ne sont pas prises en charge.
 
 > [!WARNING]
 > La modification de la taille d’une référence SKU de machine virtuelle de nœud principal sur un cluster en cours d’exécution, est une opération de mise à l’échelle qui est documentée dans [Augmenter la taille des instances d’un groupe de machines virtuelles identiques](virtual-machine-scale-set-scale-node-type-scale-out.md).

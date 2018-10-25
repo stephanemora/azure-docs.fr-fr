@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.date: 11/30/2017
-ms.openlocfilehash: 29b28b0d81314d062c1b334092979cc9bccbeb31
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a6adf97a11821ff58c01d2450f06d07e7327fdfb
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127657"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957921"
 ---
 # <a name="monitor-virtual-machine-changes-with-azure-event-grid-and-logic-apps"></a>Surveiller les modifications d’une machine virtuelle avec Azure Event Grid et Azure Logic Apps
 
@@ -60,7 +60,7 @@ Tout d’abord, créez une application logique et ajoutez un déclencheur Event 
 
    | Paramètre | Valeur suggérée | Description | 
    | ------- | --------------- | ----------- | 
-   | **Name** | *{nom-de-votre-application-logique}* | Donnez un nom unique à l’application logique. | 
+   | **Nom** | *{nom-de-votre-application-logique}* | Donnez un nom unique à l’application logique. | 
    | **Abonnement** | *{votre-abonnement-Azure}* | Sélectionnez le même abonnement Azure pour tous les services de ce didacticiel. | 
    | **Groupe de ressources** | *{votre-groupe-de-ressources-Azure}* | Sélectionnez le même groupe de ressources Azure pour tous les services de ce didacticiel. | 
    | **Lieu** | *{votre-région-Azure}* | Sélectionnez la même région pour tous les services de ce didacticiel. | 
@@ -90,7 +90,7 @@ Tout d’abord, créez une application logique et ajoutez un déclencheur Event 
    ![Se connecter avec des informations d’identification Azure](./media/monitor-virtual-machine-changes-event-grid-logic-app/sign-in-event-grid.png)
 
    > [!NOTE]
-   > Si vous êtes connecté avec un compte Microsoft personnel, par exemple @outlook.com ou @hotmail.com, le déclencheur Event Grid risque de ne pas apparaître correctement. Il existe une solution de contournement qui consiste à choisir [Se connecter avec le principal du service](../azure-resource-manager/resource-group-create-service-principal-portal.md), ou à s’authentifier en tant que membre de l’instance Azure Active Directory associée à l’abonnement Azure, par exemple, *nom-utilisateur*@emailoutlook.onmicrosoft.com.
+   > Si vous êtes connecté avec un compte Microsoft personnel, par exemple @outlook.com ou @hotmail.com, le déclencheur Event Grid risque de ne pas apparaître correctement. Il existe une solution de contournement qui consiste à choisir [Se connecter avec le principal du service](../active-directory/develop/howto-create-service-principal-portal.md), ou à s’authentifier en tant que membre de l’instance Azure Active Directory associée à l’abonnement Azure, par exemple, *nom-utilisateur*@emailoutlook.onmicrosoft.com.
 
 8. Maintenant, abonnez votre application logique aux événements de l’éditeur. Renseignez les détails de votre abonnement aux événements, comme l’indique le tableau suivant :
 
@@ -231,7 +231,7 @@ Vous pouvez surveiller les autres modifications de configuration avec des grille
 * Des disques d’une machine virtuelle ont été ajoutés ou supprimés.
 * Une adresse IP publique est affectée à la carte d’interface réseau (NIC) d’une machine virtuelle.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Ce didacticiel utilise des ressources et effectue des actions qui peuvent entraîner des frais sur votre abonnement Azure. Par conséquent, lorsque vous aurez terminé de suivre ce didacticiel et d’effectuer les tests, veillez à désactiver ou à supprimer les ressources pour lesquelles vous ne souhaitez pas être facturé.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: cbfe3022c4ffd03e4ab93682eb14a5a588aa0013
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409471"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389273"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -131,10 +131,25 @@ Ce problème peut se produire si le processus de surveillance de la synchronisat
 
 Pour résoudre ce problème, procédez comme suit :
 
-1. Ouvrez le gestionnaire des tâches sur le serveur et vérifiez que le processus de surveillance de la synchronisation du stockage (AzureStorageSyncMonitor.exe) est en cours d’exécution. Si le processus ne s’exécute pas, essayez d’abord de redémarrer le serveur. Si le redémarrage du serveur ne résout pas le problème, désinstallez et réinstallez l’agent Azure File Sync. Remarque : les paramètres de serveur sont conservés lorsque vous désinstallez et réinstallez l’agent.
+1. Ouvrez le gestionnaire des tâches sur le serveur et vérifiez que le processus de surveillance de la synchronisation du stockage (AzureStorageSyncMonitor.exe) est en cours d’exécution. Si le processus ne s’exécute pas, essayez d’abord de redémarrer le serveur. Si le redémarrage du serveur ne résout pas le problème, mettez à niveau l’agent Azure File Sync avec la version [3.3.0.0]( https://support.microsoft.com/help/4457484/update-rollup-for-azure-file-sync-agent-september-2018) si celle-ci n’est pas déjà installée.
 2. Vérifiez que les paramètres de pare-feu et de proxy sont correctement configurés :
-    - Si le serveur se trouve derrière un pare-feu, vérifiez que le port 443 sortant est autorisé. Si le pare-feu restreint le trafic à des domaines spécifiques, vérifiez que les domaines répertoriés dans la [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) du pare-feu sont accessibles.
-    - Si le serveur se trouve derrière un proxy, configurez les paramètres de proxy au niveau de l’ordinateur ou de l’application en suivant la procédure de la [documentation](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) du proxy.
+    - Si le serveur se trouve derrière un pare-feu, vérifiez que le port 443 sortant est autorisé. Si le pare-feu restreint le trafic à des domaines spécifiques, vérifiez que les domaines répertoriés dans la [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#firewall) du pare-feu sont accessibles.
+    - Si le serveur se trouve derrière un proxy, configurez les paramètres de proxy au niveau de l’ordinateur ou de l’application en suivant la procédure de la [documentation](https://docs.microsoft.com/azure/storage/files/storage-sync-files-firewall-and-proxy#proxy) du proxy.
+
+<a id="endpoint-noactivity-sync"></a>**Le point de terminaison de serveur affiche l’état d’intégrité « Aucune activité » et l’état du serveur dans le panneau des serveurs inscrits indique « En ligne »**  
+
+Si un point de terminaison de serveur a l’état d’intégrité « Aucune activité », cela signifie qu’il n’a journalisé aucune activité de synchronisation au cours des deux dernières heures.
+
+Il peut être impossible pour un point de terminaison de serveur de journaliser l’activité de synchronisation pour les raisons suivantes :
+
+- Le serveur a atteint le nombre maximal de sessions de synchronisation simultanées. Azure File Sync prend actuellement en charge 2 sessions de synchronisation actives par processeur ou 8 sessions de synchronisation actives maximum par serveur.
+
+- Le serveur a une session de synchronisation VSS active (SnapshotSync). Quand une session de synchronisation VSS est active pour un point de terminaison de serveur, les autres points de terminaison du serveur ne peuvent pas démarrer une session de synchronisation tant que la session de synchronisation VSS n’est pas terminée.
+
+Pour vérifier l’activité de synchronisation active sur un serveur, consultez [Comment suivre la progression d’une session de synchronisation active ?](#how-do-i-monitor-the-progress-of-a-current-sync-session).
+
+> [!Note]  
+> Si l’état du serveur dans le panneau des serveurs inscrits est « Apparaît hors connexion », effectuez les étapes décrites dans la section [Le point de terminaison de serveur affiche l’état d’intégrité « Aucune activité » ou « En attente » et l’état du serveur dans le panneau des serveurs inscrits indique « Apparaît hors connexion »](#server-endpoint-noactivity).
 
 ## <a name="sync"></a>Synchronisation
 <a id="afs-change-detection"></a>**Après avoir créé un fichier directement dans mon partage de fichiers Azure sur SMB ou par le biais du portail, combien de temps faut-il pour synchroniser le fichier sur les serveurs du groupe de synchronisation ?**  
@@ -144,7 +159,7 @@ Pour résoudre ce problème, procédez comme suit :
 Ce problème peut se produire si vous créez un point de terminaison cloud et que vous utilisez un partage de fichiers Azure contenant des données. Le travail d’énumération de modifications qui analyse les modifications dans le partage de fichiers Azure doit être terminé avant que les fichiers puissent être synchronisés entre le cloud et les points de terminaison serveur. La durée d’exécution du travail dépend de la taille de l’espace de noms dans le partage de fichiers Azure. L’intégrité du point de terminaison de serveur doit se mettre à jour une fois que le travail d’énumération des modifications est terminé.
 
 ### <a id="broken-sync"></a>Comment surveiller l’intégrité de synchronisation ?
-# <a name="portaltabportal1"></a>[Portail](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 Au sein de chaque groupe de synchronisation, vous pouvez zoomer sur ses points de terminaison serveur individuel pour afficher l’état des dernières sessions de synchronisation terminées. Une colonne de contrôle d’intégrité verte et des fichiers non synchronisés à la valeur 0 indiquent que la synchronisation fonctionne comme prévu. Si ce n’est pas le cas, voir ci-dessous pour obtenir la liste des erreurs de synchronisation courantes et savoir comment gérer les fichiers qui ne synchronisent pas. 
 
 ![Capture d’écran du portail Azure](media/storage-sync-files-troubleshoot/portal-sync-health.png)
@@ -181,7 +196,7 @@ Parfois, les sessions de synchronisation échouent globalement ou ont un PerItem
 ---
 
 ### <a name="how-do-i-monitor-the-progress-of-a-current-sync-session"></a>Comment surveiller la progression d’une session en cours de synchronisation ?
-# <a name="portaltabportal1"></a>[Portail](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 Au sein de votre groupe de synchronisation, accédez au point de terminaison de serveur en question et examinez la section Activité de synchronisation pour voir le nombre de fichiers chargés ou téléchargés dans la session de synchronisation en cours. Notez que cet état sera retardé d’environ 5 minutes, et si votre session de synchronisation est suffisamment petite pour être effectuée pendant cette période, il peut ne pas être signalé dans le portail. 
 
 # <a name="servertabserver"></a>[Serveur](#tab/server)
@@ -199,7 +214,7 @@ PerItemErrorCount: 1006.
 ---
 
 ### <a name="how-do-i-know-if-my-servers-are-in-sync-with-each-other"></a>Comment savoir si mes serveurs sont synchronisés entre eux ?
-# <a name="portaltabportal1"></a>[Portail](#tab/portal1)
+# <a name="portaltabportal1"></a>[Portal](#tab/portal1)
 Pour chaque serveur dans un groupe de synchronisation donné, vérifiez que :
 - Les horodatages de la dernière tentative de synchronisation pour le chargement téléchargement sont récents.
 - L’état est affiché en vert pour le chargement et le téléchargement.
@@ -236,7 +251,7 @@ Pour afficher ces erreurs, exécutez le script PowerShell **FileSyncErrorsReport
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | Un fichier a été modifié pendant la synchronisation, par conséquent, il doit être synchronisé à nouveau. | Aucune action requise. |
 
 #### <a name="handling-unsupported-characters"></a>Gestion des caractères non pris en charge
-Si le script PowerShell **FileSyncErrorsReport.ps1** montre les défaillances dues à des caractères non pris en charge (codes d’erreur 0x7b et 0x8007007b), vous devriez supprimer ou renommer les caractères en cause à partir des fichiers respectifs. PowerShell imprimera probablement ces caractères en tant que points d’interrogation ou rectangles vides dans la mesure où la plupart de ces caractères n’ont aucun codage visuel standard. L’[outil d’évaluation](storage-sync-files-planning.md#evaluation-tool) peut servir à identifier les caractères qui ne sont pas pris en charge.
+Si le script PowerShell **FileSyncErrorsReport.ps1** montre des défaillances dues à des caractères non pris en charge (codes d’erreur 0x7b et 0x8007007b), supprimez les caractères en cause des noms de fichiers respectifs ou renommez-les. PowerShell imprimera probablement ces caractères en tant que points d’interrogation ou rectangles vides dans la mesure où la plupart de ces caractères n’ont aucun codage visuel standard. [L’outil d’évaluation](storage-sync-files-planning.md#evaluation-tool) peut servir à identifier les caractères qui ne sont pas pris en charge.
 
 Le tableau ci-dessous contient tous les caractères unicode qu’Azure File Sync ne prend pas en charge.
 
@@ -319,6 +334,16 @@ Cette erreur se produit parce que l’agent Azure File Sync ne peut pas accéder
 | **Correction requise** | Oui |
 
 Cette erreur se produit lorsqu’il existe un problème avec la base de données interne utilisée par Azure File Sync. Lorsque ce problème se produit créez une demande de support et nous vous contacterons pour vous aider à résoudre ce problème.
+
+<a id="-2134364053"></a>**La version de l’agent Azure File Sync installé sur le serveur n’est pas prise en charge.**  
+| | |
+|-|-|
+| **HRESULT** | 0x80C8306B |
+| **HRESULT (décimal)** | -2134364053 |
+| **Chaîne d’erreur** | ECS_E_AGENT_VERSION_BLOCKED |
+| **Correction requise** | Oui |
+
+Cette erreur se produit si la version de l’agent Azure File Sync installé sur le serveur n’est pas prise en charge. Pour résoudre ce problème, [mettez à niveau]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#upgrade-paths) l’agent avec une [version prise en charge]( https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions).
 
 <a id="-2134351810"></a>**La limite de stockage de partage de fichiers Azure a été atteinte.**  
 | | |
@@ -539,7 +564,7 @@ Cette erreur se produit en raison d’un problème interne avec la base de donn�
 
 ### <a name="common-troubleshooting-steps"></a>Ouvrir les étapes de résolution des problèmes
 <a id="troubleshoot-storage-account"></a>**Vérifiez l’existence du compte de stockage.**  
-# <a name="portaltabportal"></a>[Portail](#tab/portal)
+# <a name="portaltabportal"></a>[Portal](#tab/portal)
 1. Accédez au groupe de synchronisation au sein du service de synchronisation de stockage.
 2. Sélectionnez le point de terminaison de cloud au sein du groupe de synchronisation.
 3. Notez le nom de partage de fichiers Azure dans le volet ouvert.
@@ -644,7 +669,7 @@ if ($storageAccount -eq $null) {
 ---
 
 <a id="troubleshoot-network-rules"></a>**Vérifiez que le compte de stockage ne contienne aucune règle réseau.**  
-# <a name="portaltabportal"></a>[Portail](#tab/portal)
+# <a name="portaltabportal"></a>[Portal](#tab/portal)
 1. Une fois dans le compte de stockage, sélectionnez **Pare-feu et réseaux virtuels** sur le côté gauche du compte de stockage.
 2. Dans le compte de stockage, **autoriser l’accès à partir de tous les réseaux** la case d’option doit être sélectionnée.
     ![Une capture d’écran montrant les règles de pare-feu et de réseau de compte stockage désactivés.](media/storage-sync-files-troubleshoot/file-share-inaccessible-2.png)
@@ -660,7 +685,7 @@ if ($storageAccount.NetworkRuleSet.DefaultAction -ne
 ---
 
 <a id="troubleshoot-azure-file-share"></a>**Assurez vous de l’existence du partage de fichiers Azure.**  
-# <a name="portaltabportal"></a>[Portail](#tab/portal)
+# <a name="portaltabportal"></a>[Portal](#tab/portal)
 1. Cliquez sur **Aperçu** sur la table des matières de gauche pour revenir à la page principale de compte de stockage.
 2. Sélectionnez **Fichiers** pour afficher la liste des partages de fichiers.
 3. Vérifiez que le partage de fichiers référencé par le point de terminaison de du cloud apparaît dans la liste des partages de fichiers (vous auriez dû le noter à l’étape 1 ci-dessus).
@@ -679,7 +704,7 @@ if ($fileShare -eq $null) {
 ---
 
 <a id="troubleshoot-rbac"></a>**Vérifiez qu’Azure File Sync a accès au compte de stockage.**  
-# <a name="portaltabportal"></a>[Portail](#tab/portal)
+# <a name="portaltabportal"></a>[Portal](#tab/portal)
 1. Cliquez sur **contrôle d’accès (IAM)** sur la table des matières de gauche pour accéder à la liste des utilisateurs et des applications (*principaux de service*) qui ont accès à votre compte de stockage.
 2. Vérifiez que **Hybrid File Sync Service** apparaît dans la liste avec le rôle **Lecteur et Accès aux données**. 
 

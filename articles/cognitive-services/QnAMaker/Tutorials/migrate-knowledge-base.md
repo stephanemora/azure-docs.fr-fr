@@ -10,17 +10,17 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 0cb8a185407c7b180a170f1f9b9d76aa28a24de5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6eaa4859ea6346390514325980835750d8e4b6d5
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031626"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365558"
 ---
 # <a name="migrate-a-knowledge-base-using-export-import"></a>Migrer une base de connaissances à l’aide des fonctions d’exportation-importation
 QnA Maker a annoncé la disponibilité générale le 7 mai 2018 à la conférence \\\build\. QnA Maker GA dispose d’une nouvelle architecture qui repose sur Azure. Les bases de connaissances créées avec QnA Maker Free Preview doivent être migrées vers QnA Maker GA. QnA Maker Preview sera déconseillé à partir de novembre 2018. Pour plus d’informations sur les modifications apportées dans QnA Maker GA, consultez le [billet de blog](https://aka.ms/qnamakerga-blog) de QnA Maker.
 
-QnA Maker propose maintenant un [modèle de tarification](https://azure.microsoft.com/en-us/pricing/details/cognitive-services/qna-maker/).
+QnA Maker propose maintenant un [modèle de tarification](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/).
 
 Prérequis
 > [!div class="checklist"]
@@ -38,9 +38,7 @@ Prérequis
 
     ![Télécharger la base de connaissances](../media/qnamaker-how-to-migrate-kb/preview-download.png)
 
-4. Connectez-vous au [portail QnA Maker](https://qnamaker.ai) avec vos informations d’identification Azure, puis cliquez sur **Create new service** (Créer un service).
-
-    ![Créer la base de connaissances ](../media/qnamaker-how-to-create-kb/create-new-service.png)
+4. Connectez-vous au [portail QnA Maker](https://qnamaker.ai) avec vos informations d’identification Azure, puis cliquez sur **Créer une base de connaissances**.
     
 5. Si vous n’avez pas encore créé de service QnA Maker, sélectionnez **Create a QnA service** (Créer un service QnA). Sinon, choisissez un service QnA Maker dans les listes déroulantes à l’étape 2. Sélectionnez le service QnA Maker qui hébergera la base de connaissances.
 

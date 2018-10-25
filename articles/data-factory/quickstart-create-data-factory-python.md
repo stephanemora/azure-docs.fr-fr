@@ -13,12 +13,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: shlo
-ms.openlocfilehash: 5b8e1d894a0f2b7868433cb25a097a4cfcdc1796
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 1b6326f9b3d9565739d97b32b119a2f362f24e65
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095783"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954621"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-python"></a>Créer une fabrique de données et un pipeline à l’aide de Python
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 * **Compte Stockage Azure**. Vous utilisez le stockage Blob comme magasins de données **source** et **récepteur**. Si vous n’avez pas de compte de stockage Azure, consultez l’article [Créer un compte de stockage](../storage/common/storage-quickstart-create-account.md) pour découvrir comment en créer un.
-* **Créez une application dans Azure Active Directory** en suivant [cette instruction](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application). Notez les valeurs suivantes que vous utiliserez lors d’étapes ultérieures : **ID d’application**, **clé d’authentification** et **ID de locataire**. Affectez l’application au rôle « **Contributeur**  » en suivant les instructions dans le même article.
+* **Créez une application dans Azure Active Directory** en suivant [cette instruction](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Notez les valeurs suivantes que vous utiliserez lors d’étapes ultérieures : **ID d’application**, **clé d’authentification** et **ID de locataire**. Affectez l’application au rôle « **Contributeur**  » en suivant les instructions dans le même article.
 
 ### <a name="create-and-upload-an-input-file"></a>Créer et charger un fichier d’entrée
 

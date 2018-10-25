@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: ef9292e7e36f5accabf532ef4a26d334fb880859
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c2c2a6686d5da25e5a300bc58e1cf37467737c80
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43052109"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646539"
 ---
 # <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Hive et Pig dans HDInsight
 
@@ -49,7 +49,7 @@ add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'python hiveudf.py' AS
-    (clientid string, phoneLable string, phoneHash string)
+    (clientid string, phoneLabel string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
@@ -61,7 +61,7 @@ add file wasb:///hiveudf.py;
 
 SELECT TRANSFORM (clientid, devicemake, devicemodel)
     USING 'D:\Python27\python.exe hiveudf.py' AS
-    (clientid string, phoneLable string, phoneHash string)
+    (clientid string, phoneLabel string, phoneHash string)
 FROM hivesampletable
 ORDER BY clientid LIMIT 50;
 ```
@@ -104,7 +104,7 @@ Le script effectue les opérations suivantes :
 1. Une ligne de données de STDIN est lue.
 2. Le caractère de saut de ligne de fin est supprimé à l’aide de `string.strip(line, "\n ")`.
 3. Lors du traitement par flux, une seule ligne contient toutes les valeurs séparées par un caractère de tabulation. `string.split(line, "\t")` peut donc être utilisé pour fractionner l’entrée à chaque tabulation et retourner uniquement les champs.
-4. Une fois le traitement terminé, la sortie doit être écrite dans STDOUT sur une seule ligne, chaque champ étant séparé par une tabulation. Par exemple : `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
+4. Une fois le traitement terminé, la sortie doit être écrite dans STDOUT sur une seule ligne, chaque champ étant séparé par une tabulation. Par exemple : `print "\t".join([clientid, phone_label, hashlib.md5(phone_label).hexdigest()])`.
 5. La boucle `while` se répète jusqu’à ce que plus aucun élément `line` ne soit lu.
 
 La sortie du script est une concaténation des valeurs d’entrée pour `devicemake` et `devicemodel`, ainsi qu’un code de hachage de la valeur concaténée.

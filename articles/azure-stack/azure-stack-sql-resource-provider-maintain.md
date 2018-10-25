@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/20/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: ad899739dab1dc51d64368d2136ab87f73f6f3a0
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.reviewer: quying
+ms.openlocfilehash: 360661402289ab9b06eb01be447dc98942c93302
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "36300908"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364085"
 ---
 # <a name="sql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources SQL
 
@@ -53,9 +53,9 @@ Pour modifier les paramètres, cliquez sur **Parcourir** &gt; **RESSOURCES ADMIN
 
 ## <a name="secrets-rotation"></a>Rotation des secrets
 
-*Ces instructions s’appliquent uniquement aux systèmes intégrés Azure Stack versions 1804 et ultérieures. N’essayez pas de faire pivoter des clés secrètes dans les versions d’Azure Stack antérieures à 1804.*
+*Ces instructions s’appliquent uniquement aux systèmes intégrés Azure Stack*.
 
-Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèmes intégrés Azure Stack, vous pouvez effectuer une rotation des secrets d’infrastructure (déploiement) suivants :
+Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèmes intégrés Azure Stack, l’opérateur Azure Stack est chargé de faire pivoter les secrets d’infrastructure de fournisseurs de ressources suivants pour garantir qu’ils n’expirent pas :
 
 - Certificat SSL externe [fourni au cours du déploiement](azure-stack-pki-certs.md).
 - Mot de passe de compte d’administrateur local des machines virtuelles du fournisseur de ressources fourni au moment du déploiement.
@@ -206,7 +206,7 @@ Pour utiliser les commandes *DBAdapterDiagnostics*, créez une session PowerShel
 Vous définirez l’intervalle de temps pour la collecte de journaux à l’aide des paramètres **FromDate** et **ToDate**. Si vous ne spécifiez pas l’un de ces paramètres ou les deux, les valeurs par défaut suivantes sont utilisées :
 
 - FromDate correspond à quatre heures avant l’heure actuelle.
-- ToDate renvoie l'heure en cours.
+- ToDate renvoie l’heure en cours.
 
 **Exemple de script PowerShell pour collecter les journaux.**
 

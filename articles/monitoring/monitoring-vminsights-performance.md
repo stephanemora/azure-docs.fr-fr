@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/17/2018
+ms.date: 10/16/2018
 ms.author: magoedte
-ms.openlocfilehash: 06073197254245727cfa41020f060d904a4e50f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63549768f616e60e92c853047525c18cefdaddb4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957551"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49386267"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Comment créer des graphiques de performances avec Azure Monitor pour les machines virtuelles
 Azure Monitor pour les machines virtuelles comprend un ensemble de graphiques de performances qui ciblent divers indicateurs de performance clés (KPI) pour vous aider à déterminer l’intégrité du fonctionnement d’une machine virtuelle. Les graphiques illustrent l’utilisation des ressources sur une période de temps pour que vous puissiez identifier les goulots d’étranglement ou les anomalies. Vous pouvez également basculer sur une perspective répertoriant toutes les machines virtuelles pour afficher l’utilisation des ressources en fonction de la métrique sélectionnée. Bien qu’il existe de nombreux éléments à prendre en compte pour le traitement des performances, Azure Monitor pour les machines virtuelles se concentre sur le système d’exploitation, représenté par le processeur, la mémoire, les cartes réseau et les disques. La fonctionnalité Performances vient compléter celle de supervision de l’intégrité et permet d’exposer les problèmes indiquant une panne éventuelle d’un composant système, de prendre en charge les réglages et l’optimisation pour améliorer l’efficacité ou de prendre en charge la planification de la capacité.  
@@ -33,7 +33,9 @@ Dans Azure Monitor, la fonctionnalité Performances fournit un affichage avec pl
 
 ![Affichage Top N List (Liste N premiers) - Performances - Insights de machine virtuelle](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-Dans l’onglet **Top N Charts** (Graphiques N premiers), si vous avez plusieurs espaces de travail Log Analytics, choisissez celui intégré à la solution à partir du sélecteur **Espace de travail** en haut de la page.  Sélectionnez ensuite via le sélecteur **Groupe**, un abonnement, un groupe de ressources ou une machine spécifique pour une période de temps définie.  Par défaut, les graphiques montrent les dernières 24 heures.  À l’aide du sélecteur **TimeRange**, vous pouvez interroger les intervalles de temps précédents (jusqu’à 30 jours) pour afficher l’état des performances passées.   
+Dans l’onglet **Graphiques N premiers**, si vous avez plusieurs espaces de travail Log Analytics, choisissez celui qui est activé avec la solution à partir du sélecteur **Espace de travail** en haut de la page. Le sélecteur **Groupe** retourne les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../log-analytics/log-analytics-computer-groups.md) et les groupes de machines virtuelles identiques associés à l’espace de travail sélectionné, que vous pouvez utiliser pour filtrer davantage les résultats présentés dans les graphiques sur cette page et dans les autres pages. Votre sélection s’applique seulement à la fonctionnalité Performances, et n’est pas reportée sur Intégrité ou Carte.  
+
+Par défaut, les graphiques montrent les dernières 24 heures. À l’aide du sélecteur **TimeRange**, vous pouvez interroger les intervalles de temps précédents (jusqu’à 30 jours) pour afficher l’état des performances passées.   
 
 Les cinq graphiques d’utilisation de capacité affichés sur la page sont :
 
@@ -83,7 +85,7 @@ Sélectionner une machine virtuelle dans la liste permet d’ouvrir le panneau *
 Pour un accès direct à partir d’une machine virtuelle, procédez comme suit.
 
 1. Dans le portail Azure, sélectionnez **Machines virtuelles**. 
-2. Choisissez une machine virtuelle dans la liste, puis dans la section **Supervision**, sélectionnez **Insights (préversion)**.  
+2. Choisissez une machine virtuelle dans la liste, puis, dans la section **Surveillance**, sélectionnez **Insights (préversion)**.  
 3. Sélectionnez l’onglet **Performances**. 
 
 En plus d’inclure des graphiques d’utilisation de performances, cette page fournit un tableau affichant pour chaque disque logique détecté, sa capacité, son utilisation et la moyenne totale pour chaque mesure.  
@@ -101,5 +103,8 @@ Les graphiques d’utilisation de la capacité suivants sont fournis :
 
 ![Performances - Insights de machine virtuelle directement depuis l’affichage de la machine virtuelle](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
 
+## <a name="alerting-and-alert-management"></a>Alertes et gestion des alertes 
+Les métriques de performances activées dans le cadre d’Azure Monitor pour les machines virtuelles n’incluent pas les règles d’alerte préconfigurées. Bien qu’il existe des alertes d’intégrité correspondant à des problèmes de performances détectés sur votre machine virtuelle Azure, comme une utilisation élevée de l’UC, peu de mémoire encore disponible, espace disque faible, etc., ces alertes d’intégrité sont appliquées seulement à toutes les machines virtuelles connectées au même espace de travail Log Analytics intégré à Azure Monitor pour les machines virtuelles. Si vous avez besoin de spécifier vos propres critères ou votre propre logique, vous pouvez créer des règles d’alerte personnalisées en suivant [Créer, afficher et gérer des alertes avec Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+
 ## <a name="next-steps"></a>Étapes suivantes
-Pour savoir comment utiliser la fonctionnalité d’intégrité, consultez [Understand the health of your Azure virtual machines with Azure Monitor for VMs](monitoring-vminsights-health.md) (Comprendre l’intégrité de vos machines virtuelles Azure avec Azure Monitor pour les machines virtuelles), ou pour afficher les dépendances des applications détectées, consultez [Using Azure Monitor for VMs Map to understand application components](monitoring-vminsights-maps.md) (Utilisation d’Azure Monitor pour le mappage de machines virtuelles afin de comprendre les composants d’application). 
+Pour savoir comment utiliser la fonctionnalité d’intégrité, consultez [Comprendre l’intégrité de vos machines virtuelles Azure avec Azure Monitor pour machines virtuelles](monitoring-vminsights-health.md), ou pour afficher les dépendances des applications détectées, consultez [Afficher la carte Azure Monitor pour machines virtuelles](monitoring-vminsights-maps.md). 

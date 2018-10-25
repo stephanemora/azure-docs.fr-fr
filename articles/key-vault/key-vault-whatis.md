@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: fa8605f4822ff0ee5ba25ee0baca4fb2fec83b17
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46497601"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49385843"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
 
@@ -35,7 +35,7 @@ Azure Key Vault est un outil permettant de stocker les secrets et d’y accéder
 
 Il existe 3 façons de s’authentifier auprès d’un coffre de clés :
 
-1. **À l’aide de [Managed Service Identity](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview)**  (**méthode recommandée/bonne pratique**) : lorsque vous déployez une application sur une machine virtuelle dans Azure, vous pouvez assigner une identité à votre machine virtuelle qui a accès au coffre de clés. Vous pouvez également assigner une identité aux autres ressources Azure qui sont répertoriées [ici](https://docs.microsoft.com/en-us/azure/active-directory/managed-identities-azure-resources/overview). L’avantage de cette approche est que l’application/le service ne gère pas la rotation du premier secret. Azure fait alterner automatiquement l’identité. 
+1. **À l’aide d’[identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)**  (**méthode recommandée/bonne pratique**) : lorsque vous déployez une application sur une machine virtuelle dans Azure, vous pouvez assigner une identité à votre machine virtuelle qui a accès au coffre de clés. Vous pouvez également assigner une identité aux autres ressources Azure qui sont répertoriées [ici](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). L’avantage de cette approche est que l’application/le service ne gère pas la rotation du premier secret. Azure fait alterner automatiquement l’identité. 
 2. **À l’aide d’un principal de service et d’un certificat :** la deuxième option consiste à utiliser un principal de service et un certificat associé qui a accès au coffre de clés. La rotation du certificat incombe alors au propriétaire de l’application ou au développeur et, par conséquent, cette option n’est pas recommandée.
 3. **À l’aide d’un principal de service et d’un secret :** la troisième option (non recommandée) consiste à utiliser un principal de service et un secret pour s’authentifier auprès du coffre de clés.
 

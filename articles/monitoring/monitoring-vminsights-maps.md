@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: magoedte
-ms.openlocfilehash: e75409e791c00dc0a5bec591aecfbaa019df8f81
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 5d9aa8e144109b41144bb8b09447b8701d04f87e
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225160"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389987"
 ---
 # <a name="using-azure-monitor-for-vms-map-to-understand-application-components"></a>Utilisation de la fonctionnalité Map d’Azure Monitor pour les machines virtuelles pour comprendre les composants d’application
-La visualisation des composants d’application détectés sur les machines virtuelles Windows et Linux qui s’exécutent dans votre environnement Azure est possible de deux manières avec Azure Monitor pour machines virtuelles : directement à partir d’une machine virtuelle ou à l’échelle des groupes de machines virtuelles à partir d’Azure Monitor. 
+Lorsque vous visualisez les composants d’application détectés sur des machines virtuelles Windows et Linux s’exécutant dans Azure, vous pouvez observer votre environnement de deux manières avec Azure Monitor pour les machines virtuelles : directement à partir d’une machine virtuelle ou à l’échelle des groupes de machines virtuelles à partir d’Azure Monitor. 
 
 Cet article vous aide à comprendre l’expérience selon les deux perspectives et à utiliser la fonctionnalité Map. Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](monitoring-vminsights-onboard.md)(Activer Azure Monitor pour les machines virtuelles).
 
@@ -107,7 +107,9 @@ Map affiche les dépendances de machines virtuelles, c’est-à-dire les process
 
 ![Vue d’ensemble de la carte de machines virtuelles multiples dans Azure Monitor](./media/monitoring-vminsights-maps/map-multivm-azure-monitor-01.png)
 
-Si vous avez plusieurs espaces de travail Log Analytics, choisissez celui intégré à la solution et auquel des machines virtuelles envoient des rapports à partir du sélecteur **Espace de travail** en haut de la page.  Ensuite, à partir du sélecteur **Groupe**, sélectionnez un abonnement ou un groupe de ressources pour afficher un ensemble de machines virtuelles et leurs dépendances correspondant au groupe sur une période de temps spécifiée.  Par défaut, la carte affiche les 30 dernières minutes.  Le sélecteur **TimeRange** permet d’effectuer des requêtes sur des intervalles de temps historiques jusqu’à une heure afin de voir l’aspect passé des dépendances (par exemple, pendant un incident ou avant une modification).   
+Dans le sélecteur **Espace de travail** en haut de la page, si vous avez plusieurs espaces de travail Log Analytics, choisissez celui qui est activé avec la solution et auquel des machines virtuelles envoient des rapports. Le sélecteur **Groupe** retourne les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../log-analytics/log-analytics-computer-groups.md) et les groupes de machines virtuelles identiques associés à l’espace de travail sélectionné. Votre sélection s’applique seulement à la fonctionnalité Carte, et n’est pas reportée sur Performances ou Carte.
+
+Par défaut, la carte affiche les 30 dernières minutes. Le sélecteur **TimeRange** permet d’effectuer des requêtes sur des intervalles de temps historiques jusqu’à une heure afin de voir l’aspect passé des dépendances (par exemple, pendant un incident ou avant une modification).   
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour savoir comment utiliser la fonctionnalité d’intégrité, consultez [View Azure VM Health](monitoring-vminsights-health.md) (Afficher l’intégrité d’une machine virtuelle Azure). Pour identifier les goulots d’étranglement et les performances d’utilisation globales avec vos machines virtuelles, consultez [View Azure Monitor for VMs Performance](monitoring-vminsights-performance.md) (Examiner les performances avec Azure Monitor pour les machines virtuelles). 

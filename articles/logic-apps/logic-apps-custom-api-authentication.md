@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/22/2017
-ms.openlocfilehash: b329fb1416d28b0732e7b9ea4612f5bac8580b3a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 62f71f29f813cd30c7d8e3c7f37f41677cf07364
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43132426"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956372"
 ---
 # <a name="secure-calls-to-custom-apis-from-azure-logic-apps"></a>Sécuriser les appels à des API personnalisées à partir d’Azure Logic Apps
 
@@ -104,7 +104,7 @@ Vous pouvez effectuer cette tâche par le biais d’Azure Resource Manager avec 
 
 4. Veillez à copier **l’ID de locataire** (GUID pour votre locataire Azure AD), **l’ID d’application** et le mot de passe que vous avez utilisé.
 
-Pour plus d’informations, consultez la page [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Pour plus d’informations, consultez la page [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 #### <a name="part-2-create-an-azure-ad-application-identity-for-your-web-app-or-api-app"></a>Partie 2 : Créer une identité d’application Azure AD pour votre application web ou votre application API
 
@@ -176,7 +176,7 @@ Une fois que vous disposez de l’ID client et de l’ID de locataire, incluez-l
 
 Pour déployer automatiquement une application web et une application logique vides avec l’authentification Azure Active Directory, [consultez le modèle complet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-custom-api/azuredeploy.json) ou cliquez sur **Déploiement sur Azure** ici :
 
-[![Déploiement sur Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
+[![Déployer sur Azure](media/logic-apps-custom-api-authentication/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-custom-api%2Fazuredeploy.json)
 
 #### <a name="part-3-populate-the-authorization-section-in-your-logic-app"></a>Partie 3 : Remplir la section Autorisation dans votre application logique
 

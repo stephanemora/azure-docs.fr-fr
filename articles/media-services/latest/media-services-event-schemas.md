@@ -4,19 +4,19 @@ description: Décrit les propriétés qui sont fournies pour les événements Me
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 10/16/2018
 ms.author: juliako
-ms.openlocfilehash: a6a6c459e170627d26aa1445f4f4dd193965fe70
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 44e195055c74babd903cf4fb830167ab92951d4a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42145331"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376786"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Schémas Azure Event Grid pour les événements Media Services
 
@@ -26,14 +26,56 @@ Pour obtenir la liste des exemples de scripts et des didacticiels, consultez [Me
 
 ## <a name="available-event-types"></a>Types d’événement disponibles
 
-Media Services émet les types d’événements suivants :
+### <a name="job-related-event-types"></a>Types d’événements associés au travail
+
+Media Services émet les types d’événements associés au **travail** décrits ci-dessous. Il existe deux catégories d’événements associés au **travail** : « Supervision des changements d’état du travail » et « Supervision des changements d’état de la sortie du travail ». 
+
+Vous pouvez vous inscrire à tous les événements en vous abonnant à l’événement JobStateChange. Vous pouvez aussi choisir de vous abonner uniquement à des événements spécifiques (par exemple, aux états finaux que sont JobErrored, JobFinished et JobCanceled). 
+
+#### <a name="monitoring-job-state-changes"></a>Supervision des changements d’état du travail
+
+| Type d’événement | Description |
+| ---------- | ----------- |
+| Microsoft.Media.JobStateChange| Obtient un événement pour tous les changements d’état du travail. |
+| Microsoft.Media.JobScheduled| Obtient un événement quand un travail passe à l’état Planifié. |
+| Microsoft.Media.JobProcessing| Obtient un événement quand un travail passe à l’état En cours de traitement. |
+| Microsoft.Media.JobCanceling| Obtient un événement quand un travail passe à l’état Annulation. |
+| Microsoft.Media.JobFinished| Obtient un événement quand un travail passe à l’état Terminé. Il s’agit d’un état final qui inclut les sorties du travail.|
+| Microsoft.Media.JobCanceled| Obtient un événement quand un travail passe à l’état Annulé. Il s’agit d’un état final qui inclut les sorties du travail.|
+| Microsoft.Media.JobErrored| Obtient un événement quand un travail passe à l’état Erreur. Il s’agit d’un état final qui inclut les sorties du travail.|
+
+#### <a name="monitoring-job-output-state-changes"></a>Supervision des changements d’état de sortie du travail
+
+| Type d’événement | Description |
+| ---------- | ----------- |
+| Microsoft.Media.JobOutputStateChange| Obtient un événement pour tous les changements d’état de sortie du travail. |
+| Microsoft.Media.JobOutputScheduled| Obtient un événement quand la sortie du travail passe à l’état Planifié. |
+| Microsoft.Media.JobOutputProcessing| Obtient un événement quand la sortie du travail passe à l’état En cours de traitement. |
+| Microsoft.Media.JobOutputCanceling| Obtient un événement quand la sortie du travail passe à l’état Annulation.|
+| Microsoft.Media.JobOutputFinished| Obtient un événement quand la sortie du travail passe à l’état Terminé.|
+| Microsoft.Media.JobOutputCanceled| Obtient un événement quand la sortie du travail passe à l’état Annulé.|
+| Microsoft.Media.JobOutputErrored| Obtient un événement quand la sortie du travail passe à l’état Erreur.|
+
+### <a name="live-event-types"></a>Types d’événements en direct
+
+Media Services émet aussi les types d’événements **en direct** décrits ci-dessous. Il existe deux catégories d’événements **en direct** : les événements de flux de données et les événements de piste. 
+
+#### <a name="stream-level-events"></a>Événements de flux de données
+
+Les événements de flux sont déclenchés par le flux de données ou la connexion. Chaque événement possède un paramètre `StreamId` qui identifie la connexion ou le flux. Chaque flux de données ou connexion dispose d’une ou de plusieurs pistes de différents types. Par exemple, une même connexion provenant d’un encodeur peut avoir une seule piste audio et quatre pistes vidéo. Les types d’événements de flux de données sont :
 
 | Type d'événement | Description |
 | ---------- | ----------- |
-| Microsoft.Media.JobStateChange| État des modifications du travail. |
 | Microsoft.Media.LiveEventConnectionRejected | La tentative de connexion de l’encodeur est rejetée. |
 | Microsoft.Media.LiveEventEncoderConnected | L’encodeur établit une connexion avec l’événement en direct. |
 | Microsoft.Media.LiveEventEncoderDisconnected | L’encodeur se déconnecte. |
+
+#### <a name="track-level-events"></a>Événements de piste
+
+Les événements de piste sont déclenchés en fonction de la piste. Les types d’événements de piste sont :
+
+| Type d'événement | Description |
+| ---------- | ----------- |
 | Microsoft.Media.LiveEventIncomingDataChunkDropped | Le serveur multimédia supprime le bloc de données, car il est trop tard ou les timestamps se chevauchent (le timestamp du nouveau bloc de données est inférieur à l’heure de fin du bloc de données précédent). |
 | Microsoft.Media.LiveEventIncomingStreamReceived | Le serveur multimédia reçoit le premier bloc de données pour chaque piste dans le flux ou la connexion. |
 | Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Le serveur multimédia détecte des flux audio et vidéo qui ne sont pas synchronisés. Ce type d’événement doit être utilisé comme un avertissement, car l’expérience utilisateur peut ne pas être affectée. |
@@ -41,24 +83,9 @@ Media Services émet les types d’événements suivants :
 | Microsoft.Media.LiveEventIngestHeartbeat | Publié toutes les 20 secondes pour chaque piste pendant l’événement en direct. Fournit un résumé de l’intégrité d’ingestion. |
 | Microsoft.Media.LiveEventTrackDiscontinuityDetected | Le serveur multimédia détecte une discontinuité dans la piste entrante. |
 
-Il existe deux catégories d’événements **en direct** : les événements de flux de données et les événements de piste. 
+## <a name="event-schemas-and-properties"></a>Propriétés et schémas d’événement
 
-Les événements de flux sont déclenchés par le flux de données ou la connexion. Chaque événement possède un paramètre `StreamId` qui identifie la connexion ou le flux. Chaque flux de données ou connexion dispose d’une ou de plusieurs pistes de différents types. Par exemple, une même connexion provenant d’un encodeur peut avoir une seule piste audio et quatre pistes vidéo. Les types d’événements de flux de données sont :
-
-* LiveEventConnectionRejected
-* LiveEventEncoderConnected
-* LiveEventEncoderDisconnected
-
-Les événements de piste sont déclenchés en fonction de la piste. Les types d’événements de piste sont :
-
-* LiveEventIncomingDataChunkDropped
-* LiveEventIncomingStreamReceived
-* LiveEventIncomingStreamsOutOfSync
-* LiveEventIncomingVideoStreamsOutOfSync
-* LiveEventIngestHeartbeat
-* LiveEventTrackDiscontinuityDetected
-
-## <a name="jobstatechange"></a>JobStateChange
+### <a name="jobstatechange"></a>JobStateChange
 
 L’exemple suivant montre le schéma d’un événement **JobStateChange** : 
 
@@ -89,7 +116,142 @@ L’objet de données comporte les propriétés suivantes :
 
 Où l’état du travail peut prendre l’une des valeurs suivantes : *En file d’attente*, *Planifié*, *Traitement*, *Terminé*, *Erreur*, *Annulé*, *Annulation en cours*
 
-## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
+### <a name="jobscheduled"></a>JobScheduled
+### <a name="jobprocessing"></a>JobProcessing
+### <a name="jobcanceling"></a>JobCanceling
+
+Pour chaque changement d’état de travail non final (par exemple, JobScheduled, JobProcessing, JobCanceling), l’exemple de schéma se présente comme suit :
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobProcessing",
+  "eventTime": "2018-10-12T16:12:18.0839935",
+  "id": "a0a6efc8-f647-4fc2-be73-861fa25ba2db",
+  "data": {
+    "previousState": "Scheduled",
+    "state": "Processing",
+    "correlationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="jobfinished"></a>JobFinished
+### <a name="jobcanceled"></a>JobCanceled
+### <a name="joberrored"></a>JobErrored
+
+Pour chaque changement d’état de travail final (par exemple, JobFinished, JobCanceled, JobErrored), l’exemple de schéma se présente comme suit :
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobFinished",
+  "eventTime": "2018-10-12T16:25:56.4115495",
+  "id": "9e07e83a-dd6e-466b-a62f-27521b216f2a",
+  "data": {
+    "outputs": [
+      {
+        "@odata.type": "#Microsoft.Media.JobOutputAsset",
+        "assetName": "output-7640689F",
+        "error": null,
+        "label": "VideoAnalyzerPreset_0",
+        "progress": 100,
+        "state": "Finished"
+      }
+    ],
+    "previousState": "Processing",
+    "state": "Finished",
+    "correlationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+L’objet de données comporte les propriétés suivantes :
+
+| Propriété | type | Description |
+| -------- | ---- | ----------- |
+| Outputs | Tableau | Obtient les sorties du travail.|
+
+### <a name="joboutputstatechange"></a>JobOutputStateChange
+
+L’exemple suivant montre le schéma de l’événement **JobOutputStateChange** :
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobOutputStateChange",
+  "eventTime": "2018-10-12T16:25:56.0242854",
+  "id": "dde85f46-b459-4775-b5c7-befe8e32cf90",
+  "data": {
+    "previousState": "Processing",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 100,
+      "state": "Finished"
+    },
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="joboutputscheduled"></a>JobOutputScheduled
+### <a name="joboutputprocessing"></a>JobOutputProcessing
+### <a name="joboutputfinished"></a>JobOutputFinished
+### <a name="joboutputcanceling"></a>JobOutputCanceling
+### <a name="joboutputcanceled"></a>JobOutputCanceled
+### <a name="joboutputerrored"></a>JobOutputErrored
+
+Pour chaque changement d’état de sortie du travail (JobOutput), l’exemple de schéma se présente comme suit :
+
+```json
+[{
+  "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+  "subject": "transforms/VideoAnalyzerTransform/jobs/<job-id>",
+  "eventType": "Microsoft.Media.JobOutputProcessing",
+  "eventTime": "2018-10-12T16:12:18.0061141",
+  "id": "f1fd5338-1b6c-4e31-83c9-cd7c88d2aedb",
+  "data": {
+    "previousState": "Scheduled",
+    "output": {
+      "@odata.type": "#Microsoft.Media.JobOutputAsset",
+      "assetName": "output-7640689F",
+      "error": null,
+      "label": "VideoAnalyzerPreset_0",
+      "progress": 0,
+      "state": "Processing"
+    },
+    "jobCorrelationData": {
+      "TestKey1": "TestValue1",
+      "testKey2": "testValue2"
+    }
+  },
+  "dataVersion": "1.0",
+  "metadataVersion": "1"
+}]
+```
+
+### <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
 L’exemple suivant montre le schéma d’un événement **LiveEventConnectionRejected** : 
 
@@ -115,7 +277,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventConnectionRe
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | StreamId | chaîne | Identificateur du flux de données ou de la connexion. L’encodeur ou le client est chargé d’ajouter cet ID dans l’URL d’ingestion. |  
 | IngestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |  
@@ -136,7 +298,7 @@ Les codes de résultat sont :
 | MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | Le débit binaire agrégé dépasse la limite maximale autorisée. |
 | MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | Le timestamp du FLVTag vidéo ou audio n’est pas valide à partir de l’encodeur RTMP. |
 
-## <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
+### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
 L’exemple suivant montre le schéma d’un événement **LiveEventEncoderConnected** : 
 
@@ -162,14 +324,14 @@ L’exemple suivant montre le schéma d’un événement **LiveEventEncoderConne
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | StreamId | chaîne | Identificateur du flux de données ou de la connexion. L’encodeur ou le client est chargé d’ajouter cet ID dans l’URL d’ingestion. |
 | IngestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |
 | EncoderIp | chaîne | Adresse IP de l’encodeur. |
 | EncoderPort | chaîne | Port de l’encodeur dont provient ce flux. |
 
-## <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
+### <a name="liveeventencoderdisconnected"></a>LiveEventEncoderDisconnected
 
 L’exemple suivant montre le schéma d’un événement **LiveEventEncoderDisconnected** : 
 
@@ -196,7 +358,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventEncoderDisco
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | StreamId | chaîne | Identificateur du flux de données ou de la connexion. L’encodeur ou le client est chargé d’ajouter cet ID dans l’URL d’ingestion. |  
 | IngestUrl | chaîne | URL d’ingestion fournie par l’événement en direct. |  
@@ -225,7 +387,7 @@ Les codes de résultat de déconnexion normale sont :
 | MPI_REST_API_CHANNEL_STOP | Canal en cours de maintenance. |
 | MPI_STREAM_HIT_EOF | Le flux EOF est envoyé par l’encodeur. |
 
-## <a name="liveeventincomingdatachunkdropped"></a>LiveEventIncomingDataChunkDropped
+### <a name="liveeventincomingdatachunkdropped"></a>LiveEventIncomingDataChunkDropped
 
 L’exemple suivant montre le schéma d’un événement **LiveEventIncomingDataChunkDropped** : 
 
@@ -252,7 +414,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIncomingData
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | TrackType | chaîne | Type de la piste (Audio/Vidéo). |
 | TrackName | chaîne | Nom de la piste. |
@@ -261,7 +423,7 @@ L’objet de données comporte les propriétés suivantes :
 | Échelle de temps | chaîne | Échelle de temps du timestamp. |
 | ResultCode | chaîne | Motif de suppression du bloc de données. **FragmentDrop_OverlapTimestamp** ou **FragmentDrop_NonIncreasingTimestamp**. |
 
-## <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
+### <a name="liveeventincomingstreamreceived"></a>LiveEventIncomingStreamReceived
 
 L’exemple suivant montre le schéma d’un événement **LiveEventIncomingStreamReceived** : 
 
@@ -292,7 +454,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIncomingStre
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | TrackType | chaîne | Type de la piste (Audio/Vidéo). |
 | TrackName | chaîne | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
@@ -303,7 +465,7 @@ L’objet de données comporte les propriétés suivantes :
 | Timestamp | chaîne | Premier timestamp du bloc de données reçu. |
 | Échelle de temps | chaîne | Échelle de temps dans laquelle le timestamp est représenté. |
 
-## <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
+### <a name="liveeventincomingstreamsoutofsync"></a>LiveEventIncomingStreamsOutOfSync
 
 L’exemple suivant montre le schéma d’un événement **LiveEventIncomingStreamsOutOfSync** : 
 
@@ -319,7 +481,9 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIncomingStre
       "minLastTimestamp": "319996",
       "typeOfStreamWithMinLastTimestamp": "Audio",
       "maxLastTimestamp": "366000",
-      "typeOfStreamWithMaxLastTimestamp": "Video"
+      "typeOfStreamWithMaxLastTimestamp": "Video",
+      "timescaleOfMinLastTimestamp": "10000000", 
+      "timescaleOfMaxLastTimestamp": "10000000"       
     },
     "dataVersion": "1.0",
     "metadataVersion": "1"
@@ -329,14 +493,16 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIncomingStre
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | MinLastTimestamp | chaîne | Minimum des derniers timestamps parmi toutes les pistes (audio ou vidéo). |
 | TypeOfTrackWithMinLastTimestamp | chaîne | Type de la piste (audio ou vidéo) avec dernier timestamp minimum. |
 | MaxLastTimestamp | chaîne | Maximum de tous les timestamps parmi toutes les pistes (audio ou vidéo). |
 | TypeOfTrackWithMaxLastTimestamp | chaîne | Type de la piste (audio ou vidéo) avec le dernier timestamp maximum. |
+| TimescaleOfMinLastTimestamp| chaîne | Obtient l’échelle de temps dans laquelle « MinLastTimestamp » est représenté.|
+| TimescaleOfMaxLastTimestamp| chaîne | Obtient l’échelle de temps dans laquelle « MaxLastTimestamp » est représenté.|
 
-## <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
+### <a name="liveeventincomingvideostreamsoutofsync"></a>LiveEventIncomingVideoStreamsOutOfSync
 
 L’exemple suivant montre le schéma d’un événement **LiveEventIncomingVideoStreamsOutOfSync** : 
 
@@ -352,7 +518,8 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIncomingVide
       "FirstTimestamp": "2162058216",
       "FirstDuration": "2000",
       "SecondTimestamp": "2162057216",
-      "SecondDuration": "2000"
+      "SecondDuration": "2000",
+      "timescale": "10000000"      
     },
     "dataVersion": "1.0"
   }
@@ -361,14 +528,15 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIncomingVide
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | FirstTimestamp | chaîne | Timestamp reçu pour l’une des pistes/l’un des niveaux de qualité de type vidéo. |
 | FirstDuration | chaîne | Durée du bloc de données avec le premier timestamp. |
 | SecondTimestamp | chaîne  | Timestamp reçu pour une autre piste/un autre niveau de qualité de type vidéo. |
 | SecondDuration | chaîne | Durée du bloc de données avec un deuxième timestamp. |
+| Échelle de temps | chaîne | Échelle de temps des timestamps et de la durée.|
 
-## <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
+### <a name="liveeventingestheartbeat"></a>LiveEventIngestHeartbeat
 
 L’exemple suivant montre le schéma d’un événement **LiveEventIngestHeartbeat** : 
 
@@ -402,7 +570,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventIngestHeartb
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | TrackType | chaîne | Type de la piste (Audio/Vidéo). |
 | TrackName | chaîne | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
@@ -417,7 +585,7 @@ L’objet de données comporte les propriétés suivantes :
 | État | chaîne | État de l’événement en direct. |
 | Healthy | bool | Indique si l’ingestion est intègre en fonction des nombres et des indicateurs. Healthy a la valeur true si OverlapCount = 0 && DiscontinuityCount = 0 && NonIncreasingCount = 0 && UnexpectedBitrate = false. |
 
-## <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
+### <a name="liveeventtrackdiscontinuitydetected"></a>LiveEventTrackDiscontinuityDetected
 
 L’exemple suivant montre le schéma d’un événement **LiveEventTrackDiscontinuityDetected** : 
 
@@ -446,7 +614,7 @@ L’exemple suivant montre le schéma d’un événement **LiveEventTrackDiscont
 
 L’objet de données comporte les propriétés suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | TrackType | chaîne | Type de la piste (Audio/Vidéo). |
 | TrackName | chaîne | Nom de la piste (fourni par l’encodeur ou, dans le cas du RTMP, généré par le serveur selon le format *TypePiste_DébitBinaire*). |
@@ -456,11 +624,11 @@ L’objet de données comporte les propriétés suivantes :
 | DiscontinuityGap | chaîne | Écart entre les deux timestamps ci-dessus. |
 | Échelle de temps | chaîne | Échelle de temps dans laquelle les écarts de timestamp et de discontinuité sont représentés. |
 
-## <a name="common-event-properties"></a>Propriétés d’événements courantes
+### <a name="common-event-properties"></a>Propriétés d’événements courantes
 
 Un événement contient les données générales suivantes :
 
-| Propriété | type | Description |
+| Propriété | Type | Description |
 | -------- | ---- | ----------- |
 | rubrique | chaîne | Rubrique EventGrid. Cette propriété comporte l’ID de ressource pour le compte Media Services. |
 | subject | chaîne | Chemin d’accès à la ressource pour le canal Media Services sous le compte Media Services. La concaténation de la rubrique et de l’objet indique l’ID de ressource pour le travail. |

@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 08/09/2018
-ms.openlocfilehash: ae7ac2726ccb97264b387eb9ae5476ae1946a783
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: dfa5929daffb27617d3d1047f044a5af037e42ff
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161979"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362235"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Synchroniser des données sur plusieurs bases de données cloud et locales avec SQL Data Sync
 
@@ -127,6 +127,8 @@ Le provisionnement et le déprovisionnement lors de la création, la mise à jou
 
 -   L’authentification Azure Active Directory n’est pas prise en charge.
 
+-   Les tables avec le même nom mais avec un schéma différent (par exemple dbo.customers et sales.customers) ne sont pas prises en charge.
+
 #### <a name="unsupported-data-types"></a>Types de données non pris en charge
 
 -   FileStream
@@ -150,7 +152,7 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 | **Dimensions**                                                      | **Limite**              | **Solution de contournement**              |
 |-----------------------------------------------------------------|------------------------|-----------------------------|
 | Nombre maximal de groupes de synchronisation auquel peut appartenir une base de données.       | 5.                      |                             |
-| Nombre maximal de points de terminaison dans un seul groupe de synchronisation              | 30                     | Créer plusieurs groupes de synchronisation |
+| Nombre maximal de points de terminaison dans un seul groupe de synchronisation              | 30                     |                             |
 | Nombre maximal de points de terminaison locaux dans un seul groupe de synchronisation. | 5.                      | Créer plusieurs groupes de synchronisation |
 | Noms de la base de données, de la table, du schéma et des colonnes                       | 50 caractères par nom |                             |
 | Tables dans un groupe de synchronisation                                          | 500                    | Créer plusieurs groupes de synchronisation |
@@ -158,6 +160,8 @@ Data Sync ne peut pas synchroniser des colonnes en lecture seule ou générées 
 | Taille de ligne de données sur une table                                        | 24 Mo                  |                             |
 | Intervalle de synchronisation minimale                                           | 5 minutes              |                             |
 |||
+> [!NOTE]
+> Il peut y avoir jusqu’à 30 points de terminaison dans un même groupe de synchronisation s’il n’existe qu’un seul groupe de synchronisation. S’il existe plus d’un groupe de synchronisation, le nombre total de points de terminaison dans tous les groupes de synchronisation ne peut pas dépasser 30. Si une base de données appartient à plusieurs groupes de synchronisation, elle est comptée comme plusieurs points de terminaison, et non pas un seul.
 
 ## <a name="faq-about-sql-data-sync"></a>FAQ sur SQL Data Sync
 

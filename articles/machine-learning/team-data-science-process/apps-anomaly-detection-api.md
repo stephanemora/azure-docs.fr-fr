@@ -4,7 +4,7 @@ description: L’API de détection des anomalies est un exemple d’API génér�
 services: machine-learning
 documentationcenter: ''
 author: alokkirpal
-manager: jhubbard
+manager: cgronlun
 editor: cgronlun
 ms.assetid: 52fafe1f-e93d-47df-a8ac-9a9a53b60824
 ms.service: machine-learning
@@ -15,15 +15,15 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/05/2017
 ms.author: alok
-ms.openlocfilehash: 9f1f3c2c808558124548008927219191469a412b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0b99aeb2ffdb78e472cdc0e11d0efaf91feb3e4a
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34836464"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394482"
 ---
 # <a name="machine-learning-anomaly-detection-api"></a>API de détection des anomalies Machine Learning
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 L’[API de détection des anomalies](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2) est un exemple d’API généré avec Microsoft Azure Machine Learning. Elle détecte des anomalies dans les données de séries chronologiques présentant des valeurs numériques qui sont réparties uniformément dans le temps.
 
 Cette API peut détecter les types suivants de schémas anormaux dans les données de séries chronologiques :
@@ -122,7 +122,7 @@ Le tableau ci-dessous contient des informations plus détaillées sur ces param�
 
 | Paramètres d’entrée | Description | Paramètre par défaut | type | Plage valide | Plage suggérée |
 | --- | --- | --- | --- | --- | --- |
-| detectors.historyWindow |Historique (en nombre de points de données) utilisé pour le calcul du résultat d’anomalies |500 |integer |10-2000 |Dépend des séries chronologiques |
+| detectors.historywindow |Historique (en nombre de points de données) utilisé pour le calcul du résultat d’anomalies |500 |integer |10-2000 |Dépend des séries chronologiques |
 | detectors.spikesdips | Détection des pics uniquement, des creux uniquement ou des deux |Les deux |enumerated |Les deux, pics, creux |Les deux |
 | bileveldetector.sensitivity |Sensibilité du détecteur de changements de niveau bidirectionnels. |3.25 |double |Aucune |3.25-5 (plus la valeur est basse, plus la sensibilité est importante) |
 | trenddetector.sensitivity |Sensibilité du détecteur de tendances positives |3.25 |double |Aucune |3.25-5 (plus la valeur est basse, plus la sensibilité est importante) |
@@ -161,7 +161,7 @@ Le tableau ci-dessous contient des informations plus détaillées sur ces param�
 | preprocess.aggregationInterval |Intervalle d’agrégation en secondes pour l’agrégation de séries chronologiques d’entrée |0 (aucune agrégation n’est effectuée) |integer |0 : ignorer l’agrégation, > 0 autrement |5 minutes à 1 jour, dépend des séries chronologiques |
 | preprocess.aggregationFunc |Fonction utilisée pour agréger les données dans l’intervalle d’agrégation spécifié |mean |enumerated |mean, sum, length |N/A |
 | preprocess.replaceMissing |Valeurs utilisées pour imputer les données manquantes |lkv (dernière valeur connue) |enumerated |zero, lkv, mean |N/A |
-| detectors.historyWindow |Historique (en nombre de points de données) utilisé pour le calcul du résultat d’anomalies |500 |integer |10-2000 |Dépend des séries chronologiques |
+| detectors.historywindow |Historique (en nombre de points de données) utilisé pour le calcul du résultat d’anomalies |500 |integer |10-2000 |Dépend des séries chronologiques |
 | detectors.spikesdips | Détection des pics uniquement, des creux uniquement ou des deux |Les deux |enumerated |Les deux, pics, creux |Les deux |
 | bileveldetector.sensitivity |Sensibilité du détecteur de changements de niveau bidirectionnels. |3.25 |double |Aucune |3.25-5 (plus la valeur est basse, plus la sensibilité est importante) |
 | postrenddetector.sensitivity |Sensibilité du détecteur de tendances positives |3.25 |double |Aucune |3.25-5 (plus la valeur est basse, plus la sensibilité est importante) |

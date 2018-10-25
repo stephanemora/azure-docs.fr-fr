@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9fdf332727c4d66af2d5394fb26e84f6ea9d963f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f5bd679c11139b7ac439247df81a7adb0b02b0fe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440763"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426326"
 ---
 # <a name="supplemental-lesson---ragged-hierarchies"></a>Leçon supplémentaire – Hiérarchies déséquilibrées
 
@@ -44,11 +44,11 @@ Si vous avez créé le projet de ventes sur Internet AW dans le cadre du didacti
 
     | Table 1           | Colonne       | Direction du filtre   | Table 2     | Colonne      | Actif |
     |-------------------|--------------|--------------------|-------------|-------------|--------|
-    | FactResellerSales | OrderDateKey | Default            | DimDate     | Date        | OUI    |
+    | FactResellerSales | OrderDateKey | Default            | DimDate     | Date        | Oui    |
     | FactResellerSales | DueDate      | Par défaut            | DimDate     | Date        | Non      |
     | FactResellerSales | ShipDateKey  | Default            | DimDate     | Date        | Non      |
-    | FactResellerSales | ProductKey   | Default            | DimProduct  | ProductKey  | OUI    |
-    | FactResellerSales | EmployeeKey  | Vers les deux tables | DimEmployee | EmployeeKey | OUI    |
+    | FactResellerSales | ProductKey   | Default            | DimProduct  | ProductKey  | Oui    |
+    | FactResellerSales | EmployeeKey  | Vers les deux tables | DimEmployee | EmployeeKey | Oui    |
 
 5. Dans la table **DimEmployee**, créez les [colonnes calculées](../tutorials/aas-lesson-5-create-calculated-columns.md) suivantes : 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: eugenesh
 robot: noindex
-ms.openlocfilehash: 8206c076f9e89753adb16854a7d981c0f80c4a3a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 769ad6dcb02efb7b2a602f387b6d223456cab45b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640334"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395256"
 ---
 # <a name="connecting-cosmos-db-with-azure-search-using-indexers"></a>Connexion de Cosmos DB à Recherche Azure à l’aide d’indexeurs
 
@@ -97,7 +97,8 @@ Le corps de la requête contient la définition de la source de données, qui do
 * **type** : doit être `documentdb`.
 * **credentials**:
   
-  * **connectionString**: obligatoire. Spécifiez les informations de connexion à votre base de données Azure Cosmos DB selon le format suivant : `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Pour les collections MongoDB, ajoutez **ApiKind=MongoDb** à la chaîne de connexion : `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb` 
+  * **connectionString**: obligatoire. Spécifiez les informations de connexion à votre base de données Azure Cosmos DB selon le format suivant : `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>` Pour les collections MongoDB, ajoutez **ApiKind=MongoDb** à la chaîne de connexion : `AccountEndpoint=<Cosmos DB endpoint url>;AccountKey=<Cosmos DB auth key>;Database=<Cosmos DB database id>;ApiKind=MongoDb`
+  Évitez les numéros de port dans l’URL du point de terminaison. Si vous incluez le numéro de port, Recherche Azure ne peut pas indexer votre base de données Azure Cosmos DB.
 * **container**:
   
   * **name**: obligatoire. Spécifiez l’ID de la collection de bases de données à indexer.
@@ -321,7 +322,7 @@ L'exemple suivant crée une source de données avec des conseils pour une strat�
     }
 
 ## <a name="NextSteps"></a>Étapes suivantes
-Félicitations ! Vous avez appris à intégrer Azure Cosmos DB avec Recherche Azure à l’aide d’un indexeur.
+Félicitations ! Vous avez appris à intégrer Azure Cosmos DB avec Recherche Azure à l’aide d’un indexeur.
 
 * Pour en savoir plus sur Azure Cosmos DB, consultez la [page du service Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 * Pour en savoir plus sur la Recherche Azure, consultez la [page du service Recherche](https://azure.microsoft.com/services/search/).

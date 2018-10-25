@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: 25db7d1f0a546cb5c6071ec4d625a7a52867053a
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: f6f1ceb4f9afaaeb0a436879802144bdebc06280
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433921"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378650"
 ---
 # <a name="support-matrix-for-vmware-and-physical-server-replication-to-azure"></a>Matrice de support pour la réplication des machines virtuelles VMware et des serveurs physiques vers Azure
 
@@ -64,7 +64,7 @@ Site Recovery assure la réplication de toutes les charges de travail exécutée
 --- | ---
 Paramètres de la machine | Les ordinateurs qui répliquent vers Azure doivent répondre aux [conditions requises par Azure](#azure-vm-requirements).
 Système d’exploitation Windows | Windows Server 2016 64 bits (Server Core, Server avec Expérience utilisateur), Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 avec au moins SP1. </br></br>  [Windows Server 2008 avec au moins SP2 - 32 bits et 64 bits](migrate-tutorial-windows-server-2008.md) (migration uniquement). </br></br> Windows 2016 Nano Server n’est pas pris en charge.
-Système d’exploitation Linux | Red Hat Enterprise Linux : 5.2 à 5.11<b>\*\*</b>, 6.1 à 6.10<b>\*\*</b>, 7.0 à 7.5 <br/><br/>CentOS : 5.2 à 5.11<b>\*\*</b>, 6.1 à 6.10<b>\*\*</b>, 7.0 à 7.5 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versions du noyau prises en charge)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versions du noyau prises en charge)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Enterprise Linux 6.4, 6.5, 6.6, 6.7 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/></br>* *La mise à niveau de machines répliquées de SUSE Linux Enterprise Server 11 SP3 vers SP4 n’est pas pris en charge. Pour effectuer la mise à niveau, désactivez la réplication, puis réactiver-la après la mise à niveau.*</br></br><b>\*\*</b> *Reportez-vous à [Prise en charge des machines virtuelles Linux dans Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) pour en savoir plus sur la prise en charge de Linux et de la technologie open source dans Azure. Azure Site Recovery vous permet de basculer et d’exécuter les serveurs Linux dans Azure. Toutefois, les fournisseurs Linux peuvent se limiter à la prise en charge des versions de leur distribution qui ne sont pas arrivées en fin de vie.*
+Système d’exploitation Linux | Red Hat Enterprise Linux : 5.2 à 5.11<b>\*\*</b>, 6.1 à 6.10<b>\*\*</b>, 7.0 à 7.5 <br/><br/>CentOS : 5.2 à 5.11<b>\*\*</b>, 6.1 à 6.10<b>\*\*</b>, 7.0 à 7.5 <br/><br/>Serveur LTS Ubuntu 14.04[ (versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Serveur LTS Ubuntu 16.04 [ (versions du noyau prises en charge)](#ubuntu-kernel-versions)<br/><br/>Debian 7/Debian 8[ (versions du noyau prises en charge)](#debian-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versions du noyau prises en charge)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/><br/>SUSE Linux Enterprise Server 11 SP3<b>\*\*</b>, SUSE Linux Enterprise Server 11 SP4 * </br></br>Oracle Linux 6.4, 6.5, 6.6, 6.7 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/></br>* *La mise à niveau de machines répliquées de SUSE Linux Enterprise Server 11 SP3 vers SP4 n’est pas pris en charge. Pour effectuer la mise à niveau, désactivez la réplication, puis réactiver-la après la mise à niveau.*</br></br><b>\*\*</b> *Reportez-vous à [Prise en charge des machines virtuelles Linux dans Azure](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) pour en savoir plus sur la prise en charge de Linux et de la technologie open source dans Azure. Azure Site Recovery vous permet de basculer et d’exécuter les serveurs Linux dans Azure. Toutefois, les fournisseurs Linux peuvent se limiter à la prise en charge des versions de leur distribution qui ne sont pas arrivées en fin de vie.*
 
 
 >[!NOTE]
@@ -159,7 +159,7 @@ Adresses IP réservées | OUI
 IPv4 | OUI
 Conserver l’adresse IP source | OUI
 Points de terminaison du service Réseau virtuel Azure<br/> (sans pare-feu de stockage Azure) | OUI
-Accélération réseau | Non 
+Mise en réseau accélérée | Non 
 
 ## <a name="storage"></a>Stockage
 **Composant** | **Pris en charge**
@@ -246,7 +246,7 @@ Déplacer le stockage, les réseaux, les machines virtuelles Azure entre des gro
 
 ## <a name="download-latest-azure-site-recovery-components"></a>Téléchargez les derniers composants Azure Site Recovery
 
-**Name** | **Description** | **Instructions de téléchargement de la version la plus récente**
+**Nom** | **Description** | **Instructions de téléchargement de la version la plus récente**
 --- | --- | --- | --- | ---
 Serveur de configuration | Coordonne les communications entre les serveurs VMware locaux et Azure  <br/><br/> Installé sur des serveurs VMware locaux | Pour une nouvelle installation, cliquez [ici](vmware-azure-deploy-configuration-server.md). Pour mettre à niveau un composant existant vers la version la plus récente, cliquez [ici](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 Serveur de traitement|Installé par défaut sur le serveur de configuration. Il reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement, et les envoie vers le stockage Azure. À mesure que s’étend votre déploiement, vous pouvez ajouter des serveurs de traitement distincts afin de gérer de plus grands volumes de trafic de réplication.| Pour une nouvelle installation, cliquez [ici](vmware-azure-set-up-process-server-scale.md). Pour mettre à niveau un composant existant vers la version la plus récente, cliquez [ici](vmware-azure-manage-process-server.md#upgrade-a-process-server).

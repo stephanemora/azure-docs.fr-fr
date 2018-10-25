@@ -1,4 +1,26 @@
-
+---
+title: Fichier Include
+description: Fichier Include
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 8c7f11d74d0a0b81f9f0c40871b2eaa3eb25f51f
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988235"
+---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>Appeler l’API Microsoft Graph à partir d’une application iOS
 
 Ce guide vous explique comment une application iOS native (Swift) peut appeler les API qui requièrent des jetons d’accès provenant du point de terminaison Microsoft Azure Active Directory (Azure AD) v2.0. Le guide explique comment obtenir des jetons d’accès et les utiliser pour appeler l’API Microsoft Graph ainsi que d’autres API.
@@ -6,7 +28,8 @@ Ce guide vous explique comment une application iOS native (Swift) peut appeler l
 Lorsque vous aurez effectué les exercices de ce guide, votre application pourra appeler l’API protégée d’une entreprise ou d’une organisation qui dispose d’Azure AD. Votre application peut appeler des API protégées à l’aide de comptes personnels comme outlook.com, live.com et autres, et de comptes professionnels ou scolaires.
 
 ## <a name="prerequisites"></a>Prérequis
-- XCode version 8.x est requis pour l’exemple à créer dans ce guide. Vous pouvez télécharger XCode sur le [site web d’iTunes ](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
+
+- XCode version 10.x est requis pour l’exemple à créer dans ce guide. Vous pouvez télécharger XCode sur le [site web d’iTunes ](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode Download URL").
 - Vous aurez besoin du gestionnaire de dépendances [Carthage](https://github.com/Carthage/Carthage) pour la gestion des packages.
 
 ## <a name="how-this-guide-works"></a>Fonctionnement de ce guide
@@ -14,7 +37,6 @@ Lorsque vous aurez effectué les exercices de ce guide, votre application pourra
 ![Fonctionnement de ce guide](media/active-directory-develop-guidedsetup-ios-introduction/iosintro.png)
 
 L’exemple d’application créé dans le cadre de ce guide permet à une application iOS d’interroger l’API Microsoft Graph ou une API web qui accepte les jetons provenant d’un point de terminaison Azure AD v2.0. Pour ce scénario, un jeton est ajouté aux requêtes HTTP via l’en-tête d’**autorisation**. L’acquisition et le renouvellement de jetons sont gérés par la bibliothèque d’authentification Microsoft (MSAL).
-
 
 ### <a name="handle-token-acquisition-for-access-to-protected-web-apis"></a>Gérer l’acquisition de jetons pour accéder à des API web protégées
 
@@ -24,7 +46,6 @@ Avec les API comme Microsoft Graph, vous avez besoin d’un jeton d’accès pou
 
 MSAL gère la mise en cache et l’actualisation des jetons d’accès pour vous, ce qui évite à votre application d’avoir à le faire.
 
-
 ## <a name="libraries"></a>Bibliothèques
 
 Ce guide utilise la bibliothèque suivante :
@@ -32,4 +53,3 @@ Ce guide utilise la bibliothèque suivante :
 |Bibliothèque|Description|
 |---|---|
 |[MSAL.framework](https://github.com/AzureAD/microsoft-authentication-library-for-objc)|Préversion de la bibliothèque d’authentification Microsoft pour iOS|
-

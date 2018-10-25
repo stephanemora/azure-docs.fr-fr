@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: ba39ba2d4206fa86ed32bddf0538a2e997a79339
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 16b5aed4d034d989bf34b92975b2a743b82903b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220565"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954333"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gérer Key Vault à l’aide de l’interface de ligne de commande Azure 
 
@@ -199,7 +199,7 @@ Les applications qui utilisent un coffre de clés doivent s’authentifier à l�
 
 L’application doit présenter ces deux valeurs à Azure Active Directory afin d’obtenir un jeton. La configuration d’une application pour obtenir un jeton dépend de l’application. Pour [l’exemple d’application Key Vault](https://www.microsoft.com/download/details.aspx?id=45343), le propriétaire de l’application définit ces valeurs dans le fichier app.config.
 
-Pour obtenir des instructions détaillées sur l’inscription d’une application auprès d’Azure Active Directory, consultez les articles [Intégration d’applications dans Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](../azure-resource-manager/resource-group-create-service-principal-portal.md) et [Créez un principal du service avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
+Pour obtenir des instructions détaillées sur l’inscription d’une application auprès d’Azure Active Directory, consultez les articles [Intégration d’applications dans Azure Active Directory](../active-directory/develop/active-directory-integrating-applications.md), [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](../active-directory/develop/howto-create-service-principal-portal.md) et [Créez un principal du service avec Azure CLI](/cli/azure/create-an-azure-service-principal-azure-cli).
 
 Pour inscrire une application à Azure Active Directory :
 

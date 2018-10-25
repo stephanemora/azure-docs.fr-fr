@@ -1,25 +1,26 @@
 ---
-title: Utilisation de la bibliothèque Java de l’exécuteur en bloc pour effectuer des opérations en bloc dans Azure Cosmos DB | Microsoft Docs
-description: Utiliser la bibliothèque Java de l’exécuteur en bloc d’Azure Cosmos DB pour importer en bloc et mettre à jour des documents vers des conteneurs Azure Cosmos DB.
-keywords: Exécuteur en bloc Java
+title: Utilisation de la bibliothèque Java de l’exécuteur en bloc pour effectuer des importations et mises à jour en bloc dans Azure Cosmos DB | Microsoft Docs
+description: Découvrez comment importer et mettre à jour en bloc des documents dans Azure Cosmos DB à l’aide de la bibliothèque Java de l’exécuteur en bloc.
 services: cosmos-db
 author: tknandu
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 05/07/2018
+ms.date: 10/16/2018
 ms.author: ramkris
-ms.openlocfilehash: 9285b0ea50b7207aa40cea2dcab50f79863ffda9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a22cd65ef5d4ef22038a8506359d1036e829db4d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050185"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362107"
 ---
 # <a name="use-bulk-executor-java-library-to-perform-bulk-operations-on-azure-cosmos-db-data"></a>Utiliser la bibliothèque Java de l’exécuteur en bloc pour effectuer des opérations en bloc sur les données Azure Cosmos DB
 
 Ce tutoriel fournit des instructions sur l’utilisation de la bibliothèque Java BulkExecutor d’Azure Cosmos DB pour importer et mettre à jour des documents Azure Cosmos DB. Pour en savoir plus sur la bibliothèque de l’exécuteur en bloc et sur la façon dont elle vous aide à profiter d’un débit et d’un stockage conséquents, consultez l’article [Vue d’ensemble de la bibliothèque BulkExecutor](bulk-executor-overview.md). Dans ce tutoriel, vous allez créer une application Java qui génère des documents aléatoires qui sont ensuite importés en bloc dans une collection Azure Cosmos DB. Après l’importation, vous mettrez à jour en bloc certaines propriétés d’un document. 
+
+Actuellement, la bibliothèque de l’exécuteur en bloc est prise en charge uniquement par les comptes d’API Gremlin et d’API SQL Azure Cosmos DB. Cet article décrit comment utiliser la bibliothèque .Net de l’exécuteur en bloc avec des comptes d’API SQL. Pour en savoir plus sur l’utilisation de la bibliothèque .NET de l’exécuteur en bloc avec l’API Gremlin, consultez [Effectuer des opérations en bloc dans l’API Gremlin Azure Cosmos DB](bulk-executor-graph-dotnet.md).
 
 ## <a name="prerequisites"></a>Prérequis
 

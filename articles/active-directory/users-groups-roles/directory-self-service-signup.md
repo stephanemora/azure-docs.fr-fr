@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 01/28/2018
+ms.date: 10/16/2018
 ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 99c5e99fa3bd33ef42e8df6ceba5be4be2cd1249
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 30b86d7938279133c303ad4eae840f520a4900e6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37870561"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394678"
 ---
 # <a name="what-is-self-service-signup-for-azure-active-directory"></a>Présentation de l’inscription en libre-service pour Azure Active Directory
 Cet article explique l’inscription en libre-service et comment la prendre en charge dans Azure Active Directory (Azure AD). Si vous souhaitez prendre le contrôle d’un nom de domaine d’un locataire Azure AD non géré, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur](domains-admin-takeover.md).
@@ -38,38 +38,45 @@ Cet article explique l’inscription en libre-service et comment la prendre en c
 ## <a name="how-do-i-control-self-service-settings"></a>Comment vérifier les paramètres libre-service ?
 Les administrateurs peuvent désormais effectuer deux vérifications libre-service. Ils peuvent contrôler si :
 
-* Les utilisateurs peuvent rejoindre le répertoire par e-mail.
-* Les utilisateurs peuvent s’abonner eux-mêmes aux applications et services.
+* Les utilisateurs peuvent rejoindre l’annuaire par e-mail
+* Les utilisateurs peuvent s’abonner eux-mêmes aux applications et services
 
 ### <a name="how-can-i-control-these-capabilities"></a>Comment puis-je vérifier ces fonctionnalités ?
 Un administrateur peut configurer ces fonctionnalités à l’aide des paramètres Set-MsolCompanySettings d’applet de commande Azure AD suivants :
 
-* **AllowEmailVerifiedUsers** vérifie si un utilisateur peut créer ou rejoindre un répertoire non géré. Si vous définissez ce paramètre sur $false, aucun utilisateur vérifié par e-mail ne peut rejoindre le répertoire.
-* **AllowAdHocSubscriptions** contrôle la capacité des utilisateurs à effectuer une inscription en libre-service. Si vous définissez ce paramètre sur $false, aucun utilisateur ne peut effectuer une inscription libre-service. 
+* **AllowEmailVerifiedUsers** vérifie si un utilisateur peut créer ou rejoindre un annuaire. Si vous définissez ce paramètre sur $false, aucun utilisateur vérifié par e-mail ne peut rejoindre l’annuaire.
+* **AllowAdHocSubscriptions** contrôle la capacité des utilisateurs à effectuer une inscription en libre-service. Si vous définissez ce paramètre sur $false, aucun utilisateur ne peut effectuer une inscription libre-service.
   
-  > [!NOTE]
-  > Les inscriptions à la version d’évaluation de Flow et de PowerApps ne sont pas contrôlées par le paramètre **AllowAdHocSubscriptions**. Pour plus d’informations, consultez les articles suivants :
-  > * [Comment faire pour empêcher les utilisateurs existants de commencer à utiliser Power BI ?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-  > * [Questions et réponses sur Flow dans l’organisation](https://docs.microsoft.com/flow/organization-q-and-a)
+AllowEmailVerifiedUsers et AllowAdHocSubscriptions sont des paramètres de niveau annuaire qui peuvent être appliqués à un annuaire géré ou non géré. Voici un exemple où :
+
+* Vous administrez un annuaire avec un domaine vérifié, par exemple, contoso.com
+* Vous utilisez la collaboration B2B à partir d’un autre annuaire pour inviter un utilisateur qui n’existe pas encore (userdoesnotexist@contoso.com) dans l’annuaire local de constoso.com
+* AllowEmailVerifiedUsers est activé pour l’annuaire local
+
+Si les conditions précédentes sont remplies, un utilisateur membre est créé dans l’annuaire local, tandis qu’un utilisateur invité B2B est créé dans l’annuaire à l’origine de l’invitation.
+
+Les inscriptions à la version d’évaluation de Flow et de PowerApps ne sont pas contrôlées par le paramètre **AllowAdHocSubscriptions**. Pour plus d’informations, consultez les articles suivants :
+
+* [Comment faire pour empêcher les utilisateurs existants de commencer à utiliser Power BI ?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
+* [Questions et réponses sur Flow dans l’organisation](https://docs.microsoft.com/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Comment les vérifications parviennent-elles à fonctionner ensemble ?
 Ces deux paramètres peuvent être utilisés conjointement pour définir un contrôle plus précis de l’inscription en libre-service. Par exemple, la commande suivante permettra aux utilisateurs d’effectuer une inscription en libre-service, mais uniquement si ces utilisateurs possèdent déjà un compte dans Azure AD (en d’autres termes, les utilisateurs qui ont besoin qu’un compte vérifié par e-mail soit d’abord créé ne peuvent pas effectuer d’inscription en libre-service) :
 
-````
+````powershell
     Set-MsolCompanySettings -AllowEmailVerifiedUsers $false -AllowAdHocSubscriptions $true
 ````
+
 L‘organigramme suivant décrit les différentes combinaisons de paramètres et les conditions qui en résultent pour le répertoire et l’inscription en libre-service.
 
-![][1]
+![Contrôles de l’inscription en libre-service](./media/directory-self-service-signup/SelfServiceSignUpControls.png)
 
 Pour en savoir plus et obtenir des exemples d'utilisation de ces paramètres, consultez [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * [Ajouter un nom de domaine personnalisé à Azure AD](../fundamentals/add-custom-domain.md)
 * [Installation et configuration d’Azure PowerShell](/powershell/azure/overview)
 * [Azure PowerShell](/powershell/azure/overview)
-* [Guide de référence des cmdlets Azure](/powershell/azure/get-started-azureps)
+* [Guide de référence des applets de commande Azure](/powershell/azure/get-started-azureps)
 * [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
-
-<!--Image references-->
-[1]: ./media/directory-self-service-signup/SelfServiceSignUpControls.png

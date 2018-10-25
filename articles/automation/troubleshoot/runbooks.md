@@ -4,16 +4,16 @@ description: Découvrez comment résoudre les problèmes avec les runbooks Azure
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 07/13/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b02f1b04756f1e3f01426e58c5f8c625cb746f05
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b8c6b82af1a71f5e2df7dd555c7ceb91b8ccd292
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163900"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394542"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -38,8 +38,8 @@ Cette erreur se produit si le nom de la ressource d’informations d’identific
 
 Pour identifier le problème, effectuez les étapes suivantes :  
 
-1. Assurez-vous qu’il n’existe aucun caractère spécial, notamment le caractère **@** , dans le nom de la ressource d’informations d’identification Automation que vous utilisez pour vous connecter à Azure.  
-2. Vérifiez que vous pouvez utiliser le nom d’utilisateur et le mot de passe stockés dans les informations d’identification Azure Automation dans votre éditeur PowerShell ISE local. Vous pouvez le faire en exécutant les applets de commande suivantes dans PowerShell ISE :  
+1. Assurez-vous qu’il n’existe aucun caractère spécial, notamment le caractère **@**, dans le nom de la ressource d’informations d’identification Automation que vous utilisez pour vous connecter à Azure.  
+2. Vérifiez que vous pouvez utiliser le nom d’utilisateur et le mot de passe stockés dans les informations d’identification Azure Automation dans votre éditeur PowerShell ISE local. Vous pouvez vérifier si le nom d’utilisateur et le mot de passe sont corrects en exécutant les applets de commande suivantes dans PowerShell ISE :  
 
    ```powershell
    $Cred = Get-Credential  
@@ -51,7 +51,7 @@ Pour identifier le problème, effectuez les étapes suivantes :
 
 3. Si l’authentification échoue localement, cela signifie que vous n’avez pas correctement configuré vos informations d’identification Azure Active Directory. Reportez-vous au billet de blog [Authenticating to Azure using Azure Active Directory (Authentification auprès d’Azure à l’aide d’Azure Active Directory)](https://azure.microsoft.com/blog/azure-automation-authenticating-to-azure-using-azure-active-directory/) pour configurer correctement le compte Azure Active Directory.  
 
-4. Si cette erreur semble temporaire, essayez d’ajouter la logique de nouvelle tentative à votre routine d’authentification pour renforcer l’authentification.
+4. Si cette erreur semble temporaire (transient), essayez d’ajouter la logique de nouvelle tentative à votre routine d’authentification pour renforcer l’authentification.
 
    ```powershell
    # Get the connection "AzureRunAsConnection"
@@ -91,10 +91,10 @@ Cette erreur se produit si le nom de l’abonnement n’est pas valide ou si l�
 
 #### <a name="resolution"></a>Résolution :
 
-Pour déterminer si vous vous êtes correctement authentifié auprès d’Azure et si vous avez accès à l’abonnement que vous essayez de sélectionner, effectuez les étapes suivantes :  
+Pour déterminer si vous vous êtes correctement authentifié auprès d’Azure et si vous avez accès à l’abonnement que vous voulez sélectionner, effectuez les étapes suivantes :  
 
-1. Assurez-vous d’exécuter la cmdlet **Add-AzureAccount** avant d’exécuter la cmdlet **Select-AzureSubscription**.  
-2. Si ce message d’erreur persiste, modifiez votre code en ajoutant le paramètre **-AzureRmContext** après la cmdlet **Add-AzureAccount**, puis exécutez le code.
+1. Assurez-vous d’exécuter l’applet de commande **Add-AzureAccount** avant d’exécuter l’applet de commande **Select-AzureSubscription**.  
+2. Si ce message d’erreur persiste, modifiez votre code en ajoutant le paramètre **-AzureRmContext** après l’applet de commande **Add-AzureAccount**, puis exécutez le code.
 
    ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -205,7 +205,7 @@ Cette erreur peut être résolue en effectuant une des tâches suivantes :
 
 Si le module est un module Azure, consultez [Guide de mise à jour des modules Azure PowerShell dans Azure Automation](../automation-update-azure-modules.md) pour découvrir comment mettre à jour vos modules dans votre compte Automation.
 
-S’il s’agit d’un module distinct, vérifiez que le module est importé dans votre compte Automation.
+S’il s’agit d’un module distinct, assurez-vous que le module est importé dans votre compte Automation.
 
 ### <a name="job-attempted-3-times"></a>Scénario : Le travail du runbook a tenté de démarrer à trois reprises, mais n’a pas pu démarrer
 
@@ -221,11 +221,11 @@ The job was tried three times but it failed
 
 Cette erreur peut être due aux raisons suivantes :
 
-1. Limite de mémoire. Il existe des limites documentées sur la quantité de mémoire allouée à un bac à sable que le [service Automation limite](../../azure-subscription-service-limits.md#automation-limits), de façon à ce qu’un travail puisse échouer s’il utilise plus de 400 Mo de mémoire.
+1. Limite de mémoire. Il existe des [limites du service Automation](../../azure-subscription-service-limits.md#automation-limits) documentées sur la quantité de mémoire allouée à un bac à sable. Un travail peut donc échouer s’il utilise plus de 400 Mo de mémoire.
 
 1. Sockets réseau. Les bacs à sable Azure sont limités à 1 000 sockets réseau simultanés, comme décrit dans [Limites du service Automation](../../azure-subscription-service-limits.md#automation-limits).
 
-1. Module incompatible. Cela peut se produire si les dépendances de module ne sont pas correctes. Dans ce cas, votre runbook renvoie généralement un message « Commande introuvable » ou « Impossible de lier le paramètre ».
+1. Module incompatible. Cette erreur peut se produire si les dépendances de module ne sont pas correctes. Dans ce cas, votre runbook retourne généralement un message « Commande introuvable » ou « Impossible de lier le paramètre ».
 
 #### <a name="resolution"></a>Résolution :
 
@@ -251,13 +251,13 @@ Cannot convert the <ParameterType> value of type Deserialized <ParameterType> to
 
 #### <a name="cause"></a>Cause :
 
-Si votre runbook est un flux de travail PowerShell, il stocke des objets complexes au format désérialisé afin de conserver l’état du runbook si le flux de travail est suspendu.
+Si votre runbook est un workflow PowerShell, il stocke les objets complexes dans un format désérialisé afin de conserver l’état du runbook si le workflow est suspendu.
 
 #### <a name="resolution"></a>Résolution :
 
 Chacune des trois solutions suivantes résout ce problème :
 
-1. Si vous transférez des objets complexes d’une applet de commande vers une autre, encapsulez ces applets de commande dans un bloc InlineScript.
+1. Si vous redirigez des objets complexes d’une applet de commande vers une autre, wrappez ces deux applets de commande dans un bloc InlineScript.
 2. Transmettez le nom ou la valeur dont vous avez besoin depuis l’objet complexe au lieu de transmettre la totalité de l’objet.
 3. Utilisez un runbook PowerShell au lieu d’un runbook Workflow PowerShell.
 
@@ -296,44 +296,46 @@ Le travail de votre runbook échoue avec l’erreur :
 
 #### <a name="cause"></a>Cause :
 
-Cette erreur survient quand le moteur PowerShell ne trouve pas l’applet de commande que vous utilisez dans votre runbook. Cela peut être dû au fait que le module contenant l’applet de commande n’est pas présent dans le compte, qu’il existe un conflit de nom avec un nom de runbook ou que l’applet de commande existe dans un autre module et Automation ne peut pas résoudre le nom.
+Cette erreur survient quand le moteur PowerShell ne trouve pas la cmdlet que vous utilisez dans votre runbook. Cela peut être dû au fait que le module contenant la cmdlet n’est pas présent dans le compte, qu’il existe un conflit de nom avec un nom de runbook ou que la cmdlet existe déjà dans un autre module et Automation ne peut pas résoudre le nom.
 
 #### <a name="resolution"></a>Résolution :
 
 Une des solutions suivantes corrige ce problème :  
 
-* Vérifiez que vous avez correctement saisi le nom de l’applet de commande.  
-* Assurez-vous que l’applet de commande existe dans votre compte Automation et qu’il n’y a aucun conflit. Pour vérifier si l’applet de commande est présente, ouvrez un runbook en mode édition et recherchez l’applet de commande dans la bibliothèque ou exécutez `Get-Command <CommandName>`. Une fois que vous avez vérifié que l’applet de commande est disponible pour le compte, et qu’il n’existe aucun conflit de nom avec d’autres applets de commande ou runbooks, ajoutez-la à la zone de dessin et assurez-vous que vous utilisez un paramètre valide défini dans votre runbook.  
+* Vérifiez que vous avez correctement entré le nom de la cmdlet.  
+* Assurez-vous que l’applet de commande existe dans votre compte Automation et qu’il n’y a aucun conflit. Pour vérifier si l’applet de commande est présente, ouvrez un runbook en mode édition et recherchez l’applet de commande dans la bibliothèque ou exécutez `Get-Command <CommandName>`. Une fois que vous avez vérifié que l’applet de commande est disponible pour le compte, et qu’il n’existe aucun conflit de nom avec d’autres applets de commande ou runbooks, ajoutez l’applet de commande dans le canevas et veillez à utiliser un paramètre valide défini dans votre runbook.  
 * Si vous rencontrez un conflit de noms et si l’applet de commande est disponible dans deux modules différents, vous pouvez résoudre ce problème en utilisant le nom qualifié complet de l’applet de commande. Vous pouvez par exemple utiliser **Nom_module\Nom_applet_de_commande**.  
-* Si vous exécutez le runbook localement dans un groupe de Workers hybride, assurez-vous que le module/applet de commande est installé sur l'ordinateur qui héberge le Worker hybride.
-
-### <a name="evicted-from-checkpoint"></a>Scénario : Un runbook de longue durée échoue systématiquement avec l’exception : « La tâche ne peut pas continuer, car elle a été exclue à plusieurs reprises du même point de contrôle »
-
-#### <a name="issue"></a>Problème
-
-Il s’agit du comportement par défaut dû à la surveillance de la répartition de charge équilibrée des processus au sein d’Azure Automation, qui suspend automatiquement un runbook s’il s’exécute pendant plus de 3 heures. Toutefois, le message d’erreur ne fournit pas d’options pour la suite des événements.
-
-#### <a name="cause"></a>Cause :
-
-Un runbook peut être interrompu pour plusieurs raisons. Les suspensions sont généralement dues à des erreurs. Par exemple, une exception non interceptée dans un runbook, une panne réseau ou une panne sur le Runbook Worker qui exécute le runbook entraîne la suspension de ce dernier et son démarrage à partir de son dernier point de contrôle au moment de la reprise.
-
-#### <a name="resolution"></a>Résolution :
-
-La solution documentée pour éviter ce problème consiste à utiliser des points de contrôle dans un flux de travail. Pour plus d’informations, consultez [Découverte des flux de travail PowerShell](../automation-powershell-workflow.md#checkpoints). Vous trouverez une explication plus détaillée de la distribution de charge équilibrée dans le billet de blog [Using Checkpoints in Runbooks](https://azure.microsoft.com/blog/azure-automation-reliable-fault-tolerant-runbook-execution-using-checkpoints/) (Utilisation de points de contrôle dans des runbooks).
+* Si vous exécutez le runbook localement dans un groupe de Workers hybrides, assurez-vous que le module/l’applet de commande est installé sur la machine qui héberge le worker hybride.
 
 ### <a name="long-running-runbook"></a>Scénario : échec de l’exécution d’un long runbook
 
 #### <a name="issue"></a>Problème
 
-Il s’agit du comportement par défaut dans les bacs à sable Azure dû à la surveillance de la répartition de charge équilibrée des processus au sein d’Azure Automation, qui suspend automatiquement un runbook s’il s’exécute pendant plus de 3 heures.
+Votre runbook affiche l’état **Stopped** (Arrêté) au bout de trois heures d’exécution. Vous pouvez également recevoir l’erreur :
+
+```
+The job was evicted and subsequently reached a Stopped state. The job cannot continue running
+```
+
+Il s’agit du comportement par défaut dans les bacs à sable Azure en raison de la supervision de la répartition de charge équilibrée des processus au sein d’Azure Automation, qui arrête automatiquement un runbook dont l’exécution a commencé depuis plus de trois heures. L’état d’un runbook qui dépasse la limite de temps de la répartition de charge équilibrée diffère selon le type du runbook. Les runbooks PowerShell et Python sont mis à l’état **Stopped** (Arrêté). Les runbooks PowerShell Workflow sont mis à l’état **Failed** (Échec).
 
 #### <a name="cause"></a>Cause :
 
-Le runbook s’est exécuté au-delà de la limite de 3 heures autorisée par la répartition de charge équilibrée dans un bac à sable Azure
+Le runbook s’est exécuté au-delà de la limite de trois heures autorisée par la répartition de charge équilibrée dans un bac à sable Azure.
 
 #### <a name="resolution"></a>Résolution :
 
-La solution recommandée consiste à exécuter le runbook sur un [Runbook Worker hybride](../automation-hrw-run-runbooks.md). Les Workers hybrides ne sont pas restreints par la limite d’exécution de runbook de 3 heures autorisée par la [répartition de charge équilibrée](../automation-runbook-execution.md#fair-share).
+Une solution recommandée consiste à exécuter le runbook sur un [Runbook Worker hybride](../automation-hrw-run-runbooks.md).
+
+Les Workers hybrides ne sont pas restreints par la limite d’exécution de runbook de trois heures autorisée par la [répartition de charge équilibrée](../automation-runbook-execution.md#fair-share). Les Runbooks Workers hybrides ne sont pas limités par la répartition de charge équilibrée de trois heures, mais les runbooks s’exécutant sur eux doivent néanmoins être développés pour prendre en charge les comportements de redémarrage après un problème inattendu avec l’infrastructure locale.
+
+Une autre option consiste à optimiser le runbook en créant des [runbooks enfants](../automation-child-runbooks.md). Si votre runbook exécute une boucle via la même fonction sur plusieurs ressources, comme une opération de base de données sur diverses bases de données, vous pouvez déplacer cette fonction vers un runbook enfant. Chacun de ces runbooks enfants s’exécute en parallèle dans des processus distincts, diminuant ainsi le temps total d’exécution du runbook parent.
+
+Applets de commande PowerShell prenant en charge le scénario avec des runbooks enfants :
+
+[Start-AzureRMAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook) : cette applet de commande vous permet de démarrer un runbook et de lui passer des paramètres.
+
+[Get-AzureRmAutomationJob](/powershell/module/azurerm.automation/get-azurermautomationjob) : cette applet de commande vous permet de vérifier l’état du travail de chaque enfant et déterminer si des opérations doivent être effectuées à la fin de l’exécution du runbook enfant.
 
 ## <a name="common-errors-when-importing-modules"></a>Erreurs courantes survenant lors de l’importation de modules
 

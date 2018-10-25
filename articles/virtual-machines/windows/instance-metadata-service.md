@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: d7917ad65b3e3fd1abacdb624a03b3f62c7fc07f
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 0ea9fbf8042c4d6ab3f9462c77ec5cf5106d1021
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221552"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49389534"
 ---
 # <a name="azure-instance-metadata-service"></a>Service de métadonnées d’instance Azure
 
@@ -299,8 +299,8 @@ subscriptionId | Abonnement Azure pour la machine virtuelle | 2017-08-01
 tags | [Étiquettes](../../azure-resource-manager/resource-group-using-tags.md) de votre machine virtuelle  | 2017-08-01
 nom_groupe_ressources | [Groupe de ressources](../../azure-resource-manager/resource-group-overview.md) de votre machine virtuelle | 2017-08-01
 placementGroupId | [Groupe de placement](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) de votre groupe de machines virtuelles identiques | 2017-08-01
-Plan | [Abonnement logiciel] (https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#plan) pour une machine virtuelle d’une image de la Place de marché Azure, contient le nom, le produit et l’éditeur | 2017-04-02
-publicKeys | Collection de Public Keys[https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#sshpublickey] affectée à la machine virtuelle et aux chemins | 2017-04-02
+Plan | [Abonnement logiciel] (https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) pour une machine virtuelle d’une image de la Place de marché Azure, contient le nom, le produit et l’éditeur | 2017-04-02
+publicKeys | Collection de Public Keys[https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey] affectée à la machine virtuelle et aux chemins | 2017-04-02
 vmScaleSetName | [Nom du groupe identique de machine virtuelle](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) de votre groupe de machines virtuelles identiques | 2017-12-01
 zone | [Zone de disponibilité](../../availability-zones/az-overview.md) de votre machine virtuelle | 2017-12-01 
 ipv4/privateIpAddress | Adresse IPv4 locale de la machine virtuelle | 2017-04-02
@@ -310,7 +310,7 @@ subnet/prefix | Préfixe de sous-réseau, par exemple 24 | 2017-04-02
 ipv6/ipAddress | Adresse IPv6 locale de la machine virtuelle | 2017-04-02 
 macAddress | Adresse MAC de la machine virtuelle | 2017-04-02 
 scheduledevents | Consultez [Événements planifiés](scheduled-events.md). | 2017-08-01
-identité | (Préversion) Managed Service Identity. Consulter [Obtenir un jeton d’accès](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
+identité | (Préversion) Identités managées pour des ressources Azure. Consulter [Obtenir un jeton d’accès](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md) | 2018-02-01
 
 ## <a name="example-scenarios-for-usage"></a>Exemples de scénarios d’utilisation  
 

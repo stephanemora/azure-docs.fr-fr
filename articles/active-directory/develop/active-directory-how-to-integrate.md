@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: bryanla
 ms.custom: aaddev
-ms.openlocfilehash: cde2706db255746293ddc29c6d5bdd31d970e535
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: fcc0badc17675c1c8923c744afd3fa46e98fef32
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901547"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954695"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Intégration avec Azure Active Directory
 
@@ -82,7 +82,7 @@ L’intégration à Azure AD est fournie avec des avantages qui ne nécessitent
 **Azure AD est déployé dans des centres de données dans le monde entier et est géré et surveillé en permanence.**  Azure AD est le système de gestion des identités de Microsoft Azure et Office 365 et est déployé dans 28 centres de données dans le monde entier. Les données d’Active Directory sont garanties pour être répliquées sur au moins trois centres de données. Les équilibrages de charge globaux garantissent aux utilisateurs un accès à la copie la plus fidèle d'Azure AD contenant leurs données. Ils retransmettent automatiquement les demandes vers d’autres centres de données si un problème est détecté.
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Commencer à écrire du code](azure-ad-developers-guide.md#get-started).
+[Commencer à écrire du code](v1-overview.md#get-started).
 
 [Connexion des utilisateurs à l'aide d'Azure AD](authentication-scenarios.md)
 

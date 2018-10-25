@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: a629c598c94e44713f8990871c46272dc48b1359
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6280544a42d0d5012b01446ec8c3bc386ef861dd
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296275"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428417"
 ---
 # <a name="authentication-and-user-permissions"></a>Authentification et autorisations utilisateur
 Azure Analysis Services utilise Azure Active Directory (Azure AD) pour l’authentification utilisateur et de gestion d’identités. Tout utilisateur qui crée, gère ou se connecte à un serveur Azure Analysis Services doit avoir une identité d’utilisateur valide dans un [client Azure AD](../active-directory/fundamentals/active-directory-administer.md) dans le même abonnement.
@@ -27,7 +27,7 @@ Tous les outils et les applications clientes utilisent une ou plusieurs [bibliot
 
 Les trois bibliothèques clientes prennent en charge les deux flux interactif d’Azure AD et les méthodes d’authentification non interactive. Les deux méthodes non-interactives, les méthodes de mot de passe Active Directory et d’authentification intégrée Active Directory peuvent être utilisées dans les applications qui utilisent AMOND et MSOLAP. Ces deux méthodes n’entraînent jamais l’affichage de boîtes de dialogue contextuelles.
 
-Les applications clientes comme Excel et Power BI Desktop et les outils tels que SSMS et SSDT installent les dernières versions des bibliothèques lors de la mise à jour vers la version la plus récente. Power BI Desktop, SSMS et SSDT sont mis à jour tous les mois. Excel est [mis à jour avec Office 365](https://support.office.com/en-us/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Les mises à jour Office 365 sont moins fréquentes et certaines organisations utilisent le canal différé, c’est-à-dire que les mises sont différées d’au moins trois mois.
+Les applications clientes comme Excel et Power BI Desktop et les outils tels que SSMS et SSDT installent les dernières versions des bibliothèques lors de la mise à jour vers la version la plus récente. Power BI Desktop, SSMS et SSDT sont mis à jour tous les mois. Excel est [mis à jour avec Office 365](https://support.office.com/article/When-do-I-get-the-newest-features-in-Office-2016-for-Office-365-da36192c-58b9-4bc9-8d51-bb6eed468516). Les mises à jour Office 365 sont moins fréquentes et certaines organisations utilisent le canal différé, c’est-à-dire que les mises sont différées d’au moins trois mois.
 
 En fonction de l’application cliente ou de l’outil que vous utilisez, le type d’authentification et la façon dont vous vous connectez peuvent être différents. Chaque application peut prendre en charge des fonctionnalités différentes pour la connexion aux services cloud comme Azure Analysis Services.
 

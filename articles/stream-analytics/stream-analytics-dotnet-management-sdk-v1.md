@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/06/2017
-ms.openlocfilehash: a8f272403a0c6903521acc7cc45935c4e5bc419c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f47b2192ab7eead79267b2ae2364ffa7087143ee
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528101"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987101"
 ---
 # <a name="management-net-sdk-v1x-set-up-and-run-analytics-jobs-using-the-azure-stream-analytics-api-for-net"></a>Kit de développement logiciel (SDK) Management .NET v1.x : configurer et exécuter des travaux d’analyse à l’aide de l’API Azure Stream Analytics pour .NET
 Découvrez comment configurer et exécuter des travaux d’analyse à l’aide de l’API Stream Analytics pour .NET avec le Kit de développement logiciel (SDK) Management .NET. configurer un projet, créer des sources d’entrée et de sortie, des transformations, et démarrer et arrêter des tâches. Pour vos tâches d’analyse, vous pouvez diffuser des données à partir du stockage d’objets blob ou d’un hub d’événements.
@@ -27,7 +27,6 @@ Azure Stream Analytics est un service entièrement géré permettant de traiter 
 > L’exemple de code de cet article utilise toujours la version héritée (1.x) du Kit de développement logiciel (SDK) Azure Stream Analytics Management .NET. Pour visualiser un exemple de code utilisant l’actuelle version du Kit de développement logiciel (SDK), consultez [Utiliser le Kit de développement logiciel (SDK) .NET de gestion](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-dotnet-management-sdk).
 
 ## <a name="prerequisites"></a>Prérequis
-
 Avant de commencer cet article, vous devez disposer des éléments suivants :
 
 * Installez Visual Studio 2017 ou 2015.
@@ -131,7 +130,7 @@ Ajoutez le code suivant au début de la méthode **Main** :
 
 La valeur de la variable **resourceGroupName** doit être la même que le nom du groupe de ressources que vous avez créé ou sélectionné lors des étapes préalables.
 
-Pour automatiser l’aspect de présentation des informations d’identification pendant la création d’un travail, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Pour automatiser l’aspect de présentation des informations d’identification pendant la création d’un travail, consultez [Authentification d’un principal du service à l’aide d’Azure Resource Manager](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 Les sections suivantes de cet article supposent que ce code se trouve au début de la méthode **Main** .
 
@@ -316,18 +315,18 @@ Vous avez découvert les principes de base de l’utilisation d’un Kit de dév
 
 
 <!--Link references-->
-[azure.blob.storage]: http://azure.microsoft.com/documentation/services/storage/
-[azure.blob.storage.use]: http://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
+[azure.blob.storage]: https://azure.microsoft.com/documentation/services/storage/
+[azure.blob.storage.use]: https://azure.microsoft.com/documentation/articles/storage-dotnet-how-to-use-blobs/
 
-[azure.event.hubs]: http://azure.microsoft.com/services/event-hubs/
-[azure.event.hubs.developer.guide]: http://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs]: https://azure.microsoft.com/services/event-hubs/
+[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
 
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.forum]: http://go.microsoft.com/fwlink/?LinkId=512151
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.forum]: https://go.microsoft.com/fwlink/?LinkId=512151
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
 [stream.analytics.developer.guide]: stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
-[stream.analytics.query.language.reference]: http://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: http://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
+[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301

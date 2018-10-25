@@ -6,19 +6,19 @@ author: jeffpatt24
 tags: storage
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: 0f99913ab252b94d475f920bd734e68ff5f3b3d3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 87190a7f46a209ae66ca47d9346ed4b5929ac8fd
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525118"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394199"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Résoudre les problèmes liés à Azure Files dans Linux
 
-Cet article répertorie les problèmes courants liés à Microsoft Azure Files quand vous vous connectez à partir de clients Linux. Il fournit également les causes possibles et les solutions de ces problèmes.
+Cet article répertorie les problèmes courants liés à Microsoft Azure Files quand vous vous connectez à partir de clients Linux. Il fournit également les causes possibles et les solutions de ces problèmes. En plus des étapes de dépannage présentées dans cet article, vous pouvez utiliser [AzFileDiagnostics](https://gallery.technet.microsoft.com/Troubleshooting-tool-for-02184089) pour vérifier que le client Linux dispose des prérequis. AzFileDiagnostics détecte automatiquement la plupart des problèmes mentionnés dans cet article et vous aide à configurer votre environnement pour que les performances soient optimales. Vous pouvez également trouver ces informations dans [l’utilitaire de résolution des problèmes de partages Azure Files](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares), qui indique la procédure à suivre pour vous aider en cas de problèmes de connexion/mappage/montage de partages Azure Files.
 
 <a id="permissiondenied"></a>
 ## <a name="permission-denied-disk-quota-exceeded-when-you-try-to-open-a-file"></a>« [autorisation refusée] Quota de disque dépassé » lorsque vous essayez d’ouvrir un fichier
@@ -82,7 +82,7 @@ Certaines distributions Linux ne prennent pas encore en charge les fonctionnalit
 
 ### <a name="solution"></a>Solution
 
-La fonctionnalité de chiffrement pour SMB 3.0 pour Linux a été introduite dans le noyau 4.11. Cette fonctionnalité permet le montage du partage de fichiers Azure en local ou à partir d’une autre région Azure. Quand nous avons publié cet article, cette fonctionnalité a été rétroportée dans Ubuntu 17.04 et Ubuntu 16.10. Si votre client SMB Linux ne prend pas en charge le chiffrement, montez Azure Files à l’aide de SMB 2.1 à partir d’une machine virtuelle Azure Linux se trouvant dans le même centre de données que le compte de stockage de fichiers.
+La fonctionnalité de chiffrement pour SMB 3.0 pour Linux a été introduite dans le noyau 4.11. Cette fonctionnalité permet le montage du partage de fichiers Azure en local ou à partir d’une autre région Azure. Quand nous avons publié cet article, cette fonctionnalité a été rétroportée dans Ubuntu 17.04 et Ubuntu 16.10. Si votre client SMB Linux ne prend pas en charge le chiffrement, montez Azure Files à l’aide de SMB 2.1 à partir d’une machine virtuelle Azure Linux se trouvant dans le même centre de données que le partage de fichiers et vérifiez que le paramètre [Transfert sécurisé requis]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est désactivé sur le compte de stockage. 
 
 <a id="slowperformance"></a>
 ## <a name="slow-performance-on-an-azure-file-share-mounted-on-a-linux-vm"></a>Ralentissement des performances dans un partage de fichiers Azure monté sur une machine virtuelle
@@ -149,7 +149,8 @@ Causes courantes de ce problème :
 - La version de SMB/CIFS minimale, la version 2.1, n’est pas installée sur le client.
 - Le chiffrement SMB 3.0 n’est pas pris en charge sur le client. Le chiffrement SMB 3.0 est disponible dans Ubuntu 16.4 et plus et SUSE 12.3 et plus. Les autres distributions requièrent un noyau de versions 4.11 et plus.
 - Vous tentez de vous connecter à un compte de stockage via le port TCP 445, qui n’est pas pris en charge.
-- Vous tentez de cous connecter à un partage de fichiers Azure depuis une machine virtuelle Azure, qui n’est pas située dans la même région que le compte de stockage.
+- Vous tentez de vous connecter à un partage de fichiers Azure à partir d’une machine virtuelle Azure qui n’est pas située dans la même région que le compte de stockage.
+- Si le paramètre [Transfert sécurisé requis]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) est activé sur le compte de stockage, Azure Files autorise uniquement les connexions utilisant SMB 3.0 avec chiffrement.
 
 ### <a name="solution"></a>Solution
 
@@ -190,7 +191,7 @@ Pour pouvoir utiliser les liens symboliques, ajoutez le code suivant à la fin d
 La commande doit donc ressembler à ceci :
 
 ```
-sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsynlinks
+sudo mount -t cifs //<storage-account-name>.file.core.windows.net/<share-name> <mount-point> -o vers=<smb-version>,username=<storage-account-name>,password=<storage-account-key>,dir_mode=0777,file_mode=0777,serverino,mfsymlinks
 ```
 
 Une fois ajouté, vous pourrez créer des liens symboliques comme suggéré sur le [Wiki](https://wiki.samba.org/index.php/UNIX_Extensions#Storing_symlinks_on_Windows_servers).

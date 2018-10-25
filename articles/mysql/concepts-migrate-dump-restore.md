@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/02/2018
-ms.openlocfilehash: c801426ad354a165ac749333ddd4671c13536edb
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f3e38bb3e7e4f2c58f1ae955878747ebc7d386f1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35265841"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984484"
 ---
 # <a name="migrate-your-mysql-database-to-azure-database-for-mysql-using-dump-and-restore"></a>Migrer une base de données MySQL vers une base de données Azure pour MySQL à l’aide des images mémoire et de la restauration
 Cet article décrit deux méthodes courantes pour sauvegarder et restaurer des bases de données dans votre base de données Azure pour MySQL.
@@ -127,4 +127,4 @@ L’importation d’une base de données est similaire à l’exportation. Effec
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Connecter des applications à Azure Database pour MySQL](./howto-connection-string.md).
-- Pour plus d’informations sur la migration de bases de données vers Azure Database pour MySQL, consultez le [Guide de migration des bases de données](http://aka.ms/datamigration).
+- Pour plus d’informations sur la migration de bases de données vers Azure Database pour MySQL, consultez le [Guide de migration des bases de données](https://aka.ms/datamigration).

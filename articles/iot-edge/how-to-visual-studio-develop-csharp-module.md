@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9cc8e1db577859ad7637902a5ccd5a044efcd033
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 768ff899ca2c71cb32fe29bdd5d58654d8f7d431
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978520"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394746"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Utiliser Visual Studio 2017 pour développer et déboguer des modules C# pour Azure IoT Edge (préversion)
 
@@ -90,6 +90,21 @@ Le projet **IoTEdgeModule1** est une application console .NET Core 2.1. Il conti
 Le code du module C# par défaut qui est fourni avec la solution se trouve dans **IoTEdgeModule1** > **Program.cs**. Le module et le fichier deployment.template.json sont définis de manière à vous permettre de générer la solution, de l’envoyer vers votre registre de conteneurs et de la déployer sur un appareil pour commencer les tests, sans avoir à utiliser de code. Le module est conçu pour récupérer les entrées d’une source (dans ce cas, le module tempSensor qui simule des données) et les acheminer vers IoT Hub. 
 
 Lorsque vous êtes prêt à personnaliser le modèle C# avec votre propre code, utilisez les [SDK Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) pour créer des modules répondant aux besoins des solutions IoT, tels que la sécurité, la gestion des appareils et la fiabilité. 
+
+## <a name="initialize-iotegehubdev-with-iot-edge-device-connection-string"></a>Initialiser **iotegehubdev** avec la chaîne de connexion d’un appareil IoT Edge
+
+1. Vous devez obtenir la chaîne de connexion d’un appareil IoT Edge. Vous devrez peut-être copier la valeur de « Chaîne de connexion principale » à partir de Cloud Explorer dans Visual Studio 2017 comme suit. Ne copiez pas la chaîne de connexion de l’appareil non-Edge, l’icône d’appareil IoT Edge est différente de celle de l’appareil non-Edge.
+
+   ![Copier la chaîne de connexion d’un appareil IoT Edge](./media/how-to-visual-studio-develop-csharp-module/copy-edge-conn-string.png)
+
+2. Vous devez cliquer avec le bouton droit sur le projet **AzureIoTEdgeApp1** pour ouvrir le menu contextuel, puis cliquer sur **Définir la chaîne de connexion d’un appareil Edge**. La fenêtre du programme d’installation Azure IoT Edge s’affiche.
+
+   ![Ouvrir la fenêtre Définir la chaîne de connexion Edge](./media/how-to-visual-studio-develop-csharp-module/set-edge-conn-string.png)
+
+3. Dans la fenêtre du programme d’installation, entrez la chaîne de connexion que vous avez obtenue à la première étape et cliquez sur le bouton **OK**.
+
+>[!NOTE]
+>Vous n’avez à suivre cette procédure qu’une seule fois. En effet, exécutez cette étape juste une fois sur une machine et toutes les solutions Azure IoT Edge suivantes l’obtiendront gratuitement. Bien sûr, vous pouvez réexécuter cette étape si la chaîne de connexion n’est pas valide ou si vous devez changer de chaîne de connexion.
 
 ## <a name="build-and-debug-single-c-module"></a>Générer et déboguer un seul module C#
 
@@ -190,7 +205,10 @@ Dans l’article de démarrage rapide que vous avez utilisé pour configurer vot
 
 2. Dans **Cloud Explorer**, développez votre abonnement, recherchez votre hub Azure IoT et l’appareil Azure IoT Edge que vous voulez déployer.
 
-3. Cliquez avec le bouton droit sur l’appareil IoT Edge pour créer un déploiement pour celui-ci : vous devez choisir le fichier manifeste de déploiement sous `$AzureIoTEdgeApp1\config\Debug|Release\deployment.json`.
+3. Cliquez avec le bouton droit sur l’appareil IoT Edge pour créer un déploiement pour celui-ci : vous devez choisir le fichier manifeste de déploiement sous `$AzureIoTEdgeAppSolutionDir\config\deployment.(amd64|amd64.debug|windows-amd64).json`.
+
+>>[!NOTE]
+>>Vous ne devez pas sélectionner `$AzureIoTEdgeAppSolutionDir\config\deployment_for_local_debug.json`.
 
 4. Cliquez sur le bouton Actualiser. Vous voyez normalement les nouveaux modules en cours d’exécution, ainsi que le module **TempSensor**, et **$edgeAgent** et **$edgeHub**.
 

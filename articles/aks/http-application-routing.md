@@ -8,18 +8,21 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 8934852fe3d95d0a96af0283c30bba4b3bdb411b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c2f68afb685cb04d456e06cadf378bd1c3ebb1fb
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345877"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49384957"
 ---
 # <a name="http-application-routing"></a>Routage d’applications HTTP
 
 La solution de routage des applications HTTP permet d’accéder facilement aux applications déployées sur votre cluster AKS (Azure Kubernetes Service). Lorsqu’elle est activée, la solution configure un contrôleur d’entrée sur votre cluster AKS. À mesure que les applications sont déployées, la solution crée également des noms DNS accessibles publiquement pour les points de terminaison d’application.
 
 Lorsque ce module complémentaire est activé, il crée une zone DNS dans votre abonnement. Pour plus d’informations sur les coûts DNS, consultez [Tarification de DNS][dns-pricing].
+
+> [!CAUTION]
+> Le module complémentaire de routage des applications HTTP est conçu pour vous permettre de créer rapidement un contrôleur d’entrée et d’accéder à vos applications. Ce module complémentaire n’est pas recommandé pour une utilisation en production. Pour les déploiements d’entrée prêts pour la production qui incluent plusieurs réplicas et la prise en charge de TLS, consultez [Créer un contrôleur d’entrée HTTPS](https://docs.microsoft.com/azure/aks/ingress-tls).
 
 ## <a name="http-routing-solution-overview"></a>Vue d’ensemble de la solution de routage HTTP
 
@@ -88,6 +91,13 @@ spec:
       containers:
       - image: r.j3ss.co/party-clippy
         name: party-clippy
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 250m
+            memory: 256Mi
         tty: true
         command: ["party-clippy"]
         ports:

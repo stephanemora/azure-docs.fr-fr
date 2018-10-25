@@ -4,19 +4,19 @@ description: Cet article explique ce que sont les éléments multimédias et com
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: 61555eb6cca6995215ce43051abbda9aa43539ec
-ms.sourcegitcommit: d8ffb4a8cef3c6df8ab049a4540fc5e0fa7476ba
+ms.openlocfilehash: fcb4500a1e4503d90b00528544ae98fa93e16191
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36284836"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49379212"
 ---
 # <a name="assets"></a>Éléments multimédias
 
@@ -36,7 +36,7 @@ Le tableau suivant présente les propriétés de l’actif multimédia ainsi que
 
 |NOM|type|Description|
 |---|---|---|
-|ID|chaîne|ID de ressource complet pour la ressource.|
+|id|chaîne|ID de ressource complet pour la ressource.|
 |Nom|chaîne|Nom de la ressource.|
 |properties.alternateId |chaîne|Autre ID de l’actif multimédia.|
 |properties.assetId |chaîne|ID de l’actif multimédia.|
@@ -59,18 +59,27 @@ Media Services prend en charge les options de requête OData suivantes pour les 
 * $top 
 * $skiptoken 
 
+Description des opérateurs :
+
+* Eq = est égal à
+* Ne = n’est pas égal à
+* Ge = est supérieur ou égal à
+* Le = est inférieur ou égal à
+* Gt = est supérieur à
+* Lt = est inférieur à
+
 ### <a name="filteringordering"></a>Filtrage/ordonnancement
 
 Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés d’actifs multimédias : 
 
 |NOM|Filtrer|Ordre|
 |---|---|---|
-|ID|Prend en charge :<br/>Égal à<br/>Supérieur à<br/>Inférieur à|Prend en charge :<br/>Tri croissant<br/>Tri décroissant|
-|Nom|||
-|properties.alternateId |Prend en charge :<br/>Égal à||
-|properties.assetId |Prend en charge :<br/>Égal à||
+|id|||
+|Nom|Pris en charge : Eq, Gt, Lt|Pris en charge : croissant et décroissant|
+|properties.alternateId |Pris en charge : Eq||
+|properties.assetId |Pris en charge : Eq||
 |properties.container |||
-|properties.created|Prend en charge :<br/>Égal à<br/>Supérieur à<br/>Inférieur à|Prend en charge :<br/>Tri croissant<br/>Tri décroissant|
+|properties.created|Pris en charge : Eq, Gt, Lt| Pris en charge : croissant et décroissant|
 |properties.description |||
 |properties.lastModified |||
 |properties.storageAccountName |||
@@ -86,9 +95,12 @@ var firstPage = await MediaServicesArmClient.Assets.ListAsync(CustomerResourceGr
 
 ### <a name="pagination"></a>Pagination
 
-La pagination est prise en charge pour chacun des quatre ordres de tri activés. 
+La pagination est prise en charge pour chacun des quatre ordres de tri activés. Actuellement, la taille de page est de 1 000.
 
-Si une réponse de requête contient de nombreux éléments (actuellement plus de 1000), le service retourne une propriété « \@odata.nextLink » pour obtenir la page de résultats suivante. Celle-ci peut être utilisés pour parcourir le jeu de résultats entier. La taille de page n’est pas configurable par l’utilisateur. 
+> [!TIP]
+> Vous devez toujours utiliser le lien suivant pour énumérer la collection et ne pas dépendre d’une taille de page particulière.
+
+Si une réponse de requête contient un grand nombre d’éléments, le service retourne une propriété « \@odata.nextLink » pour obtenir la page de résultats suivante. Celle-ci peut être utilisés pour parcourir le jeu de résultats entier. Vous ne pouvez pas configurer la taille de page. 
 
 Si des actifs multimédias sont créés ou supprimés pendant la pagination dans la collection, les changements sont reflétés dans les résultats retournés (si ces changements concernent la partie de la collection qui n’a pas été téléchargée). 
 
@@ -104,7 +116,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-Pour obtenir des exemples REST, consultez [Actifs multimédias - Liste](https://docs.microsoft.com/rest/api/media/assets/list).
+Pour obtenir des exemples REST, consultez [Actifs multimédias - Liste](https://docs.microsoft.com/rest/api/media/assets/assets_list).
 
 
 ## <a name="storage-side-encryption"></a>Chiffrement côté stockage
@@ -114,7 +126,7 @@ Pour protéger vos éléments au repos, les ressources doivent être chiffrées 
 |Option de chiffrement|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Chiffrement du stockage de Media Services|Chiffrement AES-256, clé gérée par Media Services|Pris en charge<sup>(1)</sup>|Non pris en charge<sup>(2)</sup>|
-|[Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client|Prise en charge|Prise en charge|
+|[Storage Service Encryption pour les données au repos](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Chiffrement côté serveur proposé par le stockage Azure, clé gérée par Azure ou par un client|Pris en charge|Pris en charge|
 |[Chiffrement de stockage côté client](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Chiffrement côté client proposé par le stockage Azure, clé gérée par un client dans un coffre de clés|Non pris en charge|Non pris en charge|
 
 <sup>1</sup> Bien que Media Services prenne en charge la gestion de contenu en clair/sans aucune forme de chiffrement, ce n’est pas conseillé.
@@ -123,5 +135,4 @@ Pour protéger vos éléments au repos, les ressources doivent être chiffrées 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-> [!div class="nextstepaction"]
-> [Diffuser un fichier](stream-files-dotnet-quickstart.md)
+[Diffuser un fichier](stream-files-dotnet-quickstart.md)
