@@ -3,7 +3,7 @@ title: Déployez une application sur un groupe de machines virtuelles identiques
 description: Découvrez comment déployer des applications sur des instances de machine virtuelle Linux et Windows d’un groupe identique
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
-ms.author: cynthn
-ms.openlocfilehash: 86bb231a4eb9468ccc92c182b099714950b2a81c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: 22e035be27f16e7b73e545d75eb9cd108a919114
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46979434"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471201"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Déployer votre application sur des groupes de machines virtuelles identiques
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Cet article présente des méthodes pour créer une image de machine virtuelle personnalisée d’un groupe identique, ou pour exécuter automatiquement des scripts d’installation sur des instances de machine virtuelle existantes. Vous apprendrez également à gérer des applications ou des mises à jour du système d’exploitation sur un groupe identique.
@@ -31,14 +31,14 @@ Lorsque vous utilisez une des images de plateforme Azure pour créer les instanc
 
 Pour simplifier la gestion de la configuration et accélérer la configuration d’une machine virtuelle, vous pouvez créer une image de machine virtuelle personnalisée prête à exécuter votre application dès qu’une instance est configurée dans le groupe identique. Pour plus d’informations sur la façon de créer et d’utiliser une image de machine virtuelle personnalisée avec un groupe identique, voir les didacticiels suivants :
 
-- [interface de ligne de commande Azure](tutorial-use-custom-image-cli.md)
+- [Interface de ligne de commande Azure](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
 ## <a name="already-provisioned"></a>Installer une application avec l’extension de script personnalisé
 L’extension de script personnalisé télécharge et exécute des scripts sur des machines virtuelles Azure. Cette extension est utile pour la configuration post-déploiement, l’installation de logiciels ou toute autre tâche de configuration ou de gestion. Des scripts peuvent être téléchargés à partir de Stockage Azure ou de GitHub, ou fournis dans le portail Azure lors de l’exécution de l’extension. Pour plus d’informations sur la façon de créer et d’utiliser une image de machine virtuelle personnalisée avec un groupe identique, voir les didacticiels suivants :
 
-- [interface de ligne de commande Azure](tutorial-install-apps-cli.md)
+- [Interface de ligne de commande Azure](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Modèle Azure Resource Manager](tutorial-install-apps-template.md)
 

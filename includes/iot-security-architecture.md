@@ -1,19 +1,19 @@
 ---
 title: Fichier Include
 description: Fichier Include
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
-ms.date: 04/24/2018
-ms.author: dobett
+ms.date: 08/07/2018
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 1137f1dac9570b56dc202194e5f94dfd72c31c9f
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 64c7525be9bd44b0d33fdcd8da717e9fe893e057
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39030010"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49070183"
 ---
 # <a name="internet-of-things-security-architecture"></a>Architecture de sécurité de l’Internet des objets
 
@@ -185,7 +185,7 @@ Dans chacune des catégories présentées dans l’architecture Azure IoT, cet e
 
 Voici quelques exemples de menaces existant dans cette catégorie :
 
-Usurpation d’identité : une personne malveillante peut extraire les éléments de clé de chiffrement d’un périphérique, au niveau logiciel ou matériel, et par la suite, accéder au système avec un autre périphérique physique ou virtuel sous l’identité du périphérique dont elle a pris les éléments de clé.
+**Usurpation d’identité** : une personne malveillante peut extraire les éléments de clé de chiffrement d’un appareil, au niveau logiciel ou matériel, et par la suite, accéder au système avec un autre appareil physique ou virtuel sous l’identité de l’appareil dont elle a pris les éléments de clé.
 
 **Déni de service**  : un appareil peut être dans l’incapacité de fonctionner ou de communiquer en raison d’interférences avec des fréquences radio ou d’une rupture de câbles. Par exemple, une caméra de surveillance dont l’alimentation ou la connexion réseau ont été intentionnellement interrompues ne communiquera pas de données du tout.
 

@@ -9,12 +9,12 @@ ms.topic: get-started-article
 ms.date: 02/26/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: e3e3a981daf1273b8b2387cb1c665317f860b1d2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c370d25ed5d70887c8beecae8fea3528a259a0ea
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974865"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954570"
 ---
 # <a name="set-up-an-azure-ad-service-principal-for-a-kubernetes-cluster-in-container-service"></a>Configurer un principal de service Azure Active Directory pour un cluster Kubernetes dans Container Service
 
@@ -37,14 +37,14 @@ Vous pouvez utiliser un principal de service Azure AD existant qui répond aux e
 * **Clé secrète client** : doit être un mot de passe. Actuellement, vous ne pouvez pas utiliser de principal du service configuré pour l’authentification par certificat.
 
 > [!IMPORTANT]
-> Pour créer un principal de service, vous devez disposer des autorisations suffisantes pour inscrire une application auprès de votre client Azure AD et l’affecter à un rôle dans votre abonnement. Si voir si vous disposez des autorisations requises, [procédez à une vérification dans le portail](../../azure-resource-manager/resource-group-create-service-principal-portal.md#required-permissions).
+> Pour créer un principal de service, vous devez disposer des autorisations suffisantes pour inscrire une application auprès de votre client Azure AD et l’affecter à un rôle dans votre abonnement. Si voir si vous disposez des autorisations requises, [procédez à une vérification dans le portail](../../active-directory/develop/howto-create-service-principal-portal.md#required-permissions).
 >
 
 ## <a name="option-1-create-a-service-principal-in-azure-ad"></a>Option 1 : créer un principal de service dans Azure Active Directory
 
 Si vous souhaitez créer un principal de service Azure AD avant de déployer votre cluster Kubernetes, Azure propose plusieurs méthodes.
 
-Les exemples de commandes suivants vous montrent comment procéder à l’aide d’[Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Vous pouvez également créer un principal de service à l’aide [d’Azure PowerShell](../../azure-resource-manager/resource-group-authenticate-service-principal.md), du [portail](../../azure-resource-manager/resource-group-create-service-principal-portal.md) ou d’autres méthodes.
+Les exemples de commandes suivants vous montrent comment procéder à l’aide d’[Azure CLI](../../azure-resource-manager/resource-group-authenticate-service-principal-cli.md). Vous pouvez également créer un principal de service à l’aide [d’Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md), du [portail](../../active-directory/develop/howto-create-service-principal-portal.md) ou d’autres méthodes.
 
 ```azurecli
 az login

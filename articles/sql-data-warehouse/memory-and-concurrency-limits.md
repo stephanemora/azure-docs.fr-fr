@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/10/2018
+ms.date: 10/04/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e901d147d757a046d50927d6f2651b0a74657b1f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: ab90b4431a0f8d3a4ee70869e053174f89f23dba
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288187"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785213"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Limites de mémoire et de concurrence pour Azure SQL Data Warehouse
 Afficher les limites de mémoire et de concurrence allouées aux différents niveaux de performance et classes de ressources dans Azure SQL Data Warehouse. Pour plus d’informations et pour appliquer ces fonctionnalités à votre plan de gestion de la charge de travail, consultez [Classes de ressources pour la gestion des charges de travail](resource-classes-for-workload-management.md). 
@@ -27,10 +27,11 @@ Les tableaux suivants présentent la capacité maximale pour l’entrepôt de do
 
 ### <a name="gen2"></a>Deuxième génération
 
-Gen2 fournit 2,5 fois plus de mémoire par requête que Gen1. Cette mémoire supplémentaire permet à Gen2 d’offrir des performances particulièrement rapides.  Les niveaux de performance de Gen2 vont de DW1000c à DW30000c. 
+Gen2 fournit 2,5 fois plus de mémoire par requête que Gen1. Cette mémoire supplémentaire permet à Gen2 d’offrir des performances particulièrement rapides.  Les niveaux de performance de la gamme Gen2 vont de DW500c à DW30000c. 
 
 | Niveau de performance | Nœuds de calcul | Distributions par nœud de calcul | Mémoire par entrepôt de données (Go) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
+| DW500c            | 1             | 60                             |   300                          |
 | DW1000c           | 2             | 30                             |   600                          |
 | DW1500c           | 3             | 20                             |   900                          |
 | DW2000c           | 4             | 15                             |  1 200                          |
@@ -75,6 +76,7 @@ Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’em
 
 | Niveau de service | Nombre maximal de requêtes concurrentes | Emplacements de concurrence disponibles |staticrc10 | staticrc20 | staticrc30 | staticrc40 | staticrc50 | staticrc60 | staticrc70 | staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
+| DW500c        | 20                         |   20                        | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
 | DW1000c       | 32                         |   40                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW1500c       | 32                         |   60                        | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
 | DW2000c       | 48                         |   80                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
@@ -90,7 +92,7 @@ Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’em
 **Classes de ressources dynamiques**
 
 > [!NOTE]
-> La classe de ressources smallrc sur Gen2 ajoute dynamiquement de la mémoire quand le niveau de service augmente et ne prend en charge que 32 requêtes concurrentes au maximum.  La mémoire et les emplacements de concurrence utilisés par smallrc augmentent quand le niveau de service augmente. 
+> La classe de ressources smallrc sur Gen2 ajoute dynamiquement de la mémoire quand le niveau de service augmente et ne prend en charge que 32 requêtes concurrentes au maximum avec DW1000c et 20 avec DW500c.  Une fois l’instance mise à l’échelle au-delà de DW1500c, la mémoire et les emplacements de concurrence utilisés par smallrc augmentent quand le niveau de service augmente. 
 >
 >
 
@@ -98,6 +100,7 @@ Le tableau suivant indique le nombre maximal de requêtes concurrentes et d’em
 
 | Niveau de service | Nombre maximal de requêtes concurrentes | Emplacements de concurrence disponibles | Emplacements utilisés par smallrc | Emplacements utilisés par mediumrc | Emplacements utilisés par largerc | Emplacements utilisés par xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
+| DW500c        | 20                         |   20                        | 1                     |  2                     |  4                    |  14                    |
 | DW1000c       | 32                         |   40                        | 1                     |  4                     |  8                    |  28                    |
 | DW1500c       | 32                         |   60                        | 1                     |  6.                     |  13                   |  42                    |
 | DW2000c       | 32                         |   80                        | 2                     |  8                     |  17                   |  56                    |

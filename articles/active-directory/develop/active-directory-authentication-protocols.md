@@ -17,12 +17,12 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin
-ms.openlocfilehash: 04cdba261d67e20762fd4bb4835568f763124fef
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 312b1f7accee47c07c5fb0507061253fda5044f6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578471"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958038"
 ---
 # <a name="azure-active-directory-authentication-protocols"></a>Protocoles d’authentification d’Azure Active Directory
 Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’authentification et d’autorisation parmi ceux les plus couramment utilisés. Les rubriques de cette section décrivent les protocoles pris en charge et leur implémentation dans Azure AD. Les rubriques comprennent une revue des types de revendications pris en charge, une présentation de l’utilisation des métadonnées de fédération, de la documentation de référence détaillée sur les protocoles OAuth 2.0. et SAML 2.0 et une section de dépannage.
@@ -38,6 +38,6 @@ Azure Active Directory (Azure AD) prend en charge plusieurs protocoles d’au
 * [Informations de référence sur le protocole SAML](active-directory-saml-protocol-reference.md) : découvrez les profils SAML d’authentification unique et de déconnexion unique d’Azure AD.
 
 ## <a name="see-also"></a>Voir aussi
-[Guide du développeur Azure Active Directory](azure-ad-developers-guide.md)
+[Guide du développeur Azure Active Directory](v1-overview.md)
 
 [Exemples de code Azure Active Directory](sample-v1-code.md)

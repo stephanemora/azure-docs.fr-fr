@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: f9b66a430e1ca5b24853a5ff31ce13393b12b0c5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 1525b33b99bb4bdc4586ad3e8af00a0588293b9c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063771"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954587"
 ---
 # <a name="get-the-required-values-for-authenticating-an-application-to-access-sql-database-from-code"></a>Obtenir l’ID client et la clé pour la connexion à une base de données SQL à partir du code
 Pour créer et gérer une base de données SQL à partir du code, vous devez inscrire votre application dans le domaine Azure Active Directory (AAD) de l’abonnement où vos ressources Azure ont été créées.
@@ -25,7 +25,7 @@ Pour créer et gérer une base de données SQL à partir du code, vous devez ins
 ## <a name="create-a-service-principal-to-access-resources-from-an-application"></a>Créer un principal du service pour accéder aux ressources à partir d’une application
 La dernière version [d’Azure PowerShell](https://msdn.microsoft.com/library/mt619274.aspx) doit être installée et en cours d’exécution. Pour plus de détails, consultez la rubrique [Installation et configuration d’Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
-Le script PowerShell suivant crée l’application Active Directory (AD) et le principal du service dont nous avons besoin pour authentifier notre application C#. Le script génère les valeurs dont nous avons besoin pour l’exemple C# précédent. Pour plus de détails, consultez la page [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Le script PowerShell suivant crée l’application Active Directory (AD) et le principal du service dont nous avons besoin pour authentifier notre application C#. Le script génère les valeurs dont nous avons besoin pour l’exemple C# précédent. Pour plus de détails, consultez la page [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
     # Sign in to Azure.
     Connect-AzureRmAccount

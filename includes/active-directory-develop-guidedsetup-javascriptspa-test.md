@@ -14,17 +14,19 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 3cbcae9c02abaf11ded31304f97abdd74f905c6e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 0c4908315bd7c0e4d83c7aba735cc4d102216a28
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843408"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988411"
 ---
 ## <a name="test-your-code"></a>Test de votre code
 
 ### <a name="test-with-node"></a>Effectuer des tests avec Node
+
 Si vous n’utilisez pas Visual Studio, vérifiez que votre serveur web est démarré.
+
 1. Configurez le serveur pour écouter un port TCP basé sur l’emplacement de votre fichier **index.html**. Pour Node, démarrez le serveur web afin d’écouter le port en exécutant les commandes ci-après dans une invite de ligne de commande à partir du dossier d’application :
 
     ```bash
@@ -36,15 +38,14 @@ Si vous n’utilisez pas Visual Studio, vérifiez que votre serveur web est dém
 <p/><!-- -->
 
 ### <a name="test-with-visual-studio"></a>Effectuer des tests avec Visual Studio
-Si vous utilisez Visual Studio, veillez à sélectionner la solution de projet, puis appuyez sur **F5** pour exécuter votre projet. Le navigateur accède à l’emplacement http://<span></span>localhost:{port}, et vous voyez le bouton **Se connecter**.
 
+Si vous utilisez Visual Studio, veillez à sélectionner la solution de projet, puis appuyez sur **F5** pour exécuter votre projet. Le navigateur accède à l’emplacement http://<span></span>localhost:{port}, et vous voyez le bouton **Se connecter**.
 
 ## <a name="test-your-application"></a>Tester votre application
 
 Une fois que le navigateur a chargé votre fichier index.html, cliquez sur **Se connecter**. Vous êtes invité à vous connecter avec le point de terminaison Microsoft Azure Active Directory (Azure AD) v2.0 :
 
 ![Connexion au compte JavaScript SPA](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspascreenshot1.png)
-
 
 ### <a name="provide-consent-for-application-access"></a>Accorder les droits d’accès à l’application
 
@@ -53,6 +54,7 @@ La première fois que vous vous connectez à votre application, vous êtes invit
 ![Donner votre accord pour l’accès par l’application](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptspaconsent.png)
 
 ### <a name="view-application-results"></a>Afficher les résultats de l’application
+
 Une fois connecté, vous devez voir apparaître sur la page vos informations de profil utilisateur renvoyées dans la réponse de l’API Microsoft Graph.
 
 ![Résultats attendus de l’appel à l’API Graph](media/active-directory-develop-guidedsetup-javascriptspa-test/javascriptsparesults.png)

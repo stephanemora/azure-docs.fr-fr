@@ -3,7 +3,7 @@ title: 'Didacticiel : créer un groupe de machines virtuelles identiques pour Li
 description: Dans ce tutoriel, vous allez apprendre à utiliser Azure CLI pour créer et déployer une application hautement disponible sur des machines virtuelles Linux à l’aide d’un groupe de machines virtuelles identiques
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 06/01/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: e3354abb400530bc5aa18288408b1052cd3575c4
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f61503930b582614965b321dd712da8935c6ddff
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992233"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465727"
 ---
 # <a name="tutorial-create-a-virtual-machine-scale-set-and-deploy-a-highly-available-app-on-linux-with-the-azure-cli"></a>Tutoriel : Créer un groupe de machines virtuelles identiques et déployer une application hautement disponible sur Linux avec Azure CLI
 

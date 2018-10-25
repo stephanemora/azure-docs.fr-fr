@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: 47589b8cb8aa6e8d1cacaa028948242431f02c44
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 0f2fa2bb8e20ce4cc187fe6f061d2d8c251c4673
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604788"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945210"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Didacticiel - Activer l’authentification d’application à page unique avec des comptes à l’aide d’Azure Active Directory B2C
 
@@ -55,7 +55,7 @@ Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’admini
     
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | Mon exemple d’application à page unique | Entrez un **nom** décrivant votre application aux consommateurs. | 
+    | **Nom** | Mon exemple d’application à page unique | Entrez un **nom** décrivant votre application aux consommateurs. | 
     | **Inclure une application/API web** | Oui | Sélectionnez **Oui** pour une application à page unique. |
     | **Autoriser le flux implicite** | Oui | Sélectionnez **Oui** puisque l’application utilise la [connexion OpenID Connect](active-directory-b2c-reference-oidc.md). |
     | **URL de réponse** | `http://localhost:6420` | Les URL de réponse sont des points de terminaison auxquels Azure AD B2C retourne les jetons demandés par votre application. Dans ce didacticiel, l’exemple s’exécute localement (localhost) et écoute sur le port 6420. |
@@ -85,7 +85,7 @@ Pour inscrire des utilisateurs puis les connecter à l’application web, créez
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiUpIn | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **B2C_1_**. Vous utilisez le nom complet de la stratégie **B2C_1_SiUpIn** dans l’exemple de code. | 
+    | **Nom** | SiUpIn | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **B2C_1_**. Vous utilisez le nom complet de la stratégie **B2C_1_SiUpIn** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Inscription par e-mail | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
     | **Attributs de l’inscription** | Nom d’affichage et Code Postal | Sélectionnez les attributs à collecter auprès de l'utilisateur pendant l'inscription. |
     | **Revendications de l’application** | Nom d’affichage, Code Postal, L’utilisateur est nouveau, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token). |
@@ -102,7 +102,7 @@ Pour permettre aux utilisateurs de réinitialiser eux-mêmes les informations de
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SiPe | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **B2C_1_**. Vous utilisez le nom complet de la stratégie **B2C_1_SiPe** dans l’exemple de code. | 
+    | **Nom** | SiPe | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **B2C_1_**. Vous utilisez le nom complet de la stratégie **B2C_1_SiPe** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Local Account SignIn | Le fournisseur d’identité utilisé pour identifier l’utilisateur. |
     | **Attributs de profil** | Nom d’affichage et Code Postal | Sélectionnez les attributs que les utilisateurs peuvent modifier durant la modification du profil. |
     | **Revendications de l’application** | Nom d’affichage, Code postal, ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) après une modification de profil réussie. |
@@ -119,7 +119,7 @@ Pour activer la réinitialisation du mot de passe sur votre application, vous de
 
     | Paramètre      | Valeur suggérée  | Description                                        |
     | ------------ | ------- | -------------------------------------------------- |
-    | **Name** | SSPR | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **B2C_1_**. Vous utilisez le nom complet de la stratégie **B2C_1_SSPR** dans l’exemple de code. | 
+    | **Nom** | SSPR | Entrez un **nom** pour la stratégie. Le nom de la stratégie est préfixé avec **B2C_1_**. Vous utilisez le nom complet de la stratégie **B2C_1_SSPR** dans l’exemple de code. | 
     | **Fournisseur d’identité** | Réinitialiser le mot de passe à l’aide d’une adresse e-mail | Il s’agit du fournisseur d’identité utilisé pour identifier l’utilisateur. |
     | **Revendications de l’application** | ID d’objet de l’utilisateur | Sélectionnez les [revendications](../active-directory/develop/developer-glossary.md#claim) que vous souhaitez inclure dans le [jeton d’accès](../active-directory/develop/developer-glossary.md#access-token) après une réinitialisation réussie du mot de passe. |
 
@@ -192,7 +192,7 @@ Maintenant l’utilisateur peut utiliser son adresse e-mail pour se connecter et
 > [!NOTE]
 > Une fois connecté, l’application affiche une erreur d’autorisations insuffisantes. Vous recevez cette erreur car vous tentez d’accéder à une ressource du répertoire de démonstration. Étant donné que votre jeton d’accès est valide uniquement pour votre répertoire Azure AD, l’appel d’API n’est pas autorisé. Passez au didacticiel suivant pour créer une API web protégée pour votre répertoire. 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous pouvez utiliser votre répertoire Azure AD B2C si vous envisagez d’effectuer d’autres didacticiels Azure AD B2C. Si vous n’en avez plus besoin, vous pouvez [supprimer votre répertoire Azure AD B2C](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
@@ -201,4 +201,4 @@ Vous pouvez utiliser votre répertoire Azure AD B2C si vous envisagez d’effect
 Dans ce didacticiel, vous avez appris à créer un répertoire Azure AD B2C, créer des stratégies et mettre à jour l’exemple d’application à page unique pour utiliser votre répertoire Azure AD B2C. Passez au didacticiel suivant pour apprendre à inscrire, configurer et appeler une API web protégée à partir d’une application de bureau.
 
 > [!div class="nextstepaction"]
-> 
+> [Exemples de code Azure AD B2C](https://azure.microsoft.com/resources/samples/?service=active-directory-b2c&sort=0)

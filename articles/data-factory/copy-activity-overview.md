@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/15/2018
+ms.date: 10/19/2018
 ms.author: jingwang
-ms.openlocfilehash: 8e34b0823b7f10455ac0b66fb0614d3946f2382e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: df1fbcb09310985b7ca9d9fd2e7a987fc6e2b2dc
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38542701"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457056"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Activité de copie dans Azure Data Factory
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
 > * [Version 1](v1/data-factory-data-movement-activities.md)
@@ -130,12 +130,12 @@ Le modèle suivant d’activité de copie contient une liste exhaustive des prop
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type d’une activité de copie doit être définie sur **Copy** | OUI |
-| inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | OUI |
-| outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données du récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | OUI |
-| typeProperties | Groupe de propriétés pour configurer l’activité de copie. | OUI |
-| source | Spécifiez le type de source de la copie et les propriétés correspondantes concernant la façon d’extraire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | OUI |
-| sink | Spécifiez le type de récepteur de copie et les propriétés correspondantes concernant la manière d’écrire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | OUI |
+| Type | La propriété type d’une activité de copie doit être définie sur **Copy** | Oui |
+| inputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données sources. L’activité de copie ne prend en charge qu’une seule entrée. | Oui |
+| outputs | Spécifiez le jeu de données que vous avez créé qui pointe vers les données du récepteur. L’activité de copie ne prend en charge qu’une seule sortie. | Oui |
+| typeProperties | Groupe de propriétés pour configurer l’activité de copie. | Oui |
+| source | Spécifiez le type de source de la copie et les propriétés correspondantes concernant la façon d’extraire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | Oui |
+| sink | Spécifiez le type de récepteur de copie et les propriétés correspondantes concernant la manière d’écrire les données.<br/><br/>Découvrez plus de détails dans la section « Propriétés de l’activité de copie » de l’article sur le connecteur répertorié dans [Banques de données et formats pris en charge](#supported-data-stores-and-formats). | Oui |
 | translator | Spécifiez des mappages de colonnes explicites de la source au récepteur. S’applique lorsque le comportement de copie par défaut ne peut pas répondre à vos besoins.<br/><br/>Découvrez plus de détails sur le [Mappage de schéma et de type de données](copy-activity-schema-and-type-mapping.md). | Non  |
 | dataIntegrationUnits | Spécifiez la puissance du [runtime d’intégration Azure](concepts-integration-runtime.md) pour dynamiser la copie des données. Anciennement appelé Unités de déplacement de données cloud. <br/><br/>Plus d’informations, consultez [unités d’intégration de données](copy-activity-performance.md#data-integration-units). | Non  |
 | parallelCopies | Spécifiez le parallélisme que l’activité de copie doit utiliser lors de la lecture des données de la source et l’écriture des données sur le récepteur.<br/><br/>Découvrez plus de détails sur la [Copie parallèle](copy-activity-performance.md#parallel-copy). | Non  |

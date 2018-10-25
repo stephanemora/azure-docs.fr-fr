@@ -17,12 +17,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a8d1c94ac4357c7833f6db7cb9b4eaffa00c0396
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 46b66a6e718f18b76db6332487c350c2c199c342
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963796"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957772"
 ---
 # <a name="azure-active-directory-code-samples-v10-endpoint"></a>Exemples de code Azure Active Directory (point de terminaison v1.0)
 
@@ -125,7 +125,7 @@ Pour obtenir des exemples et des tutoriels qui illustrent différents modèles d
 
 ## <a name="see-also"></a>Voir aussi
 
-[Guide du développeur Azure Active Directory](azure-ad-developers-guide.md)
+[Guide du développeur Azure Active Directory](v1-overview.md)
 
 [Bibliothèques d’authentification Azure Active Directory](active-directory-authentication-libraries.md)
 

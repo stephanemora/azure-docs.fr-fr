@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 09/17/2018
 ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 538b0c969d8c039079c09232e06f55e24aabf393
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 87ac7364a2c409af410fcb5cd09aed4377b28d8e
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843628"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988181"
 ---
 ## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utiliser MSAL pour obtenir un jeton pour l’API Microsoft Graph
 
 Dans cette section, vous allez utiliser MSAL pour obtenir un jeton pour l’API Microsoft Graph.
 
-1.  Dans le fichier *MainWindow.xaml.cs*, ajoutez la référence de MSAL à la classe :
+1. Dans le fichier *MainWindow.xaml.cs*, ajoutez la référence de MSAL à la classe :
 
     ```csharp
     using Microsoft.Identity.Client;
@@ -215,4 +215,3 @@ private void DisplayBasicTokenInfo(AuthenticationResult authResult)
 
 Outre le jeton d’accès qui est utilisé pour appeler l’API Microsoft Graph, MSAL obtient également un jeton d’ID une fois l’utilisateur connecté. Ce jeton contient un petit sous-ensemble d’informations pertinentes pour les utilisateurs. La méthode `DisplayBasicTokenInfo` affiche les informations de base du jeton. Par exemple, le nom affiché et l’ID de l’utilisateur, ainsi que la date d’expiration du jeton et la chaîne qui représente le jeton d’accès lui-même. Si vous cliquez plusieurs fois sur le bouton *Call Microsoft Graph API* (Appeler l’API Microsoft Graph), vous observerez que le même jeton a été réutilisé pour les demandes suivantes. Vous constatez également que la date d’expiration est différée lorsque MSAL détermine qu’il est temps de renouveler le jeton.
 <!--end-collapse-->
-
