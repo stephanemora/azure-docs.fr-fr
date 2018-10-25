@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: dab2dd2b1d020a7619b18f330640b7f555a1f8c1
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: dd404bf8766082148a2c5a1ae55189f5f82f9021
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044380"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404067"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics"></a>Collecter et analyser les journaux d’activités Azure dans Log Analytics
 
@@ -75,8 +75,7 @@ Procédez comme suit pour configurer la solution Activity Log Analytics pour vos
     3. Dans le panneau *SubscriptionName*, cliquez sur **Connecter**.  
         ![connecter un abonnement](./media/log-analytics-activity/subscription-connect.png)
 
-Si vous ajoutez la solution via le portail OMS, vous verrez la vignette suivante. Connectez-vous au portail Azure pour connecter un abonnement Azure à votre espace de travail.  
-![exécution de l’évaluation](./media/log-analytics-activity/tile-performing-assessment.png)
+Connectez-vous au portail Azure pour connecter un abonnement Azure à votre espace de travail.  
 
 ## <a name="using-the-solution"></a>Utilisation de la solution
 
