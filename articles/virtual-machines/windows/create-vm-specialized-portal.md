@@ -12,64 +12,67 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 01/09/2018
+ms.date: 09/20/2018
 ms.author: cynthn
-ms.openlocfilehash: 428003747b7c746a2849a042e54647e86361c562
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 905f00842c5ce74f681a6c5c09ff8bf6c7a9e162
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34716558"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091247"
 ---
-# <a name="create-a-vm-from-a-vhd-using-the-azure-portal"></a>Créer une machine virtuelle à partir d’un disque dur virtuel dans le portail Azure
+# <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Créer une machine virtuelle à partir d’un disque dur virtuel à l’aide du portail Azure
 
+Vous pouvez créer une machine virtuelle dans Azure de plusieurs façons : 
 
-Il existe plusieurs façons de créer une machine virtuelle dans Azure. Si vous souhaitez réutiliser un disque dur virtuel existant ou copier le disque dur virtuel à utiliser à partir d’une machine virtuelle existante, vous pouvez créer une machine virtuelle en attachant le disque dur virtuel en tant que disque du système d’exploitation. Ce processus *attache* le disque dur virtuel à une nouvelle machine virtuelle en tant que disque du système d’exploitation.
+- Si vous souhaitez réutiliser un disque dur virtuel existant ou copier le disque dur virtuel à utiliser à partir d’une machine virtuelle existante, vous pouvez créer une machine virtuelle en *attachant* le disque dur virtuel à la nouvelle machine virtuelle comme disque du système d’exploitation. 
 
-Vous pouvez également créer une machine virtuelle à partir du disque dur virtuel d’une machine virtuelle qui a été supprimée. Par exemple, si vous avez une machine virtuelle Azure qui ne fonctionne pas correctement, vous pouvez la supprimer et créer une autre machine virtuelle à partir du disque dur virtuel. Vous pouvez réutiliser le même disque dur virtuel, ou créer une copie du disque dur virtuel en créant un instantané, puis en créant un disque managé à partir de l’instantané. Cette méthode nécessite quelques étapes supplémentaires, mais elle vous permet de conserver le disque dur virtuel d’origine et fournit également un instantané de secours au besoin.
+- Vous pouvez créer une machine virtuelle à partir du disque dur virtuel d’une machine virtuelle qui a été supprimée. Par exemple, si vous avez une machine virtuelle Azure qui ne fonctionne pas correctement, vous pouvez la supprimer et utiliser son disque dur virtuel pour créer une autre machine virtuelle. Vous pouvez réutiliser le même disque dur virtuel ou créer une copie du disque dur virtuel en créant une capture instantanée, puis en créant un disque managé à partir de la capture instantanée. Bien que la création d’une capture instantanée nécessite quelques étapes supplémentaires, elle conserve le disque dur virtuel d’origine et offre une solution de secours.
+ 
+- Vous pouvez créer une machine virtuelle Azure à partir d’un disque dur virtuel local en chargeant le disque dur virtuel local et en l’attachant à une nouvelle machine virtuelle. Utilisez PowerShell ou un autre outil pour charger le disque dur virtuel sur un compte de stockage, puis créez un disque managé à partir du disque dur virtuel. Pour plus d’informations, consultez [Charger un disque dur virtuel spécialisé](create-vm-specialized.md#option-2-upload-a-specialized-vhd). 
 
-Vous avez une machine virtuelle locale que vous souhaitez utiliser pour créer une machine virtuelle dans Azure. Vous pouvez charger le disque dur virtuel et l’attacher à une nouvelle machine virtuelle. Pour charger un disque dur virtuel, vous devez utiliser PowerShell ou un autre outil pour pouvoir le charger dans un compte de stockage, puis créer un disque managé à partir du disque dur virtuel. Pour plus d’informations, consultez [Charger un disque dur virtuel spécialisé](create-vm-specialized.md#option-2-upload-a-specialized-vhd)
-
-Si vous souhaitez utiliser une machine virtuelle ou un disque dur virtuel pour créer plusieurs machines virtuelles, ne choisissez pas cette méthode. Pour les déploiements plus importants, vous devez [créer une image](capture-image-resource.md), puis [utiliser cette image pour créer plusieurs machines virtuelles](create-vm-generalized-managed.md).
+N’utilisez pas de disque spécialisé si vous souhaitez créer plusieurs machines virtuelles. Pour les déploiements plus importants, [créez une image](capture-image-resource.md), puis [utilisez-la pour créer plusieurs machines virtuelles](create-vm-generalized-managed.md).
 
 
 ## <a name="copy-a-disk"></a>Copier un disque
 
-Créez un instantané, puis créez un disque à partir de cet instantané. Vous pouvez ainsi conserver le disque dur virtuel d’origine comme disque de secours.
+Créez une capture instantanée, puis créez un disque à partir de cette capture instantanée. Cette stratégie vous permet de conserver le disque dur virtuel d’origine comme solution de secours :
 
-1. Dans le menu de gauche, cliquez sur **Toutes les ressources**.
-2. Dans la liste déroulante **Tous les types**, désélectionnez l’option **Tout sélectionner**, puis faites défiler la liste vers le bas et sélectionnez **Disques** pour rechercher les disques disponibles.
-3. Cliquez sur le disque que vous souhaitez utiliser. La page **Vue d’ensemble** du disque s’ouvre.
-4. Dans la page Vue d’ensemble, dans le menu en haut, cliquez sur **+ Créer un instantané**. 
-5. Tapez le nom du nouvel instantané.
+1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**.
+2. Dans la zone de recherche **Tous les services**, entrez **disques**, puis sélectionnez **Disques** pour afficher la liste des disques disponibles.
+3. Sélectionnez le disque à utiliser. La page **Disque** correspondante s’affiche.
+4. Dans le menu du haut, sélectionnez **Créer une capture instantanée**. 
+5. Entrez un **nom** pour la capture instantanée.
 6. Choisissez un **groupe de ressources** pour l’instantané. Vous pouvez utiliser un groupe de ressources existant ou en créer un.
-7. Choisissez le stockage à utiliser : standard (HDD) ou Premium (SDD).
-8. Quand vous avez terminé, cliquez sur **Créer** pour créer l’instantané.
-9. Une fois que vous avez créé l’instantané, cliquez sur **+ Créer une ressource** dans le menu de gauche.
-10. Dans la barre de recherche, tapez **disque managé** et sélectionnez **Disques managés** dans la liste.
-11. Dans la page **Disques managés**, cliquez sur **Créer**.
-12. Tapez le nom du disque.
-13. Choisissez un **groupe de ressources** pour le disque. Vous pouvez utiliser un groupe de ressources existant ou en créer un. Ce groupe de ressources est également celui où vous créez la machine virtuelle à partir du disque.
-14. Choisissez le stockage à utiliser : standard (HDD) ou Premium (SDD).
-15. Dans **Type de source**, assurez-vous que l’option **Instantané** est sélectionnée.
+7. Comme **Type de compte**, choisissez le stockage **Standard (HDD)** ou **Premium (SSD)**.
+8. Quand vous avez terminé, sélectionnez **Créer** pour créer la capture instantanée.
+9. Une fois la capture instantanée créée, sélectionnez **Créer une ressource** dans le menu de gauche.
+10. Dans la zone de recherche, entrez **disque managé**, puis sélectionnez **Disques managés** dans la liste.
+11. Dans la page **Disques managés**, sélectionnez **Créer**.
+12. Donnez un **Nom** au disque.
+13. Choisissez un **groupe de ressources** pour le disque. Vous pouvez utiliser un groupe de ressources existant ou en créer un. Cette sélection est également utilisée comme groupe de ressources où vous créez la machine virtuelle à partir du disque.
+14. Pour **Type de compte**, choisissez le stockage **Standard (HDD)** ou **Premium (SSD)**.
+15. Dans **Type de source**, vérifiez que l’option **Capture instantanée** est sélectionnée.
 16. Dans la liste déroulante **Capture instantanée source**, sélectionnez l’instantané que vous souhaitez utiliser.
-17. Effectuez tout autre changement nécessaire, puis cliquez sur **Créer** pour créer le disque.
+17. Effectuez tout autre changement nécessaire, puis sélectionnez **Créer** pour créer le disque.
 
 ## <a name="create-a-vm-from-a-disk"></a>Créer une machine virtuelle à partir d’un disque
 
-Une fois que vous avez le disque dur virtuel du disque managé que vous souhaitez utiliser, vous pouvez créer la machine virtuelle dans le portail.
+Quand vous avez le disque dur virtuel du disque managé que vous souhaitez utiliser, vous pouvez créer la machine virtuelle dans le portail :
 
-1. Dans le menu de gauche, cliquez sur **Toutes les ressources**.
-2. Dans la liste déroulante **Tous les types**, désélectionnez l’option **Tout sélectionner**, puis faites défiler la liste vers le bas et sélectionnez **Disques** pour rechercher les disques disponibles.
-3. Cliquez sur le disque que vous souhaitez utiliser. La page **Vue d’ensemble** du disque s’ouvre.
-Dans la page Vue d’ensemble, assurez-vous que **État du disque** affiche **Non attaché**. Si ce n’est pas le cas, essayez de détacher le disque de la machine virtuelle ou de supprimer la machine virtuelle pour libérer le disque.
-4. Dans le menu en haut du volet, cliquez sur **+ Créer une machine virtuelle**.
-5. Dans la page **De base** pour la nouvelle machine virtuelle, tapez un nom, puis sélectionnez un groupe de ressources existant ou créez-en un.
-6. Dans la page **Taille**, sélectionnez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
-7. Dans la page **Paramètres**, vous pouvez laisser le portail créer automatiquement toutes les nouvelles ressources, ou sélectionner vous-même un **réseau virtuel** et un **groupe de sécurité réseau** existants. Le portail crée toujours une carte réseau et une adresse IP publique pour la nouvelle machine virtuelle. 
-8. Effectuez les changements voulus pour les options de surveillance et ajoutez les extensions dont vous avez besoin.
-9. Une fois ces opérations effectuées, cliquez sur **OK**. 
-10. Si la configuration de la machine virtuelle est validée, cliquez sur **OK** pour démarrer le déploiement.
+1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Tous les services**.
+2. Dans la zone de recherche **Tous les services**, entrez **disques**, puis sélectionnez **Disques** pour afficher la liste des disques disponibles.
+3. Sélectionnez le disque à utiliser. La page **Disque** correspondante s’ouvre.
+4. Dans la page **Vue d’ensemble**, vérifiez que **ÉTAT DU DISQUE** affiche **Non attaché**. Si ce n’est pas le cas, essayez de détacher le disque de la machine virtuelle ou de supprimer la machine virtuelle pour libérer le disque.
+4. Dans le menu situé en haut de la page, sélectionnez **Créer une machine virtuelle**.
+5. Dans la page **De base** pour la nouvelle machine virtuelle, entrez un **Nom de machine virtuelle**, puis sélectionnez un **groupe de ressources** existant ou créez-en un.
+6. En ce qui concerne **Taille**, sélectionnez **Changer la taille** pour accéder à la page **Taille**.
+7. Sélectionnez une ligne de taille de machine virtuelle, puis choisissez **Sélectionner**.
+8. Dans la page **Mise en réseau**, vous pouvez soit laisser le portail créer automatiquement toutes les ressources, soit sélectionner vous-même un **Réseau virtuel** et un **Groupe de sécurité réseau** existants. Le portail crée toujours une interface réseau et une adresse IP publique pour la nouvelle machine virtuelle. 
+9. Dans la page **Gestion**, changez éventuellement les options de supervision.
+10. Dans la page **Configuration de l’invité**, ajoutez les extensions nécessaires.
+11. Quand vous avez terminé, sélectionnez **Vérifier + créer**. 
+12. Si la configuration de la machine virtuelle est validée, sélectionnez **Créer** pour démarrer le déploiement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

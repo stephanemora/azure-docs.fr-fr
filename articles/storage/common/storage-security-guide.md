@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 584db1400ddd2b4f447b7ca397f2c98b701c7848
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45730947"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341869"
 ---
 # <a name="azure-storage-security-guide"></a>Guide de sécurité Azure Storage
 
@@ -22,7 +22,7 @@ Stockage Azure propose un ensemble complet de fonctionnalités de sécurité qui
 - Toutes les données écrites dans le stockage Azure sont automatiquement chiffrées à l’aide du [Storage Service Encryption (SSE)](storage-service-encryption.md). Pour plus d’informations, consultez [Annonce du chiffrement par défaut des objets blob, fichiers, tables et stockages de file d’attente Azure](https://azure.microsoft.com/blog/announcing-default-encryption-for-azure-blobs-files-table-and-queue-storage/).
 - Azure Active Directory (Azure AD) et le contrôle d’accès en fonction du rôle (RBAC) sont pris en charge pour le stockage Azure pour les opérations de gestion des ressources et les opérations de données comme suit :   
     - Vous pouvez attribuer des rôles RBAC limités au compte de stockage à des principaux de sécurité et utiliser Azure AD pour autoriser les opérations de gestion des ressources telles que la gestion des clés.
-    - L’intégration Azure AD est prise en charge dans la préversion pour les opérations de données sur les services d’objet Blob et de file d’attente. Vous pouvez attribuer des rôles RBAC limités à un abonnement, groupe de ressources, compte de stockage, ou un conteneur ou une file d’attente à un principal de sécurité ou une identité de service gérée. Pour plus d’informations, consultez [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Authentifier l’accès à Azure Storage à l’aide d’Azure Active Directory (préversion)).   
+    - L’intégration Azure AD est prise en charge dans la préversion pour les opérations de données sur les services d’objet Blob et de file d’attente. Vous pouvez attribuer des rôles RBAC limités à un abonnement, groupe de ressources, compte de stockage, ou un conteneur ou une file d’attente à un principal de sécurité ou une identité managée pour des ressources Azure. Pour plus d’informations, consultez [Authenticate access to Azure Storage using Azure Active Directory (Preview)](storage-auth-aad.md) (Authentifier l’accès à Azure Storage à l’aide d’Azure Active Directory (préversion)).   
 - Les données peuvent être sécurisées en transit entre une application et Azure au moyen du [chiffrement côté client](../storage-client-side-encryption.md), de HTTPS ou de SMB 3.0.  
 - Les disques de système d’exploitation et de données utilisés par les machines virtuelles Azure peuvent être chiffrés à l’aide [d’Azure Disk Encryption](../../security/azure-security-disk-encryption.md). 
 - Il est possible d’accorder un accès délégué aux objets de données d’Azure Storage en utilisant des [signatures d’accès partagé](../storage-dotnet-shared-access-signature-part-1.md).
