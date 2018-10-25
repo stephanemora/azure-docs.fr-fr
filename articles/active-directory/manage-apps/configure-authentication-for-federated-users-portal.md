@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/08/2018
 ms.author: barbkess
-ms.openlocfilehash: f24be44b00f9c4e789e8d4797f6a0516dcfe940f
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: f9cd761080bc5098d0500841e7327ac8ce9f9a2d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494055"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957927"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>Configurer le comportement de la connexion Azure Active Directory pour une application à l’aide d’une stratégie de découverte du domaine d’accueil
 
@@ -263,4 +263,4 @@ Get-AzureADPolicyAppliedObject -ObjectId <ObjectId of the Policy>
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour plus d’informations sur le fonctionnement de l’authentification dans Azure AD, consultez la section [Scénarios d’authentification pour Azure AD](../develop/authentication-scenarios.md).
 - Pour plus d’informations sur l’authentification unique de l’utilisateur, consultez [Accès aux applications et authentification unique avec Azure Active Directory](configure-single-sign-on-portal.md).
-- Consultez le [guide du développeur Active Directory](../develop/azure-ad-developers-guide.md) pour avoir une vue d’ensemble du contenu associé au développement.
+- Consultez le [guide du développeur Active Directory](../develop/v1-overview.md) pour avoir une vue d’ensemble du contenu associé au développement.

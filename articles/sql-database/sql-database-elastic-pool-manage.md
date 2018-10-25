@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 6c43e5bf311d94ff2e5b5c31217c5071ea26746c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49351860"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466067"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Créer et gérer des pools élastiques dans Azure SQL Database
 
@@ -106,11 +106,11 @@ Pour créer et gérer des pools élastiques SQL Database et des bases de donnée
 |[Pools élastiques - Mettre à jour](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Met à jour un pool élastique existant.|
 |[Activités de pool élastique](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Retourne les activités de pool élastique.|
 |[Activités de bases de données du pool élastique](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Retourne l’activité sur les bases de données à l’intérieur d’un pool élastique.|
-|[Bases de données - Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Crée une base de données ou met à jour une base de données existante.|
-|[Bases de données - Obtenir](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Obtient une base de données.|
-|[Bases de données - Lister par pool élastique](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
-|[Bases de données - Lister par serveur](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Retourne une liste de bases de données d’un serveur.|
-|[Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Met à jour une base de données existante.|
+|[Bases de données - Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
+|[Bases de données - Obtenir](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtient une base de données.|
+|[Bases de données - Lister par pool élastique](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
+|[Bases de données - Lister par serveur](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
+|[Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/update)|Met à jour une base de données existante.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

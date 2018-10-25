@@ -1,21 +1,21 @@
 ---
 title: Prise en charge linguistique - API du service de reconnaissance vocale
-description: Liste des langages naturels pris en charge par le service de reconnaissance vocale.
 titleSuffix: Azure Cognitive Services
+description: Liste des langages naturels pris en charge par le service de reconnaissance vocale.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: erhopf
-ms.openlocfilehash: 5bf680d22f990e6a93c622271bbb8ccd4c19437e
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5adc0e39c271b71d6c003eaba6cb5b8a71531bd7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166914"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471439"
 ---
 # <a name="language-and-region-support-for-speech-service-api"></a>Prise en charge de la région et de la langue pour l’API du service de reconnaissance vocale
 

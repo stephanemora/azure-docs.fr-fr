@@ -3,7 +3,7 @@ title: Créer un groupe identique Azure qui utilise les zones de disponibilité 
 description: Découvrir comment créer des groupes identiques de machines virtuelles Azure qui utilisent les zones de disponibilité pour augmenter la redondance contre les pannes
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm
 ms.devlang: na
 ms.topic: article
 ms.date: 08/08/2018
-ms.author: cynthn
-ms.openlocfilehash: 18d9a2dade271e61fa3db423da610a7f982aa47b
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: zarhoads
+ms.openlocfilehash: 062725ab5e486ff795ffa0f4a72dd3fdb0e6b948
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949670"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468872"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Créer un groupe identique de machines virtuelles qui utilise les zones de disponibilité
 
@@ -65,7 +65,7 @@ Quand vous créez un groupe identique dans une zone unique, vous contrôlez la z
 Pour utiliser les zones de disponibilité, votre groupe identique doit être créé dans une [région Azure prise en charge](../availability-zones/az-overview.md#regions-that-support-availability-zones). Vous pouvez créer un groupe identique qui utilise des zones de disponibilité avec l’une des méthodes suivantes :
 
 - [Portail Azure](#use-the-azure-portal)
-- [interface de ligne de commande Azure](#use-the-azure-cli-20)
+- [Interface de ligne de commande Azure](#use-the-azure-cli-20)
 - [Azure PowerShell](#use-azure-powershell)
 - [Modèles Microsoft Azure Resource Manager](#use-azure-resource-manager-templates)
 

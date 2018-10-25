@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5e18a27579c577f914709e25cab1549387a965f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b96ee362f6169d386a58ee48878e40a42fc9ede
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966399"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987594"
 ---
 # <a name="about-microsoft-identity-platform"></a>À propos de la plateforme d’identités Microsoft
 
@@ -37,7 +37,7 @@ Les applications utilisant les dernières bibliothèques ADAL et MSAL s’authen
 
 Le diagramme suivant illustre l’expérience d’identité Microsoft à un haut niveau, notamment l’expérience d’inscription d’application, les kits de développement logiciel (SDK), les points de terminaison et les identités prises en charge.
 
-![Plateforme d’identités Microsoft actuelle](./media/about-microsoft-identity-platform/microsoft-identity-platform-today.png)
+![Plateforme d’identités Microsoft actuelle](./media/about-microsoft-identity-platform/microsoft-identity-platform-preview.png)
 
 La plateforme d’identités Microsoft a deux points de terminaison (v1.0 et v2.0) et deux ensembles de bibliothèques de clients pour gérer ces points de terminaison. Lors du développement d’une nouvelle application, tenez compte des avantages et de l’état actuel des points de terminaison et des bibliothèques d’authentification. Tenez également compte de ces éléments :
 
@@ -61,5 +61,5 @@ La plateforme d’identités Microsoft a deux points de terminaison (v1.0 et v2.
 
 En savoir plus sur les versions v1.0 et v2.0.
 
-* [À propos de la version v1.0](azure-ad-developers-guide.md)
-* [À propos de la version v2.0](azure-ad-developers-guide.md)
+* [À propos de la version v1.0](v1-overview.md)
+* [À propos de la version v2.0](v2-overview.md)

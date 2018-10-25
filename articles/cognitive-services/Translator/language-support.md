@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: v-jansko
-ms.openlocfilehash: 775e098eb2a067e3e0446bccc223c1c54e082347
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 222e37e38772b82e9d9849e3a955b865d43d3c63
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435272"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957363"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Langues et régions prises en charge par l’API de traduction de texte Translator Text
 
@@ -108,7 +108,7 @@ La méthode Transliterate prend en charge les langues ci-après. Dans la colonne
 | Hindi | hi | Dévanâgarî | <--> | Latin |
 | Japonais | ja | Japonais | <--> | Latin |
 | Kannada | kn | Kannada | --> | Latin |
-| Malais | ml | Malayalam | --> | Latin |
+| Malayalam | ml | Malayalam | --> | Latin |
 | Marathi | mr | Dévanâgarî | --> | Latin |
 | Oriya | or | Oriya | <--> | Latin |
 | Pendjabi | pa | Gurmukhi | <--> | Latin  |

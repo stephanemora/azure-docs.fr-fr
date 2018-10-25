@@ -3,7 +3,7 @@ title: Exemple de script PowerShell - IIS | Microsoft Docs
 description: Exemple de script Azure PowerShell - IIS
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-service-management
@@ -14,14 +14,14 @@ ms.topic: sample
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/12/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: be91138b52defc7da3b7eb37ed6cdc453520a4ae
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 40618dc8cd799cae0611234b17ab8534b31afec4
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932532"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467960"
 ---
 # <a name="create-an-iis-vm-with-powershell"></a>Créer une machine virtuelle IIS avec PowerShell
 

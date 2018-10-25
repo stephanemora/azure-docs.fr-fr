@@ -3,7 +3,7 @@ title: Synchronisation de l’heure pour les machines virtuelles Windows dans Az
 description: Synchronisation de l’heure pour les machines virtuelles Windows.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/017/2018
-ms.author: cynthn
-ms.openlocfilehash: 7fadf4a8bcf545229dd604829780e9837ad5a94a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: zarhoads
+ms.openlocfilehash: 1c784721d103ca623f6e9bac5ec1281beeb70074
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987310"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468314"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Synchronisation de l’heure pour les machines virtuelles Windows dans Azure
 
@@ -31,20 +31,20 @@ Azure est soutenu par une infrastructure exécutant Windows Server 2016. Windows
 >[!NOTE]
 >Pour une présentation rapide du service de temps Windows, regardez cette [vidéo de présentation globale](https://aka.ms/WS2016TimeVideo).
 >
-> Pour plus d’informations, consultez [Précision de l’heure sur Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
+> Pour plus d’informations, consultez la rubrique [Précision de l’heure sur Windows Server 2016](https://docs.microsoft.com/windows-server/networking/windows-time-service/accurate-time). 
 
 ## <a name="overview"></a>Vue d’ensemble
 
-La précision de l’horloge de l’ordinateur est évaluée en fonction de la proximité de l’horloge de l’ordinateur par rapport à la norme de temps universel coordonné (UTC). L’heure UTC est définie par l’exemple multinational des horloges atomiques précises qui ne peuvent être décalées que d’une seconde en 300 ans. Toutefois, la lecture directe de l’heure UTC requiert du matériel spécialisé. Au lieu de cela, les serveurs de temps sont synchronisés à l’heure UTC et sont accessibles depuis d’autres ordinateurs dans un souci d’évolutivité et de fiabilité. Chaque ordinateur possède un service de synchronisation du temps en cours d’exécution qui sait quels serveurs de temps utiliser et vérifie régulièrement si l’horloge de l’ordinateur doit être corrigée, et ajuste l’heure si nécessaire. 
+La précision de l’horloge de l’ordinateur est évaluée en fonction de la proximité de l’horloge de l’ordinateur par rapport à la norme de temps universel coordonné (UTC). L’heure UTC est définie par l’exemple multinational des horloges atomiques précises qui ne peuvent être décalées que d’une seconde en 300 ans. Toutefois, la lecture directe de l’heure UTC requiert du matériel spécialisé. Au lieu de cela, les serveurs de temps sont synchronisés à l’heure UTC et sont accessibles depuis d’autres ordinateurs dans un souci d’évolutivité et de fiabilité. Chaque ordinateur possède un service de synchronisation d’heure en cours d’exécution qui sait quels serveurs de temps utiliser et vérifie régulièrement si l’horloge de l’ordinateur doit être corrigée, et ajuste l’heure si nécessaire. 
 
-Les hôtes Azure sont synchronisés avec les serveurs de temps internes Microsoft qui extraient l’heure depuis des appareils de couche 1 appartenant à Microsoft, grâce à des antennes GPS. Les machines virtuelles dans Azure peuvent dépendre de leur hôte pour transférer l’heure précise (*heure de l’hôte*) sur la machine virtuelle. La machine virtuelle peut également obtenir directement l’heure à partir d’un serveur de temps, ou par une combinaison des deux. 
+Les hôtes Azure sont synchronisés avec les serveurs de temps internes Microsoft qui extraient l’heure depuis des appareils de couche 1 appartenant à Microsoft, grâce à des antennes GPS. Les machines virtuelles dans Azure peuvent dépendre de leur hôte pour transférer l’heure précise (*heure de l’hôte*) sur la machine virtuelle. La machine virtuelle peut également obtenir directement l’heure à partir d’un serveur de temps, ou par une combinaison des deux. 
 
-Les interactions de la machine virtuelle avec l’hôte peuvent également affecter l’horloge. Au cours de la [maintenance avec préservation de la mémoire](maintenance-and-updates.md#memory-preserving-maintenance), les machines virtuelles sont interrompues jusqu’à 30 secondes. Par exemple, avant le début de la maintenance, l’horloge de la machine virtuelle affiche 10:00:00 et dure 28 secondes. Une fois que la machine virtuelle reprend, l’horloge de la machine virtuelle affiche toujours 10:00:00, et est donc décalée de 28 secondes. Pour corriger cela, le service VMICTimeSync surveille ce qu’il se passe sur l’hôte et demande des modifications sur les machines virtuelles pour compenser.
+Les interactions de la machine virtuelle avec l’hôte peuvent également affecter l’horloge. Au cours de la [maintenance avec préservation de la mémoire](maintenance-and-updates.md#memory-preserving-maintenance), les machines virtuelles sont interrompues jusqu’à 30 secondes. Par exemple, avant le début de la maintenance, l’horloge de la machine virtuelle affiche 10:00:00 pendant 28 secondes. Une fois que la machine virtuelle reprend, l’horloge affiche toujours 10:00:00 et est donc décalée de 28 secondes. Pour corriger cela, le service VMICTimeSync surveille ce qu’il se passe sur l’hôte et demande des modifications sur les machines virtuelles pour compenser.
 
-Si la synchronisation du temps ne fonctionne pas, l’horloge de la machine virtuelle accumule les erreurs. S’il n’y a qu’une seule machine virtuelle, l’effet n’est pas forcément significatif, sauf si la charge de travail nécessite une synchronisation extrêmement précise de l’horloge. Mais dans la plupart des cas, nous possédons plusieurs machines virtuelles interconnectées qui utilisent l’heure pour suivre les transactions. L’heure doit donc être cohérente tout au long du déploiement. Lorsque l’heure est différente d’une machine virtuelle à l’autre, vous pouvez rencontrer les effets suivants :
+Si la synchronisation de l’heure ne fonctionne pas, l’horloge de la machine virtuelle accumule les erreurs. S’il n’y a qu’une seule machine virtuelle, l’effet n’est pas forcément significatif, sauf si la charge de travail nécessite une synchronisation extrêmement précise de l’horloge. Mais dans la plupart des cas, nous possédons plusieurs machines virtuelles interconnectées qui utilisent l’heure pour suivre les transactions. L’heure doit donc être cohérente tout au long du déploiement. Lorsque l’heure est différente d’une machine virtuelle à l’autre, vous pouvez rencontrer les effets suivants :
 
 - L’authentification échoue. Les protocoles de sécurité, comme Kerberos, ou les technologies dépendantes du certificat reposent sur la précision de l’heure entre les systèmes. 
-- Il est très difficile de déterminer ce qu’il peut se passer dans un système si les journaux (ou d’autres données) ne sont pas acceptés au bon moment. Un même événement peut avoir l’air de s’être produit à différents moments, rendant la corrélation difficile.
+- Il est très difficile de déterminer ce qu’il peut se passer dans un système si l’heure des journaux (ou d’autres données) diffère. Un même événement peut avoir l’air de s’être produit à différents moments, rendant la corrélation difficile.
 - Si l’horloge est désactivée, la facturation peut être calculée de manière incorrecte.
 
 Les meilleurs résultats des déploiements Windows sont obtenus à l’aide de Windows Server 2016 en tant que système d’exploitation invité, ce qui garantit que vous utilisez les dernières améliorations en matière de synchronisation de l’heure.

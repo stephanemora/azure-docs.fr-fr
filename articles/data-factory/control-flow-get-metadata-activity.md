@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/19/2018
 ms.author: shlo
-ms.openlocfilehash: c24bec7366ea62b3dd8f7a301c9d2d62c6dd6c7d
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: f61399a3a6cb5c67343e28e4364d8d796ffbc066
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859276"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457042"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Activité d’obtention des métadonnées dans Azure Data Factory
 L’activité GetMetadata peut être utilisée pour récupérer les **métadonnées** de n’importe quelle donnée dans Azure Data Factory. Cette activité peut être utilisée dans les scénarios suivants :
@@ -61,6 +61,7 @@ L’activité GetMetadata sélectionne un jeu de données comme entrée requise,
 | Connecteur/Métadonnées | structure | columnCount | exists |
 |:--- |:--- |:--- |:--- |
 | Azure SQL Database | √ | √ | √ |
+| Azure SQL Database Managed Instance | √ | √ | √ |
 | Azure SQL Data Warehouse | √ | √ | √ |
 | SQL Server | √ | √ | √ |
 
@@ -130,8 +131,8 @@ Actuellement, l’activité GetMetadata peut extraire les types d’informations
 
 Propriété | Description | Obligatoire
 -------- | ----------- | --------
-fieldList | Répertorie les types d’informations de métadonnées requis. Consultez les détails dans la section [Options de métadonnées](#metadata-options) sur les métadonnées prises en charge. | OUI 
-dataset | Jeu de données de référence à partir duquel l’activité de métadonnées doit être récupérée par l’activité d’obtention des métadonnées. Consultez la section [Fonctionnalités prises en charge](#supported-capabilities) sur les connecteurs pris en charge et reportez-vous à la rubrique des connecteurs pour plus d’informations sur la syntaxe de jeu de données. | OUI
+fieldList | Répertorie les types d’informations de métadonnées requis. Consultez les détails dans la section [Options de métadonnées](#metadata-options) sur les métadonnées prises en charge. | Oui 
+dataset | Jeu de données de référence à partir duquel l’activité de métadonnées doit être récupérée par l’activité d’obtention des métadonnées. Consultez la section [Fonctionnalités prises en charge](#supported-capabilities) sur les connecteurs pris en charge et reportez-vous à la rubrique des connecteurs pour plus d’informations sur la syntaxe de jeu de données. | Oui
 
 ## <a name="sample-output"></a>Exemple de sortie
 

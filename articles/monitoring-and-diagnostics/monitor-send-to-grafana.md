@@ -9,12 +9,12 @@ ms.date: 11/06/2017
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: ''
-ms.openlocfilehash: de2c57949cb2087e41b79a225963225d340f12af
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b4fbd1248f91e0766cca66d1c51033a8b338c324
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263080"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957359"
 ---
 # <a name="monitor-your-azure-services-in-grafana"></a>Surveiller vos services Azure dans Grafana
 Maintenant, vous pouvez aussi surveiller les services et applications Azure à partir de [Grafana](https://grafana.com/) en utilisant le [plug-in Azure Monitor de source de données](https://grafana.com/plugins/grafana-azure-monitor-datasource). Ce plug-in rassemble les données des performances d’application collectées par le kit SDK Application Insights ainsi que les données d’infrastructure fournies par Azure Monitor. Vous pouvez ensuite afficher ces données dans votre tableau de bord Grafana.
@@ -62,7 +62,7 @@ Lorsque vous êtes correctement connecté, vous devez voir que le plug-in Azure 
 
 Grafana utilise un principal de service Azure Active Directory pour se connecter à des API Azure Monitor et collecter des données de métriques. Vous devez créer un principal de service pour gérer l’accès à vos ressources Azure.
 
-1. Consultez [ces instructions](../azure-resource-manager/resource-group-create-service-principal-portal.md) pour créer un principal de service. Copiez et enregistrez votre ID de locataire, votre ID de client et un secret client.
+1. Consultez [ces instructions](../active-directory/develop/howto-create-service-principal-portal.md) pour créer un principal de service. Copiez et enregistrez votre ID de locataire, votre ID de client et un secret client.
 
 2. Consultez [Affecter l’application à un rôle](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal#assign-application-to-role) pour attribuer le rôle de lecteur à l’application Azure Active Directory.     
 

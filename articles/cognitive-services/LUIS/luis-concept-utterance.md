@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 39c99cc35f4c2549efc9c20af0680b77483325c5
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 2b21102a5416c1fd7e2abb35be677c48ffc63263
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038933"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638069"
 ---
 # <a name="utterances-in-luis"></a>Énoncés dans LUIS
 
@@ -44,7 +44,7 @@ Prenez ces exemples d’énoncés :
 |Je souhaite obtenir un ordinateur, comment faire ?|
 |Quand puis-je avoir un ordinateur ?| 
 
-Ici, le terme clé, ordinateur, n’est pas varié. Il peut désigner un ordinateur de bureau, un ordinateur portable, une station de travail, voir une simple machine. LUIS déduit intelligemment des synonymes du contexte mais, lorsque vous créez des énoncés pour l’apprentissage, il est toujours préférable de les faire varier.
+Ici, le terme clé, « computer » (ordinateur), n’est pas varié. Il peut désigner un ordinateur de bureau, un ordinateur portable, une station de travail, voir une simple machine. LUIS déduit intelligemment des synonymes du contexte mais, lorsque vous créez des énoncés pour l’apprentissage, il est toujours préférable de les faire varier.
 
 ## <a name="example-utterances-in-each-intent"></a>Exemples d’énoncés dans chaque intention
 Chaque intention doit avoir des exemples d’énoncés, au minimum entre 10 et 15. Si vous avez une intention dépourvue d’exemple d’énoncé, vous ne pouvez pas former LUIS. Si vous avez une intention avec un seul exemple d’énoncé ou très peu d’exemples, LUIS ne prédira pas l’intention avec précision. 

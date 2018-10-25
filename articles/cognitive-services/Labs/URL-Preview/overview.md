@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-url-preview
+ms.component: url-preview
 ms.topic: overview
 ms.date: 03/16/2018
 ms.author: rosh
-ms.openlocfilehash: 5d0b8260bf1c58af915c1be18c32cec678f4f09c
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: e3791c897722c9bbf50f58c126d7e4e573b2096f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869429"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465812"
 ---
 # <a name="what-is-project-url-preview"></a>Qu’est-ce que l’aperçu d’URL de projet ?
 Le point de terminaison d’aperçu d’URL prend un paramètre de requête URL et retourne une réponse JSON avec le nom de la ressource cible, une brève description et un lien vers une image à afficher dans un aperçu. La réponse inclut également l’indicateur [isFamilyFriendly](url-preview-reference.md#query-parameters) qui précise si l’URL contient des données adulte, piratées ou tout autre contenu illégal. 

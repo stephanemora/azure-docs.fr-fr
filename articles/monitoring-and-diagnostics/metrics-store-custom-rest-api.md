@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c01440437eae3cb076627ab9f2221e33b833f472
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d36697e6b5765ecf35ed9b3add45cff6c33823a5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977230"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958216"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-using-a-rest-api"></a>Envoyer des métriques personnalisées pour une ressource Azure à un magasin de métriques Azure Monitor à l’aide d’une API REST
 
@@ -25,7 +25,7 @@ Cet article vous montre comment envoyer des métriques personnalisées pour les 
 
 ## <a name="create-and-authorize-a-service-principal-to-emit-metrics"></a>Créer et autoriser un principal de service pour émettre des métriques 
 
-Créez un principal de service dans votre locataire Azure Active Directory en suivant les instructions indiquées dans [Créer un principal du service](../azure-resource-manager/resource-group-create-service-principal-portal.md). 
+Créez un principal de service dans votre locataire Azure Active Directory en suivant les instructions indiquées dans [Créer un principal du service](../active-directory/develop/howto-create-service-principal-portal.md). 
 
 Notez ce qui suit au cours de ce processus : 
 
@@ -101,7 +101,7 @@ Si vous obtenez une erreur dans une partie du processus, pensez aux éléments s
 
 1. Se connecter au portail Azure. 
 
-1. Dans le menu de gauche, cliquez sur **Surveiller**. 
+1. Dans le menu de gauche, cliquez sur **Surveiller** 
 
 1. Dans la page Surveiller, cliquez sur **Métriques**. 
 

@@ -15,12 +15,12 @@ ms.date: 08/07/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 401c9a3df4cb132769e05cb0487a763f4080dd23
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5e32968ae83ef826fbc8e81f1b04eca687642343
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304065"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637666"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD
 
@@ -61,6 +61,7 @@ Un compte Azure représente une relation de facturation. Un compte Azure est une
 Les abonnements Azure vous permettent d’organiser l’accès aux ressources Azure. Ils vous permettent également de contrôler le signalement, la facturation et le paiement des ressources utilisées. Comme chaque abonnement peut avoir une configuration de facturation et de paiement différente, vous pouvez avoir différents abonnements et différents plans par bureau, service, projet, etc. Chaque service appartient à un abonnement, et l’ID d’abonnement peut être nécessaire pour les opérations de programmation.
 
 Les comptes et les abonnements sont gérés dans le [Centre des comptes Azure](https://account.azure.com/Subscriptions).
+
 ## <a name="azure-rbac-roles"></a>Rôles RBAC Azure
 
 Le contrôle RBAC Azure est un système d’autorisations basé sur [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) qui offre une gestion précise des accès aux ressources Azure, comme les ressources de calcul et de stockage. Le contrôle RBAC Azure compte plus de 70 rôles intégrés. Il existe quatre rôles RBAC fondamentaux. Les trois premiers s’appliquent à tous les types de ressources :

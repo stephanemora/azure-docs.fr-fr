@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: jasonh
 ms.reviewer: jasonh
-ms.openlocfilehash: 0408ea6ead1ddf482ce0a07c21859af80ab6ca43
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 50ea4dafe7edfdeb851ad6d9cc42a7bca262e970
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697813"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985809"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Exécuter Azure Functions à partir des travaux Azure Stream Analytics 
 
@@ -40,11 +40,11 @@ Cette section explique comment configurer un travail Stream Analytics pour exéc
 ![Schéma montrant les relations entre les services Azure](./media/stream-analytics-with-azure-functions/image1.png)
 
 Les étapes suivantes sont nécessaires pour exécuter cette tâche :
-* [Créer un travail Stream Analytics en utilisant Event Hubs comme entrée](#create-stream-analytics-job-with-event-hub-as-input)  
-* [Créer une instance de cache Redis Azure](#create-an-azure-redis-cache)  
-* [Créer une fonction dans Azure Functions qui permet d’écrire des données dans le cache Redis Azure](#create-an-azure-function-that-can-write-data-to-the-redis-cache)    
-* [Mettre à jour le travail Stream Analytics en utilisant la fonction comme sortie](#update-the-stream-analytic-job-with-azure-function-as-output)  
-* [Vérifier les résultats dans le cache Redis Azure](#check-redis-cache-for-results)  
+* [Créer un travail Stream Analytics en utilisant Event Hubs comme entrée](#create-a-stream-analytics-job-with-event-hubs-as-input)  
+* [Créer une instance de cache Redis Azure](#create-an-azure-redis-cache-instance)  
+* [Créer une fonction dans Azure Functions qui permet d’écrire des données dans le cache Redis Azure](#create-a-function-in-azure-functions-that-can-write-data-to-azure-redis-cache)    
+* [Mettre à jour le travail Stream Analytics en utilisant la fonction comme sortie](#update-the-stream-analytics-job-with-the-function-as-output)  
+* [Vérifier les résultats dans le cache Redis Azure](#check-azure-redis-cache-for-results)  
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Créer un travail Stream Analytics en utilisant Event Hubs comme entrée
 
@@ -201,7 +201,7 @@ Suivez le didacticiel [Détection des fraudes en temps réel](stream-analytics-r
 
 Dans le portail Azure, lorsque vous essayez de rétablir les valeurs maximales de taille et de nombre de lots à des valeurs vides (par défaut), la valeur bascule sur la valeur précédemment saisie au moment de la sauvegarde. Dans ce cas, entrez manuellement les valeurs par défaut pour ces champs.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail de streaming et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez l’arrêter et le redémarrer plus tard lorsque vous en avez besoin. Si vous ne pensez pas continuer à utiliser ce travail, supprimez toutes les ressources créées pendant ce guide de démarrage rapide en procédant comme suit :
 

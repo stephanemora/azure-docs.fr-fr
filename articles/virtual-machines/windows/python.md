@@ -3,7 +3,7 @@ title: Créer et gérer une machine virtuelle Windows dans Azure à l’aide de 
 description: Apprenez à utiliser Python pour créer et gérer une machine virtuelle Windows dans Azure.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2017
-ms.author: cynthn
-ms.openlocfilehash: dbe8f1603433f381c3c28cb47d2dbda543b462e0
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: b15b3b07768d531b748944529cc7e8e6df6d9808
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31528339"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958871"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-python"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de Python
 
 Une [Machine virtuelle Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a besoin de plusieurs ressources de prise en charge Azure. Cet article décrit la création, la gestion et la suppression de ressources de machine virtuelle à l’aide de Python. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer un projet Visual Studio
+> * Créer un projet Visual Studio
 > * Installer des packages
 > * Créer des informations d’identification
 > * Créer des ressources
@@ -37,7 +37,7 @@ Une [Machine virtuelle Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwind
 
 Ces étapes prennent environ 20 minutes.
 
-## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
+## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 
 1. Si vous ne l’avez pas déjà fait, installez [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Dans la page Charges de travail, sélectionnez **Développement Python**, puis cliquez sur **Installer**. Dans le résumé, vous pouvez voir que **Python 3 64 bits (3.6.0)** est automatiquement sélectionné pour vous. Si vous avez déjà installé Visual Studio, vous pouvez ajouter la charge de travail Python en utilisant le Lanceur de Visual Studio.
 2. Après avoir installé et démarré Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
@@ -53,7 +53,7 @@ Dans les fenêtres de sortie, vous devriez voir que les packages Azure ont été
 
 ## <a name="create-credentials"></a>Créer des informations d’identification
 
-Avant de commencer cette étape, assurez-vous que vous disposez d’un [principal du service Active Directory](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Vous devez également enregistrer l’ID d’application, la clé d’authentification et l’ID de client dont vous aurez besoin dans une étape ultérieure.
+Avant de commencer cette étape, assurez-vous que vous disposez d’un [principal du service Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md). Vous devez également enregistrer l’ID d’application, la clé d’authentification et l’ID de client dont vous aurez besoin dans une étape ultérieure.
 
 1. Ouvrez le fichier *monProjetPython.py* qui a été créé, puis ajoutez ce code pour permettre à votre application de s’exécuter :
 

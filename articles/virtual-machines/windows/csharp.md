@@ -3,7 +3,7 @@ title: Créer et gérer une machine virtuelle Azure à l’aide de C# | Microsof
 description: Utiliser C# et Azure Resource Manager pour déployer une machine virtuelle et toutes ses ressources de soutien.
 services: virtual-machines-windows
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
 ms.date: 07/17/2017
-ms.author: cynthn
-ms.openlocfilehash: 99c8e71e0a31f6ef2f4fb2087fb8678c68a052a7
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.author: zarhoads
+ms.openlocfilehash: 297eb95d435f1098a40c140b6ac451312bdb9d9f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525929"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956712"
 ---
 # <a name="create-and-manage-windows-vms-in-azure-using-c"></a>Créer et gérer des machines virtuelles Windows dans Azure à l’aide de C# #
 
 Une [machine virtuelle Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) a besoin de plusieurs ressources de prise en charge Azure. Cet article décrit comment créer, gérer et supprimer des ressources de machine virtuelle à l’aide de C#. Vous allez apprendre à effectuer les actions suivantes :
 
 > [!div class="checklist"]
-> * Créer un projet Visual Studio
+> * Créer un projet Visual Studio
 > * Installer le package
 > * Créer des informations d’identification
 > * Créer des ressources
@@ -37,7 +37,7 @@ Une [machine virtuelle Azure](overview.md?toc=%2fazure%2fvirtual-machines%2fwind
 
 Ces étapes prennent environ 20 minutes.
 
-## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
+## <a name="create-a-visual-studio-project"></a>Créer un projet Visual Studio
 
 1. Si vous ne l’avez pas déjà fait, installez [Visual Studio](https://docs.microsoft.com/visualstudio/install/install-visual-studio). Sélectionnez **Développement .NET Desktop** dans la page Charges de travail, puis cliquez sur **Installer**. Dans le résumé, vous pouvez voir que les **Outils de développement .NET Framework 4 - 4.6** sont automatiquement sélectionnés. Si vous avez déjà installé Visual Studio, vous pouvez ajouter la charge de travail .NET en utilisant le lanceur Visual Studio.
 2. Dans Visual Studio, cliquez sur **Fichier** > **Nouveau** > **Projet**.
@@ -56,7 +56,7 @@ Les packages NuGet sont le moyen le plus simple pour installer les bibliothèque
 
 ## <a name="create-credentials"></a>Créer des informations d’identification
 
-Avant de commencer cette étape, assurez-vous que vous avez accès à un [principal de service Active Directory](../../azure-resource-manager/resource-group-create-service-principal-portal.md). Vous devez également enregistrer l’ID d’application, la clé d’authentification et l’ID de client dont vous aurez besoin dans une étape ultérieure.
+Avant de commencer cette étape, assurez-vous que vous avez accès à un [principal de service Active Directory](../../active-directory/develop/howto-create-service-principal-portal.md). Vous devez également enregistrer l’ID d’application, la clé d’authentification et l’ID de client dont vous aurez besoin dans une étape ultérieure.
 
 ### <a name="create-the-authorization-file"></a>Créer le fichier d’autorisation
 

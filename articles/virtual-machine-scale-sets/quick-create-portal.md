@@ -4,7 +4,7 @@ description: Apprendre à créer rapidement un groupe de machines virtuelles ide
 keywords: Jeux de mise à l’échelle de machine virtuelle
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -16,13 +16,13 @@ ms.devlang: na
 ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 03/27/18
-ms.author: cynthn
-ms.openlocfilehash: fb3a3e1cec0d6ec15495e677e7bead1c02445803
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: zarhoads
+ms.openlocfilehash: 723f1d36f22e11aff3af195e4c8adf7a3f8722ab
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38680956"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464792"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>Guide de démarrage rapide : Créer un groupe de machines virtuelles identiques dans le portail Azure
 Un groupe de machines virtuelles identiques vous permet de déployer et de gérer un ensemble de machines virtuelles identiques prenant en charge la mise à l’échelle automatique. Vous pouvez mettre à l’échelle manuellement le nombre de machines virtuelles du groupe identique ou définir des règles de mise à l’échelle automatique en fonction de l’utilisation des ressources telles que l’UC, la demande de mémoire ou le trafic réseau. Un équilibreur de charge Azure distribue ensuite le trafic vers les instances de machine virtuelle du groupe identique. Dans ce guide de démarrage rapide, vous créez un groupe de machines virtuelles identiques dans le portail Azure.
@@ -41,7 +41,7 @@ Vous pouvez déployer un groupe identique avec une image Windows Server ou une i
 2. Recherchez *groupe identique*, choisissez **Groupe de machines virtuelles identiques**, puis sélectionnez **Créer**.
 3. Entrez un nom pour le groupe identique, par exemple, *myScaleSet*.
 4. Sélectionnez le type de système d’exploitation approprié, par exemple, *Windows Server 2016 Datacenter*.
-5. Entrez le nom souhaité pour votre groupe de ressources (par exemple, *myResourceGroup*) ainsi que son emplacement (par exemple, *États-Unis de l’Est*).
+5. Entrez le nom souhaité pour votre groupe de ressources (par exemple, *myResourceGroup*) ainsi que son emplacement (par exemple, *USA Est*).
 6. Entrez le nom d’utilisateur de votre choix, puis sélectionnez le type d’authentification que vous préférez.
     - Un **mot de passe** doit comporter au moins 12 caractères, avec au moins trois des quatre caractères suivants : une minuscule, une majuscule, un chiffre et un caractère spécial. Pour plus d’informations, consultez les [critères de nom d’utilisateur et de mot de passe](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm).
     - Si vous sélectionnez une image de disque du système d’exploitation Linux, vous pouvez choisir à la place **Clé publique SSH**. Entrez uniquement votre clé publique, comme *~/.ssh/id_rsa.pub*. Vous pouvez utiliser Azure Cloud Shell à partir du portail pour [créer et utiliser des clés SSH](../virtual-machines/linux/mac-create-ssh-keys.md).
@@ -72,7 +72,7 @@ Vous pouvez vous connecter à chaque machine virtuelle dans le jeu de mise à l�
 Quand vous y êtes invité, entrez les informations d’identification que vous avez spécifiées à l’étape précédente lors de la création du groupe identique. Les instances du groupe identique sont des machines virtuelles standard qui s’utilisent normalement. Pour plus d’informations sur le déploiement et l’exécution d’applications sur les instances d’un groupe identique, consultez [Déployer votre application sur des groupes de machines virtuelles identiques](virtual-machine-scale-sets-deploy-app.md)
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources, le groupe identique et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources de la machine virtuelle et cliquez sur **Supprimer**.
 
 

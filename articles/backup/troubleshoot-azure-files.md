@@ -3,17 +3,17 @@ title: Résoudre les problèmes de sauvegarde des partages de fichiers Azure
 description: Cet article contient des informations de dépannage concernant les problèmes qui se produisent lors de la protection de vos partages de fichiers Azure.
 services: backup
 ms.service: backup
-author: markgalioto
-ms.author: markgal
-ms.date: 2/21/2018
+author: rayne-wiselman
+ms.author: raynew
+ms.date: 10/23/2018
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 334cea710d185a6774e28ea3459b3ca1ad9f846f
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: faf229d67a5b4a7a15774d6e01af1c5706d18058
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959795"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023149"
 ---
 # <a name="troubleshoot-problems-backing-up-azure-file-shares"></a>Résoudre les problèmes de sauvegarde des partages de fichiers Azure
 Vous pouvez résoudre les problèmes et les erreurs rencontrés pendant l’utilisation d’une sauvegarde des partages de fichiers Azure à l’aide des informations figurant dans les tables suivantes.
@@ -30,7 +30,7 @@ La sauvegarde des partages de fichiers Azure est disponible en préversion. Les 
 
 \*Partages de fichiers Azure dans des comptes de stockage disposant d’une fonction de réplication de [stockage géoredondant avec accès en lecture](../storage/common/storage-redundancy-grs.md) (RA-GRS) comme stockage GRS et facturés aux tarifs du stockage GRS.
 
-La sauvegarde des partages de fichiers Azure dans les comptes de stockage avec réplication de [stockage redondant dans une zone](../storage/common/storage-redundancy-zrs.md) (ZRS) est actuellement disponible uniquement dans les régions Centre des États-Unis (CUS), Est des États-Unis 2 (EUS2), Europe du Nord (NE), Asie du Sud-Est (SEA) et Europe de l’Ouest (WE).
+La sauvegarde des partages de fichiers Azure dans les comptes de stockage avec réplication de [stockage redondant dans une zone](../storage/common/storage-redundancy-zrs.md) (ZRS) est actuellement disponible uniquement dans les régions USA Centre (CUS), USA Est 2 (EUS2), Europe Nord (NE), Asie Sud-Est (SEA) et Europe Ouest (WE).
 
 ## <a name="configuring-backup"></a>Configuration de la sauvegarde
 Le tableau suivant concerne la configuration de la sauvegarde :

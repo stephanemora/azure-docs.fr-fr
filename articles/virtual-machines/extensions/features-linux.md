@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: 255fe84f0d155902b2a3ac477a1e677efef42bb4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 720b8584c201826e55099ad31667478b6aa57b27
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386653"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024510"
 ---
 # <a name="virtual-machine-extensions-and-features-for-linux"></a>Extensions et fonctionnalités de machine virtuelle pour Linux
 
@@ -54,7 +54,8 @@ Des versions minimales de l’agent sont disponibles afin d’offrir la meilleur
 
 #### <a name="supported-oses"></a>Systèmes d’exploitation pris en charge
 
-L’agent Linux s’exécute sur plusieurs systèmes d’exploitation ; toutefois, l’infrastructure des extensions présente certaines limites relatives aux systèmes d’exploitation pris en charge par les extensions. Pour plus d’informations, consultez [cet article] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+L’agent Linux s’exécute sur plusieurs systèmes d’exploitation ; toutefois, l’infrastructure des extensions présente certaines limites relatives aux systèmes d’exploitation pris en charge par les extensions. Pour plus d’informations, consultez [cet article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+).
 
 Certaines extensions ne sont pas prises en charge sur tous les systèmes d’exploitation et peuvent générer le *Code d’erreur 51, « Système d’exploitation non pris en charge »*. Pour plus d’informations sur la capacité de prise en charge, consultez la documentation de l’extension concernée.
 

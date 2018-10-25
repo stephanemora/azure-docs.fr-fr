@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: b49b4fecb6be70987e7e6736d78f224c03f719bf
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 2dd5721ad0f45080a73172e150891cfb5f48d329
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/20/2018
-ms.locfileid: "30907277"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025767"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotation des informations d'identification pour les entrées et les sorties dans un travail Stream Analytics
 
@@ -34,7 +34,7 @@ Dans cette section, nous vous guiderons tout au long du processus de régénéra
 6. Recherchez le champ **Clé du compte de stockage** et collez-y la clé qui vient d’être générée > cliquez sur **Enregistrer**.    
 7. Un test de connexion démarre automatiquement lorsque vous enregistrez vos modifications, et vous pouvez le visualiser dans l’onglet des notifications. Il existe deux notifications : une correspond à l’enregistrement de la mise à jour et l’autre au test de la connexion :  
    ![Notifications après modification de la clé](media/stream-analytics-login-credentials-inputs-outputs/image4.png)
-8. Passez à la section [démarrer votre travail à partir de l’heure du dernier arrêt] (#start-your-job-from-the-last-stopped-time).
+8. Passez à la section [démarrer votre travail à partir de l’heure du dernier arrêt](#start-your-job-from-the-last-stopped-time).
 
 ### <a name="event-hubs"></a>Hubs d'événements
 

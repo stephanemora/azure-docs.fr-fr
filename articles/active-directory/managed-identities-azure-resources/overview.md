@@ -12,14 +12,14 @@ ms.component: msi
 ms.devlang: ''
 ms.topic: overview
 ms.custom: mvc
-ms.date: 03/28/2018
+ms.date: 10/23/2018
 ms.author: daveba
-ms.openlocfilehash: 43bfe3abcbe6a66f124565cde8ddb839ba76d045
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e025d9041358fbb9dee9b64519e012c4c1988024
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47107196"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987258"
 ---
 # <a name="what-is-managed-identities-for-azure-resources"></a>Que sont les identités gérées pour les ressources Azure ?
 
@@ -38,7 +38,7 @@ La fonctionnalité des identités managées pour les ressources Azure est gratui
 
 Il existe deux types d’identités administrées :
 
-- Une **identité managée attribuée par le système** est activée directement sur une instance de service Azure. Lorsque l’identité est activée, Azure crée une identité pour l’instance dans le locataire Azure AD approuvé par l’abonnement de l’instance. Une fois l’identité créée, ses informations d’identification sont provisionnées sur l’instance. Le cycle de vie d’une identité attribuée par le système est directement lié à l’instance de service Azure sur laquelle elle est activée. Si l’instance est supprimée, Azure efface automatiquement les informations d’identification et l’identité dans Azure AD.
+- Une **identité managée attribué par le système** est activée directement sur une instance de service Azure. Lorsque l’identité est activée, Azure crée une identité pour l’instance dans le locataire Azure AD approuvé par l’abonnement de l’instance. Une fois l’identité créée, ses informations d’identification sont provisionnées sur l’instance. Le cycle de vie d’une identité attribuée par le système est directement lié à l’instance de service Azure sur laquelle elle est activée. Si l’instance est supprimée, Azure efface automatiquement les informations d’identification et l’identité dans Azure AD.
 - Une **identité managée attribuée par l’utilisateur** est créée en tant que ressource Azure autonome. Via un processus de création, Azure crée une identité dans le locataire Azure AD approuvé par l’abonnement en cours d’utilisation. Une fois l’identité créée, elle peut être affectée à une ou plusieurs instances de service Azure. Le cycle de vie d’une identité attribuée par l’utilisateur est géré séparément du cycle de vie des instances de service Azure auxquelles elle est affectée.
 
 Votre code peut utiliser une identité managée pour faire une demande de jetons d’accès pour les services qui prennent en charge l’authentification Azure AD. Azure prend en charge la restauration des informations d’identification utilisées par l’instance de service.
@@ -116,9 +116,11 @@ Découvrez comment utiliser une identité managée avec d’autres services Azur
 
 * [Azure App Service](/azure/app-service/app-service-managed-service-identity)
 * [Azure Functions](/azure/app-service/app-service-managed-service-identity)
+* [Azure Logic Apps](/azure/logic-apps/create-managed-service-identity)
 * [Azure Service Bus](../../service-bus-messaging/service-bus-managed-service-identity.md)
 * [Azure Event Hubs](../../event-hubs/event-hubs-managed-service-identity.md)
 * [Gestion des API Azure](../../api-management/api-management-howto-use-managed-service-identity.md)
+* [Azure Container Instances](../../container-instances/container-instances-managed-identity.md)
 
 ## Quels sont les services Azure qui prennent en charge la fonctionnalité ?<a name="which-azure-services-support-managed-identity"></a>
 

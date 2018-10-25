@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 779a202fccd3ff56c174ebc1ebbf3c4adfdd8c7b
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d89e79548d62634e4b2b47fb310c4f8d7279f17f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441737"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957256"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Ajouter un principal de service au rôle d’administrateur du serveur 
 
@@ -22,8 +22,8 @@ ms.locfileid: "37441737"
 ## <a name="before-you-begin"></a>Avant de commencer
 Avant d’exécuter cette tâche, vous devez disposer d’un principal de service inscrit dans Azure Active Directory.
 
-[Créer un principal de service - Portail Azure](../azure-resource-manager/resource-group-create-service-principal-portal.md)   
-[Créer un principal de service - PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md)
+[Créer un principal de service - Portail Azure](../active-directory/develop/howto-create-service-principal-portal.md)   
+[Créer un principal de service - PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 
 ## <a name="required-permissions"></a>Autorisations requises
 Pour effectuer cette tâche, vous devez disposer d’autorisations [Administrateur du serveur](analysis-services-server-admins.md) sur le serveur Azure AS. 

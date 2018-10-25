@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: b75b31ddfc77be5ed651e7b8484e41a4ae73d8d8
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406530"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955420"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Comparer le point de terminaison Azure AD v2.0 avec le point de terminaison v1.0
 
@@ -133,7 +133,7 @@ Voici une suggestion simplifiée pour les développeurs à ce stade :
 
 * Si vous devez prendre en charge des comptes Microsoft personnels dans votre application, utilisez la v2.0. Mais avant cela, tenez compte des limitations abordées dans cet article.
 
-* Si votre application ne doit prendre en charge que des comptes Microsoft professionnels et scolaires, n’utilisez pas la v2.0. Consultez plutôt le [guide relatif à la v1.0](azure-ad-developers-guide.md).
+* Si votre application ne doit prendre en charge que des comptes Microsoft professionnels et scolaires, n’utilisez pas la v2.0. Consultez plutôt le [guide relatif à la v1.0](v1-overview.md).
 
 Le point de terminaison v2.0 va évoluer et les restrictions répertoriées ici seront éliminées. Ainsi, vous n’aurez qu’à utiliser le point de terminaison v2.0. En attendant, cet article est là pour vous aider à déterminer si le point de terminaison v2.0 répond à vos besoins. Nous continuerons à mettre à jour cet article pour refléter l’état actuel du point de terminaison v2.0. Consultez-le régulièrement pour réévaluer vos besoins par rapport aux fonctionnalités de la version 2.0.
 

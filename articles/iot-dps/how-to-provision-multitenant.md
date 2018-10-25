@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 54804867cfaf38965b3dbf5ceb51e08a731d4dd8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 73ff58148ac68b7aeb782b77385f9f971e02edb5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966538"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457389"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Comment provisionner des appareils multilocataires 
 
@@ -220,7 +220,7 @@ Dans cette section, vous allez cloner le SDK Azure IoT pour C sur chaque machine
 1. Sur les deux machines virtuelles, exécutez la commande suivante qui génère une version du SDK propre à votre plateforme cliente de développement. 
 
     ```bash
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Dhsm_type_symm_key:BOOL=ON ..
     ```
 
     Une fois la génération terminée, les dernières lignes de sortie doivent ressembler à la sortie suivante :
@@ -413,7 +413,7 @@ Pour supprimer le groupe de ressources par nom :
 ## <a name="next-steps"></a>Étapes suivantes
 
 - Pour en savoir plus sur le reprovisionnement, consultez [Concepts du reprovisionnement d’appareils IoT Hub](concepts-device-reprovision.md) 
-- Pour en savoir plus sur le déprovisionnement, consultez [Guide pratique pour déprovisionner des appareils auparavant approvisionnés automatiquement](how-to-unprovision-devices.md) 
+- Pour en savoir plus sur le déprovisionnement, consultez [Guide pratique pour déprovisionner des appareils auparavant provisionnés automatiquement](how-to-unprovision-devices.md) 
 
 
 

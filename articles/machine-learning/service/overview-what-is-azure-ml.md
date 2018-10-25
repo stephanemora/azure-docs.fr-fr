@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 660e5515b765e133d5bc9309be5439209b957353
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 4a867692d3ce509443e5aa94536075fdcd4bab84
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238506"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945958"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Qu’est-ce que le service Azure Machine Learning (préversion) ?
 
@@ -54,7 +54,7 @@ Vous pouvez choisir parmi les nombreux composants de machine learning disponible
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
 - <a href="https://www.tensorflow.org" target="_blank">Tensorflow</a>
 - <a href="https://pytorch.org" target="_blank">PyTorch</a>
-- <a href="https://www.microsoft.com/cognitive-toolkit/" target="_blank">CNTK (COMPUTATIONAL NETWORK TOOLKIT DE MICROSOFT RESEARCH)</a>
+- <a href="https://www.microsoft.com/en-us/cognitive-toolkit/" target="_blank">CNTK (COMPUTATIONAL NETWORK TOOLKIT DE MICROSOFT RESEARCH)</a>
 - <a href="http://mxnet.io" target="_blank">MXNet</a>
 
 Une fois que vous disposez d’un modèle, vous l’utilisez pour créer un conteneur (par exemple, Docker) qui peut être déployé localement à des fins de test, puis en tant que service web de production dans [Azure Container Instances](how-to-deploy-to-aci.md) ou [Azure Kubernetes Service](how-to-deploy-to-aks.md).

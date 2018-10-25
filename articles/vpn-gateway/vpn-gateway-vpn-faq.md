@@ -2,17 +2,17 @@
 title: FAQ de la passerelle VPN Azure | Microsoft Docs
 description: Le FAQ sur la passerelle VPN FAQ sur les connexions entre différents locaux de Microsoft Azure Virtual Network, les connexions de configuration hybride et les passerelles VPN.
 services: vpn-gateway
-author: cherylmc
+author: yushwang
 ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/27/2018
-ms.author: cherylmc
-ms.openlocfilehash: 245e5e1048f27fc76141312cf6f9021dc0060ae6
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.author: yushwang
+ms.openlocfilehash: 94183b639c02f6a7d74e87e8f8335da67db113d6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "39359058"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468175"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 

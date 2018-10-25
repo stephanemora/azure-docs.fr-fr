@@ -9,12 +9,12 @@ ms.topic: article
 ms.workload: identity
 ms.service: active-Directory
 manager: mtillman
-ms.openlocfilehash: 4ce7b3a6b455384180184aa3b9be34fb88da266b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 35f1ed2fbeeea7ff3beffeae91f775c829deedec
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308868"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637712"
 ---
 # <a name="azure-ad-userprincipalname-population"></a>Remplissage de UserPrincipalName dans Azure AD
 
@@ -166,7 +166,7 @@ Objet utilisateur local :
 - mailNickName : us4
 - proxyAddresses : {SMTP:us6@contoso.com}
 - mail : us7@contoso.com
-- serPrincipalName : us5@verified.contoso.com
+- UserPrincipalName : us5@verified.contoso.com
 
 Synchroniser la mise à jour de l’attribut UserPrincipalName local avec le locataire Azure AD.
 - La mise à jour de l’attribut UserPrincipalName local déclenche le recalcul de l’attribut UserPrincipalName Azure AD.

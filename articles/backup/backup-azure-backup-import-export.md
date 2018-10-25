@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 05/17/2018
 ms.author: saurse
-ms.openlocfilehash: 5ef44ccf87bc5e40b57dc7fc997c9a827c93484b
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: b55c5bc6096186e338d6960190169d5f4acc777d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831449"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955128"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Flux de travail de la sauvegarde hors connexion dans la sauvegarde Azure
 La sauvegarde Azure offre plusieurs fonctionnalités intégrées pour réduire les coûts de stockage et de réseau pendant les sauvegardes complètes initiales des données dans Azure. Les sauvegardes complètes initiales transfèrent généralement de grandes quantités de données et requièrent davantage de bande passante, en comparaison avec les sauvegardes suivantes qui transfèrent uniquement les données deltas/incrémentielles. Via le processus d’amorçage hors connexion, la sauvegarde Azure peut utiliser des disques pour charger les données de sauvegarde hors connexion dans Azure.
@@ -54,7 +54,7 @@ Avant de démarrer le flux de travail de sauvegarde hors connexion, assurez-vous
 * Azure PowerShell version 3.7.0 doit être installé sur l’ordinateur qui exécute l’agent de sauvegarde Azure. Nous vous recommandons de télécharger et [d’installer la version 3.7.0 d’Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/v3.7.0-March2017).
 * Sur l’ordinateur exécutant l’agent de sauvegarde Azure, assurez-vous que Microsoft Edge ou Internet Explorer 11 est installé, et que JavaScript est activé. 
 * Créez un compte de stockage Azure dans le même abonnement que le coffre Recovery Services. 
-* Assurez-vous de disposer des [autorisations nécessaires](../azure-resource-manager/resource-group-create-service-principal-portal.md) pour créer l’application Azure Active Directory. Le flux de travail de sauvegarde hors connexion crée une application Azure Active Directory dans l’abonnement associé au compte de stockage Azure. L’objectif de l’application est de fournir au service de sauvegarde Azure un accès sécurisé et délimité au service d’importation Azure qui est requis pour le flux de travail de sauvegarde hors connexion. 
+* Assurez-vous de disposer des [autorisations nécessaires](../active-directory/develop/howto-create-service-principal-portal.md) pour créer l’application Azure Active Directory. Le flux de travail de sauvegarde hors connexion crée une application Azure Active Directory dans l’abonnement associé au compte de stockage Azure. L’objectif de l’application est de fournir au service de sauvegarde Azure un accès sécurisé et délimité au service d’importation Azure qui est requis pour le flux de travail de sauvegarde hors connexion. 
 * Inscrivez le fournisseur de ressources Microsoft.ImportExport dans l’abonnement contenant le compte de stockage Azure. Pour inscrire le fournisseur de ressources :
     1. Dans le menu principal, cliquez sur **Abonnements**.
     2. Si vous disposez de plusieurs abonnements, sélectionnez l’abonnement que vous utilisez pour la sauvegarde hors connexion. Si vous n’utilisez qu’un seul abonnement, celui-ci s’affiche.

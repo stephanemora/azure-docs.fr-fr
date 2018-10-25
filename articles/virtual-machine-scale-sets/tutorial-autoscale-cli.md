@@ -3,7 +3,7 @@ title: Tutoriel - Effectuer une mise à l’échelle automatique d’un groupe i
 description: Découvrez comment utiliser Azure CLI pour mettre à l’échelle automatiquement un groupe de machines virtuelles identiques en fonction de l’augmentation et de la diminution des demandes de l’UC.
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 7c3d536cd4fb99d6d83b973989279d289e8434a8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b30c3a2e9f06cf02f27636592634884a7c3fdfc8
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995367"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471303"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-the-azure-cli"></a>Tutoriel : Effectuer une mise à l’échelle automatique d’un groupe de machines virtuelles identiques avec Azure CLI
 

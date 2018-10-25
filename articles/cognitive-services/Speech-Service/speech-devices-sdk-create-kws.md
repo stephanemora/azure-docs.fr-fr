@@ -1,20 +1,21 @@
 ---
 title: Créer un mot déclencheur personnalisé
-description: Découvrez comment créer un mot déclencheur personnalisé pour le SDK Speech Devices.
 titleSuffix: Azure Cognitive Services
+description: Découvrez comment créer un mot déclencheur personnalisé pour le SDK Speech Devices.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: ab2bc9a83feadd9ece8876559e730e7bc955908a
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 5f138aee9dfa91e285591e5d50c14465ad32b77d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165468"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469076"
 ---
 # <a name="create-a-custom-wake-word-by-using-the-speech-service"></a>Créer un mot déclencheur personnalisé à l’aide du service Speech
 
@@ -52,10 +53,6 @@ Avant de pouvoir utiliser un mot déclencheur personnalisé avec votre appareil,
 1. Créez un compte en utilisant l’adresse e-mail à laquelle vous avez reçu l’invitation d’Azure Active Directory. 
 
     ![Créer un nouveau compte](media/speech-devices-sdk/wake-word-1.png)
- 
-1.  Après vous être connecté, remplissez le formulaire, puis sélectionnez **Start my journey** (Démarrer mon parcours).
-
-    ![Connexion réussie](media/speech-devices-sdk/wake-word-3.png)
  
 1. La page **Custom Wake Word** (Mot déclencheur personnalisé) n’est pas accessible au public ; il n’existe donc aucun lien direct pour y accéder. La fonctionnalité Custom Speech nécessite un abonnement Azure, mais pas la fonctionnalité Custom Wake Word. Si vous recevez le message d’erreur **Aucun abonnement trouvé**, remplacez simplement **"Subscriptions?errorMessage=No%20Subscriptions%20found"** par "**customkws**" dans l’URL et appuyez sur Entrée. L’URL doit être l’une de celles-ci : https://westus.cris.ai/customkws, https://eastasia.cris.ai/customkws ou https://northeurope.cris.ai/customkws, en fonction de votre région.
 

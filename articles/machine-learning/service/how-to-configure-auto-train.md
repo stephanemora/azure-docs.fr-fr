@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 33126c094a55bc57edd49a54fbc4f5acd7401998
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1aeb1315cfafbcdf3507a6e49d71e1f1e69b537c
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079002"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430185"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Configurer votre expérience de machine learning automatisé
 
@@ -147,7 +147,7 @@ Les options de calcul prises en charge sont :
 2.  Une machine distante dans le cloud - [une machine virtuelle Azure Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/) exécutant Linux : vous avez un grand jeu de données et vous voulez monter en puissance en passant à une machine de grande taille disponible dans le cloud Azure. 
 3.  Cluster Azure Batch AI – Un cluster managé que vous pouvez configurer pour monter en charge et exécuter des itérations de machine learning automatisé en parallèle. 
 
-
+<a name='configure-experiment'/>
 ## <a name="configure-your-experiment-settings"></a>Configurer les paramètres de votre expérience
 
 Vous pouvez utiliser plusieurs boutons pour configurer vos expériences de machine learning automatisé. Ces paramètres sont définis en instanciant un objet `AutoMLConfig`.

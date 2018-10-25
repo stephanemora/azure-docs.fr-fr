@@ -11,12 +11,12 @@ ms.custom: mvc, devcenter
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 02/28/2018
-ms.openlocfilehash: 926b35f49169c5a87e82996ba714aad40ba5244c
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: 557d4217819449cd0513d4a21e331e660e37037b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687317"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987679"
 ---
 # <a name="azure-database-for-postgresql-use-python-to-connect-and-query-data"></a>Base de données Azure pour PostgreSQL : Utilisation de Python pour se connecter et interroger des données
 Ce guide de démarrage rapide vous explique comment utiliser [Python](https://python.org) pour se connecter à une base de données Azure pour PostgreSQL. Il explique aussi comment utiliser des instructions SQL pour interroger, insérer, mettre à jour et supprimer des données de la base de données sur des plateformes Mac OS, Ubuntu Linux et Windows. Cet article suppose que vous connaissez les bases du développement via Python, et que vous ne savez pas utiliser la base de données Azure pour PostgreSQL.
@@ -31,7 +31,7 @@ Vous aurez également besoin des éléments suivants :
 - Installation du package [pip](https://pip.pypa.io/en/stable/installing/) (déjà installé si vous utilisez des binaires Python 2 >=2.7.9 ou Python 3 >=3.4 téléchargés depuis [python.org](https://python.org)).
 
 ## <a name="install-the-python-connection-libraries-for-postgresql"></a>Installer des bibliothèques de connexions Python pour PostgreSQL
-Installez le package [psycopg2](http://initd.org/psycopg/docs/install.html), qui vous permet de vous connecter et d’interroger la base de données. Il est [disponible sur PyPI](https://pypi.python.org/pypi/psycopg2/) sous la forme de package en [roue](http://pythonwheels.com/) et pour les plateformes courantes (Linux, OSX, Windows). Utilisez l’installation de pip pour obtenir la version binaire du module qui inclut toutes les dépendances.
+Installez le package [psycopg2](http://initd.org/psycopg/docs/install.html), qui vous permet de vous connecter et d’interroger la base de données. Il est [disponible sur PyPI](https://pypi.python.org/pypi/psycopg2/) sous la forme de package en [roue](https://pythonwheels.com/) et pour les plateformes courantes (Linux, OSX, Windows). Utilisez l’installation de pip pour obtenir la version binaire du module qui inclut toutes les dépendances.
 
 1. Sur votre ordinateur, lancez une interface de ligne de commande :
     - Sur Linux, lancez l’interpréteur de commandes Bash.
@@ -206,6 +206,6 @@ cursor.close()
 conn.close()
 ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 > [!div class="nextstepaction"]
 > [Migration de votre base de données PostgreSQL par exportation et importation](./howto-migrate-using-export-and-import.md)

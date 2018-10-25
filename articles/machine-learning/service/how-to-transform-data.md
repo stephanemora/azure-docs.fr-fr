@@ -10,24 +10,25 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 388957fc5dac5cdab5bee34a4431eaa524e76a48
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 06e7d227511a9b651a905df3172f59a191acce01
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999900"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945669"
 ---
 # <a name="transform-data-with-the-azure-machine-learning-data-prep-sdk"></a>Transformer des données avec le SDK de préparation des données Azure Machine Learning
 
 Le [SDK de préparation des données Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) offre différentes méthodes de transformation pour nettoyer vos données. Ces méthodes simplifient l’ajout de colonnes, le filtrage des lignes ou des colonnes indésirables, et l’imputation des valeurs manquantes.
 
 Il existe actuellement des méthodes pour les tâches suivantes :
-- [Ajouter une colonne à l’aide d’une expression](#add-column-using-expression)
+- [Ajouter une colonne à l’aide d’une expression](#column)
 - [Imputer des valeurs manquantes](#impute-missing-values)
 - [Dériver une colonne par un exemple](#derive-column-by-example)
-- [Filtrage](#filtering)
+- [Filtering](#filtering)
 - [Transformations Python personnalisées](#custom-python-transforms)
 
+<a name=column>
 ## <a name="add-column-using-an-expression"></a>Ajouter une colonne à l’aide d’une expression
 
 Le SDK de préparation des données Azure Machine Learning inclut des expressions `substring` que vous pouvez utiliser pour calculer une valeur à partir de colonnes existantes, puis placer cette valeur dans une nouvelle colonne. Dans cet exemple, nous allons charger des données et essayer d’ajouter des colonnes à ces données d’entrée.
@@ -40,7 +41,7 @@ dataflow = dprep.read_csv(path=r'data\crime0-10.csv')
 dataflow.head(3)
 ```
 
-||ID|Case Number|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Location|
+||ID|Case Number|Date|Block|IUCR|Primary Type|Description|Location Description|Arrest|Domestic|...|Ward|Community Area|FBI Code|X Coordinate|Y Coordinate|Year|Updated On|Latitude|Longitude|Lieu|
 |-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
 |0|10140490|HY329907|07/05/2015 11:50:00 PM|050XX N NEWLAND AVE|0820|THEFT|$500 AND UNDER|STREET|false|false|...|41|10|06|1129230|1933315|2015|07/12/2015 |12:42:46 PM|41.973309466|-87.800174996|(41.973309466, -87.800174996)|
 |1|10139776|HY329265|07/05/2015 11:30:00 PM|011XX W MORSE AVE|0460|BATTERY|SIMPLE|STREET|false|true|...|49|1|08B|1167370|1946271|2015|07/12/2015 12:42:46 PM|42.008124017|-87.65955018|(42.008124017, -87.65955018)|
@@ -475,7 +476,7 @@ Il y aura des scénarios où le plus simple pour vous sera d’écrire du code P
 
 - Nouvelle colonne de script
 - Nouveau filtre de script
-- Transformer une partition
+- Transform partition
 
 Chaque extension est prise en charge dans le runtime de montée en puissance (scale-up) et de mise à l’échelle horizontale (scale-out). L’un des principaux avantages offerts par ces points d’extension est que vous n’avez pas besoin d’extraire toutes les données pour créer un cadre de données. Votre code Python personnalisé s’exécutera comme les autres transformations, à grande échelle, par partition et généralement en parallèle.
 
@@ -508,11 +509,11 @@ df.head(5)
 ```
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale County|1.017100e+10|Aucun|
-|1|ALABAMA|Hale County|1.017100e+10|Aucun|
-|2|ALABAMA|Hale County|1.017100e+10|Aucun|
-|3|ALABAMA|Hale County|1.017100e+10|2|
-|4|ALABAMA|Hale County|1.017100e+10|Aucun|
+|0|ALABAMA|Hale County|1,017100e+10|Aucun|
+|1|ALABAMA|Hale County|1,017100e+10|Aucun|
+|2|ALABAMA|Hale County|1,017100e+10|Aucun|
+|3|ALABAMA|Hale County|1,017100e+10|2|
+|4|ALABAMA|Hale County|1,017100e+10|Aucun|
 
 Recherchez les valeurs null à l’aide d’un filtre. Vous en trouverez certaines ; renseignez ces valeurs manquantes.
 
@@ -522,11 +523,11 @@ df.filter(col('MAM_MTH00numvalid_1011').is_null()).head(5)
 
 | |stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale County|1.017100e+10|Aucun|
-|1|ALABAMA|Hale County|1.017100e+10|Aucun|
-|2|ALABAMA|Hale County|1.017100e+10|Aucun|
-|3|ALABAMA|Hale County|1.017100e+10|Aucun|
-|4|ALABAMA|Hale County|1.017100e+10|Aucun|
+|0|ALABAMA|Hale County|1,017100e+10|Aucun|
+|1|ALABAMA|Hale County|1,017100e+10|Aucun|
+|2|ALABAMA|Hale County|1,017100e+10|Aucun|
+|3|ALABAMA|Hale County|1,017100e+10|Aucun|
+|4|ALABAMA|Hale County|1,017100e+10|Aucun|
 
 ### <a name="transform-partition"></a>Transform partition
 
@@ -543,11 +544,11 @@ h
 ```
 ||stnam|leanm10|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale County|1.017100e+10|0.0|
-|1|ALABAMA|Hale County|1.017100e+10|0.0|
-|2|ALABAMA|Hale County|1.017100e+10|0.0|
-|3|ALABAMA|Hale County|1.017100e+10|2.0|
-|4|ALABAMA|Hale County|1.017100e+10|0.0|
+|0|ALABAMA|Hale County|1,017100e+10|0.0|
+|1|ALABAMA|Hale County|1,017100e+10|0.0|
+|2|ALABAMA|Hale County|1,017100e+10|0.0|
+|3|ALABAMA|Hale County|1,017100e+10|2.0|
+|4|ALABAMA|Hale County|1,017100e+10|0.0|
 
 ### <a name="new-script-column"></a>Nouvelle colonne de script
 
@@ -563,11 +564,11 @@ h
 ```
 ||stnam|leanm10|county_state|ncessch|MAM_MTH00numvalid_1011|
 |-----|-------|---------| -------|------|-----|
-|0|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
-|1|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
-|2|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
-|3|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|2.0|
-|4|ALABAMA|Hale County|Hale County, Alabama|1.017100e+10|0.0|
+|0|ALABAMA|Hale County|Hale County, Alabama|1,017100e+10|0.0|
+|1|ALABAMA|Hale County|Hale County, Alabama|1,017100e+10|0.0|
+|2|ALABAMA|Hale County|Hale County, Alabama|1,017100e+10|0.0|
+|3|ALABAMA|Hale County|Hale County, Alabama|1,017100e+10|2.0|
+|4|ALABAMA|Hale County|Hale County, Alabama|1,017100e+10|0.0|
 ### <a name="new-script-filter"></a>Nouveau filtre de script
 
 À présent, générez une expression Python pour filtrer le jeu de données uniquement sur les lignes où « Hale » ne figure pas dans la nouvelle colonne `county_state`. L’expression retourne `True` si nous souhaitons conserver la ligne, et `False` pour supprimer la ligne.

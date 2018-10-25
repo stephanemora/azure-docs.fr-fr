@@ -1,20 +1,21 @@
 ---
 title: Instructions concernant la transcription pour la formation du service de reconnaissance vocale
+titleSuffix: Azure Cognitive Services
 description: Apprenez à préparer le texte pour personnaliser les modèles linguistiques et acoustiques, ainsi que les polices de voix pour le service de reconnaissance vocale.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 07b90942c8d231418888491fd47a9be3caff77ea
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721810"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467733"
 ---
 # <a name="transcription-guidelines-for-using-the-speech-service"></a>Instructions concernant la transcription pour l’utilisation du service de reconnaissance vocale
 

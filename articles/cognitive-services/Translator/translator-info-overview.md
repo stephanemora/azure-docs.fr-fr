@@ -1,21 +1,21 @@
 ---
-title: Qu’est-ce que l’API de traduction de texte Translator Text ?
+title: Qu’est-ce que l’API de traduction de texte Translator Text ?
 titlesuffix: Azure Cognitive Services
 description: Intégrez l’API de traduction de texte Translator Text à vos applications, sites web, outils et autres solutions, pour offrir une expérience utilisateur multilingue.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: overview
 ms.date: 05/10/2018
-ms.author: nolachar
-ms.openlocfilehash: c0004960b7a234d374ec0ae1bdc2f6576b197705
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.author: erhopf
+ms.openlocfilehash: 6c89ff41531b130843eb288b98ffe7def1d8915e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385022"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645021"
 ---
 # <a name="what-is-translator-text-api"></a>Qu’est-ce que l’API de traduction de texte Translator Text ?
 
@@ -35,7 +35,7 @@ Découvrez-en plus sur le [service Microsoft Translator](https://www.microsoft.c
 
 En tant qu’extension du service Microsoft Translator central, Custom Translator est utilisable conjointement avec l’API de traduction de texte Translator Text pour vous aider à personnaliser le système de traduction neuronal et à améliorer la traduction de la terminologie et du style qui vous sont propres.
 
-Avec Custom Translator, vous pouvez créer des systèmes de traduction qui gèrent la terminologie utilisée dans votre entreprise ou secteur d’activité. Votre système de traduction personnalisé s’intégrera alors facilement à vos applications, flux de travail et sites web existants, sur plusieurs types d’appareils, par le biais de l’API de traduction de texte Microsoft Translator Text standard, à l’aide du paramètre de catégorie. 
+Avec Custom Translator, vous pouvez créer des systèmes de traduction qui gèrent la terminologie utilisée dans votre entreprise ou secteur d’activité. Votre système de traduction personnalisé s’intégrera alors facilement à vos applications, flux de travail et sites web existants, sur plusieurs types d’appareils, par le biais de l’API de traduction de texte Microsoft Translator Text standard, à l’aide du paramètre de catégorie.
 
 Apprenez-en davantage sur la [personnalisation de la langue](customization.md).
 
@@ -45,7 +45,7 @@ La traduction automatique neuronale (NMT) constitue le nouveau standard en mati�
 
 La NMT fournit de meilleures traductions que la SMT, non seulement en termes de qualité par rapport à une traduction brute, mais également parce qu’elle donne des résultats plus fluides et plus naturels. La cause principale de cette fluidité est que la NMT utilise le contexte entier d’une phrase pour traduire des mots. La SMT ne prend en compte que le contexte immédiat de quelques mots avant et après chaque mot.
 
-Les modèles NMT sont au cœur de l’API et ne sont pas visibles aux utilisateurs finaux. La seule différence notable réside dans l’amélioration de la qualité des traductions, en particulier pour les langues telles que le chinois, le japonais et l’arabe. 
+Les modèles NMT sont au cœur de l’API et ne sont pas visibles aux utilisateurs finaux. La seule différence notable réside dans l’amélioration de la qualité des traductions, en particulier pour les langues telles que le chinois, le japonais et l’arabe.
 
 Découvrez-en plus sur le [fonctionnement de la traduction automatique neuronale](https://www.microsoft.com/en-us/translator/mt.aspx#nnt).
 

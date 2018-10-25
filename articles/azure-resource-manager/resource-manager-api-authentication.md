@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/12/2018
 ms.author: dugill
-ms.openlocfilehash: b841a1104a0cc1e74d9ab1f16ef39d3892ba7d55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 69127702a7d8e7027e78a8e04a4e8e1bc3e36b65
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996687"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956338"
 ---
 # <a name="use-resource-manager-authentication-api-to-access-subscriptions"></a>Utiliser l’API d’authentification de Resource Manager pour accéder aux abonnements
 ## <a name="introduction"></a>Introduction
@@ -94,7 +94,7 @@ Les résultats incluent l’ID de l’application, dont vous avez besoin pour vo
 ### <a name="optional-configuration---certificate-credential"></a>Configuration facultative : informations d’identification des certificats
 Azure AD prend également en charge les informations d’identification des certificats pour les applications : vous créez un certificat auto-signé, conservez la clé privée et ajoutez la clé publique lors de l’inscription de votre application Azure AD. Dans le cadre de l’authentification, votre application envoie une petite charge utile à Azure AD, signée à l’aide de votre clé privée ; ensuite, Azure AD valide la signature à l’aide de la clé publique que vous avez inscrite.
 
-Pour plus d’informations sur la création d’une application Active Directory avec un certificat, consultez [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](resource-group-authenticate-service-principal.md#create-service-principal-with-certificate-from-certificate-authority) ou [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](resource-group-authenticate-service-principal-cli.md).
+Pour plus d’informations sur la création d’une application Active Directory avec un certificat, consultez [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-certificate-from-certificate-authority) ou [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](resource-group-authenticate-service-principal-cli.md).
 
 ## <a name="get-tenant-id-from-subscription-id"></a>Obtention de l’ID du client à partir de l’ID d’abonnement
 Pour demander un jeton permettant d’appeler Resource Manager, votre application doit connaître l’ID du client Azure AD qui héberge l’abonnement Azure. Vos utilisateurs connaissent sûrement leurs ID d’abonnement, mais pas nécessairement leurs ID de client Azure Active Directory. Pour obtenir l’ID de client d’un utilisateur, demandez-lui l’ID d’abonnement. Indiquez cet ID d’abonnement lors de l’envoi d’une demande sur l’abonnement :
@@ -106,7 +106,7 @@ La demande échoue, car l’utilisateur n’est pas encore connecté, mais vous 
 ## <a name="get-user--app-access-token"></a>Obtention du jeton de l’utilisateur et de l’application
 Votre application redirige l’utilisateur vers Azure AD avec une requête d’autorisation OAuth 2.0, afin d’authentifier les informations d’identification de l’utilisateur et d’obtenir un code d’autorisation. Votre application utilise ce code d’autorisation pour obtenir un jeton d’accès pour Resource Manager. La méthode [ConnectSubscription](https://github.com/dushyantgill/VipSwapper/blob/master/CloudSense/CloudSense/Controllers/HomeController.cs#L42) crée la demande d’autorisation.
 
-Cet article montre les demandes de l’API REST pour authentifier l’utilisateur. Vous pouvez également utiliser des bibliothèques d’assistance pour effectuer l’authentification dans votre code. Pour plus d’informations sur ces bibliothèques, consultez [Bibliothèques d’authentification d’Azure Active Directory](../active-directory/active-directory-authentication-libraries.md). Pour des conseils sur l’intégration de la gestion de l’identité dans une application, consultez le [Guide du développeur Azure Active Directory](../active-directory/develop/azure-ad-developers-guide.md).
+Cet article montre les demandes de l’API REST pour authentifier l’utilisateur. Vous pouvez également utiliser des bibliothèques d’assistance pour effectuer l’authentification dans votre code. Pour plus d’informations sur ces bibliothèques, consultez [Bibliothèques d’authentification d’Azure Active Directory](../active-directory/active-directory-authentication-libraries.md). Pour des conseils sur l’intégration de la gestion de l’identité dans une application, consultez le [Guide du développeur Azure Active Directory](../active-directory/develop/v1-overview.md).
 
 ### <a name="auth-request-oauth-20"></a>Demande d’autorisation (OAuth 2.0)
 Envoyez une demande d’autorisation Open ID Connect/OAuth2.0 au point de terminaison d’autorisation Azure AD :

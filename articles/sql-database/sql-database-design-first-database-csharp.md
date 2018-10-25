@@ -12,23 +12,23 @@ ms.author: genemi
 ms.reviewer: carlrab
 manager: craigg-msft
 ms.date: 06/07/2018
-ms.openlocfilehash: 65a9bde6fa086dc56809df9619ceee1c5b417e31
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 504fae03e06632f5960bfe0761cc0167b9e1d3fb
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063299"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465213"
 ---
 # <a name="design-an-azure-sql-database-and-connect-with-cx23-and-adonet"></a>Concevoir une base de données SQL Azure et se connecter avec C&#x23; et ADO.NET
 
-Azure SQL Database est une solution DBaaS relationnelle gérée dans Microsoft Cloud (Azure). Ce didacticiel vous montre comment utiliser le portail Azure et ADO.NET avec Visual Studio pour : 
+Azure SQL Database est une solution DBaaS relationnelle gérée dans Microsoft Cloud (Azure). Ce didacticiel vous montre comment utiliser le portail Azure et ADO.NET avec Visual Studio pour :
 
 > [!div class="checklist"]
 > * Créer une base de données dans le portail Azure
 > * Configurer une règle de pare-feu au niveau du serveur dans le portail Azure
 > * Se connecter à la base de données avec ADO.NET et Visual Studio
 > * Créer des tables avec ADO.NET
-> * Insérer, mettre à jour et supprimer des données avec ADO.NET 
+> * Insérer, mettre à jour et supprimer des données avec ADO.NET
 > * Interroger les données avec ADO.NET
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
@@ -43,13 +43,11 @@ And it starts with a ## H2.
 
 [!INCLUDE [sql-database-tutorial-portal-create-firewall-connection-1](../../includes/sql-database-tutorial-portal-create-firewall-connection-1.md)]
 
-
 <!-- The following included .md, sql-database-csharp-adonet-create-query-2.md, is long.
 And it starts with a ## H2.
 -->
 
 [!INCLUDE [sql-database-csharp-adonet-create-query-2](../../includes/sql-database-csharp-adonet-create-query-2.md)]
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -66,4 +64,3 @@ Passez au didacticiel suivant pour en savoir plus sur la migration de vos donné
 
 > [!div class="nextstepaction"]
 > [Migrer votre base de données SQL Server vers Azure SQL Database](sql-database-migrate-your-sql-server-database.md)
-

@@ -2,25 +2,17 @@
 title: Exemple de configuration pour la connexion de périphériques Cisco ASA à des passerelles VPN Azure | Microsoft Docs
 description: Cet article fournit un exemple de configuration pour la connexion de périphériques Cisco ASA à des passerelles VPN Azure.
 services: vpn-gateway
-documentationcenter: na
 author: yushwang
-manager: rossort
-editor: ''
-tags: ''
-ms.assetid: a8bfc955-de49-4172-95ac-5257e262d7ea
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 06/20/2017
+ms.date: 10/19/2018
 ms.author: yushwang
-ms.openlocfilehash: fbe22b70b4fe3463ffc7b0e9a7ebd683f681117d
-ms.sourcegitcommit: 2a70752d0987585d480f374c3e2dba0cd5097880
+ms.openlocfilehash: 4a8db246f02d68a7924b9a09a1b2fc1f5bcf2edc
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/19/2018
-ms.locfileid: "27910756"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467223"
 ---
 # <a name="sample-configuration-cisco-asa-device-ikev2no-bgp"></a>Exemple de configuration : appareil Cisco ASA (IKEv2/sans BGP)
 Cet article fournit des exemples de configurations pour la connexion de périphériques Cisco ASA (Adaptive Security Appliance) à des passerelles VPN Azure. L’exemple s’applique à des périphériques Cisco ASA qui exécutent IKEv2 sans protocole de passerelle frontière (BGP). 
@@ -308,5 +300,5 @@ sysopt connection tcpmss 1350
     show run tunnel-group
     ```
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Pour configurer des connexions entre différents locaux et entre deux réseaux virtuels en mode actif/actif, consultez [Configurer des passerelles VPN en mode actif/actif](vpn-gateway-activeactive-rm-powershell.md).

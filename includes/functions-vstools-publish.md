@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/26/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: f0bcb2e7f99689d31be610f1523d2c57e332deb7
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f3fa6c75fdaf30d13231bc3072bd671614c9a668
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049781"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650653"
 ---
 1. Dans **l’Explorateur de solutions**, cliquez avec le bouton droit sur le projet, puis sélectionnez **Publier**.
 
 2. Sélectionnez **Application Azure Function**, choisissez **Créer**, puis sélectionnez **Publier**.
 
-    ![Choisir une cible de publication](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
+    ![Choisir une cible de publication](./media/functions-vstools-publish/functions-visual-studio-publish-profile.png)
 
     Lorsque vous activez l’option **Exécuter à partir du ZIP**, votre application de fonction dans Azure s’exécute directement à partir du package de déploiement. Pour plus d’informations, consultez l’article [Run your Azure Functions from a package file](../articles/azure-functions/run-functions-from-deployment-package.md) (Exécuter vos fonctions Azure à partir d’un fichier de package).
 
@@ -27,7 +27,7 @@ ms.locfileid: "43049781"
 
 4. Dans la boîte de dialogue **Créer App Service**, utilisez les paramètres d’**hébergement** comme spécifiés dans le tableau sous l’image :
 
-    ![Boîte de dialogue Créer App Service](./media/functions-vstools-publish/functions-vstools-publish.png)
+    ![Boîte de dialogue Créer App Service](./media/functions-vstools-publish/functions-visual-studio-publish.png)
 
     | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ |  ------- | -------------------------------------------------- |
@@ -41,4 +41,4 @@ ms.locfileid: "43049781"
 
 6. Une fois le déploiement terminé, notez la valeur **URL du site**, qui est l’adresse de votre application de fonctions dans Azure.
 
-    ![Message de réussite de publication](./media/functions-vstools-publish/functions-vstools-publish-profile.png)
+    ![Message de réussite de publication](./media/functions-vstools-publish/functions-visual-studio-publish-complete.png)

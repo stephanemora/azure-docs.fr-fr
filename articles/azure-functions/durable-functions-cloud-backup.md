@@ -2,20 +2,20 @@
 title: Scénarios fan-out/fan-in dans Fonctions durables - Azure
 description: Découvrez comment implémenter un scénario fan-out/fan-in dans l’extension Fonctions durables pour Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: eec75ad9cf0f568e674b2a4f12d962982f84294f
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 44e71c8e9256bdfd3a55cdd21a6658bccfd5daad
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092663"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987521"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scénario fan-out/fan-in dans Fonctions durables - exemple de sauvegarde cloud
 
@@ -109,7 +109,7 @@ L’implémentation C# est également très simple. Elle utilise certaines des f
 
 ### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
 
-L’implémentation JavaScript n’a pas accès à la fonctionnalité `Binder` Azure Functions. Par conséquent, le [Kit de développement logiciel (SDK) Azure Storage pour Node](https://github.com/Azure/azure-storage-node) prend sa place. Le Kit de développement logiciel nécessite un paramètre d’application `AZURE_STORAGE_CONNECTION_STRING`.
+L’implémentation JavaScript n’a pas accès à la fonctionnalité `Binder` Azure Functions. Par conséquent, le [Kit de développement logiciel (SDK) Azure Storage pour Node](https://github.com/Azure/azure-storage-node) prend sa place.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E2_CopyFileToBlob/index.js)]
 

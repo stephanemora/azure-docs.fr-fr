@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: ''
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: f3efb99ddb47f167a0d9cbef064890e817a18841
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cc8bd25b58cf898169a4d84154f7f3f81966bb92
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32186815"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985792"
 ---
 # <a name="configure-ssl-connectivity-in-azure-database-for-postgresql"></a>Configurer la connectivité SSL dans la base de données Azure pour PostgreSQL
 La base de données Azure pour PostgreSQL préfère connecter vos applications clientes au service PostgreSQL via SSL (Secure Sockets Layer). L’application de connexions SSL entre votre serveur de base de données et vos applications clientes vous protège contre les « attaques de l’intercepteur » en chiffrant le flux de données entre le serveur et votre application.
@@ -58,7 +58,7 @@ Le certificat nécessaire pour communiquer via SSL avec votre serveur de base de
 Afin de décoder le fichier de certificat nécessaire pour que votre application se connecte en toute sécurité à votre serveur de base de données, vous devez installer OpenSSL sur votre ordinateur local.
 
 #### <a name="for-linux-os-x-or-unix"></a>Pour Linux, OS X ou Unix
-Les bibliothèques OpenSSL sont fournies dans le code source directement à partir [d’OpenSSL Software Foundation](http://www.openssl.org). Les instructions suivantes vous guident tout au long des étapes d’installation d’OpenSSL sur votre PC Linux. Cet article utilise des commandes qui fonctionnent bien sous Ubuntu 12.04 et les versions ultérieures.
+Les bibliothèques OpenSSL sont fournies dans le code source directement à partir [d’OpenSSL Software Foundation](https://www.openssl.org). Les instructions suivantes vous guident tout au long des étapes d’installation d’OpenSSL sur votre PC Linux. Cet article utilise des commandes qui fonctionnent bien sous Ubuntu 12.04 et les versions ultérieures.
 
 Ouvrez une session de terminal et téléchargez OpenSSL.
 ```bash

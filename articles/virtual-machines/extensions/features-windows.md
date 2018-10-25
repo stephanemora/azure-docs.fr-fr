@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d7b183a5b87d5777609deac02e4424d9451e9643
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: e3b9de282b95b27a04ac6d182b1045e18e65c5f6
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452494"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025903"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensions et fonctionnalités de machine virtuelle pour Windows
 
@@ -57,7 +57,8 @@ Des versions minimales de l’agent sont disponibles afin d’offrir la meilleur
 
 #### <a name="supported-oses"></a>Systèmes d’exploitation pris en charge
 
-L’agent invité Windows s’exécute sur plusieurs systèmes d’exploitation ; toutefois, l’infrastructure d’extensions présente certaines limites relatives aux systèmes d’exploitation pris en charge par les extensions. Pour plus d’informations, consultez [cet article] (https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems).
+L’agent invité Windows s’exécute sur plusieurs systèmes d’exploitation ; toutefois, l’infrastructure d’extensions présente certaines limites relatives aux systèmes d’exploitation pris en charge par les extensions. Pour plus d’informations, consultez [cet article](https://support.microsoft.com/en-us/help/4078134/azure-extension-supported-operating-systems
+).
 
 Certaines extensions ne sont pas prises en charge sur tous les systèmes d’exploitation et peuvent générer le *Code d’erreur 51, « Système d’exploitation non pris en charge »*. Pour plus d’informations sur la capacité de prise en charge, consultez la documentation de l’extension concernée.
 

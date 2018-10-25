@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/01/2016
 ms.author: mlearned
-ms.openlocfilehash: f44bb7bd95ef405c65bb259a6d104475c2e283bd
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a3dfca48b52af39e7a536b3012a3f4cdac4e9a94
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297840"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955165"
 ---
 # <a name="continuous-integration-in-azure-devops-services-using-azure-resource-group-deployment-projects"></a>Intégration continue dans Azure DevOps Services à l’aide de projets de déploiement Groupe de ressources Azure
 Pour déployer un modèle Azure, vous devez effectuer les tâches en différentes étapes : Générer, Tester, Copier sur Azure (également appelé « gestion intermédiaire ») et Déployer le modèle. Il existe deux façons de déployer des modèles dans Azure DevOps Services. Les deux méthodes fournissent les mêmes résultats. Par conséquent, choisissez celle qui convient le mieux à votre flux de travail.
@@ -92,7 +92,7 @@ Les procédures suivantes vous guident lors des étapes nécessaires à la confi
       Pour l’interface de ligne de commande Azure, consultez :
       
       `azure account show`
-   8. Pour obtenir un ID de principal de service, une clé de principal de service et un ID client, suivez la procédure dans [Création de l’application Active Directory et du principal du service à l’aide du portail](resource-group-create-service-principal-portal.md) ou [Authentification d’un principal du service à l’aide d’Azure Resource Manager](resource-group-authenticate-service-principal.md).
+   8. Pour obtenir un ID de principal de service, une clé de principal de service et un ID client, suivez la procédure dans [Création de l’application Active Directory et du principal du service à l’aide du portail](active-directory/develop/howto-create-service-principal-portal.md) ou [Authentification d’un principal du service à l’aide d’Azure Resource Manager](active-directory/develop/howto-authenticate-service-principal-powershell.md).
    9. Ajoutez les valeurs de l’ID de principal du service, de la clé de principal du service et de l’ID de locataire dans la boîte de dialogue **Ajouter un abonnement Azure**, puis choisissez le bouton **OK**.
       
       Vous disposez désormais d’un Principal de service valide à utiliser pour exécuter le script Azure PowerShell.
@@ -181,7 +181,7 @@ Les procédures suivantes vous guident lors des étapes nécessaires à la confi
 7. Une fois que vous avez ajouté tous les éléments requis, enregistrez le pipeline de build et choisissez **Mettre la nouvelle build en file d’attente** en haut.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur Azure Resource Manager et les groupes de ressources Azure, consultez l’article [Vue d’ensemble d’Azure Resource Manager](azure-resource-manager/resource-group-overview.md).
+Pour plus d’informations sur Azure Resource Manager et les groupes de ressources Azure, voir l’article [Présentation d’Azure Resource Manager](azure-resource-manager/resource-group-overview.md) .
 
 [0]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough1.png
 [1]: ./media/vs-azure-tools-resource-groups-ci-in-vsts/walkthrough2.png

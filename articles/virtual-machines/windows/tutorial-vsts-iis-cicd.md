@@ -3,7 +3,7 @@ title: Didacticiel - Créer un pipeline CI/CD dans Azure avec Azure DevOps Servi
 description: Ce didacticiel explique comment créer un pipeline Azure DevOps Services pour une intégration et une livraison continues permettant de déployer une application web vers IIS sur une machine virtuelle Windows dans Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: cynthn
+author: zr-msft
 manager: jeconnoc
 editor: tysonn
 tags: azure-resource-manager
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 05/12/2017
-ms.author: cynthn
+ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: d4edf0d22ce04eb2cb865d80c2b70f1bcc2169df
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4b4d514ec8bfd78b303a7f51c2a4072507da5be9
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301896"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471456"
 ---
 # <a name="tutorial-create-a-continuous-integration-pipeline-with-azure-devops-services-and-iis"></a>Didacticiel : créer un pipeline d’intégration continue avec Azure DevOps Services et IIS
 Pour automatiser les phases de création, de test et de déploiement du développement de l’application, vous pouvez utiliser un pipeline d’intégration et de déploiement continus (CI/CD). Dans ce didacticiel, vous créez un pipeline CI/CD à l’aide d’Azure DevOps Services et d’une machine virtuelle Windows dans Azure qui exécute IIS. Vous allez apprendre à effectuer les actions suivantes :

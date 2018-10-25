@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: eb72d92496addacd82e4d30df625b4f9c0c823e5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521028"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470318"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -74,7 +74,7 @@ Il peut arriver que le trousseau macOS soit dans un état qui provoque des probl
 7. Essayez de vous connecter.
 
 ### <a name="general-sign-in-troubleshooting-steps"></a>Étapes générales de résolution des problèmes de connexion
-* Si vous êtes sous macOS et que la fenêtre de connexion n’apparaît jamais sur la boîte de dialogue « En attente d’authentification... », suivez [ces étapes](#Mac-Keychain-Errors).
+* Si vous êtes sous macOS et que la fenêtre de connexion n’apparaît jamais sur la boîte de dialogue « En attente d’authentification... », suivez [ces étapes](#mac-keychain-errors).
 * Redémarrez l’Explorateur de stockage
 * Si la fenêtre d’authentification est vide, patientez au moins une minute avant de fermer la boîte de dialogue d’authentification.
 * Vérifiez que vos paramètres de proxy et de certificat sont correctement configurés pour votre ordinateur et pour l’Explorateur Stockage.

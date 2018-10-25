@@ -6,16 +6,16 @@ services: cognitive-services
 author: mikedodaro
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: project-answer-search
+ms.component: answer-search
 ms.topic: overview
 ms.date: 04/13/2018
 ms.author: rosh
-ms.openlocfilehash: 5658054b3cc77db20edd64f6c560ee5d4a58eb46
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b211ede7ef90fb1aef3a6d6e9a82e0d52397afd3
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883718"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465911"
 ---
 # <a name="what-is-project-answer-search"></a>Qu’est-ce que Project Answer Search ?
 L’API Project Answer Search utilise le point de terminaison Bing v7 pour obtenir des réponses à des requêtes sous forme de questions. Une question comme « Quelle est la circonférence de la terre ? » retourne une réponse avec des informations factuelles.  Une requête concernant une personne, un lieu ou une chose retourne des informations sur l’entité identifiée par la requête. Ces scénarios peuvent être utiles dans des applications telles que des bots de conversation, des applications de messagerie, des lecteurs, etc.  

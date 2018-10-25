@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: aa9823c65b342f922ca78a51ecd3055dfac62869
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.openlocfilehash: be889d7b0bf6060b3b93244da6746fa6f13024da
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29692162"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985503"
 ---
 # <a name="configure-and-access-server-logs-in-the-azure-portal"></a>Configurer et consulter les journaux du serveur dans le portail Azure
 
@@ -27,7 +27,7 @@ Pour parcourir ce guide pratique, vous avez besoin des éléments suivants :
 ## <a name="configure-logging"></a>Configuration de la journalisation
 Configurer l’accès aux journaux des requêtes et journaux des erreurs. 
 
-1. Connectez-vous au [Portail Azure](http://portal.azure.com/).
+1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 2. Sélectionnez votre serveur Azure Database pour PostgreSQL.
 
@@ -67,7 +67,7 @@ Une fois que la journalisation commence, vous pouvez afficher la liste des journ
 
    ![Cliquez sur l’icône Télécharger](./media/howto-configure-server-logs-in-portal/6-download.png)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 - Pour découvrir comment télécharger des journaux par programme, voir [Accéder aux journaux du serveur à l’aide de l’interface de ligne de commande](howto-configure-server-logs-using-cli.md).
 - Apprenez-en davantage sur les [Journaux du serveur](concepts-server-logs.md) dans Azure Database pour PostgreSQL. 
 - Pour plus d’informations sur les définitions de paramètres et la journalisation de PostgreSQL, voir la documentation de PostgreSQL concernant [le signalement et la journalisation des erreurs](https://www.postgresql.org/docs/current/static/runtime-config-logging.html).

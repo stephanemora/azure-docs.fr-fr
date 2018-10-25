@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 97e032af71947340c7e3b0af3b9d0701c972144e
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: d8d7d5649ca1dc215f85f928d111ff1367c60bb5
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843440"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988241"
 ---
 ## <a name="test-querying-the-microsoft-graph-api-from-your-ios-application"></a>Tester l’interrogation de l’API Microsoft Graph à partir de votre application iOS
 
@@ -30,6 +30,7 @@ Pour exécuter le code dans le simulateur, appuyez sur les touches **Cmd** + **R
 Lorsque vous êtes prêt à passer aux tests, sélectionnez **Call Microsoft Graph API** (Appeler l’API Microsoft Graph). Lorsque vous y êtes invité, entrez votre nom d’utilisateur et votre mot de passe.
 
 ### <a name="provide-consent-for-application-access"></a>Accorder les droits d’accès à l’application
+
 La première fois que vous vous connectez à votre application, vous êtes invité à autoriser l’application à accéder à votre profil et à vous connecter :
 
 ![Donner votre accord pour l’accès par l’application](media/active-directory-develop-guidedsetup-ios-test/iosconsentscreen.png)
@@ -42,7 +43,7 @@ Une fois connecté, vous devez voir vos informations de profil utilisateur retou
 
 L’API Microsoft Graph nécessite l’étendue **user.read** pour lire le profil d’un utilisateur. Par défaut, cette étendue est automatiquement ajoutée à toutes les applications inscrites dans le portail d’inscription. D’autres API pour Microsoft Graph ainsi que des API personnalisées pour votre serveur principal peuvent nécessiter des étendues supplémentaires. L’API Microsoft Graph nécessite l’étendue **Calendars.Read** pour répertorier les calendriers de l’utilisateur.
 
-Pour accéder aux calendriers de l’utilisateur dans le contexte d’une application, ajoutez l’autorisation déléguée **Calendars.Read** aux informations d’inscription de l’application. Ajoutez ensuite l’étendue **Calendars.Read** à l’appel **acquireTokenSilent**. 
+Pour accéder aux calendriers de l’utilisateur dans le contexte d’une application, ajoutez l’autorisation déléguée **Calendars.Read** aux informations d’inscription de l’application. Ajoutez ensuite l’étendue **Calendars.Read** à l’appel **acquireTokenSilent**.
 
 >[!NOTE]
 >L’utilisateur peut être invité à donner des consentements supplémentaires à mesure que vous augmentez le nombre d’étendues.

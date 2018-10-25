@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 39d36ee0c46d3e6954c3264f37f3f575130186b9
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 284cc8ec6c2325df069d06039a6a22169c3107e7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434481"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638339"
 ---
 # <a name="data-extraction"></a>Extraction de données
 LUIS donne la possibilité d’obtenir des informations à partir des énoncés d’un utilisateur en langage naturel. Les informations sont extraites de façon à pouvoir être utilisées par un programme, une application ou un chatbot de manière exploitable. Dans les sections suivantes, découvrez quelles sont les données retournées à partir des intentions et des entités avec des exemples de JSON.
@@ -32,7 +32,7 @@ La valeur `appID` est disponible sur la page **Paramètres** de l’application 
 La **réponse HTTPS** contient toutes les informations que LUIS peut déterminer sur les intentions et les entités à partir du modèle publié à un instant t d’un point de terminaison intermédiaire ou de production. L’URL de point de terminaison se trouve sur le site web [LUIS](luis-reference-regions.md), dans la section **Manage** (Gérer), dans la page **Keys and endpoints** (Clés et points de terminaison).
 
 ## <a name="data-from-intents"></a>Données issues des intentions
-La principale donnée est le **nom de l’intention** qui a obtenu le meilleur score. Avec le `MyStore` [Démarrage rapide ](luis-quickstart-intents-only.md), la réponse du point de terminaison est la suivante :
+La principale donnée est le **nom de l’intention** qui a obtenu le meilleur score. Avec le `MyStore` [Démarrage rapide](luis-quickstart-intents-only.md), la réponse du point de terminaison est la suivante :
 
 ```JSON
 {
