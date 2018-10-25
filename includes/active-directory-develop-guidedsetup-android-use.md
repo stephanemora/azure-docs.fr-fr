@@ -1,5 +1,27 @@
-
-## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Utiliser MSAL pour obtenir un jeton pour l’API Microsoft Graph
+---
+title: Fichier Include
+description: Fichier Include
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 9d512af7fdd68ec3356b427429144ec9195fd95b
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48842979"
+---
+## <a name="use-msal-to-get-a-token"></a>Utilisation de la bibliothèque MSAL pour obtenir un jeton 
 
 1.  Sous **app** > **java** > **{domain}.{appname}**, ouvrez `MainActivity`. 
 2.  Ajoutez les importations suivantes :
@@ -220,21 +242,19 @@
 <!--start-collapse-->
 ### <a name="more-information"></a>Plus d’informations
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
-L’appel de la méthode `AcquireTokenAsync` affiche une fenêtre invitant les utilisateurs à se connecter. Les applications requièrent généralement que les utilisateurs se connectent de manière interactive la première fois qu’ils cherchent à accéder à une ressource protégée. Ils peuvent également avoir besoin de se connecter en cas d’échec d’une opération en mode silencieux pour obtenir un jeton (par exemple, quand un mot de passe utilisateur a expiré).
+L’appel de la méthode `AcquireTokenAsync` lance une fenêtre invitant les utilisateurs à se connecter ou à sélectionner leur compte. En général, les applications doivent demander à l’utilisateur une interaction initiale, mais elles peuvent ensuite fonctionner en mode silencieux. 
 
 #### <a name="get-a-user-token-silently"></a>Obtenir un jeton d’utilisateur en mode silencieux
-La méthode `AcquireTokenSilentAsync` gère les acquisitions et renouvellements de jetons sans aucune interaction de l’utilisateur. Quand `AcquireTokenAsync` est exécuté pour la première fois, la méthode `AcquireTokenSilentAsync` est généralement celle à utiliser pour obtenir les jetons permettant d’accéder aux ressources protégées pour les appels suivants, étant donné que les appels pour les demandes ou renouvellements de jetons se font en mode silencieux.
+La méthode `AcquireTokenSilentAsync` obtient un jeton sans interaction utilisateur.  `AcquireTokenSilentAsync` peut être traité en tant que requête optimale, avec un mécanisme de secours sur `AcquireTokenAsync` lorsque l’utilisateur doit se connecter à nouveau ou exécuter une autorisation supplémentaire, comme l’authentification multifacteur. 
 
-La méthode `AcquireTokenSilentAsync` peut échouer. Cet échec peut être dû à une déconnexion de l’utilisateur ou à la modification de son mot de passe sur un autre appareil. Quand la bibliothèque MSAL détecte que le problème peut être résolu par une intervention interactive, elle déclenche une exception `MsalUiRequiredException`. Votre application peut gérer cette exception de deux manières :
+Lorsque `AcquireTokenSilentAsync` échoue, cela génère un `MsalUiRequiredException`. Votre application peut gérer cette exception de deux manières :
 
-* Elle peut appeler immédiatement `AcquireTokenAsync`. Cet appel invite l’utilisateur à se connecter. Cette méthode est généralement employée dans les applications en ligne où aucun contenu hors connexion n’est disponible pour l’utilisateur. L’exemple généré par cette installation guidée utilise ce modèle, que vous pouvez voir en action la première fois que vous exécutez l’exemple. 
-    * Aucun utilisateur n’ayant encore utilisé l’application, `PublicClientApp.Users.FirstOrDefault()` contient une valeur null, et une exception `MsalUiRequiredException` est levée. 
-    * Le code de l’exemple gère ensuite cette exception en appelant `AcquireTokenAsync`, après quoi l’utilisateur est invité à se connecter. 
-
-* Il peut également afficher à la place une indication visuelle informant les utilisateurs qu’une connexion interactive est nécessaire, pour permettre à ces derniers de sélectionner le bon moment pour se connecter. L’application peut également effectuer une nouvelle tentative de `AcquireTokenSilentAsync` ultérieurement. Ce modèle est souvent utilisé quand les utilisateurs peuvent utiliser d’autres fonctionnalités de l’application sans interruption, par exemple, quand le contenu hors connexion est disponible dans l’application. Dans ce cas, les utilisateurs peuvent décider de se connecter pour accéder à la ressource protégée ou pour actualiser les informations obsolètes. L’application peut également décider d’effectuer une nouvelle tentative de `AcquireTokenSilentAsync` une fois le réseau rétabli après une indisponibilité temporaire. 
+* Appelez `AcquireTokenAsync` immédiatement. Cet appel invite l’utilisateur à se connecter. Ce modèle est employé dans les applications en ligne où aucun contenu hors connexion n’est disponible pour l’utilisateur. L’exemple généré par ce tutoriel utilise ce modèle, que vous pouvez voir en action la première fois que vous exécutez l’exemple.
+* Présentez une indication visuelle aux utilisateurs montrant qu’une connexion interactive est requise. Appelez `AcquireTokenAsync` lorsque l’utilisateur est prêt.
+* Réessayez `AcquireTokenSilentAsync` ultérieurement. Ce modèle est souvent utilisé quand les utilisateurs peuvent utiliser d’autres fonctionnalités de l’application sans interruption, par exemple, quand le contenu hors connexion est disponible dans l’application. L’application peut décider d’effectuer une nouvelle tentative de `AcquireTokenSilentAsync` une fois le réseau rétabli après une indisponibilité temporaire. 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>Appeler l’API Microsoft Graph à l’aide du jeton que vous venez d’obtenir
+## <a name="call-the-microsoft-graph-api"></a>Appeler l’API Microsoft Graph 
 Ajoutez les méthodes suivantes à la classe `MainActivity` :
 
 ```java
@@ -294,7 +314,7 @@ private void updateGraphUI(JSONObject graphResponse) {
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Informations supplémentaires sur l’envoi d’un appel REST à une API protégée
 
-Dans cet exemple d’application, `callGraphAPI` appelle `getAccessToken`, puis effectue une requête `GET` HTTP sur une ressource qui requiert un jeton et renvoie le contenu. Cette méthode ajoute le jeton acquis à l’en-tête d’autorisation HTTP. Dans cet exemple, la ressource est le point de terminaison *me* de l’API Microsoft Graph, qui affiche les informations de profil de l’utilisateur.
+Dans cet exemple d’application, `callGraphAPI()` utilise `getAccessToken()` pour obtenir le nouveau jeton d’accès.  L’application utilise le jeton dans une requête `GET` HTTP sur l’API Microsoft Graph. 
 <!--end-collapse-->
 
 ## <a name="set-up-sign-out"></a>Configurer la déconnexion
@@ -353,7 +373,8 @@ private void updateSignedOutUI() {
 <!--start-collapse-->
 ### <a name="more-information-about-user-sign-out"></a>Plus d'informations sur la déconnexion d’utilisateurs
 
-La méthode `onSignOutClicked` du code précédent supprime l’utilisateur du cache utilisateur de MSAL en ordonnant à MSAL d’oublier l’utilisateur actuel pour que la demande suivante d’acquisition de jeton n’aboutisse que si elle est effectuée de manière interactive.
+La méthode `onSignOutClicked()` supprime des utilisateurs du cache MSAL. MSAL n’aura plus aucun état pour l’utilisateur connecté, et celui-ci sera déconnecté de l’application. 
 
-Bien que l’application de cet exemple ne prenne en charge qu’un seul utilisateur, MSAL autorise les scénarios où plusieurs comptes peuvent être connectés en même temps. C’est le cas, par exemple, d’une application de messagerie hébergeant plusieurs comptes d’un même utilisateur.
+### <a name="more-information-on-multi-account-scenarios"></a>Plus d’informations sur les scénarios multicompte
+MSAL prend également en charge les scénarios lorsque plusieurs comptes sont connectés en même temps. Par exemple, de nombreuses applications de messagerie autorisent la connexion de plusieurs comptes en même temps. 
 <!--end-collapse-->

@@ -3,24 +3,23 @@ title: Fichier Include
 description: Fichier Include
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: jmprieur
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
+ms.date: 09/17/2018
+ms.author: jmprieur
 ms.custom: include file
-ms.openlocfilehash: 5e933406b266b8371019abf0f62365184d8900b3
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 022017015808d72f661f6764e8fa10fdc49e9f61
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205242"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48842931"
 ---
 ## <a name="set-up-your-project"></a>Configuration de votre projet
 
@@ -33,11 +32,13 @@ L’application que vous créez dans ce guide affiche un bouton pour appeler un 
 >
 
 Pour créer l’application, procédez comme suit :
+
 1. Dans Visual Studio, sélectionnez **Fichier** > **Nouveau** > **Projet**.
 2. Sous **Modèles**, sélectionnez **Visual C#**.
-3. Sélectionnez **Application WPF** dans Visual Studio.
+3. Sélectionnez **Application WPF (.NET Framework)**, selon la version Visual Studio que vous utilisez.
 
 ## <a name="add-msal-to-your-project"></a>Ajouter MSAL à votre projet
+
 1. Dans Visual Studio, sélectionnez **Outils** > **Gestionnaire de package NuGet**> **Console du gestionnaire de package**.
 2. Dans la fenêtre Console du gestionnaire de package, collez la commande Azure PowerShell suivante :
 
@@ -46,10 +47,11 @@ Pour créer l’application, procédez comme suit :
     ```
 
     > [!NOTE] 
-    > Cette commande installe Microsoft Authentication Library. MSAL gère l’acquisition, la mise en cache et l’actualisation des jetons d’utilisateur permettant d’accéder aux API protégées par Azure Active Directory v2.
+    > Cette commande installe Microsoft Authentication Library. MSAL gère l’acquisition, la mise en cache et l’actualisation des jetons d’utilisateur permettant d’accéder aux API protégées par Azure Active Directory v2.0.
     >
 
 ## <a name="add-the-code-to-initialize-msal"></a>Ajoutez le code pour initialiser MSAL
+
 Dans cette étape, vous allez créer une classe pour gérer l’interaction avec MSAL, telle que la gestion des jetons.
 
 1. Ouvrez le fichier *App.xaml.cs* et ajoutez la référence de MSAL à la classe :
@@ -93,4 +95,3 @@ Un fichier *MainWindow.xaml* doit être automatiquement créé dans le cadre de 
     </StackPanel>
 </Grid>
 ```
-

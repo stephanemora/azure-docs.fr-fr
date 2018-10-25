@@ -13,12 +13,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/19/2018
-ms.openlocfilehash: e18b637ee583757e040ef6fd5c2d52cff14cb4fc
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b6708dac548db9e11d1092a6b84083d057401176
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221144"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237668"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Vue d’ensemble de la continuité de l’activité avec la base de données Azure SQL
 
@@ -45,7 +45,7 @@ Ensuite, vous pouvez en apprendre davantage sur les mécanismes supplémentaires
  - Les [sauvegardes automatisées intégrées](sql-database-automated-backups.md) et la [limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore) vous permettent de restaurer l’ensemble de la base de données selon un moment donné au cours des 35 derniers jours.
  - Vous pouvez [restaurer une base de données supprimée](sql-database-recovery-using-backups.md#deleted-database-restore) au point où sa suppression s’est produite si le **serveur logique n’a pas été supprimé**.
  - La [rétention des sauvegardes à long terme](sql-database-long-term-retention.md) vous permet de conserver les sauvegardes sur une période allant jusqu’à 10 ans.
- - La [géoréplication](sql-database-geo-replication-overview.md) permet à l’application d’effectuer rapidement une récupération d’urgence en cas de panne à l’échelle du centre de données.
+ - Le [groupe de basculement automatique](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) permet à l’application d’effectuer automatiquement une récupération en cas de panne à l’échelle du centre de données.
 
 Chacune de ces fonctionnalités possède des caractéristiques spécifiques concernant le temps de récupération estimé (ERT) et le risque de perte de données pour les transactions récentes. Une fois que vous avez compris ces options, vous pouvez choisir celles qui vous conviennent et, dans la plupart des scénarios, les utiliser ensemble dans différents scénarios. Au moment d’élaborer votre plan de continuité d’activité, vous devez comprendre le délai maximal acceptable nécessaire à la récupération complète de l’application après l’événement d’interruption. Il s’agit de l’objectif de délai de récupération (RTO, recovery time objective). Vous devez également comprendre sur quelle période maximale l’application peut accepter de perdre les mises à jour de données récentes (intervalle de temps) lors de la récupération après l’événement d’interruption. Il s’agit de l’objectif de point de récupération (RPO, recovery point objective).
 
@@ -54,9 +54,8 @@ Le tableau suivant compare le temps de récupération estimé et l’objectif de
 | Fonctionnalité | De base | standard | Premium  | Usage général | Critique pour l’entreprise
 | --- | --- | --- | --- |--- |--- |
 | Limite de restauration dans le temps à partir de la sauvegarde |Tout point de restauration dans un délai de sept jours |Tout point de restauration dans un délai de 35 jours |Tout point de restauration dans un délai de 35 jours |N’importe quel point de restauration compris dans la période définie (jusqu’à 35 jours)|N’importe quel point de restauration compris dans la période définie (jusqu’à 35 jours)|
-| Géo-restauration à partir de sauvegardes répliquées géographiquement |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h |ERT < 12 h, RPO < 1 h|ERT < 12 h, RPO < 1 h|
-| Restauration à partir d’une conservation SQL à long terme |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem. |ERT < 12 h, RPO < 1 sem.|ERT < 12 h, RPO < 1 sem.|
-| Géoréplication active |ERT < 30s, RPO < 5s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s |ERT < 30 s, RPO < 5 s|ERT < 30 s, RPO < 5 s|
+| Géo-restauration à partir de sauvegardes répliquées géographiquement |ERT < 12 h<br> RPO < 1 h |ERT < 12 h<br>RPO < 1 h |ERT < 12 h<br>RPO < 1 h |ERT < 12 h<br>RPO < 1 h|ERT < 12 h<br>RPO < 1 h|
+| Groupes de basculement automatique |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s |RTO = 1 h<br>RPO < 5 s|RTO = 1 h<br>RPO < 5 s|
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Récupération d’une base de données sur le serveur existant
 
@@ -73,7 +72,8 @@ Utilisez des sauvegardes automatisées et une [limite de restauration dans le te
 * Affiche un faible taux de modification des données (peu de transactions par heure) et accepte une perte de données correspondant à une heure de modifications.
 * Est sensible aux coûts.
 
-Si vous avez besoin d’une récupération plus rapide, utilisez une [géo-réplication active](sql-database-geo-replication-overview.md) (abordée plus loin). Si vous devez être en mesure de récupérer des données remontant à plus de 35 jours, utilisez la [rétention de sauvegardes à long terme](sql-database-long-term-retention.md). 
+Si vous avez besoin d’une récupération plus rapide, utilisez des [groupes de basculement](sql-database-geo-replication-overview.md#auto-failover-group-capabilities
+) (abordés plus loin). Si vous devez être en mesure de récupérer des données remontant à plus de 35 jours, utilisez la [rétention de sauvegardes à long terme](sql-database-long-term-retention.md). 
 
 ## <a name="recover-a-database-to-another-region"></a>Récupération d’une base de données sur une autre région
 <!-- Explain this scenario -->
@@ -82,9 +82,7 @@ Bien que le fait soit rare, un centre de données Azure peut subir une panne. En
 
 * Vous pouvez attendre que votre base de données redevienne disponible une fois la panne réparée au niveau du centre de données. Cette méthode fonctionne pour les applications qui peuvent se permettre d’avoir la base de données déconnectée. C’est le cas, par exemple, d’un projet de développement ou d’une version d’évaluation gratuite sur lesquels vous n’avez pas à travailler en permanence. Lorsqu’un centre de données subit une panne, vous ne savez pas combien de temps cette panne peut durer. Cette méthode fonctionne donc uniquement si vous n’avez pas à travailler sur votre base de données pendant un certain temps.
 * Vous pouvez également restaurer une base de données sur n’importe quel serveur d’une région Azure quelconque à l’aide des [sauvegardes de base de données géo-redondantes](sql-database-recovery-using-backups.md#geo-restore) (ou géorestaurations). La géorestauration utilise une sauvegarde géoredondante en tant que source et peut être mise à profit pour récupérer une base de données même si la base de données ou le centre de données est inaccessible en raison d’une défaillance.
-* Enfin, vous pouvez rapidement promouvoir une base de données secondaire sur une autre région de données afin qu’elle devienne la base de données primaire (opération également appelée basculement) et configurer les applications de sorte qu’elles se connectent à la base de données promue comme primaire si vous utilisez la géoréplication active. Quelques pertes de données peuvent survenir pour les transactions récentes en raison de la nature de la réplication asynchrone. Avec les groupes de basculement automatique, vous pouvez personnaliser la stratégie de basculement de manière à minimiser la perte potentielle de données. Dans tous les cas, les utilisateurs sont confrontés à quelques interruptions de service minimes et doivent se reconnecter. Un basculement ne prend que quelques secondes, tandis qu’une récupération de base de données à partir de sauvegardes nécessite des heures.
-
-Afin d’effectuer un basculement vers une autre région, vous pouvez utiliser la [géoréplication active](sql-database-geo-replication-overview.md) pour configurer une base de données contenant jusqu’à quatre bases de données secondaires accessibles en lecture dans les régions de votre choix. Ces bases de données secondaires sont synchronisées avec la base de données primaire à l’aide d’un mécanisme de réplication asynchrone. 
+* Enfin, vous pouvez récupérer rapidement en cas de panne si vous avez configuré un [groupe de basculement automatique](sql-database-geo-replication-overview.md#auto-failover-group-capabilities) pour votre ou vos bases de données. Vous pouvez personnaliser la stratégie de basculement pour utiliser le basculement automatique ou manuel. Le basculement proprement dit ne prend que quelques secondes, mais son activation par le service prend au moins 1 heure. Cela est nécessaire pour s’assurer que le basculement est justifié par l’étendue de la panne. En outre, le basculement peut entraîner une petite perte de données en raison de la nature de la réplication asynchrone. Consultez le tableau précédemment illustré dans cet article pour plus d’informations sur le RTO et le RPO du basculement automatique.   
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
 >
@@ -94,10 +92,10 @@ Afin d’effectuer un basculement vers une autre région, vous pouvez utiliser l
 > Pour utiliser la géo-réplication active et les groupes de basculement automatique, vous devez être le propriétaire de l’abonnement ou disposer d’autorisations administratives dans SQL Server. Vous pouvez configurer et effectuer un basculement à l’aide du portail Azure, de PowerShell ou de l’API REST, en utilisant les autorisations d’abonnement Azure ou à l’aide de Transact-SQL en utilisant des autorisations dans SQL Server.
 > 
 
-Cette fonctionnalité sert à vous protéger contre l’interruption de service en cas de panne du centre de données ou de mise à niveau de l’application. Pour activer le basculement automatique et transparent, vous devez organiser vos bases de données géo-répliquées dans des groupes à l’aide de la fonctionnalité de [groupe de basculement automatique](sql-database-geo-replication-overview.md) de SQL Database. Utilisez la géo-réplication active et les groupes de basculement automatique si votre application répond à l’un des critères suivants :
+Utilisez des groupes de basculement automatique actifs si votre application répond à l’un des critères suivants :
 
 * Est essentielle.
-* A un contrat de niveau de service (SLA) qui n’autorise pas plus de 24 heures d’interruption de service.
+* A un contrat de niveau de service (SLA) qui n’autorise pas plus de 12 heures d’interruption de service.
 * Toute interruption de service peut engager la responsabilité financière.
 * Affiche un taux élevé de données modifiées et la perte d’une heure de données n’est pas acceptable.
 * Le coût supplémentaire lié à l'utilisation de la géoréplication est plus faible que la responsabilité financière potentielle et la perte d'activité associée.
@@ -136,6 +134,11 @@ Après la récupération à l’aide d’un de ces mécanismes de récupération
 * Vérifier que les connexions et les autorisations appropriées au niveau de la base de données MASTER sont en place (ou utiliser des [utilisateurs contenus](https://msdn.microsoft.com/library/ff929188.aspx))
 * Configurer l’audit, selon les besoins
 * Configurer les alertes, selon les besoins
+
+> [!NOTE]
+> Si vous utilisez un groupe de basculement et que vous vous connectez aux bases de données à l’aide de l’écouteur en lecture-écriture, la redirection après le basculement se produit automatiquement et en toute transparence pour l’application.  
+>
+>
 
 ## <a name="upgrade-an-application-with-minimal-downtime"></a>Mettre à niveau une application avec un temps d’arrêt minimal
 Parfois, une application doit être déconnectée en raison d’une maintenance planifiée, par exemple une mise à niveau. [Gestion des mises à niveau des applications](sql-database-manage-application-rolling-upgrade.md) explique comment utiliser la géo-réplication active pour activer les mises à niveau propagées de votre application cloud afin de réduire le temps d’arrêt pendant les mises à niveau et de fournir un chemin de récupération en cas de problème. 

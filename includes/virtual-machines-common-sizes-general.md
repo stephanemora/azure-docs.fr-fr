@@ -5,17 +5,19 @@ services: virtual-machines
 author: jonbeck7
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 07/06/2018
+ms.date: 10/08/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: eac6c6d76bcc3b3d9cfeda7d8ca4e52e28ba9d8f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 8297e324f03d263acaa30dfa2147f7ee713bd265
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44369134"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48904653"
 ---
 Les tailles de machine virtuelle à usage général assurent un ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen. Cet article donne des informations sur le nombre de processeurs virtuels, de disques de données et de cartes réseau ainsi que sur le débit de stockage pour chacune des tailles de ce regroupement. 
+
+- La [série DC](#dc-series) est une nouvelle famille de machines virtuelles dans Azure qui peut aider à protéger la confidentialité et l’intégrité de vos données et de votre code lors du traitement dans le cloud public. Ces machines bénéficient du processeur 3,7 GHz Intel XEON E-2176G de dernière génération avec la technologie SGX. Avec Intel Turbo Boost Technology, ces machines peuvent atteindre 4,7 GHz. Les instances de la série DC permettent aux clients de créer des applications sécurisées basées sur enclave pour protéger leur code et leurs données en cours d’utilisation.
 
 - Les machines virtuelles de la série Av2 peuvent être déployées sur différents types de matériel et différents processeurs. Les machines virtuelles de la série A affichent des performances d’unité centrale et des configurations de mémoire idéales pour les charges de travail de niveau d’entrée, propres au développement et au test. La taille est limitée, en fonction du matériel, pour offrir des performances de processeur cohérentes pour l’instance en cours d’exécution, quel que soit le matériel sur lequel elle est déployée. Pour déterminer le matériel physique sur lequel cette taille est déployée, interrogez le matériel virtuel à partir de la machine virtuelle.
 
@@ -26,6 +28,7 @@ Les tailles de machine virtuelle à usage général assurent un ratio processeur
 - La série Dv3 est dotée du processeur Intel Xeon® E5-2673 v3 (Haswell) cadencé à 2,4 Ghz ou du dernier processeur Intel XEON® E5-2673 v4 (Broadwell) cadencé à 2,3 GHz dans une configuration multithread, fournissant ainsi une meilleure proposition de valeur pour la plupart des charges de travail à usage général.  La mémoire a été étendue (d’environ 3,5 Gio/vCPU à 4 Gio/vCPU) et les limites de disque et de réseau ont été ajustées au niveau du cœur pour s’aligner sur la transition vers l’hyperthreading.  Le Dv3 n’offre plus les tailles de machines virtuelles à haute mémoire des familles D/Dv2, qui ont été déplacées vers la nouvelle famille Ev3.
 
   Voici des exemples de cas d’usage de la série D : applications de classe Entreprise, bases de données relationnelles, mise en cache en mémoire et analytique. 
+  
 
 ## <a name="b-series"></a>Série B
 
@@ -138,6 +141,7 @@ Stockage Premium : non pris en charge
 
 Mise en cache du Stockage Premium : non pris en charge
 
+
 | Taille            | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde MBps de lecture / MBps d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) | 
 |-----------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_A1_v2  | 1         | 2           | 10             | 1000 / 20 / 10                                           | 2 / 2 x 500               | 2 / 250                 |
@@ -149,6 +153,22 @@ Mise en cache du Stockage Premium : non pris en charge
 | Standard_A8m_v2 | 8         | 64          | 80             | 8000 / 160 / 80                                          | 16 / 16 x 500             | 8 / 2 000                     |
 
 <br>
+
+
+## <a name="dc-series"></a>Série DC
+
+Stockage Premium : pris en charge
+
+Mise en cache du Stockage Premium : pris en charge
+
+
+
+| Taille          | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+|---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
+| Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32 (43)                                                          | 3200 /48                                  | 2 / 1 500                                     |
+| Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3 000                                     |
+
+
 
 
 

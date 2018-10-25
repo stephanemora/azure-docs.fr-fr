@@ -11,21 +11,20 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 05/08/2018
-ms.openlocfilehash: a9a3d696f1c503969b89795f8c6d86a77bd353e8
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: 499689e4d36f368746e5e0ea9e6bc3f3bf0ec0d9
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160722"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868224"
 ---
-# <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configurer et restaurer à partir de la rétention des sauvegardes à long terme Azure SQL Database à l’aide d’Azure Recovery Services Vault
+# <a name="configure-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configurer la rétention des sauvegardes à long terme à l’aide d’Azure Recovery Services Vault
 
 Vous pouvez configurer le coffre Azure Recovery Services pour stocker les sauvegardes de base de données SQL Azure, puis récupérer une base de données à l’aide des sauvegardes conservées dans le coffre avec le portail Azure ou PowerShell.
 
 > [!NOTE]
-> Dans le cadre de la version initiale de la préversion de la rétention des sauvegardes à long terme en octobre 2016, les sauvegardes ont été stockées dans un coffre Azure Recovery Services. Cette mise à jour supprime cette dépendance, mais à des fins de compatibilité descendante, l’API d’origine est prise en charge jusqu’au 31 mai 2018. Si vous avez besoin d’interagir avec des sauvegardes présentes dans le coffre Azure Recovery Services, consultez [Configure and restore from Azure SQL Database long-term backup retention using Azure Recovery Services Vault](sql-database-long-term-backup-retention-configure-vault.md) (Configurer et récupérer à partir d’une rétention des sauvegardes à long terme à l’aide du coffre Azure Recovery Services). 
-
+> Dans le cadre de la version initiale de la préversion de la rétention des sauvegardes à long terme en octobre 2016, les sauvegardes ont été stockées dans un coffre Azure Recovery Services. Cette mise à jour supprime cette dépendance, mais à des fins de compatibilité descendante, l’API d’origine est prise en charge jusqu’au 31 mai 2018. Si vous avez besoin d’interagir avec des sauvegardes présentes dans le coffre Azure Recovery Services, consultez [Configure and restore from Azure SQL Database long-term backup retention using Azure Recovery Services Vault](sql-database-long-term-backup-retention-configure-vault.md) (Configurer et récupérer à partir d’une rétention des sauvegardes à long terme à l’aide du coffre Azure Recovery Services).
 
 ## <a name="azure-portal"></a>Portail Azure
 
@@ -33,7 +32,7 @@ Les sections suivantes vous montrent comment utiliser le portail Azure pour conf
 
 ### <a name="configure-the-vault-register-the-server-and-select-databases"></a>Configurer le coffre, inscrire le serveur et sélectionner les bases de données
 
-Vous [configurez un coffre Azure Recovery Services de façon à conserver des sauvegardes automatisées](sql-database-long-term-retention.md) sur une période plus longue que la période de rétention associée à votre niveau de service. 
+Vous [configurez un coffre Azure Recovery Services de façon à conserver des sauvegardes automatisées](sql-database-long-term-retention.md) sur une période plus longue que la période de rétention associée à votre niveau de service.
 
 1. Ouvrez la page **SQL Server** de votre serveur.
 
@@ -62,7 +61,7 @@ Vous [configurez un coffre Azure Recovery Services de façon à conserver des sa
 7. Sur la page **Coffres Recovery Services**, cliquez sur **Ajouter**.
 
    ![ajouter le lien vers le coffre](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
-   
+
 8. Sur la page **Coffre Recovery Services**, fournissez un nom valide pour le coffre Recovery Services.
 
    ![nom du nouveau coffre](./media/sql-database-get-started-backup-recovery/new-vault-name.png)
@@ -73,7 +72,6 @@ Vous [configurez un coffre Azure Recovery Services de façon à conserver des sa
 
    > [!IMPORTANT]
    > Le coffre doit se trouver dans la même région que le serveur logique SQL Azure et doit utiliser le même groupe de ressources que le serveur logique.
-   >
 
 10. Une fois le nouveau coffre créé, exécutez les étapes nécessaires pour revenir à la page **Coffre Recovery Services**.
 
@@ -84,9 +82,9 @@ Vous [configurez un coffre Azure Recovery Services de façon à conserver des sa
 12. Sur la page **Configurer**, fournissez un nom valide pour la nouvelle stratégie de rétention, modifiez la stratégie de rétention par défaut à votre convenance, puis cliquez sur **OK**.
 
    ![définir la stratégie de rétention](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
-   
-   >[!NOTE]
-   >Certains caractères, comme les espaces, ne sont pas autorisés dans les noms de stratégie de rétention.
+
+   > [!NOTE]
+   > Certains caractères, comme les espaces, ne sont pas autorisés dans les noms de stratégie de rétention.
 
 13. Sur la page **Long-term backup retention** (Rétention des sauvegardes à long terme) de votre base de données, cliquez sur **Enregistrer**, puis sur **OK** pour appliquer la stratégie de rétention des sauvegardes à long terme à toutes les bases de données sélectionnées.
 
@@ -98,11 +96,10 @@ Vous [configurez un coffre Azure Recovery Services de façon à conserver des sa
 
 > [!IMPORTANT]
 > Une fois configurées, les sauvegardes s’affichent dans le coffre dans les sept jours qui suivent. Ne poursuivez pas ce didacticiel tant que les sauvegardes n’apparaissent pas dans le coffre.
->
 
 ### <a name="view-backups-in-long-term-retention-using-azure-portal"></a>Visualiser les sauvegardes de la rétention à long terme à l’aide du portail Azure
 
-Visualisez les informations relatives à vos sauvegardes de base de données dans la [rétention des sauvegardes à long terme](sql-database-long-term-retention.md). 
+Visualisez les informations relatives à vos sauvegardes de base de données dans la [rétention des sauvegardes à long terme](sql-database-long-term-retention.md).
 
 1. Dans le portail Azure, ouvrez le coffre Azure Recovery Services de vos sauvegardes de base de données (accédez à **Toutes les ressources**, puis sélectionnez cette entrée dans la liste des ressources de votre abonnement) pour visualiser la quantité de stockage utilisée par les sauvegardes de votre base de données dans le coffre.
 
@@ -167,7 +164,7 @@ Utilisez [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoverys
 $serverLocation = (Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName).Location
 $recoveryServiceVaultName = "{new-vault-name}"
 
-$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation 
+$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation
 Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
 ```
 
@@ -176,18 +173,17 @@ Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedu
 Utilisez l’applet de commande [Set-AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) pour associer un coffre Recovery Services créé précédemment à un serveur SQL Azure spécifique.
 
 ```PowerShell
-# Set your server to use the vault to for long-term backup retention 
+# Set your server to use the vault to for long-term backup retention
 
 Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName -ResourceId $vault.Id
 ```
 
 ### <a name="create-a-retention-policy"></a>Créer une stratégie de rétention
 
-Vous définissez la durée de conservation d’une sauvegarde de base de données dans une stratégie de rétention. Utilisez l’applet de commande [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) pour obtenir la stratégie de rétention par défaut à utiliser comme modèle pour la création de stratégies. Dans ce modèle, la période de rétention est définie sur 2 ans. Ensuite, exécutez [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) pour créer la stratégie. 
+Vous définissez la durée de conservation d’une sauvegarde de base de données dans une stratégie de rétention. Utilisez l’applet de commande [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) pour obtenir la stratégie de rétention par défaut à utiliser comme modèle pour la création de stratégies. Dans ce modèle, la période de rétention est définie sur 2 ans. Ensuite, exécutez [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) pour créer la stratégie.
 
 > [!NOTE]
-> Certaines applets de commande nécessitent que vous définissiez le contexte du coffre avant l’exécution ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) afin de voir cette applet de commande dans quelques extraits de code connexes. Vous définissez le contexte, car la stratégie fait partie du coffre. Vous pouvez créer plusieurs stratégies de rétention pour chaque coffre, puis appliquer la stratégie souhaitée à des bases de données spécifiques. 
-
+> Certaines applets de commande nécessitent que vous définissiez le contexte du coffre avant l’exécution ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) afin de voir cette applet de commande dans quelques extraits de code connexes. Vous définissez le contexte, car la stratégie fait partie du coffre. Vous pouvez créer plusieurs stratégies de rétention pour chaque coffre, puis appliquer la stratégie souhaitée à des bases de données spécifiques.
 
 ```PowerShell
 # Retrieve the default retention policy for the AzureSQLDatabase workload type
@@ -218,7 +214,7 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resource
 
 ### <a name="view-backup-info-and-backups-in-long-term-retention"></a>Visualiser les sauvegardes de la rétention à long terme et les informations sur les sauvegardes
 
-Visualisez les informations relatives à vos sauvegardes de base de données dans la [rétention des sauvegardes à long terme](sql-database-long-term-retention.md). 
+Visualisez les informations relatives à vos sauvegardes de base de données dans la [rétention des sauvegardes à long terme](sql-database-long-term-retention.md).
 
 Utilisez les applets de commande suivantes pour afficher les informations sur la sauvegarde :
 
@@ -264,18 +260,17 @@ $restoredDb = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceI
 $restoredDb
 ```
 
-
 > [!NOTE]
 > À ce stade, vous pouvez vous connecter à la base de données restaurée à l’aide de SQL Server Management Studio pour exécuter les tâches nécessaires, notamment pour extraire un bit de données de la base de données restaurée à copier dans la base de données existante ou pour supprimer la base de données existante et renommer la base de données restaurée avec le nom de la base de données existante. Consultez [Restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 ## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Comment nettoyer les sauvegardes dans un coffre Recovery Services
 
-Depuis le 1er juillet 2018, l’API LTR V1 de rétention à long terme est déconseillée et toutes vos sauvegardes existantes dans les coffres Recovery Services ont été migrées vers les conteneurs de stockage LTR gérés par SQL Database. Pour vous assurer que vous n’êtes plus facturé pour les sauvegardes d’origine, celles-ci ont été supprimées des coffres après la migration. Toutefois, si vous avez placé un verrou sur votre coffre, les sauvegardes y resteront. Pour éviter les frais inutiles, vous pouvez supprimer manuellement les anciennes sauvegardes à partir du coffre Recovery Service en utilisant le script suivant. 
+Depuis le 1er juillet 2018, l’API LTR V1 de rétention à long terme est déconseillée et toutes vos sauvegardes existantes dans les coffres Recovery Services ont été migrées vers les conteneurs de stockage LTR gérés par SQL Database. Pour vous assurer que vous n’êtes plus facturé pour les sauvegardes d’origine, celles-ci ont été supprimées des coffres après la migration. Toutefois, si vous avez placé un verrou sur votre coffre, les sauvegardes y resteront. Pour éviter les frais inutiles, vous pouvez supprimer manuellement les anciennes sauvegardes à partir du coffre Recovery Service en utilisant le script suivant.
 
 ```PowerShell
 <#
 .EXAMPLE
-    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}” 
+    .\Drop-LtrV1Backup.ps1 -SubscriptionId “{vault_sub_id}” -ResourceGroup “{vault_resource_group}” -VaultName “{vault_name}”
 #>
 [CmdletBinding()]
 Param (
@@ -302,14 +297,14 @@ $containers = Get-AzureRmRecoveryServicesBackupContainer -ContainerType AzureSQL
 
 ForEach ($container in $containers)
 {
-   $canDeleteContainer = $true  
+   $canDeleteContainer = $true
    $ItemCount = 0
    Write-Host "Working on container" $container.Name
    $items = Get-AzureRmRecoveryServicesBackupItem -container $container -WorkloadType AzureSQLDatabase
    ForEach ($item in $items)
    {
-          write-host "Deleting item" $item.name
-          Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
+    write-host "Deleting item" $item.name
+    Disable-AzureRmRecoveryServicesBackupProtection -RemoveRecoveryPoints -item $item -Force
    }
 
    Write-Host "Deleting container" $container.Name
