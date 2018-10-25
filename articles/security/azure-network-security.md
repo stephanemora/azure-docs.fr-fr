@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: b1485ff933df7991e1c112981ae10d93bf5613da
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 1d94ac5f799fc4bad13ab6a5e97a225a7499380d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37061539"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405971"
 ---
 # <a name="azure-network-security"></a>Azure Network Security
 
@@ -460,8 +460,6 @@ La validation réseau Azure vise à contrôler que le réseau Azure fonctionne c
 
 Azure Operational Security renvoie aux services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Microsoft Azure. Azure Operational Security repose sur une infrastructure qui intègre les connaissances acquises via différentes fonctionnalités spécifiques de Microsoft, notamment Microsoft Security Development Lifecycle (SDL), le programme Microsoft Security Response Center et une connaissance approfondie des cybermenaces.
 
--   [Azure Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview)
-
 -   [Centre de sécurité Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 
 -   [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview)
@@ -505,7 +503,7 @@ Resource Manager offre plusieurs avantages :
 
 Azure propose de nombreux outils destinés à surveiller, prévenir, détecter et répondre aux événements de sécurité réseau. Vous avez ainsi accès aux outils suivants, les plus puissants en la matière :
 
--   Network Watcher
+-   Network Watcher
 
 -   Surveillance au niveau des ressources réseau
 
@@ -515,7 +513,7 @@ Azure propose de nombreux outils destinés à surveiller, prévenir, détecter e
 
 [Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) : les fonctionnalités de Network Watcher permettent de bénéficier d’une surveillance basée sur des scénarios. Ce service inclut la capture de paquets, le tronçon saut suivant, la vérification des flux IP, l’affichage de groupe de sécurité, les journaux de flux de groupe de sécurité réseau. La surveillance basée sur des scénarios fournit une vue de bout en bout des ressources réseau, à l’inverse de la surveillance des ressources réseau qui s’intéresse à chaque ressource spécifique.
 
- ![Network Watcher](./media/azure-network-security/azure-network-security-fig-15.png)
+ ![Network Watcher](./media/azure-network-security/azure-network-security-fig-15.png)
 
 Network Watcher est un service régional qui vous permet de surveiller et de diagnostiquer l’état au niveau d’un scénario réseau dans, vers et depuis Azure. Les outils de visualisation et de diagnostic réseau disponibles avec Network Watcher vous aident à comprendre, diagnostiquer et obtenir des informations sur votre réseau dans Azure.
 
@@ -654,7 +652,7 @@ Les journaux suivants sont pris en charge pour les [groupes de sécurité résea
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la sécurité, lisez nos rubriques détaillées sur la sécurité :
 
--   [Analyse de journaux pour les groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
+-   [Log Analytics pour les groupes de sécurité réseau (NSG)](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log)
 
 -   [Les innovations en matière de réseau qui bouleversent le cloud](https://azure.microsoft.com/blog/networking-innovations-that-drive-the-cloud-disruption/)
 

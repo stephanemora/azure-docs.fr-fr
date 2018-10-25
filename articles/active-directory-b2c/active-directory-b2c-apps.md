@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/13/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e42bc63b0c2b6edf4dc0de204bbac5fe90071a67
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 7410dadabf9fda2eb36531991d1d7ff3c3747e2c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480510"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406515"
 ---
 # <a name="applications-types-that-can-be-used-in-active-directory-b2c"></a>Types d’applications pouvant être utilisés dans Azure Active Directory B2C
 
@@ -88,11 +88,6 @@ Accept: application/json
 
 L’API web peut ensuite utiliser le jeton pour vérifier l’identité de l’appelant de l’API et extraire les informations à son sujet, à partir des revendications encodées dans le jeton. Pour plus d’informations sur les différents types de jetons et de revendications disponibles pour une application, voir la [référence sur les jetons Azure AD B2C](active-directory-b2c-reference-tokens.md).
 
-> [!NOTE]
-> Actuellement, Azure AD B2C prend uniquement en charge les API web qui sont accessibles par leurs clients connus. Par exemple, votre application dans son ensemble peut inclure une application iOS, une application Android et une API web backend. Cette architecture est entièrement prise en charge. Vous ne pouvez pas autoriser un client partenaire, tel qu’une autre application iOS, à accéder à la même API web. Tous les composants de votre application doivent partager un même ID d’application.
->
->
-
 Une API web peut recevoir des jetons de tous types de clients, notamment des applications web, des applications de bureau et mobiles, des applications monopages, des démons côté serveur, et même d’autres API web. Voici un exemple de flux complet d’une application web appelant une API web :
 
 1. L’application web exécute une stratégie et l’utilisateur termine l’expérience utilisateur.
@@ -114,11 +109,6 @@ Pour savoir comment sécuriser une API web avec Azure AD B2C, consultez les dida
 Les applications installées sur des appareils, comme les applications de bureau et les applications mobiles, nécessitent souvent que vous accédiez aux services backend ou aux API web pour le compte de l’utilisateur. Vous pouvez ajouter des expériences personnalisées de gestion des identités à vos applications natives et appeler de manière sécurisée les services backend à l’aide d’Azure AD B2C et du [flux de code d’autorisation OAuth 2.0](active-directory-b2c-reference-oauth-code.md).  
 
 Dans ce flux, l’application exécute des [stratégies](active-directory-b2c-reference-policies.md) et reçoit un `authorization_code` d’Azure AD une fois que l’utilisateur a exécuté la stratégie. `authorization_code` représente l’autorisation de l’application à appeler les services backend pour le compte de l’utilisateur actuellement connecté. L’application peut ensuite échanger `authorization_code` en arrière-plan contre `id_token` et `refresh_token`.  L’application peut utiliser `id_token` pour s’authentifier auprès d’une API web backend dans les requêtes HTTP. Elle peut également utiliser l’élément `refresh_token` pour obtenir un nouvel élément `id_token` lorsque le précédent arrive à expiration.
-
-> [!NOTE]
-> Azure AD B2C prend uniquement en charge les jetons qui sont utilisés pour accéder au service web backend de l’application. Par exemple, votre application dans son ensemble peut inclure une application iOS, une application Android et une API web backend. Cette architecture est entièrement prise en charge. Vous ne pouvez pas autoriser votre application iOS à accéder à une API web partenaire à l’aide de jetons d’accès OAuth 2.0. Tous les composants de votre application doivent partager un même ID d’application.
->
->
 
 ## <a name="current-limitations"></a>Limitations actuelles
 

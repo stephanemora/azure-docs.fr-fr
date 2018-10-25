@@ -15,18 +15,18 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 52429d44c41d990fb0de4c01c63d4af9fe5863d4
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 5f9d694d47c0bd0765af7871d7e535a4174c30ff
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902890"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404719"
 ---
 # <a name="create-a-python-web-app-in-azure-app-service-on-linux-preview"></a>Créer une application web Python dans Azure App Service sur Linux (préversion)
 
 [App Service sur Linux](app-service-linux-intro.md) fournit un service d’hébergement web hautement scalable appliquant des mises à jour correctives automatiques à l’aide du système d’exploitation Linux. Ce guide de démarrage rapide montre comment déployer une application Python sur l’image Python intégrée (préversion) dans App Service sur Linux à l’aide de l’interface [Azure CLI](/cli/azure/install-azure-cli).
 
-Vous pouvez suivre les étapes de cet article en utilisant un ordinateur Mac, Windows ou Linux.
+Vous pouvez suivre les étapes de ce article en utilisant un ordinateur Mac, Windows ou Linux.
 
 ![Exemple d’application s’exécutant dans Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -179,6 +179,9 @@ L’image Python intégrée dans App Service sur Linux est actuellement en versi
 
 > [!div class="nextstepaction"]
 > [Configurer une commande de démarrage personnalisée](how-to-configure-python.md#custom-startup-command)
+
+> [!div class="nextstepaction"]
+> [Dépannage](how-to-configure-python.md#troubleshooting)
 
 > [!div class="nextstepaction"]
 > [Utiliser des images personnalisées](tutorial-custom-docker-image.md)

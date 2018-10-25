@@ -6,12 +6,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/02/2018
 ms.topic: conceptual
-ms.openlocfilehash: 798b2b457016856662f392af25d987788f73c242
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 066aab598628701bf7a60b0f4f20d996348fa5ce
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036720"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406719"
 ---
 # <a name="using-azure-batch-with-render-farm-managers"></a>Utilisation d’Azure Batch avec des gestionnaires de groupe de rendus
 
@@ -33,7 +33,7 @@ Les scripts et instructions permettant d’utiliser des machines virtuelles du p
 
 Azure et Azure Batch sont intégrés dans Royal Render, ce qui vous permet d’étendre un groupe de rendus avec des machines virtuelles Azure. Pour obtenir un résumé, consultez les [fichiers d’aide](http://www.royalrender.de/help8/index.html?Cloudrendering.html).
 
-Pour obtenir un exemple d’un client Royal Render utilisant l’intégration d’Azure, consultez le [témoignage client de Jellyfish Pictures](https://customers.microsoft.com/en-gb/story/jellyfishpictures).
+Pour obtenir un exemple d’un client Royal Render utilisant l’intégration d’Azure, consultez le [témoignage client de Jellyfish Pictures](https://customers.microsoft.com/story/jellyfishpictures).
 
 ## <a name="using-azure-with-thinkbox-deadline"></a>Utilisation d’Azure avec Thinkbox Deadline
 

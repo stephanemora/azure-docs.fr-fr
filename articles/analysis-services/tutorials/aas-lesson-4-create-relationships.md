@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5007e18db0af40621ab4b30a16d705d3a5b3915c
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7e791514cc25c645775de260e7f190ee20812d4b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443815"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428488"
 ---
 # <a name="create-relationships"></a>Créer des relations
 
@@ -54,11 +54,11 @@ Avant de poursuivre avec la création de votre modèle, vous devez vérifier que
   
     |Actif|Table|Table de recherche associée|  
     |----------|---------|------------------------|  
-    |OUI|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
-    |OUI|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
-    |OUI|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
-    |OUI|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
-    |OUI|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
+    |Oui|**DimCustomer [GeographyKey]**|**DimGeography [GeographyKey]**|  
+    |Oui|**DimProduct [ProductSubcategoryKey]**|**DimProductSubcategory [ProductSubcategoryKey]**|  
+    |Oui|**DimProductSubcategory [ProductCategoryKey]**|**DimProductCategory [ProductCategoryKey]**|  
+    |Oui|**FactInternetSales [CustomerKey]**|**DimCustomer [CustomerKey]**|  
+    |Oui|**FactInternetSales [ProductKey]**|**DimProduct [ProductKey]**|  
   
     Si l’une des relations est manquante, vérifiez que votre modèle comprend les tables suivantes : DimCustomer, DimDate, DimGeography, DimProduct, DimProductCategory, DimProductSubcategory et FactInternetSales. Si vous importez des tables provenant de la même connexion de source de données à des moments différents, les relations entre ces tables ne sont pas créées et doivent être créées manuellement. Si aucune relation n’apparaît, cela veut dire qu’il n’y en a aucune à la source de données. Vous pouvez les créer manuellement dans le modèle de données.
 
