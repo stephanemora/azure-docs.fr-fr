@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: f9dbd663ce3b15e6a825f0ef73f3dd5d1f5df76b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: efe04b19188d7324c3f86565610040b8eaa97c43
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697541"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855389"
 ---
 # <a name="message-deferral"></a>Report de message
 
@@ -38,7 +38,7 @@ Les messages reportés restent dans la file d’attente principale avec tous les
 
 Pour récupérer un message reporté, son propriétaire doit se souvenir du [SequenceNumber](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.sequencenumber#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_SequenceNumber), car ce numéro permet de reporter le message. Les destinataires qui connaissent le numéro de séquence d’un message reporté peuvent, plus tard, recevoir le message de façon explicite avec le `Receive(sequenceNumber)`.
 
-Si un message ne peut pas être traité en raison de l’indisponibilité temporaire d’une ressource nécessaire à la gestion de ce message, mais que le traitement du message ne doit pas être sommairement interrompu, un moyen pour mettre le message de côté pendant quelques minutes consiste à rappeler le **SequenceNumber** dans un [message planifié](message-sequencing.md) à publier après un court instant, puis à récupérer le message reporté lorsque le message planifié arrive. Notez que si un gestionnaire de messages dépend d’une base de données pour toutes les opérations et si la base de données est temporairement indisponible, il ne doit pas utiliser le report, mais plutôt interrompre complètement la réception des messages jusqu’à ce que la base de données soit à nouveau disponible.
+Si un message ne peut pas être traité en raison de l’indisponibilité temporaire d’une ressource nécessaire à la gestion de ce message, mais que le traitement du message ne doit pas être sommairement interrompu, un moyen pour mettre le message de côté pendant quelques minutes consiste à rappeler le **SequenceNumber** dans un [message planifié](message-sequencing.md) à publier après un court instant, puis à récupérer le message reporté lorsque le message planifié arrive. Si un gestionnaire de messages dépend d’une base de données pour toutes les opérations et si la base de données est temporairement indisponible, il ne doit pas utiliser le report, mais plutôt interrompre complètement la réception des messages jusqu’à ce que la base de données soit à nouveau disponible.
 
 Le report des messages n’affecte pas l’expiration du message, ce qui signifie que des messages reportés expirent toujours à la date et à l’heure prévues initialement et sont déplacés dans la file d’attente de lettres mortes, le cas échéant.
 
@@ -46,7 +46,6 @@ Le report des messages n’affecte pas l’expiration du message, ce qui signifi
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 
-* [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

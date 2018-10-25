@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 16c908dabd313cd9d64ce5be9b7d0299423a7675
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 38120b2be2ab7789946a4ad2fe688954e6212189
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344683"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49959024"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Fonctionnalités et concepts clés de Azure Stack
 Si vous ne connaissez pas encore Microsoft Azure Stack, ces termes et descriptions de fonctionnalité peuvent vous être utiles.
@@ -154,14 +154,6 @@ Le contrôle d’accès en fonction du rôle Azure comporte trois rôles de base
 
 ## <a name="usage-data"></a>Données d'utilisation
 Microsoft Azure Stack collecte et agrège les données d’utilisation de tous les fournisseurs de ressources, et il les transmet à Azure en vue de leur traitement par la solution commerciale Azure. Les données d’utilisation collectées sur Azure Stack sont consultables par le biais d’une API REST. Il existe une API client, et des API fournisseur et fournisseur délégué cohérentes au niveau Azure pour obtenir des données d’utilisation sur tous les abonnements du locataire. Ces données peuvent être utilisées pour intégrer un outil ou un service externe de facturation ou de facturation interne. Une fois les données d’utilisation traitées par la solution commerciale Azure, elles peuvent être visualisées dans le portail de facturation Azure.
-
-## <a name="in-development-build-of-azure-stack-development-kit"></a>Builds de développement du Kit de développement Azure Stack
-Les builds de développement permettent aux utilisateurs précoces d’évaluer la version la plus récente du Kit de développement Azure Stack. Il s’agit de builds incrémentielles basées sur la version principale la plus récente. Les versions principales continueront à être publiées tous les quelques mois, tandis que les builds de développement seront publiées par intermittence entre les versions majeures.
-
-Les builds de développement offrent les avantages suivants :
-- Résolution des bogues
-- Nouvelles fonctionnalités
-- Autres améliorations
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Informations de base sur l’administration](azure-stack-manage-basics.md)

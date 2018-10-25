@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1e4b7027ecbc6e70fadf8c540fa92903d276956b
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: ca9823a76064e504ee04bf5896f1362b5187bc34
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931709"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042034"
 ---
 # <a name="azure-cli-samples-for-linux-virtual-machines"></a>Exemples d’interface de ligne de commande Azure pour machines virtuelles Linux
 
@@ -42,6 +42,7 @@ Le tableau suivant contient des liens vers des scripts Bash créés à l’aide 
 | [Créer un disque géré à partir d’une capture instantanée](../scripts/virtual-machines-linux-cli-sample-create-managed-disk-from-snapshot.md?toc=%2fcli%2fmodule%2ftoc.json) | Crée un disque géré à partir d’une capture instantanée. |
 | [Copier le disque géré vers le même abonnement ou un abonnement différent](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | Copie le disque géré vers le même abonnement ou un abonnement différent, mais dans la même région que le disque géré parent. 
 | [Exporter une capture instantanée en tant que disque dur virtuel vers un compte de stockage](../scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-storage-account.md?toc=%2fcli%2fmodule%2ftoc.json) | Exporte une capture instantanée gérée en tant que disque dur virtuel vers un compte de stockage dans une région différente. |
+| [Exporter le disque dur virtuel d’un disque managé vers un compte de stockage](../scripts/virtual-machines-linux-cli-sample-copy-managed-disks-vhd.md?toc=%2fcli%2fmodule%2ftoc.json) | Exporte le disque dur virtuel sous-jacent d’un disque managé vers un compte de stockage situé dans une autre région. |
 | [Copier la capture instantanée vers le même abonnement ou un abonnement différent](../scripts/virtual-machines-linux-cli-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | Copie la capture instantanée vers le même abonnement ou un abonnement différent, mais dans la même région que la capture instantanée parente. |
 |**Mettre en réseau des machines virtuelles**||
 | [Sécuriser le trafic réseau entre les machines virtuelles](./../scripts/virtual-machines-linux-cli-sample-create-vm-nsg.md?toc=%2fcli%2fazure%2ftoc.json) | Crée deux machines virtuelles, toutes les ressources associées, ainsi qu’un groupe de sécurité réseau interne et un groupe de sécurité réseau externe. |

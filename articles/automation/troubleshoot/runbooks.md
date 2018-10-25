@@ -8,12 +8,12 @@ ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: b8c6b82af1a71f5e2df7dd555c7ceb91b8ccd292
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 33c2bd48084c3d0e73fe2f4a1ce922e7a66b944f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394542"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955414"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Résoudre les erreurs avec les runbooks
 
@@ -93,8 +93,8 @@ Cette erreur se produit si le nom de l’abonnement n’est pas valide ou si l�
 
 Pour déterminer si vous vous êtes correctement authentifié auprès d’Azure et si vous avez accès à l’abonnement que vous voulez sélectionner, effectuez les étapes suivantes :  
 
-1. Assurez-vous d’exécuter l’applet de commande **Add-AzureAccount** avant d’exécuter l’applet de commande **Select-AzureSubscription**.  
-2. Si ce message d’erreur persiste, modifiez votre code en ajoutant le paramètre **-AzureRmContext** après l’applet de commande **Add-AzureAccount**, puis exécutez le code.
+1. Assurez-vous d’exécuter la cmdlet **Add-AzureAccount** avant d’exécuter la cmdlet **Select-AzureSubscription**.  
+2. Si ce message d’erreur persiste, modifiez votre code en ajoutant le paramètre **-AzureRmContext** après la cmdlet **Add-AzureAccount**, puis exécutez le code.
 
    ```powershell
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
@@ -122,7 +122,7 @@ Si l’authentification multifacteur est configurée sur votre compte Azure, vou
 
 #### <a name="resolution"></a>Résolution :
 
-Pour utiliser un certificat avec les applets de commande de modèle de déploiement Azure Classic, reportez-vous à [Création et ajout d’un certificat pour gérer des services Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Pour utiliser un principal du service avec des applets de commande Azure Resource Manager, voir la rubrique sur la [création du principal du service à l’aide du portail Azure](../../azure-resource-manager/resource-group-create-service-principal-portal.md) et l’[authentification d’un principal du service à l’aide d’Azure Resource Manager](../../azure-resource-manager/resource-group-authenticate-service-principal.md).
+Pour utiliser un certificat avec les applets de commande de modèle de déploiement Azure Classic, reportez-vous à [Création et ajout d’un certificat pour gérer des services Azure.](http://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx) Pour utiliser un principal du service avec des applets de commande Azure Resource Manager, voir la rubrique sur la [création du principal du service à l’aide du portail Azure](../../active-directory/develop/howto-create-service-principal-portal.md) et l’[authentification d’un principal du service à l’aide d’Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md).
 
 ## <a name="common-errors-when-working-with-runbooks"></a>Erreurs courantes avec des runbooks
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/04/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 8e9d40451cd0d9c3a6505ee24ca02852d9d4c527
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: ef6b068e7a8b97713c54ddeea1817a6c379703c8
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423474"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804597"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Éléments de Place de Marché Azure disponibles pour Azure Stack
 
@@ -239,6 +239,7 @@ Microsoft Azure Stack prend en charge les machines virtuelles et les modèles de
 | ![CloudLink SecureVM](media/azure-stack-marketplace-azure-items/cloudlink.png) | [CloudLink SecureVM](https://azuremarketplace.microsoft.com/marketplace/apps/cloudlink.cloudlink-securevm)  | Contrôler, analyser et chiffrer les machines virtuelles avec facilité et en toute confiance. **Télécharger tous les éléments CloudLink SecureVM.** | Dell EMC |
 | ![EventTracker SIEM](media/azure-stack-marketplace-azure-items/eventtracker.png) | [EventTracker SIEM](https://azuremarketplace.microsoft.com/marketplace/apps/eventtracker.eventtracker-siem)  | EventTracker SIEM est une plateforme de sécurité complète qui offre des outils de sécurité avancés avec des fonctionnalités de conformité prêtes pour l’audit. | EventTracker |
 | ![f5](media/azure-stack-marketplace-azure-items/f5.png) | [f5 Big-IP Virtual Edition](https://azuremarketplace.microsoft.com/marketplace/apps/f5-networks.f5-big-ip-best)  | Équilibrage de charge avancé, GSLB, pare-feu réseau, DNS, WAF et accès à l’application. | F5 Networks |
+| ![Pare-feu Fortigate de nouvelle génération](media/azure-stack-marketplace-azure-items/fortinetsquare.png) | [Pare-feu Fortigate de nouvelle génération](https://azuremarketplace.microsoft.com/marketplace/apps/fortinet.fortinet-fortigate-singlevm) | Technologie de pare-feu qui assure une protection totale du contenu et du réseau grâce à une suite complète de puissantes fonctionnalités de sécurité. Le contrôle d’application, l’antivirus, l’IPS, le filtrage web et le VPN avec des fonctionnalités avancées telles que la gestion des vulnérabilités fonctionnent de concert pour identifier et atténuer les menaces de sécurité complexes les plus récentes. | Fortinet |
 | ![Bac à sable Hortonworks Data Platform (HDP)](media/azure-stack-marketplace-azure-items/hortonworks.png) | [Hortonworks Data Platform (HDP) Sandbox](https://azuremarketplace.microsoft.com/marketplace/apps/hortonworks.hortonworks-sandbox) | Alimenté par la technologie de plateforme 100 % Open Source HDP 2.5 pour Hadoop, Spark, Storm, HBase, Kafka, Hive, Ambari. | Hortonworks |
 | ![Commutateur de contenu ADC Load Balancer KEMP LoadMaster](media/azure-stack-marketplace-azure-items/kemp.png) | [Commutateur de contenu ADC Load Balancer KEMP LoadMaster](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Équilibrage de charge ADC (Application Delivery Controller) de couche 4-7, commutateur de services de contenu et gestionnaire de trafic. | KEMP Technologies Inc. |
 | ![NRI mPLAT Suite - Multi-Cloud Conductor](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - Multi-Cloud Conductor](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Une interface unique pour surveiller, configurer, provisionner, automatiser et régir toute charge de travail ou cloud. | NRI |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 3cab4d87eacc7bce17da64cda213086c262179a8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aae0ec93f3de708096ff9546a3a4f4e090095a89
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206196"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041153"
 ---
 # <a name="reliable-actors-state-management"></a>Gestion des états de Reliable Actors
 Reliable Actors désignent des objets monothread capables d’encapsuler la logique et l’état. Étant donné que les acteurs s’exécutent sur Reliable Services, ils peuvent conserver leur état de façon fiable à l’aide des mêmes mécanismes de persistance et de réplication. De cette façon, les acteurs ne perdent pas leur état après des incidents, après une réactivation consécutive à un nettoyage de la mémoire, ou encore après leur déplacement entre des nœuds d’un cluster dans le cadre d’un équilibrage des ressources ou de mises à niveau.
@@ -121,7 +121,7 @@ Voici quelques pratiques et conseils de dépannage pour la gestion de l’état 
 Ceci est essentiel pour les performances et l’utilisation des ressources de votre application. À chaque écriture/mise à jour d’un « état nommé » pour un acteur, la valeur entière correspondant à cet « état nommé » est sérialisée et envoyée sur le réseau vers les réplicas secondaires.  Les réplicas secondaires écrivent sur le disque local et répondent au réplica principal. Lorsque le réplica principal reçoit les accusés de réception à partir d’un quorum de réplicas secondaires, il écrit l’état sur son disque local. Par exemple, supposons que la valeur est une classe qui compte 20 membres et a une taille de 1 Mo. Même si vous avez modifié un seul des membres de la classe qui a de taille de 1 Ko, vous finissez par payer les coûts de sérialisation et d’écriture sur le réseau/disque par pour 1 Mo. De même, si la valeur est une collection (par exemple, une liste, un tableau ou un dictionnaire), vous payez le coût de la collection complète, même si vous modifiez l’un de ses membres. L’interface de StateManager de la classe d’acteur est semblable à un dictionnaire. Vous devez toujours modéliser la structure de données qui représente un état d’acteur par dessus ce dictionnaire.
  
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Gérer correctement le cycle de vie de l’acteur
-Vous devez disposer d’une stratégie claire pour la gestion de la taille de l’état dans chaque partition d’un service d’acteur. Votre service d’acteur doit avoir un nombre fixe d’acteurs et les réutiliser aussi souvent que possible. Si vous créez sans cesse des acteurs, vous devez les supprimer une fois qu’ils ont terminé leur travail. L’infrastructure des acteurs stocke des métadonnées sur chaque acteur existant. La suppression de tous les états d’un acteur ne supprime pas les métadonnées associées. Vous devez supprimer l’acteur (voir [Suppression des acteurs et de leur état](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) pour supprimer toutes les informations stockées dans le système. Au titre de vérification supplémentaire, vous devez interroger le service d’acteur (voir [Énumération des acteurs](service-fabric-reliable-actors-platform.md)) de temps à autre pour vous assurer que le nombre d’acteurs est dans la plage attendue.
+Vous devez disposer d’une stratégie claire pour la gestion de la taille de l’état dans chaque partition d’un service d’acteur. Votre service d’acteur doit avoir un nombre fixe d’acteurs et les réutiliser aussi souvent que possible. Si vous créez sans cesse des acteurs, vous devez les supprimer une fois qu’ils ont terminé leur travail. L’infrastructure des acteurs stocke des métadonnées sur chaque acteur existant. La suppression de tous les états d’un acteur ne supprime pas les métadonnées associées. Vous devez supprimer l’acteur (voir [Suppression des acteurs et de leur état](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) pour supprimer toutes les informations stockées dans le système. Au titre de vérification supplémentaire, vous devez interroger le service d’acteur (voir [Énumération des acteurs](service-fabric-reliable-actors-enumerate.md)) de temps à autre pour vous assurer que le nombre d’acteurs s’inscrit dans la plage attendue.
  
 Si la taille du fichier de base de données d’un service d’acteur augmente au-delà de la taille attendue, suivez les recommandations ci-dessus. Si malgré cela vous avez toujours des problèmes de taille de fichier de base de données, vous devez [ouvrir un ticket de support](service-fabric-support.md) auprès de l’équipe de produit pour obtenir de l’aide.
 

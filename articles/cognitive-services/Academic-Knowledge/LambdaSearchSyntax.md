@@ -1,20 +1,21 @@
 ---
-title: Syntaxe d’une recherche lambda dans l’API Connaissances universitaires | Microsoft Docs
-description: Découvrez la syntaxe de recherche lambda que vous pouvez utiliser dans l’API Connaissances universitaires de Microsoft Cognitive Services.
+title: Syntaxe de recherche Lambda – API Connaissances universitaires
+titlesuffix: Azure Cognitive Services
+description: Découvrez la syntaxe de recherche Lambda que vous pouvez utiliser dans l’API Connaissances universitaires.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: f486368e1d0258087091acb846a84b125712db40
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 284f1d90f043e2634e143508e2ab0e98cd309f46
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367908"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902686"
 ---
 # <a name="lambda-search-syntax"></a>Syntaxe d’une recherche lambda
 

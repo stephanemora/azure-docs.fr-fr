@@ -9,12 +9,12 @@ ms.author: jmartens
 author: j-martens
 ms.reviewer: jmartens
 ms.date: 10/1/2018
-ms.openlocfilehash: f573dba2e7580d58c295d204fc75e2403c0d033c
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: a2f37cffb37ce7008c3e372763784240e0d4250b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241078"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945550"
 ---
 # <a name="vs-code-tools-for-ai-get-started-with-azure-machine-learning-from-visual-studio-code"></a>VS Code Tools for AI : Prendre en main Azure Machine Learning depuis Visual Studio Code
 
@@ -34,7 +34,7 @@ L’extension Tools for AI dans Visual Studio Code vous permet d’utiliser le s
 
 Lorsque vous installez l’extension **Tools for AI**, deux autres extensions sont automatiquement installées (si vous avez accès à Internet). Il s’agit de l’extension [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) et de l’extension [Microsoft Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
-Pour utiliser Azure Machine Learning, nous devons convertir VS Code en un IDE Python. L’utilisation de [Python dans Visual Studio Code](https://code.visualstudio.com/docs/languages/python) requiert l’extension Microsoft Python, qui est automatiquement installée avec Tools for AI. L’extension permet de convertir VS Code en un excellent IDE et fonctionne sur n’importe quel système d’exploitation avec divers interpréteurs Python. Elle tire parti de toute la puissance de VS Code pour proposer des fonctionnalités d’auto-complétion et IntelliSense, de linting, de débogage et de test unitaire, ainsi que la possibilité de basculer facilement entre les environnements Python, y compris les environnements virtuels et conda. Consultez cette procédure détaillée sur la modification, l’exécution et le débogage de code Python dans le [Didacticiel Python Hello World](https://code.visualstudio.com/docs/languages/python/docs/python/python-tutorial).
+Pour utiliser Azure Machine Learning, nous devons convertir VS Code en un IDE Python. L’utilisation de [Python dans Visual Studio Code](https://code.visualstudio.com/docs/languages/python) requiert l’extension Microsoft Python, qui est automatiquement installée avec Tools for AI. L’extension permet de convertir VS Code en un excellent IDE et fonctionne sur n’importe quel système d’exploitation avec divers interpréteurs Python. Elle tire parti de toute la puissance de VS Code pour proposer des fonctionnalités d’auto-complétion et IntelliSense, de linting, de débogage et de test unitaire, ainsi que la possibilité de basculer facilement entre les environnements Python, y compris les environnements virtuels et conda. Consultez cette procédure détaillée sur la modification, l’exécution et le débogage de code Python dans le [Didacticiel Python Hello World](https://code.visualstudio.com/docs/python/python-tutorial).
 
 **Pour installer l’extension Tools for AI :**
 

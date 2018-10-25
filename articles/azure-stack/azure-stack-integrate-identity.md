@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 10/02/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 9bbe55e08d7a005d38c5608df39f9285d79eb203
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4ba890f4763fc77981917d9311cf2bf6c97ec80f
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41946529"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902441"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
 Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Le déploiement à l’aide d’AD FS est également appelé déploiement d’Azure Stack en mode déconnecté.
@@ -173,9 +173,9 @@ Pour la procédure suivante, vous devez utiliser un ordinateur qui dispose d’u
 1. Ouvrez une session Windows PowerShell avec élévation de privilèges puis exécutez la commande suivante en utilisant les paramètres correspondant à votre environnement :
 
    ```PowerShell  
-   [XML]$Metadata = Invoke-WebRequest -URI https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml -UseBasicParsing
+    $metadata = (Invoke-WebRequest -URI " https://win-SQOOJN70SGL.contoso.com/federationmetadata/2007-06/federationmetadata.xml " -UseBasicParsing).Content
+    Set-Content -Path c:\metadata.xml -Encoding Unicode -Value $metadata 
 
-   $Metadata.outerxml|out-file c:\metadata.xml
    ```
 
 2. Copiez le fichier de métadonnées sur un ordinateur qui peut communiquer avec le point de terminaison privilégié.
@@ -187,7 +187,7 @@ Pour cette procédure, utilisez un ordinateur qui peut communiquer avec le point
 1. Ouvrez une session Windows PowerShell avec des privilèges élevés.
 
    ```PowerShell  
-   $federationMetadataFileContent = get-content c:\metadata.cml
+   $federationMetadataFileContent = get-content c:\metadata.xml
    $creds=Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    Register-CustomAdfs -CustomAdfsName Contoso -CustomADFSFederationMetadataFileContent $using:federationMetadataFileContent
@@ -236,28 +236,31 @@ Si vous décidez d’exécuter manuellement les commandes, procédez comme suit�
 
    @RuleTemplate = "PassThroughClaims"
    @RuleName = "Pass through all windows account name claims"
-   c:[Type == http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname]
+   c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"]
    => issue(claim = c);
    ```
 
-2. Pour activer l’authentification basée sur Windows Forms, ouvrez une session Windows PowerShell en tant qu’utilisateur avec élévation de privilèges puis exécutez la commande suivante :
+2. Vérifiez que cette authentification basée sur Windows Forms pour extranet et intranet est activée. Commencez pas vérifier si elle est déjà activée en exécutant l’applet suivante :
 
    ```PowerShell  
-   Set-AdfsProperties -WIASupportedUserAgents @("MSAuthHost/1.0/In-Domain","MSIPC","Windows Rights Management Client","Kloud")
+   Get-AdfsAuthenticationProvider | where-object { $_.name -eq "FormsAuthentication" } | select Name, AllowedForPrimaryExtranet, AllowedForPrimaryIntranet
    ```
+
+    > [!Note]  
+    > Les chaînes d’agent utilisateur prises en charge par l’authentification Windows intégrée peuvent être obsolètes pour votre déploiement AD FS et nécessiter une mise à jour pour prendre en charge les clients les plus récents. Pour en avoir plus sur les chaînes d’agent utilisateur prises en charge par l’authentification Windows intégrée, voir [Configuration de l’authentification basée sur des formulaires intranet pour les appareils qui ne prennent pas en charge l’authentification Windows intégrée](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-intranet-forms-based-authentication-for-devices-that-do-not-support-wia).<br>Les étapes d’activation de la stratégie d’authentification par formulaire sont documentées dans l’article [Configurer des stratégies d’authentification](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-authentication-policies).
 
 3. Pour ajouter la partie de confiance, exécutez la commande Windows PowerShell suivante sur votre instance AD FS ou membre de la batterie de serveurs. Veillez à mettre à jour le point de terminaison AD FS et pointez vers le fichier créé à l’étape 1.
 
    **Pour AD FS 2016**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone"
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -AccessControlPolicyName "Permit everyone" -TokenLifeTime 1440
    ```
 
    **Pour AD FS 2012/2012 R2**
 
    ```PowerShell  
-   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true
+   Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
    > [!IMPORTANT]
@@ -270,12 +273,6 @@ Si vous décidez d’exécuter manuellement les commandes, procédez comme suit�
 
    ```PowerShell  
    Set-AdfsProperties -IgnoreTokenBinding $true
-   ```
-
-5. Les portails Azure Stack et les outils (Visual Studio) requièrent des jetons d’actualisation. Vous devez les configurer en vous appuyant sur une partie de confiance. Ouvrez une session Windows PowerShell avec élévation de privilèges et exécutez la commande suivante :
-
-   ```PowerShell  
-   Set-ADFSRelyingPartyTrust -TargetName AzureStack -TokenLifeTime 1440
    ```
 
 ## <a name="spn-creation"></a>Création du nom principal de service

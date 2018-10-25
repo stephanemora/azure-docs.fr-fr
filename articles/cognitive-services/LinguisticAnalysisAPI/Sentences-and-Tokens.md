@@ -1,22 +1,27 @@
 ---
-title: Phrases et unités lexicales dans l’API Analyse linguistique | Microsoft Docs
-description: Apprenez-en plus sur la séparation des phrases et la segmentation du texte en unités lexicales dans l’API Analyse linguistique dans Cognitive Services.
+title: Phrases et jetons – API Analyse linguistique
+titlesuffix: Azure Cognitive Services
+description: Apprenez-en davantage sur la séparation des phrases et la segmentation du texte en unités lexicales dans l’API Analyse linguistique.
 services: cognitive-services
 author: DavidLiCIG
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: davl
-ms.openlocfilehash: 78e539f365728ad540308e9cfb07af44bf6d8fe7
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: 289cab4999276cbfb1fa558f558ebafa8e4e3a30
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37084040"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237872"
 ---
 # <a name="sentence-separation-and-tokenization"></a>Séparation des phrases et segmentation du texte en unités lexicales
+
+> [!IMPORTANT]
+> La préversion de l’analyse linguistique a été désactivée le 9 août 2018. Nous vous recommandons d’utiliser les [modules d’analyse de texte Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) pour le traitement et l’analyse de texte.
 
 ## <a name="background-and-motivation"></a>Contexte et motivation
 
@@ -38,7 +43,7 @@ Ce texte contient trois phrases :
 - It's important to Mr. and Mrs. Smith.
 
 Vous remarquez que la fin de chaque phrase est marquée de façon différente.
-La première se termine par une combinaison de point d’interrogation et d’exclamation. (aussi appelé point exclarrogatif).
+La première se termine par une combinaison de point d’interrogation et d’exclamation (également appelée point exclarrogatif).
 La deuxième se termine par un point, mais le guillemet qui suit devrait se situer avant.
 Dans la troisième phrase, vous pouvez que ce même point peut être utilisé pour indiquer une abréviation.
 La ponctuation de ces phrases fournit de bons indices, mais il faut aller plus pour pouvoir identifier les véritables limites d’une phrase.
@@ -52,7 +57,8 @@ La première phrase peut s’écrire « Whatdidyousay? »)
 
 Il existe quelques cas complexes.
 Tout d’abord, la ponctuation doit souvent (mais pas toujours) être séparée de son contexte.
-Ensuite, l’anglais dispose de *contractions*, comme « didn’t » ou « it’s », où des mots ont été compressés et abrégés. Le but de la segmentation est de fractionner la séquence de caractères en mots.
+Ensuite, l’anglais dispose de *contractions*, comme « didn’t » ou « it’s », où des mots ont été compressés et abrégés.
+Le but de la segmentation est de fractionner la séquence de caractères en mots.
 
 Revenons aux exemples ci-dessus.
 Nous avons placé un « point central » (&middot;) entre chaque unité lexicale distincte.
@@ -63,7 +69,8 @@ Nous avons placé un « point central » (&middot;) entre chaque unité lexicale
 
 Vous remarquez que la plupart des unités lexicales sont des mots que vous pouvez trouver dans le dictionnaire (par exemple, *important*, *director*).
 D’autres ne sont que des marques de ponctuation.
-Enfin, il existe des unités lexicales qui représentent des contractions comme *n’t* pour *not*, et qui marquent la possession comme *’s*, etc. Cette segmentation du texte en unités lexicales nous permet de gérer le mot *didn’t* et l’expression *did not* de façon plus consistante, par exemple.
+Enfin, il existe des unités lexicales en anglais qui représentent des contractions, comme *n’t* pour *not*, ou qui marquent la possession comme *’s* .
+En anglais, cette segmentation du texte en unités lexicales nous permet de traiter le mot *didn’t* et l’expression *did not* de façon plus cohérente.
 
 ## <a name="specification"></a>Caractéristique
 

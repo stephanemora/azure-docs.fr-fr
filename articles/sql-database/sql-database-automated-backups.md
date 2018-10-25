@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 5c6ebfcb7eae52915af24fc67e9b3c774656149d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: e01f48ebee9ade35b44242eba3b03e6e0a4faf46
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47181139"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48802030"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>En savoir plus sur les sauvegardes automatiques SQL Database
 
@@ -59,7 +59,8 @@ La période de conservation par défaut pour une base de données créée à l�
 * Niveau de service Standard : 5 semaines.
 * Niveau de service Premium : 5 semaines.
 
-Si vous utilisez le [modèle d’achat vCore](sql-database-service-tiers-vcore.md), la rétention des sauvegardes est configurable pendant un maximum de 35 jours. 
+Si vous utilisez le [modèle d’achat basé sur vCore](sql-database-service-tiers-vcore.md), la période de rétention de sauvegarde par défaut est de 7 jours (tant sur des serveurs logiques que sur des instances managées).
+Sur un serveur logique, vous pouvez [modifier la période de rétention de sauvegarde jusqu’à 35 jours](#how-to-change-backup-retention-period). La modification de la période de rétention de sauvegarde n’est pas disponible dans Managed Instance. 
 
 Si vous réduisez la période de conservation PITR, toutes les sauvegardes antérieures à la nouvelle période de conservation ne seront plus disponibles. 
 
@@ -74,7 +75,7 @@ Les sauvegardes PITR sont géo-redondantes et protégées par la [réplication e
 Pour plus d'informations, consultez [Limite de restauration dans le temps](sql-database-recovery-using-backups.md#point-in-time-restore)
 
 ### <a name="backups-for-long-term-retention"></a>Sauvegardes pour la conservation à long terme
-SQL Database permet de configurer une conservation à long terme des sauvegardes complètes d’une durée allant jusqu’à 10 ans dans Stockage Blob Azure. Si la stratégie de conservation à long terme est activée, les sauvegardes complètes hebdomadaires sont automatiquement copiées vers un autre conteneur de stockage RA-GRS. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de rétention pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La consommation du stockage dépend de la fréquence sélectionnée des sauvegardes et des périodes de conservation. Vous pouvez utiliser la [calculatrice de prix LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) pour estimer le coût du stockage de conservation à long terme. 
+SQL Database hébergé dans un serveur logique permet de configurer une conservation à long terme des sauvegardes complètes d’une durée allant jusqu’à 10 ans dans Stockage Blob Azure. Si la stratégie de conservation à long terme est activée, les sauvegardes complètes hebdomadaires sont automatiquement copiées vers un autre conteneur de stockage RA-GRS. Pour répondre aux différentes exigences de conformité, vous pouvez sélectionner plusieurs périodes de rétention pour les sauvegardes hebdomadaires, mensuelles ou annuelles. La consommation du stockage dépend de la fréquence sélectionnée des sauvegardes et des périodes de conservation. Vous pouvez utiliser la [calculatrice de prix LTR](https://azure.microsoft.com/pricing/calculator/?service=sql-database) pour estimer le coût du stockage de conservation à long terme. 
 
 Comme les sauvegardes PITR, les sauvegardes LTR sont géo-redondantes et protégées par la [réplication entre les régions du stockage Azure](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage).
 
@@ -95,6 +96,10 @@ Lorsque vous migrez votre base de données à partir d’un niveau de service ba
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
 ## <a name="how-to-change-backup-retention-period"></a>Modification de la période de conservation des sauvegardes
+
+> [!Note]
+> La période de rétention de sauvegarde par défaut (7 jours) ne peut pas être modifiée sur Managed Instance. 
+
 Vous pouvez modifier la conservation par défaut à l’aide de l’API REST ou de PowerShell. Les valeurs prises en charge sont : 7, 14, 21, 28 ou 35 jours. Les exemples suivants illustrent comment modifier la conservation de récupération jusqu’à une date et heure pour la faire passer à 28 jours. 
 
 > [!NOTE]

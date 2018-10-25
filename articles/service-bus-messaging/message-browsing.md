@@ -11,18 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/25/2018
+ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: bafc08eae4a32f803f485097401a586a662f64e9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 7ce2e870be0178420d80682bd18adbef814c162f
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700405"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857463"
 ---
 # <a name="message-browsing"></a>Parcours des messages
 
-Le parcours des messages (ou « peeking ») permet à un client Service Bus d’énumérer tous les messages résidant dans une file d’attente ou un abonnement, en général pour des besoins de diagnostic et de débogage.
+Le parcours des messages, ou « peeking », permet à un client Service Bus d’énumérer tous les messages résidant dans une file d’attente ou un abonnement, en général pour des besoins de diagnostic et de débogage.
 
 Les opérations de peeking retournent tous les messages contenus dans le journal des messages de la file d’attente ou de l’abonnement, au lieu de retourner uniquement les messages disponibles pour acquisition immédiate avec `Receive()` ou la boucle `OnMessage()`. La propriété `State` de chaque message vous indique si le message est actif (prêt à être reçu), [différé](message-deferral.md) ou [planifié](message-sequencing.md).
 
@@ -30,7 +30,7 @@ Les messages consommés ou expirés sont nettoyés par un processus asynchrone d
 
 C’est un point très important à prendre en compte lorsque vous tentez de récupérer des messages différés de la file d’attente. Un message dont l’instant [ExpiresAtUtc](/dotnet/api/microsoft.azure.servicebus.message.expiresatutc#Microsoft_Azure_ServiceBus_Message_ExpiresAtUtc) est passé n’est plus éligible pour la récupération normale par d’autres moyens, même quand il est retourné par Peek. Le retour de ces messages est délibéré, car Peek est un outil de diagnostic reflétant l’état actuel du journal.
 
-Peek retourne également les messages qui ont été verrouillés et dont le traitement en cours par d’autres destinataires n’est pas encore terminé. Toutefois, comme Peek retourne un instantané déconnecté, l’état de verrouillage d’un message n’est pas visible sur les messages parcourus, et les propriétés [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.lockeduntilutc#Microsoft_Azure_ServiceBus_Core_MessageReceiver_LockedUntilUtc) et [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) déclenchent une exception [InvalidOperationException](/dotnet/api/system.invalidoperationexception) quand l’application tente de lire ces messages.
+Peek retourne également les messages qui ont été verrouillés et dont le traitement en cours par d’autres destinataires n’est pas encore terminé. Toutefois, comme Peek retourne un instantané déconnecté, l’état de verrouillage d’un message n’est pas visible sur les messages parcourus, et les propriétés [LockedUntilUtc](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.lockeduntilutc) et [LockToken](/dotnet/api/microsoft.azure.servicebus.message.systempropertiescollection.locktoken#Microsoft_Azure_ServiceBus_Message_SystemPropertiesCollection_LockToken) déclenchent une exception [InvalidOperationException](/dotnet/api/system.invalidoperationexception) quand l’application tente de lire ces messages.
 
 ## <a name="peek-apis"></a>API de l’outil Peek
 
@@ -46,7 +46,6 @@ Vous pouvez également amorcer une surcharge de la méthode en définissant un [
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 
-* [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

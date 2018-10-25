@@ -17,14 +17,16 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: e05bf723507ba12b577605d44ddb3aaef3b19efe
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 83c1deb7c767c29046e6c1af4452270e90b391df
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079619"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987730"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 et le flux de code d’appareil OAuth 2.0
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 Azure AD prend en charge l’[octroi de code d’appareil](https://tools.ietf.org/html/draft-ietf-oauth-device-flow-12), ce qui permet aux utilisateurs de se connecter à des appareils à entrée limitée comme une télévision connectée, un appareil IoT ou une imprimante.  Pour activer ce flux, l’appareil exige que l’utilisateur consulte une page web dans son navigateur sur un autre appareil pour se connecter.  Lorsque l’utilisateur est connecté, l’appareil peut obtenir des jetons d’accès et actualiser les jetons si nécessaire.  
 

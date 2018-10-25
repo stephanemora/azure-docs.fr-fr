@@ -4,20 +4,20 @@ description: Exemples
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
-ms.technology: Speech to Text
+ms.component: Speech
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 860b58a18fbc14532a8591fc753453d60492d3c0
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8f9a033ebf9cdfdb96ae8511b14202e49ec0a85e
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981370"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48884457"
 ---
 # <a name="batch-transcription"></a>Transcription Batch
 
-La transcription Batch convient parfaitement si vous avez d’importants volumes de données audio. Vous pouvez pointer vers des fichiers audios et d’en récupérer les transcriptions en mode asynchrone.
+La transcription Batch convient parfaitement si vous avez d’importants volumes de données audio. Vous pouvez pointer vers des fichiers audios par URI et en récupérer les transcriptions en mode asynchrone.
 
 ## <a name="batch-transcription-api"></a>API de transcription Batch
 
@@ -59,7 +59,7 @@ Dans le cas des flux audio stéréo, l’API de transcription Batch fractionne l
 
 ## <a name="authorization-token"></a>Jeton d’autorisation
 
-Comme pour toutes les fonctionnalités du service Speech unifié, créez une clé d’abonnement à partir du [Portail Azure](https://portal.azure.com) en suivant les instructions du [guide de démarrage rapide](get-started.md). Si vous souhaitez obtenir des transcriptions de nos modèles de base, c’est tout ce que vous avez besoin de faire. 
+Comme pour toutes les fonctionnalités du Service Speech, créez une clé d’abonnement à partir du [Portail Azure](https://portal.azure.com) en suivant les instructions du [guide de démarrage rapide](get-started.md). Si vous souhaitez obtenir des transcriptions de nos modèles de base, c’est tout ce que vous avez besoin de faire. 
 
 Si vous prévoyez de personnaliser et d’utiliser un modèle personnalisé, vous devez ajouter cette clé d’abonnement au portail de reconnaissance vocale personnalisée de la façon suivante :
 

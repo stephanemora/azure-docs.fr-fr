@@ -3,7 +3,7 @@ title: Console série Azure pour le GRUB et mode mono-utilisateur | Microsoft Do
 description: Utilisation d’une console série pour le grub dans des machines virtuelles Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,19 +14,40 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 47a97d842822ed3d6c8c1583808552c1b2d1d53e
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 411c743421af79ea066df3a5fc07f71b8b6cb993
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411730"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855865"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur
-Le mode mono-utilisateur est un environnement minimal comportant des fonctionnalités minimales. Il peut être utile pour examiner les problèmes de démarrage ou les problèmes réseau, car un nombre inférieur de services peut s’exécuter en arrière-plan et, selon le niveau d’exécution, le système de fichiers peut même ne pas être automatiquement monté. Cette configuration est utile pour examiner diverses situations, telles que la corruption d’un système de fichiers, une erreur de table des systèmes de fichiers (FSTAB), ou la connectivité réseau (configuration iptables incorrecte).
+GRUB est l’acronyme du programme d’amorçage GRand Unified Bootloader. Un GRUB vous permet de modifier votre configuration d’amorçage, notamment pour démarrer en mode mono-utilisateur.
 
-Certaines distributions vous amènent automatiquement en mode mono-utilisateur ou en mode d’urgence si la machine virtuelle ne peut pas démarrer. D’autres, toutefois, nécessitent une configuration supplémentaire avant de pouvoir passer automatiquement au mode mono-utilisateur ou au mode d’urgence.
+Le mode mono-utilisateur est un environnement minimal comportant des fonctionnalités minimales. Il peut être utile pour examiner des problèmes de démarrage, des problèmes de système de fichiers ou des problèmes de réseau. Les services pouvant s’exécuter en arrière-plan sont moins nombreux et, selon le niveau d’exécution, il peut même arriver qu’un système de fichiers ne soit pas monté automatiquement.
 
-Vous devez vous assurer que le GRUB est activé sur votre machine virtuelle afin de pouvoir accéder au mode mono-utilisateur. En fonction de votre distribution, vous devrez peut-être procéder à une configuration spécifique pour vous assurer que le GRUB est activé. 
+Le mode mono-utilisateur est également utile dans les situations où votre machine virtuelle ne peut être configurée que pour accepter des clés SSH pour la connexion. Dans ce cas, il se peut que vous puissiez utiliser le mode mono-utilisateur pour créer un compte avec authentification par mot de passe.
+
+Pour passer en mode mono-utilisateur, vous devrez entrer un GRUB lors de du démarrage de votre machine virtuelle, puis modifier la configuration d’amorçage dans le GRUB. Vous pouvez faire cela avec la console série de machine virtuelle. 
+
+## <a name="general-grub-access"></a>Accès général au GRUB
+Pour accéder au GRUB, vous devez redémarrer votre machine virtuelle en laissant ouvert le panneau de la console série. Certaines distributions nécessitent une entrée au clavier pour afficher le GRUB. D’autres l’affichent automatiquement pendant quelques secondes afin de permettre à l’utilisateur d’effectuer une entrée au clavier pour annuler le délai d’expiration. 
+
+Vous devez vous assurer que le GRUB est activé sur votre machine virtuelle afin de pouvoir accéder au mode mono-utilisateur. En fonction de votre distribution, vous devrez peut-être procéder à une configuration spécifique pour vous assurer que le GRUB est activé. Des informations spécifiques de la distribution sont disponibles ci-dessous.
+
+### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Redémarrer votre machine virtuelle pour accéder au GRUB dans la console série
+Vous pouvez redémarrer votre machine virtuelle avec le panneau de la console série ouvert à l’aide d’une commande SysRq `'b'` si [SysRq](./serial-console-nmi-sysrq.md) est activé, ou en cliquant sur le bouton Redémarrer dans le panneau Vue d’ensemble (ouvrir la machine virtuelle dans un nouvel onglet de navigateur pour redémarrer sans fermer le panneau de la console série). Pour voir ce que vous pouvez attendre du GRUB lorsque vous redémarrez, suivez les instructions spécifiques de la distribution ci-dessous.
+
+## <a name="general-single-user-mode-access"></a>Accès général au mode mono-utilisateur
+Un accès manuel au mode mono-utilisateur peut être nécessaire dans les situations où vous n’avez pas configuré de compte avec authentification par mot de passe. Vous devez modifier la configuration du GRUB pour passer manuellement en mode mono-utilisateur. Une fois cela fait, voir [Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur](#-Use-Single-User-Mode-to-reset-or-add-a-password) pour obtenir des instructions supplémentaires.
+
+Dans les cas où la machine virtuelle ne parvient pas à démarrer, les distributions vous ramènent souvent automatiquement au mode mono-utilisateur ou au mode urgence. Toutefois, certaines distributions nécessitent une configuration supplémentaire (telle que la définition d’un mot de passe racine) pour pouvoir vous ramener automatiquement au mode mono-utilisateur ou au mode urgence.
+
+### <a name="use-single-user-mode-to-reset-or-add-a-password"></a>Utiliser le mode mono-utilisateur pour réinitialiser ou ajouter un mot de passe
+Une fois en mode mono-utilisateur, procédez comme suit pour ajouter un nouvel utilisateur doté de privilèges sudo :
+1. Exécutez `useradd <username>` pour ajouter un utilisateur.
+1. Exécutez `sudo usermod -a -G sudo <username>` pour accorder au nouvel utilisateur des privilèges racine
+1. Utilisez `passwd <username>` pour définir le mot de passe pour le nouvel utilisateur. Vous pouvez ensuite vous connecter en tant que nouvel utilisateur.
 
 
 ## <a name="access-for-red-hat-enterprise-linux-rhel"></a>Accès pour Red Hat Enterprise Linux (RHEL)
@@ -64,7 +85,7 @@ Si vous avez configuré le GRUB et l’accès racine conformément aux instructi
 1. Appuyez sur Ctrl + X pour quitter et redémarrer votre ordinateur avec les paramètres appliqués
 1. Vous serez invité à indiquer le mot de passe administrateur avant de pouvoir entrer en mode mono-utilisateur : il s’agit du mot de passe que vous avez créé en suivant les instructions ci-dessus    
 
-    ![](/media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
+    ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-enter-emergency-shell.gif)
 
 ### <a name="enter-single-user-mode-without-root-account-enabled-in-rhel"></a>Entrez en mode mono-utilisateur unique sans compte racine activé dans RHEL
 Si vous n’avez pas suivi les étapes ci-dessus pour activer l’utilisateur racine, vous pouvez toujours réinitialiser votre mot de passe racine. Suivez ces instructions :
@@ -81,7 +102,7 @@ Si vous n’avez pas suivi les étapes ci-dessus pour activer l’utilisateur ra
 1. Lorsque vous démarrez en mode mono-utilisateur, saisissez `chroot /sysroot` pour basculer vers la prison `sysroot`
 1. Vous êtes maintenant au niveau de la racine. Vous pouvez réinitialiser votre mot de passe racine avec `passwd`, puis suivre les instructions ci-dessus pour entrer en mode mono-utilisateur. Entrez `reboot -f` pour redémarrer après avoir terminé.
 
-![](/media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-rhel-emergency-mount-no-root.gif)
 
 > Remarque : les instructions ci-dessus vous amènent dans l’interpréteur de commandes d’urgence, ce qui vous permet d’effectuer des tâches telles que la modification de `fstab`. Toutefois, il est généralement conseillé de réinitialiser votre mot de passe racine et de l’utiliser pour entrer en mode mono-utilisateur. 
 
@@ -100,6 +121,13 @@ Les images Ubuntu ne nécessitent pas de mot de passe racine. Si le système dé
 
 ### <a name="grub-access-in-ubuntu"></a>Accès au GRUB dans Ubuntu
 Pour accéder au GRUB, maintenez la touche « Échap » enfoncée pendant le démarrage de la machine virtuelle.
+
+Par défaut, les images Ubuntu peuvent ne pas afficher automatiquement l’écran GRUB. Vous pouvez modifier cela en procédant comme suit :
+1. Ouvrez `/etc/default/grub.d/50-cloudimg-settings.cfg` dans un éditeur de texte de votre choix.
+1. Remplacez la valeur `GRUB_TIMEOUT` par une valeur autre que zéro.
+1. Ouvrez `/etc/default/grub` dans un éditeur de texte de votre choix.
+1. Commentez la ligne `GRUB_HIDDEN_TIMEOUT=1`.
+1. Exécutez `sudo update-grub`
 
 ### <a name="single-user-mode-in-ubuntu"></a>Mode mono-utilisateur dans Ubuntu
 Ubuntu vous amène directement en mode mono-utilisateur s’il ne peut pas démarrer normalement. Pour entrer manuellement dans le mode mono-utilisateur, appliquez les instructions suivantes :
@@ -136,7 +164,7 @@ L’accès au GRUB dans SLES requiert une configuration de chargeur de démarrag
 1. Pour entrer dans le GRUB, redémarrez votre machine virtuelle et appuyez sur n’importe quelle touche pendant la séquence de démarrage afin que le GRUB reste à l’écran
     - Le délai d’expiration par défaut pour le GRUB est de 1 s. Vous pouvez le modifier en changeant la variable `GRUB_TIMEOUT` dans `/etc/default/grub`
 
-![](/media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
+![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-sles-yast-grub-config.gif)
 
 ### <a name="single-user-mode-in-suse-sles"></a>Mode mono-utilisateur dans SUSE SLES
 Vous êtes automatiquement amené dans l’interpréteur de commandes d’urgence si SLES ne peut pas démarrer normalement. Pour entrer manuellement dans l’interpréteur de commandes d’urgence, appliquez les instructions suivantes :

@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: b659a7b49eadee59f2eee09320a35a0cf3fab225
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 707304e6901002a58fe24a4b3a88be3f82ad320e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353066"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469246"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Mettre à l’échelle un pool élastique dans Azure SQL Database
 
@@ -37,7 +37,7 @@ Cet article décrit comment faire évoluer les ressources de calcul et de stocka
 
 ## <a name="vcore-based-purchasing-model-change-elastic-pool-compute-resources-vcores"></a>Modèle d’achat vCore : modifier les ressources de calcul de pool élastique (vCores)
 
-Vous pouvez augmenter ou diminuer la taille de calcul pour un pool élastique en fonction des besoins de la ressource à l’aide du [Portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [d’Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_update).
+Vous pouvez augmenter ou diminuer la taille de calcul pour un pool élastique en fonction des besoins de la ressource à l’aide du [Portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [d’Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
 - Lors de la remise à l’échelle des cœurs virtuels d’un pool élastique, les connexions de base de données sont brièvement interrompues. Il s’agit du même comportement que celui qui se produit lors de la remise à l’échelle des DTU pour une base de données unique. Pour plus d’informations sur la durée et l’impact des pertes de connexion pour une base de données lors des opérations de remise à l’échelle, consultez [Changer les ressources de calcul (DTU)](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
 - La durée de remise à l’échelle des vCore du pool peut dépendre de la quantité totale d’espace de stockage utilisée par toutes les bases de données dans le pool. En règle générale, la latence de remise à l’échelle moyenne est de 90 minutes ou moins pour 100 Go. Par exemple, si l’espace total utilisé par toutes les bases de données du pool est égal à 200 Go, une opération de redimensionnement du pool prend 3 heures au maximum. Dans certains cas dans le niveau Standard ou De base, la latence de remise à l’échelle peut être de moins de cinq minutes, quelle que soit la quantité d’espace utilisé.
@@ -47,7 +47,7 @@ Vous pouvez augmenter ou diminuer la taille de calcul pour un pool élastique en
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-storage-size"></a>Modèle d’achat DTU : modifier la taille de stockage de pool élastique
 
 - Le prix des eDTU pour un pool élastique inclut une certaine quantité de stockage sans coût supplémentaire. Un espace de stockage en plus du volume inclus peut être approvisionné pour un coût supplémentaire jusqu’à la limite de taille par incréments de 250 Go jusqu’à 1 To, puis par incréments de 256 Go au-delà de 1 To. Pour les quantités de stockage et limites de taille maximale incluses, consultez [Pool élastique : tailles de stockage et tailles de calcul](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).
-- Vous pouvez configurer du stockage supplémentaire pour un pool élastique en augmentant sa taille maximale à l’aide du [portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [d’Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_update).
+- Vous pouvez configurer du stockage supplémentaire pour un pool élastique en augmentant sa taille maximale à l’aide du [portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [d’Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 - Le prix de l’espace de stockage supplémentaire pour un pool élastique est égal au volume de stockage supplémentaire multiplié par le prix unitaire du stockage supplémentaire pour le niveau de service. Pour plus d’informations sur le prix du stockage supplémentaire, consultez [Tarification des bases de données SQL](https://azure.microsoft.com/pricing/details/sql-database/).
 
 > [!IMPORTANT]
@@ -55,7 +55,7 @@ Vous pouvez augmenter ou diminuer la taille de calcul pour un pool élastique en
 
 ## <a name="dtu-based-purchasing-model-change-elastic-pool-compute-resources-edtus"></a>Modèle d’achat DTU : modifier les ressources de calcul de pool élastique (eDTU)
 
-Vous pouvez augmenter ou diminuer les ressources disponibles pour un pool élastique en fonction des besoins de la ressource à l’aide du [portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [d’Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_update).
+Vous pouvez augmenter ou diminuer les ressources disponibles pour un pool élastique en fonction des besoins de la ressource à l’aide du [portail Azure](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), de [PowerShell](/powershell/module/azurerm.sql/set-azurermsqlelasticpool), [d’Azure CLI](/cli/azure/sql/elastic-pool#az-sql-elastic-pool-update) ou de [l’API REST](https://docs.microsoft.com/rest/api/sql/elasticpools/update).
 
 - Lors de la remise à l’échelle des eDTU du pool, les connexions de base de données sont brièvement supprimées. Il s’agit du même comportement que celui qui se produit lors de la remise à l’échelle des DTU pour une base de données unique. Pour plus d’informations sur la durée et l’impact des pertes de connexion pour une base de données lors des opérations de remise à l’échelle, consultez [Changer les ressources de calcul (DTU)](sql-database-single-database-scale.md#dtu-based-purchasing-model-change-compute-resources-dtus).
 - La durée de remise à l’échelle des eDTU de pool peut dépendre de la quantité totale d’espace de stockage utilisée par toutes les bases de données dans le pool. En règle générale, la latence de remise à l’échelle moyenne est de 90 minutes ou moins pour 100 Go. Par exemple, si l’espace total utilisé par toutes les bases de données du pool est égal à 200 Go, une opération de redimensionnement du pool prend 3 heures au maximum. Dans certains cas dans le niveau Standard ou De base, la latence de remise à l’échelle peut être de moins de cinq minutes, quelle que soit la quantité d’espace utilisé.

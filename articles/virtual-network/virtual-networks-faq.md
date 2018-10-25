@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: e92c099d9e0dfacff71c13382059acb06037bb1e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2291136cf50439b7845c3a344be3218277257b34
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999866"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269477"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>FAQ sur les réseaux virtuels Azure
 
@@ -230,7 +230,7 @@ L’appairage VNet (ou appairage de réseau virtuel) permet de connecter des ré
 Oui. Global VNet Peering vous permet d’homologuer des réseaux virtuels dans différentes régions. Global VNet Peering est disponible dans toutes les régions publiques Azure. Vous ne pouvez pas homologuer globalement de régions publiques Azure dans des clouds nationaux. L’homologation globale n’est pas actuellement disponible dans les clouds nationaux.
 
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>Puis-je activer l’homologation de réseau virtuel si mes réseaux virtuels font partie d’abonnements de différents locataires Azure Active Directory ?
-Il n’est actuellement pas possible d’établir une homologation de réseau virtuel (qu’elle locale ou globale) si vos abonnements appartiennent à différents locataires Azure Active Directory.
+Oui. Il est possible d’établir une homologation de réseau virtuel (locale ou globale) si vos abonnements appartiennent à différents locataires Azure Active Directory. Vous pouvez faire cela via PowerShell ou Azure CLI. Le portail n’est pas encore pris en charge.
 
 ### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>Ma connexion d’homologation de réseau est à l’état *initiée*, pourquoi ne puis-je pas me connecter ?
 Si votre connexion d’homologation est dans un état Initiée, cela signifie que vous n’avez créé qu’un seul lien. Un lien bidirectionnel doit être créé afin d’établir une connexion avec succès. Par exemple, pour homologuer le réseau virtuel A au réseau virtuel B, un lien doit être créé de VNetA à VNetB et de VNetB à VNetA. La création des deux liens modifie l’état à *Connecté.*

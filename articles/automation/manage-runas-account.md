@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d2023d30cdb86a218d27024c8ccf0f397a7a5d09
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 569efa7fbbd111937f00ba3b1e28219c163e2221
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816604"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958157"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Gérer les comptes d’identification Azure Automation
 
@@ -50,7 +50,7 @@ Pour créer ou mettre à jour un compte d’identification, vous devez disposer 
 |Créer ou supprimer une connexion Automation|[New-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/New-AzureRmAutomationConnection)</br>[Remove-AzureRmAutomationConnection](/powershell/module/AzureRM.Automation/Remove-AzureRmAutomationConnection)|Contributeur sur le groupe de ressources |
 
 * Un compte d’utilisateur AD avec des autorisations équivalentes à celles du rôle de contributeur pour les ressources Microsoft.Automation, comme indiqué dans l’article [Contrôle d’accès en fonction du rôle dans Azure Automation](automation-role-based-access-control.md#contributor).  
-* Les utilisateurs non administrateurs dans votre locataire Azure AD peuvent [inscrire des applications AD](../azure-resource-manager/resource-group-create-service-principal-portal.md#check-azure-subscription-permissions) si l’option **Les utilisateurs peuvent inscrire des applications** du locataire Azure AD au sein de la page **Paramètres utilisateur** est définie sur **Oui**. Si le paramètre Inscriptions d’applications est défini sur **Non**, l’utilisateur qui effectue cette action doit être un administrateur général dans Azure AD.
+* Les utilisateurs non administrateurs dans votre locataire Azure AD peuvent [inscrire des applications AD](../active-directory/develop/howto-create-service-principal-portal.md#check-azure-subscription-permissions) si l’option **Les utilisateurs peuvent inscrire des applications** du locataire Azure AD au sein de la page **Paramètres utilisateur** est définie sur **Oui**. Si le paramètre Inscriptions d’applications est défini sur **Non**, l’utilisateur qui effectue cette action doit être un administrateur général dans Azure AD.
 
 Si vous n’êtes pas membre de l’instance Active Directory de l’abonnement avant d’être ajouté au rôle Administrateur général/Coadministrateur de l’abonnement, vous êtes ajouté en tant qu’invité. Dans ce cas, vous recevez un avertissement `You do not have permissions to create…` sur la page **Ajouter un compte Automation**. Les utilisateurs ayant préalablement reçu le rôle administrateur général/coadministrateur peuvent être supprimés de l’instance Active Directory de l’abonnement, puis rajoutés pour devenir des utilisateurs complets dans Active Directory. Pour vérifier si tel est le cas, dans le volet **Azure Active Directory** du portail Azure, sélectionnez **Utilisateurs et groupes** et **Tous les utilisateurs**, choisissez l’utilisateur concerné, puis sélectionnez **Profil**. La valeur de l’attribut **Type d’utilisateur** sous le profil de l’utilisateur ne doit pas être **Invité**.
 

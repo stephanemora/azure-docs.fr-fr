@@ -1,21 +1,21 @@
 ---
-title: Pagination des actualités disponibles | Microsoft Docs
-description: Découvrez comment paginer toutes les actualités renvoyées par Bing.
+title: Parcours des articles d’actualités disponibles – Recherche d’actualités Bing
+titlesuffix: Azure Cognitive Services
+description: Montre comment feuilleter tous les articles d’actualités renvoyés par Recherche d’actualités Bing.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: EA388F72-FA43-493B-967C-9560B3243C62
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 2c90d468536f0864d7deac073667e29e9a54692f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: fff1da15df2e690cd0b37bb82654a4d30159325a
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367897"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803390"
 ---
 # <a name="paging-news"></a>Pagination des actualités
 
@@ -34,7 +34,7 @@ L’exemple suivant illustre le champ `totalEstimatedMatches` qui est inclus dan
   
 Pour paginer les articles disponibles, utilisez les paramètres de requête [count](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#count) et [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#offset).  
   
-Le paramètre `count` spécifie le nombre de résultats à retourner dans la réponse. Vous pouvez demander jusqu’à 100 résultats dans la réponse. La valeur par défaut est de 10. Le nombre réel retourné peut être inférieur à ce que vous avez demandé.
+Le paramètre `count` spécifie le nombre de résultats à retourner dans la réponse. Vous pouvez demander jusqu’à 100 résultats dans la réponse. La valeur par défaut est de 10. Le nombre réel renvoyé peut être inférieur à ce que vous avez demandé.
 
 Le paramètre `offset` spécifie le nombre de résultats à ignorer. Le paramètre `offset` est basé sur zéro et doit être inférieur à (`totalEstimatedMatches` - `count`).  
 

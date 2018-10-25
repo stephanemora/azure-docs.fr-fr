@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 13bc82caf5e10f5b35df29d085349ec4c80628a2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 61c91f7e1f2ba266be6453bb6e6fb25f3834485e
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917450"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585894"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique Azure Stack
 
@@ -39,8 +39,8 @@ La liste suivante décrit les exigences de certificat nécessaires pour déploye
 - Votre infrastructure Azure Stack doit avoir accès au réseau de l’emplacement de la liste de révocation des certificats (CRL) de l’autorité de certification publiée dans le certificat. Cette CRL doit être un point de terminaison http
 - Lors de la rotation des certificats, les certificats doivent être émis à partir de la même autorité de certification interne utilisée pour signer des certificats fournie au déploiement ou de toute autorité de certification publique ci-dessus
 - L’utilisation des certificats auto-signés n’est pas prise en charge
-- Pour le déploiement et la rotation, vous pouvez utiliser un certificat unique couvrant tous les espaces de noms dans les champs Nom de l’objet et Autre nom de l’objet du certificat OU vous pouvez utiliser des certificats individuels pour chaque espace de noms ci-dessous que les services Azure Stack que vous envisagez d’utiliser nécessitent. Remarque : les deux approches requièrent l’utilisation de caractères génériques pour les points de terminaison où ils sont requis, comme **KeyVault** et **KeyVaultInternal**. 
-- L’algorithme de signature de certificat ne peut pas être SHA1, car il doit être plus sécurisé. 
+- Pour le déploiement et la rotation, vous pouvez utiliser un certificat unique couvrant tous les espaces de noms dans les champs Nom de l’objet et Autre nom de l’objet du certificat OU vous pouvez utiliser des certificats individuels pour chaque espace de noms ci-dessous que les services Azure Stack que vous envisagez d’utiliser nécessitent. Les deux approches requièrent l’utilisation de caractères génériques pour les points de terminaison où ils sont requis, comme **KeyVault** et **KeyVaultInternal**. 
+- L’algorithme de signature de certificat doit être 3DES. L’algorithme ne peut pas être SHA1, car il doit être plus puissant. 
 - Le format du certificat doit être PFX, car les clés publiques et privées sont requises pour l’installation d’Azure Stack. 
 - Les fichiers pfx de certificat doivent avoir une valeur « Signature numérique » et « KeyEncipherment » dans le champ « Utilisation de la clé ».
 - Dans le champ « Utilisation avancée de la clé », les fichiers pfx de certificat doivent avoir les valeurs « Authentification du serveur (1.3.6.1.5.5.7.3.1) » et « Authentification du client (1.3.6.1.5.5.7.3.2) ».
@@ -76,6 +76,8 @@ Pour votre déploiement, les valeurs [region] et [externalfqdn] doivent correspo
 | ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Certificat SSL générique) | Stockage File d’attente | queue.&lt;region>.&lt;fqdn> |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Certificat SSL générique) | Key Vault | vault.&lt;region>.&lt;fqdn> |
 | KeyVaultInternal | *.adminvault.&lt;region>.&lt;fqdn><br>(Certificat SSL générique) |  Coffre de clés interne |  adminvault.&lt;region>.&lt;fqdn> |
+| Hôte d’extension d’administration | *.adminhosting.\<region>.\<fqdn> (Certificats SSL génériques) | Hôte d’extension d’administration | adminhosting.\<region>.\<fqdn> |
+| Hôte d’extension public | *.hosting.\<region>.\<fqdn> (Certificats SSL génériques) | Hôte d’extension public | hosting.\<region>.\<fqdn> |
 
 Si vous déployez Azure Stack à l’aide du mode de déploiement Azure AD, vous devez simplement demander les certificats répertoriés dans le tableau précédent. Toutefois, si vous déployez Azure Stack à l’aide du mode de déploiement AD FS, vous devez également demander les certificats décrits dans le tableau suivant :
 

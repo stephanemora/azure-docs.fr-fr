@@ -1,20 +1,21 @@
 ---
 title: À propos de la reconnaissance vocale
+titleSuffix: Azure Cognitive Services
 description: Vue d’ensemble des fonctionnalités de l’API Reconnaissance vocale.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: erhopf
-ms.openlocfilehash: 5a19366f6aeec2422ec8671ba3c32f642b5e01ac
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 041ec1c095ec604fed7906368ff266c1586df570
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361434"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471337"
 ---
 # <a name="about-the-speech-to-text-api"></a>À propos de l’API Reconnaissance vocale
 

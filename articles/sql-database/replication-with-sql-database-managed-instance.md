@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 95c27bcc99f08cb1e4998e43a6a2abd508bee0ac
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47228093"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869310"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Réplication avec SQL Database Managed Instance
 
@@ -76,21 +76,22 @@ Prend en charge :
 
 ## <a name="configure-publishing-and-distribution-example"></a>Exemple de configuration d’un serveur de publication et d’un serveur de distribution
 
-1. [Créez une instance Azure SQL Database Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-tutorial-portal) dans le portail.
+1. [Créez une instance Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) dans le portail.
+2. [Créez un compte de stockage Azure](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) pour le répertoire de travail.
 
-1. [Créez un compte de stockage Azure](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) pour le répertoire de travail. Veillez à copier les clés de stockage. Consultez [Afficher et copier les clés d’accès de stockage](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#manage-your-storage-access-keys).
-
-1. Créez une base de données pour le serveur de publication.
+   Veillez à copier les clés de stockage. Consultez [Afficher et copier les clés d’accès de stockage](../storage/common/storage-account-manage.md#access-keys
+).
+3. Créez une base de données pour le serveur de publication.
 
    Dans les exemples de scripts ci-dessous, remplacez `<Publishing_DB>` par le nom de cette base de données.
 
-1. Créez un utilisateur de base de données avec l’authentification SQL pour le serveur de distribution. Consultez [Création d’utilisateurs de base de données](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Utilisez un mot de passe sécurisé.
+4. Créez un utilisateur de base de données avec l’authentification SQL pour le serveur de distribution. Consultez [Création d’utilisateurs de base de données](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Utilisez un mot de passe sécurisé.
 
    Dans les exemples de scripts ci-dessous, utilisez `<SQL_USER>` et `<PASSWORD>` avec l’utilisateur de base de données et le mot de passe du compte SQL Server.
 
-1. [Connectez-vous à SQL Database Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Connectez-vous à SQL Database Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
-1. Exécutez la requête suivante pour ajouter le serveur de distribution et la base de données de distribution.
+6. Exécutez la requête suivante pour ajouter le serveur de distribution et la base de données de distribution.
 
    ```sql
    USE [master]
@@ -99,7 +100,7 @@ Prend en charge :
    EXEC sp_adddistributiondb @database = N'distribution';
    ```
 
-1. Pour configurer un serveur de publication dans le but d’utiliser une base de données de distribution spécifiée, modifiez puis exécutez la requête suivante.
+7. Pour configurer un serveur de publication dans le but d’utiliser une base de données de distribution spécifiée, modifiez puis exécutez la requête suivante.
 
    Remplacez `<SQL_USER>` et `<PASSWORD>` par le compte SQL Server et son mot de passe.
 
@@ -107,7 +108,7 @@ Prend en charge :
 
    Remplacez `<STORAGE_CONNECTION_STRING>` par la chaîne de connexion située sous l’onglet **Clés d’accès** de votre compte de stockage Microsoft Azure.
 
-   Une fois que vous avez modifié la requête suivante, exécutez-la. 
+   Une fois que vous avez modifié la requête suivante, exécutez-la.
 
    ```sql
    USE [master]
@@ -121,7 +122,7 @@ Prend en charge :
    GO
    ```
 
-1. Configurez le serveur de publication pour la réplication. 
+8. Configurez le serveur de publication pour la réplication.
 
     Dans la requête suivante, remplacez `<Publishing_DB>` par le nom de la base de données de votre serveur de publication.
 
@@ -155,15 +156,13 @@ Prend en charge :
                 @job_password = N'<PASSWORD>'
    ```
 
-1. Ajoutez l’article, l’abonnement et l’agent d’abonnement par émission. 
+9. Ajoutez l’article, l’abonnement et l’agent d’abonnement par émission.
 
    Pour ajouter ces objets, modifiez le script suivant.
 
-   Remplacez `<Object_Name>` par le nom de l’objet de publication.
-
-   Remplacez `<Object_Schema>` par le nom du schéma source. 
-
-   Remplacez les autres paramètres `<>` figurant entre crochets pour qu’ils correspondent aux valeurs des scripts précédents. 
+   - Remplacez `<Object_Name>` par le nom de l’objet de publication.
+   - Remplacez `<Object_Schema>` par le nom du schéma source.
+   - Remplacez les autres paramètres `<>` figurant entre crochets pour qu’ils correspondent aux valeurs des scripts précédents.
 
    ```sql
    EXEC sp_addarticle @publication = N'<Publication_Name>',
@@ -183,7 +182,7 @@ Prend en charge :
                 @subscriber_security_mode = 0,
                 @subscriber_login = N'<SQL_USER>',
                 @subscriber_password = N'<PASSWORD>',
-                @job_login = N'<SQL_USER>', 
+                @job_login = N'<SQL_USER>',
                 @job_password = N'<PASSWORD>'
    GO
    ```

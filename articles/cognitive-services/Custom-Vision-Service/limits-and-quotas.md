@@ -1,20 +1,21 @@
 ---
-title: Limites et quotas du service Vision personnalisée - Azure Cognitive Services | Microsoft Docs
-description: Découvrez les limites et les quotas du service Vision personnalisée d’Azure Cognitive Services.
+title: Limites et quotas – Service Vision personnalisée
+titlesuffix: Azure Cognitive Services
+description: Découvrez les limites et quotas applicables au service Vision personnalisée.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: anroth
-ms.openlocfilehash: 44666d5d7f2a51e4017c704205d21b1f6d06908c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: ce06effbce12abb6271e050829d3218f4fbbfbf4
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370289"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902856"
 ---
 # <a name="limits-and-quotas"></a>Limites et quotas
 
@@ -25,11 +26,12 @@ Les ressources de projet des essais gratuits limités sont attachées à votre i
 ||**Essai gratuit limité**|**F0 (Azure)**|**S0 (Azure)**|
 |-----|-----|-----|-----|
 |Projets|2|2|100|
-|Images d’apprentissage par projet|5 000|5 000|50 000|
+|Images d’apprentissage par projet, classification|5 000|5 000|50 000|
+|Images d’apprentissage par projet, détection d’objet|5 000|5 000|10 000|
 |Prédictions/mois|10 000 |10 000|Illimité|
 |Balises/projet|50|50|250|
 |Itérations |10|10|10|
-|Nombre minimal d’images étiquetées par balise, classification (recommandation : plus de 50) |5|5|5|
+|Nombre minimal d’images étiquetées par balise, classification (recommandation : plus de 50) |5.|5.|5.|
 |Nombre minimal d’images étiquetées par balise, détection d’objets (recommandation : plus de 50)|15|15|15|
 |Durée de stockage des images de prédiction|30 jours|30 jours|30 jours|
 |Opérations de [prédiction](https://go.microsoft.com/fwlink/?linkid=865445) avec stockage (transactions par seconde)|2|2|10|

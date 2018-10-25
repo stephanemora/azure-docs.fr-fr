@@ -14,17 +14,17 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 9d512af7fdd68ec3356b427429144ec9195fd95b
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cf536879393622744da0a6dd5b4e38c8c52de39b
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48842979"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988326"
 ---
-## <a name="use-msal-to-get-a-token"></a>Utilisation de la bibliothèque MSAL pour obtenir un jeton 
+## <a name="use-msal-to-get-a-token"></a>Utilisation de la bibliothèque MSAL pour obtenir un jeton
 
-1.  Sous **app** > **java** > **{domain}.{appname}**, ouvrez `MainActivity`. 
-2.  Ajoutez les importations suivantes :
+1. Sous **app** > **java** > **{domain}.{appname}**, ouvrez `MainActivity`. 
+2. Ajoutez les importations suivantes :
 
     ```java
     import android.app.Activity;
@@ -241,10 +241,13 @@ ms.locfileid: "48842979"
 
 <!--start-collapse-->
 ### <a name="more-information"></a>Plus d’informations
+
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
+
 L’appel de la méthode `AcquireTokenAsync` lance une fenêtre invitant les utilisateurs à se connecter ou à sélectionner leur compte. En général, les applications doivent demander à l’utilisateur une interaction initiale, mais elles peuvent ensuite fonctionner en mode silencieux. 
 
 #### <a name="get-a-user-token-silently"></a>Obtenir un jeton d’utilisateur en mode silencieux
+
 La méthode `AcquireTokenSilentAsync` obtient un jeton sans interaction utilisateur.  `AcquireTokenSilentAsync` peut être traité en tant que requête optimale, avec un mécanisme de secours sur `AcquireTokenAsync` lorsque l’utilisateur doit se connecter à nouveau ou exécuter une autorisation supplémentaire, comme l’authentification multifacteur. 
 
 Lorsque `AcquireTokenSilentAsync` échoue, cela génère un `MsalUiRequiredException`. Votre application peut gérer cette exception de deux manières :
@@ -254,7 +257,8 @@ Lorsque `AcquireTokenSilentAsync` échoue, cela génère un `MsalUiRequiredExcep
 * Réessayez `AcquireTokenSilentAsync` ultérieurement. Ce modèle est souvent utilisé quand les utilisateurs peuvent utiliser d’autres fonctionnalités de l’application sans interruption, par exemple, quand le contenu hors connexion est disponible dans l’application. L’application peut décider d’effectuer une nouvelle tentative de `AcquireTokenSilentAsync` une fois le réseau rétabli après une indisponibilité temporaire. 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api"></a>Appeler l’API Microsoft Graph 
+## <a name="call-the-microsoft-graph-api"></a>Appeler l’API Microsoft Graph
+
 Ajoutez les méthodes suivantes à la classe `MainActivity` :
 
 ```java
@@ -311,6 +315,7 @@ private void updateGraphUI(JSONObject graphResponse) {
     graphText.setText(graphResponse.toString());
 }
 ```
+
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Informations supplémentaires sur l’envoi d’un appel REST à une API protégée
 
@@ -376,5 +381,6 @@ private void updateSignedOutUI() {
 La méthode `onSignOutClicked()` supprime des utilisateurs du cache MSAL. MSAL n’aura plus aucun état pour l’utilisateur connecté, et celui-ci sera déconnecté de l’application. 
 
 ### <a name="more-information-on-multi-account-scenarios"></a>Plus d’informations sur les scénarios multicompte
+
 MSAL prend également en charge les scénarios lorsque plusieurs comptes sont connectés en même temps. Par exemple, de nombreuses applications de messagerie autorisent la connexion de plusieurs comptes en même temps. 
 <!--end-collapse-->

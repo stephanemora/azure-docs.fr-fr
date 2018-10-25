@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 3e4b4e904fd4615458e8d873baa1bf30588fe81d
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 4fd7617bf45608cdae15919a40920ea0d214acb8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249432"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407469"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Comment : Effectuer une migration à partir d’Azure Access Control Service
 
@@ -225,7 +225,7 @@ Pour utiliser WS-Federation ou WIF en vue d’une intégration dans Azure Active
 
 Une autre solution consiste à suivre [cet exemple de code](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), qui fournit des instructions légèrement pour configurer WS-Federation. Cet exemple de code n’utilise pas WIF mais plutôt l’intergiciel (middleware) OWIN ASP.NET 4.5. Toutefois, les instructions d’inscription d’application sont valides pour les applications qui utilisent WIF, et elles ne nécessitent pas de licence Azure Active Directory Premium. 
 
-Si vous choisissez cette approche, vous devez comprendre la [substitution de clé de signature dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Cette approche utilise la clé de signature globale Azure AD pour émettre des jetons. Par défaut, WIF n’actualise pas automatiquement les clés de signature. Quand Azure AD permute ses clés de signature globale, votre implémentation de WIF doit être prête à accepter les changements. Pour plus d’informations, consultez l’article [Substitution de la clé de signature dans Azure Active Directory](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx).
+Si vous choisissez cette approche, vous devez comprendre la [substitution de clé de signature dans Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Cette approche utilise la clé de signature globale Azure AD pour émettre des jetons. Par défaut, WIF n’actualise pas automatiquement les clés de signature. Quand Azure AD permute ses clés de signature globale, votre implémentation de WIF doit être prête à accepter les changements. Pour plus d’informations, consultez l’article [Substitution de la clé de signature dans Azure Active Directory](https://msdn.microsoft.com/library/azure/dn641920.aspx).
 
 Si vous pouvez effectuer une intégration dans Azure Active Directory par le biais du protocole OpenID Connect ou OAuth, nous vous recommandons de le faire. Vous trouverez une documentation complète et des instructions détaillées expliquant comment intégrer Azure Active Directory dans votre application web, dans notre [Guide du développeur Azure Active Directory](https://aka.ms/aaddev).
 

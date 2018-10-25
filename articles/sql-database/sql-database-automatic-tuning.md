@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 931e0f2c6be51c78187413d638259237f98bd9b0
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: f9a9f3d04a3ee7a2917e04c378af135601f3eaac
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063351"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48042051"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Réglage automatique dans Azure SQL Database
 
@@ -66,7 +66,7 @@ Pour obtenir une vue d’ensemble du fonctionnement du réglage automatique et d
 
 Les options de réglage automatique disponibles dans Azure SQL Database sont les suivantes :
  1. **CREATE INDEX** identifie les index qui peuvent améliorer les performances de votre charge de travail, crée des index et vérifie automatiquement que les performances des requêtes sont améliorées.
- 2. **DROP INDEX** : identifie quotidiennement les index redondants et en double, excepté pour les index uniques, ainsi que les index qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que cette option n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index.
+ 2. **DROP INDEX** : identifie quotidiennement les index redondants et en double, excepté pour les index uniques, ainsi que les index qui n’ont pas été utilisés depuis longtemps (>90 jours). Notez que l’option à ce stade n’est pas compatible avec les applications utilisant la commutation de partition et les conseils d’index.
  3. **FORCE LAST GOOD PLAN** identifie les requêtes SQL utilisant le plan d’exécution qui est plus lent que le plan correct précédent, ainsi que les requêtes utilisant le dernier plan correct connu au lieu du plan de régression.
 
 Le réglage automatique identifie les recommandations**CREATE INDEX**, **DROP INDEX** et **FORCE LAST GOOD PLAN** qui peuvent optimiser les performances de votre base de données, les affiche dans le [portail Azure](sql-database-advisor-portal.md), puis les expose à l’aide de [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) et de l’[API REST](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).

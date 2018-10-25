@@ -9,16 +9,16 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 4d02ddf50660cd700b2f1c5999ceadfb472b6906
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 118660e8947663328554ac0116b5519267197336
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380586"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984296"
 ---
-# <a name="streaming-policies"></a>Stratégies de streaming
+# <a name="streaming-policies"></a>Stratégies de diffusion en continu
 
 Dans Azure Media Services v3, les stratégies de streaming vous permettent de définir les protocoles de streaming et les options de chiffrement pour vos StreamingLocators. Vous pouvez spécifier le nom de la stratégie de streaming que vous avez créée ou utiliser l’une des stratégies de streaming prédéfinies. Les stratégies de streaming prédéfinies actuellement disponibles sont les suivantes : « Predefined_DownloadOnly », « Predefined_ClearStreamingOnly », « Predefined_DownloadAndClearStreaming », « Predefined_ClearKey », 'Predefined_MultiDrmCencStreaming » et « Predefined_ MultiDrmStreaming ».
 
@@ -29,7 +29,7 @@ Dans Azure Media Services v3, les stratégies de streaming vous permettent de d
 
 Le tableau suivant présente les propriétés d’une stratégie StreamingPolicy et en donne la définition.
 
-|Nom|Type|Description|
+|NOM|type|Description|
 |---|---|---|
 |id|chaîne|ID de ressource complet pour la ressource.|
 |Nom|chaîne|Nom de la ressource.|
@@ -39,7 +39,7 @@ Le tableau suivant présente les propriétés d’une stratégie StreamingPolicy
 |properties.defaultContentKeyPolicyName |chaîne|Clé de contenu (ContentKey) par défaut utilisée par la stratégie de streaming active|
 |properties.envelopeEncryption  |EnvelopeEncryption|Configuration de EnvelopeEncryption|
 |properties.noEncryption|NoEncryption|Configurations de NoEncryption|
-|type|chaîne|Type de la ressource.|
+|Type|chaîne|Type de la ressource.|
 
 Pour obtenir la définition complète, consultez [Stratégies de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies).
 
@@ -65,7 +65,7 @@ Description des opérateurs :
 
 Le tableau suivant montre comment ces options peuvent être appliquées aux propriétés de StreamingPolicy : 
 
-|Nom|Filtre|Ordre|
+|NOM|Filtrer|Ordre|
 |---|---|---|
 |id|||
 |Nom|Eq, ne, ge, le, gt, lt|Croissant et décroissant|
@@ -75,7 +75,7 @@ Le tableau suivant montre comment ces options peuvent être appliquées aux prop
 |properties.defaultContentKeyPolicyName |||
 |properties.envelopeEncryption|||
 |properties.noEncryption|||
-|type|||
+|Type|||
 
 ### <a name="pagination"></a>Pagination
 
@@ -100,7 +100,7 @@ while (currentPage.NextPageLink != null)
 }
 ```
 
-Pour obtenir des exemples REST, consultez [Stratégies de streaming - Liste](https://docs.microsoft.com/rest/api/media/streamingpolicies/streamingpolicies_list)
+Pour obtenir des exemples REST, consultez [Stratégies de streaming - Liste](https://docs.microsoft.com/rest/api/media/streamingpolicies/list)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -3,7 +3,7 @@ title: Délégation des offres dans Azure Stack | Microsoft Docs
 description: Découvrez comment placer d’autres personnes en charge de la création d’offres et de l’inscription des utilisateurs.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
-ms.author: brenduns
+ms.date: 09/12/2018
+ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: 112586d3ee5f49eab9adb72d41a210e2dd9828d8
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 77819c5592fe8b61ed4e3fcb5f874fc0bf5ca602
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41946444"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077982"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Déléguer des offres dans Azure Stack
 
@@ -113,7 +113,7 @@ L’étape suivante consiste à créer le plan et l’offre que vous allez dél�
 
 Connectez-vous au portail utilisateur en tant que fournisseur délégué et créez une offre en utilisant l’offre déléguée comme modèle.
 
-1. Sélectionnez **Nouveaux** > **Offres + Plans clients** > **Offre**.
+1. Sélectionnez **+ Créer une ressource** > **Offres + plans de locataire** > **Offre**.
 
     ![Créer une offre](media/azure-stack-delegated-provider/image5.png)
 
@@ -128,7 +128,7 @@ Connectez-vous au portail utilisateur en tant que fournisseur délégué et cré
 
 4. Les offres déléguées publiques sont désormais visibles uniquement via le portail délégué. Pour rechercher et modifier cette URL :
 
-    a.  Sélectionnez **Parcourir** > **Plus de services** > **Abonnements**. Sélectionnez ensuite l’abonnement du fournisseur délégué. Par exemple, **DPSubscription** > **Propriétés**.
+    a.  Sélectionnez **Parcourir** > **Tous les services**, puis, sous la catégorie **GÉNÉRAL**, sélectionnez **Abonnement**. Sélectionnez l’abonnement du fournisseur délégué. Par exemple, **DPSubscription** > **Propriétés**.
 
     b.  Copiez l’URL du portail vers un autre emplacement, comme le Bloc-notes.
 

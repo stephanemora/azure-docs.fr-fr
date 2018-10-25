@@ -12,12 +12,12 @@ ms.author: douglasl
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 6977995fb33d221b48a633076f61d3ee39d6ba40
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 225c8093816c5186cbc084f74bc6e0591107ec00
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160415"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47586255"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Jeux de données publics pour la création de prototypes et de tests
 

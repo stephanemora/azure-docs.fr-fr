@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/18/2018
 ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: d7e379033cc64b9715ccc7e8c9cbe5fe75e0e5b1
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 378617e331a5539fca3d993410325ef187816137
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869072"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430304"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Notes de publication du Kit de développement Azure Stack  
 Cet article fournit des informations sur des améliorations, des correctifs et des problèmes connus en lien avec le Kit de développement Azure Stack. Si vous n’êtes pas sûr de la version que vous exécutez, consultez le [portail pour vérifier](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -51,31 +51,31 @@ Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../
 ### <a name="changes"></a>Changements
 
 <!-- 1697698  | IS, ASDK --> 
-- Les *didacticiels de démarrage rapide* dans le tableau de bord du portail utilisateur renvoient désormais vers des articles pertinents de la documentation Azure Stack en ligne.
+- Les *tutoriels de démarrage rapide* dans le tableau de bord du portail utilisateur renvoient désormais vers des articles pertinents de la documentation Azure Stack en ligne.
 
 <!-- 2515955   | IS ,ASDK--> 
-- L’option *Tous les services* remplace l’option *Autres services* dans les portails d’administration et utilisateur d’Azure Stack. Vous pouvez maintenant utiliser *Tous les services* comme alternative pour naviguer dans les portails Azure Stack de la même façon que dans les portails Azure.
+- L’option *Tous les services* remplace l’option *Autres services* dans les portails d’administration et utilisateur Azure Stack. Vous pouvez maintenant utiliser *Tous les services* comme alternative pour naviguer dans les portails Azure Stack de la même façon que dans les portails Azure.
 
 <!--  TBD – IS, ASDK --> 
-- Les tailles de machine virtuelle *De base A* ne sont plus disponibles pour la [création de groupes de machines virtuelles identiques](../azure-stack-compute-add-scalesets.md) dans le portail. Pour créer un groupe de machines virtuelles identiques avec cette taille, utilisez PowerShell ou un modèle. 
+- Les tailles de machine virtuelle *De base A* ne sont plus disponibles pour la [création de groupes de machines virtuelles identiques](../azure-stack-compute-add-scalesets.md) (VMSS) dans le portail. Pour créer un groupe de machines virtuelles identiques avec cette taille, utilisez PowerShell ou un modèle. 
 
 ### <a name="known-issues"></a>Problèmes connus
 
 #### <a name="portal"></a>Portail  
 
 <!-- 1697698  | IS, ASDK --> 
-- Les *didacticiels de démarrage rapide* dans le tableau de bord du portail utilisateur renvoient désormais vers des articles pertinents de la documentation Azure Stack en ligne.
+- Les *tutoriels de démarrage rapide* dans le tableau de bord du portail utilisateur renvoient désormais vers des articles pertinents de la documentation Azure Stack en ligne.
 
 <!-- 2515955   | IS ,ASDK--> 
-- L’option *Tous les services* remplace l’option *Autres services* dans les portails d’administration et utilisateur d’Azure Stack. Vous pouvez maintenant utiliser *Tous les services* comme alternative pour naviguer dans les portails Azure Stack de la même façon que dans les portails Azure.
+- L’option *Tous les services* remplace l’option *Autres services* dans les portails d’administration et utilisateur Azure Stack. Vous pouvez maintenant utiliser *Tous les services* comme alternative pour naviguer dans les portails Azure Stack de la même façon que dans les portails Azure.
 
 <!--  TBD – IS, ASDK --> 
-- Les tailles de machine virtuelle *De base A* ne sont plus disponibles pour la [création de groupes de machines virtuelles identiques](../azure-stack-compute-add-scalesets.md) dans le portail. Pour créer un groupe de machines virtuelles identiques avec cette taille, utilisez PowerShell ou un modèle.
+- Les tailles de machine virtuelle *De base A* ne sont plus disponibles pour la [création de groupes de machines virtuelles identiques](../azure-stack-compute-add-scalesets.md) (VMSS) dans le portail. Pour créer un groupe de machines virtuelles identiques avec cette taille, utilisez PowerShell ou un modèle.
 
 #### <a name="health-and-monitoring"></a>Intégrité et surveillance
 
 <!-- 1264761 - IS ASDK -->  
-- Vous pourriez voir s’afficher des alertes pour le composant *contrôleur d’intégrité* contenant les informations suivantes :  
+- Vous risquez de recevoir des alertes pour le composant *Contrôleur d’intégrité* contenant les informations suivantes :  
 
    Alerte 1 :
    - NOM : Rôle d’infrastructure défectueux
@@ -92,29 +92,29 @@ Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../
   Les deux alertes peuvent être ignorées en toute sécurité. Elles se fermeront automatiquement au bout d’un moment.  
 
 <!-- 2368581 - IS. ASDK --> 
-- En tant qu’opérateur Azure Stack, si vous recevez une alerte de mémoire insuffisante et que le déploiement de machines virtuelles clientes échoue en émettant un message d’*erreur de création de machine virtuelle Service Fabric*, il se peut que l’horodatage d’Azure Stack s’inscrive en dehors de la mémoire disponible. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail.
+- En tant qu’opérateur d’Azure Stack, si vous recevez une alerte de mémoire insuffisante et que les machines virtuelles de locataire ne parviennent pas à se déployer à cause d’une *erreur de création de machine virtuelle de structure*, il est possible que l’horodatage d’Azure Stack soit à court de mémoire. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail.
 
 
 #### <a name="compute"></a>Calcul  
 
 <!-- 3099544 – IS, ASDK --> 
-- Lorsque vous créez une machine virtuelle à l’aide du portail Azure Stack et sélectionnez la taille de machine virtuelle, la colonne USD/mois s’affiche avec le message **Indisponible**. Cette colonne ne devrait pas s’afficher car l’affichage de la colonne de tarification des machines virtuelles n’est pas pris en charge dans Azure Stack.
+- Quand vous créez une machine virtuelle à l’aide du portail Azure Stack et sélectionnez la taille de machine virtuelle, la colonne EUR/mois s’affiche avec le message **Indisponible**. Cette colonne ne devrait pas s’afficher, car l’affichage de la colonne des prix des machines virtuelles n’est pas pris en charge dans Azure Stack.
 
 <!-- 3090289 – IS, ASDK --> 
-- Après avoir appliqué la mise à jour 1808, il se peut que vous rencontriez les problèmes suivants lors du déploiement de machines virtuelles avec le service Managed Disks :
+- Après avoir appliqué la mise à jour 1808, vous rencontrerez peut-être les problèmes suivants lors du déploiement de machines virtuelles avec le service Managed Disks :
 
    1. Si l’abonnement a été créé avant la mise à jour 1808, le déploiement de machines virtuelles avec Managed Disks peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes pour chaque abonnement :
       1. Dans le portail locataire, accédez à **Abonnements** et recherchez l’abonnement. Cliquez sur **Fournisseurs de ressources**, sur **Microsoft.Compute**, puis sur **Réinscrire**.
       2. Sous le même abonnement, accédez à **Contrôle d’accès (IAM)** et vérifiez que l’élément **Azure Stack – Managed Disks** est répertorié.
    2. Si vous avez configuré un environnement multilocataire, le déploiement de machines virtuelles dans un abonnement associé à un annuaire invité peut échouer avec un message d’erreur interne. Pour résoudre cette erreur, effectuez les étapes suivantes :
-      1. Appliquez le [correctif 1808 d’Azure Stack](https://support.microsoft.com/help/4465859).
+      1. Appliquez le [correctif 1808 d’Azure Stack](https://support.microsoft.com/help/4468920).
       2. Effectuez les étapes décrites dans [cet article](../azure-stack-enable-multitenancy.md#registering-azure-stack-with-the-guest-directory) pour reconfigurer chacun de vos annuaires invités.
 
 <!-- 2869209 – IS, ASDK --> 
-- Quand vous utilisez la cmdlet [**Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, la cmdlet échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état 'Failed'*. 
+- Quand vous utilisez [l’applet de commande **Add-AzsPlatformImage**](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage?view=azurestackps-1.4.0), vous devez spécifier le paramètre **-OsUri** comme URI du compte de stockage où le disque est chargé. Si vous utilisez le chemin local du disque, la cmdlet échoue avec l’erreur suivante : *Échec de l’opération de longue durée avec l’état 'Failed'*. 
 
 <!--  2966665 – IS, ASDK --> 
-- L’attachement de disques de données SSD à des machines virtuelles avec des disques managés de taille Premium (DS, DSv2, Fs, Fs_V2) échoue avec une erreur : *Échec de la mise à jour des disques pour la machine virtuelle ’vmname’ Erreur : l’opération demandée ne peut pas être effectuée, car le type de compte de stockage ’Premium_LRS’ n’est pas pris en charge pour la taille de machine virtuelle ’Standard_DS/Ds_V2/FS/Fs_v2)’*.
+- L’attachement de disques de données SSD à des machines virtuelles avec des disques managés de taille Premium (DS, DSv2, Fs, Fs_V2) échoue avec une erreur : *Échec de la mise à jour des disques pour la machine virtuelle ’vmname’ Erreur : l’opération demandée ne peut pas être effectuée, car le type de compte de stockage ’Premium_LRS’ n’est pas pris en charge pour la taille de machine virtuelle ’Standard_DS/Ds_V2/FS/Fs_v2)’*
 
    Pour contourner ce problème, utilisez des disques de données *Standard_LRS* à la place de *disques Premium_LRS*. L’utilisation de disques de données *Standard_LRS* n’a pas d’impact sur l’IOP ou le coût de facturation.  
 
@@ -124,7 +124,7 @@ Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../
    Vous pouvez ignorer sans problème cet avertissement : *Vous avez choisi d’utiliser un disque standard sur une taille qui prend en charge les disques Premium. Cela n’est pas recommandé, car cela peut impacter les performances du système d’exploitation. Utilisez le stockage Premium (SSD) à la place.*
 
 <!-- 2967447 - IS, ASDK --> 
-- Quand vous créez un groupe de machines virtuelles identiques, l’option CentOS 7.2 est proposée pour le déploiement. Étant donné que cette image n’est pas disponible sur Azure Stack, sélectionnez un autre système d’exploitation pour votre déploiement ou choisissez un modèle ARM spécifiant une autre image CentOS qui a été téléchargée par l’opérateur avant le déploiement à partir de la Place de marché.
+- Quand vous créez un groupe de machines virtuelles identiques, l’option CentOS 7.2 est proposée pour le déploiement. Étant donné que cette image n’est pas disponible sur Azure Stack, sélectionnez un autre système d’exploitation pour votre déploiement ou choisissez un modèle ARM spécifiant une autre image CentOS qui a été téléchargée par l’opérateur avant le déploiement à partir de la Place de marché.
 
 <!-- TBD -  IS ASDK --> 
 - Les paramètres de mise à l’échelle des groupes de machines virtuelles identiques ne sont pas disponibles dans le portail. Pour résoudre ce problème, vous pouvez utiliser [Azure PowerShell](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-manage-powershell#change-the-capacity-of-a-scale-set). En raison des différences de version de PowerShell, vous devez utiliser le paramètre `-Name` au lieu du paramètre `-VMScaleSetName`.
@@ -163,7 +163,7 @@ Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../
 - Sur un réseau virtuel a été créé avec un paramètre de serveur DNS défini sur *Automatique*, vous ne pouvez pas choisir un serveur DNS personnalisé. Les paramètres mis à jour ne sont pas envoyés (par push) aux machines virtuelles dans ce réseau virtuel.
 
 <!-- 2702741 -  IS ASDK --> 
-- La conservation des adresses IP publiques déployées à l’aide de la méthode d’allocation dynamique n’est pas garantie après l’émission d’une commande d’arrêt/libération.
+- La conservation des adresses IP publiques déployées à l’aide de la méthode d’allocation dynamique n’est pas garantie après l’émission d’une commande Arrêter/Libérer.
 
 <!-- 2529607 - IS ASDK --> 
 - Durant la *rotation des secrets* Azure Stack, une période de deux à cinq minutes s’écoule pendant laquelle les adresses IP publiques sont inaccessibles.
@@ -198,7 +198,7 @@ Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](../
 Cette build inclut les améliorations et les correctifs suivants pour Azure Stack.  
 
 <!-- 1658937 | ASDK, IS --> 
-- **Démarrer les sauvegardes selon un calendrier prédéfini** : en tant qu’appliance, Azure Stack peut maintenant lancer automatiquement des sauvegardes périodiques de l’infrastructure afin d’éviter toute intervention humaine. Azure Stack nettoie également automatiquement le partage externe des sauvegardes antérieures à la période de rétention définie. Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
+- **Démarrer les sauvegardes selon un calendrier prédéfini** : En tant qu’appliance, Azure Stack peut maintenant lancer automatiquement des sauvegardes périodiques de l’infrastructure afin d’éviter toute intervention humaine. Azure Stack nettoie également automatiquement le partage externe des sauvegardes antérieures à la période de rétention définie. Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
 
 <!-- 2496385 | ASDK, IS -->  
 - **Ajout du temps de transfert des données au temps total de sauvegarde.** Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
@@ -207,7 +207,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - **La capacité externe de sauvegarde affiche maintenant la capacité correcte du partage externe.** (la valeur était codée en dur à 10 Go) Pour en savoir plus, voir [Activer la sauvegarde d’Azure Stack avec PowerShell](.\.\azure-stack-backup-enable-backup-powershell.md).
  
 <!-- 2753130 |  IS, ASDK   -->  
-- **Les modèles Azure Resource Manager prennent désormais en charge l’élément de condition** : vous pouvez à présent déployer une ressource dans un modèle Azure Resource Manager à l’aide d’une condition. Vous pouvez concevoir votre modèle afin de déployer une ressource en fonction d’une condition, par exemple évaluer si une valeur de paramètre est présente. Pour plus d’informations sur l’utilisation d’un modèle en tant que condition, consultez [Déployer une ressource de manière conditionnelle](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) et [Section Variables des modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) dans la documentation Azure. 
+- **Les modèles Azure Resource Manager prennent désormais en charge l’élément de condition** : Vous pouvez désormais déployer une ressource dans un modèle Azure Resource Manager à l’aide d’une condition. Vous pouvez concevoir votre modèle afin de déployer une ressource en fonction d’une condition, par exemple évaluer si une valeur de paramètre est présente. Pour plus d’informations sur l’utilisation d’un modèle en tant que condition, consultez [Déployer une ressource de manière conditionnelle](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/conditional-deploy) et [Section Variables des modèles Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-templates-variables) dans la documentation Azure. 
 
    Vous pouvez également utiliser des modèles pour [déployer des ressources Azure sur plusieurs groupes de ressources ou abonnements](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-cross-resource-group-deployment).  
 
@@ -215,7 +215,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - **La prise en charge de la version de ressource d’API Microsoft.Network a été mise à jour** pour inclure la prise en charge de la version d’API 2017-10-01 à partir de la version 2015-06-15 pour les ressources réseau Azure Stack. La prise en charge des versions de ressources entre 2017-10-01 et 2015-06-15 n’est pas incluse dans cette version. Pour connaître les différences de fonctionnalités, consultez [Considérations relatives à la mise en réseau Azure Stack](.\.\user\azure-stack-network-differences.md).
 
 <!-- 2272116 | IS, ASDK   -->  
-- **Azure Stack a ajouté la prise en charge des recherches DNS inversées pour les points de terminaison d’infrastructure Azure Stack exposés à l’extérieur** (autrement dit pour portal, adminportal, management et adminmanagement). Cela permet de résoudre les noms des points de terminaison externes Azure Stack à partir d’une adresse IP.
+- **Azure Stack a ajouté la prise en charge des recherches DNS inversées pour les points de terminaison d’infrastructure Azure Stack externes** (autrement dit pour portal, adminportal, management et adminmanagement). Cela permet de résoudre les noms des points de terminaison externes Azure Stack à partir d’une adresse IP.
 
 <!-- 2780899 |  IS, ASDK   --> 
 - **Azure Stack prend désormais en charge l’ajout d’interfaces réseau supplémentaires à une machine virtuelle existante.**  Cette fonctionnalité est disponible à l’aide du portail, de PowerShell et de l’interface CLI. Pour plus d’informations, consultez [Ajouter ou supprimer des interfaces réseau](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface-vm) dans la documentation Azure. 
@@ -224,7 +224,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - **Des améliorations en matière de précision et de résilience ont été apportées aux compteurs d’utilisation de mise en réseau**. Les compteurs d’utilisation réseau sont désormais plus précis et tiennent compte des abonnements suspendus, des périodes d’interruption et des conditions de concurrence.
 
 <!-- 2297790 | IS, ASDK -->  
-- **Améliorations apportées au client Syslog Azure Stack (fonctionnalité en préversion).** Ce client permet le transfert des journaux et de l’audit liés à l’infrastructure d’Azure Stack vers un serveur Syslog ou un logiciel SIEM externe à Azure Stack. Le client syslog prend désormais en charge le protocole TCP avec texte brut ou chiffrement TLS 1.2, cette dernière option étant la configuration par défaut. Vous pouvez configurer la connexion TLS avec authentification mutuelle ou serveur uniquement.
+- **Améliorations apportées au client syslog Azure Stack (fonctionnalité en préversion)**. Ce client permet le transfert des journaux et de l’audit liés à l’infrastructure d’Azure Stack vers un serveur Syslog ou un logiciel SIEM externe à Azure Stack. Le client syslog prend désormais en charge le protocole TCP avec texte brut ou chiffrement TLS 1.2, cette dernière option étant la configuration par défaut. Vous pouvez configurer la connexion TLS avec authentification mutuelle ou serveur uniquement.
 
   Pour configurer la façon dont le client syslog communique avec le serveur syslog (par exemple le protocole, le chiffrement et l’authentification), utilisez l’applet de commande Set-SyslogServer. Cette applet de commande est disponible à partir du point de terminaison privilégié (PEP). 
 
@@ -254,13 +254,13 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - Nous avons corrigé un problème qui empêchait l’application d’une limite de quota modifiée aux abonnements existants.  Désormais, lorsque vous augmentez la limite de quota d’une ressource réseau faisant partie d’une offre et d’un plan associés à un abonnement d’utilisateur, la nouvelle limite s’applique aux abonnements préexistants, ainsi qu’aux nouveaux abonnements.
 
 <!-- 2448955 | IS ASDK --> 
-- Il est désormais possible de consulter avec succès les journaux d’activité des systèmes déployés dans un fuseau horaire UTC+N.    
+- Il est désormais possible d’interroger correctement les journaux d’activité des systèmes déployés dans un fuseau horaire UTC+N.    
 
 <!-- 2319627 |  ASDK, IS --> 
-- La vérification préalable des paramètres de configuration de la sauvegarde (chemin d’accès, nom d’utilisateur, mot de passe, clé de cryptage) ne définit plus de paramètres incorrects pour la configuration de la sauvegarde. (Les paramètres incorrects étaient définis auparavant dans la sauvegarde, et celle-ci échouait lors de son déclenchement.)
+- La vérification préalable des paramètres de configuration de la sauvegarde (chemin, nom d’utilisateur, mot de passe, clé de chiffrement) ne définit plus de paramètres incorrects pour la configuration de la sauvegarde. (Les paramètres incorrects étaient définis auparavant dans la sauvegarde, et celle-ci échouait lors de son déclenchement.)
 
 <!-- 2215948 |  ASDK, IS --> 
-- La liste de sauvegarde s’actualise désormais lorsque l’on supprime manuellement la sauvegarde du partage externe.
+- La liste de sauvegarde s’actualise désormais quand vous supprimez manuellement la sauvegarde du partage externe.
 
 <!-- 2360715 |  ASDK, IS -->  
 - Lorsque vous configurez l’intégration du centre de données, vous n’accédez plus au fichier de métadonnées AD FS à partir d’un partage. Pour plus d’informations, consultez la rubrique [Configuration de l’intégration AD FS en fournissant un fichier de métadonnées de fédération](.\.\azure-stack-integrate-identity.md#setting-up-ad-fs-integration-by-providing-federation-metadata-file). 
@@ -306,7 +306,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - Les deux types d’abonnements d’administration qui ont été introduits avec la version 1804 ne doivent pas être utilisés. Les types d’abonnements sont **Abonnement de contrôle** et **Abonnement de consommation**. Ces types d’abonnements sont **Abonnement de contrôle** et **Abonnement de consommation**. Ces types d’abonnements sont visibles dans les nouveaux environnements Azure Stack depuis la version 1804, mais ils ne sont pas encore prêts à être utilisés. Vous devez continuer à utiliser le type d’abonnement **Fournisseur par défaut**.
 
 <!-- 2403291 - IS ASDK --> 
-- Il se peut que vous ne puissiez pas utiliser la barre de défilement horizontale au bas des portails d’administration et utilisateur. Si vous ne pouvez pas accéder à la barre de défilement horizontale, utilisez les barres de navigation pour accéder à un panneau précédent dans le portail en sélectionnant le nom du panneau que vous souhaitez afficher dans la liste des barres de navigation en haut à gauche du portail.
+- Il se peut que vous ne puissiez pas utiliser la barre de défilement horizontale au bas du portail d’administration et du portail utilisateur. Si vous ne pouvez pas accéder à la barre de défilement horizontale, utilisez les barres de navigation pour accéder à un panneau précédent dans le portail en sélectionnant le nom du panneau que vous souhaitez afficher dans la liste des barres de navigation en haut à gauche du portail.
   ![Barre de navigation](media/asdk-release-notes/breadcrumb.png)
 
 <!-- TBD -  IS ASDK --> 
@@ -320,7 +320,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 
 #### <a name="health-and-monitoring"></a>Intégrité et surveillance
 <!-- 1264761 - IS ASDK -->  
-- Vous pourriez voir s’afficher des alertes pour le composant *contrôleur d’intégrité* contenant les informations suivantes :  
+- Vous risquez de recevoir des alertes pour le composant *Contrôleur d’intégrité* contenant les informations suivantes :  
 
    Alerte 1 :
    - NOM : Rôle d’infrastructure défectueux
@@ -337,14 +337,14 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
   Les deux alertes peuvent être ignorées en toute sécurité. Elles se fermeront automatiquement au bout d’un moment.  
 
 <!-- 2368581 - IS. ASDK --> 
-- En tant qu’opérateur Azure Stack, si vous recevez une alerte de mémoire insuffisante et que le déploiement de machines virtuelles clientes échoue en émettant un message d’*erreur de création de machine virtuelle Service Fabric*, il se peut que l’horodatage d’Azure Stack s’inscrive en dehors de la mémoire disponible. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail.
+- En tant qu’opérateur d’Azure Stack, si vous recevez une alerte de mémoire insuffisante et que les machines virtuelles de locataire ne parviennent pas à se déployer à cause d’une *erreur de création de machine virtuelle de structure*, il est possible que l’horodatage d’Azure Stack soit à court de mémoire. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail.
 
 <!-- TBD - IS. ASDK --> 
 - Lors de l’exécution de la cmdlet **Test-AzureStack** sur le point de terminaison privilégié (PEP), le test de **performance d’instance de rôle d’infrastructure Azure Stack** génère un message d’AVERTISSEMENT pour la machine virtuelle ERCS. Vous pouvez ignorer le message d’AVERTISSEMENT et continuer à utiliser le Kit de développement Azure Stack en toute sécurité.
 
 #### <a name="compute"></a>Calcul
 <!-- 2494144 - IS, ASDK --> 
-- Lorsque vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lors de la création d’une machine virtuelle. Les tailles de machine virtuelle suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2* et *F64s_v2*.  
+- Quand vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lorsque vous créez une machine virtuelle. Les tailles de machine virtuelle suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2* et *F64s_v2*.  
   Pour résoudre ce problème, utilisez l’une des méthodes suivantes pour déployer une machine virtuelle. Dans chaque méthode, vous devez spécifier la taille de machine virtuelle que vous voulez utiliser.
 
   - **Modèle Azure Resource Manager :** lorsque vous utilisez un modèle, définissez la valeur *vmSize* dans le modèle pour qu’elle soit égale à la taille de machine virtuelle que vous voulez utiliser. Par exemple, l’entrée suivante permet de déployer une machine virtuelle qui utilise la taille *F32s_v2* :  
@@ -395,7 +395,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 - Sur un réseau virtuel a été créé avec un paramètre de serveur DNS défini sur *Automatique*, vous ne pouvez pas choisir un serveur DNS personnalisé. Les paramètres mis à jour ne sont pas envoyés (par push) aux machines virtuelles dans ce réseau virtuel.
 
 <!-- 2702741 -  IS ASDK --> 
-- La conservation des adresses IP publiques déployées à l’aide de la méthode d’allocation dynamique n’est pas garantie après l’émission d’une commande d’arrêt/libération.
+- La conservation des adresses IP publiques déployées à l’aide de la méthode d’allocation dynamique n’est pas garantie après l’émission d’une commande Arrêter/Libérer.
 
 <!-- 2529607 - IS ASDK --> 
 - Durant la *rotation des secrets* Azure Stack, une période de deux à cinq minutes s’écoule pendant laquelle les adresses IP publiques sont inaccessibles.
@@ -498,7 +498,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
     - Pour le Kit de développement Azure Stack, utilisez https://aka.ms/azurestackforum.    
 
 <!-- 2403291 - IS ASDK --> 
-- Il se peut que vous ne puissiez pas utiliser la barre de défilement horizontale au bas des portails d’administration et utilisateur. Si vous ne pouvez pas accéder à la barre de défilement horizontale, utilisez les barres de navigation pour accéder à un panneau précédent dans le portail en sélectionnant le nom du panneau que vous souhaitez afficher dans la liste des barres de navigation en haut à gauche du portail.
+- Il se peut que vous ne puissiez pas utiliser la barre de défilement horizontale au bas du portail d’administration et du portail utilisateur. Si vous ne pouvez pas accéder à la barre de défilement horizontale, utilisez les barres de navigation pour accéder à un panneau précédent dans le portail en sélectionnant le nom du panneau que vous souhaitez afficher dans la liste des barres de navigation en haut à gauche du portail.
   ![Barre de navigation](media/asdk-release-notes/breadcrumb.png)
 
 <!-- TBD -  IS ASDK --> 
@@ -510,7 +510,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 
 #### <a name="health-and-monitoring"></a>Intégrité et surveillance
 <!-- 1264761 - IS ASDK -->  
-- Vous pourriez voir s’afficher des alertes pour le composant *contrôleur d’intégrité* contenant les informations suivantes :  
+- Vous risquez de recevoir des alertes pour le composant *Contrôleur d’intégrité* contenant les informations suivantes :  
 
    Alerte 1 :
    - NOM : Rôle d’infrastructure défectueux
@@ -539,7 +539,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
   L’alerte 3 ne se ferme pas automatiquement. Si vous fermez cette alerte, Azure Stack crée la même alerte dans les 15 minutes qui suivent.  
 
 <!-- 2368581 - IS. ASDK --> 
-- En tant qu’opérateur Azure Stack, si vous recevez une alerte de mémoire insuffisante et que le déploiement de machines virtuelles clientes échoue en émettant un message d’*erreur de création de machine virtuelle Service Fabric*, il se peut que l’horodatage d’Azure Stack s’inscrive en dehors de la mémoire disponible. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail.
+- En tant qu’opérateur d’Azure Stack, si vous recevez une alerte de mémoire insuffisante et que les machines virtuelles de locataire ne parviennent pas à se déployer à cause d’une *erreur de création de machine virtuelle de structure*, il est possible que l’horodatage d’Azure Stack soit à court de mémoire. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail.
 
 <!-- TBD - IS. ASDK --> 
 - L’exécution de la cmdlet Test-AzureStack sur le point de terminaison privilégié (PEP) génère un message d’avertissement pour la machine virtuelle ERCS. Vous pouvez continuer à utiliser l’ASDK. 
@@ -547,7 +547,7 @@ Cette build inclut les améliorations et les correctifs suivants pour Azure Stac
 
 #### <a name="compute"></a>Calcul
 <!-- TBD - IS, ASDK --> 
-- Lorsque vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lors de la création d’une machine virtuelle. Les tailles de machine virtuelle suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2* et *F64s_v2*.  
+- Quand vous sélectionnez une taille de machine virtuelle pour un déploiement de machine virtuelle, certaines tailles de machine virtuelle de série F ne sont pas visibles dans le sélecteur de taille lorsque vous créez une machine virtuelle. Les tailles de machine virtuelle suivantes n’apparaissent pas dans le sélecteur : *F8s_v2*, *F16s_v2*, *F32s_v2* et *F64s_v2*.  
   Pour résoudre ce problème, utilisez l’une des méthodes suivantes pour déployer une machine virtuelle. Dans chaque méthode, vous devez spécifier la taille de machine virtuelle que vous voulez utiliser.
 
   - **Modèle Azure Resource Manager :** lorsque vous utilisez un modèle, définissez la valeur *vmSize* dans le modèle pour qu’elle soit égale à la taille de machine virtuelle que vous voulez utiliser. Par exemple, l’entrée suivante permet de déployer une machine virtuelle qui utilise la taille *F32s_v2* :  

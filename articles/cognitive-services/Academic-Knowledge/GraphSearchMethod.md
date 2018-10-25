@@ -1,20 +1,21 @@
 ---
-title: Méthode Graph Search dans l’API Connaissances universitaires | Microsoft Docs
-description: Utilisez la méthode Graph Search dans l’API Connaissances universitaires pour renvoyer un ensemble d’entités universitaires basé sur des modèles de graphique spécifiques dans Cognitive Services.
+title: Méthode Graph Search – API Connaissances universitaires
+titlesuffix: Azure Cognitive Services
+description: Utilisez la méthode Graph Search dans l’API Connaissances universitaires pour renvoyer un ensemble d’entités universitaires basé sur des modèles de graphique spécifiques.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alch
-ms.openlocfilehash: d811db117c934c0d41fbfea1220d241cc022e4a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 83f29106d72f564f894c968102b703ab6bb5d8c2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367848"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902378"
 ---
 # <a name="graph-search-method"></a>Méthode Graph Search
 
@@ -30,7 +31,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/graph/search?
 ## <a name="request-parameters"></a>Paramètres de la requête  
 NOM     | Valeur | Requis ?  | Description
 -----------|-----------|---------|--------
-**mode**       | Chaîne de texte | OUI | Nom du modèle que vous souhaitez utiliser. La valeur est *json* ou *lambda*.
+**mode**       | Chaîne de texte | Oui | Nom du modèle que vous souhaitez utiliser. La valeur est *json* ou *lambda*.
 
 La méthode de recherche de graphique doit être appelée par le biais d’une requête HTTP POST. La requête post doit inclure l’en-tête de type de contenu : **application/json**.
 

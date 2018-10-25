@@ -9,12 +9,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 09/18/2018
 ms.author: shvija
-ms.openlocfilehash: 27052759ccc4664ea95ea19cb52bebeec6fec5ae
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 6d5b52c8a5dd0306a349cac5e67eecc809005c6f
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803356"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429182"
 ---
 # <a name="receive-events-from-azure-event-hubs-using-nodejs"></a>Recevoir des événements d’Azure Event Hubs avec Node.js
 
@@ -57,7 +57,7 @@ Le Kit de développement logiciel (SDK) que vous avez cloné contient plusieurs 
 
 1. Ouvrez le projet dans Visual Studio Code. 
 2. Créez un fichier nommé **.env** sous le dossier **processor**. Copiez et collez les exemples de variables d’environnement du fichier **sample.env** dans le dossier racine.
-3. Configurez la chaîne de connexion de votre Event Hub, le nom de l’Event Hub et le point de terminaison de stockage. Vous pouvez copier la chaîne de connexion de votre Event Hub de la **clé primaire de chaîne de connexion** sous **RootManageSharedAccessKey** sur la page Event Hub dans le portail Azure. Pour des instructions détaillées, consultez [Obtenir la chaîne de connexion](event-hubs-quickstart-portal.md#create-an-event-hubs-namespace).
+3. Configurez la chaîne de connexion de votre Event Hub, le nom de l’Event Hub et le point de terminaison de stockage. Vous pouvez copier la chaîne de connexion de votre Event Hub de la **clé primaire de chaîne de connexion** sous **RootManageSharedAccessKey** sur la page Event Hub dans le portail Azure. Pour des instructions détaillées, consultez [Obtenir la chaîne de connexion](event-hubs-create.md#create-an-event-hubs-namespace).
 4. Dans l’interface de ligne de commande Azure, accédez au chemin d’accès du dossier **processor**. Installez les packages de nœud et générez le projet en exécutant les commandes suivantes :
 
     ```nodejs

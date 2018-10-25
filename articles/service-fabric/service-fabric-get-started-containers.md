@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 4a5ca4879f81533e3617ca9dfe9cdf8afcf2965b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12a2ff3f96fa86ac1b52a3138d9a9b2a30b867db
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700169"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803781"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Créer votre première application de conteneur Service Fabric sur Windows
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ L’exécution d’une application existante dans un conteneur Windows sur un cl
 > [!NOTE]
 > Cet article s’applique à un environnement de développement Windows.  Le runtime du cluster Service Fabric et le runtime de Docker doivent être en cours d’exécution sur le même système d’exploitation.  Vous ne pouvez pas exécuter des conteneurs Windows sur un cluster Linux.
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 * Un ordinateur de développement exécutant :
   * Visual Studio 2015 ou Visual Studio 2017.
   * [Outils et SDK Service Fabric](service-fabric-get-started.md).
@@ -232,6 +232,7 @@ Ces variables d’environnement peuvent être remplacées dans le manifeste de l
 ```xml
 <ServiceManifestImport>
   <ServiceManifestRef ServiceManifestName="Guest1Pkg" ServiceManifestVersion="1.0.0" />
+  <EnvironmentOverrides CodePackageRef="FrontendService.Code">
     <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
   </EnvironmentOverrides>
   ...
@@ -575,7 +576,7 @@ L’intervalle de temps par défaut est défini sur 10 secondes. Étant donné 
 
 ## <a name="configure-the-runtime-to-remove-unused-container-images"></a>Configurer le runtime pour supprimer les images conteneur inutilisées
 
-Vous pouvez configurer le cluster Service Fabric pour supprimer des images conteneur inutilisées à partir du nœud. Cette configuration permet à l’espace disque d’être rétabli si trop d’images conteneur sont présentes sur le nœud. Pour activer cette fonctionnalité, mettez à jour la section `Hosting` du manifeste de cluster, comme indiqué dans l’extrait de code suivant : 
+Vous pouvez configurer le cluster Service Fabric pour supprimer des images conteneur inutilisées à partir du nœud. Cette configuration permet à l’espace disque d’être rétabli si trop d’images conteneur sont présentes sur le nœud. Pour activer cette fonctionnalité, mettez à jour la section [Hosting](service-fabric-cluster-fabric-settings.md#hosting) du manifeste de cluster, comme indiqué dans l’extrait de code suivant : 
 
 
 ```json
@@ -596,7 +597,7 @@ Vous pouvez configurer le cluster Service Fabric pour supprimer des images conte
 } 
 ```
 
-Vous pouvez spécifier les images qui ne doivent pas être supprimées à l’aide du paramètre `ContainerImagesToSkip`. 
+Vous pouvez spécifier les images qui ne doivent pas être supprimées à l’aide du paramètre `ContainerImagesToSkip`.  
 
 
 ## <a name="configure-container-image-download-time"></a>Configurer le temps de téléchargement de l’image de conteneur

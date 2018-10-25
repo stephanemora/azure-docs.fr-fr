@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2017
 ms.author: diviso
-ms.openlocfilehash: 31a0177ecfd87fa7ea78989b36141070c2ac193b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: de89756a3f9ef1139e855da16c0343a9919b56cb
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865724"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585372"
 ---
 # <a name="automating-azure-virtual-machine-deployment-with-chef"></a>Automatisation du déploiement de machine virtuelle Azure avec Chef
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -42,7 +42,7 @@ Le schéma ci-dessous illustre l’architecture de Chef de haut niveau.
 
 Chef présente trois principaux composants architecturaux : le serveur Chef, le client Chef (nœud) et la station de travail Chef.
 
-Le serveur Chef est le point de gestion. Il existe deux options pour le serveur Chef : une solution hébergée ou une solution locale. Nous allons utiliser une solution hébergée.
+Le serveur Chef est le point de gestion. Il existe deux options pour le serveur Chef : une solution hébergée ou une solution locale. Pour ce didacticiel, nous allons utiliser une solution hébergée pour ce didacticiel.
 
 Le client Chef (nœud) est l’agent qui se trouve sur les serveurs que vous gérez.
 
@@ -59,7 +59,7 @@ Créez ensuite un second répertoire appelé c:\chef\cookbooks.
 
 Nous devons maintenant télécharger le fichier de paramètres Azure pour que Chef puisse communiquer avec l’abonnement Azure.
 
-Télécharger vos paramètres de publication à l’aide de la commande PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0). 
+Télécharger vos paramètres de publication à l’aide de la commande PowerShell Azure [Get-AzurePublishSettingsFile](https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azurepublishsettingsfile?view=azuresmps-4.0.0). 
 
 Enregistrez le fichier de paramètres de publications dans C:\chef.
 
@@ -94,7 +94,7 @@ Vous devez maintenant avoir quatre fichiers, y compris le fichier de publication
 
 Les fichiers PEM contiennent votre organisation et les clés privées d’administration pour la communication, tandis que le fichier knife.rb contient votre configuration de couteau. Il convient de modifier le fichier knife.rb.
 
-Ouvrez le fichier dans l’éditeur de votre choix et modifiez « cookbook_path » en supprimant /.../ du chemin d’accès afin qu’il apparaisse comme ci-dessous.
+Ouvrez le fichier dans l’éditeur de votre choix et modifiez « cookbook_path » en supprimant /.../ du chemin d’accès afin qu’il apparaisse comme ci-dessous :
 
     cookbook_path  ["#{current_dir}/cookbooks"]
 
@@ -119,7 +119,9 @@ Vérifiez que votre variable PATH comprend les entrées de C:\opscode\chefdk\bin
 
 S’ils sont absents, assurez-vous de les ajouter !
 
-*NOTEZ QUE L’ORDRE DU CHEMIN D’ACCÈS EST IMPORTANT !* Si vos chemins opscode ne sont pas dans l’ordre adéquat, cela créera des problèmes.
+> [!NOTE]
+> L’ordre du chemin d’accès est important ! Si vos chemins opscode ne sont pas dans l’ordre adéquat, cela créera des problèmes. 
+> 
 
 Redémarrez votre station de travail avant de continuer.
 
@@ -223,7 +225,7 @@ Comme vous pouvez le voir, le code html est créatif.
 
 N’oubliez pas que nous pouvons également nous connecter via une session RDP à partir du portail Azure via le port 3389.
 
-Nous espérons que cela a été utile ! Démarrez votre voyage vers l’Infrastructure en tant que code avec Azure dès aujourd’hui !
+Nous espérons que cela a été utile ! Démarrez votre voyage en matière d’Infrastructure en tant que code avec Azure dès aujourd’hui !
 
 <!--Image references-->
 [2]: media/chef-automation/2.png

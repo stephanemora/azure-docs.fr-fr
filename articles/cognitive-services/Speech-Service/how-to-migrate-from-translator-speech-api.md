@@ -6,16 +6,16 @@ services: cognitive-services
 author: aahill
 manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: aahi
-ms.openlocfilehash: b50cdc6978519c0ec9da447c324237c00577d9fd
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a35c4a7f2d2b64bd3650df1f18d08da4ea191e3a
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48885270"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466390"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Effectuer une migration de l’API de traduction de conversation Translator Speech vers le service Speech
 
@@ -62,9 +62,9 @@ Si vous ou votre organisation disposez d'applications en développement ou en pr
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Essayer gratuitement le service Speech](get-started.md)
-* [Démarrage rapide : reconnaissance vocale dans une application UWP à l’aide du kit de développement logiciel (SDK) Speech](quickstart-csharp-uwp.md)
+* [Démarrage rapide : reconnaissance vocale dans une application UWP à l’aide du Kit de développement logiciel (SDK) Speech](quickstart-csharp-uwp.md)
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Qu’est-ce que le service Speech ?](overview.md)
-* [Documentation sur le service Speech et le kit de développement logiciel (SDK)](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)
+* [Qu’est-ce que le Service Speech](overview.md)
+* [Documentation sur le Service Speech et le Kit de développement logiciel (SDK)](https://docs.microsoft.com/azure/cognitive-services/speech-service/speech-devices-sdk-qsg)

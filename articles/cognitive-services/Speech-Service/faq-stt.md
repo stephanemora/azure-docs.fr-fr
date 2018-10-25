@@ -1,20 +1,21 @@
 ---
 title: Forum aux questions sur le service de reconnaissance vocale dans Azure
-description: Découvrez les réponses aux questions les plus fréquemment posées sur le service de reconnaissance vocale.
 titleSuffix: Azure Cognitive Services
+description: Découvrez les réponses aux questions les plus fréquemment posées sur le service de reconnaissance vocale.
 services: cognitive-services
 author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: d176c33a37b26b1e13d5b9beb7ac68d335cc7862
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: e29ff29bcdeaa6980ba0820f08becdc61e4cb9fc
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48249184"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469535"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 

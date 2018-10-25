@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: 31d7f0fd70edf7bbf05a3a180baa6cc078e02ba1
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: bc505aa9dc2258a8752d1986489957c401e4e4c4
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585473"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023495"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporter la télémétrie depuis Application Insights
 Vous souhaitez conserver votre télémétrie plus longtemps que la période de rétention standard ? Ou la traiter d’une façon spécialisée ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code pour pouvoir les traiter.  
@@ -39,7 +39,7 @@ Une fois que l’exportation continue a copié vos données vers l’espace de s
 
 2. Choisissez les types de données de télémétrie que vous souhaitez exporter.
 
-3. Créez ou sélectionnez le [compte de stockage Azure] (../storage/common/storage-introduction.md) dans lequel vous voulez stocker les données. Pour plus d’informations sur les options de tarification de stockage, consultez la [officielle page sur la tarification](https://azure.microsoft.com/pricing/details/storage/).
+3. Créez ou sélectionnez le [compte de stockage Azure](../storage/common/storage-introduction.md) sur lequel vous voulez stocker les données. Pour plus d’informations sur les options de tarification de stockage, consultez la [officielle page sur la tarification](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > Par défaut, l’emplacement de stockage est défini dans la même région géographique que votre ressource Application Insights. Si vous utilisez une autre région de stockage, vous risquez de subir des frais de transfert.

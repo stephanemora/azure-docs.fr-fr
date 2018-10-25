@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 6eb28ad918f9d95c26d91c05d8ee9556ef768bd3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5678b8408eac303d9036d21612f60fafc325425d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125850"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801911"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Continuité des activités et récupération d’urgence (BCDR) : régions jumelées d’Azure
 
@@ -33,7 +33,8 @@ Figure 1 – Paires régionales Azure
 | Brésil |Sud du Brésil 2 |USA Centre Sud |
 | Canada |Centre du Canada |Est du Canada |
 | Chine |Chine du Nord |Chine orientale|
-| Europe |Europe du Nord |Europe de l'Ouest |
+| Europe |Europe du Nord |Europe Ouest |
+| France |France Centre|France Sud|
 | Allemagne |Centre de l’Allemagne |Nord-Est de l’Allemagne |
 | Inde |Inde centrale |Inde du Sud |
 | Inde |Inde de l'Ouest (1) |Inde du Sud |
@@ -69,11 +70,11 @@ Figure 2 – Paire régionale Azure hypothétique
 ## <a name="cross-region-activities"></a>Activités entre régions
 Conformément à la figure 2.
 
-![PaaS](./media/best-practices-availability-paired-regions/1Green.png)**Azure Compute (PaaS)** – Vous devez approvisionner des ressources de calcul supplémentaires à l’avance pour garantir la disponibilité des ressources dans d’autres régions au cours d’un incident. Pour plus d’informations, consultez le [Guide technique de la résilience Azure](resiliency/resiliency-technical-guidance.md).
+![IaaS](./media/best-practices-availability-paired-regions/1Green.png)**Azure Compute (IaaS)** – Vous devez approvisionner des ressources de calcul supplémentaires à l’avance pour garantir la disponibilité des ressources dans d’autres régions au cours d’un incident. Pour plus d’informations, consultez le [Guide technique de la résilience Azure](resiliency/resiliency-technical-guidance.md).
 
 ![Storage](./media/best-practices-availability-paired-regions/2Green.png)**Azure Storage** - Le stockage géo-redondant (GRS, Geo-Redundant Storage) est configuré par défaut quand vous créez un compte de stockage Azure. Avec GRS, vos données sont répliquées trois fois dans la région principale et trois fois dans la région jumelée. Pour plus d'informations, consultez [Options de redondance du stockage Azure](storage/common/storage-redundancy.md).
 
-![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png)**Bases de données SQL** – avec Azure SQL géo-réplication Standard, vous pouvez configurer la réplication asynchrone des transactions vers une région jumelée. Avec la géo-réplication Premium, vous pouvez configurer la réplication pour n’importe quelle région du monde ; toutefois, nous vous recommandons de déployer ces ressources dans une région jumelée pour la récupération d’urgence. Pour plus d’informations, consultez la rubrique concernant la [géoréplication dans la base de données SQL Azure](sql-database/sql-database-geo-replication-overview.md).
+![SQL Azure](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – avec la géoréplication dans Azure SQL Database, vous pouvez configurer une réplication asynchrone des transactions vers toute région du monde. En revanche, nous vous recommandons de déployer ces ressources dans une région couplée pour la plupart des scénarios de récupération d’urgence. Pour plus d’informations, consultez la rubrique concernant la [géoréplication dans la base de données SQL Azure](sql-database/sql-database-geo-replication-overview.md).
 
 ![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png)**Azure Resource Manager** - Resource Manager offre par nature une isolation logique des composants de gestion de service entre les régions. Cela signifie que des échecs logiques dans une région sont moins susceptibles d’avoir un impact sur une autre.
 

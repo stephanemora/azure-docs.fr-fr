@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ebce7a661ab305e5dcfda191ddbad54a4e9d33a1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: afed471694dd66adfc285965433a1efd92d1653b
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887255"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945092"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un fournisseur SAML Salesforce en utilisant des stratégies personnalisées dans Azure Active Directory B2C
 
@@ -83,13 +83,13 @@ $pwd = ConvertTo-SecureString -String $pwdText -Force -AsPlainText
 Export-PfxCertificate -Cert $Cert -FilePath .\B2CSigningCert.pfx -Password $pwd
 ```
 
-## <a name="create-a-policy-key"></a>Créer une clé de stratégie
+## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 
 Vous devez enregistrer le certificat que vous avez créé dans votre locataire Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, puis recherchez et sélectionnez **Azure Active Directory B2C**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité - PRÉVERSION**.
 5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
 6. Pour **Options**, choisissez `Upload`.
@@ -98,7 +98,7 @@ Vous devez enregistrer le certificat que vous avez créé dans votre locataire A
 9. Entrez le **mot de passe** du certificat.
 3. Cliquez sur **Créer**.
 
-## <a name="add-a-claims-provider"></a>Ajouter un fournisseur de revendications
+## <a name="add-a-claims-provider"></a>Ajout d’un fournisseur de revendications
 
 Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte Salesforce, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié. 
 
@@ -118,7 +118,6 @@ Vous pouvez définir un compte Salesforce en tant que fournisseur de revendicati
           <Description>Login with your Salesforce account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
-            <Item Key="RequestsSigned">false</Item>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="WantsSignedAssertions">false</Item>
             <Item Key="PartnerEntity">https://contoso-dev-ed.my.salesforce.com/.well-known/samlidp.xml</Item>
@@ -159,7 +158,7 @@ Vous pouvez définir un compte Salesforce en tant que fournisseur de revendicati
 2. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
 3. Cliquez sur **Télécharger**.
 
-## <a name="register-the-claims-provider"></a>Inscrire le fournisseur de revendications
+## <a name="register-the-claims-provider"></a>Inscription du fournisseur de revendications
 
 À ce stade, le fournisseur d’identité a été configuré, mais il n’est disponible dans aucun des écrans d’inscription ou de connexion. Pour changer cela, vous créez un doublon d’un modèle de parcours utilisateur, puis le modifiez afin qu’il dispose également du fournisseur d’identité Salesforce.
 
@@ -174,7 +173,7 @@ Vous pouvez définir un compte Salesforce en tant que fournisseur de revendicati
 L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisseur d’identité sur un écran d’inscription ou de connexion. Si vous ajoutez un élément **ClaimsProviderSelection** pour un compte LinkedIn, un nouveau bouton s’affiche quand un utilisateur arrive sur la page.
 
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous venez de créer.
-2. Sous **ClaimsProviderSelects**, ajoutez l’élément suivant. Définissez la valeur de **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `SalesforceExchange` :
+2. Sous **ClaimsProviderSelects**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `SalesforceExchange` :
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="SalesforceExchange" />
@@ -191,19 +190,19 @@ Maintenant que vous avez un bouton en place, vous devez le lier à une action. L
     <ClaimsExchange Id="SalesforceExchange" TechnicalProfileReferenceId="salesforce" />
     ```
     
-    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur l’**ID** du profil technique que vous avez créé. Par exemple : `LinkedIn-OAUTH`.
+    Mettez à jour la valeur de **TechnicalProfileReferenceId** sur **l’ID** du profil technique que vous avez créé précédemment. Par exemple : `LinkedIn-OAUTH`.
 
 3. Enregistrez le fichier *TrustFrameworkExtensions.xml* et rechargez-le à des fins de vérification.
 
-## <a name="create-an-azure-ad-b2c-application"></a>Créer une application Azure AD B2C
+## <a name="create-an-azure-ad-b2c-application"></a>Création d’une application Azure AD B2C
 
 La communication avec Azure AD B2C s’effectue via une application que vous créez dans votre locataire. Cette section indique les étapes facultatives que vous pouvez effectuer pour créer une application de test si vous ne l’avez pas déjà fait.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du Portail Azure, puis recherchez et sélectionnez **Azure Active Directory B2C**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
-5. Entrez un nom pour l’application, par exemple, *testapp1*.
+5. Entrez un nom pour l’application (par exemple, *testapp1*).
 6. Pour **Application/API web**, sélectionnez `Yes`, puis entrez `https://jwt.ms` pour l’**URL de réponse**.
 7. Cliquez sur **Créer**.
 

@@ -1,20 +1,29 @@
 ---
 title: Notes de publication du service Vision personnalisée
+titlesuffix: Azure Cognitive Services
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
+ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: anroth
-ms.openlocfilehash: 8423051fa5169eb8acddc7297e36188e297cb9e4
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 8b4ba1601a7c5a9f523f7f8145a032861aac5d8c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288650"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901320"
 ---
 # <a name="custom-vision-service-release-notes"></a>Notes de publication du service Vision personnalisée
+
+## <a name="october-9-2018"></a>9 octobre 2018
+- La détection d’objets passe en préversion payante. Vous pouvez désormais créer des projets de détection d’objets avec une ressource Azure.
+- Ajout de la fonctionnalité « Déplacer vers Azure » au site web pour faciliter la mise à niveau d’un projet d’évaluation limitée vers un projet lié de ressource Azure (F0 ou S0). Vous pouvez la trouver sur la page Paramètres de votre produit.  
+- Ajout de l’exportation vers ONNX 1.2 pour prendre en charge la mise à jour Windows d’octobre 2018 de ML Windows.
+Correctifs, dont l’exportation ONNX avec des caractères spéciaux. 
+
 
 ## <a name="august-14-2018"></a>14 août 2018
 - Ajout du widget « Mise en route » au site customvision.ai pour guider les utilisateurs dans l’entraînement du projet. 
@@ -22,7 +31,7 @@ ms.locfileid: "43288650"
 
 ## <a name="june-28-2018"></a>28 juin 2018
 - Résolution des bogues et améliorations de backend.
-- Activation de la classification multiclasse, pour les projets où les images ont exactement une étiquette. Dans les prédictions pour le mode multiclasse, les probabilités atteignent une somme égale à un (toutes les images sont classées parmi vos balises spécifiées).
+- Activation de la classification multiclasse pour les projets où les images ont exactement une étiquette. Dans les prédictions pour le mode multiclasse, les probabilités atteignent une somme égale à un (toutes les images sont classées parmi vos balises spécifiées).
 
 ## <a name="june-13-2018"></a>13 juin 2018
 - Actualisation de l’expérience utilisateur, axée sur la facilité d’utilisation et l’accessibilité. 
@@ -36,7 +45,7 @@ ms.locfileid: "43288650"
 - Améliorations significatives de backend pour le pipeline d’apprentissage automatique pour les projets de classification d’images. Les projets entraînés après le 27 avril 2018 bénéficient de ces mises à jour.
 - Ajout de l’exportation de modèles vers ONNX, pour une utilisation avec Windows ML.
 - Ajout de l’exportation de modèles vers Dockerfile. Ceci vous permet de télécharger les artefacts pour générer vos propres conteneurs Windows ou Linux, notamment un fichier DockerFile, un modèle TensorFlow et un code de service. 
-- Pour les modèles entraînés récemment et exportés vers TensorFlow dans les domaines Général (Compact) et Repères géographiques (Compact), [les valeurs moyennes sont maintenant (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample) pour des raisons de cohérence entre tous les projets. 
+- Pour les modèles formés récemment et exportés vers TensorFlow dans les domaines Général (Compact) et Repères géographiques (Compact), [les valeurs moyennes sont maintenant (0,0,0)](https://github.com/azure-samples/cognitive-services-android-customvision-sample) pour des raisons de cohérence entre tous les projets. 
 
 ## <a name="march-1-2018"></a>1er mars 2018
 - Préversion payante entrée et intégrée sur le portail Azure. Les projets peuvent désormais être attachés à des ressources Azure avec un niveau F0 (Gratuit) ou S0 (Standard). Introduction des projets de niveau S0, qui autorisent jusqu’à 100 étiquettes et 25 000 images. 

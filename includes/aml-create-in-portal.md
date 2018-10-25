@@ -9,12 +9,12 @@ manager: cgronlund
 ms.custom: include file
 ms.topic: include
 ms.date: 09/24/2018
-ms.openlocfilehash: 99c31293168fd5ff3e6b95a70dc481e01e4ac8b4
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 0b95441fd2805308c601509f1afc477f72bde321
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400315"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49476401"
 ---
 Connectez-vous au [portail Azure](https://portal.azure.com/) avec les informations d’identification de l’abonnement Azure que vous utilisez. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) maintenant.
 
@@ -39,7 +39,7 @@ Dans le volet **Espace de travail ML**, configurez votre espace de travail.
    Champ|Description
    ---|---
    Nom de l’espace de travail |Entrez un nom unique qui identifie votre espace de travail. Ici, nous utilisons docs-ws. Dans le groupe de ressources, les noms doivent être uniques. Utilisez un nom dont il est facile de se rappeler et que vous pouvez facilement différencier des autres espaces de travail.  
-   Abonnement |Sélectionnez l’abonnement Azure que vous souhaitez utiliser. Si vous avez plusieurs abonnements, sélectionnez celui utilisé pour la facturation.
+   Abonnement |Sélectionnez l’abonnement Azure que vous souhaitez utiliser.
    Groupe de ressources | Utilisez un groupe de ressources existant dans votre abonnement, ou entrez un nom pour créer un groupe de ressources. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Ici, nous utilisons docs-aml. 
    Lieu | Sélectionnez l’emplacement le plus proche de vos utilisateurs et des ressources de données. C’est là que l’espace de travail est créé.
 

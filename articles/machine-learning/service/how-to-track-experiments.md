@@ -9,12 +9,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: b3e1fd5331b97fc2120819b17f7fbba57dadf7b1
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 054cd54827dc11e57f249a270542ff81ff670912
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345048"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649990"
 ---
 # <a name="track-experiments-and-training-metrics-in-azure-machine-learning"></a>Suivre les expérimentations et les métriques d’entraînement dans Azure Machine Learning
 
@@ -25,7 +25,7 @@ Dans le service Azure Machine Learning, vous pouvez effectuer le suivi de vos ex
 
 ## <a name="list-of-training-metrics"></a>Liste des métriques d’entraînement 
 
-Les métriques suivantes peuvent être ajoutées à une exécution pendant l’entraînement d’une expérimentation. Pour afficher une liste plus détaillée des éléments qui peuvent être suivis lors d’une exécution, consultez la [documentation de référence sur le SDK](https://docs.microsoft.com/python/api/overview/azure/azure-ml-sdk-overview?view=azure-ml-py).
+Les métriques suivantes peuvent être ajoutées à une exécution pendant l’entraînement d’une expérimentation. Pour afficher une liste plus détaillée des éléments qui peuvent être suivis lors d’une exécution, consultez la [documentation de référence sur le SDK](https://aka.ms/aml-sdk).
 
 |type| Fonction Python | Exemples | Notes|
 |----|:----|:----|:----|
@@ -235,6 +235,7 @@ L’entraînement et la supervision du modèle se produisent en arrière-plan af
 
 Vous pouvez afficher les métriques d’un modèle entraîné à l’aide de ```run.get_metrics()```. Vous pouvez désormais obtenir toutes les métriques qui ont été consignées dans l’exemple ci-dessus pour déterminer le meilleur modèle.
 
+<a name='view-the-experiment-in-the-web-portal'/>
 ## <a name="view-the-experiment-in-the-azure-portal"></a>Afficher l’expérimentation dans le portail Azure
 
 Une fois l’exécution d’une expérimentation terminée, vous pouvez accéder à l’enregistrement d’exécution de l’expérimentation. Il existe deux méthodes pour le faire :

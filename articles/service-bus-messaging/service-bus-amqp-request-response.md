@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/22/2018
+ms.date: 09/22/2018
 ms.author: spelluru
-ms.openlocfilehash: f5d5b8064821dfb1aa6d4e99d0152e364f9a83fe
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b05e23019e7b0a03965e51052bf334d0cbff041d
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700516"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269341"
 ---
 # <a name="amqp-10-in-microsoft-azure-service-bus-request-response-based-operations"></a>AMQP 1.0 dans Microsoft Azure Service Bus : opérations basées sur les requêtes-réponses
 
@@ -142,6 +142,10 @@ Le message de requête doit inclure les propriétés d’application suivantes 
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
 |`lock-tokens`|tableau d’uuid|OUI|Jetons de verrouillage de message à renouveler.|  
+
+> [!NOTE]
+> Les jetons de verrouillage sont la propriété `DeliveryTag` sur des messages reçus. Regardez l’exemple suivant dans le [Kit de développement logiciel (SDK) .NET SDK](https://github.com/Azure/azure-service-bus-dotnet/blob/6f144e91310dcc7bd37aba4e8aebd535d13fa31a/src/Microsoft.Azure.ServiceBus/Amqp/AmqpMessageConverter.cs#L336) qui les récupère. Le jeton peut également apparaître dans « DeliveryAnnotations » en tant que « x-opt-lock-token ». Toutefois, cela n’est pas garanti et il faut préférer `DeliveryTag`. 
+> 
   
 #### <a name="response"></a>response  
 
@@ -365,7 +369,7 @@ Le message de requête doit inclure les propriétés d’application suivantes 
   
 |Clé|Type de valeur|Obligatoire|Contenu de la valeur|  
 |---------|----------------|--------------|--------------------|  
-|operation|chaîne|OUI|`com.microsoft:peek-message`|  
+|operation|chaîne|OUI|`com.microsoft:set-session-state`|  
 |`com.microsoft:server-timeout`|uint|Non |Délai d’expiration du serveur de l’opération en millisecondes.|  
   
 Le corps du message de requête doit contenir une section **amqp-value** comprenant un **mappage** avec les entrées suivantes :  

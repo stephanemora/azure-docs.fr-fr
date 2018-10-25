@@ -11,20 +11,22 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/18/2018
-ms.openlocfilehash: 0a91139d92570a2ee2828f9295590d580902c501
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/04/2018
+ms.openlocfilehash: 1775e1810a164bfbdd1cddea9360674592cf446c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164988"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857531"
 ---
 # <a name="manage-azure-sql-database-long-term-backup-retention"></a>Gérer la rétention des sauvegardes à long terme Azure SQL Database
 
-Vous pouvez configurer la base de données SQL Azure avec une stratégie de [rétention des sauvegardes à long terme](sql-database-long-term-retention.md) pour conserver automatiquement des sauvegardes dans le stockage Blob Azure pendant 10 ans maximum. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes via le portail Azure ou PowerShell.
+Dans Azure SQL Database, vous pouvez configurer une base de données simple ou en pool avec une stratégie de [rétention des sauvegardes à long terme](sql-database-long-term-retention.md) pour conserver automatiquement des sauvegardes dans le stockage Blob Azure pendant jusqu’à 10 ans. Vous pouvez ensuite récupérer une base de données à l’aide de ces sauvegardes via le portail Azure ou PowerShell.
+
+> [!IMPORTANT]
+> [Azure SQL Database Managed Instance](sql-database-managed-instance.md) ne prend pas en charge actuellement la rétention des sauvegardes à long terme.
 
 ## <a name="use-the-azure-portal-to-configure-long-term-retention-policies-and-restore-backups"></a>Utiliser le portail Azure pour configurer des stratégies de rétention à long terme et restaurer des sauvegardes
-
 Les sections suivantes vous montrent comment utiliser le portail Azure pour configurer la rétention à long terme, afficher des sauvegardes dans une rétention à long terme et restaurer la sauvegarde à partir d’une rétention à long terme.
 
 ### <a name="configure-long-term-retention-policies"></a>Configurer des stratégies de rétention à long terme
@@ -78,6 +80,24 @@ Les sections suivantes vous montrent comment utiliser PowerShell pour configurer
 - [AzureRM.Sql-4.5.0](https://www.powershellgallery.com/packages/AzureRM.Sql/4.5.0) ou version ultérieure
 - [AzureRM-6.1.0](https://www.powershellgallery.com/packages/AzureRM/6.1.0) ou version ultérieure
 > 
+
+### <a name="rbac-roles-to-manage-long-term-retention"></a>Rôles RBAC pour gérer la rétention à long terme
+
+Pour gérer les sauvegardes de rétention à long terme, vous devez être 
+- propriétaire de l’abonnement ou
+- contributeur de SQL Server dans l’étendue **Abonnement** ou
+- contributeur de SQL Database dans l’étendue **Abonnement**
+
+Si un contrôle plus précis est nécessaire, vous pouvez créer des rôles RBAC personnalisés et les affecter dans une étendue **Abonnement**. 
+
+Pour **Get-AzureRmSqlDatabaseLongTermRetentionBackup** et **Restore-AzureRmSqlDatabase**, le rôle doit avoir les autorisations suivantes :
+
+Microsoft.Sql/locations/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/read
+ 
+Pour **Remove-AzureRmSqlDatabaseLongTermRetentionBackup**, le rôle doit avoir les autorisations suivantes :
+
+Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete
+
 
 ### <a name="create-an-ltr-policy"></a>Créer une stratégie de rétention à long terme
 

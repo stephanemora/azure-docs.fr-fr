@@ -5,21 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 10/09/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 81c4990f79f0255a1ae2b3c4020dbfdebda73f6f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: a918a44042df13c8b799d823656c4cd878f8f618
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116621"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426649"
 ---
 # <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory-preview"></a>Authentifier l’accès aux objets blob et aux files d’attente Azure à l’aide d’Azure Active Directory (préversion)
 
 Le Stockage Azure prend en charge l’authentification et l’autorisation avec Azure Active Directory (AD) pour les services de Blob et de File d’attente. Avec Azure AD, vous pouvez utiliser le contrôle d’accès basé sur un rôle (RBAC) pour accorder l’accès aux utilisateurs, groupes ou principaux de service d’application. 
 
 L’authentification des utilisateurs et des applications à l’aide des informations d’identification Azure AD est plus sécurisée et plus facile à utiliser que les autres modes d’autorisation. Même si vous pouvez continuer à utiliser l’autorisation de clé partagée avec vos applications, avec Azure AD, vous n’avez plus besoin de stocker votre clé d’accès de compte avec votre code. Vous pouvez également continuer à utiliser des signatures d’accès partagé (SAP) pour accorder un accès affiné aux ressources de votre compte de stockage. Toutefois, Azure AD offre des fonctionnalités similaires sans nécessiter de gestion des jetons SAP, ni de révocation des SAP compromises. Dans la mesure du possible, Microsoft recommande d’utiliser l’authentification Azure AD pour les applications Stockage Azure.
+
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="about-the-preview"></a>À propos de la préversion
 
@@ -38,8 +40,6 @@ Gardez à l’esprit les points suivants concernant la préversion :
         - [Blob, File d’attente et Fichiers](https://github.com/Azure/azure-storage-python)
     - [Node.JS](https://www.npmjs.com/package/azure-storage)
     - [JavaScript](https://aka.ms/downloadazurestoragejs)
-
-[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="get-started-with-azure-ad-for-storage"></a>Bien démarrer avec Azure AD pour le stockage
 

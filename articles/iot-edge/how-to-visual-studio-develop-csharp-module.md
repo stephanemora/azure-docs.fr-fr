@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/24/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 768ff899ca2c71cb32fe29bdd5d58654d8f7d431
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ab4dd1186715fde51fbf188ace902c8092d192d0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394746"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647185"
 ---
 # <a name="use-visual-studio-2017-to-develop-and-debug-c-modules-for-azure-iot-edge-preview"></a>Utiliser Visual Studio 2017 pour développer et déboguer des modules C# pour Azure IoT Edge (préversion)
 
@@ -36,7 +36,7 @@ Comme cet article utilise Visual Studio 2017 comme outil de développement princ
 
 Une fois que Visual Studio 2017 est prêt, vous devez aussi :
 
-- Téléchargez et installez [l’extension Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.azureiotedgetools) à partir de Visual Studio Marketplace pour créer un projet IoT Edge dans Visual Studio 2017.
+- Téléchargez et installez [l’extension Azure IoT Edge](https://marketplace.visualstudio.com/items?itemName=vsc-iot.vsiotedgetools) à partir de Visual Studio Marketplace pour créer un projet IoT Edge dans Visual Studio 2017.
 - [Docker Community Edition](https://docs.docker.com/install/) sur votre machine de développement pour générer et exécuter vos images de module. Vous devez configurer correctement Docker CE pour qu’il s’exécute en mode conteneur Linux ou Windows.
 - Afin de configurer l’environnement de développement local pour le débogage, l’exécution et le test de votre solution IoT Edge, vous avez besoin de [l’outil de développement Azure IoT EdgeHub](https://pypi.org/project/iotedgehubdev/). Installez [Python (2.7/3.6) et Pip](https://www.python.org/). Ensuite, installez **iotedgehubdev** en exécutant la commande ci-dessous dans votre terminal. Vérifiez que votre version de l’outil de développement Azure IoT pour EdgeHub est supérieure à 0.3.0.
 

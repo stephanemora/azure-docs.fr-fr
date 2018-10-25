@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/07/2018
 ms.author: diberry
-ms.openlocfilehash: 78cc2a8a2b9295654d0c6264cbf4a4d634b16544
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e65e44ec4deb07e85b9514a1685e4dbb692fd512
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038168"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857390"
 ---
 # <a name="enable-active-learning-by-reviewing-endpoint-utterances"></a>Activer l’apprentissage actif en passant en revue les énoncés de point de terminaison
 L’apprentissage actif est l’une des trois stratégies pour améliorer la précision de la prédiction et simplifier l’implémentation. Avec l’apprentissage actif, vous passez en revue les énoncés de point de terminaison afin de vérifier que l’intention et l’entité sont correctes. LUIS choisit les énoncés de point de terminaison pour lesquels il a des doutes.
@@ -36,7 +36,7 @@ Les énoncés de point de terminaison proviennent de requêtes de l’utilisateu
 La révision des énoncés suggérés ne doit pas être effectuée chaque jour, mais doit être incluse dans votre maintenance régulière de LUIS. 
 
 ## <a name="delete-review-items-programmatically"></a>Supprimer des éléments de révision par programmation
-Si votre application est volumineuse, vous pouvez choisir de réviser certains énoncés et de supprimer les autres de la liste par programmation. Pour cela, [obtenez](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c0a) tout d’abord la liste, puis [supprimez](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9) les énoncés par ID.
+Utilisez l’API **[de suppression des énoncés non étiquetés](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/58b6f32139e2bb139ce823c9)**. Sauvegardez ces énoncés avant suppression en **[exportant les fichiers journaux](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c36)**.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

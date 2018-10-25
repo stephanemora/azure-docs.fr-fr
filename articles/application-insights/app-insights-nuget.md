@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/16/2018
 ms.author: mbullwin
-ms.openlocfilehash: 96c9628807d2aae257e27432ea8d27a7d9325de0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: b6188bbf89d9aee842d7f8e232a820b59c4d9e31
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380570"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023251"
 ---
 # <a name="application-insights-nuget-packages"></a>Packages NuGet Application Insights
 
@@ -30,7 +30,7 @@ Voici la liste actuelle des versions stables des Packages NuGet pour Application
 |Microsoft.ApplicationInsights.Agent.Intercept | 2.4.0 | Permet l’interception d’appels de méthode | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Agent.Intercept/) |
 | Microsoft.ApplicationInsights.DependencyCollector | 2.8.0 | Collecteur de dépendances Application Insights pour les applications .NET. Package dépendant pour les packages Application Insights spécifiques à la plateforme. Il fournit la collecte automatique des données de télémétrie des dépendances. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) |
 | Microsoft.ApplicationInsights.PerfCounterCollector | 2.8.0 | Le collecteur de compteurs de performances Application Insights vous permet d’envoyer les données collectées par les compteurs de performances à Application Insights. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.PerfCounterCollector/) |
-| Microsoft.ApplicationInsights.Web | 2.8.0 | Application Insights pour les applications web .NET | [Télécharger le package] (https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
+| Microsoft.ApplicationInsights.Web | 2.8.0 | Application Insights pour les applications web .NET | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/) |
 | Microsoft.ApplicationInsights.WindowsServer | 2.8.0 | Le package NuGet Windows Server Application Insights fournit la collecte automatique des données de télémétrie Application Insights pour les applications .NET. Ce package peut être utilisé en tant que package dépendant pour les packages Application Insights spécifiques à la plateforme ou que package autonome pour les applications .NET non couvertes par les packages spécifiques à la plateforme (comme dans le cas des rôles de travail .NET). | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/)  
 | Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel | 2.8.0 | Fournit un canal de télémétrie au SDK Windows Server Application Insights qui conserve les données de télémétrie dans les scénarios hors connexion. | [Télécharger le package](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel/) |
 

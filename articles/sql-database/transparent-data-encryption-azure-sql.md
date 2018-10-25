@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 94a3a502d5756d57cfebdf6698a4435dc1e19948
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 0d5b7e484024294eb5c95b632dbef85c377b717e
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353020"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469025"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparent Data Encryption pour SQL Database et Data Warehouse
 
@@ -113,17 +113,17 @@ Pour configurer le chiffrement transparent des données par le biais de l’API 
 
 | Commande | Description |
 | --- | --- |
-|[Créer ou mettre à jour un serveur](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate)|Ajoute une identité Azure Active Directory à une instance SQL Server (permettant d’accorder l’accès à Key Vault)|
-|[Créer ou mettre à jour une clé de serveur](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_createorupdate)|Ajoute une clé Key Vault à une instance SQL Server|
-|[Supprimer une clé de serveur](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_delete)|Supprime une clé Key Vault d’une instance SQL Server|
-|[Obtenir des clés de serveur](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_get)|Obtient une clé Key Vault spécifique d’une instance SQL Server|
-|[Répertorier les clés de serveur par serveur](https://docs.microsoft.com/rest/api/sql/serverkeys/serverkeys_listbyserver)|Obtient les clés Key Vault pour une instance SQL Server |
-|[Créer ou mettre à jour le protecteur du chiffrement](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_createorupdate)|Définit le protecteur du chiffrement transparent des données pour une instance SQL Server|
-|[Obtenir le protecteur du chiffrement](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_get)|Obtient le protecteur du chiffrement transparent des données pour une instance SQL Server|
-|[Répertorier les protecteurs du chiffrement par serveur](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/encryptionprotectors_listbyserver)|Obtient les protecteurs du chiffrement transparent des données pour une instance SQL Server |
-|[Créer ou mettre à jour la configuration du chiffrement transparent des données](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_createorupdate)|Active ou désactive le chiffrement transparent des données pour une base de données|
-|[Obtenir la configuration du chiffrement transparent des données](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/transparentdataencryptions_get)|Obtient la configuration du chiffrement transparent des données pour une base de données|
-|[Répertorier les résultats de configuration du chiffrement transparent des données](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/transparentdataencryptionactivities_listbyconfiguration)|Obtient le résultat du chiffrement d’une base de données|
+|[Créer ou mettre à jour un serveur](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Ajoute une identité Azure Active Directory à une instance SQL Server (permettant d’accorder l’accès à Key Vault)|
+|[Créer ou mettre à jour une clé de serveur](https://docs.microsoft.com/rest/api/sql/serverkeys/createorupdate)|Ajoute une clé Key Vault à une instance SQL Server|
+|[Supprimer une clé de serveur](https://docs.microsoft.com/rest/api/sql/serverkeys/delete)|Supprime une clé Key Vault d’une instance SQL Server|
+|[Obtenir des clés de serveur](https://docs.microsoft.com/rest/api/sql/serverkeys/get)|Obtient une clé Key Vault spécifique d’une instance SQL Server|
+|[Répertorier les clés de serveur par serveur](https://docs.microsoft.com/rest/api/sql/serverkeys/listbyserver)|Obtient les clés Key Vault pour une instance SQL Server |
+|[Créer ou mettre à jour le protecteur du chiffrement](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/createorupdate)|Définit le protecteur du chiffrement transparent des données pour une instance SQL Server|
+|[Obtenir le protecteur du chiffrement](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/get)|Obtient le protecteur du chiffrement transparent des données pour une instance SQL Server|
+|[Répertorier les protecteurs du chiffrement par serveur](https://docs.microsoft.com/rest/api/sql/encryptionprotectors/listbyserver)|Obtient les protecteurs du chiffrement transparent des données pour une instance SQL Server |
+|[Créer ou mettre à jour la configuration du chiffrement transparent des données](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/createorupdate)|Active ou désactive le chiffrement transparent des données pour une base de données|
+|[Obtenir la configuration du chiffrement transparent des données](https://docs.microsoft.com/rest/api/sql/transparentdataencryptions/get)|Obtient la configuration du chiffrement transparent des données pour une base de données|
+|[Répertorier les résultats de configuration du chiffrement transparent des données](https://docs.microsoft.com/rest/api/sql/transparentdataencryptionactivities/listbyconfiguration)|Obtient le résultat du chiffrement d’une base de données|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

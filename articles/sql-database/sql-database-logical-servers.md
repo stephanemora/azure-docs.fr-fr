@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 83db2bcfe21edc9f8f2649ef8c2b3a23e412e39d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 6432c6b2c1c224f44b962df63e1502729f69e57f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353983"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470657"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Serveurs logiques Azure SQL Database et leur gestion
 
@@ -170,22 +170,22 @@ Pour créer et gérer un serveur, des bases de données et des pare-feux Azure S
 
 | Commande | Description |
 | --- | --- |
-|[Serveurs - Create ou Update](https://docs.microsoft.com/rest/api/sql/servers/servers_createorupdate/rest/api)|Crée ou met à jour un serveur.|
-|[Serveurs - Delete](https://docs.microsoft.com/rest/api/sql/servers/servers_delete)|Supprime un serveur SQL.|
-|[Serveurs - Get](https://docs.microsoft.com/rest/api/sql/servers/servers_get)|Obtient un serveur.|
-|[Serveurs - List](https://docs.microsoft.com/rest/api/sql/servers/servers_list)|Retourne une liste de serveurs.|
-|[Serveurs - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/servers_listbyresourcegroup)|Retourne une liste de serveurs dans un groupe de ressources.|
-|[Serveurs - Update](https://docs.microsoft.com/rest/api/sql/servers/servers_update)|Met à jour un serveur existant.|
-|[Bases de données : Create ou Update](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate)|Crée une base de données ou met à jour une base de données existante.|
-|[Bases de données - Supprimer](https://docs.microsoft.com/rest/api/sql/databases/databases_delete)|Supprime une base de données.|
-|[Bases de données - Obtenir](https://docs.microsoft.com/rest/api/sql/databases/databases_get)|Obtient une base de données.|
-|[Bases de données - Lister par pool élastique](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
-|[Bases de données - Lister par serveur](https://docs.microsoft.com/rest/api/sql/databases/databases_listbyserver)|Retourne une liste de bases de données d’un serveur.|
-|[Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/databases_update)|Met à jour une base de données existante.|
-|[Règles de pare-feu - Create ou Update](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate)|Crée ou met à jour une règle de pare-feu.|
-|[Règles de pare-feu - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete)|Supprime une règle de pare-feu.|
-|[Règles de pare-feu - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get)|Obtient une règle de pare-feu.|
-|[Règles de pare-feu - List By Server](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver)|Retourne une liste de règles de pare-feu.|
+|[Serveurs - Create ou Update](https://docs.microsoft.com/rest/api/sql/servers/createorupdate)|Crée ou met à jour un serveur.|
+|[Serveurs - Delete](https://docs.microsoft.com/rest/api/sql/servers/delete)|Supprime un serveur SQL.|
+|[Serveurs - Get](https://docs.microsoft.com/rest/api/sql/servers/get)|Obtient un serveur.|
+|[Serveurs - List](https://docs.microsoft.com/rest/api/sql/servers/list)|Retourne une liste de serveurs.|
+|[Serveurs - List By Resource Group](https://docs.microsoft.com/rest/api/sql/servers/listbyresourcegroup)|Retourne une liste de serveurs dans un groupe de ressources.|
+|[Serveurs - Update](https://docs.microsoft.com/rest/api/sql/servers/update)|Met à jour un serveur existant.|
+|[Bases de données : Create ou Update](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|
+|[Bases de données - Supprimer](https://docs.microsoft.com/rest/api/sql/databases/delete)|Supprime une base de données.|
+|[Bases de données - Obtenir](https://docs.microsoft.com/rest/api/sql/databases/get)|Obtient une base de données.|
+|[Bases de données - Lister par pool élastique](https://docs.microsoft.com/rest/api/sql/databases/listbyelasticpool)|Renvoie une liste des bases de données dans un pool élastique.|
+|[Bases de données - Lister par serveur](https://docs.microsoft.com/rest/api/sql/databases/listbyserver)|Retourne une liste de bases de données d’un serveur.|
+|[Bases de données - Mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/update)|Met à jour une base de données existante.|
+|[Règles de pare-feu - Create ou Update](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)|Crée ou met à jour une règle de pare-feu.|
+|[Règles de pare-feu - Delete](https://docs.microsoft.com/rest/api/sql/firewallrules/delete)|Supprime une règle de pare-feu.|
+|[Règles de pare-feu - Get](https://docs.microsoft.com/rest/api/sql/firewallrules/get)|Obtient une règle de pare-feu.|
+|[Règles de pare-feu - List By Server](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver)|Retourne une liste de règles de pare-feu.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

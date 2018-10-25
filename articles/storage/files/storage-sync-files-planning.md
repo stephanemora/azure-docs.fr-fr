@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d5b01566f672309837f738e185820a0f13eda1c1
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e4e793ac5735f7f3b07d285dea027a8f603b7964
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382252"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237891"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -62,10 +62,7 @@ Un point de terminaison cloud est un partage de fichiers Azure qui fait partie d
 > Azure File Sync prend en charge les modifications directes dans le partage de fichiers Azure. Toutefois, les modifications apportées au partage de fichiers Azure doivent d’abord être détectées par un travail de détection des modifications Azure File Sync. Un travail de détection des modifications est lancé pour un point de terminaison cloud toutes les 24 heures uniquement. Par ailleurs, les modifications apportées à un partage de fichiers Azure via le protocole REST ne mettent pas à jour l’heure de dernière modification de SMB et ne sont pas visibles comme des modifications par la synchronisation. Pour plus d’informations, consultez [Questions fréquentes (FAQ) sur Azure Files](storage-files-faq.md#afs-change-detection).
 
 ### <a name="cloud-tiering"></a>Hiérarchisation cloud 
-La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Sync qui permet de hiérarchiser dans Azure Files les fichiers rarement utilisés ou les fichiers avec une taille supérieure à 64 Kio. Quand un fichier est hiérarchisé, le filtre du système de fichiers Azure File Sync (StorageSync.sys) remplace le fichier local par un pointeur, ou point d’analyse. Le point d’analyse représente une URL vers le fichier dans Azure Files. Un fichier hiérarchisé a l’attribut « hors connexion » défini dans NTFS, ce qui permet aux applications tierces de l’identifier. Quand un utilisateur ouvre un fichier hiérarchisé, Azure File Sync rappelle les données du fichier d’Azure Files de manière transparente, sans que l’utilisateur ait besoin de savoir que le fichier n’est pas stocké localement sur le système. Cette fonctionnalité est également appelée Gestion hiérarchique du stockage.
-
-> [!Important]  
-> La hiérarchisation cloud n’est pas prise en charge pour les points de terminaison de serveur sur les volumes système Windows.
+La hiérarchisation cloud est une fonctionnalité facultative d’Azure File Sync, qui met en cache sur le serveur local les fichiers faisant l’objet d’accès fréquents, tous les autres fichiers étant hiérarchisés sur Azure Files en fonction de paramètres de stratégie. Pour plus d’informations, voir [Compréhension de la hiérarchisation Cloud](storage-sync-cloud-tiering.md).
 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Configuration requise et interopérabilité d’Azure File Sync 
 Cette section traite de la configuration requise et de l’interopérabilité de l’agent Azure File Sync avec les fonctionnalités et rôles Windows Server, ainsi qu’avec des solutions tierces.

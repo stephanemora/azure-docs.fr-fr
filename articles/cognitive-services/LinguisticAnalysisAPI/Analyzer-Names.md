@@ -1,22 +1,27 @@
 ---
-title: Structure d’attribution de noms d’analyseur dans l’API Analyse linguistique | Microsoft Docs
-description: Découvrez comment l’API d’analyse linguistique utilise sa structure d’attribution de noms pour les analyseurs, afin d’offrir flexibilité et précision.
+title: Structure d’attribution de noms d’analyseur – API Analyse linguistique
+titlesuffix: Azure Cognitive Services
+description: Découvrez comment la structure d’attribution de noms d’analyseur de l’API Analyse linguistique offre flexibilité et précision.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2016
 ms.author: lesun
-ms.openlocfilehash: 2729b7126e82862660fc8e1a995cc87ae996ea03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: f8c7aba2b853f3916c2d01d94d49090a4b3e36a0
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367968"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237228"
 ---
 # <a name="analyzer-names"></a>Noms d’analyseur
+
+> [!IMPORTANT]
+> La préversion de l’analyse linguistique a été désactivée le 9 août 2018. Nous vous recommandons d’utiliser les [modules d’analyse de texte Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) pour le traitement et l’analyse de texte.
 
 Nous utilisons une structure d’attribution de noms un peu complexe pour les analyseurs, afin d’offrir une certaine flexibilité en matière d’analyseur et une certaine précision pour faciliter la compréhension du nom.
 Les noms d’analyseur sont formés de quatre éléments : un ID, un type, une spécification et une implémentation.

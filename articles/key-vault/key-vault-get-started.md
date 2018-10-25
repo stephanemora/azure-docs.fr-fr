@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: barclayn
-ms.openlocfilehash: b5e235221d34434b908d605c9077ae2fede2fe94
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: d0be0cbd9ff16acc1ecb209997a0c87cd4e43b36
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365611"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955088"
 ---
 # <a name="get-started-with-azure-key-vault"></a>Prise en main du coffre de clés Azure
 Cet article vous aide à prendre en main Azure Key Vault avec PowerShell et vous explique en détail :
@@ -204,7 +204,7 @@ Pour afficher sous forme de texte brut la valeur contenue dans le secret :
 À présent, votre coffre de clés et la clé/le secret sont prêts à être utilisés par les applications. Maintenant, vous autorisez les applications à les utiliser.  
 
 ## <a id="register"></a>Inscription d’une application auprès d’Azure Active Directory
-Cette étape est généralement effectuée par un développeur et sur un ordinateur distinct. Elle n’est pas propre à Azure Key Vault. Pour obtenir des instructions détaillées sur l’inscription d’une application auprès d’Azure Active Directory, consultez l’article [Intégration d’applications dans Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) ou [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+Cette étape est généralement effectuée par un développeur et sur un ordinateur distinct. Elle n’est pas propre à Azure Key Vault. Pour obtenir des instructions détaillées sur l’inscription d’une application auprès d’Azure Active Directory, consultez l’article [Intégration d’applications dans Azure Active Directory](../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) ou [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](../active-directory/develop/howto-create-service-principal-portal.md).
 
 > [!IMPORTANT]
 > Pour suivre le didacticiel, le compte, le coffre et l’application que vous inscrivez dans cette étape doivent tous se trouver dans le même répertoire Azure.

@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: d06d29fb43ea8d8971c3f013c1e66406a30798d3
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 738e78e608dbd819f24125799a1e8d48859f1aa0
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064252"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043606"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Rechercher et appliquer les recommandations en matière de performances
 
@@ -105,7 +105,7 @@ Vous pouvez configurer Azure SQL Database de manière à implémenter automatiqu
     ![Index recommandés](./media/sql-database-automatic-tuning-enable/server.png)
 
 > [!NOTE]
-> Notez que l’option **DROP_INDEX** n’est pas compatible avec les applications utilisant la commutation de partition et les indicateurs d’index, et ne doit pas être activée dans ces cas.
+> Notez que l’option **DROP_INDEX** n’est actuellement pas compatible avec les applications utilisant la commutation de partition et les conseils d’index. 
 >
 
 Une fois que vous avez sélectionné la configuration voulue, cliquez sur Appliquer.

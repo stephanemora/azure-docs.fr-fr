@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/09/2018
 ms.author: ryanwi
-ms.openlocfilehash: f9e3f190decdc907cf57a0235b9d7142081bd2f1
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: f199e6615109278764b9fcc75346da9ee6171cfa
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208027"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815645"
 ---
 # <a name="scaling-service-fabric-clusters"></a>Mise à l’échelle de clusters Service Fabric
 Un cluster Service Fabric est un groupe de machines virtuelles ou physiques connectées au réseau, sur lequel vos microservices sont déployés et gérés. Une machine ou une machine virtuelle faisant partie d’un cluster est appelée un nœud. Les clusters peuvent potentiellement comporter des milliers de nœuds. Une fois que vous avez créé un cluster Service Fabric, vous pouvez le mettre à l’échelle horizontalement (modifier le nombre de nœuds) ou verticalement (modifier les ressources des nœuds).  Une mise à l’échelle peut s’effectuer à tout moment, même lorsque des charges de travail sont en cours d’exécution sur le cluster.  Lorsque vous mettez vos nœuds à l’échelle, vos applications sont automatiquement mises à l’échelle.
@@ -75,6 +75,10 @@ Face à ces limitations, vous pouvez [mettre en œuvre des modèles davantage pe
 Les clusters autonomes vous permettent de déployer un cluster Service Fabric en local ou auprès du fournisseur de cloud de votre choix.  Les types de nœuds sont constitués de machines physiques ou de machines virtuelles, en fonction de votre déploiement. Par rapport aux clusters en cours d’exécution dans Azure, le processus de mise à l’échelle d’un cluster autonome est un petit peu plus complexe.  Vous devez modifier manuellement le nombre de nœuds dans le cluster, puis exécuter une mise à niveau de la configuration du cluster.
 
 La suppression de nœuds peut entraîner plusieurs mises à niveau. Certains nœuds, identifiés avec la balise `IsSeedNode=”true”`, peuvent être identifiés en interrogeant le manifeste du cluster à l’aide de [Get-ServiceFabricClusterManifest](/powershell/module/servicefabric/get-servicefabricclustermanifest). La suppression de ces nœuds peut prendre plus de temps car, dans ce cas, les nœuds initiaux devront être déplacés. Le cluster doit conserver au moins 3 nœuds de type nœud principal.
+
+> [!WARNING]
+> Nous vous recommandons de ne pas réduire le nombre de nœuds sous la [taille de niveau de fiabilité](service-fabric-cluster-capacity.md#the-reliability-characteristics-of-the-cluster) pour le cluster. Cela interférera avec la possibilité de réplication des services système Service Fabric sur le cluster, et déstabilisera, voire détruira le cluster.
+>
 
 Lors de la mise à l’échelle d’un cluster autonome, gardez les instructions suivantes à l’esprit :
 - Le remplacement des nœuds principaux doit être effectué un nœud à la fois, au lieu de supprimer, puis d’ajouter des nœuds par lots.

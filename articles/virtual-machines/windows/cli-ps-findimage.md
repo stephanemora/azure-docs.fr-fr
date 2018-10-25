@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 02/28/2018
+ms.date: 09/28/2018
 ms.author: danlep
-ms.openlocfilehash: 269d1392e00d02a79a360e3528fdde174563f2cf
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: 4fb718eb7247bddd8869b8973479377e3baebdda
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295208"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017176"
 ---
 # <a name="how-to-find-windows-vm-images-in-the-azure-marketplace-with-azure-powershell"></a>Comment rechercher des images de machine virtuelle Windows sur la Place de marché Microsoft Azure avec Azure PowerShell
 
@@ -38,14 +38,13 @@ Vérifiez que le dernier [module Azure PowerShell](/powershell/azure/install-azu
 | MicrosoftWindowsServer |WindowsServer |2016-centre-de-données |
 | MicrosoftWindowsServer |WindowsServer |2016-Datacenter-Server-Core |
 | MicrosoftWindowsServer |WindowsServer |2016-centre-de-données-avec-conteneurs |
-| MicrosoftWindowsServer |WindowsServer |2016-Nano-Server |
 | MicrosoftWindowsServer |WindowsServer |2012-R2-Datacenter |
+| MicrosoftWindowsServer |WindowsServer |2012-Datacenter |
 | MicrosoftWindowsServer |WindowsServer |2008-R2-SP1 |
 | MicrosoftDynamicsNAV |DynamicsNAV |2017 |
 | MicrosoftSharePoint |MicrosoftSharePointServer |2016 |
-| MicrosoftSQLServer |SQL2014SP2-WS2012R2 |Entreprise |
-| MicrosoftWindowsServerHPCPack |WindowsServerHPCPack |2012R2 |
-| MicrosoftWindowsServerEssentials |WindowsServerEssentials |WindowsServerEssentials |
+| MicrosoftSQLServer |SQL2017-WS2016 |Entreprise |
+| MicrosoftRServer |RServer-WS2016 |Entreprise |
 
 ## <a name="navigate-the-images"></a>Parcourir les images
 
@@ -95,11 +94,12 @@ Get-AzureRMVMImagePublisher -Location $locName | Select PublisherName
 
 ```
 
-Output:
+Résultat partiel :
 
 ```
 PublisherName
 -------------
+...
 a10networks
 aiscaler-cache-control-ddos-and-url-rewriting-
 alertlogic
@@ -120,7 +120,7 @@ $pubName="MicrosoftWindowsServer"
 Get-AzureRMVMImageOffer -Location $locName -Publisher $pubName | Select Offer
 ```
 
-Output:
+Sortie :
 
 ```
 Offer
@@ -137,7 +137,7 @@ $offerName="WindowsServer"
 Get-AzureRMVMImageSku -Location $locName -Publisher $pubName -Offer $offerName | Select Skus
 ```
 
-Output:
+Sortie :
 
 ```
 Skus
@@ -154,7 +154,6 @@ Skus
 2016-Datacenter-smalldisk
 2016-Datacenter-with-Containers
 2016-Datacenter-with-RDSH
-2016-Nano-Server
 ```
 
 Ensuite, pour la référence SKU *2016-centre-de-données* :
@@ -164,12 +163,11 @@ $skuName="2016-Datacenter"
 Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Sku $skuName | Select Version
 ```
 
-Maintenant, vous pouvez combiner l’éditeur, l’offre, la référence SKU et la version sélectionnés en un schéma URN (valeurs séparées par :). Transmettez cet URN avec le paramètre `--image` lorsque vous créez une machine virtuelle avec la cmdlet [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). N’oubliez pas que vous pouvez remplacer le numéro de version de l’URN par « latest » (dernière version). Cette version est toujours la dernière version de l’image. Vous pouvez également utiliser l’URN avec la cmdlet PowerShell [Set-AzureRMVMSourceImage](/powershell/module/azurerm.compute/set-azurermvmsourceimage). 
+Maintenant, vous pouvez combiner l’éditeur, l’offre, la référence SKU et la version sélectionnés en un schéma URN (valeurs séparées par :). Transmettez cet URN avec le paramètre `--image` lorsque vous créez une machine virtuelle avec la cmdlet [New-AzureRmVM](/powershell/module/azurerm.compute/new-azurermvm). N’oubliez pas que vous pouvez remplacer le numéro de version de l’URN par « latest » (dernière version). Cette version est toujours la dernière version de l’image.
 
 Si vous déployez une machine virtuelle avec un modèle Resource Manager, vous définissez les paramètres d’image individuellement dans les propriétés `imageReference`. Consultez la [référence de modèle](/azure/templates/microsoft.compute/virtualmachines).
 
 [!INCLUDE [virtual-machines-common-marketplace-plan](../../../includes/virtual-machines-common-marketplace-plan.md)]
-
 
 ### <a name="view-plan-properties"></a>Afficher les propriétés du plan
 
@@ -182,7 +180,7 @@ $version = "2016.127.20170406"
 Get-AzureRMVMImage -Location $locName -Publisher $pubName -Offer $offerName -Skus $skuName -Version $version
 ```
 
-Output:
+Sortie :
 
 ```
 Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/MicrosoftWindowsServer/ArtifactTypes/VMImage/Offers/WindowsServer/Skus/2016-Datacenter/
@@ -208,7 +206,7 @@ L’exécution d’une commande similaire pour l’image Machine virtuelle Scien
 Get-AzureRMVMImage -Location "westus" -Publisher "microsoft-ads" -Offer "windows-data-science-vm" -Skus "windows2016" -Version "0.2.02"
 ```
 
-Output:
+Sortie :
 
 ```
 Id               : /Subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/Providers/Microsoft.Compute/Locations/westus/Publishers/microsoft-ads/ArtifactTypes/VMIma
@@ -234,13 +232,13 @@ DataDiskImages   : []
 
 ### <a name="accept-the-terms"></a>Accepter les conditions
 
-Pour afficher les termes du contrat de licence, utilisez la cmdlet [Get-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/get-azurermmarketplaceterms) et transmettez les paramètres de plan d’achat. La sortie contient un lien vers les conditions de l’image de la Marketplace et indique si vous les avez acceptées précédemment. Par exemple : 
+Pour afficher les termes du contrat de licence, utilisez la cmdlet [Get-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/get-azurermmarketplaceterms) et transmettez les paramètres de plan d’achat. La sortie contient un lien vers les conditions de l’image de la Marketplace et indique si vous les avez acceptées précédemment. Veillez à utiliser uniquement des lettres minuscules dans les valeurs de paramètre. Par exemple : 
 
 ```powershell
 Get-AzureRmMarketplaceterms -Publisher "microsoft-ads" -Product "windows-data-science-vm" -Name "windows2016"
 ```
 
-Output:
+Sortie :
 
 ```
 Publisher         : microsoft-ads
@@ -254,7 +252,7 @@ Accepted          : False
 Signdate          : 2/23/2018 7:43:00 PM
 ```
 
-Utilisez la cmdlet [Set-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) pour accepter ou rejeter les conditions. Vous ne devez accepter qu’une fois les conditions par abonnement pour l’image. Par exemple : 
+Utilisez la cmdlet [Set-AzureRmMarketplaceterms](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) pour accepter ou rejeter les conditions. Vous ne devez accepter qu’une fois les conditions par abonnement pour l’image. Veillez à utiliser uniquement des lettres minuscules dans les valeurs de paramètre. Par exemple : 
 
 ```powershell
 
@@ -264,7 +262,7 @@ Set-AzureRmMarketplaceTerms -Publisher "microsoft-ads" -Product "windows-data-sc
 
 ```
 
-Output:
+Sortie :
 
 ```
 Publisher         : microsoft-ads
@@ -273,27 +271,43 @@ Plan              : windows2016
 LicenseTextLink   : https://storelegalterms.blob.core.windows.net/legalterms/3E5ED_legalterms_MICROSOFT%253a2DADS%253a24WINDOWS%253a2DDATA%253a2DSCIENCE%253a2DV
                     M%253a24WINDOWS2016%253a24OC5SKMQOXSED66BBSNTF4XRCS4XLOHP7QMPV54DQU7JCBZWYFP35IDPOWTUKXUC7ZAG7W6ZMDD6NHWNKUIVSYBZUTZ245F44SU5AD7Q.txt
 PrivacyPolicyLink : https://www.microsoft.com/EN-US/privacystatement/OnlineServices/Default.aspx
-Signature         : VNMTRJK3MNJ5SROEG2BYDA2YGECU33GXTD3UFPLPC4BAVKAUL3PDYL3KBKBLG4ZCDJZVNSA7KJWTGMDSYDD6KRLV3LV274DLBJSS4GQ
+Signature         : XXXXXXK3MNJ5SROEG2BYDA2YGECU33GXTD3UFPLPC4BAVKAUL3PDYL3KBKBLG4ZCDJZVNSA7KJWTGMDSYDD6KRLV3LV274DLBXXXXXX
 Accepted          : True
 Signdate          : 2/23/2018 7:49:31 PM
 ```
 
 ### <a name="deploy-using-purchase-plan-parameters"></a>Procéder au déploiement à l’aide des paramètres de plan d’achat
+
 Après avoir accepté les conditions de l’image, vous pouvez déployer une machine virtuelle dans l’abonnement. Comme illustré dans l’extrait de code suivant, utilisez la cmdlet [Set-AzureRmVMPlan](/powershell/module/azurerm.compute/set-azurermvmplan) pour définir les informations du plan de la Marketplace pour l’objet de machine virtuelle. Pour obtenir un script complet afin de créer des paramètres réseau pour la machine virtuelle et de terminer le déploiement, consultez les [exemples de script PowerShell](powershell-samples.md).
 
 ```powershell
 ...
+
 $vmConfig = New-AzureRmVMConfig -VMName "myVM" -VMSize Standard_D1
 
 # Set the Marketplace plan information
-$vmConfig = Set-AzureRmVMPlan -VM $vmConfig -Publisher "imagePlanPublisher" -Product "imagePlanProduct" -Name "imagePlanName"
+
+$publisherName = "microsoft-ads"
+
+$productName = "windows-data-science-vm"
+
+$planName = "windows2016"
+
+$vmConfig = Set-AzureRmVMPlan -VM $vmConfig -Publisher $publisherName -Product $productName -Name $planName
 
 $cred=Get-Credential
 
 $vmConfig = Set-AzureRmVMOperatingSystem -Windows -VM $vmConfig -ComputerName "myVM" -Credential $cred
 
 # Set the Marketplace image
-$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName "imagePublisher" -Offer "imageOffer" -Skus "imageSku" -Version "imageVersion"
+
+$offerName = "windows-data-science-vm"
+
+$skuName = "windows2016"
+
+$version = "0.2.02"
+
+$vmConfig = Set-AzureRmVMSourceImage -VM $vmConfig -PublisherName $publisherName -Offer $offerName -Skus $skuName -Version $version
 ...
 ```
 Vous transmettez ensuite la configuration de machine virtuelle en même temps que les objets de configuration de réseau à la cmdlet `New-AzureRmVM`.

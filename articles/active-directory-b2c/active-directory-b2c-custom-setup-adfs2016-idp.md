@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e8737e379dc69385b2bd5ac2b2af89bf8d38b63a
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6f7fced5163476dc1de866474484f98d546d1901
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886872"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945720"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Cet article explique comment autoriser la connexion d’un compte d’utilisateu
 - Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Assurez-vous d’avoir accès au fichier .pfx de certificat avec la clé privée émise par ADFS.
 
-## <a name="create-a-policy-key"></a>Créer une clé de stratégie
+## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 
 Vous devez enregistrer votre certificat ADFS dans votre client Azure AD B2C.
 
@@ -42,7 +42,7 @@ Vous devez enregistrer votre certificat ADFS dans votre client Azure AD B2C.
 8. Recherchez et sélectionnez votre fichier de certificat .pfx contenant la clé privée.
 9. Cliquez sur **Créer**.
 
-## <a name="add-a-claims-provider"></a>Ajouter un fournisseur de revendications
+## <a name="add-a-claims-provider"></a>Ajout d’un fournisseur de revendications
 
 Si vous souhaitez que les utilisateurs se connectent à l’aide d’un compte ADFS, vous devez définir le compte en tant que fournisseur de revendications avec lequel Azure AD B2C peut communiquer par le biais d’un point de terminaison. Le point de terminaison fournit un ensemble de revendications utilisées par Azure AD B2C pour vérifier qu’un utilisateur spécifique s’est authentifié. 
 
@@ -62,7 +62,6 @@ Vous pouvez définir un compte ADFS en tant que fournisseur de revendications en
           <Description>Login with your ADFS account</Description>
           <Protocol Name="SAML2"/>
           <Metadata>
-            <Item Key="RequestsSigned">false</Item>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
           </Metadata>
@@ -102,7 +101,7 @@ Vous pouvez définir un compte ADFS en tant que fournisseur de revendications en
 2. Activez **Remplacer la stratégie si elle existe**, puis recherchez et sélectionnez le fichier *TrustFrameworkExtensions.xml*.
 3. Cliquez sur **Télécharger**.
 
-## <a name="register-the-claims-provider"></a>Inscrire le fournisseur de revendications
+## <a name="register-the-claims-provider"></a>Inscription du fournisseur de revendications
 
 À ce stade, le fournisseur d’identité a été configuré, mais il n’est disponible dans aucun des écrans d’inscription ou de connexion. Pour changer cela, vous pouvez créer un doublon d’un modèle de parcours utilisateur et le modifier afin qu’il dispose également du fournisseur d’identité ADFS.
 
@@ -117,7 +116,7 @@ Vous pouvez définir un compte ADFS en tant que fournisseur de revendications en
 L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisseur d’identité sur un écran d’inscription ou de connexion. Si vous ajoutez un élément **ClaimsProviderSelection** à un compte ADFS, un nouveau bouton s’affiche quand un utilisateur arrive sur la page.
 
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous avez créé.
-2. Sous **ClaimsProviderSelections**, ajoutez l’élément suivant. Définissez la valeur de **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `ContosoExchange` :
+2. Sous **ClaimsProviderSelections**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `ContosoExchange` :
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
@@ -170,7 +169,7 @@ Ouvrez un navigateur et accédez à l’URL. Veillez à taper l’URL est correc
 13. Dans Gestionnaire de serveur, sélectionnez **Outils**, puis **Gestion ADFS**.
 14. Sélectionnez l’approbation de partie de confiance que vous avez créée, choisissez **Mettre à jour à partir des métadonnées de fédération**, puis cliquez sur **Mettre à jour**. 
 
-## <a name="create-an-azure-ad-b2c-application"></a>Créer une application Azure AD B2C
+## <a name="create-an-azure-ad-b2c-application"></a>Création d’une application Azure AD B2C
 
 La communication avec Azure AD B2C s’effectue via une application que vous créez dans votre locataire. Cette section indique les étapes facultatives que vous pouvez effectuer pour créer une application de test si vous ne l’avez pas déjà fait.
 

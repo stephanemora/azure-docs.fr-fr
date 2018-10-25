@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 387668263a6bab6e12a21adf04aebfbbf108a006
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036488"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48888286"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Ajouter des exemples d’énoncés et les étiqueter avec des entités
 
@@ -92,12 +92,12 @@ Ajoutez un synonyme à l’entité list en sélectionnant le mot ou la phrase da
 
 Dans l’énoncé, sélectionnez le mot synonyme, par exemple `aqua` pour water (eau). Sélectionnez le nom d’entité list dans la liste déroulante, par exemple **Drink** (Boisson). Sélectionnez **Set as synonym** (Définir en tant que synonyme). Enfin, sélectionnez l’élément de liste dont le mot est synonyme, tel que **water** (eau).
 
-![Capture d’écran de la page de détails Intents (Intentions) avec Create a new synonym (Créer un synonyme) en surbrillance](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
+![Capture d’écran de la page de détails Intents (Intentions) avec Create a new normalized view (Créer une vue personnalisée) en surbrillance](./media/luis-how-to-add-example-utterances/set-agua-as-synonym.png)
 
 ## <a name="create-new-item-for-list-entity"></a>Créer un élément pour une entité list
-Créez un élément pour une entité list existante en sélectionnant le mot ou la phrase dans l’énoncé. Si vous avez une liste Drink (Boisson) et souhaitez ajouter `tea` comme nouvel élément, procédez comme suit :
+Créez un élément pour une entité list existante en sélectionnant le mot ou la phrase dans l’énoncé. Si vous avez une liste d’employés et souhaitez ajouter `Bob Smith` comme nouvel élément, procédez comme suit :
 
-Dans l’énoncé, sélectionnez le mot pour le nouvel élément de liste, par exemple `tea`, sélectionnez le nom d’entité list dans la liste déroulante, tel que **Drink** (Boisson), puis sélectionnez **Create a new synonym** (Créer un synonyme). 
+Dans l’énoncé, sélectionnez le mot ou la phrase pour le nouvel élément de liste, par exemple `Bob Smith`, sélectionnez le nom d’entité list dans la liste déroulante, tel que **Employee** (Employé), puis sélectionnez **Create a new normalized view** (Créer une vue personnalisée). 
 
 ![Capture d’écran de l’ajout d’un nouvel élément de liste](./media/luis-how-to-add-example-utterances/list-entity-create-new-item.png)
 

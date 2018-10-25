@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888202"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268019"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Comment utiliser la propriété « Entité attendue » des actions
 
@@ -63,9 +63,10 @@ Concrètement, si le champ « Entité attendue » d’une action est défini sur
 2. Dans Réponse, tapez « Quel est votre nom ? ».
 3. Dans Entités attendues, entrez $name. Cliquez sur Enregistrer.
     - Cette valeur signifie que, si cette question est posée et que la réponse de l’utilisateur ne comporte aucune entité détectée, le bot doit supposer que cette entité correspond à la totalité de la réponse.
+    - L’entité est automatiquement ajoutée comme étant une entité disqualifiante. 
 2. Cliquez sur Actions, puis sur Nouvelle Action pour en créer une deuxième.
 3. Dans Réponse, tapez « Hello $name ».
-    - L’entité est automatiquement ajoutée en tant qu’entité requise. 
+    - L’entité est automatiquement ajoutée en tant qu’entité requise.
 4. Cliquez sur Enregistrer.
 
 Vous avez maintenant deux actions.
@@ -111,7 +112,7 @@ Dans les exemples suivants, l’heuristique « entité attendue » se déclenc
 2. Entrez « bonjour ».
 3. En réponse à « quel est votre nom », entrez « Je m’appelle frank ».
     - L’expression tout entière est mise en surbrillance. Cela provient du fait que le modèle statistique n’a pas trouvé de nom ; l’heuristique s’est donc déclenchée et a sélectionné la réponse entière comme entité de nom.
-2. Pour le corriger, cliquez sur l’expression en surbrillance, puis cliquez sur le x rouge. 
+2. Pour le corriger, cliquez sur l’expression en surbrillance, puis cliquez sur l’icône rouge de la poubelle. 
 3. Cliquez pour sélectionner frank, puis cliquez sur le nom.
 2. Cliquez sur Attribuer un score aux actions.
 3. Sélectionnez « Bonjour $name ».

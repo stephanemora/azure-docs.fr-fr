@@ -11,13 +11,13 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 10/17/2018
-ms.openlocfilehash: 61950a1afda1fefdfab95f6d63420387dc2e2ac7
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.date: 10/22/2018
+ms.openlocfilehash: 88bea87c752563e1c19332121eb568b0bd329d03
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378633"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954141"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Forum aux questions sur SQL Database
 
@@ -35,7 +35,7 @@ Non. L’impact d’une mise à jour corrective est généralement imperceptible
 
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Quel est le nouveau modèle d’achat d’Azure SQL Database basé sur des cœurs virtuels ?
 
-Le nouveau modèle d’achat vient compléter le modèle basé sur des unités DTU existant. Le modèle d’achat basé sur des vCores est conçu pour offrir aux clients de la flexibilité, du contrôle et de la transparence. Il permet de traduire de manière simple les exigences des charges de travail locales vers le cloud. Il permet également aux clients de mettre à l’échelle les ressources de calcul et de stockage en fonction des besoins de leur charge de travail. Les options de base de données unique et de pool élastique utilisant le modèle basé sur des cœurs virtuels permettent également de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Benefit pour SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Pour plus d’informations, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
+Le nouveau modèle d’achat vient compléter le modèle basé sur des unités DTU existant. Le modèle d’achat basé sur des vCores est conçu pour offrir aux clients de la flexibilité, du contrôle et de la transparence. Il permet de traduire de manière simple les exigences des charges de travail locales vers le cloud. Il permet également aux clients de mettre à l’échelle les ressources de calcul et de stockage en fonction des besoins de leur charge de travail. Les options de base de données unique et de pool élastique utilisant le modèle basé sur des cœurs virtuels permettent également de réaliser jusqu’à 30 % d’économies avec [Azure Hybrid Benefit pour SQL Server](https://azure.microsoft.com/pricing/hybrid-benefit/#services). Pour plus d’informations, consultez [Modèle d’achat basé sur des DTU](sql-database-service-tiers-dtu.md) et [Modèle d’achat basé sur des vCores](sql-database-service-tiers-vcore.md).
 
 ## <a name="what-is-a-vcore"></a>Qu’est-ce qu’un cœur virtuel ?
 

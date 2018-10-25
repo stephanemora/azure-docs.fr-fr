@@ -1,22 +1,23 @@
 ---
-title: Foire aux questions (FAQ) sur l’API Suggestion automatique Azure | Microsoft Docs
-description: Cet article apporte des réponses aux questions courantes sur l’API Suggestion automatique Azure Cognitive Service sur Azure.
+title: Forum Aux Questions (FAQ) – API Suggestion automatique Bing
+titlesuffix: Azure Cognitive Services
+description: Obtenez des réponses aux questions courantes sur l’API Suggestion automatique Bing.
 services: cognitive-services
 author: HeidiSteen
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-autosuggest
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/26/2017
 ms.author: heidist
-ms.openlocfilehash: 00b91728bcfec52ff30697f080d5c2619bab79a8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 84f1b0555922119e9de4addc3d51ac233e7bae65
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35369904"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831354"
 ---
-# <a name="frequently-asked-questions-faq-about-autosuggest-api-cognitive-services"></a>Foire aux questions (FAQ) sur l’API Suggestion automatique (Cognitive Services)
+# <a name="frequently-asked-questions-faq-about-bing-autosuggest-api"></a>Forum Aux Questions (FAQ) sur l’API Suggestion automatique Bing
  
  Trouvez les réponses aux questions courantes sur les concepts, le code et les scénarios relatifs à l’API Suggestion automatique d’Azure Cognitive Services.
 
@@ -44,7 +45,7 @@ Enfin, lancez le proxy CORS avec la commande suivante :
 
     cors-proxy-server
 
-Laissez la fenêtre de commande ouverte pendant que vous utilisez l’application du tutoriel ; si vous fermez la fenêtre, le proxy s’arrête. Dans la section des en-têtes HTTP (qui peut être développée) sous les résultats de la recherche, vous pouvez maintenant voir l’en-tête `X-MSEdge-ClientID` (entre autres) et vérifier qu’il est identique pour toutes les demandes.
+Laissez la fenêtre de commande ouverte pendant que vous utilisez l’application du tutoriel ; si vous fermez la fenêtre, le proxy s’arrête. Dans la section des en-têtes HTTP (qui peut être développée) sous les résultats de la recherche, vous pouvez maintenant voir l’en-tête `X-MSEdge-ClientID` (entre autres) et vérifier qu’il est identique pour toutes les requêtes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

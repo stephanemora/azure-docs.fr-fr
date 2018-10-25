@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/26/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 1df237a65a8b5312b20de19a99399b3a3dd075ff
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 76da33a74ad95d7f074bc4efd3a8d9f97c19d612
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049608"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48830310"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Transfert de données vers et à partir d’Azure Storage
 Si vous voulez déplacer des données locales vers Azure Storage (ou inversement), il existe plusieurs façons de procéder. L’approche la mieux adaptée à vos besoins dépend de votre scénario. Cet article fournit un aperçu des différents scénarios et des offres appropriées pour chacun d’eux.
@@ -38,7 +38,7 @@ Si vous préférez ou devez utiliser un utilitaire de ligne de commande (par exe
 ### <a name="azcopy"></a>AzCopy
 AzCopy est un utilitaire de ligne de commande conçu pour la copie de données hautes performances vers ou à partir d’Azure Storage. Vous pouvez également copier des données au sein d’un compte de stockage ou d’un compte de stockage à l’autre. AzCopy est disponible sur [Windows](storage-use-azcopy.md) et sur [Linux](storage-use-azcopy-linux.md).
 
-Consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md) ou [Transfert de données avec AzCopy sur Linux](storage-use-azcopy-linux.md) pour en savoir plus.
+Pour découvrir comment migrer des données locales vers Stockage Azure, voir [Didacticiel : Migrer des données locales vers un stockage cloud à l’aide d’AzCopy](storage-use-azcopy-migrate-on-premises-data.md).
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 Le module Azure PowerShell fournit des applets de commande pour la gestion des services sur Azure. Il s’agit d’un interpréteur en ligne de commande basé sur les tâches et d’un langage de génération de scripts conçu spécialement pour l’administration de systèmes.

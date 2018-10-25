@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: dobett
-ms.openlocfilehash: 1eeb0afdd5ffcbe00357914d6a98c8d0b3d452ec
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: d58c86c17cdab360f37a09b28bdf705cb781a620
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017957"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023818"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Comprendre et utiliser les kits Azure IoT Hub SDK
 
@@ -44,7 +44,7 @@ Kit Azure IoT Hub device SDK pour C : écrit en ANSI C (C99) pour la portabil
 
 * Installation à partir de [apt-get, MBED, Arduino IDE ou Nuget](https://github.com/Azure/azure-iot-sdk-c/blob/master/readme.md)
 * [Code source](https://github.com/Azure/azure-iot-sdk-c)
-* [Informations de référence sur l'API](https://azure.github.io/azure-iot-sdk-c/index.html)
+* [Informations de référence sur l'API](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 * [Informations de référence sur les modules](https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h)
 
 Kit Azure IoT device SDK pour Java : 
@@ -65,13 +65,13 @@ Kit Azure IoT device SDK pour Python :
 
 * Installation à partir de [pip](https://pypi.python.org/pypi/azure-iothub-device-client/)
 * [Code source](https://github.com/Azure/azure-iot-sdk-python)
-* Informations de référence sur l’API : voir [Informations de référence sur l’API C](https://azure.github.io/azure-iot-sdk-c/index.html)
+* Informations de référence sur l’API : voir [Informations de référence sur l’API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 Kit Azure IoT Hub device SDK pour iOS : 
 
 * Installation à partir de [CocoaPod](https://cocoapods.org/pods/AzureIoTHubClient)
 * [Exemples](https://github.com/Azure-Samples/azure-iot-samples-ios)
-* Informations de référence sur l’API : voir [Informations de référence sur l’API C](https://azure.github.io/azure-iot-sdk-c/index.html)
+* Informations de référence sur l’API : voir [Informations de référence sur l’API C](https://docs.microsoft.com/azure/iot-hub/iot-c-sdk-ref/)
 
 > [!NOTE]
 > Consultez les fichiers lisez-moi dans les dépôts GitHub pour plus d’informations sur l’utilisation du langage et des gestionnaires de packages spécifiques à la plateforme pour installer les fichiers binaires et dépendances sur votre ordinateur de développement.

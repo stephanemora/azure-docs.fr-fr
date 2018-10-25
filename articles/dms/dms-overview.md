@@ -9,13 +9,13 @@ ms.reviewer: douglasl
 ms.service: database-migration
 ms.workload: data-services
 ms.topic: article
-ms.date: 10/09/2018
-ms.openlocfilehash: 064d7ca2f544dbf1c968310842e322d8c0db2ca1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/19/2018
+ms.openlocfilehash: 71d79ac34c4797cceb8374d65afb6fd7662f1c21
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884440"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456157"
 ---
 # <a name="what-is-the-azure-database-migration-service"></a>Qu’est-ce qu’Azure Database Migration Service ?
 Azure Database Migration Service est un service entièrement géré conçu pour permettre des migrations transparentes de plusieurs sources de base de données vers des plateformes de données Azure avec un temps d’arrêt minime (migration en ligne).
@@ -29,7 +29,7 @@ Azure Database Migration Service intègre des fonctionnalités de nos services e
 ## <a name="regional-availability"></a>Disponibilité régionale
 Azure Database Migration Service est actuellement disponible dans les régions suivantes :
 
-![Disponibilité régionale d’Azure Database Migration Service](media\overview\dms-regional-availability.png)
+![Disponibilité régionale d’Azure Database Migration Service](media\overview\dms-regional-availability1.png)
 
 Pour accéder aux informations les plus récentes sur la disponibilité régionale d’Azure Database Migration Service, sur le site consacré à l’infrastructure mondiale d’Azure, consultez la rubrique [Produits disponibles par région](https://azure.microsoft.com/global-infrastructure/services/).
 

@@ -12,16 +12,20 @@ ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: b2d4166c25014416efbb7392acda3f3f028b4fa9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 6110773ecaba0ad333e4cfc9f9cc6014bd29a7a6
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162036"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249517"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>Stocker les sauvegardes Azure SQL Database pendant 10 ans
 
 De nombreuses applications sont dédiées à la réglementation, à la conformité ou à d’autres fins professionnelles qui vous obligent à conserver des sauvegardes de données au-delà des 7 à 35 jours offerts par les [sauvegardes automatiques](sql-database-automated-backups.md) Azure SQL Database. À l’aide de la fonctionnalité de rétention à long terme (LTR), vous pouvez stocker pendant 10 ans des sauvegardes complètes de bases de données SQL dans un stockage Blob [RA-GRS](../storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage). Vous pouvez ensuite restaurer la sauvegarde de votre choix en tant que nouvelle base de données.
+
+> [!NOTE]
+> La conservation à long terme peut être activée sur les bases de données hébergées sur des serveurs logiques Azure SQL Database. Elle n’est toujours pas disponible dans Managed Instance.
+> 
 
 ## <a name="how-sql-database-long-term-retention-works"></a>Mode de fonctionnement de la rétention à long terme SQL Database
 

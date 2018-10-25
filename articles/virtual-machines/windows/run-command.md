@@ -5,15 +5,15 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/06/2018
+ms.date: 10/02/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 322b21ae2273b949e9a46e0c47a9f9e4d661603e
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128593"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267951"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Exécuter des scripts PowerShell dans votre machine virtuelle Windows avec la commande Run
 
@@ -21,7 +21,7 @@ La commande Run utilise l’agent de machine virtuelle pour exécuter des script
 
 ## <a name="benefits"></a>Avantages
 
-Il existe plusieurs options pour accéder à vos machines virtuelles. La commande Run peut exécuter à distance des scripts sur vos machines virtuelles à l’aide de l’agent de machine virtuelle. Elle peut être utilisée via le portail Azure, l’[API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), l’[interface de ligne de commande Azure (CLI)](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand).
+Il existe plusieurs options pour accéder à vos machines virtuelles. La commande Run peut exécuter à distance des scripts sur vos machines virtuelles à l’aide de l’agent de machine virtuelle. Elle peut être utilisée via le portail Azure, une [API REST](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), ou [PowerShell](/powershell/module/azurerm.compute/invoke-azurermvmruncommand) pour machines virtuelles Windows.
 
 Cette fonctionnalité est utile dans tous les scénarios qui impliquent l’exécution d’un script au sein d’une machine virtuelle ; elle constitue un des seuls moyens de dépanner et de corriger une machine virtuelle dont le port RDP ou SSH n’est pas ouvert en raison d’une configuration incorrecte du réseau ou de l’utilisateur administrateur.
 
@@ -33,6 +33,7 @@ Les restrictions suivantes s'appliquent lors de l'utilisation de la commande Run
 * La durée minimale d’exécution d’un script est d’environ 20 secondes
 * Les scripts s’exécutent en tant que système sous Windows
 * Vous ne pouvez exécuter qu’un script à la fois
+* Les scripts qui demandent des informations (mode interactif) ne sont pas pris en charge.
 * Vous ne pouvez pas annuler un script en cours d’exécution
 * La durée maximale d’exécution d’un script est de 90 minutes (le script expiré après ce délai)
 * Une connectivité sortante à partir de la machine virtuelle est nécessaire pour retourner les résultats du script.
@@ -56,7 +57,7 @@ Une fois la commande choisie, cliquez sur **Run** pour exécuter le script. Le s
 
 Ce tableau affiche la liste des commandes disponibles pour les machines virtuelles Windows. La commande **RunPowerShellScript** peut être utilisée pour exécuter n’importe quel script personnalisé de votre choix.
 
-|**Name**|**Description**|
+|**Nom**|**Description**|
 |---|---|
 |**RunPowerShellScript**|Exécute un script PowerShell|
 |**EnableRemotePS**|Configure la machine pour activer PowerShell à distance.|

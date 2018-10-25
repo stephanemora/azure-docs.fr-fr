@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: 7acc0fa4c3654c96ac0f8f1baed7ea5b7b306376
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: a814c543b9f4bfe6717e639342d82ed13dac35b0
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829767"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954604"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Créer des zones et des jeux d’enregistrements DNS à l’aide du Kit de développement logiciel (SDK) .NET
 
@@ -28,7 +28,7 @@ Vous pouvez automatiser les opérations de création, de suppression ou de mise 
 
 En règle générale, l’accès par programme aux ressources Azure est accordé via un compte dédié au lieu de vos propres informations d’identification de l’utilisateur. Ces comptes dédiés sont appelés comptes de « principal du service ». Pour utiliser l’exemple de projet de kit de développement logiciel Azure DNS, vous devez d’abord créer un compte de principal du service et lui attribuer les autorisations appropriées.
 
-1. Suivez [ces instructions](../azure-resource-manager/resource-group-authenticate-service-principal.md) pour créer un compte de principal du service (l’exemple de projet de kit de développement logiciel Azure DNS part du principe qu’il s’agit d’une authentification par mot de passe).
+1. Suivez [ces instructions](../active-directory/develop/howto-authenticate-service-principal-powershell.md) pour créer un compte de principal du service (l’exemple de projet de kit de développement logiciel Azure DNS part du principe qu’il s’agit d’une authentification par mot de passe).
 2. Créez un groupe de ressources ([procédure](../azure-resource-manager/resource-group-template-deploy-portal.md)).
 3. Utilisez Azure RBAC pour accorder une autorisation « Collaborateur de zone DNS » au groupe de ressources ([procédure](../role-based-access-control/role-assignments-portal.md)).
 4. Si vous utilisez l’exemple de projet de kit de développement logiciel Azure DNS, modifiez le fichier program.cs comme suit :

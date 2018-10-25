@@ -9,22 +9,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: e2b441e0266ac397226b783c66df4ca54e0b3f71
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 72b2c630c514190d2c63e3dd7faa29b0b3abab19
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870160"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944559"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Charger des données d’Office 365 à l’aide d’Azure Data Factory
 
 Cet article vous montre comment _charger des données d’Office 365 dans le stockage d’objets blob Azure_ à l’aide de Data Factory. Vous pouvez suivre une procédure similaire pour copier des données vers Azure Data Lake Gen1 ou Gen2. Reportez-vous à l’[article sur le connecteur Office 365](connector-office-365.md) traitant de la copie des données à partir d’Office 365 en général.
-
-Pour une présentation et une démonstration en neuf minutes de la connexion Data Factory aux données Office 365, regardez la vidéo suivante :
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-cloud-scale-analytics-of-Office-365-data-with-Azure-Data-Factory/player]
 
 ## <a name="create-a-data-factory"></a>Créer une fabrique de données
 
