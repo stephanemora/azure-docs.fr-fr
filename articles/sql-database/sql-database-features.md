@@ -12,12 +12,12 @@ ms.author: jovanpop
 ms.reviewer: bonova, carlrab
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: ce4b87735f16b4167605f2897ba96f10155f7c01
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b68e65bdcefcabb2804b259cff45e0a8719f7ab7
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222299"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870514"
 ---
 # <a name="feature-comparison-azure-sql-database-versus-sql-server"></a>Comparaison des fonctionnalités d’Azure SQL Database comparées à celles de SQL Server 
 
@@ -141,7 +141,7 @@ Le tableau suivant répertorie les principales fonctionnalités de SQL Server et
 | [Indicateurs de trace](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql) | Non  | Non  |
 | [Variables](https://docs.microsoft.com/sql/t-sql/language-elements/variables-transact-sql) | OUI | OUI |
 | [Chiffrement transparent des données (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) | Oui - Niveaux de service Usage général et Critique pour l’entreprise uniquement| Partiel, uniquement avec le chiffrement géré par le service |
-[Réseau virtuel](../virtual-network/virtual-networks-overview.md) | Partielle - consultez [Points de terminaison de réseau virtuel](sql-database-vnet-service-endpoint-rule-overview.md) | Oui, modèle Resource Manager uniquement |
+[Réseau virtuel](../virtual-network/virtual-networks-overview.md) | Partielle – Voir [Points de terminaison de réseau virtuel](sql-database-vnet-service-endpoint-rule-overview.md) | Oui, modèle Resource Manager uniquement |
 | [Clustering de basculement Windows Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/windows-server-failover-clustering-wsfc-with-sql-server) | La [haute disponibilité](sql-database-high-availability.md) est incluse dans chaque base de données. La récupération d’urgence est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) | La [haute disponibilité](sql-database-high-availability.md) est incluse dans chaque base de données. La récupération d’urgence est abordée dans [Vue d’ensemble de la continuité de l’activité avec Azure SQL Database](sql-database-business-continuity.md) |
 | [Index XML](https://docs.microsoft.com/sql/t-sql/statements/create-xml-index-transact-sql) | OUI | OUI |
 

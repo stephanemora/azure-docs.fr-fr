@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 1be7dd9ce537d0999ace01eafa46318e42df9f20
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: adb3127e45166d4743c182cbd21944dd86810596
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732445"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584164"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Utiliser le service Azure Import/Export pour importer des données dans Azure Files
 
@@ -29,7 +29,7 @@ Avant de créer une tâche d’importation pour transférer des données dans Az
 - Avoir au moins un compte de Stockage Azure. Consultez la liste des [Comptes de stockage et types de stockage pris en charge pour le service Import/Export](storage-import-export-requirements.md). Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-quickstart-create-account.md).
 - Avoir un nombre suffisant de disques correspondant aux [types pris en charge](storage-import-export-requirements.md#supported-disks). 
 - Avoir un système Windows exécutant une [Version de système d’exploitation prise en charge](storage-import-export-requirements.md#supported-operating-systems).
-- [Téléchargez la version 2 de WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexport`. Par exemple : `C:\WaImportExport`.
+- [Téléchargez la version 2 de WAImportExport](https://www.microsoft.com/download/details.aspx?id=55280) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexport`. Par exemple : `C:\WaImportExport`.
 - Dotez-vous d’un compte FedEx/DHL. 
     - Le compte doit être valide, doit avoir un solde et doit offrir des fonctionnalités de réexpédition.
     - Générez un numéro de suivi pour le travail d’exportation.

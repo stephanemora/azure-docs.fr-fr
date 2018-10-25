@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: spelluru
-ms.openlocfilehash: a15e726e237bcdbd9d380aaf9232e5d16a2e648f
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 631c4334b1e2ca37dfc87709718b6639c2762c5c
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409133"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857684"
 ---
 # <a name="message-sequencing-and-timestamps"></a>Séquencement et horodatage des messages
 
@@ -50,7 +50,6 @@ La valeur **SequenceNumber** d’un message planifié est valide seulement si le
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 
-* [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Prise en main des files d’attente Service Bus](service-bus-dotnet-get-started-with-queues.md)
 * [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

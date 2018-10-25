@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6ceeb9683a979256a8a52347fc74ab758fd1d348
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4663fc377e795e603bd2484ec4cf98578408501f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171433"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248379"
 ---
 # <a name="how-to-log-dialogs-in-a-conversation-learner-model"></a>Guide pratique pour consigner les dialogues dans un modèle Conversation Learner
 
@@ -37,7 +37,7 @@ Les dialogues consignés peuvent servir à vérifier et à apporter des correcti
 
 ### <a name="create-the-model"></a>Création du modèle
 
-1. Dans l’interface utilisateur web, cliquez sur Nouveau modèle.
+1. Dans l’interface utilisateur web, cliquez sur New Model
 2. Dans Nom, entrez LogDialogs. Cliquez ensuite sur Créer.
 
 ### <a name="create-an-entity"></a>Créer une entité
@@ -51,7 +51,7 @@ Les dialogues consignés peuvent servir à vérifier et à apporter des correcti
 1. Cliquez sur Actions, puis sur Nouvelle action.
 2. Dans Réponse, tapez « Quelle ville ? ».
 3. Dans Entités disqualifiantes, entrez $city.
-3. Click Create
+3. Cliquez sur Create.
 
 Ensuite, créez la deuxième action :
 
@@ -76,7 +76,7 @@ Vous avez maintenant deux actions.
 
 Ajoutez un autre exemple de dialogue :
 
-1. Cliquez sur Nouvelle Action, puis sur Nouveau dialogue d’apprentissage.
+1. Cliquez sur Train Dialogs (Dialogues d’apprentissage), puis sur New Train Dialog (Nouveau dialogue d’apprentissage).
 2. Tapez « Quel temps fait-il à Seattle ? ». Remarquez au passage que Seattle est marqué comme entité.
 5. Cliquez sur Attribuer un score aux actions. 
 6. Sélectionnez « Il fait probablement beau à $city ».
@@ -86,7 +86,7 @@ Ajoutez un autre exemple de dialogue :
 Imaginons que nous avons déployé ce bot auprès des utilisateurs.
 
 1. Cliquez sur Consigner les dialogues.
-2. Cliquez sur Nouvelle session de conversation.
+2. Cliquez sur New Log Dialog (Nouveau dialogue de connexion).
     - Cette action présente le bot comme le verrait l’utilisateur dans le contrôle de la discussion web sur la gauche de l’interface utilisateur. Vous pouvez ignorer la zone avec les espaces blancs sur la droite.
 3. Tapez « Bonjour ».
 4. Réponse du bot : « Quelle ville ? »
@@ -97,10 +97,10 @@ Imaginons que nous avons déployé ce bot auprès des utilisateurs.
 
 Lançons une nouvelle session :
 
-2. Cliquez sur Nouvelle session de conversation.
+2. Cliquez sur New Log Dialog (Nouveau dialogue de connexion).
 3. Tapez « météo de Boston ».
 4. Réponse du bot : « Quelle ville ? »
-2. Cliquez sur Apprentissage terminé.
+2. Cliquez sur Tests terminés.
 
 Nous allons maintenant apporter des corrections au deuxième dialogue :
 
@@ -132,7 +132,7 @@ Nous allons maintenant apporter des corrections à l’autre dialogue :
 7. Tapez « Boston ». Double-cliquez pour marquer Boston comme entité si ce n’est pas déjà fait.
 8. Cliquez sur Attribuer un score aux actions.
 9. Cliquez pour sélectionner « Il fait probablement beau à $city ».
-10. Cliquez sur Apprentissage terminé.
+10. Cliquez sur Done Teaching (Apprentissage terminé).
 
 ![](../media/tutorial9_addnewaction.PNG)
 

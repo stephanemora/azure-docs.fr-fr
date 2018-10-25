@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 09/26/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: e381d2ed3c6a972d776dd31f311fcebe2e35823a
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f7079d54ccae32d06488d12d45d6035c7f372d63
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917081"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236601"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Valider des certificats PKI Azure Stack
 
@@ -66,21 +66,20 @@ Pour préparer et valider les certificats PKI Azure Stack en vue du déploiement
 
 1. Installez **AzsReadinessChecker** à partir d’une invite PowerShell (5.1 ou version ultérieure) en exécutant l’applet de commande suivante :
 
-    ````PowerShell  
+    ```PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
-    ````
+    ```
 
 2. Créez la structure de répertoires de certificat. Dans l’exemple ci-après, vous pouvez remplacer `<c:\certificates>` par un nouveau chemin d’accès de répertoire de votre choix.
-
-    ````PowerShell  
+    ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal'
+    $directories = 'ACSBlob','ACSQueue','ACSTable','Admin Portal','ARM Admin','ARM Public','KeyVault','KeyVaultInternal','Public Portal'
     
     $destination = 'c:\certificates'
     
     $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}
-    ````
+    ```
     
     > [!Note]  
     > AD FS et Graph sont obligatoires si vous utilisez AD FS comme système d’identité.
@@ -92,16 +91,15 @@ Pour préparer et valider les certificats PKI Azure Stack en vue du déploiement
 
 3. Dans la fenêtre PowerShell, changez les valeurs de **RegionName** et **FQDN** en fonction de l’environnement Azure Stack et exécutez la commande suivante :
 
-    ````PowerShell  
+    ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
-    Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
-
-    ````
+    Start-AzsReadinessChecker  -extensionshostfeature -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
+    ```
 
 4. Vérifiez que la sortie et tous les certificats réussissent tous les tests. Par exemple : 
 
-    ````PowerShell
+    ```PowerShell  
     AzsReadinessChecker v1.1803.405.3 started
     Starting Certificate Validation
 
@@ -134,7 +132,7 @@ Pour préparer et valider les certificats PKI Azure Stack en vue du déploiement
     AzsReadinessChecker Report location: 
     C:\AzsReadinessChecker\AzsReadinessReport.json
     AzsReadinessChecker Completed
-    ````
+    ```
 
 ### <a name="known-issues"></a>Problèmes connus
 
@@ -144,7 +142,7 @@ Pour préparer et valider les certificats PKI Azure Stack en vue du déploiement
 
  - Si la chaîne d’approbation échoue, les autres certificats sont ignorés.
 
-    ````PowerShell  
+    ```PowerShell  
     Testing: ACSBlob\singlewildcard.pfx
         Read PFX: OK
         Signature Algorithm: OK
@@ -165,7 +163,7 @@ Pour préparer et valider les certificats PKI Azure Stack en vue du déploiement
     AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
     AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessChecker.log
     AzsReadinessChecker Completed
-    ````
+    ```
 
 **Résolution** : suivez les instructions de l’outil dans la section des détails sous chaque ensemble de tests de chacun des certificats.
 
@@ -175,13 +173,13 @@ Utilisez ces étapes pour préparer et valider les certificats PKI Azure Stack p
 
 1.  Installez **AzsReadinessChecker** à partir d’une invite PowerShell (5.1 ou version ultérieure) en exécutant l’applet de commande suivante :
 
-    ````PowerShell  
+    ```PowerShell  
       Install-Module Microsoft.AzureStack.ReadinessChecker -force
-    ````
+    ```
 
 2.  Créez une table de hachage imbriquée qui contient les chemins et mot de passe de chaque certificat PaaS à valider. Dans la fenêtre PowerShell, exécutez les commandes suivantes :
 
-    ```PowerShell
+    ```PowerShell  
         $PaaSCertificates = @{
         'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
         'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -193,7 +191,7 @@ Utilisez ces étapes pour préparer et valider les certificats PKI Azure Stack p
 
 3.  Changez les valeurs de **RegionName** et **FQDN** en fonction de votre environnement Azure Stack pour démarrer la validation. Exécutez ensuite la commande suivante :
 
-    ```PowerShell
+    ```PowerShell  
     Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
     ```
 4.  Vérifiez que la sortie et tous les certificats réussissent tous les tests.

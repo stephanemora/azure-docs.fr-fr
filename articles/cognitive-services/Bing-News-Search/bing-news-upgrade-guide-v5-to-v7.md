@@ -1,25 +1,25 @@
 ---
-title: Mise à niveau de l’API Recherche d'actualités Bing (v5 vers v7) | Microsoft Docs
-description: Identifiez les parties de votre application que vous devez mettre à jour pour utiliser la version 7.
+title: Mise à niveau de l’API Recherche d’actualités Bing version 5 vers version 7
+titlesuffix: Azure Cognitive Services
+description: Permet d’identifier les parties de votre application que vous devez mettre à jour pour utiliser la version 7.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
-ms.assetid: 5334C475-4841-4736-A66E-DC1E07CBCEC9
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: baed6f0091ddad40b4802c0fb52dc2ca1818cd03
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c6ecb7d4c1e5b648373fcaa3f44c6294329d33c2
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368096"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801163"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guide de mise à niveau de l’API Recherche d'actualités Bing
 
-Ce guide de mise à niveau identifie les changements entre la version 5 et la version 7 de l’API Recherche d'actualités Bing. Utilisez ce guide pour identifier les parties de votre application que vous devez mettre à jour pour utiliser la version 7.
+Ce guide de mise à niveau identifie les changements entre la version 5 et la version 7 de l’API Recherche d'actualités Bing. Utilisez-le pour identifier les parties de votre application que vous avez besoin de mettre à jour pour utiliser la version 7.
 
 ## <a name="breaking-changes"></a>Dernières modifications
 
@@ -29,14 +29,14 @@ Ce guide de mise à niveau identifie les changements entre la version 5 et la ve
 
 ### <a name="error-response-objects-and-error-codes"></a>Objets de réponse d’erreur et codes d’erreur
 
-- Toutes les requêtes ayant échoué doivent maintenant inclure un objet `ErrorResponse` dans le corps de réponse.
+- Toutes les requêtes ayant échoué doivent maintenant inclure un objet `ErrorResponse` dans le corps de la réponse.
 
 - Ajout des champs suivants à l’objet `Error`.  
-  - `subCode`&mdash; Partitionne le code d’erreur en compartiments discrets, si possible
-  - `moreDetails`&mdash; Informations supplémentaires sur l’erreur décrite dans le champ `message`
+  - `subCode`&mdash;Partitionne le code d’erreur en compartiments discrets, si possible
+  - `moreDetails`&mdash;Informations supplémentaires sur l’erreur décrite dans le champ `message`
    
 
-- Remplacement des codes d’erreur v5 par les valeurs possibles `code` et `subCode` suivantes.
+- Remplacement des codes d’erreur de la version 5 par les valeurs `code` et `subCode` suivantes.
 
 |Code|SubCode|Description
 |-|-|-
@@ -46,9 +46,9 @@ Ce guide de mise à niveau identifie les changements entre la version 5 et la ve
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourne InvalidAuthorization s’il ne parvient pas à identifier l’appelant. Par exemple, l’en-tête `Ocp-Apim-Subscription-Key` est manquant ou la clé d’abonnement n’est pas valide.<br/><br/>Il y a redondance si plusieurs méthodes d’authentification sont spécifiées.<br/><br/>Si l’erreur est InvalidAuthorization, le code d’état HTTP est 401.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing retourne InsufficientAuthorization lorsque l’appelant n’est pas autorisé à accéder à la ressource. Cela peut se produire si la clé d’abonnement a été désactivée ou a expiré. <br/><br/>Si l’erreur est InsufficientAuthorization, le code d’état HTTP est 403.
 
-- Le code suivant mappe les codes d’erreur précédents vers les nouveaux codes. Si vous avez établi une dépendance sur les codes d’erreur v5, mettez à jour votre code en conséquence.
+- Le code suivant mappe les codes d’erreur précédents vers les nouveaux codes. En cas de dépendance vis-à-vis des codes d’erreur de la version 5, modifiez votre code en conséquence.
 
-|Code de la version 5|Version 7 code.subCode
+|Code de la version 5|code.subCode de la version 7
 |-|-
 |RequestParameterMissing|InvalidRequest.ParameterMissing
 RequestParameterInvalidValue|InvalidRequest.ParameterInvalidValue

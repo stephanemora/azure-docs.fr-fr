@@ -5,17 +5,17 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 09/23/2018
+ms.date: 10/04/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: 7f70470880845fd4271ffdbb35af771ec433babc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0ea1b69b788255b1d8d24e17fcc1409d35a4fd36
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961941"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814319"
 ---
-# <a name="virtual-wan-partners-preview"></a>Partenaires Virtual WAN (préversion)
+# <a name="virtual-wan-partners"></a>Partenaires Virtual WAN
 
 Cet article vous aide à comprendre comment configurer l’environnement d’automatisation pour connecter et configurer un appareil de branche (un périphérique VPN client local ou SDWAN CPE) pour Azure Virtual WAN. Si vous fournissez des appareils de branche qui peuvent accommoder une connectivité VPN par IPsec/IKEv2 ou IPsec/IKEv1, cet article est pour vous.
 
@@ -276,6 +276,6 @@ La configuration de votre périphérique VPN/SDWAN local ou SD-WAN doit correspo
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur le réseau WAN virtuel, consultez [À propos du réseau WAN virtuel Azure](virtual-wan-about.md) et la [FAQ sur le réseau WAN virtuel Azure](virtual-wan-faq.md).
+Pour en plus sur le réseau WAN virtuel, consultez [À propos du réseau WAN virtuel Azure](virtual-wan-about.md) et la [FAQ sur le réseau WAN virtuel Azure](virtual-wan-faq.md).
 
 Pour toute information complémentaire, envoyez un e-mail à l’adresse <azurevirtualwan@microsoft.com>. Ajoutez le nom de votre société entre crochets « [] » dans la ligne Objet.

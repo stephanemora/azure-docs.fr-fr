@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7712196caefeea8a62045d432d762fbd16f42011
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33893964"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855933"
 ---
 # <a name="azure-database-security-checklist"></a>Liste de contrôle de la sécurité des bases de données Azure
 
@@ -61,7 +61,7 @@ Azure Database est une plateforme robuste de base de données, avec un éventail
 ## <a name="next-steps"></a>Étapes suivantes
 Quelques étapes simples suffisent pour améliorer la protection d’une base de données contre les utilisateurs malveillants ou tout accès non autorisé. Ce didacticiel vous apprend à effectuer les opérations suivantes :
 
-- Définir des [règles de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) pour votre serveur et/ou base de données.
+- Définissez des [règles de pare-feu](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) pour votre serveur ou base de données.
 - Protéger vos données à l’aide du [chiffrement](https://docs.microsoft.com/sql/relational-databases/security/encryption/sql-server-encryption).
 - Activer l’[audit Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-auditing).
 

@@ -2,16 +2,17 @@
 title: Vue d’ensemble de la migration de Contoso vers Azure | Microsoft Docs
 description: Fournit une vue d’ensemble de la stratégie et des scénarios de migration utilisés par Contoso pour migrer son centre de données local vers Azure.
 author: rayne-wiselman
+manager: carmonm
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 1a86f12fddf9b18700f2c4a2aff840512dfe4a6f
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 30be44b91dbfba0c292c55670e920052d2c8ae3d
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303640"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092862"
 ---
 # <a name="contoso-migration-overview"></a>Migration de Contoso : vue d’ensemble
 
@@ -61,7 +62,7 @@ Article 1 : vue d’ensemble | Vue d’ensemble de la série d’articles, de 
 [Article 11 : Refactoriser Team Foundation Server sur Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migre son déploiement local de Team Foundation Server vers Azure DevOps Services dans Azure. | Disponible
 [Article 12 : Réarchitecturer une application dans des conteneurs Azure et Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migre son application SmartHotel vers Azure. Ensuite, l’entreprise restructure la couche web de l’application comme un conteneur Windows s’exécutant dans Azure Service Fabric, et la base de données avec Azure SQL Database. | Disponible    
 [Article 13 : Regénérer une application dans Azure](contoso-migration-rebuild.md) | Contoso régénère son application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, notamment Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services et Azure Cosmos DB. | Disponible 
-
+[Article 14 : Mettre à l’échelle une migration vers Azure](contoso-migration-scale.md) | Après des essais de différentes combinaisons de migration, Contoso se prépare à une migration complète vers Azure. | Disponible
 
 Dans cet article, Contoso configure tous les éléments d’infrastructure nécessaires à tous les scénarios de migration. 
 

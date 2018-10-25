@@ -1,20 +1,21 @@
 ---
-title: Questions fréquentes (FAQ) sur Acoustics - Cognitive Services
+title: Forum aux questions (FAQ) sur Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: Cette page fournit des réponses aux questions fréquemment posées sur Project Acoustics, notamment des instructions relatives au téléchargement et au processus de baking.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: a71e867bd23cf64b2ac7fc8cd1c54c55d92ce924
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b8b5ea39c1cfb3a37a8e3009f59312728bcb0331
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431786"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900391"
 ---
 # <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 

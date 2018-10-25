@@ -1,20 +1,21 @@
 ---
-title: Méthode Interpret dans l’API Connaissances universitaires | Microsoft Docs
+title: Méthode Interpret – API Connaissances universitaires
+titlesuffix: Azure Cognitive Services
 description: Utilisez la méthode Interpret pour renvoyer des interprétations formatées des chaînes de requête des utilisateurs en fonction des données Academic Graph et Academic Grammar de Microsoft Cognitive Services.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: a46c792f14fabf6562666d1067ef880bd505741f
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: e16a772caa5fba632f8544094e2d8b57ed4ca765
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367888"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902567"
 ---
 # <a name="interpret-method"></a>Méthode Interpret
 
@@ -30,7 +31,7 @@ Pour offrir une expérience interactive, vous pouvez appeler cette méthode de f
 
 NOM     | Valeur | Requis ?  | Description
 ---------|---------|---------|---------
-**query**    | Chaîne de texte | OUI | Requête saisie par l’utilisateur.  Si le paramètre complete est défini sur 1, la requête sera interprétée en tant que préfixe pour générer des suggestions de saisie semi-automatique pour la requête.        
+**query**    | Chaîne de texte | Oui | Requête saisie par l’utilisateur.  Si le paramètre complete est défini sur 1, la requête sera interprétée en tant que préfixe pour générer des suggestions de saisie semi-automatique pour la requête.        
 **model**    | Chaîne de texte | Non   | Nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).        
 **complete** | 0 ou 1 | Non <br>par défaut : 0  | 1 signifie que les suggestions de saisie semi-automatique sont générées en fonction des données de la grammaire et du graphique.         
 **count**    | Number | Non <br>par défaut :10 | Nombre maximal d’interprétations à renvoyer.         

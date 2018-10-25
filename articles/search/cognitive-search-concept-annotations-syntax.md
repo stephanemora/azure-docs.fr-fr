@@ -10,12 +10,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 0e074e93ecbe80c3acf3481c0d33917fbe5090c6
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ccc1fb20cb08cfd97d58984676ef4006e693118
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640904"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801945"
 ---
 # <a name="how-to-reference-annotations-in-a-cognitive-search-skillset"></a>Comment référencer des annotations dans un jeu de compétences de recherche cognitive
 
@@ -89,7 +89,7 @@ Pour appeler le nombre approprié d’itérations, définissez le contexte comme
   }
 ```
 
-Lorsque les annotations sont des tableaux ou des collections de chaînes, vous pouvez cibler des membres spécifiques plutôt que le tableau dans son ensemble. L’exemple ci-dessus génère une annotation appelée `"last"` sous chaque nœud représenté par le contexte. Si vous souhaitez faire référence à cette famille d’annotations, vous pouvez utiliser la syntaxe `"/document/people/*/last"`. Si vous voulez faire référence à une annotation particulière, vous pouvez utiliser un index explicite `"/document/people/1/last` pour faire référence au nom de famille de la première personne identifiée dans le document. Notez que, dans cette syntaxe, les tableaux sont « indexés sur 1 ».
+Lorsque les annotations sont des tableaux ou des collections de chaînes, vous pouvez cibler des membres spécifiques plutôt que le tableau dans son ensemble. L’exemple ci-dessus génère une annotation appelée `"last"` sous chaque nœud représenté par le contexte. Si vous souhaitez faire référence à cette famille d’annotations, vous pouvez utiliser la syntaxe `"/document/people/*/last"`. Si vous voulez faire référence à une annotation particulière, vous pouvez utiliser un index explicite `"/document/people/1/last` pour faire référence au nom de famille de la première personne identifiée dans le document. Notez que, dans cette syntaxe, les tableaux sont « indexés sur 0 ».
 
 <a name="example-3"></a>
 

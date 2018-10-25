@@ -1,20 +1,21 @@
 ---
-title: Points de terminaison Recherche d’entités | Microsoft Docs
+title: Point de terminaison de Recherche d’entités Bing
+titlesuffix: Azure Cognitive Services
 description: Synthèse du point de terminaison de l’API Recherche d’entités.
 services: cognitive-services
 author: v-jaswel
-manager: kaiq
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-entity-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/04/2017
 ms.author: v-jaswel
-ms.openlocfilehash: 3d5da30102712baf399c245cc7678eeddbce796a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b1b89cbacf43df544261847d4e3fae396a52f423
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367868"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816274"
 ---
 # <a name="entity-search-endpoints"></a>Points de terminaison Recherche d’entités
 L’**API Recherche d’entités** inclut un point de terminaison.

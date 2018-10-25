@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/07/2017
 ms.author: mikhegn
-ms.openlocfilehash: f7c36fec7ff58c225e41899e8264ca1dde95ce7c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 1c8400898dba59f312ba9d994ee711a5e241973a
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34213246"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268002"
 ---
 # <a name="service-fabric-environment-variables"></a>Variables d’environnement de Service Fabric
 
@@ -37,7 +37,7 @@ Des variables d’environnement définies pour chaque instance de service sont i
 | Fabric_NodeId                                | ID du nœud qui exécute le processus                            | bf865279ba277deb864a976fbf4c200e                                     |
 | Fabric_NodeIPOrFQDN                          | Adresse IP ou nom de domaine complet du nœud, tel que spécifié dans le fichier manifeste du cluster. | localhost ou 10.0.0.1                                                |
 | Fabric_NodeName                              | Nom du nœud qui exécute le processus                          | _Node_0                                                              |
-| Fabric_ServiceName                           | Le nom du service, si le service est hébergé en mode ExclusiveProcess. Cette valeur de variable est uniquement disponible si vous créez le service avec ServicePackageActivationMode ExclusiveProcess.  | MyService                                               |
+| Fabric_ServiceName                           | Nom d’URI de structure du service, si le service est hébergé en mode ExclusiveProcess. Cette valeur de variable est uniquement disponible si vous créez le service avec ServicePackageActivationMode ExclusiveProcess.  | fabric:/MyApplication/MyService                                               |
 | Fabric_ServicePackageActivationId            | ServicePackageActivationId                                         | Identificateur global unique                                                               |
 | Fabric_ServicePackageName                    | Nom du package de service dont fait partie le processus                     | Web1Pkg                                                              |
 

@@ -1,24 +1,23 @@
 ---
-title: Kit de développement logiciel (SDK) pour Recherche Bing | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Kit de développement logiciel (SDK) pour Recherche Bing, pour les applications qui recherchent sur le web.
+title: Kit de développement logiciel (SDK) Recherche d’actualités Bing
+titleSuffix: Azure Cognitive Services
+description: Kit de développement logiciel (SDK) Recherche d’actualités Bing à destination des applications de recherche sur le web.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
-ms.assetid: ''
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-news-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 1/24/2018
 ms.author: v-gedod
-ms.openlocfilehash: 4a40ea665e153536d2322706b455598902ce41eb
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b1d9eaa35416adfa11647f2116171256f82fe095
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35370433"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801231"
 ---
-# <a name="bing-search-sdk"></a>Kit de développement logiciel (SDK) pour Recherche Bing
+# <a name="bing-search-sdk"></a>SDK Recherche Bing
 Les exemples d’API Recherche d’actualités Bing incluent les scénarios suivants :
 1. Interroger les actualités en recherchant des termes avec les paramètres `market` et `count`, vérifier le nombre de résultats, puis afficher `totalEstimatedMatches`, le nom, l’URL, la description, l’heure de publication et le nom du fournisseur du premier résultat d’actualités.
 2. Interroger les actualités les plus récentes en recherchant des termes avec les paramètres `freshness` et `sortBy`, vérifier le nombre de résultats, puis afficher `totalEstimatedMatches`, l’URL, la description, l’heure de publication et le nom du fournisseur du premier résultat d’actualités.

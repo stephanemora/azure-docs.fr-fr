@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
-ms.reviewer: jeffgo
-ms.openlocfilehash: bc1c96d2f027d459ca20fccb70cd94ac9e5cae94
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.reviewer: quying
+ms.openlocfilehash: 76a164ffcf918ebedcf4647f24a61ca3a271e967
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130136"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49361913"
 ---
 # <a name="mysql-resource-provider-maintenance-operations"></a>Opérations de maintenance du fournisseur de ressources MySQL
 
@@ -92,9 +92,9 @@ $session | Remove-PSSession
 
 ## <a name="secrets-rotation"></a>Rotation des secrets
 
-*Ces instructions s’appliquent uniquement aux systèmes intégrés Azure Stack versions 1804 et ultérieures. N’essayez pas de faire pivoter des clés secrètes dans les versions d’Azure Stack antérieures à 1804.*
+*Ces instructions s’appliquent uniquement aux systèmes intégrés Azure Stack*.
 
-Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèmes intégrés Azure Stack, vous pouvez effectuer une rotation des secrets d’infrastructure (déploiement) suivants :
+Quand vous utilisez les fournisseurs de ressources SQL et MySQL avec des systèmes intégrés Azure Stack, l’opérateur Azure Stack est chargé de faire pivoter les secrets d’infrastructure de fournisseurs de ressources suivants pour garantir qu’ils n’expirent pas :
 
 - Certificat SSL externe [fourni au cours du déploiement](azure-stack-pki-certs.md).
 - Mot de passe de compte d’administrateur local des machines virtuelles du fournisseur de ressources fourni au moment du déploiement.

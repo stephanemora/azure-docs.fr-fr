@@ -1,20 +1,21 @@
 ---
-title: Attributs de l’entité Academic Graph pour l’API Connaissances universitaires | Microsoft Docs
+title: Attributs d’entité Academic Graph – API Connaissances universitaires
+titlesuffix: Azure Cognitive Services
 description: Découvrez les attributs d’entité que vous pouvez utiliser avec Academic Graph dans l’API Connaissances universitaires.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: f771969c3c6f05e5d2c99b1fbf593ae039ccb12c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: a203fdf6562dabb1b9d6e8ab5bb8f46ff6d5dc27
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367820"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902788"
 ---
 # <a name="entity-attributes"></a>Attributs d’entité
 
@@ -34,6 +35,6 @@ NOM                                                            |value
 [Journal](JournalEntityAttributes.md)                           |2
 [Séries de conférences](JournalEntityAttributes.md)                 |3
 [Instance de conférence](ConferenceInstanceEntityAttributes.md)    |4
-[Affiliation](AffiliationEntityAttributes.md)                   |5
+[Affiliation](AffiliationEntityAttributes.md)                   |5.
 [Champ d’étude](FieldsOfStudyEntityAttributes.md)                      |6.
 

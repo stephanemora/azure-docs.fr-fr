@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 11/30/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 27f926a9a5d30d28e2721ffa52695292f794a501
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 564e8e2968f31b9e2aef8f7eadbf848885037ccb
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522429"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48040760"
 ---
 # <a name="azure-virtual-machine-powershell-samples"></a>Exemples PowerShell pour les machines virtuelles Azure
 
@@ -43,6 +43,7 @@ Le tableau suivant contient des liens vers des exemples de scripts PowerShell qu
 | [Créer un disque géré à partir d’une capture instantanée](../scripts/virtual-machines-windows-powershell-sample-create-managed-disk-from-snapshot.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crée un disque géré à partir d’une capture instantanée. |
 | [Copier le disque géré vers le même abonnement ou un abonnement différent](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md?toc=%2fcli%2fmodule%2ftoc.json) | Copie le disque géré vers le même abonnement ou un abonnement différent, mais dans la même région que le disque géré parent. 
 | [Exporter une capture instantanée en tant que disque dur virtuel vers un compte de stockage](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Exporte une capture instantanée gérée en tant que disque dur virtuel vers un compte de stockage dans une région différente. |
+| [Exporter le disque dur virtuel d’un disque managé vers un compte de stockage](../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Exporte le disque dur virtuel sous-jacent d’un disque managé vers un compte de stockage situé dans une autre région. |
 | [Créer une capture instantanée d’un disque dur virtuel](../scripts/virtual-machines-windows-powershell-sample-create-snapshot-from-vhd.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Crée une capture instantanée d’un disque dur virtuel pour créer rapidement plusieurs disques gérés identiques à partir de cette capture instantanée.  |
 | [Copier la capture instantanée vers le même abonnement ou un abonnement différent](../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-same-or-different-subscription.md?toc=%2fpowershell%2fmodule%2ftoc.json) | Copie la capture instantanée vers le même abonnement ou un abonnement différent, mais dans la même région que la capture instantanée parente. |
 |**Sécuriser les machines virtuelles**||

@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 49d5e307c51a6527ade63bac0276fa141ecb5c24
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222452"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353864"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligence Insights
 
@@ -61,7 +61,7 @@ La section suivante décrit plus en détail les modèles de performances détect
 
 Ce modèle de performances détectables combine les problèmes de performances liés à l’atteinte des limites de ressources, de threads de travail et de sessions disponibles. Une fois que ce problème de performances a été détecté, un champ de description du journal de diagnostic indique si le problème est lié aux limites de ressources, de threads de travail ou de sessions.
 
-Les ressources de SQL Database sont généralement appelées des ressources [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) ou [vCore](https://docs.microsoft.com/en-us/azure/sql-database/sql-database-service-tiers-vcore). Le modèle lié à l’atteinte des limites de ressources est reconnu quand une détérioration des performances de requête est détectée et qu’elle est due à l’atteinte de l’une des limites de ressources mesurées.
+Les ressources de SQL Database sont généralement appelées des ressources [DTU](https://docs.microsoft.com/azure/sql-database/sql-database-what-is-a-dtu) ou [vCore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore). Le modèle lié à l’atteinte des limites de ressources est reconnu quand une détérioration des performances de requête est détectée et qu’elle est due à l’atteinte de l’une des limites de ressources mesurées.
 
 La ressource relative aux limites de sessions indique le nombre de connexions simultanées disponibles à SQL Database. Ce modèle de performances est reconnu quand des applications connectées à des bases de données SQL ont atteint le nombre de connexions simultanées disponibles à la base de données. Si les applications essaient d’utiliser plus de sessions que le nombre disponible sur une base de données, les performances des requêtes sont affectées.
 
@@ -73,7 +73,7 @@ Le journal de diagnostic génère les codes de hachage des requêtes qui ont aff
 
 Si vous avez atteint les limites de sessions disponibles, vous pouvez optimiser vos applications en réduisant le nombre de connexions à la base de données. Si vous ne parvenez pas à réduire le nombre de connexions de vos applications à la base de données, augmentez éventuellement le niveau tarifaire de votre base de données. Vous pouvez également fractionner et déplacer votre base de données vers plusieurs bases de données pour obtenir une distribution plus équilibrée de la charge de travail.
 
-Pour plus de suggestions sur la résolution des problèmes liés aux limites de sessions, consultez [Guide pratique pour traiter les limites de connexions maximales de SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Pour connaître les limites de ressources disponibles de votre niveau d’abonnement, consultez [Limites de ressources de SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits).
+Pour plus de suggestions sur la résolution des problèmes liés aux limites de sessions, consultez [Guide pratique pour traiter les limites de connexions maximales de SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez [Vue d’ensemble des limites de ressources sur un serveur logique](sql-database-resource-limits-logical-server.md).
 
 ## <a name="workload-increase"></a>Augmentation de la charge de travail
 
@@ -237,7 +237,7 @@ Pour plus d’informations, consultez [Introduction aux tables à mémoire optim
 
 Ce modèle de performances détectables indique une détérioration des performances de la charge de travail de la base de données actuelle par rapport à la base de référence des sept jours précédents. Cela est dû à un manque de DTU disponibles dans le pool élastique de votre abonnement. 
 
-Les ressources de SQL Database sont généralement appelées [ressources DTU](sql-database-service-tiers.md#what-are-database-transaction-units-dtus) et consistent en une mesure fusionnée des ressources d’UC et d’E/S (E/S des journaux de données et des transactions). Les [ressources du pool élastique Azure](sql-database-elastic-pool.md) sont utilisées comme pool de ressources eDTU disponibles partagées entre plusieurs bases de données à des fins de mise à l’échelle. Quand les ressources eDTU disponibles dans le pool élastique ne sont pas suffisantes pour prendre en charge toutes les bases de données du pool, un problème de performances lié à une pénurie de DTU dans le pool élastique est détecté par le système.
+Les ressources de SQL Database sont généralement appelées [ressources DTU](sql-database-service-tiers.md#dtu-based-purchasing-model) et consistent en une mesure fusionnée des ressources d’UC et d’E/S (E/S des journaux de données et des transactions). Les [ressources du pool élastique Azure](sql-database-elastic-pool.md) sont utilisées comme pool de ressources eDTU disponibles partagées entre plusieurs bases de données à des fins de mise à l’échelle. Quand les ressources eDTU disponibles dans le pool élastique ne sont pas suffisantes pour prendre en charge toutes les bases de données du pool, un problème de performances lié à une pénurie de DTU dans le pool élastique est détecté par le système.
 
 ### <a name="troubleshooting"></a>Résolution de problèmes
 
