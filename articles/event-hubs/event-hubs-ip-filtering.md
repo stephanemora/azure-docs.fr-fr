@@ -3,19 +3,19 @@ title: Filtres de connexion IP Azure Event Hubs | Microsoft Docs
 description: Utilisez le filtrage IP pour bloquer les connexions à Azure Event Hubs à partir d’adresses IP spécifiques.
 services: event-hubs
 documentationcenter: ''
-author: ShubhaVijayasarathy
+author: spelluru
 manager: timlt
 ms.service: event-hubs
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2018
-ms.author: shvija
-ms.openlocfilehash: 6d96eac3ecd249de3ba0da82eff95c45e45fa02d
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.date: 10/08/2018
+ms.author: spelluru
+ms.openlocfilehash: c229a6f84096ecca892b74f7ce65cb831fa50be3
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746193"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48886175"
 ---
 # <a name="use-ip-filters"></a>Utiliser des filtres IP
 
@@ -48,6 +48,9 @@ Par exemple, si vous souhaitez accepter les adresses dans la plage 70.37.104.0/2
 > Le rejet d’adresses IP est de nature à empêcher d’autres services Azure (comme Azure Stream Analytics, Machines virtuelles Azure ou Device Explorer dans le portail) d’interagir avec Event Hubs.
 
 ### <a name="creating-a-virtual-network-rule-with-azure-resource-manager-templates"></a>Création d’une règle de réseau virtuel avec des modèles Azure Resource Manager
+
+> [!IMPORTANT]
+> Les réseaux virtuels sont pris en charge dans les niveaux **standard** et **dédié** d’Event Hubs. Il ne sont pas pris en charge dans le niveau de base. 
 
 Le modèle Resource Manager suivant permet d’ajouter une règle de réseau virtuel à un espace de noms Event Hubs.
 

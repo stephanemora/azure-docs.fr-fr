@@ -1,5 +1,5 @@
 ---
-title: Questions fréquentes (FAQ) - Language Understanding (LUIS)
+title: FAQ - Questions fréquentes - Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
 description: Cet article contient des réponses aux questions fréquemment posées sur Language Understanding (LUIS).
 author: diberry
@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: 5910417696651cad06d6f21513e81728be4181cd
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432458"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067758"
 ---
 # <a name="language-understanding-faq"></a>FAQ sur Language Understanding
 
@@ -113,6 +113,10 @@ Voir le didacticiel [Tests par lot](luis-tutorial-batch-testing.md).
 
 Voir [Différences de prédiction entre les copies d’une même application](luis-concept-prediction-score.md#differences-with-predictions).
 
+### <a name="some-utterances-go-to-the-wrong-intent-after-i-made-changes-to-my-app-the-issue-seems-to-disappear-at-random-how-do-i-fix-it"></a>Après avoir apporté des modifications à mon application, l'intention de certains énoncés est erronée. Le problème semble disparaître de façon aléatoire. Comment la corriger ? 
+
+Voir [Entraîner avec toutes les données](luis-how-to-train.md#train-with-all-data).
+
 ## <a name="app-publishing"></a>Publication d’application
 
 ### <a name="what-is-the-tenant-id-in-the-add-a-key-to-your-app-window"></a>Qu’est-ce que l’ID de locataire dans la fenêtre « Add a key to your app » (Ajouter une clé à votre application) ?
@@ -135,7 +139,7 @@ Si votre application existait avant la disponibilité générale de LUIS, les cl
 Pour transférer une application LUIS vers un autre abonnement Azure, exportez l’application LUIS et importez-la à l’aide d’un nouveau compte. Mettez à jour l’ID de l’application LUIS dans l’application cliente qui l’appelle. La nouvelle application peut renvoyer des scores LUIS légèrement différents de ceux renvoyés par l’application d’origine.
 
 ### <a name="how-do-i-download-a-log-of-user-utterances"></a>Comment faire pour télécharger un journal d’énoncés d’utilisateurs ?
-Par défaut, votre application LUIS journalise les énoncés des utilisateurs. Pour télécharger un journal des énoncés que les utilisateurs envoient à votre application LUIS, accédez à **Mes applications**, puis cliquez sur les points de suspension (***...*** ) dans la liste correspondant à votre application. Cliquez ensuite sur **Export Endpoint Logs** (Exporter les journaux du point de terminaison). Un journal est mis en forme comme un fichier de valeurs séparées par des virgules (CSV).
+Par défaut, votre application LUIS journalise les énoncés des utilisateurs. Pour télécharger un journal des énoncés que les utilisateurs envoient à votre application LUIS, accédez à **Mes applications** et sélectionnez l'application. Dans la barre d’outils contextuelle, sélectionnez **Exporter les journaux du point de terminaison**. Un journal est mis en forme comme un fichier de valeurs séparées par des virgules (CSV).
 
 ### <a name="how-can-i-disable-the-logging-of-utterances"></a>Comment puis-je désactiver la journalisation des énoncés ?
 Vous pouvez désactiver la journalisation des énoncés des utilisateurs en définissant `log=false` dans l’URL de point de terminaison que votre application cliente utilise pour la interroger LUIS. Toutefois, la désactivation de la journalisation désactive la capacité de votre application LUIS à suggérer des énoncés ou à améliorer les performances sur la base d’un [apprentissage actif](luis-concept-review-endpoint-utterances.md#what-is-active-learning). Si vous définissez `log=false` en raison de problèmes de confidentialité des données, vous ne pouvez pas télécharger un enregistrement de ces énoncés d’utilisateurs à partir de LUIS ou utiliser ces énoncés pour améliorer votre application.

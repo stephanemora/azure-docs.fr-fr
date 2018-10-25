@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/18/2018
+ms.date: 09/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 446268f28e7c87196023636889f03be2da92ecfd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4a5f3178ad4d4152bb29e6c313b3fd332124c154
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46967640"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269392"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms"></a>Comment interroger des journaux à partir d’Azure Monitor pour les machines virtuelles
 Azure Monitor pour les machines virtuelles collecte des métriques de performances et de connexion, les données d’inventaire des ordinateurs et processus et des informations concernant l’état d’intégrité, puis les transfère au magasin de données Log Analytics dans Azure Monitor.  Ces données peuvent faire l’objet de [recherches](../log-analytics/log-analytics-log-searches.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
@@ -69,9 +69,9 @@ En plus des métriques concernant le nombre de connexions, des informations sur 
 |BytesSent |Nombre total d’octets qui ont été envoyés dans la fenêtre de temps de rapport |
 |BytesReceived |Nombre total d’octets qui ont été reçus dans la fenêtre de temps de rapport |
 |Réponses |Nombre de réponses observées dans la fenêtre de temps de rapport. 
-|ResponseTimeMax |Temps de réponse le plus long (en millisecondes) observé dans la fenêtre de temps de rapport.  En l’absence de valeur, la propriété est vide.|
-|ResponseTimeMin |Temps de réponse le plus court (en millisecondes) observé dans la fenêtre de temps de rapport.  En l’absence de valeur, la propriété est vide.|
-|ResponseTimeSum |Somme de tous les temps de réponse (en millisecondes) observés dans la fenêtre de temps de rapport.  En l’absence de valeur, la propriété est vide.|
+|ResponseTimeMax |Temps de réponse le plus long (en millisecondes) observé dans la fenêtre de temps de rapport. En l’absence de valeur, la propriété est vide.|
+|ResponseTimeMin |Temps de réponse le plus court (en millisecondes) observé dans la fenêtre de temps de rapport. En l’absence de valeur, la propriété est vide.|
+|ResponseTimeSum |Somme de tous les temps de réponse (en millisecondes) observés dans la fenêtre de temps de rapport. En l’absence de valeur, la propriété est vide.|
 
 Le troisième type de données rapportées est le temps de réponse : le temps passé par un appelant à attendre qu’une requête envoyée sur une connexion soit traitée par le point de terminaison distant et que ce dernier y réponde. Le temps de réponse rapporté est une estimation du temps de réponse réel du protocole d’application sous-jacent. Il est calculé à l’aide d’une méthode heuristique basée sur l’observation du flux de données entre la source et la destination d’une connexion réseau physique. Sur le plan conceptuel, il s’agit de la différence entre le moment auquel le dernier octet d’une requête quitte l’expéditeur et celui auquel le dernier octet de la réponse lui revient. Ces deux timestamps sont utilisés pour délimiter les événements de requête et de réponse sur une connexion physique donnée. La différence entre eux représente le temps de réponse d’une requête unique. 
 
@@ -93,8 +93,8 @@ Pour plus de commodité, l’adresse IP de l’extrémité distante d’une conn
 | Propriété | Description |
 |:--|:--|
 |RemoteCountry |Nom du pays hébergeant RemoteIp.  Par exemple, *États-Unis* |
-|RemoteLatitude |Latitude de géolocalisation.  Par exemple, *47,68*. |
-|RemoteLongitude |Longitude de géolocalisation.  Par exemple, *-122,12*. |
+|RemoteLatitude |Latitude de géolocalisation. Par exemple, *47,68*. |
+|RemoteLongitude |Longitude de géolocalisation. Par exemple, *-122,12*. |
 
 #### <a name="malicious-ip"></a>Adresses IP malveillantes
 Chaque propriété RemoteIp de la table *VMConnection* est comparée à un ensemble d’adresses IP associées à une activité malveillante connue. Si la propriété RemoteIp est identifiée comme malveillante, les propriétés suivantes de l’enregistrement sont renseignées (elles sont vides lorsque l’adresse IP n’est pas considérée comme malveillante) :
@@ -102,16 +102,16 @@ Chaque propriété RemoteIp de la table *VMConnection* est comparée à un ensem
 | Propriété | Description |
 |:--|:--|
 |MaliciousIP |Adresse RemoteIp |
-|IndicatorThreadType | |
-|Description | |
-|TLPLevel | |
-|Confiance | |
-|Severity | |
-|FirstReportedDateTime | |
-|LastReportedDateTime | |
-|IsActive | |
-|ReportReferenceLink | |
-|AdditionalInformation | |
+|IndicatorThreadType |L’indicateur de menace détecté est l’une des valeurs suivantes :  *Botnet*, *C2*, *CryptoMining*, *Darknet*, *DDos*, *MaliciousUrl*, *Malware*, *Phishing*, *Proxy*, *PUA* ou *Watchlist*.   |
+|Description |Description de la menace observée. |
+|TLPLevel |Niveau de protocole TLP (Traffic Light Protocol) est réglé sur l’une des valeurs définies, *Blanc*, *Vert*, *Orange*, *Rouge*. |
+|Confiance |Les valeurs sont comprises dans la fourchette *0 – 100*. |
+|Severity |Les valeurs sont comprises dans la fourchette *0 – 5*,  dans laquelle *5* correspond à la gravité maximale et *0* à l’absence de gravité. La valeur par défaut est *3*.  |
+|FirstReportedDateTime |La première fois que le fournisseur a déclaré l’indicateur. |
+|LastReportedDateTime |La dernière fois que l’indicateur a été vu par Interflow. |
+|IsActive |Indique les indicateurs sont désactivés avec la valeur *True* ou la valeur *False*. |
+|ReportReferenceLink |Liens vers des rapports relatifs à un observable donné. |
+|AdditionalInformation |Fournit des informations supplémentaires, s’il y a lieu, sur la menace observée. |
 
 ### <a name="servicemapcomputercl-records"></a>Enregistrements ServiceMapComputer_CL
 Les enregistrements de type *ServiceMapComputer_CL* ont des données d’inventaire pour les serveurs avec Dependency Agent. Les propriétés de ces enregistrements sont décrites dans le tableau suivant :
@@ -166,34 +166,34 @@ Les enregistrements de type *ServiceMapProcess_CL* ont des données d’inventai
 ## <a name="sample-log-searches"></a>Exemples de recherches dans les journaux
 
 ### <a name="list-all-known-machines"></a>Liste de tous les ordinateurs connus
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-the-physical-memory-capacity-of-all-managed-computers"></a>Répertorier la capacité de mémoire physique de tous les ordinateurs gérés
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project PhysicalMemory_d, ComputerName_s`
 
 ### <a name="list-computer-name-dns-ip-and-os"></a>Répertorier le nom de l’ordinateur, le DNS, l’adresse IP et le système d’exploitation.
-ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s
+`ServiceMapComputer_CL | summarize arg_max(TimeGenerated, *) by ResourceId | project ComputerName_s, OperatingSystemFullName_s, DnsNames_s, Ipv4Addresses_s`
 
 ### <a name="find-all-processes-with-sql-in-the-command-line"></a>Rechercher tous les processus contenant "sql" dans la ligne de commande
-ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapProcess_CL | where CommandLine_s contains_cs "sql" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-resource-name"></a>Rechercher un ordinateur (enregistrement le plus récent) par nom de ressource
-search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId
+`search in (ServiceMapComputer_CL) "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="find-a-machine-most-recent-record-by-ip-address"></a>Rechercher une machine (enregistrement le plus récent) par adresse IP
-search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId
+`search in (ServiceMapComputer_CL) "10.229.243.232" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-known-processes-on-a-specified-machine"></a>Répertorier tous les processus sur une machine spécifiée
-ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId
+`ServiceMapProcess_CL | where MachineResourceName_s == "m-559dbcd8-3130-454d-8d1d-f624e57961bc" | summarize arg_max(TimeGenerated, *) by ResourceId`
 
 ### <a name="list-all-computers-running-sql"></a>Répertorier tous les ordinateurs exécutant SQL
-ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s
+`ServiceMapComputer_CL | where ResourceName_s in ((search in (ServiceMapProcess_CL) "\*sql\*" | distinct MachineResourceName_s)) | distinct ComputerName_s`
 
 ### <a name="list-all-unique-product-versions-of-curl-in-my-datacenter"></a>Répertorier toutes les versions de produit uniques de CURL dans mon centre de données
-ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s
+`ServiceMapProcess_CL | where ExecutableName_s == "curl" | distinct ProductVersion_s`
 
 ### <a name="create-a-computer-group-of-all-computers-running-centos"></a>Créer un groupe de tous les ordinateurs exécutant CentOS
-ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s
+`ServiceMapComputer_CL | where OperatingSystemFullName_s contains_cs "CentOS" | distinct ComputerName_s`
 
 ### <a name="summarize-the-outbound-connections-from-a-group-of-machines"></a>Synthétiser les connexions sortantes d’un groupe de machines
 ```

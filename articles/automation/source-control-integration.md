@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 09/17/2018
+ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: c2d13a409d095bca64da781e5c5ca58553f9710c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046251"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785322"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Intégration du contrôle de code source dans Azure Automation
 
-Le contrôle de code source vous permet de vous assurer que vos runbooks dans votre compte Automation restent à jour par rapport à vos scripts dans votre référentiel de contrôle de code source GitHub ou Azure DevOps. Le contrôle du code source vous permet de collaborer avec votre équipe en toute simplicité, de suivre les modifications et de restaurer des versions antérieures de vos runbooks. Par exemple, le contrôle de code source vous permet de synchroniser différentes branches avec vos comptes de développement, de test ou de production Automation, et contribue à promouvoir le code qui a été testé dans votre environnement de développement vers votre compte Automation de production.
+Le contrôle de code source vous permet de vous assurer que vos runbooks dans votre compte Automation restent à jour par rapport à vos scripts dans votre référentiel de contrôle de code source GitHub ou Azure DevOps. Le contrôle du code source vous permet de collaborer avec votre équipe en toute simplicité, de suivre les modifications et de restaurer des versions antérieures de vos runbooks. Par exemple, le contrôle de code source vous permet de synchroniser différentes branches dans le contrôle de code source pour vos comptes Automation de développement, de test ou de production. Cela simplifie la promotion du code qui a été testé dans votre environnement de développement dans votre compte Automation de production.
 
 Azure Automation prend en charge 3 types de contrôles de code source :
 
@@ -29,6 +29,7 @@ Azure Automation prend en charge 3 types de contrôles de code source :
 ## <a name="pre-requisites"></a>Conditions préalables
 
 * Un référentiel de contrôle de code source (GitHub ou Visual Studio Team Services)
+* Les [autorisations](#personal-access-token-permissions) appropriées dans le référentiel du contrôle de code source
 * [Un compte d’identification et une connexion](manage-runas-account.md)
 
 > [!NOTE]
@@ -49,8 +50,8 @@ Sur la page **Récapitulatif du contrôle de code source**, fournissez les infor
 |Propriété  |Description  |
 |---------|---------|
 |Nom du contrôle de code source     | Nom convivial du contrôle de code source.        |
-|Type de contrôle de code source     | Type de source de contrôle de code source. Options disponibles :</br> Github</br>Visual Studio Team Services (Git)</br>Visual Studio Team Services (TFVC)        |
-|Référentiel     | Nom du référentiel ou du projet. Ce nom est extrait du référentiel de contrôle de code source. Exemple : $/ContosoFinanceTFVCExample         |
+|Type de contrôle de code source     | Type de source de contrôle de code source. Options disponibles :</br> Github</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (TFVC)        |
+|Référentiel     | Nom du référentiel ou du projet. Cette valeur est extraite du référentiel du contrôle de code source. Exemple : $/ContosoFinanceTFVCExample         |
 |Branche     | Branche de laquelle extraire les fichiers sources. Le ciblage de branche n’est pas disponible pour le type de contrôle de code source TFVC.          |
 |Chemin d’accès du dossier     | Dossier contenant les runbooks à synchroniser. Exemple : /Runbooks         |
 |Synchronisation automatique     | Active ou désactive la synchronisation automatique lorsqu’une validation est effectuée dans le référentiel de contrôle de code source.         |
@@ -61,13 +62,13 @@ Sur la page **Récapitulatif du contrôle de code source**, fournissez les infor
 
 ## <a name="syncing"></a>Synchronisation
 
-Si la synchronisation automatique a été définie lors de la configuration de l’intégration du contrôle de code source, la synchronisation initiale démarre automatiquement. Si la synchronisation automatique n’a pas été définie, sélectionnez la source dans le tableau de la page **Contrôle de code source (préversion)**. Cliquez sur **Démarrer la synchronisation** pour initialiser le processus de synchronisation.  
+En configurant la synchronisation automatique lors de la configuration de l’intégration du contrôle de code source, la synchronisation initiale démarre automatiquement. Si la synchronisation automatique n’a pas été définie, sélectionnez la source dans le tableau de la page **Contrôle de code source (préversion)**. Cliquez sur **Démarrer la synchronisation** pour initialiser le processus de synchronisation.  
 
 Vous pouvez visualiser l’état du travail de synchronisation actuel ou des travaux précédents en cliquant sur l’onglet **Travaux de synchronisation**. Dans la liste déroulante **Contrôle de code source**, sélectionnez un contrôle de code source.
 
 ![État de synchronisation](./media/source-control-integration/sync-status.png)
 
-Vous pouvez cliquer sur un travail afin de visualiser la sortie correspondante. Voici un exemple de sortie d’un travail de synchronisation de contrôle de code source.
+Vous pouvez cliquer sur un travail afin de visualiser la sortie correspondante. L’exemple suivant présente la sortie d’un travail de synchronisation du contrôle de code source.
 
 ```output
 ========================================================================================================
@@ -101,6 +102,35 @@ Source Control Sync Summary:
 
 ========================================================================================================
 ```
+
+## <a name="personal-access-token-permissions"></a>Autorisations de jeton d’accès personnel
+
+Le contrôle de code source nécessite des autorisations minimales pour les jetons d’accès personnel. Les tableaux suivants indiquent les autorisations minimales requises pour GitHub et Azure DevOps.
+
+### <a name="github"></a>GitHub
+
+|Étendue  |Description  |
+|---------|---------|
+|**référentiel**     |         |
+|repo:status     | État de la validation d’accès         |
+|repo_deployment      | État du déploiement d’accès         |
+|public_repo     | Référentiels publics d’accès         |
+|**admin:repo_hook**     |         |
+|write:repo_hook     | Écrire des hooks de référentiel         |
+|read:repo_hook|Lire des hooks de référentiel|
+
+### <a name="azure-devops"></a>Azure DevOps
+
+|Étendue  |
+|---------|
+|Code (lire)     |
+|Projet et équipe (lire)|
+|Identité (lire)      |
+|Profil utilisateur (lire)     |
+|Éléments de travail (lire)    |
+|Connexions de service (lire, interroger et gérer)<sup>1</sup>    |
+
+<sup>1</sup>l’autorisation de connexions de service est uniquement nécessaire si vous avez activé la synchronisation automatique.
 
 ## <a name="disconnecting-source-control"></a>Déconnexion du contrôle de code source
 

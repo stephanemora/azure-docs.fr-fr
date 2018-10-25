@@ -5,22 +5,52 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2a9ff23e5182c8cb7c91ad93e368f61f258c84f8
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 4d53c33daefaadb4c58ce500a5d564af7988b606
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841590"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49077086"
 ---
-# <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid 
+# <a name="event-grid-message-delivery-and-retry"></a>Distribution et nouvelle tentative de distribution de messages avec Azure Grid
 
 Cet article décrit comment Azure Event Grid gère les événements en l’absence d’accusé de réception d’une distribution.
 
-Event Grid assure une distribution fiable. Il distribue chaque message au moins une fois pour chaque abonnement. Les événements sont envoyés immédiatement au webhook inscrit de chaque abonnement. Si un webhook n’accuse pas réception d’un événement dans les 60 secondes suivant la première tentative de distribution, Event Grid effectue une nouvelle tentative de distribution de l’événement. 
+Event Grid assure une distribution fiable. Il distribue chaque message au moins une fois pour chaque abonnement. Les événements sont envoyés immédiatement au point de terminaison inscrit de chaque abonnement. Si un point de terminaison n’accuse pas réception d’un événement, Event Grid effectue une nouvelle tentative de distribution.
 
 Actuellement, Event Grid envoie chaque événement individuellement aux abonnés. L’abonné reçoit un tableau ne comprenant qu’un seul événement.
+
+## <a name="retry-schedule-and-duration"></a>Planification d’un nouvel essai et durée
+
+Event Grid utilise une stratégie de nouvelle tentative d’interruption exponentielle pour la distribution des événements. Si un point de terminaison ne répond pas ou s’il retourne un code d’échec, Event Grid effectue une nouvelle tentative de distribution aux intervalles suivants :
+
+1. 10 secondes
+2. 30 secondes
+3. 1 minute
+4. 5 minutes
+5. 10 minutes
+6. 30 minutes
+7. 1 heure
+
+Event Grid ajoute une petite randomisation à chaque nouvelle tentative. La remise des événements est renouvelée après une heure, une fois par heure.
+
+Par défaut, Event Grid fait expirer tous les événements qui ne sont pas distribués dans les 24 heures. Vous pouvez [personnaliser la stratégie de nouvelle tentative](manage-event-delivery.md) lors de la création d’un abonnement à un événement. Vous fournissez le nombre maximal de tentatives de remise (par défaut, 30) et la durée de vie de l’événement (par défaut, 1 440 minutes).
+
+## <a name="dead-letter-events"></a>Événements de lettres mortes
+
+Quand Event Grid ne parvient pas à remettre un événement, il peut envoyer cet événement non remis à un compte de stockage. Ce processus est appelé mise en file d’attente de lettres mortes. Par défaut, Event Grid n’active pas cette fonctionnalité. Pour l’activer, vous devez spécifier le compte de stockage dans lequel les événements non remis seront conservés au moment de créer l’abonnement aux événements. Les événements sont extraits de ce compte de stockage pour résoudre les remises.
+
+Event Grid envoie un événement à l’emplacement des lettres mortes lorsqu’il a effectué toutes ses nouvelles tentatives. Si Event Grid reçoit un code de réponse 400 (requête incorrecte) ou 413 (entité de requête trop grande), il envoie immédiatement l’événement au point de terminaison des lettres mortes. Ces codes de réponse indiquent que la diffusion de l’événement va échouer.
+
+Un délai de cinq minutes s’écoule entre la dernière tentative de remise d’un événement et le moment de sa remise à l’emplacement des lettres mortes. Ce décalage est destiné à réduire le nombre d’opérations de stockage d’objets blob. Si l’emplacement des lettres mortes est indisponible pendant quatre heures, l’événement est abandonné.
+
+Avant de définir l’emplacement des lettres mortes, vous devez disposer d’un compte de stockage avec un conteneur. Vous devez indiquer le point de terminaison de ce conteneur au moment de créer l’abonnement aux événements. Le point de terminaison se présente sous la forme suivante : `/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Storage/storageAccounts/<storage-name>/blobServices/default/containers/<container-name>`
+
+Vous souhaiterez peut-être être averti lorsqu’un événement a été envoyé à l’emplacement des lettres mortes. Pour répondre aux événements non remis à l’aide d’Event Grid, [créez un abonnement aux événements](../storage/blobs/storage-blob-event-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json) pour le stockage Blob de lettres mortes. Chaque fois que votre stockage Blob de lettres mortes reçoit un événement non remis, Event Grid notifie votre gestionnaire. Le gestionnaire répond par les mesures que vous voulez prendre pour réconcilier les événements non remis.
+
+Pour savoir comment configurer un emplacement de lettres mortes, voir [Stratégies de lettres mortes et de nouvelles tentatives](manage-event-delivery.md).
 
 ## <a name="message-delivery-status"></a>État de distribution du message
 
@@ -48,31 +78,7 @@ Les codes de réponse HTTP suivants indiquent un échec de la tentative de distr
 - 503 Service indisponible
 - 504 Dépassement du délai de la passerelle
 
-Si vous avez [configuré un point de terminaison de lettres mortes](manage-event-delivery.md) et qu’Event Grid reçoit un code réponse 400 ou 413, Event Grid envoie immédiatement l’événement au point de terminaison de lettres mortes. Sinon, Event Grid repasse toutes les erreurs.
-
-## <a name="retry-intervals-and-duration"></a>Intervalles avant nouvelle tentative et durée
-
-Event Grid utilise une stratégie de nouvelle tentative d’interruption exponentielle pour la distribution des événements. Si votre webhook ne répond pas ou s’il retourne un code d’échec, Event Grid effectue une nouvelle tentative de distribution aux intervalles suivants :
-
-1. 10 secondes
-2. 30 secondes
-3. 1 minute
-4. 5 minutes
-5. 10 minutes
-6. 30 minutes
-7. 1 heure
-
-Event Grid ajoute une petite randomisation à tous les intervalles de nouvelle tentative. La remise des événements est renouvelée après une heure, une fois par heure.
-
-Par défaut, Event Grid fait expirer tous les événements qui ne sont pas distribués dans les 24 heures. Vous pouvez [personnaliser la stratégie de nouvelle tentative](manage-event-delivery.md) lors de la création d’un abonnement à un événement. Vous fournissez le nombre maximal de tentatives de remise (par défaut, 30) et la durée de vie de l’événement (par défaut, 1 440 minutes).
-
-## <a name="dead-letter-events"></a>Événements de lettres mortes
-
-Quand Event Grid ne parvient pas à remettre un événement, il peut envoyer cet événement non remis à un compte de stockage. Ce processus est appelé mise en file d’attente de lettres mortes. Pour voir les événements non remis, vous pouvez les extraire de l’emplacement des lettres mortes. Pour plus d’informations, voir [Stratégies de lettres mortes et de nouvelles tentatives](manage-event-delivery.md).
-
 ## <a name="next-steps"></a>Étapes suivantes
 
 * Pour afficher l’état des remises des événements, consultez [Surveiller la remise des messages Event Grid](monitor-event-delivery.md).
-* Pour personnaliser les options de remise d’événement, voir [Gérer les paramètres de remise d’Event Grid](manage-event-delivery.md).
-* Pour une présentation d’Event Grid, consultez [À propos d’Event Grid](overview.md).
-* Pour une prise en main rapide d’Event Grid, consultez [Créer et acheminer des événements personnalisés avec Azure Event Grid](custom-event-quickstart.md).
+* Pour personnaliser les options de diffusion d’événements, consultez [Stratégies de lettres mortes et de nouvelles tentatives](manage-event-delivery.md).

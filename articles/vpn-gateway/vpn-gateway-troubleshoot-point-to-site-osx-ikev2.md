@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/27/2018
 ms.author: alzam
-ms.openlocfilehash: 1cf8195cbf65f27c71a4db18c0c61c8a25673acd
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: c370808d06f31f9d79c99ca0f20f613d9e335d60
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30247708"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339048"
 ---
 # <a name="troubleshoot-point-to-site-vpn-connections-from-mac-os-x-vpn-clients"></a>Résoudre les problèmes de connexion VPN point à site à partir de clients Mac OS X
 
@@ -63,10 +63,12 @@ Cet article vous aidera à résoudre les problèmes de connectivité point à si
 
 Si vous avez suivi les étapes précédentes et que tout est correctement configuré, téléchargez [Wireshark](https://www.wireshark.org/#download) et effectuez une capture de paquets.
 
-1. Filtrez sur *iskmp* et examinez les paquets **IKE_SA**. Les détails de la proposition de l’association de sécurité devraient figurer sous **Payload: Security Association** (Charge utile : association de sécurité). 
+1. Filtrez sur *isakmp* et examinez les paquets **IKE_SA**. Les détails de la proposition de l’association de sécurité devraient figurer sous **Payload: Security Association** (Charge utile : association de sécurité). 
 2. Vérifiez que le client et le serveur présentent un jeu commun.
 
-  ![Paquet](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg)
+  ![Paquet](./media/vpn-gateway-troubleshoot-point-to-site-osx-ikev2/packet5.jpg) 
+  
+3. S’il n’existe aucune réponse du serveur sur les traces réseau, vérifiez que vous avez activé le protocole IKEv2 dans la page Configuration de la passerelle Azure sur le site web du portail Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour obtenir de l’aide supplémentaire, consultez [Support Microsoft](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).

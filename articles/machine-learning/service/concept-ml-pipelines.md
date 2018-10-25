@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 09/24/2018
-ms.openlocfilehash: e1181d07ed51b1edf5da68d759d871703bd1540f
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b450d2ca2af0c0f7598d74e2f07c0acc81b811f3
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162778"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116451"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>Pipelines et Azure Machine Learning
 
@@ -67,8 +67,8 @@ Consultez les [documents de référence du SDK Python pour les pipelines](http:/
 
 ## <a name="example-notebooks"></a>Exemples de notebooks
  
-Le notebook suivant montre l’utilisation des pipelines avec Azure Machine Learning : `pipeline/pipeline-batch-scoring.ipynb`.
+Le notebook suivant illustre l’utilisation des pipelines avec Azure Machine Learning : [pipeline/pipeline-batch-scoring.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/pipeline/pipeline-batch-scoring.ipynb).
  
-Consultez ces blocs-notes :
+Consultez ce bloc-notes :
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

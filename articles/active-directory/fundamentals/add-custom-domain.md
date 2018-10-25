@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: dc28263fca5c6854ffad12678b472804f074addd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 30b4a038c2ad9bd86f2ba78d52ed3754acec07f0
+ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035740"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48785255"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Procédure : ajouter votre nom de domaine personnalisé à l’aide du Portail Azure Active Directory
 Chaque nouveau locataire Azure AD est fourni avec un nom de domaine initial au format *nom_de_domaine*.onmicrosoft.com. Vous ne pouvez pas modifier ni supprimer le nom de domaine initial, mais vous pouvez ajouter des noms de votre organisation à la liste. L’ajout de noms de domaine personnalisés vous permet de créer des noms d’utilisateur qui sont familiers à vos utilisateurs, par exemple *alain@contoso.com*.
@@ -84,7 +84,7 @@ Après avoir enregistré votre nom de domaine personnalisé, vous devez vous ass
 
     ![Page Contoso avec les informations d’entrée DNS et le bouton Vérifier](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
 
-### <a name="common-verification-issues"></a>Problèmes de vérification courants
+## <a name="common-verification-issues"></a>Problèmes de vérification courants
 - Si Azure AD ne parvient pas à vérifier un nom de domaine personnalisé, suivez les suggestions ci-après :
     - **Attendez au moins une heure et essayez à nouveau**. Les enregistrements DNS doivent être propagés pour qu’Azure AD puisse vérifier le domaine. Ce processus peut dure une heure, voire plus.
 
@@ -92,7 +92,9 @@ Après avoir enregistré votre nom de domaine personnalisé, vous devez vous ass
 
     Si vous ne pouvez pas mettre à jour l’enregistrement sur le site du bureau d’enregistrement, vous devez partager l’entrée avec une personne qui dispose des autorisations appropriées pour ajouter l’entrée et vérifier qu’elle est exacte.
 
-- **Assurez-vous que le nom de domaine n’est pas déjà en cours d’utilisation dans un autre annuaire.** Un nom de domaine peut être vérifié dans un annuaire uniquement. Par conséquent, si votre nom de domaine est vérifié dans un autre annuaire, il ne peut pas être vérifié également dans le nouvel annuaire. Pour résoudre ce problème de duplication, vous devez supprimer le nom de domaine à partir de l’ancien annuaire. Pour plus d’informations sur la suppression de noms de domaine, voir [Gérer les noms de domaine personnalisés](../users-groups-roles/domains-manage.md). 
+- **Assurez-vous que le nom de domaine n’est pas déjà en cours d’utilisation dans un autre annuaire.** Un nom de domaine peut être vérifié dans un annuaire uniquement. Par conséquent, si votre nom de domaine est vérifié dans un autre annuaire, il ne peut pas être vérifié également dans le nouvel annuaire. Pour résoudre ce problème de duplication, vous devez supprimer le nom de domaine à partir de l’ancien annuaire. Pour plus d’informations sur la suppression de noms de domaine, voir [Gérer les noms de domaine personnalisés](../users-groups-roles/domains-manage.md).
+
+- **Assurez-vous de n’avoir aucun locataire Power BI non managé.** Si vos utilisateurs ont activé Power BI via l’inscription libre-service et créé un locataire non managé pour votre organisation, vous devez reprendre la gestion en tant qu’administrateur interne ou externe à l’aide de PowerShell. Pour en savoir plus sur la reprise d’un répertoire non managé, consultez [Prendre le contrôle d’un annuaire non géré en tant qu’administrateur dans Azure Active Directory](../users-groups-roles/domains-admin-takeover.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -11,12 +11,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 3f98b4e34c4c76efc33395530ef016b26e1ad523
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f6a574f169310f2779fb20353fda748e6893a4bd
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163037"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48016738"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>Configurer les informations de sécurité pour utiliser l’e-mail (préversion)
 
@@ -46,7 +46,7 @@ En fonction des paramètres de votre organisation, vous pouvez être invité à 
 
 3. Dans la page **Protéger votre compte**, sélectionnez **Terminé**.
 
-    Vos informations de sécurité sont mises à jour pour utiliser votre adresse e-mail à des fins de contrôle de votre identité lors de la vérification en deux étapes.
+    Vos informations de sécurité sont mises à jour pour utiliser votre adresse e-mail à des fins de contrôle de votre identité lors de la réinitialisation de mot de passe.
 
 ## <a name="additional-security-info-options"></a>Options d’informations de sécurité supplémentaires
 

@@ -1,6 +1,6 @@
 ---
 title: Attacher un disque de données géré à une machine virtuelle Windows - Azure | Microsoft Docs
-description: Découvrez comment attacher un nouveau disque de données géré à une machine virtuelle Windows dans le portail Azure à l’aide du modèle de déploiement Resource Manager.
+description: Comment attacher un disque de données managé à une machine virtuelle Windows à l’aide du portail Azure.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -13,73 +13,71 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 10/08/2018
 ms.author: cynthn
-ms.openlocfilehash: 14721b2f2bc7913c2b7eadfc5ee801a223201ea9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 8d83af114ebb5e5ff78372897d3e08ed592d4012
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30913414"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093899"
 ---
-# <a name="how-to-attach-a-managed-data-disk-to-a-windows-vm-in-the-azure-portal"></a>Attachement d’un disque de données géré à une machine virtuelle Windows dans le portail Azure
+# <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Attacher un disque de données managé à une machine virtuelle Windows à l’aide du portail Azure
 
-Cet article explique comment attacher un nouveau disque de données géré à des machines virtuelles Windows dans le portail Azure. Avant cela, passez en revue les conseils suivants :
-
-* La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher . Pour en savoir plus, voir la rubrique [Tailles de machines virtuelles](sizes.md).
-* Pour un nouveau disque, vous n’avez pas besoin de le créer au préalable, car Azure le crée lorsque vous l’attachez.
-
-Vous pouvez également [attacher un disque de données à l’aide de PowerShell](attach-disk-ps.md).
-
+Cet article montre comment attacher un nouveau disque de données managé à une machine virtuelle Windows à l’aide du portail Azure. La taille de la machine virtuelle détermine le nombre de disques de données que vous pouvez attacher. Pour plus d’informations, consultez [Tailles des machines virtuelles](sizes.md).
 
 
 ## <a name="add-a-data-disk"></a>Ajouter un disque de données
-1. Dans le menu de gauche, cliquez sur **Machines virtuelles**.
-2. Sélectionnez la machine virtuelle dans la liste.
-3. Sur la page de la machine virtuelle, cliquez sur **Disques**.
-4. Sur la page **Disques**, cliquez sur **+ Ajouter un disque de données**.
+
+1. Dans le menu de gauche du [portail Azure](https://portal.azure.com), sélectionnez **Machines virtuelles**.
+2. Sélectionnez une machine virtuelle dans la liste.
+3. Dans la page **Machine virtuelle**, sélectionnez **Disques**.
+4. Dans la page **Disques**, sélectionnez **Ajouter un disque de données**.
 5. Dans la liste déroulante du nouveau disque, sélectionnez **Créer un disque**.
-6. Sur la page **Créer un disque managé**, tapez le nom du disque et ajustez les autres paramètres si nécessaire. Lorsque vous avez terminé, cliquez sur **Créer**.
-7. Sur la page **Disques**, cliquez sur **Enregistrer** pour enregistrer la nouvelle configuration de disque de la machine virtuelle.
-6. Une fois qu’Azure l’a créé et attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle, sous **Disques de données**.
+6. Sur la page **Créer un disque managé**, tapez le nom du disque et ajustez les autres paramètres si nécessaire. Sélectionnez **Créer** lorsque vous avez terminé.
+7. Dans la page **Disques**, sélectionnez **Enregistrer** pour enregistrer la nouvelle configuration de disque de la machine virtuelle.
+8. Une fois qu’Azure l’a créé et attaché à la machine virtuelle, le nouveau disque est répertorié dans les paramètres de disque de la machine virtuelle, sous **Disques de données**.
 
 
 ## <a name="initialize-a-new-data-disk"></a>Initialisation d’un nouveau disque de données
 
 1. Connectez-vous à la machine virtuelle.
-1. Cliquez sur le menu Démarrer dans la machine virtuelle, tapez sur **diskmgmt.msc** et appuyez sur **Entrée**. Le composant logiciel enfichable Gestion des disques s’ouvre.
-2. Le composant Gestion des disques identifie que votre nouveau disque n’est pas initialisé et affiche la fenêtre **Initialiser le disque**.
-3. Vérifiez que le nouveau disque est sélectionné, puis cliquez sur **OK** pour l’initialiser.
-4. Le nouveau disque apparaît comme **non alloué**. Cliquez avec le bouton droit n’importe où sur le disque, puis sélectionnez **Nouveau volume simple**. **L’Assistant Nouveau volume simple** s’ouvre.
-5. Exécutez l’Assistant en conservant tous les paramètres par défaut. Lorsque vous avez terminé, sélectionnez **Terminer**.
-6. Fermez Gestion des disques.
-7. Une fenêtre contextuelle s’affiche et vous permet de formater le nouveau disque pour que vous puissiez l’utiliser. Cliquez sur **Formater le disque**.
-8. Dans la boîte de dialogue **Formater un nouveau disque**, vérifiez les paramètres puis cliquez sur **Démarrer**.
-9. Un message vous informe que le formatage des disques va effacer toutes les données. Cliquez sur **OK**.
-10. Lorsque le formatage est terminé, cliquez sur **OK**.
+1. Sélectionnez le menu **Démarrer** de Windows dans la machine virtuelle en cours d’exécution et entrez **diskmgmt.msc** dans la zone de recherche. La console **Gestion des disques** console s’ouvre.
+2. L’outil Gestion des disques détermine que votre nouveau disque n’est pas initialisé et affiche la fenêtre **Initialiser le disque**.
+3. Vérifiez que le nouveau disque est sélectionné, puis sélectionnez **OK** pour l’initialiser.
+4. Le nouveau disque apparaît comme **non alloué**. Cliquez avec le bouton droit n’importe où sur le disque, puis sélectionnez **Nouveau volume simple**. La fenêtre **Assistant Création d’un volume simple** s’ouvre.
+5. Exécutez l’Assistant en conservant tous les paramètres par défaut. Quand vous avez terminé, sélectionnez **Terminer**.
+6. Fermez **Gestion des disques**.
+7. Une fenêtre contextuelle s’affiche et vous demande de formater le nouveau disque pour que vous puissiez l’utiliser. Sélectionnez **Formater le disque**.
+8. Dans la fenêtre **Formater un nouveau disque**, vérifiez les paramètres, puis sélectionnez **Démarrer**.
+9. Un avertissement vous informe que le formatage des disques efface toutes les données. Sélectionnez **OK**.
+10. Une fois le formatage terminé, sélectionnez **OK**.
 
 ## <a name="use-trim-with-standard-storage"></a>Utilisation de TRIM avec le stockage standard
 
-Si vous utilisez le stockage standard (disque dur), vous devez activer la fonction TRIM. TRIM ignore les blocs inutilisés sur le disque afin que vous soyez facturé uniquement pour le stockage que vous utilisez réellement. Vous pouvez ainsi faire des économies si vous créez des fichiers volumineux, puis les supprimez. 
+Si vous utilisez le stockage standard (disque dur), vous devez activer la commande **TRIM**. La commande **TRIM** ignore les blocs inutilisés sur le disque afin que vous soyez facturé uniquement pour le stockage que vous utilisez réellement. Grâce à **TRIM**, vous pouvez faire des économies si vous créez des fichiers volumineux et que vous les supprimez par la suite. 
 
-Vous pouvez exécuter cette commande pour vérifier le paramètre TRIM. Ouvrez une invite de commandes sur votre machine virtuelle Windows et saisissez :
+Pour vérifier le paramètre **TRIM**, ouvrez une invite de commandes sur votre machine virtuelle Windows et entrez la commande suivante :
 
 ```
 fsutil behavior query DisableDeleteNotify
 ```
 
-Si la commande renvoie 0, TRIM est bien activé. Si la valeur 1 est renvoyée, exécutez la commande suivante pour activer TRIM :
+Si la commande retourne 0, **TRIM** est bien activé. Sinon, si elle retourne 1, exécutez la commande suivante pour activer **TRIM** :
+
 ```
 fsutil behavior set DisableDeleteNotify 0
 ```
 
-Après la suppression de données de votre disque, vous pouvez vous assurer du bon vidage des opérations TRIM en exécutant la défragmentation avec TRIM :
+Après la suppression des données de votre disque, vous pouvez vérifier le bon vidage des opérations **TRIM** en exécutant defrag avec **TRIM** :
 
 ```
 defrag.exe <volume:> -l
 ```
 
-Pour vous assurer que les blocs de données inutilisés sont bien effacés sur tout le volume, vous pouvez également le formater.
+Pour vérifier que tout le volume est optimisé, vous pouvez également le formater.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si votre application doit utiliser le lecteur D: pour stocker des données, vous pouvez [changer la lettre de lecteur du disque temporaire Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+
+- Vous pouvez également [attacher un disque de données à l’aide de PowerShell](attach-disk-ps.md).
+- Si votre application doit utiliser le lecteur *D:* pour stocker des données, vous pouvez [changer la lettre de lecteur du disque temporaire Windows](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

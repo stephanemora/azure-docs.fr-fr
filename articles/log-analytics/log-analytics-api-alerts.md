@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/10/2018
 ms.author: bwren
-ms.component: na
-ms.openlocfilehash: 7f55b762bda5ff0c7bbedf414b18465656496cbb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.component: ''
+ms.openlocfilehash: b178744911d03547509de58e35be5cd99e046391
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984583"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49079053"
 ---
 # <a name="create-and-manage-alert-rules-in-log-analytics-with-rest-api"></a>Créer et gérer des règles d’alerte dans Log Analytics avec l’API REST
 L’API REST d’alerte Log Analytics vous permet de créer et de gérer des alertes dans Operations Management Suite (OMS).  Cet article fournit des détails sur l’API et plusieurs exemples pour effectuer différentes opérations.
@@ -138,6 +138,7 @@ Une planification doit avoir une, et une seule, action d’alerte.  Les actions 
 |:--- |:--- |:--- |
 | Seuil |Critères d’exécution de l’action.| Obligatoire pour chaque alerte, avant ou après l’extension à Azure. |
 | Severity |Étiquette utilisée pour classer l’alerte quand elle est déclenchée.| Obligatoire pour chaque alerte, avant ou après l’extension à Azure. |
+| Suppress |Option permettant d’arrêter les notifications d’alerte. | Section facultative pour chaque alerte, avant ou après l’extension à Azure. |
 | Groupes d’actions |ID d’Azure ActionGroup, où les actions requises sont spécifiées. Par exemple, e-mails, SMS, appels vocaux, Webhooks, Runbooks Automation, connecteurs ITSM, etc.| Obligatoire une fois que les alertes sont étendues à Azure|
 | Personnaliser les actions|Modifier la sortie standard pour les actions sélectionnées depuis ActionGroup| Facultatif pour chaque alerte, possibilité d’utilisation après l’extension des alertes à Azure. |
 | EmailNotification |Envoyer des messages à plusieurs destinataires. | Non obligatoire si les alertes sont étendues à Azure|
@@ -213,6 +214,37 @@ Utilisez la méthode Put avec un ID d’action existant pour modifier une action
 
     $thresholdWithSevJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
     armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/mythreshold?api-version=2015-03-20 $thresholdWithSevJson
+
+#### <a name="suppress"></a>Suppress
+Les alertes de requête basées sur Log Analytics sont déclenchées à chaque fois que le seuil est atteint ou dépassé. En fonction de la logique impliquée dans la requête, il peut s’ensuivre le déclenchement d’alertes pour une série d’intervalles et donc l’envoi de notifications en permanence. Pour empêcher un tel scénario, un utilisateur peut définir l’option Suppress et indiquer à Log Analytics d’attendre un délai spécifié avant que la notification ne soit déclenchée la seconde fois pour la règle d’alerte. Par conséquent, si l’option Suppress est définie sur 30 minutes, l’alerte est déclenchée la première fois et envoie les notifications configurées. Attendez 30 minutes avant que la notification de la règle d’alerte ne soit de nouveau utilisée. Pendant la période intérimaire, une règle d’alerte continue de s’exécuter : seule la notification est supprimée par Log Analytics pendant la période spécifiée, et ce, quel que soit le nombre de déclenchements de la règle d’alerte pendant cette période.
+
+La propriété Suppress de la règle d’alerte Log Analytics est spécifiée à l’aide de la valeur *Throttling* et la durée de suppression l’est à l’aide de la valeur *DurationInMinutes*.
+
+Voici un exemple de réponse pour une action comportant un seuil, une gravité et une propriété Suppress :
+
+    "etag": "W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"",
+    "properties": {
+        "Type": "Alert",
+        "Name": "My threshold action",
+        "Threshold": {
+            "Operator": "gt",
+            "Value": 10
+        },
+        "Throttling": {
+          "DurationInMinutes": 30
+        },
+        "Severity": "critical",
+        "Version": 1    }
+
+Utilisez la méthode Put avec un ID d’action unique pour créer une action pour une planification avec une gravité.  
+
+    $AlertSuppressJson = "{'properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
+
+Utilisez la méthode Put avec un ID d’action existant pour modifier une action de gravité pour une planification.  Le corps de la demande doit inclure l’ETag de l’action.
+
+    $AlertSuppressJson = "{'etag': 'W/\"datetime'2016-02-25T20%3A54%3A20.1302566Z'\"','properties': { 'Name': 'My Threshold', 'Version':'1','Severity': 'critical', 'Type':'Alert', 'Throttling': { 'DurationInMinutes': 30 },'Threshold': { 'Operator': 'gt', 'Value': 10 } }"
+    armclient put /subscriptions/{Subscription ID}/resourceGroups/OI-Default-East-US/providers/Microsoft.OperationalInsights/workspaces/{Workspace Name}/savedSearches/{Search ID}/schedules/{Schedule ID}/actions/myalert?api-version=2015-03-20 $AlertSuppressJson
 
 #### <a name="action-groups"></a>Groupes d’actions
 Toutes les alertes dans Azure, utilisez le groupe d’actions en tant que mécanisme par défaut pour la gestion des actions. Avec le groupe d’actions, vous pouvez spécifier vos actions une seule fois, puis associer le groupe d’actions à plusieurs alertes sur Azure. Vous n’avez plus besoin de déclarer sans cesse les mêmes actions. Les groupes d’actions prennent en charge plusieurs actions, y compris, les e-mails, les SMS, les appels vocaux, les connexions ITSM, les Runbooks Automation, les URI Webhook et bien plus encore. 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: mbullwin
-ms.openlocfilehash: a960ace141d5d71559c39c627f96746a25bf5207
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 31d7f0fd70edf7bbf05a3a180baa6cc078e02ba1
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143487"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585473"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Exporter la télémétrie depuis Application Insights
 Vous souhaitez conserver votre télémétrie plus longtemps que la période de rétention standard ? Ou la traiter d’une façon spécialisée ? L’exportation continue est idéale dans ce cas. Les événements que vous voyez dans le portail Application Insights peuvent être exportés vers le stockage Microsoft Azure au format JSON. À partir de là, vous pouvez télécharger vos données et écrire le code pour pouvoir les traiter.  
@@ -37,11 +37,9 @@ Une fois que l’exportation continue a copié vos données vers l’espace de s
 ## <a name="setup"></a> Créez une exportation continue.
 1. Dans la ressource Application Insights de votre application, ouvrez Exportation continue et choisissez **ajouter** :
 
-    ![Faites défiler vers le bas, puis cliquez sur Exportation continue.](./media/app-insights-export-telemetry/01-export.png)
-
 2. Choisissez les types de données de télémétrie que vous souhaitez exporter.
 
-3. Créez ou sélectionnez le [compte de stockage Azure](../storage/common/storage-introduction.md) sur lequel vous voulez stocker les données.
+3. Créez ou sélectionnez le [compte de stockage Azure] (../storage/common/storage-introduction.md) dans lequel vous voulez stocker les données. Pour plus d’informations sur les options de tarification de stockage, consultez la [officielle page sur la tarification](https://azure.microsoft.com/pricing/details/storage/).
 
     > [!Warning]
     > Par défaut, l’emplacement de stockage est défini dans la même région géographique que votre ressource Application Insights. Si vous utilisez une autre région de stockage, vous risquez de subir des frais de transfert.

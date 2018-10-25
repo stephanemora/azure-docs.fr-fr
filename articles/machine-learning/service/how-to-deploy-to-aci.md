@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: 5a62d4b0b324d8b2536e408132210f07f08e8bb8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958694"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237175"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Déployer des services web sur Azure Container Instances 
 
@@ -33,9 +33,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un espace de travail Azure Machine Learning et le SDK Azure Machine Learning pour Python installé. Découvrez comment obtenir ces prérequis dans le guide de démarrage rapide [Bien démarrer avec Azure Machine Learning](quickstart-get-started.md).
+- Un espace de travail de service Azure Machine Learning et le SDK Azure Machine Learning pour Python installé. Découvrez comment obtenir ces prérequis dans le guide de démarrage rapide [Bien démarrer avec Azure Machine Learning](quickstart-get-started.md).
 
-- L’objet d’espace de travail Azure Machine Learning
+- L’objet d’espace de travail de service Microsoft Azure Machine Learning
 
     ```python
     from azureml.core import Workspace
@@ -78,7 +78,7 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                description = 'Handwriting recognition')
 ```
 
-## <a name="register-a-model"></a>Inscrire un modèle
+## <a name="register-a-model"></a>Inscrivez un modèle
 
 > Ignorez ce prérequis si vous [déployez à partir d’un fichier de modèle](#deploy-from-model-file) (`Webservice.deploy()`).
 
@@ -215,7 +215,7 @@ Cette méthode offre le plus de contrôle sur la création et le nommage des com
 
 Vous pouvez maintenant tester le service web.
 
-## <a name="test-the-web-service"></a>Tester le service web
+## <a name="test-the-web-service"></a>Test du service web
 
 Le service web est le même quelle que soit la méthode utilisée.  Pour obtenir des prédictions, utilisez la méthode `run` du service.  
 
@@ -248,7 +248,7 @@ print(prediction)
 ```
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous ne prévoyez pas d’utiliser ce service web, supprimez-le afin d’éviter des frais.
 

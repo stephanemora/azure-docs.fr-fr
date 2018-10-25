@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 752e71f3c6b22a6d9f1e2392b58c01deef9de89c
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: c0326a6b611d5f3d5633db2d2b64b8cdc15e10a7
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782158"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816682"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Utilisation du pack de contenu Power BI Azure Active Directory
 
@@ -28,50 +28,15 @@ ms.locfileid: "43782158"
 |Actuellement, le pack de contenu Azure AD Power BI utilise les API Azure AD Graph pour récupérer des données à partir de votre locataire Azure AD. Par conséquent, vous pouvez voir certaines différences entre les données disponibles dans le pack de contenu et les données récupérées à l’aide des [API Microsoft Graph pour les rapports](concept-reporting-api.md). |
 |  |
 
-Comprendre comment vos utilisateurs adoptent et utilisent les fonctionnalités d’Azure Active Directory est essentiel pour vous en tant qu’administrateur informatique. Cela vous permet de planifier votre infrastructure informatique et votre communication pour augmenter l’utilisation et tirer le meilleur parti des fonctionnalités d’AAD. Le pack de contenu Power BI pour Azure Active Directory vous donne la possibilité d’analyser vos données pour comprendre comment vous pouvez les utiliser afin de recueillir des informations plus détaillées sur ce qui se passe avec Azure Active Directory pour les différentes fonctionnalités sur lesquelles vous comptez fortement.  Avec l’intégration des API Azure Active Directory API à Power BI, vous pouvez facilement télécharger les packs de contenu prédéfinis et obtenir des informations détaillées sur toutes les activités d’Azure Active Directory à l’aide de l’expérience de visualisation enrichie qu’offre Power BI. Vous pouvez créer votre propre tableau de bord et le partager facilement avec d’autres personnes de votre organisation. 
+Comprendre comment vos utilisateurs adoptent et utilisent les fonctionnalités d’Azure Active Directory est essentiel pour vous en tant qu’administrateur informatique. Cela vous permet de planifier votre infrastructure informatique et votre communication pour augmenter l’utilisation et tirer le meilleur parti des fonctionnalités d’Azure AD. Le pack de contenu Power BI pour Azure Active Directory vous donne la possibilité d’analyser vos données en détail afin d’obtenir des informations détaillées sur l’activité de votre répertoire. Avec l’intégration des API Azure Active Directory API à Power BI, vous pouvez facilement télécharger le pack de contenu prédéfini et obtenir des informations détaillées sur toutes les activités d’Azure Active Directory à l’aide de l’expérience de visualisation enrichie qu’offre Power BI. Vous pouvez créer votre propre tableau de bord et le partager facilement avec d’autres personnes de votre organisation. 
 
-Cette rubrique fournit des instructions détaillées sur la façon d’installer et d’utiliser le pack de contenu dans votre environnement.
+## <a name="prerequisites"></a>Prérequis
 
-## <a name="installation"></a>Installation  
+Vous avez besoin d’une licence Azure AD premium (P1/P2) pour utiliser le pack de contenu. 
 
-**Pour installer le pack de contenu Power BI :**
+## <a name="install-the-content-pack"></a>Installer le pack de contenu
 
-1. Connectez-vous à [Power BI](https://app.powerbi.com/groups/me/getdata/services) avec votre compte Power BI (Il s’agit du même compte que votre compte O365 ou Azure AD).
-
-2. Sélectionnez **Obtenir des données** au bas du volet de navigation gauche.
-
-    ![Pack de contenu Power BI Azure Active Directory](./media/howto-power-bi-content-pack/01.png)
- 
-3. Dans la zone **Services** , cliquez sur **Obtenir**.
-   
-    ![Pack de contenu Power BI Azure Active Directory](./media/howto-power-bi-content-pack/02.png)
-
-4.  Recherchez **Azure Active Directory**.
-
-    ![Pack de contenu Power BI Azure Active Directory](./media/howto-power-bi-content-pack/03.png)
- 
-5.  Lorsque vous y êtes invité, tapez votre ID client Azure AD, puis cliquez sur **Suivant**.
-
-    > [!TIP] 
-    > Une façon rapide d’obtenir l’ID client pour votre client Office 365 / Azure AD consiste à vous connecter au portail Azure AD, descendre dans la hiérarchie, et copier **l’ID Directory** à partir de la page [**Propriétés**](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
-
-    ![Pack de contenu Power BI Azure Active Directory](./media/howto-power-bi-content-pack/04.png) 
-
-6.  Cliquez sur **Se connecter**. 
- 
-    ![Pack de contenu Power BI Azure Active Directory](./media/howto-power-bi-content-pack/05.png) 
-
-
-
-7.  Entrez votre nom d’utilisateur et un mot de passe, puis cliquez sur **Se connecter**.
- 
-    ![Pack de contenu Power BI Azure Active Directory](./media/howto-power-bi-content-pack/06.png) 
-
-8.  Dans la boîte de dialogue de consentement de l’application, cliquez sur **Accepter**.
- 
-9.  Une fois le tableau de bord des journaux Azure Active Directory créé, cliquez dessus.
- 
-    ![Pack de contenu Power BI Azure Active Directory](./media/howto-power-bi-content-pack/08.png) 
+Consultez le [démarrage rapide](quickstart-install-power-bi-content-pack.md) pour installer le pack de contenu Azure AD Power BI.
 
 ## <a name="what-can-i-do-with-this-content-pack"></a>Que puis-je faire avec ce pack de contenu ?
 
@@ -155,4 +120,6 @@ Consultez notre [guide de résolution des problèmes](troubleshoot-content-pack.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir une vue d’ensemble des rapports, consultez [Création de rapports Azure Active Directory](overview-reports.md).
+* [Installer un pack de contenu Power BI](quickstart-install-power-bi-content-pack.md).
+* [Résoudre les problèmes liés aux erreurs de pack de contenu](troubleshoot-content-pack.md).
+* [Que sont les rapports Azure AD ?](overview-reports.md).

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: ae793bad9cef86158418eb87e0c38ee0370a6bd2
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: cfca7361831734baaf150b3e19b14c7dc88def36
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30176973"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043571"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Configuration du mode de distribution pour Azure Load Balancer
 
@@ -48,7 +48,15 @@ Le chargement de médias constitue un autre scénario d’utilisation. Le charge
 
 ## <a name="configure-source-ip-affinity-settings"></a>Configurer les paramètres d’affinité IP source
 
-Pour les machines virtuelles, utilisez Azure PowerShell pour modifier les paramètres de délai d’expiration. Ajoutez un point de terminaison Azure à une machine virtuelle et configurez le mode de distribution de l’équilibreur de charge :
+Pour les machines virtuelles déployées avec Resource Manager, utilisez PowerShell pour modifier les paramètres de distribution de l’équilibreur de charge et utiliser une règle d’équilibrage de charge existante. Cela met à jour le mode de distribution : 
+
+```powershell 
+$lb = Get-AzureRmLoadBalancer -Name MyLb -ResourceGroupName MyLbRg 
+$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp' 
+Set-AzureRmLoadBalancer -LoadBalancer $lb 
+```
+
+Pour les machines virtuelles classiques, utilisez Azure PowerShell pour modifier les paramètres de distribution. Ajoutez un point de terminaison Azure à une machine virtuelle et configurez le mode de distribution de l’équilibreur de charge :
 
 ```powershell
 Get-AzureVM -ServiceName mySvc -Name MyVM1 | Add-AzureEndpoint -Name HttpIn -Protocol TCP -PublicPort 80 -LocalPort 8080 –LoadBalancerDistribution sourceIP | Update-AzureVM

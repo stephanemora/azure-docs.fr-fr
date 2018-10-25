@@ -1,6 +1,6 @@
 ---
 title: Cinq étapes pour sécuriser votre infrastructure d’identité dans Azure Active Directory
-description: Ce document présente une liste d’actions importantes que les administrateurs doivent implémenter pour les aider à sécuriser leur organisation à l’aide des fonctionnalités d’Azure AD
+description: Ce document présente une liste d’actions importantes que les administrateurs doivent implémenter pour mieux sécuriser leur organisation à l’aide des fonctionnalités d’Azure AD
 services: active-directory
 author: martincoetzer
 manager: manmeetb
@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: martincoetzer
-ms.openlocfilehash: 2a6c94d902c639a2529e501347876d63a3f56d7e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 94d96cab28f738984b3d05d5eee0754e8c5e75b6
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505607"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49341569"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinq étapes pour sécuriser votre infrastructure d’identité
 
-Si vous lisez ce document, vous êtes conscient de l’importance de la sécurité. Vous êtes sans doute déjà responsable de la sécurisation de votre organisation. Si vous avez besoin de convaincre d’autres utilisateurs de l’importance de la sécurité, demandez-leur de lire le dernier [Rapport de renseignement sur la sécurité (SIR) de Microsoft](https://www.microsoft.com/security/intelligence-report).
+Si vous lisez ce document, c'est que vous connaissez l’importance de la sécurité. Vous êtes sans doute déjà responsable de la sécurisation de votre organisation. Si vous avez besoin de convaincre d’autres utilisateurs de l’importance de la sécurité, demandez-leur de lire le dernier [Rapport de renseignement sur la sécurité (SIR) de Microsoft](https://www.microsoft.com/security/intelligence-report).
 
-Ce document vous aidera à obtenir une position plus sécurisée à l’aide des fonctionnalités d’Azure Active Directory grâce à une liste de vérification en cinq étapes pour protéger votre organisation contre les cyber-attaques.
+Ce document vous aidera à obtenir une position plus sécurisée à l’aide des fonctionnalités d’Azure Active Directory grâce à une liste de vérification en cinq étapes pour protéger votre organisation contre les cyberattaques.
 
 Cette liste de vérification vous aidera à déployer rapidement les actions recommandées critiques pour protéger votre organisation immédiatement et explique comment :
 
@@ -32,7 +32,7 @@ Cette liste de vérification vous aidera à déployer rapidement les actions rec
 * Permettre une sécurité de l’utilisateur plus prévisible et complète grâce à l’auto-assistance.
 
 > [!NOTE]
-> La plupart des recommandations de ce document s’appliquent uniquement aux applications qui sont configurées pour utiliser Azure Active Directory comme fournisseur d’identité. La configuration des applications pour l’authentification unique garantit que les avantages des stratégies pour les informations d’identification, la détection des menaces, l’audit, la journalisation et d’autres fonctionnalités s’ajoutent à ces applications. [L’authentification unique via Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) est le fondement sur lequel se basent toutes ces recommandations.
+> La plupart des recommandations de ce document s’appliquent seulement aux applications qui sont configurées pour utiliser Azure Active Directory comme fournisseur d’identité. La configuration des applications pour l’authentification unique garantit que les avantages des stratégies pour les informations d’identification, la détection des menaces, l’audit, la journalisation et d’autres fonctionnalités s’ajoutent à ces applications. [L’authentification unique via Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) est le fondement sur lequel se basent toutes ces recommandations.
 
 ## <a name="before-you-begin-protect-privileged-accounts-with-mfa"></a>Avant de commencer : protéger des comptes privilégiés avec l’authentification multifacteur (MFA)
 
@@ -44,14 +44,14 @@ Vous êtes prêt ? Nous pouvons commencer la liste de vérification.
 
 ## <a name="step-1---strengthen-your-credentials"></a>Étape 1 - Renforcer vos informations d’identification 
 
-La plupart des failles de sécurité en entreprise proviennent d’un compte compromis avec l’une des méthodes, telles que le jet de mot de passe, la réexécution de violation ou le hameçonnage. Apprenez-en plus sur ces attaques dans cette vidéo :
+La plupart des failles de sécurité en entreprise proviennent d’un compte compromis avec l’une des méthodes, telles que le jet de mot de passe, la réexécution de violation ou le hameçonnage. Découvrez plus d’informations sur ces attaques dans cette vidéo (1h15) :
 > [!VIDEO https://channel9.msdn.com/events/Ignite/Microsoft-Ignite-Orlando-2017/BRK3016/player]
 
 Si les utilisateurs dans votre système d’identité utilisent des mots de passe faibles sans les renforcer par l’authentification multifacteur, ce n’est pas une question de si ou quand vous serez compromis, mais simplement « à quelle fréquence ».
 
 ### <a name="make-sure-your-organization-use-strong-authentication"></a>Vérifier que votre organisation utilise une authentification renforcée
 
-Étant donné la fréquence à laquelle les mots de passe sont deviné, hameçonnés, volés par un logiciel malveillant ou réutilisés, il est essentiel de renforcer le mot de passe à l’aide d’une certaine forme d’informations d’identification fortes : en savoir plus sur [Azure multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication).
+Étant donné la fréquence à laquelle les mots de passe sont devinés, hameçonnés, volés par un logiciel malveillant ou réutilisés, il est essentiel de renforcer le mot de passe à l’aide d’une certaine forme d’informations d’identification fortes : en savoir plus sur [Azure multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication).
 
 ### <a name="turn-off-traditional-complexity-expiration-rules-and-start-banning-commonly-attacked-passwords-instead"></a>Désactiver la complexité traditionnelle, les règles d’expiration et commencer à interdire les mots de passe fréquemment attaqués à la place
 
@@ -65,7 +65,7 @@ Les recommandations de Microsoft, conformes aux [instructions du NIST](https://p
 
 Vous pouvez utiliser [PowerShell pour empêcher l’expiration des mots de passe](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-policy) pour les utilisateurs si vous créez des identités directement dans Azure AD. Les organisations utilisant un AD local avec Azure AD Connect pour synchroniser les identités avec Azure AD (également désigné en tant que déploiement hybride), doivent implémenter des [stratégies de mot de passe intelligentes](https://aka.ms/passwordguidance) locales à l’aide des [paramètres de stratégie de groupe de domaine](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/hh994572(v%3dws.10)) ou de [Windows PowerShell](https://docs.microsoft.com/powershell/module/addsadministration/set-addefaultdomainpasswordpolicy).
 
-La fonctionnalité de [mot de passe interdit de manière dynamique](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) d’Azure Active Directory utilise le comportement actuel des attaquants pour empêcher les utilisateurs de définir des mots de passe qui peuvent être facilement devinés. Cette fonctionnalité est toujours activée et les organisations avec un déploiement hybride peuvent en bénéficier en activant la [réécriture de mot de passe](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-writeback) ou elles peuvent déployer la [protection du mot de passe Azure AD pour Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). La protection du mot de passe Azure AD empêche les utilisateurs de choisir des mots de passe courants et des mots de passe personnalisés que vous pouvez configurer.
+La fonctionnalité [mot de passe interdit de manière dynamique](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords) d’Azure Active Directory utilise le comportement actuel des attaquants pour empêcher les utilisateurs de définir des mots de passe qui peuvent être facilement devinés. Cette fonctionnalité est toujours activée et les organisations avec un déploiement hybride peuvent en bénéficier en activant la [réécriture de mot de passe](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-writeback) ou elles peuvent déployer la [protection du mot de passe Azure AD pour Windows Server Active Directory](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises). La protection du mot de passe Azure AD empêche les utilisateurs de choisir des mots de passe courants et des mots de passe personnalisés que vous pouvez configurer.
 
 ### <a name="protect-against-leaked-credentials-and-add-resilience-against-outages"></a>Protection contre la fuite d’informations d’identification et ajout de la tolérance aux pannes
 
@@ -90,7 +90,7 @@ Avec [Windows Hello](https://docs.microsoft.com/windows/security/identity-protec
 
 ### <a name="block-legacy-authentication"></a>Bloquer l’authentification héritée
 
-Les applications utilisant leurs propres méthodes héritées pour s’authentifier auprès d’Azure AD et accéder aux données d’entreprise présentent un autre risque pour les organisations. Exemples d’applications utilisant une authentification héritée : clients POP3, IMAP4 ou SMTP. Les applications à authentification hérité s’authentifient au nom de l’utilisateur et empêchent Azure AD de procéder à des évaluations avancées de la sécurité. L’authentification alternative et moderne permet de réduire les risques de sécurité, car elle prend en charge l’authentification multifacteur et l’accès conditionnel. Nous vous recommandons les trois actions suivantes :
+Les applications utilisant leurs propres méthodes héritées pour s’authentifier auprès d’Azure AD et accéder aux données d’entreprise présentent un autre risque pour les organisations. Exemples d’applications utilisant une authentification héritée : clients POP3, IMAP4 ou SMTP. Les applications à authentification héritée s’authentifient au nom de l’utilisateur et empêchent Azure AD de procéder à des évaluations avancées de la sécurité. L’authentification alternative et moderne permet de réduire les risques de sécurité, car elle prend en charge l’authentification multifacteur et l’accès conditionnel. Nous vous recommandons les trois actions suivantes :
 
 1. Bloquez [l’authentification héritée, si vous utilisez AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12).
 2. Configurez [SharePoint Online et Exchange Online pour utiliser l’authentification moderne](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-no-modern-authentication).
@@ -100,7 +100,7 @@ Les applications utilisant leurs propres méthodes héritées pour s’authentif
 
 En adoptant l’idée qu’une violation de la sécurité peut se produire, vous devez réduire l’impact des informations d’identification utilisateur compromises le cas échéant. Pour chaque application dans votre environnement, considérez les cas d’utilisation valides : quels groupes, réseaux, appareils et autres éléments sont autorisés, puis bloquez le reste. Veillez à restreindre l’utilisation de [comptes hautement privilégiés ou de service](https://docs.microsoft.com/azure/active-directory/admin-roles-best-practices). Avec [l’accès conditionnel Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal), vous pouvez contrôler comment les utilisateurs autorisés accèdent à leurs applications et ressources selon des conditions spécifiques que vous définissez.
 
-Portez une attention particulière aux comptes de service (comptes utilisés pour effectuer des tâches de manière automatique). Avec l’accès conditionnel, vous pouvez vous assurer que ces comptes ne peuvent s’exécutent que sur le service, à partir de l’adresse IP et au moment de la journée, qui conviennent.
+Portez une attention particulière aux comptes de service (comptes utilisés pour effectuer des tâches de manière automatique). Avec l’accès conditionnel, vous pouvez faire en sorte que ces comptes ne s’exécutent que sur le service, à partir de l’adresse IP et au moment de la journée qui conviennent.
 
 ### <a name="implement-azure-ad-privileged-identity-management"></a>Mettre en œuvre Azure AD Privileged Identity Management
 
@@ -119,7 +119,7 @@ Dans le cadre du déploiement de votre processus de compte privilégié, respect
 
 ## <a name="step-3---automate-threat-response"></a>Étape 3 - Automatiser la réponse aux menaces
 
-Azure Active Directory comporte de nombreuses fonctionnalités qui interceptent automatiquement les attaques, afin de supprimer la latence entre la détection et la réponse. Vous pouvez minimiser les coûts et les risques lorsque vous réduisez le temps dont les attaquants ont besoin pour s’insérer dans votre environnement. Voici les étapes concrètes que vous pouvez appliquer.
+Azure Active Directory comporte de nombreuses fonctionnalités qui interceptent automatiquement les attaques, afin de supprimer la latence entre la détection et la réponse. Vous pouvez limiter les coûts et les risques lorsque vous réduisez le temps dont les attaquants ont besoin pour s’insérer dans votre environnement. Voici les étapes concrètes que vous pouvez appliquer.
 
 ### <a name="implement-user-risk-security-policy-using-azure-ad-identity-protection"></a>Mettre en œuvre une stratégie de sécurité en matière de risque des utilisateurs à l’aide d’Azure AD Identity Protection
 

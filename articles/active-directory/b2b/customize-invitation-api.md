@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 20c824da82d6e3e66bfa2d7447c8a9573cbdce69
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 8809a5a8b4f76d6e33bbb934e13931e86f2d681c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985811"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091763"
 ---
 # <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>API et personnalisation d’Azure Active Directory B2B Collaboration
 
@@ -79,7 +79,7 @@ Pour plus d'informations, consultez : https://graph.microsoft.io/docs/authorizat
 
 
 ## <a name="powershell"></a>PowerShell
-Il est désormais possible d’utiliser PowerShell pour ajouter et inviter facilement des utilisateurs externes au sein d’une organisation. Créez une invitation à l’aide de l’applet de commande suivante :
+Vous pouvez utiliser PowerShell pour ajouter et inviter facilement des utilisateurs externes au sein d’une organisation. Créez une invitation à l’aide de l’applet de commande suivante :
 
 ```
 New-AzureADMSInvitation
@@ -92,7 +92,25 @@ Vous pouvez utiliser les options suivantes :
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-Vous pouvez également consulter la référence des API d’invitation dans [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+### <a name="invitation-status"></a>Statut de l’invitation
+
+Une fois que vous avez envoyé une invitation à un utilisateur externe, vous pouvez utiliser l’applet de commande **Get-AzureADUser** pour voir s’il l’a acceptée. Les propriétés suivantes de l’applet de commande Get-AzureADUser sont remplies quand une invitation est envoyée à un utilisateur externe :
+
+* **UserState** indique si le statut de l’invitation est **PendingAcceptance** (En attente d’acceptation) ou **Accepted** (Acceptée).
+* **UserStateChangedOn** affiche l’horodatage de la modification la plus récente de la propriété **UserState**.
+
+Vous pouvez utiliser l’option **Filter** pour filtrer les résultats en fonction de la propriété **UserState**. L’exemple ci-dessous montre comment filtrer les résultats pour afficher uniquement les utilisateurs qui ont une invitation en attente. L’exemple illustre également l’option **Format-List**, qui vous permet de spécifier les propriétés à afficher. 
+ 
+```
+Get-AzureADUser -Filter "UserState eq 'PendingAcceptance'" | Format-List -Property DisplayName,UserPrincipalName,UserState,UserStateChangedOn
+```
+
+> [!NOTE]
+> Vérifiez que vous disposez de la dernière version du module AzureAD PowerShell ou du module AzureADPreview PowerShell. 
+
+## <a name="see-also"></a>Voir aussi
+
+Consultez les informations de référence sur les API d’invitation dans [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

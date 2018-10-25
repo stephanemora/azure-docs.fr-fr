@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: fb0fb4e0f23413cb56b1bb5ec419c44dfc52e7b6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a2f66078a817f5e6ad7296df11634a1a6130a055
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996840"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321663"
 ---
 # <a name="elevate-access-for-a-global-administrator-in-azure-active-directory"></a>Élever l’accès d’un administrateur général dans Azure Active Directory
 
@@ -31,29 +31,37 @@ Si vous êtes un [administrateur général](../active-directory/users-groups-rol
 - afficher tous les abonnements Azure au sein d’une organisation ;
 - autoriser une application d’automation (telle qu’une application de facturation ou d’audit) à accéder à tous les abonnements Azure.
 
-Par défaut, les rôles d’administrateur Azure AD et les rôles de contrôle d’accès en fonction du rôle (RBAC) ne couvrent pas Azure AD et Azure. En revanche, si vous êtes un administrateur général dans Azure AD, vous pouvez élever votre accès afin de gérer des abonnements et des groupes d’administration Azure. Lorsque vous élevez votre accès, le rôle [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) (un rôle RBAC) vous est attribué pour tous les abonnements d’un client particulier. Le rôle Administrateur de l’accès utilisateur vous permet d’accorder à d’autres utilisateurs l’accès aux ressources Azure figurant dans l’étendue racine (`/`).
-
-Cette élévation doit être temporaire et n’avoir lieu qu’en cas de nécessité.
+Cet article décrit les différentes façons dont vous pouvez élever votre accès dans Azure AD.
 
 [!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+
+## <a name="overview"></a>Vue d’ensemble
+
+Les ressources Azure AD et Azure sont sécurisées de façon indépendante les unes des autres. Ainsi, les attributions de rôles Azure AD n’accordent pas d’accès aux ressources Azure et inversement, les attributions de rôles Azure n’accordent pas d’accès à Azure AD. En revanche, si vous êtes administrateur général dans Azure AD, vous pouvez vous attribuer à vous-même un accès à tous les abonnements et groupes d’administration Azure de votre annuaire. Utilisez cette fonctionnalité si vous n’avez pas accès aux ressources de l’abonnement Azure, comme les machines virtuelles ou les comptes de stockage, et que vous voulez utiliser vos privilèges d’administrateur général pour accéder à ces ressources.
+
+Quand vous élevez votre accès, le rôle [Administrateur de l’accès utilisateur](built-in-roles.md#user-access-administrator) vous est attribué dans Azure au niveau de l’étendue racine (`/`). Ceci vous permet de voir toutes les ressources et d’attribuer des accès dans n’importe quel abonnement ou groupe d’administration de l’annuaire. Les attributions de rôle Administrateur de l’accès utilisateur peuvent être supprimées avec PowerShell.
+
+Vous devez supprimer cet accès avec élévation de privilèges après avoir effectué les modifications nécessaires au niveau de l’étendue racine.
+
+![Élever l’accès](./media/elevate-access-global-admin/elevate-access.png)
 
 ## <a name="azure-portal"></a>Portail Azure
 
 Effectuez les étapes suivantes pour élever l’accès d’un administrateur général à l’aide du portail Azure.
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com).
+1. Connectez-vous au [portail Azure](https://portal.azure.com) ou au [Centre d’administration Azure Active Directory](https://aad.portal.azure.com) en tant qu’administrateur général.
 
 1. Dans la liste de navigation, cliquez sur **Azure Active Directory**, puis sur **Propriétés**.
 
    ![Propriétés Azure AD - capture d’écran](./media/elevate-access-global-admin/aad-properties.png)
 
-1. Sous **L’administrateur général peut gérer des abonnements et des groupes d’administration Azure**, positionnez le commutateur sur **Oui**.
+1. Sous **Gestion des accès aux ressources Azure**, définissez le commutateur sur **Oui**.
 
-   ![L’administrateur général peut gérer des abonnements et des groupes d’administration Azure - capture d’écran](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
+   ![Gestion des accès aux ressources Azure - capture d’écran](./media/elevate-access-global-admin/aad-properties-global-admin-setting.png)
 
-   Lorsque vous positionnez le commutateur sur **Oui**, votre compte d’administrateur général (utilisateur actuellement connecté) est ajouté au rôle Administrateur de l’accès utilisateur dans RBAC Azure dans l’étendue racine (`/`), ce qui vous donne accès à tous les abonnements Azure associés à votre client Azure AD pour les consulter et générer des rapports à leur sujet.
+   Quand vous définissez le commutateur sur **Oui**, le rôle Administrateur de l’accès utilisateur vous est attribué dans Azure RBAC au niveau de l’étendue racine (/). Ceci vous accorde l’autorisation d’attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Ce commutateur est disponible seulement pour les utilisateurs auxquels le rôle Administrateur général a été attribué dans Azure AD.
 
-   Lorsque vous positionnez le commutateur sur **Non**, votre compte d’administrateur général (utilisateur actuellement connecté) est supprimé du rôle Administrateur de l’accès utilisateur dans RBAC Azure. Vous ne pouvez pas voir tous les abonnements Azure associés au client Azure AD, et ne pouvez afficher et gérer que les abonnements Azure auxquels vous avez été autorisé à accéder.
+   Quand vous définissez le commutateur sur **Non**, le rôle Administrateur de l’accès utilisateur dans Azure RBAC est supprimé de votre compte d’utilisateur. Vous ne pouvez plus attribuer des rôles dans tous les abonnements et groupes d’administration Azure associés à cet annuaire Azure AD. Vous pouvez voir et gérer seulement les abonnements et groupes d’administration Azure auxquels l’accès vous a été accordé.
 
 1. Cliquez sur **Enregistrer** pour enregistrer votre paramètre.
 
@@ -133,7 +141,7 @@ Vous pouvez lister toutes les attributions de rôles d’un utilisateur dans l�
    GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectIdOfUser}'
    ```
 
-### <a name="list-deny-assignments-at-the-root-scope-"></a>Répertorier les affectations de refus dans l’étendue racine (/)
+### <a name="list-deny-assignments-at-the-root-scope-"></a>Lister les affectations de refus dans l’étendue racine (/)
 
 Vous pouvez répertorier toutes les affectations de refus d’un utilisateur dans l’étendue racine (`/`).
 
@@ -190,16 +198,16 @@ Lorsque vous appelez `elevateAccess`, vous créez une attribution de rôle pour 
 
     Enregistrez l’ID à partir du paramètre `name`, en l’occurrence `18d7d88d-d35e-4fb5-a5c3-7773c20a72d9`.
 
-2. Vous devez également répertorier l’attribution de rôle pour l’administrateur client dans l’étendue du client. Répertoriez toutes les attributions dans l’étendue du client pour le `principalId` de l’administrateur client qui a effectué l’appel d’élévation d’accès. Cela a pour effet de répertorier toutes les attributions dans le client pour l’objectid.
+2. Vous devez également lister les attributions de rôles pour l’administrateur d’annuaire au niveau de l’annuaire. Listez toutes les attributions dans l’étendue de l’annuaire pour le `principalId` de l’administrateur d’annuaire qui a effectué l’appel d’élévation d’accès. Ceci liste toutes les attributions de l’annuaire pour l’objectid.
 
     ```http
     GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=principalId+eq+'{objectid}'
     ```
     
     >[!NOTE] 
-    >Un administrateur client ne doit pas avoir beaucoup d’attributions. Si la requête précédente retourne un trop grand nombre d’attributions, vous pouvez aussi interroger toutes les attributions au niveau de l’étendue du client uniquement, puis filtrer les résultats : `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
+    >Un administrateur d’annuaire ne doit normalement pas avoir beaucoup d’attributions. Si la requête précédente retourne un trop grand nombre d’attributions, vous pouvez aussi interroger toutes les attributions seulement au niveau de l’étendue de l’annuaire, puis filtrer les résultats : `GET https://management.azure.com/providers/Microsoft.Authorization/roleAssignments?api-version=2015-07-01&$filter=atScope()`
         
-    2. Les appels précédents retournent une liste des attributions de rôle. Recherchez l’attribution de rôle pour laquelle l’étendue est « `"/"` », `roleDefinitionId` se termine par l’ID du nom de rôle trouvé à l’étape 1 et `principalId` correspond à l’ID objet de l’administrateur client. 
+    2. Les appels précédents retournent une liste des attributions de rôle. Recherchez l’attribution de rôle pour laquelle l’étendue est `"/"`, où `roleDefinitionId` se termine par l’ID du nom de rôle trouvé à l’étape 1 et où `principalId` correspond à l’objectid de l’administrateur d’annuaire. 
     
     Exemple d’attribution de rôle :
 
@@ -235,6 +243,5 @@ Lorsque vous appelez `elevateAccess`, vous créez une attribution de rôle pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
+- [Comprendre les différents rôles](rbac-and-directory-admin-roles.md)
 - [Contrôle d’accès en fonction du rôle avec REST](role-assignments-rest.md)
-- [Gérer l’accès aux ressources Azure avec Privileged Identity Management](pim-azure-resource.md)
-- [Gérer l’accès à la gestion Azure avec l’accès conditionnel](conditional-access-azure-management.md)

@@ -7,33 +7,33 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 10/02/2018
 ms.author: rimman
-ms.openlocfilehash: 66beeb2cc724f75d17a4c155f1cdb888153e8fbf
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 23a3e629e12e2a4d417757c9fef5db804bb72c9e
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286763"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248752"
 ---
-# <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
+# <a name="throughput-and-request-units-in-azure-cosmos-db"></a>Débit et unités de requête dans Azure Cosmos DB
 
-[Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) est la base de données multi-modèle distribué mondialement de Microsoft. Avec Azure Cosmos DB, il n’est pas nécessaire de louer des machines virtuelles, de déployer des logiciels ou de surveiller les bases de données. Azure Cosmos DB est utilisé et surveillé en continu par les excellents ingénieurs Microsoft afin d’offrir une disponibilité, des performances et une protection des données optimales. Vous pouvez accéder à vos données en utilisant les API de votre choix, comme les API [SQL](documentdb-introduction.md), [MongoDB](mongodb-introduction.md) et [Table](table-introduction.md), et un graphique via [l’API Gremlin](graph-introduction.md). Toutes les API sont maintenant prises en charge en mode natif. 
+Les ressources Azure Cosmos DB sont facturées en fonction du débit et du stockage approvisionnés. Dans Azure Cosmos DB, le débit est spécifié en **unités de requête par seconde (RU/s)**. Azure Cosmos DB prend en charge des API variées avec différentes opérations allant des lectures et des écritures simples aux requêtes de graphe complexes. Chaque requête consomme des unités de requête en fonction de la quantité de calculs nécessaires pour répondre à celle-ci. Le nombre d’unités de requête pour une opération est déterministe. Vous pouvez suivre le nombre d’unités de requête consommées par une opération dans Azure Cosmos DB en utilisant l’en-tête de réponse. Pour fournir des performances prévisibles, vous devez réserver un débit en unités de 100 RU/seconde. Pour estimer vos besoins en débit, utilisez le [calculateur d’unités de requête](https://www.documentdb.com/capacityplanner) d’Azure Cosmos DB.
 
-La devise d’Azure Cosmos DB est *l’unité de requête (RU)*. Avec les unités de requête, vous n’avez pas besoin de réserver de capacités en lecture et en écriture, ni de configurer les ressources de processeur, de mémoire et d’E/S par seconde. Azure Cosmos DB prend en charge des API variées avec différentes opérations allant des lectures et des écritures simples aux requêtes de graphe complexes. Toutes les requêtes n’étant pas égales, la quantité normalisée d’unités de requête qui leur est affectée est fonction de la quantité de calcul requise pour traiter chaque requête. Le nombre d’unités de requête pour une opération est déterministe. Vous pouvez suivre le nombre d’unités de requête qui sont consommées par une opération dans Azure Cosmos DB via un en-tête de réponse. 
+Dans Azure Cosmos DB, vous pouvez configurer le débit selon deux niveaux de granularité : 
 
-Pour fournir des performances prévisibles, réservez le débit par unité de 100 RU/seconde. Vous pouvez [estimer les besoins de votre débit](request-units.md#estimating-throughput-needs) à l’aide de la [calculatrice des unités de requête](https://www.documentdb.com/capacityplanner) Azure Cosmos DB.
+1. **Conteneur Azure Cosmos DB :** le débit approvisionné pour un conteneur est réservé pour ce conteneur en particulier. Quand vous affectez le débit (RU/s) au niveau du conteneur, les conteneurs peuvent être créés comme ayant une taille **fixe** ou **illimitée**. 
 
-![Calculatrice de débit][5]
+  Les conteneurs de taille fixe ont un débit maximal de 10 000 RU/s et une limite de stockage de 10 Go. Pour créer un conteneur illimité, vous devez spécifier un débit minimal de 1 000 RU/s et une [clé de partition](partition-data.md). Dans la mesure où vos données doivent parfois être réparties sur plusieurs partitions, vous devez choisir une clé de partition ayant une cardinalité élevée (de plusieurs centaines à plusieurs millions de valeurs distinctes). En sélectionnant une clé de partition possédant de nombreuses valeurs distinctes, Azure Cosmos DB garantit que les demandes effectuées dans une collection, une table et un graphe sont mises à l’échelle de manière uniforme. 
 
-Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
+2. **Base de données Azure Cosmos DB :** le débit approvisionné pour une base de données est partagé entre tous les conteneurs au sein de cette base de données. Au moment où vous approvisionnez le débit au niveau de la base de données, vous pouvez choisir d’exclure explicitement certains conteneurs et au contraire d’approvisionner leur débit au niveau du conteneur. Le débit au niveau de la base de données exige que toutes les collections soient créées avec une clé de partition. Lorsque vous affectez le débit au niveau de la base de données, les conteneurs qui appartiennent à cette base de données doivent être créés avec une clé de partition, car chaque collection est un conteneur **illimité**.  
 
-* Que sont les unités de requête et les frais de requête dans Azure Cosmos DB ?
-* Comment spécifier la capacité d’unités de requête d’un conteneur ou d’un ensemble de conteneurs dans Azure Cosmos DB ?
-* Comment estimer les besoins en unités de requête de mon application ?
-* Que se passe-t-il si je dépasse la capacité d’unités de requête d’un conteneur ou d’un ensemble de conteneurs dans Azure Cosmos DB ?
+En fonction du débit approvisionné, Azure Cosmos DB alloue des partitions physiques pour héberger vos conteneurs et fractionne les données sur les partitions à mesure que leur volume augmente. L’image suivante illustre l’approvisionnement de débit à différents niveaux :
 
-La base de données Azure Cosmos étant une base de données multimodèle, il est important de noter que cet article s’applique à tous les modèles de données et API dans Azure Cosmos DB. Cet article utilise des termes génériques comme *conteneur* pour désigner de manière générale une collection ou un graphique et *élément* pour désigner de manière générale une table, un document, un nœud ou une entité.
+  ![Provisionnement d’unités de requête pour des conteneurs individuels et des ensembles de conteneurs](./media/request-units/provisioning_set_containers.png)
+
+> [!NOTE] 
+> L’approvisionnement du débit au niveau du conteneur et de la base de données constitue deux offres séparées, et tout changement de l’une vers l’autre nécessite de migrer les données de la source vers la destination. Cela signifie donc que vous devez créer une base de données ou une collection, puis migrer les données avec la [bibliothèque de l’exécuteur en bloc](bulk-executor-overview.md) ou [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md).
 
 ## <a name="request-units-and-request-charges"></a>Unités de requête et frais de requête
 
@@ -57,7 +57,7 @@ Quand vous évaluez le nombre d’unités de requête à provisionner, vous deve
 * **Utilisation des scripts**. Comme avec les requêtes, les procédures stockées et les déclencheurs consomment plus ou moins d’unités de requête en fonction de la complexité des opérations effectuées. Pendant le développement de votre application, inspectez l’en-tête des frais de requêtes pour mieux comprendre de quelle façon chaque opération consomme la capacité des unités de requête.
 
 ## <a name="estimating-throughput-needs"></a>Estimation des besoins de débit
-Une unité de requête est une mesure normalisée du coût de traitement de la requête. Une unité de requête représente la capacité de traitement nécessaire pour lire (par le biais d’un lien réflexif ou d’un ID) un seul élément de 1 Ko composé de 10 valeurs de propriété uniques (à l’exclusion des propriétés système). Une demande de création (insertion), de remplacement ou de suppression du même élément nécessite un plus grand traitement de la part du service et consomme donc plus d’unités de requête. 
+Une unité de requête est une mesure normalisée du coût de traitement de la requête. Une unité de requête représente la capacité de traitement nécessaire pour lire (par le biais d’un lien vers lui-même ou d’un ID) un seul élément de 1 Ko composé de 10 valeurs de propriété uniques (à l’exclusion des propriétés système). Une demande de création (insertion), de remplacement ou de suppression du même élément nécessite un plus grand traitement de la part du service et consomme donc plus d’unités de requête. 
 
 > [!NOTE]
 > La ligne de base d’1 unité de requête pour un élément de 1 Ko correspond à une opération GET simple par le lien réflexif ou l’ID de l’élément.
@@ -74,7 +74,6 @@ Par exemple, voici un tableau qui indique le nombre d’unités de requête à f
 | 4 Ko | 500 | 500 | (500 * 1.3) + (500 * 7) = 4 150 UR/s
 | 64 Ko | 500 | 100 | (500 * 10) + (100 * 48) = 9 800 UR/s
 | 64 Ko | 500 | 500 | (500 * 10) + (500 * 48) = 29 000 UR/s
-
 
 ### <a name="use-the-request-unit-calculator"></a>Utiliser la calculatrice d’unités de demande
 Pour optimiser vos estimations de débit, vous pouvez utiliser une [calculatrice d’unités de requête](https://www.documentdb.com/capacityplanner) sur le web. La calculatrice vous permet d’estimer les besoins en unités de requête des opérations courantes, notamment :
@@ -237,4 +236,5 @@ Si vous avez plusieurs clients qui opèrent en même temps au-delà du taux de r
 [3]: ./media/request-units/RUEstimatorDocuments.png
 [4]: ./media/request-units/RUEstimatorResults.png
 [5]: ./media/request-units/RUCalculator2.png
+
 

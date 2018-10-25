@@ -2,17 +2,17 @@
 title: Référence de schéma de webhook Azure Container Registry
 description: Référence de charge utile JSON de requête de Webhook pour Azure Container Registry.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 12/02/2017
-ms.author: marsma
-ms.openlocfilehash: f62477a4c68abf1617d9689047913fd820ee5461
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.author: danlep
+ms.openlocfilehash: 8bae44215cdc17e9f1617c909ef197f2757fc114
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857752"
 ---
 # <a name="azure-container-registry-webhook-reference"></a>Référence de webhook Azure Container Registry
 
@@ -150,7 +150,7 @@ Webhook déclenché lorsqu’un référentiel ou un manifeste est supprimé. Non
   }
 ```
 
-Exemple de commandes [Azure CLI 2.0](/cli/azure/acr) qui déclenchent un webhook d’événement **supprimer** :
+Exemples de commandes [Azure CLI](/cli/azure/acr) qui déclenchent un webhook d’événement **supprimer** :
 
 ```azurecli
 # Delete repository

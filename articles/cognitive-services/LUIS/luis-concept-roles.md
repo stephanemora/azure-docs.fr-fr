@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 033e5e5e054b0a29961ad60e72b1466b51d1df0c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 5fda0ac590e5faeaa8b6ec44a7d649d2c0122eeb
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035196"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352983"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Les rôles d’entité dans les modèles sont des sous-types contextuels
 Les rôles sont des sous-types contextuels nommés d’une entité utilisée uniquement dans des [modèles](luis-concept-patterns.md).
@@ -26,8 +26,10 @@ Les rôles donnent un nom à ces différences :
 
 |Entité|Rôle|Objectif|
 |--|--|--|
-|Lieu|origine|d’où l’avion part|
-|Lieu|destination|où l’avion arrive|
+|Lieu|origin|où le plan part de|
+|Lieu|destination|où le plan arrive à|
+|datetimeV2 prédéfini|to|date de fin|
+|datetimeV2 prédéfini|from|date de début|
 
 ## <a name="how-are-roles-used-in-patterns"></a>Comment les rôles sont-ils utilisés dans les modèles ?
 Dans l’énoncé d’un gabarit de modèle, les rôles sont utilisés dans l’énoncé : 
@@ -46,7 +48,15 @@ Les entités hiérarchiques fournissent les mêmes informations contextuelles qu
 |Apprentissage contextuel|Utilisé dans|
 |--|--|
 |entités hiérarchiques|intentions|
-|rôles|modèles|
+|roles|modèles|
+
+## <a name="roles-with-prebuilt-entities"></a>Rôles avec des entités prédéfinies
+
+Utilisez des rôles avec des entités prédéfinies pour donner du sens aux différentes instances de l’entité prédéfinie dans un énoncé. 
+
+### <a name="roles-with-datetimev2"></a>Rôles avec l’entité datetimeV2
+
+L’entité prédéfinie datetimeV2 effectue un travail remarquable pour comprendre un grand nombre de dates et d’heures dans des énoncés. Vous pouvez indiquer des dates et des plages de dates différemment de la compréhension par défaut de l’entité prédéfinie. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

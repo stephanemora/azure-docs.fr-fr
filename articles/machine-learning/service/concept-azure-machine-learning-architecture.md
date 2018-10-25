@@ -9,18 +9,18 @@ ms.author: haining
 author: hning86
 ms.reviewer: larryfr
 ms.date: 09/24/2018
-ms.openlocfilehash: 3011fa85dbac2135f4d9113c6b76a8b667ee4013
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952124"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237974"
 ---
 # <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Architecture et concepts : fonctionnement du service Azure Machine Learning 
 
 Ce document décrit l’architecture et les concepts du service Azure Machine Learning. Le diagramme suivant montre les principaux composants du service et illustre le flux de travail général lors de l’utilisation du service : 
 
-[![Architecture et flux de travail d’Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
+[![Architecture et workflow du service Azure Machine Learning](./media/concept-azure-machine-learning-architecture/workflow.png)](./media/concept-azure-machine-learning-architecture/workflow.png#lightbox)
 
 Le flux de travail suit généralement ces étapes :
 
@@ -41,7 +41,7 @@ Le flux de travail suit généralement ces étapes :
 
 ## <a name="workspace"></a>Espace de travail
 
-L’espace de travail est la ressource de niveau supérieur du service Azure Machine Learning. Il fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez lorsque vous utilisez Azure Machine Learning.
+L’espace de travail est la ressource de niveau supérieur du service Azure Machine Learning. Il fournit un emplacement centralisé dans lequel utiliser tous les artefacts que vous créez lorsque vous faites appel au service Azure Machine Learning.
 
 L’espace de travail conserve une liste de cibles de calcul pouvant être utilisées pour entraîner votre modèle. Il conserve également un historique des exécutions d’entraînement, y compris les journaux, métriques, sorties et instantanés de vos scripts. Ces informations permettent de déterminer quelle exécution d’entraînement produit le meilleur modèle.
 
@@ -71,15 +71,15 @@ Le diagramme suivant est une taxonomie de l’espace de travail :
 
 Le modèle le plus simple est un morceau de code qui accepte une entrée et produit une sortie. La création d’un modèle Machine Learning implique la sélection d’un algorithme auquel vous devez fournir des données, ainsi que l’optimisation des hyperparamètres. L’entraînement est un processus itératif qui génère un modèle entraîné, lequel encapsule ce qu’il a appris au cours du processus d’entraînement.
 
-Un modèle est généré par une exécution effectuée dans Azure Machine Learning. Vous pouvez également utiliser un modèle entraîné en dehors d’Azure Machine Learning. Un modèle peut être inscrit dans un espace de travail Azure Machine Learning.
+Un modèle est généré par une exécution effectuée dans Azure Machine Learning. Vous pouvez également utiliser un modèle entraîné en dehors d’Azure Machine Learning. Un modèle peut être inscrit dans un espace de travail du service Azure Machine Learning.
 
-Azure Machine Learning est indépendant de tout framework. Vous pouvez utiliser n’importe quel framework de machine learning lorsque vous créez un modèle, comme scikit-learn, xgboost, PyTorch, TensorFlow, Chainer ou CNTK.
+Le service Azure Machine Learning est indépendant de l’architecture. Vous pouvez utiliser n’importe quel framework de machine learning lorsque vous créez un modèle, comme scikit-learn, xgboost, PyTorch, TensorFlow, Chainer ou CNTK.
 
-Pour obtenir un exemple d’entraînement de modèle, consultez le document [Démarrage rapide : Créer un espace de travail Machine Learning](quickstart-get-started.md).
+Pour obtenir un exemple d’apprentissage du modèle, consultez le document [Démarrage rapide : Créer un espace de travail correspondant au service Machine Learning](quickstart-get-started.md).
 
 ### <a name="model-registry"></a>Registre de modèles
 
-Le registre de modèles effectue le suivi de tous les modèles de votre espace de travail Azure Machine Learning. 
+Le registre de modèles garde une trace de tous les modèles de l’espace de travail correspondant au service Azure Machine Learning. 
 
 Les modèles sont identifiés par leur nom et par leur version. Chaque fois que vous inscrivez un modèle portant le même nom qu’un modèle existant, le registre suppose qu’il s’agit d’une nouvelle version. La version est incrémentée et le nouveau modèle est inscrit sous ce nom.
 
@@ -211,5 +211,5 @@ Les activités peuvent envoyer des notifications via le SDK ou l’interface uti
 Cliquez sur les liens suivants pour bien démarrer avec Azure Machine Learning :
 
 * [Qu’est-ce que le service Azure Machine Learning ?](overview-what-is-azure-ml.md)
-* [Démarrage rapide : Créer un espace de travail avec Python](quickstart-get-started.md)
-* [Tutoriel : Entraîner un modèle](tutorial-train-models-with-aml.md)
+* [Démarrage rapide : créer un espace de travail avec Python](quickstart-get-started.md)
+* [Tutoriel : entraîner un modèle](tutorial-train-models-with-aml.md)

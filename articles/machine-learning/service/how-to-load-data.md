@@ -10,20 +10,18 @@ author: cforbe
 manager: cgronlun
 ms.reviewer: jmartens
 ms.date: 09/24/2018
-ms.openlocfilehash: 436ff9d318dc311efe27352a8b2ac91cfb5be618
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 91db32b7056a0cf211e6293a891d58e0239ca499
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221319"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48237583"
 ---
-#<a name="load-and-read-data-with-azure-machine-learning"></a>Charger et lire des données avec Azure Machine Learning
+# <a name="load-and-read-data-with-azure-machine-learning"></a>Charger et lire des données avec Azure Machine Learning
 
 Utilisez le [SDK de préparation des données Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/dataprep?view=azure-dataprep-py) pour charger différents types de données d’entrée. 
 
-Pour charger vos données, vous disposez de deux approches :
-+ Spécifier le type de fichier de données et ses paramètres
-+ Utiliser la fonctionnalité de lecture intelligente du SDK pour détecter automatiquement le type d’un fichier
+Pour charger les données, spécifiez le type de fichier de données et ses paramètres.
 
 ## <a name="use-text-line-data"></a>Utiliser les données des lignes de texte 
 Une des méthodes les plus simples pour charger des données consiste à les lire sous forme de lignes de texte.
@@ -352,7 +350,3 @@ dataflow.to_pandas_dataframe().head()
 |2|1011878|100 Mile Market|http://www.pfcmarkets.com |507 Harrison St|Kalamazoo|Kalamazoo|
 |3|1009364|106 S. Main Street Farmers Market|http://thetownofsixmile.wordpress.com/ |106 S. Main Street|Six Mile|||
 |4|1010691|10th Steet Community Farmers Market|http://agrimissouri.com/mo-grown/grodetail.php... |10th Street and Poplar|Lamar|Barton|
-
-## <a name="use-smart-reading"></a>Utiliser la « lecture intelligente »
-
-Utilisez la fonctionnalité de lecture intelligente du SDK pour détecter automatiquement le type d’un fichier.

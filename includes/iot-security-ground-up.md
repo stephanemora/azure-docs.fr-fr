@@ -1,19 +1,19 @@
 ---
 title: Fichier Include
 description: Fichier Include
-services: iot-suite
-author: dominicbetts
-ms.service: iot-suite
+services: iot-fundamentals
+author: robinsh
+ms.service: iot-fundamentals
 ms.topic: include
 ms.date: 04/24/2018
-ms.author: dobett
+ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 181432c3050bbc614898b1ddf779bc90239a35be
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 8137a292045377c5dccb69c21a8118d0dc17874e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39189532"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069934"
 ---
 # <a name="internet-of-things-security-from-the-ground-up"></a>Sécurisation de l’Internet des objets de bout en bout
 
@@ -62,7 +62,9 @@ Les stratégies de contrôle d’accès d’Azure IoT Hub dans le cloud permette
 D’autres fonctionnalités de sécurité des appareils sont disponibles :
 
 * Les appareils n’acceptent pas les connexions réseau non sollicitées. Ils établissent tous les itinéraires et connexions pour le trafic sortant uniquement. Pour qu’un appareil reçoive une commande de la part d’un serveur principal, il doit établir une connexion pour vérifier toutes les commandes en attente de traitement. Lorsqu’une connexion entre l’appareil et IoT Hub est établie en toute sécurité, l’échange de messages entre le cloud et l’appareil peut se faire en toute transparence.
+
 * Les appareils se connectent ou établissent des itinéraires vers des services bien connus auxquels ils sont couplés, par exemple Azure IoT Hub.
+
 * L’autorisation et l’authentification au niveau du système utilisent des identités par appareil. Les informations d’identification et autorisations d’accès sont ainsi révocables quasi instantanément.
 
 ### <a name="secure-connectivity"></a>Connectivité sécurisée
@@ -76,7 +78,9 @@ L’évolutivité implique la possibilité d’interagir en toute sécurité ave
 D’autres fonctionnalités de sécurité des connexions sont disponibles :
 
 * L’itinéraire de communication entre les appareils et Azure IoT Hub, ou entre les passerelles et Azure IoT Hub, est sécurisé à l’aide du protocole standard TLS (Transport Layer Security), Azure IoT Hub étant authentifié à l’aide du protocole X.509.
+
 * Afin de protéger les appareils contre les connexions entrantes non sollicitées, Azure IoT Hub n’ouvre aucune connexion vers l’appareil. L’appareil lance toutes les connexions.
+
 * Azure IoT Hub stocke durablement les messages pour les appareils et attend leur connexion. Ces commandes sont stockées pendant deux jours. Les appareils confrontés à des problèmes de connectivité ou d’alimentation peuvent ainsi se connecter de façon sporadique pour recevoir ces commandes. Azure IoT Hub gère une file d’attente spécifique pour chaque appareil.
 
 ### <a name="secure-processing-and-storage-in-the-cloud"></a>Traitement et stockage sécurisés dans le cloud
@@ -100,8 +104,13 @@ De par leur conception, les accélérateurs de solution intègrent des mesures d
 Chaque accélérateur de solution crée des instances de services Azure, telles que :
 
 * [**Azure IoT Hub**](https://azure.microsoft.com/services/iot-hub/) : votre passerelle connectant le cloud aux appareils. Vous pouvez évoluer vers des millions de connexions par hub et traiter des volumes de données de grande envergure en bénéficiant de la prise en charge de l’authentification par appareil, qui vous aide à sécuriser votre solution.
+
 * [**Azure Cosmos DB**](https://azure.microsoft.com/services/cosmos-db/) : service de base de données évolutif et entièrement indexé pour données semi-structurées, qui gère les métadonnées (attributs, configuration, propriétés de sécurité, etc.) des appareils que vous approvisionnez. Azure Cosmos DB assure un traitement hautes performances et à débit élevé, ainsi qu’une indexation des données indépendante du schéma. Ce service offre également une interface de requête SQL enrichie.
+
 * [**Azure Stream Analytics**](https://azure.microsoft.com/services/stream-analytics/) : traitement des flux en temps réel dans le cloud, permettant de développer et de déployer rapidement une solution d’analyse à faible coût pour obtenir des informations en temps réel de la part des appareils, capteurs, infrastructures et applications. Les données de ce service entièrement géré peuvent être mises à l’échelle selon n’importe quel volume. Vous continuez à bénéficier d’un débit élevé, d’une faible latence et de la résilience.
+
 * [**Azure App Services**](https://azure.microsoft.com/services/app-service/) : plateforme cloud permettant de créer de puissantes applications web et mobiles qui se connectent aux données n’importe où, que ce soit localement ou dans le cloud. Créez des applications mobiles attrayantes pour iOS, Android et Windows. Assurez l’intégration avec vos applications SaaS (Software as a Service) et d’entreprise grâce à une connectivité prête à l’emploi à des dizaines d’applications et services basés sur le cloud. Encodez dans votre environnement de développement intégré et votre langage favoris (.NET, Node.js, PHP, Python ou Java) pour créer rapidement des applications web et des API.
+
 * [**Logic Apps**](https://azure.microsoft.com/services/app-service/logic/) : fonctionnalité Azure App Service qui vous aide à intégrer votre solution IoT dans vos systèmes métier existants et à automatiser les processus de flux de travail. Logic Apps permet aux développeurs de concevoir des flux de travail qui démarrent à partir d’un déclencheur et exécutent une série d’étapes — des règles et actions utilisant des connecteurs puissants pour l’intégration à vos processus d’entreprise. Logic Apps offre une connectivité prête à l’emploi vers un vaste écosystème d’applications SaaS, basées sur le cloud et locales.
-* [**Blob Storage**](https://azure.microsoft.com/services/storage/) : stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.
+
+* [**Stockage Blob Azure**](https://azure.microsoft.com/services/storage/) : stockage cloud fiable et économique pour les données que vos appareils envoient au cloud.

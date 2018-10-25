@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1c2294004245e0ef64b9b708a5b57ec0d34cc45f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297553"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321986"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Blueprint sur la sécurité et la conformité d’Azure : Hébergement d’applications web PaaS pour les charges de travail « UK OFFICIAL »
 
@@ -52,7 +52,6 @@ Dans le cadre de l’architecture de déploiement, un provisionnement de stockag
 Cette solution utilise les services Azure suivants. Les détails de l’architecture de déploiement figurent dans la section [Architecture de déploiement](#deployment-architecture).
 
 - Azure Active Directory
-- Identité du service administré
 - App Service
 - Application web
 - Application API
@@ -107,13 +106,13 @@ Azure Web Apps fournit un environnement d’hébergement web entièrement manag�
 
 App Service est [conforme à ISO, SOC et PCI](https://www.microsoft.com/TrustCenter/), et peut authentifier les utilisateurs avec [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) ou avec une connexion de réseau social (authentification [Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication) et [Microsoft](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
 
-Les plans De base, Standard et Premium sont destinés aux charges de travail de production. Ils s’exécutent sur des instances dédiées de machine virtuelle. Chaque instance peut prendre en charge plusieurs applications et domaines. Les services d’application prennent également en charge les [limitations d’adresses IP](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) pour sécuriser le trafic vers des adresses IP approuvées si nécessaire, ainsi que [Managed Service Identity](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) pour sécuriser la connexion vers d’autres services PaaS, comme [Key Vault](https://azure.microsoft.com/services/key-vault/) et [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Là où une sécurité supplémentaire est nécessaire, notre plan isolé héberge vos applications dans un environnement Azure privé dédié. Il est idéal pour les applications nécessitant des connexions sécurisées avec votre réseau local, ou des performances et une évolutivité supplémentaires.
+Les plans De base, Standard et Premium sont destinés aux charges de travail de production. Ils s’exécutent sur des instances dédiées de machine virtuelle. Chaque instance peut prendre en charge plusieurs applications et domaines. Les services d’application prennent également en charge les [limitations d’adresses IP](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions) pour sécuriser le trafic vers des adresses IP approuvées si nécessaire, ainsi que les [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) pour sécuriser la connexion vers d’autres services PaaS, comme [Key Vault](https://azure.microsoft.com/services/key-vault/) et [Azure SQL Database](https://azure.microsoft.com/services/sql-database/). Là où une sécurité supplémentaire est nécessaire, notre plan isolé héberge vos applications dans un environnement Azure privé dédié. Il est idéal pour les applications nécessitant des connexions sécurisées avec votre réseau local, ou des performances et une évolutivité supplémentaires.
 
 Ce modèle déploie les fonctionnalités App Service suivantes :
 
 - Niveau de plan App Service [Standard](https://docs.microsoft.com/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview)
 - Plusieurs [emplacements de déploiement](https://docs.microsoft.com/azure/app-service/web-sites-staged-publishing) d’applications web : développement, préversion assurance qualité, UAT et bien sûr Production (emplacement par défaut).
-- [Managed Service Identity](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) pour se connecter à [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (il peut également être utilisé pour fournir un accès à [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
+- Des [identités managées pour les ressources Azure](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) pour se connecter à [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) (ceci peut être utilisé aussi pour fournir un accès à [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) 
 - Intégration à [Azure Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-azure-web-apps) pour surveiller les performances
 - [Journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) 
 - [Alertes](https://docs.microsoft.com/azure/application-insights/app-insights-alerts) de métrique 
@@ -164,7 +163,7 @@ Vous pouvez trouver des informations détaillées sur la sécurisation de Stocka
 
 #### <a name="azure-key-vault-in-this-blueprint"></a>Azure Key Vault dans ce blueprint
 
-- Contient la clé d’accès du stockage, avec accès en lecture accordé à [Managed Service Identity](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) de l’application web utilisée par le client
+- Contient la clé d’accès du stockage, avec accès en lecture accordé à [l’identité managée](https://docs.microsoft.com/azure/app-service/app-service-managed-service-identity) de l’application web utilisée par le client
 - Contient le mot de passe de l’administrateur de base de données du serveur SQL Server (dans un coffre distinct)
 - Journalisation des diagnostics
 

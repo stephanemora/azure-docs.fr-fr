@@ -1,34 +1,71 @@
 ---
-title: Guide pratique pour utiliser la liaison d'entités dans l’API REST Analyse de texte (Microsoft Cognitive Services sur Azure) | Microsoft Docs
-description: Découvrez comment identifier et résoudre des entités à l’aide de l’API REST Analyse de texte dans Microsoft Cognitive Services sur Azure dans ce didacticiel pas à pas.
+title: Utiliser une reconnaissance d’entité avec l’API Analyse de texte
+titleSuffix: Azure Cognitive Services
+description: Découvrez comment reconnaître des entités à l’aide de l’API Analyse de texte.
 services: cognitive-services
 author: ashmaka
 manager: cgronlun
 ms.service: cognitive-services
-ms.technology: text-analytics
+ms.component: text-analytics
 ms.topic: article
-ms.date: 5/02/2018
+ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: 55bec1a0223b70749a97a30e2da92ef15128038c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b2916e5c414562c55c35c9c5e7ab378963e004be
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368729"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248065"
 ---
-# <a name="how-to-identify-linked-entities-in-text-analytics-preview"></a>Guide pratique pour identifier les entités liées dans Analyse de texte (préversion)
+# <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte (préversion)
 
-L’[API Liaison d'entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) accepte un texte non structuré et, pour chaque document JSON, retourne la liste des entités dont l’ambiguïté est levée avec des liens vers des informations supplémentaires sur le web (Wikipedia et Bing). 
+L’[API Reconnaissance d’entité](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) accepte un texte non structuré et, pour chaque document JSON, retourne la liste des entités dont l’ambiguïté est levée avec des liens vers des informations supplémentaires sur le web (Wikipedia et Bing). 
 
-## <a name="entity-linking-vs-named-entity-recognition"></a>Liaison d’entités / Reconnaissance d’entité nommée
+## <a name="entity-linking-and-named-entity-recognition"></a>Liaison d’entités et reconnaissance d’entité nommée
 
-Dans un traitement en langage naturel, les concepts de liaison d’entités et de reconnaissance d’entité nommée (NER) peuvent facilement prêter à confusion. Dans la préversion du point de terminaison `entities` d’Analyse de texte, seule la liaison d'entités est prise en charge.
+Le point de terminaison `entities` d’Analyse de texte prend en charge la reconnaissance d’entités nommées (NER) et la liaison d’entités.
 
+### <a name="entity-linking"></a>Liaison d’entités
 La liaison d'entités est la possibilité d’identifier une entité présente dans un texte et de lever l’ambiguïté sur son identité (par exemple, en déterminant si « Mars » fait référence à la planète ou au dieu romain de la guerre). Ce processus nécessite la présence d’une base de connaissances à laquelle les entités reconnues sont liées. Wikipédia est utilisé en tant que base de connaissances pour le point de terminaison `entities` d’Analyse de texte.
+
+Dans la préversion d’Analyse de texte [version 2.1](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), une seule liaison d’entités est disponible.
+
+### <a name="named-entity-recognition-ner"></a>Reconnaissance d’entité nommée (NER)
+La reconnaissance d’entité nommée (NER) est la capacité d’identifier différentes entités dans du texte et de les classer en classes prédéfinies. Les classes d’entités prises en charge sont répertoriées ci-dessous.
+
+Dans la préversion d’Analyse de texte version 2.1 (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`), la liaison d’entités et la reconnaissance d’entité nommée (NER) sont disponibles.
 
 ### <a name="language-support"></a>Support multilingue
 
 L’utilisation de la liaison d'entités dans différentes langues requiert l’utilisation d’une base de connaissances correspondante dans chaque langue. Pour la liaison d'entités dans Analyse de texte, cela signifie que chaque langue prise en charge par le point de terminaison `entities` établira un lien vers le corpus Wikipédia correspondant dans cette langue. Comme la taille du corpus varie d’une langue à l’autre, il est probable que le rappel des fonctionnalités de liaison d'entités varie également.
+
+## <a name="supported-types-for-named-entity-recognition"></a>Types pris en charge pour la reconnaissance d’entité nommée
+
+| type  | Subtype | Exemples |
+|:-----------   |:------------- |:---------|
+| Personne        | N/A\*         | « Jeff », « Bill Gates »     |
+| Lieu      | N/A\*         | « Redmond, Washington », « Paris »  |
+| Organisation  | N/A\*         | « Microsoft »   |
+| Quantité      | Number        | « 6 », « six »     | 
+| Quantité      | Pourcentage    | « 50 % », « cinquante pour cent »| 
+| Quantité      | Ordinal       | « 2nd », « second »     | 
+| Quantité      | NumberRange   | « 4 à 8 »     | 
+| Quantité      | Âge           | « 90 jours », « 30 ans »    | 
+| Quantité      | Devise      | « 10,99 $ »     | 
+| Quantité      | Dimension     | « 10 miles », « 40 cm »     | 
+| Quantité      | Température   | « 32 degrés »    |
+| Datetime      | N/A\*         | « 6 h 30 le 4 février 2012 »      | 
+| Datetime      | Date          | « 2 mai 2017 », « 02/05/2017 »   | 
+| Date Heure     | Heure          | « 8 h », « 8:00 »  | 
+| Datetime      | DateRange     | « Du 2 au 5 mai »    | 
+| Datetime      | TimeRange     | « De 18 à 19 h »     | 
+| Datetime      | Durée      | « 1 minute et 45 secondes »   | 
+| Datetime      | Définir           | « Chaque mardi »     | 
+| Datetime      | TimeZone      |    | 
+| URL           | N/A\*         | "http://www.bing.com"    |
+| Email         | N/A\*         | "support@contoso.com" |
+\* Selon les entités entrées et extraites, certaines entités peuvent omettre le `SubType`.
+
 
 
 ## <a name="preparation"></a>Préparation
@@ -42,11 +79,11 @@ La taille des documents doit être inférieure à 5 000 caractères par docume
 ```
 {"documents": [{"id": "1",
                 "language": "en",
-                "text": "I really enjoy the new XBox One S. It has a clean look, it has 4K/HDR resolution and it is affordable."
+                "text": "Jeff bought three dozen eggs because there was a 50% discount."
                 },
                {"id": "2",
                 "language": "en",
-                "text": "The Seattle Seahawks won the Super Bowl in 2014."
+                "text": "The Great Depression began in 1929. By 1933, the GDP in America fell by 25%."
                 }
                ]
 }
@@ -58,14 +95,14 @@ Vous trouverez plus d’informations sur la définition d’une demande dans [Gu
 
 + Créez une demande **POST**. Passez en revue la documentation de l’API pour cette demande : [API Liaison d'entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634)
 
-+ Définissez le point de terminaison HTTP pour l’extraction d’expressions clés. Il doit inclure la ressource `/entities` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/entities`
++ Définissez le point de terminaison HTTP pour l’extraction d’expressions clés. Il doit inclure la ressource `/entities` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`
 
 + Définissez un en-tête de demande pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Guide pratique pour rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
 
 + Dans le corps de la demande, fournissez la collection de documents JSON que vous avez préparée pour cette analyse.
 
 > [!Tip]
-> Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) pour structurer une demande et la publier dans le service.
+> Utilisez [Postman](text-analytics-how-to-call-api.md) ou ouvrez la **console de test d’API** dans la [documentation](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) pour structurer une demande et la publier dans le service.
 
 ## <a name="step-2-post-the-request"></a>Étape 2 : Publication de la demande
 
@@ -81,74 +118,168 @@ La sortie est retournée immédiatement. Vous pouvez diffuser en continu les ré
 
 Voici un exemple de sortie de liaison d'entités :
 
-```
+```json
 {
-    "documents": [
+    "Documents": [
         {
-            "id": "1",
-            "entities": [
+            "Id": "1",
+            "Entities": [
                 {
-                    "name": "Xbox One",
-                    "matches": [
+                    "Name": "Jeff",
+                    "Matches": [
                         {
-                            "text": "XBox One",
-                            "offset": 23,
-                            "length": 8
+                            "Text": "Jeff",
+                            "Offset": 0,
+                            "Length": 4
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Xbox One",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Xbox_One",
-                    "bingId": "446bb4df-4999-4243-84c0-74e0f6c60e75"
+                    "Type": "Person"
                 },
                 {
-                    "name": "Ultra-high-definition television",
-                    "matches": [
+                    "Name": "three dozen",
+                    "Matches": [
                         {
-                            "text": "4K",
-                            "offset": 63,
-                            "length": 2
+                            "Text": "three dozen",
+                            "Offset": 12,
+                            "Length": 11
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "Ultra-high-definition television",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/Ultra-high-definition_television",
-                    "bingId": "7ee02026-b6ec-878b-f4de-f0bc7b0ab8c4"
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50",
+                    "Matches": [
+                        {
+                            "Text": "50",
+                            "Offset": 49,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "50%",
+                    "Matches": [
+                        {
+                            "Text": "50%",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         },
         {
-            "id": "2",
-            "entities": [
+            "Id": "2",
+            "Entities": [
                 {
-                    "name": "2013 Seattle Seahawks season",
-                    "matches": [
+                    "Name": "Great Depression",
+                    "Matches": [
                         {
-                            "text": "Seattle Seahawks",
-                            "offset": 4,
-                            "length": 16
+                            "Text": "The Great Depression",
+                            "Offset": 0,
+                            "Length": 20
                         }
                     ],
-                    "wikipediaLanguage": "en",
-                    "wikipediaId": "2013 Seattle Seahawks season",
-                    "wikipediaUrl": "https://en.wikipedia.org/wiki/2013_Seattle_Seahawks_season",
-                    "bingId": "eb637865-4722-4eca-be9e-0ac0c376d361"
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Great Depression",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Great_Depression",
+                    "BingId": "d9364681-98ad-1a66-f869-a3f1c8ae8ef8"
+                },
+                {
+                    "Name": "1929",
+                    "Matches": [
+                        {
+                            "Text": "1929",
+                            "Offset": 30,
+                            "Length": 4
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "By 1933",
+                    "Matches": [
+                        {
+                            "Text": "By 1933",
+                            "Offset": 36,
+                            "Length": 7
+                        }
+                    ],
+                    "Type": "DateTime",
+                    "SubType": "DateRange"
+                },
+                {
+                    "Name": "Gross domestic product",
+                    "Matches": [
+                        {
+                            "Text": "GDP",
+                            "Offset": 49,
+                            "Length": 3
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "Gross domestic product",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/Gross_domestic_product",
+                    "BingId": "c859ed84-c0dd-e18f-394a-530cae5468a2"
+                },
+                {
+                    "Name": "United States",
+                    "Matches": [
+                        {
+                            "Text": "America",
+                            "Offset": 56,
+                            "Length": 7
+                        }
+                    ],
+                    "WikipediaLanguage": "en",
+                    "WikipediaId": "United States",
+                    "WikipediaUrl": "https://en.wikipedia.org/wiki/United_States",
+                    "BingId": "5232ed96-85b1-2edb-12c6-63e6c597a1de",
+                    "Type": "Location"
+                },
+                {
+                    "Name": "25",
+                    "Matches": [
+                        {
+                            "Text": "25",
+                            "Offset": 72,
+                            "Length": 2
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Number"
+                },
+                {
+                    "Name": "25%",
+                    "Matches": [
+                        {
+                            "Text": "25%",
+                            "Offset": 72,
+                            "Length": 3
+                        }
+                    ],
+                    "Type": "Quantity",
+                    "SubType": "Percentage"
                 }
             ]
         }
     ],
-    "errors": []
+    "Errors": []
 }
 ```
-
-Lorsqu’ils sont disponibles, la réponse inclut l’ID Wikipédia, l’URL Wikipédia et l’ID Bing de chaque entité détectée. Ils peuvent être utilisés pour améliorer encore votre application avec des informations relatives à l’entité liée.
 
 
 ## <a name="summary"></a>Résumé
 
 Dans cet article, vous avez vu les concepts et le flux de travail de liaison d'entités à l’aide de l’API Analyse de texte dans Cognitive Services. En résumé :
 
-+ L’[API Liaison d'entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634) est disponible pour les langues sélectionnées.
++ L’[API Entités](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) est disponible pour les langues sélectionnées.
 + Les documents JSON figurant dans le corps de la demande incluent un id, un texte et un code de langue.
 + La demande POST s’effectue sur un point de terminaison `/entities`, à l’aide [d’une clé d’accès et d’un point de terminaison](text-analytics-how-to-access-key.md) personnalisés valides pour votre abonnement.
 + La sortie de réponse, qui se compose d’entités liées (y compris des scores de confiance, des décalages et des liens web, pour chaque ID de document), peut être utilisée dans n’importe quelle application.
@@ -156,10 +287,10 @@ Dans cet article, vous avez vu les concepts et le flux de travail de liaison d'e
 ## <a name="see-also"></a>Voir aussi 
 
  [Vue d’ensemble d’Analyse de texte](../overview.md)  
- [Forum Aux Questions (FAQ)](../text-analytics-resource-faq.md)</br>
- [Page de produit Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
+ [Questions fréquentes (FAQ)](../text-analytics-resource-faq.md)</br>
+ [Page produit d’Analyse de texte](//go.microsoft.com/fwlink/?LinkID=759712) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 > [!div class="nextstepaction"]
-> [API Analyse de texte](//westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
+> [API Analyse de texte](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634)

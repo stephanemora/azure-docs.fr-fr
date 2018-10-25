@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295816"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801928"
 ---
 # <a name="how-to-configure-password-writeback"></a>Comment : configurer la réécriture du mot de passe
 
@@ -34,6 +34,12 @@ Les étapes suivantes partent du principe que vous avez déjà configuré Azure 
 8. Lorsque la configuration prend fin, sélectionnez **Quitter**.
 
 Pour apprendre à connaître les tâches de dépannage courantes associées à l’écriture différée des mots de passe, voir la section [Résoudre les problèmes de réécriture du mot de passe](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) dans l’article portant sur la résolution des problèmes.
+
+> [!WARNING]
+> La réécriture du mot de passe ne fonctionnera plus pour les clients qui utilisent les versions d’Azure AD Connect 1.0.8641.0 et antérieures quand [Azure Access Control Service (ACS) sera mis hors service le 7 novembre 2018](../develop/active-directory-acs-migration.md). Les versions d’Azure AD Connect 1.0.8641.0 et antérieures cesseront alors d’autoriser la réécriture du mot de passe, car elles dépendent d’ACS pour cette fonctionnalité.
+>
+> Pour éviter une interruption de service, effectuez une mise à niveau depuis une version antérieure d’Azure AD Connect vers une version plus récente ; consultez l’article [Azure AD Connect : effectuer une mise à niveau vers la dernière version](../hybrid/how-to-upgrade-previous-version.md).
+>
 
 ## <a name="active-directory-permissions"></a>Autorisations Active Directory
 
@@ -67,7 +73,7 @@ Afin de configurer les autorisations appropriées pour l’écriture différée 
 4. Dans l’onglet **Autorisations**, sélectionnez **Ajouter**.
 5. Sélectionnez le compte auquel les autorisations sont appliquées (à partir de la configuration Azure AD Connect).
 6. Dans la liste déroulante **S’applique à**, sélectionnez les objets de type **utilisateur descendant**.
-7. Sous **Autorisations**, cochez les cases correspondant aux éléments suivants :
+7. Sous **Autorisations**, cochez les cases correspondant aux options suivantes :
     * **Réinitialiser le mot de passe**
     * **Modifier le mot de passe**
     * **Écrire lockoutTime**

@@ -15,12 +15,12 @@ ms.date: 09/27/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 6fe9a106975a03fabc9d674ede694e683dc3cd94
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 88667749d9cdf5239be33f3aca52d1a614556a41
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47410270"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816603"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Rôles intégrés pour les ressources Azure
 Le [contrôle d’accès en fonction du rôle (RBAC)](overview.md) a plusieurs définitions de rôles intégrés que vous pouvez affecter aux utilisateurs, groupes et principaux de service. Les attributions de rôles vous permettent de contrôler l’accès aux ressources dans Azure. Si les rôles intégrés ne répondent pas aux besoins spécifiques de votre organisation, vous pouvez créer vos propres [rôles personnalisés](custom-roles.md).
@@ -786,14 +786,14 @@ Le tableau ci-dessous fournit de brèves descriptions des rôles intégrés. Cli
 > | **Description** | Vous permet de gérer des fabriques de données, mais pas d'y accéder. |
 > | **Id** | 673868aa-7521-48a0-acc6-0f60742d39f5 |
 > | **Actions** |  |
-> | Microsoft.Authorization/*/read | Lire les rôles et les affectations de rôles |
+> | Microsoft.Authorization/*/read | Lire les rôles et les attributions de rôle. |
 > | Microsoft.DataFactory/dataFactories/* | Créer et gérer des fabriques de données ainsi que leurs ressources enfants |
 > | Microsoft.DataFactory/factories/* | Créer et gérer des fabriques de données ainsi que leurs ressources enfants |
-> | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte |
-> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtient les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
-> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources |
-> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtient ou répertorie les groupes de ressources. |
-> | Microsoft.Support/* | Créer et gérer les tickets de support |
+> | Microsoft.Insights/alertRules/* | Créer et gérer les règles d’alerte. |
+> | Microsoft.ResourceHealth/availabilityStatuses/read | Obtenez les états de disponibilité de toutes les ressources dans l’étendue spécifiée. |
+> | Microsoft.Resources/deployments/* | Créer et gérer les déploiements de groupes de ressources. |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Obtenez ou répertoriez les groupes de ressources. |
+> | Microsoft.Support/* | Créer et gérer les tickets de support. |
 
 ## <a name="data-lake-analytics-developer"></a>Développeur Data Lake Analytics
 > [!div class="mx-tableFixed"]

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 01/22/2018
 ms.author: byvinyal
-ms.openlocfilehash: 97e1efe34417c3bf2f23801b2112b718f55d3416
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: f2cf472ef3c2c9950dd9f9382009e21fbf62771b
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36962374"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856783"
 ---
 # <a name="high-density-hosting-on-azure-app-service-using-per-app-scaling"></a>Hébergement haute densité sur Azure App Service à l’aide de la mise à l’échelle par application
 Par défaut, vous mettez à l’échelle les applications App Service en mettant à l’échelle le [plan App Service](azure-web-sites-web-hosting-plans-in-depth-overview.md) sur lequel elles sont exécutées. Lorsque plusieurs applications sont exécutées dans un même plan App Service, chaque instance mise à l’échelle exécute toutes les applications du plan.
@@ -32,7 +32,7 @@ Vous pouvez activer la *mise à l’échelle par application* pour chaque plan A
 
 ## <a name="per-app-scaling-using-powershell"></a>Mise à l’échelle par application à l’aide de PowerShell
 
-Créez un plan avec mise à l’échelle par application en passant l’attribut ```-perSiteScaling $true``` dans l’applet de commande ```New-AzureRmAppServicePlan```.
+Créez un plan avec mise à l’échelle par application en passant le paramètre ```-PerSiteScaling $true``` dans l’applet de commande ```New-AzureRmAppServicePlan```.
 
 ```powershell
 New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan `
@@ -41,23 +41,12 @@ New-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePla
                             -NumberofWorkers 5 -PerSiteScaling $true
 ```
 
-Pour ajouter la mise à l’échelle par application à un plan App Service existant : 
-
-- Obtenez le plan cible ```Get-AzureRmAppServicePlan```
-- Modifiez la propriété localement ```$newASP.PerSiteScaling = $true```
-- Validez les modifications vers Azure ```Set-AzureRmAppServicePlan``` 
+Activez la mise à l’échelle par application avec un plan App Service existant en passant le paramètre `-PerSiteScaling $true` dans l’applet de commande ```Set-AzureRmAppServicePlan```.
 
 ```powershell
-# Get the new App Service Plan and modify the "PerSiteScaling" property.
-$newASP = Get-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup -Name $AppServicePlan
-$newASP
-
-#Modify the local copy to use "PerSiteScaling" property.
-$newASP.PerSiteScaling = $true
-$newASP
-    
-#Post updated app service plan back to azure
-Set-AzureRmAppServicePlan $newASP
+# Enable per-app scaling for the App Service Plan using the "PerSiteScaling" parameter.
+Set-AzureRmAppServicePlan -ResourceGroupName $ResourceGroup `
+   -Name $AppServicePlan -PerSiteScaling $true
 ```
 
 Pour chaque application, configurez le nombre d’instances que celle-ci peut utiliser dans le plan App Service.

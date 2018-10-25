@@ -1,5 +1,5 @@
 ---
-title: Documentation du kit SDK Speech de Cognitive Services | Microsoft Docs
+title: Documentation du Kit de développement logiciel (SDK) Speech de Cognitive Services | Microsoft Docs
 description: Notes de publication - ce qui a changé dans les versions les plus récentes
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
@@ -7,16 +7,30 @@ author: wolfma61
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: cfc8f973ac9bced9396a081f7fb2ab6a4a1b2f7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963081"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49339999"
 ---
 # <a name="release-notes"></a>Notes de publication
+
+## <a name="cognitive-services-speech-sdk-101"></a>SDK Cognitive Services Speech 1.0.1
+
+Améliorations de la fiabilité et résolution des bogues :
+
+* Corriger une éventuelle erreur irrécupérable en raison d’une condition de concurrence lors de la suppression du module de reconnaissance
+* Corriger une éventuelle erreur irrécupérable en cas de propriétés non définies.
+* Vérification supplémentaire des erreurs et des paramètres.
+* Objective-C : corriger une erreur irrécupérable possible provoquée par le remplacement d’un nom dans une chaîne NSString.
+* Objectice-C : régler la visibilité de l’API
+* JavaScript : correctifs concernant des événements et leurs charges utiles.
+* Améliorations de la documentation.
+
+Dans notre [exemple de référentiel](https://aka.ms/csspeech/samples), un nouvel échantillon pour JavaScript a été ajouté.
 
 ## <a name="cognitive-services-speech-sdk-100-2018-september-release"></a>SDK Speech de Cognitive Services version 1.0.0 : septembre 2018
 

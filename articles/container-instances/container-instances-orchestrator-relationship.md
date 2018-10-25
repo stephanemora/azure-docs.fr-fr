@@ -3,18 +3,17 @@ title: Azure Container Instances et l’orchestration de conteneur
 description: Découvrez comment se passe l’interaction entre Azure Container Instances et les orchestrateurs de conteneurs.
 services: container-instances
 author: seanmck
-manager: jeconnoc
 ms.service: container-instances
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 10/05/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: e1455cba004facfa03dca21544eec754f5dc60be
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: c17bdb5a81640a7162ae735a4633a31cdfffbb1d
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32165559"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48803509"
 ---
 # <a name="azure-container-instances-and-container-orchestrators"></a>Azure Container Instances et les orchestrateurs de conteneurs
 
@@ -55,16 +54,13 @@ Pour les charges de travail longues et stables, l’orchestration des conteneurs
 
 Au lieu de mettre à l’échelle le nombre de machines virtuelles dans votre cluster et de déployer ensuite des conteneurs supplémentaires sur ces machines, l’orchestrateur peut simplement planifier les conteneurs supplémentaires à l’aide d’Azure Container Instances et les supprimer quand ils ne sont plus nécessaires.
 
-## <a name="sample-implementation-azure-container-instances-connector-for-kubernetes"></a>Exemple d’implémentation : connecteur Azure Container Instances pour Kubernetes
+## <a name="sample-implementation-virtual-kubelet-for-kubernetes"></a>Exemple d’implémentation : Virtual Kubelet pour Kubernetes
 
-Pour illustrer comment les plateformes d’orchestration de conteneurs peuvent s’intégrer à Azure Container Instances, nous avons commencé à créer un [exemple de connecteur pour Kubernetes][aci-connector-k8s].
+Le projet [Virtual Kubelet][aci-connector-k8s] illustre comment les plateformes d’orchestration de conteneurs s’intègrent dans Azure Container Instances.
 
-Le connecteur pour Kubernetes imite le [kubelet][kubelet-doc] en s’inscrivant en tant que nœud avec une capacité illimitée et en répartissant la création de [pods][pod-doc] en tant que groupes de conteneurs dans Azure Container Instances.
+Virtual Kubelet imite le [kubelet][kubelet-doc] de Kubernetes en s’inscrivant en tant que nœud avec une capacité illimitée et en répartissant la création de [pods][pod-doc] dans des groupes de conteneurs dans Azure Container Instances.
 
 Nous pourrions générer des connecteurs pour d’autres orchestrateurs qui s’intégreraient de la même façon avec des primitives de plateforme pour combiner la puissance de l’API d’orchestrateur avec la vitesse et la simplicité offertes par la gestion des conteneurs dans Azure Container Instances.
-
-> [!WARNING]
-> Le connecteur ACI pour Kubernetes est *expérimental* et ne doit pas être utilisé en production.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

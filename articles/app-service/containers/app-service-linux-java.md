@@ -12,12 +12,12 @@ ms.devlang: java
 ms.topic: article
 ms.date: 08/29/2018
 ms.author: routlaw
-ms.openlocfilehash: 2b2256ef5802160dbaa66e2a098a798fcdc653d2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e11b115d7a6421c34e7f1371ad8931b6affa0436
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064493"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815169"
 ---
 # <a name="java-developers-guide-for-app-service-on-linux"></a>Guide du développeur Java pour App Service sur Linux
 
@@ -33,7 +33,7 @@ Vous trouverez des rapports de performances, des visualisations de trafic et des
 
 La connectivité SSH à l’environnement Linux exécutant votre application est disponible. Consultez [Prise en charge SSH pour Azure App Service sur Linux](/azure/app-service/containers/app-service-linux-ssh-support) pour obtenir des instructions complètes sur la connexion au système Linux via votre navigateur web ou terminal local.
 
-### <a name="streaming-logs"></a>Envoi de journaux
+### <a name="streaming-logs"></a>Diffusion de journaux
 
 Pour un débogage et un dépannage rapides, vous pouvez envoyer des journaux à votre console en utilisant l’interface Azure CLI. Configurez l’interface CLI avec `az webapp log config` pour activer la journalisation :
 
@@ -128,7 +128,7 @@ Vous pouvez aussi configurer le paramètre d’application à l’aide du plug-i
 
 Les applications Java exécutées dans App Service pour Linux présentent les mêmes [bonnes pratiques de sécurité](/azure/security/security-paas-applications-using-app-services) que les autres applications. 
 
-### <a name="authenticate-users"></a>Authentifier les utilisateurs
+### <a name="authenticate-users"></a>Authentification des utilisateurs
 
 Configurez l’authentification de l’application dans le portail Azure avec l’option **Authentification et autorisation**. À partir de là, vous pouvez activer l’authentification en utilisant Azure Active Directory ou des identifiants de réseaux sociaux tels que Facebook, Google ou GitHub. La configuration du portail Azure fonctionne seulement si vous configurez un seul fournisseur d’authentification.  Pour plus d’informations, consultez [Configurer votre application App Service pour utiliser une connexion Azure Active Directory](/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) et les articles connexes sur d’autres fournisseurs d’identités.
 
@@ -166,7 +166,7 @@ Pour les sources de données au niveau de l’application :
 
 1. Ajoutez un fichier `context.xml` s’il n’existe pas dans votre application web et ajoutez le répertoire `META-INF` de votre fichier WAR une fois que le projet est généré.
 
-2. Dans ce fichier, ajoutez une entrée de chemin `Context` pour lier la source de données à une adresse JNDI. The
+2. Dans ce fichier, ajoutez une entrée de chemin `Context` pour lier la source de données à une adresse JNDI. L’attribut 
 
     ```xml
     <Context>
@@ -216,20 +216,24 @@ Pour les ressources au niveau du serveur partagées :
 
 4. Veillez à ce que les fichiers du pilote JDBC soient disponibles pour le chargeur de classes Tomcat en les mettant dans le répertoire `/home/tomcat/lib`. Pour charger ces fichiers sur votre instance App Service, procédez comme suit :  
     1. Installez l’extension webpp Azure App Service :
+
       ```azurecli-interactive
       az extension add –name webapp
       ```
+
     2. Exécutez la commande CLI suivante pour créer un tunnel SSH de votre système local vers App Service :
+
       ```azurecli-interactive
       az webapp remote-connection create –g [resource group] -n [app name] -p [local port to open]
       ```
-    3. Connectez-vous au port de tunneling local avec votre client SFTP et chargez les fichiers dans `/home/tomcat/lib`.
+
+    3. Connectez-vous au port de tunneling local avec votre client SFTP et chargez les fichiers dans le dossier `/home/tomcat/lib`.
 
 5. Redémarrez l’application App Service Linux. Tomcat rétablit `CATALINA_HOME` sur `/home/tomcat` et utilise les classes et la configuration mises à jour.
 
 ## <a name="docker-containers"></a>Conteneurs Docker
 
-Pour utiliser le JDK Zulu pris en charge par Azure qui s’exécute sur App Service dans vos conteneurs, vérifiez que le `Dockerfile` de votre application utilise les images du [référentiel d’images Docker App Service Java](https://github.com/Azure-App-Service/java).
+Pour utiliser le kit JDK Zulu pris en charge par Azure dans vos conteneurs, assurez-vous d’extraire et d’utiliser les images précompilées énumérées dans la [page de téléchargement d’Azul](https://www.azul.com/downloads/azure-only/zulu/#docker), ou utilisez les exemples `Dockerfile` du [référentiel Microsoft Java GitHub](https://github.com/Microsoft/java/tree/master/docker).
 
 ## <a name="runtime-availability-and-statement-of-support"></a>Disponibilité des runtimes et informations de prise en charge
 
@@ -242,7 +246,7 @@ App Service pour Linux prend en charge deux runtimes pour l’hébergement manag
 
 ### <a name="jdk-versions-and-maintenance"></a>Versions JDK et maintenance
 
-Le kit de développement Java (JDK) pris en charge d’Azure est [Zulu](https://www.azul.com/products/zulu-and-zulu-enterprise/) fourni par [Azul Systems](https://www.azul.com/).
+Le kit de développement Java (JDK) pris en charge d’Azure est [Zulu](https://www.azul.com/downloads/azure-only/zulu/) fourni par [Azul Systems](https://www.azul.com/).
 
 Les mises à jour de la version majeure sont fournies via de nouvelles options de runtime dans Azure App Service pour Linux. Les clients effectuent une mise à jour avec ces versions plus récentes de Java en configurant leur déploiement App Service et doivent s’occuper des tests et de s’assurer que la mise à jour majeure répond à leurs besoins.
 
@@ -258,15 +262,15 @@ Si un runtime Java pris en charge est retiré, les développeurs Azure utilisant
 
 ### <a name="local-development"></a>Développement local
 
-Les développeurs peuvent télécharger l’édition Production du kit Azul Zulu Enterprise JDK à partir du [site de téléchargement d’Azul](https://www.azul.com/downloads/zulu/) pour développer en local.
+Les développeurs peuvent télécharger l’édition Production du kit Azul Zulu Enterprise JDK à partir du [site de téléchargement d’Azul](https://www.azul.com/downloads/azure-only/zulu/) pour développer en local.
 
 ### <a name="development-support"></a>Prise en charge du développement
 
-La prise en charge produit du kit Azul Zulu Enterprise JDK est disponible si vous développez pour Azure ou [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) avec un [plan de support Azure éligible](https://azure.microsoft.com/support/plans/).
+La prise en charge produit du [kit JDK Zulu d’Azul pris en charge par Azure](https://www.azul.com/downloads/azure-only/zulu/) est disponible si vous développez pour Azure ou [Azure Stack](https://azure.microsoft.com/overview/azure-stack/) avec un [plan de support Azure éligible](https://azure.microsoft.com/support/plans/).
 
 ### <a name="runtime-support"></a>Prise en charge du runtime
 
-Les développeurs peuvent [signaler un problème](/azure/azure-supportability/how-to-create-azure-support-request) avec le runtime Java App Service Linux via le support Azure s’ils ont un [plan de support éligible](https://azure.microsoft.com/support/plans/).
+Les développeurs peuvent [signaler un problème](/azure/azure-supportability/how-to-create-azure-support-request) avec les kits JDK Zulu d’Azul via le support Azure s’ils ont un [plan de support éligible](https://azure.microsoft.com/support/plans/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

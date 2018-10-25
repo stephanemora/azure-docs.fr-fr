@@ -1,35 +1,35 @@
 ---
 title: Obtenir le Kit de développement logiciel (SDK) de dispositifs vocaux
 description: Découvrez comment accéder au kit de développement logiciel (SDK) Speech Devices.
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
-ms.technology: speech
+ms.component: speech
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: v-jerkin
-ms.openlocfilehash: f70b41cd7e3a7a6eddf32ae6ad024fa9ac040f29
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.author: erhopf
+ms.openlocfilehash: 1d64e9b88f689f680ffe1e12a2ec87bf1536fa8b
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281780"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166115"
 ---
 # <a name="get-the-cognitive-services-speech-devices-sdk"></a>Obtenir le kit de développement logiciel (SDK) Speech Devices de Cognitive Services
 
-## <a name="requesting-access"></a>Demande d’accès
+Le SDK Speech Devices est en préversion limitée et nécessite votre inscription au programme. Actuellement, Microsoft privilégie les grandes entreprises comme candidats pour l’accès à ce produit.
 
-Le kit de développement logiciel (SDK) Speech Devices est en préversion limitée et nécessite votre inscription au programme. Actuellement, Microsoft privilégie les grandes entreprises comme candidats pour l’accès à ce produit.
+## <a name="request-access"></a>Demander l'accès
 
-Pour accéder au kit de développement logiciel (SDK) Speech Devices, procédez comme suit :
+Pour accéder au SDK Speech Devices :
 
 1. Accédez au [formulaire d’inscription](https://aka.ms/sdsdk-signup) du kit de développement logiciel (SDK) Microsoft Speech Devices.
 1. Lisez le [contrat de licence](speech-devices-sdk-license.md).
-1. Si vous acceptez les termes de ce contrat de licence, sélectionnez « J’accepte ».
+1. Si vous acceptez les termes de ce contrat de licence, sélectionnez **J’accepte**.
 1. Répondez aux questions du formulaire.
 1. Envoyez le formulaire. 
-1. Si votre adresse e-mail ne fait pas déjà partie d’Azure Active Directory, vous recevez une invitation par e-mail (semblable à celle ci-dessous) lors de l’approbation. Si votre adresse e-mail figure déjà dans Azure Active Directory, vous recevrez un message électronique de l’équipe Microsoft Speech lors de l’approbation et vous pourrez passer au [téléchargement du kit de développement logiciel (SDK) Speech Devices](#download-the-speech-devices-sdk).
+1. Si votre adresse e-mail ne fait pas déjà partie d’Azure Active Directory (Azure AD), vous recevez une invitation par e-mail semblable à l’exemple suivant quand votre accès a été approuvé. Si votre adresse e-mail figure déjà dans Azure AD, vous recevez un e-mail de l’équipe Microsoft Speech quand votre accès a été approuvé, et vous pouvez passer directement à la rubrique [Télécharger le SDK Speech Devices](#download-the-speech-devices-sdk).
 
 ## <a name="approval-e-mail"></a>E-mail d’approbation
 
@@ -41,49 +41,52 @@ Subject: You're invited to the Microsoft organization
 ![message électronique](media/speech-devices-sdk/get-sdk-1.png)
 
 ## <a name="accept-access"></a>Accepter l’accès
-Suivez les étapes ci-dessous pour rejoindre Azure Active Directory avec l’adresse e-mail que vous avez fournie lors de l’inscription. Ce processus vous permet d’accéder au [site de téléchargement](https://shares.datatransfer.microsoft.com/) du kit de développement logiciel (SDK) Speech Devices.
 
-1. Cliquez sur **Get Started** (Prise en main) dans l’e-mail que vous avez reçu. Si votre organisation utilise déjà un client Office 365, vous serez invité à vous connecter et pourrez passer à l’étape 8.
+Effectuez les étapes suivantes pour joindre Azure AD avec l’adresse e-mail que vous avez fournie lors de l’inscription. Ce processus vous permet d’accéder au [site de téléchargement](https://shares.datatransfer.microsoft.com/) du SDK Speech Devices.
 
-2. Cliquez sur **Suivant** dans la fenêtre du navigateur.
+1. Dans l’e-mail que vous avez reçu, cliquez sur **Bien démarrer**. Si votre organisation est déjà un client Office 365, vous êtes invité à vous connecter et vous pouvez passer directement à l’étape 8.
 
-    ![fenêtre d’authentification](media/speech-devices-sdk/get-sdk-2.png)
+2. Dans la fenêtre de navigateur qui s’ouvre, sélectionnez **Suivant**.
 
-3. Créez un compte Microsoft si vous n’en avez pas. Entrez l’adresse e-mail à laquelle vous avez reçu le message d’invitation à l’étape 6 ci-dessus.
+    ![Fenêtre d’authentification](media/speech-devices-sdk/get-sdk-2.png)
 
-    ![créer un compte Microsoft](media/speech-devices-sdk/get-sdk-3.png)
+3. Créez un compte Microsoft si vous n’en avez pas. Entrez l’adresse e-mail à laquelle vous avez reçu l’e-mail d’invitation.
 
-4. Cliquez sur **Suivant** pour créer un mot de passe.
+    ![Création d'un compte Microsoft](media/speech-devices-sdk/get-sdk-3.png)
 
-5. Lorsque vous êtes invité à vérifier votre adresse e-mail, retournez dans votre boîte de réception pour obtenir le code de vérification qui vous a été envoyé.
+4. Sélectionnez **Suivant** pour créer un mot de passe.
+
+5. Quand vous êtes invité à vérifier votre adresse e-mail, récupérez le code de vérification mentionné dans l’e-mail d’invitation que vous avez reçu.
  
-7. Collez ou tapez le code de sécurité à partir du message électronique dans la boîte de dialogue. Dans cet exemple, il s’agit de « 8406 ». Cliquez ensuite sur **Suivant**.
+7. Collez ou tapez dans la boîte de dialogue le code de sécurité mentionné dans l’e-mail. Dans cet exemple, le code de sécurité est **8406**. Sélectionnez **Suivant**.
 
-    ![confirmer l’adresse e-mail](media/speech-devices-sdk/get-sdk-6.png)
+    ![Vérifier l’adresse e-mail](media/speech-devices-sdk/get-sdk-6.png)
  
-8. Lorsque vous voyez l’application Panneau d’accès dans la fenêtre du navigateur, cela signifie que vous avez confirmé que votre adresse e-mail (de l’étape 6) fait désormais partie d’Azure Active Directory. Vous avez à présent accès au site de téléchargement du kit de développement logiciel (SDK) Speech Devices.
+8. Quand vous voyez l’application Panneau d’accès dans le navigateur, cela signifie que vous avez confirmé que votre adresse e-mail fait partie d’Azure AD. Vous avez à présent accès au site de téléchargement du kit de développement logiciel (SDK) Speech Devices.
 
 ## <a name="download-the-speech-devices-sdk"></a>Télécharger le kit de développement logiciel (SDK) Speech Devices
 
-Accédez au [site de téléchargement du kit de développement logiciel (SDK) Speech Devices](https://shares.datatransfer.microsoft.com/) et connectez-vous avec le compte Microsoft que vous avez créé précédemment. Vous pouvez maintenant télécharger le kit de développement logiciel (SDK) Speech Devices, l’exemple de code associé et les documents de référence en suivant ces étapes.
+Accédez au [site de téléchargement du SDK Speech Devices](https://shares.datatransfer.microsoft.com/). Connectez-vous avec le compte Microsoft que vous avez créé précédemment. 
 
-![site de téléchargement du kit de développement logiciel (SDK)](media/speech-devices-sdk/get-sdk-7.png)
+![Site de téléchargement du SDK](media/speech-devices-sdk/get-sdk-7.png)
 
-1. Téléchargez et installez l’outil Aspera Connect lorsque vous y êtes invité par le navigateur.
+Pour télécharger le SDK Speech Devices, l’exemple de code associé et les documents de référence :
 
-    ![télécharger Aspera Connect](media/speech-devices-sdk/get-sdk-8.png)
+1. Téléchargez et installez l’outil Aspera Connect quand vous y êtes invité dans le navigateur.
+
+    ![Télécharger Aspera Connect](media/speech-devices-sdk/get-sdk-8.png)
  
-1. Cliquez sur **Oui** pour basculer vers Aspera Connect.
+1. Sélectionnez **Oui** pour basculer les applications vers Aspera Connect.
 
-    ![basculer vers Aspera Connect](media/speech-devices-sdk/get-sdk-9.png)
+    ![Basculer vers Aspera Connect](media/speech-devices-sdk/get-sdk-9.png)
  
-1. Cliquez sur **Autoriser** pour confirmer le téléchargement des fichiers avec Aspera Connect.
+1. Sélectionnez **Autoriser** pour confirmer le téléchargement des fichiers à l’aide d’Aspera Connect.
 
-    ![télécharger avec Aspera Connect](media/speech-devices-sdk/get-sdk-10.png)
+    ![Télécharger à l’aide d’Aspera Connect](media/speech-devices-sdk/get-sdk-10.png)
  
 1. Fermez la fenêtre des transferts Aspera Connect une fois les fichiers téléchargés.
 
-    ![fenêtre des transferts Aspera Connect](media/speech-devices-sdk/get-sdk-11.png)
+    ![Fenêtre des transferts Aspera Connect](media/speech-devices-sdk/get-sdk-11.png)
  
 Par défaut, les fichiers sont téléchargés dans votre dossier **Téléchargements**. Vous pouvez maintenant vous déconnecter de ce site. 
 

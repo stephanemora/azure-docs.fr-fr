@@ -1,27 +1,29 @@
 ---
 title: Gérer la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées dans Azure Active Directory B2C | Microsoft Docs
-description: Apprenez-en davantage sur la gestion de la personnalisation de l’authentification unique et des jetons avec les stratégies personnalisées.
+description: En savoir plus sur la gestion de la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées dans Azure Active Directory B2C
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/02/2017
+ms.date: 10/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 811fb8b2de59c9d324ab4acb8b0f51b4cec80aee
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: c7ba1f87b877466ff4d9d11e4b3b5a6567e7ae06
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441795"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902626"
 ---
-# <a name="azure-active-directory-b2c-manage-sso-and-token-customization-with-custom-policies"></a>Azure Active Directory B2C : gestion de la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées
-L’utilisation de stratégies personnalisées vous fournit le même contrôle sur vos configurations de jetons, de sessions et d’authentification unique (SSO) que les stratégies prédéfinies.  Pour connaître l’effet de chaque paramètre, consultez la documentation [ici](#active-directory-b2c-token-session-sso).
+# <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Gérer la personnalisation des configurations SSO et de jetons avec des stratégies personnalisées dans Azure Active Directory B2C
+
+Cet article explique comment gérer vos configurations de jetons, de session et d’authentification unique (SSO) à l’aide de [stratégies personnalisées](active-directory-b2c-overview-custom.md) dans Azure Active Directory (Azure AD) B2C.
 
 ## <a name="token-lifetimes-and-claims-configuration"></a>Configuration des revendications et de la durée de vie des jetons
-Pour modifier les paramètres de durée de vie de vos jetons, vous devez ajouter un élément `<ClaimsProviders>` dans le fichier de partie de confiance de la stratégie que vous souhaitez affecter.  L’élément `<ClaimsProviders>` est un enfant de `<TrustFrameworkPolicy>`.  À l’intérieur, vous devez indiquer les informations qui modifient la durée de vie de votre jeton.  Le code XML ressemble à cet exemple :
+
+Pour modifier les paramètres de durée de vie de vos jetons, vous devez ajouter un élément [ClaimsProviders](claimsproviders.md) dans le fichier de partie de confiance de la stratégie que vous souhaitez affecter.  L’élément **ClaimsProviders** est un enfant de l’élément [TrustFrameworkPolicy](trustframeworkpolicy.md). À l’intérieur, vous devez indiquer les informations qui modifient la durée de vie de votre jeton. Le code XML ressemble à cet exemple :
 
 ```XML
 <ClaimsProviders>
@@ -43,41 +45,36 @@ Pour modifier les paramètres de durée de vie de vos jetons, vous devez ajouter
 </ClaimsProviders>
 ```
 
-**Durée de vie des jetons d’accès** : la durée de vie des jetons d’accès peut être modifiée en changeant la valeur contenue dans l’élément `<Item>` suivi de Key="token_lifetime_secs" en secondes.  La valeur par défaut dans les stratégies prédéfinies est de 3 600 secondes (60 minutes).
+Les valeurs suivantes sont définies dans l’exemple précédent :
 
-**Durée de vie des jetons d’ID** : la durée de vie des jetons d’ID peut être modifiée en changeant la valeur contenue dans l’élément `<Item>` suivi de Key="id_token_lifetime_secs" en secondes.  La valeur par défaut dans les stratégies prédéfinies est de 3 600 secondes (60 minutes).
+- **Durée de vie des jetons d’accès** : la durée de vie d’un jeton accès est définie avec l’élément de métadonnées **token_lifetime_secs**. La valeur par défaut est de 3600 secondes (60 minutes).
+- **Durée de vie des jetons d’ID** : la durée de vie d’un jeton d’ID est définie avec l’élément de métadonnées **id_token_lifetime_secs**. La valeur par défaut est de 3600 secondes (60 minutes).
+- **Durée de vie des jetons d’actualisation** : la durée de vie d’un jeton d’actualisation est définie avec l’élément de métadonnées **refresh_token_lifetime_secs**. La valeur par défaut est de 1209600 secondes (14 jours).
+- **Durée de vie de la fenêtre glissante du jeton d’actualisation** : si vous souhaitez définir une durée de vie pour la fenêtre glissante de votre jeton d’actualisation, définissez la valeur de l’élément de métadonnées **rolling_refresh_token_lifetime_secs**. La valeur par défaut est de 7776000 jours (90 jours). Si vous ne souhaitez pas appliquer une durée de vie à la fenêtre glissante, remplacez l’élément par `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
+- **Revendication de l’émetteur (iss)** : la revendication de l’émetteur (iss) est définie avec l’élément de métadonnées **IssuanceClaimPattern**. Les valeurs possibles sont `AuthorityAndTenantGuid` et `AuthorityWithTfp`.
+- **Paramétrage de l’ID de stratégie représentant la revendication** : les options permettant de définir cette valeur sont `TFP` (Trust Framework Policy) et `ACR` (Authentication Context Reference). `TFP` est la valeur recommandée. Définissez **AuthenticationContextReferenceClaimPattern** avec la valeur de `None`. Dans votre élément **OutputClaims**, ajoutez cet élément :
+    
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
+    ```
 
-**Durée de vie des jetons d’actualisation** : la durée de vie des jetons d’actualisation peut être modifiée en changeant la valeur contenue dans l’élément `<Item>` suivi de Key="refresh_token_lifetime_secs" en secondes.  La valeur par défaut dans les stratégies prédéfinies est de 1 209 600 secondes (14 jours).
+    Pour l’option ACR, supprimez l’élément **AuthenticationContextReferenceClaimPattern**.
 
-**Durée de vie de la fenêtre glissante du jeton d’actualisation** : si vous souhaitez définir une durée de vie pour la fenêtre glissante de votre jeton d’actualisation, modifiez la valeur à l’intérieur de l’élément `<Item>` suivi de Key="rolling_refresh_token_lifetime_secs" en secondes.  La valeur par défaut dans les stratégies prédéfinies est de 7 776 000 secondes (90 jours).  Si vous ne souhaitez pas appliquer une durée de vie pour la fenêtre glissante, remplacez cette ligne par :
-```XML
-<Item Key="allow_infinite_rolling_refresh_token">True</Item>
-```
+- **Revendication de sujet (sub)** : cette option est définie par défaut sur ObjectID. Si vous souhaitez que cette option soit définie sur `Not Supported`, remplacez cette ligne : 
 
-**Revendication de l’émetteur (iss)** : si vous souhaitez modifier la revendication de l’émetteur (iss), modifiez la valeur contenue dans l’élément `<Item>` suivi de Key="IssuanceClaimPattern".  Les valeurs possibles sont `AuthorityAndTenantGuid` et `AuthorityWithTfp`.
-
-**Paramétrage de l’ID de stratégie représentant la revendication** : les options permettant de définir cette valeur sont TFP (Trust Framework Policy) et ACR (Authentication Context Reference).  
-Nous vous recommandons de choisir l’option TFP. Pour ce faire, vérifiez que l’élément `<Item>` suivi de Key="AuthenticationContextReferenceClaimPattern" existe et que sa valeur est `None`.
-Dans votre élément `<OutputClaims>`, ajoutez cet élément :
-```XML
-<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />
-```
-Pour l’option ACR, supprimez l’élément `<Item>` suivi de Key="AuthenticationContextReferenceClaimPattern".
-
-**Revendication de sujet (sub)** : cette option est définie par défaut sur ObjectID. Si vous souhaitez que cette option soit définie sur `Not Supported`, procédez comme suit :
-
-Remplacez cette ligne : 
-```XML
-<OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
-```
-par cette ligne :
-```XML
-<OutputClaim ClaimTypeReferenceId="sub" />
-```
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
+    ```
+    
+    par cette ligne :
+    
+    ```XML
+    <OutputClaim ClaimTypeReferenceId="sub" />
+    ```
 
 ## <a name="session-behavior-and-sso"></a>Comportement de la session et SSO
 
-Pour changer le comportement des sessions et les configurations de SSO, vous devez ajouter un élément `<UserJourneyBehaviors>` à l’intérieur de l’élément `<RelyingParty>`.  L’élément `<UserJourneyBehaviors>` doit suivre immédiatement l’élément `<DefaultUserJourney>`.  L’intérieur de votre élément `<UserJourneyBehavors>` doit ressembler à ceci :
+Pour changer le comportement des sessions et les configurations de SSO, vous devez ajouter un élément **UserJourneyBehaviors** à l’intérieur de l’élément [RelyingParty](relyingparty.md).  L’élément **UserJourneyBehaviors** doit suivre immédiatement l’élément **DefaultUserJourney**. L’intérieur de votre élément **UserJourneyBehaviors** devrait ressembler à l’exemple suivant :
 
 ```XML
 <UserJourneyBehaviors>
@@ -86,8 +83,9 @@ Pour changer le comportement des sessions et les configurations de SSO, vous dev
    <SessionExpiryInSeconds>86400</SessionExpiryInSeconds>
 </UserJourneyBehaviors>
 ```
-**Configuration de l’authentification unique (SSO)** : pour modifier la configuration de l’authentification unique, vous devez modifier la valeur de l’élément `<SingleSignOn>`.  Les valeurs possibles sont `Tenant`, `Application`, `Policy` et `Disabled`. 
 
-**Durée de vie de la session d’application web (minutes)** : pour modifier la durée de vie de la session d’application web, vous devez modifier la valeur de l’élément `<SessionExpiryInSeconds>`.  La valeur par défaut dans les stratégies prédéfinies est de 86 400 secondes (1 440 minutes).
+Les valeurs suivantes sont configurées dans l’exemple précédent :
 
-**Délai d’expiration de la session d’application web** : pour modifier le délai d’expiration de la session d’application web, vous devez modifier la valeur de l’élément `<SessionExpiryType>`.  Les valeurs possibles sont `Absolute` et `Rolling`.
+- **Authentification unique (SSO)** : l’authentification unique est configurée avec l’élément **SingleSignOn**. Les valeurs possibles sont `Tenant`, `Application`, `Policy` et `Suppressed`. 
+- **Durée de vie de la session de l’application web (minutes)** : la durée de vie de la session de l’application web est définie avec l’élément **SessionExpiryInSeconds**. La valeur par défaut est de 86400 secondes (1440 minutes).
+- **Délai d’expiration de la session de l’application web** : il est défini avec l’élément **SessionExpiryType**. Les valeurs possibles sont `Absolute` et `Rolling`.

@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 12/12/2017
 ms.author: dobett
-ms.openlocfilehash: 737a76ba313dddaa58c302f1df501f16a5c4e9e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e9e88fc9aa3aad902c140ac176e31571b9e55ee3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966543"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353739"
 ---
 # <a name="frequently-asked-questions-for-connected-factory-solution-accelerator"></a>Questions fréquentes sur l’accélérateur de solution d’usine connectée
 
@@ -140,33 +140,21 @@ Si vous constatez qu’aucune donnée n’a été envoyée à IoT Hub, c’est q
 
 ### <a name="how-do-i-enable-an-interactive-map-in-my-connected-factory-solution"></a>Comment activer une carte interactive dans ma solution d’usine connectée ?
 
-Pour activer une carte interactive dans votre solution d’usine connectée, vous devez disposer d’un plan Bing Maps API for Enterprise.
+Pour activer une carte interactive dans votre solution d’usine connectée, vous devez disposer d’un compte Azure Maps.
 
-Lors d’un déploiement à partir de [www.azureiotsolutions.com](http://www.azureiotsolutions.com), le processus de déploiement vérifie que votre abonnement a un plan Bing Maps API for Enterprise activé, et déploie automatiquement une carte interactive dans la solution d’usine connectée. Si ce n’est pas le cas, vous pouvez toujours activer une carte interactive dans votre déploiement comme suit :
+Lors du déploiement à partir de [www.azureiotsolutions.com](http://www.azureiotsolutions.com), le processus de déploiement ajoute un compte Azure Maps au groupe de ressources qui contient les services d’accélérateur de solution.
 
-Quand vous procédez au déploiement à l’aide du script `build.ps1` dans le dépôt GitHub d’usine connectée et que vous disposez d’un plan Bing Maps API for Enterprise, affectez à la variable d’environnement `$env:MapApiQueryKey` dans la fenêtre de génération la clé de requête de votre plan. La carte interactive est ensuite automatiquement activée.
+Quand vous procédez au déploiement à l’aide du script `build.ps1` dans le dépôt GitHub d’usine connectée, affectez à la variable d’environnement `$env:MapApiQueryKey` dans la fenêtre de build la [clé de votre compte Azure Maps](../azure-maps/how-to-manage-account-keys.md). La carte interactive est ensuite automatiquement activée.
 
-Si vous ne disposez pas d’un plan Bing Maps API for Enterprise, déployez la solution d’usine connectée à partir de [www.azureiotsolutions.com](http://www.azureiotsolutions.com) ou à l’aide du script `build.ps1`. Ajoutez ensuite une API Bing Maps pour le plan Entreprise à votre abonnement, comme expliqué dans [Comment créer un compte API Bing Maps pour les entreprises ?](#how-do-i-create-a-bing-maps-api-for-enterprise-account). Recherchez la clé de requête de ce compte comme expliqué dans [Comment obtenir une clé de requête API Bing Maps pour les entreprises ?](#how-to-obtain-your-bing-maps-api-for-enterprise-querykey) et enregistrez-la. Accédez au portail Azure, puis à la ressource App Service dans le déploiement de votre solution d’usine connectée. Accédez aux **Paramètres de l’application**, où vous trouverez une section **Paramètres de l’application**. Définissez **MapApiQueryKey** sur la clé de requête que vous avez obtenue. Enregistrez les paramètres, puis accédez à la **Vue d’ensemble** et redémarrez App Service.
+Vous pouvez également ajouter une clé de compte Azure Maps à votre accélérateur de solution après le déploiement. Accédez au portail Azure, puis à la ressource App Service dans le déploiement de votre solution d’usine connectée. Accédez aux **Paramètres de l’application**, où vous trouverez une section **Paramètres de l’application**. Affectez la valeur **MapApiQueryKey** à la [clé de votre compte Azure Maps](../azure-maps/how-to-manage-account-keys.md). Enregistrez les paramètres, puis accédez à la **Vue d’ensemble** et redémarrez App Service.
 
-### <a name="how-do-i-create-a-bing-maps-api-for-enterprise-account"></a>Comment créer un compte API Bing Cartes pour les entreprises
+### <a name="how-do-i-create-a-azure-maps-account"></a>Comment créer un compte Azure Maps ?
 
-Vous pouvez obtenir gratuitement un plan *Bing Cartes pour les entreprises Transactions internes de niveau 1*. Toutefois, vous ne pouvez ajouter que deux plans de ce type à un abonnement Azure. Si vous ne disposez pas d’un compte API Bing Cartes pour les entreprises, créez-en-un sur le Portail Azure en cliquant sur **+ Créer une ressource**. Ensuite, recherchez **API Bing Cartes pour les entreprises** et suivez les invites pour le créer.
+Consultez [Guide pratique sur la gestion de votre compte et de vos clés Azure Maps](../azure-maps/how-to-manage-account-keys.md).
 
-![Clé Bing](./media/iot-accelerators-faq-cf/bing.png)
+### <a name="how-to-obtain-your-azure-maps-account-key"></a>Comment obtenir votre clé de compte Azure Maps
 
-### <a name="how-to-obtain-your-bing-maps-api-for-enterprise-querykey"></a>Comment obtenir une clé de requête API Bing Cartes pour les entreprises ?
-
-Une fois que vous avez créé votre plan Bing Maps API for Enterprise, ajoutez une ressource Bing Maps for Enterprise au groupe de ressources de votre solution d’usine connectée dans le portail Azure.
-
-1. Sur le Portail Azure, accédez au groupe de ressources contenant votre plan API Bing Cartes pour les entreprises sur le Portail Azure.
-
-1. Cliquez sur **Tous les paramètres**, puis sur **Gestion des clés**.
-
-1. Vous y trouverez deux clés : **MasterKey** et **QueryKey**. Copiez la valeur de **QueryKey**.
-
-1. Pour que la clé soit récupérée par le script `build.ps1`, affectez la **QueryKey** de votre plan à la variable `$env:MapApiQueryKey` de votre environnement PowerShell. Le script de génération ajoute alors automatiquement la valeur aux paramètres d’App Service.
-
-1. Lancez un déploiement local ou cloud avec le script `build.ps1`.
+Consultez [Guide pratique sur la gestion de votre compte et de vos clés Azure Maps](../azure-maps/how-to-manage-account-keys.md).
 
 ### <a name="how-do-enable-the-interactive-map-while-debugging-locally"></a>Comment activer la carte interactive pendant un débogage local ?
 

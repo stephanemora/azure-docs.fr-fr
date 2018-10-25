@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: c136772e27dab014c22234f1ef1d2baddd2ffe58
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1bdf1e1f5e58ecb0939d5876e0cef349e32de517
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978078"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344744"
 ---
 # <a name="custom-metrics-in-azure-monitor"></a>Métriques personnalisées dans Azure Monitor
 
@@ -31,7 +31,7 @@ Lorsque vous envoyez des métriques personnalisées à Azure Monitor, chaque poi
 
 ### <a name="authentication"></a>Authentification
 Pour soumettre des métriques personnalisées à Azure Monitor, l’entité qui soumet la métrique doit disposer d’un jeton Azure Active Directory valide, figurant dans l’en-tête « porteur » de la requête. Il existe plusieurs moyens d’acquérir un jeton du porteur valide :
-1. [MSI (Managed Service Identity)](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) : donne une identité à une ressource Azure elle-même (par exemple, une machine virtuelle). MSI a été conçu pour accorder aux ressources les autorisations nécessaires pour effectuer certaines opérations (pour permettre à une ressource d’émettre des métriques sur elle-même, par exemple). Une ressource (ou l’identité MSI correspondante) peut se voir accorder des autorisations de « Publication des métriques de surveillance » sur une autre ressource, permettant à l’identité MSI d’émettre des métriques pour d’autres ressources également.
+1. [Identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) : donne une identité à une ressource Azure elle-même (comme une machine virtuelle). MSI a été conçu pour accorder aux ressources les autorisations nécessaires pour effectuer certaines opérations (pour permettre à une ressource d’émettre des métriques sur elle-même, par exemple). Une ressource (ou l’identité MSI correspondante) peut se voir accorder des autorisations de « Publication des métriques de surveillance » sur une autre ressource, permettant à l’identité MSI d’émettre des métriques pour d’autres ressources également.
 2. [Principal de Service AAD](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) : dans ce scénario, une application AAD (un service) peut se voir accorder les autorisations nécessaires pour émettre des métriques concernant une ressource Azure.
 Pour authentifier la requête, Azure Monitor valide le jeton d’application à l’aide de clés publiques AAD. Le rôle « Publication des métriques de surveillance » dispose déjà de cette autorisation, disponible dans le Portail Azure. En fonction des ressources pour lesquelles il émettra des métriques personnalisées, le principal de service peut se voir accorder le rôle « Publication des métriques de surveillance » selon la portée requise (abonnement, groupe de ressources ou ressource spécifique).
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: e12c513f8812381897804412616be1ef7c743a3d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044091"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353289"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -257,7 +257,7 @@ Toutes les données présentées sous forme graphique via le tableau de bord Net
 
 Network Performance Monitor utilise les fonctionnalités d’alerte [d’Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts).
 
-Cela signifie que toutes les alertes sont gérées à l’aide de [groupes d’actions](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
+Cela signifie que toutes les notifications sont gérées à l’aide de [groupes d’actions](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
 Si vous êtes un utilisateur NPM créant une alerte via OMS : 
 1. Un lien permettant de vous rediriger vers le portail Azure s’affiche. Cliquez dessus pour accéder au portail.
@@ -271,7 +271,11 @@ Si vous êtes un utilisateur NPM créant une alerte via le portail Azure :
 3. Si vous choisissez d’utiliser des groupes d’actions, vous devez sélectionner un groupe d’actions précédemment créé. Pour découvrir comment créer un groupe d’actions, cliquez [ici](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#create-an-action-group-by-using-the-azure-portal). 
 4. Une fois que l’alerte a été créée, vous pouvez utiliser le lien de gestion des alertes pour la gérer. 
 
-##<a name="pricing"></a>Tarifs
+Chaque fois que vous créez une alerte, NPM crée une règle d’alerte de journal basée sur des requêtes dans Azure Monitor. Cette requête est déclenchée toutes les 5 minutes par défaut. Azure Monitor ne facture pas les 250 premières règles d’alerte de journal créées. Toute alerte dépassant la limite des 250 règles d’alerte de journal est facturée sur la base des [prix des alertes indiqués dans la page des tarifs d’Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+Les notifications sont facturées séparément sur la base des [prix des notifications indiqués dans la page des tarifs d’Azure Monitor](https://azure.microsoft.com/en-us/pricing/details/monitor/).
+
+
+## <a name="pricing"></a>Tarifs
 
 Les informations sur les tarifs sont disponibles [en ligne](log-analytics-network-performance-monitor-pricing-faq.md).
 

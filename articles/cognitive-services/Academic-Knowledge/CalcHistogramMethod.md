@@ -1,20 +1,21 @@
 ---
-title: Méthode CalcHistogram dans l’API Connaissances universitaires | Microsoft Docs
-description: Utilisez la méthode CalcHistogram pour calculer la distribution des valeurs d’attribut pour un ensemble d’entités de publication dans Microsoft Cognitive Services.
+title: Méthode CalcHistogram - API Connaissances universitaires
+titlesuffix: Azure Cognitive Services
+description: Utilisez la méthode CalcHistogram pour calculer la distribution des valeurs d’attribut pour un ensemble d’entités de publication.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: e0b773fb9791ee638c8cfdbbc9dca40543e50ec0
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 915e2e5a67d068c418ce50eee9d84dc66e61ee00
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367872"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321289"
 ---
 # <a name="calchistogram-method"></a>Méthode CalcHistogram
 
@@ -31,13 +32,15 @@ https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?
 
 NOM  |Valeur | Requis ?  |Description
 -----------|----------|--------|----------
-**expr**    |Chaîne de texte | OUI  |Expression de requête qui spécifie les entités sur lesquelles calculer les histogrammes.
+**expr**    |Chaîne de texte | Oui  |Expression de requête qui spécifie les entités sur lesquelles calculer les histogrammes.
 **model** |Chaîne de texte | Non  |Sélectionnez le nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).
 **attributes** | Chaîne de texte | Non <br>par défaut : | Liste délimitée par des virgules qui spécifie les valeurs d’attribut qui sont incluses dans la réponse. Les noms d’attribut sont sensibles à la casse.
 **count** |Number | Non <br>Valeur par défaut : 10 |Nombre de résultats à renvoyer.
 **offset**  |Number | Non <br>Par défaut : 0 |Index du premier résultat à renvoyer.
-<br>
+**timeout**  |Number | Non <br>Valeur par défaut : 1000 |Délai d’expiration en millisecondes. Seules les interprétations récupérées avant la fin du délai d’expiration sont renvoyées.
+
 ## <a name="response-json"></a>Réponse (JSON)
+
 NOM | Description
 --------|---------
 **expr**  |Paramètre expr issu de la requête.
@@ -52,7 +55,7 @@ NOM | Description
 **histograms[x].histogram[y].count**  |Nombre d’entités correspondantes avec cette valeur d’attribut.
 **aborted** | True si la requête a expiré.
 
- <br>
+
 #### <a name="example"></a>Exemple :
 ```
 https:// westus.api.cognitive.microsoft.com/academic/v1.0/calchistogram?expr=And(Composite(AA.AuN=='jaime teevan'),Y>2012)&attributes=Y,F.FN&count=4

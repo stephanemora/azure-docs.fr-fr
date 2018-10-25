@@ -1,20 +1,21 @@
 ---
-title: 'Recherche personnalisée Bing : Rechercher une vue personnalisée | Microsoft Docs'
-description: Décrit comment rechercher une vue personnalisée du web
+title: Rechercher une vue personnalisée | Recherche personnalisée Bing
+titlesuffix: Azure Cognitive Services
+description: Explique comment rechercher une vue personnalisée du web.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 7a2db7881dfe7efedb1a83637a6281f786652958
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 235062c1b3e54843b5e64f4ef16091ae5d630894
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46964886"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48814353"
 ---
 # <a name="call-your-custom-search"></a>Appeler votre recherche personnalisée
 
@@ -33,16 +34,16 @@ Une fois que vous avez configuré votre expérience de recherche personnalisée,
 
     Les éléments suivants sont les paramètres possibles que vous pouvez définir (la liste varie selon le point de terminaison sélectionné). Pour plus d’informations sur ces paramètres, consultez la référence [API Recherche personnalisée](https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference#query-parameters).
 
-    - **Requête** : terme à rechercher. Disponible uniquement pour les points de terminaison Web, Image, Vidéo et Suggestion automatique.
-    - **ID de configuration personnalisée** : ID de configuration de l’instance Recherche personnalisée sélectionnée. Ce champ est en lecture seule.
-    - **Marché** : marché d’où proviennent les résultats. Disponible uniquement pour les points de terminaison Web, Image, Vidéo et Interface utilisateur hébergée.
-    - **Clé d’abonnement** : clé d’abonnement pour le test. Vous pouvez sélectionner une clé dans la liste déroulante ou en entrer une manuellement.  
+    - **Query** (Requête) : le terme de recherche à rechercher. Disponible uniquement pour les points de terminaison Web, Image, Vidéo et Suggestion automatique.
+    - **Custom Configuration ID** (ID de configuration personnalisée) : l’ID de configuration de l’instance Recherche personnalisée sélectionnée. Ce champ est en lecture seule.
+    - **Market** (Marché) : le marché d’où proviennent les résultats. Disponible uniquement pour les points de terminaison Web, Image, Vidéo et Interface utilisateur hébergée.
+    - **Subscription Key** (Clé d’abonnement) : la clé d’abonnement pour le test. Vous pouvez sélectionner une clé dans la liste déroulante ou en entrer une manuellement.  
       
     Si vous cliquez sur **Paramètres supplémentaires**, les paramètres suivants s’affichent :  
       
-    - **Recherche sécurisée** : filtre servant à exclure le contenu pour adultes des pages web. Disponible uniquement pour les points de terminaison Web, Image, Vidéo et Interface utilisateur hébergée.
+    - **Safe Search** (Recherche sécurisée) : un filtre servant à exclure le contenu pour adultes des pages web. Disponible uniquement pour les points de terminaison Web, Image, Vidéo et Interface utilisateur hébergée.
     - **Langue de l’interface utilisateur** : langue utilisée pour les chaînes de l’interface utilisateur. Par exemple, si vous activez des images et des vidéos dans l’interface utilisateur hébergée, les onglets **Image** et **Vidéo** utilisent la langue spécifiée.
-    - **Nombre** : nombre de résultats de recherche à retourner dans la réponse. Disponible uniquement pour les points de terminaison Web, Image et vidéo.
+    - **Count** (Nombre de) : le nombre de résultats de recherche à retourner dans la réponse. Disponible uniquement pour les points de terminaison Web, Image et vidéo.
     - **Décalage** : Nombre de résultats de recherche à ignorer avant de retourner les résultats. Disponible uniquement pour les points de terminaison Web, Image et vidéo.
 
 6. Après avoir spécifié toutes les options nécessaires, cliquez sur **Appeler** pour voir la réponse JSON dans le volet droit. 

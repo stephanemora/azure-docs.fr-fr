@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 80234610eda264976f3ec20da2a0ef12c73ccba6
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 9fd83124585e3a0eb19c43e278eeeacb6ec4409c
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035706"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49094103"
 ---
 # <a name="contoso-migration-rearchitect-an-on-premises-app-to-an-azure-container-and-azure-sql-database"></a>Migration de Contoso : Réarchitecturer une application locale vers un conteneur Azure et Azure SQL Database
 
@@ -35,6 +35,7 @@ Ce document fait partie d’une série d’articles qui montrent comment la soci
 [Article 11 : Refactoriser TFS sur Azure DevOps Services](contoso-migration-tfs-vsts.md) | Contoso migre son déploiement local de Team Foundation Server vers Azure DevOps Services dans Azure. | Disponible
 Article 12 : Restructurer une application sur Conteneurs Azure et Azure SQL Database | Contoso migre son application SmartHotel vers Azure. Ensuite, l’entreprise restructure la couche web de l’application comme un conteneur Windows s’exécutant dans Azure Service Fabric, et la base de données avec Azure SQL Database. | Cet article
 [Article 13 : Regénérer une application dans Azure](contoso-migration-rebuild.md) | Contoso régénère son application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, notamment Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services et Azure Cosmos DB. | Disponible 
+[Article 14 : Mettre à l’échelle une migration vers Azure](contoso-migration-scale.md) | Après des essais de différentes combinaisons de migration, Contoso se prépare à une migration complète vers Azure. | Disponible
 
 Dans cet article, Contoso migre l’application SmartHotel360 à deux niveaux Windows WPF et XAML Forms s’exécutant sur des machines virtuelles VMware vers Azure. Si vous souhaitez utiliser cette application, elle est disponible en open source et vous pouvez la télécharger à partir de [GitHub](https://github.com/Microsoft/SmartHotel360).
 
@@ -54,7 +55,7 @@ L’équipe cloud de Contoso a épinglé les objectifs de cette migration. Ces o
 
 **Objectifs** | **Détails**
 --- | --- 
-**Exigences d’application** | L’application dans Azure restera aussi critique qu’aujourd’hui.<br/><br/> Elle doit offrir les mêmes performances qu’actuellement dans VMWare.<br/><br/> Contoso ne veut plus prendre en charge Windows Server 2008 R2, sur lequel l’application s’exécute actuellement, et est disposé à investir dans l’application.<br/><br/> Contoso veut passer de SQL Server 2008 R2 à une plateforme de base de données PaaS moderne pour réduire les besoins de gestion.<br/><br/> Contoso souhaite autant que possible tirer parti de son investissement dans les licences SQL Server et dans Software Assurance.<br/><br/> Contoso veut pouvoir effectuer un scale-up sur la couche web de l’application.
+**Exigences d’application** | L’application dans Azure restera aussi critique qu’aujourd’hui.<br/><br/> Elle doit offrir les mêmes performances qu’actuellement dans VMWare.<br/><br/> Contoso ne veut plus prendre en charge Windows Server 2008 R2, sur lequel l’application s’exécute actuellement, et est disposé à investir dans l’application.<br/><br/> Contoso veut passer de SQL Server 2008 R2 à une plateforme de base de données PaaS moderne pour réduire les besoins de gestion.<br/><br/> Contoso souhaite autant que possible tirer parti de son investissement dans les licences SQL Server et dans Software Assurance.<br/><br/> Contoso veut pouvoir faire monter en puissance la couche web de l’application.
 **Limitations** | L’application consiste en une application ASP.NET et un service WCF (Windows Communication Foundation) s’exécutant sur la même machine virtuelle. Contoso veut la fractionner en deux applications web à l’aide d’Azure App Service. 
 **Exigences Azure** | Contoso veut déplacer l’application vers Azure et l’exécuter dans un conteneur pour étendre sa durée de vie. L’entreprise ne veut pas tout reprendre à zéro pour implémenter l’application dans Azure. 
 **DevOps** | Contoso veut passer à un modèle DevOps en utilisant Azure DevOps Services pour les builds de code et le pipeline de mise en production.
@@ -111,7 +112,7 @@ Contoso évalue la conception proposée en dressant la liste des avantages et de
 **Service** | **Description** | **Coût**
 --- | --- | ---
 [Assistant Migration de données Microsoft (DMA)](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Évalue et détecte les problèmes de compatibilité qui peuvent avoir un impact sur les fonctionnalités de base de données dans Azure. DMA évalue la parité des fonctionnalités entre SQL sources et cibles, et recommande des améliorations des performances et de la fiabilité. | Cet outil est téléchargeable gratuitement.
-[Azure SQL Database](https://azure.microsoft.com/services/sql-database/) | Fournit un service de base de données cloud relationnelle entièrement managé et intelligent. | Coût basé sur les fonctionnalités, le débit et la taille. [Plus d’informations](https://azure.microsoft.com/pricing/details/sql-database/managed/)
+[Base de données SQL Azure](https://azure.microsoft.com/services/sql-database/) | Fournit un service de base de données cloud relationnelle entièrement managé et intelligent. | Coût basé sur les fonctionnalités, le débit et la taille. [Plus d’informations](https://azure.microsoft.com/pricing/details/sql-database/managed/)
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Stocke les images pour tous types de déploiements de conteneur. | Coût basé sur les fonctionnalités, le stockage et la durée d’utilisation. [Plus d’informations](https://azure.microsoft.com/pricing/details/container-registry/)
 [Azure Service Fabric](https://azure.microsoft.com/services/service-fabric/) | Génère et exploite des applications distribuées, scalables et toujours disponibles | Coûts basé sur la taille, l’emplacement et la durée des nœuds de calcul. [Plus d’informations](https://azure.microsoft.com/pricing/details/service-fabric/)
 [Azure DevOps](https://docs.microsoft.com/azure/azure-portal/tutorial-azureportal-devops) | Fournit un pipeline d’intégration et de déploiement continus (CI/CD) pour le développement d’applications. Le pipeline démarre avec un dépôt Git pour la gestion du code de l’application, un système de build pour la production de packages et d’autres artefacts de build, et un système Release Management pour le déploiement de modifications sur les environnements de production, de test et de développement.

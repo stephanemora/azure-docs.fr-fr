@@ -9,14 +9,14 @@ keywords: azure functions, fonctions, traitement des événements, webhooks, cal
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 05/24/2018
+ms.date: 09/24/2018
 ms.author: glenga
-ms.openlocfilehash: cc965073863375d76efb969ad66cf5750c9755bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 694dd98caadb12571c58f9d615cf75325654c772
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969425"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48801303"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Concepts des déclencheurs et liaisons Azure Functions
 
@@ -168,7 +168,7 @@ Cette section s’applique uniquement à Functions 2.x. Il n’est pas nécessai
 
 Quand vous créez une fonction ou que vous ajoutez une liaison, vous êtes averti quand l’extension pour le déclencheur ou la liaison nécessite une inscription. Répondez à l’invite en cliquant sur **Installer** pour inscrire l’extension. L’installation peut prendre jusqu’à 10 minutes sur un plan de consommation.
 
-Vous n’avez besoin d’installer chaque extension qu’une seule fois pour une application de fonction donnée. 
+Vous n’avez besoin d’installer chaque extension qu’une seule fois pour une application de fonction donnée. Pour les liaisons prises en charge qui ne sont pas disponibles dans le portail ou pour mettre à jour une extension installée, vous pouvez également [installer ou mettre à jour manuellement des extensions de liaison d’Azure Functions à partir du portail](install-update-binding-extensions-manual.md).  
 
 ### <a name="local-development-azure-functions-core-tools"></a>Azure Functions Core Tools pour le développement local
 

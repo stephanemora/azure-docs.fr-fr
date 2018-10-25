@@ -5,20 +5,21 @@ services: machine-learning
 author: rastala
 ms.author: roastala
 ms.service: machine-learning
+ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
 ms.date: 8/6/2018
-ms.openlocfilehash: 675dae022376fc62292f3b079bd735939b9199c2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 9938772618e9a85f7d85678c4ddde3147cbc40dd
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47220293"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091848"
 ---
 # <a name="configure-a-development-environment-for-the-azure-machine-learning-service"></a>Configurer un environnement de développement pour le service Azure Machine Learning
 
-Découvrez comment configurer votre environnement de développement pour fonctionner avec le service Azure Machine Learning. Vous allez découvrir comment créer un fichier de configuration qui associe votre environnement à un espace de travail Azure Machine Learning. Vous apprendrez également à configurer les environnements de développement suivants :
+Découvrez comment configurer votre environnement de développement pour fonctionner avec le service Azure Machine Learning. Vous allez apprendre à créer un fichier de configuration qui associe votre environnement à un espace de travail du service Azure Machine Learning. Vous apprendrez également à configurer les environnements de développement suivants :
 
 * Blocs-notes Jupyter sur votre ordinateur
 * Visual Studio Code
@@ -35,6 +36,9 @@ L’approche recommandée consiste à utiliser Continuum Anaconda [environnement
 
  * Pour l’environnement Visual Studio Code, l’[Extension Python](https://code.visualstudio.com/docs/python/python-tutorial).
 
+> [!NOTE]
+> Les commandes d’interpréteur de commandes utilisées dans ce document sont testées avec bash sur Linux et macOS. Les commandes sont aussi testées avec cmd.exe sur Windows.
+
 ## <a name="create-workspace-configuration-file"></a>Créer un fichier de configuration d’espace de travail
 
 Le fichier de configuration d’espace de travail est utilisé par le SDK pour communiquer avec votre espace de travail du service Azure Machine Learning.  Vous pouvez obtenir ce fichier de deux manières :
@@ -49,7 +53,8 @@ Le fichier de configuration d’espace de travail est utilisé par le SDK pour c
         ![Portail Azure](./media/how-to-configure-environment/configure.png) 
     
     1. Créez le fichier avec ce code Python. Exécutez le code dans le même répertoire que les scripts ou les notebooks qui référencent l’espace de travail :
-        ```
+
+        ```python
         from azureml.core import Workspace
 
         subscription_id ='<subscription-id>'
@@ -113,6 +118,11 @@ Pour obtenir un exemple d’utilisation d’Azure Notebooks avec le service Azur
      ```shell
     pip install --upgrade azureml-sdk[notebooks,automl]
     ```
+
+    > [!NOTE]
+    > Si vous recevez un message indiquant que `PyYAML` ne peut pas être désinstallé, utilisez la commande suivante à la place :
+    > 
+    > `pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML` 
 
     L’installation du SDK peut prendre plusieurs minutes.
 
@@ -179,7 +189,7 @@ Pour obtenir un exemple d’utilisation d’Azure Notebooks avec le service Azur
     conda install <new package>
     ```
 
-6. Lancez Visual Studio Code et utilisez __Ctrl-Maj-P__ pour accéder à la __Palette de commandes__. Entrez *Python: Select Interpreter*, puis sélectionnez l’environnement conda que vous avez créé.
+6. Lancez Visual Studio Code et utilisez __Ctrl-Maj-P__ pour Windows ou __Commande-Maj-P__ pour Mac pour obtenir la __palette de commandes__. Entrez *Python: Select Interpreter*, puis sélectionnez l’environnement conda que vous avez créé.
 
     > [!NOTE]
     > Visual Studio Code prend automatiquement en charge les environnements conda sur votre ordinateur. Pour plus d’informations, consultez la [documentation de Visual Studio Code](https://code.visualstudio.com/docs/python/environments#_conda-environments).

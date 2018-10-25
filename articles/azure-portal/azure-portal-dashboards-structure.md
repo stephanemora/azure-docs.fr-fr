@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 09/01/2017
 ms.author: cwatson
-ms.openlocfilehash: 405e0d5184880a00c07de55bd968210fa28e45fc
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 76f4a52b702a609d7181b9c6c0f2ce600d8a6aac
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393075"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267985"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Structure des tableaux de bord Azure
 Ce document décrit la structure d’un tableau de bord Azure, en utilisant le tableau de bord suivant comme exemple :
@@ -326,7 +326,7 @@ L’objet __parts__ une propriété pour chaque partie, où le nom de la propri�
 Chaque objet parts individuel comporte u objet __position__ et un objet __metadata__.
 
 ### <a name="the-position-object"></a>Objet position
-La propriété __position__ contient les informations de taille et d’emplacement de la partie, exprimées sous la forme __x__, __y__, __rowSpan__ et __colSpan__. Les valeurs sont indiquées en termes d’unités de grille. Ces unités de grille sont visibles quand le tableau de bord est en mode de personnalisation, comme illustré ici. Si vous voulez qu’une partie de contrôle ait une largeur de deux unités de grille, une hauteur d’une unité de grille et un emplacement dans le coin supérieur gauche du tableau de bord, alors l’objet position ressemble à ceci :
+La propriété __position__ contient les informations de taille et d’emplacement de la partie, exprimées sous la forme __x__, __y__, __rowSpan__ et __colSpan__. Les valeurs sont indiquées en termes d’unités de grille. Ces unités de grille sont visibles quand le tableau de bord est en mode de personnalisation, comme illustré ici. Si vous voulez qu’une vignette ait une largeur de deux unités de grille, une hauteur d’une unité de grille et un emplacement dans le coin supérieur gauche du tableau de bord, alors l’objet position ressemble à ceci :
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
@@ -338,7 +338,7 @@ Chaque partie a une propriété metadata ; un objet n’a qu’une seule propri
 
 1. `Extension/Microsoft_Azure_Monitoring/PartType/MetricsChartPart` – Utilisé pour afficher des mesures de surveillance.
 1. `Extension[azure]/HubsExtension/PartType/MarkdownPart` – Utilisé pour afficher du texte ou des images avec une mise en forme basique pour les listes, les liens, etc.
-1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Utilisé pour afficher des vidéos de YouTube, Channel9 et tout autre type de vidéo qui fonctionne dans une balise vidéo html.
+1. `Extension[azure]/HubsExtension/PartType/VideoPart` – Utilisé pour afficher des vidéos de YouTube, Channel9 et tout autre type de vidéo qui fonctionne dans une balise vidéo HTML.
 1. `Extension/Microsoft_Azure_Compute/PartType/VirtualMachinePart` – Utilisé pour afficher le nom et l’état d’une machine virtuelle Azure.
 
 Chaque type de partie possède sa propre configuration. Les propriétés de configuration possibles sont appelées __inputs__, __settings__ et __asset__. 

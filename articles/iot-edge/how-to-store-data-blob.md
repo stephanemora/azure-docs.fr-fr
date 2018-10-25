@@ -5,16 +5,16 @@ author: kgremban
 manager: timlt
 ms.author: kgremban
 ms.reviewer: arduppal
-ms.date: 09/20/2018
+ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: b9e48eba4b46f024b056fe53b3b3df24feec802e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6fdfc1002528fa48145e577dfee3eac935f31fcd
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995667"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344844"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Stocker des données à la périphérie avec le Stockage Blob Azure sur IoT Edge (préversion)
 
@@ -60,7 +60,7 @@ Il existe plusieurs façons de déployer des modules sur un appareil IoT Edge, e
 
 Pour déployer le stockage d’objets blob via le portail Azure, suivez les étapes dans [Déployer des modules Azure IoT Edge à partir du portail Azure](how-to-deploy-modules-portal.md). Avant de procéder au déploiement de votre module, copiez l’URI de l’image et préparez les options de création du conteneur en fonction votre système d’exploitation conteneur. Utilisez ces valeurs à la section **Configurer un manifeste de déploiement** dans l’article de déploiement. 
 
-Fournissez l’URI de l’image pour le module de stockage d’objets blob : **mcr.microsoft.com/azure-blob-storage**. 
+Fournissez l’URI de l’image pour le module de stockage d’objets blob : **mcr.microsoft.com/azure-blob-storage:latest**. 
    
 Utilisez le modèle JSON suivant pour le champ **Options de création de conteneur**. Configurez le fichier JSON avec le nom du compte de stockage, la clé du compte de stockage et la liaison au répertoire de stockage.  
    
@@ -70,24 +70,26 @@ Utilisez le modèle JSON suivant pour le champ **Options de création de contene
            "LOCAL_STORAGE_ACCOUNT_NAME=<your storage account name>",
            "LOCAL_STORAGE_ACCOUNT_KEY=<your storage account key>"
        ],
-       "HostConfig":[
+       "HostConfig":{
            "Binds":[
                "<storage directory bind>"
            ],
            "PortBindings":{
                "11002/tcp":[{"HostPort":"11002"}]
            }
-       ]
+       }
    }
    ```   
    
-Dans le fichier JSON des options de création, mettez à jour `\<your storage account name\>` avec le nom de votre choix. Mettez à jour `\<your storage account key\>` avec une clé en base64 de 64 octets. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64), qui vous permettent de sélectionner la longueur en octets. Vous utilisez ces informations d’identification pour accéder au stockage d’objets blob à partir d’autres modules.
+Dans le fichier JSON des options de création, mettez à jour `\<your storage account name\>` avec le nom de votre choix. Mettez à jour `\<your storage account key\>` avec une clé en base64 de 64 octets. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64), qui vous permettent de sélectionner la longueur en octets. Vous utilisez ces informations d’identification pour accéder au stockage d’objets blob à partir d’autres modules.
 
 Dans le fichier JSON des options de création, mettez à jour `<storage directory bind>` en fonction de votre système d’exploitation conteneur. Indiquez le nom d’un [volume](https://docs.docker.com/storage/volumes/) ou le chemin absolu à un répertoire sur votre appareil IoT Edge où vous souhaitez que le module d’objets blob stocke ses données.  
 
    * Conteneurs Linux : **\<chemin de stockage>:/blobroot**. Par exemple, /srv/containerdata:/blobroot. Ou, my-volume:/blobroot. 
-   * Conteneurs Windows : **\<chemin de stockage>:C:/BlobRoot**. Par exemple, C:/ContainerData:C:/BlobRoot. Ou, my-volume:C:/blobroot. 
-
+   * Conteneurs Windows : **\<chemin de stockage>:C:/BlobRoot**. Par exemple, C:/ContainerData:C:/BlobRoot. Ou, my-volume:C:/blobroot.
+   
+   > [!CAUTION]
+   > Ne changez pas le "/blobroot" pour Linux ni le "C:/BlobRoot" pour Windows, pour les valeurs **\<liaison du répertoire de stockage>**.
 
 Il n’est pas nécessaire de fournir des informations d’identification de registre pour accéder au stockage Blob Azure sur IoT Edge, ni de déclarer des itinéraires pour votre déploiement. 
 
@@ -111,7 +113,7 @@ Effectuez les étapes suivantes pour créer une solution IoT Edge avec un module
    
    4. **Indiquez un nom de module** - Entrez un nom identifiable pour votre module, par exemple **stockageBlobAzure**.
    
-   5. **Indiquez l’image Docker pour le module** - Indiquez l’URI de l’image : **mcr.microsoft.com/azure-blob-storage**
+   5. **Indiquez l’image Docker pour le module** - Indiquez l’URI de l’image : **mcr.microsoft.com/azure-blob-storage:latest**
 
 À partir des informations que vous avez fournies, VS Code crée une solution IoT Edge, puis la charge dans une nouvelle fenêtre. 
 
@@ -133,6 +135,9 @@ Le modèle de solution crée un modèle de manifeste de déploiement qui inclut 
 
    * Conteneurs Linux : **\<chemin de stockage>:/blobroot**. Par exemple, /srv/containerdata:/blobroot. Ou, my-volume:/blobroot.
    * Conteneurs Windows : **\<chemin de stockage>:C:/BlobRoot**. Par exemple, C:/ContainerData:C:/BlobRoot. Ou, my-volume:C:/blobroot.
+   
+   > [!CAUTION]
+   > Ne changez pas le "/blobroot" pour Linux ni le "C:/BlobRoot" pour Windows, pour les valeurs **\<liaison du répertoire de stockage>**.
 
 5. Enregistrez **deployment.template.json**.
 
@@ -145,7 +150,7 @@ Le modèle de solution crée un modèle de manifeste de déploiement qui inclut 
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Indiquez un nom de compte de stockage, et fournissez une clé en base64 de 64 octets comme clé de compte de stockage. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64). Vous utilisez ces informations d’identification pour accéder au stockage d’objets blob à partir d’autres modules. 
+8. Indiquez un nom de compte de stockage, et fournissez une clé en base64 de 64 octets comme clé de compte de stockage. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Vous utilisez ces informations d’identification pour accéder au stockage d’objets blob à partir d’autres modules. 
 
 9. Enregistrez **.env**. 
 
@@ -159,7 +164,13 @@ Vous pouvez utiliser le nom du compte et la clé de compte que vous avez configu
 
 Spécifiez votre appareil IoT Edge en tant que point de terminaison d’objets blob pour toutes les demandes de stockage que vous lui adressez. Vous pouvez [Créer une chaîne de connexion pour un point de terminaison de stockage explicite](../storage/common/storage-configure-connection-string.md#create-a-connection-string-for-an-explicit-storage-endpoint) en utilisant les informations de l’appareil IoT Edge et le nom du compte que vous avez configuré. 
 
-Le point de terminaison des objets blob pour le stockage Blob Azure sur IoT Edge est `http://<IoT Edge device hostname>:11002/<account name>`. 
+1. Pour les modules qui sont déployés sur le même appareil en périphérie, où « Stockage Blob Azure sur IoT Edge » est en cours d’exécution, le point de terminaison d’objet blob est : `http://<Module Name>:11002/<account name>`. 
+2. Pour les modules qui sont déployés sur un appareil en périphérie autre que l’appareil en périphérie où « Stockage Blob Azure sur IoT Edge » est en cours d’exécution, le point de terminaison blob est : `http://<device IP >:11002/<account name>` ou `http://<IoT Edge device hostname>:11002/<account name>` ou `http://<FQDN>:11002/<account name>` selon votre configuration.
+
+## <a name="logs"></a>Journaux
+
+Vous trouverez les journaux dans le conteneur, sous : 
+* Pour Linux : /blobroot/logs/platformblob.log
 
 ## <a name="deploy-multiple-instances"></a>Déployer plusieurs instances
 
@@ -230,7 +241,7 @@ Non prises en charge :
 ### <a name="block-blobs"></a>Objets blob de blocs
 
 Prises en charge : 
-* Placer un bloc
+* Placer le bloc :- Le bloc doit être inférieur ou égal à 4 Mo
 * Placer et obtenir une liste de blocs
 
 Non prises en charge :

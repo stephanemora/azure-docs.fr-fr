@@ -2,21 +2,21 @@
 title: FAQ sur l’utilisation d’Azure Database Migration Service | Microsoft Docs
 description: Découvrez les questions fréquemment posées sur l’utilisation d’Azure Database Migration Service pour effectuer des migrations de bases de données.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: ''
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 06/19/2018
-ms.openlocfilehash: 2fd5049b8b65620087e3c1ec42b6a5dcb0e0741a
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.date: 10/09/2018
+ms.openlocfilehash: f1f67921e7eadded4292f244f5754c8f00341a15
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36214101"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887102"
 ---
 # <a name="faq-about-using-the-azure-database-migration-service"></a>FAQ sur l’utilisation d’Azure Database Migration Service
 Cet article répertorie les questions fréquemment posées sur l’utilisation d’Azure Database Migration Service, ainsi que les réponses associées.
@@ -59,7 +59,7 @@ Les conditions préalables associées à Azure Database Migration Service commun
 Pour obtenir la liste de toutes les conditions préalables requises pour mener à bien des scénarios de migration spécifiques à l’aide d’Azure Database Migration Service, consultez les didacticiels connexes dans la [documentation](https://docs.microsoft.com/azure/dms/dms-overview) d’Azure Database Migration Service sur docs.microsoft.com.
 
 ### <a name="q-how-do-i-find-the-ip-address-for-the-azure-database-migration-service-so-that-i-can-create-an-allow-list-for-the-firewall-rules-used-to-access-my-source-database-for-migration"></a>Q. Comment faire pour trouver l’adresse IP d’Azure Database Migration Service afin de créer une liste d’autorisations pour les règles de pare-feu utilisées pour accéder à ma base de données source pour la migration ?
-Vous devrez peut-être ajouter des règles de pare-feu autorisant Azure Database Migration Service à accéder à votre base de données source pour la migration. L’adresse IP du service est dynamique, mais si vous utilisez Express Route, cette adresse est attribuée en privé par votre réseau d’entreprise. Le moyen le plus simple d’identifier l’adresse IP appropriée est de consulter le même groupe de ressources que votre ressource Azure Database Migration Service approvisionnée pour trouver l’interface réseau associée. Généralement, le nom de la ressource d’interface réseau commence par le préfixe de la carte réseau et est suivi d’une séquence de caractères et de chiffres unique (par exemple, carte réseau-jj6tnztnmarpsskr82rbndyp). En sélectionnant cette ressource d’interface réseau, vous pouvez voir l’adresse IP devant être incluse dans la liste d’autorisations sur la page du portail Azure de présentation des ressources.
+Vous devrez peut-être ajouter des règles de pare-feu autorisant Azure Database Migration Service à accéder à votre base de données source pour la migration. L’adresse IP du service est dynamique, mais si vous utilisez Express Route, cette adresse est attribuée en privé par votre réseau d’entreprise. Le moyen le plus simple d’identifier l’adresse IP appropriée est de consulter le même groupe de ressources que votre ressource Azure Database Migration Service approvisionnée pour trouver l’interface réseau associée. Généralement, le nom de la ressource d’interface réseau commence par le préfixe de la carte réseau, et est suivi d’une séquence de caractères et de chiffres unique (par exemple, NIC-jj6tnztnmarpsskr82rbndyp). En sélectionnant cette ressource d’interface réseau, vous pouvez voir l’adresse IP devant être incluse dans la liste d’autorisations sur la page du portail Azure de présentation des ressources.
 
 Par ailleurs, vous devez peut-être inclure la source du port que SQL Server écoute sur la liste d’autorisations. Par défaut, il s’agit du port 1433, mais le SQL Server source peut être configuré pour écouter d’autres ports également. Dans ce cas, vous devez aussi inclure ces ports sur la liste d’autorisations. Vous pouvez déterminer le port écouté par SQL Server à l’aide de la requête de vue de gestion dynamique :
 

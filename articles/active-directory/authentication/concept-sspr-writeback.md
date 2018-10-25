@@ -5,27 +5,33 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/04/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8440d8a492105365417190ad286798e0bdf47a0c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3d9d6aef4fafd6013c86fd5d5883222c0f32b34d
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295833"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319368"
 ---
 # <a name="what-is-password-writeback"></a>Qu’est-ce que la réécriture du mot de passe ?
 
-Avoir un utilitaire de réinitialisation de mot de passe basé sur le cloud est très utile, mais la plupart des entreprises disposent toujours d’un répertoire local contenant leurs utilisateurs. Comment Microsoft gère-t-il la synchronisation d’Active Directory (AD) sur site avec les modifications de mot de passe dans le cloud ? La réécriture du mot de passe est une fonctionnalité activée avec [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) qui permet aux modifications de mot de passe dans le cloud d’être réécrites sur un répertoire local existant en temps réel.
+Le fait d’avoir un utilitaire de réinitialisation de mot de passe basé sur le cloud est très utile, mais la plupart des entreprises disposent toujours d’un annuaire local contenant leurs utilisateurs. Comment Microsoft gère-t-il la synchronisation d’Active Directory (AD) sur site avec les modifications de mot de passe dans le cloud ? La réécriture du mot de passe est une fonctionnalité activée avec [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) qui permet aux modifications de mot de passe dans le cloud d’être réécrites sur un annuaire local existant en temps réel.
 
 La réécriture du mot de passe est prise en charge dans les environnements qui utilisent :
 
 * [Active Directory Federation Services](../hybrid/how-to-connect-fed-management.md)
 * [Synchronisation de hachage de mot de passe](../hybrid/how-to-connect-password-hash-synchronization.md)
 * [Authentification directe](../hybrid/how-to-connect-pta.md)
+
+> [!WARNING]
+> La réécriture du mot de passe ne fonctionnera plus pour les clients qui utilisent les versions d’Azure AD Connect 1.0.8641.0 et antérieures quand [Azure Access Control Service (ACS) sera mis hors service le 7 novembre 2018](../develop/active-directory-acs-migration.md). Les versions d’Azure AD Connect 1.0.8641.0 et antérieures cesseront alors d’autoriser la réécriture du mot de passe, car elles dépendent d’ACS pour cette fonctionnalité.
+>
+> Pour éviter une interruption de service, effectuez une mise à niveau depuis une version antérieure d’Azure AD Connect vers une version plus récente ; consultez l’article [Azure AD Connect : effectuer une mise à niveau vers la dernière version](../hybrid/how-to-upgrade-previous-version.md).
+>
 
 La réécriture du mot de passe permet :
 
@@ -37,6 +43,7 @@ La réécriture du mot de passe permet :
 
 > [!Note]
 > Les comptes d’utilisateur qui existent dans des groupes protégés de votre annuaire Active Directory local ne peuvent pas être bénéficier de la réécriture du mot de passe. Pour plus d’informations sur les groupes protégés, consultez la page [Comptes et groupes protégés dans Active Directory](https://technet.microsoft.com/library/dn535499.aspx).
+>
 
 ## <a name="licensing-requirements-for-password-writeback"></a>Conditions de licence pour la réécriture du mot de passe
 
@@ -63,28 +70,30 @@ Lorsqu’un utilisateur fédéré ou disposant de la synchronisation du hachage 
 1. Vérification du type de mot de passe de l’utilisateur. Si le mot de passe de l’utilisateur est géré localement :
    * Vérification du bon fonctionnement du service de réécriture. Dans le cas, l’utilisateur peut continuer.
    * Si le service de réécriture n’est pas disponible, l’utilisateur est informé que son mot de passe ne peut pas être réinitialisé pour l’instant.
-2. Ensuite, l’utilisateur transite par les portails d’authentification appropriés et atteint la page de **réinitialisation du mot de passe**.
-3. L’utilisateur sélectionne un nouveau mot de passe et le confirme.
-4. Lorsqu’il clique sur **Envoyer**, le mot de passe en texte brut est chiffré avec une clé de contenu créée durant le processus de configuration de réécriture.
-5. Le mot de passe chiffré est inclus dans une charge utile qui est envoyée via un canal HTTPS à votre relais Service Bus spécifique à l’abonné (configuré pour vous lors du processus d’installation de la réécriture). Ce relais est protégé par un mot de passe généré de manière aléatoire, connu uniquement de votre installation locale.
-6. Une fois que le message a atteint le Service Bus, le point de terminaison de réinitialisation de mot de passe sort automatiquement du mode veille et découvre qu’une demande de réinitialisation est en attente.
-7. Ce service recherche alors l’utilisateur concerné à l’aide de l’attribut d’ancrage de cloud. Pour que cette recherche aboutisse :
+1. Ensuite, l’utilisateur transite par les portails d’authentification appropriés et atteint la page de **réinitialisation du mot de passe**.
+1. L’utilisateur sélectionne un nouveau mot de passe et le confirme.
+1. Lorsqu’il clique sur **Envoyer**, le mot de passe en texte brut est chiffré avec une clé de contenu créée durant le processus de configuration de réécriture.
+1. Le mot de passe chiffré est inclus dans une charge utile qui est envoyée via un canal HTTPS à votre relais Service Bus spécifique à l’abonné (configuré pour vous lors du processus d’installation de la réécriture). Ce relais est protégé par un mot de passe généré de manière aléatoire, connu uniquement de votre installation locale.
+1. Une fois que le message a atteint le Service Bus, le point de terminaison de réinitialisation de mot de passe sort automatiquement du mode veille et découvre qu’une demande de réinitialisation est en attente.
+1. Ce service recherche alors l’utilisateur concerné à l’aide de l’attribut d’ancrage de cloud. Pour que cette recherche aboutisse :
 
    * L’objet utilisateur doit exister dans l’espace connecteur Active Directory.
    * L’objet utilisateur doit être lié à l’objet métaverse (MV) correspondant.
    * L’objet utilisateur doit être lié à l’objet connecteur Azure Active Directory correspondant.
-   * Le lien de l’objet connecteur Active Directory au métaverse doit avoir pour règle de synchronisation `Microsoft.InfromADUserAccountEnabled.xxx` sur le lien. <br> <br>
+   * Le lien de l’objet connecteur Active Directory au métaverse doit avoir pour règle de synchronisation `Microsoft.InfromADUserAccountEnabled.xxx` sur le lien.
+   
    Lorsque l’appel provient du cloud, le moteur de synchronisation utilise l’attribut **cloudAnchor** pour rechercher l’objet CS (Connector Space) Azure Active Directory. Il suit ensuite le lien vers l’objet MV, puis le lien vers l’objet Active Directory. Étant donné qu’il peut exister plusieurs objets Active Directory (plusieurs forêts) pour le même utilisateur, le moteur de synchronisation s’appuie sur le lien `Microsoft.InfromADUserAccountEnabled.xxx` pour choisir celui qui convient.
 
    > [!Note]
    > Conformément à cette logique, Azure AD Connect doit être en mesure de communiquer avec l’émulateur de contrôleur de domaine principal (PDC) pour que l’écriture différée du mot de passe fonctionne. Si vous avez besoin d’activer cette option manuellement, vous pouvez connecter Azure AD Connect à l’émulateur PDC. Cliquez avec le bouton droit sur les **propriétés** du connecteur de synchronisation Active Directory, puis choisissez de **configurer les partitions d’annuaire**. À partir de là, recherchez la section correspondant aux **paramètres de connexion du contrôleur de domaine** et cochez la case intitulée **only use preferred domain controllers** (utiliser uniquement les contrôleurs de domaine préférés). Même si le contrôleur de domaine préféré n’est pas un émulateur PDC, Azure AD Connect cherche à se connecter au contrôleur de domaine principal pour l’écriture différée du mot de passe.
 
-8. Une fois le compte d’utilisateur trouvé, Une tentative de réinitialiser le mot de passe directement dans la forêt Active Directory appropriée est effectuée.
-9. Si l’opération de définition du mot de passe réussit, l’utilisateur reçoit le message que son mot de passe a été modifié.
+1. Une fois le compte d’utilisateur trouvé, Une tentative de réinitialiser le mot de passe directement dans la forêt Active Directory appropriée est effectuée.
+1. Si l’opération de définition du mot de passe réussit, l’utilisateur reçoit le message que son mot de passe a été modifié.
    > [!NOTE]
    > Si le hachage de mot de passe de l’utilisateur est synchronisé à Azure AD à l’aide de la synchronisation de hachage de mot de passe, il se peut que la stratégie de mot de passe locale soit plus faible que la stratégie de mot de passe cloud. Dans ce cas, la stratégie locale est appliquée. Cela garantit que votre stratégie locale est appliquée dans le cloud, que vous utilisiez ou non la synchronisation ou la fédération de hachage de mot de passe pour fournir une authentification unique.
+   >
 
-10. Si l’opération de définition du mot de passe échoue, un message d’erreur invite l’utilisateur à réessayer. L’opération peut échouer pour les raisons suivantes :
+1. Si l’opération de définition du mot de passe échoue, un message d’erreur invite l’utilisateur à réessayer. L’opération peut échouer pour les raisons suivantes :
    * Le service était arrêté.
    * Le mot de passe sélectionné ne répondait pas aux stratégies de l’organisation.
    * Nous n’avons pas pu trouver l’utilisateur dans l’annuaire Active Directory local.
@@ -101,10 +110,10 @@ La réécriture du mot de passe est un service hautement sécurisé. Pour garant
    * Une fois le relais Service Bus créé, une paire de clés symétriques fortes est créée, permettant de chiffrer le mot de passe lorsqu’il arrive sur le réseau. Cette clé réside uniquement dans le magasin de secrets de votre entreprise dans le cloud, lequel est fortement verrouillé et audité, comme n’importe quel mot de passe de l’annuaire.
 * **Norme TLS (Transport Layer Security)**
    1. Lorsqu’une opération de réinitialisation ou de modification de mot de passe a lieu dans le cloud, le mot de passe en clair est chiffré avec votre clé publique.
-   2. Le mot de passe chiffré est inséré dans un message HTTPS envoyé à votre relais Service Bus via un canal chiffré, à l’aide de certificats SSL Microsoft.
-   3. Une fois le message arrivé dans Service Bus, votre agent local sort du mode veille et s’authentifie auprès de Service Bus en utilisant le mot de passe fort précédemment généré.
-   4. L’agent local récupère le message chiffré et le déchiffre à l’aide de la clé privée.
-   5. L’agent local tente ensuite de définir le mot de passe via l’API SetPassword AD DS. C’est cette étape qui permet d’appliquer votre stratégie de mot de passe Active Directory local (complexité, âge, historique et filtres) dans le cloud.
+   1. Le mot de passe chiffré est inséré dans un message HTTPS envoyé à votre relais Service Bus via un canal chiffré, à l’aide de certificats SSL Microsoft.
+   1. Une fois le message arrivé dans Service Bus, votre agent local sort du mode veille et s’authentifie auprès de Service Bus en utilisant le mot de passe fort précédemment généré.
+   1. L’agent local récupère le message chiffré et le déchiffre à l’aide de la clé privée.
+   1. L’agent local tente ensuite de définir le mot de passe via l’API SetPassword AD DS. C’est cette étape qui permet d’appliquer votre stratégie de mot de passe Active Directory local (complexité, âge, historique et filtres) dans le cloud.
 * **Stratégies d’expiration de message**
    * Si étant donné que votre service local est arrêté, le message reste dans Service Bus, il expire et est supprimé après quelques minutes. Le délai d’expiration et la suppression du message renforcent ainsi la sécurité.
 

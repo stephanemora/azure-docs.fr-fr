@@ -6,14 +6,14 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/09/2018
+ms.date: 10/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 32f93f383ec4044afb0696fcef1705c9ed65d673
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f79fa096484edc34294ea0a69584e12788dba647
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38578915"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48043390"
 ---
 # <a name="map-custom-fields-to-event-grid-schema"></a>Mapper des champs personnalisés au schéma Event Grid
 
@@ -43,9 +43,9 @@ Quand vous créez une rubrique personnalisée, spécifiez comment mapper les cha
 
 * Le paramètre `--input-schema` spécifie le type de schéma. Les options disponibles sont *cloudeventv01schema*, *customeventschema* et *eventgridschema*. La valeur par défaut est eventgridschema. Quand vous créez un mappage personnalisé entre votre schéma et le schéma de grille d’événement, utilisez customeventschema. Quand les événements se trouvent dans le schéma CloudEvents, utilisez cloudeventv01schema.
 
-* Le paramètre `--input-mapping-default-values` spécifie les valeurs par défaut des champs dans le schéma Event Grid. Vous pouvez définir des valeurs par défaut pour *subject*, *eventtype* et *dataversion*. En règle générale, vous utilisez ce paramètre quand votre schéma personnalisé ne contient aucun champ correspondant à l’un de ces trois champs. Par exemple, vous pouvez spécifier que dataversion est toujours défini sur **1.0**.
+* Le paramètre `--input-mapping-default-values` spécifie les valeurs par défaut des champs dans le schéma Event Grid. Vous pouvez définir des valeurs par défaut pour `subject`, `eventtype` et `dataversion`. En règle générale, vous utilisez ce paramètre quand votre schéma personnalisé ne contient aucun champ correspondant à l’un de ces trois champs. Par exemple, vous pouvez spécifier que le paramètre dataversion est toujours défini sur **1.0**.
 
-* Le paramètre `--input-mapping-fields` mappe les champs à partir de votre schéma au schéma de grille d’événement. Vous spécifiez les valeurs sous la forme de paires clé/valeur séparées par des espaces. En guise de nom de clé, utilisez le nom du champ de la grille d’événement. En guise de valeur, utilisez le nom de votre champ. Vous pouvez utiliser des noms de clé pour *id*, *topic*, *eventtime*, *subject*, *eventtype* et *dataversion*.
+* Le paramètre `--input-mapping-fields` mappe les champs à partir de votre schéma au schéma de grille d’événement. Vous spécifiez les valeurs sous la forme de paires clé/valeur séparées par des espaces. En guise de nom de clé, utilisez le nom du champ de la grille d’événement. En guise de valeur, utilisez le nom de votre champ. Vous pouvez utiliser des noms de clé pour `id`, `topic`, `eventtime`, `subject`, `eventtype` et `dataversion`.
 
 L’exemple suivant crée une rubrique personnalisée avec certains champs mappés et par défaut :
 
@@ -58,7 +58,7 @@ az eventgrid topic create \
   -n demotopic \
   -l eastus2 \
   -g myResourceGroup \
-  --input-schema customeventschema
+  --input-schema customeventschema \
   --input-mapping-fields eventType=myEventTypeField \
   --input-mapping-default-values subject=DefaultSubject dataVersion=1.0
 ```
@@ -69,13 +69,14 @@ Durant l’abonnement à la rubrique personnalisée, vous spécifiez le schéma 
 
 Les exemples de cette section utilisent un stockage File d’attente pour le gestionnaire d’événements. Pour plus d’informations, consultez [Acheminer des événements personnalisés vers le stockage File d’attente Azure](custom-event-to-queue-storage.md).
 
-L’exemple suivant s’abonne à une rubrique de grille d’événement et utilise le schéma de grille d’événement par défaut :
+L’exemple suivant illustre un abonnement à une rubrique Event Grid et l’utilisation du schéma Event Grid :
 
 ```azurecli-interactive
 az eventgrid event-subscription create \
   --topic-name demotopic \
   -g myResourceGroup \
   --name eventsub1 \
+  --event-delivery-schema eventgridschema \
   --endpoint-type storagequeue \
   --endpoint <storage-queue-url>
 ```
@@ -100,9 +101,9 @@ Vous êtes maintenant prêt à envoyer un événement à la rubrique personnalis
 endpoint=$(az eventgrid topic show --name demotopic -g myResourceGroup --query "endpoint" --output tsv)
 key=$(az eventgrid topic key list --name demotopic -g myResourceGroup --query "key1" --output tsv)
 
-body=$(eval echo "'$(curl https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/event-grid/mapeventfields.json)'")
+event='[ { "myEventTypeField":"Created", "resource":"Users/example/Messages/1000", "resourceData":{"someDataField1":"SomeDataFieldValue"} } ]'
 
-curl -X POST -H "aeg-sas-key: $key" -d "$body" $endpoint
+curl -X POST -H "aeg-sas-key: $key" -d "$event" $endpoint
 ```
 
 À présent, examinez votre stockage File d’attente. Les deux abonnements ont remis des événements dans des schémas différents.

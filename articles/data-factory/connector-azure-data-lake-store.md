@@ -12,12 +12,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 08/31/2018
 ms.author: jingwang
-ms.openlocfilehash: d500bc9c910858341d7fdacb4d85bffc8be215e1
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338760"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817022"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,7 +32,7 @@ Vous pouvez copier des données de toute banque de données source prise en char
 
 Plus précisément, ce connecteur Azure Data Lake Store prend en charge ce qui suit :
 
-- Copie de fichiers à l’aide de l’authentification de **principal du service** ou de l’authentification **MSI (Managed Service Identity)**.
+- Copie de fichiers à l’aide du **principal de service** ou des **entités managées pour authentifier les ressources Azure**.
 - Copie de fichiers en l'état ou analyse/génération de fichiers avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
 > [!IMPORTANT]
@@ -65,7 +65,7 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Data
 Pour accéder à d’autres propriétés et à des exemples JSON concernant ces deux types d’authentification, reportez-vous aux sections suivantes :
 
 - [Utilisation de l’authentification de principal de service](#using-service-principal-authentication)
-- [Utilisation de l’authentification MSI (Managed Service Identity)](#using-managed-service-identity-authentication)
+- [Utilisation des identités managées pour authentifier les ressources Azure](#managed-identity)
 
 ### <a name="using-service-principal-authentication"></a>Utilisation de l’authentification de principal de service
 
@@ -114,11 +114,11 @@ Les propriétés prises en charge sont les suivantes :
 }
 ```
 
-### <a name="using-managed-service-identity-authentication"></a>Utilisation de l’authentification MSI (Managed Service Identity)
+### <a name="managed-identity"></a>Utilisation des identités managées pour authentifier les ressources Azure
 
-Une fabrique de données peut être associée à une [identité de service managé](data-factory-service-identity.md), représentant la fabrique de données en question. Vous pouvez utiliser directement cette identité de service pour l’authentification Data Lake Store, ce qui revient à utiliser votre propre principal de service. Cela permet à la fabrique désignée d’accéder aux données et de les copier depuis/vers votre Data Lake Store.
+Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser directement cette identité de service pour l’authentification Data Lake Store, ce qui revient à utiliser votre propre principal de service. Cela permet à la fabrique désignée d’accéder aux données et de les copier depuis/vers votre Data Lake Store.
 
-Pour utiliser l’authentification MSI (Managed Service Identity) :
+Pour utiliser les identités managées afin d’authentifier les ressources Azure :
 
 1. [Récupérez l’identité de service de la fabrique de données](data-factory-service-identity.md#retrieve-service-identity) en copiant la valeur « ID d’application de l’identité du service » générée en même temps que votre fabrique.
 2. Accordez l’accès Data Lake Store au service d’identité comme vous le feriez pour un principal de service en suivant les remarques ci-dessous.

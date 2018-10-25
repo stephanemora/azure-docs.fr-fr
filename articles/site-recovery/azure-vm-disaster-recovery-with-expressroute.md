@@ -1,130 +1,220 @@
 ---
-title: Utilisation d’ExpressRoute avec la récupération d’urgence de machines virtuelles Azure | Microsoft Docs
-description: Explique comment utiliser Azure ExpressRoute avec Azure Site Recovery pour la récupération d’urgence de machines virtuelles Azure
+title: Intégrer Azure ExpressRoute à la reprise d’activité pour des machines virtuelles Azure avec Azure Site Recovery | Microsoft Docs
+description: Décrit comment configurer la reprise d’activité pour des machines virtuelles Azure avec Azure Site Recovery et Azure ExpressRoute
 services: site-recovery
-documentationcenter: ''
-author: mayanknayar
+author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
-ms.author: manayar
-ms.openlocfilehash: 73514b524f554affb9730ba63ccd608491497af2
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.topic: conceptual
+ms.date: 10/16/2018
+ms.author: mayg
+ms.openlocfilehash: 03fac23ea17a6baa1b43e748a4390cf142661a19
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920468"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353531"
 ---
-# <a name="using-expressroute-with-azure-virtual-machine-disaster-recovery"></a>Utilisation d’ExpressRoute avec la récupération d’urgence de machines virtuelles Azure
+# <a name="integrate-azure-expressroute-with-disaster-recovery-for-azure-vms"></a>Intégrer Azure ExpressRoute à la reprise d’activité pour des machines virtuelles Azure
 
-Microsoft Azure ExpressRoute vous permet d’étendre vos réseaux locaux au cloud de Microsoft via une connexion privée assurée par un fournisseur de connectivité. Cet article décrit comment vous pouvez utiliser ExpressRoute avec Site Recovery pour la récupération d’urgence des machines virtuelles Azure.
 
-## <a name="prerequisites"></a>Prérequis
+Cet article décrit comment intégrer Azure ExpressRoute à [Azure Site Recovery](site-recovery-overview.md) lors de la configuration de la reprise d’activité pour des machines virtuelles Azure dans une région Azure secondaire.
 
-Avant de commencer, vérifiez que vous connaissez suffisamment les sujets suivants :
--   [Circuits](../expressroute/expressroute-circuit-peerings.md) ExpressRoute
--   [Domaines de routage](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains) ExpressRoute
--   [Architecture de réplication](azure-to-azure-architecture.md) des machines virtuelles Azure
--   [Configuration de la réplication](azure-to-azure-tutorial-enable-replication.md) pour les machines virtuelles
--   [Basculement](azure-to-azure-tutorial-failover-failback.md) des machines virtuelles Azure
+Site Recovery permet la reprise d’activité de machines virtuelles Azure en répliquant les données des machines virtuelles Azure sur Azure.
 
-## <a name="expressroute-and-azure-virtual-machine-replication"></a>Réplication des machines virtuelles Azure et ExpressRoute
+- Si les machines virtuelles Azure utilisent des [disques managés Azure](../virtual-machines/windows/managed-disks-overview.md), les données des machines virtuelles sont répliquées sur un disque managé répliqué dans la région secondaire.
+- Si les machines virtuelles Azure n’utilisent pas de disques managés, les données des machines virtuelles sont répliquées vers un compte de stockage Azure.
+- Les points de terminaison de réplication sont publics, mais le trafic de réplication des machines virtuelles Azure ne passe pas par Internet.
 
-Lors de la protection des machines virtuelles Azure avec Site Recovery, les données de réplication sont envoyées à un compte de stockage Azure ou à un réplica de disque managé sur la région Azure cible, en fonction de l’utilisation ou non [d’Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md) par vos machines virtuelles Azure. Bien que les points de terminaison de réplication soient publics, le trafic de réplication pour la réplication de machines virtuelles Azure, par défaut, ne passe pas par Internet, quelle que soit la région Azure dans laquelle le réseau virtuel source se trouve.
+ExpressRoute vous permet d’étendre vos réseaux locaux dans le cloud Microsoft Azure via une connexion privée assurée par un fournisseur de connectivité. Si vous avez configuré ExpressRoute, il s’intègre à Site Recovery comme suit :
 
-Pour la récupération d’urgence des machines virtuelles Azure, comme les données de réplication ne quittent pas la limite Azure, ExpressRoute n’est pas requis pour la réplication. Après le basculement des machines virtuelles vers la région Azure cible, vous pouvez y accéder à l’aide d’une [homologation privée](../expressroute/expressroute-circuit-peerings.md#azure-private-peering).
+- **Lors de la réplication entre des régions Azure** : le trafic de réplication pour la reprise d’activité de machines virtuelles Azure se fait uniquement au sein d’Azure, et ExpressRoute n’est pas nécessaire ni utilisé pour la réplication. Cependant, si vous vous connectez à partir d’un site local à des machines virtuelles Azure dans le site Azure principal, plusieurs problèmes sont à prendre en compte quand vous configurez la reprise d’activité pour ces machines virtuelles Azure.
+- **Basculement entre des régions Azure** : quand des pannes se produisent, vous basculez les machines virtuelles Azure de la région primaire vers une région Azure secondaire. Après avoir basculé vers une région secondaire, vous devez effectuer un certain nombre d’étapes pour accéder avec ExpressRoute aux machines virtuelles Azure dans la région secondaire.
 
-## <a name="replicating-azure-deployments"></a>Réplication des déploiements Azure
 
-Dans un [article](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity) plus ancien, nous vous expliquions comment effectuer une configuration simple avec un réseau virtuel Azure connecté à un centre de données client local via ExpressRoute. Les déploiements d’entreprise classiques ont des charges de travail réparties sur plusieurs réseaux virtuels Azure et un Hub de connectivité central qui établit une connectivité externe, à la fois à Internet et aux déploiements locaux.
+## <a name="before-you-begin"></a>Avant de commencer
 
-Cet exemple illustre une topologie hub and spoke, plutôt fréquente dans les déploiements d’entreprise :
--   Le déploiement se trouve dans la région **Azure Asie de l’Est** et le centre de données local a une connexion de circuit ExpressRoute via un réseau de périphérie partenaire à Hong Kong.
--   Les applications sont déployées sur les deux réseaux virtuels spoke : **Source VNet1** avec l’espace d’adressage 10.1.0.0/24 et **Source VNet2** avec l’espace d’adressage 10.2.0.0/24.
--   Le réseau virtuel hub, **Source Hub VNet**, avec l’espace d’adressage 10.10.10.0/24 agit en tant qu’opérateur de contrôle. Toutes les communications entre les sous-réseaux passent par le Hub.
--   Le réseau virtuel hub a deux sous-réseaux : **NVA Subnet** avec l’espace d’adressage 10.10.10.0/25 et **Gateway Subnet** avec l’espace d’adressage 10.10.10.128/25.
--   Le sous-réseau **NVA Subnet** a une appliance virtuelle réseau avec l’adresse IP 10.10.10.10.
--   Le sous-réseau **Gateway Subnet** a une passerelle ExpressRoute connectée à une connexion ExpressRoute qui achemine le trafic vers le centre de données client local via un domaine de routage d’homologation privée.
--   Chaque réseau virtuel spoke est connecté au réseau virtuel hub et tout le routage au sein de cette topologie de réseau est contrôlé via les tables de routage Azure (UDR). Tout le trafic sortant d’un réseau virtuel et se dirigeant vers l’autre réseau virtuel ou le centre de données local est routé via l’appliance virtuelle réseau.
+Avant de commencer, vérifiez que vous comprenez bien les concepts suivants :
 
-![De l’emplacement local vers Azure avant le basculement](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
+- [Circuits](../expressroute/expressroute-circuit-peerings.md) ExpressRoute
+- [Domaines de routage](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains) ExpressRoute
+- Emplacements [ExpressRoute](../expressroute/expressroute-locations.md)
+- [Architecture de réplication](azure-to-azure-architecture.md) des machines virtuelles Azure
+- Comment [configurer la réplication](azure-to-azure-tutorial-enable-replication.md) pour les machines virtuelles Azure.
+- Comment [basculer](azure-to-azure-tutorial-failover-failback.md) des machines virtuelles Azure.
 
-### <a name="hub-and-spoke-peering"></a>Homologation hub and spoke
 
-L’homologation spoke vers hub est configurée comme suit :
--   Autoriser l’accès au réseau virtuel : Activé
--   Autoriser le trafic transféré : Activé
--   Autoriser le transit par passerelle : Désactivé
--   Use remote gateways (Utiliser des passerelles à distance) : Activé
+## <a name="general-recommendations"></a>Recommandations générales
+
+Pour respecter les bonnes pratiques et garantir des objectifs de temps de récupération efficaces pour la reprise d’activité, nous vous recommandons de procéder comme suit quand vous configurez Site Recovery pour l’intégrer à ExpressRoute :
+
+- Provisionnez les composants réseau avant le basculement vers une région secondaire :
+    - Quand vous activez la réplication de machines virtuelles Azure, Site Recovery peut déployer automatiquement des ressources réseau, comme des réseaux, des sous-réseaux et des passerelles, dans la région Azure cible, en fonction des paramètres du réseau source.
+    - Site Recovery ne peut pas configurer automatiquement des ressources réseau comme des passerelles de réseau virtuel.
+    - Nous vous recommandons de provisionner ces ressources réseau supplémentaires avant un basculement. Un petit temps d’arrêt est associé à ce déploiement, et il peut avoir un impact sur le temps de récupération global si vous n’en avez pas tenu compte lors de la planification du déploiement.
+- Effectuez des simulations régulières de reprise d’activité :
+    - Une simulation valide votre stratégie de réplication sans perte de données ou temps d’arrêt et n’affecte pas votre environnement de production. Ceci permet d’éviter des problèmes de configuration de dernière minute qui peuvent avoir un impact négatif sur l’objectif de temps de récupération.
+    - Quand vous effectuez un test de basculement pour la simulation, nous vous recommandons d’utiliser un réseau distinct de machines virtuelles Azure au lieu du réseau par défaut qui est configuré quand vous activez la réplication.
+- Utilisez des espaces d’adressage IP différents si vous avez un seul circuit ExpressRoute.
+    - Nous vous recommandons d’utiliser un espace d’adressage IP différent pour le réseau virtuel cible. Ceci évite des problèmes lors de l’établissement de connexions en cas de pannes régionales.
+    - Si vous ne pouvez pas utiliser un espace d’adressage distinct, veillez à effectuer le test de basculement de la simulation de reprise d’activité sur un réseau de test distinct avec des adresses IP différentes. Vous ne pouvez pas connecter deux réseaux virtuels avec un chevauchement d’espace d’adressage IP au même circuit ExpressRoute.
+
+## <a name="replicate-azure-vms-when-using-expressroute"></a>Répliquer des machines virtuelles Azure lors de l’utilisation d’ExpressRoute
+
+
+Si vous voulez configurer la réplication pour des machines virtuelles Azure dans un site principal et que vous vous connectez à ces machines virtuelles à partir de votre site local via ExpressRoute, voici ce que vous devez faire :
+
+1. [Activez la réplication](azure-to-azure-tutorial-enable-replication.md) pour chaque machine virtuelle Azure.
+2. Vous pouvez laisser Site Recovery configurer la mise en réseau :
+    - Quand vous configurez et que vous activez la réplication, Site Recovery définit des réseaux, des sous-réseaux et les sous-réseaux de passerelle dans la région Azure cible, de façon à les faire correspondre à ceux de la région source. Site Recovery effectue aussi un mappage entre les réseaux virtuels sources et cibles.
+    - Si vous ne voulez pas que Site Recovery effectue ceci automatiquement, créez les ressources réseau du côté cible avant d’activer la réplication.
+3. Créez les autres éléments du réseau :
+    - Site Recovery ne crée pas les tables de routage, les passerelles de réseau virtuel, les connexions de passerelle de réseau virtuel, l’appairage des réseaux virtuels, ni d’autres ressources et connexions réseau dans la région secondaire.
+    - Vous devez créer ces éléments de mise en réseau supplémentaires dans la région secondaire, n’importe quand mais avant d’effectuer un basculement depuis la région primaire.
+    - Vous pouvez utiliser des [plans de récupération](site-recovery-create-recovery-plans.md) et des scripts d’automatisation pour configurer et connecter ces ressources réseau.
+1. Si une appliance virtuelle réseau est déployée pour contrôler le flux de trafic réseau, notez que :
+    - La route système par défaut d’Azure pour la réplication de machines virtuelles Azure est 0.0.0.0/0.
+    - En règle générale, les déploiements d’appliance virtuelle réseau définissent également un itinéraire par défaut (0.0.0.0/0) qui force le trafic Internet sortant à circuler via l’appliance virtuelle réseau. La route par défaut est utilisée quand aucune autre configuration de routage spécifique ne peut être trouvée.
+    - Si c’est le cas, l’appliance virtuelle réseau peut se trouver surchargée si tout le trafic de réplication passe par cette appliance.
+    - La même limitation s’applique également lors de l’utilisation de routes par défaut pour le routage de tout le trafic des machines virtuelles Azure vers des déploiements locaux.
+    - Dans ce scénario, nous vous recommandons de [créer un point de terminaison de service réseau](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) dans votre réseau virtuel pour le service Microsoft.Storage, afin que le trafic de réplication ne quitte pas les limites d’Azure.
+
+## <a name="replication-example"></a>Exemple de réplication
+
+Les déploiements d’entreprise classiques ont des charges de travail réparties sur plusieurs réseaux virtuels Azure, avec un hub de connectivité central pour la connectivité externe à Internet et aux sites locaux. Une topologie hub-and-spoke est généralement utilisée avec ExpressRoute.
+
+![Site local vers Azure avec ExpressRoute avant le basculement](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-before-failover.png)
+
+- **Région**. Les applications sont déployées dans la région Azure Asie Est.
+- **Réseaux virtuels spoke**. Les applications sont déployées dans deux réseaux virtuels spoke :
+    - **Réseau virtuel source 1** : 10.1.0.0/24.
+    - **Réseau virtuel source 2** : 10.2.0.0/24.
+    - Chaque réseau virtuel spoke est connecté au **réseau virtuel hub**.
+- **Réseau virtuel hub**. Il existe un réseau virtuel hub **Réseau virtuel hub source** : 10.10.10.0/24.
+    - Ce réseau virtuel hub agit comme opérateur de contrôle.
+    - Toutes les communications entre les sous-réseaux passent par ce hub.
+ - ****Sous-réseaux du réseau virtuel hub**. Le réseau virtuel hub a deux sous-réseaux :
+     - **Sous-réseau de l’appliance virtuelle réseau** : 10.10.10.0/25. Ce sous-réseau contient une appliance virtuelle réseau (10.10.10.10).
+     - **Sous-réseau de passerelle** : 10.10.10.128/25. Ce sous-réseau contient une passerelle ExpressRoute connectée à une connexion ExpressRoute qui route le trafic vers le site local via un domaine de routage d’appairage privé.
+- Le centre de données local a une connexion de circuit ExpressRoute via un réseau de périphérie partenaire à Hong Kong.
+- Tout le routage est contrôlé via des tables de routage Azure.
+- Tout le trafic sortant entre les réseaux virtuels ou en direction du centre de données local est routé via l’appliance virtuelle réseau.
+
+### <a name="hub-and-spoke-peering-settings"></a>Paramètres de l’appairage hub-and-spoke
+
+#### <a name="spoke-to-hub"></a>Spoke à hub
+
+**Direction** | **Paramètre** | **State**
+--- | --- | ---
+Spoke à hub | Autoriser l’adresse du réseau virtuel | activé
+Spoke à hub | Autoriser le trafic transféré | activé
+Spoke à hub | Autoriser le transit par passerelle | Désactivé
+Spoke à hub | Utiliser des passerelles à distance | activé
 
  ![Configuration de l’homologation spoke vers hub](./media/azure-vm-disaster-recovery-with-expressroute/spoke-to-hub-peering-configuration.png)
 
-L’homologation hub vers spoke est configurée comme suit :
--   Autoriser l’accès au réseau virtuel : Activé
--   Autoriser le trafic transféré : Activé
--   Autoriser le transit par passerelle : Activé
--   Use remote gateways (Utiliser des passerelles à distance) : Désactivé
+#### <a name="hub-to-spoke"></a>Hub à spoke
+
+**Direction** | **Paramètre** | **State**
+--- | --- | ---
+Hub à spoke | Autoriser l’adresse du réseau virtuel | activé
+Hub à spoke | Autoriser le trafic transféré | activé
+Hub à spoke | Autoriser le transit par passerelle | activé
+Hub à spoke | Utiliser des passerelles à distance | Désactivé
 
  ![Configuration de l’homologation hub vers spoke](./media/azure-vm-disaster-recovery-with-expressroute/hub-to-spoke-peering-configuration.png)
 
-### <a name="enabling-replication-for-the-deployment"></a>Activation de la réplication pour le déploiement
+### <a name="example-steps"></a>Étapes de l’exemple
 
-Pour la configuration ci-dessus, commencez par [configurer la récupération d’urgence](azure-to-azure-tutorial-enable-replication.md) pour chaque machine virtuelle à l’aide de Site Recovery. Site Recovery peut créer des réplicas de réseaux virtuels (y compris des sous-réseaux et des sous-réseaux de passerelle) sur la région cible et créer les mappages nécessaires entre les réseaux virtuels sources et cibles. Vous pouvez également créer au préalable les sous-réseaux et réseaux cibles et les utiliser au moment de l’activation de la réplication.
+Dans notre exemple, voici ce qui doit se produire lors de l’activation de la réplication pour des machines virtuelles Azure dans le réseau source :
 
-Site Recovery ne réplique pas les tables de routage, les passerelles de réseau virtuel, les connexions de passerelle de réseau virtuel l’homologation de réseau virtuel ou les autres connexions ou ressources réseau. Tous ces éléments et les autres ressources ne font pas partie du [processus de réplication](azure-to-azure-architecture.md#replication-process) et doivent être créés avant le basculement ou au cours de celui-ci et être connectés aux ressources appropriées. Vous pouvez utiliser les puissants [plans de récupération](site-recovery-create-recovery-plans.md) d’Azure Site Recovery pour automatiser la création et la connexion de ressources supplémentaires à l’aide de scripts d’automatisation.
+1. Vous [activez la réplication](azure-to-azure-tutorial-enable-replication.md) pour une machine virtuelle.
+2. Site Recovery crée les réseaux virtuels, les sous-réseaux et les sous-réseaux de passerelle du réplica dans la région cible.
+3. Site Recovery crée des mappages entre les réseaux sources et les réseaux de cible du réplica qu’il crée.
+4. Vous créez manuellement les passerelles de réseau virtuel, les connexions de passerelle de réseau virtuel, l’appairage de réseaux virtuels ou les autres ressources et connexions réseau.
 
-Par défaut, le trafic de réplication ne quitte pas la limite Azure. En règle générale, les déploiements d’appliance virtuelle réseau définissent également un itinéraire par défaut (0.0.0.0/0) qui force le trafic Internet sortant à circuler via l’appliance virtuelle réseau. Dans ce cas, l’appliance peut être limitée si tout le trafic de réplication passe par celle-ci. La même règle s’applique également lors de l’utilisation d’itinéraires par défaut pour le routage de tout le trafic des machines virtuelles Azure vers des déploiements locaux. Nous vous recommandons de [créer un point de terminaison de service réseau](azure-to-azure-about-networking.md#create-network-service-endpoint-for-storage) dans votre réseau virtuel pour « Stockage » afin que le trafic de réplication ne quitte pas la limite Azure.
 
-## <a name="failover-models-with-expressroute"></a>Modèles de basculement avec ExpressRoute
+## <a name="fail-over-azure-vms-when-using-expressroute"></a>Basculer des machines virtuelles Azure lors de l’utilisation d’ExpressRoute
 
-Lorsque des machines virtuelles Azure sont basculées vers une autre région, la connexion ExpressRoute existante sur le réseau virtuel source n’est pas automatiquement transférée sur le réseau virtuel cible dans la région de récupération. Une nouvelle connexion est nécessaire pour connecter ExpressRoute au réseau virtuel cible.
+Après avoir basculé des machines virtuelles Azure vers la région Azure cible avec Site Recovery, vous pouvez y accéder en utilisant [l’appairage privé](../expressroute/expressroute-circuit-peerings.md#azure-private-peering) ExpressRoute.
 
-Vous pouvez répliquer des machines virtuelles Azure sur n’importe quelle région Azure au sein du même cluster géographique comme expliqué [ici](azure-to-azure-support-matrix.md#region-support). Dans le cas où la région Azure cible choisie n’est pas dans la même région géopolitique que la source, vous devez activer ExpressRoute Premium si vous utilisez un seul circuit ExpressRoute pour la connectivité à la région source et à la région cible. Pour plus d’informations, consultez la section [Régions Azure vers des emplacements ExpressRoute au sein d’une région géopolitique.](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) et la page [Tarification ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+- Vous devez connecter ExpressRoute au réseau virtuel cible avec une nouvelle connexion. La connexion ExpressRoute existante n’est pas transférée automatiquement.
+- La façon dont vous configurez votre connexion ExpressRoute au réseau virtuel cible dépend de votre topologie ExpressRoute.
 
-### <a name="two-expressroute-circuits-in-two-different-expressroute-peering-locations"></a>Deux circuits ExpressRoute dans deux emplacements d’homologation ExpressRoute différents
--   Cette configuration est utile si vous souhaitez assurer une protection en cas de défaillance au niveau du circuit ExpressRoute principal et en cas d’incidents régionaux à grande échelle, qui peuvent également toucher les emplacements d’homologation ExpressRoute et interrompre votre circuit ExpressRoute principal.
--   Normalement, le circuit connecté à l’environnement de production est utilisé en tant que circuit principal, et le circuit secondaire est un circuit de prévention de défaillance avec une bande passante généralement plus faible. La bande passante du circuit secondaire peut être augmentée en cas d’incident, quand le circuit secondaire doit prendre le relais du circuit principal.
--   Avec cette configuration, vous pouvez établir les connexions à partir de votre circuit ExpressRoute secondaire vers le réseau virtuel cible suite au basculement ou avoir les connexions établies et prêtes pour une déclaration d’incident, ce qui réduit votre temps de récupération global. Avec des connexions simultanées aux réseaux virtuels de la région cible et principale, vérifiez que votre routage local utilise le circuit et la connexion secondaire uniquement après le basculement.
--   Les réseaux virtuels sources et cibles des machines virtuelles protégées par Site Recovery peuvent avoir des adresses IP identiques ou différentes lors du basculement, en fonction de vos besoins. Dans les deux cas, les connexions secondaires peuvent être établies avant le basculement.
 
-### <a name="two-expressroute-circuits-in-the-same-expressroute-peering-location"></a>Deux circuits ExpressRoute dans le même emplacement d’homologation ExpressRoute
--   Avec cette configuration, vous pouvez assurer une protection en cas de défaillance au niveau du circuit ExpressRoute principal, mais pas en cas d’incidents régionaux à grande échelle, qui peuvent également toucher les emplacements d’homologation ExpressRoute. Avec cette configuration, les circuits principaux et secondaires peuvent être touchés.
--   Les autres conditions pour les adresses IP et les connexions restent les mêmes que celles indiquées dans la configuration précédente. Vous pouvez avoir des connexions simultanées entre le centre de données local et le réseau virtuel source avec le circuit principal et vers le réseau virtuel cible avec le circuit secondaire. Avec des connexions simultanées aux réseaux virtuels de la région cible et principale, vérifiez que votre routage local utilise le circuit et la connexion secondaire uniquement après le basculement.
--   Vous ne pouvez pas connecter les deux circuits au même réseau virtuel quand les circuits sont créés au même emplacement d’homologation.
+### <a name="access-with-two-circuits"></a>Accès avec deux circuits
 
-### <a name="single-expressroute-circuit"></a>Circuit ExpressRoute unique
--   Cette configuration n’assure pas de protection en cas d’incident régional à grande échelle, qui pourrait toucher l’emplacement d’homologation ExpressRoute.
--   Avec un circuit ExpressRoute unique, vous ne pouvez pas connecter simultanément les réseaux virtuels sources et cibles au circuit si le même espace d’adressage IP est utilisé sur la région cible.
--   Lorsque le même espace d’adressage IP est utilisé sur la région cible, la connexion du côté source doit être interrompue, et la connexion du côté cible doit être établie par la suite. Cette modification de la connexion peut faire l’objet d’un script dans le cadre d’un plan de récupération.
--   En cas de défaillance régionale, si la région primaire n’est pas accessible, l’opération de déconnexion peut échouer. Une telle défaillance peut avoir un impact sur la création de la connexion à la région cible quand le même espace d’adressage IP est utilisé sur le réseau virtuel cible.
--   Si la création de la connexion réussit sur la cible et si la région primaire récupère ultérieurement, vous pouvez être confronté à des pertes de paquets quand deux connexions simultanées essaient de se connecter au même espace d’adressage. Pour éviter les pertes de paquets, la connexion principale doit se terminer immédiatement. Après la restauration automatique des machines virtuelles sur la région primaire, la connexion principale peut de nouveau être établie après l’interruption de la connexion secondaire.
+#### <a name="two-circuits-with-two-peering-locations"></a>Deux circuits avec deux emplacements d’appairage
+
+Cette configuration protège les circuits ExpressRoute contre les sinistres régionaux. Si votre emplacement d’appairage principal tombe en panne, les connexions peuvent continuer depuis l’autre emplacement.
+
+- Le circuit connecté à l’environnement de production est généralement le circuit principal. Le circuit secondaire a généralement une bande passante inférieure, qui peut être augmentée si un sinistre se produit.
+- Après le basculement, vous pouvez établir des connexions du circuit ExpressRoute secondaire vers le réseau virtuel cible. Vous pouvez aussi avoir des connexions configurées et prêtes en cas de sinistre, de façon à réduire le temps de récupération global.
+- Avec des connexions simultanées aux réseaux virtuels primaires et cibles, vérifiez que votre routage local utilise le circuit et la connexion secondaires seulement après le basculement.
+- Les réseaux virtuels sources et cibles peuvent recevoir de nouvelles adresses IP ou conserver les mêmes après le basculement. Dans les deux cas, les connexions secondaires peuvent être établies avant le basculement.
+
+
+#### <a name="two-circuits-with-single-peering-location"></a>Deux circuits avec un seul emplacement d’appairage
+
+Cette configuration permet de se protéger contre les défaillances du circuit ExpressRoute principal, mais pas si le seul emplacement d’appairage ExpressRoute tombe en panne, en impactant les deux circuits.
+
+- Vous pouvez avoir des connexions simultanées du centre de données local vers le réseau virtuel source avec le circuit principal, et vers le réseau virtuel cible avec le circuit secondaire.
+- Avec des connexions simultanées vers les réseaux virtuels primaire et cible, vérifiez que le routage local utilise le circuit et la connexion secondaires seulement après le basculement.
+-   Vous ne pouvez pas connecter les deux circuits au même réseau virtuel quand les circuits sont créés au même emplacement d’appairage.
+
+### <a name="access-with-a-single-circuit"></a>Accès avec un seul circuit
+
+Dans cette configuration, il n’y a qu’un seul circuit ExpressRoute. Bien que le circuit ait une connexion redondante au cas où une des deux soit défaillante, un circuit avec une seule route n’offre pas de résilience si votre région d’appairage connaît une défaillance. Notez les points suivants :
+
+- Vous pouvez répliquer des machines virtuelles Azure vers n’importe quelle région Azure au [même emplacement géographique](azure-to-azure-support-matrix.md#region-support). Si la région Azure cible n’est pas au même emplacement que la source, vous devez activer ExpressRoute Premium si vous utilisez un seul circuit ExpressRoute. Découvrez plus d’informations sur les [Emplacements ExpressRoute](../expressroute/expressroute-locations.md#azure-regions-to-expressroute-locations-within-a-geopolitical-region) et la [Tarification ExpressRoute](https://azure.microsoft.com/pricing/details/expressroute/).
+- Vous ne pouvez pas connecter simultanément les réseaux virtuels sources et cibles au circuit si le même espace d’adressage IP est utilisé sur la région cible. Dans ce scénario :    
+    -  Déconnectez la connexion du côté source, puis établissez la connexion du côté cible. Cette modification de la connexion peut faire l’objet d’un script dans le cadre d’un plan de récupération Site Recovery. Notez les points suivants :
+        - En cas de défaillance régionale, si la région primaire n’est pas accessible, l’opération de déconnexion peut échouer. Ceci peut affecter la création d’une connexion vers la région cible.
+        - Si vous avez créé la connexion dans la région cible et que la région primaire récupère ultérieurement, vous pouvez être confronté à des pertes de paquets quand deux connexions simultanées essaient de se connecter au même espace d’adressage.
+        - Pour éviter cela, mettez fin immédiatement à la connexion principale.
+        - Après la restauration automatique des machines virtuelles sur la région primaire, la connexion principale peut être à nouveau établie après l’interruption de la connexion secondaire.
 -   Si un espace d’adressage différent est utilisé sur le réseau virtuel cible, vous pouvez vous connecter simultanément aux réseaux virtuels sources et cibles du même circuit ExpressRoute.
 
-## <a name="recovering-azure-deployments"></a>Récupération des déploiements Azure
-Imaginez le modèle de basculement avec deux circuits ExpressRoute distincts dans deux emplacements d’homologation différents et la rétention d’adresse IP privée pour les machines virtuelles Azure protégées. La région de récupération Azure cible est Asie du Sud-Est et une connexion de circuit ExpressRoute secondaire est établie via un réseau de périphérie partenaire à Singapour.
 
-Pour automatiser la récupération de la totalité du déploiement, en plus de répliquer des machines virtuelles et des réseaux virtuels, d’autres connexions et ressources réseau doivent également être créées. Pour la topologie de réseau hub and spoke précédente, les étapes supplémentaires suivantes doivent être réalisées au cours de l’opération de [basculement](azure-to-azure-tutorial-failover-failback.md) ou après celle-ci :
-1.  Créez la passerelle Azure ExpressRoute dans le réseau virtuel hub de la région cible. La passerelle ExpressRoute est requise pour connecter le réseau virtuel hub cible au circuit ExpressRoute.
-2.  Créez la connexion de réseau virtuel à partir du réseau virtuel hub cible vers le circuit ExpressRoute cible.
-3.  Configurez les homologations de réseau virtuel entre les réseaux virtuels hub and spoke de la région cible. Les propriétés d’homologation sur la région cible seront identiques à celles de la région source.
-4.  Configurez les UDR dans le réseau virtuel hub et les deux réseaux virtuels spoke. Les propriétés des UDR côté cible sont les mêmes que celles côté source lorsque vous utilisez des adresses IP identiques. Avec des adresses IP cibles différentes, les UDR doivent être modifiés en conséquence.
+## <a name="failover-example"></a>Exemple de basculement
+
+Dans notre exemple, nous utilisons la topologie suivante :
+
+- Deux circuits ExpressRoute différents dans deux emplacements d’appairage ExpressRoute différents.
+- Les adresses IP privées pour les machines virtuelles Azure sont conservées après le basculement.
+- La région de récupération cible est Azure Asie Sud-Est.
+- Une connexion de circuit ExpressRoute secondaire est établie via un réseau de périphérie partenaire à Singapour.
+
+Pour une topologie simple qui utilise un seul circuit ExpressRoute avec la même adresse IP après le basculement, [lisez cet article](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity).
+
+### <a name="example-steps"></a>Étapes de l’exemple
+Pour automatiser la récupération dans cet exemple, voici ce que vous devez faire :
+
+1. Suivez les étapes pour [configurer la réplication](#azure-vm-replication-steps).
+2. [Basculez les machines virtuelles Azure](azure-to-azure-tutorial-failover-failback.md) avec ces étapes supplémentaires, pendant ou après le basculement.
+
+    a. Créez la passerelle Azure ExpressRoute dans le réseau virtuel hub de la région cible. Ceci est nécessaire pour connecter le réseau virtuel hub cible au circuit ExpressRoute.
+
+    b. Créez la connexion depuis le réseau virtuel hub cible vers le circuit ExpressRoute cible.
+
+    c. Configurez les homologations de réseau virtuel entre les réseaux virtuels hub and spoke de la région cible. Les propriétés d’homologation sur la région cible seront identiques à celles de la région source.
+
+    d. Configurez les UDR dans le réseau virtuel hub et les deux réseaux virtuels spoke.
+
+    - Les propriétés des UDR côté cible sont les mêmes que celles côté source lorsque vous utilisez des adresses IP identiques.
+    - Avec des adresses IP cibles différentes, les UDR doivent être modifiés en conséquence.
+
 
 Les étapes ci-dessus peuvent faire l’objet d’un script dans le cadre d’un [plan de récupération](site-recovery-create-recovery-plans.md). En fonction des exigences en matière de temps de récupération et de connectivité de l’application, les étapes ci-dessus peuvent également être réalisées avant le début du basculement.
 
-Après la récupération des machines virtuelles et à la fin des autres étapes de connectivité, l’environnement de récupération se présente comme suit : ![Emplacement local vers Azure avec ExpressRoute après le basculement](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-after-failover.png)
+#### <a name="after-recovery"></a>Après la récupération
 
-Un exemple de topologie simple pour la récupération d’urgence de machines virtuelles Azure avec un seul circuit ExpressRoute, avec la même adresse IP sur les machines virtuelles cibles, est détaillé [ici](site-recovery-retain-ip-azure-vm-failover.md#on-premises-to-azure-connectivity).
+Après la récupération des machines virtuelles et l’établissement de la connectivité, l’environnement de récupération se présente comme suit.
 
-## <a name="recovery-time-objective-rto-considerations"></a>Remarques sur les objectifs de délai de récupération
-Pour réduire le temps de récupération global de votre déploiement, nous vous recommandons d’approvisionner et de déployer au préalable les [composants réseau](azure-vm-disaster-recovery-with-expressroute.md#enabling-replication-for-the-deployment) supplémentaires de la région cible telles que les passerelles de réseau virtuel. Le déploiement des ressources supplémentaires est assorti d’un temps d’arrêt court qui peut avoir un impact sur le temps de récupération global s’il n’est pas pris en compte lors de la planification.
+![Site local vers Azure avec ExpressRoute après le basculement](./media/azure-vm-disaster-recovery-with-expressroute/site-recovery-with-expressroute-after-failover.png)
 
-Nous vous recommandons d’exécuter régulièrement des [simulations de récupération d’urgence](azure-to-azure-tutorial-dr-drill.md) pour les déploiements protégés. Une simulation valide votre stratégie de réplication sans perte de données ou temps d’arrêt et n’affecte pas votre environnement de production. L’exécution d’une simulation permet également d’éviter les problèmes de configuration de dernière minute qui peuvent avoir un impact défavorable sur votre objectif de temps de récupération. Pour le test de basculement, nous vous recommandons d’utiliser un réseau de machines virtuelles Azure distinct plutôt que le réseau par défaut qui était configuré quand vous avez activé la réplication.
 
-Si vous utilisez un seul circuit ExpressRoute, nous vous recommandons d’utiliser un autre espace d’adressage IP pour le réseau virtuel cible afin d’éviter des problèmes d’établissement de connexion pendant les incidents régionaux. Si vous ne pouvez pas utiliser des adresses IP différentes dans votre environnement de production récupéré, le basculement test de la simulation de récupération d’urgence peut être effectué sur un réseau test distinct avec des adresses IP différentes, car vous ne pouvez pas connecter deux réseaux virtuels avec un espace d’adressage IP se chevauchant sur le même circuit ExpressRoute.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- En savoir plus sur les [circuits ExpressRoute](../expressroute/expressroute-circuit-peerings.md).
-- En savoir plus sur les [domaines de routage ExpressRoute](../expressroute/expressroute-circuit-peerings.md#expressroute-routing-domains).
-- En savoir plus sur les [emplacements ExpressRoute](../expressroute/expressroute-locations.md).
-- En savoir plus sur les [plans de récupération](site-recovery-create-recovery-plans.md) pour automatiser le basculement d’application
+
+Découvrez plus d’informations sur les [plans de récupération](site-recovery-create-recovery-plans.md) pour automatiser le basculement d’application.

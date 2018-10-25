@@ -5,25 +5,23 @@ services: active-directory
 documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 10/01/2018
 ms.author: barbkess
-ms.openlocfilehash: d357a9a7f249127289a256685d9555f777742b68
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c4aa311018603b32e854d3d3423d342350e6520d
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354819"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044482"
 ---
-# <a name="how-to-assign-users-and-groups-to-an-application"></a>Guide pratique pour affecter des utilisateurs et des groupes à une application
-
-Pour permettre à vos utilisateurs d’effectuer l’une des opérations ci-après pour une application spécifique, vous devez commencer par **les affecter à l’application** afin de leur en donner l’accès :
+# <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Assigner des utilisateurs et des groupes à une application dans Azure Active Directory
+Cet article vous montre comment assigner des utilisateurs ou des groupes à une application dans Azure Active Directory (Azure AD). Les utilisateurs doivent tout d’abord être assignés à une application avant qu’un administrateur puisse leur accorder un accès afin d’effectuer les opérations suivantes :
 
 -   Accéder à une application en **naviguant directement vers l’URL de l’application** (authentification initiée par le fournisseur de services).
 
@@ -33,17 +31,19 @@ Pour permettre à vos utilisateurs d’effectuer l’une des opérations ci-apr�
 
 -   Afficher une application qui apparaît sur leur [Lanceur d’applications Office 365](https://support.office.com/article/Meet-the-Office-365-app-launcher-79f12104-6fed-442f-96a0-eb089a3f476a).
 
-## <a name="methods-to-assign-applications-with-azure-active-directory"></a>Méthodes d’affectation d’applications avec Azure Active Directory 
+## <a name="prerequisties"></a>Conditions préalables
+Avant d'affecter des utilisateurs et des groupes à une application, vous devez demander l'affectation de l'utilisateur. Pour exiger l’affectation des utilisateurs :
 
-Il existe 3 méthodes d’affectation d’applications avec Azure Active Directory :
+1. Connectez-vous au portail Azure avec un compte administrateur.
+2. Dans le menu principal, cliquez sur **Tous les services**.
+3. Choisissez le répertoire que vous utilisez pour l’application.
+4. Cliquez sur l’onglet **Applications d’entreprise**.
+5. Sélectionnez l'application dans la liste des applications associées à ce répertoire.
+6. Cliquez sur l’onglet **Propriétés**.
+7. Définissez **Affectation de l’utilisateur requise ?** sur Oui.
+8. Cliquez sur le bouton **Enregistrer** en haut de l’écran.
 
--   [Affecter un utilisateur directement à une application en tant qu’administrateur](#assign-a-user-directly-as-an-administrator)
-
--   [Affecter un groupe directement à une application en tant qu’administrateur](#assign-a-group-directly-to-an-application-as-an-administrator)
-
--   [Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications.](#enable-self-service-application-access-to-allow-users-to-find-their-own-applications)
-
-## <a name="assign-a-user-directly-as-an-administrator"></a>Affecter un utilisateur directement en tant qu’administrateur
+## <a name="assign-users"></a>Affecter des utilisateurs
 
 Pour affecter un ou plusieurs utilisateurs directement à une application, effectuez les étapes suivantes :
 
@@ -79,9 +79,9 @@ Pour affecter un ou plusieurs utilisateurs directement à une application, effec
 
 15. Cliquez sur le bouton **Attribuer** pour affecter l’application aux utilisateurs sélectionnés.
 
-Après une courte période, les utilisateurs que vous avez sélectionnés seront en mesure de démarrer ces applications à l’aide des méthodes décrites dans la section de description des solutions.
+Après quelques instants, les utilisateurs que vous avez sélectionnés seront en mesure de démarrer ces applications à l’aide des méthodes décrites dans la section de description des solutions.
 
-## <a name="assign-a-group-directly-to-an-application-as-an-administrator"></a>Affecter un groupe directement à une application en tant qu’administrateur
+## <a name="assign-groups"></a>Affecter des groupes
 
 Pour affecter un ou plusieurs groupes directement à une application, procédez comme suit :
 
@@ -119,7 +119,7 @@ Pour affecter un ou plusieurs groupes directement à une application, procédez 
 
 Après une courte période, les utilisateurs des groupes que vous avez sélectionnés seront en mesure de démarrer ces applications à l’aide des méthodes décrites dans la section de description des solutions. S’il s’agit de groupes dynamiques, un délai de traitement supplémentaire peut survenir avant que les utilisateurs ne voient ces affectations dans ces groupes affectés.
 
-## <a name="enable-self-service-application-access-to-allow-users-to-find-their-own-applications"></a>Activer l’accès aux applications en libre-service pour permettre aux utilisateurs de rechercher leurs propres applications
+## <a name="enable-self-service-application-access"></a>Activer l’accès aux applications en libre-service
 
 L’accès aux applications en libre-service est un excellent moyen pour permettre aux utilisateurs de découvrir eux-mêmes des applications, et éventuellement de permettre au groupe d’entreprise d’approuver l’accès à ces applications. Vous pouvez autoriser le groupe d’entreprise à gérer les informations d’identification affectées à ces utilisateurs dans le cadre d’une authentification unique par mot de passe, directement depuis leurs volets d’accès.
 

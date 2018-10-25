@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: 73bc8b6954470d11d6369bc733bb7c6f794ce892
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: d900c9c438ed40841639d556643a231075f4f194
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577130"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249585"
 ---
 # <a name="azure-data-factory-faq"></a>Forum Aux Questions Azure Data Factory
 Cet article fournit des réponses aux questions fréquemment posées sur Azure Data Factory.  
@@ -83,7 +83,7 @@ Depuis la préversion publique initiale de 2017, les fonctionnalités suivantes 
 -   Managed Instance (MI)
 -   Pool élastique
 -   Prise en charge pour un réseau virtuel Azure Resource Manager sur un réseau virtuel classique qui sera dépréciée dans le futur : ceci vous permet d’injecter/joindre votre runtime d’intégration Azure-SSIS à un réseau virtuel qui est configuré pour Azure SQL DB avec des points de terminaison de service de réseau virtuel/MI/accès aux données locales. Consultez https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
--   Prise en charge de l’authentification Azure Active Directory (AAD) sur l’authentification SQL pour se connecter à votre SSISDB : ceci vous permet d’utiliser l’authentification AAD avec votre identité de service géré d’Azure Data Factory
+-   Prise en charge de l’authentification Azure Active Directory (AAD) sur l’authentification SQL pour se connecter à votre SSISDB : ceci vous permet d’utiliser l’authentification AAD avec votre identité managée ADF pour des ressources Azure
 -   Prise en charge de votre propre licence SQL Server locale pour réaliser des économies substantielles avec l’option Azure Hybrid Benefit
 -   Prise en charge de l’édition Entreprise du runtime d’intégration Azure-SSIS, qui vous permet d’utiliser des fonctionnalités avancées/Premium, un programme d’installation personnalisé pour installer des composants/extensions supplémentaires, et écosystème de tiers. Consultez https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 
 -   Une intégration plus étroite de SSIS dans Azure Data Factory, qui vous permet d’appeler/déclencher des activités étendues d’exécution de package SSIS dans des pipelines Azure Data Factory et de les planifier via SSMS. Consultez https://blogs.msdn.microsoft.com/ssis/2018/05/23/modernize-and-extend-your-etlelt-workflows-with-ssis-activities-in-adf-pipelines/ 

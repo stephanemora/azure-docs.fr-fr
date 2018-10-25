@@ -2,20 +2,20 @@
 title: Utilisation de l’infrastructure Mongoose avec Azure Cosmos DB | Microsoft Docs
 description: Apprenez à connecter une application Mongoose Node.js à Azure Cosmos DB
 services: cosmos-db
-author: romitgirdhar
+author: slyons
 manager: kfile
 ms.service: cosmos-db
 ms.component: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 01/08/2018
-ms.author: rogirdh
-ms.openlocfilehash: 3c2a1299bec954a1b00b3315113c0967171b0001
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.author: sclyon
+ms.openlocfilehash: 8cfa53a1792d8e01c05aad8e4a1a0b5239a092c1
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38543948"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857385"
 ---
 # <a name="azure-cosmos-db-using-the-mongoose-framework-with-azure-cosmos-db"></a>Azure Cosmos DB : Utilisation de l’infrastructure Mongoose avec Azure Cosmos DB
 
@@ -50,7 +50,11 @@ Commençons par créer un compte Azure Cosmos DB. Si vous avez déjà un compte 
 
 1. Ajoutez un nouveau fichier dans le dossier et nommez-le ```index.js```.
 1. Installez les packages nécessaires à l’aide de l’une des options ```npm install``` :
-    * Mongoose : ```npm install mongoose --save```
+    * Mongoose : ```npm install mongoose@5 --save```
+
+    > [!Note]
+    > La connexion d’exemple Mongoose ci-dessous repose sur Mongoose 5+, ce qui a changé depuis les versions antérieures.
+    
     * Dotenv (si vous voulez charger vos secrets à partir d’un fichier .env) : ```npm install dotenv --save```
 
     >[!Note]
@@ -65,19 +69,21 @@ Commençons par créer un compte Azure Cosmos DB. Si vous avez déjà un compte 
 1. Ajoutez la chaîne de connexion Cosmos DB et le nom Cosmos DB au fichier ```.env```.
 
     ```JavaScript
-    COSMOSDB_CONNSTR={Your MongoDB Connection String Here}
-    COSMOSDB_DBNAME={Your DB Name Here}
+    COSMOSDB_CONNSTR=mongodb://{cosmos-user}.documents.azure.com:10255/{dbname}
+    COSMODDB_USER=cosmos-user
+    COSMOSDB_PASSWORD=cosmos-secret
     ```
 
 1. Connectez-vous à Azure Cosmos DB à l’aide de l’infrastructure Mongoose en ajoutant le code suivant à la fin du fichier index.js.
     ```JavaScript
-    mongoose.connect(process.env.COSMOSDB_CONNSTR+process.env.COSMOSDB_DBNAME+"?ssl=true&replicaSet=globaldb"); //Creates a new DB, if it doesn't already exist
-
-    var db = mongoose.connection;
-    db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', function() {
-    console.log("Connected to DB");
-    });
+    mongoose.connect(process.env.COSMOSDB_CONNSTR+"?ssl=true&replicaSet=globaldb", {
+      auth: {
+        user: process.env.COSMODDB_USER,
+        password: process.env.COSMOSDB_PASSWORD
+      }
+    })
+    .then(() => console.log('Connection to CosmosDB successful'))
+    .catch((err) => console.error(err));
     ```
     >[!Note]
     > Ici, les variables d’environnement sont chargées à l’aide de process.env.{nomVariable} en utilisant le package npm « dotenv ».
@@ -297,7 +303,7 @@ Nous créons ici un modèle d’objet de base, définissons une clé de différe
 
 Comme vous pouvez le constater, il est très simple d’utiliser des discriminateurs Mongoose. Si votre application utilise l’infrastructure Mongoose, ce didacticiel vous permet de préparer votre application sur l’API MongoDB dans Azure Cosmos DB sans nécessiter trop de modifications.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
 

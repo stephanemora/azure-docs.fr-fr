@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 8/6/2018
 ms.author: victorh
-ms.openlocfilehash: b34e5317a35d694e8521e73b0846da973661d9df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f9bd0288d4009af536bdc8f45cbaed4b3f1eee18
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529680"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018706"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Vue d’ensemble de l’analyse d’intégrité Application Gateway
 
@@ -96,7 +96,7 @@ Le tableau suivant fournit des définitions pour les propriétés d’une sonde 
 
 Si le sous-réseau Application Gateway comporte un groupe de sécurité réseau (NSG), vous devez ouvrir la plage de ports 65503-65534 sur ce sous-réseau pour permettre l’arrivée du trafic entrant. Ces ports sont requis pour permettre à l’API relative à l’intégrité du serveur principal de fonctionner correctement.
 
-En outre, la connectivité Internet sortante ne peut pas être bloquée, et le trafic provenant de la balise AzureLoadBalancer doit être autorisé.
+En outre, la connectivité Internet sortante ne peut pas être bloquée, et le trafic entrant provenant de la balise AzureLoadBalancer doit être autorisé.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Après vous être familiarisé avec l’analyse d’intégrité Application Gateway, vous pouvez configurer une [sonde d’intégrité personnalisée](application-gateway-create-probe-portal.md) dans le portail Azure ou une [sonde d’intégrité personnalisée](application-gateway-create-probe-ps.md) à l’aide de PowerShell et du modèle de déploiement Azure Resource Manager.

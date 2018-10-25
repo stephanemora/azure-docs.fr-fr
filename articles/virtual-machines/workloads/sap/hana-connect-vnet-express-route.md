@@ -1,6 +1,6 @@
 ---
-title: Configuration de la connectivité d’un réseau virtuel à SAP HANA sur Azure (grandes Instances) | Microsoft Docs
-description: Configuration de la connectivité d’un réseau virtuel à SAP HANA sur Azure (grandes Instances).
+title: Configuration de la connectivité d’un réseau virtuel à SAP HANA sur Azure (grandes instances) | Microsoft Docs
+description: Configuration de la connectivité d’un réseau virtuel à SAP HANA sur Azure (grandes instances).
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -14,25 +14,25 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5efdda485e4e1f5013948c6636b267f0d388f4d5
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: a64a60603cd9898386a975313afc676e3b253326
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44167603"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353595"
 ---
-# <a name="connecting-a-vnet-to-hana-large-instance-expressroute"></a>Connexion d’un réseau virtuel à une grande instance HANA ExpressRoute
+# <a name="connect-a-virtual-network-to-hana-large-instances"></a>Connecter un réseau virtuel à de grandes instances HANA
 
-Puisque vous avez défini toutes les plages d’adresses IP et que vous avez reçu les données de Microsoft, vous pouvez maintenant commencer à connecter le réseau virtuel créé aux grandes instances HANA. Une fois le réseau virtuel Azure créé, vous devez créer une passerelle ExpressRoute sur le réseau virtuel pour lier le réseau virtuel au circuit ExpressRoute qui se connecte au locataire du client sur la grande instance.
+Après avoir créé un réseau virtuel Azure, vous pouvez connecter ce réseau à SAP HANA sur de grandes instances Azure. Créez une passerelle Azure ExpressRoute sur le réseau virtuel. Cette passerelle vous permet de lier le réseau virtuel au circuit ExpressRoute qui se connecte au locataire du client sur le tampon de grande instance.
 
 > [!NOTE] 
-> Cette étape peut prendre jusqu'à 30 minutes, dans la mesure où la nouvelle passerelle est créée dans l’abonnement Azure désigné, puis connectée au réseau virtuel Azure spécifié.
+> Cette étape peut prendre jusqu’à 30 minutes. La nouvelle passerelle est créée dans l’abonnement Azure désigné, puis connectée au réseau virtuel Azure spécifié.
 
-S’il existe déjà une passerelle, vérifiez s’il s’agit d’une passerelle ExpressRoute. Si ce n’est pas le cas, la passerelle doit être supprimée et recréée comme passerelle ExpressRoute. Si une passerelle ExpressRoute est déjà établie, étant donné que le réseau virtuel Azure est déjà connecté au circuit ExpressRoute pour la connectivité locale, passez à la section Liaison des réseaux virtuels ci-dessous.
+S’il existe déjà une passerelle, vérifiez qu’il s’agit d’une passerelle ExpressRoute. Si ce n’est pas le cas, supprimez la passerelle et recréez-la comme passerelle ExpressRoute. Si une passerelle ExpressRoute est déjà établie, consultez la section « Lier des réseaux virtuels » de cet article. 
 
-- Utilisez soit le (nouveau) [portail Azure](https://portal.azure.com/), soit PowerShell pour créer une passerelle VPN ExpressRoute connectée à votre réseau virtuel.
+- Utilisez soit le [portail Azure](https://portal.azure.com/), soit PowerShell pour créer une passerelle VPN ExpressRoute connectée à votre réseau virtuel.
   - Si vous utilisez le portail Azure, ajoutez une nouvelle **passerelle de réseau virtuel**, puis sélectionnez **ExpressRoute** comme type de passerelle.
-  - Si vous avez choisi PowerShell, téléchargez et utilisez la dernière version du [kit de développement logiciel (SDK) Azure PowerShell](https://azure.microsoft.com/downloads/) pour garantir une expérience optimale. Les commandes suivantes créent une passerelle ExpressRoute. Le texte précédé par un _$_ correspond à des variables définies par l’utilisateur, qui doivent être mises à jour avec vos propres informations.
+  - Si vous utilisez PowerShell, commencez par télécharger et par utiliser le dernier [SDK Azure PowerShell](https://azure.microsoft.com/downloads/). Les commandes suivantes créent une passerelle ExpressRoute. Le texte précédé par un _$_ correspond à des variables définies par l’utilisateur qui doivent être mises à jour avec vos propres informations.
 
 ```PowerShell
 # These Values should already exist, update to match your environment
@@ -44,7 +44,7 @@ $myVNetName = "VNet01"
 $myGWName = "VNet01GW"
 $myGWConfig = "VNet01GWConfig"
 $myGWPIPName = "VNet01GWPIP"
-$myGWSku = "HighPerformance" # Supported values for HANA Large Instances are: HighPerformance or UltraPerformance
+$myGWSku = "HighPerformance" # Supported values for HANA large instances are: HighPerformance or UltraPerformance
 
 # These Commands create the Public IP and ExpressRoute Gateway
 $vnet = Get-AzureRmVirtualNetwork -Name $myVNetName -ResourceGroupName $myGroupName
@@ -63,20 +63,20 @@ New-AzureRmVirtualNetworkGateway -Name $myGWName -ResourceGroupName $myGroupName
 Dans cet exemple, la référence SKU de passerelle HighPerformance a été utilisée. Vous pouvez opter pour HighPerformance ou pour UltraPerformance, les seules références SKU de passerelle prises en charge pour SAP HANA sur Azure (grandes instances).
 
 > [!IMPORTANT]
-> Pour les grandes instances HANA de classe Type II, l’utilisation de la référence SKU de la passerelle UltraPerformance est obligatoire.
+> Pour les grandes instances HANA de classe Type II, vous devez utiliser la référence SKU de la passerelle UltraPerformance.
 
-**Liaison de réseaux virtuels**
+## <a name="link-virtual-networks"></a>Lier des réseaux virtuels
 
-Maintenant que le réseau virtuel Azure dispose d’une passerelle ExpressRoute, utilisez les informations d’autorisation fournies par Microsoft pour connecter la passerelle ExpressRoute au circuit ExpressRoute SAP HANA sur Azure (grandes instances) créé pour cette connexion. Vous pouvez effectuer cette opération à l’aide du portail Azure ou de PowerShell. L’utilisation du portail est recommandée, mais vous trouverez ci-dessous les instructions pour PowerShell. 
+Le réseau virtuel Azure a maintenant une passerelle ExpressRoute. Utilisez les informations d’autorisation fournies par Microsoft pour connecter la passerelle ExpressRoute au circuit ExpressRoute SAP HANA sur Azure (grandes instances). Vous pouvez vous connecter à l’aide du portail Azure ou de PowerShell. L’utilisation du portail est recommandée, mais vous trouverez ci-dessous les instructions pour PowerShell. 
 
-- Vous exécutez les commandes suivantes pour chaque passerelle de réseau virtuel, en utilisant un paramètre AuthGUID différent pour chaque connexion. Les deux premières entrées dans le script ci-dessous proviennent des informations fournies par Microsoft. En outre, le paramètre AuthGUID est spécifique à chaque réseau virtuel et à sa passerelle. Cela signifie que, si vous souhaitez ajouter un autre réseau virtuel Azure, vous devez obtenir un autre AuthID pour votre circuit ExpressRoute qui connecte les grandes instances HANA dans Azure. 
+Exécutez les commandes suivantes pour chaque passerelle de réseau virtuel, en utilisant un AuthGUID différent pour chaque connexion. Les deux premières entrées dans le script suivant proviennent des informations fournies par Microsoft. En outre, AuthGUID est spécifique à chaque réseau virtuel et à sa passerelle. Si vous souhaitez ajouter un autre réseau virtuel Azure, vous devez obtenir un autre AuthID pour votre circuit ExpressRoute qui connecte les grandes instances HANA dans Azure. 
 
 ```PowerShell
 # Populate with information provided by Microsoft Onboarding team
 $PeerID = "/subscriptions/9cb43037-9195-4420-a798-f87681a0e380/resourceGroups/Customer-USE-Circuits/providers/Microsoft.Network/expressRouteCircuits/Customer-USE01"
 $AuthGUID = "76d40466-c458-4d14-adcf-3d1b56d1cd61"
 
-# Your ExpressRoute Gateway Information
+# Your ExpressRoute Gateway information
 $myGroupName = "SAP-East-Coast"
 $myGWName = "VNet01GW"
 $myGWLocation = "East US"
@@ -92,8 +92,8 @@ New-AzureRmVirtualNetworkGatewayConnection -Name $myConnectionName `
 -PeerId $PeerID -ConnectionType ExpressRoute -AuthorizationKey $AuthGUID
 ```
 
-Si vous souhaitez connecter la passerelle à plusieurs circuits ExpressRoute associés à votre abonnement, vous devrez peut-être exécuter plusieurs fois cette étape. Par exemple, vous allez probablement connecter la même passerelle de réseau virtuel au circuit ExpressRoute qui relie le réseau virtuel à votre réseau local.
+Pour connecter la passerelle à plusieurs circuits ExpressRoute associés à votre abonnement, vous devrez peut-être exécuter plusieurs fois cette étape. Par exemple, vous allez probablement connecter la même passerelle de réseau virtuel au circuit ExpressRoute qui relie le réseau virtuel à votre réseau local.
 
-**Étapes suivantes**
+## <a name="next-steps"></a>Étapes suivantes
 
-- Voir [Configuration réseau requise supplémentaire pour HLI](hana-additional-network-requirements.md).
+- [Configuration réseau requise supplémentaire pour HLI](hana-additional-network-requirements.md)

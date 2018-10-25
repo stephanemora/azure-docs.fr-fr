@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b6d05c5e9bc59df9df7ef8840b70ab027b6e2f74
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287323"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269494"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Utilisation du support de flux de modification dans Azure Cosmos DB
 
@@ -152,7 +152,7 @@ Cette section vous explique comment utiliser le SDK SQL pour exploiter les flux 
     ```
 
 > [!NOTE]
-> Au lieu de `ChangeFeedOptions.PartitionKeyRangeId`, vous pouvez utiliser `ChangeFeedOptions.PartitionKey` pour spécifier une clé de partition unique pour laquelle obtenir un flux de modification. Par exemple : `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
+> Au lieu de `ChangeFeedOptions.PartitionKeyRangeId`, vous pouvez utiliser `ChangeFeedOptions.PartitionKey` pour spécifier une clé de partition unique pour laquelle obtenir un flux de modification. Par exemple : `PartitionKey = new PartitionKey("D8CFA2FD-486A-4F3E-8EA6-F3AA94E5BD44")`.
 > 
 >
 
@@ -351,19 +351,13 @@ Pour implémenter la bibliothèque du processeur de flux de modification, procé
                     CollectionName = this.leaseCollectionName
                 };
             DocumentFeedObserverFactory docObserverFactory = new DocumentFeedObserverFactory();
-            ChangeFeedOptions feedOptions = new ChangeFeedOptions();
-
-            /* ie customize StartFromBeginning so change feed reads from beginning
-                can customize MaxItemCount, PartitonKeyRangeId, RequestContinuation, SessionToken and StartFromBeginning
-            */
-
-            feedOptions.StartFromBeginning = true;
-        
+       
             ChangeFeedProcessorOptions feedProcessorOptions = new ChangeFeedProcessorOptions();
 
             // ie. customizing lease renewal interval to 15 seconds
             // can customize LeaseRenewInterval, LeaseAcquireInterval, LeaseExpirationInterval, FeedPollDelay 
             feedProcessorOptions.LeaseRenewInterval = TimeSpan.FromSeconds(15);
+            feedProcessorOptions.StartFromBeginning = true;
 
             this.builder
                 .WithHostName(hostName)
@@ -401,7 +395,7 @@ Vous pouvez lire les flux de modification de trois façons différentes :
 
    Si vous souhaitez externaliser les opérations complexes associées au flux de modification, vous pouvez utiliser la bibliothèque du processeur de flux de modification. Cette bibliothèque réduit la complexité de manière considérable, tout en vous laissant un contrôle total sur le flux de modification. Cette bibliothèque suit un [modèle Observateur](https://en.wikipedia.org/wiki/Observer_pattern) et votre fonction de traitement est appelée par le kit de développement logiciel (SDK). 
 
-   Si vous disposez d’un flux de modification à débit élevé, vous pouvez instancier plusieurs clients pour lire le flux de modification. Étant donné que vous utilisez « la bibliothèque du processeur de flux de modification », celle-ci répartit automatiquement la charge entre les différents clients. Vous n’avez rien à faire. Toute la complexité est gérée par le kit de développement logiciel. Toutefois, si vous souhaitez avoir votre propre équilibreur de charge, vous pouvez implémenter IParitionLoadBalancingStrategy pour mettre en place une stratégie de partition personnalisée. Implémentez IPartitionProcessor pour traiter les modifications de manière personnalisée sur une partition. Si vous pouvez traiter une plage de partition avec le kit de développement logiciel, vous devez néanmoins utiliser le kit de développement logiciel de l’API SQL pour traiter une clé de partition spécifique.
+   Si vous disposez d’un flux de modification à débit élevé, vous pouvez instancier plusieurs clients pour lire le flux de modification. Étant donné que vous utilisez la « bibliothèque du processeur de flux de modification », celle-ci répartit automatiquement la charge entre les différents clients. Vous n’avez rien à faire. Toute la complexité est gérée par le kit de développement logiciel. Toutefois, si vous souhaitez avoir votre propre équilibreur de charge, vous pouvez implémenter IParitionLoadBalancingStrategy pour mettre en place une stratégie de partition personnalisée. Implémentez IPartitionProcessor pour traiter les modifications de manière personnalisée sur une partition. Si vous pouvez traiter une plage de partition avec le kit de développement logiciel, vous devez néanmoins utiliser le kit de développement logiciel de l’API SQL pour traiter une clé de partition spécifique.
 
 * **[Utilisation d’Azure Functions](#azure-functions)** 
    
@@ -435,11 +429,11 @@ Azure Functions utilise la stratégie de connexion par défaut. Vous pouvez conf
 
 Assurez-vous qu’aucune autre fonction ne lit actuellement la même collection avec la même collection de baux. Cela m’est arrivé et j’ai découvert plus tard que les documents manquants étaient traités par d’autres fonctions Azure, qui utilisaient le même bail.
 
-Par conséquent, si vous créez plusieurs fonctions Azure pour lire le même flux de modification, celles-ci doivent utiliser des collections de baux différentes ou la configuration « leasePrefix » pour partager la même collection. Toutefois, lorsque vous utilisez la bibliothèque du processeur de flux de modification, vous pouvez démarrer plusieurs instances de votre fonction et le kit de développement logiciel (SDK) répartit automatiquement les documents dans les différentes instances pour vous.
+Par conséquent, si vous créez plusieurs fonctions Azure pour lire le même flux de modification, celles-ci doivent utiliser des collections de baux différentes ou la configuration « leasePrefix » pour partager la même collection. Toutefois, lorsque vous utilisez la bibliothèque du processeur de flux de modification, vous pouvez démarrer plusieurs instances de votre fonction et le kit de développement logiciel (SDK) répartit automatiquement les documents dans les différentes instances pour vous.
 
 ### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Le document est mis à jour chaque seconde, et je ne reçois pas toutes les modifications dans l’instance Azure Functions qui écoute le flux de modification.
 
-Azure Functions interroge le flux de modification toutes les 5 secondes. Toute modification intervenant pendant ce laps de temps est donc perdue. Azure Cosmos DB enregistre une seule version toutes les 5 secondes. Vous obtiendrez donc la cinquième modification du document. Toutefois, si vous souhaitez réduire l’intervalle de 5 secondes et interroger le flux de modification toutes les secondes, vous pouvez configurer l’intervalle d’interrogation « feedPollTime » (voir [Liaisons Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration)). Cet intervalle est défini en millisecondes et configuré sur 5000 par défaut. Il est possible, mais déconseillé, de définir un intervalle inférieur à 1 seconde, car vous utiliserez le processeur de manière plus intensive.
+Azure Functions interroge le flux de modification toutes les 5 secondes. Toute modification intervenant pendant ce laps de temps est donc perdue. Azure Cosmos DB enregistre une seule version toutes les 5 secondes. Vous obtiendrez donc la cinquième modification du document. Toutefois, si vous souhaitez réduire l’intervalle de 5 secondes et interroger le flux de modification toutes les secondes, vous pouvez configurer l’intervalle d’interrogation « feedPollTime » (voir [Liaisons Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration)). Cet intervalle est défini en millisecondes et configuré sur 5000 par défaut. Il est possible, mais déconseillé, de définir un intervalle inférieur à 1 seconde, car vous utiliserez le processeur de manière plus intensive.
 
 ### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>J’ai ajouté un document à la collection de l’API Mongo, mais lorsque j’obtiens le document dans le flux de modification, il affiche une valeur d’ID différente. D’où vient le problème ?
 
@@ -451,7 +445,7 @@ Non, cela n’est pas possible pour le moment, mais cette fonctionnalité figure
 
 ### <a name="is-there-a-way-to-get-deletes-in-change-feed"></a>Existe-t-il un moyen d’afficher les suppressions dans le flux de modification ?
 
-Pour le moment, le flux de modification ne consigne pas les suppressions. Le flux de modification est amélioré en permanence et cette fonctionnalité figure sur la feuille de route. Aujourd’hui, vous pouvez ajouter un marqueur logiciel sur le document pour les suppressions. Ajoutez un attribut sur le document appelé « deleted » et définissez-le sur la valeur « true ». Puis, définissez la durée de vie du document afin qu’il puisse être supprimé automatiquement.
+Pour le moment, le flux de modification ne consigne pas les suppressions. Le flux de modification est amélioré en permanence et cette fonctionnalité figure sur la feuille de route. Aujourd’hui, vous pouvez ajouter un marqueur logiciel sur le document pour les suppressions. Ajoutez un attribut « deleted » sur le document et définissez-le sur la valeur « true ». Ensuite, définissez la durée de vie du document afin qu’il puisse être supprimé automatiquement.
 
 ### <a name="can-i-read-change-feed-for-historic-documentsfor-example-documents-that-were-added-5-years-back-"></a>Puis-je lire le flux de modification pour des documents anciens (par exemple, des documents ajoutés il y a 5 ans) ?
 

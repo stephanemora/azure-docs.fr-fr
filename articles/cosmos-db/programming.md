@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: andrl
-ms.openlocfilehash: 8377b13014e2f97518bbc779ee809aaa10d6eb45
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 8452f84c1358c410cd0431416a5b65a88a8b903e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287442"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48817096"
 ---
 # <a name="azure-cosmos-db-server-side-programming-stored-procedures-database-triggers-and-udfs"></a>Programmation Azure Cosmos DB côté serveur : procédures stockées, déclencheurs de base de données et fonctions définies par l’utilisateur
 
@@ -31,7 +31,7 @@ Dans cet article, vous allez découvrir les réponses aux questions suivantes :
 * Quels sont les kits SDK Azure Cosmos DB disponibles pour créer et exécuter des procédures stockées, des déclencheurs et des fonctions définies par l’utilisateur ?
 
 ## <a name="introduction-to-stored-procedure-and-udf-programming"></a>Introduction à la programmation de procédures stockées et de fonctions définies par l’utilisateur
-Cette approche du *« JavaScript en tant que langage T-SQL actualisé »* libère les développeurs d’applications des complexités liées aux incompatibilités de système de type et aux technologies de mappage de relationnel objet. Elle présente également une série d'avantages intrinsèques pouvant être utilisés pour créer des applications enrichies :  
+Cette approche baptisée *JavaScript comme langage T-SQL actuel* libère les développeurs d’applications des complexités liées aux incompatibilités de système de type et aux technologies de mappage relationnel objet. Elle présente également une série d'avantages intrinsèques pouvant être utilisés pour créer des applications enrichies :  
 
 * **Logique procédurale :** JavaScript en tant que langage de programmation de haut niveau offre une interface riche et familière permettant d’exprimer la logique métier. Vous pouvez effectuer des séquences d'opérations complexes plus proches des données.
 * **Transactions atomiques :** Azure Cosmos DB garantit que les opérations de base de données effectuées dans un déclencheur ou une procédure stockée sont atomiques. Cette fonctionnalité atomique permet à une application de combiner des applications connexes en un seul lot de façon à ce que toutes réussissent ou qu’aucune ne réussisse. 
@@ -39,7 +39,7 @@ Cette approche du *« JavaScript en tant que langage T-SQL actualisé »* lib�
   
   * Traitement par lot - Les développeurs peuvent regrouper les opérations telles que les insertions et les envoyer en bloc. Le coût lié à la latence du trafic réseau et la surcharge en matière de stockage pour créer des transactions séparées sont considérablement réduits. 
   * Précompilation : Azure Cosmos DB précompile les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur pour éviter les frais de compilation JavaScript liés à chaque appel. La surcharge liée à la création du code d'octet pour la logique procédurale est amortie à une valeur minimale.
-  * Séquencement - De nombreuses opérations requièrent un effet secondaire (« déclencheur ») qui implique potentiellement d'effectuer une ou plusieurs opérations de stockage secondaires. En dehors de l'atomicité, ceci est plus performant lors du déplacement vers le serveur. 
+  * Séquencement - De nombreuses opérations requièrent un effet secondaire (« déclencheur ») qui implique potentiellement une ou plusieurs opérations de stockage secondaires. En dehors de l'atomicité, ceci est plus performant lors du déplacement vers le serveur. 
 * **Encapsulation :** les procédures stockées peuvent être utilisées pour regrouper la logique métier à un endroit, ce qui présente deux avantages :
   * Une couche d'abstraction est ajoutée aux données brutes, ce qui permet aux architectes de données de faire évoluer leurs applications indépendamment des données. Cette couche d’abstraction est particulièrement avantageuse lorsque les données ne présentent pas de schéma, en raison des hypothèses fragiles devant être intégrées à l'application si elles doivent gérer des données directement.  
   * Cette abstraction permet aux entreprises d'assurer la sécurité de leurs données en simplifiant l'accès à partir des scripts.  
@@ -50,7 +50,7 @@ Ce didacticiel utilise le [kit SDK Node.js avec Q Promises](http://azure.github
 
 ## <a name="stored-procedures"></a>Procédures stockées
 ### <a name="example-write-a-stored-procedure"></a>Exemple : Écriture d’une procédure stockée
-Commençons par une simple procédure stockée qui renvoie une réponse « Hello World ».
+Commençons par une simple procédure stockée qui renvoie une réponse « Hello World ».
 
 ```javascript
 var helloWorldStoredProc = {
@@ -92,7 +92,7 @@ client.executeStoredProcedureAsync('dbs/testdb/colls/testColl/sprocs/helloWorld'
     });
 ```
 
-L’objet context donne accès à toutes les opérations pouvant être effectuées dans le stockage Azure Cosmos DB, ainsi que l’accès aux objets request et response. En l’occurrence, vous utilisez l’objet response pour définir le corps de la réponse renvoyée au client. Pour plus d’informations, consultez la [documentation du kit SDK du serveur JavaScript Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/).  
+L’objet context donne accès à toutes les opérations pouvant être effectuées dans le stockage Azure Cosmos DB, ainsi que l’accès aux objets request et response. En l’occurrence, vous utilisez l’objet response pour définir le corps de la réponse renvoyée au client. Pour plus d’informations, consultez la [référence d’API serveur Javascript Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/).  
 
 Extrapolons à partir de cet exemple et ajoutons à la procédure stockée d’autres fonctionnalités liées à la base de données. Les procédures stockées peuvent créer, mettre à jour, lire, interroger et supprimer des documents et des pièces jointes au sein de la collection.    
 
@@ -503,7 +503,7 @@ client.createUserDefinedFunctionAsync('dbs/testdb/colls/testColl', taxUdf)
 ```
 
 ## <a name="javascript-language-integrated-query-api"></a>API de requête intégrée au langage JavaScript
-En plus de l’émission de requêtes à l’aide de la grammaire SQL d’Azure Cosmos DB, le SDK côté serveur vous permet d’effectuer des requêtes optimisées à l’aide d’une interface JavaScript fluide sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer des requêtes par programmation en transmettant des fonctions de prédicat dans des appels de fonction chaînables, avec une syntaxe connue des types prédéfinis d’Array ECMAScript5 et des bibliothèques JavaScript courantes, telles que Lodash. Les requêtes sont analysées par le runtime JavaScript pour être exécutées efficacement à l’aide d’index Azure Cosmos DB.
+En plus de l’émission de requêtes à l’aide de la grammaire SQL d’Azure Cosmos DB, le [kit de développement logiciel (SDK) côté serveur](https://azure.github.io/azure-cosmosdb-js-server/) vous permet d’exécuter des requêtes optimisées à l’aide d’une interface JavaScript fluide, sans aucune connaissance de SQL. L’API de requête JavaScript permet de créer des requêtes par programmation en transmettant des fonctions de prédicat dans des appels de fonction chaînables, avec une syntaxe connue des types prédéfinis d’Array ECMAScript5 et des bibliothèques JavaScript courantes, telles que Lodash. Les requêtes sont analysées par le runtime JavaScript pour être exécutées efficacement à l’aide d’index Azure Cosmos DB.
 
 > [!NOTE]
 > `__` (trait de soulignement double) est un alias pour `getContext().getCollection()`.
@@ -831,9 +831,8 @@ Après avoir créé des procédures stockées, des déclencheurs et des fonction
 
 Pour en savoir plus sur la programmation Azure Cosmos DB côté serveur, vous pouvez également trouver utiles les références et les ressources suivantes :
 
-* [Kits SDK Azure Cosmos DB](sql-api-sdk-dotnet.md)
+* [Référence d’API serveur Javascript Azure Cosmos DB](https://azure.github.io/azure-cosmosdb-js-server/)
 * [Studio DocumentDB](https://github.com/mingaliu/DocumentDBStudio/releases)
-* [JSON](http://www.json.org/) 
 * [JavaScript ECMA-262](http://www.ecma-international.org/publications/standards/Ecma-262.htm)
 * [Extensibilité de la base de données sécurisée et portable](http://dl.acm.org/citation.cfm?id=276339) 
 * [Architecture de base de données orientée services](http://dl.acm.org/citation.cfm?id=1066267&coll=Portal&dl=GUIDE) 

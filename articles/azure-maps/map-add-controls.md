@@ -3,18 +3,17 @@ title: Ajouter des contrôles de carte dans Azure Maps | Microsoft Docs
 description: Comment ajouter un contrôle de zoom, un contrôle de tonalité, un contrôle de rotation et un sélecteur de styles à une carte dans Azure Maps.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/29/2018
-ms.topic: how-to-guides
+ms.date: 10/08/2018
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: 435c6545b69b4457c3e1035fb8125399d4c9c23a
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 781e5d71637a1e86a56dee0aad3c1a5e00f1807a
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666129"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885785"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Ajouter des contrôles de carte à Azure Maps
 
@@ -25,59 +24,59 @@ Cet article décrit comment ajouter des contrôles de carte à une carte. Vous a
 <iframe height='500' scrolling='no' title='Ajout d’un contrôle de zoom' src='//codepen.io/azuremaps/embed/WKOQyN/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la section <a href='https://codepen.io/azuremaps/pen/WKOQyN/'>Ajout d’un contrôle de zoom</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Le premier bloc de code dans le code ci-dessus crée un objet carte. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
+Le premier bloc de code définit la clé d’abonnement et crée un objet carte sans prédéfinir le style. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
 
-Le deuxième bloc de code crée un objet contrôle de zoom à l’aide de l’atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest).
-
-Le contrôle de zoom vous permet d’agrandir et de réduire la carte. Le troisième bloc ajoute le contrôle de zoom à la carte à l’aide de la méthode [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte.
+Le contrôle de zoom vous permet d’agrandir et de réduire la carte. Le deuxième bloc de code crée un objet contrôle de zoom à l’aide de l’atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest) et l’ajoute à la carte à l’aide de la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte. Le contrôle de zoom se situe dans le **détecteur d’événements** de la carte pour s’assurer du chargement une fois que la carte est entièrement chargée.
 
 ## <a name="add-pitch-control"></a>Ajouter un contrôle de tonalité
 
 <iframe height='500' scrolling='no' title='Ajout d’un contrôle de tonalité' src='//codepen.io/azuremaps/embed/xJrwaP/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la section <a href='https://codepen.io/azuremaps/pen/xJrwaP/'>Ajout d’un contrôle de tonalité</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Le premier bloc de code ci-dessus crée un objet carte avec le style défini sur Nuances de gris. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
+Le premier bloc de code définit la clé d’abonnement et crée un objet carte sans prédéfinir le style. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
 
-Le deuxième bloc de code crée un objet contrôle de tonalité à l’aide de l’atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest).
-
-Le contrôle de tonalité vous permet de changer la tonalité de la carte. Le troisième bloc ajoute le contrôle de tonalité à la carte à l’aide de la méthode [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte.
+Le contrôle de tonalité vous permet de changer la tonalité de la carte. Le deuxième bloc de code crée un objet contrôle de tonalité à l’aide de l’atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) et l’ajoute à la carte à l’aide de la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte. Le contrôle de tonalité se situe dans le **détecteur d’événements** de la carte pour s’assurer du chargement une fois que la carte est entièrement chargée.
 
 ## <a name="add-compass-control"></a>Ajouter un contrôle de boussole
 
 <iframe height='500' scrolling='no' title='Ajout d’un contrôle de rotation' src='//codepen.io/azuremaps/embed/GBEoRb/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la section <a href='https://codepen.io/azuremaps/pen/GBEoRb/'>Ajout d’un contrôle de rotation</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Le premier bloc de code dans le code ci-dessus crée un objet carte. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
+Le premier bloc de code définit la clé d’abonnement et crée un objet carte sans prédéfinir le style. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
 
-Le deuxième bloc de code crée un objet contrôle de boussole à l’aide de l’atlas [CompassControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol). Il ajoute aussi le contrôle de boussole à la carte à l’aide de la méthode [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte.
+Le deuxième bloc de code crée un objet contrôle de boussole à l’aide de l’atlas [CompassControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol). Il ajoute aussi le contrôle de boussole à la carte à l’aide de la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte. Le contrôle de boussole se situe dans le **détecteur d’événements** de la carte pour s’assurer du chargement une fois que la carte est entièrement chargée.
 
 ## <a name="a-map-with-all-controls"></a>Une carte avec tous les contrôles
 
 <iframe height='500' scrolling='no' title='Une carte avec tous les contrôles' src='//codepen.io/azuremaps/embed/qyjbOM/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Consultez la section <a href='https://codepen.io/azuremaps/pen/qyjbOM/'>Une carte avec tous les contrôles</a> par Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) sur <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-Le premier bloc de code dans le code ci-dessus crée un objet carte. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
+Le premier bloc de code définit la clé d’abonnement et crée un objet carte sans prédéfinir le style. Pour obtenir des instructions sur la création d’une carte, consultez [Créer une carte](./map-create.md).
 
-Le deuxième bloc de code crée un objet contrôle de boussole à l’aide de l’atlas [CompassControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol) et l’ajoute à la carte à l’aide de la méthode [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte.
+Le deuxième bloc de code crée un objet contrôle de boussole à l’aide de l’atlas [CompassControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol) et l’ajoute à la carte à l’aide de la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte.
 
-Le troisième bloc de code crée un objet contrôle de zoom à l’aide de l’atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest) et l’ajoute à la carte à l’aide de la méthode [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte.
+Le troisième bloc de code crée un objet contrôle de zoom à l’aide de l’atlas [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest) et l’ajoute à la carte à l’aide de la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte.
 
-Le quatrième bloc de code crée un objet contrôle de tonalité à l’aide de l’atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) et l’ajoute à la carte à l’aide de la méthode [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte.
+Le quatrième bloc de code crée un objet contrôle de tonalité à l’aide de l’atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) et l’ajoute à la carte à l’aide de la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte.
 
-Le dernier bloc de code ajoute un objet sélecteur de styles à la carte à l’aide de l’atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) et l’ajoute à la carte à l’aide de la méthode [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte.
+Le dernier bloc de code crée un objet sélecteur de style à l’aide de l’atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) et l’ajoute à la carte à l’aide de la méthode [controls.add](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) de la carte. Tous les objets de contrôle sont ajoutés dans le **détecteur d’événements** de la carte pour assurer leur chargement une fois la carte complètement chargée.
+
+L’ordre des objets de contrôle dans le script détermine l’ordre dans lequel ils apparaissent sur la carte. Pour modifier l’ordre des commandes sur la carte, vous pouvez changer leur ordre dans le script.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur les classes et les méthodes utilisées dans cet article : 
-* [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol)
+En savoir plus sur les classes et les méthodes utilisées dans cet article :
 
-* [Atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest)
-    * [CompassControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.compasscontrol?view=azure-iot-typescript-latest#compasscontrol)
-    * [ZoomControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.zoomcontrol?view=azure-iot-typescript-latest)
-    * [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest)
-    * [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol)
-    
-Pour consulter plus d’exemples de code à ajouter à vos cartes, consultez les articles suivants : 
-* [Ajouter un repère](./map-add-pin.md)
-* [Ajouter une fenêtre contextuelle](./map-add-popup.md)
+> [!div class="nextstepaction"]
+> [Map](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+> [!div class="nextstepaction"]
+> [Atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest)
+
+Pour voir des codes complets, consultez les articles suivants :
+
+> [!div class="nextstepaction"]
+> [Ajouter un repère](./map-add-pin.md)
+
+> [!div class="nextstepaction"]
+> [Ajouter une fenêtre contextuelle](./map-add-popup.md)

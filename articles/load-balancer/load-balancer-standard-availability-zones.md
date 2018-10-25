@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/29/2018
+ms.date: 10/08/2018
 ms.author: kumud
-ms.openlocfilehash: f5d46fda6bdb32c1a5000883c6aedb2da15e796a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 1f34a9319b8bbfba3f4a6f7446f949fc576aa4fa
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322792"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48869055"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Référence Standard de Load Balancer et zones de disponibilité
 
-La référence SKU Standard d’Azure Load Balancer prend en charge les scénarios des [zones de disponibilité](../availability-zones/az-overview.md). Plusieurs nouveaux concepts sont disponibles avec la référence Standard de Load Balancer, vous permettant d’optimiser la disponibilité de votre scénario de bout en bout en alignant les ressources sur des zones ainsi que de les distribuer parmi les zones.  Consultez [Zones de disponibilité](../availability-zones/az-overview.md) pour obtenir des informations sur les zones de disponibilité, les régions qui les prennent actuellement en charge et d’autres concepts et produits connexes. Les zones de disponibilité associées à la référence Standard de Load Balancer constituent un ensemble de fonctionnalités vaste et flexible capable de créer de nombreux scénarios différents.  Consultez ce document pour comprendre ces [concepts](#concepts) et obtenir des [conseils de conception](#design) de scénarios.
+La référence SKU Standard d’Azure Load Balancer prend en charge les scénarios des [zones de disponibilité](../availability-zones/az-overview.md). Plusieurs nouveaux concepts sont disponibles avec Standard Load Balancer, vous permettant d’optimiser la disponibilité de votre scénario de bout en bout en alignant les ressources sur des zones et en les distribuant parmi les zones.  Consultez [Zones de disponibilité](../availability-zones/az-overview.md) pour obtenir des informations sur les zones de disponibilité, les régions qui les prennent actuellement en charge et d’autres concepts et produits connexes. Les Zones de disponibilité Azure associées à Standard Load Balancer constituent un ensemble de fonctionnalités vaste et flexible capable de créer de nombreux scénarios différents.  Consultez ce document pour comprendre ces [concepts](#concepts) et obtenir des [conseils de conception](#design) de scénarios.
 
 >[!NOTE]
 >Pour d’autres rubriques connexes, voir [Zones de disponibilité](https://aka.ms/availabilityzones). 
@@ -54,7 +54,7 @@ Quand vous utilisez plusieurs frontends, consultez [ Frontends multiples pour Lo
 
 #### <a name="zone-redundant-by-default"></a>Redondance dans une zone par défaut
 
-Dans une région avec des zones de disponibilité, un frontend de référence Standard de Load Balancer est redondant dans une zone par défaut.  Une adresse IP frontend unique peut survivre à des échecs de zone et être utilisée pour atteindre tous les membres du pool backend indépendamment de la zone. Il ne s’agit pas d’un chemin de données sans réponse, car toute nouvelle tentative ou tout rétablissement réussissent. Les schémas de redondance DNS ne sont pas nécessaires. L’adresse IP unique du frontend est simultanément servie par les déploiements d’infrastructure indépendants dans chaque zone de disponibilité.  La redondance dans une zone signifie que tous les flux entrants ou sortants sont servis simultanément par toutes les zones de disponibilité dans une région à l’aide d’une adresse IP unique.
+Dans une région avec des zones de disponibilité, un frontend de référence Standard de Load Balancer est redondant dans une zone par défaut.  Une adresse IP frontend unique peut survivre à des échecs de zone et être utilisée pour atteindre tous les membres du pool backend indépendamment de la zone. Il ne s’agit pas d’un chemin de données sans réponse, car toute nouvelle tentative ou tout rétablissement réussissent. Les schémas de redondance DNS ne sont pas nécessaires. L’adresse IP unique du frontend est simultanément servie par plusieurs déploiements d’infrastructure indépendants dans plusieurs Zones de disponibilité Azure.  La redondance dans une zone signifie que tous les flux entrants ou sortants sont servis simultanément par plusieurs Zones de disponibilité Azure dans une région à l’aide d’une adresse IP unique.
 
 Une ou plusieurs zones de disponibilité peuvent échouer sans empêcher le chemin de données de survivre dans la mesure où une seule zone de la région reste saine. La configuration redondante dans une zone est la valeur par défaut. Aucune action supplémentaire n’est nécessaire.  Quand une région obtient la possibilité de prendre en charge des zones de disponibilité, un frontend existant devient automatiquement redondant dans une zone.
 
@@ -77,7 +77,7 @@ Utilisez le script suivant pour créer une adresse IP de frontend redondante dan
             "apiVersion": "2017-08-01",
             "type": "Microsoft.Network/loadBalancers",
             "name": "load_balancer_standard",
-            "location": "region",
+            "location": "[resourceGroup().location]",
             "sku":
             {
                 "name": "Standard"
@@ -99,7 +99,7 @@ Utilisez le script suivant pour créer une adresse IP de frontend redondante dan
 
 #### <a name="optional-zone-guarantee"></a>Garantie de zone facultative
 
-Vous pouvez choisir de garantir un frontend dans une seule zone, ce qui donne un *frontend zonal*.  Cela signifie que tout flux entrant ou sortant est servi par une seule zone dans une région.  Votre frontend connaît le même sort que l’intégrité de la zone.  Le chemin de données n’est pas affecté par les défaillances des zones autres que celles dans lesquelles il a été garanti. Vous pouvez utiliser des frontends zonaux pour exposer une adresse IP par zone de disponibilité.  En outre, vous pouvez utiliser directement des frontends zonaux ou, lorsque le frontend se compose d’adresses IP publiques, les intégrer à un produit d’équilibrage de charge DNS comme [Traffic Manager](../traffic-manager/traffic-manager-overview.md) et utiliser un seul nom DNS, qu’un client pourra résoudre en plusieurs adresses IP zonales.  Vous pouvez également procéder ainsi pour exposer des points de terminaison à charge équilibrée par zone afin de surveiller individuellement chaque zone.  Pour fusionner ces concepts (le même backend à la fois redondant dans une zone et zonal), passez en revue [Frontends multiples pour Azure Load Balancer](/load-balancer-multivip-overview.md).
+Vous pouvez choisir de garantir un frontend dans une seule zone, ce qui donne un *frontend zonal*.  Cela signifie que tout flux entrant ou sortant est servi par une seule zone dans une région.  Votre frontend connaît le même sort que l’intégrité de la zone.  Le chemin de données n’est pas affecté par les défaillances des zones autres que celles dans lesquelles il a été garanti. Vous pouvez utiliser des frontends zonaux pour exposer une adresse IP par zone de disponibilité.  En outre, vous pouvez utiliser directement des frontends zonaux ou, lorsque le frontend se compose d’adresses IP publiques, les intégrer à un produit d’équilibrage de charge DNS comme [Traffic Manager](../traffic-manager/traffic-manager-overview.md) et utiliser un seul nom DNS, qu’un client pourra résoudre en plusieurs adresses IP zonales.  Vous pouvez également procéder ainsi pour exposer des points de terminaison à charge équilibrée par zone afin de surveiller individuellement chaque zone.  Pour fusionner ces concepts (le même backend à la fois redondant dans une zone et zonal), passez en revue [Frontends multiples pour Azure Load Balancer](load-balancer-multivip-overview.md).
 
 Pour un frontend Load Balancer public, vous ajoutez un paramètre *zones* à l’adresse IP publique référencée par la configuration IP frontend.  
 
@@ -111,7 +111,7 @@ Utilisez le script suivant pour créer une adresse IP publique standard zonale d
             "apiVersion": "2017-08-01",
             "type": "Microsoft.Network/publicIPAddresses",
             "name": "public_ip_standard",
-            "location": "region",
+            "location": "[resourceGroup().location]",
             "zones": [ "1" ],
             "sku":
             {
@@ -190,15 +190,15 @@ La redondance dans une zone n’implique pas de chemin de données ni de plan de
 
 Il est important de comprendre que dès lors qu’un service de bout en bout traverse des zones, vous partagez le sort non pas d’une seule zone mais éventuellement de plusieurs.  Par conséquent, votre service de bout en bout n’a peut-être pas obtenu de disponibilité sur des déploiements non zonaux.
 
-Évitez d’introduire involontairement des dépendances entre les zones qui invalident les gains de disponibilité quand vous utilisez des zones de disponibilité.  Quand votre application comprend plusieurs composants que vous souhaitez résistants aux échecs de zone, veillez à garantir la survie de suffisamment de composants critiques en cas d’échec de zone.  Par exemple, un seul composant critique de votre application peut affecter toute votre application s’il se trouve dans une seule zone autre que les zones survivantes.  De plus, prévoyez également la restauration de la zone et la façon dont votre application converge. Intéressons-nous à quelques points importants et utilisons-les pour poser les questions qui surviennent quand vous réfléchissez à votre scénario spécifique.
+Évitez d’introduire involontairement des dépendances entre les zones qui invalident les gains de disponibilité quand vous utilisez des Zones de disponibilité Azure.  Quand votre application comprend plusieurs composants que vous souhaitez résistants aux échecs de zone, veillez à garantir la survie de suffisamment de composants critiques en cas d’échec de zone.  Par exemple, un seul composant critique de votre application peut affecter toute votre application s’il se trouve dans une seule zone autre que les zones survivantes.  De plus, prévoyez également la restauration de la zone et la façon dont votre application converge. Intéressons-nous à quelques points importants et utilisons-les pour poser les questions qui surviennent quand vous réfléchissez à votre scénario spécifique.
 
 - Si votre application comporte deux composants, comme une adresse IP et une machine virtuelle avec disque managé, et qu’ils sont garantis dans la zone 1 et la zone 2, quand la zone 1 est en situation d’échec, votre service de bout en bout ne survit pas.  Ne franchissez pas de zones, sauf si vous comprenez bien que vous créez un mode d’échec potentiellement dangereux.
 
-- Si votre application comporte deux composants comme une adresse IP et une machine virtuelle avec disque managé, et qu’ils sont garantis comme redondants dans une zone et se trouvent dans la zone 1, votre service de bout en bout survit à un échec de la zone 2, de la zone 3, ou des deux, sauf en cas d’échec de la zone 1.  Toutefois, vous perdez une certaine capacité à raisonner sur l’intégrité de votre service si tout ce que vous observez, c’est l’accessibilité du frontend.  Envisagez de développer un modèle d’intégrité et de capacité plus étendu.  Vous pouvez peut-être utiliser les concepts de redondance dans une zone et de caractéristique zonale ensemble pour développer un insight et une facilité de gestion.
+- Si votre application comporte deux composants comme une adresse IP et une machine virtuelle avec disque managé, et qu’ils sont garantis comme redondants dans une zone et se trouvent dans la zone 1, votre service de bout en bout survit à un échec de la zone 2, de la zone 3, ou des deux, sauf en cas d’échec de la zone 1.  Toutefois, vous perdez une certaine capacité à raisonner sur l’intégrité de votre service si tout ce que vous observez, c’est l’accessibilité du frontend.  Envisagez de développer un modèle d’intégrité et de capacité plus étendu.  Vous pouvez utiliser les concepts de redondance dans une zone et de caractéristique zonale ensemble pour développer un insight et une facilité de gestion.
 
-- Si votre application comporte deux composants, comme un frontend Load Balancer redondant dans une zone et un groupe de machines virtuelles identiques entre trois zones, vos ressources incluses dans les zones non impactées par l’échec sont disponibles mais votre service de bout en bout peut voir sa capacité détériorée pendant l’échec de zone. Du point de vue de l’infrastructure, votre déploiement peut survivre à un ou plusieurs échecs de zone. Ainsi, les questions suivantes se posent :
+- Si votre application comporte deux composants, comme un frontend Load Balancer redondant dans une zone et un groupe de machines virtuelles identiques entre trois zones, vos ressources incluses dans les zones non impactées par l’échec sont disponibles mais la capacité de votre service de bout en bout peut être dégradée pendant l’échec de zone. Du point de vue de l’infrastructure, votre déploiement peut survivre à un ou plusieurs échecs de zone. Ainsi, les questions suivantes se posent :
   - Est-ce que vous comprenez comment votre application raisonne sur ces échecs et cette capacité détériorée ?
-  - Avez-vous besoin de mesures de protection pour votre service afin de forcer le basculement vers une paire de régions si nécessaire ?
+  - Avez-vous besoin de mesures de protection pour votre service afin de forcer un basculement vers une paire de régions si nécessaire ?
   - Comment allez-vous surveiller, détecter et atténuer un tel scénario ? Vous pouvez peut-être utiliser les diagnostics de la référence Standard de Load Balancer pour renforcer la surveillance des performances de votre service de bout en bout. Examinez ce qui est disponible et ce qui peut nécessiter une augmentation pour vous faire une idée exhaustive.
 
 - Les zones permettent de comprendre et contenir les échecs plus facilement.  Toutefois, un échec de zone n’est pas différent des autres échecs quand il s’agit de concepts comme les délais d’attente, les nouvelles tentatives et les algorithmes d’interruption. Même si Azure Load Balancer fournit des chemins redondants dans une zone pour tenter une récupération rapide, au niveau du paquet en temps réel, les retransmissions ou rétablissements peuvent se produire dès le début d’un échec et il est important de comprendre comment votre application gère ces échecs. Votre schéma d’équilibrage de charge survit, mais vous avez besoin de prévoir ce qui suit :

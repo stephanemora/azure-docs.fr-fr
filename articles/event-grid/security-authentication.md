@@ -6,22 +6,22 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 10/09/2018
 ms.author: babanisa
-ms.openlocfilehash: 257f7cbd20d21903f4cf7daf68b5f185d0af10bc
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965449"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068182"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
 Azure Event Grid dispose de trois types d’authentification :
 
-* Abonnements à des événements
-* Publication d’événement
 * Remise d’événement WebHook
+* Abonnements à des événements
+* Publication d’une rubrique personnalisée
 
 ## <a name="webhook-event-delivery"></a>Remise d’événement WebHook
 
@@ -37,7 +37,7 @@ Si vous utilisez un autre type de point de terminaison, comme une fonction Azure
 
 1. **Établissement de liaison ValidationCode** : au moment de la création de l’abonnement à l’événement, EventGrid envoie une requête POST d’« événement de validation d’abonnement » à votre point de terminaison. Le schéma de cet événement est semblable à n’importe quel autre EventGridEvent, et la partie données de cet événement inclut une propriété `validationCode`. Une fois que l’application a confirmé que la requête de validation concerne un abonnement d’événement attendu, votre code d’application doit répondre en renvoyant le code de validation à EventGrid. Ce mécanisme d’établissement de liaison est pris en charge dans toutes les versions d’EventGrid.
 
-2. **Établissement de liaison ValidationURL (établissement manuel)** : dans certains cas, vous ne contrôlez pas le code source du point de terminaison et ne pouvez donc pas implémenter l’établissement de liaison en fonction de ValidationCode. Par exemple, si vous utilisez un service tiers (comme [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), vous risquez de ne pas pouvoir renvoyer le code de validation par programmation. Par conséquent, à compter de la version 2018-05-01-preview, EventGrid prend désormais en charge un établissement de liaison de validation manuel. Si vous créez un abonnement d’événement à l’aide de kits de développement logiciel/outils qui utilisent cette nouvelle version d’API (2018-05-01-preview), EventGrid envoie une propriété `validationUrl` (en plus de la propriété `validationCode`) incluse dans la partie des données de la validation d’abonnement d’événement. Pour terminer l’établissement de liaison, il vous suffit d’envoyer une requête GET sur cette URL, via un client REST ou à l’aide de votre navigateur web. L’URL de validation fournie est valide uniquement pendant 10 minutes environ. Pendant ce temps, l’état d’approvisionnement de l’abonnement aux événements est `AwaitingManualAction`. Si vous n’effectuez pas la validation manuelle dans les 10 minutes, l’état d’approvisionnement est défini sur `Failed`. Vous devrez retentez la création de l’abonnement aux événements avant d’essayer d’effectuer la validation manuelle à nouveau.
+2. **Établissement de liaison ValidationURL (établissement manuel)** : dans certains cas, vous ne contrôlez pas le code source du point de terminaison et ne pouvez donc pas implémenter l’établissement de liaison en fonction de ValidationCode. Par exemple, si vous utilisez un service tiers (comme [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), vous risquez de ne pas pouvoir renvoyer le code de validation par programmation. À compter de la version 2018-05-01-preview, EventGrid prend en charge un établissement de liaison de validation manuel. Si vous créez un abonnement aux événements à l’aide de kits de développement logiciel/outils qui utilisent cette nouvelle version d’API (2018-05-01-preview), EventGrid envoie une propriété `validationUrl` dans la partie des données de la validation d’abonnement aux événements. Pour terminer l’établissement de liaison, il vous suffit d’envoyer une requête GET sur cette URL, via un client REST ou à l’aide de votre navigateur web. L’URL de validation fournie est valide uniquement pendant 10 minutes environ. Pendant ce temps, l’état d’approvisionnement de l’abonnement aux événements est `AwaitingManualAction`. Si vous n’effectuez pas la validation manuelle dans les 10 minutes, l’état d’approvisionnement est défini sur `Failed`. Vous devez à nouveau créer l’abonnement aux événements avant de tenter la validation manuelle.
 
 Le mécanisme de validation manuelle est en préversion. Pour l’utiliser, vous devez installer [l’extension Event Grid](/cli/azure/azure-cli-extensions-list) pour [Azure CLI](/cli/azure/install-azure-cli). Vous pouvez l’installer avec `az extension add --name eventgrid`. Si vous utilisez l’API REST, assurez-vous d’utiliser `api-version=2018-05-01-preview`.
 
@@ -46,8 +46,8 @@ Le mécanisme de validation manuelle est en préversion. Pour l’utiliser, vous
 * Lors de la création/mise à jour de l’abonnement d’événement, Event Grid publie un événement de validation d’abonnement dans le point de terminaison cible. 
 * L’événement contient une valeur d’en-tête « aeg-event-type: SubscriptionValidation ».
 * Le corps de l’événement dispose du même schéma que les autres événements Event Grid.
-* La propriété eventType de l’événement est « Microsoft.EventGrid.SubscriptionValidationEvent ».
-* La propriété de données de l’événement inclut une propriété « validationCode » avec une chaîne générée de façon aléatoire, par exemple « validationCode: acb13… ».
+* La propriété eventType de l’événement correspond à `Microsoft.EventGrid.SubscriptionValidationEvent`.
+* La propriété de données de l’événement inclut une propriété `validationCode` avec une chaîne générée de façon aléatoire, par exemple « validationCode: acb13… ».
 * Si vous utilisez la version d’API 2018-05-01-preview, les données d’événement incluent également une propriété `validationUrl` avec une URL pour la validation manuelle de l’abonnement.
 * Le tableau contient uniquement l’événement de validation. Les autres événements sont envoyés dans une requête distincte, une fois que vous avez renvoyé le code de validation.
 * Les kits de développement logiciel DataPlane EventGrid possèdent des classes correspondant aux données d’événement de validation d’abonnement et à la réponse de validation d’abonnement.
@@ -78,18 +78,18 @@ Pour prouver que vous êtes propriétaire du point de terminaison, renvoyez le c
 }
 ```
 
-Sinon, vous pouvez valider manuellement l’abonnement en envoyant une requête GET à l’URL de validation. L’abonnement aux événements reste dans un état d’attente jusqu’à ce qu’il soit validé.
+Sinon, vous pouvez valider manuellement l’abonnement en envoyant une demande GET à l’URL de validation. L’abonnement aux événements reste dans un état d’attente jusqu’à ce qu’il soit validé.
 
 Vous trouverez un échantillon C# qui montre comment gérer l’établissement de liaison pour la validation d’abonnement à l’adresse https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs.
 
 ### <a name="checklist"></a>Liste de contrôle
 
-Lors de la création de l’abonnement d’événement, si vous voyez un message d’erreur indiquant que la tentative de validation a échoué pour le point de terminaison https://your-endpoint-here indiqué, et vous invitant à rechercher plus d’informations dans https://aka.ms/esvalidation, cela signifie qu’il existe une défaillance dans l’établissement de liaison de validation. Pour résoudre cette erreur, vérifiez les points suivants :
+Lors de la création de l’abonnement aux événements, si vous voyez un message d’erreur indiquant que la tentative de validation a échoué pour le point de terminaison https://your-endpoint-here et vous invitant à rechercher plus d’informations dans https://aka.ms/esvalidation, cela signifie qu’il existe une défaillance dans l’établissement de liaison de validation. Pour résoudre cette erreur, vérifiez les points suivants :
 
 * Contrôlez-vous le code d’application dans le point de terminaison cible ? Par exemple, si vous écrivez un déclencheur HTTP basé sur Azure Function, avez-vous accès au code d’application pour apporter des modifications ?
 * Si vous avez accès au code d’application, implémentez le mécanisme d’établissement de liaison ValidationCode comme dans l’exemple ci-dessus.
 
-* Si vous n’avez pas accès au code d’application (par exemple, si vous utilisez un service tiers qui prend en charge les Webhooks), vous pouvez utiliser le mécanisme d’établissement de liaison manuel. Pour ce faire, vérifiez que vous utilisez la version d’API 2018-05-01-preview (par exemple, à l’aide de l’extension EventGrid CLI décrite ci-dessus) pour recevoir la propriété validationUrl de l’événement de validation. Pour terminer l’établissement de liaison de validation manuel, obtenez la valeur de la propriété « validationUrl » et accédez à cette URL dans votre navigateur web. Si la validation est réussie, le navigateur web affiche un message de succès, et vous voyez que la propriété provisioningState de l’abonnement d’événement a la valeur « Réussi ». 
+* Si vous n’avez pas accès au code d’application (par exemple, si vous utilisez un service tiers qui prend en charge les Webhooks), vous pouvez utiliser le mécanisme d’établissement de liaison manuel. Vérifiez que vous utilisez la version d’API 2018-05-01-preview ou ultérieure (installation de l’extension Azure CLI Event Grid) pour recevoir validationUrl dans l’événement de validation. Pour terminer l’établissement de liaison de validation manuel, obtenez la valeur de la propriété `validationUrl` et accédez à cette URL dans votre navigateur web. Si la validation a réussi, vous devez voir un message dans votre navigateur web indiquant que la validation a réussi. La propriété provisioningState de l’abonnement aux événements doit être définie sur « Réussi ». 
 
 ### <a name="event-delivery-security"></a>Sécurité de la remise des événements
 
@@ -101,7 +101,9 @@ Enfin, il est important de noter qu’Azure Event Grid ne prend en charge que le
 
 ## <a name="event-subscription"></a>Abonnement à un événement
 
-Pour vous abonner à un événement, vous devez disposer de l’autorisation **Microsoft.EventGrid/EventSubscriptions/Write** sur la ressource nécessaire. Vous avez besoin de cette autorisation, car vous rédigez un nouvel abonnement dans la portée de la ressource. La ressource nécessaire diffère si vous vous abonnez à une rubrique du système ou à une rubrique personnalisée. Les deux types sont décrits dans cette section.
+Pour vous abonner à un événement, vous devez prouver que vous avez accès à la source d’événement et au gestionnaire. La section précédente a expliqué comment prouver que vous possédez votre propre webhook. Si vous utilisez un gestionnaire d’événements qui n’est pas un WebHook (par exemple, un Event Hub ou un stockage File d’attente), vous avez besoin d’un accès en écriture à cette ressource. Cette vérification des autorisations empêche qu’un utilisateur non autorisé envoie des événements à votre ressource.
+
+Vous devez disposer de l’autorisation **Microsoft.EventGrid/EventSubscriptions/Write** sur la ressource correspondant à la source de l’événement. Vous avez besoin de cette autorisation, car vous rédigez un nouvel abonnement dans la portée de la ressource. La ressource nécessaire diffère si vous vous abonnez à une rubrique du système ou à une rubrique personnalisée. Les deux types sont décrits dans cette section.
 
 ### <a name="system-topics-azure-service-publishers"></a>Rubriques du système (éditeurs du service Azure)
 
@@ -115,9 +117,9 @@ Dans les rubriques personnalisées, vous avez besoin de l’autorisation de réd
 
 Par exemple, pour vous abonner à une rubrique personnalisée nommée **mytopic**, il vous faut l’autorisation Microsoft.EventGrid/EventSubscriptions/Write sur :`/subscriptions/####/resourceGroups/testrg/providers/Microsoft.EventGrid/topics/mytopic`
 
-## <a name="topic-publishing"></a>Publication d’une rubrique
+## <a name="custom-topic-publishing"></a>Publication d’une rubrique personnalisée
 
-Les rubriques utilisent une Signature d’accès partagé (SAP) ou une authentification par clé. Nous vous recommandons la SAP, mais l’authentification par clé propose une programmation simple et est compatible avec de nombreux éditeurs de webhook existants. 
+Les rubriques personnalisées utilisent une Signature d’accès partagé (SAP) ou une authentification par clé. Nous vous recommandons la SAP, mais l’authentification par clé propose une programmation simple et est compatible avec de nombreux éditeurs de webhook existants. 
 
 Vous incluez la valeur d’authentification dans l’en-tête HTTP. Pour une SAP, utilisez **aeg-sas-token** en valeur de l’en-tête. Pour une authentification par clé, utilisez **aeg-sas-key** en valeur de l’en-tête.
 
@@ -185,7 +187,7 @@ Azure Event Grid prend en charge les actions suivantes :
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-Les trois dernières opérations retournent des informations potentiellement confidentielles qui sont filtrées lors d’opérations de lecture normales. Nous vous recommandons de restreindre l’accès à ces opérations. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), de [l’interface CLI Azure](../role-based-access-control/role-assignments-cli.md) et de [l’API REST](../role-based-access-control/role-assignments-rest.md).
+Les trois dernières opérations retournent des informations potentiellement confidentielles qui sont filtrées lors d’opérations de lecture normales. Il est recommandé de restreindre l’accès à ces opérations. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), de [l’interface CLI Azure](../role-based-access-control/role-assignments-cli.md) et de [l’API REST](../role-based-access-control/role-assignments-rest.md).
 
 ### <a name="enforcing-role-based-access-check-rbac"></a>Application de la vérification d’accès par rôle (RBAC)
 

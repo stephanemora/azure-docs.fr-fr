@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5e358992661f7bcf06121a07c1bafca0850316b2
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 259d61125828ee487b74daa525f3635cfa592ce7
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423135"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48017702"
 ---
 # <a name="properties-of-the-edge-agent-and-edge-hub-module-twins"></a>Propriétés des jumeaux de module de l’agent Edge et du hub Edge
 
@@ -23,7 +23,7 @@ Cet article fournit les propriétés souhaitées et signalées des jumeaux de mo
 
 ## <a name="edgeagent-desired-properties"></a>Propriétés souhaitées pour EdgeAgent
 
-Le jumeau de module de l’agent Edge est appelé `$edgeAgent` et coordonne les communications entre l’agent Edge exécuté sur un appareil et IoT Hub. Les propriétés souhaitées sont définies lors de l’application d’un manifeste de déploiement sur un appareil spécifique dans le cadre d’un déploiement d’appareil unique ou à grande échelle. 
+La représentation de module de l’agent Edge est appelée `$edgeAgent` et coordonne les communications entre l’agent Edge exécuté sur un appareil et IoT Hub. Les propriétés souhaitées sont définies lors de l’application d’un manifeste de déploiement sur un appareil spécifique dans le cadre d’un déploiement d’appareil unique ou à grande échelle. 
 
 | Propriété | Description | Obligatoire |
 | -------- | ----------- | -------- |
@@ -46,6 +46,7 @@ Le jumeau de module de l’agent Edge est appelé `$edgeAgent` et coordonne les 
 | systemModules.edgeHub.configuration.id | ID du déploiement ayant déployé ce module. | Cette propriété est définie par IoT Hub quand ce manifeste est appliqué à l’aide d’un déploiement. Ne fait pas partie d’un manifeste de déploiement. |
 | modules.{moduleId}.version | Chaîne définie par l’utilisateur représentant la version de ce module. | Oui |
 | modules.{moduleId}.type | Doit être "docker" | Oui |
+| modules.{moduleId}.status | {"running" \| "stopped"} | Oui |
 | modules.{moduleId}.restartPolicy | {"never" \| "on-failed" \| "on-unhealthy" \| "always"} | Oui |
 | modules.{moduleId}.settings.image | URI de l’image du module. | Oui |
 | modules.{moduleId}.settings.createOptions | Champ de chaîne JSON contenant les options de création du conteneur de module. [Options de création Docker][lnk-docker-create-options] | Non  |
@@ -94,7 +95,7 @@ Le tableau suivant n’inclut pas les informations copiées à partir des propri
 
 ## <a name="edgehub-desired-properties"></a>Propriétés souhaitées pour EdgeHub
 
-Le jumeau de module du hub Edge est appelé `$edgeHub` et coordonne les communications entre Edge Hub exécuté sur un appareil et IoT Hub. Les propriétés souhaitées sont définies lors de l’application d’un manifeste de déploiement sur un appareil spécifique dans le cadre d’un déploiement d’appareil unique ou à grande échelle. 
+La représentation de module de Edge Hub est appelée `$edgeHub` et coordonne les communications entre Edge Hub exécuté sur un appareil et IoT Hub. Les propriétés souhaitées sont définies lors de l’application d’un manifeste de déploiement sur un appareil spécifique dans le cadre d’un déploiement d’appareil unique ou à grande échelle. 
 
 | Propriété | Description | Requise dans le manifeste de déploiement |
 | -------- | ----------- | -------- |

@@ -1,20 +1,21 @@
 ---
-title: Méthode Evaluate dans l’API Connaissances universitaires | Microsoft Docs
-description: Utilisez la méthode Evaluate pour renvoyer un ensemble d’entités universitaires en fonction d’une expression de requête dans Microsoft Cognitive Services.
+title: Méthode Evaluate - API Connaissances universitaires
+titlesuffix: Azure Cognitive Services
+description: Utilisez la méthode Evaluate pour renvoyer un ensemble d’entités universitaires basées sur une expression de requête.
 services: cognitive-services
 author: alch-msft
-manager: kuansanw
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/27/2017
 ms.author: alch
-ms.openlocfilehash: 3005ae1f6df042a49db086de4982d8206f6938a4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 262beeefbbafefc95da51e9f4afcbc1bc143f952
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35367844"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902329"
 ---
 # <a name="evaluate-method"></a>Méthode Evaluate
 
@@ -29,7 +30,7 @@ https://westus.api.cognitive.microsoft.com/academic/v1.0/evaluate?
 ## <a name="request-parameters"></a>Paramètres de la requête  
 NOM     | Valeur | Requis ?  | Description
 -----------|-----------|---------|--------
-**expr**       | Chaîne de texte | OUI | Expression de requête qui spécifie les entités à renvoyer.
+**expr**       | Chaîne de texte | Oui | Expression de requête qui spécifie les entités à renvoyer.
 **model**      | Chaîne de texte | Non   | Nom du modèle que vous souhaitez interroger.  Actuellement, la valeur par défaut est définie sur *lastest* (plus récent).        
 **attributes** | Chaîne de texte | Non <br>par défaut : Id | Liste délimitée par des virgules qui spécifie les valeurs d’attribut qui sont incluses dans la réponse. Les noms d’attribut sont sensibles à la casse.
 **count**        | Number | Non <br>Valeur par défaut : 10 | Nombre de résultats à renvoyer.

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/18/2017
 ms.author: victorh
-ms.openlocfilehash: a9325dff84635955600bc78687ec0156495ae893
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d0a20de8738e8c7b2719a9de85d5fd16aa5778cf
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954379"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829680"
 ---
 # <a name="how-to-manage-dns-zones-in-the-azure-portal"></a>Gérer des zones DNS à l’aide du portail Azure
 
 > [!div class="op_single_selector"]
-> * [Portail](dns-operations-dnszones-portal.md)
+> * [Portal](dns-operations-dnszones-portal.md)
 > * [PowerShell](dns-operations-dnszones.md)
 > * [Azure Classic CLI](dns-operations-dnszones-cli-nodejs.md)
 > * [Interface de ligne de commande Azure](dns-operations-dnszones-cli.md)
@@ -32,7 +32,7 @@ Cet article vous montre comment gérer vos zones DNS avec le portail Azure. Vous
 ## <a name="create-a-dns-zone"></a>Création d’une zone DNS
 
 1. Connectez-vous au portail Azure.
-2. Dans le menu Hub, cliquez sur **Créer une ressource > Mise en réseau >**, puis cliquez sur **Zone DNS** pour ouvrir le panneau Créer une zone DNS.
+2. Dans le menu Hub, accédez à **Créer une ressource > Mise en réseau > Zone DNS** pour ouvrir le panneau **Créer une zone DNS**.
 
     ![Zone DNS](./media/dns-operations-dnszones-portal/openzone650.png)
 
@@ -41,7 +41,7 @@ Cet article vous montre comment gérer vos zones DNS avec le portail Azure. Vous
 
    | **Paramètre** | **Valeur** | **Détails** |
    |---|---|---|
-   |**Name**|contoso.com|Nom de la zone DNS|
+   |**Nom**|contoso.com|Nom de la zone DNS|
    |**Abonnement**|[Votre abonnement]|Sélectionnez un abonnement pour y créer la zone DNS.|
    |**Groupe de ressources**|**Créer :** contosoDNSRG|Créez un groupe de ressources. Le nom du groupe de ressources doit être unique au sein de l’abonnement sélectionné. Pour plus d’informations sur les groupes de ressources, consultez l’article [Présentation de Resource Manager](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fdns%2ftoc.json#resource-groups).|
    |**Lieu**|USA Ouest||
@@ -51,13 +51,13 @@ Cet article vous montre comment gérer vos zones DNS avec le portail Azure. Vous
 
 ## <a name="list-dns-zones"></a>Création de la liste des zones DNS
 
-Dans le portail Azure, accédez à **Plus de services** > **Mise en réseau** > **Zones DNS**. Chaque zone DNS est indépendante. Les informations telles que le nombre de jeux d’enregistrements et les serveurs de noms peuvent être consultés depuis cet aperçu. La colonne **SERVEURS DE NOMS** n’apparaît pas dans l’affichage par défaut. Pour l’ajouter, cliquez sur **Colonnes**, sélectionnez **Serveurs de noms**, puis cliquez sur **Appliquer**.
+Dans le portail Azure, accédez à **Plus de services** > **Mise en réseau** > **Zones DNS**. Chaque zone DNS est indépendante, et les informations telles que le nombre de jeux d’enregistrements et les serveurs de noms peuvent être consultés dans cette vue. La colonne **SERVEURS DE NOMS** ne figure pas dans la vue par défaut. Pour l’ajouter, cliquez sur **Colonnes**, sélectionnez **Serveurs de noms**, puis cliquez sur **Terminé**.
 
 ![liste des zones DNS](./media/dns-operations-dnszones-portal/listzones.png)
 
 ## <a name="delete-a-dns-zone"></a>Suppression d’une zone DNS
 
-Accédez à une zone DNS dans le portail. Sur le panneau **Zone DNS**, cliquez sur **Supprimer la zone**. Vous êtes invité à confirmer la suppression de la zone DNS. La suppression d’une zone DNS entraîne la suppression de tous les enregistrements présents dans la zone.
+Accédez à une zone DNS dans le portail. Sur le panneau **Zone DNS**, cliquez sur **Supprimer la zone**. Vous êtes alors invité à confirmer la suppression de la zone DNS. La suppression d’une zone DNS entraîne la suppression de tous les enregistrements présents dans la zone.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

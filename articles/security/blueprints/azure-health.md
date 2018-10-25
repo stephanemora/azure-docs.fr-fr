@@ -9,20 +9,22 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: b20da0f31f197ed23aa73b185d127a6d5f2dbd8a
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214939"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48831617"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
 ## <a name="overview"></a>Vue d’ensemble
 
-**Le Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST propose un déploiement clé en main d’une solution PaaS Azure afin d’illustrer comment ingérer, stocker, analyser et interagir de manière sécurisée avec des données de santé tout en respectant les exigences de l’industrie en matière de conformité. Le plan aide à accélérer l’adoption et l’utilisation du cloud pour les clients avec des données réglementées.**
+**Le Blueprint de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST propose le déploiement clé en main d’une solution PaaS et IaaS Azure afin d’illustrer comment ingérer, stocker, analyser, interagir, identifier et déployer des solutions de manière sécurisée avec des données de santé tout en respectant les exigences de conformité du secteur. Le plan aide à accélérer l’adoption et l’utilisation du cloud pour les clients avec des données réglementées.**
 
-Le Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST fournit des outils et des conseils pour aider à déployer un environnement PaaS (Platform-as-a-Service) sécurisé et compatible avec HIPAA (Health Insurance Portability and Accountability Act) et HITRUST (Health Information Trust Alliance) pour l’ingestion, le stockage, l’analyse et l’interaction avec des dossiers médicaux personnels et non-personnels dans un environnement cloud sécurisé à plusieurs niveaux, déployé en tant que solution de bout en bout. Il présente une architecture de référence commune et est conçu pour simplifier l’adoption de Microsoft Azure. Cette architecture fournie est un exemple de solution qui répond aux besoins des entreprises souhaitant une approche basée sur le cloud visant à réduire la charge et les coûts liés aux déploiements.
+Le Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST fournit des outils et des conseils pour aider à déployer un environnement PaaS (Platform-as-a-Service) sécurisé et compatible avec HIPAA (Health Insurance Portability and Accountability Act) et HITRUST (Health Information Trust Alliance) pour l’ingestion, le stockage, l’analyse et l’interaction avec des dossiers médicaux personnels et non-personnels dans un environnement cloud sécurisé à plusieurs niveaux, déployé en tant que solution de bout en bout. 
+
+La solution IaaS montrera comment migrer une solution SQL locale vers Azure et implémenter une station de travail à accès privilégié (Privileged Access Workstation - PAW) pour gérer les services et solutions cloud en toute sécurité. La base de données IaaS SQL Server ajoute des données d'expérimentation potentielles. Elle est importée vers une machine virtuelle SQL IaaS, et cette machine virtuelle utilise un accès authentifié MSI pour interagir avec un service SQL Azure PaaS. Les deux présentent une architecture de référence commune conçue pour simplifier l'adoption de Microsoft Azure. Cette architecture fournie est un exemple de solution qui répond aux besoins des entreprises souhaitant une approche basée sur le cloud visant à réduire la charge et les coûts liés aux déploiements.
 
 ![](images/components.png)
 
@@ -38,23 +40,15 @@ Ce plan est destiné à servir de base modulaire. Il pourra être adapté par le
 
 ## <a name="deploying-the-automation"></a>Déploiement de l’automatisation
 
-- Pour déployer la solution, suivez les instructions fournies dans le guide de déploiement. 
+- Pour déployer la solution, suivez les instructions fournies dans le [guide de déploiement](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/deployment.md). 
 
-[![](./images/deploy.png)](https://aka.ms/healthblueprintdeploy)
-
-Pour obtenir une présentation rapide du fonctionnement de cette solution, regardez cette [vidéo](https://aka.ms/healthblueprintvideo) qui explique son déploiement.
+- Pour obtenir une présentation rapide du fonctionnement de cette solution, regardez cette [vidéo](https://aka.ms/healthblueprintvideo) qui explique son déploiement.
 
 - Vous trouverez un Forum aux questions [ici](https://aka.ms/healthblueprintfaq).
 
 -   **Diagramme architectural.** Le diagramme illustre l’architecture de référence utilisée pour le plan et l’exemple de scénario de cas d’usage.
 
--   **Modèles de déploiement**. Dans ce déploiement, des [modèles Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview#template-deployment) sont utilisés pour déployer automatiquement les composants de l’architecture dans Microsoft Azure, en spécifiant des paramètres de configuration pendant l’installation.
-
--   **[Scripts de déploiement automatisé](https://aka.ms/healthblueprintdeploy)**. Ces scripts aident à déployer la solution. Les scripts sont constitués des éléments suivants :
-
-
--   Un script de configuration de l’installation des modules et de configuration de [l’administrateur général](/azure/active-directory/active-directory-assign-admin-roles-azure-portal) est utilisé pour installer et vérifier que les modules PowerShell et rôles d’administrateur général nécessaires sont configurés correctement. 
--   Un script d’installation PowerShell est utilisé pour déployer la solution. Il est fourni par le biais d’un fichier .zip qui contient des fonctions de démonstration prédéfinies.
+-   [IaaS Extension](https://github.com/Azure/Health-Data-and-AI-Blueprint/blob/master/README%20IaaS.md) Cette solution IaaS montrera comment migrer une solution SQL locale vers Azure et implémenter une station de travail à accès privilégié pour gérer les services et solutions cloud en toute sécurité. 
 
 ## <a name="solution-components"></a>Composants de la solution
 
@@ -70,7 +64,7 @@ L’architecture de base est constituée des éléments suivants :
 # <a name="architectural-diagram"></a>Diagramme architectural
 
 
-![](images/refarch.png)
+![](images/ra2.png)
 
 ## <a name="roles"></a>contrôleur
 

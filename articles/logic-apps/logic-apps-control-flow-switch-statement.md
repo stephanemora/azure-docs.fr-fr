@@ -3,19 +3,18 @@ title: Ajouter des instructions switch aux workflows – Azure Logic Apps | Mic
 description: Comment créer des instructions switch qui contrôlent des actions de workflow basées sur des valeurs spécifiques dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: e15f89d4b7e33ce7e28676c219344f7d7d9cd465
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.topic: article
+ms.date: 10/08/2018
+ms.openlocfilehash: 27a73bddc2e7fb613950d78967d3100c7adcae41
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299614"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883837"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Créer des instructions switch qui exécutent des actions de workflow basées sur des valeurs spécifiques dans Azure Logic Apps
 
@@ -24,7 +23,7 @@ Pour exécuter des actions spécifiques basées sur les valeurs d’objets, d’
 Par exemple, supposez que vous souhaitiez une application logique qui prenne des étapes différentes selon l’option sélectionnée dans l’e-mail. Dans cet exemple, l’application logique vérifie le flux RSS d’un site web pour y rechercher un nouveau contenu. Si un nouvel élément s’affiche dans le flux RSS, l’application logique envoie un e-mail à un approbateur. Selon que l’approbateur sélectionne « Approuver » ou « Rejeter », l’application logique suit des étapes différentes.
 
 > [!TIP]
-> Comme dans tous les langages de programmation, les instructions switch ne prennent en charge que les opérateurs d’égalité. Si vous avez besoin d’autres opérateurs de relation, par exemple « supérieur à », utilisez une [instruction de condition](#conditions).
+> Comme dans tous les langages de programmation, les instructions switch ne prennent en charge que les opérateurs d’égalité. Si vous avez besoin d’autres opérateurs de relation, par exemple « supérieur à », utilisez une [instruction de condition](../logic-apps/logic-apps-control-flow-conditional-statement.md).
 > Pour garantir un comportement d’exécution déterministe, les cas doivent contenir une valeur statique unique et non des jetons ou des expressions dynamiques.
 
 ## <a name="prerequisites"></a>Prérequis
@@ -33,45 +32,50 @@ Par exemple, supposez que vous souhaitiez une application logique qui prenne des
 
 * Pour suivre l’exemple présenté dans cet article, [créez cet exemple d’application logique](../logic-apps/quickstart-create-first-logic-app-workflow.md) avec un compte Outlook.com ou Office 365 Outlook.
 
-  1. Si vous ajoutez l’action dans l’e-mail d’envoi, sélectionnez plutôt **Envoyer un e-mail d’approbation**.
+  1. Si vous ajoutez l’action permettant d’envoyer un e-mail, recherchez et sélectionnez plutôt cette action : **Envoyer un e-mail d’approbation**.
 
      ![Sélectionner « Envoyer un e-mail d’approbation »](./media/logic-apps-control-flow-switch-statement/send-approval-email-action.png)
 
-  2. Renseignez les champs obligatoires, tels que l’adresse e-mail de la personne qui reçoit l’e-mail d’approbation. 
+  1. Renseignez les champs obligatoires, tels que l’adresse e-mail de la personne qui reçoit l’e-mail d’approbation. 
   Sous **Options utilisateur**, entrez « Approuver, Rejeter ».
 
      ![Entrer les détails de l’e-mail](./media/logic-apps-control-flow-switch-statement/send-approval-email-details.png)
 
-## <a name="add-a-switch-statement"></a>Ajouter une instruction switch
+## <a name="add-switch-statement"></a>Ajout d’une instruction switch
 
-1. À la fin de l’exemple de flux de travail, choisissez **+Nouvelle étape** > **... Plus** > **Ajouter un cas switch**. 
+1. Pour cet exemple, ajoutez une instruction switch à la fin de votre exemple de flux de travail. Après la dernière étape, choisissez **Nouvelle étape**.
 
-   ![Ajouter une instruction switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
+   Si vous souhaitez ajouter une instruction switch entre les étapes, placez le pointeur sur la flèche là où vous souhaitez l’ajouter. Cliquez sur le **signe plus** (**+**) qui s’affiche, puis choisissez **Ajouter une action**.
+
+1. Dans la zone de recherche, entrez le filtre « switch ». Sélectionnez cette action : **Switch - Control** (Switch - Contrôle).
+
+   ![Ajout d’une instruction switch](./media/logic-apps-control-flow-switch-statement/add-switch-statement.png)
 
    Une instruction switch s’affiche avec un cas et un cas par défaut. 
-   Une instruction switch requiert au moins un cas plus le cas par défaut. 
+   Par défaut, une instruction switch requiert au moins un cas plus le cas par défaut. 
 
-   Si vous souhaitez ajouter une instruction switch entre les étapes, placez le pointeur sur la flèche là où vous souhaitez l’ajouter. 
-   Cliquez sur le **signe plus** (**+**) qui s’affiche, puis choisissez **Ajouter un cas switch**.
+   ![Instruction switch vide par défaut](./media/logic-apps-control-flow-switch-statement/empty-switch.png)
 
-4. Dans la zone **Activé**, sélectionnez le champ **SelectedOption** dont la sortie détermine l’action à effectuer. 
-   
-   Dans la liste **Ajouter du contenu dynamique** qui s’affiche, vous pouvez sélectionner le champ.
+1. Cliquez dans la zone **Activé** pour afficher la liste du contenu dynamique. Dans cette liste, sélectionnez le champ **SelectedOption** dont la sortie détermine l’action à effectuer. 
 
-5. Pour gérer les cas dans lesquels l’approbateur sélectionne `Approve` ou `Reject`, ajoutez un autre cas entre **Cas** et **Par défaut**. 
-   
-6. Ajoutez ces actions aux cas correspondants :
+   ![Sélection du champ SelectedOption](./media/logic-apps-control-flow-switch-statement/select-selected-option.png)
+
+1. Pour gérer les cas dans lesquels l’approbateur sélectionne `Approve` ou `Reject`, ajoutez un autre cas entre **Cas** et **Par défaut**. 
+
+   ![Ajout d’un autre cas](./media/logic-apps-control-flow-switch-statement/switch-plus.png)
+
+1. Ajoutez ces actions aux cas correspondants :
 
    | N° de cas | **SelectedOption** | Action |
-   |:------ |:-------------------|:------ |
+   |--------|--------------------|--------|
    | Cas 1 | **Approuver** | Ajoutez l’action **Envoyer un e-mail** Outlook pour envoyer des détails sur l’élément RSS uniquement si l’approbateur a sélectionné **Approuver**. |
    | Cas 2 | **Rejeter** | Ajoutez l’action **Envoyer un e-mail** Outlook pour informer les autres approbateurs que l’élément RSS a été rejeté. |
-   | Default | \<Aucune\> | Aucune action requise. Dans cet exemple, le cas **Par défaut** n’est pas renseigné, car **SelectedOption** possède uniquement deux options. |
-   |         |          |
+   | Default | Aucun | Aucune action requise. Dans cet exemple, le cas **Par défaut** n’est pas renseigné, car **SelectedOption** possède uniquement deux options. |
+   |||
 
-   ![Instruction switch](./media/logic-apps-control-flow-switch-statement/switch.png)
+   ![Instruction switch terminée](./media/logic-apps-control-flow-switch-statement/finished-switch.png)
 
-7. Enregistrez votre application logique. 
+1. Enregistrez votre application logique. 
 
    Pour tester manuellement cet exemple, choisissez **Exécuter** jusqu’à ce que l’application logique trouve un nouvel élément RSS et envoie un e-mail d’approbation. 
    Sélectionnez **Approuver** pour observer les résultats.
@@ -85,17 +89,17 @@ Maintenant que vous avez créé une application logique avec une instruction swi
    "type": "Switch",
    "expression": "@body('Send_approval_email')?['SelectedOption']",
    "cases": {
-      "Case" : {
-         "actions" : {
-           "Send_an_email": { }
+      "Case": {
+         "actions": {
+           "Send_an_email": {}
          },
          "case" : "Approve"
       },
-      "Case_2" : {
-         "actions" : {
-           "Send_an_email_2": { }
+      "Case_2": {
+         "actions": {
+           "Send_an_email_2": {}
          },
-         "case" : "Reject"
+         "case": "Reject"
       }
    },
    "default": {
@@ -109,14 +113,14 @@ Maintenant que vous avez créé une application logique avec une instruction swi
 }
 ```
 
-| Étiquette              | Description |
-| :----------------- | :---------- |
+| Étiquette | Description |
+|-------|-------------|
 | `"Switch"`         | Nom de l’instruction switch que vous pouvez modifier pour plus de lisibilité. |
 | `"type": "Switch"` | Indique que l’action est une instruction switch. |
 | `"expression"`     | Dans cet exemple, spécifie l’option sélectionnée par l’approbateur qui est confrontée à chacun des cas déclarés plus loin dans la définition. |
 | `"cases"` | Définit un nombre quelconque de cas. Pour chaque cas, `"Case_*"` est le nom par défaut du cas donné, que vous pouvez modifier pour plus de lisibilité. |
-| `"case"` | Spécifie la valeur du cas qui doit être une valeur unique et constante utilisée par l’instruction switch pour la comparaison. Si aucun cas ne correspond au résultat de l’expression switch, les actions de la section `"default"` sont exécutées.
-|           |         |
+| `"case"` | Spécifie la valeur du cas qui doit être une valeur unique et constante utilisée par l’instruction switch pour la comparaison. Si aucun cas ne correspond au résultat de l’expression switch, les actions de la section `"default"` sont exécutées. | 
+| | | 
 
 ## <a name="get-support"></a>Obtenir de l’aide
 

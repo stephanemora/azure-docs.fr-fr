@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: ffe7337282d06dd9a7e22d6750ac98b3a56964bd
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: db0bc0cb64c0b6d7df9319c8d2c5850a27e767a1
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42142777"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249211"
 ---
 # <a name="azure-data-factory-service-identity"></a>Identité de service Azure Data Factory
 
@@ -169,6 +169,6 @@ Type                  : ServicePrincipal
 Consultez les rubriques suivantes qui expliquent quand et comment utiliser l’identité de service de fabrique de données :
 
 - [Stocker des informations d’identification dans Azure Key Vault](store-credentials-in-key-vault.md)
-- [Copier des données depuis/vers Azure Data Lake Store à l’aide de l’authentification gérée d’identité de service](connector-azure-data-lake-store.md)
+- [Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory](connector-azure-data-lake-store.md)
 
-Pour plus d’informations concernant Managed Service Identity, sur lequel est basée l’identité de service de fabrique de données, consultez [Présentation de Managed Service Identity](~/articles/active-directory/msi-overview.md). 
+Pour plus d’informations sur les identités managées des ressources Azure, sur lesquelles l’identité du service de fabrique de données est basée, consultez [Que sont les identités gérées pour les ressources Azure ?](~/articles/active-directory/msi-overview.md). 

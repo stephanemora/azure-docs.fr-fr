@@ -1,6 +1,7 @@
 ---
-title: Foire aux questions sur le service de reconnaissance vocale dans Azure
-description: Vous trouverez ici des réponses aux questions les plus posées sur le service de reconnaissance vocale.
+title: Forum aux questions sur le service de reconnaissance vocale dans Azure
+description: Découvrez les réponses aux questions les plus fréquemment posées sur le service de reconnaissance vocale.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
@@ -8,138 +9,146 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: e5ba01c25646578da22f054659051be3515e9e4b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d176c33a37b26b1e13d5b9beb7ac68d335cc7862
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281828"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249184"
 ---
-# <a name="speech-to-text-frequently-asked-questions"></a>Foire aux questions sur la reconnaissance vocale
+# <a name="speech-to-text-frequently-asked-questions"></a>Forum aux questions sur la reconnaissance vocale
 
-Si vous ne trouvez pas de réponses à vos questions dans cette foire aux questions, consultez d’autres options d’assistance [ici](support.md).
+Si vous ne trouvez pas de réponses à vos questions dans ce FAQ, consultez les [autres options de support](support.md).
 
 ## <a name="general"></a>Généralités
 
-**Question** : Quelle est la différence entre les modèles de reconnaissance vocale personnalisés et les modèles de base ?
+**Q : Quelle est la différence entre un modèle de reconnaissance vocale de référence et un modèle personnalisé ?**
 
-**Réponse** : Les modèles de base ont été formés avec des données appartenant à Microsoft et sont déjà déployés dans le cloud. Les modèles personnalisés permettent à l’utilisateur d’adapter un modèle afin qu’il corresponde mieux à un environnement particulier avec du bruit ambiant ou un langage spécifiques. Les ateliers, les voitures et les rues bruyantes supposent un modèle acoustique adapté, tandis que des sujets tels que la biologie, la physique ou la radiologie, les noms de produits et les acronymes personnalisés nécessitent un modèle de langage approprié.
+**R** : Un modèle de référence est un modèle formé à l’aide de données appartenant à Microsoft et déjà déployé dans le cloud.  Un modèle personnalisé permet d’adapter un modèle à un environnement spécifique se singularisant par un bruit ambiant ou un langage particuliers. Un atelier, une voiture ou une rue bruyante nécessiteraient d’utiliser un modèle acoustique adapté. Des thèmes tels que la biologie, la physique et la radiologie, ou dans le cadre desquels sont utilisés des noms de produits et autres acronymes personnalisés nécessiteraient un modèle linguistique adapté.
 
-**Question** : Par où commencer si je souhaite utiliser un modèle de base ?
+**Question : Par où commencer si je souhaite utiliser un modèle de référence ?**
 
-**Réponse** : Vous avez tout d’abord besoin d’une [clé d’abonnement](get-started.md). Si vous voulez passer des appels REST à des modèles de référence prédéployés, consultez les [informations disponibles ici](rest-apis.md). Si vous voulez utiliser WebSockets, téléchargez le [kit SDK](speech-sdk.md).
+**R** : Commencez par vous procurer une [clé d’abonnement](get-started.md). Si vous voulez adresser des appels REST à des modèles de référence pré-déployés, consultez les informations sur les [API REST](rest-apis.md). Si vous voulez utiliser des WebSockets, téléchargez le [Kit de développement logiciel (SDK)](speech-sdk.md).
 
-**Question** : Dois-je toujours générer un modèle vocal personnalisé ?
+**Question : Dois-je toujours générer un modèle vocal personnalisé ?**
 
-**Réponse** : Non. Si votre application utilise un langage générique de tous les jours, il n’est pas nécessaire de personnaliser un modèle. Si elle est utilisée dans un environnement dénué de bruit de fond ou presque, ce n’est pas nécessaire non plus. Le portail permet aux utilisateurs de déployer des modèles de base et des modèles personnalisés, ainsi que d’exécuter des tests de précision dessus. Ils peuvent utiliser cette fonctionnalité pour mesurer la précision d’un modèle de base et celle d’un modèle personnalisé.
+**R** : Non. Si votre application utilise un langage générique, quotidien, vous n’avez pas besoin de personnaliser un modèle. Si elle est utilisée dans un environnement dénué ou presque de bruit de fond, ce n’est pas davantage nécessaire. 
 
-**Question** : Comment savoir si le traitement de mon jeu de données ou de mon modèle est terminé ?
+Vous pouvez déployer des modèles de référence et personnalisés dans le portail, puis exécuter des tests de précision sur ceux-ci. Vous pouvez utiliser cette fonctionnalité pour mesurer la précision d’un modèle de référence par rapport à celle d’un modèle personnalisé.
 
-**Réponse** : Actuellement, la seule façon de le savoir est de consulter l’état du modèle ou du jeu de données situé dans la table.
-Quand le traitement est terminé, l’état indique « Réussi ».
+**Q : Comment savoir quand le traitement de mon jeu de données ou modèle est terminé ?**
 
-**Question** : Puis-je créer plusieurs modèles ?
+**R** : Actuellement, la seule façon de le savoir est de consulter l’état du modèle ou du jeu de données dans le tableau. Une fois le traitement terminé, l’état est **Réussi**.
 
-**Réponse** : Le nombre de modèles dans une collection n’est pas limité.
+**Q : Puis-je créer plusieurs modèles ?**
 
-**Question** : J’ai réalisé que j’ai fait une erreur. Comment annuler l’importation de mes données ou la création d’un modèle en cours ? 
+**R** : Il n’existe aucune limite au nombre de modèles que vous pouvez avoir dans votre collection.
 
-**Réponse** : Actuellement, vous ne pouvez pas restaurer un processus d’adaptation de langage ou acoustique. Les modèles et les données importés peuvent être supprimés une fois qu’ils sont dans un état final.
+**Q : Je réalise que j’ai commis une erreur. Comment faire pour annuler une importation de données ou une création de modèle en cours ?**
 
-**Question** : Quelle est la différence entre les modèles Recherche & Dictée et les modèles de conversation ?
+**R** : Actuellement, vous ne pouvez pas restaurer un processus d’adaptation acoustique ou linguistique. Vous pouvez supprimer des données et modèles importés une fois que ceux-ci sont dans un état terminal.
 
-**Réponse** : Il existe plusieurs modèles de base dans le service de reconnaissance vocale. Le modèle Conversation est adapté à la reconnaissance vocale de type conversationnel. Il est idéal pour transcrire des appels, tandis que Recherche & Dictée convient tout particulièrement aux applications à commande vocale. Le nouveau modèle Universel vise à couvrir ces deux scénarios.
+**Q : Quelle est la différence entre les modèles Search (Recherche) ou Dictation (Dictée) et le modèle Conversational (Conversation) ?**
 
-**Question** : Puis-je mettre à jour mon modèle existant (empilement de modèles) ?
+**R** : Le service vocal vous offre le choix entre plusieurs modèles de référence. Le modèle Conversational (Conversation) est adapté à la reconnaissance vocale de langage familier ou informel. Ce modèle est idéal pour la transcription d’appels téléphoniques. Les modèles Search (Recherche) et Dictation (Dictée) sont idéaux pour les applications déclenchées par la voix. Le modèle Universal (Universel) est un nouveau modèle destiné à couvrir les deux scénarios.
 
-**Réponse** : Les modèles existants ne peuvent pas être mis à jour. Pour contourner cet inconvénient, combinez l’ancien jeu de données avec le nouveau, puis procédez à nouveau aux adaptions souhaitées.
+**Q : Puis-je mettre à jour un modèle existant (empilement de modèles) ?**
 
-L’ancien jeu de données et le nouveau doivent être combinés en un seul fichier .zip (s’il s’agit de données acoustiques) ou en un fichier .txt (s’il s’agit de données de langage). Une fois l’adaptation terminée, le déploiement du nouveau modèle mis à jour doit être annulé afin d’obtenir un nouveau point de terminaison.
+**R** : Vous ne pouvez pas mettre à jour un modèle existant. Une solution consiste à combiner l’ancien jeu de données avec le nouveau, puis à apporter les adaptions souhaitées.
 
-**Question** : Que faire si j’ai besoin d’une concurrence plus élevée pour mon modèle déployé que ce que propose le portail ? 
+L’ancien et le nouveau jeux de données doivent être combinés dans un seul fichier .zip (pour les données acoustiques) ou dans un fichier .txt (pour les données linguistiques). Une fois les adaptations apportées, le nouveau modèle mis à jour doit être redéployé afin d’obtenir un nouveau point de terminaison.
 
-**Réponse** : Vous pouvez augmenter la taille de votre modèle par incréments de 20 requêtes simultanées. 
+**Q : Quand une nouvelle version d’un modèle de référence est disponible, mon déploiement est-il mis à jour automatiquement ?**
 
-Contactez-nous si vous avez besoin d’augmenter cette valeur.
+**R** : Les déploiements ne sont PAS mis à jour automatiquement. 
 
-**Question** : Puis-je télécharger mon modèle et l’exécuter localement ?
+Si vous avez adapté et déployé un modèle de référence V1.0, ce déploiement reste en l’état. Les clients peuvent désactiver le modèle déployé, le réadapter à l’aide de la version plus récente du modèle de référence, puis redéployer leur nouveau modèle.
 
-**Réponse** : Les modèles ne peuvent pas être téléchargés et exécutés localement.
+**Q : Que faire si j’ai besoin pour mon modèle déployé d’une concurrence plus élevée que ce que propose le portail ?** 
 
-**Question** : Mes requêtes sont-elles journalisées ?
+**R** : Vous pouvez augmenter l’échelle de votre modèle par incréments de 20 demandes simultanées. 
 
-**Réponse** : Lors de la création d’un déploiement, vous pouvez décider de désactiver le suivi, ce qui signifie qu’aucun contenu audio ni aucune transcription ne sera journalisé. Dans le cas contraire, les requêtes sont généralement journalisées dans un stockage sécurisé dans Azure. Si vous avez d’autres questions sur la confidentialité qui vous empêchent d’utiliser Custom Speech Service, contactez l’un des canaux de support.
+Si vous avez besoin d’augmenter l’échelle de votre modèle, contactez-nous.
+
+**Q : Puis-je télécharger mon modèle et l’exécuter localement ?**
+
+**R** : Il n’est pas possible de télécharger et d’exécuter des modèles localement.
+
+**Q : Mes requêtes sont-elles journalisées ?**
+
+**R** : Lorsque vous créez un déploiement, vous avez le choix de désactiver le traçage. Dans ce cas, les contenus audio et transcriptions ne sont pas journalisés. Autrement, les demandes sont généralement journalisées dans un stockage sécurisé dans Azure. 
+
+**Q : Mes demandes sont-elles limitées ?**
+
+**R** : L’API REST limite les demandes à 25 par période de 5 secondes. Pour plus de détails, consultez nos pages sur la [Reconnaissance vocale](speech-to-text.md). 
+
+Si vous rencontrez des problèmes de confidentialité qui vous empêchent d’utiliser le service vocal personnalisé, contactez l’un des canaux de support.
 
 ## <a name="importing-data"></a>Importation de données
 
-**Question** : Quelle est la limite de taille du jeu de données ? Pourquoi ? 
+**Q : Quelle est la limite de taille d’un jeu de données, et pourquoi ?**
 
-**Réponse** : La limite actuelle pour un jeu de données est de 2 Go, en raison de la restriction de taille d’un fichier pour le chargement HTTP. 
+**R** : La limite de taille actuelle d’un jeu de données est de 2 Go. Cette limite découle de la restriction de taille de fichier pour le chargement HTTP. 
 
-**Question** : Puis-je compresser mes fichiers texte pour charger un fichier texte plus volumineux ? 
+**Q : Puis-je zipper mes fichiers texte afin de charger des fichiers plus volumineux ?** 
 
-**Réponse** : Non, seuls des fichiers texte non compressés sont actuellement autorisés.
+**R** : Non. Seuls des fichiers texte non compressés sont actuellement autorisés.
 
-**Question** : Le rapport de données indique que des énoncés ont échoué. Quel est le problème ?
+**Q : Le rapport relatif aux données indique que des énoncés ont échoué. Quel est le problème ?**
 
-**Réponse** : L’échec du chargement de 100 % des énoncés dans un fichier n’est pas un problème.
-Si la majeure partie des énoncés d’un jeu de données acoustiques ou de langage (par exemple, plus de 95 %) est importée avec succès, le jeu de données peut être utilisable. Toutefois, il est recommandé d’essayer de comprendre la raison de l’échec des énoncés et d’y remédier. La plupart des problèmes courants, comme les erreurs de mise en forme, sont faciles à corriger. 
+**R** : L’échec du chargement de 100 % des énoncés dans un fichier n’est pas un problème. Si la majeure partie des énoncés d’un jeu de données acoustiques ou linguistiques (par exemple, plus de 95 %) est importée avec succès, le jeu de données est utilisable. Toutefois, nous vous recommandons d’essayer de comprendre les raisons pour lesquelles le chargement de ces énoncés a échoué et de résoudre les problèmes rencontrés. La plupart des problèmes courants, comme les erreurs de mise en forme, sont faciles à corriger. 
 
-## <a name="creating-am"></a>Création d’un modèle acoustique
+## <a name="creating-an-acoustic-model"></a>Création d’un modèle acoustique
 
-**Question** : De quel volume de données acoustiques ai-je besoin ?
+**Q : De quel volume de données acoustiques ai-je besoin ?**
 
-**Réponse** : Nous vous recommandons de commencer par un volume de 30 minutes à une heure de données acoustiques.
+**R** : nous vous recommandons de commencer avec entre 30 et 60 minutes de données acoustiques.
 
-**Question** : Quelles données dois-je collecter ?
+**Q : Quelles données dois-je collecter ?**
 
-**Réponse** : Collectez les données qui sont le plus proche possible du scénario d’application et du cas d’usage.
-La collection de données doit correspondre à l’application et aux utilisateurs cibles en termes d’appareils, d’environnements et de types d’orateurs. En général, vous devez collecter des données d’un éventail d’orateurs aussi large que possible. 
+**R** : Collectez des données aussi proches que possible du scénario et du cas d’usage de l’application. La collection de données doit correspondre à l’application et aux utilisateurs cibles en termes d’appareils, d’environnements et de types d’orateurs. En général, vous devez collecter des données d’un éventail d’orateurs aussi large que possible. 
 
-**Question** : Comment les collecter ? 
+**Q : Comment collecter des données acoustiques ?**
 
-**Réponse** : Vous pouvez créer une application de collecte de données autonome, ou en utiliser une des logiciels d’enregistrement audio du commerce.
-Vous pouvez également créer une version de votre application qui journalise les données audio et les utilise. 
+**R** : Vous pouvez créer une application de collecte de données autonome, ou utiliser n’importe que logiciel d’enregistrement audio du commerce. Vous pouvez également créer une version de votre application qui journalise les données audio, puis les utilise. 
 
-**Question** : Dois-je transcrire moi-même les données d’adaptation ? 
+**Q : Dois-je me charger de la transcription des données d’adaptation ?**
 
-**Réponse** : Oui ! Vous pouvez les transcrire vous-même ou utiliser un service de transcription professionnel. Certains utilisateurs préfèrent les transcripteurs professionnels, tandis que d’autres utilisent le crowdsourcing ou font les transcriptions eux-mêmes.
+**R** : Oui. Vous pouvez les transcrire vous-même ou utiliser un service de transcription professionnel. Certains utilisateurs se tournent vers des transcripteurs professionnels, d’autres optent pour une externalisation participative, et d’autres encore préfèrent transcrire eux-mêmes.
 
 ## <a name="accuracy-testing"></a>Tests de précision
 
-**Question** : Puis-je effectuer des tests hors ligne de mon modèle acoustique personnalisé à l’aide d’un modèle de langage personnalisé ?
+**Q : Puis-je tester hors connexion mon modèle acoustique personnalisé à l’aide d’un modèle linguistique personnalisé ?**
 
-**Réponse** : Oui. Sélectionnez simplement le modèle de langage personnalisé dans la liste déroulante quand vous configurez le test hors ligne.
+**R** : Oui. Sélectionnez simplement le modèle linguistique personnalisé dans le menu déroulant quand vous configurez le test hors connexion.
 
-**Question** : Puis-je effectuer un test hors ligne de mon modèle de langage personnalisé à l’aide d’un modèle acoustique personnalisé ?
+**Q : Puis-je tester hors connexion mon modèle linguistique personnalisé à l’aide d’un modèle acoustique personnalisé ?**
 
-**Réponse** : Oui. Sélectionnez simplement le modèle acoustique personnalisé dans le menu déroulant quand vous configurez le test hors ligne.
+**R** : Oui. Sélectionnez simplement le modèle acoustique personnalisé dans le menu déroulant quand vous configurez le test hors connexion.
 
-**Question** : Qu’est-ce que le taux d’erreur de mots ? Comment est-il calculé ?
+**Q : Qu’est-ce que le taux d’erreur de mots et comment est-il calculé ?**
 
-**Réponse** : Le taux d’erreur de mots est la métrique d’évaluation de la reconnaissance vocale. Il est calculé comme le nombre total d’erreurs, lequel inclut les insertions, les suppressions et les remplacements, divisé par le nombre total de mots présents dans la transcription de référence. Plus de détails [ici](https://en.wikipedia.org/wiki/Word_error_rate).
+**R** : le taux d’erreur de mots est la métrique d’évaluation de la reconnaissance vocale. Il est calculé comme le nombre total d’erreurs d’insertion, de suppression et de remplacement, divisé par le nombre total de mots présents dans la transcription de référence. Pour plus d’informations, voir [taux d’erreur de mots](https://en.wikipedia.org/wiki/Word_error_rate).
 
-**Question** : Comment déterminer si les résultats d’un test de précision sont corrects ?
+**Q : Comment faire pour déterminer si les résultats d’un test de précision sont bons ?**
 
-**Réponse** : Les résultats montrent une comparaison entre le modèle de base et celui que vous avez personnalisé.
-L’objectif doit être de surpasser le modèle de base pour que la personnalisation soit pertinente.
+**R** : Les résultats sont le fruit d’une comparaison entre le modèle de référence et le modèle personnalisé. Pour que la personnalisation soit pertinente, l’objectif doit être de surpasser le modèle de référence.
 
-**Question** : Comment déterminer le taux d’erreurs de mots des modèles de base, pour savoir s’il y a eu une amélioration ? 
+**Q : Comment faire pour déterminer le taux d’erreur de mots d’un modèle de référence afin de voir s’il y a une amélioration ?** 
 
-**Réponse** : Les résultats de test hors ligne indiquent la précision de base du modèle personnalisé et l’amélioration atteinte par rapport à cette référence.
+**R** : Les résultats de test hors connexion indiquent la précision de référence du modèle personnalisé, et l’amélioration obtenue par rapport à cette référence.
 
-## <a name="creating-lm"></a>Création d’un modèle de langage
+## <a name="creating-a-language-model"></a>Création d’un modèle linguistique
 
-**Question** : Quel volume de données texte dois-je télécharger ?
+**Q : Quel volume de données de texte dois-je charger ?**
 
-**Réponse** : Cela dépend de la différence du vocabulaire et des expressions utilisées dans votre application par rapport aux modèles de langage de départ. Pour tous les nouveaux mots, il est utile de fournir autant d’exemples que possible de l’utilisation de ces mots. Pour les expressions courantes qui sont utilisées dans votre application, il est également utile d’inclure des expressions dans les données de langage, car cela indique au système d’écouter aussi ces termes. Il est courant d’avoir au moins une centaine, et généralement plusieurs centaines, d’énoncés dans le jeu de données de langage. De plus, si certains types de requêtes sont censés être plus courants que d’autres, vous pouvez insérer plusieurs copies des requêtes courantes dans le jeu de données.
+**R** : Cela dépend de la mesure dans laquelle la terminologie et les expressions spécifiques utilisées dans votre application se distinguent des modèles linguistiques de départ. Pour tous les nouveaux mots, il est utile de fournir autant d’exemples que possible de l’utilisation de ces mots. Il est utile d’inclure dans les données linguistiques les expressions couramment utilisées au sein de votre application, car cela indique au système d’écouter également ces termes. Il est courant d’avoir au moins une centaine, et généralement plusieurs centaines, d’énoncés dans le jeu de données linguistiques. Par ailleurs, si certains types de requêtes sont censés être plus fréquents que d’autres, vous pouvez insérer plusieurs copies des requêtes courantes dans le jeu de données.
 
-**Question** : Puis-je simplement charger une liste de mots ?
+**Q : Puis-je simplement charger une liste de mots ?**
 
-**Réponse** : Le chargement d’une liste de mots place les mots dans le vocabulaire, mais n’apprend pas au système comment les mots sont généralement utilisés.
-En fournissant des énoncés complets ou partiels (phrases ou expressions que les utilisateurs sont susceptibles de dire), le modèle de langage peut apprendre les mots nouveaux et la façon dont ils sont utilisés. Le modèle de langage personnalisé est approprié non seulement pour obtenir de nouveaux mots dans le système, mais également pour ajuster la probabilité de mots connus pour votre application. Fournir des énoncés complets permet au système de mieux apprendre. 
+**R** : Le chargement d’une liste de mots a pour effet d’ajouter des mots au vocabulaire, mais n’enseigne pas au système la manière dont ceux-ci sont généralement utilisés. En fournissant des énoncés complets ou partiels (phrases ou expressions que les utilisateurs sont susceptibles de prononcer), le modèle linguistique peut apprendre les mots nouveaux ainsi que la façon dont ils sont utilisés. Le modèle linguistique personnalisé convient, non seulement pour l’ajout de mots au système, mais aussi pour l’ajustement de la probabilité d’occurrence de mots connus pour votre application. Fournir des énoncés complets permet au système de mieux apprendre. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Résolution des problèmes](troubleshooting.md)
+* [Dépannage](troubleshooting.md)
 * [Notes de publication](releasenotes.md)

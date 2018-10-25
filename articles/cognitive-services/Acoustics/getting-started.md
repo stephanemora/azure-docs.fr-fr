@@ -1,20 +1,21 @@
 ---
-title: Bien démarrer avec Project Acoustics - Cognitive Services
+title: Bien démarrer avec Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: Ce guide de démarrage rapide montre comment intégrer le plug-in dans votre projet Unity, effectuer le baking de votre scène et appliquer l’acoustique aux sources sonores.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: b80543b199d4b766c1a8800d2dff4cf5ed81f8cc
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 62b6b40e6289ccca92c0a92d8bb7d0489dd44246
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181248"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902941"
 ---
 # <a name="getting-started-with-project-acoustics"></a>Bien démarrer avec Project Acoustics
 Ce guide de démarrage rapide montre comment intégrer le plug-in dans votre projet Unity, effectuer le baking de votre scène et appliquer l’acoustique aux sources sonores. Pour ce guide de démarrage rapide, vous devez d’abord créer un [compte Azure batch](create-azure-account.md). Ce guide part du principe que vous connaissez Unity.
@@ -93,9 +94,9 @@ Créez une source sonore. Cochez la case en bas du panneau d’inspecteur d’Au
 ![Source sonore](media/AudioSource.png)
 
 ## <a name="apply-post-bake-design"></a>Appliquer la conception post-baking
-Vous pouvez attacher le script **AcousticsSourceCustomization** à une source sonore dans votre scène pour activer des paramètres de conception de source supplémentaires, en cliquant sur **Add Component** et en choisissant **Scripts > Acoustics Source Customization** :
+Vous pouvez joindre le script **AcousticsAdjust** à une source sonore de votre scène pour activer des paramètres de conception de source supplémentaires, en cliquant sur **Add Component** et en choisissant **Scripts > Acoustics Adjust** :
 
-![Personnalisation de la source](media/SourceCustomization.png)
+![AcousticsAdjust](media/AcousticsAdjust.png)
 
 Il existe également des paramètres sur le **Microsoft Acoustics Mixer**. Pour plus d’informations sur la conception post-baking, consultez [Paramètres de conception](design-process.md).
 

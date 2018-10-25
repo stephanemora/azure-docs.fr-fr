@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: 39745991f7ab3b181f892bbaa59283d92737ecf3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 3ba8919a499da0db8e2deb626d8cf4d5067c1c25
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093871"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49069175"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
@@ -96,7 +96,7 @@ Pour définir la chaîne de connexion de compte de stockage :
 
 3. Répétez l’étape précédente pour ajouter des clés uniques au tableau **Valeurs** pour les autres connexions requises par vos fonctions.
 
-## <a name="create-a-function"></a>Créer une fonction
+## <a name="add-a-function-to-your-project"></a>Ajouter une fonction à votre projet
 
 Dans les fonctions précompilées, les liaisons utilisées par la fonction sont définies en appliquant des attributs dans le code. Lorsque vous utilisez Azure Functions Tools pour créer vos fonctions à partir des modèles fournis, ces attributs sont appliqués pour vous. 
 
@@ -171,7 +171,9 @@ Pour tester votre fonction, appuyez sur F5. Si vous y êtes invité, acceptez la
 
 Avec le projet en cours d’exécution, vous pouvez tester votre code comme vous testeriez la fonction déployée. Pour plus d’informations, consultez [Stratégies permettant de tester votre code dans Azure Functions](functions-test-a-function.md). Lors de l’exécution en mode débogage, les points d’arrêt sont atteints dans Visual Studio comme prévu. 
 
-Pour obtenir un exemple montrant comment tester une fonction déclenchée par une file d’attente, consultez le [didacticiel de démarrage rapide sur une fonction déclenchée par une file d’attente](functions-create-storage-queue-triggered-function.md#test-the-function).  
+<!---
+For an example of how to test a queue triggered function, see the [queue triggered function quickstart tutorial](functions-create-storage-queue-triggered-function.md#test-the-function).  
+-->
 
 Pour en savoir plus sur l’utilisation d’Azure Functions Core Tools, consultez [Procédure locale de codage et de test d’Azure Functions](functions-run-local.md).
 
@@ -196,6 +198,20 @@ Vous pouvez également gérer les paramètres d’application d’une des maniè
 * [Utilisation du portail Azure](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Utilisation de l’option de publication `--publish-local-settings` dans Azure Functions Core Tools](functions-run-local.md#publish).
 * [Utilisation de l’interface CLI Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+
+## <a name="monitoring-functions"></a>Surveillance des fonctions
+
+Il est recommandé de surveiller l’exécution de votre fonction dans Azure en l’intégrant avec Azure Application Insights. Lorsque vous créez une application de fonction dans le portail Azure, cette intégration est faite pour vous par défaut. Toutefois, lorsque vous créez votre application de fonction lors de la publication avec Visual Studio, l’intégration avec votre application de fonction dans Azure n’est pas effectuée. Au lieu de cela, vous obtenez une journalisation intégrée, ce qui n’est pas recommandé.
+
+Pour configurer Application Insights pour votre application de fonction dans Azure :
+
+1. Créez une instance d’Application Insights dans le [portail Azure](https://portal.azure.com) et copiez sa clé d’instrumentation. Pour connaître la procédure, consultez [En connectant manuellement une ressource Application Insights](functions-monitoring.md#manually-connect-an-app-insights-resource).  
+
+1. Ajoutez un paramètre d’application nommé `APPINSIGHTS_INSTRUMENTATIONKEY` aux paramètres d’application de fonction dans Azure, comme décrit dans les [paramètres Function app](#function-app-settings). Ce paramètre d’application contient la clé d’instrumentation que vous avez créée à l’étape précédente.
+
+1. Supprimez le paramètre d’application `AzureWebJobsDashboard` de l’application de fonction dans Azure, ce qui désactive la journalisation intégrée.  
+
+Pour en savoir plus, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

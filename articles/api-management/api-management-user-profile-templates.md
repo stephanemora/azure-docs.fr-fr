@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: c56cefb3c62787f1bc2561aecec719cdbbc3b1c2
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: c4128c4c643b1410faf3753f8178cfcda654b2ae
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22983444"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268950"
 ---
 # <a name="user-profile-templates-in-azure-api-management"></a>Modèles Profil utilisateur dans Gestion des API Azure
 Gestion des API Azure vous offre la possibilité de personnaliser le contenu des pages du portail des développeurs à l’aide d’un ensemble de modèles qui configurent leur contenu. En utilisant la syntaxe [DotLiquid](http://dotliquidmarkup.org/) et l’éditeur de votre choix, comme [DotLiquid for Designers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), ainsi qu’un ensemble de [ressources de chaîne](api-management-template-resources.md#strings), de [ressources de glyphe](api-management-template-resources.md#glyphs) et de [contrôles de page](api-management-page-controls.md) localisés, vous disposez d’un large choix pour configurer le contenu des pages selon vos besoins à l’aide de ces modèles.  
@@ -35,7 +35,7 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 -   [Mettre à jour les informations du compte](#UpdateAccountInfo)  
   
 > [!NOTE]
->  Les exemples de modèles par défaut inclus dans la documentation suivante sont susceptibles d’être modifiés et améliorés de façon régulière. Vous pouvez afficher les modèles dynamiques par défaut dans le portail des développeurs en accédant aux modèles individuels souhaités. Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Les exemples de modèles par défaut inclus dans la documentation suivante sont susceptibles d’être modifiés et améliorés de façon régulière. Vous pouvez afficher les modèles dynamiques par défaut dans le portail des développeurs en accédant aux modèles individuels souhaités. Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="Profile"></a> Profil  
  Le modèle **Profil** vous permet de personnaliser la section Profil utilisateur de la page Profil utilisateur dans le portail des développeurs.  
@@ -102,17 +102,17 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 > [!NOTE]
 >  Les modèles [Profil](#Profile), [Applications](#Applications) et [Abonnements](#Subscriptions) partagent le même modèle de données et reçoivent les mêmes données de modèle.  
   
-|Propriété|Type|Description|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
-|firstName|string|Prénom de l’utilisateur actif.|  
-|lastName|string|Nom de l’utilisateur actif.|  
-|companyName|string|Nom de l’entreprise de l’utilisateur actif.|  
-|addresserEmail|string|Adresse e-mail de l’utilisateur actif.|  
-|developersUsageStatisticsLinkk|string|URL relative permettant d’afficher les données d’analyse relatives à l’utilisateur actif.|  
+|firstName|chaîne|Prénom de l’utilisateur actif.|  
+|lastName|chaîne|Nom de l’utilisateur actif.|  
+|companyName|chaîne|Nom de l’entreprise de l’utilisateur actif.|  
+|addresserEmail|chaîne|Adresse e-mail de l’utilisateur actif.|  
+|developersUsageStatisticsLinkk|chaîne|URL relative permettant d’afficher les données d’analyse relatives à l’utilisateur actif.|  
 |subscriptions|Collection d’entités [Abonnement](api-management-template-data-model-reference.md#Subscription).|Abonnements associés à l’utilisateur actif.|  
 |web|Collection d’entités [Application](api-management-template-data-model-reference.md#Application).|Applications associées à l’utilisateur actif.|  
-|changePasswordUrl|string|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
-|changeNameOrEmailUrl|string|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
+|changePasswordUrl|chaîne|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
+|changeNameOrEmailUrl|chaîne|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
 |canChangePassword|booléenne|Indique si l’utilisateur actif peut changer son mot de passe.|  
 |isSystemUser|booléenne|Indique si l’utilisateur actif est membre de l’un des [groupes](api-management-key-concepts.md#groups) prédéfinis.|  
   
@@ -323,17 +323,17 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 > [!NOTE]
 >  Les modèles [Profil](#Profile), [Applications](#Applications) et [Abonnements](#Subscriptions) partagent le même modèle de données et reçoivent les mêmes données de modèle.  
   
-|Propriété|Type|Description|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
-|firstName|string|Prénom de l’utilisateur actif.|  
-|lastName|string|Nom de l’utilisateur actif.|  
-|companyName|string|Nom de l’entreprise de l’utilisateur actif.|  
-|addresserEmail|string|Adresse e-mail de l’utilisateur actif.|  
-|developersUsageStatisticsLinkk|string|URL relative permettant d’afficher les données d’analyse relatives à l’utilisateur actif.|  
+|firstName|chaîne|Prénom de l’utilisateur actif.|  
+|lastName|chaîne|Nom de l’utilisateur actif.|  
+|companyName|chaîne|Nom de l’entreprise de l’utilisateur actif.|  
+|addresserEmail|chaîne|Adresse e-mail de l’utilisateur actif.|  
+|developersUsageStatisticsLinkk|chaîne|URL relative permettant d’afficher les données d’analyse relatives à l’utilisateur actif.|  
 |subscriptions|Collection d’entités [Abonnement](api-management-template-data-model-reference.md#Subscription).|Abonnements associés à l’utilisateur actif.|  
 |web|Collection d’entités [Application](api-management-template-data-model-reference.md#Application).|Applications associées à l’utilisateur actif.|  
-|changePasswordUrl|string|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
-|changeNameOrEmailUrl|string|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
+|changePasswordUrl|chaîne|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
+|changeNameOrEmailUrl|chaîne|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
 |canChangePassword|booléenne|Indique si l’utilisateur actif peut changer son mot de passe.|  
 |isSystemUser|booléenne|Indique si l’utilisateur actif est membre de l’un des [groupes](api-management-key-concepts.md#groups) prédéfinis.|  
   
@@ -486,17 +486,17 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 > [!NOTE]
 >  Les modèles [Profil](#Profile), [Applications](#Applications) et [Abonnements](#Subscriptions) partagent le même modèle de données et reçoivent les mêmes données de modèle.  
   
-|Propriété|Type|Description|  
+|Propriété|type|Description|  
 |--------------|----------|-----------------|  
-|firstName|string|Prénom de l’utilisateur actif.|  
-|lastName|string|Nom de l’utilisateur actif.|  
-|companyName|string|Nom de l’entreprise de l’utilisateur actif.|  
-|addresserEmail|string|Adresse e-mail de l’utilisateur actif.|  
-|developersUsageStatisticsLinkk|string|URL relative permettant d’afficher les données d’analyse relatives à l’utilisateur actif.|  
+|firstName|chaîne|Prénom de l’utilisateur actif.|  
+|lastName|chaîne|Nom de l’utilisateur actif.|  
+|companyName|chaîne|Nom de l’entreprise de l’utilisateur actif.|  
+|addresserEmail|chaîne|Adresse e-mail de l’utilisateur actif.|  
+|developersUsageStatisticsLinkk|chaîne|URL relative permettant d’afficher les données d’analyse relatives à l’utilisateur actif.|  
 |subscriptions|Collection d’entités [Abonnement](api-management-template-data-model-reference.md#Subscription).|Abonnements associés à l’utilisateur actif.|  
 |web|Collection d’entités [Application](api-management-template-data-model-reference.md#Application).|Applications associées à l’utilisateur actif.|  
-|changePasswordUrl|string|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
-|changeNameOrEmailUrl|string|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
+|changePasswordUrl|chaîne|URL relative permettant de modifier le mot de passe de l’utilisateur actif.|  
+|changeNameOrEmailUrl|chaîne|URL relative permettant de modifier le nom et l’e-mail de l’utilisateur actif.|  
 |canChangePassword|booléenne|Indique si l’utilisateur actif peut changer son mot de passe.|  
 |isSystemUser|booléenne|Indique si l’utilisateur actif est membre de l’un des [groupes](api-management-key-concepts.md#groups) prédéfinis.|  
   
@@ -624,4 +624,4 @@ Gestion des API Azure vous offre la possibilité de personnaliser le contenu des
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour plus d’informations sur l’utilisation de modèles, consultez [Comment personnaliser le portail des développeurs Gestion des API Azure à l’aide de modèles](api-management-developer-portal-templates.md).
+Pour plus d’informations sur l’utilisation de modèles, consultez la page [Guide pratique de personnalisation du portail des développeurs Gestion des API à l’aide de modèles](api-management-developer-portal-templates.md).

@@ -8,24 +8,24 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 8e9321e72727c1a3149ff2e78b8cb1248734cb88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3967a1e2317bac76785d534ba04a93de552c1a40
+ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978503"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48018534"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>Syntaxe des requêtes pour le routage des messages IoT Hub
 
-Le routage de messages permet aux utilisateurs d’acheminer différents types de données, notamment des messages de télémétrie d’appareil, des événements de cycle de vie d’appareil et des événements de modification de jumeau d’appareil, vers différents points de terminaison. Vous pouvez également appliquer des requêtes élaborées à ces données avant de les router, afin de recevoir les données qui vous intéressent. Cet article décrit le langage des requêtes du routage de messages IoT Hub, et fournit quelques modèles courants de requête. 
+Le routage de messages permet aux utilisateurs d’acheminer différents types de données, notamment des messages de télémétrie d’appareil, des événements de cycle de vie d’appareil et des événements de modification de jumeau d’appareil, vers différents points de terminaison. Vous pouvez également appliquer des requêtes élaborées à ces données avant de les router, afin de recevoir les données qui vous intéressent. Cet article décrit le langage des requêtes du routage de messages IoT Hub, et fournit quelques modèles courants de requête.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
-Le routage de messages vous permet d’interroger les propriétés et le corps d’un message ainsi que les étiquettes et propriétés d’un jumeau d’appareil. Si le corps du message n’est pas un fichier JSON, le routage de messages peut toujours acheminer le message, mais les requêtes ne sont pas applicables à ce corps de message.  Les requêtes sont décrites comme des expressions booléennes, où une valeur booléenne True fait réussir la requête qui achemine toutes les données entrantes, et où une valeur booléenne False fait échouer la requête qui n’achemine aucune donnée. Si l’expression prend la valeur Null ou Undefined, elle est considérée comme False et une erreur est générée dans les journaux de diagnostic en cas d’échec. La syntaxe des requêtes doit être correcte pour que l’itinéraire soit enregistré et évalué.  
+Le routage de messages vous permet d’interroger les propriétés et le corps d’un message, ainsi que les étiquettes et les propriétés d’un jumeau d’appareil. Si le corps du message n’est pas un fichier JSON, le routage de messages peut toujours acheminer le message, mais les requêtes ne sont pas applicables à ce corps de message.  Les requêtes sont décrites comme des expressions booléennes, où une valeur booléenne True fait réussir la requête qui achemine toutes les données entrantes, et où une valeur booléenne False fait échouer la requête qui n’achemine aucune donnée. Si l’expression prend la valeur Null ou Undefined, elle est considérée comme False et une erreur est générée dans les journaux de diagnostic en cas d’échec. La syntaxe des requêtes doit être correcte pour que l’itinéraire soit enregistré et évalué.  
 
 ## <a name="message-routing-query-based-on-message-properties"></a>Requête de routage de messages en fonction des propriétés de message 
 
-IoT Hub définit un [format commun](../iot-hub/iot-hub-devguide-messages-construct.md) pour toute messagerie appareil-à-cloud, afin de favoriser l’interopérabilité entre les différents protocoles. Le message IoT Hub suppose la représentation JSON suivante du message. Les propriétés système sont ajoutées pour tous les utilisateurs et identifient le contenu du message. Les utilisateurs peuvent ajouter de façon sélective des propriétés de l’application au message. La messagerie appareil-à-cloud IoT Hub ne respectant pas la casse, nous recommandons d’utiliser des noms de propriété uniques. Par exemple, si vous avez plusieurs propriétés portant le même nom, IoT Hub n’envoie qu’une seule de ces propriétés.  
+IoT Hub définit un [format commun](iot-hub-devguide-messages-construct.md) pour toute messagerie appareil-à-cloud, afin de favoriser l’interopérabilité entre les différents protocoles. Le message IoT Hub suppose la représentation JSON suivante du message. Les propriétés système sont ajoutées pour tous les utilisateurs et identifient le contenu du message. Les utilisateurs peuvent ajouter de façon sélective des propriétés de l’application au message. La messagerie appareil-à-cloud IoT Hub ne respectant pas la casse, nous recommandons d’utiliser des noms de propriété uniques. Par exemple, si vous avez plusieurs propriétés portant le même nom, IoT Hub n’envoie qu’une seule de ces propriétés.  
 
 ```json
 { 
@@ -46,6 +46,7 @@ IoT Hub définit un [format commun](../iot-hub/iot-hub-devguide-messages-constru
   } 
 } 
 ```
+
 ### <a name="system-properties"></a>Propriétés système
 
 Les propriétés système permettent d’identifier le contenu et la source des messages. 
@@ -55,7 +56,7 @@ Les propriétés système permettent d’identifier le contenu et la source des 
 | contentType | chaîne | L’utilisateur spécifie le type de contenu du message. Pour autoriser la requête sur le corps du message, cette valeur doit être définie sur application/JSON. |
 | contentEncoding | chaîne | L’utilisateur spécifie le type d’encodage du message. Les valeurs autorisées sont UTF-8, UTF-16, UTF-32 si la valeur contentType est définie sur application/JSON. |
 | connectionDeviceId | chaîne | Cette valeur est définie par IoT Hub et identifie la source des messages. Il peut s’agir de messages de télémétrie d’appareil, de notifications de modification de jumeau d’appareil ou d’événements de cycle de vie d’appareil. Elle ne peut pas faire l’objet d’une requête. |
-| iothub-enqueuedtime | chaîne | Cette valeur est définie par IoT Hub et représente l’heure (UTC) réelle de la mise en file d’attente du message. Pour interroger, utilisez `'enqueuedTime'`. |
+| iothub-enqueuedtime | chaîne | Cette valeur est définie par IoT Hub et représente l’heure (UTC) réelle de la mise en file d’attente du message. Pour interroger, utilisez `enqueuedTime`. |
 
 Comme expliqué dans l’article [Messages IoT Hub](iot-hub-devguide-messages-construct.md), il existe des propriétés système supplémentaires dans un message. En plus de **contentType**, **contentEncoding** et **enqueuedTime**, les propriétés **connectionDeviceId** et **connectionModuleId** peuvent également être interrogées.
 
@@ -65,7 +66,7 @@ Les propriétés de l’application sont des chaînes définies par l’utilisat
 
 ### <a name="query-expressions"></a>Expressions de requête
 
-Une requête sur les propriétés système d’un message doit avoir pour préfixe le symbole `'$'`. Les requêtes sur les propriétés de l’application sont accessibles par leur nom, dont le préfixe ne doit pas contenir de symbole `'$'`. Si le nom d’une propriété de l’application commence par `'$'`, IoT Hub recherche ce nom dans les propriétés système, où il est introuvable, puis le cherche dans les propriétés de l’application. Par exemple :  
+Une requête sur les propriétés système d’un message doit avoir pour préfixe le symbole `$`. Les requêtes sur les propriétés de l’application sont accessibles par leur nom, dont le préfixe ne doit pas contenir de symbole `$`. Si le nom d’une propriété de l’application commence par `$`, IoT Hub recherche ce nom dans les propriétés système, où il est introuvable, puis le cherche dans les propriétés de l’application. Par exemple :  
 
 Pour interroger la propriété système contentEncoding 
 
@@ -73,18 +74,19 @@ Pour interroger la propriété système contentEncoding
 $contentEncoding = 'UTF-8'
 ```
 
-Pour interroger la propriété de l’application processingPath
+Pour interroger la propriété de l’application processingPath :
+
 ```sql
 processingPath = 'hot'
 ```
 
-Pour combiner ces requêtes, vous pouvez utiliser des fonctions et des expressions booléennes 
+Pour combiner ces requêtes, vous pouvez utiliser des fonctions et des expressions booléennes :
+
 ```sql
 $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 ```
 
-La liste complète des fonctions et opérateurs pris en charge est répertoriée dans [Expression et conditions](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-query-language#expressions-and-conditions
-)
+La liste complète des fonctions et opérateurs pris en charge est répertoriée dans [Expression et conditions](iot-hub-devguide-query-language.md#expressions-and-conditions)
 
 ## <a name="message-routing-query-based-on-message-body"></a>Requête de routage de messages en fonction du corps de message 
 
@@ -146,19 +148,22 @@ Une requête sur le corps de message doit avoir pour préfixe `$body`. Vous pouv
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
 ```
+
 ```sql
 $body.Weather.Temperature = 50 AND $body.Weather.IsEnabled 
 ```
+
 ```sql
 length($body.Weather.Location.State) = 2 
 ```
+
 ```sql
 $body.Weather.Temperature = 50 AND processingPath = 'hot'
 ```
 
 ## <a name="message-routing-query-based-on-device-twin"></a>Requête de routage de messages en fonction du jumeau d’appareil 
 
-Le routage de messages vous permet d’interroger les étiquettes et les propriétés d’un [Jumeau d’appareil](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-device-twins), qui sont des objets JSON. Notez que l’interrogation d’un jumeau de module n’est pas prise en charge. Un exemple d’étiquettes et de propriétés de jumeau d’appareil est détaillé ci-dessous.
+Le routage de messages vous permet d’interroger les étiquettes et les propriétés d’un [Jumeau d’appareil](iot-hub-devguide-device-twins.md), qui sont des objets JSON. Notez que l’interrogation d’un jumeau de module n’est pas prise en charge. Un exemple d’étiquettes et de propriétés de jumeau d’appareil est détaillé ci-dessous.
 
 ```JSON
 {
@@ -196,9 +201,11 @@ Une requête sur le corps de message doit avoir pour préfixe `$twin`. Votre exp
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
 ```
+
 ```sql
 $body.Weather.Temperature = 50 AND $twin.properties.desired.telemetryConfig.sendFrequency = '5m'
 ```
+
 ```sql
 $twin.tags.deploymentLocation.floor = 1 
 ```

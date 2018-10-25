@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 09/12/2018
+ms.date: 10/10/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 16c4ab4601dbe57e014bfcb06ff9b35d02c60cfa
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7c5316aea2bfdb9a96b9aeb2dd5387b2643a92b2
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721906"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319725"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Questions courantes : réplication de Hyper-V vers Azure
 
@@ -104,7 +104,7 @@ Vous pouvez répliquer toute application ou charge de travail en cours d’exéc
 
 ### <a name="whats-the-replication-process"></a>Qu’est-ce que le processus de réplication ?
 
-1. Au moment où la réplication initiale est déclenchée, une capture instantanée des machines virtuelles Hyper-V est effectuée.
+1. Quand la réplication initiale est déclenchée, une capture instantanée des machines virtuelles Hyper-V est effectuée.
 2. Les disques durs virtuels sur la machine virtuelle sont répliqués un par un, jusqu’à ce qu’ils soient tous copiés sur Azure. Cela peut prendre un certain temps selon la taille de la machine virtuelle et la bande passante réseau. Découvrez comment augmenter la bande passante réseau.
 3. Si des modifications interviennent sur les disques pendant la réplication initiale, le dispositif de suivi de réplication des réplicas Hyper-V assure le suivi des modifications dans des journaux de réplication Hyper-V (.hrl). Ces fichiers journaux se trouvent dans le même dossier que les disques. À chaque disque correspond un fichier .hrl, qui est envoyé au stockage secondaire. L’instantané et les fichiers journaux consomment des ressources disque pendant la réplication initiale.
 4. Lorsque la réplication initiale s’achève, l’instantané de machine virtuelle est supprimé.
@@ -135,7 +135,7 @@ Quand vous répliquez vers Azure, le trafic de réplication atteint les points d
 
 Pour la réplication, une machine virtuelle Hyper-V doit exécuter un système d’exploitation pris en charge. En outre, la machine virtuelle doit respecter la configuration requise pour les machines virtuelles Azure. [Découvrez-en plus](hyper-v-azure-support-matrix.md#replicated-vms) dans la matrice de prise en charge.
 
-###<a name="how-often-can-i-replicate-to-azure"></a>À quelle fréquence puis-je répliquer vers Azure ?
+### <a name="how-often-can-i-replicate-to-azure"></a>À quelle fréquence puis-je répliquer vers Azure ?
 
 Les machines virtuelles Hyper-V peuvent être répliquées toutes les 30 secondes (sauf pour le stockage premium), toutes les 5 minutes ou toutes les 15 minutes.
 
@@ -207,6 +207,3 @@ Une fois votre infrastructure locale à nouveau opérationnelle, vous pouvez eff
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Puis-je effectuer la restauration à un autre emplacement ?
 Oui, si vous effectuez le basculement vers Azure, vous pouvez effectuer la restauration à un autre emplacement si celui d’origine n’est pas disponible. [Plus d’informations](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment)
-
-
-

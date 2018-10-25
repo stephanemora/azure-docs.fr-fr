@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/03/2018
+ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 43f077ef07597604eaf42cb4af47cbc2f0e6c524
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 9decd861ff20a45939f700eef99245b6555829f8
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042001"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319742"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Collecter des données dans un environnement hybride avec l’agent Log Analytics
 
@@ -51,15 +51,30 @@ Les versions suivantes du système d’exploitation Windows sont officiellement 
 * Windows 7 SP1 (ou version ultérieure).
 
 ## <a name="supported-linux-operating-systems"></a>Systèmes d’exploitation Linux pris en charge
-Les distributions Linux suivantes sont officiellement prises en charge.  Toutefois, l’agent Linux peut également s’exécuter sur d’autres distributions, qui ne se trouvent pas dans la liste.  Sauf indication contraire, toutes les versions mineures sont prises en charge pour chaque version majeure répertoriée.  
+Cette section fournit des détails sur les distributions Linux prises en charge.    
 
-* Amazon Linux 2012.09 à 2015.09 (x86/x64)
-* CentOS Linux 5, 6 et 7 (x86/x64)  
-* Oracle Linux 5, 6 et 7 (x86/x64) 
-* Red Hat Enterprise Linux Server 5, 6 et 7 (x86/x64)
-* Debian GNU/Linux 6, 7 et 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 et 12 (x86/x64)
+À partir des versions publiées après août 2018, nous apportons les changements suivants à notre modèle de prise en charge :  
+
+* Seules les versions serveur sont prises en charge, pas les versions client.  
+* Les nouvelles versions des [distributions approuvées de Linux Azure](../virtual-machines/linux/endorsed-distros.md) sont toujours prises en charge.  
+* Toutes les versions mineures de chaque version majeure listée sont prises en charge.
+* Les versions qui ont dépassé la date de fin de support de leur fabricant ne sont pas prises en charge.  
+* Les nouvelles versions d’AMI ne sont pas prises en charge.  
+* Seules les versions qui exécutent SSL 1.x par défaut sont prises en charge.
+
+Si vous utilisez une distribution ou une version qui n’est pas prise en charge actuellement et qui ne s’aligne pas sur notre modèle de prise en charge, nous vous recommandons de dupliquer ce dépôt, en sachant que le support de Microsoft ne fournira aucune assistance sur les versions d’agent dupliqué.
+
+* Amazon Linux 2017.09 (x64)
+* CentOS Linux 6 (x86/x64) et 7 (x64)  
+* Oracle Linux 6 et 7 (x86/x64) 
+* Red Hat Enterprise Linux Server 6 (x86/x64) et 7 (x64)
+* Debian GNU/Linux 8 et 9 (x86/x64)
+* Ubuntu 14.04 LTS (x86/x64), 16.04 LTS (x86/x64) et 18.04 LTS (x64)
+* SUSE Linux Enterprise Server 12 (x64)
+
+>[!NOTE]
+>OpenSSL 1.1.0 est uniquement pris en charge sur les plateformes x86_x64 (64 bits), tandis qu’OpenSSL antérieur à 1.x n’est pris en charge sur aucune plateforme.
+>
 
 ## <a name="tls-12-protocol"></a>Protocole TLS 1.2
 Pour garantir la sécurité des données en transit vers Log Analytics, nous vous encourageons vivement à configurer l’agent de façon à utiliser au moins Transport Layer Security (TLS) 1.2. Les versions antérieures de TLS/SSL (Secure Sockets Layer) se sont avérées vulnérables et bien qu’elles fonctionnent encore pour assurer la compatibilité descendante, elles sont **déconseillées**.  Pour plus d’informations, passez en revue [Envoi sécurisé de données via TLS 1.2](log-analytics-data-security.md#sending-data-securely-using-tls-12). 

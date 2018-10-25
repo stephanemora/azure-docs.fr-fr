@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 637e926676c727c01c60fe0d3e4e758173bdbd18
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 77f4eeec1aa87f42c90d4e93f98f460a8b54b9a9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45636545"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167407"
 ---
 # <a name="high-availability-of-sap-hana-on-azure-vms-on-red-hat-enterprise-linux"></a>Haute disponibilité de SAP HANA sur les machines virtuelles Azure dans le système Red Hat Enterprise Linux
 
@@ -59,8 +59,8 @@ Commencez par lire les notes et publications SAP suivantes :
   * Les logiciels SAP pris en charge et les combinaisons entre système d’exploitation et base de données.
   * La version du noyau SAP requise pour Windows et Linux sur Microsoft Azure.
 * La note SAP [2015553] répertorie les conditions préalables au déploiement de logiciels SAP pris en charge par SAP sur Azure.
-* La note SAP [2002167] recommande des paramètres de système d’exploitation pour Red Hat Enterprise Linux.
-* La note SAP [2009879] conseille sur SAP HANA pour Red Hat Enterprise Linux.
+* La note SAP [2002167] recommande des paramètres de système d’exploitation pour Red Hat Enterprise Linux
+* La note SAP [2009879] conseille sur SAP HANA pour Red Hat Enterprise Linux
 * La note SAP [2178632] contient des informations détaillées sur toutes les métriques de surveillance rapportées pour SAP sur Azure.
 * La note SAP [2191498] contient la version requise de l’agent hôte SAP pour Linux sur Azure.
 * La note SAP [2243692] contient des informations sur les licences SAP sur Linux dans Azure.
@@ -75,7 +75,7 @@ Commencez par lire les notes et publications SAP suivantes :
   * [Administration des modules complémentaires de haute disponibilité](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Référence des modules complémentaires de haute disponibilité](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
 * Documentation RHEL spécifique à Azure :
-  * [Stratégies de prise en charge des clusters à haute disponibilité RHEL : machines virtuelles Microsoft Azure en tant que membres du cluster](https://access.redhat.com/articles/3131341)
+  * [Stratégies de prise en charge des clusters à haute disponibilité RHEL - Machines virtuelles Microsoft Azure en tant que membres du cluster](https://access.redhat.com/articles/3131341)
   * [Installation et configuration d’un cluster à haute disponibilité Red Hat Enterprise Linux 7.4 (et versions ultérieures) sur Microsoft Azure](https://access.redhat.com/articles/3252491)
   * [Installation de SAP HANA sur Red Hat Enterprise Linux pour une utilisation dans Microsoft Azure](https://access.redhat.com/solutions/3193782)
 
@@ -643,8 +643,9 @@ Resource Group: g_ip_HN1_03
 </code></pre>
 
 Vous pouvez tester l’installation de l’agent de délimitation Azure en désactivant l’interface réseau sur le nœud sur lequel SAP HANA s’exécute en tant que nœud principal.
+Consultez [l’article de la base de connaissances Red Hat 79523](https://access.redhat.com/solutions/79523) pour savoir comment simuler une panne réseau. Dans cet exemple, nous utilisons le script net_breaker pour bloquer tout accès au réseau.
 
-<pre><code>[root@hn1-db-1 ~]# sudo ifdown eth0
+<pre><code>[root@hn1-db-1 ~]# sh ./net_breaker.sh BreakCommCmd 10.0.0.6
 </code></pre>
 
 La machine virtuelle devrait maintenant redémarrer ou s’arrêter en fonction de la configuration de votre cluster.

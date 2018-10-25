@@ -10,21 +10,23 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2018
+ms.date: 10/10/2018
 ms.reviewer: pharring
 ms.author: mbullwin
-ms.openlocfilehash: d4c27c8297fb5a2ad13a245279a206d00fc4f8b1
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 6dd39fddd99f5f8ea9329f21c271ed4c1063362d
+ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144123"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49078968"
 ---
 # <a name="debug-snapshots-on-exceptions-in-net-apps"></a>Captures instantanées de débogage sur exceptions levées dans des applications .NET
 
 Quand une exception se produit, vous pouvez collecter automatiquement une capture instantanée de débogage à partir de votre application web dynamique. La capture instantanée indique l’état du code source et des variables au moment où l’exception a été levée. Le Débogueur de capture instantanée (préversion) dans [Azure Application Insights](app-insights-overview.md) analyse la télémétrie des exceptions à partir de votre application web. Il collecte des captures instantanées sur les principales exceptions levées afin que vous disposiez des informations dont vous avez besoin pour diagnostiquer des problèmes de production. Incluez le [package NuGet de collecte des captures instantanées](http://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) dans votre application, et configurez éventuellement les paramètres de collecte dans [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md). Les captures instantanées apparaissent sur les [exceptions](app-insights-asp-net-exceptions.md) dans le portail Application Insights.
 
 Vous pouvez afficher les captures instantanées de débogage dans le portail pour consulter la pile des appels et inspecter les variables à chaque frame de pile des appels. Pour améliorer la puissance de débogage du code source, ouvrez les captures instantanées à l’aide de Visual Studio 2017 Enterprise en [téléchargeant l’extension du Débogueur de capture instantanée pour Visual Studio](https://aka.ms/snapshotdebugger). Dans Visual Studio, vous pouvez également [définir des points de capture instantanée pour prendre des captures instantanées de manière interactive](https://aka.ms/snappoint) sans attendre la levée d’une exception.
+
+Les captures instantanées de débogage sont stockées pendant sept jours. Cette stratégie de rétention est définie application par application. Si vous devez accroître cette valeur, vous pouvez demander une augmentation en ouvrant une demande de support dans le portail Azure.
 
 La collecte de captures instantanées est disponible pour :
 * les applications .NET framework et ASP.NET exécutant .NET Framework 4.5 ou version ultérieure ;
@@ -191,9 +193,12 @@ Les environnements suivants sont pris en charge :
 
 ## <a name="grant-permissions"></a>Accorder des autorisations
 
-Les propriétaires de l’abonnement Azure peuvent inspecter des captures instantanées. Les autres utilisateurs doivent y être autorisés par un propriétaire.
+L’accès aux captures instantanées est protégé par le contrôle d’accès en fonction du rôle (RBAC). Pour que vous puissiez examiner une capture instantanée, un propriétaire d’abonnement doit d’abord vous ajouter au rôle nécessaire.
 
-Pour accorder cette autorisation, vous devez attribuer le rôle `Application Insights Snapshot Debugger` aux utilisateurs chargés d’inspecter les captures instantanées. Ce rôle peut être attribué à des utilisateurs ou à des groupes par les propriétaires d’abonnements pour la ressource Application Insights cible, ou pour son groupe de ressources ou son abonnement.
+> [!NOTE]
+> Les propriétaires et contributeurs ne disposent pas automatiquement de ce rôle. S’ils souhaitent afficher des captures instantanées, ils doivent s’ajouter eux-mêmes au rôle.
+
+Les propriétaires d’abonnement doivent attribuer le rôle `Application Insights Snapshot Debugger` aux utilisateurs chargés d’examiner les captures instantanées. Ce rôle peut être attribué à des utilisateurs ou à des groupes par les propriétaires d’abonnements pour la ressource Application Insights cible, ou pour son groupe de ressources ou son abonnement.
 
 1. Accédez à la ressource Application Insights dans le portail Azure.
 1. Cliquez sur **Contrôle d’accès (IAM)**.

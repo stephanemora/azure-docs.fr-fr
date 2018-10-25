@@ -1,6 +1,6 @@
 ---
-title: Gérer et déployer des modèles dans Azure Machine Learning
-description: Découvrez comment utiliser Azure Machine Learning pour déployer, gérer et surveiller vos modèles afin de les améliorer en permanence. Vous pouvez déployer les modèles que vous avez entraînés avec Azure Machine Learning, sur votre machine locale ou depuis d’autres sources.
+title: Gérer et déployer des modèles dans le service Azure Machine Learning
+description: Découvrez comment utiliser le service Azure Machine Learning pour déployer, gérer et surveiller vos modèles afin de les améliorer en permanence. Vous pouvez déployer les modèles que vous avez entraînés avec le service Azure Machine Learning, sur votre ordinateur local ou depuis d’autres sources.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,21 +9,21 @@ ms.reviewer: jmartens
 author: hjerez
 ms.author: hjerez
 ms.date: 09/24/2018
-ms.openlocfilehash: d3e0b63d42ad8c6d4765f5120c26c5dfdf5ad6fb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: b09ef259d73744612c41adc4fc40ea0235da9bcb
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166535"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885065"
 ---
-# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning"></a>Déployer, gérer et surveiller des modèles avec Azure Machine Learning
+# <a name="manage-deploy-and-monitor-models-with-azure-machine-learning-service"></a>Déployer, gérer et surveiller des modèles avec le service Azure Machine Learning
 
-Dans cet article, vous pouvez découvrir comment utiliser Azure Machine Learning pour déployer, gérer et surveiller vos modèles afin de les améliorer en permanence. Vous pouvez déployer les modèles que vous avez entraînés avec Azure Machine Learning, sur votre machine locale ou depuis d’autres sources. 
+Dans cet article, vous pouvez découvrir comment utiliser le service Azure Machine Learning pour déployer, gérer et surveiller vos modèles afin de les améliorer en permanence. Vous pouvez déployer les modèles que vous avez entraînés avec Azure Machine Learning, sur votre machine locale ou depuis d’autres sources. 
 
 Le diagramme suivant illustre le flux de travail de déploiement complet : [ ![Workflow de déploiement pour Azure Machine Learning](media/concept-model-management-and-deployment/deployment-pipeline.png) ](media/concept-model-management-and-deployment/deployment-pipeline.png#lightbox)
 
 Le workflow de déploiement comprend les étapes suivantes :
-1. **Inscrire le modèle** dans un registre hébergé dans votre espace de travail Azure Machine Learning
+1. **Inscrire le modèle** dans un registre hébergé dans votre espace de travail du service Azure Machine Learning
 1. **Inscrire une image** qui associe un modèle avec un script de scoring et des dépendances dans un conteneur portable 
 1. **Déployer** l’image comme service web dans le cloud ou sur des périphériques de périmètre
 1. **Surveiller et collecter des données**
@@ -35,7 +35,7 @@ Chaque étape peut être effectuée indépendamment ou dans le cadre d’une mê
 
 ## <a name="step-1-register-model"></a>Étape 1 : Inscrire le modèle
 
-Le registre de modèles effectue le suivi de tous les modèles de votre espace de travail Azure Machine Learning.
+Le registre de modèles garde une trace de tous les modèles de l’espace de travail correspondant au service Azure Machine Learning.
 Les modèles sont identifiés par leur nom et par leur version. Chaque fois que vous inscrivez un modèle portant le même nom qu’un modèle existant, le registre incrémente la version. Vous pouvez également fournir des étiquettes de métadonnées supplémentaires lors de l’inscription, qui peuvent être utilisées lors de la recherche de modèles.
 
 Vous ne pouvez pas supprimer les modèles qui sont utilisés par une image.
@@ -71,7 +71,7 @@ Vous pouvez déployer vos images sur les [cibles de déploiement](how-to-deploy-
 * Machines FPGA Azure
 * Appareil Azure IoT Edge
 
-Une fois votre service déployé, la charge des demandes d’inférence est automatiquement équilibrée et le cluster est mis à l’échelle pour satisfaire les pics de demandes. Une [télémétrie sur votre service](https://docs.microsoft.com/python/api/azureml-telemetry/azureml.telemetry?view=azure-ml-py) peut être capturée dans le service Azure Application Insights associé à votre espace de travail.
+Une fois votre service déployé, la charge des demandes d’inférence est automatiquement équilibrée et le cluster est mis à l’échelle pour satisfaire les pics de demandes. Des [données de télémétrie sur votre service peuvent être capturées](how-to-enable-app-insights.md) dans le service Azure Application Insights associé à votre espace de travail.
 
 ## <a name="step-4-monitor-models-and-collect-data"></a>Étape 4 : Surveiller des modèles et collecter des données
 

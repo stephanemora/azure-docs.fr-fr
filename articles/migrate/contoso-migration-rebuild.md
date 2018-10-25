@@ -3,16 +3,17 @@ title: Régénérer une application locale de Contoso sur Azure | Microsoft Docs
 description: Découvrez comment Contoso régénère une application sur Azure à l’aide d’Azure App Services, de Kubernetes Service, de CosmosDB, d’Azure Functions et de Cognitive Services.
 services: site-recovery
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: f0dc199f8a91ac06993f4ccbc9dff7dfad9f8a19
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 6c68d90605590ed8a17296e83276c7ef5396d6a2
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042480"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49092971"
 ---
 # <a name="contoso-migration-rebuild-an-on-premises-app-to-azure"></a>Migration de Contoso : régénérer une application locale sur Azure
 
@@ -35,7 +36,8 @@ Ce document fait partie d’une série d’articles qui montrent comment la soci
 [Article 10 : Refactoriser une application Linux vers Azure Web Apps et Azure MySQL](contoso-migration-refactor-linux-app-service-mysql.md) | Montre comment Contoso migre l’application Linux osTicket vers Azure Web Apps dans plusieurs sites intégrés avec GitHub pour assurer une livraison continue. Elle migre la base de données d’application vers une instance Azure MySQL. | Disponible
 [Article 11 : Refactoriser TFS sur Azure DevOps Services](contoso-migration-tfs-vsts.md) | Montre comment Contoso migre le déploiement TFS (Team Foundation Server) local vers Azure DevOps Services dans Azure. | Disponible
 [Article 12 : Réarchitecturer une application sur des conteneurs Azure et SQL Database](contoso-migration-rearchitect-container-sql.md) | Montre comment Contoso migre et réarchitecture son application SmartHotel vers Azure. Elle réarchitecture la couche web d’application en tant que conteneur Windows et la base de données d’application en une base de données Azure SQL Database. | Disponible
-Article 13 : Régénérer une application dans Azure | Montre comment Contoso régénère son application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, dont App Services, Azure Kubernetes, Azure Functions, Cognitive services et Cosmos DB. | Cet article.
+Article 13 : Régénérer une application dans Azure | Montre comment Contoso regénère son application SmartHotel à l’aide d’une série de fonctionnalités et services Azure, notamment App Services, Azure Kubernetes, Azure Functions, Cognitive Services et Cosmos DB. | Cet article
+[Article 14 : Mettre à l’échelle une migration vers Azure](contoso-migration-scale.md) | Après des essais de différentes combinaisons de migration, Contoso se prépare à une migration complète vers Azure. | Disponible
 
 Dans cet article, Contoso migre Windows à deux niveaux. Application .NET SmartHotel360 s’exécutant sur des machines virtuelles VMware vers Azure. Si vous souhaitez utiliser cette application, elle est disponible en open source et vous pouvez la télécharger à partir de [GitHub](https://github.com/Microsoft/SmartHotel360).
 
@@ -52,7 +54,7 @@ L’équipe informatique a travaillé en étroite collaboration avec des partena
 
 L’équipe cloud de Contoso a épinglé les exigences d’application pour cette migration. Ces exigences ont été utilisées pour déterminer la meilleure méthode de migration :
  - L’application dans Azure restera aussi critique qu’aujourd'hui. Elle doit offrir de bonnes performances et se mettre à l’échelle facilement.
- - L’application ne doit pas utiliser de composants IaaS. Tout doit être créé pour utiliser des services PaaS ou serverless.
+ - L’application ne doit pas utiliser de composants IaaS. Tout doit être créé pour utiliser des services PaaS ou sans serveur.
  - Les builds de l’application doivent s’exécuter dans des services cloud, et les conteneurs doivent résider dans un registre de conteneurs privé à l’échelle de l’entreprise dans le cloud.
  - Le service API utilisé pour les photos d’animaux doit être précis et fiable dans le monde réel, car les décisions prises par l’application doivent être respectées dans les hôtels. Tout animal auquel l’accès est accordé est autorisé à séjourner dans les hôtels.
  - Pour satisfaire aux exigences d’un pipeline DevOps, Contoso utilisera Azure DevOps pour la gestion du code source avec des dépôts Git.  Des builds et mises en production automatisées seront utilisées pour générer du code et pour le déployer sur Azure Web Apps, Azure Functions et AKS.
@@ -93,7 +95,7 @@ Contoso évalue la conception proposée en dressant la liste des avantages et de
 
 **Considération** | **Détails**
 --- | ---
-**Avantages** | L’utilisation de solutions PaaS et serverless pour le déploiement de bout en bout réduit considérablement le temps de gestion pour Contoso.<br/><br/> La migration vers une architecture de microservice permet à Contoso d’étendre facilement la solution au fil du temps.<br/><br/> Les nouvelles fonctionnalités peuvent être mises en ligne sans interruption des bases de code de solutions existantes.<br/><br/> L’application web est configurée avec plusieurs instances sans point de défaillance unique.<br/><br/> La mise à l'échelle automatique sera activée afin que l’application puisse traiter les variations de volume du trafic.<br/><br/> Avec la migration vers des services PaaS, Contoso peut mettre hors service des solutions obsolètes s’exécutant sur le système d’exploitation Windows Server 2008 R2.<br/><br/> CosmosDB a une tolérance de panne intégrée qui ne nécessite aucune configuration par Contoso. Cela signifie que la couche Données n’est plus un point de basculement unique.
+**Avantages** | L’utilisation de solutions PaaS et sans serveur pour le déploiement de bout en bout réduit considérablement le temps de gestion pour Contoso.<br/><br/> La migration vers une architecture de microservice permet à Contoso d’étendre facilement la solution au fil du temps.<br/><br/> Les nouvelles fonctionnalités peuvent être mises en ligne sans interruption des bases de code de solutions existantes.<br/><br/> L’application web est configurée avec plusieurs instances sans point de défaillance unique.<br/><br/> La mise à l'échelle automatique sera activée afin que l’application puisse traiter les variations de volume du trafic.<br/><br/> Avec la migration vers des services PaaS, Contoso peut mettre hors service des solutions obsolètes s’exécutant sur le système d’exploitation Windows Server 2008 R2.<br/><br/> CosmosDB a une tolérance de panne intégrée qui ne nécessite aucune configuration par Contoso. Cela signifie que la couche Données n’est plus un point de basculement unique.
 **Inconvénients** | Les conteneurs sont plus complexes que d’autres options de migration. La courbe d’apprentissage pourrait poser problème à Contoso.  Ils introduisent un nouveau niveau de complexité qui apporte beaucoup de valeur en dépit de la courbe.<br/><br/> L’équipe des opérations chez Contoso doit redoubler d’efforts pour comprendre et prendre en charge Azure, les conteneurs et les microservices pour l’application.<br/><br/> Contoso n’a pas encore totalement implémenté le DevOps pour la solution entière. Contoso doit y réfléchir pour le déploiement de services vers AKS, les fonctions et App Services.
 
 
@@ -113,7 +115,7 @@ Contoso évalue la conception proposée en dressant la liste des avantages et de
 **Service** | **Description** | **Coût**
 --- | --- | ---
 [AKS](https://docs.microsoft.com/sql/dma/dma-overview?view=ssdt-18vs2017) | Simplifie le déploiement, la gestion et les opérations de Kubernetes. Utilisez un service d'orchestration de conteneur Kubernetes entièrement géré.  | AKS est un service gratuit.  Vous payez uniquement pour les machines virtuelles, le stockage associé et la consommation des ressources réseau. [Plus d’informations](https://azure.microsoft.com/pricing/details/kubernetes-service/)
-[Azure Functions](https://azure.microsoft.com/services/functions/) | Accélère le développement avec une expérience de calcul serverless basée sur les événements. Mettez à l’échelle à la demande.  | Payez uniquement pour les ressources consommées. L’offre est facturée sur la base des exécutions et de la consommation de ressources par seconde. [Plus d’informations](https://azure.microsoft.com/pricing/details/functions/)
+[Azure Functions](https://azure.microsoft.com/services/functions/) | Accélère le développement avec une expérience de calcul sans serveur pilotée par événements. Mettez à l’échelle à la demande.  | Payez uniquement pour les ressources consommées. L’offre est facturée sur la base des exécutions et de la consommation de ressources par seconde. [Plus d’informations](https://azure.microsoft.com/pricing/details/functions/)
 [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) | Stocke les images pour tous types de déploiements de conteneur. | Coût basé sur les fonctionnalités, le stockage et la durée d’utilisation. [Plus d’informations](https://azure.microsoft.com/pricing/details/container-registry/)
 [Azure App Service](https://azure.microsoft.com/services/app-service/containers/) | Créez, déployez et mettez à l’échelle rapidement des applications web, mobiles et API de classe entreprise exécutables sur toute plateforme. | Les plans App Service sont facturés par seconde. [Plus d’informations](https://azure.microsoft.com/pricing/details/app-service/windows/)
 
@@ -125,7 +127,7 @@ Voici ce dont Contoso a besoin pour ce scénario :
 --- | ---
 **Abonnement Azure** | Dans un article précédent, Contoso a créé des abonnements. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).<br/><br/> Si vous créez un compte gratuit, vous êtes l’administrateur de votre abonnement et pouvez effectuer toutes les actions.<br/><br/> Si vous utilisez un abonnement existant et que vous n’êtes pas l’administrateur, vous devez collaborer avec l’administrateur pour qu’il vous donne les autorisations Propriétaire ou Contributeur.
 **Infrastructure Azure** | [Découvrez comment](contoso-migration-infrastructure.md) Contoso configure une infrastructure Azure.
-**Prérequis pour développeur** | Contoso a besoin des outils suivants sur une station de travail de développeur :<br/><br/> - [Visual Studio 2017 Community Edition version 15.5](https://www.visualstudio.com/)<br/><br/> Charge de travail .NET activée.<br/><br/> [Git](https://git-scm.com/)<br/><br/> [Azure PowerShell](https://azure.microsoft.com/downloads/)<br/><br/> [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)<br/><br/> [Docker CE (Windows 10) ou Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/), configurés pour utiliser des conteneurs Windows.
+**Prérequis pour développeur** | Contoso a besoin des outils suivants sur une station de travail de développeur :<br/><br/> - [Visual Studio 2017 Community Edition version 15.5](https://www.visualstudio.com/)<br/><br/> Charge de travail .NET activée.<br/><br/> [Git](https://git-scm.com/)<br/><br/> [Azure PowerShell](https://azure.microsoft.com/downloads/)<br/><br/> [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)<br/><br/> [Docker CE (Windows 10) ou Docker EE (Windows Server)](https://docs.docker.com/docker-for-windows/install/), configurés pour utiliser des conteneurs Windows.
 
 
 

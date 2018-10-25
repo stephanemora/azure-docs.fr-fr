@@ -5,15 +5,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/21/2018
+ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 18dfdce827a76d924494e66ceb0d03e2bb3a3ffe
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523758"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114190"
 ---
 # <a name="azure-storage-replication"></a>Réplication Azure Storage
 
@@ -39,9 +39,13 @@ Le tableau suivant fournit une brève vue d’ensemble de l’étendue de la dur
 | Panne à l’échelle d’une région                                                                                     | Non                               | Non                                | OUI                                  | OUI                                  |
 | Accès en lecture aux données (dans une région distante, géorépliquée) en cas d’indisponibilité à l’échelle de la région | Non                               | Non                                | Non                                    | OUI                                  |
 | Conçu pour fournir une certaine durabilité des objets sur une année donnée                                          | Au moins 99,999999999 % (11 chiffres 9) | Au moins 99,9999999999 % (12 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) |
-| Types de compte de stockage pris en charge                                                                   | GPv1, GPv2, blob                | GPv2                             | GPv1, GPv2, blob                     | GPv1, GPv2, blob                     |
+| Types de compte de stockage pris en charge                                                                   | GPv2, GPv1, Blob                | GPv2, GPv1 (par le biais de PowerShell, d’Azure CLI ou de l’API du fournisseur de ressources)                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
+| Contrat SLA de disponibilité pour les requêtes de lecture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,99 % (99,9 % pour le niveau d’accès froid) |
+| Contrat SLA de disponibilité pour les requêtes d’écriture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) |
 
-Consultez [Présentation de la tarification Stockage Azure ](https://azure.microsoft.com/pricing/details/storage/) pour connaître les informations de tarification des différentes options de redondance.
+Pour obtenir des informations sur les prix des différentes options de redondance, consultez [Prix de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/). 
+
+Pour obtenir des informations sur les garanties de Stockage Azure en matière de durabilité et de disponibilité, consultez le [contrat de niveau de service de Stockage Azure](https://azure.microsoft.com/support/legal/sla/storage/).
 
 > [!NOTE]
 > Stockage Premium prend en charge uniquement un stockage localement redondant (LRS). Pour plus d’informations sur Stockage Premium, consultez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../../virtual-machines/windows/premium-storage.md).

@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 59856418adde1ea29a0513a1ca7c0c60531768d8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3e4b4e904fd4615458e8d873baa1bf30588fe81d
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036539"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48249432"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>Comment : Effectuer une migration à partir d’Azure Access Control Service
 
@@ -116,6 +116,9 @@ Voici le planning de la mise hors service des composants d’Access Control Serv
 - **Novembre 2017** : l’expérience d’administration d’Azure AD dans le portail Azure Classic a été [mise hors service](https://blogs.technet.microsoft.com/enterprisemobility/2017/09/18/marching-into-the-future-of-the-azure-ad-admin-experience-retiring-the-azure-classic-portal/). La gestion des espaces de noms pour Access Control sera alors disponible à une nouvelle URL dédiée : `http://manage.windowsazure.com?restoreClassic=true`. Utilisez cette URL pour afficher vos espaces de noms, activer et désactiver des espaces de noms et pour en supprimer si vous le souhaitez.
 - **2 avril 2018** : le Portail Azure Classic est entièrement mis hors service, ce qui signifie que la gestion des espaces de noms d’Access Control n’est plus disponible à aucune URL. Dès lors, vous ne pourrez pas désactiver, activer, supprimer ou énumérer vos espaces de noms Access Control Service. Toutefois, le portail de gestion d’Access Control sera entièrement fonctionnel et accessible à l’adresse `https://\<namespace\>.accesscontrol.windows.net`. Tous les autres composants d’Access Control Service continueront à fonctionner normalement.
 - **7 novembre 2018** : tous les composants d’Access Control sont définitivement mis hors service. Cela inclut le portail de gestion Access Control Service, le service de gestion, le service STS et le moteur de règles de transformation des jetons. À ce moment-là, toutes les demandes envoyées à Access Control Service (situé dans \<espace_de_noms\>.accesscontrol.windows.net) échoueront. Vous devrez avoir migré l’ensemble des applications et services vers d’autres technologies bien avant cette date.
+
+> [!NOTE]
+> Une stratégie désactive les espaces de noms qui n’ont pas demandé de jeton pendant une période donnée. Depuis début septembre 2018, cette période est actuellement de 14 jours d’inactivité, mais sera réduite à 7 jours d’inactivité dans les semaines à venir. Si vous disposez d’espaces de noms Access Control actuellement désactivés, vous pouvez [télécharger et installer ACS PowerShell](#download-and-install-acs-powershell) pour réactiver les espaces de noms.
 
 ## <a name="migration-strategies"></a>Stratégies de migration
 
@@ -277,7 +280,7 @@ Parfois, il se peut qu’Azure Active Directory et Azure Active Directory B2C ne
 - Applications Web avec des règles complexes de transformation des jetons, qu’Azure Active Directory ou Azure Active Directory B2C ne peut pas reproduire.
 - Applications Web à architecture mutualisée qui utilisent Access Control Service pour gérer la fédération de manière centralisée chez de nombreux fournisseurs d’identité.
 
-Dans ce cas, il peut être préférable de migrer votre application web vers un autre service d’authentification cloud. Nous vous recommandons d’explorer les options suivantes. Chacune des options suivantes offre des fonctionnalités similaires à Access Control Service :
+Dans ce cas, il peut être préférable de migrer votre application web vers un autre service d’authentification cloud. Nous vous recommandons d’explorer les options suivantes. Chacune des options suivantes offre des fonctionnalité similaires à Access Control Service :
 
 |     |     | 
 | --- | --- |
@@ -347,6 +350,10 @@ Dans ces cas, vous pouvez envisager de migrer votre application web vers un autr
 | ![Ping](./media/active-directory-acs-migration/rsz_ping.png) | [Ping Identity](https://www.pingidentity.com) propose deux solutions similaires à Access Control Service. PingOne est un service d’identité cloud qui prend en charge la plupart des fonctionnalités d’Access Control Service, et PingFederate est un produit d’identité locale similaire qui offre davantage de souplesse. Pour plus d’informations sur l’utilisation de ces produits, consultez les [Conseils concernant la mise hors service d’Access Control Service de Ping](https://www.pingidentity.com/en/company/blog/2017/11/20/migrating_from_microsoft_acs_to_ping_identity.html). |
 
 Notre objectif en utilisant Ping Identity et Auth0 est de vous assurer que tous les clients d’Access Control Service ont un chemin de migration pour leurs applications et services, qui réduise le volume de travail requis pour abandonner Access Control Service.
+
+#### <a name="passthrough-authentication"></a>Authentification directe
+
+Pour l’authentification directe avec transformation arbitraire de jeton, il n’existe aucune technologie Microsoft équivalente à ACS. Si vos clients en ont besoin, Auth0 peut offrir la solution d’approximation la plus proche.
 
 ## <a name="questions-concerns-and-feedback"></a>Questions, problèmes et commentaires
 

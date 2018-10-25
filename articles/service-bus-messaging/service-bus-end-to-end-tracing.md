@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/18/2017
+ms.date: 09/18/2018
 ms.author: lmolkova
-ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2e4ff84c957540aa6863cd9836b1744e73c5b2f5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141999"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48854879"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Traçage et corrélation distribués par le biais de la messagerie Service Bus
 
@@ -83,10 +83,10 @@ async Task ProcessAsync(Message message)
 Dans cet exemple, `RequestTelemetry` est signalé pour chaque message traité, avec un horodateur, une durée et un résultat (réussite). Les données de télémétrie comprennent également un jeu de propriétés de corrélation.
 Les traces et exceptions imbriquées qui sont signalées durant le traitement des messages sont également horodatées avec des propriétés de corrélation qui les représentent comme des « enfants » de `RequestTelemetry`.
 
-Si vous effectuez des appels à des composants externes pris en charge durant le traitement des messages, ils sont aussi suivis et mis en corrélation automagiquement. Pour effectuer manuellement le suivi et la mise en corrélation, consultez [Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights](../application-insights/application-insights-custom-operations-tracking.md).
+Si vous appelez des composants externes pris en charge durant le traitement des messages, ils sont également suivis et mis en corrélation automatiquement. Pour effectuer manuellement le suivi et la mise en corrélation, consultez [Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights](../application-insights/application-insights-custom-operations-tracking.md).
 
 ### <a name="tracking-without-tracing-system"></a>Suivi sans un système de traçage
-Si votre système de traçage ne prend pas en charge le suivi automagique des appels Service Bus, songez à l’ajouter dans un système de traçage ou dans votre application. Cette section décrit les événements de diagnostic envoyés par Service Bus .NET Client.  
+Si votre système de traçage ne prend pas en charge le suivi automatique des appels Service Bus, songez à l’ajouter dans un système de traçage ou dans votre application. Cette section décrit les événements de diagnostic envoyés par Service Bus .NET Client.  
 
 Service Bus .NET Client est instrumenté à l’aide des primitives de traçage .NET [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) et [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
@@ -227,7 +227,6 @@ En présence de plusieurs écouteurs `DiagnosticSource` pour la même source, il
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Corrélation dans Application Insights](../application-insights/application-insights-correlation.md)
 * [Monitoring des dépendances Application Insights](../application-insights/app-insights-asp-net-dependencies.md) pour déterminer si REST, SQL ou d’autres ressources externes ralentissent vos opérations.
 * [Suivi des opérations personnalisées avec le kit SDK .NET d’Application Insights](../application-insights/application-insights-custom-operations-tracking.md)

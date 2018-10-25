@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/11/2018
 ms.author: harijay
-ms.openlocfilehash: 642bf03ecef7f6db25c51671635d96ef7baed91a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: bccf53ed5554579f4ff0a864c38562b7b7f0d3ca
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411457"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885287"
 ---
 # <a name="virtual-machine-serial-console"></a>Console série de machine virtuelle
 
@@ -29,7 +29,7 @@ La console série de machine virtuelle Azure permet aux machines virtuelles Linu
 Pour obtenir la documentation sur la console série pour les machines virtuelles Windows, [cliquez ici](../windows/serial-console.md).
 
 > [!Note] 
-> La console série pour les machines virtuelles est généralement disponible dans les régions Azure globales. À ce stade, la console série n’est pas encore disponible dans les clouds Azure Government ni Azure China.
+> La console série pour les machines virtuelles est généralement disponible dans les régions Azure globales. À ce stade, la console série n’est encore disponible ni dans les clouds Azure Government, ni dans le clouds Azure en Chine.
 
 
 ## <a name="prerequisites"></a>Prérequis 
@@ -44,18 +44,18 @@ Pour obtenir la documentation sur la console série pour les machines virtuelles
 
     ![](./media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Pour découvrir les paramètres spécifiques aux distributions Linux, consultez la section [Access the serial console for Linux](#Serial-Console-Linux-distro-availability) (Accéder à la console série pour Linux)
+* Pour découvrir les paramètres spécifiques aux distributions Linux, consultez la section [Disponibilité de la distribution de Linux pour la console série](#serial-console-linux-distro-availability)
 
 
 
 ## <a name="get-started-with-serial-console"></a>Bien démarrer avec la console série
-Pour les machines virtuelles, la console série est accessible uniquement via le [portail Azure](https://portal.azure.com). Voici les étapes permettant aux machines virtuelles d’accéder à la console série via le portail : 
+Pour les machines virtuelles, la console série est accessible uniquement via le [portail Azure](https://portal.azure.com). Assurez-vous de remplir les[ conditions préalables](#prerequisites) ci-dessus. Voici les étapes permettant aux machines virtuelles d’accéder à la console série via le portail :
 
   1. Ouvrez le portail Azure
   1. (Ignorez cette étape si votre machine virtuelle a un utilisateur qui emploie l’authentification par mot de passe) Ajoutez un utilisateur avec une authentification par nom d’utilisateur/mot de passe en cliquant sur le panneau Réinitialiser le mot de passe
   1. Dans le menu de gauche, sélectionnez Machines virtuelles.
   1. Cliquez sur la machine virtuelle de votre choix dans la liste. La page de présentation de la machine virtuelle s’ouvre.
-  1. Faites défiler jusqu’à la section Support + dépannage, puis cliquez sur l’option Console série. Un nouveau volet s’ouvre avec la console série, puis démarre la connexion.
+  1. Faites défiler jusqu’à la section Support + dépannage, puis cliquez sur l’option « Console série ». Un nouveau volet s’ouvre avec la console série, puis démarre la connexion.
 
 ![](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
@@ -177,7 +177,7 @@ Problème                           |   Atténuation
 :---------------------------------|:--------------------------------------------|
 L’invite de connexion ne s’affiche pas lorsque vous appuyez sur la touche Entrée après l’affichage de la bannière de connexion | Consultez la page suivante : [La touche Entrée n’a aucun effet](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Cela peut se produire si vous exécutez une machine virtuelle personnalisée, une appliance à sécurité renforcée ou une configuration de GRUB qui fait que Linux ne parvient pas à se connecter correctement au port série.
 Le texte de la console série n’occupe l’écran que partiellement (souvent après l’utilisation d’un éditeur de texte) | Les consoles série ne gèrent pas la négociation sur la taille de fenêtre ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), ce qui signifie qu’aucun signal SIGWINCH ne sera envoyé pour mettre à jour la taille de l’écran et la machine virtuelle ne connaîtra pas la taille de votre terminal. Il est recommandé d’installer xterm ou un autre utilitaire similaire permettant de redimensionner l’affichage. L’exécution de la commande « resize » permet de résoudre ce problème.
-Le collage de chaînes très longues ne fonctionne pas | La console série limite la longueur des chaînes collées dans le terminal à 2 048 caractères. Cela vise à empêcher une surcharge de la bande passante de port série.
+Le collage de chaînes très longues ne fonctionne pas | La console série limite la longueur des chaînes collées dans le terminal à 2 048 caractères. Cela vise à empêcher une surcharge de la bande passante du port série.
 
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ) 
@@ -187,7 +187,7 @@ R. Pour nous contacter au sujet d’un problème, accédez à la page https://ak
 
 **Q. Est-ce que la console série prend en charge l’opération Copier/Coller ?**
 
-R. Oui, c’est le cas. Utilisez Ctrl+Maj+C et Ctrl+Maj+V pour copier et coller dans le terminal.
+R. Oui, c’est le cas. Utilisez Ctrl+Maj+C et Ctrl+Maj+V pour copier et coller du texte dans le terminal.
 
 **Q. Puis-je utiliser une console série à la place d’une connexion SSH ?**
 
@@ -202,11 +202,11 @@ R. Pour activer ou désactiver la console série au niveau d’un abonnement, vo
 
 **Q. Qui peut accéder à la console série pour ma machine virtuelle ?**
 
-R. Vous devez avoir un accès de niveau collaborateur ou supérieur à une machine virtuelle afin d’accéder à sa console série. 
+R. Vous devez avoir un accès de niveau contributeur ou supérieur à une machine virtuelle afin d’accéder à sa console série. 
 
 **Q. Ma console série n’affiche rien, que dois-je faire ?**
 
-R. Votre image est probablement mal configurée pour l’accès à la console série. Consultez [Accéder à la console série pour Linux](#Access-Serial-Console-for-Linux) pour plus d’informations sur la configuration de votre image pour activer la console série.
+R. Votre image est probablement mal configurée pour l’accès à la console série. Voir [Disponibilité de la distribution de Linux pour la console série](#serial-console-linux-distro-availability) pour plus d’informations sur la configuration de votre image pour activer la console série.
 
 **Q. La console série est-elle disponible pour Virtual Machine Scale Sets ?**
 

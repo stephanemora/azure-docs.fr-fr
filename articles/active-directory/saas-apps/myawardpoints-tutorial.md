@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 09/27/2018
 ms.author: jeedes
-ms.openlocfilehash: 9e3e3ff05836cb49d46a25ef3fa55d40a0bd134f
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 479fcc0408021ff63dbcabe3734f60a4ad6d542f
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47184482"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247752"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-my-award-points-top-subtop-team"></a>Didacticiel : Intégration d’Azure Active Directory à My Award Points Top Sub/Top Team
 
@@ -50,7 +50,8 @@ Vous devez en outre suivre les recommandations ci-dessous :
 
 ## <a name="scenario-description"></a>Description du scénario
 
-Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
+Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test.
+Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de My Award Points Top Sub/Top Team à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
@@ -112,7 +113,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://microsoftrr.performnet.com/biwv1auth/Shibboleth.sso/Login?providerId=<SAMLENTITYID>`
 
     > [!NOTE]
-    > La valeur de l’URL de connexion n’est pas réelle. Mettez à jour cette valeur avec l’URL d’authentification réelle. Pour obtenir cette valeur, contactez [l’équipe du support technique de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com).
+    > Vous obtiendrez la valeur `<SAMLENTITYID>` lors des étapes ultérieures de ce didacticiel.
 
 4. Dans la section **Certificat de signature SAML**, cliquez sur **Métadonnées XML** puis enregistrez le fichier de métadonnées sur votre ordinateur.
 
@@ -122,7 +123,9 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
 
     ![Bouton Enregistrer de la page Configurer l’authentification unique](./media/myawardpoints-tutorial/tutorial_general_400.png)
 
-6. Pour configurer l’authentification unique du côté **My Award Points Top Sub/Top Team**, vous devez envoyer le fichier **XML des métadonnées** téléchargé à [l’équipe du support technique de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
+6. Dans la section de configuration **My Award Points Top Sub/Top Team**, sélectionnez l’option **Configurer** pour ouvrir la fenêtre de configuration de l’authentification. Copiez l’ID d’entité SAML de la section **Aide-mémoire** et ajoutez à cette valeur d’URL d’authentification unique au lieu de `<SAMLENTITYID>` dans la section du domaine et des URL **My Award Points Top Sub/Top Team** dans le portail Azure.
+
+7. Pour configurer l’authentification unique du côté **My Award Points Top Sub/Top Team**, vous devez envoyer le fichier **XML des métadonnées** téléchargé à [l’équipe du support technique de My Award Points Top Sub/Top Team](mailto:myawardpoints@biworldwide.com). Celles-ci configurent ensuite ce paramètre pour que la connexion SSO SAML soit définie correctement des deux côtés.
 
 ### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
 

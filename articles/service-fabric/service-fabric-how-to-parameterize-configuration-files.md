@@ -1,6 +1,6 @@
 ---
-title: Guide pratique pour paramétrer les fichiers de configuration dans Azure Service Fabric | Microsoft Docs
-description: Vous montre comment paramétrer les fichiers de configuration dans Service Fabric
+title: Paramétrer les fichiers de configuration dans Azure Service Fabric | Microsoft Docs
+description: Découvrir comment paramétrer les fichiers de configuration dans Service Fabric.
 documentationcenter: .net
 author: mikkelhegn
 manager: msfussell
@@ -10,63 +10,54 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2017
+ms.date: 10/09/2018
 ms.author: mikhegn
-ms.openlocfilehash: e5bb2f270cc5a6f288e1e995f4bfa74f4e3551b7
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 9057cdc22e277e4e12e9f439f3fbe0c5a5cda2a2
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34207816"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48900511"
 ---
 # <a name="how-to-parameterize-configuration-files-in-service-fabric"></a>Guide pratique pour paramétrer les fichiers de configuration dans Service Fabric
 
-Cet article vous explique comment paramétrer un fichier de configuration dans Service Fabric.
+Cet article vous explique comment paramétrer un fichier de configuration dans Service Fabric.  Si vous n’êtes pas déjà familiarisé avec les concepts fondamentaux de la gestion des applications pour plusieurs environnements, consultez [Gérer des applications pour plusieurs environnements](service-fabric-manage-multiple-environment-app-configuration.md).
 
 ## <a name="procedure-for-parameterizing-configuration-files"></a>Procédure de paramétrage des fichiers de configuration
 
 Dans cet exemple, vous remplacez une valeur de configuration à l’aide de paramètres dans le déploiement de votre application.
 
-1. Ouvrez le fichier Config\Settings.xml.
-1. Définissez un paramètre de configuration, en ajoutant le code XML suivant :
+1. Ouvrez le fichier  *<MyService>\PackageRoot\Config\Settings.xml* dans votre projet de service.
+1. Définissez un nom de paramètre de configuration et une valeur, par exemple la taille du cache égale à 25, en ajoutant le code XML suivant :
 
-    ```xml
-      <Section Name="MyConfigSection">
-        <Parameter Name="CacheSize" Value="25" />
-      </Section>
-    ```
+  ```xml
+    <Section Name="MyConfigSection">
+      <Parameter Name="CacheSize" Value="25" />
+    </Section>
+  ```
 
 1. Enregistrez et fermez le fichier.
-1. Ouvrez le fichier `ApplicationManifest.xml` .
-1. Ajoutez un élément `ConfigOverride`, qui référence le package de configuration, la section et le paramètre.
+1. Ouvrez le fichier *<MyApplication>\ApplicationPackageRoot\ApplicationManifest.xml*.
+1. Dans le fichier ApplicationManifest.xml, déclarez une valeur de paramètre et une valeur par défaut dans l’élément `Parameters`.  Il est recommandé que le nom du paramètre contienne le nom du service (par exemple, « MyService »).
 
-      ```xml
-        <ConfigOverrides>
-          <ConfigOverride Name="Config">
-              <Settings>
-                <Section Name="MyConfigSection">
-                    <Parameter Name="CacheSize" Value="[Stateless1_CacheSize]" />
-                </Section>
-              </Settings>
-          </ConfigOverride>
-        </ConfigOverrides>
-      ```
+  ```xml
+    <Parameters>
+      <Parameter Name="MyService_CacheSize" DefaultValue="80" />
+    </Parameters>
+  ```
+1. Dans la section `ServiceManifestImport` du fichier ApplicationManifest.xml, ajoutez un élément `ConfigOverride`, qui référence le package de configuration, la section et le paramètre.
 
-1. Toujours dans le fichier ApplicationManifest.xml, spécifiez ensuite le paramètre dans l’élément `Parameters`
-
-    ```xml
-      <Parameters>
-        <Parameter Name="Stateless1_CacheSize" />
-      </Parameters>
-    ```
-
-1. Puis définissez un élément `DefaultValue`
-
-    ```xml
-      <Parameters>
-        <Parameter Name="Stateless1_CacheSize" DefaultValue="80" />
-      </Parameters>
-    ```
+  ```xml
+    <ConfigOverrides>
+      <ConfigOverride Name="Config">
+          <Settings>
+            <Section Name="MyConfigSection">
+                <Parameter Name="CacheSize" Value="[MyService_CacheSize]" />
+            </Section>
+          </Settings>
+      </ConfigOverride>
+    </ConfigOverrides>
+  ```
 
 > [!NOTE]
 > Si vous ajoutez un élément ConfigOverride, Service Fabric choisit toujours les paramètres d’application ou la valeur par défaut spécifiée dans le manifeste d’application.
@@ -74,6 +65,4 @@ Dans cet exemple, vous remplacez une valeur de configuration à l’aide de para
 >
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur certains des principaux concepts abordés dans cet article, consultez les articles [Gérer des applications pour plusieurs environnements](service-fabric-manage-multiple-environment-app-configuration.md).
-
 Pour plus d’informations sur les autres fonctionnalités de gestion d’application disponibles dans Visual Studio, consultez la section [Gestion de vos applications de Service Fabric dans Visual Studio](service-fabric-manage-application-in-visual-studio.md).

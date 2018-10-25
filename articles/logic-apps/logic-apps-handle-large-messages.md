@@ -1,6 +1,6 @@
 ---
-title: Gérer les messages volumineux dans Azure Logic Apps | Microsoft Docs
-description: Découvrez comment gérer les messages volumineux avec la segmentation dans Logic Apps
+title: Gérer les messages volumineux - Azure Logic Apps | Microsoft Docs
+description: Découvrez comment gérer les messages volumineux avec la segmentation dans Azure Logic Apps
 services: logic-apps
 documentationcenter: ''
 author: shae-hurst
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: 6064db5455d92d15dca0e2a4a78285f0aeade904
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35299043"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48041643"
 ---
-# <a name="handle-large-messages-with-chunking-in-logic-apps"></a>Gérer les messages volumineux avec la segmentation dans Logic Apps
+# <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gérer les messages volumineux avec la segmentation dans Azure Logic Apps
 
 Pour traiter les messages, Logic Apps limite leur contenu à une taille maximale. Cette limite permet de réduire la surcharge créée par le stockage et le traitement des messages volumineux. Pour gérer les messages dépassant cette limite de taille, Logic Apps peut *segmenter* un message volumineux en messages de plus petite taille. De cette façon, vous pouvez toujours transférer des fichiers volumineux à l’aide de Logic Apps dans des conditions spécifiques. Lors de la communication avec d’autres services via des connecteurs ou HTTP, Logic Apps peut traiter des messages volumineux mais *uniquement* sous forme de segments. Cette condition signifie que les connecteurs doivent également prendre en charge la segmentation, ou que le protocole d’échange de messages HTTP sous-jacent entre Logic Apps et ces services doit utiliser la segmentation.
 

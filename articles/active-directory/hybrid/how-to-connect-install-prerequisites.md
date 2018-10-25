@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2018
+ms.date: 09/28/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: addb99478025757257bce465a02287ebedd40bb1
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f0791173450d5db3b33762ec9d5ed5c1adf96788
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310208"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321629"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Conditions préalables pour Azure AD Connect
 Cette rubrique décrit les conditions préalables et la configuration matérielle requise pour Azure AD Connect.
@@ -29,11 +29,11 @@ Cette rubrique décrit les conditions préalables et la configuration matériell
 Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
 
 ### <a name="azure-ad"></a>Azure AD
-* Un abonnement Azure ou un [abonnement d’évaluation Azure](https://azure.microsoft.com/pricing/free-trial/). Cet abonnement est nécessaire uniquement pour accéder au portail Azure mais pas pour l'utilisation d’Azure AD Connect. Si vous utilisez PowerShell ou Office 365, vous n’avez pas besoin d’un abonnement Azure pour utiliser Azure AD Connect. Si vous possédez une licence Office 365, vous pouvez également utiliser le portail Office 365. Avec une licence Office 365 payante, vous pouvez également vous connecter au portail Azure à partir du portail Office 365.
-  * Vous pouvez également utiliser le [portail Azure](https://portal.azure.com). Ce portail ne nécessite aucune licence Azure Active Directory.
+* Un locataire Azure AD. Vous pouvez en obtenir un avec un [essai gratuit Azure](https://azure.microsoft.com/pricing/free-trial/). Vous pouvez utiliser un des portails suivants pour gérer Azure AD Connect :
+  * Le [portail Azure](https://portal.azure.com).
+  * Le [portail Office](https://portal.office.com).  
 * [Ajoutez et vérifiez le domaine](../active-directory-domains-add-azure-portal.md) que vous prévoyez d’utiliser dans Azure AD. Par exemple, si vous envisagez d’utiliser contoso.com pour vos utilisateurs, vérifiez que ce domaine a été vérifié et que vous n’utilisez pas uniquement le domaine par défaut contoso.onmicrosoft.com.
 * Un client Azure AD prend en charge 50 000 objets par défaut. Si vous vérifiez votre domaine, la limite passe à 300 000 objets. Si vous avez besoin de davantage d’objets dans Azure AD, vous devez ouvrir une demande de support pour que la limite soit relevée en conséquence. Si vous avez besoin de plus de 500 000 objets, si vous avez besoin d’une licence comme Office 365, Azure AD Standard, Azure AD Premium ou Enterprise Mobility Suite.
-* ADSyncPrep est un module de script PowerShell qui fournit des fonctionnalités permettant de préparer votre environnement Active Directory pour Azure AD Connect.  ADSyncPrep nécessite le [module PowerShell Azure AD Microsoft Online v1.1](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).  La version 2 ne fonctionnera pas. Vous pouvez installer le module à l’aide de la cmdlet `Install-Module`.  Pour plus d’informations, cliquez sur le lien fourni.
 
 ### <a name="prepare-your-on-premises-data"></a>Préparez vos données locales
 * Utilisez [IdFix](https://support.office.com/article/Install-and-run-the-Office-365-IdFix-tool-f4bd2439-3e41-4169-99f6-3fabdfa326ac) pour identifier les erreurs comme les problèmes de mise en forme dans votre annuaire et repérer les doublons avant d’effectuer la synchronisation avec Azure AD et Office 365.
@@ -47,7 +47,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
 * Il est recommandé d’[activer la Corbeille Active Directory](how-to-connect-sync-recycle-bin.md).
 
 ### <a name="azure-ad-connect-server"></a>Serveur Azure AD Connect
-* Impossible d’installer Azure AD Connect sur Small Business Server ou Windows Server Essentials. Le serveur doit utiliser Windows Server Standard ou une version supérieure.
+* Vous ne pouvez pas installer Azure AD Connect sur Small Business Server ou Windows Server Essentials version antérieure à 2019 (Windows Server Essentials 2019 est pris en charge). Le serveur doit utiliser Windows Server Standard ou une version supérieure.
 * Le serveur Azure AD Connect doit disposer d’une interface utilisateur graphique complète. Il ne **peut pas être installé** sur Server Core.
 * Azure Active Directory Connect doit être installé sur Windows Server 2008 ou version ultérieure. Ce serveur peut être un contrôleur de domaine ou un serveur membre lorsque vous utilisez la configuration rapide. Si vous utilisez des paramètres personnalisés, le serveur peut également être autonome et n’a pas besoin d’être joint à un domaine.
 * Si vous installez Azure AD Connect sous Windows Server 2008 ou Windows Server 2008 R2, veillez à appliquer les derniers correctifs à partir de Windows Update. L’installation ne pourra pas démarrer sur un serveur non corrigé.
@@ -70,7 +70,7 @@ Avant d’installer Azure AD Connect, voici ce dont vous avez besoin.
 ### <a name="accounts"></a>Comptes
 * Le compte d’administrateur global Azure AD du locataire Azure AD que vous souhaitez intégrer. Ce compte doit être un **compte scolaire ou d’organisation** et non d’un **compte Microsoft**.
 * Si vous utilisez la configuration rapide ou effectuez une mise à niveau depuis DirSync, vous devez disposer d’un compte d’administrateur d’entreprise pour votre annuaire Active Directory local.
-* [Comptes dans Active Directory](reference-connect-accounts-permissions.md) si vous utilisez le chemin d’installation des paramètres personnalisés.
+* Des [comptes dans Active Directory](reference-connect-accounts-permissions.md) si vous utilisez le chemin d’installation des paramètres personnalisés ou un compte Administrateur d’entreprise pour votre annuaire Active Directory local.
 
 ### <a name="connectivity"></a>Connectivité
 * Le serveur Azure AD Connect nécessite une résolution DNS Intranet et Internet. Le serveur DNS doit pouvoir résoudre des noms sur votre domaine Active Directory local et sur les points de terminaison Azure AD.
@@ -184,7 +184,6 @@ Lorsque vous utilisez Azure AD Connect pour déployer Active Directory Federatio
 Voici une liste de composants qu’Azure AD Connect installe sur le serveur sur lequel il est installé. Cette liste est destinée à une installation Express de base. Si vous choisissez d’utiliser un autre serveur SQL Server dans la page d’installation des services de synchronisation, SQL Express LocalDB n’est pas installé localement.
 
 * Azure AD Connect Health
-* Assistant de connexion Microsoft Online Services pour les professionnels de l’informatique (installé, mais sans dépendance)
 * Utilitaires de ligne de commande Microsoft SQL Server 2012
 * Base de données locale Microsoft SQL Server 2012 Express
 * Client natif Microsoft SQL Server 2012

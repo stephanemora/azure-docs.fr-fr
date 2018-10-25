@@ -8,16 +8,16 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: 672adba0b4b17a25c0c0a1da3596808f767e3fbd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ac25fa1bcca9a49054f37d8799511fbc7d95645b
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34632837"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47584096"
 ---
 # <a name="azure-iot-hub-pricing-information"></a>Informations sur les tarifs Azure IoT Hub
 
-La [tarification d’Azure IoT Hub][lnk-pricing] fournit des informations générales sur les différentes références SKU et les tarifs d’IoT Hub. Cet article contient des informations supplémentaires sur la manière dont les différentes fonctionnalités d’IoT Hub sont mesurées en tant que messages par IoT Hub.
+La [tarification d’Azure IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub) fournit des informations générales sur les différentes références SKU et les tarifs d’IoT Hub. Cet article contient des informations supplémentaires sur la manière dont les différentes fonctionnalités d’IoT Hub sont mesurées en tant que messages par IoT Hub.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
@@ -37,7 +37,7 @@ La [tarification d’Azure IoT Hub][lnk-pricing] fournit des informations géné
 | Opérations de travaux par appareil | Les opérations de travaux (comme les mises à jour de jumeaux et les méthodes) sont facturées normalement. Par exemple, un travail entraînant 1 000 appels de méthode avec des demandes de 1 Ko et des réponses à corps vide est facturé comme 1 000 messages. |
 
 > [!NOTE]
-> L’ensemble des tailles sont calculées en fonction de la taille en octets de la charge utile (le tramage de protocole est ignoré). Pour les messages qui ont des propriétés et un corps, la taille est calculée de manière agnostique du point de vue du protocole. Pour en savoir plus, consultez le [Guide du développeur de messages IoT Hub][lnk-message-size].
+> L’ensemble des tailles sont calculées en fonction de la taille en octets de la charge utile (le tramage de protocole est ignoré). Pour les messages qui ont des propriétés et un corps, la taille est calculée de manière agnostique du point de vue du protocole. Pour plus d’informations, consultez [Créer et lire des messages IoT Hub](iot-hub-devguide-messages-construct.md).
 
 ## <a name="example-1"></a>Exemple 1
 
@@ -64,7 +64,3 @@ Ce calcul donne un total de 612 messages par jour.
 Le backend de la solution consomme 28 messages (14 Ko / 0,5 Ko) pour lire le jumeau d’appareil, plus un message pour le mettre à jour, ce qui donne un total de 29 messages.
 
 Au total, l’appareil et le back-end de la solution consomment 641 messages par jour.
-
-
-[lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
-[lnk-message-size]: iot-hub-devguide-messages-construct.md

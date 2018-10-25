@@ -7,17 +7,17 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 9/21/2018
 ms.author: tyfox
-ms.openlocfilehash: bb7cdbc340c6e9763277d5cdacc0cfb510fdc0db
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 8beb75748c2e9fe3f71ad321c4cd523e344fb90c
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046395"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901904"
 ---
 # <a name="hdinsight-go-management-sdk-preview"></a>Préversion du kit SDK de gestion HDInsight Go
 
 ## <a name="overview"></a>Vue d’ensemble
-Le kit SDK HDInsight Go fournit des classes et des fonctions qui vous permettent de gérer vos clusters HDInsight. Il inclut des opérations pour créer, supprimer, mettre à jour, répertorier, mettre à l’échelle, exécuter des actions de script, surveiller, obtenir des propriétés de clusters HDInsight, et bien plus encore.
+Le kit SDK HDInsight Go fournit des classes et des fonctions qui vous permettent de gérer vos clusters HDInsight. Il inclut des opérations permettant de créer, supprimer, mettre à jour, répertorier, mettre à l’échelle, exécuter des actions de script, surveiller, obtenir des propriétés des clusters HDInsight, et bien plus encore.
 
 > [!NOTE]
 >Une documentation de référence GoDoc pour ce kit SDK est également [disponible ici](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/hdinsight/mgmt/2018-06-01-preview/hdinsight).
@@ -33,7 +33,7 @@ Le kit SDK HDInsight Go fournit des classes et des fonctions qui vous permettent
 
 ## <a name="authentication"></a>Authentification
 
-Le kit SDK doit d’abord être authentifié avec votre abonnement Azure.  Suivez l’exemple ci-dessous pour créer un principal de service et l’utiliser pour s’authentifier. Une fois cette opération terminée, vous avez une instance de `ClustersClient`, qui contient de nombreuses fonctions (décrites dans les sections suivantes) pouvant être utilisées pour effectuer des opérations de gestion.
+Le kit de développement logiciel (SDK) doit d’abord être authentifié avec votre abonnement Azure.  Suivez l’exemple ci-dessous pour créer un principal de service et l’utiliser pour s’authentifier. Une fois cette opération terminée, vous avez une instance de `ClustersClient`, qui contient de nombreuses fonctions (décrites dans les sections suivantes) pouvant être utilisées pour effectuer des opérations de gestion.
 
 > [!NOTE]
 > Il existe d’autres façons de s’authentifier, en plus de l’exemple suivant, peut-être mieux adaptées à vos besoins. Toutes les fonctions sont décrites ici : [Fonctions d’authentification dans le kit Azure SDK pour Go](https://docs.microsoft.com/go/azure/azure-sdk-go-authorization)
@@ -325,17 +325,17 @@ client.Update(context.Background(), "<Resource Group Name>", "<Cluster Name>", h
 client.Update(context.Background(), "SDKTestRG", "SDKTest", hdi.ClusterPatchParameters{map[string]*string{"tag1Name" : to.StringPtr("tag1Value"), "tag2Name" : to.StringPtr("tag2Value")}})
 ```
 
-### <a name="scale-cluster"></a>Mettre à l’échelle le cluster
+### <a name="resize-cluster"></a>Redimensionner le cluster
 
-Vous pouvez mettre à l’échelle un nombre donné de clusters de nœuds Worker en spécifiant une nouvelle taille comme suit :
+Vous pouvez mettre à l’échelle le nombre de nœuds Worker d’un cluster en spécifiant une nouvelle taille comme suit :
 
 ```golang
 client.Resize(context.Background(), "<Resource Group Name>", "<Cluster Name>", hdi.ClusterResizeParameters{<Num of Worker Nodes (int)>})
 ```
 
-## <a name="cluster-monitoring"></a>Supervision des clusters
+## <a name="cluster-monitoring"></a>Monitoring du cluster
 
-Le kit SDK HDInsight Management peut également être utilisé pour gérer la supervision de vos clusters via Operations Management Suite (OMS).
+Le kit de développement logiciel (SDK) HDInsight Management peut également être utilisé pour gérer la surveillance de vos clusters via Operations Management Suite (OMS).
 
 De la même façon que vous avez créé `ClusterClient` pour les opérations de gestion, vous devez créer un `ExtensionClient` pour superviser les opérations. Une fois que vous avez terminé la section Authentification ci-dessus, vous pouvez créer un `ExtensionClient` comme suit :
 
@@ -350,9 +350,9 @@ extClient.Authorizer, _ = credentials.Authorizer()
 ### <a name="enable-oms-monitoring"></a>Activer la supervision OMS
 
 > [!NOTE]
-> Pour activer la supervision OMS, vous devez disposer d’un espace de travail Log Analytics existant. Si vous n’en avez pas déjà créé un, vous pouvez apprendre à le faire ici : [Créer un espace de travail Log Analytics dans le portail Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
+> Pour activer la surveillance OMS, vous devez disposer d’un espace de travail Log Analytics existant. Si vous n’en avez pas déjà créé un, vous pouvez apprendre à le faire ici : [Créer un espace de travail Log Analytics dans le portail Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-create-workspace).
 
-Pour activer la supervision OMS sur votre cluster :
+Pour activer la surveillance OMS sur votre cluster :
 
 ```golang
 extClient.EnableMonitoring(context.Background(), "<Resource Group Name", "Cluster Name", hdi.ClusterMonitoringRequest {WorkspaceID: to.StringPtr("<Workspace Id>")})
@@ -412,7 +412,7 @@ scriptActionsClient.Delete(context.Background(), "<Resource Group Name>", "<Clus
 > [!NOTE]
 > `ListByCluster()` retourne un struct `ScriptActionsListPage`. Pour obtenir la page suivante, vous pouvez appeler `Next()`. Vous pouvez répéter cette opération jusqu’à ce que `ClusterListResultPage.NotDone()` retourne `false`, comme illustré dans l’exemple ci-dessous.
 
-Pour lister toutes les actions de script persistantes du cluster spécifié :
+Pour répertorier toutes les actions de script persistantes pour le cluster spécifié :
 ```golang
 scriptActionsClient.ListByCluster(context.Background(), "<Resource Group Name>", "<Cluster Name>")
 ```
@@ -437,7 +437,7 @@ for (page.NotDone()) {
 
 ### <a name="list-all-scripts-execution-history"></a>Lister l’historique de toutes les exécutions de scripts
 
-Pour cette opération, vous devez créer un `ScriptExecutionHistoryClient` de la même façon que vous avez créé `ClusterClient` pour les opérations de gestion. Une fois que vous avez terminé la section Authentification ci-dessus, vous pouvez créer un `ScriptActionsClient` comme suit :
+Pour cette opération, vous devez créer `ScriptExecutionHistoryClient` de la même façon que vous avez créé `ClusterClient` pour les opérations de gestion. Une fois que vous avez terminé la section Authentification ci-dessus, vous pouvez créer un `ScriptActionsClient` comme suit :
 
 ```golang
 scriptExecutionHistoryClient := hdi.NewScriptExecutionHistoryClient(SUBSCRIPTION_ID)
@@ -447,7 +447,7 @@ scriptExecutionHistoryClient.Authorizer, _ = credentials.Authorizer()
 > [!NOTE]
 > Le code ci-dessous suppose que vous avez déjà initialisé un `ScriptExecutionHistoryClient` appelé `scriptExecutionHistoryClient` et défini son `Authorizer` comme indiqué ci-dessus.
 
-Pour lister l’historique de toutes les exécutions de scripts du cluster spécifié :
+Pour répertorier tout l’historique d’exécution des scripts pour le cluster spécifié :
 
 ```golang
 scriptExecutionHistoryClient.ListByCluster(context.Background(), "<Resource Group Name>", "<Cluster Name>")
@@ -455,7 +455,7 @@ scriptExecutionHistoryClient.ListByCluster(context.Background(), "<Resource Grou
 
 #### <a name="example"></a>Exemples
 
-Cet exemple affiche tous les détails de toutes les exécutions de script passées.
+Cet exemple imprime tous les détails de toutes les exécutions de script passées.
 
 ```golang
 page, err := scriptExecutionHistoryClient.ListByCluster(context.Background(), resourceGroupName, clusterName)

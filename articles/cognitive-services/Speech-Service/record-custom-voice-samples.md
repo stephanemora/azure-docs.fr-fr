@@ -3,18 +3,18 @@ title: Enregistrer des échantillons vocaux afin de créer une voix personnalis�
 titleSuffix: Microsoft Cognitive Services
 description: Créez une voix personnalisée de qualité production en préparant un script complet, en recrutant des voix professionnelles et en effectuant un enregistrement professionnel.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: article
 ms.date: 07/5/2018
-ms.author: v-jerkin
-ms.openlocfilehash: b1bab65b68c5f37165fbc8414ac4300c924e53b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.author: erhopf
+ms.openlocfilehash: 0051cc480a26ffc3668f922d1af9fc9cd7af1f49
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165174"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167169"
 ---
 # <a name="record-voice-samples-to-create-a-custom-voice"></a>Enregistrer des échantillons vocaux pour créer une voix personnalisée
 
@@ -38,7 +38,7 @@ Ingénieur du son  |Surveille les aspects techniques de l’enregistrement et co
 Directeur            |Prépare le script et dirige l’enregistrement de la voix professionnelle.
 Éditeur              |Finalise les fichiers audio et prépare leur transfert vers le portail de la voix professionnelle.
 
-Une même personne peut remplir plusieurs rôles. Ce guide part du principe que vous tiendrez principalement le rôle de directeur et que recruterez la voix professionnelle et l’ingénieur du son. Si vous souhaitez effectuer vous-même les enregistrements, cet article fournit certaines informations sur le rôle d’ingénieur du son. Le rôle éditeur n’est nécessaire qu’après la session, et peut donc être rempli par l’ingénieur du son directeur.
+Une même personne peut remplir plusieurs rôles. Ce guide part du principe que vous tiendrez principalement le rôle de directeur et que recruterez la voix professionnelle et l’ingénieur du son. Si vous souhaitez effectuer vous-même les enregistrements, cet article fournit certaines informations sur le rôle d’ingénieur du son. Le rôle Éditeur n’est nécessaire qu’après la session, et peut donc être rempli par le directeur ou l’ingénieur du son.
 
 ## <a name="choose-your-voice-talent"></a>Choisir votre voix professionnelle
 

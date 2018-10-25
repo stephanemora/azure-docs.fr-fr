@@ -8,13 +8,13 @@ author: ecfan
 ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/26/2018
-ms.openlocfilehash: c557c3e34fc4588b8bf13d69159a144d059b039e
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.date: 10/11/2018
+ms.openlocfilehash: 52f30adf1ea383b098d3f187a315257f101e8a9b
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452447"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320428"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Limites et informations de configuration pour Azure Logic Apps
 
@@ -111,9 +111,22 @@ Les limites pour l’exécution d’une application logique sont les suivantes :
 
 Pour dépasser ces limites dans le cadre d’un traitement normal ou exécuter des tests de charge susceptibles d’entraîner leur dépassement, [contactez l’équipe Logic Apps](mailto://logicappsemail@microsoft.com) afin d’obtenir de l’aide.
 
+<a name="sftp"></a>
+
+## <a name="ftp-sftp-and-sftp-ssh-limits"></a>Limites FTP, SFTP et SFTP-SSH
+
+### <a name="file-size"></a>Taille du fichier
+
+| Nom | Limite | Notes |
+|------|-------|-------|
+| FTP | 50 Mo | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
+| SFTP | 50 Mo | Pour contourner cette limite, utilisez le [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md) ou consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
+| SFTP-SSH | 1 Go | Pour contourner cette limite, consultez [Gérer les messages volumineux avec la segmentation](../logic-apps/logic-apps-handle-large-messages.md). Toutefois, certains connecteurs et API peuvent ne pas prendre en charge la segmentation ou même la limite par défaut. | 
+|||| 
+
 <a name="request-limits"></a>
 
-## <a name="http-request-limits"></a>Limites de requête HTTP
+## <a name="http-limits"></a>Limites HTTP
 
 Les limites pour un appel de connecteur synchrone ou de requête HTTP unique sont les suivantes :
 
@@ -156,6 +169,15 @@ Les limites pour les connecteurs personnalisés qu’il est possible de créer �
 | Nombre de connecteurs personnalisés | 1 000 par abonnement Azure | 
 | Nombre de demandes par minute pour chaque connexion créée par un connecteur personnalisé | 500 demandes par connexion |
 |||| 
+
+<a name="managed-identity"></a>
+
+## <a name="managed-identities"></a>Identités managées
+
+| Nom | Limite | 
+| ---- | ----- | 
+| Nombre d’applications logiques avec des identités managées assignées par le système par abonnement Azure | 10 | 
+|||
 
 <a name="integration-account-limits"></a>
 

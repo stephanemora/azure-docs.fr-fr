@@ -8,24 +8,98 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 11bf136897b5d5b8140fc7ff1bb259c657a71921
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 704a41ec840e2a252a1bbb5c20688f722bd0cdfd
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092188"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887034"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>Informations de référence sur le fichier host.json pour Azure Functions
 
 Le fichier de métadonnées *host.json* contient les options de configuration globale qui affectent l’ensemble des fonctions d’une application de fonction. Cet article répertorie les paramètres qui sont disponibles. Le schéma JSON est sur http://json.schemastore.org/host.
 
-Les [paramètres d’application](functions-app-settings.md) et le fichier [local.settings.json](functions-run-local.md#local-settings-file) contiennent d’autres options de configuration globale.
+> [!NOTE]
+> Il existe des différences importantes dans le fichier *host.json* entre les versions v1 et v2 du runtime Azure Functions. La `"version": "2.0"` est requise pour une application de fonction qui cible le runtime v2.
+
+Les autres options de configuration d’application de fonction sont managées dans vos [paramètres d’application](functions-app-settings.md).
+
+Certains paramètres host.json sont uniquement utilisés lors de l’exécution locale dans le fichier [local.settings.json](functions-run-local.md#local-settings-file).
 
 ## <a name="sample-hostjson-file"></a>Exemple de fichier host.json
 
 L’exemple de fichier *host.json* suivant contient toutes les options possibles spécifiées.
+
+### <a name="version-2x"></a>Version 2.x
+
+```json
+{
+    "version": "2.0",
+    "aggregator": {
+        "batchSize": 1000,
+        "flushTimeout": "00:00:30"
+    },
+    "extensions": {
+        "eventHubs": {
+          "maxBatchSize": 64,
+          "prefetchCount": 256,
+          "batchCheckpointFrequency": 1
+        },
+        "http": {
+            "routePrefix": "api",
+            "maxConcurrentRequests": 100,
+            "maxOutstandingRequests": 30
+        },
+        "queues": {
+            "visibilityTimeout": "00:00:10",
+            "maxDequeueCount": 3
+        },
+        "sendGrid": {
+            "from": "Azure Functions <samples@functions.com>"
+        },
+        "serviceBus": {
+          "maxConcurrentCalls": 16,
+          "prefetchCount": 100,
+          "autoRenewTimeout": "00:05:00"
+        }
+    },
+    "functions": [ "QueueProcessor", "GitHubWebHook" ],
+    "functionTimeout": "00:05:00",
+    "healthMonitor": {
+        "enabled": true,
+        "healthCheckInterval": "00:00:10",
+        "healthCheckWindow": "00:02:00",
+        "healthCheckThreshold": 6,
+        "counterThreshold": 0.80
+    },
+    "id": "9f4ea53c5136457d883d685e57164f08",
+    "logging": {
+        "fileLoggingMode": "debugOnly",
+        "logLevel": {
+          "Function.MyFunction": "Information",
+          "default": "None"
+        },
+        "applicationInsights": {
+            "sampling": {
+              "isEnabled": true,
+              "maxTelemetryItemsPerSecond" : 5
+            }
+        }
+    },
+    "singleton": {
+      "lockPeriod": "00:00:15",
+      "listenerLockPeriod": "00:01:00",
+      "listenerLockRecoveryPollingInterval": "00:01:00",
+      "lockAcquisitionTimeout": "00:01:00",
+      "lockAcquisitionPollingInterval": "00:00:03"
+    },
+    "watchDirectories": [ "Shared", "Test" ]
+}
+```
+
+### <a name="version-1x"></a>Version 1.x
 
 ```json
 {
@@ -121,7 +195,7 @@ Les appels de fonction sont agrégés lorsque la première des deux limites est
 
 ## <a name="applicationinsights"></a>applicationInsights
 
-Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](functions-monitoring.md#configure-sampling).
+Contrôle la [fonctionnalité d’échantillonnage dans Application Insights](functions-monitoring.md#configure-sampling). Dans la version 2.x, ce paramètre est un enfant de la [journalisation](#log).
 
 ```json
 {
@@ -187,13 +261,19 @@ Beaucoup sont destinés à l’optimisation des performances. Pour plus d’info
 
 ## <a name="eventhub"></a>eventHub
 
-Paramètres de configuration pour les [déclencheurs et liaisons Event Hub](functions-bindings-event-hubs.md).
+Paramètres de configuration pour les [déclencheurs et liaisons Event Hub](functions-bindings-event-hubs.md). Dans la version 2.x, il s’agit d’un enfant des [extensions](#extensions).
 
 [!INCLUDE [functions-host-json-event-hubs](../../includes/functions-host-json-event-hubs.md)]
 
+## <a name="extensions"></a>extensions
+
+*Version 2.x uniquement.*
+
+Propriété qui retourne un objet qui contient tous les paramètres spécifiques d’une liaison, tel que [http](#http) et [eventHub](#eventhub).
+
 ## <a name="functions"></a>functions
 
-Liste des fonctions que l’hôte de travail exécute. Un tableau vide désigne l’exécution de toutes les fonctions. Utilisée uniquement pour une [exécution locale](functions-run-local.md). Dans les applications de fonction, utilisez la propriété *function.json* `disabled` plutôt que cette propriété dans *host.json*.
+Liste des fonctions que l’hôte de travail exécute. Un tableau vide désigne l’exécution de toutes les fonctions. Utilisée uniquement pour une [exécution locale](functions-run-local.md). Dans les applications de fonction dans Azure, vous devez plutôt suivre la procédure décrite dans [Guide pratique pour désactiver des fonctions dans Azure Functions](disable-function.md) pour désactiver des fonctions spécifiques au lieu d’utiliser ce paramètre.
 
 ```json
 {
@@ -203,7 +283,7 @@ Liste des fonctions que l’hôte de travail exécute. Un tableau vide désigne 
 
 ## <a name="functiontimeout"></a>functionTimeout
 
-Indique la durée avant expiration du délai de toutes les fonctions. Dans les plans de consommation, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes. Dans les plans App Service, il n’existe aucune limite et la valeur par défaut est Null, ce qui indique qu’il n’y a pas de durée avant expiration du délai.
+Indique la durée avant expiration du délai de toutes les fonctions. Dans les plans de consommation serverless, la plage valide est comprise entre 1 seconde et 10 minutes, et la valeur par défaut est de 5 minutes. Dans un plan App Service, il n’existe aucune limite globale et la valeur par défaut dépend de la version du runtime. Dans la version 2.x, la valeur par défaut pour un plan App Service plan est de 30 minutes. Dans la version 1.x, elle prend la valeur *null*, ce qui signifie l’absence de délai d’expiration.
 
 ```json
 {
@@ -237,16 +317,17 @@ Paramètres de configuration de l’[analyse d’intégrité d’hôtes](https:/
 
 ## <a name="http"></a>http
 
-Paramètre de configuration pour les [déclencheurs et liaisons http](functions-bindings-http-webhook.md).
+Paramètre de configuration pour les [déclencheurs et liaisons http](functions-bindings-http-webhook.md). Dans la version 2.x, il s’agit d’un enfant des [extensions](#extensions).
 
 [!INCLUDE [functions-host-json-http](../../includes/functions-host-json-http.md)]
 
 ## <a name="id"></a>id
 
-ID unique d’un hôte de travail. Il peut s’agir d’un GUID en minuscules dont les tirets ont été supprimés. Requis lors d’une exécution locale. Lors de l’exécution dans Azure Functions, un ID est généré automatiquement si `id` est omis.
+*Version 1.x uniquement.*
+
+ID unique d’un hôte de travail. Il peut s’agir d’un GUID en minuscules dont les tirets ont été supprimés. Requis lors d’une exécution locale. Lors de l’exécution dans Azure, nous vous recommandons de pas définir de valeur d’ID. Un ID est généré automatiquement dans Azure lorsque `id` est omis. Vous ne pouvez pas définir un ID d’application de fonction personnalisé lorsque vous utilisez la version 2.x du runtime.
 
 Si vous partagez un compte de stockage entre plusieurs applications de fonction, assurez-vous que chaque application de fonction a une `id` différente. Vous pouvez omettre la propriété `id` ou définir manuellement chaque `id` de l’application de fonction sur une autre valeur. Le déclencheur du minuteur utilise un verrou de stockage pour vous assurer qu’il n’y aura qu’une seule instance du minuteur lorsqu’une application de fonction augmentera la taille de plusieurs instances. Si deux applications de fonction partagent le même `id` et que chacune utilise un déclencheur de minuteur, un seul minuteur s’exécutera.
-
 
 ```json
 {
@@ -255,6 +336,8 @@ Si vous partagez un compte de stockage entre plusieurs applications de fonction,
 ```
 
 ## <a name="logger"></a>logger
+
+*Version 1.x uniquement ; pour la version 2.x utilisez la [journalisation](#logging).*
 
 Contrôle le filtrage des journaux écrits par un [objet ILogger](functions-monitoring.md#write-logs-in-c-functions) ou par [context.log](functions-monitoring.md#write-logs-in-javascript-functions).
 
@@ -279,15 +362,40 @@ Contrôle le filtrage des journaux écrits par un [objet ILogger](functions-moni
 |defaultLevel|Information|Pour toutes les catégories non spécifiées dans le tableau `categoryLevels`, envoie les journaux de ce niveau et des niveaux supérieurs à Application Insights.| 
 |categoryLevels|n/a|Tableau des catégories qui spécifie le niveau de journalisation minimal à envoyer à Application Insights pour chaque catégorie. La catégorie indiquée ici contrôle toutes les catégories qui commencent par la même valeur, et les valeurs plus longues sont prioritaires. Dans l’exemple de fichier *host.json* précédent, toutes les catégories qui commencent par « Host.Aggregator » journalisent au niveau `Information`. Toutes les autres catégories commençant par « Host », comme « Host.Executor », journalisent au niveau `Error`.| 
 
+## <a name="logging"></a>journalisation
+
+*Version 2.x uniquement ; pour la version 1.x utilisez l’[enregistreur d’événements](#logger).*
+
+Contrôle les comportements de journalisation de l’application de fonction, y compris Application Insights.
+
+```json
+"logging": {
+    "fileLoggingMode": "debugOnly",
+    "logLevel": {
+      "Function.MyFunction": "Information",
+      "default": "None"
+    },
+    "applicationInsights": {
+        ...
+    }
+}
+```
+
+|Propriété  |Default | Description |
+|---------|---------|---------|
+|fileLoggingMode|information|Envoie les journaux uniquement à ce niveau et aux niveaux supérieurs vers Application Insights. |
+|logLevel|n/a|Objet qui définit le filtrage par catégorie du journal pour les fonctions de l’application. La version 2.x suit la disposition d’ASP.NET Core pour le filtrage de catégorie de journal. Cela vous permet de filtrer la journalisation pour des fonctions spécifiques. Pour plus d’informations, consultez [Filtrage de journal](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) dans la documentation ASP.NET Core. |
+|applicationInsights|n/a| Le paramètre [applicationInsights](#applicationinsights). |
+
 ## <a name="queues"></a>queues
 
-Paramètre de configuration pour les [déclencheurs et liaisons de file d’attente de stockage](functions-bindings-storage-queue.md).
+Paramètre de configuration pour les [déclencheurs et liaisons de file d’attente de stockage](functions-bindings-storage-queue.md). Dans la version 2.x, il s’agit d’un enfant des [extensions](#extensions).
 
 [!INCLUDE [functions-host-json-queues](../../includes/functions-host-json-queues.md)]
 
 ## <a name="servicebus"></a>serviceBus
 
-Paramètre de configuration pour les [déclencheurs et liaisons Service Bus](functions-bindings-service-bus.md).
+Paramètre de configuration pour les [déclencheurs et liaisons Service Bus](functions-bindings-service-bus.md). Dans la version 2.x, il s’agit d’un enfant des [extensions](#extensions).
 
 [!INCLUDE [functions-host-json-service-bus](../../includes/functions-host-json-service-bus.md)]
 
@@ -317,7 +425,9 @@ Paramètres de configuration du comportement de verrouillage Singleton. Pour plu
 
 ## <a name="tracing"></a>tracing
 
-Paramètres de configuration des journaux que vous créez à l’aide d’un objet `TraceWriter`. Consultez les sections relatives à la [journalisation en C#](functions-reference-csharp.md#logging) et à la [journalisation Node.js](functions-reference-node.md#writing-trace-output-to-the-console). 
+*Version 1.x*
+
+Paramètres de configuration des journaux que vous créez à l’aide d’un objet `TraceWriter`. Consultez les sections relatives à la [journalisation en C#](functions-reference-csharp.md#logging) et à la [journalisation Node.js](functions-reference-node.md#writing-trace-output-to-the-console). Dans la version 2.x, le comportement de tous les journaux est contrôlé par la [journalisation](#logging).
 
 ```json
 {
@@ -332,6 +442,12 @@ Paramètres de configuration des journaux que vous créez à l’aide d’un obj
 |---------|---------|---------| 
 |consoleLevel|info|Niveau de suivi pour la journalisation de la console. Options : `off`, `error`, `warning`, `info` et `verbose`.|
 |fileLoggingMode|debugOnly|Niveau de suivi pour la journalisation des fichiers. Options : `never`, `always`, `debugOnly`.| 
+
+## <a name="version"></a>version
+
+*Version 2.x*
+
+La chaîne de version `"version": "2.0"` est requise pour une application de fonction qui cible le runtime v2.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

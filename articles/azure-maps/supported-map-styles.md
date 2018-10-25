@@ -3,20 +3,20 @@ title: Styles de cartes pris en charge dans Azure Maps | Microsoft Docs
 description: Styles de cartes pris en charge par Azure Maps
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/28/2018
+ms.date: 10/02/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8f0910e9040c962bae30a33b91a93e71e692dfdb
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c8edaba8de597e3e76e760e1f5109006338a663c
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713440"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238818"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Styles de cartes pris en charge dans Azure Maps
-Azure Maps prend en charge quatre styles de cartes intégrées. Ces styles sont listés ci-dessous, avec leur description.
+Azure Maps prend en charge quatre styles de cartes intégrées. Les styles sont répertoriés ci-dessous, avec leur description.
 
 ## <a name="road"></a>Route
 Une carte **routière** est une carte standard qui affiche les routes, les éléments cartographiques naturels et créés par l’homme, ainsi que le nom de ces éléments cartographiques.
@@ -37,7 +37,7 @@ Le style **satellite** est une combinaison d’imagerie satellite et d’imageri
 * [Vignette Satellite](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
 * Commandes de la carte JS
 
-## <a name="satelliteroadlabels"></a>Satellite_Road_Labels
+## <a name="satelliteroadlabels"></a>satellite_road_labels
 Ce style de carte est un hybride qui montre des routes et des noms superposés à une imagerie satellite et aérienne.
 
 ![satellite_road_labels](./media/supported-map-styles/satellite_road_labels.png)
@@ -45,8 +45,8 @@ Ce style de carte est un hybride qui montre des routes et des noms superposés �
 **API applicables :**
 * Commandes de la carte JS
 
-## <a name="grayscaledark"></a>Grayscale_Dark
-**Nuances de gris foncé** est une version plus sombre du style feuille de route.
+## <a name="grayscaledark"></a>grayscale_dark
+**Nuances de gris foncé** est une version plus sombre du style carte routière.
 
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 

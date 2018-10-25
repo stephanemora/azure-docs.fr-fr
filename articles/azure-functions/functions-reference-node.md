@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 24f7faa0fb111e4e537a7db3f5e1eea709d1ca59
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb9387cec98621e27aff7dcb40b8897e326c6706
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46957727"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353490"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 Ce guide contient des informations sur les complexités de l’écriture de fonctions Azure avec JavaScript.
@@ -66,6 +66,8 @@ module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
     context.done();
 };
+```
+```javascript
 // You can also use 'arguments' to dynamically handle inputs
 module.exports = async function(context) {
     context.log('Number of inputs: ' + arguments.length);
@@ -79,6 +81,37 @@ module.exports = async function(context) {
 Les déclencheurs et les liaisons d’entrée (liaisons de `direction === "in"`) peuvent être transmis à la fonction en tant que paramètres. Elles sont transmises à la fonction dans l’ordre dans lequel elles sont définies dans le fichier *function.json*. Vous pouvez également gérer les entrées de manière dynamique en utilisant l’objet [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) JavaScript. Par exemple, si vous avez `function(context, a, b)` et le remplacez par `function(context, a)`, vous pouvez toujours obtenir la valeur `b` dans le code de fonction en faisant référence à `arguments[2]`.
 
 Toutes les liaisons, quelle que soit leur direction, sont également transmises sur l’objet `context` à l’aide de la propriété `context.bindings`.
+
+### <a name="exporting-an-async-function"></a>Exportation d’une fonction asynchrone
+Quand vous utilisez la déclaration [`async function`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) JavaScript ou l’objet [Promises](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Promise) JavaScript simple (non disponible avec Functions version 1.x), vous n’avez pas besoin d’appeler explicitement le rappel [`context.done`](#contextdone-method) pour signaler que votre fonction est terminée. Votre fonction se termine en même temps que la déclaration async function/l’objet Promises exporté.
+
+Cet exemple montre une fonction simple qui enregistre qu’elle a été déclenchée et dont l’exécution se termine immédiatement.
+``` javascript
+module.exports = async function (context) {
+    context.log('JavaScript trigger function processed a request.');
+};
+```
+
+Quand vous exportez une fonction asynchrone, vous pouvez également configurer des liaisons de sortie avec la valeur `return`. C’est une autre approche possible par rapport à l’assignation de sorties à l’aide de la propriété [`context.bindings`](#contextbindings-property).
+
+Pour assigner une sortie en utilisant `return`, remplacez la propriété `name` par `$return` dans `function.json`.
+```json
+{
+  "type": "http",
+  "direction": "out",
+  "name": "$return"
+}
+```
+Le code de votre fonction JavaScript peut ressembler à ceci :
+```javascript
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+    // You can call and await an async method here
+    return {
+        body: "Hello, world!"
+    };
+}
+```
 
 ## <a name="context-object"></a>Objet de contexte
 Le runtime utilise un objet `context` pour transmettre des données vers et à partir de votre fonction et vous permettre de communiquer avec le runtime.
@@ -317,7 +350,7 @@ Quand vous utilisez des déclencheurs HTTP, de nombreuses méthodes vous permett
     context.done(null, res);   
     ```  
 
-## <a name="node-version"></a>Version de Node
+## <a name="node-version"></a>Version de nœud
 
 Le tableau suivant montre la version de Node.js qui est utilisée par chaque version majeure du runtime Functions :
 
@@ -342,7 +375,10 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-Notez que vous devez définir un fichier `package.json` à la racine de votre application de fonction. Cela permet à toutes les fonctions de l’application de partager les mêmes packages mis en cache, pour des performances optimales. En cas de conflit de version, vous pouvez ajouter un fichier `package.json` dans le dossier d’une fonction spécifique pour le résoudre.  
+> [!NOTE]
+> Vous devez définir un fichier `package.json` à la racine de votre application de fonction. Cela permet à toutes les fonctions de l’application de partager les mêmes packages mis en cache, pour des performances optimales. En cas de conflit de version, vous pouvez ajouter un fichier `package.json` dans le dossier d’une fonction spécifique pour le résoudre.  
+
+Quand vous déployez des applications de fonction à partir du contrôle de code source, la présence d’un fichier `package.json` dans votre référentiel déclenche un `npm install` dans son dossier pendant le déploiement. Toutefois, si vous effectuez le déploiement par le biais du portail ou de l’interface CLI, vous devrez installer manuellement les packages.
 
 Vous pouvez installer des packages sur votre application de fonction de deux façons : 
 

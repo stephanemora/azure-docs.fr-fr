@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/26/2018
+ms.date: 09/26/2018
 ms.author: spelluru
-ms.openlocfilehash: a1616150ebf696654bc0ca9a79d39c3877c363d9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ac30718a92d76dedcb5b0ef3bdd2f282dd117720
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699384"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48853519"
 ---
 # <a name="topic-filters-and-actions"></a>Actions et filtres de rubrique
 
@@ -30,7 +30,7 @@ Service Bus prend en charge trois conditions de filtre :
 
 -   *Filtres booléens* : **TrueFilter** et **FalseFilter** sélectionnent tous les messages entrants (**true**) ou aucun des messages entrants (**false**) de l’abonnement.
 
--   *Filtres SQL* : **SqlFilter** contient une expression conditionnelle de type SQL qui est évaluée dans le répartiteur par rapport aux propriétés utilisateur et système des messages entrants. Toutes les propriétés système doivent avoir le préfixe `sys.` dans l’expression conditionnelle. Le [sous-ensemble du langage SQL pour les conditions de filtre](service-bus-messaging-sql-filter.md) recherche la présence de propriétés (EXISTS), de valeurs Null (IS NULL), d’opérateurs de relation logiques NOT/AND/OR, d’une arithmétique numérique simple et de critères spéciaux de texte simples avec LIKE.
+-   *Filtres SQL* : **SqlFilter** contient une expression conditionnelle de type SQL qui est évaluée dans le répartiteur par rapport aux propriétés utilisateur et système des messages entrants. Toutes les propriétés système doivent avoir le préfixe `sys.` dans l’expression conditionnelle. Le [sous-ensemble du langage SQL pour les conditions de filtre](service-bus-messaging-sql-filter.md) recherche la présence de propriétés (`EXISTS`), de valeurs Null (`IS NULL`), d’opérateurs de relation logiques NOT/AND/OR, d’une arithmétique numérique simple et de critères spéciaux de texte simples avec `LIKE`.
 
 -   *Filtres de corrélation* : **CorrelationFilter** contient un ensemble de conditions qui sont mises en correspondance par rapport à une ou plusieurs propriétés utilisateur et système d’un message entrant. En général, la mise en correspondance s’effectue par rapport à la propriété **CorrelationId**, mais l’application peut également choisir de le faire par rapport aux propriétés **ContentType**, **Label**, **MessageId**, **ReplyTo**, **ReplyToSessionId**, **SessionId** ou **To** et à des propriétés définies par l’utilisateur. Il y a correspondance quand la valeur d’une propriété d’un message entrant est identique à la valeur spécifiée dans le filtre de corrélation. Pour les expressions de chaîne, la comparaison respecte la casse. Quand vous spécifiez plusieurs propriétés de correspondance, le filtre les combine en une condition AND logique, ce qui implique que toutes les conditions du filtre doivent être remplies pour qu’il y ait correspondance.
 
@@ -40,7 +40,7 @@ Les règles de filtre complexes nécessitent une plus grande capacité de traite
 
 ## <a name="actions"></a>Actions
 
-Avec les conditions de filtre SQL, et uniquement avec ce type de conditions, vous pouvez définir une action qui annote le message en ajoutant, en supprimant ou en remplaçant des propriétés et leurs valeurs. L’action [utilise une expression de type SQL](service-bus-messaging-sql-filter.md) dont la syntaxe se rapproche de celle de l’instruction SQL UPDATE. L’action est effectuée sur le message après la mise en correspondance du message et avant la sélection du message dans la rubrique. Les modifications apportées aux propriétés du message s’appliquent uniquement au message copié dans l’abonnement.
+Avec les conditions de filtre SQL, vous pouvez définir une action qui annote le message en ajoutant, en supprimant ou en remplaçant des propriétés et leurs valeurs. L’action [utilise une expression de type SQL](service-bus-messaging-sql-filter.md) dont la syntaxe se rapproche de celle de l’instruction SQL UPDATE. L’action est effectuée sur le message après la mise en correspondance du message et avant la sélection du message dans la rubrique. Les modifications apportées aux propriétés du message s’appliquent uniquement au message copié dans l’abonnement.
 
 ## <a name="usage-patterns"></a>Modèles d’usage
 
@@ -56,7 +56,6 @@ Le routage utilise des filtres pour distribuer les messages aux différents abon
 
 Pour plus d’informations sur la messagerie Service Bus, consultez les articles suivants :
 
-* [Concepts de base de Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Files d’attente, rubriques et abonnements Service Bus](service-bus-queues-topics-subscriptions.md)
 * [Syntaxe SQLFilter](service-bus-messaging-sql-filter.md)
 * [Utilisation des rubriques et abonnements Service Bus](service-bus-dotnet-how-to-use-topics-subscriptions.md)

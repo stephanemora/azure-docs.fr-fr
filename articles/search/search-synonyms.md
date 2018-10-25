@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 04/20/2018
 manager: jlembicz
 ms.author: nateko
-ms.openlocfilehash: 579d92f41e41cdb38d4a1eb0bb6e56ce4d4b2a45
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 9f887b065cf4fcc295873ee969030c67d17d9e2f
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093212"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318467"
 ---
 # <a name="synonyms-in-azure-search"></a>Synonymes dans Recherche Azure
 
@@ -148,6 +148,8 @@ La fonctionnalité de synonymes réécrit la requête d’origine avec des synon
 La fonctionnalité de synonymes s’applique aux requêtes de recherche et non aux filtres ou facettes. De même, les suggestions sont basées uniquement sur le terme d’origine : les correspondances de synonymes n’apparaissent pas dans la réponse.
 
 Les extensions de synonymes ne s’appliquent pas aux termes de recherche génériques : les préfixes, correspondances partielles et les expressions régulières ne sont pas étendus.
+
+Si vous devez faire une requête unique qui applique l’expansion de synonymes et des recherches avec des caractères génériques, des expressions régulières ou une correspondance approximative, vous pouvez combiner les requêtes avec la syntaxe d’OR. Par exemple, pour combiner des synonymes avec des caractères génériques pour une syntaxe de requête simple, le terme serait `<query> | <query>*`.
 
 ## <a name="tips-for-building-a-synonym-map"></a>Conseils pour créer une carte de synonymes
 

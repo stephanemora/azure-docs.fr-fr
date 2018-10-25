@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 09/28/2018
 ms.author: cwatson
-ms.openlocfilehash: 4b418db3c4d9876a739ce94539a6f48402332a86
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a33a360d25930f1468f1c9240be2d0f306d682c7
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394894"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585745"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Comprendre l’utilisation d’une réservation Azure pour votre Accord de Mise en Œuvre Entreprise
 
@@ -51,9 +51,11 @@ Vous pouvez télécharger le fichier CSV d’utilisation Enterprise à partir d�
 3. **L’ID du compteur** est le compteur de réservation avec un coût de 0 dollar US. Le coût de la machine virtuelle en cours d’exécution est payé par l’instance de machine virtuelle réservée.
 4. Standard_D1 est une machine virtuelle à processeur virtuel qui est déployée sans Azure Hybrid Benefit. Ce compteur couvre donc les frais supplémentaires des logiciels Windows. Pour trouver le compteur correspondant à la machine virtuelle à 1 cœur de la série D, consultez [Coûts des logiciels Windows dans les instances de machine virtuelle réservées Azure](billing-reserved-instance-windows-software-costs.md).  Si vous avez Azure Hybrid Benefit, ces frais supplémentaires ne sont pas appliqués.
 
-## <a name="usage-for-sql-database-reserved-capacity-reservations"></a>Utilisation pour les réservations de capacité réservée SQL Database
+## <a name="usage-for-sql-database--cosmos-db-reserved-capacity-reservations"></a>Utilisation pour les réservations de capacité réservée SQL Database et Cosmos DB
 
-Dans les sections suivantes, supposez que vous exécutez une machine virtuelle SQL Database de 4e génération dans la région USA Est, et que vos informations de réservation ressemblent au contenu du tableau suivant :
+Les sections suivantes utilisent Azure SQL Database comme exemple pour décrire le rapport d’utilisation. Vous pouvez utiliser les mêmes étapes pour obtenir l’utilisation pour Azure Cosmos DB. 
+
+Supposez que vous exécutez une machine virtuelle SQL Database de 4e génération dans la région USA Est, et que vos informations de réservation ressemblent au contenu du tableau suivant :
 
 | Champ | Valeur |
 |---| --- |
@@ -62,9 +64,9 @@ Dans les sections suivantes, supposez que vous exécutez une machine virtuelle S
 |Produit| SQL Database 4e génération (2 cœurs)|
 |Région | eastus |
 
-### <a name="usage-in-csv-file-for-sql-database-reserved-capacity"></a>Utilisation dans un fichier CSV pour la capacité réservée SQL Database
+### <a name="usage-in-csv-file"></a>Utilisation dans un fichier CSV 
 
-Filtrez les données sur **Informations supplémentaires**, puis tapez votre **ID de réservation**. La capture d’écran suivante affiche les champs associés à la réservation.
+Filtrez sur les **Informations supplémentaires** et saisissez votre **ID de réservation**, puis choisissez la **catégorie du compteur** requise : Azure SQL Database ou Azure Cosmos DB. La capture d’écran suivante affiche les champs associés à la réservation.
 
 ![Fichier CSV du Contrat Entreprise pour la capacité réservée SQL Database](./media/billing-understand-reserved-instance-usage-ea/billing-ea-sql-db-reserved-capacity-csv.png)
 
@@ -94,3 +96,4 @@ Pour plus d’informations sur les réservations Azure, consultez les articles s
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 
 Si vous avez d’autres questions, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+

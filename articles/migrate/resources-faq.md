@@ -4,14 +4,14 @@ description: Répond aux questions fréquemment posées sur Azure Migrate
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/03/2018
+ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: ce9dc4aab26b99bbb1e9f24f018354b8c91f66f4
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43699962"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239215"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Forum aux questions
 
@@ -48,7 +48,7 @@ Azure Migrate est un outil de planification de la migration et le planificateur 
 
 ### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Quelles sont les régions Azure prises en charge par Azure Migrate ?
 
-Azure Migrate prend actuellement en charge les USA Est et les USA Centre-Ouest en tant qu’emplacements de projets de migration. Notez que même si vous ne pouvez créer des projets de migration que dans les régions USA Centre-Ouest et USA Est, vous pouvez toujours évaluer vos machines pour [plusieurs emplacements cible](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). L’emplacement du projet est uniquement utilisé pour stocker les données détectées.
+Azure Migrate prend actuellement en charge les USA Est et les USA Centre-Ouest en tant qu’emplacements de projets de migration. Même si vous ne pouvez créer des projets de migration que dans les régions USA Centre-Ouest et USA Est, vous pouvez toujours évaluer vos machines pour [plusieurs emplacements cible](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). L’emplacement du projet est uniquement utilisé pour stocker les données détectées.
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Comment le site local se connecte-t-il à Azure Migrate ?
 
@@ -58,7 +58,7 @@ La connexion peut se faire via Internet, ou en utilisant ExpressRoute avec peeri
 
 Des composants supplémentaires (par exemple, des antivirus) peuvent être ajoutés au modèle .OVA tant que les règles de communication et de pare-feu requises pour que l’appliance Azure Migrate fonctionne ne sont pas modifiées.   
 
-## <a name="discovery-and-assessment"></a>Détection et évaluation
+## <a name="discovery"></a>Découverte
 
 ### <a name="what-data-is-collected-by-azure-migrate"></a>Quelles données sont collectées par Azure Migrate ?
 
@@ -87,6 +87,12 @@ La découverte basée sur les appliances collecte des métadonnées sur les mach
   - Sortie réseau
 
 La découverte basée sur les agents est une option disponible pour la découverte basée sur les appliances, qui permet aux clients de [visualiser les dépendances](how-to-create-group-machine-dependencies.md) des machines virtuelles locales. Les agents de dépendance collectent des informations détaillées comme le nom de domaine complet, le système d’exploitation, l’adresse IP, l’adresse MAC, les processus en cours d’exécution dans la machine virtuelle et les connexions TCP entrantes/sortantes de la machine virtuelle. La découverte basée sur les agents est facultative et vous pouvez choisir de ne pas installer les agents si vous ne voulez pas visualiser les dépendances des machines virtuelles.
+
+### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Y aurait-il un impact sur les performances de l’environnement hôte ESXi analysé ?
+
+Dans le cas de l’[approche de découverte ponctuelle](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods) en vue de collecter les données de performances, le niveau de statistiques doit être fixé à 3 sur le serveur vCenter. Vous collecterez ainsi une grande quantité de données de dépannage, qui seront stockées dans la base de données du serveur vCenter. Par conséquent, cela peut entraîner des problèmes de performances sur le serveur vCenter. L’impact est négligeable sur l’hôte ESXi.
+
+Nous avons introduit le profilage continu des données de performances (en préversion). Avec le profilage continu, il n’est plus nécessaire de modifier le niveau de statistiques du serveur vCenter pour effectuer une évaluation basée sur les performances. L’appliance collector va maintenant profiler les machines localement pour mesurer les données de performance des machines virtuelles. Cela n’a pratiquement aucun impact sur les performances des hôtes ESXi et du serveur vCenter.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Où sont stockées les données collectées et pendant combien de temps ?
 
@@ -124,11 +130,14 @@ Si vous avez un environnement qui est partagé entre des locataires et que vous 
 
 Vous pouvez découvrir 1 500 machines virtuelles dans un même projet de migration. Si vous avez plus de machines que cela dans votre environnement local, [consultez cette section ](how-to-scale-assessment.md) pour obtenir des informations sur la façon dont vous pouvez découvrir un grand environnement dans Azure Migrate.
 
+## <a name="assessment"></a>Évaluation
+
 ### <a name="does-azure-migrate-support-enterprise-agreement-ea-based-cost-estimation"></a>Azure Migrate prend-il en charge l’estimation de coût basée sur l’Accord Entreprise (EA) ?
 
 Azure Migrate ne prend actuellement pas en charge les estimation de coût pour l’[offre Accord Entreprise](https://azure.microsoft.com/offers/enterprise-agreement-support/). La solution de contournement consiste à spécifier Paiement à l’utilisation pour l’offre, en précisant manuellement le pourcentage de remise (applicable à l’abonnement) dans le champ « Remise » des propriétés d’évaluation.
 
   ![Remise](./media/resources-faq/discount.png)
+  
 
 ## <a name="dependency-visualization"></a>Visualisation de dépendance
 
@@ -138,7 +147,34 @@ Azure Migrate est disponible sans coût supplémentaire. En savoir plus sur la t
 
 ### <a name="can-i-use-an-existing-workspace-for-dependency-visualization"></a>Puis-je utiliser un espace de travail existant pour la visualisation des dépendances ?
 
-Azure Migrate ne prend pas en charge l’utilisation d’un espace de travail existant pour la visualisation des dépendances. Cependant, Microsoft Monitoring Agent (MMA) prend en charge l’hébergement multiple et vous permet d’envoyer des données à plusieurs espaces de travail. Ainsi, si les agents sont déjà déployés et configurés pour un espace de travail, vous pouvez tirer parti de l’hébergement multiple de l’agent MMA, configurer celui-ci pour l’espace de travail Azure Migrate (en plus de l’espace de travail existant) et le faire fonctionner. [Voici](https://blogs.technet.microsoft.com/msoms/2016/05/26/oms-log-analytics-agent-multi-homing-support/) un blog sur la façon dont vous pouvez activer l’hébergement multiple dans un agent MMA.
+Oui. Azure Migrate vous permet maintenant de joindre un espace de travail existant au projet de migration et de l’exploiter pour la visualisation des dépendances. [Plus d’informations](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization#how-does-it-work)
+
+### <a name="can-i-export-the-dependency-visualization-report"></a>Puis-je exporter le rapport de visualisation des dépendances ?
+
+Non. La visualisation des dépendances ne peut pas être exportée. Toutefois, étant donné qu’Azure Migrate utilise Service Map pour la visualisation des dépendances, vous pouvez utiliser les [API REST de Service Map](https://docs.microsoft.com/rest/api/servicemap/machines/listconnections) pour obtenir les dépendances au format JSON.
+
+### <a name="how-can-i-automate-the-installation-of-microsoft-monitoring-agent-mma-and-dependency-agent"></a>Comment puis-je automatiser l’installation de Microsoft Monitoring Agent (MMA) et de l’agent de dépendances ?
+
+[Voici](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#installation-script-examples) un script que vous pouvez utiliser pour l’installation de l’agent de dépendances. Pour MMA, [voici](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab) un script disponible sur TechNet que vous pouvez utiliser.
+
+En plus des scripts, vous pouvez également tirer parti des outils de déploiement tels que System Center Configuration Manager (SCCM), [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration), etc. pour déployer les agents.
+
+### <a name="what-are-the-operating-systems-supported-by-mma"></a>Quels sont les systèmes d’exploitation pris en charge par MMA ?
+
+La liste des systèmes d’exploitation Windows pris en charge par MMA est disponible [ici](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-windows-operating-systems).
+La liste des systèmes d’exploitation Linux pris en charge par MMA est disponible [ici](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems).
+
+### <a name="what-are-the-operating-systems-supported-by-dependency-agent"></a>Quels sont les systèmes d’exploitation pris en charge par l’agent de dépendances ?
+
+La liste des systèmes d’exploitation Windows pris en charge par l’agent de dépendances est disponible [ici](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-windows-operating-systems).
+La liste des systèmes d’exploitation Linux pris en charge par l’agent de dépendances est disponible [ici](https://docs.microsoft.com/azure/monitoring/monitoring-service-map-configure#supported-linux-operating-systems).
+
+### <a name="can-i-visualize-dependencies-in-azure-migrate-for-more-than-one-hour-duration"></a>Puis-je visualiser des dépendances dans Azure Migrate pour une durée supérieure à une heure ?
+Non. Azure Migrate vous permet de visualiser des dépendances avec une durée d’une heure maximum. Azure Migrate vous permet de revenir en arrière dans l’historique jusqu’à une date spécifique sur une période d’un mois, mais la durée maximale pour laquelle vous pouvez visualiser des dépendances est 1 heure. Par exemple, vous pouvez utiliser la fonctionnalité de durée dans la carte des dépendances pour voir les dépendances d’hier, mais uniquement pour une fenêtre d’une heure.
+
+### <a name="is-dependency-visualization-supported-for-groups-with-more-than-10-vms"></a>La visualisation des dépendances est-elle prise en charge pour les groupes avec plus de 10 machines virtuelles ?
+Vous pouvez [visualiser les dépendances de groupes](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) ayant 10 machines virtuelles maximum. Si vous avez ce type de groupe, nous vous recommandons de diviser le groupe en groupes plus petits pour visualiser les dépendances.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

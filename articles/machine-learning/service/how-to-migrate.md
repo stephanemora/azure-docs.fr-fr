@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: haining
 author: haining
 ms.date: 09/24/2018
-ms.openlocfilehash: 0c5cfcee65b176147125dd2edbff2497b1eee70b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9778d348cf49d4066f034931dc350a1f4a608ad2
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47158562"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48236582"
 ---
 # <a name="migrate-to-the-latest-version-of-azure-machine-learning-service"></a>Migrer vers la dernière version du service Azure Machine Learning 
 
@@ -52,7 +52,7 @@ Apprenez-en davantage sur [ce qui a changé dans cette version](overview-what-ha
 
 Les ressources telles que vos comptes d’expérimentation, comptes de gestion des modèles et environnements de calcul Machine Learning ne peuvent pas être migrés vers la dernière version du service Azure Machine Learning. Consultez la [chronologie](overview-what-happened-to-workbench.md#timeline) pour savoir pendant combien de temps vos ressources continueront à fonctionner.
 
-Pour bien démarrer avec la dernière version, commencez par créer un espace de travail Azure Machine Learning dans le [portail Azure](quickstart-get-started.md). Le tableau de bord de l’espace de travail du portail est pris en charge uniquement sur les navigateurs Edge, Chrome et Firefox.
+Pour bien démarrer avec la dernière version, commencez par créer un espace de travail Azure Machine Learning dans le [Portail Microsoft Azure](quickstart-get-started.md). Le tableau de bord de l’espace de travail du portail est pris en charge uniquement sur les navigateurs Edge, Chrome et Firefox.
 
 Ce nouvel espace de travail constitue la ressource de service de niveau supérieur. Il vous permet d’utiliser toutes les fonctionnalités les plus récentes du service Azure Machine Learning. Découvrez plus d’informations sur [cet espace de travail et cette architecture](concept-azure-machine-learning-architecture.md).
 

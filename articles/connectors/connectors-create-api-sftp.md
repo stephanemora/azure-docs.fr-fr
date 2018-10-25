@@ -10,13 +10,13 @@ ms.reviewer: klam, LADocs
 ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
-ms.date: 08/24/2018
-ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 10/11/2018
+ms.openlocfilehash: 77a76aa4fbb051e5999053279798c1b0147ae8e9
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042036"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166778"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Superviser, créer et gérer des fichiers SFTP à l’aide d’Azure Logic Apps
 
@@ -27,8 +27,10 @@ Avec Azure Logic Apps et le connecteur SFTP, vous pouvez créer des tâches et d
 * Obtenir les métadonnées et le contenu des fichiers.
 * Extraire des archives dans des dossiers.
 
-Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre serveur SFTP et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions dans vos applications logiques pour effectuer des tâches sur des fichiers sur votre serveur SFTP. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions SFTP. Par exemple, si vous récupérez régulièrement des fichiers de votre serveur SFTP, vous pouvez envoyer un e-mail au sujet de ces fichiers et de leur contenu en utilisant le connecteur Office 365 Outlook ou le connecteur Outlook.com.
-Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
+Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre serveur SFTP et mettent la sortie à la disposition d’autres actions. Vous pouvez utiliser des actions dans vos applications logiques pour effectuer des tâches sur des fichiers sur votre serveur SFTP. Vous pouvez également faire en sorte que des actions utilisent la sortie d’actions SFTP. Par exemple, si vous récupérez régulièrement des fichiers de votre serveur SFTP, vous pouvez envoyer un e-mail au sujet de ces fichiers et de leur contenu en utilisant le connecteur Office 365 Outlook ou le connecteur Outlook.com. Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azure Logic Apps ?](../logic-apps/logic-apps-overview.md)
+
+> [!NOTE]
+> Pour les fichiers supérieurs à 50 Mo et jusqu’à 1 Go, utilisez le [connecteur SFTP-SSH](../connectors/connectors-sftp-ssh.md). Le connecteur SFTP prend en charge uniquement les fichiers d’une taille inférieure ou égale à 50 Mo, sauf si vous utilisez la [segmentation pour gérer les messages volumineux](../logic-apps/logic-apps-handle-large-messages.md). 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -48,7 +50,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
 
-1. Pour les applications logiques vides, dans la zone de recherche, entrez « sftp » comme filtre. Sous la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
+1. Pour les applications logiques vides, dans la zone de recherche, entrez « sftp » comme filtre. Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
 
    -ou-
 
@@ -61,7 +63,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 1. Fournissez les informations nécessaires pour votre connexion, puis choisissez **Créer**.
 
-1. Fournissez les informations nécessaires pour le déclencheur ou l’action sélectionné et continuez à générer le flux de travail de votre application logique.
+1. Fournissez les informations nécessaires pour le déclencheur ou l’action sélectionnés et continuez à générer le flux de travail de votre application logique.
 
 ## <a name="examples"></a>Exemples
 

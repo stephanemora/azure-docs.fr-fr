@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 5e99e7e376a020f845816fb38e31dd727d87a4cb
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423423"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113918"
 ---
 # <a name="creating-custom-voice-fonts"></a>Création de polices de voix personnalisée
 
@@ -22,12 +22,9 @@ Pour créer votre police de la voix, effectuez un enregistrement en studio et ch
 
 Vous pouvez commencer avec un petit volume de données afin de procéder à une démonstration de faisabilité. Mais plus vous fournissez de données, plus votre voix semblera naturelle et professionnelle.
 
-
 ## <a name="prerequisites"></a>Prérequis
 
-La fonctionnalité de personnalisation vocale **Text to Speech** est actuellement en préversion privée. [Remplissez le formulaire de demande](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0N8Vcdi8MZBllkZb70o6KdURjRaUzhBVkhUNklCUEMxU0tQMEFPMjVHVi4u) pour y avoir accès.
-
-Vous avez besoin d’un compte Azure et d’un abonnement au service Speech. Si vous ne l’avez pas déjà fait, [créez-en un](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Connectez votre abonnement au portail Custom Voice en effectuant les étapes suivantes :
+Vous avez besoin d’un compte Azure et d’un abonnement au service Speech. Si vous ne l’avez pas déjà fait, [créez-en un](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Connectez votre abonnement au portail Custom Voice, comme indiqué ici.
 
 1. Connectez-vous au [portail Custom Voice](https://customvoice.ai) à l’aide du compte Microsoft que vous avez utilisé pour faire votre demande d’accès.
 
@@ -37,7 +34,6 @@ Vous avez besoin d’un compte Azure et d’un abonnement au service Speech. Si 
 
 3. Dans la page Subscriptions (Abonnements), choisissez **Connect existing subscription** (Connecter un abonnement existant). Notez que les services de reconnaissance vocale prennent en charge différentes régions. Vérifiez la région où votre clé d’abonnement a été créée, et veillez à connecter votre clé au sous-portail correct.  
 
-     
 4. Collez votre clé d’abonnement dans le tableau, comme indiqué dans l’exemple suivant. Chaque abonnement dispose de deux clés et vous pouvez utiliser n’importe laquelle des deux.
 
      ![Ajouter un abonnement](media/custom-voice/add-subscription.png)
@@ -56,7 +52,7 @@ Pour créer une voix à des fins de production, nous vous recommandons de faire 
 
 ### <a name="audio-files"></a>Fichiers audio
 
-Chaque fichier audio doit contenir un seul énoncé (par exemple, une seule phrase prononcée ou une seule réplique d’un dialogue). Tous les fichiers doivent être dans la même langue. (Les voix personnalisées multilingues ne sont pas prises en charge.) Chaque fichier audio doit également comporter un nom de fichier numérique unique avec l’extension de nom de fichier `.wav`.
+Chaque fichier audio doit contenir un seul énoncé (par exemple, une seule phrase prononcée ou une seule réplique d’un dialogue). Tous les fichiers doivent être dans la même langue. (Les voix personnalisées multilingues ne sont pas prises en charge.) Chaque fichier audio doit également comporter un nom de fichier numérique unique portant l’extension de nom de fichier `.wav`.
 
 Les fichiers audio doivent être préparés comme suit. Les autres formats ne sont pas pris en charge et seront refusés.
 
@@ -75,7 +71,7 @@ Les fichiers audio doivent être préparés comme suit. Les autres formats ne so
 
 ### <a name="transcripts"></a>Transcriptions
 
-Le fichier de transcription est un fichier texte brut (ANSI,UTF-8, UTF-8-BOM, UTF-16-LE ou UTF-16-BE). Chaque ligne du fichier de transcription doit contenir le nom d’un fichier audio, suivi d’un onglet (code de caractère 9) et enfin de la transcription. Aucune ligne vide n’est autorisée.
+Le fichier de transcription est un fichier texte brut (ANSI, UTF-8, UTF-8-BOM, UTF-16-LE ou UTF-16-BE). Chaque ligne du fichier de transcription doit contenir le nom d’un fichier audio, suivi d’un onglet (code de caractère 9) et enfin de la transcription. Aucune ligne vide n’est autorisée.
 
 Par exemple : 
 
@@ -92,7 +88,7 @@ Le système vocal personnalisé normalise les transcriptions en convertissant le
 
 ## <a name="upload-your-datasets"></a>Charger vos jeux de données
 
-Après avoir préparé votre archive de fichiers audio et les transcriptions, chargez-les sur le [portail du service Custom Voice](https://customvoice.ai).
+Après avoir préparé votre archive de fichiers audio et les transcriptions, chargez-les par le biais du [portail du service Custom Voice](https://customvoice.ai).
 
 > [!NOTE]
 > Les jeux de données ne peuvent pas être modifiés après avoir été chargés. Si vous oubliez d’inclure les transcriptions de certains fichiers audio ou si vous choisissez le mauvais genre par inadvertance, vous devez recharger l’intégralité du jeu de données. Vérifiez soigneusement votre jeu de données et les paramètres avant de procéder au chargement.
@@ -170,7 +166,7 @@ Une fois votre jeu de données validé, vous pouvez l’utiliser pour générer 
 
 Votre nouveau modèle apparaît dans le tableau **My Voice Fonts** (Mes polices de la voix). 
 
-![Mes polices de la voix](media/custom-voice/my-voice-fonts.png)
+![Mes polices vocales](media/custom-voice/my-voice-fonts.png)
 
 L’état indiqué reflète le processus de conversion de votre jeu de données en police de la voix, comme indiqué ici.
 
@@ -185,7 +181,7 @@ Le temps d’apprentissage varie selon le volume de données audio traitées. Il
 > [!NOTE]
 > Les utilisateurs d’abonnements gratuits peuvent former une police vocale à la fois. Les utilisateurs d’abonnement standard peuvent, quant à eux, former trois polices vocales simultanément. Si vous atteignez la limite, attendez au moins la fin de la formation de l’une de vos polices de la voix, puis réessayez.
 
-## <a name="test-your-voice-font"></a>Tester votre police de la voix
+## <a name="test-your-voice-font"></a>Tester votre police vocale
 
 Une fois votre police de la voix créée, vous pouvez la tester avant de procéder à son déploiement. Dans la colonne **Operations**, sélectionnez **Test**. La page de test de la police vocale sélectionnée s’affiche. Le tableau est vide si vous n’avez encore envoyé aucune demande de test pour la voix.
 

@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: ff382becb71f187ac38b0ef5d31c1b29c43f3fe7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972553"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068534"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feu et des réseaux virtuels dans Stockage Azure
 Le service Stockage Azure fournit un modèle de sécurité en couche qui vous permet de sécuriser vos comptes de stockage sur un ensemble spécifique de réseaux autorisés.  Quand des règles de réseau sont configurées, seules les applications des réseaux autorisés peuvent accéder à un compte de stockage.  En cas d’appel à partir d’un réseau autorisé, les applications continuent à demander une autorisation appropriée (une clé d’accès ou un jeton SAS valide) pour accéder au compte de stockage.
 
 > [!IMPORTANT]
-> L’activation de règles de pare-feu pour votre compte de stockage bloque l’accès aux requêtes entrantes pour les données, notamment celles provenant d’autres services Azure.  Cela inclut l’utilisation du portail, l’écriture de journaux, et ainsi de suite.  Pour les services participants, vous pouvez réactiver la fonctionnalité dans la section [Exceptions](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) ci-dessous.  Pour accéder au portail, vous devez utiliser un ordinateur qui se trouve dans la limite de confiance (IP ou réseau virtuel) que vous avez définie.
+> L’activation de règles de pare-feu pour votre compte de stockage bloque l’accès aux requêtes entrantes pour les données, notamment celles provenant d’autres services Azure.  Cela inclut l’utilisation du portail, l’écriture de journaux, et ainsi de suite.  Les services Azure qui fonctionnent à partir d’un réseau virtuel peuvent obtenir l’accès en autorisant le sous-réseau de l’instance de service.  Les services Azure qui n’opèrent pas à partir d’un réseau virtuel seront bloqués par le pare-feu.  Un nombre limité de scénarios peut être activé via le mécanisme [Exceptions](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) décrit ci-dessous.  Pour accéder au portail, vous devez utiliser un ordinateur qui se trouve dans la limite de confiance (IP ou réseau virtuel) que vous avez définie.
 >
 
 ## <a name="scenarios"></a>Scénarios

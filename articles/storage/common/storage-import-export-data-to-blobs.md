@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 39287e4d90e4f6f42dd1f79d5457853e253bd736
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 3a647d9f821007dc0f2b48864b937aee84924d8f
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737054"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353169"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>Utiliser le service Azure Import/Export pour transférer des données dans le Stockage Blob Azure
 
@@ -30,7 +30,7 @@ Avant de créer une tâche d’importation pour transférer des données dans le
 - Avoir un nombre suffisant de disques de [Types pris en charge](storage-import-export-requirements.md#supported-disks). 
 - Avoir un système Windows exécutant une [Version de système d’exploitation prise en charge](storage-import-export-requirements.md#supported-operating-systems). 
 - Activez BitLocker sur le système Windows. Consultez [Comment activer BitLocker](http://thesolving.com/storage/how-to-enable-bitlocker-on-windows-server-2012-r2/).
-- [Téléchargez la version 1 de WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=42659) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
+- [Téléchargez la version 1 de WAImportExport](https://www.microsoft.com/en-us/download/details.aspx?id=42659) sur le système Windows. Décompressez le package dans le dossier par défaut : `waimportexportv1`. Par exemple : `C:\WaImportExportV1`.
 - Dotez-vous d’un compte FedEx/DHL.  
     - Le compte doit être valide, doit avoir un solde et doit offrir des fonctionnalités de réexpédition.
     - Générez un numéro de suivi pour le travail d’exportation.
@@ -71,7 +71,7 @@ Effectuez les étapes suivantes pour préparer les lecteurs.
     |/sk:     |Clé de compte de stockage Azure.         |
     |/t:     |Lettre de lecteur du disque à expédier. Exemple : lecteur `D`.         |
     |/bk:     |Clé BitLocker du lecteur. Son mot de passe numérique à partir de la sortie de ` manage-bde -protectors -get D: `      |
-    |/srcdir:     |Lettre de lecteur du disque à expédier suivie de `:\`. Par exemple : `D:\`.         |
+    |/srcdir:     |Lettre de lecteur du disque à expédier suivie de `:\`. Par exemple : `D:\`.         |
     |/dstdir:     |Nom du conteneur de destination dans le Stockage Azure.         |
     |/skipwrite:     |Option qui spécifie qu’aucune nouvelle donnée ne doit être copiée et que les données existantes sur le disque doivent être préparées.          |
 7. Répétez l’étape précédente pour chaque disque à expédier. Un fichier journal avec le nom fourni est créé pour chaque exécution de la ligne de commande.
@@ -96,7 +96,7 @@ Effectuez les étapes suivantes pour créer une tâche d’importation dans le p
 
     - Sélectionnez **Importer dans Azure**.
     - Indiquez un nom décrivant le travail d’importation. Utilisez le nom pour suivre la progression de vos tâches.
-        - Le nom peut contenir uniquement des lettres minuscules, des chiffres, des tirets et des traits de soulignement.
+        - Le nom ne peut contenir que des lettres minuscules, des chiffres et des traits d’union.
         - Le nom doit commencer par une lettre et ne doit pas contenir d’espaces.
     - Sélectionnez un abonnement.
     - Entrez ou sélectionnez un groupe de ressources.  

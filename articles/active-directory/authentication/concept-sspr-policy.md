@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: a4ea483104a28e436ac35b50b962d3a153483789
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3e3b608d3928536d654a594c42cbcc955d620d98
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804172"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321731"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Stratégies et restrictions de mot de passe dans Azure Active Directory
 
@@ -27,7 +27,7 @@ Cet article décrit les stratégies de mot de passe et les exigences en matière
 
 Avec une stratégie à deux verrous, **les administrateurs n’ont pas la possibilité d’utiliser des questions de sécurité**.
 
- Une stratégie à deux verrous nécessite deux éléments de données d’authentification, par exemple une adresse de messagerie *et* un numéro de téléphone. Une stratégie à deux verrous s’applique dans les conditions suivantes :
+Une stratégie à deux verrous nécessite deux éléments de données d’authentification, par exemple une adresse de messagerie *et* un numéro de téléphone. Une stratégie à deux verrous s’applique dans les conditions suivantes :
 
 * Tous les rôles d’administrateur suivants sont concernés :
   * Administrateur du support technique
@@ -50,29 +50,17 @@ Avec une stratégie à deux verrous, **les administrateurs n’ont pas la possib
   * Administrateur de services CRM
   * Administrateur de services Power BI
 
-* Si 30 jours se sont écoulés dans un abonnement d’essai
-
-  or
-
-* Un domaine personnel est présent, par exemple, contoso.com
-
-  or
-
+* Si 30 jours se sont écoulés dans un abonnement d’essai ; ou
+* Un domaine personnel est présent, par exemple, contoso.com ; ou
 * Azure AD Connect synchronise les identités à partir de votre répertoire local
 
 ### <a name="exceptions"></a>Exceptions
 
 Une stratégie à un verrou nécessite un élément de données d’authentification, par exemple une adresse de messagerie *ou* un numéro de téléphone. Une stratégie à un verrou s’applique dans les conditions suivantes :
 
-* Pendant les 30 premiers jours d’un abonnement d’essai
-
-  or
-
-* Un domaine personnel n’est pas présent (*.onmicrosoft.com)
-
-  and
-
-  Azure AD Connect ne synchronise pas les identités
+* Pendant les 30 premiers jours d’un abonnement d’essai ; ou
+* Un domaine personnel n’est pas présent (*.onmicrosoft.com) ; et
+* Azure AD Connect ne synchronise pas les identités
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>Stratégies UserPrincipalName s'appliquant à tous les comptes d'utilisateur
 
@@ -80,7 +68,7 @@ Chaque compte d’utilisateur devant se connecter à Azure AD doit être doté 
 
 | Propriété | Conditions requises pour UserPrincipalName |
 | --- | --- |
-| Caractères autorisés |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
+| Caractères autorisés |<ul> <li>A – Z</li> <li>a - z</li><li>0 – 9</li> <li> ' \. - \_ ! \# ^ \~</li></ul> |
 | Caractères non autorisés |<ul> <li>Tout caractère « \@ \"» qui ne sépare pas le nom d’utilisateur du domaine.</li> <li>Ne peut pas contenir un point « . » précédant immédiatement le symbole « \@\" ».</li></ul> |
 | Contraintes de longueur |<ul> <li>La longueur totale ne doit pas dépasser 113 caractères</li><li>Jusqu’à 64 caractères avant le symbole « \@\" ».</li><li>Jusqu’à 48 caractères après le symbole « \@\" ».</li></ul> |
 
@@ -117,7 +105,7 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
 ### <a name="check-the-expiration-policy-for-a-password"></a>Vérifier la stratégie d’expiration d’un mot de passe
 
 1. Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur d’entreprise.
-2. Exécutez l’une des commandes suivantes :
+1. Exécutez l’une des commandes suivantes :
 
    * Pour voir si le mot de passe d’un utilisateur donné est défini pour ne jamais expirer, exécutez l’applet de commande suivante en utilisant l’UPN (par exemple, *aprilr@contoso.onmicrosoft.com*) ou l’identifiant utilisateur de l’utilisateur à vérifier : `Get-AzureADUser -ObjectId <user ID> | Select-Object @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
    * Pour afficher le paramètre **Le mot de passe n’expire jamais** pour tous les utilisateurs, exécutez l’applet de commande suivante : `Get-AzureADUser -All $true | Select-Object UserPrincipalName, @{N="PasswordNeverExpires";E={$_.PasswordPolicies -contains "DisablePasswordExpiration"}}`
@@ -125,7 +113,7 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
 ### <a name="set-a-password-to-expire"></a>Définir un mot de passe pour qu’il expire
 
 1. Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur d’entreprise.
-2. Exécutez l’une des commandes suivantes :
+1. Exécutez l’une des commandes suivantes :
 
    * Pour définir le mot de passe d’un utilisateur afin qu’il expire, exécutez l’applet de commande suivante en utilisant l’UPN ou l’identifiant utilisateur de l’utilisateur : `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies None`
    * Pour définir les mots de passe de tous les utilisateurs de l’organisation afin qu’ils expirent, utilisez l’applet de commande suivante : `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies None`
@@ -133,7 +121,7 @@ Pour commencer, vous devez [télécharger et installer le module Azure AD Powe
 ### <a name="set-a-password-to-never-expire"></a>Définir un mot de passe pour qu’il n’expire jamais
 
 1. Connectez-vous à Windows PowerShell à l’aide de vos informations d’identification d’administrateur d’entreprise.
-2. Exécutez l’une des commandes suivantes :
+1. Exécutez l’une des commandes suivantes :
 
    * Pour définir le mot de passe d’un utilisateur afin qu’il expire jamais, exécutez l’applet de commande suivante en utilisant l’UPN ou l’identifiant utilisateur de l’utilisateur : `Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration`
    * Pour définir les mots de passe de tous les utilisateurs de l’organisation afin qu’ils n’expirent jamais, utilisez l’applet de commande suivante : `Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration`

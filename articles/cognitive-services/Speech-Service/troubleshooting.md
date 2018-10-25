@@ -1,7 +1,7 @@
 ---
-title: Dépannage du kit de développement logiciel Speech de Microsoft Cognitive Services
-description: Dépannage du kit de développement logiciel (SDK) Speech de Microsoft Cognitive Services
-titleSuffix: Microsoft Cognitive Services
+title: Dépanner le Kit de développement logiciel (SDK) Speech de Cognitive Services
+description: Dépanner le Kit de développement logiciel (SDK) Speech de Cognitive Services.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: wolfma61
 ms.service: cognitive-services
@@ -9,41 +9,43 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: wolfma
-ms.openlocfilehash: ff8aba562cfd2d6d54c708ee7fdc4c6ca7185f29
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 02564021257c97f6c865fcbebf30c73babee859a
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284120"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816196"
 ---
-# <a name="troubleshooting-speech-services-sdk"></a>Dépannage du SDK des services Speech
+# <a name="troubleshoot-the-speech-sdk"></a>Résoudre les problèmes avec le Kit de développement logiciel (SDK) Speech
 
-Cet article fournit des informations pour vous aider à résoudre les problèmes éventuels d’utilisation du kit de développement Speech.
+Cet article fournit des informations pour vous aider à résoudre des problèmes que vous pourriez rencontrer lors de l’utilisation du Kit de développement logiciel (SDK) Speech.
 
-## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Erreur `WebSocket Upgrade failed with an authentication error (403).`
+## <a name="error-websocket-upgrade-failed-with-an-authentication-error-403"></a>Erreur : La mise à niveau de WebSocket a échoué avec une erreur d’authentification (403)
 
-Le point de terminaison pour votre service ou votre région est peut-être incorrect. Vérifiez une nouvelle fois l’URI pour vous assurer qu’il est correct. Consultez également la section suivante, car il pourrait s’agir d’un problème concernant la clé d’abonnement ou le jeton d’autorisation.
+Le point de terminaison pour votre service ou région est peut-être incorrect. Vérifiez l’URI pour vous assurer qu’il est correct. 
 
-## <a name="error-http-403-forbidden-or-error-http-401-unauthorized"></a>Erreur `HTTP 403 Forbidden` ou erreur `HTTP 401 Unauthorized`
+Il y a peut-être également un problème avec votre clé d’abonnement ou jeton d’autorisation. Pour en savoir plus, consultez la section suivante.
 
-Cette erreur est souvent due à des problèmes d’authentification. Les demandes de connexion sans en-tête `Ocp-Apim-Subscription-Key` ou `Authorization` valide sont rejetées. Elles renvoient un code d’état 401 ou 403.
+## <a name="error-http-403-forbidden-or-http-401-unauthorized"></a>Erreur : HTTP 403 Refusé ou HTTP 401 Non autorisé
 
-* Si vous utilisez une clé d’abonnement pour l’authentification, en voici les raisons possibles :
+Cette erreur est souvent due à des problèmes d’authentification. Les demandes de connexion sans en-tête `Ocp-Apim-Subscription-Key` ou `Authorization` valide sont rejetées. Elles renvoient un code d’état 403 ou 401.
+
+* Si vous utilisez une clé d’abonnement pour l’authentification, vous verrez peut-être l’erreur pour les raisons suivantes :
 
     - La clé d’abonnement est manquante ou non valide.
-    - Vous avez dépassé le quota auquel vous aviez droit dans votre abonnement.
+    - Vous avez dépassé le quota d’utilisation auquel votre abonnement vous donne droit.
 
-* Si vous utilisez un jeton d’autorisation pour l’authentification, en voici les raisons possibles :
+* Si vous utilisez un jeton d’autorisation pour l’authentification, vous verrez peut-être l’erreur pour les raisons suivantes :
 
     - Le jeton d’autorisation n’est pas valide.
     - Le jeton d’autorisation a expiré.
 
 ### <a name="validate-your-subscription-key"></a>Valider votre clé d’abonnement
 
-Assurez-vous de détenir une clé d’abonnement valide. Pour cela, exécutez l’une des commandes ci-dessous.
+Vous pouvez vérifier que vous disposez d’une clé d’abonnement valide en exécutant l’une des commandes suivantes.
 
 > [!NOTE]
-> Remplacez respectivement `YOUR_SUBSCRIPTION_KEY` et `YOUR_REGION` par votre propre clé d’abonnement et la région associée.
+> Remplacez `YOUR_SUBSCRIPTION_KEY` et `YOUR_REGION` par votre propre clé d’abonnement et la région associée.
 
 * PowerShell
 
@@ -68,7 +70,7 @@ Assurez-vous de détenir une clé d’abonnement valide. Pour cela, exécutez l�
 Si vous utilisez un jeton d’autorisation pour l’authentification, exécutez l’une des commandes suivantes pour vérifier que le jeton d’autorisation est toujours valide. Les jetons sont valides pendant 10 minutes.
 
 > [!NOTE]
-> Remplacez `YOUR_AUDIO_FILE` par le chemin d’accès au fichier audio préenregistré, `YOUR_ACCESS_TOKEN` par le jeton d’autorisation renvoyé à l’étape précédente et `YOUR_REGION` par la région qui convient.
+> Remplacez `YOUR_AUDIO_FILE` par le chemin de votre fichier audio préenregistré. Remplacez `YOUR_ACCESS_TOKEN` par le jeton d’autorisation retourné à l’étape précédente. Remplacez `YOUR_REGION` par la région correcte.
 
 * PowerShell
 
@@ -83,12 +85,12 @@ Si vous utilisez un jeton d’autorisation pour l’authentification, exécutez 
       'Content-type' = 'audio/wav; codec=audio/pcm; samplerate=16000'
     }
     
-    # Read audio into byte array
+    # Read audio into byte array.
     $audioBytes = [System.IO.File]::ReadAllBytes("YOUR_AUDIO_FILE")
     
     $RecoResponse = Invoke-RestMethod -Method POST -Uri $SpeechServiceURI -Headers $RecoRequestHeader -Body $audioBytes
     
-    # Show the result
+    # Show the result.
     $RecoResponse
     ```
 
@@ -100,22 +102,23 @@ Si vous utilisez un jeton d’autorisation pour l’authentification, exécutez 
 
 ---
 
-## <a name="error-http-400-bad-request"></a>Erreur `HTTP 400 Bad Request`
+## <a name="error-http-400-bad-request"></a>Erreur : HTTP 400 Requête incorrecte
 
-Cette erreur est généralement due au fait que le corps de la requête contient des données audio non valides. Seul le format `WAV` est pris en charge. De même, vérifiez les en-têtes de la requête pour vous assurer que vous spécifiez des valeurs `Content-Type` et `Content-Length` appropriées.
+Cette erreur est généralement due au fait que le corps de la requête contient des données audio non valides. Seul le format WAV est pris en charge. De même, vérifiez les en-têtes de la requête pour vous assurer que vous spécifiez des valeurs appropriées pour `Content-Type` et `Content-Length`.
 
-## <a name="error-http-408-request-timeout"></a>Erreur `HTTP 408 Request Timeout`
+## <a name="error-http-408-request-timeout"></a>Erreur : HTTP 408 Dépassement de délai de demande
 
-L’erreur est probablement due au fait qu’aucune donnée audio n’est envoyée au service. Cette erreur peut également avoir lieu en cas de problèmes sur le réseau.
+L’erreur est très probablement due au fait qu’aucune donnée audio n’est envoyée au service. Cette erreur peut également résulter de problèmes de réseau.
 
-## <a name="the-recognitionstatus-in-the-response-is-initialsilencetimeout"></a>L’élément `RecognitionStatus` dans la réponse est `InitialSilenceTimeout`
+## <a name="recognitionstatus-in-the-response-is-initialsilencetimeout"></a>« RecognitionStatus » dans la réponse est « InitialSilenceTimeout »
 
-Des données audio sont généralement à l’origine de ce problème. Par exemple : 
+Ce problème est généralement dû à des données audio. Ce message d’erreur peut s’afficher pour les raisons suivantes :
 
-* Il existe un long stretch de silence au début de l’enregistrement audio. Le service arrête la reconnaissance après un certain nombre de secondes et renvoie `InitialSilenceTimeout`.
+* Il existe un long stretch de silence au début de l’enregistrement audio. Dans ce cas, le service arrête la reconnaissance après quelques secondes et renvoie `InitialSilenceTimeout`.
+
 * Le contenu audio utilise un format de codec non pris en charge, ce qui fait que les données audio sont traitées comme s’il s’agissait d’un silence.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Notes de publication](releasenotes.md)
+* [Examiner les notes de publication](releasenotes.md)
 

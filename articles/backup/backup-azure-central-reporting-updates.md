@@ -1,5 +1,5 @@
 ---
-title: Mise à jour du pack de contenu de rapports centraux de sauvegarde Azure
+title: Mettre à jour le pack de contenu de rapports centraux de Sauvegarde Azure
 description: Informations sur les mises à jour du pack de contenu Sauvegarde Azure dans Power BI
 services: backup
 documentationcenter: ''
@@ -14,31 +14,31 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: adigan;
-ms.openlocfilehash: 07774234849d96b9a44678b68ca7b13b6b4830f9
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 73a5e8126ebe6223d790a5b58db7bd5d04b5350f
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39266859"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48267292"
 ---
-# <a name="updating-azure-backup-central-reporting-content-pack"></a>Mise à jour du pack de contenu de rapports centraux de sauvegarde Azure 
+# <a name="update-the-azure-backup-central-reporting-content-pack"></a>Mettre à jour le pack de contenu de rapports centraux de Sauvegarde Azure 
 
-Le [Pack de contenu Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) permet d’accéder à tous les rapports de sauvegarde. Le pack de contenu est mis à jour régulièrement avec de nouvelles fonctionnalités et des correctifs de bogues. Cet article explique comment mettre à jour le pack de contenu et différer ses mises à jour, puis fournit un aperçu des fonctionnalités à venir.
+Le [pack de contenu Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-configure-reports#view-reports-in-power-bi) permet d’accéder aux rapports de la sauvegarde centralisée. Le pack de contenu est mis à jour régulièrement avec de nouvelles fonctionnalités et des correctifs de bogues. Cet article explique comment mettre à jour le pack de contenu. Il explique également comment reporter la mise à jour et afficher les mises à jour effectuées au fil du temps.
 
-## <a name="how-to-get-updates-to-the-content-pack"></a>Comment obtenir les mises à jour du pack de contenu
+## <a name="get-updates-to-the-content-pack"></a>Obtenir les mises à jour du pack de contenu
 
-### <a name="to-get-the-updated-content-pack"></a>Pour obtenir la dernière version du pack de contenu
-Votre pack de contenu est mis à jour automatiquement si vous n’y avez pas apporté de modifications. Si le pack de contenu a été modifié, vous recevez une notification dans Power BI et une notification par e-mail. Vous pouvez choisir la manière dont vous souhaitez recevoir la mise à jour du pack de contenu. 
+### <a name="get-the-updated-content-pack"></a>Obtenir le pack de contenu mis à jour
+Si vous n’avez pas modifié votre copie du pack de contenu, il se met à jour automatiquement. Lorsque des modifications sont apportées au pack de contenu, vous recevez une notification dans Power BI et une notification par e-mail. Vous pouvez choisir la manière dont vous souhaitez recevoir la mise à jour du pack de contenu. 
 
-### <a name="to-delay-the-update"></a>Pour différer la mise à jour
-Une bonne pratique consiste à importer le pack de contenu dans un [espace de travail personnalisé](https://youtu.be/26zyOtyHPJM?t=1m57s). Vous avez désormais la possibilité de modifier les rapports.
-Comme mentionné ci-dessus, si le pack de contenu est modifié, vous recevez une notification dans Power BI. Vous pouvez choisir de recevoir le pack de contenu à une date ultérieure. 
+### <a name="postpone-the-update"></a>Reporter la mise à jour
+Une bonne pratique consiste à importer le pack de contenu dans un [espace de travail personnalisé](https://youtu.be/26zyOtyHPJM?t=1m57s). Vous pouvez maintenant modifier les rapports.
+Comme indiqué précédemment, si des modifications sont apportées au pack de contenu, une notification s’affiche dans Power BI. Vous pouvez choisir de recevoir le pack de contenu à une date ultérieure. 
 
 ## <a name="coming-soon"></a>Bientôt disponible
    
-Le pack de contenu Sauvegarde Azure est actuellement mis à jour en vue de prendre en charge davantage de charges de travail, comme SQL dans la sauvegarde des machines virtuelles IaaS ou System Center DPM, en plus de la prise en charge actuelle de la Sauvegarde Microsoft Azure et de la sauvegarde des machines virtuelles Azure. Cela signifie que vous pourrez bientôt voir et analyser les données de toutes vos sauvegardes en un seul et même endroit. Les [rapports peuvent également être personnalisés](https://youtu.be/26zyOtyHPJM) en fonction des besoins de votre organisation.
+Le pack de contenu Sauvegarde Azure est mis à jour afin de gérer davantage de charges de travail. Parmi les charges de travail figurent Azure SQL Database pour la sauvegarde des machines virtuelles de l’IaaS et System Center Data Protection Manager. Cela s’ajoute à la prise en charge actuelle des sauvegardes Azure et des sauvegardes des machines virtuelles Azure. Il est ainsi possible de visualiser et d’analyser toutes les données de sauvegarde dans un seul endroit. Les [rapports peuvent également être personnalisés](https://youtu.be/26zyOtyHPJM) en fonction des besoins de votre organisation.
 
-Nous améliorons actuellement l’ensemble de rapports préconfiguré avec le pack de contenu Sauvegarde Azure en vue de rendre encore plus utiles les rapports sur les charges de travail. Voici un petit aperçu de l’ensemble de rapports à venir :
+Les rapports préconfigurés fournis avec le pack de contenu Sauvegarde Azure sont en train d’être modifiés. Les modifications apportées améliorent la pertinence des rapports de l’ensemble des charges de travail. Voici un aperçu de l’ensemble des rapports à venir.
 
 ### <a name="summary"></a>Résumé
    
@@ -68,7 +68,7 @@ Nous améliorons actuellement l’ensemble de rapports préconfiguré avec le pa
 ![Tâches](.\media\backup-azure-central-reporting\AzBackup-Central-Reporting-Jobs.png)
     
 
-## <a name="next-steps"></a>Étapes suivantes :
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Partager des rapports au sein de votre organisation](https://youtu.be/26zyOtyHPJM)
-* [Questions fréquentes (FAQ) sur Sauvegarde Azure](backup-azure-backup-faq.md)
+* [Azure Backup - Forum Aux Questions](backup-azure-backup-faq.md)

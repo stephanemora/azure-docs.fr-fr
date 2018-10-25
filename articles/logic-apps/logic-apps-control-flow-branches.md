@@ -3,19 +3,18 @@ title: Créer ou joindre des branches parallèles – Azure Logic Apps | Microso
 description: Comment créer ou joindre des branches parallèles pour les workflows dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 2a8dcd82b67ee64e5687d8687415056b0aab39aa
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.topic: article
+ms.date: 10/10/2018
+ms.openlocfilehash: 41823d697139e039703cd47e0bfe3380fd2d20d6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298853"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116084"
 ---
 # <a name="create-or-join-parallel-branches-for-workflow-actions-in-azure-logic-apps"></a>Créer ou joindre des branches parallèles pour des actions de workflow dans Azure Logic Apps
 
@@ -32,33 +31,44 @@ Par défaut, vos actions dans les workflows d’application logique s’exécute
 
 <a name="parallel-branches"></a>
 
-## <a name="add-a-parallel-branch"></a>Ajouter une branche parallèle
+## <a name="add-parallel-branch"></a>Ajouter une branche parallèle
 
 Pour exécuter des étapes indépendantes en même temps, vous pouvez ajouter des branches parallèles en regard d’une étape existante. 
 
 ![Exécuter des étapes en parallèle](media/logic-apps-control-flow-branches/parallel.png)
 
-Votre application logique attend que toutes les branches se terminent avant de poursuivre le flux de travail.
-Les branches parallèles s’exécutent uniquement si leurs valeurs de propriété `runAfter` correspondent à l’état de l’étape parente terminée. Par exemple, les deux branches `branchAction1` et `branchAction2` sont définies pour s’exécuter uniquement lorsque l’étape `parentAction` est terminée avec l’état `Succeded`.
+Votre application logique attend que toutes les branches se terminent avant de poursuivre le flux de travail. Les branches parallèles s’exécutent uniquement si leurs valeurs de propriété `runAfter` correspondent à l’état de l’étape parente terminée. Par exemple, les deux branches `branchAction1` et `branchAction2` sont définies pour s’exécuter uniquement lorsque l’étape `parentAction` est terminée avec l’état `Succeded`.
 
 > [!NOTE]
 > Avant que vous ne commenciez, votre application logique doit déjà disposer d’une étape dans laquelle vous pouvez ajouter des branches parallèles.
 
 1. Dans le <a href="https://portal.azure.com" target="_blank">portail Azure</a>, ouvrez votre application logique dans le Concepteur d’applications logiques.
 
-2. Placez la souris sur la flèche au-dessus de l’étape où vous souhaitez ajouter des branches parallèles.
-
-3. Cliquez sur le signe **plus** (**+**), choisissez **Ajouter une branche parallèle**, puis sélectionnez l’élément que vous souhaitez ajouter.
+1. Placez le pointeur sur la flèche au-dessus de l’étape où vous souhaitez ajouter des branches parallèles. Cliquez sur le signe **plus** (**+**) qui s’affiche, puis choisissez **Ajouter une branche parallèle**. 
 
    ![Ajouter une branche parallèle](media/logic-apps-control-flow-branches/add-parallel-branch.png)
 
-   L’élément que vous avez sélectionné apparaît désormais dans une branche parallèle.
+1. Dans la zone de recherche, recherchez et sélectionnez l’action souhaitée.
 
-4. Pour chaque branche parallèle, ajoutez les étapes de votre choix. Pour ajouter une action séquentielle à une branche parallèle, déplacez la souris sous l’action où vous souhaitez ajouter l’action séquentielle. Cliquez sur le signe **plus** (**+**) et sur l’étape que vous souhaitez ajouter.
+   ![Rechercher et sélectionner l’action souhaitée](media/logic-apps-control-flow-branches/find-select-parallel-action.png)
 
-   ![Ajouter une étape séquentielle à une branche parallèle](media/logic-apps-control-flow-branches/add-sequential-action-parallel-branch.png)
+   Maintenant, votre action sélectionnée s’affiche dans la branche parallèle, par exemple :
 
-5. Pour fusionner à nouveau des branches, [joignez vos branches parallèles](#join-branches). 
+   ![Rechercher et sélectionner l’action souhaitée](media/logic-apps-control-flow-branches/added-parallel-branch.png)
+
+1. Dans chaque branche parallèle, ajoutez les étapes de votre choix. Pour ajouter une autre action à une branche, déplacez le pointeur sous l’action où vous souhaitez ajouter une action séquentielle. Cliquez sur le signe **plus** (**+**) qui s’affiche, puis sélectionnez **Ajouter une action**.
+
+   ![Ajouter une action séquentielle à une branche parallèle](media/logic-apps-control-flow-branches/add-sequential-action.png)
+
+1. Dans la zone de recherche, recherchez et sélectionnez l’action souhaitée.
+
+   ![Rechercher et sélectionner une action séquentielle](media/logic-apps-control-flow-branches/find-select-sequential-action.png)
+
+   Maintenant, votre action sélectionnée s’affiche dans la branche actuelle, par exemple :
+
+   ![Rechercher et sélectionner une action séquentielle](media/logic-apps-control-flow-branches/added-sequential-action.png)
+
+Pour fusionner à nouveau des branches, [joignez vos branches parallèles](#join-branches). 
 
 <a name="parallel-json"></a>
 
@@ -69,17 +79,17 @@ Si vous travaillez en mode Code, vous pouvez définir la structure parallèle da
 ``` json
 {
   "triggers": {
-    "myTrigger": { }
+    "myTrigger": {}
   },
   "actions": {
     "parentAction": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {}
     },
     "branchAction1": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {
         "parentAction": [
           "Succeeded"
@@ -88,7 +98,7 @@ Si vous travaillez en mode Code, vous pouvez définir la structure parallèle da
     },
     "branchAction2": {
       "type": "<action-type>",
-      "inputs": { },
+      "inputs": {},
       "runAfter": {
         "parentAction": [
           "Succeeded"
@@ -110,11 +120,17 @@ Pour fusionner des branches parallèles, ajoutez simplement une étape en bas, s
 
 1. Dans le [portail Azure](https://portal.azure.com), recherchez et ouvrez votre application logique dans le concepteur d’application logique. 
 
-2. Sous les branches parallèles que vous souhaitez joindre, ajoutez l’étape que vous souhaitez effectuer.
+1. Sous les branches parallèles que vous souhaitez joindre, choisissez **Nouvelle étape**. 
 
-   ![Ajouter une étape qui joint des branches parallèles](media/logic-apps-control-flow-branches/join-steps.png)
+   ![Ajouter une étape à joindre](media/logic-apps-control-flow-branches/add-join-step.png)
+
+1. Dans la zone de recherche, recherchez et sélectionnez l’action que vous voulez comme étape qui joint les branches.
+
+   ![Rechercher et sélectionner l’action qui joint les branches parallèles](media/logic-apps-control-flow-branches/join-steps.png)
 
    À présent, les branches parallèles sont fusionnées.
+
+   ![Branches jointes](media/logic-apps-control-flow-branches/joined-branches.png)
 
 <a name="join-json"></a>
 

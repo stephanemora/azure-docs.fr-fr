@@ -7,12 +7,12 @@ ms.date: 9/18/2018
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.component: alerts
-ms.openlocfilehash: 586ced5b239b77dd9ae596a754613a66cee371a9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 0ac19ec18c443f677260ba22b6bce1c06237fb2e
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405918"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48816428"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendre le fonctionnement des alertes de métrique dans Azure Monitor
 
@@ -94,6 +94,42 @@ Pour les alertes de métrique, vous êtes généralement informé en moins de 5�
 ## <a name="supported-resource-types-for-metric-alerts"></a>Types de ressources pris en charge pour les alertes de métrique
 
 Vous trouverez la liste complète des types de ressources pris en charge dans cet [article](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
+
+Si vous utilisez aujourd'hui des alertes de métrique classiques et cherchez à savoir si les alertes de métrique prennent en charge tous les types de ressources que vous utilisez, le tableau suivant répertorie les types de ressources pris en charge par les alertes de métrique classiques et indique s'ils sont actuellement pris en charge ou non.
+
+|Type de ressource pris en charge par les alertes de métrique classiques | Pris en charge par les alertes de métrique |
+|-------------------------------------------------|----------------------------|
+| Microsoft.ApiManagement/service | Oui |
+| Microsoft.Batch/batchAccounts| Oui|
+|Microsoft.Cache/redis| Oui
+|Microsoft.ClassicCompute/virtualMachines | Non  |
+|Microsoft.ClassicCompute/domainNames/slots/roles | Non |
+|Microsoft.CognitiveServices/accounts | Non  |
+|Microsoft.Compute/virtualMachines | Oui|
+|Microsoft.Compute/virtualMachineScaleSets| Oui|
+|Microsoft.ClassicStorage/storageAccounts| Non  |
+|Microsoft.DataFactory/datafactories | Oui|
+|Microsoft.DBforMySQL/servers| Oui|
+|Microsoft.DBforPostgreSQL/servers| Oui|
+|Microsoft.Devices/IotHubs | Non |
+|Microsoft.DocumentDB/databaseAccounts| Non |
+|Microsoft.EventHub/namespaces | Oui|
+|Microsoft.Logic/workflows | Oui|
+|Microsoft.Network/loadBalancers |Oui|
+|Microsoft.Network/publicIPAddresses| Oui|
+|Microsoft.Network/applicationGateways| Oui|
+|Microsoft.Network/expressRouteCircuits| Oui|
+|Microsoft.Network/trafficManagerProfiles | Oui|
+|Microsoft.Search/searchServices | Non |
+|Microsoft.ServiceBus/namespaces| Non |
+|Microsoft.Storage/storageAccounts | Oui|
+|Microsoft.StreamAnalytics/streamingjobs| Oui|
+|Microsoft.TimeSeriesInsights/environments | Oui|
+|Microsoft. Web/serverfarms | Oui |
+|Microsoft. Web/sites (à l’exclusion de Functions) | Oui|
+|Microsoft. Web/hostingEnvironments/multiRolePools | Non |
+|Microsoft. Web/hostingEnvironments/workerPools| Non 
+|Microsoft.SQL/Servers | Non |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

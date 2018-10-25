@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 59b637e6887a645430d902cd846cacda13b14cfe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972808"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49067701"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utiliser des profils de version des API avec Azure CLI dans Azure Stack
 
@@ -44,7 +44,7 @@ Vous devriez voir la version d’Azure CLI et d’autres bibliothèques dépenda
     python -c "import certifi; print(certifi.where())"
   ```
 
-  Notez l’emplacement du certificat. Par exemple : `~/lib/python3.5/site-packages/certifi/cacert.pem`. Votre chemin d’accès particulier dépend de votre système d’exploitation et de la version de Python que vous avez installée.
+  Notez l’emplacement du certificat. Par exemple : `~/lib/python3.5/site-packages/certifi/cacert.pem`. Votre chemin d’accès particulier dépend de votre système d’exploitation et de la version de Python que vous avez installée.
 
 ### <a name="set-the-path-for-a-development-machine-inside-the-cloud"></a>Définissez le chemin d’accès pour un ordinateur de développement à l’intérieur du cloud
 
@@ -168,7 +168,8 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
 
 1. Connectez-vous à votre environnement Azure Stack avec la commande `az login`. Vous pouvez vous connecter à l’environnement Azure Stack en tant qu’utilisateur ou que [principal de service](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 
-   * Connexion en tant *qu’utilisateur* : vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login` ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte.
+    * Environnements AAD
+      * Connexion en tant *qu’utilisateur* : vous pouvez spécifier directement le nom d’utilisateur et le mot de passe dans la commande `az login` ou vous authentifier avec un navigateur. Vous devez choisir cette dernière solution si l’authentification multifacteur est activée sur votre compte.
 
       ```azurecli
       az login \
@@ -179,7 +180,7 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
       > [!NOTE]
       > Si l’authentification multifacteur est activée sur votre compte d’utilisateur, vous pouvez utiliser la commande `az login command` sans fournir le paramètre `-u`. Elle vous donne une URL et un code qui vous permettent de vous authentifier.
    
-   * Connexion en tant que *principal de service* : avant de vous connecter, [créez un principal de service avec le portail Azure](azure-stack-create-service-principals.md) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
+      * Connexion en tant que *principal de service* : avant de vous connecter, [créez un principal de service avec le portail Azure](azure-stack-create-service-principals.md) ou l’interface CLI, et attribuez-lui un rôle. Ensuite, connectez-vous avec la commande suivante :
 
       ```azurecli
       az login \
@@ -188,6 +189,22 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
         -u <Application Id of the Service Principal> \
         -p <Key generated for the Service Principal>
       ```
+    * Environnements AD FS
+
+        * Connectez-vous en tant que *principal de service* : 
+          1.    Préparez le fichier .pem à utiliser pour la connexion du principal de service.
+                * Sur l’ordinateur client où le principal a été créé, exportez le certificat du principal de service au format pfx avec la clé privée (située sous cert:\CurrentUser\My ; le certificat porte le même nom que le principal).
+
+                *   Convertissez le fichier pfx au format pem (utilisez l'utilitaire OpenSSL).
+
+          1.    Connectez-vous à l’interface de ligne de commande. :
+                ```azurecli
+                az login --service-principal \
+                 -u <Client ID from the Service Principal details> \
+                 -p <Certificate's fully qualified name. Eg. C:\certs\spn.pem>
+                 --tenant <Tenant ID> \
+                 --debug 
+                ```
 
 ## <a name="test-the-connectivity"></a>Tester la connectivité
 

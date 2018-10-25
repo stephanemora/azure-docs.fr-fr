@@ -1,20 +1,21 @@
 ---
-title: Effectuer un baking acoustique avec Project Acoustics - Cognitive Services
+title: Créer un baking acoustique avec Project Acoustics
+titlesuffix: Azure Cognitive Services
 description: Ce document décrit le processus de soumission d’un baking acoustique à l’aide de l’extension de l’éditeur Unity.
 services: cognitive-services
 author: kegodin
-manager: noelc
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: acoustics
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: kegodin
-ms.openlocfilehash: 0e16ec765ae3cbef8a941f43a149428ffdf5bd8d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: c37e050cd762cb173d64f78b5267e4ad252d17a9
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40181284"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902244"
 ---
 # <a name="bake-acoustics"></a>Créer un baking acoustique
 
@@ -199,15 +200,19 @@ Une fois que vous êtes satisfait de l’aperçu des données, utilisez l’ongl
 1. Le bouton d’onglet Bake, qui sert à afficher cette page.
 2. Une brève description des actions à effectuer dans cette page.
 3. Champs où entrer vos informations d’identification Azure une fois que votre compte Azure a été créé. Pour plus d’informations, consultez [Créer un compte Azure Batch](create-azure-account.md).
-4. Type de nœud de calcul Azure Batch à utiliser pour le calcul. Le type de nœud doit être pris en charge par votre emplacement de centre de données Azure. En cas de doute, conservez **Standard_F8**.
-5. Nombre de nœuds à utiliser pour ce calcul. Le nombre que vous entrez ici affecte la durée nécessaire pour effectuer le baking. Il est limité par votre allocation de noyaux Azure Batch. L’allocation par défaut autorise uniquement deux nœuds de huit noyaux ou un nœud de 16 noyaux, mais elle peut être étendue. Pour plus d’informations sur les contraintes d’allocation de noyaux, consultez [Créer un compte Azure Batch](create-azure-account.md).
-6. Le nombre de sondes pour votre scène, tel que calculé sous l’onglet **Probes**. Le nombre de sondes détermine le nombre de simulations qui doivent être exécutées dans le cloud. Vous ne pouvez pas spécifier plus de nœuds qu’il n’y a de sondes.
-7. Durée attendue nécessaire pour exécuter votre travail dans le cloud. Cela n’inclut pas le temps de démarrage des nœuds. Une fois le travail commencé, cela correspond environ à la durée après laquelle vous obtiendrez les résultats. Notez qu’il s’agit uniquement d’une estimation.
-8. La durée totale de temps de traitement nécessaire pour exécuter les simulations. Il s’agit de la quantité totale de temps de calcul de nœud qui sera utilisée dans Azure. Pour plus d’informations sur l’utilisation de cette valeur, consultez [Estimation du coût de baking](#Estimating-bake-cost) ci-dessous.
-9. Ce message indique où les résultats du baking seront enregistrés une fois le travail terminé.
-10. (Utilisation avancée uniquement) Si pour une raison quelconque vous devez forcer Unity à oublier un baking que vous avez envoyé (par exemple si vous avez téléchargé les résultats à l’aide d’un autre ordinateur), cliquez sur le bouton **Clear State** afin d’oublier de travail qui a été soumis. Notez que cela signifie que le fichier de résultats, une fois qu’il sera prêt, ne sera **pas** téléchargé, et que **cela n’est pas la même chose qu’annuler le travail**. Le travail, s’il est en cours d’exécution, continuera à s’exécuter dans le cloud.
-11. Cliquez sur le bouton Bake pour envoyer le baking vers le cloud. Pendant l’exécution d’un travail, ce bouton indique **Cancel Job**.
-12. Cette zone indique l’état du baking. Une fois terminé, elle doit indiquer **Downloaded**.
+4. Balise d’image Docker pour l’ensemble d’outils acoustiques.
+5. Lancez le portail Azure pour gérer vos abonnements, surveiller l’utilisation, afficher les informations de facturation, etc. 
+6. Type de nœud de calcul Azure Batch à utiliser pour le calcul. Le type de nœud doit être pris en charge par votre emplacement de centre de données Azure. En cas de doute, conservez **Standard_F8s_v2**.
+7. Nombre de nœuds à utiliser pour ce calcul. Le nombre que vous entrez ici affecte la durée nécessaire pour effectuer le baking. Il est limité par votre allocation de noyaux Azure Batch. L’allocation par défaut autorise uniquement deux nœuds de huit noyaux ou un nœud de 16 noyaux, mais elle peut être étendue. Pour plus d’informations sur les contraintes d’allocation de noyaux, consultez [Créer un compte Azure Batch](create-azure-account.md).
+8. Cochez cette case de manière à configurer votre pool de calcul pour qu'il utilise des [nœuds basse priorité](https://docs.microsoft.com/azure/batch/batch-low-pri-vms). Le coût des nœuds de calcul basse priorité est nettement moindre, mais ils peuvent parfois être inaccessibles ou reportés.
+9. Le nombre de sondes pour votre scène, tel que calculé sous l’onglet **Probes**. Le nombre de sondes détermine le nombre de simulations qui doivent être exécutées dans le cloud. Vous ne pouvez pas spécifier plus de nœuds qu’il n’y a de sondes.
+10. Durée attendue nécessaire pour exécuter votre travail dans le cloud. Cela n’inclut pas le temps de démarrage des nœuds. Une fois le travail commencé, cela correspond environ à la durée après laquelle vous obtiendrez les résultats. Notez qu’il s’agit uniquement d’une estimation.
+11. La durée totale de temps de traitement nécessaire pour exécuter les simulations. Il s’agit de la quantité totale de temps de calcul de nœud qui sera utilisée dans Azure. Pour plus d’informations sur l’utilisation de cette valeur, consultez [Estimation du coût de baking](#Estimating-bake-cost) ci-dessous.
+12. Ce message indique où les résultats du baking seront enregistrés une fois le travail terminé.
+13. (Utilisation avancée uniquement) Si pour une raison quelconque vous devez forcer Unity à oublier un baking que vous avez envoyé (par exemple si vous avez téléchargé les résultats à l’aide d’un autre ordinateur), cliquez sur le bouton **Clear State** afin d’oublier de travail qui a été soumis. Notez que cela signifie que le fichier de résultats, une fois qu’il sera prêt, ne sera **pas** téléchargé, et que **cela n’est pas la même chose qu’annuler le travail**. Le travail, s’il est en cours d’exécution, continuera à s’exécuter dans le cloud.
+14. Cliquez sur le bouton Bake pour envoyer le baking vers le cloud. Pendant l’exécution d’un travail, ce bouton indique **Cancel Job**.
+15. Il prépare le traitement de la simulation acoustique sur un ordinateur local. Pour plus d'informations, voir [Baking local](#Local-bake).  
+16. Cette zone indique l’état du baking. Une fois terminé, elle doit indiquer **Downloaded**.
 
 Vous pouvez toujours obtenir des informations complètes sur les travaux actifs, les pools de calcul et de stockage dans le [portail Azure](https://portal.azure.com).
 
@@ -217,13 +222,34 @@ Une fois que vous avez lancé un baking, vous pouvez fermer Unity. En fonction d
 
 Les informations d’identification Azure sont stockées de manière sécurisée sur votre ordinateur local et associées à votre éditeur Unity. Elles sont utilisées exclusivement pour établir une connexion sécurisée vers Azure.
 
-### <a name="Estimating-bake-cost"></a> Estimation du coût de baking
+### <a name="Estimating-bake-cost"></a> Estimation du coût d'un baking Azure
 
-Pour estimer le coût d’un baking donné, prenez la valeur affichée dans **Estimated Compute Cost**, qui est une durée, et multipliez-la par le coût horaire (dans votre devise locale) du **Type de nœud de machine virtuelle** que vous avez sélectionné. Le résultat n’inclut pas la durée nécessaire pour préparer les nœuds à l’exécution. Par exemple, si vous sélectionnez **Standard_F8** comme type de nœud, qui a un coût de 0,75 $/heure, et que l’estimation du coût de calcul est de 3 heures et 57 minutes, le coût estimé pour exécuter le travail sera de 0,75 $ * ~4 heures = ~3,00 $. Le coût réel sera probablement un peu plus élevé à cause de la durée supplémentaire nécessaire au démarrage des nœuds. Vous trouverez le coût horaire des nœuds dans la page [Tarification d’Azure Batch](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (sélectionnez « Optimisée pour le calcul » ou « Calcul hautes performances » comme catégorie).
+Pour estimer le coût d’un baking donné, prenez la valeur affichée dans **Estimated Compute Cost**, qui est une durée, et multipliez-la par le coût horaire (dans votre devise locale) du **Type de nœud de machine virtuelle** que vous avez sélectionné. Le résultat n’inclut pas la durée nécessaire pour préparer les nœuds à l’exécution. Par exemple, si vous sélectionnez **Standard_F8s_v2** comme type de nœud, qui a un coût de 0,40 $/heure, et que l’estimation du coût de calcul est de 3 heures et 57 minutes, le coût estimé pour exécuter le travail sera de 0,40 $ * ~4 heures = ~1,60 $. Le coût réel sera probablement un peu plus élevé à cause de la durée supplémentaire nécessaire au démarrage des nœuds. Vous trouverez le coût horaire des nœuds dans la page [Tarification d’Azure Batch](https://azure.microsoft.com/pricing/details/virtual-machines/linux) (sélectionnez « Optimisée pour le calcul » ou « Calcul hautes performances » comme catégorie).
 
 ### <a name="reviewing-the-bake-results"></a>Examen des résultats de baking
 
 Une fois le baking terminé, vérifiez que les points de sonde et les voxels sont à leurs emplacements attendus en exécutant le plug-in de runtime. Pour plus d’informations, consultez [Vue d’ensemble du processus de conception pour Acoustics](design-process.md).
+
+## <a name="Local-bake"></a>Baking local
+Le baking local exécute la simulation acoustique sur votre PC au lieu de la décharger dans le cluster de calcul Azure Batch. Il peut s'agir d'une option intéressante pour expérimenter l'acoustique sans avoir recours à un abonnement Azure. Notez que la simulation acoustique est exigeante en termes de calcul et qu'elle peut prendre un certain temps en fonction de la taille de la scène, de la configuration de la simulation et de la puissance de calcul brute de l’ordinateur de traitement.
+
+### <a name="minimum-hardware-requirements"></a>Conditions matérielles minimales requises
+Processeur Intel 64 bits avec au moins 8 cœurs et 32 Go de RAM ou plus.
+
+Par exemple, sur une machine de 8 cœurs avec Intel Xeon E5-1660 @ 3 GHz et 32 Go de RAM -
+* Petite scène dotée de 100 sondes, environ 2 heures sont nécessaires pour un baking grossier et ~ 32 heures pour un baking à résolution fine.
+* Grande scène avec 1 000 sondes, environ 20 heures peuvent être nécessaires pour une résolution grossière et ~ 21 jours pour un baking à résolution fine.
+
+### <a name="setup-docker"></a>Configuration de Docker
+Installez et configurez Docker sur le PC qui traitera la simulation-
+1. Installez l'[ensemble d’outils Docker](https://www.docker.com/products/docker-desktop).
+2. Lancez les paramètres Docker, accédez aux options avancées et configurez les ressources pour disposer d'au moins 8 Go de RAM. Plus vous allouerez d'UC à Docker, plus le baking sera rapide. ![Exemples de paramètres Docker](media/DockerSettings.png)
+3. Accédez à « Lecteurs partagés » et activez le partage sur le lecteur utilisé pour le traitement.![DockerDriveSharing](media/DockerSharedDrives.png)
+
+### <a name="run-local-bake"></a>Exécuter un baking local
+1. Cliquez sur le bouton « Préparer un baking local » de l’onglet Baking et sélectionnez le dossier d'enregistrement des fichiers d’entrée et des scripts d’exécution. Vous pouvez ensuite exécuter le baking sur n’importe quel ordinateur, à condition qu'il respecte la configuration matérielle minimale requise et que Docker y soit installé en y copiant le dossier.
+2. Lancez la simulation à l'aide du script « runlocalbake.bat ». Ce script extraira l’image Project Acoustics Docker avec l'ensemble d'outils nécessaires au traitement de la simulation et démarrera la simulation. 
+3. Au terme de la simulation, copiez le fichier .ace qui en résulte dans votre projet Unity. Pour veiller à ce qu'Unity l'identifie comme un fichier binaire, ajoutez « .bytes » à l’extension de fichier (par exemple, « Scene1.ace.bytes »). Les journaux détaillés de la simulation sont stockés dans le fichier « AcousticsLog.txt ». En cas de problème, partagez ce fichier afin de faciliter le diagnostic.
 
 ## <a name="Data-Files"></a>Fichiers de données
 

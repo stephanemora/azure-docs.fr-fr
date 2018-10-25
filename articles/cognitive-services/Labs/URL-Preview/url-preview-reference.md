@@ -1,20 +1,21 @@
 ---
-title: Informations de référence sur l’aperçu d’URL du projet - Microsoft Cognitive Services | Microsoft Docs
+title: Informations de référence sur l’aperçu d’URL du projet
+titlesuffix: Azure Cognitive Services
 description: Permet d’obtenir des informations de référence sur le point de terminaison de l’aperçu d’URL du projet.
 services: cognitive-services
 author: mikedodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: project-url-preview
-ms.topic: article
+ms.component: project-url-preview
+ms.topic: reference
 ms.date: 03/29/2018
-ms.author: rosh, v-gedod
-ms.openlocfilehash: 46c011d62b6ae51f5f7d292345e6ece0e27a8541
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.author: rosh
+ms.openlocfilehash: 3416fd9bc63c48e976d0b00f42ec9f8119a40eb8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37865873"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870806"
 ---
 # <a name="project-url-preview-v7-reference"></a>Informations de référence sur l’aperçu d’URL du projet v7
 
@@ -76,8 +77,8 @@ La demande peut comporter les paramètres de requête suivants. Consultez la col
   
 |NOM|Valeur|type|Obligatoire|  
 |----------|-----------|----------|--------------|  
-|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour obtenir une liste des valeurs de marché possibles, consultez la section [Codes de marché](#market-codes).<br /><br /> **REMARQUE :** actuellement, l’API d’aperçu d’URL prend uniquement en charge la région des États-Unis et la langue anglaise.<br /><br />|Chaîne|OUI|  
-|<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|OUI|  
+|<a name="mkt" />mkt|Marché d’où proviennent les résultats. <br /><br />Pour obtenir une liste des valeurs de marché possibles, consultez la section [Codes de marché](#market-codes).<br /><br /> **REMARQUE :** actuellement, l’API d’aperçu d’URL prend uniquement en charge la région des États-Unis et la langue anglaise.<br /><br />|Chaîne|Oui|  
+|<a name="query" />q|URL servant à afficher l’aperçu.|Chaîne|Oui|  
 |<a name="responseformat" />responseFormat|Type de média à utiliser pour la réponse. Voici les valeurs possibles. Elles ne sont pas sensibles à la casse.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> La valeur par défaut est JSON. Pour plus d’informations sur les objets JSON que contient la réponse, voir [Objets de la réponse](#response-objects).<br /><br />  Si vous spécifiez JsonLd, le corps de la réponse comporte les objets JSON-LD contenant les résultats de la recherche. Pour plus d’informations sur la spécification JSON-LD, voir [JSON-LD](http://json-ld.org/).|Chaîne|Non |
 |<a name="safesearch"/>safeSearch|Le contenu pour adultes jugé non conforme, ou le contenu piraté, est bloqué avec pour code d’erreur 400 et aucun indicateur *isFamilyFriendly* n’est renvoyé. <p>Voici par contre le comportement concernant le contenu pour adultes considéré comme légal. Le système renvoie le code d’état 200 et l’indicateur *isFamilyFriendly* est défini sur false.<ul><li>safeSearch=strict : le titre, la description, l’URL et l’image ne seront pas renvoyés.</li><li>safeSearch=moderate : vous obtenez le titre, l’URL et la description, mais pas l’image descriptive.</li><li>safeSearch=off : vous obtenez tous les objets/éléments de la réponse (titre, URL, description et image).</li></ul> |Chaîne|Non requis. </br> La valeur par défaut est safeSearch=strict.| 
 
@@ -132,7 +133,7 @@ Définit les informations concernant la page web dans l’aperçu.
 
 ## <a name="error-codes"></a>Codes d’erreur
 
-Les codes d’état HTTP qu’une requête peut renvoyer sont les suivants.  
+Voici les codes d’état HTTP qu’une demande peut retourner.  
   
 |Code d’état|Description|  
 |-----------------|-----------------|  
@@ -180,7 +181,7 @@ Voici les valeurs possibles de code d’erreur et de sous-code d’erreur.
 |Code|SubCode|Description
 |-|-|-
 |ServerError|UnexpectedError<br/>ResourceError<br/>NotImplemented|Le code d’état HTTP est 500.
-|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqué|Bing renvoie InvalidRequest à chaque fois que l’une partie de la requête n’est pas valide. Par exemple, un paramètre obligatoire est manquant ou une valeur de paramètre n’est pas valide.<br/><br/>Si l’erreur est ParameterMissing ou ParameterInvalidValue, le code d’état HTTP est 400.<br/><br/>Si vous utilisez le protocole HTTP au lieu du protocole HTTPS, Bing retourne HttpNotAllowed, et le code d’état HTTP est 410.
+|InvalidRequest|ParameterMissing<br/>ParameterInvalidValue<br/>HttpNotAllowed<br/>Bloqué|Bing retourne InvalidRequest à chaque fois que la demande comporte une partie non valide. Par exemple, un paramètre obligatoire est manquant ou une valeur de paramètre n’est pas valide.<br/><br/>Si l’erreur est ParameterMissing ou ParameterInvalidValue, le code d’état HTTP est 400.<br/><br/>Si vous utilisez le protocole HTTP au lieu du protocole HTTPS, Bing retourne HttpNotAllowed, et le code d’état HTTP est 410.
 |RateLimitExceeded|Aucun sous-code|Bing retourne RateLimitExceeded chaque fois que vous dépassez votre quota de requêtes par seconde (QPS) ou par mois (QPM).<br/><br/>Si vous dépassez votre QPS, Bing retourne le code d’état HTTP 429 ; si vous dépassez votre QPM, Bing retourne le code d’état 403.
 |InvalidAuthorization|AuthorizationMissing<br/>AuthorizationRedundancy|Bing retourne InvalidAuthorization s’il ne parvient pas à identifier l’appelant. Par exemple, l’en-tête `Ocp-Apim-Subscription-Key` est manquant ou la clé d’abonnement n’est pas valide.<br/><br/>Il y a redondance si plusieurs méthodes d’authentification sont spécifiées.<br/><br/>Si l’erreur est InvalidAuthorization, le code d’état HTTP est 401.
 |InsufficientAuthorization|AuthorizationDisabled<br/>AuthorizationExpired|Bing retourne InsufficientAuthorization lorsque l’appelant n’est pas autorisé à accéder à la ressource. Cela peut se produire si la clé d’abonnement a été désactivée ou a expiré. <br/><br/>Si l’erreur est InsufficientAuthorization, le code d’état HTTP est 403.

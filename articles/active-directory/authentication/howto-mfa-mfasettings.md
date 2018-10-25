@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 766f617f3534ffaccdc326e7de8155adb84a69ce
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: a66a7537632aac2190cd39f13665bcd8d4ed6ce7
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162141"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114981"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurer les paramètres d’Azure Multi-Factor Authentication
 
@@ -111,17 +111,33 @@ Avant de commencer, tenez compte des restrictions suivantes :
 * La taille limite des fichiers est de 5 Mo.
 * Les messages d’authentification doivent durer moins de 20 secondes. Les messages de plus de 20 secondes peuvent faire échouer la vérification. L’utilisateur peut ne pas répondre avant la fin du message et de la durée de vérification.
 
+### <a name="custom-message-language-behavior"></a>Comportement lié à la langue du message personnalisé
+
+Quand un message vocal personnalisé est lu à l’utilisateur, la langue du message dépend des facteurs suivants :
+
+* La langue de l’utilisateur actuel.
+   * La langue détectée par le navigateur de l’utilisateur.
+   * D’autres scénarios d’authentification peuvent se comporter différemment.
+* La langue des messages personnalisés disponibles.
+   * Cette langue est choisie par l’administrateur, au moment de l’ajout d’un message personnalisé.
+
+Par exemple, s’il n’existe qu’un seul message personnalisé et que la langue est l’allemand :
+
+* Un utilisateur qui s’authentifie en allemand entend le message allemand personnalisé.
+* Un utilisateur qui s’authentifie en anglais entend le message anglais standard.
+
 ### <a name="set-up-a-custom-message"></a>Configurer un message personnalisé
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en tant qu’administrateur.
-2. Accédez à **Azure Active Directory** > **Serveur MFA** > **Paramètres de l’appel téléphonique**.
+1. Accédez à **Azure Active Directory** > **Serveur MFA** > **Paramètres de l’appel téléphonique**.
 
    ![Enregistrer les messages téléphoniques personnalisés](./media/howto-mfa-mfasettings/phonecallsettings.png)
 
-3. Sélectionnez **Ajouter un message d’accueil**.
-4. Choisissez le type de message d’accueil. Choisissez la langue.
-5. Sélectionnez un fichier audio .mp3 ou .wav à charger.
-6. Sélectionnez **Ajouter**.
+1. Sélectionnez **Ajouter un message d’accueil**.
+1. Choisissez le type de message d’accueil. 
+1. Choisissez la langue.
+1. Sélectionnez un fichier audio .mp3 ou .wav à charger.
+1. Sélectionnez **Ajouter**.
 
 ## <a name="caching-in-azure-multi-factor-authentication"></a>Mise en cache dans Azure Multi-Factor Authentication
 
@@ -180,7 +196,7 @@ Que la fonctionnalité Adresses IP approuvées soit activée ou non, la vérific
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. À gauche, sélectionnez **Azure Active Directory** > **Accès conditionnel** > **Emplacements nommés**.
 3. Sélectionnez **Configurer des adresses IP approuvées MFA**.
-4. Dans la page **Paramètres du service**, sous **Adresses IP approuvées**, vous disposez de deux options :
+4. Dans la page **Paramètres du service**, sous **Adresses IP approuvées**, choisissez l’une des deux options suivantes :
    
    * **Pour les demandes issues d’utilisateurs fédérés provenant de mon intranet** : pour choisir cette option, activez sa case à cocher. Tous les utilisateurs fédérés qui se connectent depuis le réseau d’entreprise contournent la vérification en deux étapes en utilisant une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si la règle n’existe pas, créez la règle suivante dans AD FS :<br/>
 
@@ -200,12 +216,12 @@ Que la fonctionnalité Adresses IP approuvées soit activée ou non, la vérific
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>Activer la fonctionnalité Adresses IP approuvées à l’aide des paramètres du service
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs et groupes** > **Tous les utilisateurs**.
+2. À gauche, sélectionnez **Azure Active Directory** > **Utilisateurs**.
 3. Sélectionnez **Multi-Factor Authentication**.
 4. Sous Multi-Factor Authentication, sélectionnez **Paramètres du service**.
-5. Dans la page **Paramètres du service**, sous **Adresses IP approuvées**, vous disposez de deux options :
+5. Dans la page **Paramètres du service**, sous **Adresses IP approuvées**, choisissez une des deux options suivantes (ou les deux) :
    
-   * **For requests from federated users on my intranet (Pour les demandes issues d’utilisateurs fédérés provenant de mon intranet)** : pour choisir cette option, activez sa case à cocher. Tous les utilisateurs fédérés qui se connectent depuis le réseau d’entreprise contournent la vérification en deux étapes en utilisant une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si la règle n’existe pas, créez la règle suivante dans AD FS :<br/>
+   * **Pour les demandes issues d’utilisateurs fédérés provenant de mon intranet** : pour choisir cette option, activez sa case à cocher. Tous les utilisateurs fédérés qui se connectent depuis le réseau d’entreprise contournent la vérification en deux étapes en utilisant une revendication émise par AD FS. Vérifiez qu’AD FS possède une règle pour ajouter la revendication de l’intranet au trafic approprié. Si la règle n’existe pas, créez la règle suivante dans AD FS :<br/>
 
      ```
      c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);
@@ -306,11 +322,11 @@ La fonctionnalité _Mémoriser Multi-Factor Authentication_ pour les appareils e
 
 ### <a name="how-the-feature-works"></a>Principe de la fonctionnalité
 
-La fonctionnalité de mémorisation de Multi-Factor Authentication crée un cookie persistant sur le navigateur lorsqu’un utilisateur sélectionne **Don’t ask again for X days (Ne plus me demander pendant X jours)** lors de sa connexion. L’utilisateur n’est pas réinvité à se connecter à Multi-Factor Authentication sur ce navigateur tant que le cookie reste valable. Si l’utilisateur ouvre un autre navigateur sur le même appareil ou s’il efface les cookies, il recevra de nouveau l’invite de vérification. 
+La fonctionnalité de mémorisation de Multi-Factor Authentication crée un cookie persistant sur le navigateur lorsqu’un utilisateur sélectionne **Don’t ask again for X days (Ne plus me demander pendant X jours)** lors de sa connexion. L’utilisateur n’est pas réinvité à se connecter à Multi-Factor Authentication sur ce navigateur tant que le cookie reste valable. Si l’utilisateur ouvre un autre navigateur sur le même appareil ou s’il efface les cookies, il recevra de nouveau l’invite de vérification.
 
-L’option **Don’t ask again for X days (Ne plus me demander pendant X jours)** ne s’affiche pas dans les applications sans navigateur, qu’elles prennent en charge ou non l’authentification moderne. Ces applications utilisent des _jetons d’actualisation_ qui fournissent de nouveaux jetons d’accès toutes les heures. Quand un jeton d’actualisation est validé, Azure AD vérifie que la dernière vérification en deux étapes est intervenue dans le délai spécifié (en jours). 
+L’option **Don’t ask again for X days (Ne plus me demander pendant X jours)** ne s’affiche pas dans les applications sans navigateur, qu’elles prennent en charge ou non l’authentification moderne. Ces applications utilisent des _jetons d’actualisation_ qui fournissent de nouveaux jetons d’accès toutes les heures. Quand un jeton d’actualisation est validé, Azure AD vérifie que la dernière vérification en deux étapes est intervenue dans le délai spécifié (en jours).
 
-La fonctionnalité réduit le nombre d’authentifications sur les applications web, qui interviennent normalement à chaque fois. Elle augmente le nombre d’authentifications pour les clients qui utilisent une authentification moderne (normalement exigée tous les 90 jours).
+La fonctionnalité réduit le nombre d’authentifications sur les applications web, qui interviennent normalement à chaque fois. Elle augmente le nombre d’authentifications pour les clients qui utilisent une authentification moderne (normalement exigée tous les 90 jours). Elle peut également augmenter le nombre d’authentifications quand elle est combinée avec des stratégies d’accès conditionnel.
 
 >[!IMPORTANT]
 >La fonctionnalité **Mémoriser Multi-Factor Authentication** n’est pas compatible avec la fonctionnalité **Maintenir la connexion** d’AD FS, lorsque les utilisateurs effectuent la vérification en deux étapes pour AD FS via le serveur Microsoft Azure Multi-Factor Authentication ou une solution d’authentification multifacteur tierce.

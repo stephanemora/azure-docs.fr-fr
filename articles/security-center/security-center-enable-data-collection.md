@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2018
+ms.date: 10/5/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9043c6583a15d3be9d0d468e83a4bf79b3121794
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d0455e549745e743e7a8c0f65cb56a1e16dfb131
+ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304116"
+ms.lasthandoff: 10/02/2018
+ms.locfileid: "48044074"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Collecte de données dans Azure Security Center
 Azure Security Center collecte des données à partir de vos machines virtuelles Azure et ordinateurs autres qu’Azure pour surveiller les menaces et vulnérabilités de sécurité. Les données sont collectées à l’aide de Microsoft Monitoring Agent, qui lit divers journaux d’événements et configurations liées à la sécurité de la machine et copie les données dans votre espace de travail à des fins d’analyse. Il peut s’agir des données suivantes : type et version de système d’exploitation, journaux de système d’exploitation (journaux d’événements Windows), processus en cours d’exécution, nom de machine, adresses IP et utilisateur connecté. Microsoft Monitoring Agent copie également les fichiers de vidage sur incident dans votre espace de travail.
@@ -34,7 +34,8 @@ Cet article fournit des conseils sur la façon d’installer un agent Microsoft 
 > - La collecte de données pour les groupes de machines virtuelles identiques n’est actuellement pas prise en charge.
 
 
-## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Activer l’approvisionnement automatique de Microsoft Monitoring Agent     
+## Activer l’approvisionnement automatique de Microsoft Monitoring Agent <a name="auto-provision-mma"></a>
+
 Pour collecter les données à partir des machines, vous devez avoir installé Microsoft Monitoring Agent.  L’installation de l’agent peut être automatique (recommandé), ou vous pouvez choisir d’installer l’agent manuellement.  
 
 >[!NOTE]
@@ -61,8 +62,8 @@ Pour activer l’approvisionnement automatique de Microsoft Monitoring Agent :
 > - Pour obtenir des instructions sur l’approvisionnement d’une installation déjà existante, consultez [Approvisionnement automatique en cas d’installation d’un agent préexistant](#preexisting).
 > - Pour recevoir des instructions sur l’approvisionnement manuel, consultez [Installer manuellement l’extension de Microsoft Monitoring Agent](#manualagent).
 > - Pour recevoir des instructions sur la désactivation de l’approvisionnement automatique, consultez [Désactiver l’approvisionnement automatique](#offprovisioning).
+> - Pour obtenir des instructions sur la manière d’intégrer Security Center à l’aide de PowerShell, voir [Automatiser l’intégration d’Azure Security Center à l’aide de PowerShell](security-center-powershell-onboarding.md).
 >
-
 
 ## <a name="workspace-configuration"></a>Configuration de l’espace de travail
 Les données collectées par Security Center sont stockées dans les espaces de travail Log Analytics.  Vous pouvez choisir de stocker les données collectées à partir des machines virtuelles Azure dans des espaces de travail créés par Security Center ou dans un espace de travail existant que vous avez créé. 
@@ -146,12 +147,17 @@ Quand vous sélectionnez un espace de travail dans lequel stocker vos données, 
 
 
 ## <a name="data-collection-tier"></a>Niveau de collecte des données
-Security Center peut réduire le volume d’événements tout en conservant suffisamment d’événements pour l’investigation, l’audit et la détection des menaces. Vous pouvez choisir la stratégie de filtrage adaptée à vos abonnements et espaces de travail à partir de quatre ensembles d’événements à collecter par l’agent.
+La sélection d’un niveau de collecte de données dans Azure Security Center n’affecte que le stockage d’événements de sécurité dans votre espace de travail Log Analytics. Le Microsoft Monitoring Agent continuera de collecter et d’analyser les événements de sécurité requis pour les détections de menaces d’Azure Security Center, quel que soit le niveau d’événements de sécurité que vous choisissez de stocker dans votre espace de travail Log Analytics (le cas échéant). Le choix de stocker des événements de sécurité dans votre espace de travail permettra l’investigation, la recherche et l’audit de ces événements dans votre espace de travail. 
+> [!NOTE]
+> Le stockage de données dans Log Analytics peut occasionner des frais supplémentaires de stockage de données. Pour plus d’informations, voir la page de tarification.
+>
+Vous pouvez choisir la stratégie de filtrage adaptée à vos abonnements et espaces de travail à partir de quatre ensembles d’événements à stocker dans votre espace de travail : 
 
-- **Tous les événements** : pour les clients qui souhaitent s’assurer que tous les événements sont collectés. Il s’agit de la valeur par défaut.
-- **Commun** : il s’agit d’un ensemble d’événements qui répond aux besoins de la plupart des clients et leur permet d’avoir une piste d’audit complète.
+- **Aucun** : désactiver le stockage d’événements de sécurité. Il s’agit du paramètre par défaut.
 - **Minimal** : un plus petit ensemble d’événements pour les clients qui souhaitent réduire le volume d’événements.
-- **Aucun** : désactivation de la collecte d’événements de sécurité à partir des journaux App Locker et de sécurité. Les tableaux de bord de sécurité des clients qui choisissent cette option afficheront uniquement les journaux de pare-feu Windows et les évaluations proactives comme les logiciels anti-programme malveillant, la ligne de base et la mise à jour.
+- **Commun** : il s’agit d’un ensemble d’événements qui répond aux besoins de la plupart des clients et leur permet d’avoir une piste d’audit complète.
+- **Tous les événements** : pour les clients qui souhaitent s’assurer que tous les événements sont stockés.
+
 
 > [!NOTE]
 > Ces ensembles d’événements de sécurité sont disponibles uniquement avec le niveau Standard de Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
@@ -260,7 +266,7 @@ Vous pouvez installer manuellement Microsoft Monitoring Agent pour que Security 
   > [!NOTE]
   > La section **Collecter les données d’événements et de performances** est facultative.
   >
-6. Pour utiliser PowerShell afin de déployer l’extension : utilisez l’exemple PowerShell suivant :
+6. Pour utiliser PowerShell afin de déployer l’extension, utilisez l’exemple PowerShell suivant :
     1.  Accédez à **Log Analytics** et cliquez sur **Paramètres avancés**.
     
         ![Définir l’analyse de journal][11]
@@ -288,17 +294,17 @@ Vous pouvez installer manuellement Microsoft Monitoring Agent pour que Security 
         
              Set-AzureRmVMExtension -ResourceGroupName $vm1.ResourceGroupName -VMName $vm1.Name -Name "OmsAgentForLinux" -Publisher "Microsoft.EnterpriseCloud.Monitoring" -ExtensionType "OmsAgentForLinux" -TypeHandlerVersion '1.0' -Location $vm.Location -Settingstring $PublicConf -ProtectedSettingString $PrivateConf -ForceRerun True`
 
-
-
+> [!NOTE]
+> Pour obtenir des instructions sur la manière d’intégrer Security Center à l’aide de PowerShell, voir [Automatiser l’intégration d’Azure Security Center à l’aide de PowerShell](security-center-powershell-onboarding.md).
 
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
 -   Pour identifier des problèmes d’approvisionnement automatique, consultez [Problèmes d’intégrité de l’agent de surveillance](security-center-troubleshooting-guide.md#mon-agent).
 
 -  Pour identifier la configuration réseau requise pour l’agent de surveillance, consultez [Résolution des problèmes de configuration réseau requise de l’agent de surveillance](security-center-troubleshooting-guide.md#mon-network-req).
--   Pour identifier les problèmes d’intégration manuelle, consultez [Comment résoudre les problèmes d’intégration d’Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
+-   Pour identifier des problèmes d’intégration manuelle, voir [Comment faire pour résoudre les problèmes d’intégration de Microsoft Operations Management Suite](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-- Pour identifier les problèmes de machines virtuelles et d’ordinateurs non surveillés, consultez [Ordinateurs et machines virtuelles non surveillés](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers)
+- Pour identifier les problèmes de machines virtuelles et d’ordinateurs non managés, voir [Machines virtuelles et ordinateurs non managés](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers).
 
 ## <a name="next-steps"></a>Étapes suivantes
 Cet article vous a montré le fonctionnement de la collecte de données et de l’approvisionnement automatique dans Security Center. Pour plus d’informations sur le Centre de sécurité, consultez les rubriques suivantes :

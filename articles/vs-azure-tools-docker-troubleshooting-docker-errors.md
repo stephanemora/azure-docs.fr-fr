@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/13/2017
 ms.author: devinb
-ms.openlocfilehash: 90dd5df4a607568e2f3a60791da2948af7ce4e50
-ms.sourcegitcommit: 38c9176c0c967dd641d3a87d1f9ae53636cf8260
+ms.openlocfilehash: cd88dec2ad79ad9f4b4c004866060be86b777cd9
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2017
-ms.locfileid: "24002928"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311182"
 ---
 # <a name="troubleshoot-visual-studio-2017-development-with-docker"></a>Résoudre des problèmes de développement Visual Studio 2017 avec Docker
 
@@ -33,9 +33,13 @@ Pour résoudre ce problème :
 1. Sélectionnez **Lecteurs partagés**, puis partagez le lecteur système et le lecteur où se trouve le projet.
 
 > [!NOTE]
-> Si les fichiers sont affichés comme partagés, cliquez sur le lien « Réinitialiser les informations d’identification... » en bas de la boîte de dialogue pour réactiver le partage de volume.
+> Si les fichiers sont affichés comme partagés, cliquez sur le lien « Réinitialiser les informations d’identification... » en bas de la boîte de dialogue pour réactiver le partage de volume. Pour continuer après la réinitialisation des informations d’identification, vous devrez peut-être redémarrer Visual Studio.
 
 ![lecteurs partagés](./media/vs-azure-tools-docker-troubleshooting-docker-errors/shareddrives.png)
+
+## <a name="mounts-denied"></a>Montages refusés
+
+Quand vous utilisez Docker pour macOS, vous pouvez rencontrer une erreur référençant le dossier /usr/local/share/dotnet/sdk/NuGetFallbackFolder. Ajoutez le dossier à l’onglet File Sharing dans Docker.
 
 ## <a name="unable-to-start-debugging"></a>Impossible de démarrer le débogage
 

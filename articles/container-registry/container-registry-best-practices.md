@@ -2,18 +2,17 @@
 title: Meilleures pratiques dans Azure Container Registry
 description: Découvrez comment utiliser votre instance Azure Container Registry de manière efficace en suivant ces meilleures pratiques.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
-ms.topic: quickstart
-ms.date: 04/10/2018
-ms.author: marsma
-ms.openlocfilehash: a3932ff621782b8ab97f27ef052aeee8e1d2a3ac
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.topic: article
+ms.date: 09/27/2018
+ms.author: danlep
+ms.openlocfilehash: e22acc6e698d9b14a55145d8f23f5f773e6c39fd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423502"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857701"
 ---
 # <a name="best-practices-for-azure-container-registry"></a>Meilleures pratiques pour Azure Container Registry
 
@@ -66,31 +65,25 @@ Pour obtenir des informations détaillées sur l’authentification Azure Contai
 
 Les contraintes de stockage de chaque [référence SKU de registres de conteneurs][container-registry-skus] sont destinées à s’aligner avec un scénario classique : **De base** pour la prise en main, **Standard** pour la plupart des applications de production, et **Premium** pour des performances à très grande échelle et la [géoréplication][container-registry-geo-replication]. Pendant toute la durée de vie de votre registre, vous devez gérer sa taille en supprimant régulièrement le contenu inutilisé.
 
-L’utilisation actuelle du registre est visible dans la **Vue d’ensemble** du registre de conteneurs dans le portail Azure :
+Utilisez la commande Azure CLI [az acr show-usage][az-acr-show-usage] pour afficher la taille actuelle de votre registre :
+
+```console
+$ az acr show-usage --resource-group myResourceGroup --name myregistry --output table
+NAME      LIMIT         CURRENT VALUE    UNIT
+--------  ------------  ---------------  ------
+Size      536870912000  185444288        Bytes
+Webhooks  100                            Count
+```
+
+Vous pouvez également retrouver le stockage actuel utilisé dans la **Vue d’ensemble** de votre registre dans le Portail Azure :
 
 ![Informations sur l’utilisation du registre dans le portail Azure][registry-overview-quotas]
 
-Vous pouvez gérer la taille de votre registre en utilisant [Azure CLI][azure-cli] ou le [portail Azure][azure-portal]. Seules les références SKU (De base, Standard, Premium) prennent en charge la suppression des référentiels et des images, vous ne pouvez pas supprimer de référentiels, d’images ou de balises dans un registre classique.
+### <a name="delete-image-data"></a>Supprimer les données d’image
 
-### <a name="delete-in-azure-cli"></a>Supprimer dans Azure CLI
+Azure Container Registry prend en charge plusieurs méthodes permettant de supprimer des données image de votre registre de conteneurs. Vous pouvez supprimer des images par balise ou synthèse de manifeste, ou encore supprimer un référentiel dans son intégralité.
 
-Utilisez la commande [az acr repository delete][az-acr-repository-delete] pour supprimer un référentiel, ou bien un contenu au sein d’un référentiel.
-
-Pour supprimer un référentiel, y compris toutes les balises et les données de couche d’image qu’il contient, spécifiez uniquement le nom du référentiel lorsque vous exécutez [az acr repository delete][az-acr-repository-delete]. Dans l’exemple suivant, nous supprimons le référentiel *myapplication* ainsi que toutes les balises et les données de couche d’image qu’il contient :
-
-```azurecli
-az acr repository delete --name myregistry --repository myapplication
-```
-
-Vous pouvez également supprimer des données d’image d’un référentiel à l’aide des arguments `--tag` et `--manifest`. Pour avoir plus d’informations sur ces arguments, consultez la [référence de la commande az acr repository delete][az-acr-repository-delete].
-
-### <a name="delete-in-azure-portal"></a>Supprimer dans le portail Azure
-
-Pour supprimer un référentiel à partir d’un registre dans le portail Azure, accédez d’abord au registre de votre conteneur. Puis, sous **SERVICES**, sélectionnez **Référentiels**, et faites un clic droit sur le référentiel que vous souhaitez supprimer. Sélectionnez **Supprimer** pour supprimer le référentiel et les images Docker qu’il contient.
-
-![Supprimer un dépôt dans le portail Azure][delete-repository-portal]
-
-De la même manière, vous pouvez également supprimer les balises d’un référentiel. Accédez au référentiel, faites un clic droit sur la balise que vous souhaitez supprimer sous **BALISES**, puis sélectionnez **Supprimer**.
+Pour en savoir plus sur la suppression des données image de votre registre, notamment des images sans balises (parfois appelées « non résolues » ou « orphelines ») des images, consultez la section [Supprimer des images conteneur dans Azure Container Registry](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -102,6 +95,7 @@ Azure Container Registry est disponible en plusieurs niveaux, appelés référen
 
 <!-- LINKS - Internal -->
 [az-acr-repository-delete]: /cli/azure/acr/repository#az-acr-repository-delete
+[az-acr-show-usage]: /cli/azure/acr#az-acr-show-usage
 [azure-cli]: /cli/azure
 [azure-portal]: https://portal.azure.com
 [container-registry-geo-replication]: container-registry-geo-replication.md

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: cephalin
-ms.openlocfilehash: 2c08522df598bd5c6313c3f026efe48e1c4a2c56
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f426982163a5e49264bc4f222f6869d9cbb40c89
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449357"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166064"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gérer un plan App Service dans Azure
 
@@ -57,6 +57,12 @@ Vous pouvez créer un plan App Service vide ou en créer un dans le cadre de la 
 
 Vous pouvez déplacer une application vers un autre plan App Service tant que les plans source et cible se trouvent dans _le même groupe de ressources et la même région géographique_.
 
+> [!NOTE]
+> Azure déploie chaque nouveau plan App Service dans une unité de déploiement, désignée en interne sous le terme d’espace web. Chaque région peut avoir de nombreux espaces web, mais votre application peut uniquement être déplacée entre des plans créés dans le même espace web. Un environnement App Service est un espace web isolé. Il en découle que les applications peuvent être déplacées entre les différents plans du même environnement App Service, mais pas entre des plans créés dans d’autres environnements App Service.
+>
+> Quand vous créez un plan, vous ne pouvez pas choisir l’espace web à utiliser, mais vous pouvez spécifier que le plan soit créé dans le même espace web qu’un autre plan existant. En résumé, tous les plans créés avec la même combinaison groupe de ressources/région sont déployés au sein du même espace web. Par exemple, si vous avez créé un plan dans le groupe de ressources A et la région B, tous les plans que vous créerez par la suite dans ce groupe de ressources A et cette région B seront déployés dans le même espace web. Notez que vous ne pouvez pas déplacer les plans vers d’autres espaces web après leur création et que, pour cette raison, vous ne pouvez pas déplacer un plan dans « le même espace web » qu’un autre plan en le déplaçant vers un autre groupe de ressources.
+> 
+
 1. Dans le [portail Azure](https://portal.azure.com), accédez à l’application à déplacer.
 
 1. Dans le menu, recherchez la section **Plan App Service**.
@@ -67,16 +73,7 @@ Vous pouvez déplacer une application vers un autre plan App Service tant que le
 
 1. Dans le sélecteur de **plan App Service**, sélectionnez un plan existant vers lequel déplacer cette application.   
 
-> [!IMPORTANT]
-> La page **Sélectionner un plan App Service** est filtrée selon les critères suivants : 
-> - Il existe dans le même groupe de ressources 
-> - Il existe dans la même région géographique 
-> - Il existe dans le même espace web  
-> 
-> Un _espace web_ est une construction logique dans App Service qui définit un regroupement de ressources du serveur. Une région géographique (par exemple, USA Ouest) contient plusieurs espaces web pour allouer des clients qui utilisent App Service. À l’heure actuelle, vous ne pouvez pas déplacer de ressources App Service entre des espaces web. 
-> 
-
-[!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
+La page **Sélectionner un plan App Service** affiche uniquement les plans qui se trouvent dans le même groupe de ressources et la même région géographique que le plan App Service de l’application actuelle.
 
 Chaque plan a son propre niveau de tarification. Par exemple, quand vous passez du niveau **Gratuit** au niveau **Standard** d’un site, toutes les applications affectées peuvent utiliser les fonctionnalités et ressources du niveau **Standard**. Par contre, le déplacement d’une application d’un plan de niveau supérieur vers un plan de niveau inférieur vous prive de certaines fonctionnalités. Si votre application utilise une fonctionnalité qui n’est pas disponible dans le plan cible, vous obtenez une erreur qui indique quelle fonctionnalité en cours d’utilisation n’est pas disponible. 
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/10/2018
+ms.date: 10/15/2018
 ms.author: jeffgilb
 ms.reviewer: ''
-ms.openlocfilehash: 851530910c702d388cd4dc8607bf09ecb5fa44e0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 16c908dabd313cd9d64ce5be9b7d0299423a7675
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198471"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344683"
 ---
 # <a name="key-features-and-concepts-in-azure-stack"></a>Fonctionnalités et concepts clés de Azure Stack
 Si vous ne connaissez pas encore Microsoft Azure Stack, ces termes et descriptions de fonctionnalité peuvent vous être utiles.
@@ -164,5 +164,5 @@ Les builds de développement offrent les avantages suivants :
 - Autres améliorations
 
 ## <a name="next-steps"></a>Étapes suivantes
-[Évaluer le Kit de développement Azure Stack](azure-stack-deploy-overview.md)
+[Informations de base sur l’administration](azure-stack-manage-basics.md)
 

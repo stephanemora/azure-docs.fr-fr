@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307111"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269562"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence de fonctions du langage de définition de workflow dans Azure Logic Apps
 
@@ -82,7 +82,7 @@ Pour travailler avec des chaînes, vous pouvez utiliser ces fonctions de chaîne
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Renvoyer la position de départ d’une sous-chaîne. | 
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retourne la position de départ de la dernière occurrence d’une sous-chaîne. | 
 | [replace](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Remplacer une sous-chaîne par la chaîne spécifiée et renvoyer la chaîne mise à jour. | 
-| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Renvoyer un tableau qui comporte tous les caractères d’une chaîne et sépare chaque caractère à l’aide du caractère délimiteur spécifié. | 
+| [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retourne un tableau qui contient des sous-chaînes, séparées par des virgules, extraites à partir d’une chaîne plus grande sur la base d’un caractère délimiteur spécifié dans la chaîne d’origine. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Vérifie si une chaîne commence par une sous-chaîne spécifique. | 
 | [substring](../logic-apps/workflow-definition-language-functions-reference.md#substring) | Renvoyer les caractères d’une chaîne, en commençant à partir de la position spécifiée. | 
 | [toLower](../logic-apps/workflow-definition-language-functions-reference.md#toLower) | Retourne une chaîne en minuscules. | 
@@ -3016,32 +3016,32 @@ Et retourne ce tableau avec les éléments restants : `[1,2,3]`
 
 ### <a name="split"></a>split
 
-Retourne un tableau qui contient tous les caractères d’une chaîne, et dont tous les caractères sont séparés par un *séparateur*.
+Retourne un tableau qui contient des sous-chaînes, séparées par des virgules, extraites sur la base du caractère délimiteur spécifié dans la chaîne d’origine. 
 
 ```
-split('<text>', '<separator>')
+split('<text>', '<delimiter>')
 ```
 
 | Paramètre | Obligatoire | type | Description | 
 | --------- | -------- | ---- | ----------- | 
-| <*text*> | Oui | Chaîne | Chaîne qui comporte les caractères à fractionner |  
-| <*separator*> | Oui | Chaîne | Séparateur affiché entre chaque caractère du tableau obtenu | 
+| <*text*> | Oui | Chaîne | La chaîne pour séparer les sous-chaînes en fonction du délimiteur spécifié dans la chaîne d’origine |  
+| <*delimiter*> | Oui | Chaîne | Le caractère dans la chaîne d’origine à utiliser comme délimiteur | 
 ||||| 
 
 | Valeur de retour | type | Description | 
 | ------------ | ---- | ----------- | 
-| [<*char1*><*separator*><*char2*><*separator*>...] | Tableau | Tableau obtenu créé à partir de tous les éléments de la chaîne spécifiée |
+| [<*substring1*>,<*substring2*>,...] | Tableau | Un tableau qui contient les sous-chaînes extraites de la chaîne d’origine, séparées par des virgules |
 |||| 
 
 *Exemple* 
 
-Cet exemple illustre la création d’un tableau à partir de la chaîne spécifiée, en séparant chaque caractère par une virgule comme séparateur :
+Cet exemple crée un tableau avec des sous-chaînes extraites de la chaîne spécifiée selon le caractère spécifié comme délimiteur : 
 
 ```
-split('abc', ',')
+split('a_b_c', '_')
 ```
 
-Et retourne ce résultat : `[a, b, c]`
+Et retourne ce tableau en tant que résultat : `["a","b","c"]`
 
 <a name="startOfDay"></a>
 

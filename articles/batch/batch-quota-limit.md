@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/10/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b3f4907d99b25df31ac7f081282cebe700f55b62
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423740"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48887562"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -53,7 +53,9 @@ Si vous avez créé un compte Batch avec le mode d’allocation de pool défini 
 | [Applications](batch-application-packages.md) par compte Batch |20 |
 | Packages d’applications par application |40 |
 | Durée de vie maximale de la tâche | 7 jours<sup>1</sup> |
-| Nœuds de calcul dans un pool prenant en charge la communication entre nœuds | 100 |
+| Nœuds de calcul dans un [pool prenant en charge la communication entre nœuds](batch-mpi.md) | 100 |
+| Nœuds de calcul dédiés dans un [pool créé avec une image de machine virtuelle personnalisée](batch-custom-images.md) | 2 500 |
+| Nœuds de calcul basse priorité dans un [pool créé avec une image de machine virtuelle personnalisée](batch-custom-images.md) | 1 000 |
 
 <sup>1</sup> La durée de vie maximale d’une tâche, entre le moment où elle est ajoutée au travail et la fin de son exécution, est de sept jours. Les tâches terminées sont conservées indéfiniment ; les données de tâches non terminées pendant la durée de vie maximale ne sont pas accessibles.
 

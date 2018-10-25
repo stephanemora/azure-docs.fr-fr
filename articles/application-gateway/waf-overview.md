@@ -1,31 +1,25 @@
 ---
-title: Présentation du pare-feu d’applications web (WAF) pour la passerelle Application Gateway Azure | Microsoft Docs
-description: Cette page fournit une vue d’ensemble du pare-feu d’applications web (WAF) pour la passerelle Application Gateway
-documentationcenter: na
+title: Présentation du pare-feu d’applications web (WAF) pour la passerelle Application Gateway Azure
+description: Cet article fournit une vue d’ensemble du pare-feu d’applications web (WAF) pour la passerelle Application Gateway
 services: application-gateway
 author: amsriva
-manager: rossort
-editor: amsriva
-ms.assetid: 04b362bc-6653-4765-86f6-55ee8ec2a0ff
 ms.service: application-gateway
-ms.devlang: na
-ms.topic: hero-article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/03/2017
+ms.date: 10/11/2018
 ms.author: amsriva
-ms.openlocfilehash: 9e04f69410251b5748facf44e9f2947b1415bc19
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32160832"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49068449"
 ---
 # <a name="web-application-firewall-waf"></a>Pare-feu d’applications web (WAF)
 
 Le pare-feu d’applications Web (WAF) est une fonctionnalité de passerelle d’application qui protège vos applications web de manière centralisée contre les vulnérabilités et exploits courants. 
 
-Le pare-feu d’applications web suit les règles des [Ensembles de règles de base OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9. Les applications Web sont de plus en plus la cible d’attaques malveillantes qui exploitent des vulnérabilités connues. Les types d’attaques les plus courantes sont l’injection de code SQL, les attaques de script site à site, entre autres. Empêcher ces attaques dans le code d’application peut se révéler difficile et nécessiter une maintenance rigoureuse, des mises à jour correctives ainsi que la surveillance au niveau de plusieurs couches de la topologie de l’application. Un pare-feu d’applications web centralisé facilite grandement la gestion de la sécurité et offre une meilleure garantie de protection aux administrateurs de l’application contre les menaces ou les intrusions. Une solution WAF peut également réagir plus rapidement à une menace de sécurité en exécutant la mise à jour corrective d’une vulnérabilité connue dans un emplacement central plutôt que de sécuriser individuellement chacune des applications web. Les passerelles d’application existantes peuvent être facilement converties en une passerelle d’application avec un pare-feu d’applications web.
+Les applications Web sont de plus en plus la cible d’attaques malveillantes qui exploitent des vulnérabilités connues. Les types d’attaques les plus courantes sont l’injection de code SQL, les attaques de script site à site, entre autres. Empêcher ces attaques dans le code d’application peut se révéler difficile et nécessiter une maintenance rigoureuse, des mises à jour correctives ainsi que la surveillance au niveau de plusieurs couches de la topologie de l’application. Un pare-feu d’applications web centralisé facilite grandement la gestion de la sécurité et offre une meilleure garantie de protection aux administrateurs de l’application contre les menaces ou les intrusions. Une solution WAF peut également réagir plus rapidement à une menace de sécurité en exécutant la mise à jour corrective d’une vulnérabilité connue dans un emplacement central plutôt que de sécuriser individuellement chacune des applications web. Les passerelles d’application existantes peuvent être facilement converties en une passerelle d’application avec un pare-feu d’applications web.
+
+Le WAF suit les règles des [Ensembles de règles de base OWASP](https://www.owasp.org/index.php/Category:OWASP_ModSecurity_Core_Rule_Set_Project) 3.0 ou 2.2.9. Il se met automatiquement à jour pour inclure la protection contre les nouvelles vulnérabilités, sans aucune configuration supplémentaire requise.
 
 ![imageURLroute](./media/waf-overview/WAF1.png)
 
@@ -53,21 +47,43 @@ Voici les principaux avantages liés à Application Gateway et au pare-feu d’a
 
 ## <a name="features"></a>Caractéristiques
 
-Le pare-feu d’applications web est préconfiguré avec CRS 3.0 par défaut. Vous pouvez aussi d’utiliser la version 2.2.9. CRS 3.0 permet une réduction des faux positifs au-delà de la version 2.2.9. Il est possible de [personnaliser des règles en fonction de vos besoins](application-gateway-customize-waf-rules-portal.md). Le pare-feu d’applications web protège notamment des vulnérabilités web courantes suivantes :
+- Protection contre les injections de code SQL
+- Protection de l’exécution de script de site à site
+- Protection contre les attaques web courante comme l’injection de commande, les dissimulations de requêtes HTTP, la séparation de réponse HTTP et les attaques RFI (Remote File Inclusion)
+- Protection contre les violations de protocole HTTP
+- Protection contre les anomalies de protocole HTTP comme un agent-utilisateur hôte manquant et les en-têtes Accept
+- Protection contre les robots, les crawlers et les scanneurs
+- Détection des erreurs de configuration d’application courantes (par exemple, Apache, IIS, etc.)
 
-* Protection contre les injections de code SQL
-* Protection de l’exécution de script de site à site
-* Protection contre les attaques web courante comme l’injection de commande, les dissimulations de requêtes HTTP, la séparation de réponse HTTP et les attaques RFI (Remote File Inclusion)
-* Protection contre les violations de protocole HTTP
-* Protection contre les anomalies de protocole HTTP comme un agent-utilisateur hôte manquant et les en-têtes Accept
-* Protection contre les robots, les crawlers et les scanneurs
-* Détection des erreurs de configuration d’application courantes (par exemple, Apache, IIS, etc.)
+### <a name="public-preview-features"></a>Fonctionnalités de la version préliminaire publique
 
-Pour une liste plus détaillée des règles et de leurs protections, consultez les [ensembles de règles de base](#core-rule-sets).
+La référence SKU de préversion publique du WAF actuel comprend les fonctionnalités suivantes :
+
+- **Limites de taille de la requête** : le pare-feu d’applications web permet aux utilisateurs de configurer des limites maximale et minimale de la taille des demandes.
+- **Listes d’exclusion** : les listes d’exclusion du WAF permettent aux utilisateurs d’omettre certains attributs de la requête dans une évaluation par le WAF. À titre d’exemple courant, citons les jetons Active Directory insérés qui sont utilisés pour les champs d’authentification ou de mot de passe.
+
+Pour plus d’informations sur la préversion publique du WAF, consultez [Limites de la taille des demandes adressées au pare-feu d’application web et listes d’exclusions (préversion publique)](application-gateway-waf-configuration.md).
+
+
+
+
 
 ### <a name="core-rule-sets"></a>Ensembles de règles de base
 
 Application Gateway prend en charge les ensembles de règles CRS 3.0 et CRS 2.2.9. Ces ensembles de règles de base sont des ensembles de règles qui protègent vos applications web des activités malveillantes.
+
+Le pare-feu d’applications web est préconfiguré avec CRS 3.0 par défaut. Vous pouvez aussi d’utiliser la version 2.2.9. CRS 3.0 permet une réduction des faux positifs au-delà de la version 2.2.9. Il est possible de [personnaliser des règles en fonction de vos besoins](application-gateway-customize-waf-rules-portal.md). Le pare-feu d’applications web protège notamment des vulnérabilités web courantes suivantes :
+
+- Protection contre les injections de code SQL
+- Protection de l’exécution de script de site à site
+- Protection contre les attaques web courante comme l’injection de commande, les dissimulations de requêtes HTTP, la séparation de réponse HTTP et les attaques RFI (Remote File Inclusion)
+- Protection contre les violations de protocole HTTP
+- Protection contre les anomalies de protocole HTTP comme un agent-utilisateur hôte manquant et les en-têtes Accept
+- Protection contre les robots, les crawlers et les scanneurs
+- Détection des erreurs de configuration d’application courantes (par exemple, Apache, IIS, etc.)
+
+Pour une liste plus détaillée des règles et de leurs protections, consultez [Ensembles de règles de base](#core-rule-sets).
+
 
 #### <a name="owasp30"></a>OWASP_3.0
 
@@ -108,7 +124,7 @@ L’ensemble de règles de base 2.2.9 fourni dispose de 10 groupes de règles c
 
 Application Gateway WAF peut être configuré pour s’exécuter dans les deux modes suivants :
 
-* **Mode de détection** – Lorsqu’il est configuré pour s’exécuter en mode de détection, Application Gateway WAF surveille et consigne toutes les alertes de menaces dans un fichier journal. L’enregistrement des diagnostics pour la passerelle Application Gateway doit être activé à l’aide de la section **Diagnostics**. Vous devez également vérifier que le journal WAF est sélectionné et activé. Le pare-feu d’applications web exécuté en mode de détection ne bloque pas les requêtes entrantes.
+* **Mode de détection** : lorsqu’il est configuré pour s’exécuter en mode de détection, Application Gateway WAF surveille et consigne toutes les alertes de menaces dans un fichier journal. L’enregistrement des diagnostics pour la passerelle Application Gateway doit être activé à l’aide de la section **Diagnostics**. Vous devez également vérifier que le journal WAF est sélectionné et activé. Le pare-feu d’applications web exécuté en mode de détection ne bloque pas les requêtes entrantes.
 * **Mode de prévention** – Lorsqu’il est configuré pour s’exécuter en mode de prévention, la passerelle Application Gateway bloque de façon active les intrusions et les et attaques détectées par les règles définies. L’attaquant reçoit une exception d’accès non autorisé de type 403 et la connexion prend fin. Le mode de prévention continue de consigner ce type d’attaques dans les journaux WAF.
 
 ### <a name="application-gateway-waf-reports"></a>Surveillance du pare-feu d’applications web
@@ -117,7 +133,7 @@ Il est important de surveiller l’état de votre passerelle d’application. La
 
 ![diagnostics](./media/waf-overview/diagnostics.png)
 
-#### <a name="azure-monitor"></a>Azure Monitor
+#### <a name="azure-monitor"></a>Azure Monitor
 
 Chaque journal de passerelle d’application est intégré à [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md).  Cela vous permet d’effectuer le suivi des informations de diagnostic, y compris des alertes et des journaux WAF.  Cette fonctionnalité est proposée dans la ressource Application Gateway sous l’onglet **Diagnostics** du portail ou directement via le service Azure Monitor. Pour en savoir plus sur l’activation des journaux de diagnostic pour la passerelle d’application, rendez-vous sur la page [Diagnostics Application Gateway](application-gateway-diagnostics.md)
 
@@ -167,5 +183,5 @@ Le pare-feu d’applications web est disponible sous une nouvelle référence WA
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir découvert les fonctionnalités de WAF, consultez la rubrique sur la [configuration du pare-feu d’applications web sur la passerelle Application Gateway](tutorial-restrict-web-traffic-powershell.md).
+Après avoir découvert les fonctionnalités de WAF, découvrez [comment configurer un pare-feu d’applications web sur la passerelle Application Gateway](tutorial-restrict-web-traffic-powershell.md).
 

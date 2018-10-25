@@ -10,14 +10,14 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: librown
-ms.openlocfilehash: d348978924b4123944e019ef1a309633ee72b516
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 81c249c8dc8475428f4cb0014e57f09e28a3d9af
+ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046310"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48804325"
 ---
-# <a name="passwordless-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Connexion par téléphone sans mot de passe avec l’application Microsoft Authenticator (préversion publique)
+# <a name="password-less-phone-sign-in-with-the-microsoft-authenticator-app-public-preview"></a>Connexion par téléphone sans mot de passe avec l’application Microsoft Authenticator (préversion publique)
 
 L’application Microsoft Authenticator vous permet de vous connecter à n’importe quel compte Azure AD sans utiliser de mot de passe. À l’instar de la technologie de [Windows Hello Entreprise](/windows/security/identity-protection/hello-for-business/hello-identity-verification), Microsoft Authenticator a recours à l’authentification par clé pour activer une information d’identification utilisateur qui est liée à un appareil et utilise un code biométrique ou confidentiel.
 
@@ -37,7 +37,7 @@ Pour la préversion publique, un administrateur doit commencer par ajouter une s
 
 ### <a name="steps-to-enable"></a>Procédure d’activation
 
-1. Installez la [préversion publique du module Azure Active Directory V2 PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.114).  
+1. Installez la [préversion publique du module Azure Active Directory V2 PowerShell](https://www.powershellgallery.com/packages/AzureADPreview/).  
 2. Dans PowerShell, exécutez deux commandes :
    1. `Connect-AzureAD`
       1. Dans la boîte de dialogue d’authentification, connectez-vous à l’aide d’un compte dans le locataire. Vous devez utiliser un compte d’administrateur de la sécurité ou d’administrateur général.
@@ -61,11 +61,11 @@ Une fois que le compte MFA avec notifications Push est configuré pour l’utili
 
 ### <a name="ad-fs-integration"></a>Intégration AD FS
 
-Lorsqu’un utilisateur a activé l’information d’identification sans mot de passe Microsoft Authenticator, l’authentification de cet utilisateur implique toujours par défaut l’envoi d’une notification pour approbation. Cette logique empêche les utilisateurs d’un locataire hybride d’être dirigés vers ADFS pour la vérification de la connexion si ces utilisateurs ne suivent pas une étape supplémentaire consistant à cliquer sur « Utilisez votre mot de passe à la place ». Ce processus contourne également les stratégies d’accès conditionnel locales, ainsi que les flux d’authentification directe. Il existe une exception à ce processus : si un paramètre login_hint est spécifié, un utilisateur est automatiquement transféré vers AD FS et contourne la possibilité d’utiliser l’information d’identification sans mot de passe.
+Lorsqu’un utilisateur a activé les informations d’identification sans mot de passe de Microsoft Authenticator, l’authentification de cet utilisateur implique toujours par défaut l’envoi d’une notification pour approbation. Cette logique empêche les utilisateurs d’un locataire hybride d’être dirigés vers ADFS pour la vérification de la connexion si ces utilisateurs ne suivent pas une étape supplémentaire consistant à cliquer sur « Utilisez votre mot de passe à la place ». Ce processus contourne également les stratégies d’accès conditionnel locales, ainsi que les flux d’authentification directe. Il existe une exception à ce processus : si un paramètre login_hint est spécifié, un utilisateur est automatiquement transféré vers AD FS et contourne la possibilité d’utiliser les informations d’identification sans mot de passe.
 
 ### <a name="azure-mfa-server"></a>Serveur Azure MFA
 
-Les utilisateurs finals qui sont activés pour MFA par le biais d’un serveur Azure MFA local d’une organisation peuvent toujours créer et utiliser une information d’identification de connexion par téléphone sans mot de passe. Si l’utilisateur tente de mettre à niveau plusieurs installations (supérieures à 5) de Microsoft Authenticator avec cette information d’identification, cette modification peut générer une erreur.  
+Les utilisateurs finals qui sont activés pour l’authentification MFA par le biais d’un serveur Azure MFA local d’une organisation peuvent toujours créer et utiliser des informations d’identification de connexion par téléphone sans mot de passe. Si l’utilisateur tente de mettre à niveau plusieurs installations (supérieures à 5) de Microsoft Authenticator avec cette information d’identification, cette modification peut générer une erreur.  
 
 ### <a name="device-registration"></a>Inscription des appareils
 

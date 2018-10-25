@@ -1,0 +1,445 @@
+---
+title: Exemples de requêtes Log Analytics Azure Monitor | Microsoft Docs
+description: Exemples de requêtes dans Log Analytics à l’aide du langage Kusto.
+services: log-analytics
+documentationcenter: ''
+author: bwren
+manager: carmonm
+editor: ''
+ms.assetid: ''
+ms.service: log-analytics
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/03/2018
+ms.author: bwren
+ms.component: na
+ms.openlocfilehash: 9ef5af3f32e6734188d24c520cf0ff1df5044f40
+ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "49070945"
+---
+# <a name="log-analytics-query-examples"></a>Exemples de requêtes Log Analytics
+Cet article inclut divers exemples de [requêtes](../log-analytics-queries.md) en [langage Kusto](https://docs.microsoft.com/azure/kusto/query/) pour récupérer les différents types de données de Log Analytics. Plusieurs méthodes sont utilisées pour consolider et analyser les données. Vous pouvez utiliser ces exemples pour identifier les stratégies qui vous conviennent.  
+
+Consultez les [informations de référence sur le langage Kusto](https://docs.microsoft.com/azure/kusto/query/) pour plus de détails sur les différents mots clés utilisés dans ces exemples. Lisez une [leçon sur la création de requêtes](get-started-queries.md) si vous ne connaissez pas Log Analytics.
+
+## <a name="events"></a>Événements
+
+### <a name="search-application-level-events-described-as-cryptographic"></a>Rechercher des événements de niveau application décrits comme « Cryptographic »
+Cet exemple lance une recherche dans la table **Event** pour les enregistrements dans lesquels **EventLog** a la valeur _Application_ et **RenderedDescription** contient _cryptographic_. Il porte sur les enregistrements des dernières 24 heures.
+
+```Kusto
+Event
+| where EventLog == "Application" 
+| where TimeGenerated > ago(24h) 
+| where RenderedDescription == "cryptographic"
+```
+
+### <a name="search-events-related-to-unmarshaling"></a>Rechercher des événements liés à l’unmarshaling
+Cet exemple lance une recherche dans les tables **Event** et **SecurityEvents** pour les enregistrements qui mentionnent _unmashaling_.
+
+```Kusto
+search in (Event, SecurityEvent) "unmarshaling"
+```
+
+## <a name="heartbeat"></a>Heartbeat
+
+### <a name="chart-a-week-over-week-view-of-the-number-of-computers-sending-data"></a>Obtenir une vue hebdomadaire du nombre d’ordinateurs envoyant des données
+
+L’exemple suivant affiche (sous forme de graphique) le nombre d’ordinateurs distincts qui ont envoyé des pulsations, chaque semaine.
+
+```Kusto
+Heartbeat
+| where TimeGenerated >= startofweek(ago(21d))
+| summarize dcount(Computer) by endofweek(TimeGenerated) | render barchart kind=default
+```
+
+### <a name="find-stale-computers"></a>Rechercher des ordinateurs obsolètes
+
+L’exemple suivant recherche les ordinateurs qui étaient actifs les dernières 24 heures, mais n’ont pas envoyé de pulsations depuis une heure.
+
+```Kusto
+Heartbeat
+| where TimeGenerated > ago(1d)
+| summarize LastHeartbeat = max(TimeGenerated) by Computer
+| where isnotempty(Computer)
+| where LastHeartbeat < ago(1h)
+```
+
+### <a name="get-the-latest-heartbeat-record-per-computer-ip"></a>Obtenir le dernier enregistrement de pulsation par adresse IP d’ordinateur
+
+Cet exemple renvoie le dernier enregistrement de pulsation pour chaque adresse IP d’ordinateur.
+```Kusto
+Heartbeat
+| summarize arg_max(TimeGenerated, *) by ComputerIP
+```
+
+### <a name="match-protected-status-records-with-heartbeat-records"></a>Faire correspondre des enregistrements d’état protégé avec les enregistrements de pulsation
+
+Cet exemple recherche les enregistrements d’état de protection et les enregistrements de pulsation associés, mis en correspondance en fonction de l’ordinateur et de l’heure.
+Notez que le champ d’heure est arrondi à la minute la plus proche. Nous avons utilisé le calcul bin de runtime pour ce faire : `round_time=bin(TimeGenerated, 1m)`.
+
+```Kusto
+let protection_data = ProtectionStatus
+    | project Computer, DetectionId, round_time=bin(TimeGenerated, 1m);
+let heartbeat_data = Heartbeat
+    | project Computer, Category, round_time=bin(TimeGenerated, 1m);
+protection_data | join (heartbeat_data) on Computer, round_time
+```
+
+### <a name="server-availability-rate"></a>Taux de disponibilité du serveur
+
+Calculez le taux de disponibilité du serveur en fonction des enregistrements de pulsation. La disponibilité est définie comme « au moins 1 pulsation par heure ».
+Par conséquent, si un serveur a été disponible 98 heures sur 100, le taux de disponibilité est de 98 %.
+
+```Kusto
+let start_time=startofday(datetime("2018-03-01"));
+let end_time=now();
+Heartbeat
+| where TimeGenerated > start_time and TimeGenerated < end_time
+| summarize heartbeat_per_hour=count() by bin_at(TimeGenerated, 1h, start_time), Computer
+| extend available_per_hour=iff(heartbeat_per_hour>0, true, false)
+| summarize total_available_hours=countif(available_per_hour==true) by Computer 
+| extend total_number_of_buckets=round((end_time-start_time)/1h)+1
+| extend availability_rate=total_available_hours*100/total_number_of_buckets
+```
+
+
+## <a name="multiple-data-types"></a>Types de données multiples
+
+### <a name="chart-the-record-count-per-table"></a>Tracer le nombre d’enregistrements par table
+L’exemple suivant collecte tous les enregistrements de toutes les tables des 5 dernières heures et compte le nombre d’enregistrements dans chaque table. Ces résultats sont présentés dans un graphique temporel.
+
+```Kusto
+union withsource=sourceTable *
+| where TimeGenerated > ago(5h) 
+| summarize count() by bin(TimeGenerated,10m), sourceTable
+| render timechart
+```
+
+### <a name="count-all-logs-collected-over-the-last-hour-by-type"></a>Compter tous les journaux collectés pendant la dernière heure écoulée, par type
+L’exemple suivant recherche tous les éléments signalés au cours de la dernière heure écoulée et compte les enregistrements de chaque table par **type**. Par défaut, les résultats sont affichés dans un histogramme.
+
+```Kusto
+search *
+| where TimeGenerated > ago(1h) 
+| summarize CountOfRecords = count() by Type
+| render barchart
+```
+
+## <a name="azurediagnostics"></a>AzureDiagnostics
+
+### <a name="count-azure-diagnostics-records-per-category"></a>Compter les enregistrements de diagnostic Azure par catégorie
+Cet exemple compte tous les enregistrements de diagnostic Azure pour chaque catégorie unique.
+
+```Kusto
+AzureDiagnostics 
+| where TimeGenerated > ago(1d)
+| summarize count() by Category
+```
+
+### <a name="get-a-random-record-for-each-unique-category"></a>Obtenir un enregistrement aléatoire pour chaque catégorie unique
+Cet exemple obtient un seul enregistrement aléatoire de diagnostic Azure pour chaque catégorie unique.
+
+```Kusto
+AzureDiagnostics
+| where TimeGenerated > ago(1d) 
+| summarize any(*) by Category
+```
+
+### <a name="get-the-latest-record-per-category"></a>Obtenir le dernier enregistrement par catégorie
+Cet exemple obtient le dernier enregistrement de diagnostic Azure pour chaque catégorie unique.
+
+```Kusto
+AzureDiagnostics
+| where TimeGenerated > ago(1d) 
+| summarize arg_max(TimeGenerated, *) by Category
+```
+
+## <a name="network-monitoring"></a>Analyse du réseau
+
+### <a name="computers-with-unhealthy-latency"></a>Ordinateurs avec une latence inquiétante
+Cet exemple répertorie les ordinateurs présentant une latence inquiétante.
+
+```Kusto
+NetworkMonitoring 
+| where LatencyHealthState <> "Healthy" 
+| where Computer != "" 
+| distinct Computer
+```
+
+## <a name="performance"></a>Performances
+
+### <a name="join-computer-perf-records-to-correlate-memory-and-cpu"></a>Joindre les enregistrements de performances informatiques pour mettre en corrélation la mémoire et l’UC
+Cet exemple met en corrélation les enregistrements de **performances** d’un ordinateur particulier et crée deux graphiques temporels (un pour l’utilisation moyenne de l’UC et pour la mémoire maximale).
+
+```Kusto
+let StartTime = now()-5d;
+let EndTime = now()-4d;
+Perf
+| where CounterName == "% Processor Time"  
+| where TimeGenerated > StartTime and TimeGenerated < EndTime
+and TimeGenerated < EndTime
+| project TimeGenerated, Computer, cpu=CounterValue 
+| join kind= inner (
+   Perf
+    | where CounterName == "% Used Memory"  
+    | where TimeGenerated > StartTime and TimeGenerated < EndTime
+    | project TimeGenerated , Computer, mem=CounterValue 
+) on TimeGenerated, Computer
+| summarize avgCpu=avg(cpu), maxMem=max(mem) by TimeGenerated bin=30m  
+| render timechart
+```
+
+### <a name="perf-cpu-utilization-graph-per-computer"></a>Graphique de performances pour l’utilisation de l’UC par ordinateur
+Cet exemple calcule et trace l’utilisation de l’UC des ordinateurs qui commencent par _Contoso_.
+
+```Kusto
+Perf
+| where TimeGenerated > ago(4h)
+| where Computer startswith "Contoso" 
+| where CounterName == @"% Processor Time"
+| summarize avg(CounterValue) by Computer, bin(TimeGenerated, 15m) 
+| render timechart
+```
+
+## <a name="protection-status"></a>État de la protection
+
+### <a name="computers-with-non-reporting-protection-status-duration"></a>Ordinateurs avec durée d’état protection sans rapport
+Cet exemple répertorie les ordinateurs avec l’état de protection _Pas de rapport_ et la durée de cet état.
+
+```Kusto
+ProtectionStatus
+| where ProtectionStatus == "Not Reporting"
+| summarize count(), startNotReporting = min(TimeGenerated), endNotReporting = max(TimeGenerated) by Computer, ProtectionStatusDetails
+| join ProtectionStatus on Computer
+| summarize lastReporting = max(TimeGenerated), startNotReporting = any(startNotReporting), endNotReporting = any(endNotReporting) by Computer
+| extend durationNotReporting = endNotReporting - startNotReporting
+```
+
+### <a name="match-protected-status-records-with-heartbeat-records"></a>Faire correspondre des enregistrements d’état protégé avec les enregistrements de pulsation
+Cet exemple recherche les enregistrements d’état de protection et les enregistrements de pulsation associés, mis en correspondance en fonction de l’ordinateur et de l’heure.
+Le champ d’heure est arrondi à la minute la plus proche à l’aide de **bin**.
+
+```Kusto
+let protection_data = ProtectionStatus
+    | project Computer, DetectionId, round_time=bin(TimeGenerated, 1m);
+let heartbeat_data = Heartbeat
+    | project Computer, Category, round_time=bin(TimeGenerated, 1m);
+protection_data | join (heartbeat_data) on Computer, round_time
+```
+
+
+## <a name="security-records"></a>Enregistrements de sécurité
+
+### <a name="count-security-events-by-activity-id"></a>Compter les événements de sécurité par ID d’activité
+
+
+Cet exemple s’appuie sur la structure fixe de la colonne **Activity** : \<ID\>-\<Name\>.
+Il analyse la valeur **Activity** dans deux nouvelles colonnes et compte les occurrences de chaque élément **activityID**.
+
+```Kusto
+SecurityEvent
+| where TimeGenerated > ago(30m) 
+| project Activity 
+| parse Activity with activityID " - " activityDesc
+| summarize count() by activityID
+```
+
+### <a name="count-security-events-related-to-permissions"></a>Compter les événements de sécurité liés aux autorisations
+Cet exemple montre le nombre d’enregistrements **securityEvent** dans lesquels la colonne **Activité** contient le terme _Permissions_. La requête s’applique aux enregistrements créés au cours des 30 dernières minutes.
+
+```Kusto
+SecurityEvent
+| where TimeGenerated > ago(30m)
+| summarize EventCount = countif(Activity has "Permissions")
+```
+
+### <a name="find-accounts-that-failed-to-log-in-from-computers-with-a-security-detection"></a>Rechercher des comptes dont la connexion a échoué à partir d’ordinateurs avec une détection de sécurité
+Cet exemple recherche et comptabilise les comptes sont la connexion a échoué à partir d’ordinateurs sur lesquels il existe une détection de sécurité.
+
+```Kusto
+let detections = toscalar(SecurityDetection
+| summarize makeset(Computer));
+SecurityEvent
+| where Computer in (detections) and EventID == 4624
+| summarize count() by Account
+```
+
+### <a name="is-my-security-data-available"></a>Mes données de sécurité sont-elles disponibles ?
+L’exploration de données commence souvent par la vérification de la disponibilité des données. Cet exemple montre le nombre d’enregistrements **SecurityEvent** au cours des 30 dernières minutes.
+
+```Kusto
+SecurityEvent 
+| where TimeGenerated  > ago(30m) 
+| count
+```
+
+### <a name="parse-activity-name-and-id"></a>Analyser le nom d’activité et l’ID
+Les deux exemples ci-dessous s’appuient sur la structure fixe de la colonne **Activity** : \<ID\>-\<Name\>. Le premier exemple utilise l’opérateur **parse** pour affecter des valeurs à deux nouvelles colonnes : **activityID** et **activityDesc**.
+
+```Kusto
+SecurityEvent
+| take 100
+| project Activity 
+| parse Activity with activityID " - " activityDesc
+```
+
+Cet exemple utilise l’opérateur **split** pour créer un tableau de valeurs distinctes.
+```Kusto
+SecurityEvent
+| take 100
+| project Activity 
+| extend activityArr=split(Activity, " - ") 
+| project Activity , activityArr, activityId=activityArr[0]
+```
+
+### <a name="explicit-credentials-processes"></a>Processus d’informations d’identification explicites
+L’exemple suivant montre un graphique à secteurs des processus qui ont utilisé des informations d’identification explicites la semaine précédente.
+
+```Kusto
+SecurityEvent
+| where TimeGenerated > ago(7d)
+// filter by id 4648 ("A logon was attempted using explicit credentials")
+| where EventID == 4648
+| summarize count() by Process
+| render piechart 
+```
+
+### <a name="top-running-processes"></a>Processus les plus exécutés
+
+L’exemple suivant montre une chronologie de l’activité pour les cinq processus les plus exécutés au cours des trois derniers jours.
+
+```Kusto
+// Find all processes that started in the last three days. ID 4688: A new process has been created.
+let RunProcesses = 
+    SecurityEvent
+    | where TimeGenerated > ago(3d)
+    | where EventID == "4688";
+// Find the 5 processes that were run the most
+let Top5Processes =
+RunProcesses
+| summarize count() by Process
+| top 5 by count_;
+// Create a time chart of these 5 processes - hour by hour
+RunProcesses 
+| where Process in (Top5Processes) 
+| summarize count() by bin (TimeGenerated, 1h), Process
+| render timechart
+```
+
+
+### <a name="find-repeating-failed-login-attempts-by-the-same-account-from-different-ips"></a>Rechercher la répétition de tentatives de connexion ayant échoué pour le même compte à partir de différentes adresses IP
+
+L’exemple suivant recherche les tentatives de connexion ayant échoué pour le même compte à partir de plus de cinq adresses IP différentes au cours des six dernières heures.
+
+```Kusto
+SecurityEvent 
+| where AccountType == "User" and EventID == 4625 and TimeGenerated > ago(6h) 
+| summarize IPCount = dcount(IpAddress), makeset(IpAddress)  by Account
+| where IPCount > 5
+| sort by IPCount desc
+```
+
+### <a name="find-user-accounts-that-failed-to-log-in"></a>Rechercher les comptes d’utilisateur qui n’ont pas pu se connecter 
+L’exemple suivant identifie les comptes d’utilisateur qui n’ont pas pu se connecter plus de cinq fois au cours des dernières 24 heures, et l’heure de la dernière tentative de connexion.
+
+```Kusto
+let timeframe = 1d;
+SecurityEvent
+| where TimeGenerated > ago(1d)
+| where AccountType == 'User' and EventID == 4625 // 4625 - failed log in
+| summarize failed_login_attempts=count(), latest_failed_login=arg_max(TimeGenerated, Account) by Account 
+| where failed_login_attempts > 5
+| project-away Account1
+```
+
+À l’aide des instructions **join** et **let**, nous pouvons vérifier si les mêmes comptes suspects ont été ultérieurement en mesure de se connecter.
+
+```Kusto
+let timeframe = 1d;
+let suspicious_users = 
+    SecurityEvent
+    | where TimeGenerated > ago(timeframe)
+    | where AccountType == 'User' and EventID == 4625 // 4625 - failed login
+    | summarize failed_login_attempts=count(), latest_failed_login=arg_max(TimeGenerated, Account) by Account 
+    | where failed_login_attempts > 5
+    | project-away Account1;
+let suspicious_users_that_later_logged_in = 
+    suspicious_users 
+    | join kind=innerunique (
+        SecurityEvent
+        | where TimeGenerated > ago(timeframe)
+        | where AccountType == 'User' and EventID == 4624 // 4624 - successful login,
+        | summarize latest_successful_login=arg_max(TimeGenerated, Account) by Account
+    ) on Account
+    | extend was_login_after_failures = iif(latest_successful_login>latest_failed_login, 1, 0)
+    | where was_login_after_failures == 1
+;
+suspicious_users_that_later_logged_in
+```
+
+## <a name="usage"></a>Usage
+
+### <a name="calculate-the-average-size-of-perf-usage-reports-per-computer"></a>Calculer la taille moyenne des rapports d’utilisation de performances par ordinateur
+
+Cet exemple calcule la taille moyenne des rapports d’utilisation de performances par ordinateur, sur les 3 dernières heures.
+Les résultats sont affichés dans un histogrammes.
+```Kusto
+Usage 
+| where TimeGenerated > ago(3h)
+| where DataType == "Perf" 
+| where QuantityUnit == "MBytes" 
+| summarize avg(Quantity) by Computer
+| sort by avg_Quantity desc nulls last
+| render barchart
+```
+
+### <a name="timechart-latency-percentiles-50-and-95"></a>Centiles de latence 50 et 95 (graphique temporel)
+
+Cet exemple calcule et trace les 50e et 95e centiles pour la valeur **avgLatency** signalée par heure au cours des dernières 24 heures.
+
+```Kusto
+Usage
+| where TimeGenerated > ago(24h)
+| summarize percentiles(AvgLatencyInSeconds, 50, 95) by bin(TimeGenerated, 1h) 
+| render timechart
+```
+
+### <a name="usage-of-specific-computers-today"></a>Utilisation d’ordinateurs spécifiques aujourd’hui
+Cet exemple récupère les données d’**utilisation** des dernières 24 heures pour les noms d’ordinateur qui contiennent la chaîne _ContosoFile_. Les résultats sont triés selon la valeur **TimeGenerated**.
+
+```Kusto
+Usage
+| where TimeGenerated > ago(1d)
+| where  Computer contains "ContosoFile" 
+| sort by TimeGenerated desc nulls last
+```
+
+## <a name="updates"></a>Mises à jour
+
+### <a name="computers-still-missing-updates"></a>Ordinateurs avec mises à jour encore manquantes
+Cet exemple répertorie les ordinateurs sur lesquels il manquait une ou plusieurs mises à jour critiques il y a quelques jours et pour lesquels le problème n’est pas encore résolu.
+
+```Kusto
+let ComputersMissingUpdates3DaysAgo = Update
+| where TimeGenerated between (ago(3d)..ago(2d))
+| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| summarize makeset(Computer);
+
+Update
+| where TimeGenerated > ago(1d)
+| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where Computer in (ComputersMissingUpdates3DaysAgo)
+| summarize UniqueUpdatesCount = dcount(Product) by Computer, OSType
+```
+
+
+## <a name="next-steps"></a>Étapes suivantes
+
+- Reportez-vous aux [informations de référence sur le langage Kusto](/azure/kusto/query) pour en savoir plus.
+- Lisez une [leçon sur l’écriture de requêtes dans Log Analytics](get-started-queries.md).

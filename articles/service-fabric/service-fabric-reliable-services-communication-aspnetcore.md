@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
-ms.date: 08/29/2018
+ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 384d0fa32b64706c9d9d9baa0e2e0bbb2ac3c522
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: eb020dfd52140375778cf22c6b70e715a7422761
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719594"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310243"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core dans le modèle Reliable Services de Service Fabric
 
@@ -252,6 +252,50 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 Dans cet exemple, une instance singleton de `IReliableStateManager` est fournie au conteneur d’injection de dépendance WebHost. Cela n’est pas rigoureusement nécessaire, mais elle vous permet d’utiliser `IReliableStateManager` et Reliable Collections dans vos méthodes d’action de contrôleur MVC.
 
 **Aucun** nom de configuration `Endpoint` n’est fourni à `KestrelCommunicationListener` dans un service avec état. La section suivante contient une explication plus détaillée à ce sujet.
+
+### <a name="configure-kestrel-to-use-https"></a>Configurer Kestrel pour l’utilisation de HTTPS
+Quand vous activez HTTPS avec Kestrel dans votre service, vous devez définir plusieurs options d’écoute.  Mettez à jour le `ServiceInstanceListener` pour qu’il utilise un point de terminaison EndpointHttps et écoute sur un port spécifique (comme le port 443). Lors de la configuration de l’hôte web pour l’utilisation du serveur Kestrel, vous devez configurer Kestrel pour qu’il écoute les adresses IPv6 sur toutes les interfaces réseau : 
+
+```csharp
+new ServiceInstanceListener(
+serviceContext =>
+    new KestrelCommunicationListener(
+        serviceContext,
+        "EndpointHttps",
+        (url, listener) =>
+        {
+            ServiceEventSource.Current.ServiceMessage(serviceContext, $"Starting Kestrel on {url}");
+
+            return new WebHostBuilder()
+                .UseKestrel(opt =>
+                {
+                    int port = serviceContext.CodePackageActivationContext.GetEndpoint("EndpointHttps").Port;
+                    opt.Listen(IPAddress.IPv6Any, port, listenOptions =>
+                    {
+                        listenOptions.UseHttps(GetCertificateFromStore());
+                        listenOptions.NoDelay = true;
+                    });
+                })
+                .ConfigureAppConfiguration((builderContext, config) =>
+                {
+                    config.AddJsonFile("appsettings.json", optional: false, reloadOnChange: true);
+                })
+
+                .ConfigureServices(
+                    services => services
+                        .AddSingleton<HttpClient>(new HttpClient())
+                        .AddSingleton<FabricClient>(new FabricClient())
+                        .AddSingleton<StatelessServiceContext>(serviceContext))
+                .UseContentRoot(Directory.GetCurrentDirectory())
+                .UseStartup<Startup>()
+                .UseServiceFabricIntegration(listener, ServiceFabricIntegrationOptions.None)
+                .UseUrls(url)
+                .Build();
+        }))
+```
+
+Pour obtenir un exemple complet utilisé dans un tutoriel, consultez [Configurer Kestrel pour l’utilisation de HTTPS](service-fabric-tutorial-dotnet-app-enable-https-endpoint.md#configure-kestrel-to-use-https).
+
 
 ### <a name="endpoint-configuration"></a>Configuration du point de terminaison
 Aucune configuration `Endpoint` n’est requise pour utiliser Kestrel. 

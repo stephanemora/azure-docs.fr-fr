@@ -1,22 +1,27 @@
 ---
-title: Analyse de circonscription dans l’API Analyse linguistique | Microsoft Docs
+title: Analyse de circonscription - API Analyse linguistique
+titlesuffix: Azure Cognitive Services
 description: Découvrez comment l’analyse de circonscription, aussi appelée « analyse de structure d’expressions », identifie des expressions dans un texte.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2016
 ms.author: lesun
-ms.openlocfilehash: bff5e587621e1278c260d555aec280a0f4c7c8a1
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ROBOTS: NOINDEX
+ms.openlocfilehash: 89832f2d936a08df8b6f9e846c3dd4a5665c06a4
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082170"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238622"
 ---
 # <a name="constituency-parsing"></a>Analyse de circonscription
+
+> [!IMPORTANT]
+> La préversion de l’analyse linguistique a été désactivée le 9 août 2018. Nous vous recommandons d’utiliser les [modules d’analyse de texte Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) pour le traitement et l’analyse de texte.
 
 Le but de l’analyse de circonscription (aussi appelée « analyse de structure d’expressions ») est d’identifier les expressions dans un texte.
 Cela peut être utile lors de l’extraction d’informations dans un texte.

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/18/2018
 ms.author: bwren, vinagara
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f03e124aab27292ee86fcd8c28ecebb0ba9cbdcf
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8f5dba7ba1c21e33f23cf8917c93e478eadf5f88
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46999509"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48269524"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion (préversion)
 
@@ -84,7 +84,7 @@ Chaque propriété d’une recherche enregistrée est décrite dans le tableau s
 | query | Requête à exécuter. |
 
 > [!NOTE]
-> Vous devrez peut-être utiliser des caractères d’échappement dans la requête si elle inclut des caractères qui peuvent être interprétés comme du code JSON.  Par exemple, si votre recherche était **Type: AzureActivity OperationName:"Microsoft.Compute/virtualMachines/write"**, elle doit être écrite de la façon suivante dans le fichier solution : **Type: AzureActivity OperationName:\"Microsoft.Compute/virtualMachines/write\"**.
+> Vous devrez peut-être utiliser des caractères d’échappement dans la requête si elle inclut des caractères qui peuvent être interprétés comme du code JSON.  Par exemple, si votre recherche était **AzureActivity | OperationName:"Microsoft.Compute/virtualMachines/write"**, elle doit être écrite de la façon suivante dans le fichier solution : **AzureActivity | OperationName:/\"Microsoft.Compute/virtualMachines/write\"**.
 
 ## <a name="alerts"></a>Alertes
 Des [alertes Azure Log](../monitoring-and-diagnostics/monitor-alerts-unified-log.md) sont créées par des règles Azure Alert qui exécutent des requêtes de journal spécifiées à intervalles réguliers.  Si les résultats de la requête correspondent aux critères spécifiés, un enregistrement d’alerte est créé, et une ou plusieurs actions sont exécutées à l’aide de [Groupes d’actions](../monitoring-and-diagnostics/monitoring-action-groups.md).  

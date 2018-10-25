@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 13cf5861bf39cdd9c192586979b95192a31e9399
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 3d52ca0c7022e08655ece8775b5855f3ae985aca
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978673"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48247450"
 ---
 # <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Comparer le routage des messages et Event Grid pour IoT Hub
 
@@ -22,6 +22,7 @@ Azure IoT Hub permet de diffuser des données à partir de vos appareils connect
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 * **[Routage des messages IoT Hub](iot-hub-devguide-messages-d2c.md)** : cette fonctionnalité IoT Hub permet aux utilisateurs d’acheminer les messages appareil-à-cloud vers des points de terminaison de service, tels que des conteneurs de stockage Azure, des hubs d’événements, des files d’attente Service Bus et des rubriques Service Bus. Le routage fournit également une fonctionnalité de requête pour filtrer les données avant de les acheminer vers les points de terminaison. En plus des données de télémétrie d’appareil, vous pouvez également envoyer des [événements non liés à la télémétrie](iot-hub-devguide-messages-d2c.md#non-telemetry-events) qui peuvent être utilisés pour déclencher des actions. 
+
 * **Intégration d’IoT Hub avec Event Grid** : Azure Event Grid est un service de routage d’événement entièrement géré qui utilise le modèle Publication-Abonnement. IoT Hub et Event Grid collaborent afin [d’intégrer les événements IoT Hub dans les services Azure et non-Azure](iot-hub-event-grid.md), quasiment en temps réel. 
 
 ## <a name="similarities-and-differences"></a>Similitudes et différences
@@ -34,7 +35,7 @@ Le routage des messages et Event Grid permettent tous deux de configurer des ale
 | **Type d’événement** | Oui, le routage des messages peut signaler les modifications de jumeau et les événements de cycle de vie d’appareil. | Oui, Event Grid peut signaler lorsque des appareils sont créés, supprimés, connectés et déconnectés d’IoT Hub. |
 | **Ordonnancement** | Oui, l’ordonnancement des événements est conservé.  | Non, l’ordonnancement des événements n’est pas garanti. | 
 | **Taille de message maximale** | 256 Ko, appareil-à-cloud | 64 Ko |
-| **Filtering** | Filtrage élaboré opérant sur les propriétés de l’application de messagerie, les propriétés système des messages, le corps des messages, et les étiquettes et propriétés de jumeaux d’appareil. Pour obtenir des exemples, consultez [Syntaxe des requêtes de routage des messages](iot-hub-devguide-routing-query-syntax.md). | Filtrage basé sur le suffixe/préfixe d’ID d’appareil, qui fonctionne bien pour les services hiérarchiques tels que le stockage. |
+| **Filtering** | Filtrage élaboré opérant sur les propriétés de l’application de messagerie, les propriétés système des messages, le corps des messages, ainsi que les étiquettes et propriétés de jumeaux d’appareil. Pour obtenir des exemples, consultez [Syntaxe des requêtes de routage des messages](iot-hub-devguide-routing-query-syntax.md). | Filtrage basé sur le suffixe/préfixe d’ID d’appareil, qui fonctionne bien pour les services hiérarchiques tels que le stockage. |
 | **Points de terminaison** | <ul><li>Event Hubs</li> <li>un stockage Azure Blob</li> <li>File d’attente Service Bus</li> <li>Rubriques Service Bus</li></ul><br>Les références SKU IoT Hub payantes (S1, S2 et S3) sont limitées à 10 points de terminaison personnalisés. Vous pouvez créer 100 itinéraires par hub IoT. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Rubriques personnalisées</li> <li>Services tiers par le biais de WebHooks</li></ul><br>Pour obtenir la liste la plus récente des points de terminaison, consultez [Gestionnaires d’événements Event Grid](../event-grid/overview.md#event-handlers). |
 | **Coût** | Le routage des messages n’est pas facturé séparément. Seule l’entrée de télémétrie dans IoT Hub est facturée. Par exemple, si vous avez un message acheminé vers trois points de terminaison différents, un seul message vous est facturé. | Aucun frais IoT Hub n’est facturé. Avec Event Grid, les 100 000 premières opérations par mois sont gratuites. Ensuite, le coût est de 0,60 $ par million d’opérations. |
 
@@ -54,7 +55,7 @@ Le routage des messages IoT Hub et l’intégration d’IoT Hub avec Event Grid 
 
 * **Quel type de données envoyez-vous aux points de terminaison ?**
 
-   Utilisez le routage des messages IoT Hub quand vous devez envoyer des données de télémétrie à d’autres services. Le routage des messages permet également l’interrogation de propriétés système de messages, de propriétés de l’application de messagerie, de corps de messages, d’étiquettes et de propriétés de jumeaux d’appareil.
+   Utilisez le routage des messages IoT Hub quand vous devez envoyer des données de télémétrie à d’autres services. Le routage des messages permet également l’interrogation des propriétés de l’application de messagerie, des propriétés système des messages, des corps de messages, des étiquettes et des propriétés de jumeaux d’appareil.
 
    L’intégration d’IoT Hub avec Event Grid fonctionne avec les événements qui se produisent dans le service IoT Hub. Ces événements IoT Hub incluent les appareils créés, supprimés, connectés et déconnectés. 
 
@@ -74,5 +75,5 @@ Le routage des messages IoT Hub et l’intégration d’IoT Hub avec Event Grid 
 
 * Découvrez plus en détail le [routage des messages IoT Hub](iot-hub-devguide-messages-d2c.md) et les [points de terminaison IoT Hub](iot-hub-devguide-endpoints.md).
 * Apprenez-en davantage sur [Azure Event Grid](../event-grid/overview.md).
-* Pour plus de détails, consultez le tutoriel [Traiter les messages appareil-à-cloud IoT Hub en utilisant les itinéraires](../iot-hub/tutorial-routing.md).
+* Pour découvrir comment créer des routes de messages, consultez le tutoriel [Traiter les messages appareil-à-cloud IoT Hub avec des routes](../iot-hub/tutorial-routing.md).
 * Testez l’intégration d’Event Grid en [envoyant des notifications par e-mail à propos des événements Azure IoT Hub à l’aide de Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).

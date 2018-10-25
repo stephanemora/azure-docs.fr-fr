@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: e9598cb464360e35a86b6fe35d8c965a5e7fb51d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0a2a9845f82f1a81f3e187edbbb2deaa2300b3be
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963030"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585915"
 ---
 # <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>Activation d’une authentification unique entre applications sur iOS à l’aide de la bibliothèque ADAL
 
@@ -250,7 +250,7 @@ Voici la procédure à suivre :
 1. Activez le mode répartiteur dans votre appel du code d’application vers le Kit de développement logiciel MS.
 2. Établissez un nouvel URI de redirection à fournir à l’application et à votre inscription d’application.
 3. Enregistrez un nouveau schéma d’URL.
-4. Prise en charge iOS9 : Ajoutez une autorisation à votre fichier info.plist.
+4. Ajoutez une autorisation à votre fichier info.plist.
 
 #### <a name="step-1-enable-broker-mode-in-your-application"></a>Étape 1 : Activer le mode répartiteur dans votre application
 
@@ -307,12 +307,16 @@ Pour assurer la prise en charge de l’authentification par certificat, vous dev
 
 exemple : *msauth://code/x-msauth-mytestiosapp%3A%2F%2Fcom.myapp.mytestapp*
 
-#### <a name="step-4-ios9-add-a-configuration-parameter-to-your-app"></a>Étape 4 : iOS9 : Ajouter un paramètre de configuration à votre application
+#### <a name="step-4-add-a-configuration-parameter-to-your-app"></a>Étape 4 : ajouter un paramètre de configuration à votre application
 
-La bibliothèque ADAL utilise –canOpenURL: pour vérifier si le répartiteur est installé sur l’appareil. Dans iOS 9, Apple a verrouillé la liste des schémas dans lesquels une application peut lancer une requête. Il vous faudra ajouter msauth à la section LSApplicationQueriesSchemes de votre `info.plist file`.
+La bibliothèque ADAL utilise –canOpenURL: pour vérifier si le répartiteur est installé sur l’appareil. Dans iOS 9 et versions ultérieures, Apple a verrouillé la liste des schémas dans lesquels une application peut lancer une requête. Il vous faudra ajouter msauth à la section LSApplicationQueriesSchemes de votre `info.plist file`.
 
 ```
-<key>LSApplicationQueriesSchemes</key> <array><string>msauth</string></array>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+        <string>msauth</string>
+    </array>
+
 ```
 
 ### <a name="youve-configured-sso"></a>Vous avez configuré l’authentification unique !

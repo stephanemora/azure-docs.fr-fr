@@ -7,108 +7,121 @@ author: ggailey777
 manager: jeconnoc
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 10/03/2018
 ms.author: glenga
-ms.openlocfilehash: a601ea42549abad84d6cab5c429cf94147776436
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f2f1313461fcb58ea48af99aeda2f7005534fe34
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978622"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48885185"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Vue d’ensemble des versions du runtime Azure Functions
 
  Il existe deux versions principales du runtime Azure Functions : 1.x et 2.x. La version actuelle qui accueille les nouvelles fonctionnalités et où sont apportées les améliorations est la version 2.x, bien que les deux versions soient prises en charge pour les scénarios de production.  Les informations ci-après les comparent sur certains points et expliquent comment créer chaque version et effectuer une mise à niveau depuis la version 1.x vers la version 2.x.
 
-> [!NOTE] 
+> [!NOTE]
 > Cet article fait référence au service cloud Azure Functions. Pour plus d’informations sur le produit en préversion qui vous permet d’exécuter Azure Functions localement, consultez [Vue d’ensemble du runtime d’Azure Functions](functions-runtime-overview.md).
-
-## <a name="creating-1x-apps"></a>Création d’applications 1.x
-
-Les applications créées dans le portail Azure sont définies sur 2.x par défaut, car il s’agit de la version la plus récente et c’est celle vers laquelle sont tournés les investissements en nouvelles fonctionnalités.  Toutefois, vous pouvez toujours créer des applications v1.x en effectuant les étapes suivantes.
-
-1. Créez une fonction Azure à partir du portail Azure.
-1. Ouvrez l’application créée, puis, alors qu’elle est vide, ouvrez **Paramètres de la fonction**.
-1. Changer la version de ~2 à ~1.  *Ce bouton bascule est désactivé si votre application contient des fonctions*.
-1. Cliquez sur Enregistrer et redémarrez l’application.  Tous les modèles doivent désormais être créés et exécutés dans la version 1.x.
 
 ## <a name="cross-platform-development"></a>Développement multiplateforme
 
-Runtime 1.x prend en charge uniquement le développement et l’hébergement dans le portail ou sur Windows. Runtime 2.x s’exécute sur .NET Core 2, ce qui signifie qu’il peut s’exécuter sur toutes les plateformes prises en charge par .NET Core, y compris macOS et Linux. Cela permet un développement multiplateforme et des scénarios d’hébergement.
+La version 2.x du runtime s’exécute sur .NET Core 2, ce qui lui permet de s’adapter à toutes les plateformes prises en charge par .NET Core, notamment macOS et Linux. Cette exécution sur .NET Core autorise des scénarios d’hébergement et développement multiplateformes.
+
+En comparaison, la version 1.x du runtime prend uniquement en charge le développement et l’hébergement dans le portail Microsoft Azure ou sur les ordinateurs Windows.
 
 ## <a name="languages"></a>Langues
 
-Runtime 2.x utilise un nouveau modèle d’extensibilité de langage. En outre, afin que les outils et les performances soient améliorés, les fonctions ne sont disponibles que dans un seul langage dans chaque application en version 2.x. Les langages pris en charge dans la version 2.x sont C#, F#, JavaScript et Java. Les langages expérimentaux d’Azure Functions 1.x n’ont pas été mis à jour pour utiliser le nouveau modèle et ne sont donc pas pris en charge dans 2.x. Le tableau suivant montre les langages de programmation qui sont pris en charge dans chaque version du runtime.
+La version 2.x du runtime utilise un nouveau modèle d’extensibilité de langage. Dans la version 2.x, toutes les fonctions d’une application de fonction doivent partager le même langage. Dans une application de fonction, le langage des fonctions est choisi au moment de la création de l’application.
+
+Les langages expérimentaux d’Azure Functions 1.x n’ont pas été mis à jour pour utiliser le nouveau modèle. Par conséquent, ils ne sont pas pris en charge dans 2.x. Le tableau suivant montre les langages de programmation actuellement pris en charge dans chaque version du runtime.
 
 [!INCLUDE [functions-supported-languages](../../includes/functions-supported-languages.md)]
 
 Pour en savoir plus, consultez [Langages pris en charge](supported-languages.md).
 
+## <a name="creating-1x-apps"></a>Exécution sur la version 1.x
+
+Par défaut, les applications de fonction créées dans le portail Microsoft Azure sont configurées pour la version 2.x. Dans la mesure du possible, mieux vaut utiliser cette version du runtime, car elle propose de nouvelles fonctionnalités. Si vous le souhaitez, vous pouvez continuer à exécuter une application de fonction sur la version 1.x du runtime. Pour modifier la version du runtime, vous intervenez uniquement après avoir créé votre application de fonction, mais avant d’avoir ajouté des fonctions. Pour savoir comment épingler la version du runtime à la version 1.x, consultez [Afficher et mettre à jour la version actuelle du runtime](set-runtime-version.md#view-and-update-the-current-runtime-version).
+
 ## <a name="migrating-from-1x-to-2x"></a>Migration depuis la version 1.x vers la version 2.x
 
-Vous pouvez souhaiter migrer une application existante écrite en 1.x vers 2.x.  La plupart des points à prendre en compte quand vous passez d’une version à l’autre sont liés aux modifications du runtime de langage répertoriées ci-dessus (par exemple, passage en C# de .NET Framework 4.7 à .NET Core 2).  Vous devrez vous assurer que vos code et bibliothèques sont compatibles avec les runtimes de langage utilisés.  Veillez également à noter toutes les modifications soulignées ci-après qui affectent les déclencheurs, les liaisons et les fonctionnalités.
+Vous pouvez choisir de migrer une application existante écrite pour utiliser la version 1.x du runtime vers une application qui utilise la version 2.x. La plupart des modifications que vous devez apporter sont liées au runtime de langage, par exemple des modifications de l’API C# entre .NET Framework 4.7 et .NET Core 2. Vous devez également vous assurer que le code et les bibliothèques sont compatibles avec le runtime de langage choisi. Enfin, veillez à noter toutes les modifications soulignées ci-après qui affectent les déclencheurs, liaisons et fonctionnalités. Pour une migration plus performante, vous devez créer une nouvelle application de fonction pour la version 2.x et déplacer le code de fonction existant de la version 1.x vers la nouvelle application.  
 
 ### <a name="changes-in-triggers-and-bindings"></a>Modifications dans les déclencheurs et les liaisons
 
-Bien que la plupart des propriétés et configurations des déclencheurs et liaisons restent les mêmes d’une version à l’autre, dans la version 2.x, vous devez installer tout déclencheur ou liaison à l’application. Les seules exceptions sont les déclencheurs HTTP et du minuteur.  Consultez [Inscrire et installer des extensions de liaison](./functions-triggers-bindings.md#register-binding-extensions).  Notez que le `function.json` ou les attributs de la fonction peuvent faire l’objet de modifications d’une version à l’autre (par exemple, la propriété `connection` CosmosDB est désormais `ConnectionStringSetting`).  Consultez le [tableau des liaisons existantes](#bindings) pour obtenir des liens vers de la documentation sur chaque liaison.
+Avec la version 2.x, vous devez installer dans votre application les extensions des déclencheurs et liaisons spécifiques utilisés par les fonctions. La seule exception concerne les déclencheurs HTTP et de la minuterie, qui ne nécessitent aucune extension.  Pour plus d’informations, voir [Inscrire et installer des extensions de liaison](./functions-triggers-bindings.md#register-binding-extensions).
 
-### <a name="changes-in-features-available"></a>Modifications dans les fonctionnalités disponibles
+Il convient également de noter quelques modifications dans le paramètre `function.json` ou les attributs de la fonction entre les versions. Par exemple, la propriété `path` d’Event Hub est désormais `eventHubName`. Consultez le [tableau des liaisons existantes](#bindings). Il contient des liens vers de la documentation sur chaque liaison.
 
-Outre les modifications dans les langages et les liaisons, il existe certaines fonctionnalités qui ont été supprimées, mises à jour ou remplacées d’une version à l’autre.  Voici certains des principaux points à prendre en considération quand vous commencez à utiliser la version 2.x après avoir utilisé la version 1.x.  Dans la version 2.x, les modifications suivantes ont été apportées :
+### <a name="changes-in-features-and-functionality"></a>Changements apportés aux fonctionnalités
 
-* Les clés permettant d’appeler une fonction sont toujours stockées dans le stockage d’objets blob chiffré. Dans la version 1.x, par défaut, elles se trouvaient dans le stockage de fichiers et pouvaient être déplacées dans un objet blob si certaines fonctionnalités telles que les emplacements étaient activées.  Si vous mettez à niveau une application 1.x vers 2.x et que des secrets se trouvent dans le stockage de fichiers, elles sont réinitialisées.
-* Pour que les performances soient améliorées, les déclencheurs de type « webhook » sont supprimés et remplacés par des déclencheurs « HTTP ».
-* La configuration de l’hôte (`host.json`) doit être vide ou contenir `version` `2.0` pour l’une des propriétés.
-* Pour que la supervision et l’observabilité soient améliorées, le tableau de bord Azure WebJobs (`AzureWebJobsDashboard`) est remplacé par [Azure Application Insights](functions-monitoring.md) (`APPINSIGHTS_INSTRUMENTATIONKEY`)
-* Les paramètres d’application (`local.settings.json`) nécessitent une valeur pour la propriété `FUNCTIONS_WORKER_RUNTIME` qui correspond au langage de l’application `dotnet | node | java | python`.
-    * Pour que les temps de démarrage et l’empreinte soient améliorés, les applications sont limitées à un seul langage. Vous pouvez publier plusieurs applications pour avoir des fonctions dans différents langages pour une même solution.
-* Le délai d’expiration par défaut pour les fonctions dans un plan de service d’application est de 30 minutes.  Vous pouvez néanmoins le définir manuellement sur un délai illimité.
-* [En raison des limitations propres au .NET Core](https://github.com/Azure/azure-functions-host/issues/3414), les scripts `.fsx` pour les fonctions F# ont été supprimés. Les fonctions F# compilées sont toujours prises en charge.
-* Le format des déclencheurs basés sur un webhook (par exemple, Event Grid) est désormais `https://{app}/runtime/webhooks/{triggerName}`.
+Quelques fonctionnalités ont également été supprimées, mises à jour ou remplacées dans la nouvelle version. Cette section détaille les modifications de la version 2.x par rapport à la version 1.x.
 
-### <a name="upgrading-a-locally-developed-application"></a>Mise à niveau d’une application développée localement
+Les modifications suivantes ont été apportées à la version 2.x :
 
-Si votre application 1.x a été développée localement, vous pouvez apporter des modifications à celle-ci ou au projet pour le rendre compatible avec la version 2.  Il est recommandé de créer une application et de porter le code vers celle-ci.  Bien que des modifications puissent être apportées à une application existante pour effectuer une mise à niveau sur place, il existe un certain nombre d’autres améliorations entre les versions 1 et 2 dont le code hérité ne tire probablement pas parti (par exemple en C#, le passage de `TraceWriter` à `ILogger`).  
+* Les clés permettant d’appeler les points de terminaison HTTP sont toujours stockées et chiffrées dans le Stockage Blob Azure. Dans la version 1.x, les clés étaient stockées par défaut dans le Stockage Fichier Azure. Au moment de mettre à niveau une application de la version 1.x à la version 2.x, les secrets existants qui se trouvent dans le Stockage Fichier sont réinitialisés.
 
-L’approche recommandée consiste à partir d’un des modèles v2 et à déplacer le code vers une nouvelle application ou un nouveau projet.
+* La version 2.x du runtime n’intègre aucune prise en charge des fournisseurs de webhooks. Cette modification a été apportée pour améliorer les performances. Vous pouvez continuer à utiliser des déclencheurs HTTP comme points de terminaison des webhooks.
+
+* Le fichier de configuration d’hôte (host.json) doit être vide ou contenir la chaîne `"version": "2.0"`.
+
+* Pour améliorer la surveillance, le tableau de bord WebJobs se trouvant dans le portail, qui a utilisé le paramètre [`AzureWebJobsDashboard`](functions-app-settings.md#azurewebjobsdashboard), est remplacé par Azure Application Insights, qui utilise le paramètre [`APPINSIGHTS_INSTRUMENTATIONKEY`](functions-app-settings.md#appinsightsinstrumentationkey). Pour plus d’informations, consultez [Surveiller l’exécution des fonctions Azure](functions-monitoring.md).
+
+* Toutes les fonctions d’une application de fonction doivent partager le même langage. Lorsque vous créez une application de fonction, vous devez choisir une pile d’exécution pour l’application. La pile d’exécution est spécifiée par la valeur [`FUNCTIONS_WORKER_RUNTIME`](functions-app-settings.md#functionsworkerruntime) dans les paramètres de l’application. Cette exigence a été ajoutée pour améliorer l’empreinte mémoire et le temps de démarrage. Lorsque vous développez en local, vous devez également inclure ce paramètre dans le [fichier local.settings.json](functions-run-local.md#local-settings-file).
+
+* Le délai d’expiration par défaut pour les fonctions dans un plan App Service est de 30 minutes. Vous pouvez modifier ce délai d’expiration manuellement et l’indiquer à nouveau comme étant illimité en utilisant le paramètre [functionTimeout](functions-host-json.md#functiontimeout) dans host.json.
+
+* Les limitations d’accès concurrentiel HTTP sont implémentées par défaut pour les fonctions de plan de consommation, avec une valeur par défaut de 100 demandes simultanées par instance. Vous pouvez configurer ces limitations dans le paramètre [`maxConcurrentRequests`](functions-host-json.md#http) du fichier host.json.
+
+* En raison des [limitations de .NET Core](https://github.com/Azure/azure-functions-host/issues/3414), la prise en charge des fonctions de script F# (.fsx) a été supprimée. Les fonctions F# compilées (.fs) restent prises en charge.
+
+* Le format d’URL des webhooks de déclencheur Event Grid a été remplacé par `https://{app}/runtime/webhooks/{triggerName}`.
+
+### <a name="migrating-a-locally-developed-application"></a>Migration d’une application développée en local
+
+Vous possédez peut-être des projets d’application de fonction développés en local à l’aide de la version 1.x du runtime. Pour les mettre à niveau vers la version 2.x, vous devez créer un projet d’application de fonction développé en local d’après la version 2.x, puis déplacer le code existant dans cette nouvelle application. Vous pouvez mettre à jour manuellement le projet et le code existants. Il s’agit d’une sorte de mise à niveau « sur place ». Toutefois, vous allez encore devoir apporter quelques améliorations entre la version 1.x et la version 2.x. Par exemple, en C#, l’objet de débogage a été modifié. Il s’agissait de `TraceWriter` et maintenant il s’agit de `ILogger`. Lorsque vous créez un nouveau projet en version 2.x, vous commencez par des fonctions de mise à jour en vous appuyant sur les modèles de version 2.x les plus récents.
 
 #### <a name="visual-studio-runtime-versions"></a>Versions du runtime Visual Studio
 
-Dans Visual Studio, vous sélectionnez la version du runtime quand vous créez un projet.  Visual Studio peut supporter les deux versions principales et utiliser de manière dynamique celle qui convient au projet.  Ces paramètres sont dérivés du fichier `.csproj`.  Pour les applications 1.x, le projet a les propriétés
+Dans Visual Studio, vous sélectionnez la version du runtime au moment de créer un projet. Azure Functions Tools pour Visual Studio prend en charge les deux versions majeures du runtime. La version appropriée est utilisée au moment du débogage et de la publication, en fonction des paramètres de projet. Les paramètres de version sont définis dans le fichier `.csproj`, dans les propriétés suivantes :
+
+##### <a name="version-1x"></a>Version 1.x
 
 ```xml
 <TargetFramework>net461</TargetFramework>
 <AzureFunctionsVersion>v1</AzureFunctionsVersion>
 ```
 
-Dans la version 2, les propriétés du projet sont
+##### <a name="version-2x"></a>Version 2.x
 
 ```xml
 <TargetFramework>netstandard2.0</TargetFramework>
 <AzureFunctionsVersion>v2</AzureFunctionsVersion>
 ```
 
-Le fait de cliquer sur Déboguer ou Publier permet de définir correctement la bonne version pour les paramètres du projet.
+Lorsque vous déboguez ou publiez votre projet, la version appropriée du runtime est utilisée.
 
 #### <a name="vs-code-and-azure-functions-core-tools"></a>VS Code et Azure Functions Core Tools
 
-D’autres outils locaux s’appuient sur Azure Functions Core Tools.  Ces outils sont installés sur la machine ; en général, une seule version est installée sur une machine de développement à la fois.  Consultez les [instructions indiquant comment installer des versions spécifiques de Core Tools](./functions-run-local.md).
+[Azure Functions Core Tools](functions-run-local.md) est utilisé pour développer la ligne de commande et également par [l’extension Azure Functions](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) pour Visual Studio Code. Pour un développement à partir de la version 2.x, installez la version 2.x de Core Tools. Pour un développement à partir de la version 1.x, vous devez installer la version 1.x de Core Tools. Pour plus d’informations, voir [Installer Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
-Pour VS Code, vous devrez peut-être également mettre à jour le paramètre utilisateur pour le `azureFunctions.projectRuntime` afin qu’il corresponde à la version des outils installés.  Cette opération met également à jour les modèles et les langages signalés pendant la création d’applications.
+Pour un développement avec Visual Studio Code, vous devrez peut-être également mettre à jour le paramètre utilisateur pour `azureFunctions.projectRuntime` afin qu’il corresponde à la version des outils installés.  Ce paramètre met également à jour les modèles et les langages utilisés lors de la création de l’application de fonction.
 
 ### <a name="changing-version-of-apps-in-azure"></a>Changement de la version des applications dans Azure
 
-Les versions des applications publiées sont définies par le biais du paramètre d’application `FUNCTIONS_RUNTIME_VERSION`.  Ce dernier est défini sur `~2` pour les applications v2, et sur `~1` pour les applications v1.  Il est fortement déconseillé de changer la version du runtime d’une application où sont publiées des fonctions existantes sans changer également le code de ces fonctions.  L’approche recommandée consiste à créer une application de fonction et à la définir sur la version appropriée, à tester les modifications, puis à désactiver ou supprimer l’application précédente.
+La version du runtime Functions utilisée par les applications publiées dans Azure dépend du paramètre d’application [`FUNCTIONS_EXTENSION_VERSION`](functions-app-settings.md#functionsextensionversion). Une valeur égale à `~2` cible la version 2.x du runtime et une valeur égale à `~1` cible la version 1.x du runtime. Ne modifiez pas arbitrairement ce paramètre. En effet, d’autres modifications du paramètre d’application et d’autres modifications du code dans vos fonctions sont probablement nécessaires. Pour en savoir plus sur la méthode recommandée afin de migrer votre application de fonction vers une version différente du runtime, voir [Comment cibler des versions du runtime Azure Functions](set-runtime-version.md).
 
-## <a name="bindings"></a>Liaisons 
+## <a name="bindings"></a>Liaisons
 
-Runtime 2.x utilise un nouveau [modèle d’extensibilité de liaison](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) qui présente les avantages suivants :
+La version 2.x du runtime utilise un nouveau [modèle d’extensibilité de liaison](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) qui présente les avantages suivants :
 
 * Prise en charge pour les extensions de liaison de tiers.
-* Découplage du runtime et des liaisons. Cela permet de gérer les versions des extensions de liaison et de les publier de façon indépendante. Vous pouvez, par exemple, choisir de mettre à niveau vers une version d’une extension qui s’appuie sur une version plus récente d’un kit de développement logiciel (SDK) sous-jacent.
+
+* Découplage du runtime et des liaisons. Cela permet de gérer les versions des extensions de liaison et leur publication de façon indépendante. Vous pouvez, par exemple, choisir de mettre à niveau vers une version d’une extension qui s’appuie sur une version plus récente d’un kit de développement logiciel (SDK) sous-jacent.
+
 * Un environnement d’exécution plus léger, où seules les liaisons en cours d’utilisation sont connues et chargées par le runtime.
 
-Toutes les liaisons Azure Functions intégrées ont adopté ce modèle et ne sont plus incluses par défaut, à l’exception du déclencheur du minuteur et du déclencheur HTTP. Ces extensions sont installées automatiquement lorsque vous créez des fonctions par le biais d’outils tels que Visual Studio ou par le biais du portail.
+À l’exception des déclencheurs HTTP et de la minuterie, toutes les liaisons doivent être explicitement ajoutées au projet d’application de fonction, ou enregistrées dans le portail. Pour plus d’informations, voir [Inscrire des extensions de liaison](functions-triggers-bindings.md#register-binding-extensions).
 
 Le tableau suivant indique les liaisons prises en charge dans chaque version du runtime.
 

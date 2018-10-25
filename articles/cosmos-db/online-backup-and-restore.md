@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: govindk
-ms.openlocfilehash: 613c61d9b881b7d736a50cadbf313c1f9aac57c9
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 657b75e5e3bb5c35bb23221235e62298fc797046
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40038327"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48902669"
 ---
 # <a name="automatic-online-backup-and-restore-with-azure-cosmos-db"></a>Sauvegarde et restauration en ligne automatiques avec Azure Cosmos DB
-Azure Cosmos DB sauvegarde automatiquement toutes vos données à intervalles réguliers. Les sauvegardes automatiques sont effectuées sans affecter les performances ou la disponibilité de vos opérations de base de données. Toutes vos sauvegardes sont stockées séparément dans un autre service de stockage, et ces sauvegardes sont répliquées globalement pour garantir la résilience contre les sinistres régionaux. Les sauvegardes automatiques sont destinées aux scénarios où vous supprimez accidentellement votre conteneur Cosmos DB et où vous avez besoin ultérieurement d’une solution de récupération de données ou de récupération d’urgence.  
+Azure Cosmos DB sauvegarde automatiquement toutes vos données à intervalles réguliers. Les sauvegardes automatiques sont effectuées sans affecter les performances ou la disponibilité de vos opérations de base de données. Toutes vos sauvegardes sont stockées séparément dans un autre service de stockage, et ces sauvegardes sont répliquées globalement pour garantir la résilience contre les sinistres régionaux. Les sauvegardes automatiques sont destinées aux scénarios où vous supprimez accidentellement votre conteneur Cosmos DB et où vous avez besoin ultérieurement d’une récupération de données.  
 
 Cet article commence par un récapitulatif sur la redondance et la disponibilité des données dans Cosmos DB et traite ensuite des sauvegardes. 
 
@@ -47,11 +47,18 @@ L’image suivante illustre les sauvegardes complètes périodiques de toutes le
 ## <a name="backup-retention-period"></a>Période de rétention des sauvegardes
 Comme décrit ci-dessus, Azure Cosmos DB prend des captures instantanées de vos données toutes les quatre heures au niveau de la partition. À chaque instant, seuls les deux dernières captures instantanées sont conservées. Toutefois, si le conteneur/base de données est supprimé(e), Azure Cosmos DB conserve les captures instantanées existantes pour toutes les partitions supprimées au sein du conteneur/base de données donné(e) pendant 30 jours.
 
-Pour l’API SQL, si vous souhaitez conserver vos propres instantanés, vous pouvez utiliser l’option d’exportation vers un fichier JSON dans l’[outil de migration de données](import-data.md#export-to-json-file) d’Azure Cosmos DB pour planifier des sauvegardes supplémentaires.
+Concernant l’API SQL, si vous souhaitez conserver vos propres instantanés, vous pouvez le faire par les options suivantes :
+
+* Utiliser l’option d’exportation vers un fichier JSON de l’[outil de migration de données](import-data.md#export-to-json-file) d’Azure Cosmos DB pour planifier des sauvegardes supplémentaires.
+
+* Utiliser [Azure Data Factory](../data-factory/connector-azure-cosmos-db.md) pour déplacer des données régulièrement.
+
+* Utiliser le [flux de modification](change-feed.md) Azure Cosmos DB pour lire les données régulièrement pour une sauvegarde complète, et séparément pour modification et migration incrémentielles vers la destination de votre blob. 
+
+* Pour la gestion des sauvegardes à chaud, il est possible de lire les données régulièrement à partir de flux de modification et de retarder son écriture dans une autre collection. Ainsi, vous n’êtes pas obligé de restaurer les données et vous pouvez immédiatement consulter les données en cas de problème. 
 
 > [!NOTE]
-> Si vous provisionnez le débit pour un ensemble de conteneurs au niveau de la base de données, n’oubliez pas que la restauration se produit au niveau du compte de base de données complet. Veillez également à contacter l’équipe du support dans les huit heures si vous avez supprimé accidentellement votre conteneur. Si vous ne contactez pas l’équipe de support dans les huit heures, les données ne pourront pas être restaurées. 
-
+> Si vous provisionnez le débit pour un ensemble de conteneurs au niveau de la base de données, n’oubliez pas que la restauration se produit au niveau du compte de base de données complet. Veillez également à contacter l’équipe du support dans les huit heures si vous avez supprimé accidentellement votre conteneur. Si vous ne contactez pas l’équipe de support dans les huit heures, les données ne pourront pas être restaurées.
 
 ## <a name="restoring-a-database-from-an-online-backup"></a>Restauration d’une base de données depuis une sauvegarde en ligne
 
@@ -59,18 +66,24 @@ En cas de suppression accidentelle de votre base de données ou conteneur, vous 
 
 Si vous devez restaurer votre base de données en raison d’un problème d’altération des données (y compris les cas où les documents au sein d’un conteneur sont supprimés), consultez [Gestion de l’altération des données](#handling-data-corruption) lorsque vous devez prendre des mesures supplémentaires pour empêcher les données altérées d’écraser les sauvegardes existantes. Pour obtenir une capture instantanée spécifique de votre sauvegarde à restaurer, Cosmos DB requiert que les données soient accessibles pendant la durée du cycle de sauvegarde de cette capture instantanée.
 
+> [!NOTE]
+> Les bases de données ou les collections peuvent être restaurées uniquement sur demande explicite de client. Il est la responsabilité du client de supprimer le conteneur ou la base de données immédiatement après avoir rapproché les données. Si vous ne supprimez pas les bases de données ou les collections restaurées, elles génèreront des coûts de stockage, de sortie et d’unités de requête.
+
 ## <a name="handling-data-corruption"></a>Gestion de l’altération des données
 
 Azure Cosmos DB conserve les deux dernières sauvegardes de chaque partition dans le compte de base de données. Ce modèle fonctionne bien lorsque un conteneur (collection de documents, graphique, table) ou une base de données est accidentellement supprimé car une des dernières versions peut être restaurée. Toutefois, dans le cas où les utilisateurs présentent un problème d’altération des données, Azure Cosmos DB peut ne pas être informé de l’altération des données et il est possible que l’altération supprime les sauvegardes existantes. 
 
-Dès qu’une altération est détectée, munissez-vous des informations relatives au compte et au conteneur et contactez le service clientèle en indiquant l’heure approximative à laquelle l’altération s’est produite. En cas d’altération (suppression/mise à jour de données), l’utilisateur doit également supprimer le conteneur altéré (collection/graphe/table) afin que les sauvegardes ne soient pas écrasées par des données altérées.  
+Dès que l’altération est supprimée, l’utilisation doit supprimer le conteneur altéré (collection/graphe/table) afin que les sauvegardes soient protégées contre l’écrasement des données altérées. Il est extrêmement important de contacter le Support Microsoft et de créer un ticket de requête spécifique de gravité 2. 
 
 L’image suivante illustre la création d’une demande de support pour la restauration d’un conteneur (collection/graphe/table) par le biais du portail Azure en cas de suppression ou de mise à jour accidentelle de données dans un conteneur.
 
 ![Restaurer un conteneur en cas de mise à jour ou de suppression erronée de données dans Cosmos DB](./media/online-backup-and-restore/backup-restore-support.png)
 
-Quand une restauration est effectuée pour ce genre de scénarios, les données sont restaurées vers un autre compte (ayant pour suffixe « -restored ») et un autre conteneur. Cette restauration n’est pas effectuée sur place afin que le client ait la possibilité d’effectuer une validation des données et de les déplacer en fonction des besoins. Le conteneur restauré se trouve dans la même région, avec les mêmes stratégies d’indexation et RU. 
+Quand une restauration est effectuée pour ce genre de scénarios, les données sont restaurées vers un autre compte (ayant pour suffixe « -restored ») et un autre conteneur. Cette restauration n’est pas effectuée sur place afin que le client ait la possibilité d’effectuer une validation des données et de les déplacer en fonction des besoins. Le conteneur restauré se trouve dans la même région, avec les mêmes stratégies d’indexation et RU. L’utilisateur administrateur ou coadministrateur de l’abonnement peut voir ce compte restauré.
 
+
+> [!NOTE]
+> Si vous restaurez les données pour résoudre un problème d’altération ou juste en guise de test, prévoyez de les supprimer dès que votre tâche est terminée car les conteneurs ou bases de données restaurées présentent un coût supplémentaire, en fonction du débit approvisionné. 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour répliquer votre base de données dans plusieurs centres de données, consultez [Azure Cosmos DB, un service de base de données mondialement distribué sur Azure](distribute-data-globally.md). 

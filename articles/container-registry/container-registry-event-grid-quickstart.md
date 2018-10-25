@@ -2,18 +2,17 @@
 title: 'Démarrage rapide : Envoyer des événements Azure Container Registry à Event Grid'
 description: Dans ce guide de démarrage rapide, vous activez les événements Event Grid pour votre registre de conteneurs, puis vous envoyez des événements push et delete pour l’image de conteneur à un exemple d’application.
 services: container-registry
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-registry
 ms.topic: article
 ms.date: 08/23/2018
-ms.author: marsma
-ms.openlocfilehash: 6ff83885ba80f0399f7b085970b1191e8e4cd999
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.author: danlep
+ms.openlocfilehash: 88265ee6f8a340909880ba70bd9f37a49ef85bf5
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746506"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48857361"
 ---
 # <a name="quickstart-send-container-registry-events-to-event-grid"></a>Démarrage rapide : Envoyer des événements de registre de conteneurs à Event Grid
 
@@ -141,20 +140,20 @@ Une fois l’abonnement souscrit, vous devez obtenir un résultat similaire à c
 
 ## <a name="trigger-registry-events"></a>Déclencher des événements du registre
 
-Maintenant que l’exemple d’application est opérationnel et en cours d’exécution, et que vous êtes abonné à votre registre auprès d’Event Grid, vous êtes prêt à générer des événements. Dans cette section, vous utilisez ACR Build pour générer et envoyer (push) une image de conteneur à votre registre. ACR Build est une fonctionnalité d’Azure Container Registry qui vous permet de créer des images de conteneur dans le cloud, sans devoir installer le moteur Docker sur votre machine locale.
+Maintenant que l’exemple d’application est opérationnel et en cours d’exécution, et que vous êtes abonné à votre registre auprès d’Event Grid, vous êtes prêt à générer des événements. Dans cette section, vous utilisez ACR Tasks pour générer et envoyer (push) une image de conteneur à votre registre. ACR Tasks est une fonctionnalité d’Azure Container Registry qui vous permet de créer des images de conteneur dans le cloud, sans devoir installer le moteur Docker sur votre machine locale.
 
 ### <a name="build-and-push-image"></a>Générer et envoyer (push) une image
 
-Exécutez la commande Azure CLI suivante pour générer une image de conteneur à partir du contenu d’un dépôt GitHub. Par défaut, ACR Build envoie (push) automatiquement une image générée avec succès à votre registre, ce qui génère l’événement `ImagePushed`.
+Exécutez la commande Azure CLI suivante pour générer une image de conteneur à partir du contenu d’un dépôt GitHub. Par défaut, ACR Tasks envoie (push) automatiquement une image générée avec succès à votre registre, ce qui génère l’événement `ImagePushed`.
 
 ```azurecli-interactive
-az acr build --registry $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+az acr build --registry $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 ```
 
-Vous devez voir une sortie similaire à ce qui suit quand ACR Build génère, puis envoie (push) votre image. L’exemple de sortie suivant a été tronqué par souci de concision.
+Vous devez voir une sortie similaire à ce qui suit quand ACR Tasks génère, puis envoie (push) votre image. L’exemple de sortie suivant a été tronqué par souci de concision.
 
 ```console
-$ az acr build -r $ACR_NAME --image myimage:v1 https://github.com/Azure-Samples/acr-build-helloworld-node.git
+$ az acr build -r $ACR_NAME --image myimage:v1 -f Dockerfile https://github.com/Azure-Samples/acr-build-helloworld-node.git
 Sending build context to ACR...
 Queued a build with build ID: aa2
 Waiting for build agent...
@@ -209,7 +208,7 @@ La capture d’écran suivante montre l’exemple d’application avec les trois
 
 Félicitations ! Si vous voyez les événements `ImagePushed` et `ImageDeleted`, c’est que votre registre envoie des événements à Event Grid, qui à son tour transfère ces événements à votre point de terminaison d’application web.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Une fois que vous en avez terminé avec les ressources créées dans ce guide de démarrage rapide, vous pouvez les supprimer toutes avec la commande Azure CLI suivante. Quand vous supprimez un groupe de ressources, toutes les ressources qu’il contient sont supprimées de façon définitive.
 
@@ -227,10 +226,10 @@ Vous pouvez trouver les informations de référence sur le schéma des messages 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez déployé un registre de conteneurs, vous avez généré une image avec ACR vous l’avez supprimée et vous avez utilisé les événements de votre registre provenant d’Event Grid avec un exemple d’application. Passez ensuite au tutoriel ACR Build pour en savoir plus sur la génération d’images de conteneur dans le cloud, notamment les générations automatisées sur la mise à jour de l’image de base :
+Dans ce guide de démarrage rapide, vous avez déployé un registre de conteneurs, vous avez généré une image avec ACR Tasks, vous l’avez supprimée et vous avez utilisé les événements de votre registre provenant d’Event Grid avec un exemple d’application. Passez ensuite au tutoriel ACR Tasks pour en savoir plus sur la génération d’images de conteneur dans le cloud, notamment les générations automatisées sur la mise à jour de l’image de base :
 
 > [!div class="nextstepaction"]
-> [Générer des images de conteneur dans le cloud avec ACR Build](container-registry-tutorial-quick-build.md)
+> [Générer des images de conteneur dans le cloud avec ACR Tasks](container-registry-tutorial-quick-task.md)
 
 <!-- IMAGES -->
 [sample-app-01]: ./media/container-registry-event-grid-quickstart/sample-app-01.png

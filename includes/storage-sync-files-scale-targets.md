@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: 3f70a8cf2df25f487de7cd1a8c8cbdf9431839f0
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: a29f1c4a625552dd958884c6a172bee470e61ca6
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43283061"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49312574"
 ---
 | Ressource | Cible | Limite inconditionnelle |
 |----------|--------------|------------|
@@ -30,3 +30,4 @@ ms.locfileid: "43283061"
 | Taille maximale du descripteur de sécurité d’objet (répertoires et fichiers) | 4 Kio | Oui |
 | Taille du fichier | 100 Gio | Non  |
 | Taille minimale d’un fichier à hiérarchiser | 64 Kio | Oui |
+| Sessions de synchronisation simultanées | 2 sessions de synchronisation actives par processeur ou 8 sessions de synchronisation actives maximum par serveur | Oui |

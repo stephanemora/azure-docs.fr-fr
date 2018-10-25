@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8983e98bdfb99d71559e1d79d5f6e72c8366b954
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046377"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268527"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Comment implémenter une récupération d'urgence à l'aide d'une sauvegarde de service et la récupérer dans Gestion des API Azure
 
@@ -204,7 +204,7 @@ La récupération est une opération de longue durée qui peut prendre jusqu'à 
 > Les **modifications** de configuration du service (par exemple, API, stratégies, apparence du portail des développeurs) pendant qu’une opération de restauration est en cours **peuvent être écrasées**.
 
 > [!NOTE]
-> Vous pouvez aussi effectuer les opérations de sauvegarde et de restauration avec les commandes Powershell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement*, respectivement.
+> Vous pouvez aussi effectuer les opérations de sauvegarde et de restauration avec les commandes PowerShell *Backup-AzureRmApiManagement* and *Restore-AzureRmApiManagement*, respectivement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

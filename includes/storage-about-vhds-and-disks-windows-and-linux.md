@@ -2,18 +2,18 @@
 title: Fichier Include
 description: Fichier Include
 services: storage
-author: rogara
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 04/09/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 26c3e8a096a3ee7bc5146759f8de62e5c1c7fed1
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 796614a9e60ccb7ab155bc986b39c04c781224e8
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47389959"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48874071"
 ---
 ## <a name="about-vhds"></a>À propos des VHD
 
@@ -34,11 +34,11 @@ Avant de pouvoir supprimer un fichier .vhd source, vous devrez supprimer le bail
 
 Les disques Azure sont conçus pour offrir une disponibilité de 99,999 %. Les disques Azure ont toujours fourni une durabilité de classe Entreprise pour les disques IaaS, avec un taux de défaillance annuel inégalé dans le secteur de zéro %.
 
-Lorsque vous créez vos disques, vous avez le choix entre trois niveaux de performances : disques SSD Premium, SSD Standard (préversion) et stockage HDD Premium. Il existe également deux types de disques : non managés et managés.
+Lorsque vous créez vos disques, vous avez le choix entre trois niveaux de performances : disques SSD Premium, SSD Standard et stockage HDD Standard. Il existe également deux types de disques : non managés et managés.
 
 ### <a name="standard-hdd-disks"></a>Disques HDD Standard
 
-Les disques SSD Standard s’appuient sur des HDD et offrent un stockage économique. Le stockage HDD Standard peut être répliqué localement dans un centre de données ou être géoredondant avec des centres de données principal et secondaire. Pour plus d’informations sur la réplication du stockage, consultez [Réplication du stockage Azure](../articles/storage/common/storage-redundancy.md). 
+Les disques SSD Standard s’appuient sur des HDD et offrent un stockage économique. Le stockage HDD Standard peut être répliqué localement dans un centre de données ou être géoredondant avec des centres de données principal et secondaire. Pour plus d’informations sur la réplication du stockage, consultez [Réplication du stockage Azure](../articles/storage/common/storage-redundancy.md).
 
 Pour plus d’informations sur l’utilisation des disques HDD Standard, consultez [Stockage Standard et disques](../articles/virtual-machines/windows/standard-storage.md).
 

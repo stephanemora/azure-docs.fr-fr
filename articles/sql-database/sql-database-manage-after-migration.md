@@ -11,13 +11,13 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 6dd4aacddfbce3e06c1ea9a356a559cc8cd8049c
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/05/2018
+ms.openlocfilehash: fd32a00fe83e731321cb5e365f64d0f6acf8732d
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166484"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48870976"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nouvel administrateur de base de données dans le cloud – Gestion de votre base de données dans Azure SQL Database
 
@@ -102,7 +102,7 @@ Par défaut, votre service SQL Database est configuré pour « Autoriser les ser
 
 Les points de terminaison de service vous permettent d’exposer vos ressources Azure critiques uniquement à votre propre réseau privé virtuel dans Azure. Ainsi, vous éliminez simplement tout accès public à vos ressources. Le trafic entre votre réseau virtuel et Azure reste sur le réseau principal Azure. Sans point de terminaison de service, vous obtenez un routage de paquets par tunneling forcé. Votre réseau virtuel force le trafic Internet vers votre organisation et le trafic du service Azure à emprunter le même itinéraire. Avec des points de terminaison de service, vous pouvez optimiser ce trafic puisque les paquets transitent directement depuis votre réseau virtuel vers le service sur le réseau principal Azure.
 
-![Points de terminaison de service de réseau virtuel](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
+![Points de terminaison de service VNet](./media/sql-database-manage-after-migration/vnet-service-endpoints.png) 
 
 #### <a name="reserved-ips"></a>IP réservées
 Vous pouvez également provisionner des [adresses IP réservées](../virtual-network/virtual-networks-reserved-public-ip.md) pour vos machines virtuelles, et mettre en liste verte ces adresses IP de machines virtuelles spécifiques dans les paramètres de pare-feu du serveur. En affectant des adresses IP réservées, vous évitez de devoir mettre à jour les règles du pare-feu en cas de changement des adresses IP.

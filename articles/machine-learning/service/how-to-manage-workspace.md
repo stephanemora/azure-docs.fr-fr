@@ -1,6 +1,6 @@
 ---
-title: Créer et gérer des espaces de travail Azure Machine Learning
-description: Découvrez comment créer, afficher et supprimer des espaces de travail Azure Machine Learning dans le portail Azure.
+title: Créer et gérer les espaces de travail du service Azure Machine Learning
+description: Découvrez comment créer, afficher et supprimer des espaces de travail du service Azure Machine Learning dans le Portail Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -9,16 +9,16 @@ ms.reviewer: jmartens
 ms.author: shipatel
 author: shivp950
 ms.date: 09/24/2018
-ms.openlocfilehash: 7d01a2e3ebd46315966c82a43a17ffc5b329b829
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c0bb27dccdaf25da818d5d54a8634556a95da737
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954345"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48238670"
 ---
-# <a name="create-and-manage-azure-machine-learning-workspaces"></a>Créer et gérer des espaces de travail Azure Machine Learning
+# <a name="create-and-manage-azure-machine-learning-service-workspaces"></a>Créer et gérer les espaces de travail du service Azure Machine Learning
 
-Dans cet article, vous créez, affichez et supprimez des [**espaces de travail Azure Machine Learning**](concept-azure-machine-learning-architecture.md#workspace) dans le portail Azure pour le [service Azure Machine Learning](overview-what-is-azure-ml.md).  Vous pouvez également créer et supprimer des espaces de travail [à l’aide de l’interface CLI](reference-azure-machine-learning-cli.md) ou du [code Python](http://aka.ms/aml-sdk).
+Dans cet article, vous créez, affichez et supprimez des [**espaces de travail du service Azure Machine Learning**](concept-azure-machine-learning-architecture.md#workspace) dans le Portail Azure pour le [service Azure Machine Learning](overview-what-is-azure-ml.md).  Vous pouvez également créer et supprimer des espaces de travail [à l’aide de l’interface CLI](reference-azure-machine-learning-cli.md) ou du [code Python](http://aka.ms/aml-sdk).
 
 Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -30,17 +30,17 @@ Pour créer un espace de travail, vous avez besoin d’un abonnement Azure. Si v
 
 1. En haut à gauche du portail, sélectionnez **Tous les services**. 
 
-1. Dans le champ de filtre **Tous les services**, tapez **Espace de travail Machine Learning**.  
+1. Dans le champ de filtre **Tous les services**, tapez **Espace de travail du service Machine Learning**.  
 
-   ![Recherche de l’espace de travail Azure Machine Learning](media/how-to-manage-workspace/allservices-search1.png)
+   ![recherche d’un espace de travail du service Azure Machine Learning](media/how-to-manage-workspace/allservices-search1.png)
 
-1. Dans les résultats du filtre, sélectionnez **Espace de travail Machine Learning** pour afficher une liste de vos espaces de travail. 
+1. Dans les résultats du filtre, sélectionnez **Espace de travail du service Machine Learning** pour afficher une liste de vos espaces de travail. 
 
-   ![Recherche de l’espace de travail Azure Machine Learning](media/how-to-manage-workspace/allservices-search.PNG)
+   ![recherche d’un espace de travail du service Azure Machine Learning](media/how-to-manage-workspace/allservices-search.PNG)
 
 1. Examinez la liste des espaces de travail trouvés. Vous pouvez filtrer en fonction d’abonnements, de groupes de ressources et de localisations.  
 
-   ![Liste des espaces de travail Azure Machine Learning](media/how-to-manage-workspace/allservices_view_workspace.PNG)
+   ![Liste des espaces de travail du service Microsoft Azure Machine Learning](media/how-to-manage-workspace/allservices_view_workspace.PNG)
 
 1. Sélectionnez l’espace de travail que vous venez de créer pour voir ses propriétés.
 
@@ -53,7 +53,7 @@ Utilisez le bouton Supprimer en haut de l’espace de travail que vous souhaitez
   ![png](media/how-to-manage-workspace/delete-workspace.png)
 
 
-## <a name="clean-up-resources"></a>Supprimer les ressources 
+## <a name="clean-up-resources"></a>Supprimer des ressources 
 
 [!INCLUDE [aml-delete-resource-group](../../../includes/aml-delete-resource-group.md)]
 

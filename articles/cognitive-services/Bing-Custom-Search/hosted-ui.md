@@ -1,20 +1,21 @@
 ---
-title: 'Recherche personnalisée Bing : Recherche sur un site | Microsoft Docs'
-description: Explique comment configurer l’IU hébergée
+title: Recherche sur le site, utilisez l'interface utilisateur hébergée Recherche personnalisée Bing
+titlesuffix: Azure Cognitive Services
+description: Explique comment configurer l'interface utilisateur hébergée Recherche personnalisée Bing.
 services: cognitive-services
 author: brapel
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-custom-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: 2aec8ba969fb639f2d785a429441f6ed4bbf7dfb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77845cb60dac707326acdb08b0198f8725a36f62
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987677"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48813972"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurer votre expérience d’interface utilisateur hébergée
 

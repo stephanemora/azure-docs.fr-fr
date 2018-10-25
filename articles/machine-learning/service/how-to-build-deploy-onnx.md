@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: prasantp
 author: prasanthpul
 ms.date: 09/24/2018
-ms.openlocfilehash: d4ce2dc67b0d9229ac2605ab317594ea345c19b2
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 190b7fff24c9d6b3dee86471b56ad68c962e51ce
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434070"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116876"
 ---
 # <a name="onnx-and-azure-machine-learning-create-and-deploy-interoperable-ai-models"></a>ONNX et Azure Machine Learning : Créer et déployer des modèles d’intelligence artificielle interopérables
 
@@ -28,7 +28,7 @@ Microsoft prend en charge ONNX dans toute sa gamme de produits, notamment Azure 
 ## <a name="why-choose-onnx"></a>Pourquoi choisir ONNX ?
 L’interopérabilité que vous obtenez avec ONNX permet d’accélérer la mise en production de vos idées. Avec ONNX, les scientifiques des données peuvent choisir leur framework préféré pour effectuer leur travail. De même, les développeurs consacreront moins de temps à préparer les modèles pour la production et à déployer sur le cloud et la périphérie.  
 
-Vous pouvez exporter des modèles ONNX à partir de nombreux frameworks, notamment PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet et ML.Net. Il existe des convertisseurs pour d’autres frameworks tels que TensorFlow, Keras, SciKit-Learn et bien plus encore.
+Vous pouvez créer des modèles ONNX à partir de nombreux frameworks, à savoir PyTorch, Chainer, Microsoft Cognitive Toolkit (CNTK), MXNet, ML.Net, TensorFlow, Keras, SciKit-Learn, etc.
 
 Il existe également un écosystème d’outils de visualisation et d’accélération des modèles ONNX. Plusieurs modèles ONNX préentraînés sont également disponibles pour les scénarios courants.
 
@@ -36,18 +36,17 @@ Il existe également un écosystème d’outils de visualisation et d’accélé
 
 [ ![Organigramme ONNX montrant l’entraînement, les convertisseurs et le déploiement](media/concept-onnx/onnx.png) ] (./media/concept-onnx/onnx.png#lightbox)
 
-## <a name="create-onnx-models-in-azure"></a>Créer des modèles ONNX dans Azure
+## <a name="get-onnx-models"></a>Obtenir des modèles ONNX
 
-Vous pouvez créer des modèles ONNX de plusieurs façons :
-+ Entraîner un modèle dans le service Azure Machine Learning et le convertir ou l’exporter vers ONNX (voir l’exemple en bas de cet article)
+Vous pouvez obtenir des modèles ONNX de plusieurs façons :
++ Obtenir un modèle ONNX préentraîné à partir de la collection [ONNX Model Zoo](https://github.com/onnx/models) (voir l’exemple au bas de cet article)
++ Générer un modèle ONNX personnalisé à partir du [service Vision personnalisée Azure](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/) 
++ Convertir le modèle existant d’un autre format vers le format ONNX (voir l’exemple au bas de cet article) 
++ Entraîner un nouveau modèle ONNX dans le service Azure Machine Learning (voir l’exemple au bas de cet article)
 
-+ Obtenir un modèle ONNX préentraîné à partir du [Zoo de modèles ONNX](https://github.com/onnx/models)
+## <a name="saveconvert-your-models-to-onnx"></a>Enregistrer/convertir vos modèles au format ONNX
 
-+ Générer un modèle ONNX personnalisé à partir du [service Vision personnalisée Azure](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/)
-
-## <a name="exportconvert-your-models-to-onnx"></a>Exporter/convertir vos modèles ONNX
-
-Vous pouvez également convertir vos modèles existants au format ONNX.
+Vous pouvez convertir des modèles existants au format ONNX ou les enregistrer au format ONNX à la fin de votre entraînement.
 
 |Infrastructure pour le modèle|Exemple ou outil de conversion|
 |-----|-------|
@@ -101,7 +100,7 @@ Pour obtenir des informations de référence complètes sur l’API, consultez [
 
 Voici un exemple de déploiement d’un modèle ONNX :
 
-1. Initialisez votre espace de travail Azure Machine Learning. Si vous n’en avez pas encore, découvrez comment créer un espace de travail dans [ce guide de démarrage rapide](quickstart-get-started.md).
+1. Initialisez votre espace de travail du service Azure Machine Learning. Si vous n’en avez pas encore, découvrez comment créer un espace de travail dans [ce guide de démarrage rapide](quickstart-get-started.md).
 
    ```python
    from azureml.core import Workspace
@@ -172,10 +171,11 @@ Voici un exemple de déploiement d’un modèle ONNX :
 
    Le fichier `myenv.yml` décrit les dépendances nécessaires pour l’image. Consultez ce [tutoriel](tutorial-deploy-models-with-aml.md#create-environment-file) pour obtenir des instructions sur la façon de créer un fichier d’environnement, tel que cet exemple de fichier :
 
-   ```
+   ```python
    from azureml.core.conda_dependencies import CondaDependencies 
 
    myenv = CondaDependencies()
+   myenv.add_pip_package("numpy")
    myenv.add_pip_package("azureml-core")
    myenv.add_pip_package("onnxruntime")
 
@@ -191,12 +191,16 @@ Voici un exemple de déploiement d’un modèle ONNX :
 
 ## <a name="examples"></a>Exemples
  
-Les blocs-notes suivants illustrent comment déployer des modèles ONNX avec Azure Machine Learning : 
-+ `/onnx/onnx-inference-mnist.ipynb`
+Les notebooks suivants montrent comment créer des modèles ONNX et les déployer avec Azure Machine Learning : 
++ `/onnx/onnx-modelzoo-aml-deploy-resnet50.ipynb` 
++ `/onnx/onnx-convert-aml-deploy-tinyyolo.ipynb`
++ `/onnx/onnx-train-pytorch-aml-deploy-mnist.ipynb`
+
+Les notebooks suivants montrent comment déployer des modèles ONNX existants avec Azure Machine Learning : 
++ [onnx/onnx-inference-mnist.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-mnist.ipynb) 
++ [onnx/onnx-inference-emotion-recognition.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/onnx/onnx-inference-emotion-recognition.ipynb)
  
-+ `/onnx/onnx-inference-emotion-recognition.ipynb`
- 
-Consultez ce bloc-notes :
+Consultez ces notebooks :
  
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

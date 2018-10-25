@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: c4686bf01031e30bd9dc94f42d80da524db82931
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb84638e2996b0ee9bd5a580b7e827ea30d0ab21
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46969254"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855984"
 ---
 # <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Sources de données prises en charge disponibles pour la préparation des données Azure Machine Learning 
 
@@ -115,7 +115,7 @@ L’exécution avec montée en puissance repose sur les capacités de lecture Pa
 Emplacement de stockage réseau mappé ou disque dur local.
 
 ### <a name="sql-server"></a>SQL Server
-Serveur SQL local, ou base de données SQL Azure.
+Instance SQL Server Azure SQL Database locale.
 
 ### <a name="azure-blob-storage"></a>Stockage d'objets blob Azure
 Stockage Blob Azure qui nécessite un abonnement Azure.

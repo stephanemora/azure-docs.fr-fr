@@ -1,5 +1,5 @@
 ---
-title: Traitement de base de données sans serveur - Azure Functions et Azure Cosmos DB | Microsoft Docs
+title: Traitement de base de données serverless - Azure Functions et Azure Cosmos DB | Microsoft Docs
 description: Découvrez comment Azure Cosmos DB et Azure Functions peuvent être utilisés ensemble pour créer des applications informatiques sans serveur basées sur les événements.
 services: cosmos-db
 author: SnehaGunda
@@ -9,16 +9,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: b7908f9f9aef51857f0ffb07102e1df245b7a259
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47064455"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309499"
 ---
-# <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB : traitement de base de données sans serveur à l’aide d’Azure Functions
+# <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Traitement de base de données serverless à l’aide d’Azure Cosmos DB et d’Azure Functions
 
-L’informatique sans serveur permet de se concentrer sur des éléments de logique individuels renouvelables et sans état. Ces éléments ne nécessitent aucune gestion d’infrastructure et consomment uniquement des ressources le temps de leur exécution (secondes ou millisecondes). Au cœur du mouvement informatique sans serveur se trouvent des fonctions, qui sont mises à disposition dans l’écosystème Azure par [Azure Functions](https://azure.microsoft.com/services/functions).
+L’informatique sans serveur permet de se concentrer sur des éléments de logique individuels renouvelables et sans état. Ces éléments ne nécessitent aucune gestion d’infrastructure et consomment uniquement des ressources le temps de leur exécution (secondes ou millisecondes). Au cœur du mouvement informatique sans serveur se trouvent des fonctions, qui sont mises à disposition dans l’écosystème Azure par [Azure Functions](https://azure.microsoft.com/services/functions). Pour en savoir plus sur les autres environnements d’exécution serverless dans Azure, consultez la page [Le Serverless dans Azure](https://azure.microsoft.com/solutions/serverless/). 
 
 Grâce à l’intégration native entre [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db) et Azure Functions, vous pouvez créer des déclencheurs de base de données, des liaisons d’entrée et des liaisons de sortie directement à partir de votre compte Azure Cosmos DB. À l’aide d’Azure Functions et d’Azure Cosmos DB, vous pouvez créer et déployer des applications sans serveur basées sur les événements avec un accès à faible latence aux données enrichies pour une base d’utilisateurs globale.
 

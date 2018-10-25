@@ -8,20 +8,14 @@ ms.topic: conceptual
 ms.date: 09/17/2017
 ms.author: vitaly.gorbenko
 ms.component: metrics
-ms.openlocfilehash: 21b0029ff12915c8416ad2366fbf6c45ddfaa288
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f82b4dff20e2b26e62889c41b3ff3c27bc86066a
+ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978416"
+ms.lasthandoff: 10/10/2018
+ms.locfileid: "48901411"
 ---
 # <a name="azure-monitor-metrics-explorer"></a>Azure Monitor Metrics Explorer
-
-Cette procédure décrit l’expérience de traçage de graphiques de métriques de nouvelle génération d’Azure Monitor, actuellement en préversion publique. La nouvelle expérience prend en charge le rendu des graphiques tant pour les métriques multidimensionnelles que pour les métriques de base sans dimensions. Vous pouvez tracer des graphiques qui superposent des métriques de différents types de ressources, de plusieurs groupes de ressources et d’abonnements. Les graphiques de métriques multidimensionnelles peuvent être personnalisés par l’application de filtres de dimension, ainsi que par regroupement. Tout graphique, y compris personnalisé, peut être épinglé à des tableaux de bord.
-
-Si vous recherchez des informations sur l’ancienne interface qui prend en charge uniquement les métriques de base sans dimensions, consultez la section « Accès aux mesures via le portail » dans [Vue d’ensemble des mesures dans Microsoft Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-metrics).
-
-## <a name="what-is-azure-monitor-metrics-explorer"></a>Qu’est-ce qu’Azure Monitor Metrics Explorer ?
 
 Azure Monitor Metrics Explorer est un composant du portail Microsoft Azure qui permet de tracer des graphiques, de corréler visuellement des tendances et d’investiguer sur les pics et les creux des valeurs de métriques. Metrics Explorer est un point de départ essentiel pour l’examen des différents problèmes de performances et de disponibilité avec vos applications et infrastructure hébergées dans Azure ou surveillées par les services d’Azure Monitor. 
 
@@ -29,34 +23,29 @@ Azure Monitor Metrics Explorer est un composant du portail Microsoft Azure qui p
 
 Les métriques dans Microsoft Azure sont les séries de valeurs et de comptes mesurés qui sont collectées et stockées au fil du temps. Il existe des métriques standard (ou de « plateforme ») et des métriques personnalisées. Les métriques standards vous sont fournies par la plateforme Azure elle-même. Les métriques standards reflètent les statistiques d’intégrité et d’utilisation de vos ressources Azure. Tandis que des métriques personnalisées sont envoyés à Azure par vos applications à l’aide de l’[API Application Insights pour les événements personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics). Les métriques personnalisées sont stockées dans les ressources d’Application Insights avec d’autres métriques spécifiques d’application.
 
-
-
 ## <a name="how-do-i-create-a-new-chart"></a>Comment créer un graphique ?
 
-   > [!NOTE]
-   > Certaines fonctionnalités de l’ancienne interface de Métriques ne sont pas encore disponibles dans le nouveau Metrics Explorer. La nouvelle interface étant en préversion, vous pouvez continuer à utiliser l’ancien affichage Métriques (sans dimensions) d’Azure Monitor. 
-
 1. Ouvrez le portail Azure
-2. Accédez au nouvel onglet **Moniteur**, puis sélectionnez **Métriques (préversion)**.
+2. Accédez au nouvel onglet **Moniteur**, puis sélectionnez **Métriques**.
 
-   ![Image Métriques (préversion)](./media/monitoring-metric-charts/0001.png)
+   ![Image de métriques](./media/monitoring-metric-charts/0001.png)
 
 3. Le **sélecteur de métriques** est ouvert automatiquement pour vous. Choisissez une ressource dans la liste pour afficher les métriques qui y sont associées. Seules les ressources auxquelles des métriques sont associées figurent dans la liste.
 
-   ![Image Métriques (préversion)](./media/monitoring-metric-charts/0002.png)
+   ![Image de métriques](./media/monitoring-metric-charts/0002.png)
 
    > [!NOTE]
    >Si vous avez plus d’un abonnement Azure, Metrics Explorer extrait les ressources de tous les abonnements sélectionnés dans la liste Paramètres du portail -> Filtrer par abonnements. Pour modifier cela, cliquez sur l’icône d’engrenage des paramètres du portail en haut de l’écran, puis sélectionnez les abonnements à utiliser.
 
-4. Pour certains types de ressources (par exemple, les comptes de stockage et les machines virtuelles), avant de sélectionner une métrique, vous devez choisir un **espace de noms**. Chaque espace de noms inclut son propre ensemble de métriques pertinentes uniquement pour cet espace de noms et pas pour d’autres.
+4. Pour certains types de ressources (comptes de stockage et machines virtuelles), avant de sélectionner une métrique, vous devez choisir un **espace de noms**. Chaque espace de noms inclut son propre ensemble de métriques pertinentes uniquement pour cet espace de noms et pas pour d’autres.
 
    Par exemple, chaque Stockage Azure a des métriques pour les sous-services « Objets blob », « Fichiers », « Files d’attente » et « Tables », qui font tous partie du compte de stockage. Toutefois, la métrique « Nombre de messages en file d’attente » est naturellement applicable au sous-service « File d’attente » et non à d’autres sous-services du compte de stockage.
 
-   ![Image Métriques (préversion)](./media/monitoring-metric-charts/0003.png)
+   ![Image de métriques](./media/monitoring-metric-charts/0003.png)
 
 5. Sélectionnez une métrique dans la liste. Si vous connaissez une partie du nom de la métrique souhaitée, vous pouvez commencer à la taper pour afficher une liste filtrée des métriques disponibles :
 
-   ![Image Métriques (préversion)](./media/monitoring-metric-charts/0004.png)
+   ![Image de métriques](./media/monitoring-metric-charts/0004.png)
 
 6. Après sélection d’une métrique, le graphique est rendu avec l’agrégation par défaut pour la métrique sélectionnée. À ce stade, vous pouvez simplement cliquer à côté du **sélecteur de métriques** pour fermer celui-ci. Vous pouvez également basculer le graphique vers une autre agrégation. Pour certaines métriques, un basculement d’agrégation permet de choisir la valeur que vous souhaitez afficher sur le graphique. Par exemple, vous pouvez basculer entre les valeurs moyennes, minimales et maximales. 
 

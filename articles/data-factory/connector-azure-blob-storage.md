@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/17/2018
 ms.author: jingwang
-ms.openlocfilehash: 46e12378812788d147c903046b50a93c13119f2f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ee3dafe55799c46231aa3ca7c19684d905a057de
+ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444586"
+ms.lasthandoff: 10/05/2018
+ms.locfileid: "48815424"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-by-using-azure-data-factory"></a>Copier des données vers ou depuis le stockage Blob Azure à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -30,7 +30,7 @@ Vous pouvez copier des données depuis n’importe quelle banque de données sou
 Plus précisément, ce connecteur de stockage Blob prend en charge ce qui suit :
 
 - La copie d’objets blob vers et depuis des comptes de stockage Azure à usage général et un stockage d’objets blob à chaud ou à froid. 
-- La copie d’objets blob à l’aide d’une clé de compte, d’une signature d’accès partagé de service, ou des authentifications Managed Service Identity ou de principal de service.
+- La copie d’objets blob à l’aide d’une clé de compte, d’une signature d’accès partagé de service ou d’identités managées pour les authentifications de ressources Azure.
 - La copie d’objets blob à partir d’objets blob de blocs, d’ajout ou de page, et la copie de données uniquement vers des objets blob de blocs. Le stockage Azure Premium n’est pas pris en charge en tant que récepteur, car il repose sur des objets blob de pages.
 - La copie d’objets blob en l’état ou l’analyse ou la génération d’objets blob avec les [formats de fichier et codecs de compression pris en charge](supported-file-formats-and-compression-codecs.md).
 
@@ -47,7 +47,7 @@ Le connecteur d’objets Blob Azure prend en charge les types d’authentificati
 - [Authentification par clé de compte](#account-key-authentication)
 - [Authentification avec une signature d’accès partagé](#shared-access-signature-authentication)
 - [Authentification d’un principal du service](#service-principal-authentication)
-- [Authentification Managed Service Identity](#managed-service-identity-authentication)
+- [Identités managées pour authentifier les ressources Azure](#managed-identity)
 
 >[!NOTE]
 >Le chargement HDInsights, Azure Machine Learning et Azure SQL Data Warehouse PolyBase prend uniquement en charge l’authentification par clé de compte de stockage Blob Azure.
@@ -191,13 +191,13 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 }
 ```
 
-### <a name="managed-service-identity-authentication"></a>Authentification Managed Service Identity
+### <a name="managed-identity"></a> Identités managées pour authentifier les ressources Azure
 
-Une fabrique de données peut être associée à une [identité de service managé](data-factory-service-identity.md), représentant la fabrique de données en question. Vous pouvez utiliser directement cette identité de service pour l’authentification Stockage Blob, ce qui revient à utiliser votre propre principal de service. Cela permet à la fabrique désignée d’accéder aux données, et de les copier à partir de votre stockage Blob ou dans celui-ci.
+Une fabrique de données peut être associée à une [identité managée pour les ressources Azure](data-factory-service-identity.md), laquelle représente cette même fabrique de données. Vous pouvez utiliser directement cette identité de service pour l’authentification Stockage Blob, ce qui revient à utiliser votre propre principal de service. Cela permet à la fabrique désignée d’accéder aux données, et de les copier à partir de votre stockage Blob ou dans celui-ci.
 
 Pour des informations générales sur l’authentification MSI du Stockage Azure, consultez [Authentifier l’accès au Stockage Azure à l’aide d’Azure Active Directory](../storage/common/storage-auth-aad.md).
 
-Pour utiliser l’authentification MSI (Managed Service Identity), effectuez les étapes suivantes :
+Pour utiliser les identités managées afin d’authentifier les ressources Azure, procédez comme suit :
 
 1. [Récupérez l’identité de service de la fabrique de données](data-factory-service-identity.md#retrieve-service-identity) en copiant la valeur « ID d’application de l’identité du service » générée en même temps que votre fabrique.
 
@@ -214,8 +214,8 @@ Les propriétés prises en charge pour un service lié de Stockage Blob Azure so
 | serviceEndpoint | Spécifiez le point de terminaison du service Stockage Blob Azure à l’aide du modèle suivant : `https://<accountName>.blob.core.windows.net/`. |Oui |
 | connectVia | Le [runtime d’intégration](concepts-integration-runtime.md) à utiliser pour se connecter à la banque de données. Vous pouvez utiliser Azure Integration Runtime ou Integration Runtime auto-hébergé (si votre banque de données se trouve dans un réseau privé). À défaut de spécification, le runtime d’intégration Azure par défaut est utilisé. |Non  |
 
->[!NOTE]
->L’authentification MSI est uniquement prise en charge par le service lié de type « AzureBlobStorage », et non par l’ancien service lié de type « AzureStorage ». 
+> [!NOTE]
+> Les identités managées pour l’authentification des ressources Azure sont uniquement prises en charge par le service lié de type « AzureBlobStorage », et non par l’ancien service lié de type « AzureStorage ». 
 
 **Exemple :**
 

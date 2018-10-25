@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: bae71c55bdea838d0ef5e0ae3acbac3e98a92fa0
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 4b48ffb450459891118d5f526bbc73c4a2577ddd
+ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47055039"
+ms.lasthandoff: 10/04/2018
+ms.locfileid: "48268831"
 ---
 # <a name="how-to-configure-the-sign-in-risk-policy"></a>Procédure : Configurer la stratégie de connexion à risque
 
@@ -37,7 +37,7 @@ La stratégie de connexion à risque est une réponse automatisée que vous pouv
    
 ## <a name="how-do-i-access-the-sign-in-risk-policy"></a>Comment faire pour accéder à la stratégie de connexion à risque ?
    
-La stratégie de connexion à risque est disponible dans la section **Configurer** de la [page Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
+La stratégie de risque de connexion est disponible dans la section **Configurer** de la [page Azure AD Identity Protection](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/SignInPolicy).
    
 ![Stratégie en matière de risque à la connexion](./media/howto-sign-in-risk-policy/1014.png "Stratégie en matière de risque à la connexion")
 
@@ -79,7 +79,7 @@ Si vous souhaitez exiger l’authentification multifacteur pour les connexions �
 
 1. Activer la [stratégie d’inscription à l’authentification multifacteur](#multi-factor-authentication-registration-policy) pour les utilisateurs concernés, et
 
-2. Demander aux utilisateurs concernés de se connecter à une session ne présentant aucun risque pour s’inscrire à l’authentification MFA.
+2. Demander aux utilisateurs concernés de se connecter à une session sécurisée pour s’inscrire à l’authentification MFA.
 
 Suivre ces étapes permet de s’assurer que l’authentification multifacteur est requise pour une connexion à risque.
 

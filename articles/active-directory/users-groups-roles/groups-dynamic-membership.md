@@ -14,12 +14,12 @@ ms.date: 09/20/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: c3121f8b303d9f82ed949d598a942906d0d24f7e
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47041021"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48855270"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -42,7 +42,7 @@ Une règle d’appartenance qui remplit automatiquement un groupe d’utilisateu
 * Operator
 * Valeur
 
-L’ordre des parties au sein d’une expression est important pour éviter les erreurs de syntaxe.
+L’ordre des parties au sein d’une expression est importants pour éviter les erreurs de syntaxe.
 
 ### <a name="rules-with-a-single-expression"></a>Règles avec une expression unique
 
@@ -132,13 +132,27 @@ Le tableau suivant répertorie tous les opérateurs pris en charge et leur synta
 
 ### <a name="using-the--in-and--notin-operators"></a>Utilisation des opérateurs -in et -notIn
 
-Si vous souhaitez comparer la valeur d’un attribut utilisateur par rapport à un nombre de valeurs différentes, vous pouvez utiliser les opérateurs -in ou -notin. Insérez les symboles de crochet « [ » et «] » au début et à la fin de la liste de valeurs.
+Si vous souhaitez comparer la valeur d’un attribut utilisateur par rapport à un nombre de valeurs différentes, vous pouvez utiliser les opérateurs -in ou -notIn. Insérez les symboles de crochet « [ » et «] » au début et à la fin de la liste de valeurs.
 
  Dans l’exemple suivant, l’expression est vraie si la valeur de user.department est égale à l’une des valeurs dans la liste :
 
 ```
-   user.department -In ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
+   user.department -in ["50001","50002","50003",“50005”,“50006”,“50007”,“50008”,“50016”,“50020”,“50024”,“50038”,“50039”,“51100”]
 ```
+
+
+### <a name="using-the--match-operator"></a>Utilisation de l’opérateur -match 
+L’opérateur **-match** est utilisé pour la correspondance de n’importe quelle expression régulière. Exemples :
+
+```
+user.displayName -match "Da.*"   
+```
+DA, Dav, David retourne true, aDa retourne false.
+
+```
+user.displayName -match ".*vid"
+```
+David retourne true, Da retourne false.
 
 ## <a name="supported-values"></a>Valeurs prises en charge
 
@@ -279,12 +293,12 @@ Les conseils suivants peuvent vous aider à utiliser la règle correctement.
 
 * **Manager ID** est l’ID d’objet du responsable. Il figure dans le **Profil** du responsable.
 * Pour que la règle fonctionne, assurez-vous que la propriété **Manager** est correctement définie pour les utilisateurs dans votre client. Vous pouvez vérifier la valeur actuelle dans le **Profil** de l’utilisateur.
-* Cette règle prend en charge uniquement les collaborateurs directs du responsable. En d’autres termes, vous ne pouvez pas créer de groupe avec les collaborateurs directs du responsable *et* leurs collaborateurs.
+* Cette règle prend en charge uniquement les collaborateurs directs du responsable. En d’autres termes, vous ne peut pas créer de groupe avec les collaborateurs directs du responsable *et* leurs collaborateurs.
 * Cette règle ne peut pas être combinée avec d’autres règles d’appartenance.
 
 ### <a name="create-an-all-users-rule"></a>Créer une règle « Tous les utilisateurs »
 
-Vous pouvez créer un groupe contenant tous les utilisateurs d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieure d’utilisateurs dans le client, l’appartenance du groupe est ajustée automatiquement.
+Vous pouvez créer un groupe contenant tous les utilisateurs d’un client à l’aide d’une règle d’appartenance. Lors de l’ajout ou de la suppression ultérieurs d’utilisateurs dans le client, l’appartenance du groupe est ajustée automatiquement.
 
 La règle « Tous les utilisateurs » est construite à l’aide d’une expression unique en utilisant l’opérateur -ne et la valeur null. Cette règle ajoute au groupe les utilisateurs invités B2B, ainsi que les utilisateurs membres.
 

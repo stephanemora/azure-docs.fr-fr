@@ -8,41 +8,44 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 02624b4f3b0fceb1816f4f43b1f435356f8d5235
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: e43d00fde0f76efa4398865757c44d94592b8291
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984039"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585507"
 ---
 # <a name="read-device-to-cloud-messages-from-the-built-in-endpoint"></a>Lire des messages appareil-à-cloud à partir du point de terminaison intégré
 
-Par défaut, les messages sont acheminés vers le point de terminaison côté service intégré (**messages/events**) compatible avec [Event Hubs][lnk-event-hubs]. Ce point de terminaison est actuellement uniquement exposé à l’aide du protocole [AMQP][lnk-amqp] sur le port 5671. Un IoT Hub expose les propriétés suivantes pour vous permettre de contrôler le point de terminaison de messages compatible avec Event Hub **messages/events** prédéfini.
+Par défaut, les messages sont acheminés vers le point de terminaison côté service intégré (**messages/events**) compatible avec [Event Hubs](http://azure.microsoft.com/documentation/services/event-hubs/
+). Ce point de terminaison est actuellement uniquement exposé à l’aide du protocole [AMQP](https://www.amqp.org/) sur le port 5671. Un IoT Hub expose les propriétés suivantes pour vous permettre de contrôler le point de terminaison de messages compatible avec Event Hub **messages/events** prédéfini.
 
 | Propriété            | Description |
 | ------------------- | ----------- |
-| **Nombre de partitions** | Configurez cette propriété lors de la création pour définir le nombre de [partitions][lnk-event-hub-partitions] pour la réception d’événements appareil-à-cloud. |
+| **Nombre de partitions** | Configurez cette propriété lors de la création pour définir le nombre de [partitions](../event-hubs/event-hubs-features.md#partitions) pour la réception d’événements appareil-à-cloud. |
 | **Durée de rétention**  | Cette propriété spécifie la durée en jours de conservation des messages par IoT Hub. La durée par défaut est de un jour, mais elle peut être augmentée à sept jours. |
 
 IoT Hub vous permet aussi de gérer des groupes de consommateurs sur le point de terminaison prédéfini de réception appareil vers cloud.
 
 Si vous utilisez [le routage des messages](iot-hub-devguide-messages-d2c.md) et que la [route de secours](iot-hub-devguide-messages-d2c.md#fallback-route) est activée, tous les messages qui ne correspondent pas à une requête sur aucune route sont écrits sur le point de terminaison intégré. Si vous désactivez cette route de secours, les messages qui ne correspondent à aucune requête sont supprimés.
 
-La durée de rétention peut être modifiée par programme, avec les [API REST de fournisseur de ressources IoT Hub][lnk-resource-provider-apis] ou avec le [Portail Azure][lnk-management-portal].
+La durée de rétention peut être modifiée par programme, avec les [API REST de fournisseur de ressources IoT Hub](/rest/api/iothub/iothubresource) ou avec le [Portail Azure](https://portal.azure.com).
 
 IoT Hub expose le point de terminaison prédéfini **messages/events** pour permettre à vos services principaux de lire les messages appareil vers cloud que reçoit votre hub. Ce point de terminaison est compatible avec Event Hub, ce qui vous permet d’utiliser tout mécanisme pris en charge par le service Event Hubs pour la lecture des messages.
 
 ## <a name="read-from-the-built-in-endpoint"></a>Lire à partir du point de terminaison intégré
 
-Lorsque vous utilisez le [kit SDK Azure Service Bus pour .NET][lnk-servicebus-sdk] ou [l’hôte du processeur d’événements Event Hubs][lnk-eventprocessorhost], vous pouvez utiliser toutes les chaînes de connexion IoT Hub avec les autorisations appropriées. Vous utilisez ensuite **messages/événements** comme nom d’Event Hub.
+Lorsque vous utilisez le [Kit de développement logiciel (SDK) Azure Service Bus pour .NET](https://www.nuget.org/packages/WindowsAzure.ServiceBus) ou l’[hôte du processeur d’événements Event Hubs](..//event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md), vous pouvez utiliser toutes les chaînes de connexion IoT Hub avec les autorisations appropriées. Vous utilisez ensuite **messages/événements** comme nom d’Event Hub.
 
 Si vous utilisez des Kits SDK (ou des intégrations de produits) qui ne sont pas reliés à IoT Hub, vous devrez récupérer un point de terminaison et un nom compatibles Event Hub :
 
-1. Connectez-vous au [portail Azure][lnk-management-portal] et accédez à votre IoT Hub.
-1. Cliquez sur **Points de terminaison intégrés**.
-1. La section **Événements** contient les valeurs suivantes : **Point de terminaison compatible avec Event Hub**, **Nom compatible avec Event Hub**, **Partitions**, **Durée de conservation** et **Groupes de consommateurs**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre IoT Hub.
 
-    ![Paramètres Appareil vers cloud][img-eventhubcompatible]
+2. Cliquez sur **Points de terminaison intégrés**.
+
+3. La section **Événements** contient les valeurs suivantes : **Point de terminaison compatible avec Event Hub**, **Nom compatible avec Event Hub**, **Partitions**, **Durée de conservation** et **Groupes de consommateurs**.
+
+    ![Paramètres Appareil vers cloud](./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png)
 
 Le kit SDK IoT Hub requiert le nom de point de terminaison IoT Hub, à savoir **messages/events** comme indiqué sous **Points de terminaison**.
 
@@ -62,20 +65,10 @@ Les kits SDK et intégrations que vous pouvez utiliser avec les points de termin
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour plus d’informations sur les points de terminaison IoT Hub, consultez [Points de terminaison IoT Hub][lnk-endpoints].
-* Les [guides de démarrage rapide][lnk-get-started] vous montrent comment envoyer des messages appareil-à-cloud à partir d’appareils simulés et lire les messages à partir du point de terminaison intégré. Pour plus de détails, consultez le didacticiel [Traiter les messages appareil-à-cloud IoT Hub en utilisant les itinéraires][lnk-d2c-tutorial].
-* Si vous voulez acheminer vos messages appareil-à-cloud vers des points de terminaison personnalisés, consultez [Utiliser des itinéraires de messages et des points de terminaison personnalisés pour les messages appareil-à-cloud][lnk-custom].
+* Pour plus d’informations sur les points de terminaison IoT Hub, consultez [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md).
 
-[img-eventhubcompatible]: ./media/iot-hub-devguide-messages-read-builtin/eventhubcompatible.png
+* Les [guides de démarrage rapide](quickstart-send-telemetry-node.md) vous montrent comment envoyer des messages appareil-à-cloud à partir d’appareils simulés et lire les messages à partir du point de terminaison intégré. 
 
-[lnk-custom]: iot-hub-devguide-messages-read-custom.md
-[lnk-get-started]: quickstart-send-telemetry-node.md
-[lnk-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-resource-provider-apis]: https://docs.microsoft.com/rest/api/iothub/iothubresource
-[lnk-event-hubs]: http://azure.microsoft.com/documentation/services/event-hubs/
-[lnk-management-portal]: https://portal.azure.com
-[lnk-d2c-tutorial]: tutorial-routing.md
-[lnk-event-hub-partitions]: ../event-hubs/event-hubs-features.md#partitions
-[lnk-servicebus-sdk]: https://www.nuget.org/packages/WindowsAzure.ServiceBus
-[lnk-eventprocessorhost]: https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph
-[lnk-amqp]: https://www.amqp.org/
+Pour plus de détails, consultez le didacticiel [Traiter les messages appareil-à-cloud IoT Hub en utilisant les itinéraires](tutorial-routing.md).
+
+* Si vous voulez acheminer vos messages appareil-à-cloud vers des points de terminaison personnalisés, consultez [Utiliser des itinéraires de messages et des points de terminaison personnalisés pour les messages appareil-à-cloud](iot-hub-devguide-messages-read-custom.md).

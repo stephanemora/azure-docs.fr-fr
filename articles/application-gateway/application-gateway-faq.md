@@ -3,18 +3,17 @@ title: Forum aux questions pour Azure Application Gateway
 description: Cette page fournit des réponses aux questions les plus souvent posées sur Azure Application Gateway
 services: application-gateway
 author: vhorne
-manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 9/6/2018
+ms.date: 10/6/2018
 ms.author: victorh
-ms.openlocfilehash: 56c66418b9f47e0ae0d345cd6e8a7d3ef2914b82
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7b2a550c902e85caf02f05fcbbe5dd7b02acd0cc
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986674"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48868851"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Forum aux questions pour Azure Application Gateway
 
@@ -22,15 +21,15 @@ ms.locfileid: "46986674"
 
 **Q. Qu’est-ce qu’Application Gateway ?**
 
-Azure Application Gateway est un contrôleur de remise d’application proposé sous la forme d’un service, qui offre diverses fonctionnalités d’équilibrage de charge de couche 7 pour vos applications. Il fournit un service hautement disponible et évolutif, entièrement géré par Azure.
+Azure Application Gateway est un contrôleur de livraison d’applications (ADC) sous forme de service qui offre à vos applications plusieurs fonctionnalités d’équilibreur de charge de couche 7. Il fournit un service hautement disponible et évolutif, entièrement géré par Azure.
 
 **Q. Quelles sont les fonctionnalités prises en charge par Application Gateway ?**
 
-Application Gateway prend en charge le déchargement SSL et SSL de bout en bout, le pare-feu d’application web, l’affinité de session basée sur les cookies, le routage basé sur le chemin d’accès de l’URL, l’hébergement de plusieurs sites, et bien plus encore. Pour obtenir une liste complète des fonctionnalités prises en charge, consultez [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
+Application Gateway prend en charge la mise à l’échelle automatique, le déchargement SSL et SSL de bout en bout, le pare-feu d’application web, l’affinité de session basée sur les cookies, le routage basé sur le chemin d’accès de l’URL, l’hébergement de plusieurs sites, et bien plus encore. Pour obtenir une liste complète des fonctionnalités prises en charge, voir [Vue d’ensemble d’Application Gateway](application-gateway-introduction.md).
 
 **Q. Quelle est la différence entre Application Gateway et Azure Load Balancer ?**
 
-Application Gateway est un équilibreur de charge de couche 7, ce qui signifie qu’il fonctionne avec le trafic web uniquement (HTTP/HTTPS/WebSocket). Il prend en charge des fonctionnalités telles que la terminaison SSL, l’affinité de session basée sur les cookies et le tourniquet (round robin) pour le trafic d’équilibrage de charge. Load Balancer équilibre la charge du trafic au niveau de la couche 4 (TCP/UDP).
+Application Gateway est un équilibreur de charge de couche 7, ce qui signifie qu’il fonctionne avec le trafic web uniquement (HTTP/HTTPS/WebSocket). Il prend en charge des fonctionnalités telles que la terminaison SSL, l’affinité de session basée sur les cookies et le tourniquet (round robin) pour le trafic d’équilibrage de charge. Load Balancer équilibre la charge du trafic au niveau de la couche 4 (TCP/UDP).
 
 **Q. Quels sont les protocoles pris en charge par Application Gateway ?**
 
@@ -62,7 +61,7 @@ Application Gateway est un déploiement dédié dans votre réseau virtuel.
 
 **Q. La redirection HTTP->HTTPS est-elle prise en charge ?**
 
-La redirection est prise en charge. Consultez la rubrique [Vue d’ensemble de la redirection Application Gateway](application-gateway-redirect-overview.md) pour en savoir plus.
+La redirection est prise en charge. Pour en savoir plus, voir [Vue d’ensemble de la redirection Application Gateway](application-gateway-redirect-overview.md).
 
 **Q. Dans quel ordre les écouteurs sont-ils traités ?**
 
@@ -72,32 +71,34 @@ Les écouteurs sont traités selon leur ordre d’affichage. Pour cette raison, 
 
 Lorsque vous utilisez une adresse IP publique en tant que point de terminaison, ces informations sont disponibles dans la ressource d’adresse IP publique ou sur la page de présentation d’Application Gateway dans le portail. Si vous utilisez des adresses IP internes, les données se trouvent sur la page de présentation.
 
-**Q. Est-ce que l’adresse IP ou le DNS changent au cours de la vie d’Application Gateway ?**
+**Q. L’adresse IP ou le nom DNS changent-ils pendant la durée de vie d’Application Gateway ?**
 
-L’adresse IP virtuelle peut changer si la passerelle est arrêtée et démarrée par le client. Le DNS associé à Application Gateway ne change pas au cours du cycle de vie de la passerelle. Pour cette raison, il est recommandé d’utiliser un alias CNAME et de le pointer vers l’adresse DNS d’Application Gateway.
+L’adresse IP virtuelle peut changer si la passerelle d’application est arrêtée et démarrée. Le nom DNS associé à la passerelle d’application ne change pas pendant toute la durée de vie de la passerelle. Pour cette raison, il est recommandé d’utiliser un alias CNAME et de le faire pointer vers l’adresse DNS de la passerelle d’application.
 
 **Q. Application Gateway prend-il en charge les adresses IP statiques ?**
 
-Non, Application Gateway ne prend pas en charge les adresses IP publiques statiques. Néanmoins, les adresses IP internes statiques sont prises en charge.
+Oui. La référence SKU d’Application Gateway V2 prend en charge les adresses IP publiques statiques. La référence SKU V1 quant à elle prend en charge les adresses IP internes statiques.
 
 **Q. Application Gateway prend-il en charge plusieurs adresses IP publiques sur la plateforme ?**
 
-Une seule adresse IP publique est prise en charge sur Application Gateway.
+Une seule adresse IP publique est prise en charge sur une passerelle d’application.
 
 **Q. Quelle taille mon sous-réseau pour Application Gateway doit-il avoir ?**
 
 Application Gateway utilise une adresse IP privée par instance, ainsi qu’une autre adresse IP privée si une configuration IP frontale privée est configurée. En outre, Azure réserve les quatre premières et dernière adresses IP dans chaque sous-réseau à un usage interne.
-Par exemple, si Application Gateway est défini sur trois instances et aucune adresse IP frontale privée, un sous-réseau de taille /29 ou supérieure est nécessaire. Dans ce cas, Application Gateway utilise trois adresses IP. Si vous avez trois instances et une adresse IP pour la configuration IP frontale privée, un sous-réseau de taille /28 ou supérieure est nécessaire, car quatre adresses IP sont requises.
+Par exemple, si une passerelle d’application est définie sur trois instances et aucune adresse IP frontale privée, un sous-réseau de taille /29 ou supérieure est nécessaire. Dans ce cas, la passerelle d’application utilise trois adresses IP. Si vous avez trois instances et une adresse IP pour la configuration IP frontale privée, un sous-réseau de taille /28 ou supérieure est nécessaire, car quatre adresses IP sont requises.
 
 **Q. Application Gateway prend-il en charge les en-têtes x-forwarded-for ?**
 
-Oui, Application Gateway insère les en-têtes x-forwarded-for, x-forwarded-proto et x-forwarded-port dans la demande transmise au backend. Le format d’en-tête x-forwarded-for est une liste séparée par des virgules d’éléments IP:Port. Les valeurs valides pour x-forwarded-proto sont http ou https. X-forwarded-port spécifie le port atteint par la demande au niveau d’Application Gateway.
+Oui, Application Gateway insère les en-têtes x-forwarded-for, x-forwarded-proto et x-forwarded-port dans la demande transmise au backend. Le format d’en-tête x-forwarded-for est une liste séparée par des virgules d’éléments IP:Port. Les valeurs valides pour x-forwarded-proto sont http ou https. X-forwarded-port spécifie le port atteint par la requête au niveau de la passerelle d’application.
 
 Application Gateway insère également l’en-tête X-Original-Host qui contient l’en-tête Host d’origine avec lequel la requête est parvenue. Cet en-tête est utile dans des scénarios comme l’intégration de sites web Azure, dans lesquels l’en-tête de l’hôte entrant est modifié avant que le trafic ne soit acheminé vers le serveur principal.
 
 **Q. Combien de temps faut-il pour déployer une Application Gateway ? Mon Application Gateway continue-t-elle de fonctionner après une mise à jour  ?**
 
-L’approvisionnement de nouveaux déploiements d’Application Gateway peut prendre jusqu’à 20 minutes. Les modifications apportées à la taille et au nombre des instances n’entraînent pas d’interruption, et la passerelle reste active pendant ce temps.
+L’approvisionnement des déploiements de nouvelles références SKU Application Gateway V1 peut prendre jusqu’à 20 minutes. Les modifications apportées à la taille et au nombre des instances n’entraînent pas d’interruption, et la passerelle reste active pendant ce temps.
+
+L’approvisionnement des déploiements de références SKU V2 peut quant à lui prendre de cinq à six minutes environ.
 
 ## <a name="configuration"></a>Configuration
 
@@ -105,19 +106,19 @@ L’approvisionnement de nouveaux déploiements d’Application Gateway peut pre
 
 Oui, Application Gateway est toujours déployé dans un sous-réseau de réseau virtuel. Ce sous-réseau ne peut contenir que des Application Gateway.
 
-**Q. Application Gateway peut-il communiquer avec des instances en dehors de son réseau virtuel ?**
+**Q. Application Gateway peut-il communiquer avec des instances en dehors de son réseau virtuel ?**
 
-Application Gateway peut communiquer avec des instances en dehors du réseau virtuel où il se trouve tant qu’une connectivité IP existe. Si vous prévoyez d’utiliser des adresses IP internes en tant que membres du pool backend, il vous faudra utiliser [VNET Peering](../virtual-network/virtual-network-peering-overview.md) ou [une passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
+Application Gateway peut communiquer avec des instances en dehors du réseau virtuel dans lequel il se trouve tant qu’une connectivité IP existe. Si vous prévoyez d’utiliser des adresses IP internes en tant que membres du pool backend, il vous faudra utiliser [VNET Peering](../virtual-network/virtual-network-peering-overview.md) ou [une passerelle VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-**Q. Puis-je déployer autre chose dans le sous-réseau d’Application Gateway ?**
+**Q. Puis-je déployer autre chose dans le sous-réseau de la passerelle d’application ?**
 
 Non, mais vous pouvez déployer d’autres passerelles d’application dans le sous-réseau.
 
-**Q. Les groupes de sécurité réseau sont-ils pris en charge sur le sous-réseau d’Application Gateway ?**
+**Q. Les groupes de sécurité réseau sont-ils pris en charge dans le sous-réseau de la passerelle d’application ?**
 
-Les groupes de sécurité réseau sont pris en charge sur le sous-réseau d’Application Gateway avec les restrictions suivantes :
+Les groupes de sécurité réseau sont pris en charge dans le sous-réseau de la passerelle d’application avec cependant quelques restrictions :
 
-* Des exceptions doivent être placées pour le trafic entrant par les ports 65503-65534. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne pourront initier aucun changement sur ces points de terminaison.
+* Des exceptions doivent être définies pour le trafic entrant sur les ports 65503-65534 pour la référence SKU V1 d’Application Gateway et les ports 65200-65535 pour la référence SKU V2. Cette plage de ports est nécessaire pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne pourront initier aucun changement sur ces points de terminaison.
 
 * La connectivité Internet sortante ne peut pas être bloquée.
 
@@ -131,11 +132,11 @@ Par exemple, vous pouvez configurer un UDR dans le sous-réseau d’Application 
 
 **Q. Quelles sont les limites d’Application Gateway ? Puis-je augmenter ces limites ?**
 
-Consultez [Limites d’Application Gateway](../azure-subscription-service-limits.md#application-gateway-limits) pour afficher les limites.
+Pour connaître les limites, voir [Limites d’Application Gateway](../azure-subscription-service-limits.md#application-gateway-limits).
 
 **Q. Puis-je utiliser Application Gateway pour le trafic externe et interne simultanément ?**
 
-Oui, Application Gateway peut avoir une adresse IP interne et une adresse IP externe par Application Gateway.
+Oui. Application Gateway peut avoir une adresse IP interne et une adresse IP externe par passerelle d’application.
 
 **Q. VNET Peering est-il pris en charge ?**
 
@@ -163,7 +164,7 @@ Le champ Hôte indique le nom auquel envoyer la sonde. S’applique uniquement l
 
 **Q. Puis-je autoriser quelques adresses IP de sources à accéder à Application Gateway ?**
 
-Ce scénario peut être réalisé en utilisant des groupes de sécurité réseau sur le sous-réseau d’Application Gateway. Les restrictions suivantes doivent être imposées au sous-réseau dans l’ordre de priorité indiqué :
+Ce scénario est possible en utilisant des groupes de sécurité réseau dans le sous-réseau de la passerelle d’application. Les restrictions suivantes doivent être imposées au sous-réseau dans l’ordre de priorité indiqué :
 
 * Autoriser le trafic entrant à partir de l’adresse IP ou de la plage d’adresses IP sources.
 
@@ -183,23 +184,25 @@ Non, ce n’est pas pris en charge.
 
 **Q. Comment Application Gateway prend-il en charge la haute disponibilité et l’évolutivité ?**
 
-Application Gateway prend en charge les scénarios de haute disponibilité lorsque vous avez deux instances déployées ou plus. Azure distribue ces instances entre les domaines de mise à jour et d’erreur pour garantir que toutes les instances n’échouent pas en même temps. Application Gateway prend en charge l’évolutivité en ajoutant plusieurs instances de la même passerelle pour partager la charge.
+La référence SKU Application Gateway V1 prend en charge les scénarios de haute disponibilité lorsque vous possédez deux instances déployées ou plus. Azure distribue ces instances entre les domaines de mise à jour et d’erreur pour garantir que toutes les instances n’échouent pas en même temps. La référence SKU V1 prend en charge l’évolutivité en ajoutant plusieurs instances de la même passerelle pour partager la charge.
+
+La référence SKU V2 garantit automatiquement que les nouvelles instances sont réparties sur les domaines d’erreur et les domaines de mise à jour. Si vous choisissez une redondance de zone, les instances les plus récentes sont également réparties sur les zones de disponibilité pour offrir une résilience zonale en cas d’échec.
 
 **Q. Comment puis-je obtenir le scénario de récupération d’urgence dans les centres de données avec Application Gateway ?**
 
 Les clients peuvent utiliser Traffic Manager pour répartir le trafic entre plusieurs Application Gateway dans différents centres de données.
 
-**Q. La mise à l’échelle automatique est-elle prise en charge ?**
+**Q. La mise à l’échelle automatique est-elle prise en charge ?**
 
-Non, mais Application Gateway a une mesure de débit qui peut être utilisée pour vous avertir lorsqu’un seuil est atteint. Les opérations d’ajout d’instances ou de modification de la taille effectuées manuellement ne redémarrent pas la passerelle et n’affectent pas le trafic existant.
+Oui. La référence SKU V2 d’Application Gateway prend en charge la mise à l’échelle automatique. Pour plus d’informations, voir [Passerelle d’application redondante dans une zone et avec mise à l’échelle automatique (préversion publique)](application-gateway-autoscaling-zone-redundant.md).
 
 **Q. Est-ce que les opérations de montée/descente en puissance effectuées manuellement interrompent le service ?**
 
 Aucune interruption de service n’a lieu, les instances sont réparties entre les domaines de mise à niveau et les domaines d’erreur.
 
-**Q. Application Gateway prend-elle en charge le drainage de connexion ?**
+**Q. Application Gateway prend-il en charge le drainage de connexion ?**
 
-Oui. Vous pouvez configurer le drainage de connexion afin de modifier des membres au sein d’un pool principal sans interrompre le service. Ainsi, les connexions existantes continueront d’être envoyés à leur destination précédente jusqu'à ce que cette connexion soit fermée ou qu’un délai configurable expire. Notez que ce drainage de connexion attend uniquement la fin des connexions actuellement en transit. Application Gateway ne connaît pas l’état de la session d’application.
+Oui. Vous pouvez configurer le drainage de connexion afin de modifier des membres au sein d’un pool principal sans interrompre le service. Ainsi, les connexions existantes continueront d’être envoyés à leur destination précédente jusqu'à ce que cette connexion soit fermée ou qu’un délai configurable expire. Ce drainage de connexion attend uniquement la fin des connexions actuellement en transit. Application Gateway ne connaît pas l’état de la session d’application.
 
 **Q. Quelles sont les tailles d’Application Gateway ?**
 
@@ -229,7 +232,7 @@ Les certificats auto-signés, les certificats d’autorité de certification et 
 
 **Q. Quelles sont les suites de chiffrement actuellement prises en charge par Application Gateway ?**
 
-Vous trouverez ci-dessous les suites de chiffrement actuellement prises en charge par Application Gateway. Visitez la page [Configurer les versions de stratégie SSL et les suites de chiffrement sur Application Gateway](application-gateway-configure-ssl-policy-powershell.md) pour apprendre à personnaliser les options SSL.
+Vous trouverez ci-dessous les suites de chiffrement actuellement prises en charge par Application Gateway. Pour apprendre à personnaliser les options SSL, voir [Configurer les versions de stratégie SSL et les suites de chiffrement sur Application Gateway](application-gateway-configure-ssl-policy-powershell.md).
 
 - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
@@ -311,7 +314,7 @@ Non, le mode de détection journalise uniquement le trafic, ce qui a déclenché
 
 **Q. Comment puis-je personnaliser les règles de pare-feu d’application web ?**
 
-Oui, les règles WAF sont personnalisables. Pour plus d’informations sur la façon de les personnaliser, rendez-vous sur [Customize WAF rule groups and rules](application-gateway-customize-waf-rules-portal.md) (Personnaliser les règles et groupes de règles WAF)
+Oui. Les règles WAF sont personnalisables. Pour plus d’informations sur la façon de les personnaliser, voir [Personnaliser les règles et groupes de règles WAF](application-gateway-customize-waf-rules-portal.md).
 
 **Q. Quelles sont les règles actuellement disponibles ?**
 
@@ -339,9 +342,9 @@ Oui. Vous pouvez activer le service de protection DDos sur le réseau virtuel su
 
 **Q. Quels sont les types de journaux disponibles avec Application Gateway ?**
 
-Trois journaux sont disponibles pour Application Gateway. Pour plus d’informations sur ces journaux et d’autres fonctionnalités de diagnostic, consultez l’article [Intégrité backend, journaux des diagnostics et métriques pour la passerelle Application Gateway](application-gateway-diagnostics.md).
+Trois journaux sont disponibles pour Application Gateway. Pour plus d’informations sur ces journaux et les autres fonctionnalités de diagnostic, voir [Intégrité backend, journaux des diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
 
-- **ApplicationGatewayAccessLog** : le journal d’accès contient toutes les demandes envoyées au serveur frontal d’Application Gateway. Les données incluent l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour, les octets d’entrée et de sortie. Le journal d’accès est collecté toutes les 300 secondes. Ce journal contient un enregistrement par instance Application Gateway.
+- **ApplicationGatewayAccessLog** : le journal d’accès contient toutes les requêtes envoyées au serveur frontal de la passerelle d’application. Les données incluent l’adresse IP de l’appelant, l’URL demandée, la latence de réponse, le code de retour, les octets d’entrée et de sortie. Le journal d’accès est collecté toutes les 300 secondes. Ce journal contient un enregistrement par instance d’une passerelle d’application.
 - **ApplicationGatewayPerformanceLog** : le journal des performances capture des informations sur les performances par instance, notamment le nombre total de demandes traitées, le débit en octets, le nombre total de demandes présentées, le nombre de demandes ayant échoué, le nombre d’instances du serveur principal correctes et incorrectes.
 - **ApplicationGatewayFirewallLog** : le journal des pare-feux contient les demandes consignées via le mode de détection ou de prévention d’une passerelle d’application configuré avec un pare-feu d’application web.
 
@@ -351,17 +354,17 @@ Vous pouvez utiliser l’applet de commande PowerShell `Get-AzureRmApplicationGa
 
 **Q. Quelle est la stratégie de rétention sur les journaux de diagnostic ?**
 
-Les journaux de diagnostic circulent vers le compte de stockage des clients, et les clients peuvent définir la stratégie de rétention en fonction de leurs préférences. Les journaux de diagnostic peuvent également être envoyés à un Event Hub ou Log Analytics. Consultez l’article [Intégrité du serveur principal, journalisation des diagnostics et métriques pour la passerelle Application Gateway](application-gateway-diagnostics.md) pour plus de détails.
+Les journaux de diagnostic circulent vers le compte de stockage des clients, et les clients peuvent définir la stratégie de rétention en fonction de leurs préférences. Les journaux de diagnostic peuvent également être envoyés à un Event Hub ou Log Analytics. Pour plus d’informations, voir [Diagnostics Application Gateway](application-gateway-diagnostics.md).
 
 **Q. Comment puis-je obtenir des journaux d’audit pour Application Gateway ?**
 
-Les journaux d’audit sont disponibles pour Application Gateway. Dans le portail, cliquez sur **Journal d’activité** dans le panneau de menu d’Application Gateway pour accéder au journal d’audit. 
+Les journaux d’audit sont disponibles pour Application Gateway. Dans le portail, dans le panneau du menu de la passerelle d’application, cliquez sur **Journal d’activité** pour accéder au journal d’audit. 
 
 **Q. Puis-je définir des alertes avec Application Gateway ?**
 
-Oui, Application Gateway prend en charge les alertes ; les alertes sont configurées à partir des mesures. Application Gateway possède actuellement une mesure de « débit », qui peut être configurée pour avertir l’utilisateur. Pour en savoir plus sur les alertes, consultez l’article [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
+Oui. Application Gateway prend en charge les alertes. Les alertes sont configurées d’après les métriques utilisées. Pour en savoir plus sur les métriques Application Gateway, voir [Métriques Application Gateway](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#metrics). Pour en savoir plus sur les alertes, voir [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md).
 
-**Q. Comment analyser les statistiques de trafic pour Application Gateway ?**
+**Q. Comment analyser les statistiques de trafic pour Application Gateway ?**
 
 Vous pouvez afficher et analyser les journaux d’accès à l’aide de nombreux outils tels qu’Azure Log Analytics, Excel ou Power BI.
 
@@ -369,8 +372,8 @@ Nous avons également publié un modèle Resource Manager qui installe et exécu
 
 **Q. L’intégrité du serveur principal renvoie un état inconnu, à quoi est dû cet état ?**
 
-La raison la plus courante est le blocage de l’accès au serveur principal par un groupe de sécurité réseau ou un DNS personnalisé. Consultez l’article [Intégrité du serveur principal, journalisation des diagnostics et métriques pour la passerelle Application Gateway](application-gateway-diagnostics.md) pour en savoir plus.
+La raison la plus courante est le blocage de l’accès au serveur principal par un groupe de sécurité réseau ou un DNS personnalisé. Pour plus d’informations, voir [Intégrité du serveur principal, journalisation des diagnostics et métriques pour Application Gateway](application-gateway-diagnostics.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur Application Gateway, consultez [Qu’est-ce qu’Azure Application Gateway ?](overview.md)
+Pour en savoir plus sur Application Gateway, consultez [Qu’est-ce qu’Azure Application Gateway ?](overview.md)

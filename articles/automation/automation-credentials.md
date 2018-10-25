@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4fa2bc2dd59a5c62becc7f5cd4c4c9633dac1a29
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: e5414a7607c036f1d60f58e1eb047da1e54f4db9
+ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143659"
+ms.lasthandoff: 10/01/2018
+ms.locfileid: "47585338"
 ---
 # <a name="credential-assets-in-azure-automation"></a>Ressources d’informations d’identification dans Azure Automation
 
@@ -77,6 +77,9 @@ La fonction dans le tableau suivant est utilisée pour accéder aux informations
 2. Cliquez sur la partie **Informations d’identification** afin d’ouvrir le panneau **Informations d’identification**.
 3. Cliquez sur **Ajouter des informations d’identification** en haut du panneau.
 4. Remplissez le formulaire, puis cliquez sur **Créer** pour enregistrer les nouvelles informations d’identification.
+
+> [!NOTE]
+> Les comptes d’utilisateurs qui ont recours à l’authentification multifacteur ne sont pas pris en charge pour une utilisation dans Azure Automation.
 
 ### <a name="to-create-a-new-credential-asset-with-windows-powershell"></a>Pour créer une ressource d’informations d’identification PowerShell avec Windows PowerShell
 

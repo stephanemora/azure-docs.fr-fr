@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/8/2018
 ms.author: kumud
-ms.openlocfilehash: 63c193b4757c28f809a33b917058df36467d4db4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 15783822631a5372b181f2d65746664d90b389da
+ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163016"
+ms.lasthandoff: 10/09/2018
+ms.locfileid: "48883956"
 ---
 # <a name="load-balancer-outbound-rules"></a>Règles de trafic sortant dans Load Balancer
 
@@ -180,10 +180,10 @@ Définissez un équilibreur de charge standard public, placez les machines virtu
 
 #### <a name="outbound-nat-for-internal-standard-load-balancer-scenarios"></a>NAT de trafic sortant dans les scénarios avec un équilibreur de charge standard interne
 
-Quand vous utilisez un équilibreur de charge standard interne, la NAT de trafic sortant n’est pas disponible tant que vous n’avez pas également configuré un équilibreur de charge standard public. Vous pouvez changer ce comportement en utilisant une règle de trafic sortant pour fournir la connectivité sortante requise par les machines virtuelles placées derrière un équilibreur de charge standard interne.
+Lorsque vous utilisez un équilibreur de charge standard interne, la NAT de trafic sortant n’est pas disponible tant que la connectivité sortante n’a pas été explicitement déclarée. Vous pouvez définir la connectivité sortante à l’aide d’une règle de trafic sortant pour fournir la connectivité sortante requise par les machines virtuelles placées derrière un équilibreur de charge standard interne comme suit :
 
 1. Créez un équilibreur de charge standard public.
-2. Créez un pool backend et placez les machines virtuelles dans un pool backend de l’équilibreur de charge public.
+2. Créez un pool backend et placez les machines virtuelles dans un pool backend de l’équilibreur de charge public en plus de l’équilibreur de charge interne.
 3. Configurez une règle de trafic sortant sur l’équilibreur de charge public pour programmer la NAT de trafic sortant sur ces machines virtuelles.
 
 #### <a name="enable-both-tcp--udp-protocols-for-outbound-nat-with-a-public-standard-load-balancer"></a>Activer les protocoles TCP et UDP pour la NAT de trafic sortant avec un équilibreur de charge standard public

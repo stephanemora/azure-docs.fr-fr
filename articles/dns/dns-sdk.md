@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
 ms.author: victorh
-ms.openlocfilehash: 14860ae48e520f86ce9d5bea739605d1a4baf0c7
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 7acc0fa4c3654c96ac0f8f1baed7ea5b7b306376
+ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173191"
+ms.lasthandoff: 10/06/2018
+ms.locfileid: "48829767"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>Créer des zones et des jeux d’enregistrements DNS à l’aide du Kit de développement logiciel (SDK) .NET
 
-Vous pouvez automatiser les opérations de création, de suppression ou de mise à jour des zones , des jeux d’enregistrements et des enregistrements DNS à l’aide du Kit SDK DNS avec la bibliothèque de gestion DNS de .NET. Un projet Visual Studio complet est disponible [ici.](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)
+Vous pouvez automatiser les opérations de création, de suppression ou de mise à jour des zones , des jeux d’enregistrements et des enregistrements DNS à l’aide du Kit de développement logiciel (SDK) DNS avec la bibliothèque de gestion DNS de .NET. Un projet Visual Studio complet est disponible [ici.](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True)
 
 ## <a name="create-a-service-principal-account"></a>Créer un compte de principal du service
 
@@ -33,7 +33,7 @@ En règle générale, l’accès par programme aux ressources Azure est accordé
 3. Utilisez Azure RBAC pour accorder une autorisation « Collaborateur de zone DNS » au groupe de ressources ([procédure](../role-based-access-control/role-assignments-portal.md)).
 4. Si vous utilisez l’exemple de projet de kit de développement logiciel Azure DNS, modifiez le fichier program.cs comme suit :
 
-   * Insérez les valeurs correctes pour tenantId, clientId (également appelé ID de compte), secret (mot de passe du compte du principal du service) et subscriptionId tels qu’utilisés à l’étape 1.
+   * Insérez les valeurs correctes pour `tenantId`, `clientId` (également appelé ID de compte), `secret` (mot de passe du compte du principal du service) et `subscriptionId` tels qu’utilisés à l’étape 1.
    * Entrez le nom du groupe de ressources choisi à l’étape 2.
    * Entrez le nom de zone DNS de votre choix.
 
@@ -59,7 +59,7 @@ using Microsoft.Azure.Management.Dns.Models;
 
 ## <a name="initialize-the-dns-management-client"></a>Initialiser le client de gestion DNS
 
-Le *DnsManagementClient* contient les méthodes et les propriétés nécessaires à la gestion des zones et des jeux d’enregistrements DNS.  Le code suivant ouvre une session du compte de principal du service et crée un objet DnsManagementClient.
+Le `DnsManagementClient` contient les méthodes et les propriétés nécessaires à la gestion des zones et des jeux d’enregistrements DNS.  Le code suivant ouvre une session du compte de principal du service et crée un objet `DnsManagementClient`.
 
 ```cs
 // Build the service credentials and DNS management client
@@ -72,7 +72,7 @@ dnsClient.SubscriptionId = subscriptionId;
 
 Pour créer une zone DNS, un objet « Zone » est d’abord créé pour contenir les paramètres de la zone DNS. Comme les zones DNS ne sont pas liées à une région spécifique, l’emplacement est défini sur « global ». Dans cet exemple, une [« balise » Azure Resource Manager](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/) est également ajoutée à la zone.
 
-Pour créer ou mettre à jour la zone dans Azure DNS, l’objet de zone qui contient les paramètres de zone est transmis à la méthode *DnsManagementClient.Zones.CreateOrUpdateAsyc* .
+Pour créer ou mettre à jour la zone dans Azure DNS, l’objet de zone qui contient les paramètres de zone est transmis à la méthode `DnsManagementClient.Zones.CreateOrUpdateAsyc`.
 
 > [!NOTE]
 > DnsManagementClient prend en charge trois modes de fonctionnement : synchrone (CreateOrUpdate), asynchrone (CreateOrUpdateAsync) ou asynchrone avec accès à la réponse HTTP (CreateOrUpdateWithHttpMessagesAsync).  Vous pouvez choisir l’un de ces modes, selon les besoins de votre application.
@@ -98,7 +98,7 @@ var dnsZone = await dnsClient.Zones.CreateOrUpdateAsync(resourceGroupName, zoneN
 
 Les enregistrements DNS sont gérés en tant que jeu d'enregistrements. Un jeu d’enregistrements est un ensemble d’enregistrements ayant le même nom et le même type d’enregistrement au sein d’une zone.  Le nom du jeu d’enregistrements est relatif au nom de zone, et pas au nom DNS.
 
-Pour créer ou mettre à jour un jeu d’enregistrements, un objet « RecordSet » est créé et transmis à la méthode *DnsManagementClient.RecordSets.CreateOrUpdateAsync*. Comme avec les zones DNS, il existe trois modes de fonctionnement : synchrone (CreateOrUpdate), asynchrone (CreateOrUpdateAsync) ou asynchrone avec accès à la réponse HTTP (CreateOrUpdateWithHttpMessagesAsync).
+Pour créer ou mettre à jour un jeu d’enregistrements, un objet « RecordSet » est créé et transmis à la méthode `DnsManagementClient.RecordSets.CreateOrUpdateAsync`. Comme avec les zones DNS, il existe trois modes de fonctionnement : synchrone (CreateOrUpdate), asynchrone (CreateOrUpdateAsync) ou asynchrone avec accès à la réponse HTTP (CreateOrUpdateWithHttpMessagesAsync).
 
 Comme avec les zones DNS, les opérations sur les jeux d’enregistrements prennent en charge l’accès concurrentiel optimiste.  Dans cet exemple, étant donné que ni « If-Match » ni « If-None-Match » n’est spécifié, le jeu d’enregistrements est toujours créé.  Cet appel remplace tout jeu d’enregistrements existant portant le même nom et le même type d’enregistrement dans cette zone DNS.
 
@@ -122,7 +122,7 @@ var recordSet = await dnsClient.RecordSets.CreateOrUpdateAsync(resourceGroupName
 
 ## <a name="get-zones-and-record-sets"></a>Obtenir des zones et des jeux d’enregistrements
 
-Les méthodes *DnsManagementClient.Zones.Get* et *DnsManagementClient.RecordSets.Get* récupèrent respectivement les zones et les jeux d’enregistrements. Les jeux d’enregistrements sont identifiés par leur type et leur nom, ainsi que la zone et le groupe de ressources où ils sont présents. Les zones sont identifiées par leur nom et le groupe de ressources dans lequel elles sont présentes.
+Les méthodes `DnsManagementClient.Zones.Get` et `DnsManagementClient.RecordSets.Get` récupèrent des zones et jeux d’enregistrements, respectivement. Les jeux d’enregistrements sont identifiés par leur type et leur nom, ainsi que la zone et le groupe de ressources où ils sont présents. Les zones sont identifiées par leur nom et le groupe de ressources dans lequel elles sont présentes.
 
 ```cs
 var recordSet = dnsClient.RecordSets.Get(resourceGroupName, zoneName, recordSetName, RecordType.A);
@@ -165,4 +165,4 @@ while (page.NextPageLink != null)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Téléchargez l’[exemple de projet de SDK Azure .NET DNS](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), qui inclut d’autres exemples d’utilisation du SDK Azure DNS .NET, notamment des exemples d’autres types d’enregistrements DNS.
+Téléchargez l’[exemple de projet de SDK Azure DNS .NET](https://www.microsoft.com/en-us/download/details.aspx?id=47268&WT.mc_id=DX_MVP4025064&e6b34bbe-475b-1abd-2c51-b5034bcdd6d2=True), qui inclut d’autres exemples d’utilisation du Kit de développement logiciel (SDK) Azure DNS .NET, notamment des exemples d’autres types d’enregistrements DNS.

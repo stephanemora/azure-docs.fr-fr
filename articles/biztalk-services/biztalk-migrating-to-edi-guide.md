@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 681cafc60661e16d70deb862da71f6baf80509fd
+ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365585"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48856528"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>Migrer des solutions EDI BizTalk Server vers BizTalk Services : guide technique
 
@@ -55,7 +55,7 @@ Les principales différences et similitudes, entre un flux de solution EDI dans 
   
     Dans BizTalk Services, après traitement du message EDI par le pont de réception EDI, ce dernier achemine le message vers un processus externe. Le processus externe peut s'exécuter sur Microsoft Azure ou sur site. Le processus externe doit acheminer le message vers le pont d'envoi EDI : le pont d'envoi n'extrait pas le message intrinsèquement. Après avoir traité le message, le pont d'envoi EDI achemine le message vers le partenaire commercial.
 
-BizTalk Services fournit une expérience de configuration facile à utiliser pour créer et déployer rapidement un accord B2B entre partenaires commerciaux sans configurer une instance Microsoft Azure Compute (rôles Web ou de travail), une base de données SQL Microsoft Azure ou un compte de stockage Microsoft Azure. Des scénarios plus complexes de déploiement nécessitent de lier des flux de travail ou d'autres traitements de service « en bordure » d'un accord de partenariat commercial, autrement dit, avant ou après le traitement du pont EDI d'accord de partenariat commercial. Plus précisément, les séquences d'événements suivantes se produisent au cours du traitement d'un message EDI dans BizTalk Services.
+BizTalk Services fournit une expérience de configuration facile à utiliser pour créer et déployer rapidement un contrat B2B entre partenaires commerciaux sans configurer une instance Microsoft Azure Compute (rôles Web ou de travail), une base de données SQL Microsoft Azure ou un compte de stockage Microsoft Azure. Des scénarios plus complexes de déploiement nécessitent de lier des flux de travail ou d'autres traitements de service « en bordure » d'un accord de partenariat commercial, autrement dit, avant ou après le traitement du pont EDI d'accord de partenariat commercial. Plus précisément, les séquences d'événements suivantes se produisent au cours du traitement d'un message EDI dans BizTalk Services.
 
 1. Un message EDI est reçu du partenaire commercial Fabrikam.  Pour recevoir les messages EDI des partenaires commerciaux, BizTalk Services prend en charge les protocoles de transport comme FTP, SFTP, AS2 et HTTP/S.
 2. Le traitement côté réception de l’accord de partenariat commercial désassemble le message EDI au format XML.  Vous pouvez acheminer le message EDI désassemblé (au format XML) vers les points de terminaison Service Bus comme un point de terminaison Service Bus Relay, une rubrique Service Bus, une file d’attente Service Bus ou un pont BizTalk Services.

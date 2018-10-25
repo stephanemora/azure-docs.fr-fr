@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2018
 ms.author: msangapu
-ms.openlocfilehash: 0f2d4626308eed376b71f1b3df2f9e43f1b2a4f7
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 20ca63b7126a6800538129115ff339308c11d8c5
+ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130959"
+ms.lasthandoff: 10/08/2018
+ms.locfileid: "48867018"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Déploiement continu avec Web App pour conteneurs
 
@@ -42,7 +42,7 @@ Dans le [portail Azure](https://portal.azure.com/), sélectionnez l’option **A
 
 Sélectionnez le nom de l’application pour laquelle vous souhaitez configurer le déploiement continu Docker Hub.
 
-Dans la page **Conteneur Docker**, sélectionnez **Activé**, puis sélectionnez **Enregistrer** pour activer le déploiement continu.
+Dans la page **Paramètres de conteneur**, sélectionnez **Activé**, puis sélectionnez **Enregistrer** pour activer le déploiement continu.
 
 ![Capture d’écran du paramètre d’application](./media/app-service-webapp-service-linux-ci-cd/step2.png)
 

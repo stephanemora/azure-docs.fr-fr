@@ -1,22 +1,27 @@
 ---
-title: Méthode d’analyse dans l’API Analyse linguistique | Microsoft Docs
+title: Méthode d'analyse - API Analyse linguistique
+titlesuffix: Azure Cognitive Services
 description: Comment utiliser la méthode d’analyse dans l’API Analyse linguistique pour analyser certaines entrées en langage naturel.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/13/2016
 ms.author: lesun
-ms.openlocfilehash: b17a00f31845bfa05572dff7ca94e9a1ffd69586
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ROBOTS: NOINDEX
+ms.openlocfilehash: 87df00ae5ca12b168f2e1c03850da2e94cec350b
+ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35368077"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48239300"
 ---
 # <a name="analyze-method"></a>Méthode d’analyse
+
+> [!IMPORTANT]
+> La préversion de l’analyse linguistique a été désactivée le 9 août 2018. Nous vous recommandons d’utiliser les [modules d’analyse de texte Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/text-analytics) pour le traitement et l’analyse de texte.
 
 L’API REST **analyse**est utilisée pour analyser une entrée donnée en langage naturel.
 Cela implique simplement la recherche de [phrases et jetons](Sentences-and-Tokens.md) dans cette entrée, la recherche de [balises morphosyntaxiques](POS-tagging.md), ou la recherche de l’[arbre de circonscription](Constituency-Parsing.md).
@@ -35,12 +40,12 @@ https://westus.api.cognitive.microsoft.com/linguistics/v1.0/analyze
 
 NOM | type | Obligatoire | Description
 -----|-------|----------|------------
-**language**    | chaîne | OUI | Les deux lettres du code de langue ISO à utiliser pour l’analyse Par exemple, le code de langue anglais est « en ».
-**analyzerIds** | liste de valeurs string | OUI | Liste des GUID des analyseurs à appliquer. Pour plus d’informations, consultez la documentation Analyseurs.
-**text**        | chaîne | OUI | Entrée brute à analyser. Il peut s’agir d’une chaîne courte comme un mot ou une expression, une phrase complète, un paragraphe entier ou un discours.
+**language**    | chaîne | Oui | Les deux lettres du code de langue ISO à utiliser pour l’analyse Par exemple, le code de langue anglais est « en ».
+**analyzerIds** | liste de valeurs string | Oui | Liste des GUID des analyseurs à appliquer. Pour plus d’informations, consultez la documentation Analyseurs.
+**text**        | chaîne | Oui | Entrée brute à analyser. Il peut s’agir d’une chaîne courte comme un mot ou une expression, une phrase complète, un paragraphe entier ou un discours.
 
-<br>
 ## <a name="response-json"></a>Réponse (JSON)
+
 Un tableau des sorties de l’analyse, une pour chaque attribut spécifié dans la requête.
 
 Les résultats se présentent comme suit :
@@ -138,8 +143,6 @@ Pour rechercher le jeton correspondant à chaque balise PDV, demandez également
 Le résultat est une liste de chaînes, une arborescence d’analyse pour chaque phrase trouvée dans l’entrée.
 Les arborescences d’analyse sont représentées entre parenthèses.
 
-<br>
-
 ## <a name="example"></a>Exemples
 
 `POST /analyze`
@@ -151,7 +154,7 @@ Corps de la demande : charge utile JSON
   "analyzerIds": [
     "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "22A6B758-420F-4745-8A3C-46835A67C0D2" ],
-  "text": "Hi, Tom! How are you today?" 
+  "text": "Hi, Tom! How are you today?"
 }
 ```
 
@@ -159,13 +162,12 @@ Réponse : JSON
 ```json
 [
   {
-    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04", 
+    "analyzerId": "4FA79AF1-F22C-408D-98BB-B7D7AEEF7F04",
     "result": [ ["NNP",",","NNP","."], ["WRB","VBP","PRP","NN","."] ]
   },
   {
-    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2", 
+    "analyzerId": "22A6B758-420F-4745-8A3C-46835A67C0D2",
     "result":["(TOP (S (NNP Hi) (, ,) (NNP Tom) (. !)))","(TOP (SBARQ (WHADVP (WRB How)) (SQ (VP (VBP are)) (NP (PRP you)) (NN today) (. ?))))"]
   }
 ]
 ```
-

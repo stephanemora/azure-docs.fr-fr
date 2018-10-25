@@ -1,5 +1,5 @@
 ---
-title: Créer, afficher et gérer des alertes de journal d'activité dans Azure Monitor
+title: Créer, afficher et gérer des alertes de journal d’activité dans Azure Monitor
 description: Comment créer des alertes de journal d’activité depuis le portail Azure, un modèle de ressources et PowerShell
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 526c50fa4d261a30738c3f24d537fe5e0d765f6d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
+ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951302"
+ms.lasthandoff: 10/03/2018
+ms.locfileid: "48248327"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d'activité avec Azure Monitor  
 
@@ -25,7 +25,7 @@ Elles concernent les ressources Azure. Pour les créer, il est possible d’util
 > [!IMPORTANT]
 > Il n’est pas possible de créer des alertes de notification Service Health avec l’interface de création d’alertes de journal d'activité. Pour en savoir plus sur la création et l’utilisation des notifications Service Health, consultez [Recevoir des alertes de journal d’activité sur les notifications Service Health](monitoring-activity-log-alerts-on-service-notifications.md).
 
-## <a name="manage-alert-rules-for-activity-log-using-azure-portal"></a>Gérer les règles d’alerte du journal d’activité avec le portail Azure
+## <a name="azure-portal"></a>Portail Azure
 
 > [!NOTE]
 
@@ -36,7 +36,7 @@ Elles concernent les ressources Azure. Pour les créer, il est possible d’util
 - Il n’existe aucune condition « anyOf » ni aucune condition imbriquée dans le JSON de configuration des alertes (en fait, une seule condition allOf est autorisée, sans aucune autre allOf/anyOf).
 - Lorsque la catégorie est « administratif ». Vous devez spécifier au moins l’un des critères précédents dans votre alerte. L’alerte créée ne s’activera peut-être pas à chaque fois qu’un événement sera créé dans les journaux d’activité.
 
-### <a name="create-an-alert-rule-for-an-activity-log-using-azure-portal"></a>Créer une règle d’alerte pour un journal d’activité avec le portail Azure
+### <a name="create-with-azure-portal"></a>Créer avec le Portail Azure
 
 Procédez comme suit :
 
@@ -102,7 +102,7 @@ Sinon, pour bien comprendre les conditions dans lesquelles des règles d’alert
  ![ ajouter une alerte du journal d’activité](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
     
 
-### <a name="view-and-manage-activity-log-alert-rules-in-azure-portal"></a>Afficher et gérer les règles d’alerte du journal d’activité dans le portail Azure
+### <a name="view-and-manage-in-azure-portal"></a>Afficher et gérer dans le Portail Azure
 
 1. Dans le portail Azure, cliquez sur **Surveiller** > **Alertes**, puis sur **Gérer les règles** en haut à gauche de la fenêtre.
 
@@ -127,7 +127,7 @@ Sinon, pour bien comprendre les conditions dans lesquelles des règles d’alert
 4.  Vous pouvez désactiver, activer ou supprimer un profil. Sélectionnez l’option souhaitée en haut de la fenêtre, après avoir sélectionné la règle en suivant les instructions de l’étape 2.
 
 
-## <a name="manage-alert-rules-for-activity-log-using-azure-resource-template"></a>Gérer les règles d’alerte du journal d’activité avec Azure Resource Template
+## <a name="azure-resource-template"></a>Modèle de ressource Azure
 Pour créer une alerte de journal d’activité à l’aide d’un modèle Resource Manager, créez une ressource de type `microsoft.insights/activityLogAlerts`. Puis, renseignez toutes les propriétés associées. Voici un modèle qui crée une alerte de journal d’activité.
 
 ```json
@@ -200,21 +200,23 @@ L’exemple json ci-dessus peut par exemple être enregistré en tant que sample
 > [!NOTE]
 > L'activation d'une nouvelle règle d'alerte de journal d'activité peut prendre jusqu'à 5 minutes.
 
-## <a name="manage-alert-rules-for-activity-log-using-powershell-cli-or-api"></a>Gérer les règles d’alerte du journal d’activité avec PowerShell, une interface CLI ou une API
+## <a name="rest-api"></a>API REST 
 L’[API Azure Monitor - Alertes du journal d'activité](https://docs.microsoft.com/rest/api/monitor/activitylogalerts) est une API REST entièrement compatible avec l’API REST Azure Resource Manager. Elle peut donc être utilisée par le biais de Powershell à l’aide d’applets de commande Resource Manager en plus d’Azure CLI.
 
+## <a name="powershell"></a>PowerShell
 Vous trouverez ci-dessous une illustration de l’utilisation par le biais de l’applet de commande Azure Resource Manager PowerShell pour l’exemple de modèle de ressource présenté plus haut (sampleActivityLogAlert.json) dans la [section Modèle de ressource](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
 ```powershell
 New-AzureRmResourceGroupDeployment -ResourceGroupName "myRG" -TemplateFile sampleActivityLogAlert.json -TemplateParameterFile sampleActivityLogAlert.parameters.json
 ```
 Où sampleActivityLogAlert.parameters.json contient les valeurs communiquées pour les paramètres requis pour la création d’une règle d’alerte.
 
+## <a name="cli"></a>Interface de ligne de commande
 Vous trouverez ci-dessous une illustration de l’utilisation par le biais de la commande Azure Resource Manager dans Azure CLI pour l’exemple de modèle de ressource présenté plus haut (sampleActivityLogAlert.json) dans la [section Modèle de ressource](#manage-alert-rules-for-activity-log-using-azure-resource-template) :
 
 ```azurecli
 az group deployment create --resource-group myRG --template-file sampleActivityLogAlert.json --parameters @sampleActivityLogAlert.parameters.json
 ```
-Où sampleActivityLogAlert.parameters.json contient les valeurs communiquées pour les paramètres requis pour la création d’une règle d’alerte.
+Le fichier *sampleActivityLogAlert.parameters.json* contient les valeurs communiquées pour les paramètres requis pour la création d’une règle d’alerte.
 
 
 ## <a name="next-steps"></a>Étapes suivantes
