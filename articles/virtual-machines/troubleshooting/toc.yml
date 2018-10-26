@@ -17,8 +17,8 @@ items:
     href: detailed-troubleshoot-rdp.md
   - name: Dépannage d’erreurs spécifiques
     href: troubleshoot-specific-rdp-errors.md
-  - name: Dépannage d’échecs liés à RDP
-    href: troubleshoot-rdp-fails.md
+  - name: Dépannage des erreurs liées à l’absence d’un serveur de licences
+    href: troubleshoot-rdp-no-license-server.md
   - name: Dépannage des problèmes liés aux services du Bureau à distance
     href: troubleshoot-remote-desktop-services-issues.md
 - name: SSH
@@ -129,9 +129,9 @@ items:
   href: troubleshoot-vm-by-use-nested-virtualization.md
 - name: Comprendre un redémarrage du système
   href: understand-vm-reboot.md
-ms.openlocfilehash: 3f24ca30619dc0b6e5cc212b1dbd496c483e0e5d
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ed437e8bce61ecb095d61fae8be8538f12a0134d
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985774"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087013"
