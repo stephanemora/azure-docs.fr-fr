@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 7682a733c5630c16d9684ec3cb9e7757b03a8b1b
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855933"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402505"
 ---
 # <a name="azure-database-security-checklist"></a>Liste de contrôle de la sécurité des bases de données Azure
 
@@ -46,7 +46,7 @@ Nous vous recommandons de lire l’article [Azure Database Security Best Practic
 |Catégorie de la liste de contrôle| Description|
 | ------------ | -------- |
 |**Protection les données**||
-| <br> Chiffrement en mouvement/transit| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), pour le chiffrement des données lorsqu’elles se déplacent vers les réseaux.</li><li>Les bases de données requièrent une communication sécurisée depuis les clients, avec l’utilisation du protocole [TDS (Tabular Data Stream)](https://msdn.microsoft.com/en-in/library/dd357628.aspx) sur le protocole TLS (Transport Layer Security).</li></ul> |
+| <br> Chiffrement en mouvement/transit| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), pour le chiffrement des données lorsqu’elles se déplacent vers les réseaux.</li><li>Les bases de données requièrent une communication sécurisée depuis les clients, avec l’utilisation du protocole [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) sur le protocole TLS (Transport Layer Security).</li></ul> |
 |<br>Chiffrement au repos| <ul><li>[Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242), lorsque les données inactives sont stockées physiquement dans un format numérique.</li></ul>|
 |**Contrôle des accès**||  
 |<br> Accès à la base de données | <ul><li>[Authentification](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) AD (Azure Active Directory), qui utilise des identités gérées par Azure Active Directory.</li><li>[Autorisation](https://docs.microsoft.com/azure/sql-database/sql-database-control-access), pour accorder aux utilisateurs les privilèges minimum nécessaires.</li></ul> |
