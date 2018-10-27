@@ -326,12 +326,6 @@
 
 ## [Résolution des problèmes](fundamentals/active-directory-troubleshooting-support-howto.md)
 
-## Déploiement de la preuve de concept (POC) d’Azure AD
-### [Manuel POC : Introduction](active-directory-playbook-intro.md)
-### [Manuel POC : Ingrédients](active-directory-playbook-ingredients.md)
-### [Manuel POC : Mise en œuvre](active-directory-playbook-implementation.md)
-### [Manuel POC : Blocs de construction](active-directory-playbook-building-blocks.md)
-
 # Informations de référence
 ## [Exemples de code](https://azure.microsoft.com/resources/samples/?service=active-directory)
 ## [Applets de commande Azure PowerShell](/powershell/azure/overview)
