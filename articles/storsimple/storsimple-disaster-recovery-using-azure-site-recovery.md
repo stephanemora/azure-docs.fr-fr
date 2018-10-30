@@ -168,16 +168,16 @@ Vous pouvez créer un plan de récupération dans ASR pour automatiser le proces
 1. Dans le compte Automation, cliquez sur **Variable** &gt; **Ajouter une variable**, puis ajoutez les variables suivantes. Vous pouvez choisir de chiffrer ces ressources. Ces variables sont spécifiques au plan de récupération. Si votre plan de récupération (celui que vous allez créer à l’étape suivante) porte le nom TestPlan, vos variables doivent être TestPlan-StorSimRegKey, TestPlan-AzureSubscriptionName, et ainsi de suite.
 
    - **BaseUrl** : URL Resource Manager pour le cloud Azure. Utilisez l’applet de commande **Get-AzureRmEnvironment | Nom objet sélectionné, ResourceManagerUrl**.
-   - *RecoveryPlanName***-ResourceGroupName** : groupe Resource Manager qui a la ressource StorSimple.
-   - *RecoveryPlanName***-ManagerName**: ressource StorSimple qui a l’appareil StorSimple.
-   - *RecoveryPlanName***-DeviceName** : appareil StorSimple qui doit être basculé.
-   - *RecoveryPlanName***-DeviceIpAddress**: adresse IP de l’appareil (qui se trouve sous l’onglet **Appareils** sous la section StorSimple Device Manager &gt; **Paramètres** &gt; **Réseau** &gt; groupe **Paramètres DNS**).
-   - *RecoveryPlanName***-VolumeContainers** : chaîne séparée par des virgules des conteneurs de volumes présents sur l’appareil qui doit faire l’objet d’un basculement ; par exemple, volcon1, volcon2, volcon3.
-   - *RecoveryPlanName***-TargetDeviceName** : appliance cloud StorSimple sur laquelle les conteneurs doivent être basculés.
-   - *RecoveryPlanName***-TargetDeviceIpAddress** : adresse IP de l’appareil cible (qui se trouve dans la section **Machine virtuelle** &gt; groupe **Paramètres** &gt; onglet **Mise en réseau**).
-   - *RecoveryPlanName***-StorageAccountName** : nom du compte de stockage dans lequel sera stocké le script (qui doit s’exécuter sur la machine virtuelle basculée). Il peut s’agir de n’importe quel compte de stockage disposant d’un minimum d’espace pour stocker temporairement le script.
-   - *RecoveryPlanName***-StorageAccountKey** : clé d’accès du compte de stockage ci-dessus.
-   - *RecoveryPlanName***-VMGUIDS** : lors de la protection d’une machine virtuelle, Azure Site Recovery affecte à chaque machine virtuelle un ID unique qui fournit des détails sur la machine virtuelle basculée. Pour obtenir le VMGUID, sélectionnez l’onglet **Services de récupération**, puis cliquez sur **Élément protégé** &gt; **Groupes de protection** &gt; **Machines** &gt; **Propriétés**. Si vous disposez de plusieurs machines virtuelles, ajoutez les GUID sous forme de chaîne séparée par des virgules.
+   - *RecoveryPlanName* **-ResourceGroupName** : groupe Resource Manager qui a la ressource StorSimple.
+   - *RecoveryPlanName* **-ManagerName**: ressource StorSimple qui a l’appareil StorSimple.
+   - *RecoveryPlanName* **-DeviceName** : appareil StorSimple qui doit être basculé.
+   - *RecoveryPlanName* **-DeviceIpAddress**: adresse IP de l’appareil (qui se trouve sous l’onglet **Appareils** sous la section StorSimple Device Manager &gt; **Paramètres** &gt; **Réseau** &gt; groupe **Paramètres DNS**).
+   - *RecoveryPlanName* **-VolumeContainers** : chaîne séparée par des virgules des conteneurs de volumes présents sur l’appareil qui doit faire l’objet d’un basculement ; par exemple, volcon1, volcon2, volcon3.
+   - *RecoveryPlanName* **-TargetDeviceName** : appliance cloud StorSimple sur laquelle les conteneurs doivent être basculés.
+   - *RecoveryPlanName* **-TargetDeviceIpAddress** : adresse IP de l’appareil cible (qui se trouve dans la section **Machine virtuelle** &gt; groupe **Paramètres** &gt; onglet **Mise en réseau**).
+   - *RecoveryPlanName* **-StorageAccountName** : nom du compte de stockage dans lequel sera stocké le script (qui doit s’exécuter sur la machine virtuelle basculée). Il peut s’agir de n’importe quel compte de stockage disposant d’un minimum d’espace pour stocker temporairement le script.
+   - *RecoveryPlanName* **-StorageAccountKey** : clé d’accès du compte de stockage ci-dessus.
+   - *RecoveryPlanName* **-VMGUIDS** : lors de la protection d’une machine virtuelle, Azure Site Recovery affecte à chaque machine virtuelle un ID unique qui fournit des détails sur la machine virtuelle basculée. Pour obtenir le VMGUID, sélectionnez l’onglet **Services de récupération**, puis cliquez sur **Élément protégé** &gt; **Groupes de protection** &gt; **Machines** &gt; **Propriétés**. Si vous disposez de plusieurs machines virtuelles, ajoutez les GUID sous forme de chaîne séparée par des virgules.
 
     Par exemple, si le nom du plan de récupération est fileServerpredayRP, votre onglet **Variables**, **Connexions** et **Certificats** doit se présenter comme suit une fois que vous avez ajouté toutes les ressources.
 
