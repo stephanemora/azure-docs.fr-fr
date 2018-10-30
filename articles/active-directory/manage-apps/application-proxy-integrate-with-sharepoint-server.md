@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2017
+ms.date: 10/19/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: fcd02e264d5e85b1bef7e75d2a6375d6bf5e18c0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ad0ab8790c9d66dbba87d466e9661ef8cf33eef3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363947"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456896"
 ---
 # <a name="enable-remote-access-to-sharepoint-with-azure-ad-application-proxy"></a>Activer l’accès distant à SharePoint avec le proxy d’application Azure AD
 
@@ -29,7 +29,6 @@ Cet article explique comment intégrer un serveur SharePoint local au proxy d’
 Pour activer l’accès à distance à SharePoint avec le proxy d’application Azure AD, suivez les sections de cet article étape par étape.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 Cet article suppose que vous avez déjà SharePoint 2013 ou une version plus récente dans votre environnement. En outre, prenez en compte les conditions préalables suivantes :
 
@@ -195,7 +194,7 @@ La dernière étape à effectuer consiste à garantir que SharePoint peut trouve
 
 3. Dans la liste déroulante à côté de **Collection de mappages des accès de substitution**, sélectionnez **Modifier la collection de mappages des accès de substitution**.
 4. Sélectionnez votre site, par exemple **SharePoint - 80**.
-5. Vous pouvez choisir d’ajouter l’URL publiée comme URL interne ou URL publique. Cet exemple utilise une URL publique comme extranet.
+5. Vous pouvez choisir d’ajouter l’URL publiée comme URL interne ou URL publique. Cet exemple utilise une URL publique comme extranet. Si vous utilisez un port personnalisé, veillez à inclure votre port personnalisé dans l’URL.
 6. Cliquez sur **Modifier les URL publiques** dans le chemin **Extranet**, puis entrez l’URL externe qui a été créée quand vous avez publié l’application. Par exemple, entrez **https://sharepoint-iddemo.msappproxy.net**.
 
   ![Saisie du chemin](./media/application-proxy-integrate-with-sharepoint-server/alternate-access3.png)

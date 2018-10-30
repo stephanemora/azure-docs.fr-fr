@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: maheshu
-ms.openlocfilehash: 9728d42710ce44226363ea4954d83fcc3efbfb75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d3fbefd002f0b2774578d24cf2e3145a21a5e1f3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502950"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456403"
 ---
 # <a name="bind-to-an-azure-ad-domain-services-managed-domain-using-secure-ldap-ldaps"></a>Créer une liaison à un domaine managé Azure AD Domain Services à l’aide du protocole LDAP sécurisé (LDAPS)
 
@@ -38,8 +38,8 @@ Ensuite, créez une liaison avec le domaine managé. Cliquez sur **Connexion**, 
 Sélectionnez **Afficher**, puis sélectionnez **Arborescence** dans le menu. Laissez vide le champ Nom unique de base, puis cliquez sur OK. Accédez au conteneur dans lequel effectuer des recherches, cliquez dessus avec le bouton droit, puis sélectionnez Rechercher.
 
 > [!TIP]
-> - Les utilisateurs et les groupes synchronisés à partir d’Azure AD sont stockés dans le conteneur **Utilisateurs AAD**. Le chemin de recherche de ce conteneur ressemble à ceci : ```CN=AADDC\ Users,DC=CONTOSO100,DC=COM```.
-> - Les comptes des ordinateurs joints à un domaine managé sont stockés dans le conteneur **Ordinateurs AAD DC** Le chemin de recherche de ce conteneur ressemble à ceci : ```CN=AADDC\ Computers,DC=CONTOSO100,DC=COM```.
+> - Les utilisateurs et les groupes synchronisés à partir d’Azure AD sont stockés dans l’unité d’organisation **Utilisateurs AAD**. Le chemin de recherche de cette unité d’organisation ressemble à ceci : ```OU=AADDC Users,DC=CONTOSO100,DC=COM```.
+> - Les comptes des ordinateurs joints à un domaine managé sont stockés dans l’unité d’organisation **Ordinateurs AAD DC**. Le chemin de recherche de cette unité d’organisation ressemble à ceci : ```OU=AADDC Computers,DC=CONTOSO100,DC=COM```.
 >
 >
 

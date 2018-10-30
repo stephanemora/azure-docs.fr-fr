@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2018
+ms.date: 10/12/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 96d8977a63d26576d4d783dd0661409fdcee90f8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 66585c495dfb46e51120ae3eef2685d634fd9606
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308858"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024966"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Autorisations et comptes Azure AD Connect
 
@@ -113,6 +113,12 @@ Voici un résumé des pages de l’Assistant Installation personnalisée, des in
 | Page Compte de service AD FS, option Utilisation d’un compte d’utilisateur de domaine |Informations d’identification du compte d’utilisateur AD |Utilisateur de domaine |Le compte d’utilisateur AD dont les informations d’identification sont fournies est utilisé comme compte de connexion au service AD FS. |
 
 ### <a name="create-the-ad-ds-connector-account"></a>Créer le compte de connecteur AD DS
+
+>[!IMPORTANT]
+>Un nouveau module PowerShell dénommé ADSyncConfig.psm1 a été introduit avec la version **1.1.880.0**. (sortie en août 2018) et inclut une collection de cmdlets pour vous aider à configurer les autorisations Active Directory adéquates pour le compte Azure AD DS Connector.
+>
+>Pour plus d’informations, consultez la rubrique [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-configure-ad-ds-connector-account.md)
+
 Le compte que vous spécifiez dans la page **Connexion de vos annuaires** doit exister dans Active Directory avant l’installation.  Azure AD Connect 1.1.524.0 ou version ultérieure comprend une option permettant à l’Assistant Azure AD Connect de créer le **compte de connecteur AD DS** utilisé pour se connecter à Active Directory.  
 
 Il doit également disposer des autorisations nécessaires. L’Assistant d’installation ne vérifie pas les autorisations, et les problèmes éventuels ne sont détectés que pendant la synchronisation.

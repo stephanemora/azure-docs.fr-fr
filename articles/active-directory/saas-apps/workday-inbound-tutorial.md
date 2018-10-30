@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 917baa4b0d983df858c64cd0fa5b697b0fbb316c
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 2ab2ac34132eff65e1d6c77794486bc8d9858b40
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298266"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408170"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Tutoriel : configurer Workday pour l’attribution automatique d’utilisateurs (préversion)
 
@@ -74,7 +74,7 @@ Le scénario décrit dans ce didacticiel part du principe que vous disposez des 
 * Un abonnement Azure AD Premium P1 valide avec un accès administrateur général
 * Un client de mise en œuvre de Workday à des fins de test et d’intégration
 * Autorisations d’administrateur dans Workday pour créer un utilisateur de l’intégration système et apporter des modifications afin de tester les informations de l’employé
-* Pour l’approvisionnement de l’utilisateur dans Active Directory, un serveur appartenant à un domaine exécutant le Service Windows 2012 ou supérieur est requis pour héberger[l’agent de synchronisation local](https://go.microsoft.com/fwlink/?linkid=847801)
+* Pour l’approvisionnement de l’utilisateur dans Active Directory, un serveur appartenant à un domaine exécutant Windows Server 2012 ou supérieur est requis pour héberger[l’agent de synchronisation local](https://go.microsoft.com/fwlink/?linkid=847801)
 * [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) pour la synchronisation entre Active Directory et Azure AD
 
 ### <a name="solution-architecture"></a>Architecture de solution

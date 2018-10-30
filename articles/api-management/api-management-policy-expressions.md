@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 5943357bc421bbae0caef7f0acd7aa3364813826
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 771ec7713c989025635e585b7bb511986e71cda9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34597516"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024756"
 ---
 # <a name="api-management-policy-expressions"></a>Expressions de stratégie de la Gestion des API
 Cet article décrit la syntaxe des expressions de stratégie de C# 7. Chaque expression a accès à la variable de [contexte](api-management-policy-expressions.md#ContextVariables) fournie implicitement et à un [sous-ensemble](api-management-policy-expressions.md#CLRTypes) autorisé de types .NET Framework.  
@@ -52,15 +52,15 @@ Pour plus d'informations :
   
 @(context.Variables.ContainsKey("maxAge") ? int.Parse((string)context.Variables["maxAge"]) : 3600)  
   
-@{   
-  string value;   
-  if (context.Request.Headers.TryGetValue("Authorization", out value))   
-  {   
-    return Encoding.UTF8.GetString(Convert.FromBase64String(value));  
-  }   
-  else   
-  {   
-    return null;  
+@{   
+  string value;   
+  if (context.Request.Headers.TryGetValue("Authorization", out value))   
+  {   
+    return Encoding.UTF8.GetString(Convert.FromBase64String(value));  
+  }   
+  else   
+  {   
+    return null;  
   }  
 }  
 ```  
@@ -74,18 +74,18 @@ Pour plus d'informations :
 ##  <a name="CLRTypes"></a> Types .NET Framework autorisés dans les expressions de stratégie  
  Le tableau suivant liste les types .NET Framework et leurs membres qui sont autorisés dans les expressions de stratégie.  
   
-|Type CLR|Méthodes prises en charge|  
+|Type CLR|Membres pris en charge|  
 |--------------|-----------------------|  
-|Newtonsoft.Json.Linq.Extensions|Toutes les méthodes sont prises en charge.|  
-|Newtonsoft.Json.Linq.JArray|Toutes les méthodes sont prises en charge.|  
-|Newtonsoft.Json.Linq.JConstructor|Toutes les méthodes sont prises en charge.|  
-|Newtonsoft.Json.Linq.JContainer|Toutes les méthodes sont prises en charge.|  
-|Newtonsoft.Json.Linq.JObject|Toutes les méthodes sont prises en charge.|  
-|Newtonsoft.Json.Linq.JProperty|Toutes les méthodes sont prises en charge.|  
-|Newtonsoft.Json.Linq.JRaw|Toutes les méthodes sont prises en charge.|  
-|Newtonsoft.Json.Linq.JToken|Toutes les méthodes sont prises en charge.|  
-|Newtonsoft.Json.Linq.JTokenType|Toutes les méthodes sont prises en charge.|  
-|Newtonsoft.Json.Linq.JValue|Toutes les méthodes sont prises en charge.|  
+|Newtonsoft.Json.Linq.Extensions|Tous|  
+|Newtonsoft.Json.Linq.JArray|Tous|  
+|Newtonsoft.Json.Linq.JConstructor|Tous|  
+|Newtonsoft.Json.Linq.JContainer|Tous|  
+|Newtonsoft.Json.Linq.JObject|Tous|  
+|Newtonsoft.Json.Linq.JProperty|Tous|  
+|Newtonsoft.Json.Linq.JRaw|Tous|  
+|Newtonsoft.Json.Linq.JToken|Tous|  
+|Newtonsoft.Json.Linq.JTokenType|Tous|  
+|Newtonsoft.Json.Linq.JValue|Tous|  
 |System.Collections.Generic.IReadOnlyCollection<T\>|Tous|  
 |System.Collections.Generic.IReadOnlyDictionary<TKey,  TValue>|Tous|  
 |System.Collections.Generic.ISet<TKey, TValue>|Tous|  
@@ -105,9 +105,10 @@ Pour plus d'informations :
 |System.Int16|Tous|  
 |System.Int32|Tous|  
 |System.Int64|Tous|  
-|System.Linq.Enumerable<T\>|Toutes les méthodes sont prises en charge.|  
+|System.Linq.Enumerable<T\>|Tous|  
 |System.Math|Tous|  
-|System.MidpointRounding|Tous|  
+|System.MidpointRounding|Tous|
+|System.Net.WebUtility|Tous|
 |System.Nullable<T\>|Tous|  
 |System.Random|Tous|  
 |System.SByte|Tous|  
@@ -146,23 +147,23 @@ Pour plus d'informations :
 |System.UInt32|Tous|  
 |System.UInt64|Tous|  
 |System.Uri|Tous|  
-|System.Xml.Linq.Extensions|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XAttribute|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XCData|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XComment|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XContainer|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XDeclaration|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XDocument|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XDocumentType|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XElement|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XName|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XNamespace|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XNode|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XNodeDocumentOrderComparer|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XNodeEqualityComparer|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XObject|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XProcessingInstruction|Toutes les méthodes sont prises en charge.|  
-|System.Xml.Linq.XText|Toutes les méthodes sont prises en charge.|  
+|System.Xml.Linq.Extensions|Tous|  
+|System.Xml.Linq.XAttribute|Tous|  
+|System.Xml.Linq.XCData|Tous|  
+|System.Xml.Linq.XComment|Tous|  
+|System.Xml.Linq.XContainer|Tous|  
+|System.Xml.Linq.XDeclaration|Tous|  
+|System.Xml.Linq.XDocument|Tous|  
+|System.Xml.Linq.XDocumentType|Tous|  
+|System.Xml.Linq.XElement|Tous|  
+|System.Xml.Linq.XName|Tous|  
+|System.Xml.Linq.XNamespace|Tous|  
+|System.Xml.Linq.XNode|Tous|  
+|System.Xml.Linq.XNodeDocumentOrderComparer|Tous|  
+|System.Xml.Linq.XNodeEqualityComparer|Tous|  
+|System.Xml.Linq.XObject|Tous|  
+|System.Xml.Linq.XProcessingInstruction|Tous|  
+|System.Xml.Linq.XText|Tous|  
 |System.Xml.XmlNodeType|Tous|  
   
 ##  <a name="ContextVariables"></a> Variable de contexte  

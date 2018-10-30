@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: d7906323da8e9ee1571efe908084ae1433884e61
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8cfe8c309c11eb24bc6e7af9fc3ba3eef0422c35
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47405986"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638198"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
@@ -57,6 +57,9 @@ Vérifiez que les prérequis suivants sont remplis :
 ## <a name="step-2-enable-the-feature"></a>Étape 2 : Activer la fonctionnalité
 
 Activez Seamless SSO via [Azure AD Connect](whatis-hybrid-identity.md).
+
+>[!NOTE]
+> Vous pouvez également [activer l’authentification unique fluide à l’aide de PowerShell](tshoot-connect-sso.md#manual-reset-of-the-feature) si Azure AD Connect ne répond pas à vos exigences. Utilisez cette option si vous disposez de plusieurs domaines par forêt Active Directory et que vous voulez être plus ciblé sur le domaine pour lequel vous voulez activer l’authentification unique transparente.
 
 Si vous procédez à une nouvelle installation d’Azure AD Connect, choisissez le [chemin d’installation personnalisé](how-to-connect-install-custom.md). Sur la page **Connexion utilisateur**, cochez la case **Activer l’authentification unique**.
 
@@ -115,7 +118,7 @@ Il y a deux façons de modifier les paramètres de la zone Intranet des utilisat
 ### <a name="group-policy-option---detailed-steps"></a>Option « Stratégie de groupe » - Procédure détaillée
 
 1. Ouvrez l’outil Éditeur de gestion des stratégies de groupe.
-2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Cet exemple utilise la **stratégie de domaine par défaut**.
+2. Modifiez la stratégie de groupe qui est appliquée à certains ou à l’ensemble de vos utilisateurs. Cette exemple utilise la **stratégie de domaine par défaut**.
 3. Accédez à **Configuration utilisateur** > **Modèles d'administration** > **Composants Windows** > **Internet Explorer** > **Panneau de configuration Internet** > **Page Sécurité**. Puis sélectionnez **Liste des attributions de sites aux zones**.
     ![Authentification unique](./media/how-to-connect-sso-quick-start/sso6.png)
 4. Activez la stratégie, puis entrez les valeurs suivantes dans la boîte de dialogue :

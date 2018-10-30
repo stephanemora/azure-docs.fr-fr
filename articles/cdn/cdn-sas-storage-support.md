@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/21/2018
 ms.author: magattus
-ms.openlocfilehash: 7180e51a6ac1392e4a3f072097b1aeef3648c605
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 57891bcce289c30d7dce1cd00c301064aa9b97cc
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093287"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955233"
 ---
 # <a name="using-azure-cdn-with-sas"></a>Utilisation d’Azure CDN avec SAP
 
@@ -71,28 +71,28 @@ Cette option est la plus simple. Elle utilise un jeton SAP unique, qui est pass�
  
 Cette option est disponible uniquement pour les profils **Azure CDN Premium de Verizon**. Avec cette option, vous pouvez sécuriser le stockage blob sur le serveur d’origine. Vous pouvez utiliser cette option si vous n’avez pas besoin de restrictions d’accès spécifiques pour le fichier, mais que vous voulez empêcher les utilisateurs d’accéder à l’origine du stockage directement afin d’accélérer le temps de déchargement d’Azure CDN. Le jeton SAP, qui est inconnu de l’utilisateur, est nécessaire à quiconque accède aux fichiers dans le conteneur spécifié du serveur d’origine. Toutefois, en raison de la règle de réécriture d’URL, le jeton SAP n’est pas nécessaire sur le point de terminaison CDN.
  
-1. Utilisez le [moteur de règles](cdn-rules-engine.md) pour créer une règle de réécriture d’URL. La propagation des nouvelles règles prend environ 10 minutes.
+1. Utilisez le [moteur de règles](cdn-rules-engine.md) pour créer une règle de réécriture d’URL. La propagation de nouvelles règles peut prendre jusqu’à 4 heures.
 
    ![Bouton Gérer du CDN](./media/cdn-sas-storage-support/cdn-manage-btn.png)
 
    ![Bouton de moteur de règles de CDN](./media/cdn-sas-storage-support/cdn-rules-engine-btn.png)
 
-   L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *storagedemo* :
+   L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *sasstoragedemo* :
    
    Source :   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    Destination :   
    ```
    $1?sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![Règle de réécriture d’URL CDN – gauche](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![Règle de réécriture d’URL CDN – droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-2.png)
+   ![Règle de réécriture d’URL CDN – droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 2. Une fois la nouvelle règle active, tous les utilisateurs peuvent accéder aux fichiers dans le conteneur spécifié sur le point de terminaison CDN, même s’ils n’utilisent pas de jeton SAP dans l’URL. Voici le format : `https://<endpoint hostname>.azureedge.net/<container>/<file>`
  
    Par exemple :    
-   `https://demoendpoint.azureedge.net/container1/demo.jpg`
+   `https://sasstoragedemo.azureedge.net/container1/demo.jpg`
        
 
 3. Affinez la durée du cache à l’aide de règles de mise en cache ou en ajoutant des en-têtes `Cache-Control` au serveur d’origine. Étant donné qu’Azure CDN traite le jeton SAP comme une chaîne de requête simple, la bonne pratique consiste à définir une durée de mise en cache qui expire au plus tard au moment de l’expiration de la signature SAP. Dans le cas contraire, si un fichier est mis en cache pour une durée plus longue que celle pendant laquelle la signature SAP est active, le fichier peut être accessible à partir du serveur d’origine Azure CDN après l’expiration de la SAP. Si ce cas se produit et que vous souhaitez rendre votre fichier de mise en cache inaccessible, vous devez effectuer une opération de vidage sur le fichier afin de le supprimer du cache. Pour plus d’informations sur la définition de la durée du cache sur Azure CDN, consultez [Contrôler le comportement de mise en cache d’Azure CDN avec des règles de mise en cache](cdn-caching-rules.md).
@@ -108,24 +108,24 @@ Pour utiliser l’authentification de jeton de sécurité d’Azure CDN, vous de
  
    Par exemple :    
    ```
-   https://demoendpoint.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
+   https://sasstoragedemo.azureedge.net/container1/demo.jpg?a4fbc3710fd3449a7c99986bkquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
        
    Les options de paramètres pour l’authentification de jeton de sécurité diffèrent de celles pour un jeton SAP. Si vous choisissez d’utiliser un délai d’expiration quand vous créez un jeton de sécurité, vous devez lui affecter la même valeur que le délai d’expiration du jeton SAP. Cela garantit le caractère prévisible du délai d’expiration. 
  
-2. Utilisez le [moteur de règles](cdn-rules-engine.md) pour créer une règle de réécriture d’URL visant à activer l’accès du jeton SAP à tous les objets blob dans le conteneur. La propagation des nouvelles règles prend environ 10 minutes.
+2. Utilisez le [moteur de règles](cdn-rules-engine.md) pour créer une règle de réécriture d’URL visant à activer l’accès du jeton SAP à tous les objets blob dans le conteneur. La propagation de nouvelles règles peut prendre jusqu’à 4 heures.
 
-   L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *storagedemo* :
+   L’exemple de règle de réécriture d’URL suivant utilise un modèle d’expression régulière avec un groupe de capture et un point de terminaison nommé *sasstoragedemo* :
    
    Source :   
-   `(\/container1\/.*)`
+   `(container1\/.*)`
    
    Destination :   
    ```
    $1&sv=2017-07-29&ss=b&srt=c&sp=r&se=2027-12-19T17:35:58Z&st=2017-12-19T09:35:58Z&spr=https&sig=kquaXsAuCLXomN7R00b8CYM13UpDbAHcsRfGOW3Du1M%3D
    ```
    ![Règle de réécriture d’URL CDN – gauche](./media/cdn-sas-storage-support/cdn-url-rewrite-rule.png)
-   ![Règle de réécriture d’URL CDN – droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-3.png)
+   ![Règle de réécriture d’URL CDN – droite](./media/cdn-sas-storage-support/cdn-url-rewrite-rule-option-4.png)
 
 3. Si vous renouvelez la signature SAP, n’oubliez pas de mettre à jour la règle de réécriture d’URL avec le nouveau jeton SAP. 
 

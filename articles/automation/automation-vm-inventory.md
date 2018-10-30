@@ -10,12 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 761bb1a6974afd5e7b851efb0c60101ab7d8958b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47091404"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403608"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Gérer une machine virtuelle Azure avec la collecte d’inventaire
 
@@ -114,6 +114,10 @@ Pour supprimer votre machine virtuelle de la gestion de l’inventaire, procéde
 1. Dans le volet de gauche du portail Azure, cliquez sur **Log Analytics**, puis sélectionnez l’espace de travail que vous avez utilisé lors de l’intégration de votre machine virtuelle.
 2. Dans la fenêtre **Log Analytics**, dans le menu **Ressource**, sous la catégorie **Sources de données de l’espace de travail**, sélectionnez **Machines virtuelles**.
 3. Dans la liste, sélectionnez la machine virtuelle que vous souhaitez déconnecter. Une coche verte s’affiche en regard du texte indiquant **Cet espace de travail** dans la colonne **Connexion OMS**, sur la machine virtuelle.
+
+   >[!NOTE]
+   >OMS est désormais appelé Log Analytics.
+   
 4. Sur la partie supérieure de la page suivante, sélectionnez **Déconnecter**.
 5. Dans la fenêtre de confirmation, cliquez sur **Oui**.
     Cette action déconnecte la machine de la fonction de gestion.

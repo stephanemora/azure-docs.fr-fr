@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 5931958d17ea119e58c066a78a44169be2b9f451
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7d7de02c96b9a17144b446b9ed86ebcbacd51162
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627523"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025003"
 ---
 # <a name="reporting-options-for-azure-ad-password-management"></a>Options de création de rapports pour la gestion des mots de passe Azure AD
 
@@ -23,7 +23,7 @@ Après le déploiement, de nombreuses organisations souhaitent savoir comment ou
 
 ![Reporting][Reporting]
 
-Les questions suivantes peuvent trouver réponse dans les rapports qui existent dans le [portail Azure] (https://portal.azure.com/):
+Les questions suivantes peuvent trouver réponse dans les rapports qui existent dans le [portail Azure](https://portal.azure.com/) :
 
 > [!NOTE]
 > Vous devez être [un administrateur global](../users-groups-roles/directory-assign-admin-roles.md) et vous devez vous abonner pour que ces données soient collectées pour votre organisation. Pour vous abonner, vous devez consulter l’onglet **Rapports** ou les journaux d’audit au moins une fois. Tant que cela n’est pas fait, les données ne sont pas collectées pour votre organisation.

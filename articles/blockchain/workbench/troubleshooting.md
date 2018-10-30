@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: ba6bfe8240c758806c4ff3e46ab08fdacad83db9
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e205fce8b718e68200face33447e37cd3317298f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240920"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405482"
 ---
 # <a name="azure-blockchain-workbench-troubleshooting"></a>Dépannage Azure Blockchain Workbench
 
@@ -24,7 +24,7 @@ Un script PowerShell est disponible pour aider le développeur avec les activit�
 * Réseau Blockchain, tels qu’Ethereum
 * Microservices Blockchain Workbench
 * Application Insights
-* Surveillance Azure (OMS)
+* Supervision Azure (Log Analytics)
 
 Vous pouvez utiliser les informations pour identifier la procédure à suivre et déterminer la cause racine des problèmes. 
 
@@ -52,9 +52,9 @@ Le script accepte les paramètres suivants :
 | ResourceGroupName | Nom du groupe de ressources Azure dans lequel a été déployé Blockchain Workbench. | Oui |
 | OutputDirectory | Chemin d’accès utilisé pour la création du fichier ZIP de sortie. S’il n’est pas spécifié, il est défini par défaut sur le répertoire actuel. | Non  |
 | LookbackHours | Nombre d’heures à utiliser lors de l’extraction des données de télémétrie. La valeur par défaut est de 24 heures. La valeur maximale est de 90 heures. | Non  |
-| OmsSubscriptionId | ID de l’abonnement dans lequel l’instance OMS est déployée. Transmettez ce paramètre uniquement si l’instance OMS associée au réseau blockchain est déployée à l’extérieur du groupe de ressources Blockchain Workbench.| Non  |
-| OmsResourceGroup |Le groupe de ressources dans lequel est déployée l’instance OMS. Transmettez ce paramètre uniquement si l’instance OMS associée au réseau blockchain est déployée à l’extérieur du groupe de ressources Blockchain Workbench.| Non  |
-| OmsWorkspaceName | Le nom de l’espace de travail OMS. Transmettez ce paramètre uniquement si l’instance OMS associée au réseau blockchain est déployée à l’extérieur du groupe de ressources Blockchain Workbench. | Non  |
+| OmsSubscriptionId | ID de l’abonnement dans lequel l’instance Log Analytics est déployée. Transmettez ce paramètre uniquement si l’instance Log Analytics associée au réseau blockchain est déployée à l’extérieur du groupe de ressources Blockchain Workbench.| Non  |
+| OmsResourceGroup |Groupe de ressources dans lequel l’instance Log Analytics est déployée. Transmettez ce paramètre uniquement si l’instance Log Analytics associée au réseau blockchain est déployée à l’extérieur du groupe de ressources Blockchain Workbench.| Non  |
+| OmsWorkspaceName | Nom de l’espace de travail Log Analytics. Transmettez ce paramètre uniquement si l’instance Log Analytics associée au réseau blockchain est déployée à l’extérieur du groupe de ressources Blockchain Workbench. | Non  |
 
 ## <a name="what-is-collected"></a>Quels sont les éléments collectés ?
 

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/22/2018
 ms.author: pullabhk
-ms.openlocfilehash: 1f3b81c31dc566e5e3011167eee00145f6791cb1
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d38da87bae07dadb10894593dd41ded22f5f162d
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616907"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638305"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Récupérer des fichiers à partir d’une sauvegarde de machine virtuelle Azure
 
@@ -45,7 +45,7 @@ Pour restaurer des fichiers ou dossiers à partir du point de récupération, ac
 
 4. Dans le menu déroulant **Sélectionner le point de récupération**, sélectionnez le point de récupération qui contient les fichiers dont vous avez besoin. Le dernier point de récupération est sélectionné par défaut.
 
-5. Pour télécharger le logiciel utilisé pour copier des fichiers à partir du point de récupération, cliquez sur **Download Executable** (Télécharger le fichier exécutable) pour une machine virtuelle Azure Windows ou **Download Script** (Télécharger le script) pour une machine virtuelle Azure Linux.
+5. Pour télécharger le logiciel utilisé pour copier des fichiers à partir du point de récupération, cliquez sur **Download Executable** (Télécharger le fichier exécutable) pour une machine virtuelle Azure Windows ou **Download Script** (Télécharger le script) (pour une machine virtuelle Azure Linux, un script python est généré).
 
     ![Mot de passe généré](./media/backup-azure-restore-files-from-vm/download-executable.png)
 

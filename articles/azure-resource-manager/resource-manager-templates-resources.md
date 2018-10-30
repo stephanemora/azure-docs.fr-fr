@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6723cf8cc18637c157b295361425357e1c47ec2e
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: eea12a0a31d11065ebdc2cbef556b84df1ace750
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39007159"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945193"
 ---
 # <a name="resources-section-of-azure-resource-manager-templates"></a>Section Ressources des modèles Azure Resource Manager
 
@@ -100,7 +100,9 @@ Vous définissez des ressources avec la structure suivante :
 
 ## <a name="condition"></a>Condition
 
-Quand vous devez décider pendant le déploiement s’il faut créer ou non une ressource, utilisez l’élément `condition`. La valeur de cet élément est résolue en true ou false. Quand la valeur est true, la ressource sera créée. Quand la valeur est false, la ressource ne sera pas créée. En règle générale, vous utilisez cette valeur quand vous voulez créer une ressource ou utiliser une ressource existante. Par exemple, pour spécifier si un nouveau compte de stockage est déployé ou si un compte de stockage existant est utilisé, utilisez :
+Quand vous devez décider pendant le déploiement s’il faut créer ou non une ressource, utilisez l’élément `condition`. La valeur de cet élément est résolue en true ou false. Lorsque la valeur est true, la ressource est créée. Lorsque la valeur est false, la ressource n’est pas créée. La valeur ne peut être appliquée qu’à l’ensemble de la ressource.
+
+En règle générale, vous utilisez cette valeur quand vous voulez créer une ressource ou utiliser une ressource existante. Par exemple, pour spécifier si un nouveau compte de stockage est déployé ou si un compte de stockage existant est utilisé, utilisez :
 
 ```json
 {
@@ -181,7 +183,7 @@ Pour les types de ressources qui sont accessibles en grande partie par le biais 
 }
 ```
 
-## <a name="location"></a>Emplacement
+## <a name="location"></a>Lieu
 Lorsque vous déployez un modèle, vous devez fournir un emplacement pour chaque ressource. Différents types de ressources sont pris en charge à différents emplacements. Pour afficher une liste des emplacements disponibles pour votre abonnement pour un type de ressource particulier, utilisez Azure PowerShell ou Azure CLI. 
 
 L’exemple suivant utilise PowerShell pour obtenir les emplacements pour le type de ressource `Microsoft.Web\sites` :
@@ -227,7 +229,7 @@ L’exemple suivant illustre le déploiement d’un compte de stockage au même 
 }
 ```
 
-Si vous devez coder en dur l’emplacement dans votre modèle, indiquez le nom de l’une des régions prises en charge. L’exemple suivant montre un compte de stockage qui est toujours déployé dans la région Nord du centre des États-Unis :
+Si vous devez coder en dur l’emplacement dans votre modèle, indiquez le nom de l’une des régions prises en charge. L’exemple suivant montre un compte de stockage qui est toujours déployé dans la région USA Centre Nord :
 
 ```json
 {

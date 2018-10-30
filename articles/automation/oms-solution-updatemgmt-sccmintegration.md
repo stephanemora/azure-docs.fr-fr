@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/19/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 3ea95899d48b68c78af5fdc45167b08b5e0fc1ee
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b42ce119db2c435f05424cceb5bb90627668bece
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34195343"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407195"
 ---
 # <a name="integrate-system-center-configuration-manager-with-update-management"></a>Intégrer System Center Configuration Manager à Update Management
 
@@ -23,7 +23,6 @@ Les clients qui ont investi dans System Center Configuration Manager pour gérer
 Vous pouvez signaler et mettre à jour des serveurs Windows gérés en créant et prédéfinissant des déploiements de mises à jour logicielles dans Configuration Manager et obtenir un état détaillé des déploiements de mises à jour terminés à l’aide de la [solution Update Management](automation-update-management.md). Si vous utilisez Configuration Manager pour générer des rapports de conformité de mises à jour, mais pas pour gérer les déploiements de mises à jour avec vos serveurs Windows, vous pouvez continuer d’adresser des rapports à Configuration Manager tout en gérant les mises à jour de sécurité avec la solution Update Management.
 
 ## <a name="prerequisites"></a>Prérequis
-
 
 * Vous devez avoir ajouté la [solution Update Management](automation-update-management.md) à votre compte Automation.
 * Les serveurs Windows actuellement gérés par votre environnement System Center Configuration Manager doivent aussi adresser des rapports à l’espace de travail Log Analytics dans lequel la solution Update Management est aussi activée.
@@ -41,7 +40,7 @@ Si vous avez l’intention de continuer à gérer les déploiements de mises à 
 1. Créez un déploiement de mises à jour logicielles à partir du site situé en haut de votre hiérarchie Configuration Manager en suivant le processus décrit dans [Déployer des mises à jour logicielles](/sccm/sum/deploy-use/deploy-software-updates). Le seul paramètre qui doit être configuré différemment par rapport à un déploiement standard est l’option **Ne pas installer les mises à jour logicielles** pour contrôler le comportement de téléchargement du package de déploiement. Ce comportement est géré par la solution Update Management en créant un déploiement de mises à jour planifié à l’étape suivante.
 
 1. Dans Azure Automation, sélectionnez **Update Management**. Créez un déploiement en suivant les étapes décrites dans [Création d’un déploiement de mises à jour](automation-tutorial-update-management.md#schedule-an-update-deployment), puis sélectionnez **Groupes importés** dans la liste déroulante **Type** pour sélectionner le regroupement Configuration Manager approprié. Gardez à l’esprit les points importants suivants : a. Si une fenêtre de maintenance est définie dans le regroupement d’appareils Configuration Manager sélectionné, les membres du regroupement la respectent au détriment du paramètre **Durée** défini dans le déploiement planifié.
-    b. Les membres du regroupement cible doivent disposer d’une connexion Internet (qu’elle soit directe, via un serveur proxy ou via la passerelle OMS).
+    b. Les membres du regroupement cible doivent disposer d’une connexion Internet (qu’elle soit directe, via un serveur proxy ou via la passerelle Log Analytics).
 
 À l’issue du déploiement des mises à jour par le biais d’Azure Automation, les ordinateurs cibles membres du groupe d’ordinateurs sélectionné installent les mises à jour à l’heure planifiée à partir de leur cache client local. Vous pouvez [consulter l’état du déploiement des mises à jour](automation-tutorial-update-management.md#view-results-of-an-update-deployment) pour surveiller les résultats de votre déploiement.
 

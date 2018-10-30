@@ -12,19 +12,44 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/30/2018
+ms.date: 10/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 129d02bea6fe3668a308da0ab2a46ca8b59928e7
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 28ef94113c76cd70e12a9682e1c523afc3f0a233
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542242"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945873"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Comprendre la structure et la syntaxe des modèles Azure Resource Manager
 Cet article décrit la structure d’un modèle Azure Resource Manager. Elle présente les différentes sections d’un modèle et les propriétés disponibles dans ces sections. Le modèle se compose d’un JSON et d’expressions que vous pouvez utiliser pour construire des valeurs pour votre déploiement. Pour obtenir un didacticiel étape par étape permettant de créer un modèle, voir [Créer votre premier modèle Azure Resource Manager](resource-manager-create-first-template.md).
 
+## <a name="quickstarts-and-tutorials"></a>Guides de démarrages rapides et tutoriels
+
+Utilisez les guides de démarrage rapide et les didacticiels suivants pour apprendre comment développer des modèles Resource Manager :
+
+- Démarrages rapides
+
+  	|Intitulé|Description|
+  	|------|-----|
+  	|[Utiliser le portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)|Générez un modèle à l’aide du portail ainsi que le processus de modification et de déploiement du modèle.|
+  	|[Utiliser Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Utilisez Visual Studio Code pour créer et modifier les modèles et comment utiliser Azure Cloud Shell pour déployer des modèles.|
+  	|[Utiliser Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Utilisez Visual Studio pour créer, modifier et déployer des modèles.|
+
+- Didacticiels
+
+  	|Intitulé|Description|
+  	|------|-----|
+  	|[Utiliser la référence de modèle](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilisez la documentation de référence du modèle pour développer des modèles. Dans ce didacticiel, trouvez le schéma de compte de stockage et utilisez ces informations pour créer un compte de stockage chiffré.|
+  	|[Créer plusieurs instances](./resource-manager-tutorial-create-multiple-instances.md)|Créez plusieurs instances de ressources Azure. Dans ce didacticiel, vous créez plusieurs instances de compte de stockage.|
+  	|[Définir l’ordre de déploiement des ressources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Définir les dépendances des ressources. Dans ce didacticiel, vous créez un réseau virtuel, une machine virtuelle et les ressources Azure dépendantes. Vous découvrez comment les dépendances sont définies.|
+  	|[Utiliser des conditions](./resource-manager-tutorial-use-conditions.md)|Déployer des ressources basées sur certaines valeurs de paramètres. Dans ce didacticiel, vous définissez un modèle pour créer un nouveau compte de stockage ou utilisez un compte de stockage existant basé sur la valeur d’un paramètre.|
+  	|[Intégrer Key Vault](./resource-manager-tutorial-use-key-vault.md)|Récupérer des données secrètes/mots de passe depuis Azure Key Vault. Dans ce didacticiel, vous créez une machine virtuelle.  Le mot de passe d’administrateur de la machine virtuelle est récupéré depuis un Key Vault.|
+  	|[Créer des modèles liés](./resource-manager-tutorial-create-linked-templates.md)|Modulariser des modèles et appeler d’autres modèles depuis un modèle. Dans ce didacticiel, vous créez un réseau virtuel, une machine virtuelle et les ressources dépendantes.  Le compte de stockage dépendant est défini dans un modèle lié. |
+  	|[Utiliser des pratiques de déploiement sécurisé](./deployment-manager-tutorial.md)|Utiliser Azure Deployment Manager. |
+
 ## <a name="template-format"></a>Format de modèle
+
 Dans sa structure la plus simple, un modèle a les éléments suivants :
 
 ```json
@@ -279,7 +304,7 @@ Dans la section des ressources, vous définissez les ressources déployées ou m
 ],
 ```
 
-Pour plus d’informations, consultez [Section Ressources des modèles Azure Resource Manager](resource-manager-templates-resources.md).
+Pour inclure ou exclure conditionnellement une ressource pendant le déploiement, utilisez [l’élément Condition](resource-manager-templates-resources.md#condition). Pour plus d’informations sur la section des ressources, consultez [Section Ressources des modèles Azure Resource Manager](resource-manager-templates-resources.md).
 
 ## <a name="outputs"></a>Outputs
 Dans la section des sorties, vous spécifiez des valeurs retournées à partir du déploiement. Par exemple, vous pouvez retourner l'URI d'accès à une ressource déployée.

@@ -1,6 +1,6 @@
 ---
 title: Information de référence pour les développeurs F# sur Azure Functions | Microsoft Docs
-description: Découvrez comment développer sur Azure Functions à l’aide de F#.
+description: Découvrez comment développer sur Azure Functions à l’aide de scripts F#.
 services: functions
 documentationcenter: fsharp
 author: sylvanc
@@ -10,20 +10,23 @@ ms.assetid: e60226e5-2630-41d7-9e5b-9f9e5acc8e50
 ms.service: azure-functions
 ms.devlang: fsharp
 ms.topic: reference
-ms.date: 09/09/2016
+ms.date: 10/09/2018
 ms.author: syclebsc
-ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: b7cb3a7094ef2c11df63c9e5595355d4076e2ccd
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125253"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025427"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Informations de référence pour les développeurs F# sur Azure Functions
 
-F# for Azure Functions est une solution conçue pour exécuter facilement de petits morceaux de code, ou « fonctions », dans le cloud. Les données circulent dans votre fonction F# par le biais d’arguments de fonction. Les noms d’argument sont spécifiés dans `function.json`, et il existe des noms prédéfinis pour accéder à des éléments tels que l’enregistreur de fonctions et les jetons d’annulation.
+F# for Azure Functions est une solution conçue pour exécuter facilement de petits morceaux de code, ou « fonctions », dans le cloud. Les données circulent dans votre fonction F# par le biais d’arguments de fonction. Les noms d’argument sont spécifiés dans `function.json`, et il existe des noms prédéfinis pour accéder à des éléments tels que l’enregistreur de fonctions et les jetons d’annulation. 
 
-Cet article repose sur l’hypothèse que vous avez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md).
+>[!IMPORTANT]
+>Le script F# (.fsx) est pris en charge uniquement par la [version 1.x](functions-versions.md#creating-1x-apps) du runtime Azure Functions. Si vous voulez utiliser F# avec le runtime version 2.x, un projet de bibliothèque de classes F# précompilé (.fs) est nécessaire. Vous créez, gérez et publiez un projet de bibliothèque de classes F# en utilisant Visual Studio comme vous le feriez pour un [projet de bibliothèque de classes C# ](functions-dotnet-class-library.md). Pour plus d’informations sur les versions de Functions, consultez [Vue d’ensemble des versions du runtime Azure Functions](functions-versions.md).
+
+Cet article suppose que vous ayez déjà lu l’article [Informations de référence pour les développeurs sur Azure Functions](functions-reference.md).
 
 ## <a name="how-fsx-works"></a>Fonctionnement de .fsx
 Un fichier `.fsx` est un script F#. Il peut être considéré comme un projet F# contenu dans un seul fichier. Ce fichier contient à la fois le code de votre programme (dans ce cas précis, votre fonction Azure) et des directives concernant la gestion des dépendances.
@@ -49,7 +52,7 @@ FunctionsProject
  | - bin
 ```
 
-Il existe un fichier partagé [host.json] (functions-host-json.md) que vous pouvez utiliser pour configurer l’application de fonction. Chaque fonction a son propre fichier de code (.fsx) et un fichier de configuration de liaison (function.json).
+Il existe un fichier [host.json](functions-host-json.md) partagé que vous pouvez utiliser pour configurer l’application de fonction. Chaque fonction a son propre fichier de code (.fsx) et un fichier de configuration de liaison (function.json).
 
 Les extensions de liaison requises dans la [version 2.x](functions-versions.md) du runtime Functions sont définies dans le fichier `extensions.csproj`, les fichiers de bibliothèque proprement dits se trouvant dans le dossier `bin`. Quand vous développez localement, vous devez [inscrire les extensions de liaison](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Quand vous développez des fonctions dans le portail Azure, cet enregistrement est effectué pour vous.
 

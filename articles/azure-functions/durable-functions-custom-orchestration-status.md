@@ -2,24 +2,27 @@
 title: État d’orchestration personnalisé dans Fonctions durables - Azure
 description: Découvrez comment configurer et utiliser l’état d’orchestration personnalisé pour Fonctions durables.
 services: functions
-author: kadimitr
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/24/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: c8eb2be6836e11ddbaed81970024ea7200ea819d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b8017288adb75c990113b0f2ff5ba29a1f1e0a18
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093089"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986663"
 ---
 # <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>État d’orchestration personnalisé dans Fonctions durables (Azure Functions)
 
 L’état d’orchestration personnalisé vous permet de définir une valeur d’état personnalisée pour votre fonction d’orchestrateur. Cet état est fourni via l’API HTTP GetStatus ou l’API `DurableOrchestrationClient.GetStatusAsync`.
+
+> [!NOTE]
+> Les statuts d’orchestration personnalisés pour JavaScript seront disponibles dans une prochaine version.
 
 ## <a name="sample-use-cases"></a>Exemples de cas d’utilisation 
 

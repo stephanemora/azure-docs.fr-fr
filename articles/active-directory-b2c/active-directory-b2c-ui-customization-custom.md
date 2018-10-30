@@ -1,23 +1,23 @@
 ---
-title: Personnaliser une interface utilisateur avec des stratégies personnalisées dans Azure Active Directory B2C | Microsoft Docs
-description: Apprenez comment personnaliser une interface utilisateur (UI) dans Azure AD B2C à l’aide de stratégies personnalisées.
+title: Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C | Microsoft Docs
+description: Apprenez à personnaliser une interface utilisateur à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/04/2017
+ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9908a7cf96c56e414e0a8d7faea0352b60214ea4
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446161"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945058"
 ---
-# <a name="azure-active-directory-b2c-configure-ui-customization-in-a-custom-policy"></a>Azure Active Directory B2C : Configurer la personnalisation de l’interface utilisateur dans une stratégie personnalisée
+# <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
@@ -25,7 +25,7 @@ Après avoir suivi cet article, vous disposerez d’une stratégie personnalisé
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, effectuez les étapes de la section [Bien démarrer avec les stratégies personnalisées](active-directory-b2c-get-started-custom.md). Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
+Suivez les étapes décrites dans [Bien démarrer avec les stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md). Vous devez disposer d’une stratégie personnalisée fonctionnelle pour l’inscription et la connexion avec des comptes locaux.
 
 ## <a name="page-ui-customization"></a>Personnalisation de l’interface utilisateur de la page
 
@@ -119,27 +119,44 @@ Vérifiez que vous êtes prêt en procédant comme suit :
 2. Cliquez sur **Envoyer la demande**.  
     Si vous recevez une erreur, assurez-vous que vos [paramètres CORS](#configure-cors) sont corrects. Vous serez peut-être amené à vider le cache de votre navigateur ou à ouvrir une fenêtre de navigation privée, en appuyant sur Ctrl+Maj+P.
 
-## <a name="modify-your-sign-up-or-sign-in-custom-policy"></a>Modifier votre stratégie personnalisée d’inscription ou de connexion
+## <a name="modify-the-extensions-file"></a>Modifier le fichier d’extensions
 
-Sous l’élément de niveau supérieur *\<TrustFrameworkPolicy\>*, vous devez trouver la balise *\<BuildingBlocks\>*. Entre les balises *\<BuildingBlocks\>*, ajoutez une balise *\<ContentDefinitions\>* en copiant l’exemple suivant. Remplacez *your_storage_account* par le nom de votre compte de stockage.
+Pour configurer la personnalisation de l’interface utilisateur, copiez l’élément **ContentDefinition** et ses éléments enfants entre le fichier de base et le fichier d’extension.
 
-  ```xml
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.idpselections">
-        <LoadUri>https://{your_storage_account}.blob.core.windows.net/customize-ui.html</LoadUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:idpselection:1.0.0</DataUri>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>
-  ```
+1. Ouvrez le fichier de base de votre stratégie. Par exemple, ouvrez *TrustFrameworkBase.xml*.
+2. Recherchez et copiez le contenu entier de l’élément **ContentDefinitions**.
+3. Ouvrez le fichier d’extension. Par exemple, *TrustFrameworkExtensions.xml*. Recherchez l’élément **BuildingBlocks**. Si l’élément n’existe pas, ajoutez-le.
+4. Collez le contenu entier de l’élément **ContentDefinitions** que vous avez copié en tant qu’enfant de l’élément **BuildingBlocks**. 
+5. Recherchez l’élément **ContentDefinition** contenant `Id="api.signuporsignin"` dans le code XML que vous avez copié.
+6. Remplacez la valeur de **LoadUri** par l’URL du fichier HTML que vous avez chargé dans le stockage. Par exemple, `https://mystore1.azurewebsites.net/b2c/customize-ui.html.
+    
+    Votre stratégie personnalisée doit ressembler à ce qui suit :
+
+    ```xml
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsignin">
+          <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.0.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>
+    ```
+
+7. Enregistrez le fichier d’extensions.
 
 ## <a name="upload-your-updated-custom-policy"></a>Téléchargement de votre stratégie personnalisée mise à jour
 
-1. Sur le [portail Azure](https://portal.azure.com), [basculez vers le contexte de votre locataire Azure AD B2C](active-directory-b2c-navigate-to-b2c-context.md) et ouvrez le panneau **Azure AD B2C**.
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+4. Sélectionnez **Infrastructure d’expérience d’identité**.
 2. Cliquez sur **Toutes les stratégies**.
 3. Cliquez sur **Charger la stratégie**.
-4. Chargez `SignUpOrSignin.xml` avec la balise *\<ContentDefinitions\>* que vous avez ajoutée précédemment.
+4. Chargez le fichier d’extensions que vous avez modifié précédemment.
 
 ## <a name="test-the-custom-policy-by-using-run-now"></a>Tester la stratégie personnalisée à l’aide de l’option **Exécuter maintenant**
 
