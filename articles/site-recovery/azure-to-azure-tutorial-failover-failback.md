@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/10/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 1c9af5c94aa05f60220080b779921a2c79c322f3
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: f7d6594910f3c703c2381515c3b93eb56ff4f675
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067429"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456505"
 ---
 # <a name="fail-over-and-fail-back-azure-vms-between-azure-regions"></a>Basculer et restaurer automatiquement des machines virtuelles Azure entre des régions Azure
 
@@ -28,7 +28,8 @@ Ce didacticiel explique comment basculer une seule machine virtuelle Azure vers 
 > * Restaurer automatiquement la machine virtuelle secondaire
 > * Reprotéger la machine virtuelle principale vers la région secondaire
 
-
+> [!NOTE]
+> Ce tutoriel a pour but de guider l’utilisateur à travers les étapes à suivre pour effectuer un basculement vers une région cible avec une personnalisation minimale. Si vous souhaitez en savoir plus sur les différents aspects associés à l’exécution d’un basculement, y compris les éléments à prendre en compte concernant la mise en réseau, l’automation ou le dépannage, consultez les documents dans « Procédure... » pour les machines virtuelles Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 

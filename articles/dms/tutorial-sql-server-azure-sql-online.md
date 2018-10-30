@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: cbc30d1a70d7a333f56df6f0a796d3a8e6532fe8
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: adf9f40e351ca642ca3e8eabe1e5eb7850f1f00d
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068722"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945533"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-online-using-dms"></a>Migrer SQL Server vers Azure SQL Database en ligne à l’aide de DMS
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance SQL Server locale vers [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) avec un temps d’arrêt minimal. Dans ce tutoriel, vous allez migrer la base de données **Adventureworks2012** restaurée dans une instance locale de SQL Server 2016 (ou une version ultérieure) vers Azure SQL Database à l’aide d’Azure Database Migration Service.
@@ -33,6 +33,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!IMPORTANT]
 > Pour une expérience de migration optimale, Microsoft vous recommande de créer une instance Azure Database Migration Service dans la même région Azure que la base de données cible. Le déplacement des données entre les régions ou les zones géographiques peut ralentir le processus de migration et introduire des erreurs.
+
+[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+
+Cet article décrit une migration en ligne de SQL Server vers Azure SQL Database. Pour une migration hors connexion, consultez [Migrer SQL Server vers Azure SQL Database hors connexion à l’aide de DMS](tutorial-sql-server-to-azure-sql.md).
 
 ## <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :

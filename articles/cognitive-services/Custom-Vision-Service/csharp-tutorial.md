@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer une application Windows pour le service Vision personnalisée avec C#'
+title: 'Didacticiel : Créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Custom Vision pour C#'
 titlesuffix: Azure Cognitive Services
 description: Créez un projet, ajoutez des mots clés, chargez des images, entraînez votre projet et effectuez une prédiction en utilisant le point de terminaison par défaut.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 9e5ed71d4620f7ffeac8acb15f90d67964a86870
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e046fe452a13384ae7929be805c6252d6ad2fbf9
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366639"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953041"
 ---
-# <a name="tutorial-use-the-custom-vision-service-from-a-c-application"></a>Tutoriel : Utiliser le service Vision personnalisée à partir d’une application C#
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-c"></a>Didacticiel : Créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Custom Vision pour C#
 
-Découvrez comment utiliser le service Vision personnalisée à partir d’une application C#. Après la création du projet, vous pouvez ajouter des mots clés, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester par programmation une image. Utilisez cet exemple open source comme modèle de création de votre propre application pour Windows au moyen de l’API Service Vision personnalisée.
+Découvrez comment utiliser le service Custom Vision du kit de développement logiciel (SDK) dans une application C#. Après la création du projet, vous pouvez ajouter des mots clés, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester par programmation une image. Utilisez cet exemple open source comme modèle de création de votre propre application pour Windows au moyen de l’API Service Vision personnalisée.
 
 ## <a name="prerequisites"></a>Prérequis
 

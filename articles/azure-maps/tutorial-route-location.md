@@ -1,20 +1,20 @@
 ---
 title: Rechercher un itinéraire avec Azure Maps | Microsoft Docs
 description: Établir un itinéraire vers un point d’intérêt avec Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 3bf1aa6d1b9bd65c28ef99ddbac71fb75daf99e7
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: fda234b882cbf4a155881895bbf8401fe3ff3aca
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816716"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645042"
 ---
 # <a name="route-to-a-point-of-interest-using-azure-maps"></a>Établir un itinéraire vers un point d’intérêt avec Azure Maps
 
@@ -80,11 +80,10 @@ Les étapes suivantes vous indiquent comment créer une page HTML statique inté
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     **atlas.Map** fournit le contrôle d’une carte web visuelle et interactive et est un composant de l’API Azure Map Control.
 
 4. Enregistrez le fichier et ouvrez-le dans votre navigateur. À ce stade, vous disposez d’une carte de base que vous pouvez développer.
@@ -126,7 +125,7 @@ Pour ce didacticiel, définissez Microsoft comme point de départ, et une statio
         padding: 50
     });
 
-    map.addEventListener("load", function () { 
+    map.events.add("load", function () { 
         // Add pins to the map for the start and end point of the route
         map.addPins([startPin, destinationPin], {
             name: "route-pins",
@@ -135,7 +134,7 @@ Pour ce didacticiel, définissez Microsoft comme point de départ, et une statio
         });
     });
     ```
-    L’instance **map.setCameraBounds** ajuste la fenêtre de la carte selon les coordonnées des points de départ et d’arrivée. L’instance **map.addEventListener** s’assure que toutes les fonctions de correspondance ajoutées à la carte sont chargées une fois le chargement terminé. L’API **map.addPins** dans l’écouteur d’événement ajoute les points au contrôle de carte sous la forme de composants visuels.
+    L’instance **map.setCameraBounds** ajuste la fenêtre de la carte selon les coordonnées des points de départ et d’arrivée. L’instance **map.events.add** assure que toutes les fonctions de correspondance ajoutées à la carte sont chargées une fois le chargement de la carte terminé. L’API **map.addPins** dans l’écouteur d’événement ajoute les points au contrôle de carte sous la forme de composants visuels.
 
 3. Enregistrez le fichier **MapRoute.html** et actualisez votre navigateur. Désormais, la carte est centrée sur Seattle, et vous pouvez observer le repère rond bleu marquant le point de départ et l’autre repère bleu marquant le point d’arrivée.
 
@@ -207,7 +206,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Définir les coordonnées d’une adresse
 > * Interroger Route Service afin d’obtenir des indications pour rejoindre un point d’intérêt
 
-Vous trouverez ici un exemple de code pour ce didacticiel :
+Vous trouverez l’exemple de code de ce didacticiel à cet emplacement :
 
 > [Rechercher un itinéraire avec Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/route.html)
 

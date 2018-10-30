@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 05/18/2018
 ms.author: ryanwi
-ms.openlocfilehash: 7573746b91f057d83a299d54801785118cc1c878
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 36b9a2e710a2a7f34ee9374e89f3fb19cc591ac3
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380129"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429590"
 ---
 # <a name="tutorial-deploy-a-net-application-in-a-windows-container-to-azure-service-fabric"></a>Didacticiel : déployer une application .NET dans un conteneur Windows vers Azure Service Fabric
 
@@ -61,7 +61,9 @@ Le conteneur est désormais prêt à être généré et empaqueté dans une appl
 ## <a name="create-an-azure-sql-db"></a>Créer une base de données Azure SQL DB
 Lors de l’exécution de l’application Fabrikam Fiber CallCenter en production, les données doivent être conservées dans une base de données. Comme il n’existe aucun moyen de garantir la persistance des données dans un conteneur, vous ne pouvez pas stocker les données de production de SQL Server dans un conteneur.
 
-Nous recommandons [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). Pour configurer et exécuter une base de données SQL Server gérée dans Azure, exécutez le script suivant.  Modifiez les variables de script selon vos besoins. *clientIP* représente l’adresse IP de votre ordinateur de développement.  Si vous vous trouvez derrière un pare-feu d’entreprise, l’adresse IP de votre ordinateur de développement peut ne pas être exposée à Internet.  Vous pouvez aussi définir la règle de pare-feu du serveur de la base de données SQL via le [portail Azure](https://portal.azure.com), qui répertorie l’adresse IP de votre ordinateur.
+Nous recommandons [Azure SQL Database](/azure/sql-database/sql-database-get-started-powershell). Pour configurer et exécuter une base de données SQL Server gérée dans Azure, exécutez le script suivant.  Modifiez les variables de script selon vos besoins. *clientIP* représente l’adresse IP de votre ordinateur de développement.
+
+Si vous vous trouvez derrière un pare-feu d’entreprise, l’adresse IP de votre ordinateur de développement peut ne pas être exposée à Internet. Pour vérifier que la base de données dispose de l’adresse IP correcte pour la règle de pare-feu, accédez au [Portail Azure](https://portal.azure.com) et recherchez votre base de données dans la section Bases de données SQL. Cliquez sur son nom, puis dans la section Vue d’ensemble, cliquez sur « Set server firewall » (Configurer le pare-feu du serveur). « Client IP address » (Adresse IP client) représente l’adresse IP de votre ordinateur de développement. Assurez-vous qu’elle corresponde à l’adresse IP dans la règle « AllowClient ».
 
 ```powershell
 $subscriptionID="<subscription ID>"
@@ -220,14 +222,14 @@ $vnetRuleObject1 = New-AzureRmSqlServerVirtualNetworkRule `
 
 ![Publication de l’application][publish-app]
 
-Vous pouvez suivre la procession du déploiement dans la fenêtre de sortie.  Lorsque l’application est déployée, ouvrez un navigateur et saisissez l’adresse du cluster et le port de l’application. Par exemple : http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
+Vous pouvez suivre la procession du déploiement dans la fenêtre de sortie.  Lorsque l’application est déployée, ouvrez un navigateur et saisissez l’adresse du cluster et le port de l’application. Par exemple : http://fabrikamfibercallcenter.southcentralus.cloudapp.azure.com:8659/.
 
 ![Exemple Fabrikam Web][fabrikam-web-page-deployed]
 
 ## <a name="set-up-continuous-integration-and-deployment-cicd-with-a-service-fabric-cluster"></a>Configurer l’intégration et le déploiement continus (CI/CD) avec un cluster Service Fabric
 Pour savoir comment utiliser Azure DevOps pour configurer le déploiement d’applications avec CI/CD dans un cluster Service Fabric, consultez [Tutoriel : déployer une application avec l’intégration et le déploiement continus sur un cluster Service Fabric](service-fabric-tutorial-deploy-app-with-cicd-vsts.md). Le processus décrit dans ce didacticiel est identique pour ce projet (FabrikamFiber) ; vous devez simplement omettre le téléchargement de l’exemple Voting et utiliser FabrikamFiber comme nom de référentiel au lieu de Voting.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Si vous avez terminé, veillez à supprimer toutes les ressources créées.  La façon la plus simple est de supprimer les groupes de ressources qui contiennent le cluster Service Fabric, Azure SQL DB et Azure Container Registry.
 
 ```powershell

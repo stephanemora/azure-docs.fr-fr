@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: ca6159554b58ce04252901f990b1ef0bea6c0cac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4281a79b88675df192574ab2dd3dfa39c9eefe1b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46953155"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954162"
 ---
 # <a name="what-is-azure-data-explorer"></a>Qu’est-ce que l’Explorateur de données Azure ?
 
@@ -63,8 +63,10 @@ Les fonctionnalités de l’Explorateur de données Azure sont étendues par d�
 
 Nous aimerions beaucoup avoir votre avis sur l’Explorateur de données Azure et son langage de requête via :
 
-- [Poser des questions sur le forum MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto)
-
+- Poser des questions
+  - [Dépassement de capacité de la pile](https://stackoverflow.com/questions/tagged/azure-data-explorer)
+  - [Microsoft Tech Community](https://techcommunity.microsoft.com/t5/Azure-Data-Explorer/bd-p/Kusto)
+  - [MSDN](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureKusto)
 - [Partager des suggestions produit dans User Voice](http://aka.ms/AzureDataExplorer.UserVoice)
 
 ## <a name="next-steps"></a>Étapes suivantes

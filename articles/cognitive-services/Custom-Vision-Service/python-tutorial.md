@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer un projet de classification d’images - Service Vision personnalisée, Python'
+title: 'Didacticiel : Créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Custom Vision pour Python'
 titlesuffix: Azure Cognitive Services
 description: Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage votre projet ainsi qu’une prédiction en utilisant le point de terminaison par défaut.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 14b805a60637a889698132e169d5a41670a8bce0
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 96125ba1c54f742bb9ddf32a1588173217be0766
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363375"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49953110"
 ---
-# <a name="tutorial-create-an-image-classification-project-using-the-custom-vision-service-with-python"></a>Tutoriel : Créer un projet de classification d’images à l’aide du service Vision personnalisée avec Python
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-python"></a>Didacticiel : Créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Custom Vision pour Python
 
-Découvrez comment créer un projet de classification d’images avec le service Vision personnalisé et un script Python de base. Après la création du projet, vous pouvez ajouter des mots-clés, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester par programmation une image. Utilisez cet exemple open source comme modèle de création pour votre propre application au moyen de l’API Vision personnalisée.
+Découvrez comment créer un projet de classification d’images avec le service Vision personnalisé et un script Python de base. Après la création du projet, vous pouvez ajouter des étiquettes, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester une image par programmation. Utilisez cet exemple open source comme modèle de création pour votre propre application au moyen de l’API Vision personnalisée.
 
 
 

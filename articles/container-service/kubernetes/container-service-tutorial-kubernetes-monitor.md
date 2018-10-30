@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: nepeters
 ms.custom: mvc
-ms.openlocfilehash: 6d178fe3caa121c51ef081708ca440113871938e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 249e286b16b78643c33b567f705a4c92991f5553
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996908"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404866"
 ---
 # <a name="monitor-a-kubernetes-cluster-with-log-analytics"></a>Surveiller un cluster Kubernetes avec Log Analytics
 
@@ -149,7 +149,7 @@ Pour installer la solution Containers à l’aide du [portail Log Analytics](htt
 
 Dans le portail Log Analytics, recherchez une vignette récapitulative **Containers** sur le tableau de bord. Cliquez sur la vignette pour obtenir plus d’informations, notamment sur les événements de conteneur, les erreurs, l’état, l’inventaire des images et l’utilisation du processeur et de la mémoire. Pour obtenir des informations plus précises, cliquez sur une ligne dans une vignette, ou effectuez une [recherche dans les journaux](../../log-analytics/log-analytics-log-searches.md).
 
-![Tableau de bord Containers dans le portail OMS](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
+![Tableau de bord Containers dans le portail Azure](./media/container-service-tutorial-kubernetes-monitor/oms-containers-dashboard.png)
 
 De même, dans le portail Azure, accédez à **Log Analytics** et sélectionnez le nom de votre espace de travail. Pour voir la vignette récapitulative **Containers**, cliquez sur **Solutions** > **Containers**. Pour obtenir plus de détails, cliquez sur la vignette.
 

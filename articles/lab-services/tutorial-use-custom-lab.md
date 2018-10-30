@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: cd623767c9627810afb64ca9185c991c5c9f3858
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: ab52206230c4dfe2d92c97f1e291ee00a086c570
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638022"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470861"
 ---
 # <a name="tutorial-access-a-lab-in-azure-devtest-labs"></a>Didacticiel : accéder à un laboratoire dans Azure DevTest Labs
 Dans ce didacticiel, vous utilisez le laboratoire créé dans le [didacticiel : créer un laboratoire dans Azure DevTest Labs](tutorial-create-custom-lab.md).
 
-Dans ce didacticiel, vous allez effectuer les actions suivantes :
+Dans ce tutoriel, vous allez effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Revendiquer une machine virtuelle dans le laboratoire
@@ -57,6 +57,10 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
     ![Connexion à la machine virtuelle](./media/tutorial-use-custom-lab/connect-button.png)
 2. Enregistrer le fichier **RDP** téléchargé sur votre disque dur et utilisez-le pour vous connecter à la machine virtuelle. Spécifiez le nom d’utilisateur et le mot de passe que vous avez indiqués en créant la machine virtuelle à la section précédente. 
+
+    > [!NOTE] 
+    > Pour vous connecter à une machine virtuelle Linux, l’accès par protocole SSH et/ou RDP doit être activé pour la machine virtuelle. Pour les étapes à suivre pour vous connecter à une machine virtuelle Linux via un protocole RDP, consultez [Installer et configurer le Bureau à distance pour se connecter à une machine virtuelle Linux dans Azure](../virtual-machines/linux/use-remote-desktop.md). 
+
 
 ## <a name="unclaim-the-vm"></a>Cesser de revendiquer la machine virtuelle
 Une fois que vous avez fini d’utiliser la machine virtuelle, cessez de la revendiquer en suivant ces étapes : 

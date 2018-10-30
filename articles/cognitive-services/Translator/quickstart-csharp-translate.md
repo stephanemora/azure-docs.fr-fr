@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Traduire du texte - Traduction de texte Translator Text, C#'
+title: 'Démarrage rapide : Traduire du texte, C# - Traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez traduire du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec C#.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 2b524591f3af32e566b0ca364626daf7aaf4ace2
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: ffd46969bd7333d2422654c8683f66ff313706c2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318450"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648460"
 ---
-# <a name="quickstart-translate-text-with-c35"></a>Démarrage rapide : Traduire du texte avec C&#35;
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-c"></a>Démarrage rapide : Traduire du texte à l’aide de l’API REST de traduction de texte Translator Text (C#)
 
 Dans ce démarrage rapide, vous traduisez du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text.
 

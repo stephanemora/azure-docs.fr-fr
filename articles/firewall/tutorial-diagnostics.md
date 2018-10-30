@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 9/24/2018
+ms.date: 10/24/2018
 ms.author: victorh
-ms.openlocfilehash: 1940fb210481dc75fe48d110776185e90cb3e42f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 875efddfff9b50ab05665cb8c158467dc46c8d0d
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991043"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987426"
 ---
 # <a name="tutorial-monitor-azure-firewall-logs-and-metrics"></a>Didacticiel : surveiller les journaux de Pare-feu Azure et les métriques
 
@@ -51,11 +51,11 @@ L’affichage des données dans vos journaux peut prendre quelques minutes aprè
 5. Dans cet exemple, Log Analytics stocke les journaux. Tapez le nom **Firewall log analytics**.
 6. Cliquez sur **Envoyer à Log Analytics** pour configurer votre espace de travail. Vous pouvez également utiliser des concentrateurs d’événements et un compte de stockage pour enregistrer les journaux de diagnostic.
 7. Sous **Log Analytics**, cliquez sur **Configurer**.
-8. Dans la page Espaces de travail OMS, cliquez sur **Créer un espace de travail**.
-9. Dans la page **Espace de travail Log Analytics**, tapez **firewall-oms** comme nom du nouvel **Espace de travail OMS**.
+8. Sur la page Espaces de travail Log Analytics, cliquez sur **Créer un espace de travail**.
+9. Sur la page **Espace de travail Log Analytics**, tapez **firewall-oms** comme nom du nouvel **Espace de travail Log Analytics**.
 10. Sélectionnez votre abonnement, utilisez le groupe de ressources de pare-feu existant (**Test-FW-RG**), sélectionnez **USA Est** pour l’emplacement, puis le niveau tarifaire **Gratuit**.
 11. Cliquez sur **OK**.
-   ![Démarrage du processus de configuration][1]
+   ![Démarrage du processus de configuration][1] Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics.  
 12. Sous **Journal**, cliquez sur **AzureFirewallApplicationRule** et **AzureFirewallNetworkRule** pour collecter des journaux pour les règles de réseau et d’application.
    ![Enregistrer les paramètres des diagnostics][2]
 13. Cliquez sur **Enregistrer**.
@@ -95,6 +95,8 @@ Vous pouvez afficher et analyser les données du journal d’activité en utilis
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Afficher et analyser les journaux de règles et d’application et de réseau
 
 Azure [Log Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) collecte les fichiers journaux des événements et des compteurs. Il inclut des visualisations et des fonctionnalités puissantes de recherche pour analyser vos journaux.
+
+Pour accéder aux exemples de requêtes Pare-feu Azure Log Analytics, consultez [Exemples Pare-feu Azure Log Analytics](log-analytics-samples.md).
 
 Vous pouvez également vous connecter à votre compte de stockage et récupérer les entrées de journal JSON pour les journaux d’accès et des performances. Après avoir téléchargé les fichiers JSON, vous pouvez les convertir en CSV et les afficher dans Excel, PowerBI ou tout autre outil de visualisation de données.
 

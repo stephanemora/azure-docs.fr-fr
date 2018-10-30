@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0404774f1cb347ceead8b78d1a9a6506712dea5c
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: ab79201442fe9c7334525972c34eba86daf27e99
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49069095"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457423"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire
 
@@ -27,6 +27,9 @@ Ce didacticiel vous montre comment configurer la récupération d’urgence vers
 > * Vérifier les paramètres des ressources cibles
 > * Configurer un accès sortant pour les machines virtuelles
 > * Activer la réplication pour une machine virtuelle
+
+> [!NOTE]
+> Ce tutoriel a pour but de guider l’utilisateur à travers les étapes à suivre pour activer la réplication avec une personnalisation minimale. Si vous souhaitez en savoir plus sur les différents aspects associés à la récupération d’urgence, y compris les éléments à prendre en compte concernant la mise en réseau, l’automation ou le dépannage, consultez les documents dans « Procédure... » pour les machines virtuelles Azure.
 
 
 ## <a name="prerequisites"></a>Prérequis
@@ -160,7 +163,7 @@ Pour remplacer les paramètres de stratégie de réplication par défaut, clique
 
 - **Fréquence des instantanés de cohérence des applications** : par défaut, Site Recovery prend un instantané de cohérence des applications toutes les 4 heures. Vous pouvez configurer une valeur comprise entre 1 et 12 heures. Un instantané de cohérence des applications est un instantané à un point dans le temps des données d’application à l’intérieur de la machine virtuelle. Le service VSS (Volume Shadow Copy Service) s’assure que les applications sur la machine virtuelle sont dans un état cohérent au moment de la prise des captures instantanées.
 
-- **Groupe de réplication** : si votre application a besoin d’une cohérence multimachine virtuelle sur les machines virtuelles, vous pouvez créer un groupe de réplication pour ces machines virtuelles. Par défaut, les machines virtuelles sélectionnées ne font pas partie d’un groupe de réplication.
+- **Groupe de réplication** : si votre application a besoin d’une cohérence multimachine virtuelle sur les machines virtuelles, vous pouvez créer un groupe de réplication pour ces machines virtuelles. Par défaut, les machines virtuelles sélectionnés ne font pas partie d’un groupe de réplication.
 
   Cliquez sur **Personnaliser** en regard de **Stratégie de réplication**, puis sélectionnez **Oui** pour la cohérence multimachine virtuelle afin d’intégrer les machines virtuelles à un groupe de réplication. Vous pouvez créer un groupe de réplication ou utiliser un groupe de réplication existant. Sélectionnez les machines virtuelles faisant partie du groupe de réplication, puis cliquez sur **OK**.
 
@@ -193,7 +196,7 @@ Cliquez sur « Personnaliser » en regard des paramètres de chiffrement pour 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez configuré la récupération d’urgence pour une machine virtuelle Azure. L’étape suivante consiste à tester votre configuration.
+Dans ce didacticiel, vous avez configuré la récupération d’urgence pour une machine virtuelle Azure. L’étape suivante consiste à tester votre configuration en lançant un test de récupération d’urgence.
 
 > [!div class="nextstepaction"]
-> [Exécuter une simulation de récupération d’urgence](azure-to-azure-tutorial-dr-drill.md)
+> [Effectuer un test de récupération d’urgence](azure-to-azure-tutorial-dr-drill.md)

@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 06/08/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: d6835f05666d66cc4f6aa937c4b85047ce3c2e93
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 51753a5324bbbcbf4e951628a42dd3bf425354af
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077067"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957580"
 ---
 # <a name="validate-azure-registration"></a>Valider l’inscription auprès d’Azure 
 Utilisez l’outil Azure Stack Readiness Checker (AzsReadinessChecker) pour vérifier que votre abonnement Azure est prêt à être utilisé avec Azure Stack. Validez l’inscription avant de commencer un déploiement d’Azure Stack. L’outil Readiness Checker valide ce qui suit :
@@ -62,10 +62,17 @@ Vérifiez les prérequis suivants.
    - Affectez à AzureEnvironment la valeur *AzureCloud*, *AzureGermanCloud* ou *AzureChinaCloud*.  
    - Indiquez l’administrateur et le nom du locataire Azure Active Directory. 
 
-   > `Start-AzsReadinessChecker -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
+   > `Invoke-AzsRegistrationValidation -RegistrationAccount $registrationCredential -AzureEnvironment AzureCloud -RegistrationSubscriptionID $subscriptionID`
 
-5. Au terme de l’exécution de l’outil, passez en revue la sortie. Vérifiez que l’état est OK pour l’ouverture de session et les conditions d’inscription. Une validation réussie génère une image semblable à la suivante :  
-![run-validation](./media/azure-stack-validate-registration/registration-validation.png)
+5. Au terme de l’exécution de l’outil, passez en revue la sortie. Vérifiez que l’état est OK pour l’ouverture de session et les conditions d’inscription. Une validation réussie s’affiche comme suit :  
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: OK
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
 
 
 ## <a name="report-and-log-file"></a>Rapport et fichier journal
@@ -83,14 +90,37 @@ En cas d’échec de vérification de la validation, des détails sont fournis d
 Les exemples suivants donnent des conseils sur la façon de résoudre des échecs de validation courants.
 
 ### <a name="user-must-be-an-owner-of-the-subscription"></a>L’utilisateur doit être un propriétaire de l’abonnement.   
-![subscription-owner](./media/azure-stack-validate-registration/subscription-owner.png)
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: Fail 
+Error Details for registration account admin@contoso.onmicrosoft.com:
+The user admin@contoso.onmicrosoft.com is role(s) Reader for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d. User must be an owner of the subscription to be used for registration.
+Additional help URL https://aka.ms/AzsRemediateRegistration
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
 **Cause** : Le compte n’est pas celui d’un administrateur de l’abonnement Azure.   
 
 **Résolution** : Utilisez le compte d’un administrateur de l’abonnement Azure auquel l’utilisation du déploiement d’Azure Stack sera facturée.
 
 
 ### <a name="expired-or-temporary-password"></a>Mot de passe temporaire ou ayant expiré 
-![expired-password](./media/azure-stack-validate-registration/expired-password.png)
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: Fail 
+Error Details for registration account admin@contoso.onmicrosoft.com:
+Checking Registration failed with: Retrieving TenantId for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d using account admin@contoso.onmicrosoft.com failed with AADSTS50055: Force Change P
+assword.
+Trace ID: 48fe06f5-a5b4-4961-ad45-a86964689900
+Correlation ID: 3dd1c9b2-72fb-46a0-819d-058f7562cb1f
+Timestamp: 2018-10-22 11:16:56Z: The remote server returned an error: (401) Unauthorized.
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
 **Cause** : Le compte ne peut pas se connecter, car le mot de passe est temporaire ou a expiré.     
 
 **Résolution** : Dans PowerShell, exécutez ce qui suit, puis suivez les invites pour réinitialiser le mot de passe. 
@@ -99,15 +129,18 @@ Les exemples suivants donnent des conseils sur la façon de résoudre des échec
 Vous pouvez également vous connecter à https://portal.azure.com pour forcer le compte et l’utilisateur à changer de mot de passe.
 
 
-### <a name="microsoft-accounts-are-not-supported-for-registration"></a>Les comptes Microsoft ne sont pas pris en charge pour l’inscription  
-![unsupported-account](./media/azure-stack-validate-registration/unsupported-account.png)
-**Cause** : Un compte Microsoft (comme Outlook.com ou Hotmail.com) a été spécifié.  Ces comptes ne sont pas pris en charge.
-
-**Résolution** : Utilisez un compte et un abonnement d’un fournisseur de services cloud ou d’un accord entreprise. 
-
-
 ### <a name="unknown-user-type"></a>Type d’utilisateur inconnu  
-![unknown-user](./media/azure-stack-validate-registration/unknown-user.png)
+````PowerShell
+Invoke-AzsRegistrationValidation v1.1809.1005.1 started.
+Checking Registration Requirements: Fail 
+Error Details for registration account admin@contoso.onmicrosoft.com:
+Checking Registration failed with: Retrieving TenantId for subscription 3f961d1c-d1fb-40c3-99ba-44524b56df2d using account admin@contoso.onmicrosoft.com failed with unknown_user_type: Unknown Us
+er Type
+
+Log location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessChecker.log
+Report location (contains PII): C:\Users\username\AppData\Local\Temp\AzsReadinessChecker\AzsReadinessCheckerReport.json
+Invoke-AzsRegistrationValidation Completed
+````
 **Cause** : Le compte ne peut pas se connecter à l’environnement Azure Active Directory spécifié. Dans cet exemple, *AzureChinaCloud* est spécifié comme *AzureEnvironment*.  
 
 **Résolution** : Vérifiez que le compte est valide pour l’environnement Azure spécifié. Dans PowerShell, exécutez ce qui suit pour vérifier que le compte est valide pour un environnement spécifique.     

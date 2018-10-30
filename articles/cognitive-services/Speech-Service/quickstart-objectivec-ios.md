@@ -1,22 +1,23 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale dans Objective-C sur iOS à l’aide du SDK Speech de Cognitive Services'
-titleSuffix: Microsoft Cognitive Services
-description: Découvrez comment effectuer une reconnaissance vocale dans Objective-C sur iOS à l’aide du SDK Speech de Cognitive Services
+title: 'Démarrage rapide : Reconnaissance vocale dans Objective-C sur iOS à l’aide du SDK Speech Service'
+titleSuffix: Azure Cognitive Services
+description: Découvrez la reconnaissance vocale dans Objective-C sur iOS à l’aide du SDK Speech Service
 services: cognitive-services
 author: chlandsi
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: chlandsi
-ms.openlocfilehash: ce9979d8d300f2308a4b7a22791c242409f2c988
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 8d6ecf251bb816eb0f41352af7c9d086c4aad751
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341172"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469773"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-cognitive-services-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale dans Objective-C sur iOS à l’aide du SDK Speech de Cognitive Services
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-service-sdk"></a>Démarrage rapide : Reconnaissance vocale dans Objective-C sur iOS à l’aide du SDK Speech Service
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -24,7 +25,7 @@ Dans cet article, vous allez découvrir comment créer une application iOS en Ob
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Clé d’abonnement pour le service Speech. Consultez l’article [Try the speech service for free](get-started.md) (Essayer le service Speech gratuitement).
+* Clé d’abonnement pour le service Speech. Consultez l’article [Essayez le service Speech gratuitement](get-started.md).
 * Un Mac avec Xcode 9.4.1 installé en tant qu’environnement de développement iOS. Ce tutoriel cible iOS versions 11.4. Si vous n’avez pas encore Xcode, vous pouvez l’installer à partir de l’[App Store](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12).
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Obtenir le SDK Speech pour iOS

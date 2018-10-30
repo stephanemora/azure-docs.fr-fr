@@ -1,30 +1,30 @@
 ---
 title: 'Démarrage rapide : Mettre à jour une base de connaissances - REST, C# - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Ce démarrage rapide vous aide à mettre à jour votre exemple de base de connaissances QnA Maker par programmation. La définition JSON que vous utilisez pour mettre à jour une base de connaissances vous permet d’ajouter, de modifier ou de supprimer des paires de questions/réponses.
+description: Ce démarrage rapide basé sur REST vous aide à mettre à jour votre exemple de base de connaissances QnA Maker par programmation. La définition JSON que vous utilisez pour mettre à jour une base de connaissances vous permet d’ajouter, de modifier ou de supprimer des paires de questions/réponses.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 10/01/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 9fa57a02f11461a3ea9a08b7b1b101b143924037
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 463fb4bc1cfd6ba7a7fc4df2fcde53bda7767488
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801691"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648225"
 ---
-# <a name="quickstart-update-a-qna-maker-knowledge-base-in-c"></a>Démarrage rapide : Mettre à jour une base de connaissances QnA Maker en C#
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-c"></a>Démarrage rapide : Mettre à jour une base de connaissances dans QnA Maker à l’aide de C#
 
 Ce démarrage rapide vous aide à mettre à jour une base de connaissances QnA Maker existante par programmation.  Ce code JSON vous permet de mettre à jour une base de connaissances en ajoutant de nouvelles sources de données, en modifiant ou supprimant des sources de données.
 
 Cette API correspond aux actions de modification, puis d’utilisation du bouton **Save and train** (Enregistrer et effectuer l’apprentissage) dans le portail QnA Maker.
 
 Ce démarrage rapide fait appel aux API QnA Maker :
-* [Mise à jour](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) : le modèle de la base de connaissances est défini dans le code JSON envoyé dans le corps de la requête d’API. 
+* [Mettre à jour](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) : le modèle de la base de connaissances est défini dans le code JSON envoyé dans le corps de la requête d’API. 
 * [Obtenir les détails de l’opération](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 ## <a name="prerequisites"></a>Prérequis
@@ -260,7 +260,7 @@ static void Main(string[] args)
 
 ## <a name="build-and-run-the-program"></a>Créez et exécutez le projet.
 
-Créez et exécutez le programme. Il envoie automatiquement la requête à l’API QnA Maker pour mettre à jour la base de connaissances, puis demande des résultats toutes les 30 secondes. Chaque réponse est imprimée sur la fenêtre de console.
+Générez et exécutez le programme. Il envoie automatiquement la requête à l’API QnA Maker pour mettre à jour la base de connaissances, puis demande des résultats toutes les 30 secondes. Chaque réponse est imprimée sur la fenêtre de console.
 
 Une fois que votre base de connaissances est mise à jour, vous pouvez l’afficher sur votre portail QnA Maker, sur la page [Mes bases de connaissances](https://www.qnamaker.ai/Home/MyServices). 
 

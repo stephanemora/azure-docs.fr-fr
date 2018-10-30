@@ -4,15 +4,15 @@ description: Fournit une vue d’ensemble du service Azure Migrate.
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: overview
-ms.date: 09/25/2018
+ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: d2a8885ffb9148d408eff0e8a7d2ef09121e5359
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162032"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025622"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -29,16 +29,16 @@ Azure Migrate vous aide à :
 
 ## <a name="current-limitations"></a>Limitations actuelles
 
-- Actuellement, vous pouvez seulement évaluer les machines virtuelles VMware locales pour la migration vers les machines virtuelles Azure. Les machines virtuelles VMware doivent être gérées par vCenter Server (version 5.5, 6.0 ou 6.5).
+- Vous pouvez seulement évaluer les machines virtuelles VMware locales pour la migration vers les machines virtuelles Azure. Les machines virtuelles VMware doivent être gérées par vCenter Server (version 5.5, 6.0 ou 6.5).
 - Si vous souhaitez évaluer des machines virtuelles Hyper et des serveurs physiques, utilisez le [Planificateur de déploiement Azure Site Recovery](http://aka.ms/asr-dp-hyperv-doc) pour Hyper-V et nos [outils partenaires](https://azure.microsoft.com/migration/partners/) pour les machines physiques.
 - Vous pouvez détecter jusqu’à 1500 machines virtuelles par détection et jusqu’à 1500 machines virtuelles par projet. En outre, vous pouvez évaluer jusqu’à 1500 machines virtuelles par évaluation.
 - Si vous voulez découvrir un environnement plus grand, vous pouvez séparer la découverte et créer plusieurs projets. [Plus d’informations](how-to-scale-assessment.md) Azure Migrate prend en charge jusqu’à 20 projets par abonnement.
 - Azure Migrate prend uniquement en charge les disques managés pour l’évaluation de la migration.
-- Vous ne pouvez créer un projet Azure Migrate que dans la zone géographique États-Unis. Cela n’affecte pas votre capacité à planifier la migration vers n’importe quel emplacement Azure cible. La zone géographique du projet de migration est utilisée uniquement pour stocker les métadonnées détectées à partir de l’environnement local. [En savoir plus](https://docs.microsoft.com/azure/migrate/resources-faq#discovery-and-assessment) sur les métadonnées recueillies par Azure Migrate. Les métadonnées recueillies sont stockées dans une des régions de la [zone géographique Azure](https://azure.microsoft.com/global-infrastructure/geographies/) :
+-  Vous ne pouvez créer un projet Azure Migrate que dans la zone géographique États-Unis. Toutefois, vous pouvez planifier une migration vers n’importe quel emplacement Azure cible.
+    - Seules les métadonnées détectées à partir de l’environnement local sont stockées dans la région du projet de migration.
+    - Les métadonnées sont stockées dans une des régions de la zone géographique : USA Centre-Ouest/USA Est.
+    - Si vous utilisez la visualisation des dépendances avec un espace de travail Log Analytics, il est créé dans la même région que le projet. 
 
-**Zone géographique** | **Régions**
---- | ---
-États-Unis | Centre-Ouest des États-Unis, USA Est
 
 ## <a name="what-do-i-need-to-pay-for"></a>Pour quoi dois-je payer ?
 

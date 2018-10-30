@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 12b7a605350b07565660e9e4d1334b286aa5ac00
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079104"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471286"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec Analyse du coût
 
 Pour pouvoir contrôler et optimiser vos coûts Azure correctement, vous devez comprendre d’où proviennent les coûts au sein de votre organisation. Il est également utile de connaître le coût de vos services, notamment en fonction des environnements et des systèmes. La visibilité de la totalité des coûts est essentielle pour comprendre avec précision les modèles de dépenses de l’organisation. Les modèles de dépenses peuvent être utilisés pour appliquer des mécanismes de maîtrise des coûts, comme les budgets.
 
-Dans ce guide de démarrage rapide, vous utilisez l’analyse du coût pour explorer et analyser les coûts Azure de votre organisation. Vous pouvez voir les coûts agrégés par l’organisation afin de comprendre d’où ils viennent et d’identifier les tendances de dépenses. Vous pouvez aussi voir les coûts cumulés au fil du temps pour évaluer des tendances mensuelles, trimestrielles ou même annuelles par rapport à un budget. Un budget permet de fournir une adhésion à des contraintes financières. Il est aussi utilisé pour voir les coûts de chaque jour ou de chaque mois afin d’isoler les irrégularités dans les dépenses. De plus, vous pouvez télécharger les données du rapport actuel en vue de les analyser de manière plus approfondie ou de les utiliser dans un système externe.
+Dans ce guide de démarrage rapide, vous utilisez l’analyse du coût pour explorer et analyser les coûts Azure de votre organisation. Vous pouvez voir les coûts agrégés par l’organisation afin de comprendre d’où ils viennent et d’identifier les tendances de dépenses. Vous pouvez aussi voir les coûts cumulés au fil du temps pour évaluer des tendances mensuelles, trimestrielles ou même annuelles par rapport à un budget. Un budget permet de faire respecter des contraintes financières. Il est aussi utilisé pour voir les coûts de chaque jour ou de chaque mois afin d’isoler les irrégularités dans les dépenses. De plus, vous pouvez télécharger les données du rapport actuel en vue de les analyser de manière plus approfondie ou de les utiliser dans un système externe.
 
 Dans ce guide de démarrage rapide, vous apprenez à :
 
@@ -34,21 +34,25 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 L’analyse du coût est accessible à tous les clients bénéficiant d’un [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût.
 
-- L’étendue *compte de facturation* est définie à l’emplacement https://ea.azure.com et nécessite un accès Administrateur d’entreprise. Aucun paramètre de Contrat Entreprise (EA) n’est prérequis. Les informations de facturation de l’analyse des coûts sont consolidées pour tous les abonnements du Contrat Entreprise. Le compte de facturation est fréquemment désigné sous le terme de *Contrat Entreprise* ou *d’inscription*.
 
-- L’étendue *service* est définie à l’emplacement https://ea.azure.com et nécessite un accès Administrateur de service. Le paramètre **d’affichage des frais pour l’administrateur de service** doit être activé dans le portail EA. Les informations de facturation de l’analyse des coûts sont consolidées pour tous les abonnements appartenant au compte d’inscription qui sont liés au service.
+|**Portée**|**Définition**|**Accès requis pour analyser les coûts sur l’étendue**|**Paramètre de Contrat Entreprise (EA) prérequis**|**Consolide les données de facturation vers**|
+|---                |---                  |---                   |---            |---           |
+|<sup>Premier</sup> compte de facturation|[https://ea.azure.com ](https://ea.azure.com )|Administrateur d'entreprise|Aucun|Abonnements du contrat entreprise|
+|department|[https://ea.azure.com ](https://ea.azure.com )|Administrateur de service|Afficher les frais autorisés de l’administrateur de service|Abonnements appartenant à un compte d’inscription lié au service|
+|<sup>Deuxième</sup2> compte d’inscription|[https://ea.azure.com ](https://ea.azure.com )|Propriétaire du compte|Afficher les frais autorisés du propriétaire du compte|Abonnements à partir du compte d’inscription|
+|Groupe d’administration|[https://portal.azure.com ](https://portal.azure.com )|Lecteur Cost Management (ou Lecteur)|Afficher les frais autorisés du propriétaire du compte|Abonnements en dessous du groupe d’administration|
+|Abonnement|[https://portal.azure.com ](https://portal.azure.com )|Lecteur Cost Management (ou Lecteur)|Afficher les frais autorisés du propriétaire du compte|Ressources/groupes de ressources compris dans l’abonnement|
+|Groupe de ressources|[https://portal.azure.com ](https://portal.azure.com )|Lecteur Cost Management (ou Lecteur)|Afficher les frais autorisés du propriétaire du compte|Ressources comprises dans le groupe de ressources|
 
-- L’étendue *compte d’inscription* est définie à l’emplacement https://ea.azure.com et nécessite un accès Propriétaire du compte. Le paramètre **d’affichage des frais pour le propriétaire du compte** doit être activé dans le portail EA. Les informations de facturation de l’analyse des coûts sont consolidées pour tous les abonnements appartenant au compte d’inscription. Le compte d’inscription est fréquemment désigné sous le terme de *propriétaire du compte*.
+Le <sup>premier</sup> compte de facturation est souvent désigné sous le terme de Contrat Entreprise ou le Compte d’inscription.
 
-- L’étendue *groupe d’administration* est définie à l’emplacement https://portal.azure.com et nécessite un accès Lecteur Cost Management (ou Lecteur). Le paramètre **d’affichage des frais pour le propriétaire du compte** doit être activé dans le portail EA. Les informations de facturation de l’analyse des coûts sont consolidées pour tous les abonnements figurant sous le groupe d’administration.
-
-- L’étendue *abonnement* est définie à l’emplacement https://portal.azure.com et nécessite un accès Lecteur Cost Management (ou Lecteur). Le paramètre **d’affichage des frais pour le propriétaire du compte** doit être activé dans le portail EA. Les informations de facturation de l’analyse des coûts sont consolidées pour la totalité des ressources et des groupes de ressources de l’abonnement.
-
-- L’étendue *groupe de ressources* est définie à l’emplacement https://portal.azure.com et nécessite un accès Lecteur Cost Management (ou Lecteur). Le paramètre **d’affichage des frais pour le propriétaire du compte** doit être activé dans le portail EA. Les informations de facturation de l’analyse des coûts sont consolidées pour la totalité des ressources du groupe de ressources.
-
-
+Le <sup>deuxième</sup> compte d’inscription est souvent désigné sous le terme de propriétaire du compte.
 
 Pour plus d’informations sur la configuration des paramètres **d’affichage des frais pour l’administrateur de service** et **d’affichage des frais pour le propriétaire du compte**, consultez la section [Activation de l’accès aux coûts](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
+
+
+
+
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

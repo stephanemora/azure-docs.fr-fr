@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.author: mattbriggs
+ms.date: 10/22/2018
+ms.author: mabrigg
 ms.reviewer: shnatara
-ms.openlocfilehash: d402b2bcd5187cbb6ece78d7e981068c279c1f75
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0b5f7442604dd31f730b0105d19231407e2b6f1a
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48804427"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49946111"
 ---
 # <a name="deploy-a-service-fabric-cluster-in-azure-stack"></a>Déployer un cluster Service Fabric dans Azure Stack
 
@@ -48,7 +48,7 @@ Le déploiement du cluster Service Fabric requiert les éléments suivants :
 
 
 ## <a name="add-a-secret-to-key-vault"></a>Ajouter un secret au coffre de clés
-Pour déployer un cluster Service Fabric, vous devez spécifier *l’identificateur de secret* du coffre de clés ou l’URL appropriés pour le cluster Service Fabric. Le modèle Azure Resource Manager utilise un coffre de clés en guise d’entrée, puis récupère le certificat de cluster lors de l’installation du cluster Service Fabric. 
+Pour déployer un cluster Service Fabric, vous devez spécifier *l’identificateur de secret* du coffre de clés ou l’URL appropriés pour le cluster Service Fabric. Le modèle Azure Resource Manager utilise KeyVault comme entrée. Le modèle récupère ensuite le certificat du cluster lors de l’installation du cluster Service Fabric.
 
 > [!IMPORTANT]  
 > Vous devez utiliser PowerShell pour ajouter un secret au coffre de clés en vue d’une utilisation avec Service Fabric. N’utilisez pas le portail.  

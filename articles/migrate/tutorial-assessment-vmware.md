@@ -4,15 +4,15 @@ description: Décrit comment découvrir et évaluer des machines virtuelles VMwa
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 09/21/2018
+ms.date: 10/24/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: b2bb6636aef9e26a81988d344f04f23c23ea1622
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: f468bac6f4d8c209fae51f0b84980dc8c611a29b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47161877"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025881"
 ---
 # <a name="discover-and-assess-on-premises-vmware-vms-for-migration-to-azure"></a>Découvrir et évaluer des machines virtuelles VMware locales pour la migration vers Azure.
 
@@ -67,14 +67,20 @@ Connectez-vous au [Portail Azure](https://portal.azure.com).
 Azure Migrate crée une machine virtuelle locale connue en tant qu’appliance collecteur. Cette machine virtuelle découvre les machines virtuelles VMware sur site et envoie les métadonnées les concernant au service Azure Migrate. Pour configurer l’appliance collecteur, vous téléchargez un fichier .OVA, puis vous l’importez dans le serveur vCenter local pour créer la machine virtuelle.
 
 1. Dans le projet Azure Migrate, cliquez sur **Démarrage** > **Découvrir et évaluer** > **Découvrir des machines**.
-2. Dans **Découvrir des machines**, deux options sont disponibles pour l’appliance, cliquez sur **Télécharger** pour télécharger l’appliance appropriée en fonction de vos préférences.
+2. Dans **Détecter des machines**, deux options sont disponibles pour l’appliance. Cliquez sur **Télécharger** pour télécharger l’appliance de votre choix.
 
-    a. **Détection unique :** l’application pour ce modèle, communique avec vCenter Server pour rassembler des métadonnées sur les machines virtuelles. Pour la collecte de données de performances des machines virtuelles, elle s’appuie sur les données de performances historiques stockées dans vCenter Server et collecte l’historique des performances du dernier mois. Dans ce modèle, Azure Migrate collecte des valeurs moyennes (plutôt que des valeurs maximales) pour chaque mesure, [en savoir plus] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Comme il s’agit d’une détection unique, les modifications dans l’environnement local ne sont pas reflétées lorsque la détection est terminée. Si vous souhaitez refléter les modifications, vous devez relancer une détection du même environnement dans le même projet.
+    a. **Détection unique :** l’application pour ce modèle communique avec un serveur vCenter Server pour collecter des métadonnées sur les machines virtuelles. Pour la collecte de données de performances des machines virtuelles, elle s’appuie sur les données de performances historiques stockées dans vCenter Server et collecte l’historique des performances du dernier mois. Dans ce modèle, Azure Migrate collecte des valeurs moyennes (plutôt que des valeurs maximales) pour chaque métrique. [En savoir plus](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Comme il s’agit d’une détection unique, les modifications dans l’environnement local ne sont pas reflétées lorsque la détection est terminée. Si vous souhaitez que les modifications soient reflétées, vous devez relancer une détection du même environnement pour le même projet.
 
-    b. **Détection en continu :** l’appliance pour ce modèle, crée en continu des profils de l’environnement local pour recueillir des données d’utilisation en temps réel pour chaque machine virtuelle. Dans ce modèle, les compteurs de valeurs maximales sont collectées pour chaque mesure (utilisation du processeur, utilisation de la mémoire etc.). Ce modèle ne dépend pas des paramètres de statistiques de vCenter Server pour la collecte des données de performances. Vous pouvez arrêter à tout moment le profilage continu à partir de l’appliance.
+    b. **Détection continue :** l’appliance pour ce modèle crée en continu des profils de l’environnement local pour recueillir des données d’utilisation en temps réel pour chaque machine virtuelle. Dans ce modèle, les compteurs de valeurs maximales sont collectées pour chaque mesure (utilisation du processeur, utilisation de la mémoire etc.). Ce modèle ne dépend pas des paramètres de statistiques de vCenter Server pour la collecte des données de performances. Vous pouvez arrêter à tout moment le profilage continu à partir de l’appliance.
+
+    Notez que l’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
+
+    1. Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications dans le portail Azure, vous pouvez arrêter la détection de l’appliance et puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
+
+    2. Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
 
     > [!NOTE]
-    > La fonctionnalité de détection en continu est en préversion.
+    > La fonctionnalité de détection continue est en préversion. Nous vous recommandons d’utiliser cette méthode, car elle collecte des données de performances granulaires pour un dimensionnement correct.
 
 3. Dans **Copier les informations d’identification du projet**, copiez l’ID de projet et la clé. Vous en aurez besoin pour la configuration du collecteur.
 
@@ -91,6 +97,14 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
 3. Le code de hachage généré doit correspondre aux paramètres ci-après.
 
 #### <a name="one-time-discovery"></a>Détection unique
+
+  Pour OVA version 1.0.9.15
+
+  **Algorithme** | **Valeur de hachage**
+  --- | ---
+  MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+  SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+  SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
 
   Pour OVA version 1.0.9.14
 
@@ -125,7 +139,7 @@ Vérifiez que le fichier .OVA est sécurisé, avant de le déployer.
   SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
   SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
-#### <a name="continuous-discovery"></a>Détection en continu
+#### <a name="continuous-discovery"></a>Détection continue
 
   Pour OVA version 1.0.10.4
 
@@ -174,7 +188,7 @@ Importez le fichier téléchargé sur le serveur vCenter.
     - Dans **Étendue de la collecte**, sélectionnez une étendue pour la découverte des machines virtuelles. Le collecteur peut uniquement découvrir les machines virtuelles situées dans l’étendue spécifiée. L’étendue peut être définie sur un dossier, un centre de données ou un cluster spécifique. Elle ne doit pas contenir plus de 1 500 machines virtuelles. [En savoir plus](how-to-scale-assessment.md) sur la manière dont vous pouvez découvrir un environnement plus large.
 
 7. Dans **Specify migration project** (Spécifier un projet de migration), spécifiez l’ID et la clé du projet Azure Migrate que vous avez copiés à partir du portail. Si vous ne les avez pas copiés, ouvrez le portail Azure à partir de la machine virtuelle collector. Dans la page **Vue d’ensemble** du projet, cliquez sur **Découvrir des machines**, puis copiez les valeurs.  
-8. Dans **Afficher la progression de la collecte**, surveillez l’état de la détection. En savoir plus https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sur les données collectées par le collecteur Azure Migrate.
+8. Dans **Afficher la progression de la collecte**, surveillez l’état de la détection. [En savoir plus](https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) sur les données collectées par le collecteur Azure Migrate.
 
 > [!NOTE]
 > Le collecteur prend uniquement en charge « Anglais (États-Unis) » comme langue du système d’exploitation et langue de l’interface du collecteur.
@@ -258,14 +272,14 @@ Pour le dimensionnement basé sur les performances, Azure Migrate a besoin des d
 
 Tous les points de données d’une évaluation peuvent ne pas être disponibles pour l’une des raisons suivantes :
 
-**Détection unique**
+**Découverte unique**
 
-- Le paramètre des statistiques dans vCenter Server n’est pas défini sur le niveau 3. Comme le modèle de détection unique dépend des paramètres de statistiques de vCenter Server, si le paramètre des statistiques dans vCenter Server est inférieur au niveau 3, les données de performances pour le disque et le réseau ne sont pas collectées à partir de vCenter Server. Dans ce cas, la recommandation fournie par Azure Migrate pour le disque et le réseau n’est pas basée sur l’utilisation. Sans tenir compte des E/S par seconde/du débit du disque, Azure Migrate ne peut pas déterminer si le disque a besoin d’un disque premium dans Azure. Dans ce cas, Azure Migrate recommande donc des disques standard pour tous les disques.
+- Le paramètre des statistiques dans vCenter Server n’est pas défini sur le niveau 3. Comme le modèle de découverte unique dépend des paramètres de statistiques de vCenter Server, si le paramètre des statistiques dans vCenter Server est inférieur au niveau 3, les données de performances pour le disque et le réseau ne sont pas collectées à partir de vCenter Server. Dans ce cas, la recommandation fournie par Azure Migrate pour le disque et le réseau n’est pas basée sur l’utilisation. Sans tenir compte des E/S par seconde/du débit du disque, Azure Migrate ne peut pas déterminer si le disque a besoin d’un disque premium dans Azure. Dans ce cas, Azure Migrate recommande donc des disques standard pour tous les disques.
 - Le paramètre des statistiques dans vCenter Server a été défini sur le niveau 3 pour une durée plus courte, avant le lancement de la découverte. Par exemple, intéressons-nous au scénario dans lequel vous faites passer le paramètre de statistiques au niveau 3 aujourd’hui et lancez la découverte en utilisant l’appliance de collecteur demain (après 24 heures). Si vous créez une évaluation pour une journée, vous disposez de tous les points de données, et le niveau de confiance de l’évaluation est de 5 étoiles. Mais si vous modifiez la durée des performances dans les propriétés d’évaluation pour la définir à un mois, le niveau de confiance diminue, car les données de performances du disque et du réseau pour le mois dernier ne sont pas disponibles. Si vous souhaitez prendre en compte les données de performances du dernier mois, il est recommandé de conserver le paramètre des statistiques vCenter Server au niveau 3 pendant un mois avant d’exécuter la découverte.
 
 **Détection en continu**
 
-- Vous n’avez pas créé de profil pour votre environnement dans la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez l’évaluation avec une durée des performances définie sur 1 jour, vous devez attendre au moins un jour après le démarrage de la détection pour collecter tous les points de données.
+- Vous n’avez pas profilé votre environnement pour la durée pour laquelle vous créez l’évaluation. Par exemple, si vous créez l’évaluation avec une durée des performances définie sur 1 jour, vous devez attendre au moins un jour après le démarrage de la découverte pour collecter tous les points de données.
 
 **Raisons courantes**  
 
@@ -273,7 +287,7 @@ Tous les points de données d’une évaluation peuvent ne pas être disponibles
 - Quelques machines virtuelles ont été créées pendant la période de calcul de l’évaluation. Par exemple, si vous créez une évaluation de l’historique des performances du mois dernier, mais si la création de quelques machines virtuelles dans l’environnement ne remonte qu’à une semaine. Dans ce cas, l’historique des performances des nouvelles machines virtuelles ne sera pas disponible pour toute la durée définie.
 
 > [!NOTE]
-> Si le niveau de confiance d’une évaluation est inférieur à 4 étoiles, pour un modèle de détection unique, nous vous recommandons de faire passer les paramètres de statistiques vCenter Server au niveau 3, de patienter pendant toute la période que vous souhaitez prendre en compte pour l’évaluation (1 jour/1 semaine/1 mois), puis de procéder à la détection et à l’évaluation. Pour le modèle de détection en continu, attendez au moins un jour que l’appliance crée un profil pour l’environnement, puis *recalculez* l’évaluation. Si l’exemple précédent ne peut pas être effectué, le dimensionnement basé sur les performances est susceptible de manquer de fiabilité et il est recommandé de basculer vers le *dimensionnement Localement* en changeant les propriétés de l’évaluation.
+> Si le niveau de confiance d’une évaluation est inférieur à 4 étoiles, pour un modèle de découverte unique, nous vous recommandons de faire passer les paramètres de statistiques vCenter Server au niveau 3, de patienter pendant toute la période que vous souhaitez prendre en compte pour l’évaluation (1 jour/1 semaine/1 mois), puis de procéder à la découverte et à l’évaluation. Pour le modèle de découverte en continu, attendez au moins un jour que l’appliance profile l’environnement, puis *recalculez* l’évaluation. Si vous ne pouvez pas effectuer ce qui précède, le dimensionnement basé sur les performances est susceptible de manquer de fiabilité ; nous vous recommandons alors de basculer vers le *dimensionnement local* en changeant les propriétés de l’évaluation.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

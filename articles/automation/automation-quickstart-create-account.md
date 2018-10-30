@@ -4,17 +4,17 @@ description: Apprendre à créer un compte Azure Automation et exécuter un runb
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 08/22/2018
+ms.date: 10/18/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 81dbcb4f77708f9f679d146b1db83ddecc30629d
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 701d2c348e91efed17c8c7828ace920914093b5a
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616594"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426190"
 ---
 # <a name="create-an-azure-automation-account"></a>Créer un compte Azure Automation
 
@@ -32,7 +32,7 @@ Se connecter à Azure à https://portal.azure.com
 
 1. Sélectionnez **Outils de gestion**, puis sélectionnez **Automation**.
 
-1. Saisissez les informations du compte. Pour **Créer un compte d’identification Azure**, choisissez **Oui** afin que les artefacts simplifiant l’authentification à Azure soient automatiquement activés. Il est important de noter que lorsque vous créez un compte Automation, le nom n’est pas modifiable une fois choisi. Lorsque vous avez terminé, cliquez sur **Créer** pour démarrer le déploiement du compte Automation.
+1. Saisissez les informations du compte. Pour **Créer un compte d’identification Azure**, choisissez **Oui** afin que les artefacts simplifiant l’authentification à Azure soient automatiquement activés. Il est important de noter que lorsque vous créez un compte Automation, le nom n’est pas modifiable une fois choisi. Un compte Automation peut gérer les ressources sur toutes les régions et abonnements pour un locataire donné. Lorsque vous avez terminé, cliquez sur **Créer** pour démarrer le déploiement du compte Automation.
 
     ![Saisir les informations relatives à votre compte Automation dans la page](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
@@ -58,7 +58,7 @@ Exécutez l’un des runbooks de didacticiel.
 
 1. Lorsque **l’état du travail** passe à **En cours d’exécution**, cliquez sur **Sortie** ou **Tous les journaux** pour afficher la sortie du travail de runbook. Pour ce runbook de didacticiel, la sortie est une liste de vos ressources Azure.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le compte Automation et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources pour le compte Automation, puis cliquez sur **Supprimer**.
 

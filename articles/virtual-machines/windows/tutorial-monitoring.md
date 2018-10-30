@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0f2388747d60f1911994431d8edbd57e32d5c35a
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: ce90ea447f7dcf4df1451294acf9f7fd093ad6ee
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932651"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408640"
 ---
 # <a name="tutorial-monitor-and-update-a-windows-virtual-machine-in-azure"></a>Didacticiel : surveiller et mettre à jour une machine virtuelle Windows dans Azure
 
@@ -276,13 +276,13 @@ Set-AzureRmVMExtension -ResourceGroupName "myResourceGroupMonitor" `
   -Location "East US"
 ```
 
-Après quelques minutes, la nouvelle machine virtuelle s’affiche dans l’espace de travail Log Anaytics.
+Après quelques minutes, la nouvelle machine virtuelle s’affiche dans l’espace de travail Log Analytics.
 
-![Panneau OMS](./media/tutorial-monitoring/tutorial-monitor-oms.png)
+![Panneau Log Analytics](./media/tutorial-monitoring/tutorial-monitor-oms.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez configuré et examiné des machines virtuelles avec Azure Security Center. Vous avez appris à effectuer les actions suivantes :
+Dans ce didacticiel, vous avez configuré et examiné des machines virtuelles avec Azure Security Center. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créez un réseau virtuel

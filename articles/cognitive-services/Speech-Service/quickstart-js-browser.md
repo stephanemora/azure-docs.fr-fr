@@ -1,31 +1,32 @@
 ---
-title: 'Démarrage rapide : Reconnaissance vocale en JavaScript dans un navigateur avec le SDK Speech de Cognitive Services'
-titleSuffix: Microsoft Cognitive Services
-description: Découvrez comment utiliser la reconnaissance vocale en JavaScript dans un navigateur avec le SDK Speech de Cognitive Services
+title: 'Démarrage rapide : reconnaissance vocale en JavaScript dans un navigateur avec le kit SDK Service Speech'
+titleSuffix: Azure Cognitive Services
+description: Découvrez comment procéder à la reconnaissance vocale en JavaScript dans un navigateur avec le kit SDK Service Speech
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
-ms.topic: article
-ms.date: 09/24/2018
+ms.component: speech-service
+ms.topic: quickstart
+ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 75dcda643741e3aeb1238f82128e4c5b058be840
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b01746c20dbef7726f129badac045c1fb440f602
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883652"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467461"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-cognitive-services-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale en JavaScript dans un navigateur avec le SDK Speech de Cognitive Services
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-service-sdk"></a>Démarrage rapide : reconnaissance vocale en JavaScript dans un navigateur avec le kit SDK Service Speech
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Dans cet article, vous allez apprendre à créer un site web en utilisant la liaison JavaScript du SDK Speech de Cognitive Services en vue de transcrire de la parole en texte.
-L’application est basée sur le SDK Speech de Microsoft Cognitive Services ([Télécharger la version 1.0.0](https://aka.ms/csspeech/jsbrowserpackage)).
+L’application est basée sur le kit SDK Speech de Microsoft Cognitive Services ([Télécharger la version 1.0.1](https://aka.ms/csspeech/jsbrowserpackage)).
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Clé d’abonnement pour le service Speech. Consultez l’article [Try the speech service for free](get-started.md) (Essayer le service Speech gratuitement).
+* Clé d’abonnement pour le service Speech. Consultez l’article [Essayez le service Speech gratuitement](get-started.md).
 * Un PC ou un Mac avec un micro qui fonctionne
 * Un éditeur de texte
 * La version actuelle de Chrome ou de Microsoft Edge

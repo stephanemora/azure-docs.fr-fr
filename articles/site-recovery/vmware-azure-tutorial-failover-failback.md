@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/11/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: e9ed0ba8d24f30f67dbb315848dc4c260cae4f50
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7e586e7e3ec8c16dcd215dbc11251d1b9fe928e1
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391366"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457039"
 ---
 # <a name="fail-over-and-fail-back-vmware-vms-and-physical-servers-replicated-to-azure"></a>Basculer et restaurer automatiquement des machines virtuelles et des serveurs physiques VMware répliqués vers Azure
 
@@ -93,13 +93,12 @@ Suivez les étapes décrites [ici](site-recovery-failover-to-azure-troubleshoot.
 
 ## <a name="preparing-for-reprotection-of-azure-vm"></a>Préparation à la reprotection de la machine virtuelle Azure
 
-### <a name="create-a-process-server-in-azure"></a>Créer un serveur de processus dans Azure
+- Vous pouvez utiliser le serveur de processus local (serveur de processus intégré) qui est installé automatiquement sur le serveur de configuration en tant que partie de la configuration **si vous disposez d’une connexion Microsoft Azure ExpressRoute**.
 
-Le serveur de processus reçoit des données de la machine virtuelle Azure et les envoie vers le site local. Un réseau à faible latence est nécessaire entre le serveur de processus et la machine virtuelle protégée.
+> [!IMPORTANT]
+> Si vous disposez d’une connexion VPN entre votre environnement local et Azure, vous devez configurer une machine virtuelle Azure en tant que serveur de processus pour la reprotection et la restauration automatique. Pour configurer un serveur de processus dans Azure, suivez les instructions de [cet article](vmware-azure-set-up-process-server-azure.md).
 
-- À des fins de test, si vous avez une connexion Azure ExpressRoute, vous pouvez utiliser le serveur de processus local (serveur de processus intégré) qui est installé automatiquement sur le serveur de configuration.
-- Si vous avez une connexion VPN ou si vous effectuez la restauration automatique dans un environnement de production, vous devez configurer une machine virtuelle Azure comme serveur de processus basé sur Azure pour la restauration automatique.
-- Pour configurer un serveur de processus dans Azure, suivez les instructions de [cet article](vmware-azure-set-up-process-server-azure.md).
+Pour plus d’informations concernant les conditions préalables à la reprotection et la restauration automatique, reportez-vous à cette [section] (vmware-azure-reprotect.md##before-you-begin). 
 
 ### <a name="configure-the-master-target-server"></a>Configurer le serveur cible maître
 

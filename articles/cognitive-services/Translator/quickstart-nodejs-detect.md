@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Identifier la langue du texte - Traduction de texte Translator Text, Node.js'
+title: 'Démarrage rapide : Identifier la langue du texte, Node.js - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous identifiez la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec Node.js.
+description: Dans ce guide de démarrage rapide, vous allez identifier la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec Node.js.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: bb2118c9c05cff093bb5affe91a388986ba85a38
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 15c8b8077caf7c1235d0eff0429f7ada11e533ff
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126205"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644672"
 ---
-# <a name="quickstart-identify-language-from-text-with-nodejs"></a>Démarrage rapide : Identifier la langue du texte avec Node.js
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-nodejs"></a>Démarrage rapide : Identifier la langue du texte à l’aide de l’API de traduction de texte Translator Text (Node.js)
 
 Dans ce démarrage rapide, vous identifiez la langue du texte source à l’aide de l’API de traduction de texte Translator Text.
 

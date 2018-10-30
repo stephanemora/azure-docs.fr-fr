@@ -1,20 +1,20 @@
 ---
 title: Itinéraires multiples avec Azure Maps | Microsoft Docs
 description: Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 340bf83f07b9e730cc43baccc60a39f5ba1f9942
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 864f662cd6be3c5929166db92f2dad92b9c6586e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815305"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49648205"
 ---
 # <a name="find-routes-for-different-modes-of-travel-using-azure-maps"></a>Rechercher des itinéraires pour différents modes de déplacement avec Azure Maps
 
@@ -74,15 +74,16 @@ Les étapes suivantes vous indiquent comment créer une page HTML statique inté
     </html>
     ```
     L’en-tête HTML intègre les emplacements des ressources des fichiers CSS et JavaScript pour la bibliothèque Azure Maps. Le segment *script* dans le corps du fichier HTML contient le code JavaScript inline associé à la carte.
+
 3. Ajoutez le code JavaScript suivant au bloc *script* du fichier HTML. Remplacez la chaîne **\<your account key\>** par la clé primaire copiée de votre compte Maps. Si vous n’indiquez pas à la carte l’emplacement sur lequel se concentrer, la carte du monde s’affiche. Ce code définit le point central sur la carte, et déclare un niveau de zoom qui vous permet de vous concentrer sur une zone spécifique par défaut.
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
+    var mapCenterPosition = [-73.985708, 40.75773];
+    atlas.setSubscriptionKey("<your account key>");
     var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-         center: [-118.2437, 34.0522],
-         zoom: 12
+      center: mapCenterPosition,
+      zoom: 11
     });
     ```
     **atlas.Map** fournit le contrôle d’une carte web visuelle et interactive et est un composant de l’API Azure Map Control.
@@ -93,10 +94,10 @@ Les étapes suivantes vous indiquent comment créer une page HTML statique inté
 
 ## <a name="visualize-traffic-flow"></a>Visualiser le flux du trafic
 
-1. Ajoutez l’affichage du trafic à la carte.  L’instance **map.addEventListener** assure que toutes les fonctions de correspondance ajoutées à la carte sont chargées une fois le chargement de la carte terminé.
+1. Ajoutez l’affichage du trafic à la carte.  L’instance **map.events.add** assure que toutes les fonctions de correspondance ajoutées à la carte sont chargées une fois le chargement de la carte terminé.
 
     ```JavaScript
-    map.addEventListener("load", function() {
+    map.events.add("load", function() {
         // Add Traffic Flow to the Map
         map.setTraffic({
             flow: "relative"
@@ -146,7 +147,7 @@ Pour ce didacticiel, définissez le point de départ sur une entreprise fictive 
         padding: 100
     });
     
-    map.addEventListener("load", function() { 
+    map.events.add("load", function() { 
         // Add pins to the map for the start and end point of the route
         map.addPins([startPin, destinationPin], {
             name: "route-pins",
@@ -155,7 +156,7 @@ Pour ce didacticiel, définissez le point de départ sur une entreprise fictive 
         });
     });
     ```
-    L’appel **map.setCameraBounds** ajuste la fenêtre de la carte en fonction des coordonnées des points de départ et d’arrivée. L’instance **map.addEventListener** assure que toutes les fonctions de correspondance ajoutées à la carte sont chargées une fois le chargement de la carte terminé. L’API **map.addPins** ajoute les points au contrôle de carte sous la forme de composants visuels.
+    L’appel **map.setCameraBounds** ajuste la fenêtre de la carte en fonction des coordonnées des points de départ et d’arrivée. L’instance **map.events.add** assure que toutes les fonctions de correspondance ajoutées à la carte sont chargées une fois le chargement de la carte terminé. L’API **map.addPins** ajoute les points au contrôle de carte sous la forme de composants visuels.
 
 3. Enregistrez le fichier et actualisez votre navigateur afin d’afficher les repères sur votre carte. Même si vous avez défini votre carte avec un point central sur Los Angeles, l’instance **map.setCameraBounds** a déplacé la vue pour afficher les points de départ et d’arrivée.
 
@@ -165,7 +166,7 @@ Pour ce didacticiel, définissez le point de départ sur une entreprise fictive 
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>Afficher les itinéraires priorisés par mode de déplacement
 
-Cette section montre comment utiliser l’API Route Service d’Azure Maps pour rechercher plusieurs itinéraires entre un point de départ donné et une destination, en fonction de votre mode de transport. Route Service fournit des API pour planifier les itinéraires les plus *rapides*, *courts*, *économiques* ou *intéressants* entre deux emplacements, en fonction des conditions de circulation actuelles. Grâce à la base de données de trafic historique complète d’Azure, il permet également aux utilisateurs de planifier des itinéraires, durées comprises, pour n’importe quels jour et heure. Pour plus d’informations, voir [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obtenir les itinéraires).  Tous les blocs de code suivants doivent être ajoutés **dans l’eventListener du chargement de la carte** pour assurer leur chargement une fois la carte complètement chargée.
+Cette section montre comment utiliser l’API Route Service d’Azure Maps pour rechercher plusieurs itinéraires entre un point de départ donné et une destination, en fonction de votre mode de transport. Route Service fournit des API pour planifier les itinéraires les plus *rapides*, *courts*, *économiques* ou *intéressants* entre deux emplacements, en fonction des conditions de circulation actuelles. Grâce à la base de données de trafic historique complète d’Azure, il permet également aux utilisateurs de planifier des itinéraires, durées comprises, pour n’importe quels jour et heure. Pour plus d’informations, voir [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Obtenir les itinéraires). Tous les blocs de code suivants doivent être ajoutés **dans l’eventListener du chargement de la carte** pour assurer leur chargement une fois la carte complètement chargée.
 
 1. Tout d’abord, ajoutez une nouvelle couche sur la carte pour afficher l’itinéraire, ou *linestring*. Ce didacticiel comporte deux itinéraires, **car-route** et **truck-route**, chacun affichant un style propre. Ajoutez le code JavaScript suivant au bloc *script* :
 
@@ -233,7 +234,7 @@ Cette section montre comment utiliser l’API Route Service d’Azure Maps pour 
     // Execute the car route query then add the route to the map once a response is received  
     client.route.getRouteDirections(routeQuery).then(response => {
         // Parse the response into GeoJSON
-        var geoJsonResponse = new tlas.service.geojson
+        var geoJsonResponse = new atlas.service.geojson
             .GeoJsonRouteDiraectionsResponse(response);
 
         // Get the first in the array of routes and add it to the map 
@@ -260,7 +261,7 @@ Dans ce tutoriel, vous avez appris à :
 > * Créer des requêtes d’itinéraire déclarant le mode de déplacement
 > * Afficher plusieurs itinéraires sur votre carte
 
-Vous trouverez ici un exemple de code pour ce didacticiel :
+Vous trouverez l’exemple de code de ce didacticiel à cet emplacement :
 
 > [Itinéraires multiples avec Azure Maps](https://github.com/Azure-Samples/azure-maps-samples/blob/master/src/truckRoute.html)
 

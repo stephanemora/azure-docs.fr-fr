@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 10/09/2018
 ms.author: astay;cephalin;kraigb
 ms.custom: mvc
-ms.openlocfilehash: 71cbf0bb31a72e3b257f25c159d9d9eea31dbfbb
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: a29f0f4be6286f8acf367a3ea0b4b0e6b31e7d98
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901616"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406464"
 ---
 # <a name="configure-your-python-app-for-the-azure-app-service-on-linux"></a>Configurer votre application Python pour Azure App Service sur Linux
 
@@ -74,10 +74,16 @@ Si votre module d’application principal est contenu dans un autre fichier, uti
 
 ### <a name="custom-startup-command"></a>Commande de démarrage personnalisée
 
-Vous pouvez contrôler le comportement de démarrage du conteneur en fournissant une commande de démarrage Gunicorn personnalisée. Par exemple, si vous disposez d’une application Flask dont le module principal est *hello.py* et que l’objet d’application Flask est nommé `myapp`, la commande est la suivante :
+Vous pouvez contrôler le comportement de démarrage du conteneur en fournissant une commande de démarrage Gunicorn personnalisée. Par exemple, si vous disposez d’une application Flask dont le module principal est *hello.py* et que l’objet d’application Flask dans le fichier est nommé `myapp`, la commande est la suivante :
 
 ```bash
 gunicorn --bind=0.0.0.0 --timeout 600 hello:myapp
+```
+
+Si votre module principal est dans un sous-dossier, tel que `website`, précisez ce dossier grâce à l’argument `--chdir` :
+
+```bash
+gunicorn --bind=0.0.0.0 --timeout 600 --chdir website hello:myapp
 ```
 
 Vous pouvez également ajouter à la commande tout argument supplémentaire pour Gunicorn, tel que `--workers=4`. Pour plus d’informations, consultez [Running Gunicorn](http://docs.gunicorn.org/en/stable/run.html) (Exécuter Gunicorn - docs.gunicorn.org).
@@ -105,9 +111,10 @@ Si App Service ne trouve pas de commande personnalisée, d’application Django 
 
 - **Vous voyez l’application par défaut après le déploiement du code de votre propre application.**  L’application par défaut s’affiche, soit parce que n’avez pas déployé le code de votre application vers App Service, soit parce qu’App Service n’a pas trouvé le code de votre application et a exécuté l’application par défaut à la place.
   - Redémarrez App Service, patientez 15 à 20 secondes et vérifiez de nouveau l’application.
-  - Utilisez SSH ou la console Kudu pour vous connecter directement à App Service et vérifiez que vos fichiers existent dans *site/wwwroot*. Si vos fichiers n’existent pas, reconsidérez votre processus de déploiement et redéployez l’application.
+  - Vérifiez que vous utilisez bien App Service pour Linux, et non une instance basée sur Windows. À partir de l’interface CLI, exécutez la commande `az webapp show --resource-group <resource_group_name> --name <app_service_name> --query kind`, en remplaçant `<resource_group_name>` et `<app_service_name>` en conséquence. `app,linux` doit être la sortie ; si ce n’est pas le cas, recréez l’App Service et choisissez Linux.
+    - Utilisez SSH ou la console Kudu pour vous connecter directement à App Service et vérifiez que vos fichiers existent dans *site/wwwroot*. Si vos fichiers n’existent pas, reconsidérez votre processus de déploiement et redéployez l’application.
   - Si vos fichiers existent, cela signifie qu’App Service n’a pas été en mesure d’identifier votre fichier de démarrage. Vérifiez que votre application est structurée selon ce qu’App Service attend pour [Django](#django-app) ou [Flask](#flask-app), ou bien utilisez une [commande de démarrage personnalisée](#custom-startup-command).
-
+  
 - **Le message « Service indisponible » s’affiche dans le navigateur.** Le délai d’attente du navigateur a expiré en l’absence d’une réponse d’App Service. Cela indique qu’App Service a démarré le serveur Gunicorn, mais que les arguments qui spécifient le code d’application sont incorrects.
   - Actualisez le navigateur, en particulier si vous utilisez les niveaux tarifaires les plus bas pour votre Plan App Service. Par exemple, l’application peut prendre plus de temps à démarrer si vous utilisez des niveaux gratuits et répondre une fois que vous avez actualisé le navigateur.
   - Vérifiez que votre application est structurée selon ce qu’App Service attend pour [Django](#django-app) ou [Flask](#flask-app), ou bien utilisez une [commande de démarrage personnalisée](#custom-startup-command).

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Utiliser l’API Video Indexer'
+title: Utiliser l’API Video Indexer
 titlesuffix: Azure Cognitive Services
 description: Cet article explique comment utiliser l’API Video Indexer.
 services: cognitive services
@@ -8,16 +8,16 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: tutorial
-ms.date: 09/09/2018
+ms.date: 10/20/2018
 ms.author: juliako
-ms.openlocfilehash: 7bd7ed1b2d2f437ef57598c42ca12ce8bfb174a1
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 401811ec8803f3ede5a829dc96edc1e7f15e5ee0
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985563"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637746"
 ---
-# <a name="tutorial-use-the-video-indexer-api"></a>Tutoriel : Utiliser l’API Video Indexer
+# <a name="use-the-video-indexer-api"></a>Utiliser l’API Video Indexer
 
 > [!Note]
 > L’API Video Indexer v1 est déconseillée depuis le 1er août 2018. Vous devez désormais utiliser l’API Video Indexer v2. <br/>Pour développer avec les API Video Indexer V2, consultez les instructions fournies [ici](https://api-portal.videoindexer.ai/). 
@@ -52,6 +52,9 @@ Cet article explique comment les développeurs peuvent tirer parti de l’[API V
 
     ![Inscription](./media/video-indexer-use-apis/video-indexer-api03.png)
 
+> [!TIP]
+> L’utilisateur de Video Indexer peut utiliser une clé d’abonnement unique pour se connecter à plusieurs comptes Video Indexer. Vous pouvez ensuite lier ces comptes Video Indexer à différents comptes Media Services.
+
 ## <a name="obtain-access-token-using-the-authorization-api"></a>Obtenir le jeton d’accès à l’aide de l’API Autorisation
 
 Une fois abonné à l’API Autorisation, vous êtes en mesure d’obtenir des jetons d’accès. Ces jetons d’accès sont utilisés pour l’authentification auprès de l’API Opérations. 
@@ -78,7 +81,7 @@ Toutes les API Opération nécessitent un paramètre de lieu, qui indique la ré
 
 Les valeurs décrites dans le tableau suivant s’appliquent. **Valeur param.** est la valeur que vous transmettez lorsque vous utilisez l’API.
 
-|**Name**|**Valeur param.**|**Description**|
+|**Nom**|**Valeur param.**|**Description**|
 |---|---|---|
 |Version d’évaluation|trial|Utilisé pour les comptes d’évaluation.|
 |USA Ouest|westus2|Utilisé pour la région Azure USA Ouest 2.|

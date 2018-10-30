@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
 ms.date: 10/10/2018
-ms.openlocfilehash: 2e8e9706a9572b85030a636dd75d4809447eabbc
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 445d4a50cdb0780e7aff5331f0ba9e70aae44e25
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067889"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945159"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-managed-instance-offline-using-dms"></a>Migrer SQL Server vers Azure SQL Database Managed Instance hors connexion à l’aide de DMS
 Vous pouvez utiliser Azure Database Migration Service pour migrer les bases de données d’une instance SQL Server locale vers une instance [Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance.md). Pour des méthodes supplémentaires pouvant nécessiter un effort manuel, voir l’article [Migration d’une instance SQL Server vers Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-migrate.md).
@@ -30,6 +30,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Exécuter la migration.
 > * Surveiller la migration.
 > * Télécharger un rapport de migration.
+
+[!INCLUDE [online-offline](../../includes/database-migration-service-offline-online.md)]
+
+Cet article décrit une migration hors connexion de SQL Server vers Azure SQL Database Managed Instance. Pour une migration en ligne, consultez [Migrer SQL Server vers Azure SQL Database Managed Instance hors connexion à l’aide de DMS](tutorial-sql-server-managed-instance-online.md).
 
 ## <a name="prerequisites"></a>Prérequis
 Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :

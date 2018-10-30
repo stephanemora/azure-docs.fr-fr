@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Traduire du texte - Traduction de texte Translator Text, Ruby'
+title: 'Démarrage rapide : Traduire du texte, Ruby - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous traduisez du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text avec Ruby.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: 38b4ee3a2122e0151490ef1a29ee02d498a06b7d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: a36f873c08fee57ddb73f94b4a77dc4514422cb1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126545"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645607"
 ---
-# <a name="quickstart-translate-text-with-ruby"></a>Démarrage rapide : Traduire du texte avec Ruby
+# <a name="quickstart-translate-text-with-the-translator-text-rest-api-ruby"></a>Démarrage rapide : Traduire du texte à l’aide de l’API REST de traduction de texte Translator Text (Ruby)
 
 Dans ce démarrage rapide, vous traduisez du texte d’une langue à une autre à l’aide de l’API de traduction de texte Translator Text.
 

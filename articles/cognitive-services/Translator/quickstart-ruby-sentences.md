@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Obtenir la longueur des phrases - Traduction de texte Translator Text, Ruby'
+title: 'Démarrage rapide : Obtenir la longueur des phrases, Ruby - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez rechercher la longueur des phrases du texte à l’aide de l’API de traduction de texte Translator Text avec Ruby.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/22/2018
-ms.author: nolachar
-ms.openlocfilehash: a39982555b281cfe0537a0033c9a67a7f5a1fe63
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 18ef4e20c28b783738d2be929e063e6dada412d4
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122567"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644706"
 ---
-# <a name="quickstart-get-sentence-lengths-with-ruby"></a>Démarrage rapide : Obtenir les longueurs de phrase avec Ruby
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-ruby"></a>Démarrage rapide : Obtenir la longueur des phrases avec l’API REST de traduction de texte Translator Text (Ruby)
 
 Dans ce démarrage rapide, vous allez rechercher les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text.
 

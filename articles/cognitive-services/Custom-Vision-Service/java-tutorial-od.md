@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer un projet de détection des objets - API Vision personnalisée, Java'
+title: 'Tutoriel : Créer un projet de détection d’objet avec le kit de développement logiciel (SDK) de Vision personnalisée pour Java - Service Vision personnalisée'
 titlesuffix: Azure Cognitive Services
 description: Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage votre projet ainsi qu’une prédiction en utilisant le point de terminaison par défaut.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 661242e4962a8218c48d7ea66d8a6f728b5154c8
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: d4af3315cfca18da594730cc402236684f81bfc8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46365013"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957333"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-java"></a>Tutoriel : Créer un projet de détection des objets avec Java
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-java"></a>Tutoriel : créer un projet de détection d’objet avec le kit de développement logiciel (SDK) de Vision personnalisée pour Java
 
 Explorer une application Java de base qui utilise l’API Vision par ordinateur pour créer un projet de détection des objets. Une fois le projet créé, vous pouvez ajouter des régions balisées, charger des images, effectuer l’apprentissage du projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser le point de terminaison pour tester une image par programmation. Utilisez cet exemple open source comme modèle de création pour votre propre application au moyen de l’API Vision personnalisée.
 
@@ -42,7 +42,7 @@ Pour obtenir les clés utilisées dans cet exemple, visitez le [site Custom Visi
 
 ## <a name="understand-the-code"></a>Comprendre le code
 
-Le projet complet, y compris les images, est disponible dans le [référentiel d’exemples Vision personnalisée Azure pour Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
+Le projet complet, y compris les images, est disponible dans le [dépôt d’exemples Vision personnalisée Azure pour Java](https://github.com/Azure-Samples/cognitive-services-java-sdk-samples/tree/master). 
 
 Utilisez l’IDE Java de votre choix pour ouvrir le projet `Vision/CustomVision`. 
 
@@ -176,7 +176,7 @@ for (int i = 1; i <= 20; i++) {
 }
 ```
 
-L’extrait de code précédent utilise deux fonctions d’assistance qui récupèrent les images comme des flux de ressources et les charge vers le service.
+L’extrait de code précédent utilise deux fonctions d’assistance qui récupèrent les images comme flux de ressources et les charge dans le service.
 
 ```java
 private static void AddImageToProject(Trainings trainer, Project project, String fileName, byte[] contents, UUID tag, double[] regionValues)
@@ -221,7 +221,7 @@ private static byte[] GetImage(String folder, String fileName)
 
 ## <a name="train-the-project"></a>Entraîner le projet
 
-Cela crée la première itération du projet, et la marque comme l’itération par défaut. 
+Cette opération crée la première itération du projet et la marque comme l’itération par défaut. 
 
 ```java
 System.out.println("Training...");

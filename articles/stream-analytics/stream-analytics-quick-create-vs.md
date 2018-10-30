@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: a69bfbe4c062012e82ca49233226eb1fcb8eb75e
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: be4c906535981c6b05c1a72aa23e4e1f78f57edf
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39113538"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954742"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-stream-analytics-tools-for-visual-studio"></a>Démarrage rapide : Créer une tâche Stream Analytics à l’aide d’Azure Stream Analytics Tools pour Visual Studio
 
@@ -46,7 +46,7 @@ Avant de définir le travail Stream Analytics, vous devez préparer les données
    ```
 2. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
-3. Dans le coin supérieur gauche du portail Azure, sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage**. Sur la page de travail du compte de stockage, définissez le paramètre **Nom** sur « asaquickstartstorage », le paramètre **Emplacement** sur « Ouest des États-Unis », le paramètre **Groupe de ressources** sur « asaquickstart-resourcegroup » (pour bénéficier de meilleures performances, hébergez le compte de stockage dans le même groupe de ressources que le travail Stream Analytics). Vous pouvez conserver les valeurs par défaut des autres paramètres.  
+3. Dans le coin supérieur gauche du portail Azure, sélectionnez **Créer une ressource** > **Stockage** > **Compte de stockage**. Sur la page de travail du compte de stockage, définissez le paramètre **Nom** sur « asaquickstartstorage », le paramètre **Emplacement** sur « USA Ouest », le paramètre **Groupe de ressources** sur « asaquickstart-resourcegroup » (pour bénéficier de meilleures performances, hébergez le compte de stockage dans le même groupe de ressources que le travail Stream Analytics). Vous pouvez conserver les valeurs par défaut des autres paramètres.  
 
    ![Créer un compte de stockage](./media/stream-analytics-quick-create-vs/create-a-storage-account-vs.png)
 
@@ -168,7 +168,7 @@ Notez les éléments inclus dans un projet Azure Stream Analytics.
 
    ![Afficher les résultats](./media/stream-analytics-quick-create-vs/stream-analytics-vs-results.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le travail de streaming et toutes les ressources associées. La suppression du travail évite la facturation des unités de streaming consommées par le travail. Si vous envisagez d’utiliser le travail à l’avenir, vous pouvez l’arrêter et le redémarrer plus tard lorsque vous en avez besoin. Si vous ne pensez pas continuer à utiliser ce travail, supprimez toutes les ressources créées pendant ce guide de démarrage rapide en procédant comme suit :
 
@@ -178,7 +178,9 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, le trav
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez déployé un travail Stream Analytics simple. Pour savoir comment configurer d’autres sources d’entrée et effectuer une détection en temps réel, passez à l’article suivant :
+Dans ce guide de démarrage rapide, vous avez déployé un travail Stream Analytics simple à l’aide de Visual Studio. Vous pouvez également déployer des travaux Stream Analytics à l’aide du [Portail Azure](stream-analytics-quick-create-portal.md) et de [PowerShell](stream-analytics-quick-create-powershell.md). 
+
+Pour savoir comment configurer d’autres sources d’entrée et effectuer une détection en temps réel, passez à l’article suivant :
 
 > [!div class="nextstepaction"]
 > [Détection des fraudes en temps réel à l’aide d’Azure Stream Analytics](stream-analytics-real-time-fraud-detection.md)

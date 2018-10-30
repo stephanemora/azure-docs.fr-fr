@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Identifier la langue du texte - Traduction de texte Translator Text, Python'
+title: 'Démarrage rapide : Identifier la langue du texte, Python - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous identifiez la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec Python.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: 31fb36421dd2aef21f77b4941771e4d3db813730
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 669118ed925c961aeb1d99c9e794f6702b29a83b
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124998"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644901"
 ---
-# <a name="quickstart-identify-language-from-text-with-python"></a>Démarrage rapide : Identifier la langue du texte avec Python
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-python"></a>Démarrage rapide : identifier la langue du texte à l’aide de l’API de traduction de texte Translator Text (Python)
 
 Dans ce démarrage rapide, vous identifiez la langue du texte source à l’aide de l’API de traduction de texte Translator Text.
 

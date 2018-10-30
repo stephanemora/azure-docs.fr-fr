@@ -1,7 +1,7 @@
 ---
-title: 'Tutoriel : Créer un projet de classification des images - Service Vision personnalisée, Java'
+title: 'Didacticiel : Créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Custom Vision pour Java'
 titlesuffix: Azure Cognitive Services
-description: Créez un projet, ajoutez des étiquettes, chargez des images, entraînez votre projet et faites une prédiction en utilisant le point de terminaison par défaut.
+description: Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage votre projet ainsi qu’une prédiction en utilisant le point de terminaison par défaut.
 services: cognitive-services
 author: areddish
 manager: cgronlun
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 08/28/2018
 ms.author: areddish
-ms.openlocfilehash: 9a7f50e0eb33016d6a2d8f28be047b327135c51f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: e302fc580d9c83d269f0deedd051a3ea23bd274e
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367353"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957208"
 ---
-# <a name="tutorial-build-an-image-classification-project-with-java"></a>Tutoriel : Créer un projet de classification des images avec Java
+# <a name="tutorial-create-an-image-classification-project-with-the-custom-vision-sdk-for-java"></a>Didacticiel : Créer un projet de classification d’images à l’aide du kit de développement logiciel (SDK) Custom Vision pour Java
 
 Découvrez comment créer un projet de classification d’images à l’aide du service Vision personnalisée avec Java. Après la création du projet, vous pouvez ajouter des étiquettes, charger des images, entraîner le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser ce point de terminaison pour tester une image par programmation. Utilisez cet exemple open source comme modèle de création pour votre propre application au moyen de l’API Vision personnalisée.
 
@@ -28,7 +28,7 @@ Découvrez comment créer un projet de classification d’images à l’aide du 
 
 ## <a name="get-the-training-and-prediction-keys"></a>Obtenir les clés d’entraînement et de prédiction
 
-Pour obtenir les clés utilisées dans cet exemple, visitez la [page web Custom Vision](https://customvision.ai) et sélectionnez l’__icône d’engrenage__ dans le coin supérieur droit. Dans la section __Accounts__ (Comptes), copiez les valeurs des champs __Training Key__ (Clé d’entraînement) et __Prediction Key__ (Clé de prédiction).
+Pour obtenir les clés utilisées dans cet exemple, visitez la [page web Custom Vision](https://customvision.ai) et sélectionnez l’__icône d’engrenage__ dans le coin supérieur droit. Dans la section __Accounts__ (Comptes), copiez les valeurs des champs __Training Key__ (Clé de formation) et __Prediction Key__ (Clé de prédiction).
 
 ![Image de l’interface utilisateur des clés](./media/python-tutorial/training-prediction-keys.png)
 
@@ -65,7 +65,7 @@ Project project = trainer.createProject()
             .execute();
 ```
 
-## <a name="add-tags-to-your-project"></a>Ajouter des étiquettes à votre projet
+## <a name="add-tags-to-your-project"></a>Ajouter des mots clés à votre projet
 
 ```java
 // create hemlock tag

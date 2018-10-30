@@ -3,7 +3,7 @@ title: Importer et publier votre première API dans Gestion des API Azure | Micr
 description: Découvrez comment importer et publier votre première API avec la Gestion des API.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: apimpm
-ms.openlocfilehash: 538977b9057a5699d61d6c2cc44209367e3550e2
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: cf913c0aaf7dd9957f21452caf8e43a9e3c8b2db
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093400"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467393"
 ---
 # <a name="import-and-publish-your-first-api"></a>Importer et publier votre première API 
 
@@ -59,7 +59,7 @@ Cette section montre comment importer et publier une API de serveur principal à
     |---|---|---|
     |**Spécification OpenAPI**|http://conferenceapi.azurewebsites.net?format=json|Indique le service implémentant l’API. La gestion des API transmet les demandes à cette adresse.|
     |**Nom complet**|*API de conférence de démonstration*|Si vous appuyez sur la touche de tabulation après avoir entré l’URL du service, APIM renseigne ce champ en fonction de ce qui se trouve dans le fichier json. <br/>Ce nom s’affiche dans le portail des développeurs.|
-    |**Name**|*demo-conference-api*|Fournit un nom unique pour l’API. <br/>Si vous appuyez sur la touche de tabulation après avoir entré l’URL du service, APIM renseigne ce champ en fonction de ce qui se trouve dans le fichier json.|
+    |**Nom**|*demo-conference-api*|Fournit un nom unique pour l’API. <br/>Si vous appuyez sur la touche de tabulation après avoir entré l’URL du service, APIM renseigne ce champ en fonction de ce qui se trouve dans le fichier json.|
     |**Description**|Fournit une description facultative de l’API.|Si vous appuyez sur la touche de tabulation après avoir entré l’URL du service, APIM renseigne ce champ en fonction de ce qui se trouve dans le fichier json.|
     |**Modèle d’URL**|*HTTPS*|Détermine les protocoles qui peuvent être utilisés pour accéder à l’API. |
     |**Suffixe de l’URL de l’API**|*conference*|Le suffixe est ajouté à l’URL de base du service Gestion des API. Gestion des API distingue les API selon leur suffixe. Celui-ci doit donc être unique pour chaque API d'un éditeur donné.|
@@ -73,9 +73,11 @@ Cette section montre comment importer et publier une API de serveur principal à
 
 ## <a name="test-the-new-apim-api-in-the-azure-portal"></a>Tester la nouvelle API APIM dans le portail Azure
 
+![Tester le mappage d’API](./media/api-management-get-started/01-import-first-api-01.png)
+
 Les opérations peuvent être directement appelées depuis le portail Azure, qui permet d’afficher et de tester les opérations d’une API.  
 1. Sélectionnez l’API que vous avez créée à l’étape précédente (à partir de l’onglet **API**).
-2. Appuyez sur l’onglet **Test**.  ![Tester l’API](./media/api-management-get-started/test-api.png)
+2. Appuyez sur l’onglet **Test**.
 3. Cliquez sur **GetSpeakers**.
     La page affiche les champs des paramètres de requête (inexistants, en l’occurrence) et les en-têtes. L’un des en-têtes est « Ocp-Apim-Subscription-Key », pour la clé d’abonnement du produit qui est associé à cette API. La clé est renseignée automatiquement.
 4. Appuyez sur **Envoyer**.
@@ -87,7 +89,8 @@ Les opérations peuvent être directement appelées depuis le portail Azure, qui
 Vous pouvez également appeler des opérations depuis le **portail des développeurs** pour tester les API.
 
 1. Accédez au **portail des développeurs**.
-![Portail des développeurs](./media/api-management-get-started/developer-portal.png)
+
+ ![Portail des développeurs](./media/api-management-get-started/developer-portal.png)
 
 2. Sélectionnez **API** et cliquez sur **API de conférence de démonstration**, puis sur **GetSpeakers**.
     

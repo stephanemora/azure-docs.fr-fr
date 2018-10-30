@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 09/07/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d48374d7919be3d141ea199e8238a220dbfe0332
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: a3fc3e0cc30b379c84ac0ba12f733d2db4e41587
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419523"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945788"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Didacticiel : créer un modèle Azure Resource Manager pour le déploiement d’un compte de stockage chiffré
 
@@ -40,8 +40,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Pour effectuer ce qui est décrit dans cet article, vous avez besoin des éléments suivants :
 
-* [Visual Studio Code](https://code.visualstudio.com/).
-* Extension Outils Azure Resource Manager. Pour l’installation, consultez [Installer l’extension Resource Manager Tools](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
+* [Visual Studio Code](https://code.visualstudio.com/) avec l’[extension Outils Resource Manager](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
 
 ## <a name="open-a-quickstart-template"></a>Ouvrir un modèle de démarrage rapide
 
@@ -56,7 +55,7 @@ Le modèle utilisé dans ce démarrage rapide se nomme [Créer un compte de stoc
 3. Sélectionnez **Ouvrir** pour ouvrir le fichier.
 4. Sélectionnez **Fichier**>**Enregistrer sous** pour enregistrer le fichier sous le nom **azuredeploy.json** sur votre ordinateur local.
 
-## <a name="understand-the-format"></a>Comprendre le format
+## <a name="understand-the-schema"></a>Comprendre le schéma
 
 Dans VS Code, réduisez le modèle jusqu’au niveau de la racine. Vous avez la structure la plus simple avec les éléments suivants :
 
@@ -69,7 +68,7 @@ Dans VS Code, réduisez le modèle jusqu’au niveau de la racine. Vous avez la 
 * **ressources** : spécifiez les types de ressource déployés ou mis à jour dans un groupe de ressources.
 * **outputs** : spécifiez les valeurs retournées après le déploiement.
 
-## <a name="use-parameters-in-template"></a>Utiliser des paramètres dans le modèle
+## <a name="use-parameters"></a>Utilisation des paramètres
 
 Les paramètres vous permettent de personnaliser le déploiement grâce à des valeurs adaptées à un environnement particulier. Vous utilisez les paramètres définis dans le modèle lorsque vous définissez des valeurs pour le compte de stockage.
 
@@ -90,7 +89,7 @@ Pour utiliser les paramètres définis dans le modèle :
 "name": "[parameters('storageAccountType')]"
 ```
 
-## <a name="use-variables-in-template"></a>Utiliser des variables dans le modèle
+## <a name="use-variables"></a>Utilisation des variables
 
 Les variables vous permettent de construire des valeurs pouvant être utilisées dans votre modèle. Les variables vous aident à réduire la complexité des modèles.
 
@@ -117,9 +116,7 @@ L’objectif de ce didacticiel est de définir un modèle pour créer un compte 
 
     ![Resource Manager modèle référence compte de stockage](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-resources-reference-storage-accounts.png)
 
-    resource-manager-template-resources-reference-storage-accounts
-1. Explorez les informations relatives au chiffrement.  
-1. À l’intérieur de l’élément Propriétés de la définition de ressource de compte de stockage, ajoutez le code json suivant :
+4. Rechercher les informations de définition relatives au chiffrement.  
 
     ```json
     "encryption": {
@@ -131,11 +128,9 @@ L’objectif de ce didacticiel est de définir un modèle pour créer un compte 
         }
     }
     ```
-    Cette partie active la fonction de chiffrement du service de stockage d’objets blob.
-
-À partir de Visual Studio Code, modifiez le modèle afin que l’élément de ressources finales ressemble à :
-
-![Ressources de compte de stockage chiffré du modèle Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
+5. À partir de Visual Studio Code, modifiez le modèle afin que l’élément de ressources finales ressemble à :
+    
+    ![Ressources de compte de stockage chiffré du modèle Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 

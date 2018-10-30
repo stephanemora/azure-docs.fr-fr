@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: overview
 ms.date: 3/5/2018
 ms.author: v-jansko
-ms.openlocfilehash: 77e60fe39f7cbb985ee0e7ed2785805e80c389ae
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 641081e4a01aa5810d569795c10e967e4b46568e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49341138"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023575"
 ---
 # <a name="what-is-translator-speech-api"></a>Qu’est-ce que l’API de traduction de conversation Translator Speech ?
 
@@ -34,7 +34,7 @@ Pour la traduction voix-voix, le service permet de convertir par synthèse vocal
 L’API de traduction de conversation Translator Speech tire parti du protocole WebSocket pour fournir un canal de communication en duplex intégral entre le client et le serveur. 
 
 ## <a name="about-microsoft-translator"></a>À propos de Microsoft Translator
-Microsoft Translator est un service de traduction informatique. Au cœur de ce service figurent l’API de traduction de texte Translator Text (https://www.microsoft.com/en-us/translator/translatorapi.aspx) et l’API de traduction de conversation Translator Speech qui alimentent différents produits et services Microsoft, que des milliers d’entreprises dans le monde utilisent dans leurs applications et flux de travail pour proposer leur contenu à un public mondial.
+Microsoft Translator est un service de traduction informatique. Au cœur de ce service figurent [l’API de traduction de texte Translator Text](https://www.microsoft.com/en-us/translator/translatorapi.aspx) et l’API de traduction de conversation Translator Speech, qui alimentent différents produits et services Microsoft et que des milliers d’entreprises à travers le monde utilisent dans leurs applications et flux de travail pour proposer leur contenu à un public international.
 
 Découvrez-en plus sur le [service Microsoft Translator](https://www.microsoft.com/en-us/translator/home.aspx).
 

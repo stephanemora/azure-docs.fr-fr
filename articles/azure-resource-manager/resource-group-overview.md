@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 841f82595257c97c15398347a3e1605219d1a534
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2c5d0dc322a4a56f0de9bd3c1af7efc158131a89
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394418"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954213"
 ---
 # <a name="azure-resource-manager-overview"></a>Présentation d’Azure Resource Manager
 L’infrastructure sur laquelle s’appuie votre application est généralement constituée de plusieurs composants, par exemple une machine virtuelle, un compte de stockage et un réseau virtuel ou bien une application web, une base de données, un serveur de base de données et des services tiers. Vous ne voyez pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. Azure Resource Manager vous permet de travailler avec les ressources de solution sous forme de groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Le gestionnaire de ressources assure la sécurité, les fonctions d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement. 
@@ -64,6 +64,30 @@ Les suggestions suivantes vous aideront à tirer le meilleur parti de Resource M
 Pour obtenir des conseils sur l’utilisation de Resource Manager par les entreprises pour gérer efficacement les abonnements, voir [Structure d’Azure Enterprise - Gouvernance normative de l’abonnement](/azure/architecture/cloud-adoption-guide/subscription-governance?toc=%2fazure%2fazure-resource-manager%2ftoc.json).
 
 Pour obtenir des recommandations sur la création de modèles Resource Manager utilisables dans Azure partout dans le monde, les clouds souverains Azure et Azure Stack, consultez [Développer des modèles Azure Resource Manager pour la cohérence du cloud](templates-cloud-consistency.md).
+
+## <a name="quickstarts-and-tutorials"></a>Guides de démarrage rapide et didacticiels
+
+Utilisez les guides de démarrage rapide et les didacticiels suivants pour apprendre comment développer des modèles Resource Manager :
+
+- Démarrages rapides
+
+    |Intitulé|Description|
+    |------|-----|
+    |[Utiliser le portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)|Générer un modèle à l’aide du portail ainsi que le processus de modification et de déploiement du modèle.|
+    |[Utiliser Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Utilisation de Visual Studio Code pour créer et modifier les modèles et comment utiliser Azure Cloud Shell pour déployer des modèles.|
+    |[Utiliser Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Utilisation de Visual Studio pour créer, modifier et déployer des modèles.|
+
+- Didacticiels
+
+    |Intitulé|Description|
+    |------|-----|
+    |[Utiliser la référence de modèle](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilisation de la documentation de référence du modèle pour développer des modèles. Dans ce didacticiel, trouvez le schéma de compte de stockage et utilisez ces informations pour créer un compte de stockage chiffré.|
+    |[Créer plusieurs instances](./resource-manager-tutorial-create-multiple-instances.md)|Créer plusieurs instances de ressources Azure. Dans ce didacticiel, vous créez plusieurs instances de compte de stockage.|
+    |[Définir l’ordre de déploiement des ressources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Définir les dépendances des ressources. Dans ce didacticiel, vous créez un réseau virtuel, une machine virtuelle et les ressources Azure dépendantes. Vous découvrez comment les dépendances sont définies.|
+    |[Utiliser des conditions](./resource-manager-tutorial-use-conditions.md)|Déployer des ressources basées sur certaines valeurs de paramètres. Dans ce didacticiel, vous définissez un modèle pour créer un nouveau compte de stockage ou utilisez un compte de stockage existant basé sur la valeur d’un paramètre.|
+    |[Intégrer Key Vault](./resource-manager-tutorial-use-key-vault.md)|Récupérer des données secrètes/mots de passe depuis Azure Key Vault. Dans ce didacticiel, vous créez une machine virtuelle.  Le mot de passe d’administrateur de la machine virtuelle est récupéré depuis un Key Vault.|
+    |[Créer des modèles liés](./resource-manager-tutorial-create-linked-templates.md)|Modulariser des modèles et appeler d’autres modèles depuis un modèle. Dans ce didacticiel, vous créez un réseau virtuel, une machine virtuelle et les ressources dépendantes.  Le compte de stockage dépendant est défini dans un modèle lié. |
+    |[Utiliser des pratiques de déploiement sécurisé](./deployment-manager-tutorial.md)|Utiliser Azure Deployment Manager. |
 
 ## <a name="resource-groups"></a>Groupes de ressources
 Lorsque vous définissez votre groupe de ressources, vous devez prendre en compte certains facteurs importants :
@@ -214,9 +238,9 @@ Pour obtenir la liste complète des rôles et actions autorisés, consultez la p
 
 Dans certains cas, vous souhaiterez exécuter un code ou un script permettant d’accéder aux ressources, sans avoir à utiliser les informations d’identification d’un utilisateur. Vous pouvez choisir de créer une identité appelée « principal de service » de l’application et lui attribuer le rôle approprié. Resource Manager vous permet de créer des informations d’identification pour l’application et d’authentifier cette application par le biais d’une programmation. Pour en savoir plus sur la création de principaux de service, consultez l’une des rubriques suivantes :
 
-* [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](resource-group-authenticate-service-principal.md)
+* [Créer un principal du service pour accéder aux ressources à l’aide d’Azure PowerShell](../active-directory/develop/howto-authenticate-service-principal-powershell.md)
 * [Créer un principal du service pour accéder aux ressources à l’aide de l’interface de ligne de commande (CLI) Azure](resource-group-authenticate-service-principal-cli.md)
-* [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](resource-group-create-service-principal-portal.md)
+* [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](../active-directory/develop/howto-create-service-principal-portal.md)
 
 Vous pouvez également verrouiller explicitement les ressources essentielles afin d’empêcher les utilisateurs de les supprimer ou de les modifier. Pour plus d’informations, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 

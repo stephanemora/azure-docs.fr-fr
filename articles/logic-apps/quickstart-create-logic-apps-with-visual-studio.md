@@ -12,12 +12,12 @@ ms.custom: mvc
 ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.date: 07/31/2018
-ms.openlocfilehash: b8961edebd80d5f36d844734e3c93a4bd3b1f0cf
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6783c59b354e0eebc7fa6d8f67985b8d7b72c22a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42162131"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645829"
 ---
 # <a name="quickstart-create-and-automate-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Démarrage rapide : créer et automatiser des tâches, des processus et des flux de travail avec Azure Logic Apps - Visual Studio
 
@@ -148,6 +148,10 @@ Avant de pouvoir exécuter votre application logique, déployez l’application 
 
    ![Sortie d’état du déploiement](./media/quickstart-create-logic-apps-with-visual-studio/logic-app-output-window.png)
 
+   Si les connecteurs que vous avez sélectionnés nécessitent une intervention de votre part, une fenêtre PowerShell peut s’ouvrir en arrière-plan et vous demander de saisir les mots de passe ou les clés secrètes nécessaires. Le déploiement se poursuit dès que vous avez saisi ces informations.
+   
+   ![Déploiement powershell_window](./media/quickstart-create-logic-apps-with-visual-studio/logic-apps-powershell-window.png)
+   
    Une fois le déploiement terminé, votre application logique est en ligne dans le portail Azure et vérifie le flux RSS en fonction de la planification que vous avez spécifiée (chaque minute). 
    Si le flux RSS a de nouveaux éléments, votre application logique envoie un e-mail pour chaque nouvel élément. 
    Dans le cas contraire, votre application logique attend jusqu’à l’intervalle suivant avant de procéder à une nouvelle vérification. 
@@ -162,7 +166,7 @@ Avant de pouvoir exécuter votre application logique, déployez l’application 
 
 Félicitations, vous avez maintenant correctement généré et déployé votre application logique avec Visual Studio ! Pour gérer votre application logique et examiner son historique des exécutions, consultez [Manage logic apps with Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md) (Gérer des applications logiques avec Visual Studio).
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées.
 

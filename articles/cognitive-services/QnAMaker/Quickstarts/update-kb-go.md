@@ -1,25 +1,31 @@
 ---
-title: 'Démarrage rapide : Mettre à jour avec Go une base de connaissances - QnA Maker'
+title: 'Démarrage rapide : Mettre à jour une base de connaissances - REST, Go - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Comment mettre à jour une base de connaissances dans Go pour QnA Maker.
+description: Ce démarrage rapide basé sur REST vous aide à mettre à jour votre exemple de base de connaissances QnA Maker par programmation. La définition JSON que vous utilisez pour mettre à jour une base de connaissances vous permet d’ajouter, de modifier ou de supprimer des paires de questions/réponses.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b447b77eb1fdd9135f7d15a791414d166194b2dd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 5275184994dce446a7ca572a049f3860c4782139
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389307"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646879"
 ---
-# <a name="update-a-knowledge-base"></a>Mettre à jour une base de connaissances
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-go"></a>Démarrage rapide : Mettre à jour une base de connaissances dans QnA Maker à l’aide de Go
 
-Le code suivant met à jour une base de connaissances à l’aide de la méthode [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+Ce démarrage rapide vous aide à mettre à jour une base de connaissances QnA Maker existante par programmation.  Ce code JSON vous permet de mettre à jour une base de connaissances en ajoutant de nouvelles sources de données, en modifiant ou supprimant des sources de données.
+
+Cette API correspond aux actions de modification, puis d’utilisation du bouton **Save and train** (Enregistrer et effectuer l’apprentissage) dans le portail QnA Maker.
+
+Ce démarrage rapide fait appel aux API QnA Maker :
+* [Mettre à jour](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) : le modèle de la base de connaissances est défini dans le code JSON envoyé dans le corps de la requête d’API. 
+* [Obtenir les détails de l’opération](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 1. Créez un projet Go dans votre IDE favori.
 2. Ajoutez le code ci-dessous.
@@ -191,7 +197,7 @@ Press any key to continue.
 
 ## <a name="get-request-status"></a>Obtenir l’état d’une demande
 
-Vous pouvez appeler la méthode [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) pour vérifier l’état d’une demande de création ou de mise à jour d’une base de connaissances. Pour voir comment cette méthode est utilisée, examinez l’exemple de code pour la méthode [Create](#Create) ou [Update](#Update).
+Vous pouvez appeler la méthode [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) pour vérifier l’état d’une demande de création ou de mise à jour d’une base de connaissances. Pour voir comment cette méthode est utilisée, examinez l’exemple de code pour le démarrage rapide [Créer](create-new-kb-go.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

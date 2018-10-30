@@ -1,6 +1,6 @@
 ---
-title: Surveiller un test avec le service Validation en tant que service pour Azure Stack | Microsoft Docs
-description: Surveiller un test avec le service Validation en tant que service pour Azure Stack.
+title: Surveiller et gérer des tests dans le portail Azure Stack VaaS | Microsoft Docs
+description: Surveillez et gérez des tests dans le portail Azure Stack VaaS.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,124 +10,140 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 2dc4d3f2855864ff80648b5b9635ff28c0dacbb7
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 03efe32e7a9a29318e4f97ce5636616fad443284
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163324"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956661"
 ---
-# <a name="monitor-a-test-with-azure-stack-validation-as-a-service"></a>Surveiller un test avec le service Validation en tant que service pour Azure Stack
+# <a name="monitor-and-manage-tests-in-the-vaas-portal"></a>Surveiller et gérer les tests dans le portail VaaS
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Vous pouvez surveiller l’exécution en cours ou achevée de suites de tests en consultant la page **Opérations**. Cette page indique en détail l’état du test et de ses opérations.
+Suite à la planification de tests relatifs à votre solution Azure Stack, Validation en tant que Service (VaaS) vous communiquera l’état d’exécution des tests. Vous trouverez ces informations, ainsi que des actions telles que la replanification et l’annulation de tests, dans le portail VaaS.
 
-## <a name="monitor-a-test"></a>Analyser un test
+## <a name="navigate-to-the-workflow-tests-summary-page"></a>Accéder à la page de résumé de tests de workflow
 
-1. Sélectionnez une solution.
+1. Dans le tableau de bord de solutions, sélectionnez une solution existante qui dispose d’au moins un workflow.
 
-2. Sélectionnez **Gérer** sur l’une des vignettes de flux de travail.
+    ![Vignettes workflow](media/tile_all-workflows.png)
 
-3. Cliquez sur un flux de travail pour ouvrir la page de résumé des tests correspondante.
+1. Sélectionnez **Gérer** au niveau de la vignette de workflow. La page suivante répertorie les workflows créés pour la solution sélectionnée.
 
-4. Développez le menu contextuel **[...]** de l’une des instances de suite de tests.
+1. Sélectionnez un workflow pour ouvrir les résumés des tests correspondants.
 
-5. Sélectionnez **Afficher les opérations**.
+## <a name="change-workflow-parameters"></a>Modifier les paramètres de workflow
 
-![Alt text](media\image4.png)
+Chaque type de workflow vous permet de modifier les [paramètres de test](azure-stack-vaas-parameters.md#test-parameters) spécifiés lors de la création du workflow.
 
-Vous pouvez télécharger les journaux relatifs aux tests dont l’exécution est terminée à partir de la page de résumé des tests en cliquant sur **Télécharger les journaux** dans le menu contextuel **[...]** d’un test. Les partenaires Azure Stack peuvent utiliser ces journaux pour déboguer les problèmes des tests ayant échoué.
+1. Dans la page de résumé de tests, sélectionnez le bouton **Modifier**.
 
-## <a name="open-the-test-pass-summary"></a>Ouvrir le résumé de passe de test
+1. Pour plus d’informations, consultez l’article [Paramètres de flux de travail communs dans la validation en tant que service Azure Stack](azure-stack-vaas-parameters.md).
 
-1. Ouvrez le portail. 
-2. Sélectionnez le nom d’une solution existante contenant des tests précédemment exécutés ou planifiés.
+1. Sélectionnez **Envoyer** pour enregistrer les valeurs.
 
-    ![Gestion des passes de test](media/managetestpasses.png)
+> [!NOTE]
+> Dans le workflow **Passe de Test**, vous devez terminer la sélection de test et accéder à la page de vérification avant de pouvoir enregistrer les nouvelles valeurs de paramètre.
 
-3. Sélectionnez **Gérer** dans le panneau **Test Passes** (Passes de test).
-4. Sélectionnez la passe de test pour ouvrir le résumé correspondant. Vous pouvez consulter le nom du test, les dates de création et d’exécution du test, la durée du test, ainsi que le résultat (réussite ou échec).
-5. Sélectionnez [ **. . .** ].
+### <a name="add-tests-test-pass-only"></a>Ajouter des tests (passe de test uniquement)
 
-### <a name="test-pass-summary"></a>Résumé de passe de test
+Dans les workflows **Passe de Test**, les boutons **Ajouter des tests** et **Modifier** permettent de planifier les nouveaux tests dans le workflow.
+
+> [!TIP]
+> Sélectionnez **Ajouter des tests** si vous souhaitez uniquement planifier des nouveaux tests et que vous n’avez pas besoin de modifier les paramètres pour un workflow **Passe de test**.
+
+## <a name="managing-test-instances"></a>Gestion des instances de test
+
+Pour les exécutions non officielles (par exemple, le workflow **Passe de Test**), la page de résumé des tests répertorie les tests planifiés relatifs à la solution Azure Stack.
+
+Pour les exécutions officielles (par exemple, les workflows **Validation**), la page de résumé des tests répertorie les tests planifiés nécessaires à la validation de la solution Azure Stack. Les tests de validation sont planifiés à partir de cette page.
+
+Chaque instance de test planifiée affiche les informations suivantes :
 
 | Colonne | Description |
 | --- | --- |
-| Nom du test | Nom du test. Référence le numéro de validation. |
-| Date de création | Date de création de la passe de test. |
-| Démarré | Date d’exécution de la passe de test. |
-| Duration | Durée de l’exécution de la passe de test. |
-| Statut | Résultat (réussite ou échec) de la passe de test. |
-| Nom de l’agent | Nom de domaine complet de l’agent. |
-| Nombre total d’opérations | Nombre total de tentatives d’opérations dans la passe de test. |
-| Passed operations (Opérations réussies) | Nombre d’opérations réussies dans la passe de test. |
-|  Failed Operations (Opérations ayant échoué) | Nombre d’opérations ayant échoué. |
+| Nom du test | Le nom et la version du test. |
+| Catégorie | L’objectif du test. |
+| Date de création | L’heure à laquelle le test a été planifié. |
+| Démarré | L’heure à laquelle l’exécution de la tâche a commencé. |
+| Duration | La durée d’exécution du test. |
+| Statut | L’état ou le résultat du test. Les états des tests avant exécution ou en cours d’exécution sont : `Pending`, `Running`. Les états des test terminés sont : `Cancelled`, `Failed`, `Aborted`, `Succeeded`. |
+| Nom de l’agent | Le nom de l’agent qui a exécuté le test. |
+| Nombre total d’opérations | Le nombre total de tentatives d’opérations lors du test. |
+| Passed operations (Opérations réussies) | Le nombre d’opérations réussies lors du test. |
+|  Failed Operations (Opérations ayant échoué) | Le nombre d’opérations échouées lors du test. |
 
-### <a name="group-columns-in-the-test-pass-summary"></a>Grouper des colonnes du résumé de passe de test
+### <a name="actions"></a>Actions
 
-Vous pouvez sélectionner et faire glisser une colonne dans l’en-tête pour créer un groupe sur la valeur de colonne.
+Chaque instance de test répertorie les actions disponibles que vous pouvez effectuer lorsque vous cliquez sur le menu contextuel **[...]**  dans la table des instances de test.
 
-## <a name="reschedule-a-test"></a>Replanifier un test
+#### <a name="view-information-about-the-test-definition"></a>Afficher des informations sur la définition du test
 
-1. [Ouvrez le résumé de passe de test](#open-the-test-pass-summary).
-2. Sélectionnez **Reschedule** (Replanifier) pour replanifier la passe de test.
-3. Entrez le mot de passe d’administrateur du cloud pour votre instance Azure Stack.
-4. Entrez la chaîne de connexion du stockage des diagnostics que vous avez définie lorsque vous avez configuré votre compte.
-5. Replanifiez le test.
+Sélectionnez **Afficher les informations** dans le menu contextuel pour afficher les informations générales sur la définition du test. Toutes les instances de test avec le même nom et la même version partagent ces données.
 
-## <a name="cancel-a-test"></a>Annuler un test
-
-1. [Ouvrez le résumé de passe de test](#open-the-test-pass-summary).
-2. Sélectionnez **Annuler**.
-
-## <a name="get-test-information"></a>Obtenir les informations d’un test
-
-1. [Ouvrez le résumé de passe de test](#open-the-test-pass-summary).
-2. Sélectionnez **View information** (Afficher les informations).
-
-**Informations de test**
-
-| NOM | Description |
+| Propriété du test | Description |
 | -- | -- |
-| Nom du test | Nom du test, par exemple Validation de mise à jour du fabricant OEM sur Azure Stack 1806 RC. |
-| Test version (Version du test) | Version du test, par exemple 5.1.4.0. |
-| Publisher | Éditeur du test, tel que Microsoft. |
-| Catégorie | Catégorie du test, par exemple **Fonctionnel** ou **Fiabilité**. |
-| Target services (Services cibles) | Services testés, tels que Machines virtuelles. |
+| Nom du test | Nom du test. |
+| Test version (Version du test) | La version du test. |
+| Publisher | L’éditeur du test. |
+| Catégorie |  L’objectif du test. |
+| Target services (Services cibles) | Les services Azure Stack en cours de test. |
 | Description | Description du test. |
-| Estimated duration (minutes) (Durée estimée [en minutes]) | Durée en minutes de l’exécution du test. |
-| Liens | Lien d’accès à la fonctionnalité GitHub de suivi des problèmes. |
+| Estimated duration (minutes) (Durée estimée [en minutes]) | Le runtime attendu du test. |
+| Liens | Toutes les informations pertinentes concernant le test ou les points de contact. |
 
-## <a name="get-test-parameters"></a>Obtenir les paramètres de test
+#### <a name="view-test-instance-parameters"></a>Afficher les paramètres d’instance de test
 
-1. [Ouvrez le résumé de passe de test](#open-the-test-pass-summary).
-2. Sélectionnez **View parameters** (Afficher les paramètres).
+Sélectionnez **Afficher les paramètres** dans le menu contextuel pour afficher les paramètres fournis à l’instance de test au moment de la planification. Les chaînes sensibles, comme les mots de passe, ne sont pas affichées. Cette action est disponible uniquement pour les tests qui ont été planifiés.
 
-**Paramètres**
+Cette fenêtre inclut les métadonnées suivantes pour toutes les instances de test :
 
-| NOM | Description |
+| Propriété d’instance de test | Description |
 | -- | -- |
-| Nom du test | Nom du test, par exemple oemupdate1806test. |
-| Test version (Version du test) | Version du test, par exemple 5.1.4.0. |
-| Test instance ID (ID d’instance de test) | Identificateur global unique de l’instance spécifique du test, par exemple 20b20645-b400-4f0d-bf6f-1264d866ada9. |
-| cloudAdminUser | Nom du compte utilisé en tant qu’administrateur du cloud, par exemple **cloudadmin**. |
-| DiagnosticsContainerName | ID du conteneur de diagnostics, par exemple 04dd3815-5f35-4158-92ea-698027693080. |
+| Nom du test | Nom du test. |
+| Test version (Version du test) | La version du test. |
+| Test instance ID (ID d’instance de test) | Un GUID identifiant l’instance spécifique du test. |
 
-## <a name="get-test-operations"></a>Obtenir les opérations de test
+#### <a name="view-test-instance-operations"></a>Afficher les opérations d’instance de test
 
-1. [Ouvrez le résumé de passe de test](#open-the-test-pass-summary).
-2. Sélectionnez **Afficher les opérations**. Le volet de résumé des opérations s’affiche.
+Sélectionnez **Affichage des opérations** à partir du menu contextuel pour afficher un état détaillé des opérations effectuées pendant le test. Cette action est disponible uniquement pour les tests qui ont été planifiés.
 
-## <a name="get-test-logs"></a>Obtenir les journaux de test
+![Affichage des opérations](media/manage-test_context-menu-operations.png)
 
-1. [Ouvrez le résumé de passe de test](#open-the-test-pass-summary).
-2. Sélectionnez **Télécharger les journaux**.  
-    Un fichier zip nommé ReleaseAAAA-MM-JJ.zip contenant les journaux se télécharge.
+#### <a name="download-logs-for-a-completed-test-instance"></a>Télécharger les journaux pour une instance de test terminée
+
+Sélectionnez **Télécharger les journaux** dans le menu contextuel pour télécharger un fichier `.zip` de la sortie des journaux pendant l’exécution du test. Cette action est disponible uniquement pour les tests terminés, par exemple, un test avec un statut `Cancelled`, `Failed`, `Aborted`, ou `Succeeded`.
+
+#### <a name="reschedule-a-test-instance-or-schedule-a-test"></a>Replanifier une instance de test ou planifier un test
+
+La planification des tests à partir de la page de gestion varie selon le type de workflow qui régit le test.
+
+##### <a name="test-pass-workflow"></a>Workflow de passe de test
+
+Dans le workflow Passe de test, la **replanification** d’une instance de test réutilise le même ensemble de paramètres que l’instance de test d’origine et *remplace* le résultat d’origine, y compris ses journaux. Vous devrez entrer à nouveau les chaînes sensibles comme les mots de passe lorsque vous replanifiez.
+
+1. Sélectionnez **Replanifier** dans le menu contextuel pour ouvrir une invite de replanification de l’instance de test.
+
+1. Entrez les paramètres applicables.
+
+1. Sélectionnez **Envoyer** pour replanifier l’instance de test et remplacer l’instance existante.
+
+##### <a name="validation-workflows"></a>Workflows de validation
+
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
+
+#### <a name="cancel-a-test-instance"></a>Annuler une instance de test
+
+Un test planifié peut être annulé si son état est `Pending` ou `Running`.  
+
+1. Sélectionnez **Annuler** dans le menu contextuel pour ouvrir une invite d’annulation de l’instance de test.
+
+1. Select **Envoyer** pour annuler l’instance de test.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur la [Validation en tant que service Azure Stack](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Résoudre les problèmes de Validation en tant que service](azure-stack-vaas-troubleshoot.md)

@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/14/2018
+ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2402dd2adb27abb784c34a2a3569e8f6e4a60f77
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f683d63683e903d947d0789a16a8efa48196d36a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954787"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026192"
 ---
 # <a name="tutorial-route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Tutoriel - Acheminer le trafic web selon l’URL à l’aide d’Azure CLI
 
@@ -30,10 +30,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer des écouteurs, un mappage de chemins d’URL et des règles
 > * Créer des pools backend scalables
 
-
 ![Exemple d’acheminement d’URL](./media/tutorial-url-route-cli/scenario.png)
 
-Si vous préférez, vous pouvez effectuer ce didacticiel en utilisant [Azure PowerShell](tutorial-url-route-powershell.md).
+Si vous préférez, vous pouvez suivre ce didacticiel en utilisant [Azure PowerShell](tutorial-url-route-powershell.md) ou le [portail Azure](create-url-route-portal.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -254,7 +253,7 @@ Changez l’URL en http://&lt;ip-address&gt;:8080/video/test.html, en remplaçan
 
 ![Tester l’URL vidéo dans la passerelle d’application](./media/tutorial-url-route-cli/application-gateway-nginx-video.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées.
 

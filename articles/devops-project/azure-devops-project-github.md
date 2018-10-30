@@ -17,14 +17,14 @@ ms.date: 07/09/2018
 author: mlearned
 ms.custom: mvc
 monikerRange: vsts
-ms.openlocfilehash: 4e0e28ff9ea14e42e1df7ce35bb90e8720a0d0b6
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 02b6823a46c94edb0ba28c7a2a8b9ae0efc44ae8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407295"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406090"
 ---
-# <a name="create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Créer un pipeline CI/CD pour votre code existant avec Azure DevOps Project
+# <a name="tutorial--create-a-cicd-pipeline-for-your-existing-code-with-the-azure-devops-project"></a>Didacticiel : Créer un pipeline CI/CD pour votre code existant avec Azure DevOps Project
 
 Azure DevOps Project présente une expérience simplifiée où vous apportez votre code et référentiel Git existants, ou choisissez parmi les exemples d’applications pour créer un pipeline d’intégration continue (CI) et de livraison continue (CD) vers Azure.
 
@@ -45,7 +45,7 @@ Vous allez effectuer les étapes suivantes :
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 
-Azure DevOps Project crée un pipeline CI/CD dans Azure DevOps Services.  Vous pouvez créer une nouvelle organisation **Azure DevOps Services** ou utiliser une **organisation existante**.  Azure DevOps Projects crée également des **ressources Azure** dans **l’abonnement Azure** de votre choix.
+Azure DevOps Projects crée un pipeline CI/CD dans Azure DevOps Services.  Vous pouvez créer une organisation **Azure DevOps Services** ou utiliser une **organisation existante**.  Azure DevOps Projects crée également des **ressources Azure** dans **l’abonnement Azure** de votre choix.
 
 1. Connectez-vous au [portail Microsoft Azure](https://portal.azure.com).
 
@@ -69,11 +69,11 @@ Azure DevOps Project crée un pipeline CI/CD dans Azure DevOps Services.  Vous p
 
 1. Créez une **nouvelle** organisation Azure DevOps Services ou choisissez une organisation **existante**.  Choisissez un **nom** pour votre Azure DevOps Project.  Sélectionnez votre **abonnement Azure**, **l’emplacement**, puis le **nom** de votre application.  Une fois que vous avez terminé, sélectionnez **Terminé**.
 
-1. Après quelques minutes, le **tableau de bord Azure DevOps Project** est chargé dans le portail Azure.  Un exemple d’application est configuré dans un référentiel de votre compte Azure DevOps Services, une build est exécutée, et votre application est déployée dans Azure.  Ce tableau de bord fournit une visibilité dans votre **référentiel de code GitHub**, votre **pipeline CI/CD Azure DevOps Services** et votre **application dans Azure**.  Sur la droite du tableau de bord, sélectionnez **Parcourir** pour afficher votre application en cours d’exécution.
+1. Le **tableau de bord Azure DevOps Projects** se charge en quelques minutes sur le Portail Azure.  Un exemple d’application est configuré dans un référentiel de votre compte Azure DevOps Services, une build est exécutée, et votre application est déployée dans Azure.  Ce tableau de bord fournit une visibilité dans votre **référentiel de code GitHub**, votre **pipeline CI/CD Azure DevOps Services** et votre **application dans Azure**.  Sur la droite du tableau de bord, sélectionnez **Parcourir** pour afficher votre application en cours d’exécution.
 
     ![Vue du tableau de bord](_img/azure-devops-project-github/dashboardnopreview.png) 
     
-Azure DevOps Project configure automatiquement une build CI ainsi qu’un déclencheur de mise en production.  Votre code demeure dans votre référentiel GitHub ou Git externe.  
+Azure DevOps Projects configure automatiquement un déclencheur de build et de mise en production CI.  Votre code demeure dans votre référentiel GitHub ou Git externe.  
 
 ## <a name="commit-changes-to-github-and-automatically-deploy-to-azure"></a>Valider les modifications apportées à GitHub et les déployer automatiquement dans Azure 
 
@@ -87,9 +87,9 @@ Vous êtes maintenant prêt à collaborer avec une équipe sur votre application
 
 Azure DevOps Project a automatiquement configuré un pipeline CI/CD Azure DevOps Services dans votre organisation Azure DevOps Services.  Explorez et personnalisez le pipeline selon vos besoins.  Suivez les étapes ci-dessous pour vous familiariser avec les pipelines de build et de mise en production Azure DevOps Services.
 
-1. Sélectionnez **Pipelines de build** en **haut** du tableau de bord Azure DevOps Project.  Ce lien ouvre un onglet de navigateur ainsi que le pipeline de build Azure DevOps Services pour votre nouveau projet.
+1. Sélectionnez **Pipelines de build** en **haut** du tableau de bord Azure DevOps Projects.  Ce lien ouvre un onglet de navigateur ainsi que le pipeline de build Azure DevOps Services de votre nouveau projet.
 
-1. Déplacez le curseur de la souris vers la droite du pipeline de build en regard du champ **État**. Sélectionnez les **points de suspension** affichés.  Cette action ouvre un menu où vous pouvez démarrer plusieurs activités, telles que mettre une nouvelle build en file d’attente, suspendre une build, et modifier un pipeline de build.
+1. Déplacez le pointeur de souris à droite du pipeline de build, à côté du champ **État**. Sélectionnez les **points de suspension** affichés.  Cette action ouvre un menu permettant de lancer plusieurs activités, comme mettre un nouveau build en file d’attente, suspendre un build et modifier le pipeline de build.
 
 1. Sélectionnez **Modifier**.
 
@@ -99,9 +99,9 @@ Azure DevOps Project a automatiquement configuré un pipeline CI/CD Azure DevOps
 
 1. Remplacez le **nom** de votre pipeline de build par un nom plus descriptif.  Sélectionnez **Enregistrer et mettre en file d’attente**, puis **Enregistrer**.
 
-1. Sous le nom de votre pipeline de build, sélectionnez **Historique**.  Vous pouvez observer une piste d’audit des modifications que vous avez apportées récemment à la build.  Azure DevOps Services suit les modifications apportées au pipeline de build et vous permet de comparer les versions.
+1. Sous le nom de votre pipeline de build, sélectionnez **Historique**.  Vous pouvez observer une piste d’audit des modifications que vous avez apportées récemment à la build.  Azure DevOps Services suit les modifications apportées au pipeline de build et permet de comparer les versions.
 
-1. Sélectionnez **Déclencheurs**.  Azure DevOps Project a créé automatiquement un déclencheur d’intégration continue, et chaque validation dans le référentiel démarre une nouvelle build.  Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
+1. Sélectionnez **Déclencheurs**.  Azure DevOps Projects a créé automatiquement un déclencheur CI, et chaque validation dans le référentiel lance un nouveau build.  Vous pouvez éventuellement choisir d’inclure ou d’exclure des branches dans le processus d’intégration continue.
 
 1. Sélectionnez **Rétention**.  Selon votre scénario, vous pouvez spécifier des stratégies pour conserver ou supprimer un certain nombre de builds.
 
@@ -109,7 +109,7 @@ Azure DevOps Project a automatiquement configuré un pipeline CI/CD Azure DevOps
 
 1. Sur la gauche du navigateur, sélectionnez les **points de suspension** en regard de votre pipeline de mise en production, puis **Modifier**.
 
-1. Le pipeline de mise en production contient un **pipeline**, qui définit le processus de mise en production.  Sous **Artefacts**, sélectionnez **Déposer**.  Le pipeline de build que vous avez examiné dans les étapes précédentes génère la sortie utilisée pour l’artefact. 
+1. Le pipeline de mise en production contient un **pipeline** qui définit le processus de mise en production.  Sous **Artefacts**, sélectionnez **Déposer**.  Le pipeline de build que vous avez examiné aux étapes précédentes génère la sortie utilisée pour l’artefact. 
 
 1. À droite de l’icône **Déposer**, sélectionnez le **déclencheur de déploiement continu**.  Ce pipeline de mise en production possède un déclencheur CD actif, qui exécute un déploiement à chaque fois qu’un nouvel artefact de build est disponible.  Si vous le souhaitez, vous pouvez désactiver le déclencheur afin que vos déploiements nécessitent une exécution manuelle. 
 
@@ -125,7 +125,7 @@ Azure DevOps Project a automatiquement configuré un pipeline CI/CD Azure DevOps
 
 ## <a name="configure-azure-application-insights-monitoring"></a>Configurer la surveillance d’Azure Application Insights
 
-Azure Application Insights vous permet d’analyser facilement les performances et l’utilisation de votre application.  Azure DevOps Project a configuré automatiquement une ressource Application Insights pour votre application.  Vous pouvez configurer différentes capacités d’alertes et de surveillance, si besoin.
+Azure Application Insights vous permet d’analyser facilement les performances et l’utilisation de votre application.  Le projet Azure DevOps a configuré automatiquement une ressource Application Insights pour votre application.  Vous pouvez configurer différentes capacités d’alertes et de surveillance, si besoin.
 
 1. Accédez au tableau de bord **Azure DevOps Projects** dans le portail Azure.  En bas à droite du tableau de bord, choisissez le lien **Application Insights** pour votre application.
 
@@ -157,7 +157,7 @@ Lorsque vous n’en avez plus besoin, vous pouvez supprimer le service Azure App
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lorsque vous avez configuré votre processus CI/CD dans ce tutoriel, des pipelines de mise en production et de build ont été automatiquement créés dans votre projet Azure DevOps Project. Vous pouvez modifier ces pipelines afin qu’ils répondent aux besoins de votre équipe. Vous avez appris à effectuer les actions suivantes :
+Lorsque vous avez configuré votre processus CI/CD dans ce tutoriel, des pipelines de mise en production et de build ont été automatiquement créés dans votre projet Azure DevOps Project. Vous pouvez le modifier afin qu’il réponde aux besoins de votre équipe. Vous avez appris à effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Créer un projet Azure DevOps

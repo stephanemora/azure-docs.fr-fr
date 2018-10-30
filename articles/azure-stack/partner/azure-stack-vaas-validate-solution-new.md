@@ -10,93 +10,60 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 1e908a8cf5576ce3bc3d58d1ef6f29d596ebc58b
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 777609b89bc08cd61489d2c3a3669ec07ccbc372
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158175"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647004"
 ---
 # <a name="validate-a-new-azure-stack-solution"></a>Valider une nouvelle solution Azure Stack
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Découvrez comment utiliser le flux de travail de validation de solution pour certifier les nouvelles solutions Azure Stack.
+Apprenez à utiliser le workflow de **validation de solution** pour certifier de nouvelles solutions Azure Stack.
 
-Une solution Azure Stack est une nomenclature matérielle qui a été convenue conjointement avec Microsoft et a satisfait aux exigences de certification du logo Windows Server. Vous pouvez également utiliser le flux de travail de validation de solution lorsqu’une modification apportée à la nomenclature matérielle entraîne la classification d’une solution comme *nouvelle* solution. Si vous avez des questions concernant les aspects qui donneraient lieu à une **nouvelle** solution ou à la **recertification** d’une solution, contactez l’adresse [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
+Une solution Azure Stack est une nomenclature matérielle qui a été convenue conjointement entre Microsoft et le partenaire après avoir satisfait aux exigences de certification du logo Windows Server. Une solution doit être renouvelée en cas d’une modification de la nomenclature matérielle. Si vous avez d’autres questions concernant le renouvellement de la certification de solutions, contactez l’équipe à l’adresse [vaashelp@microsoft.com](mailto:vaashelp@microsoft.com).
 
-Pour certifier votre solution, exécutez le flux de travail deux fois. Exécutez-le une première fois pour la configuration *minimale* prise en charge. Exécutez-le une seconde fois pour la configuration *maximale*. Microsoft certifie la solution si les deux configurations réussissent tous les tests.
+Pour certifier votre solution, exécutez deux fois le workflow de validation de solution. Exécutez-le une première fois pour la configuration *minimale* prise en charge. Exécutez-le une seconde fois pour la configuration *maximale* prise en charge. Microsoft certifie la solution si les deux configurations réussissent tous les tests.
 
-Ce guide de démarrage rapide vous explique comment ajouter votre solution et exécuter des tests.
+[!INCLUDE [azure-stack-vaas-workflow-validation-completion](includes/azure-stack-vaas-workflow-validation-completion.md)]
 
-## <a name="add-a-new-solution"></a>Ajouter une nouvelle solution
+## <a name="create-a-solution-validation-workflow"></a>Créer un workflow de validation de solution
 
-1. Connectez-vous au [portail de validation](https://azurestackvalidation.com).
-2. Sélectionnez **Nouvelle solution**.
-3. Entrez un nom pour la solution, puis sélectionnez **Enregistrer**.
+1. [!INCLUDE [azure-stack-vaas-workflow-step_select-solution](includes/azure-stack-vaas-workflow-step_select-solution.md)]
+2. Sélectionnez **Démarrer** sur la vignette **Validations de solution**.
 
-## <a name="create-a-solution-validation-workflow"></a>Créer un flux de travail de validation de solution
+    ![Vignette du workflow Validations de solution](media/tile_validation-solution.png)
 
-1. Sélectionnez le nom de la solution.
-2. Sélectionnez **Gérer** sur la vignette **Validations de solution**.
+3. [!INCLUDE [azure-stack-vaas-workflow-step_naming](includes/azure-stack-vaas-workflow-step_naming.md)]
+4. Sélectionnez la **Configuration de la solution**.
+    - **Minimale** : la solution est configurée avec le nombre minimal de nœuds pris en charge.
+    - **Maximale** : la solution est configurée avec le nombre maximal de nœuds pris en charge.
+5. [!INCLUDE [azure-stack-vaas-workflow-step_upload-stampinfo](includes/azure-stack-vaas-workflow-step_upload-stampinfo.md)]
 
-    ![Validations de solution](media/image2.png)
+    ![Informations relatives à la validation de solution](media/workflow_validation-solution_info.png)
 
-## <a name="create-a-solution-workflow"></a>Créer un flux de travail de solution
+6. [!INCLUDE [azure-stack-vaas-workflow-step_test-params](includes/azure-stack-vaas-workflow-step_test-params.md)]
 
-1. Sélectionnez **Validation de nouvelle solution**.
-2. Tapez le nom de la validation.
-3. Sélectionnez **Minimum** ou **Maximum**.  
-    - **Minimum**  
-    La solution est configurée avec le nombre minimal de nœuds pris en charge.  
-    - **Maximum**  
-    La solution est configurée avec le nombre maximal de nœuds pris en charge.
-4. Sélectionnez **Charger**, puis ajoutez votre fichier de configuration du déploiement. Il s’agit d’une étape facultative. Vous pouvez également ajouter vos paramètres de test en exécutant la procédure décrite à la section suivante.
+    > [!NOTE]
+    > Après la création d’un workflow, les paramètres d’environnement ne peuvent plus être modifiés.
 
-    > [!note]  
-    > Vous pouvez créer votre fichier de configuration en ajoutant les paramètres dans les sections des paramètres d’environnement et des paramètres de test communs de l’interface. Vous pouvez récupérer le fichier généré par le service à partir du déploiement Azure Stack que vous êtes en train de valider. Pour obtenir les instructions correspondantes, consultez l’article [Workflow common parameters for Azure Stack validation as a service](azure-stack-vaas-parameters.md) (Paramètres de flux de travail communs pour le service Validation en tant que service pour Azure Stack).
+7. [!INCLUDE [azure-stack-vaas-workflow-step_tags](includes/azure-stack-vaas-workflow-step_tags.md)]
+8. [!INCLUDE [azure-stack-vaas-workflow-step_submit](includes/azure-stack-vaas-workflow-step_submit.md)]
+    Vous allez être redirigé vers la page de résumé de tests.
 
-5. Ajoutez vos paramètres d’environnement. Pour plus d’informations, consultez la section [Ajouter des paramètres d’environnement](#add-environmental-parameters).
-6. Ajoutez vos paramètres de test communs. Pour plus d’informations, consultez la section [Ajouter des paramètres de test communs](#add-common-test-parameters).
+## <a name="execute-solution-validation-tests"></a>Exécuter des tests de validation de solution
 
-    Selon la définition du test, le test peut vous obliger à entrer une valeur indépendamment des paramètres communs, ou vous autoriser à remplacer la valeur du paramètre commun.
+Sur la page **Résumé des tests de validation de solution**, vous trouverez une liste de tests requis pour terminer la validation.
 
-7. Cliquez sur **Envoyer** pour planifier le test.
+[!INCLUDE [azure-stack-vaas-workflow-validation-section_schedule](includes/azure-stack-vaas-workflow-validation-section_schedule.md)]
 
-## <a name="add-environmental-parameters"></a>Ajouter des paramètres d’environnement
-
-Ajoutez les paramètres d’environnement suivants :
-
-| Informations de passe de test | Obligatoire | Description |
-| --- | --- | --- | --- |
-| Build Azure Stack | Obligatoire | Numéro de build Azure Stack (par exemple 20170501.1). Cette valeur doit être un numéro de build ou une version Azure Stack valides, par exemple 1.0.170330.9. |
-| ID client | Obligatoire | ID du locataire Active Directory. Il doit s’agir d’un identificateur global unique (par exemple ECA23256-6BA0-4F27-8E4D-AFB02F088363) |
-| Région | Obligatoire | Région du déploiement Azure Stack. |
-| Point de terminaison Resource Manager du locataire | Obligatoire | Point de terminaison pour les opérations Azure Resource Manager du locataire (par exemple https://management.loc-ext.domain.com) |
-| Point de terminaison Resource Manager de l’administrateur | Non requis | Point de terminaison pour les opérations Azure Resource Manager du locataire (par exemple https://management.loc-ext.domain.com) |
-| FQDN externe | Non requis | Nom de domaine complet externe utilisé comme suffixe pour les points de terminaison. (par exemple local.azurestack.external ou redmond.contoso.com). |
-| Nombre de nœuds | Obligatoire | Nombre de nœuds de votre solution. |
-
-## <a name="add-common-test-parameters"></a>Ajouter des paramètres de test communs
-
-Ajoutez les paramètres de test communs suivants :
-
-| Informations de passe de test | Obligatoire | Description |
-| --- | --- | --- |
-| Nom d'utilisateur du locataire | Obligatoire | Nom d’utilisateur du locataire (par exemple tenant@contoso.onmicrosoft.com) |
-| Mot de passe du locataire | Obligatoire | Mot de passe du locataire. |
-| Nom d’utilisateur de l’administrateur de service | Non requis | Nom d’utilisateur du locataire (par exemple tenant@contoso.onmicrosoft.com) |
-| Mot de passe de l’administrateur de service | Non requis | Nom d’utilisateur de l’administrateur du service (par exemple serviceadmin@contoso.onmicrosoft.com) |
-| Nom d’utilisateur de l’administrateur de cloud | Non requis | Compte d’administrateur de domaine Azure Stack (par exemple, contoso\cloudadmin). |
-| Mot de passe d’administrateur de cloud | Non requis | |
-|  Chaîne de connexion des diagnostics | Non requis | URI de signature d’accès partagé (SAP) d’un compte de stockage Azure dans lequel les journaux de diagnostic seront copiés pendant l’exécution des tests. Consultez la section [Créer un blob de stockage Azure pour stocker les journaux](azure-stack-vaas-set-up-account.md#create-an-azure-storage-blob-to-store-logs). <br><br>La valeur du paramètre commun **Chaîne de connexion des diagnostics** est stockée par le service et fournie lors de la planification à tous les tests du flux de travail qui utilisent ce paramètre. Lorsque l’URL SAP doit arriver à expiration dans les 30 jours, vous êtes invité à indiquer une nouvelle URL SAP sur la page des paramètres communs. |
-| Balise - Nom | Non requis |  Vous pouvez entrer des balises descriptives pour libeller le flux de travail. Il s’agit du nom de la balise. |
-| Balise - Valeur | Non requis | Vous pouvez entrer des balises descriptives pour libeller le flux de travail. Il s’agit de la valeur de la balise. |
+![Planifier un test de validation de solution](media/workflow_validation-solution_schedule-test.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Replanifiez ou annulez un test](azure-stack-vaas-monitor-test.md#reschedule-a-test).
-- Apprenez-en davantage sur le service [Validation en tant que service pour Azure Stack](https://docs.microsoft.com/azure/azure-stack/partner).
+- [Surveiller et gérer les tests dans le portail VaaS](azure-stack-vaas-monitor-test.md)

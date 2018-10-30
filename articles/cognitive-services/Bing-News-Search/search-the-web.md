@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: overview
 ms.date: 06/21/2016
 ms.author: scottwhi
-ms.openlocfilehash: 787fdea047f9e7d77ca0a156f1c41fa50fd2fa48
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4ed816b117d11dd38e6a8ea5191171b812db0f1c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801469"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023200"
 ---
 # <a name="what-is-bing-news-search"></a>Qu’est-ce que Recherche d’actualités Bing ?
 
@@ -265,7 +265,7 @@ S’il existe d’autres articles associés à un article d’actualités, celui
 
 Pour configurer rapidement votre première requête, consultez [Création de votre première requête](./quickstart.md).
 
-Familiarisez-vous avec les informations de référence sur l’[API Recherche d’actualités Bing v7] (https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference). Vous y trouverez la liste des points de terminaison, en-têtes et paramètres de requête à utiliser pour demander les résultats de la recherche. Vous y trouverez également les définitions des objets de réponse.
+Familiarisez-vous avec les informations de référence sur [l’API Recherche d’actualités Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference). Vous y trouverez la liste des points de terminaison, en-têtes et paramètres de requête à utiliser pour demander les résultats de la recherche. Vous y trouverez également les définitions des objets de réponse.
 
 Pour améliorer l’expérience utilisateur dans la zone de recherche, consultez [API Suggestion automatique Bing](../bing-autosuggest/get-suggested-search-terms.md). À mesure que l’utilisateur entre son terme de requête, vous pouvez appeler cette API pour obtenir des termes pertinents utilisés par d’autres personnes.
 

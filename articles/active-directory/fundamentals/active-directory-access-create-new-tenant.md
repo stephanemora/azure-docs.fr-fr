@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: lizross
 custom: it-pro
-ms.openlocfilehash: 8ef68c8afcf61a1a11c341a679443071aece9812
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: eacb2e7c52adae9de0b74c3dade59446cc8459ed
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363001"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023543"
 ---
 # <a name="quickstart-access-azure-active-directory-to-create-a-new-tenant"></a>Démarrage rapide : Accéder à Azure Active Directory pour créer un locataire
 Vous pouvez effectuer toutes vos tâches d’administration à l’aide du portail Azure Active Directory (Azure AD), notamment la création d’un locataire pour votre organisation. 
@@ -24,13 +24,6 @@ Vous pouvez effectuer toutes vos tâches d’administration à l’aide du porta
 Dans ce guide de démarrage rapide, vous découvrez comment accéder au portail Azure et à Azure Active Directory, et comment créer un locataire de base pour votre organisation.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
-
-## <a name="prerequisites"></a>Prérequis
-Avant de commencer, vous devez :
-
-- Vous assurer que votre organisation dispose d’une licence Azure AD valide
-
-- Vérifier que vous êtes administrateur général
 
 ## <a name="sign-in-to-the-azure-portal"></a>Connectez-vous au portail Azure.
 Connectez-vous au [portail Azure](https://portal.azure.com/) de votre organisation avec un compte d’administrateur général.
@@ -59,7 +52,7 @@ Une fois connecté au portail Azure, vous pouvez créer un locataire pour votre 
 
 Votre nouveau locataire est créé avec le domaine contoso.onmicrosoft.com.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Si vous ne pensez pas continuer à utiliser cette application, vous pouvez supprimer le locataire en procédant comme suit :
 
 - Sélectionnez **Azure Active Directory** puis, dans la page **Contoso - Vue d’ensemble**, sélectionnez **Supprimer l’annuaire**.
@@ -76,3 +69,5 @@ Si vous ne pensez pas continuer à utiliser cette application, vous pouvez suppr
 - Pour ajouter des groupes et des membres, consultez [Créer un groupe de base et ajouter des membres](active-directory-groups-create-azure-portal.md)
 
 - Découvrez l’[accès en fonction du rôle avec Privileged Identity Management](../../role-based-access-control/pim-azure-resource.md) et l’[accès conditionnel](../../role-based-access-control/conditional-access-azure-management.md) permettant de gérer l’accès aux ressources et aux applications de votre organisation.
+
+- En savoir plus sur Azure AD, notamment sur [les informations de base des licences, la terminologie et les fonctionnalités associées](active-directory-whatis.md).

@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Détecter les visages dans une image - API Visage, Ruby'
+title: 'Démarrage rapide : détecter des visages dans une image à l’aide de l’API REST et Ruby'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez détecter les visages d’une image à l’aide de l’API Visage avec Ruby.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/30/2018
 ms.author: pafarley
-ms.openlocfilehash: a49fca60cae5cd753126f8e4566b00a1e4115d39
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 8b47c845e8523e1c35dee8a5732cb15fed09e030
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342617"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955421"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-ruby"></a>Démarrage rapide : Détecter les visages dans une image à l’aide de Ruby
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-ruby"></a>Démarrage rapide : détecter des visages dans une image à l’aide de l’API REST et Ruby
 
 Dans ce démarrage rapide, vous allez détecter des visages humains dans une image à l’aide de l’API Visage.
 

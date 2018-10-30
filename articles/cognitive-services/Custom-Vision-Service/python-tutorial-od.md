@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer un projet de détection des objets - API Vision personnalisée, Python'
+title: 'Tutoriel : Créer un projet de détection d’objet avec le kit de développement logiciel (SDK) de Vision personnalisée pour Python - Service Vision personnalisée'
 titlesuffix: Azure Cognitive Services
 description: Créez un projet, ajoutez des balises, chargez des images, effectuez l’apprentissage votre projet ainsi qu’une prédiction en utilisant le point de terminaison par défaut.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/03/2018
 ms.author: areddish
-ms.openlocfilehash: f49f5ab32d834b32de54be2d96c3671ad46f79f3
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 36b283965766130e86e079c807139998cd01c8a6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46363698"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958531"
 ---
-# <a name="tutorial-build-an-object-detection-project-with-python"></a>Tutoriel : Créer un projet de détection des objets avec Python
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-python"></a>Tutoriel : créer un projet de détection d’objet avec le kit de développement logiciel (SDK) de Vision personnalisée pour Python
 
 Explorez un script Python de base qui utilise l’API Vision par ordinateur pour créer un projet de détection d’objet. Une fois le projet créé, vous pouvez ajouter des régions balisées, charger des images, effectuer l’apprentissage du projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet et utiliser le point de terminaison pour tester une image par programmation. Utilisez cet exemple open source comme modèle de création pour votre propre application au moyen de l’API Vision personnalisée.
 

@@ -1,20 +1,21 @@
 ---
 title: Qu’est-ce que le service de reconnaissance vocale ?
-description: 'Le service Speech fait partie des services Cognitive Services de Microsoft et regroupe plusieurs services de reconnaissance vocale Azure qui étaient auparavant disponibles séparément : la reconnaissance vocale Bing (incluant la reconnaissance vocale et la synthèse vocale), Custom Speech et la traduction vocale.'
 titleSuffix: Azure Cognitive Services
+description: 'Le service Speech fait partie des services Cognitive Services Azure et regroupe plusieurs services de reconnaissance vocale qui étaient auparavant disponibles séparément : la reconnaissance vocale Bing (incluant la reconnaissance vocale et la synthèse vocale), Custom Speech et la traduction vocale.'
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
 ms.topic: overview
 ms.date: 09/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 7a61d85d96b993d49a536c38c2907a3d6ef55e65
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ba4204c23f3467ff07940fd6a72464e67604dde1
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365456"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470444"
 ---
 # <a name="what-is-the-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale ?
 

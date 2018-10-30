@@ -6,22 +6,25 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: facf8895770f890bfbbef946a32cc681f685e998
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 361a1934a1e0cdcc0647c4c4f62af98f52b8c899
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915200"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456868"
 ---
 # <a name="prepare-on-premises-vmware-servers-for-disaster-recovery-to-azure"></a>Préparer des serveurs VMware locaux à la récupération d’urgence vers Azure
 
 [Azure Site Recovery](site-recovery-overview.md) contribue à votre stratégie de récupération d’urgence et de continuité d’activité en garantissant le bon fonctionnement et la disponibilité de vos applications métier pendant les interruptions planifiées et non planifiées. Site Recovery gère et orchestre la récupération d’urgence des machines locales et des machines virtuelles Azure, notamment la réplication, le basculement et la récupération.
 
 - Il s’agit du deuxième tutoriel dans une série qui vous montre comment configurer la récupération d’urgence sur Azure pour des machines virtuelles VMware locales. Dans le premier tutoriel, nous [avons configuré les composants Azure](tutorial-prepare-azure.md) nécessaires pour la récupération d’urgence de VMware.
-- Les tutoriels sont conçus pour vous montrer le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. 
+
+
+> [!NOTE]
+> Les tutoriels sont conçus pour vous montrer le chemin de déploiement le plus simple pour un scénario. Ils utilisent les options par défaut lorsque cela est possible et n’affichent pas tous les paramètres et chemins d’accès possibles. Pour obtenir des instructions détaillées, reportez-vous à la section **Conseils pratiques** du scénario correspondant.
 
 Dans cet article, nous vous montrons comment préparer votre environnement VMware local lorsque vous souhaitez répliquer des machines virtuelles VMware vers Azure à l’aide d’Azure Site Recovery. Vous allez apprendre à effectuer les actions suivantes :
 
@@ -101,11 +104,13 @@ Pour vous connecter à des machines virtuelles Linux à l’aide de SSH après l
 - [Ajoutez une adresse IP publique](site-recovery-monitoring-and-troubleshooting.md) pour la machine virtuelle.
 - Vous pouvez vérifier les **Diagnostics de démarrage** pour afficher une capture d’écran de la machine virtuelle.
 
+
+## <a name="failback-requirements"></a>Conditions requises pour la restauration automatique
+Si vous envisagez d’effectuer une restauration automatique en local, vous devez également vous assurer que certaines [conditions préalables sont remplies](vmware-azure-reprotect.md##before-you-begin). Toutefois, elles ne sont **pas obligatoires pour découvrir comment activer la récupération d’urgence** pour vos machines virtuelles et peuvent même être effectuées après le basculement vers Azure également.
+
 ## <a name="useful-links"></a>Liens utiles
 
 Si vous répliquez plusieurs machines virtuelles, vous devez planifier la capacité et le déploiement avant de commencer. [Plus d’informations](site-recovery-deployment-planner.md)
-
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

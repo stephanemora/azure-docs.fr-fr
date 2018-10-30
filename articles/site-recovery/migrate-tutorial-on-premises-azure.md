@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: bd41244192efa1333bc90bec8c00f38aaaa7f612
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 446d9ead47e9d9380a608933ced3793e99241622
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714987"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026328"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrer des machines sur site vers Azure
 
@@ -33,7 +33,7 @@ Ce didacticiel vous montre comment migrer des machines virtuelles locales et des
 Il s’agit du troisième didacticiel d’une série. Ce didacticiel suppose que vous avez déjà effectué les tâches des didacticiels précédents :
 
 1. [Préparer Azure](tutorial-prepare-azure.md)
-2. Préparez des machines virtuelles [VMware](vmware-azure-tutorial-prepare-on-premises.md) sur site ou des serveurs [Hyper-V] (hyper-v-prepare-on-premises-tutorial.md).
+2. Préparez les serveurs [VMware](vmware-azure-tutorial-prepare-on-premises.md) locaux ou les serveurs [Hyper-V](hyper-v-prepare-on-premises-tutorial.md).
 
 Avant de commencer, il est utile d’examiner les architectures [VMware](vmware-azure-architecture.md) et [Hyper-V](hyper-v-azure-architecture.md) pour la récupération d’urgence.
 

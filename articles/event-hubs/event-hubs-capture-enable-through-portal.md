@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: ff80bc2452c9826a5c51c146a957fddc72d2dbc2
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 5cb3fee975e99af3d86affcbc18d89277dde2dc1
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41918088"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409116"
 ---
 # <a name="enable-event-hubs-capture-using-the-azure-portal"></a>Activer Event Hubs Capture à l’aide du portail Azure
 
@@ -75,6 +75,7 @@ Vous pouvez configurer la fonctionnalité Capture sur des concentrateurs d’é
 
 - Pour en savoir plus sur Event Hubs Capture, consultez [Vue d’ensemble d’Event Hubs Capture][capture-overview].
 - Vous pouvez également configurer Event Hubs Capture via des modèles Azure Resource Manager. Pour en savoir plus, consultez la section relative à [l’activation de Capture à l’aide d’un modèle Azure Resource Manager](event-hubs-resource-manager-namespace-event-hub-enable-capture.md).
+- [Découvrez comment créer un abonnement Azure Event Grid en utilisant un espace de noms Event Hubs comme source](store-captured-data-data-warehouse.md)
 - [Prise en main d’Azure Data Lake Store à l’aide du portail Azure](../data-lake-store/data-lake-store-get-started-portal.md)
 
 [capture-overview]: event-hubs-capture-overview.md

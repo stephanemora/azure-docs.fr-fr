@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Identifier la langue du texte - API de traduction de texte Translator Text, C#'
+title: 'Démarrage rapide : Identifier la langue du texte, C# - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez identifier la langue du texte source à l’aide de l’API de traduction de texte Translator Text avec C#.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: b9a5dbdc1e7950400597c76359b8eee4268af6d0
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: d92b5f7815c7aeb43ef81bb7b06aa1cda64f32dc
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320371"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49647100"
 ---
-# <a name="quickstart-identify-language-from-text-with-c35"></a>Démarrage rapide : Identifier la langue du texte avec C&#35;
+# <a name="quickstart-identify-language-from-text-with-the-translator-text-rest-api-c"></a>Démarrage rapide : identifier la langue du texte à l’aide de l’API de traduction de texte Translator Text (C#)
 
 Dans ce démarrage rapide, vous identifiez la langue du texte source à l’aide de l’API de traduction de texte Translator Text.
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: fc4b2f153c89d4253bc3fdd9c5a49973baa38752
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 79a6636043499cffb7eded409cdc27c56de98e33
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49310213"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430219"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutoriel : Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
@@ -118,6 +118,8 @@ Si Ctrl + Alt + Suppr est requis par la stratégie, ou si les notifications de v
 Le journal d’audit Azure AD inclut des informations sur l’adresse IP et le ClientType associés à la réinitialisation de mot de passe.
 
 ![Exemple de réinitialisation du mot de passe de l’écran d’ouverture de session dans le journal d’audit Azure AD](media/tutorial-sspr-windows/windows-sspr-azure-ad-audit-log.png)
+
+Si vos ordinateurs Windows 10 sont placés derrière un serveur proxy ou pare-feu, le trafic HTTPS (443) vers passwordreset.microsoftonline.com et ajax.aspnetcdn.com devrait être autorisé.
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

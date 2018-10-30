@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: Active
 ms.date: 06/21/2018
 ms.author: alehall
-ms.openlocfilehash: a06ee5b03521fa2e0a711f5194cf01b32e7cea37
-ms.sourcegitcommit: 638599eb548e41f341c54e14b29480ab02655db1
+ms.openlocfilehash: 4a70801fa11316fbd023f348981743639fe111dc
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/21/2018
-ms.locfileid: "36308694"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024413"
 ---
 # <a name="tutorial-stream-data-into-azure-databricks-using-event-hubs"></a>Didacticiel : Diffuser en continu des données dans Azure Databricks à l’aide d’Event Hubs
 
@@ -31,7 +31,7 @@ L’illustration suivante montre le flux d’application :
 
 ![Azure Databricks avec Event Hubs](./media/databricks-stream-from-eventhubs/databricks-eventhubs-tutorial.png "Azure Databricks avec Event Hubs")
 
-Ce didacticiel décrit les tâches suivantes :
+Ce tutoriel décrit les tâches suivantes :
 
 > [!div class="checklist"]
 > * Créer un espace de travail Azure Databricks
@@ -77,7 +77,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     |**Nom de l’espace de travail**     | Renseignez un nom pour votre espace de travail Databricks.        |
     |**Abonnement**     | Sélectionnez votre abonnement Azure dans la liste déroulante.        |
     |**Groupe de ressources**     | Indiquez si vous souhaitez créer un groupe de ressources Azure ou utiliser un groupe existant. Un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Pour plus d’informations, consultez [Présentation des groupes de ressources Azure](../azure-resource-manager/resource-group-overview.md). |
-    |**Lieu**     | Sélectionnez **Est des États-Unis 2**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
+    |**Lieu**     | Sélectionnez **USA Est**. Pour les autres régions disponibles, consultez [Disponibilité des services Azure par région](https://azure.microsoft.com/regions/services/).        |
     |**Niveau tarifaire**     |  Choisissez entre **Standard** ou **Premium**. Pour plus d’informations sur ces niveaux, consultez la [page de tarification Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Sélectionnez **Épingler au tableau de bord**, puis sélectionnez **Créer**.
@@ -102,7 +102,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
     * Entrez un nom pour le cluster.
     * Pour cet article, créez un cluster avec le runtime **4.0**.
-    * Veillez à cocher la case **Arrêter après ___ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
+    * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
 
     Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
@@ -367,14 +367,14 @@ Et voilà ! Avec Azure Databricks, vous avez réussi à diffuser en continu des
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Une fois le didacticiel terminé, vous pouvez arrêter le cluster. Pour cela, dans l’espace de travail Azure Databricks, dans le volet gauche, sélectionnez **Clusters**. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions**, puis sélectionnez l’icône **Arrêter**.
+Une fois le tutoriel terminé, vous pouvez arrêter le cluster. Pour cela, dans l’espace de travail Azure Databricks, dans le volet gauche, sélectionnez **Clusters**. Pour le cluster que vous voulez arrêter, déplacez le curseur sur les points de suspension dans la colonne **Actions**, puis sélectionnez l’icône **Arrêter**.
 
 ![Arrêter un cluster Databricks](./media/databricks-stream-from-eventhubs/terminate-databricks-cluster.png "Arrêter un cluster Databricks")
 
 Si vous n’arrêtez pas le cluster manuellement, il s’arrêtera automatiquement, à condition d’avoir coché **Arrêter après __ minutes d’inactivité** lors de la création du cluster. Dans ce cas, le cluster s’arrête automatiquement s’il a été inactif pendant la période renseignée.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Dans ce didacticiel, vous avez appris à :
+Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
 > * Créer un espace de travail Azure Databricks

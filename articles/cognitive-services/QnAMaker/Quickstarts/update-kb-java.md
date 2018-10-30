@@ -1,25 +1,31 @@
 ---
-title: 'Démarrage rapide : Mettre à jour avec Java une base de connaissances - QnA Maker'
+title: 'Guide de démarrage rapide : Mettre à jour une base de connaissances - REST, Java - QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Comment mettre à jour une base de connaissances dans Java pour QnA Maker.
+description: Ce démarrage rapide basé sur REST vous aide à mettre à jour votre exemple de base de connaissances QnA Maker par programmation. La définition JSON que vous utilisez pour mettre à jour une base de connaissances vous permet d’ajouter, de modifier ou de supprimer des paires de questions/réponses.
 services: cognitive-services
 author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: quickstart
-ms.date: 09/12/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: fc2792086d93e584535389c8c0f162fc1e592cbd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: b7aaf57def84feec95cc6a157ac6dd33a17b2fc0
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388243"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645853"
 ---
-# <a name="update-a-knowledge-base-in-java"></a>Mettre à jour une base de connaissances dans Java
+# <a name="quickstart-update-a-knowledge-base-in-qna-maker-using-java"></a>Guide de démarrage rapide : Mettre à jour une base de connaissances dans QnA Maker à l’aide de Java
 
-Le code suivant met à jour une base de connaissances à l’aide de la méthode [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
+Ce démarrage rapide vous aide à mettre à jour une base de connaissances QnA Maker existante par programmation.  Ce code JSON vous permet de mettre à jour une base de connaissances en ajoutant de nouvelles sources de données, en modifiant ou supprimant des sources de données.
+
+Cette API correspond aux actions de modification, puis d’utilisation du bouton **Save and train** (Enregistrer et effectuer l’apprentissage) dans le portail QnA Maker.
+
+Ce démarrage rapide fait appel aux API QnA Maker :
+* [Mettre à jour](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) : le modèle de la base de connaissances est défini dans le code JSON envoyé dans le corps de la requête d’API. 
+* [Obtenir les détails de l’opération](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails)
 
 [!INCLUDE [Code is available in Azure-Samples Github repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
 

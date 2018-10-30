@@ -1,20 +1,20 @@
 ---
 title: Rechercher avec Azure Maps | Microsoft Docs
 description: Rechercher un point d’intérêt de proximité à l’aide d’Azure Maps
-author: dsk-2015
-ms.author: dkshir
-ms.date: 10/02/2018
+author: walsehgal
+ms.author: v-musehg
+ms.date: 10/22/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 761674c5839f0513532355116db07604f9e9d9dc
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 10fb30b77cc3cd18cbb6b3def9682349474fba71
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816818"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645812"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Rechercher des points d’intérêt de proximité à l’aide d’Azure Maps
 
@@ -116,11 +116,10 @@ L’API Map Control est une bibliothèque cliente pratique qui vous permet d’i
 
     ```JavaScript
     // Instantiate map to the div with id "map"
-    var MapsAccountKey = "<your account key>";
-    var map = new atlas.Map("map", {
-        "subscription-key": MapsAccountKey
-    });
+    atlas.setSubscriptionKey("<your account key>");
+    var map = new atlas.Map("map");
     ```
+
     Ce segment lance l’API Map Control pour votre clé de compte Azure Maps. **Atlas** est l’espace de noms qui contient les API et les composants visuels associés. **atlas.Map** fournit le contrôle d’une carte web visuelle et interactive.
 
 4. Enregistrez vos modifications du fichier, puis ouvrez la page HTML dans un navigateur. Il s’agit de la carte la plus basique que vous pouvez créer en appelant **atlas.map** à l’aide de votre clé de compte.
@@ -148,14 +147,14 @@ Cette section montre comment utiliser l’API Maps Search pour rechercher un poi
     var client = new atlas.service.Client(MapsAccountKey);
     ```
 
-3. Toutes les fonctions sur la carte doivent être chargées après le chargement de la carte. Vous pouvez vous en assurer en plaçant toutes les fonctions de la carte à l’intérieur du bloc eventListener de la carte. Ajoutez les lignes de code ci-après pour ajouter un élément [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addeventlistener) à la carte afin de vous assurer que la carte se charge complètement avant l’ajout des fonctionnalités.
+3. Toutes les fonctions sur la carte doivent être chargées après le chargement de la carte. Vous pouvez vous en assurer en plaçant toutes les fonctions de la carte à l’intérieur du bloc eventListener de la carte. Ajoutez les lignes de code ci-après pour ajouter un élément [eventListener](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) à la carte afin de vous assurer que la carte se charge complètement avant l’ajout des fonctionnalités.
     
     ```JavaScript
-         map.addEventListener("load", function() {
+         map.events.add("load", function() {
          });
     ```
 
-4. Ajoutez le bloc de script ci-après **au sein du bloc eventListener de chargement de la carte** pour générer la requête. Il utilise le service Fuzzy Search, qui est l’API de recherche de base de Search Service. Le service Fuzzy Search gère la plupart des entrées partielles comme n’importe quelle combinaison de jetons d’adresse et de points d'intérêt. Il recherche les stations-service à proximité dans le rayon spécifié. La réponse est ensuite analysée au format GeoJSON et convertie en fonctionnalités de point, ajoutées à la carte comme des épingles. La dernière partie du script ajoute des limites d’appareil photo pour la carte à l’aide de la propriété [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) de Maps.
+4. Ajoutez le bloc de script ci-après **au sein des évènements de chargement de la carte** pour générer la requête. Il utilise le service Fuzzy Search, qui est l’API de recherche de base de Search Service. Le service Fuzzy Search gère la plupart des entrées partielles comme n’importe quelle combinaison de jetons d’adresse et de points d'intérêt. Il recherche les stations-service à proximité dans le rayon spécifié. La réponse est ensuite analysée au format GeoJSON et convertie en fonctionnalités de point, ajoutées à la carte comme des épingles. La dernière partie du script ajoute des limites d’appareil photo pour la carte à l’aide de la propriété [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) de Maps.
 
     ```JavaScript
 
@@ -190,8 +189,8 @@ Cette section montre comment utiliser l’API Maps Search pour rechercher un poi
             map.setCameraBounds({
                bounds: geojsonResponse.getGeoJsonResults().bbox,
                padding: 50
-            );
-        });
+            });
+    });
     ```
 5. Enregistrez le fichier **MapSearch.html**, puis actualisez votre navigateur. Vous devriez désormais constater que la carte est centrée sur Seattle avec des repères bleus marquant l’emplacement des stations-service dans la zone.
 

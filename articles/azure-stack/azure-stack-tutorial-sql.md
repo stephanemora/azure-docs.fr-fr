@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/16/2018
+ms.date: 10/23/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 17f06a08388720c4483ef1c187edf20ec8359121
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 50f5662fa574b512ab607e17dbdfcf1861e2f5c6
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386381"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954894"
 ---
 # <a name="tutorial-offer-highly-available-sql-databases"></a>Didacticiel : offrir des bases de données SQL hautement disponibles
 
@@ -63,30 +63,28 @@ Utilisez les étapes de cette section pour déployer le groupe de disponibilité
 - Une machine virtuelle (Windows Server 2016) configurée comme témoin de partage de fichiers pour le cluster
 - Un groupe à haute disponibilité contenant les machines virtuelles SQL et témoin de partage de fichiers  
 
-1. Connectez-vous au portail d’administration :
-    - Pour le déploiement d’un système intégré, l’adresse du portail varie en fonction de la région et du nom de domaine externe de votre solution. Son format est https://adminportal.&lt;*région*&gt;.&lt;*nom de domaine complet*&gt;.
-    - Si vous utilisez le SDK Azure Stack, l’adresse du portail utilisateur est [https://adminportal.local.azurestack.external](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-admin-portal](../../includes/azs-admin-portal.md)]
 
 2. Sélectionnez **\+** **Créer une ressource** > **Personnalisé**, puis **Déploiement de modèle**.
 
-   ![Déploiement de modèle personnalisé](media/azure-stack-tutorial-sqlrp/custom-deployment.png)
+   ![Déploiement de modèle personnalisé](media/azure-stack-tutorial-sqlrp/1.png)
 
 
 3. Dans le panneau **Déploiement personnalisé**, sélectionnez **Modifier le modèle** > **Modèle de démarrage rapide**, puis utilisez la liste déroulante des modèles personnalisés disponibles pour sélectionner le modèle **sql-2016-alwayson**, cliquez sur **OK**, puis sur **Enregistrer**.
 
-   ![Sélectionner un modèle de démarrage rapide](./media/azure-stack-tutorial-sqlrp/quickstart-template.png)
-
+   [![](media/azure-stack-tutorial-sqlrp/2-sm.PNG "Sélectionner un modèle de démarrage rapide")](media/azure-stack-tutorial-sqlrp/2-lg.PNG#lightbox)
 
 4. Dans le panneau **Déploiement personnalisé**, sélectionnez **Modifier les paramètres** et examinez les valeurs par défaut. Modifiez les valeurs de façon appropriée pour fournir toutes les informations des paramètres nécessaires, puis cliquez sur **OK**.<br><br> Au minimum :
 
     - Spécifiez des mots de passe complexes pour les paramètres ADMINPASSWORD, SQLSERVERSERVICEACCOUNTPASSWORD et SQLAUTHPASSWORD.
     - Entrez le suffixe DNS pour la recherche inversée tout en minuscules pour le paramètre DNSSUFFIX (**azurestack.external** pour les installations ASDK).
     
-    ![Paramètres du déploiement personnalisé](./media/azure-stack-tutorial-sqlrp/edit-parameters.png)
+   [![](media/azure-stack-tutorial-sqlrp/3-sm.PNG "Modifier les paramètres du déploiement personnalisé")](media/azure-stack-tutorial-sqlrp/3-lg.PNG#lightbox)
 
 5. Dans le panneau **Déploiement personnalisé**, sélectionnez l’abonnement à utiliser, et créez un groupe de ressources ou sélectionnez un groupe de ressources existant pour le déploiement personnalisé.<br><br> Ensuite, sélectionnez l’emplacement du groupe de ressources (**local** pour les installations ASDK), puis cliquez sur **Créer**. Les paramètres du déploiement personnalisé sont validés, puis le déploiement commence.
 
-    ![Paramètres du déploiement personnalisé](./media/azure-stack-tutorial-sqlrp/create-deployment.png)
+    [![](media/azure-stack-tutorial-sqlrp/4-sm.PNG "Créer un déploiement personnalisé")](media/azure-stack-tutorial-sqlrp/4-lg.PNG#lightbox)
 
 
 6. Dans le portail d’administration, sélectionnez **Groupes de ressources**, puis le nom du groupe de ressources que vous avez créé pour le déploiement personnalisé (**resource-group** pour cet exemple). Regardez l’état du déploiement pour vérifier que tous les déploiements ont réussi.<br><br>Ensuite, passez en revue les éléments du groupe de ressources et sélectionnez l’élément Adresse IP publique de **SQLPIPsql\<nom_groupe_ressources\>**. Notez l’adresse IP publique et le nom de domaine complet de l’équilibreur de charge. Vous devrez fournir ces informations à un opérateur Azure Stack pour qu’il puisse créer un serveur d’hébergement SQL tirant parti de ce groupe de disponibilité SQL AlwaysOn.
@@ -94,16 +92,16 @@ Utilisez les étapes de cette section pour déployer le groupe de disponibilité
    > [!NOTE]
    > Le déploiement du modèle peut durer plusieurs heures.
 
-   ![Paramètres du déploiement personnalisé](./media/azure-stack-tutorial-sqlrp/deployment-complete.png)
+   ![Déploiement personnalisé terminé](./media/azure-stack-tutorial-sqlrp/5.png)
 
 ### <a name="enable-automatic-seeding"></a>Activer l’amorçage automatique
 Une fois que le modèle a déployé et configuré le groupe de disponibilité AlwaysOn SQL, vous devez activer [l’amorçage automatique](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/automatically-initialize-always-on-availability-group) sur chaque instance de SQL Server du groupe de disponibilité. 
 
 Quand vous créez un groupe de disponibilité avec amorçage automatique, SQL Server crée automatiquement les réplicas secondaires pour chaque base de données du groupe, sans qu’aucune autre intervention manuelle ne soit nécessaire pour garantir la haute disponibilité des bases de données AlwaysOn.
 
-Utilisez ces commandes SQL pour configurer l’amorçage automatique pour le groupe de disponibilité AlwaysOn.
+Utilisez ces commandes SQL pour configurer l’amorçage automatique pour le groupe de disponibilité AlwaysOn. Remplacez \<InstanceName\> par le nom de l’instance SQL Server principale et <availability_group_name> par le nom du groupe de disponibilité AlwaysOn si nécessaire. 
 
-Sur l’instance SQL principale (remplacez <InstanceName> par le nom SQL Server de l’instance principale) :
+Sur l’instance SQL principale :
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>]
@@ -114,7 +112,7 @@ Sur l’instance SQL principale (remplacez <InstanceName> par le nom SQL Server 
 
 >  ![Script de l’instance SQL principale](./media/azure-stack-tutorial-sqlrp/sql1.png)
 
-Sur les instances SQL secondaires (remplacez <availability_group_name> par le nom du groupe de disponibilité AlwaysOn) :
+Sur les instances SQL secondaires :
 
   ```sql
   ALTER AVAILABILITY GROUP [<availability_group_name>] GRANT CREATE ANY DATABASE
@@ -156,9 +154,8 @@ Une fois que le groupe de disponibilité AlwaysOn SQL a été créé, configuré
 > [!NOTE]
 > Effectuez ces étapes à partir du portail utilisateur Azure Stack en tant qu’utilisateur du locataire, avec un abonnement fournissant des fonctionnalités SQL Server (service Microsoft.SQLAdapter).
 
-1. Connectez-vous au portail utilisateur :
-    - Pour le déploiement d’un système intégré, l’adresse du portail varie en fonction de la région et du nom de domaine externe de votre solution. Son format est https://portal.&lt;*région*&gt;.&lt;*nom de domaine complet*&gt;.
-    - Si vous utilisez le SDK Azure Stack, l’adresse du portail utilisateur est [https://portal.local.azurestack.external](https://portal.local.azurestack.external).
+1. 
+[!INCLUDE [azs-user-portal](../../includes/azs-user-portal.md)]
 
 2. Cliquez sur **\+** **Créer une ressource** > **Données\+Stockage**, puis sur **Base de données SQL**.<br><br>Spécifiez les informations des propriétés de base de données nécessaires, notamment le nom, le classement, la taille maximale, et l’abonnement, le groupe de ressources et l’emplacement à utiliser pour le déploiement. 
 

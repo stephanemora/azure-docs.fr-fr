@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 04/09/2018
 ms.author: makromer
-ms.openlocfilehash: ca00a414402c1cfdef55cfbde9291688f091bf77
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: aecb193d1d9a10dbb5c936401f9900c4b2be071f
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095917"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638238"
 ---
 # <a name="compare-azure-data-factory-with-data-factory-version-1"></a>Comparer Azure Data Factory et Azure Data Factory version 1
 Cet article compare Data Factory et Data Factory version 1. Pour une présentation de Data Factory, consultez [Présentation de Data Factory](introduction.md). Pour une présentation de Data Factory version 1, consultez [Présentation d’Azure Data Factory](v1/data-factory-introduction.md). 
@@ -62,7 +62,7 @@ L’[activité ForEach](control-flow-for-each-activity.md) définit un flux de c
 L’activité [Until](control-flow-until-activity.md) fournit les mêmes fonctionnalités qu’une structure de boucle do-until dans les langages de programmation. Elle exécute un ensemble d’activités dans une boucle jusqu’à ce que la condition associée à l’activité retourne la valeur `true`. Vous pouvez spécifier une valeur de délai d’attente pour l’activité Until dans Data Factory.  
 
 ### <a name="trigger-based-flows"></a>Flux basés sur déclencheur
-Les pipelines peuvent être déclenchés à la demande ou selon une durée chronométrée. L’article [Pipelines et déclencheurs](concepts-pipeline-execution-triggers.md) contient des informations détaillées sur les déclencheurs. 
+Les pipelines peuvent être déclenchés à la demande (basés sur les événements, exemple : un billet de blog) ou selon une durée chronométrée. L’article [Pipelines et déclencheurs](concepts-pipeline-execution-triggers.md) contient des informations détaillées sur les déclencheurs. 
 
 ### <a name="invoking-a-pipeline-from-another-pipeline"></a>Appel d’un pipeline à partir d’un autre pipeline
 L’[activité d’exécution du pipeline](control-flow-execute-pipeline-activity.md) permet à un pipeline Data Factory d’appeler un autre pipeline.

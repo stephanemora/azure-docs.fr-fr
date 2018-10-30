@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 10/25/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 66f79b68c003aa3605653b0decc091d22fbf3860
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 3889e1fc9bfaa9beccba560d4a984c451fb325da
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39055183"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025240"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-azure-powershell"></a>Acheminer le trafic web selon l’URL à l’aide d’Azure PowerShell
 
@@ -32,11 +32,13 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ![Exemple d’acheminement d’URL](./media/tutorial-url-route-powershell/scenario.png)
 
+Si vous préférez, vous pouvez suivre ce didacticiel en utilisant [Azure CLI](tutorial-url-route-cli.md) ou le [portail Azure](create-url-route-portal.md).
+
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 [!INCLUDE [cloud-shell-powershell.md](../../includes/cloud-shell-powershell.md)]
 
-Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 3.6 ou version ultérieure pour les besoins de ce didacticiel. Pour trouver la version, exécutez ` Get-Module -ListAvailable AzureRM`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
+Si vous choisissez d’installer et d’utiliser PowerShell en local, vous devez exécuter le module Azure PowerShell version 3.6 ou version ultérieure pour les besoins de ce didacticiel. Pour trouver la version, exécutez ` Get-Module -ListAvailable AzureRM`. Si vous devez effectuer une mise à niveau, consultez [Installer le module Azure PowerShell](/powershell/azure/install-azurerm-ps). Si vous exécutez PowerShell en local, vous devez également lancer `Login-AzureRmAccount` pour créer une connexion avec Azure.
 
 En raison du temps nécessaire pour créer des ressources, ce tutoriel peut durer jusqu’à 90 minutes.
 
@@ -425,7 +427,7 @@ Changez l’URL en http://&lt;ip-address&gt;:8080/video/test.htm, en remplaçant
 
 ![Tester l’URL vidéo dans la passerelle d’application](./media/tutorial-url-route-powershell/application-gateway-iistest-video.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées à l’aide de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 

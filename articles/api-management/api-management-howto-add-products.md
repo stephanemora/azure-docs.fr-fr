@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 4f5097f8555d0345add7de8a0f648190bd4e1e00
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0346cf456c53b14fd3c5b14b2e40eddd8b89fe4d
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41920040"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465948"
 ---
 # <a name="create-and-publish-a-product"></a>Créer et publier un produit  
 
@@ -31,7 +31,7 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Créer et publier un produit
 > * Ajouter une API au produit
 
-![Ajouter un produit](media/api-management-howto-add-products/added-product.png)
+![Ajouter un didacticiel du produit](media/api-management-howto-add-products/added-product.png)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -40,10 +40,10 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="create-and-publish-a-product"></a>Créer et publier un produit
 
+![Add product](media/api-management-howto-add-products/02-create-publish-product-01.png)
+
 1. Cliquez sur **Produits** dans le menu à gauche pour afficher la page **Produits**.
 2. Cliquez sur **+ Ajouter**.
-
-    ![Produit ajouté](media/api-management-howto-add-products/add-product.png)
 
     Quand vous ajoutez un produit, vous devez fournir les informations suivantes : 
 
@@ -77,7 +77,7 @@ Les développeurs doivent s’abonner à un produit pour obtenir l’accès à l
 
 ### <a name="add-an-api-to-an-existing-product"></a>Ajouter une API à un produit existant
 
-![Ajouter une API de produit](media/api-management-howto-add-products/add-product-api.png)
+![Ajouter une API de produit](media/api-management-howto-add-products/02-create-publish-product-02.png)
 
 1. Dans l’onglet **Produits**, sélectionnez un produit.
 2. Accédez à l’onglet **API**.

@@ -1,6 +1,6 @@
 ---
 title: Collecter des données sur les machines virtuelles Azure | Microsoft Docs
-description: Découvrez comment activer l’extension de machine virtuelle de l’agent OMS et comment activer la collecte de données à partir de vos machines virtuelles Azure avec Log Analytics.
+description: Découvrez comment activer l’extension de machine virtuelle de l’agent Log Analytics et comment activer la collecte de données à partir de vos machines virtuelles Azure avec Log Analytics.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -16,12 +16,12 @@ ms.date: 06/26/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: c7015eb346136130b9ffd3c23460cb8b9609dc9b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 141df44f62ddb4a62f6f5f6a8b67107aa2c58a29
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041004"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404492"
 ---
 # <a name="collect-data-about-azure-virtual-machines"></a>Collecter des données sur les machines virtuelles Azure
 [Azure Log Analytics](log-analytics-overview.md) est capable de collecter des données directement à partir de vos machines virtuelles Azure et des autres ressources de votre environnement dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide vous montre comment configurer et collecter des données à partir de vos machines virtuelles Azure Linux ou Windows en quelques étapes simples.  
@@ -38,7 +38,7 @@ Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https:
 
 2. Cliquez sur **Créer**, puis sélectionnez des options pour les éléments suivants :
 
-  * Attribuez un nom au nouvel **Espace de travail OMS**, en l’occurrence *DefaultLAWorkspace*. 
+  * Attribuez un nom au nouvel **Espace de travail Log Analytics**, tel que *DefaultLAWorkspace*. Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics.  
   * Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
   * Pour **Groupe de ressources**, sélectionnez un groupe de ressources existant qui contient une ou plusieurs machines virtuelles Azure.  
   * Sélectionnez l’**Emplacement** dans lequel vos machines virtuelles sont déployées.  Pour en savoir plus, découvrez dans quelles [régions Log Analytics est disponible](https://azure.microsoft.com/regions/services/).
@@ -46,22 +46,25 @@ Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https:
   
         ![Create Log Analytics resource blade](media/log-analytics-quick-collect-azurevm/create-loganalytics-workspace-02.png) 
 
-3. Après avoir entré les informations requises dans le volet **Espace de travail OMS**, cliquez sur **OK**.  
+3. Après avoir entré les informations requises dans le volet **Espace de travail Log Analytics**, cliquez sur **OK**.  
 
 Pendant que les informations sont vérifiées et l’espace de travail créé, vous pouvez suivre la progression sous **Notifications** dans le menu. 
 
 ## <a name="enable-the-log-analytics-vm-extension"></a>Activer l’extension de machine virtuelle Log Analytics
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
+
 Pour les machines virtuelles Windows et Linux déjà déployées dans Azure, vous devez installer l’agent Log Analytics avec l’extension de machine virtuelle Log Analytics.  L’utilisation de l’extension simplifie le processus d’installation et configure automatiquement l’agent pour qu’il envoie des données à l’espace de travail Log Analytics que vous spécifiez. L’agent est également mis à niveau automatiquement, de façon à ce que vous disposiez des fonctionnalités et correctifs les plus récents.
 
 >[!NOTE]
->L’agent OMS pour Linux ne peut pas être configuré pour envoyer des rapports à plus d’un espace de travail Log Analytics. 
+>L’agent Log Analytics pour Linux ne peut pas être configuré pour envoyer des rapports à plus d’un espace de travail Log Analytics. 
 
 1. Dans le portail Azure, cliquez sur **Tous les services** en haut à gauche. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Dans votre liste d’espaces de travail Log Analytics, sélectionnez *DefaultLAWorkspace* créé précédemment.
 3. Dans le menu de gauche, sous Sources de données de l’espace de travail, cliquez sur **Machines virtuelles**.  
-4. Dans la liste des **Machines virtuelles**, sélectionnez la machine virtuelle sur laquelle vous voulez installer l’agent. Notez que l’**État de la connexion OMS** de la machine virtuelle indique **Non connecté**.
+4. Dans la liste des **Machines virtuelles**, sélectionnez la machine virtuelle sur laquelle vous voulez installer l’agent. Notez que l’**État de la connexion Log Analytics** de la machine virtuelle indique **Non connecté**.
 5. Dans les détails de votre machine virtuelle, sélectionnez **Connecter**. L’agent est automatiquement installé et configuré pour votre espace de travail Log Analytics. Ce processus prend quelques minutes durant lesquelles l’**État** est **Connexion en cours**.
-6. Une fois l’agent installé et connecté, l’**État de la connexion OMS** est mis à jour et indique **Cet espace de travail**.
+6. Une fois l’agent installé et connecté, l’**État de la connexion Log Analytics** est mis à jour et indique **Cet espace de travail**.
 
 ## <a name="collect-event-and-performance-data"></a>Collecter les données d’événements et de performances
 Log Analytics est capable de collecter les événements des journaux des événements Windows ou du journal Syslog Linux, ainsi que des compteurs de performance dans l’optique de procéder à une analyse à long terme et à générer des rapports pour agir dès lors qu’une condition particulière est détectée.  Pour configurer la collecte des événements du journal système Windows ou du journal Syslog Linux et de plusieurs compteurs de performances courants, commencez par suivre ces étapes.  

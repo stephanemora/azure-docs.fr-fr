@@ -14,17 +14,17 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 05/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a93feec7996fc0ebf742b8d62b159dca5f1c1ed
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c3eecfdf4bc2e6bf6798a6b3845cdc2e2e243341
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636985"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467427"
 ---
 # <a name="tutorial-set-up-a-lab-by-using-azure-devtest-labs"></a>Didacticiel : configurer un laboratoire à l’aide de Azure DevTest Labs
 Dans ce didacticiel, vous créez un laboratoire en utilisant le portail Azure. Un administrateur de laboratoire définit un laboratoire dans une organisation, il crée des machines virtuelles dans le laboratoire et configure des stratégies. Les utilisateurs du laboratoire (les développeurs et les testeurs par exemple) revendiquent des machines virtuelles dans le laboratoire, se connectent à eux et les utilisent. 
 
-Dans ce didacticiel, vous allez effectuer les actions suivantes :
+Dans ce tutoriel, vous allez effectuer les actions suivantes :
 
 > [!div class="checklist"]
 > * Création d’un laboratoire
@@ -55,7 +55,7 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
 1. Sur la page **DevTest Lab**, sélectionnez **+ Ajouter** sur la barre d’outils. 
 
     ![Bouton Ajouter](./media/tutorial-create-custom-lab/add-vm-to-lab-button.png)
-1. Sur la page **Choisir une base**, faites une recherche avec le mot clé **Ubuntu** et sélectionnez l’une des images de base dans la liste. 
+1. Sur la page **Choisir une base**, recherchez avec un mot-clé (par exemple : Windows, Ubuntu) puis sélectionnez l’une des images de base dans la liste. 
 1. Sur la page **Machine virtuelle**, effectuez les actions suivantes : 
     1. Pour **Nom de la machine virtuelle**, saisissez le nom de la machine virtuelle. 
     2. Pour **Nom d’utilisateur**, entrez un nom pour l’utilisateur qui a accès à la machine virtuelle. 
@@ -71,6 +71,9 @@ Les étapes suivantes montrent comment utiliser le portail Azure pour créer un 
 
         ![État de la création de la machine virtuelle](./media/tutorial-create-custom-lab/vm-creation-status.png)
 1. Une fois la machine virtuelle créée, elle apparaît dans la liste des **machines virtuelles exigibles** dans la liste. 
+
+    > [!NOTE] 
+    > Lorsque vous ajoutez une VM Linux à un laboratoire, vous pouvez activer l’accès à SSH et RDP à la machine virtuelle. Si vous n’activez pas l’accès lors de la création de la machine virtuelle, vous pouvez ajouter manuellement des règles dans le groupe de sécurité réseau associé à la machine virtuelle pour ouvrir des ports pour le SSH et le RDP.
 
 ## <a name="add-a-user-to-the-lab-user-role"></a>Ajouter un utilisateur au rôle Utilisateur de laboratoire
 

@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Obtenir la longueur des phrases - API de traduction de texte Translator Text, C#'
+title: 'Démarrage rapide : Obtenir la longueur des phrases, C# - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez rechercher la longueur des phrases du texte à l’aide de l’API de traduction de texte Translator Text avec C#.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/15/2018
-ms.author: nolachar
-ms.openlocfilehash: 699c4b775f2c5745a5b52593d44a0af408c5e73a
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.author: erhopf
+ms.openlocfilehash: c10a38164c71eaa4239072fe10973932ce8cce3b
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319597"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645020"
 ---
-# <a name="quickstart-get-sentence-lengths-with-c35"></a>Démarrage rapide : Obtenir les longueurs de phrase avec C&#35;
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-c"></a>Démarrage rapide : Obtenir la longueur des phrases avec l’API REST de traduction de texte Translator Text (C#)
 
 Dans ce démarrage rapide, vous allez rechercher les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text.
 

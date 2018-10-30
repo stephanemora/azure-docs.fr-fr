@@ -12,12 +12,12 @@ ms.author: daredis
 ms.reviewer: vanto, carlrab
 manager: craigg
 ms.date: 09/07/2018
-ms.openlocfilehash: ceed69503900b38d7f6a29bbe116ab9a4d54e396
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: b81e76201f7f751ee01e903d83f316811abaf483
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857956"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955471"
 ---
 # <a name="secure-your-azure-sql-database"></a>Sécuriser votre base de données SQL Azure
 
@@ -59,7 +59,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 Les bases de données SQL sont protégées par un pare-feu dans Azure. Par défaut, toutes les connexions au serveur et aux bases de données du serveur sont rejetées, sauf celles provenant d’autres services Azure. Pour plus d’informations, consultez [Règles de pare-feu au niveau du serveur et de la base de données d’Azure SQL Database](sql-database-firewall-configure.md).
 
-La configuration la plus sécurisée consiste à définir le paramètre « Autoriser l’accès aux services Azure » sur DÉSACTIVER. Si vous avez besoin de vous connecter à la base de données à partir d’une machine virtuelle Azure ou d’un service cloud, vous devez créer une [adresse IP réservée](../virtual-network/virtual-networks-reserved-public-ip.md) et autoriser uniquement cette adresse IP réservée à traverser le pare-feu. 
+La configuration la plus sécurisée consiste à définir le paramètre « Autoriser l’accès aux services Azure » sur DÉSACTIVER. Si vous avez besoin de vous connecter à la base de données à partir d’une machine virtuelle Azure ou d’un service cloud, vous devez créer une [adresse IP réservée (déploiement classique)](../virtual-network/virtual-networks-reserved-public-ip.md) et autoriser uniquement cette adresse IP réservée à traverser le pare-feu. Si vous utilisez le modèle de déploiement [Gestionnaire des ressources](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm), une adresse IP publique dédiée est affectée à la ressource, et vous devez autoriser cette adresse IP via le pare-feu.
 
 Suivez la procédure suivante pour créer une [règle de pare-feu au niveau du serveur SQL Database](sql-database-firewall-configure.md) pour votre serveur afin d’autoriser les connexions depuis une adresse IP spécifique. 
 

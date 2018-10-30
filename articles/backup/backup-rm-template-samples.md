@@ -9,12 +9,12 @@ ms.topic: sample
 ms.date: 04/18/2018
 ms.author: markgal
 ms.custom: mvc
-ms.openlocfilehash: 0aac49be397f5e1c86fa834d341399775fd71cfa
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 941357d0a8b7fb46a5c2dcebb70681452118f23f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34607070"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406379"
 ---
 # <a name="azure-resource-manager-templates-for-azure-backup"></a>Modèles Azure Resource Manager pour la Sauvegarde Azure
 
@@ -31,6 +31,6 @@ Le tableau suivant inclut des liens vers des modèles Azure Resource Manager à 
 | [Création d’une stratégie de sauvegarde quotidienne pour les machines virtuelles IaaS](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-daily-backup-policy-create) | Le modèle crée un coffre Recovery Services et une stratégie de sauvegarde quotidienne utilisée pour sauvegarder des machines virtuelles classiques et Azure Resource Manager.|
 | [Déploiement d’une machine virtuelle Windows Server avec la fonctionnalité de sauvegarde activée](https://github.com/Azure/azure-quickstart-templates/tree/master/101-recovery-services-create-vm-and-configure-backup) | Le modèle crée une machine virtuelle Windows Server et un coffre Recovery Services avec la stratégie de sauvegarde par défaut activée.|
 |**Surveillance des travaux de sauvegarde** |  |
-| [Utilisation d’OMS Log Analytics pour surveiller la Sauvegarde Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Le modèle déploie la surveillance OMS pour la Sauvegarde Azure qui vous permet de surveiller les travaux de sauvegarde et de restauration, les alertes de sauvegarde et le stockage cloud utilisés dans vos coffres Recovery Services.|  
+| [Utilisation de Log Analytics pour surveiller la Sauvegarde Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/101-backup-oms-monitoring) | Le modèle déploie la surveillance Log Analytics pour la Sauvegarde Azure qui vous permet de surveiller les travaux de sauvegarde et de restauration, les alertes de sauvegarde et le stockage cloud utilisés dans vos coffres Recovery Services.|  
 |   |   |
 

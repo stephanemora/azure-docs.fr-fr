@@ -1,26 +1,27 @@
 ---
 title: 'Démarrage rapide : Reconnaissance vocale dans Java (Windows ou Linux)'
-titleSuffix: Microsoft Cognitive Services
+titleSuffix: Azure Cognitive Services
 description: Découvrir comment fonctionne la reconnaissance vocale dans Java (Windows ou Linux)
 services: cognitive-services
 author: fmegen
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: Speech
+ms.component: speech-service
 ms.topic: quickstart
 ms.date: 10/12/2018
 ms.author: fmegen
-ms.openlocfilehash: 1f0c19524ebd59dcf0377cc173cd780d656ba447
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 80ddef79392acb677555ed795bf429f5ec0266a0
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339194"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467257"
 ---
-# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-sdk"></a>Démarrage rapide : Reconnaissance vocale dans Java sur Windows ou Linux avec le kit SDK Speech
+# <a name="quickstart-recognize-speech-in-java-on-windows-or-linux-by-using-the-speech-service-sdk"></a>Démarrage rapide : Reconnaissance vocale dans Java sur Windows ou Linux avec le kit SDK du service Speech
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-Dans cet article, vous créez une application console Java au moyen du [kit SDK Speech](speech-sdk.md). Vous transcrivez la reconnaissance vocale en temps réel à partir du microphone de votre PC. L’application est créée avec le package Maven du kit SDK Speech, et l’IDE Eclipse Java (v4.8) sur Windows 64 bits ou Ubuntu Linux 16.04. Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
+Dans cet article, vous créez une application console Java au moyen du [kit SDK du service Speech](speech-sdk.md). Vous transcrivez la reconnaissance vocale en temps réel à partir du microphone de votre PC. L’application est créée avec le package Maven du kit SDK Speech, et l’IDE Eclipse Java (v4.8) sur Windows 64 bits ou Ubuntu Linux 16.04. Elle s’exécute sur un environnement d’exécution Java 8 (JRE) 64 bits.
 
 > [!NOTE]
 > Pour le kit SDK Speech et l’appareil Roobo, consultez le [kit SDK Speech Devices](speech-devices-sdk.md).

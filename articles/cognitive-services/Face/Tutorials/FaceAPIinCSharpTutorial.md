@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Détecter et encadrer des visages dans une image - API Visage, C#'
+title: 'Didacticiel : Détecter et encadrer des visages dans une image à l’aide du kit de développement logiciel (SDK) .NET sur C#'
 titleSuffix: Azure Cognitive Services
 description: Dans ce tutoriel, vous créez une application Windows qui utilise l’API Visage pour détecter et encadrer des visages dans une image.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: pafarley
-ms.openlocfilehash: ba850c1d4f9d8018f333662eead56f8e91b3fbd7
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df5e46270275ca08a8499607fbad4c1161382fab
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340951"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956492"
 ---
-# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image"></a>Didacticiel : Créer une application WPF pour détecter et encadrer des visages dans une image
+# <a name="tutorial-create-a-wpf-app-to-detect-and-frame-faces-in-an-image-using-the-net-sdk"></a>Didacticiel : Créer une application WPF pour détecter et encadrer des visages dans une image à l’aide du kit de développement logiciel (SDK) .NET
 
 Dans ce didacticiel, vous créez une structure de présentation Windows d’une application (WPF) qui utilise le service de l’API Visage via sa bibliothèque de client .NET. L’application détecte les visages dans une image, trace un cadre autour de chaque visage et affiche une description du visage dans la barre d’état. L’exemple de code complet est disponible sur GitHub à l’adresse [Détecter et encadrer des visages dans une image sur Windows](https://github.com/Azure-Samples/Cognitive-Face-CSharp-sample).
 

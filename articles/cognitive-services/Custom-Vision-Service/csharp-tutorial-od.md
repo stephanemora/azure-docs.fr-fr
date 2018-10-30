@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer un projet de détection d’objets en C# - Service Vision personnalisée'
+title: 'Didacticiel : créer un projet de détection d’objet avec le kit SDK de Vision personnalisée pour C# - Service Vision personnalisée'
 titlesuffix: Azure Cognitive Services
 description: Créez un projet, ajoutez des mots clés, chargez des images, entraînez votre projet et effectuez une prédiction en utilisant le point de terminaison par défaut.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: custom-vision
 ms.topic: tutorial
 ms.date: 05/07/2018
 ms.author: areddish
-ms.openlocfilehash: d04fb86abbc0f174e895c166d97fc5467831206f
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 222a17f1d39bc52d1e5ff34e421d0203d80dd1bd
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46366911"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958498"
 ---
-# <a name="tutorial-use-custom-vision-api-to-build-an-object-detection-project-in-c"></a>Tutoriel : Utiliser l’API Vision personnalisée pour créer un projet de détection d’objets en C#
+# <a name="tutorial-create-an-object-detection-project-with-the-custom-vision-sdk-for-c"></a>Didacticiel : créer un projet de détection d’objet avec le kit SDK de Vision personnalisée pour C#
 
 Découvrez comment utiliser une application Windows de base qui utilise l’API Vision par ordinateur pour créer un projet de détection d’objet. Une fois le projet créé, vous pouvez ajouter des régions balisées, charger des images, former le projet, obtenir l’URL du point de terminaison de prédiction par défaut du projet, et utiliser le point de terminaison pour tester une image par programmation. Utilisez cet exemple open source comme modèle pour créer votre propre application pour Windows à l’aide de l’API Vision personnalisée.
 

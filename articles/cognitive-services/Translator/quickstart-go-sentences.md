@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Obtenir la longueur des phrases - Traduction de texte Translator Text, Go'
+title: 'Guide de démarrage rapide : Obtenir la longueur des phrases, Go - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez rechercher la longueur des phrases du texte à l’aide de l’API de traduction de texte Translator Text avec Go.
 services: cognitive-services
 author: noellelacharite
-manager: cgronlun
+manager: erhopf
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/29/2018
-ms.author: nolachar
-ms.openlocfilehash: 34b30179d674a42f6c9c2c358c0feb6e083089f6
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: 92ea2291760edf16863dc58a00bac4389f818e72
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129452"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49644906"
 ---
-# <a name="quickstart-get-sentence-lengths-with-go"></a>Démarrage rapide : Obtenir les longueurs de phrase avec Go
+# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-go"></a>Guide de démarrage rapide : Obtenir la longueur des phrases avec l’API REST de traduction de texte Translator Text (Go)
 
 Dans ce démarrage rapide, vous allez rechercher les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text.
 

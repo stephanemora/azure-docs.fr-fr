@@ -1,5 +1,5 @@
 ---
-title: Créer votre première fonction dans Azure à l’aide de Visual Studio | Microsoft Docs
+title: Créer votre première fonction dans Azure à l’aide de Visual Studio
 description: Créez et publiez une fonction Azure HTTP déclenchée à l’aide de Visual Studio.
 services: functions
 documentationcenter: na
@@ -10,21 +10,23 @@ ms.assetid: 82db1177-2295-4e39-bd42-763f6082e796
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: quickstart
-ms.date: 05/22/2018
+ms.date: 10/17/2018
 ms.author: glenga
-ms.custom: mvc, devcenter, , vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: b7c9b08d1f6cb1c52419519658765ab687a234fc
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
+ms.openlocfilehash: 51f6fb8c0dc1450a39173fafb0d71efc9a59a536
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116587"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649973"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Créer votre première fonction à l’aide de Visual Studio
 
 Azure Functions vous permet d’exécuter votre code dans un environnement [sans serveur](https://azure.microsoft.com/solutions/serverless/) et sans avoir à créer une machine virtuelle ou à publier une application web au préalable.
 
 Dans cet article, vous allez découvrir comment utiliser les outils Visual Studio 2017 pour Azure Functions afin de créer et de tester en local une fonction « Hello World ». Vous allez ensuite publier le code de la fonction dans Azure. Ces outils sont disponibles dans le cadre de la charge de travail de développement Azure dans Visual Studio 2017.
+
+![Réponse de la fonction localhost dans le navigateur](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
 Cette rubrique inclut [une vidéo](#watch-the-video) qui présente les mêmes étapes de base.
 
@@ -54,13 +56,13 @@ Azure Functions Core Tools vous permet d’exécuter un projet Azure Functions s
 
 2. Copiez l’URL de votre fonction à partir de la sortie runtime Azure Functions.
 
-    ![Azure runtime local](./media/functions-create-your-first-function-visual-studio/functions-vstools-f5.png)
+    ![Azure runtime local](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-debugging.png)
 
-3. Collez l’URL de la demande HTTP dans la barre d’adresses de votre navigateur. Ajoutez la chaîne de requête `?name=<yourname>` à cette URL et exécutez la demande. La capture d’écran suivante du navigateur montre la requête renvoyée par la fonction suite à la demande locale GET : 
+3. Collez l’URL de la demande HTTP dans la barre d’adresses de votre navigateur. Ajoutez la chaîne de requête `?name=<YOUR_NAME>` à cette URL et exécutez la demande. La capture d’écran suivante du navigateur montre la requête renvoyée par la fonction suite à la demande locale GET : 
 
-    ![Réponse de la fonction localhost dans le navigateur](./media/functions-create-your-first-function-visual-studio/functions-test-local-browser.png)
+    ![Réponse de la fonction localhost dans le navigateur](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local.png)
 
-4. Pour arrêter le débogage, appuyez sur MAJ + F5.
+4. Pour arrêter le débogage, appuyez sur **MAJ + F5**.
 
 Après avoir vérifié que la fonction s’exécute correctement sur votre ordinateur local, il est temps de publier le projet sur Azure.
 
@@ -72,15 +74,15 @@ Vous devez disposer d’une application de fonction dans votre abonnement Azure 
 
 ## <a name="test-your-function-in-azure"></a>Tester votre fonction dans Azure
 
-1. Copiez l’URL de base de l’application de fonction à partir de la page de profil de publication. Remplacez la partie `localhost:port` de l’URL que vous avez utilisée lors du test en local de la fonction par la nouvelle URL de base. Comme auparavant, assurez-vous d’ajouter la chaîne de requête `?name=<yourname>` à cette URL et exécutez la demande.
+1. Copiez l’URL de base de l’application de fonction à partir de la page de profil de publication. Remplacez la partie `localhost:port` de l’URL que vous avez utilisée lors du test en local de la fonction par la nouvelle URL de base. Comme auparavant, assurez-vous d’ajouter la chaîne de requête `?name=<YOUR_NAME>` à cette URL et exécutez la demande.
 
     L’URL qui appelle la fonction déclenchée via HTTP doit être au format suivant :
 
-        http://<functionappname>.azurewebsites.net/api/<functionname>?name=<yourname> 
+        http://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>?name=<YOUR_NAME> 
 
 2. Collez cette nouvelle URL de requête HTTP dans la barre d’adresse de votre navigateur. La capture d’écran suivante du navigateur montre la requête renvoyée par la fonction suite à la demande distante GET :
 
-    ![Réponse de la fonction dans le navigateur](./media/functions-create-your-first-function-visual-studio/functions-test-remote-browser.png)
+    ![Réponse de la fonction dans le navigateur](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-azure.png)
 
 ## <a name="watch-the-video"></a>Regarder la vidéo
 

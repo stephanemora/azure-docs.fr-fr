@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Détecter les visages dans une image - API Visage, Python'
+title: 'Guide de démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST et de Python'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez détecter les visages d’une image à l’aide de l’API Visage avec Python.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.component: face-api
 ms.topic: quickstart
 ms.date: 05/24/2018
 ms.author: pafarley
-ms.openlocfilehash: 581c2a7d4508833647d4dbb9861000fddd75cde8
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 76a9260d534057e3a03f8c8f1d7420329713ea80
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339579"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49957273"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-python"></a>Démarrage rapide : Détecter les visages dans une image à l’aide de Python
+# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-python"></a>Guide de démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST et de Python
 
 Dans ce guide de démarrage rapide, vous allez détecter les visages humains d’une image distante à l’aide du service Visage. Les visages détectés sont délimités par des rectangles. Le sexe et l’âge de chaque personne sont superposés à leur visage. Pour utiliser une image locale, consultez la syntaxe dans [Vision par ordinateur : Analyser une image locale avec Python](../../Computer-vision/QuickStarts/python-disk.md).
 

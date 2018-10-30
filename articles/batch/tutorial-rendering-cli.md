@@ -6,15 +6,15 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: tutorial
-ms.date: 09/25/2018
+ms.date: 10/24/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: ff52c0fa647dd0e86b22bcfdf7af04062a135f94
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 9f9464874230538bf2976b47896dae8e67c9744f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47392803"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024390"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Didacticiel : créer le rendu d’une scène avec Azure Batch 
 
@@ -31,7 +31,7 @@ Dans ce didacticiel, vous créer le rendu d’une scène 3ds Max avec Batch à l
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin d’un abonnement de paiement à l’utilisation ou autre option d’achat Azure pour utiliser les applications de rendu dans Batch sur une base de paiement à l’utilisation. Les licences de paiement à l’utilisation ne sont pas prises en charge si vous utilisez une offre Azure gratuite qui propose un crédit monétaire.
+Vous avez besoin d’un abonnement de paiement à l’utilisation ou autre option d’achat Azure pour utiliser les applications de rendu dans Batch sur une base de paiement à l’utilisation. **Les licences de paiement à l’utilisation ne sont pas prises en charge si vous utilisez une offre Azure gratuite qui propose un crédit monétaire.**
 
 La scène 3ds Max pour ce didacticiel se trouve sur [GitHub](https://github.com/Azure/azure-docs-cli-python-samples/tree/master/batch/render-scene), ainsi qu’un exemple de script Batch et les fichiers de configuration JSON. La scène 3ds Max est issue des [exemples de fichiers Autodesk 3ds Max](http://download.autodesk.com/us/support/files/3dsmax_sample_files/2017/Autodesk_3ds_Max_2017_English_Win_Samples_Files.exe). (Les exemples de fichier Autodesk 3ds Max sont disponibles sous licence Commons Attribution-NonCommercial-Share Alike. Copyright © Autodesk, Inc.)
 
@@ -175,7 +175,7 @@ az storage account generate-sas \
     --permissions w \
     --resource-types co \
     --services b \
-    --expiry 2018-11-15
+    --expiry 2019-11-15
 ```
 
 Prenez note du jeton renvoyé par la commande, qui ressemble à ce qui suit. Vous utilisez ce jeton ultérieurement.

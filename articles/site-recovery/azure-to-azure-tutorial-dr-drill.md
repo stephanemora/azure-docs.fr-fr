@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 90d82abb6570028308b8d516a868fa981c75eb94
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: b1893d9713f70ee7553392a320fec52fe5c88f3c
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49066987"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458052"
 ---
 # <a name="run-a-disaster-recovery-drill-for-azure-vms-to-a-secondary-azure-region"></a>Exécuter une simulation de récupération d’urgence pour des machines virtuelles Azure vers une région Azure secondaire
 
@@ -26,12 +26,13 @@ Ce didacticiel vous montre comment exécuter une simulation de récupération d�
 > * Vérifier les prérequis
 > * Exécuter un test de basculement pour une seule machine virtuelle
 
-
+> [!NOTE]
+> Ce didacticiel a pour but de guider l’utilisateur à travers les étapes à suivre pour effectuer un test de récupération d’urgence en un minimum d’étapes. Si vous souhaitez en savoir plus sur les différents aspects associés à l’exécution d’un test de récupération d’urgence, y compris les éléments à prendre en compte concernant la mise en réseau, l’automation ou le dépannage, consultez les documents dans « Procédure... » pour les machines virtuelles Azure.
 
 ## <a name="prerequisites"></a>Prérequis
 
 - Avant que vous n’exécutiez un test de basculement, nous vous recommandons de vérifier les propriétés de la machine virtuelle pour vérifier que tout fonctionne comme prévu.  Accédez aux propriétés de la machine virtuelle dans les **éléments répliqués**. Le panneau **Bases** affiche des informations sur les paramètres et l’état des machines.
-- Pour le test de basculement, nous vous recommandons d’utiliser un réseau de machines virtuelles Azure distinct du réseau par défaut qui était configuré quand vous avez activé la réplication.
+- **Pour le test de basculement, nous vous recommandons d’utiliser un réseau de machines virtuelles Azure distinct** du réseau par défaut qui était configuré quand vous avez activé la réplication.
 
 
 ## <a name="run-a-test-failover"></a>Exécuter un test de basculement

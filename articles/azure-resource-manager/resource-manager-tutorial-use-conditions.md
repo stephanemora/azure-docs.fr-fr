@@ -10,21 +10,21 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 10/02/2018
+ms.date: 10/18/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 216e474f519e57352b017dc3e6bcdd74d48b03de
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 552b39c520396942fa81f963c0cfa1c8c7b47db4
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48238644"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456964"
 ---
 # <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Didacticiel : utiliser une condition dans des modèles Azure Resource Manager
 
 Découvrez comment déployer des ressources Azure en fonction des conditions. 
 
-Le scénario utilisé dans ce didacticiel est similaire à celui utilisé dans [Didacticiel : créer des modèles Azure Resource Manager avec des ressources dépendantes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). Dans ce didacticiel, vous créez un compte de stockage, une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes. Plutôt que de créer un compte de stockage, vous laissez le choix aux utilisateurs de créer un compte de stockage ou d’utiliser un compte de stockage existant. Vous définissez pour cela un paramètre supplémentaire. Si la valeur du paramètre est « nouveau », un nouveau compte de stockage est créé.
+Le scénario utilisé dans ce didacticiel est similaire à celui utilisé dans [Didacticiel : créer des modèles Azure Resource Manager avec des ressources dépendantes](./resource-manager-tutorial-create-templates-with-dependent-resources.md). Dans ce didacticiel, vous créez une machine virtuelle, un réseau virtuel et d’autres ressources dépendantes, y compris un compte de stockage. Plutôt que de créer un compte de stockage à chaque fois, vous laissez le choix aux utilisateurs de créer un compte de stockage ou d’utiliser un compte de stockage existant. Vous définissez pour cela un paramètre supplémentaire. Si la valeur du paramètre est « nouveau », un nouveau compte de stockage est créé.
 
 Ce tutoriel décrit les tâches suivantes :
 
@@ -59,7 +59,7 @@ Modèles de démarrage rapide Azure est un référentiel pour les modèles Resou
 
 Apportez deux modifications au modèle existant :
 
-* Ajoutez un paramètre utilisé pour fournir un nom de compte de stockage. Ce paramètre permet à l’utilisateur de spécifier un nom de compte de stockage existant. Il peut également être utilisé comme nouveau nom de compte de stockage.
+* Ajoutez un paramètre de nom de compte de stockage. Les utilisateurs peuvent spécifier un nouveau nom de compte de stockage ou un nom de compte de stockage existant.
 * Ajoutez un nouveau paramètre appelé **newOrExisting**. Le déploiement utilise ce paramètre pour déterminer où créer un compte de stockage ou utiliser un compte de stockage existant.
 
 1. Ouvrez **azuredeploy.json** dans Visual Studio Code.
@@ -72,11 +72,15 @@ Apportez deux modifications au modèle existant :
 4. Ajoutez les deux paramètres suivants au modèle :
 
     ```json
-    "newOrExisting": {
-      "type": "string"
-    },
     "storageAccountName": {
       "type": "string"
+    },    
+    "newOrExisting": {
+      "type": "string", 
+      "allowedValues": [
+        "new", 
+        "existing"
+      ]
     },
     ```
     La définition de paramètres mise à jour ressemble à :
@@ -86,7 +90,7 @@ Apportez deux modifications au modèle existant :
 5. Ajoutez la ligne suivante au début de la définition du compte de stockage.
 
     ```json
-    "condition": "[equals(parameters('newOrExisting'),'yes')]",
+    "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
     La condition vérifie la valeur d’un paramètre appelé **newOrExisting**. Si la valeur du paramètre est **nouveau**, le déploiement crée le compte de stockage.
@@ -94,8 +98,15 @@ Apportez deux modifications au modèle existant :
     La définition du compte de stockage mise à jour ressemble à :
 
     ![Condition d’utilisation de Resource Manager](./media/resource-manager-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+6. Mettez à jour **storageUri** avec la valeur suivante :
 
-6. Enregistrez les modifications.
+    ```json
+    "storageUri": "[concat('https://', parameters('storageAccountName'), '.blob.core.windows.net')]"
+    ```
+
+    Cette modification est nécessaire lorsque vous utilisez un compte de stockage existant sous un autre groupe de ressources.
+
+7. Enregistrez les modifications.
 
 ## <a name="deploy-the-template"></a>Déployer le modèle
 
@@ -103,19 +114,21 @@ Suivez les instructions de la section [Déployer le modèle](./resource-manager-
 
 Lorsque vous déployez le modèle à l’aide d’Azure PowerShell, vous devez spécifier un paramètre supplémentaire :
 
-```powershell
-$resourceGroupName = "<Enter the resource group name>"
-$storageAccountName = "Enter the storage account name>"
-$location = "<Enter the Azure location>"
-$vmAdmin = "<Enter the admin username>"
-$vmPassword = "<Enter the password>"
-$dnsLabelPrefix = "<Enter the prefix>"
+```azurepowershell
+$resourceGroupName = Read-Host -Prompt "Enter the resource group name"
+$storageAccountName = Read-Host -Prompt "Enter the storage account name"
+$newOrExisting = Read-Host -Prompt "Create new or use existing (Enter new or existing)"
+$location = Read-Host -Prompt "Enter the Azure location (i.e. centralus)"
+$vmAdmin = Read-Host -Prompt "Enter the admin username"
+$vmPassword = Read-Host -Prompt "Enter the admin password"
+$dnsLabelPrefix = Read-Host -Prompt "Enter the DNS Label prefix"
 
 New-AzureRmResourceGroup -Name $resourceGroupName -Location $location
 $vmPW = ConvertTo-SecureString -String $vmPassword -AsPlainText -Force
-New-AzureRmResourceGroupDeployment -Name mydeployment0710 -ResourceGroupName $resourceGroupName `
-    -TemplateFile azuredeploy.json -adminUsername $vmAdmin -adminPassword $vmPW `
-    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting "new"
+New-AzureRmResourceGroupDeployment -Name mydeployment1018 -ResourceGroupName $resourceGroupName `
+    -adminUsername $vmAdmin -adminPassword $vmPW `
+    -dnsLabelPrefix $dnsLabelPrefix -storageAccountName $storageAccountName -newOrExisting $newOrExisting `
+    -TemplateFile azuredeploy.json
 ```
 
 > [!NOTE]

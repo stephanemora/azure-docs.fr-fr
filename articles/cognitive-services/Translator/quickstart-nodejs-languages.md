@@ -1,23 +1,23 @@
 ---
-title: 'Démarrage rapide : Obtenir les langues prises en charge - Traduction de texte Translator Text, Node.js'
+title: 'Démarrage rapide : Obtenir les langues prises en charge, Node.js - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
 description: Dans ce guide de démarrage rapide, vous allez obtenir la liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text avec Node.js.
 services: cognitive-services
-author: noellelacharite
+author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
 ms.date: 06/21/2018
-ms.author: nolachar
-ms.openlocfilehash: a3b9dde8983b87a63858b3eb1381f7c74545cb1a
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.author: erhopf
+ms.openlocfilehash: ff921243df078010bdc825d28b55d07333016774
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46122856"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646409"
 ---
-# <a name="quickstart-get-supported-languages-with-nodejs"></a>Démarrage rapide : Obtenir les langues prises en charge avec Node.js
+# <a name="quickstart-get-supported-languages-with-the-translator-text-rest-api-nodejs"></a>Démarrage rapide : Obtenir les langues prises en charge par l’API REST de traduction de texte Translator Text (Node.js)
 
 Dans ce démarrage rapide, vous allez obtenir une liste des langues prises en charge pour la traduction, la translittération et la recherche dans le dictionnaire, ainsi que des exemples d’utilisation de l’API de traduction de texte Translator Text.
 

@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.workload: Active
 ms.date: 07/26/2018
-ms.openlocfilehash: c416937f98f6bcb49f86fce18213ca4ed349c513
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: cf71eb5e227003f7b9ee0c395d0bc04538e64cfa
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902057"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024884"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Didacticiel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
@@ -97,7 +97,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
     * Entrez un nom pour le cluster.
     * Pour cet article, créez un cluster avec le runtime **4.0**. 
-    * Veillez à cocher la case **Arrêter après ___ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
+    * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
     
     Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
@@ -114,7 +114,7 @@ Dans cette section, vous créez un compte Azure Data Lake Store et vous l’asso
      
     |Propriété  |Description  |
     |---------|---------|
-    |**Name**     | Entrez un nom unique pour le compte Data Lake Store.        |
+    |**Nom**     | Entrez un nom unique pour le compte Data Lake Store.        |
     |**Abonnement**     | Sélectionnez votre abonnement Azure dans la liste déroulante.        |
     |**Groupe de ressources**     | Pour ce didacticiel, sélectionnez le même groupe de ressources que celui que vous avez utilisé lors de la création de l’espace de travail Azure Databricks.  |
     |**Lieu**     | Sélectionnez **USA Est**.  |

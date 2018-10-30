@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.author: negat
-ms.openlocfilehash: 43aa74e7250f4825702e249032db1566346ab558
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 6ed3488218a5b813478fa18f7bb05dcfb07a319c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831209"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955148"
 ---
 # <a name="networking-for-azure-virtual-machine-scale-sets"></a>Mise en réseau pour des groupes de machines virtuelles identiques Azure
 
@@ -50,10 +50,26 @@ La mise en réseau accélérée Azure améliore les performances du réseau en a
 ## <a name="create-a-scale-set-that-references-an-existing-azure-load-balancer"></a>Créer un groupe identique qui fait référence à un équilibrage de charge Azure existant
 Lorsqu’un groupe identique est créé à l’aide du portail Azure, un nouvel équilibrage de charge est créé pour la plupart des options de configuration. Si vous créez un groupe identique qui doit référencer un équilibreur de charge existant, vous pouvez le faire à l’aide de l’interface CLI. L’exemple de script suivant crée un équilibrage de charge et crée ensuite un groupe identique qui y fait référence :
 ```bash
-az network lb create -g lbtest -n mylb --vnet-name myvnet --subnet mysubnet --public-ip-address-allocation Static --backend-pool-name mybackendpool
+az network lb create \
+    -g lbtest \
+    -n mylb \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --public-ip-address-allocation Static \
+    --backend-pool-name mybackendpool
 
-az vmss create -g lbtest -n myvmss --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username negat --ssh-key-value /home/myuser/.ssh/id_rsa.pub --upgrade-policy-mode Automatic --instance-count 3 --vnet-name myvnet --subnet mysubnet --lb mylb --backend-pool-name mybackendpool
-
+az vmss create \
+    -g lbtest \
+    -n myvmss \
+    --image Canonical:UbuntuServer:16.04-LTS:latest \
+    --admin-username negat \
+    --ssh-key-value /home/myuser/.ssh/id_rsa.pub \
+    --upgrade-policy-mode Automatic \
+    --instance-count 3 \
+    --vnet-name myvnet \
+    --subnet mysubnet \
+    --lb mylb \
+    --backend-pool-name mybackendpool
 ```
 
 ## <a name="create-a-scale-set-that-references-an-application-gateway"></a>Créer un groupe identique qui fait référence à une passerelle d’application
@@ -91,7 +107,7 @@ Pour configurer des serveurs DNS personnalisés dans un modèle Azure, ajoutez u
 ```
 
 ### <a name="creating-a-scale-set-with-configurable-virtual-machine-domain-names"></a>Création d’un groupe identique avec des noms de domaine de machines virtuelles configurables
-Pour créer un groupe identique avec un nom DNS personnalisé pour des machines virtuelles avec l’interface CLI, ajoutez l’argument **--vm-domain-name** à la commande **vmss create**, suivi d’une chaîne représentant le nom de domaine.
+Pour créer un groupe identique avec un nom DNS personnalisé pour des machines virtuelles avec l’interface CLI, ajoutez l’argument **--vm-domain-name** à la commande **créer un groupe de machines virtuelles identiques**, suivi d’une chaîne représentant le nom de domaine.
 
 Pour définir le nom de domaine dans un modèle Azure, ajoutez une propriété **dnsSettings** à la section **networkInterfaceConfigurations** du groupe identique. Par exemple : 
 
@@ -155,23 +171,35 @@ Pour répertorier les adresses IP publiques attribuées à des machines virtuell
 
 Pour répertorier les adresses IP publiques d’un groupe identique à l’aide de PowerShell, utilisez la commande _Get-AzureRmPublicIpAddress_. Par exemple : 
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -VirtualMachineScaleSetName myvmss
 ```
 
 Vous pouvez également interroger les adresses IP publiques en référençant directement l’ID de ressource de la configuration d’adresse IP publique. Par exemple : 
 ```PowerShell
-PS C:\> Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
+Get-AzureRmPublicIpAddress -ResourceGroupName myrg -Name myvmsspip
 ```
 
-Pour interroger les adresses IP publiques attribuées à des machines virtuelles d’un groupe identique en utilisant [Azure Resource Explorer](https://resources.azure.com) ou l’API REST Azure avec la version **30/03/2017** ou ultérieure.
+Vous pouvez également afficher les adresses IP publiques attribuées aux machines virtuelles d’un groupe identique en utilisant [Azure Resource Explorer](https://resources.azure.com) ou l’API REST Azure avec la version **30/03/2017** ou ultérieure.
 
-Pour afficher les adresses IP publiques pour un groupe identique avec Resource Explorer, reportez-vous à la section **publicipaddresses** de votre groupe identique. Par exemple : https://resources.azure.com/subscriptions/_your_sub_id_/resourceGroups/_your_rg_/providers/Microsoft.Compute/virtualMachineScaleSets/_your_vmss_/publicipaddresses
+Pour interroger [Azure Resource Explorer](https://resources.azure.com), procédez comme suit :
 
-```
+1. Ouvrez [Azure Resource Explorer](https://resources.azure.com) dans votre navigateur web.
+1. Développez vos *abonnements* sur le côté gauche en cliquant sur les commandes *+* en regard de celle-ci. Si vous ne disposez que d’un élément dans vos *abonnements*, il est possible qu’il soit déjà développé.
+1. Développez votre abonnement.
+1. Développez votre groupe de ressources.
+1. Développez les *fournisseurs*.
+1. Développez *Microsoft.Compute*.
+1. Développez *virtualMachineScaleSets*.
+1. Développez votre groupe identique.
+1. Cliquez sur *publicipaddresses*.
+
+Pour interroger l’API REST Azure, procédez comme suit :
+
+```bash
 GET https://management.azure.com/subscriptions/{your sub ID}/resourceGroups/{RG name}/providers/Microsoft.Compute/virtualMachineScaleSets/{scale set name}/publicipaddresses?api-version=2017-03-30
 ```
 
-Exemple de sortie :
+Exemple de sortie provenant d’[Azure Resource Explorer](https://resources.azure.com) et de l’API REST Azure :
 ```json
 {
   "value": [
@@ -289,12 +317,14 @@ L’exemple suivant est un profil réseau de groupe identique illustrant plusieu
 ```
 
 ## <a name="nsg--asgs-per-scale-set"></a>Groupes de sécurité réseau et d’application par groupe identique
+Des [groupes de sécurité réseau](../virtual-network/security-overview.md) vous permettent de filtrer le trafic à destination et en provenance des ressources Azure dans un réseau virtuel Azure à l’aide de règles de sécurité. Des [groupes de sécurité d’application](../virtual-network/security-overview.md#application-security-groups) vous permettent de gérer la sécurité du réseau de ressources Azure et de les regrouper pour former une extension de la structure de votre application.
+
 Des groupes de sécurité réseau peuvent être appliqués directement à un groupe identique en ajoutant une référence à la section de configuration de l’interface réseau des propriétés des machines virtuelles du groupe identique.
 
 Des groupes de sécurité d’application peuvent également être spécifiés directement à un groupe identique en ajoutant une référence à la section de configuration ip de l’interface réseau des propriétés des machines virtuelles du groupe identique.
 
 Par exemple :  
-```
+```json
 "networkProfile": {
     "networkInterfaceConfigurations": [
         {
@@ -334,6 +364,42 @@ Par exemple :
     ]
 }
 ```
+
+Pour vérifier que votre groupe de sécurité réseau est associé à votre groupe identique, utilisez la commande `az vmss show`. L’exemple ci-dessous utilise `--query` pour filtrer les résultats et afficher uniquement la section appropriée de la sortie.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].networkSecurityGroup
+
+[
+  {
+    "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/networkSecurityGroups/nsgName",
+    "resourceGroup": "myResourceGroup"
+  }
+]
+```
+
+Pour vérifier que le groupe de sécurité de votre application est associé à votre groupe identique; utilisez la commande `az vmss show`. L’exemple ci-dessous utilise `--query` pour filtrer les résultats et afficher uniquement la section appropriée de la sortie.
+
+```bash
+az vmss show \
+    -g myResourceGroup \
+    -n myScaleSet \
+    --query virtualMachineProfile.networkProfile.networkInterfaceConfigurations[].ipConfigurations[].applicationSecurityGroups
+
+[
+  [
+    {
+      "id": "/subscriptions/.../resourceGroups/myResourceGroup/providers/Microsoft.Network/applicationSecurityGroups/asgName",
+      "resourceGroup": "myResourceGroup"
+    }
+  ]
+]
+```
+
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les réseaux virtuels Azure, consultez la page [Présentation du réseau virtuel Azure](../virtual-network/virtual-networks-overview.md).
