@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: 689730edcc98a23c82373ae8d36c3b831b33c076
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: a9f5f22cbd6e7cb39e1abb2ef712ffcfc27f55a4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627438"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406141"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Intégrer Cloud Foundry avec Azure
 
@@ -70,9 +70,9 @@ Azure Service Broker offre une interface cohérente pour gérer l’accès des a
 
 ## <a name="6-metrics-and-logging"></a>6. Mesures et journalisation
 L’infrastructure Nozzle d’Azure Log Analytics est un composant de Cloud Foundry, qui envoie des mesures du [compileur de fichiers log de Cloud Foundry](https://docs.cloudfoundry.org/loggregator/architecture.html) Firehose à [Azure Log Analytics](https://azure.microsoft.com/services/log-analytics/). Avec l’infrastructure Nozzle, vous pouvez collecter, consulter et analyser l’intégrité et les indicateurs de performance de Cloud Foundry, et ce, sur plusieurs déploiements.
-Cliquez [ici](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) pour apprendre à déployer l’infrastructure Nozzle d’Azure Log Analytics dans votre environnement Open Source et Pivotal Cloud Foundry et à accéder aux données depuis la console OMS d’Azure Log Analytics. 
+Cliquez [ici](https://docs.microsoft.com/azure/cloudfoundry/cloudfoundry-oms-nozzle) pour apprendre à déployer l’infrastructure Nozzle d’Azure Log Analytics dans votre environnement Open Source et Pivotal Cloud Foundry et à accéder aux données depuis la console d’Azure Log Analytics. 
 > [!NOTE]
-> À partir de la version 2.0 de PCF, les statistiques d’intégrité BOSH pour les machines virtuelles sont transmises par défaut au compileur de fichiers log Firehose et sont intégrées à la console OMS d’Azure Log Analytics.
+> À partir de la version 2.0 de PCF, les statistiques d’intégrité BOSH pour les machines virtuelles sont transmises par défaut au compileur de fichiers log Firehose et sont intégrées à la console d’Azure Log Analytics.
 
 ## <a name="7-cost-saving"></a>7. Réduction des coûts
 ### <a name="cost-saving-for-devtest-environments"></a>Réduction des coûts pour les environnements de Dev/Test

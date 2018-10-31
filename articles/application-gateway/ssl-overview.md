@@ -5,14 +5,14 @@ services: application-gateway
 author: amsriva
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/6/2018
+ms.date: 10/23/2018
 ms.author: amsriva
-ms.openlocfilehash: 4575bed18697a5661d58dc350c24a9497f7c46ff
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e7020ef5c1f7411c7226e7a2db489112ee6bf0a4
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578811"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945499"
 ---
 # <a name="overview-of-end-to-end-ssl-with-application-gateway"></a>Présentation du chiffrement SSL de bout en bout sur la passerelle Application Gateway
 
@@ -33,9 +33,21 @@ La passerelle Application Gateway communique uniquement avec les instances de se
 > [!NOTE]
 > Il n’est pas nécessaire de configurer les certificats d’authentification pour les services Azure approuvés comme Azure Web Apps.
 
+## <a name="end-to-end-ssl-with-the-v2-sku"></a>SSL de bout en bout avec la référence SKU v2
+
+Les certificats d’authentification ont été déconseillés et remplacés par des certificats racines approuvés dans la référence SKU v2 d’Application Gateway. Ils fonctionnent comme les certificats d’authentification, avec quelques différences importantes :
+
+- Les certificats signés par des autorités de certification connues dont le nom commun correspond au nom de l’hôte dans les paramètres HTTP du serveur principal ne nécessitent pas d’étape supplémentaire pour que le protocole SSL de bout en bout fonctionne. 
+
+   Par exemple, si les certificats de serveur principal sont émis par une autorité de certification connue et a un nom commun contoso.com et que le de paramètres HTTP du serveur principal est également défini sur contoso.com, aucune étape supplémentaire n’est nécessaire. Vous pouvez définir le paramètre du protocole HTTP du serveur principal sur HTTPS et le contrôle d’intégrité et le chemin des données seront de ce fait compatibles SSL. Si vous utilisez Azure Web Apps ou d’autres services web Azure en tant que serveur principal, ceux-ci sont également implicitement approuvés et aucune étape supplémentaire n’est nécessaire pour le protocole SSL de bout en bout.
+- Si le certificat est auto-signé ou signé par des intermédiaires inconnus, un certificat racine approuvé doit être défini pour pouvoir activer le SSL de bout en bout dans la référence SKU v2. Application Gateway communique uniquement avec les serveurs dont le certificat racine du certificat de serveur correspond à un présent dans la liste des certificats racines de confiance dans le paramètre HTTP principal associé au pool de serveurs.
+- En plus de la correspondance du certificat racine, Application Gateway vérifie également si le paramètre d’hôte spécifié dans le paramètre HTTP du serveur principal d’hôte correspond à celle du nom commun (CN) présenté par le certificat SSL du serveur principal. Lorsque vous tentez d’établir une connexion SSL au serveur principal, Application Gateway définit l’extension SNI d’indication de nom de serveur à l’hôte spécifié dans le paramètre HTTP du serveur principal.
+- Si vous choisissez l’option **Choisir le nom d’hôte à partir de l’adresse du serveur principal** au lieu du champ Hôte dans le paramètre HTTP du serveur principal, l’en-tête SNI est toujours définie sur le nom de domaine complet du pool principal et le nom commun sur le certificat SSL du serveur principal doit correspondre à son nom de domaine complet. Les membres du pool principal avec des adresses IP ne sont pas pris en charge dans ce scénario.
+- Le certificat racine est un certificat de racine codé en base64 parmi les certificats de serveur principal.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Après avoir découvert le chiffrement SSL de bout en bout, accédez à [Configurer une passerelle d’application avec arrêt SSL à l’aide du portail Azure](create-ssl-portal.md) pour créer une passerelle d’application à l’aide du chiffrement SSL de bout en bout.
+Après avoir découvert le chiffrement SSL de bout en bout, accédez à [Configurer le SSL de bout en bout avec Application Gateway avec PowerShell](application-gateway-end-to-end-ssl-powershell.md) pour créer une passerelle d’application à l’aide du chiffrement SSL de bout en bout.
 
 <!--Image references-->
 

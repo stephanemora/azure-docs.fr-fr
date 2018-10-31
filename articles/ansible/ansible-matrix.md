@@ -8,18 +8,18 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 09/22/2018
 ms.topic: article
-ms.openlocfilehash: f574203f31a21f945115296693f04cff649614c6
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a71f28413028efe3547df7c464ec852fe2161f63
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47165634"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649939"
 ---
 # <a name="ansible-module-and-version-matrix"></a>Matrice de version et module Ansible
 
 ## <a name="ansible-modules-for-azure"></a>Modules Ansible pour Azure
 Ansible est fourni avec une série de modules qui peuvent être exécutés directement sur les hôtes distants ou par le biais de playbooks.
-Cet article répertorie les modules Ansible pour Azure qui peuvent provisionner des ressources cloud Azure telles qu’une machine virtuelle, des réseaux et des services conteneur. Vous pouvez obtenir ces modules par le biais de la version officielle d’Ansible ou des rôles de playbook suivants publiés par Microsoft.
+Cet article répertorie les modules Ansible pour Azure qui peuvent provisionner des ressources cloud Azure telles qu’une machine virtuelle, une mise en réseau et des services conteneur. Vous pouvez obtenir ces modules par le biais de la version officielle d’Ansible ou des rôles de playbook suivants publiés par Microsoft.
 
 | Module Ansible pour Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | [Rôle Ansible](#introduction-to-azurepreviewmodule) | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|-------------------------------------| 
@@ -128,7 +128,7 @@ Cet article répertorie les modules Ansible pour Azure qui peuvent provisionner 
 | azure_rm_autoscale_facts            | -            | -                         | -          | Oui          | Oui                                 | 
 
 ## <a name="introduction-to-playbook-role-for-azure"></a>Introduction au rôle de playbook pour Azure
-Le [rôle de playbook azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) est le rôle le plus complet et inclut tous les derniers modules Azure. Les mises à jour et correctifs de bogues sont effectués de façon plus opportune qu’avec la version Ansible officielle. Si vous utilisez Ansible à des fins de provisionnement de ressources Azure, nous vous invitons à installer le rôle azure_preview_module.
+Le [rôle de playbook azure_preview_module](https://galaxy.ansible.com/Azure/azure_preview_modules/) est le rôle le plus complet et inclut tous les derniers modules Azure. Les mises à jour et correctifs de bogues sont effectués de façon plus opportune qu’avec la version Ansible officielle. Si vous utilisez Ansible pour l’approvisionnement de ressources Azure, nous vous invitons à installer le rôle playbook azure_preview_module.
 
 Le rôle de playbook azure_preview_module est publié toutes les trois semaines.
 

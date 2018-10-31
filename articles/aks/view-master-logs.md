@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 011654dcbad21c3e8cea51d6ab98eeca461e4685
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7caa98b65b35d1eb1a000f1e9099fbf8eb3f8861
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068823"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406039"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -37,9 +37,12 @@ Log Analytics est activé et géré dans le Portail Azure. Pour activer la colle
 1. Dans la liste des journaux disponibles, sélectionnez les journaux que vous souhaitez activer, par exemple *kube-apiserver*, *kube-controller-manager* et *kube-scheduler*. Vous pourrez réaccéder à cet emplacement et modifier les journaux collectés une fois Log Analytics activé.
 1. Lorsque vous avez terminé, sélectionnez **Enregistrer** pour activer la collecte des journaux sélectionnés.
 
-L’exemple de capture d’écran du portail ci-après présente la fenêtre *Paramètres de diagnostic*, ainsi que l’option de création d’un espace de travail Operations Management Suite (OMS) :
+L’exemple de capture d’écran du portail ci-après présente la fenêtre *Paramètres de diagnostic*, ainsi que l’option de création d’un espace de travail Log Analytics :
 
-![Activation de l’espace de travail OMS pour Log Analytics d’un cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
+![Activation de l’espace de travail Log Analytics pour Log Analytics dans un cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
+
+>[!NOTE]
+>Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics. 
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Planifier un pod test sur le cluster AKS
 
@@ -75,7 +78,7 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Afficher les journaux collectés
 
-L’activation et l’affichage des journaux de diagnostic dans l’espace de travail OMS peuvent nécessiter quelques minutes. Dans le Portail Azure, sélectionnez le groupe de ressources de votre espace de travail Log Analytics, tel que *myResourceGroup*, puis choisissez votre ressource Log Analytics, par exemple *myAKSLogs*.
+L’activation et l’affichage des journaux de diagnostic dans l’espace de travail Log Analytics peuvent nécessiter quelques minutes. Dans le Portail Azure, sélectionnez le groupe de ressources de votre espace de travail Log Analytics, tel que *myResourceGroup*, puis choisissez votre ressource Log Analytics, par exemple *myAKSLogs*.
 
 ![Sélection de l’espace de travail Log Analytics pour votre cluster AKS](media/view-master-logs/select-log-analytics-workspace.png)
 

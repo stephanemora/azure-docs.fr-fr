@@ -1,48 +1,46 @@
 ---
-title: Prise en main d’Azure AD v2 UWP | Microsoft Docs
-description: Cet article explique comment des applications de plateforme Windows universelle (UWP) peuvent appeler une API qui requiert des jetons d’accès du point de terminaison Azure Active Directory v2.
+title: Prise en main d’Azure AD v2.0 UWP | Microsoft Docs
+description: Cet article explique comment des applications de plateforme Windows universelle (UWP) peuvent appeler une API qui requiert des jetons d’accès du point de terminaison Azure Active Directory v2.0.
 services: active-directory
 documentationcenter: dev-center-name
 author: andretms
 manager: mtillman
 editor: ''
-ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
 ms.service: active-directory
 ms.component: develop
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/20/2018
+ms.date: 10/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 4afd4ce5b8a0ab4c076ebc3c587605dfe1204b8a
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4ba4e844ed6bb01204b7a0adf5020aec255147dd
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966382"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986540"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Appeler l’API Microsoft Graph à partir d’une application de plateforme Windows universelle (XAML)
-
 
 > [!div renderon="docs"]
 > [!INCLUDE [active-directory-develop-applies-v2-msal](../../../includes/active-directory-develop-applies-v2-msal.md)]
 
-Ce guide explique comment une application de plateforme Windows universelle (UWP) native peut demander un jeton d’accès, puis appeler l’API Microsoft Graph. Ce guide s’applique également aux autres API qui nécessitent des jetons d’accès du point de terminaison Azure Active Directory v2.
+Ce guide explique comment une application de plateforme Windows universelle (UWP) native peut demander un jeton d’accès, puis appeler l’API Microsoft Graph. Ce guide s’applique également aux autres API qui nécessitent des jetons d’accès du point de terminaison Azure Active Directory v2.0.
 
 À la fin de ce guide, votre application appelle une API protégée à l’aide de comptes personnels. Outlook.com, live.com, etc. en sont des exemples. Votre application appelle également des comptes professionnels et scolaires de toute entreprise ou organisation possédant Azure Active Directory.
 
 >[!NOTE]
 > Ce guide requiert de disposer de Visual Studio 2017 avec le Développement pour la plateforme Windows universelle. Pour obtenir des instructions sur le téléchargement et la configuration de Visual Studio afin de développer des applications de plateforme Windows universelle, consultez l’article [Préparation](https://docs.microsoft.com/windows/uwp/get-started/get-set-up).
 
-### <a name="how-this-guide-works"></a>Fonctionnement de ce guide
+## <a name="how-this-guide-works"></a>Fonctionnement de ce guide
 
 ![Graphique de fonctionnement de ce guide](./media/tutorial-v2-windows-uwp/uwp-intro.png)
 
-Ce guide crée un exemple d’application UWP qui interroge l’API Microsoft Graph ou une API web qui accepte des jetons du point de terminaison Azure Active Directory v2. Pour ce scénario, un jeton est ajouté aux requêtes HTTP via l’en-tête d’autorisation. Microsoft Authentication Library (MSAL) gère les acquisitions et renouvellements de jetons.
+Ce guide crée un exemple d’application UWP qui interroge l’API Microsoft Graph ou une API web qui accepte des jetons du point de terminaison Azure Active Directory v2.0. Pour ce scénario, un jeton est ajouté aux requêtes HTTP via l’en-tête d’autorisation. Microsoft Authentication Library (MSAL) gère les acquisitions et renouvellements de jetons.
 
-### <a name="nuget-packages"></a>Packages NuGet
+## <a name="nuget-packages"></a>Packages NuGet
 
 Ce guide utilise les packages NuGet suivants :
 
@@ -50,18 +48,18 @@ Ce guide utilise les packages NuGet suivants :
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
 
-
 ## <a name="set-up-your-project"></a>Configuration de votre projet
 
 Cette section fournit des instructions détaillées pour intégrer une application .NET de bureau Windows (XAML) avec *Sign-In with Microsoft* (Se connecter avec Microsoft). Elle peut ensuite interroger les API web qui requièrent un jeton, par exemple l’API Microsoft Graph.
 
 Avec ce guide, vous allez créer une application qui affiche un bouton permettant d’interroger l’API Graph, un bouton de déconnexion, et des zones de texte qui affichent les résultats des appels.
 
->[!NOTE]
+> [!NOTE]
 > Préférez-vous télécharger le projet Visual Studio de cet exemple ? [Téléchargez un projet](https://github.com/Azure-Samples/active-directory-dotnet-native-uwp-v2/archive/master.zip) et passez à l’étape [d’inscription d’application](#register-your-application "l’étape d’inscription d’application") pour configurer l’exemple de code avant son exécution.
 
 
 ### <a name="create-your-application"></a>Créer votre application
+
 1. Dans Visual Studio, sélectionnez **Fichier** > **Nouveau** > **Projet**.
 2. Sous **Modèles**, sélectionnez **Visual C#**.
 3. Sélectionnez **Application vide (Universal Windows)**.
@@ -79,7 +77,7 @@ Avec ce guide, vous allez créer une application qui affiche un bouton permettan
     ```
 
 > [!NOTE]
-> Cette commande installe [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL acquiert, met en cache et actualise les jetons utilisateur qui accèdent aux API protégées par Azure Active Directory v2.
+> Cette commande installe [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL acquiert, met en cache et actualise les jetons utilisateur qui accèdent aux API protégées par Azure Active Directory v2.0.
 
 > [!NOTE]
 > Ce didacticiel n’utilise pas encore la dernière version de MSAL.NET, mais nous travaillons à sa mise à jour.
@@ -193,10 +191,13 @@ Cette section montre comment utiliser MSAL afin d’obtenir un jeton pour l’AP
     ```
 
 ### <a name="more-information"></a>Plus d’informations
+
 #### <a name="get-a-user-token-interactively"></a>Obtenir un jeton d’utilisateur de manière interactive
+
 L’appel de la méthode `AcquireTokenAsync` affiche une fenêtre invitant les utilisateurs à se connecter. Les applications requièrent généralement que les utilisateurs se connectent de manière interactive la première fois qu’ils cherchent à accéder à une ressource protégée. Ils peuvent également avoir besoin de se connecter en cas d’échec d’une opération en mode silencieux pour obtenir un jeton, par exemple lorsque le mot de passe d’un utilisateur est arrivé à expiration.
 
 #### <a name="get-a-user-token-silently"></a>Obtenir un jeton d’utilisateur en mode silencieux
+
 La méthode `AcquireTokenSilentAsync` gère les acquisitions et renouvellements de jetons sans aucune interaction de l’utilisateur. Après que la méthode `AcquireTokenAsync` a été exécutée pour la première fois et que l’utilisateur a été invité à entrer les informations d’identification, il convient d’utiliser la méthode `AcquireTokenSilentAsync` pour demander des jetons pour les appels suivants, car elle permet d’acquérir des jetons en mode silencieux. MSAL gère la mise en cache et le renouvellement des jetons.
 
 La méthode `AcquireTokenSilentAsync` peut échouer. Cet échec peut être dû à une déconnexion de l’utilisateur ou à la modification de son mot de passe sur un autre appareil. Quand la bibliothèque MSAL détecte que le problème peut être résolu par une intervention interactive, elle déclenche une exception `MsalUiRequiredException`. Votre application peut gérer cette exception de deux manières :
@@ -333,7 +334,6 @@ Pour activer l’Authentification intégrée de Windows en cas d’utilisation a
 > [!IMPORTANT]
 > L’Authentification intégrée de Windows n’est pas configurée par défaut pour cet exemple. Les applications qui demandent les fonctionnalités *Authentification en entreprise* ou *Certificats utilisateur partagés* nécessitent un niveau supérieur de vérification de Microsoft Store. Tous les développeurs ne souhaitent pas effectuer la vérification de niveau supérieur. N’activez ce paramètre que si vous avez besoin de l’Authentification intégrée de Windows avec un domaine Azure Active Directory fédéré.
 
-
 ## <a name="test-your-code"></a>Test de votre code
 
 Pour tester votre application, appuyez sur F5 afin d’exécuter votre projet dans Visual Studio. Votre fenêtre principale s’affiche :
@@ -369,7 +369,7 @@ Si vous le souhaitez, copiez la valeur figurant dans la zone **Jeton d’accès*
 
 L’API Microsoft Graph nécessite l’étendue *user.read* pour lire le profil d’un utilisateur. Par défaut, cette étendue est automatiquement ajoutée à toutes les applications inscrites dans le portail d’inscription des applications. D’autres API de Microsoft Graph et des API personnalisées pour votre serveur principal peuvent nécessiter des étendues supplémentaires. L’API Microsoft Graph nécessite l’étendue *Calendars.Read* pour répertorier les calendriers de l’utilisateur.
 
-Pour accéder aux calendriers de l’utilisateur dans le contexte d’une application, ajoutez l’autorisation déléguée *Calendars.Read* aux informations d’inscription de l’application. Ajoutez ensuite l’étendue *Calendars.Read* à l’appel `acquireTokenSilent`. 
+Pour accéder aux calendriers de l’utilisateur dans le contexte d’une application, ajoutez l’autorisation déléguée *Calendars.Read* aux informations d’inscription de l’application. Ajoutez ensuite l’étendue *Calendars.Read* à l’appel `acquireTokenSilent`.
 
 > [!NOTE]
 > Les utilisateurs peuvent être invités à donner des consentements supplémentaires lorsque vous augmentez le nombre d’étendues.
@@ -392,3 +392,5 @@ Vous activez [l’authentification intégrée sur des domaines fédérés](#enab
 **Cause :** ce problème est une limitation connue du service Broker d’authentification web dans les applications UWP qui s’exécutent sur Windows 10 Desktop. Il fonctionne correctement sur Windows 10 Mobile.
 
 **Solution de contournement :** sélectionnez **Connexion avec d’autres options**, puis **Sign in with a username and password** (Se connecter avec un nom d’utilisateur et un mot de passe). Sélectionnez **Provide your password** (Indiquer votre mot de passe), puis passez au processus d’authentification par téléphone.
+
+[!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/28/2018
+ms.date: 10/17/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 23bf9d5fb26ee3a0f224f7a8acc2b0539a5c1607
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364608"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406275"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -79,7 +79,7 @@ Alors que les connecteurs équilibreront automatiquement la charge au sein d’u
 |4|16|320|1150|
 |8|32|270|1190|
 |16|64|245|1200*|
-\* Cette machine a une limite de 800 connexions. Pour toutes les autres machines, nous avons utilisé la limite de 200 connexions par défaut.
+\* Cet ordinateur a utilisé un paramètre personnalisé pour déclencher certaines limites de connexion par défaut au-delà des paramètres recommandés de .NET. Nous vous recommandons d’exécuter un test avec les paramètres par défaut avant de contacter le support technique pour que cette limite soit modifiée pour votre abonné.
  
 >[!NOTE]
 >L’utilisation d’une machine utilisant 4, 8 ou 16 cœurs n’entraîne pas de grandes différences au niveau des TPS maximales. La principale différence entre ces machines se situe au niveau de la latence attendue.  

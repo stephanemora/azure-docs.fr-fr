@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4ae84ff481b25f1e91a29c067dea74ba25f924aa
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 899aeeb994ca5c9bf30dfca876dff61c1ccf3ea7
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320320"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637577"
 ---
 # <a name="user-sign-in-with-azure-active-directory-pass-through-authentication"></a>Connexion de l’utilisateur avec l’authentification directe Azure Active Directory
 
@@ -48,8 +48,9 @@ Vous pouvez combiner l’authentification directe avec la fonctionnalité [Authe
   - Aucun frais de gestion. L’agent reçoit automatiquement des améliorations et correctifs de bogues.
 - *Sécuriser*
   - Les mots de passe locaux ne sont jamais stockés dans le cloud sous quelque forme que ce soit.
-  - L’agent établit uniquement les connexions sortantes depuis votre réseau. Il n’est donc pas nécessaire d’installer l’agent dans un réseau de périmètre, également appelé DMZ.
   - Il protège vos comptes utilisateur en toute transparence avec les [stratégies d’accès conditionnel d’Azure AD](../active-directory-conditional-access-azure-portal.md), y compris l’authentification multifacteur (MFA), [en bloquant l’authentification héritée](../conditional-access/conditions.md) et [en filtrant des attaques de mot de passe par recherche exhaustive](../authentication/howto-password-smart-lockout.md).
+  - L’agent établit uniquement les connexions sortantes depuis votre réseau. Il n’est donc pas nécessaire d’installer l’agent dans un réseau de périmètre, également appelé DMZ.
+  - La communication entre les agents et Azure AD est sécurisée à l’aide de l’authentification basée sur les certificats. Ces certificats sont renouvelés automatiquement tous les quelques mois par Azure AD.
 - *Hautement disponible*
   - Il est possible d’installer des agents supplémentaires sur plusieurs serveurs locaux pour assurer la haute disponibilité des requêtes de connexion.
 

@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/04/2018
+ms.date: 10/22/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 8e06cf1a443d4fd158e29ef4b53206a83800dfe9
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 36025bf8460d690aab3b3617ad3341dfe7005e9e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803050"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649265"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Paramétrer les URL de redirection sur b2clogin.com pour Azure Active Directory B2C
 
@@ -26,7 +26,12 @@ L’utilisation de b2clogin.com vous offre des avantages supplémentaires, tels 
 - Les cookies ne sont plus partagés avec d’autres services Microsoft.
 - Vos URL n’incluent plus de référence à Microsoft. Par exemple : `https://your-tenant-name.b2clogin.com/tfp/your-tenant-ID/policyname/v2.0/.well-known/openid-configuration`.
 
-Pour utiliser b2clogin.com, paramétrez les URL de redirection dans vos applications de fournisseur d’identité de façon à utiliser b2clogin.com. Vous devez également paramétrer votre application Azure AD B2C pour utiliser b2clogin.com pour les références de stratégie et les points de terminaison de jeton. Si vous utilisez MSAL, vous devez définir la propriété **ValidateAuthority** sur `false`.
+Tenez compte du fait que ces paramètres devront peut-être être modifiés lors de l’utilisation de b2clogin.com :
+
+- Paramétrez les URL de redirection dans vos applications de fournisseur d’identité de façon à utiliser b2clogin.com. 
+- Paramétrez votre application Azure AD B2C pour utiliser b2clogin.com pour les références de stratégie et les points de terminaison de jeton. 
+- Si vous utilisez MSAL, vous devez définir la propriété **ValidateAuthority** sur `false`.
+- Veillez à remplacer les **origines autorisées** que vous avez définies dans les paramètres CORS de [personnalisation de l’interface utilisateur](active-directory-b2c-ui-customization-custom-dynamic.md).  
 
 ## <a name="change-redirect-urls"></a>Modifier les URL de redirection
 

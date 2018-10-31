@@ -8,12 +8,12 @@ ms.date: 06/19/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 044cb56b8991a1eb2dd6a1d35be621f2ffab3250
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 40a1955e88b23ecfb86412b388413b920dd2eb1a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37064317"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407603"
 ---
 # <a name="troubleshoot-errors-when-onboarding-solutions"></a>Résolution des erreurs d’intégration des solutions
 
@@ -53,15 +53,17 @@ Pour déployer correctement la solution, vous devez envisager de modifier la str
 * Essayer d’effectuer une intégration à un groupe de ressources différent.
 * Réviser la stratégie, par exemple:
   * En reciblant la stratégie vers une ressource spécifique (par exemple, vers un compte Automation)
-  * En révisant l’ensemble de ressources que cette stratégie a été configurée pour refuser
+  * en révisant l’ensemble de ressources que cette stratégie a été configurée pour refuser.
 
 Consultez les notifications dans le coin supérieur droit du portail Azure ou accédez au groupe de ressources comportant votre compte Automation, puis sélectionnez **Déploiements** sous **Paramètres** pour afficher le déploiement mis en échec. Pour en savoir plus sur Azure Policy, consultez : [Présentation d’Azure Policy](../../azure-policy/azure-policy-introduction.md?toc=%2fazure%2fautomation%2ftoc.json).
 
 ## <a name="mma-extension-failures"></a>Échecs d’extension MMA
 
-Lorsque vous déployez une solution, de nombreuses ressources connexes sont déployées en même temps. L’une de ces ressources est l’extension Microsoft Monitoring Agent, ou l’Agent OMS pour Linux. Il s’agit d’extensions de machine virtuelle installées par l’agent invité de la machine virtuelle, qui est chargé de communiquer avec l’espace de travail Operations Management Suite (OMS) configuré, en vue d’une coordination ultérieure du téléchargement des fichiers binaires et des autres fichiers sur lesquels dépend la solution que vous intégrez, une fois son exécution lancée.
-En général, vous découvrez les erreurs d’installation de MMA ou de l’Agent OMS pour Linux par l’affichage d’une notification dans le hub Notifications. En cliquant sur cette notification, vous obtenez davantage d’informations sur l’échec. L’accès à la ressource Groupes de ressources, puis à l’élément Déploiements qu’elle contient, permet également d’obtenir des informations détaillées sur les échecs de déploiement.
-L’installation de l’extension MMA ou de l’Agent OMS pour Linux peut échouer pour diverses raisons, et les étapes à suivre pour résoudre ces échecs varient en fonction du problème. Les étapes de résolution spécifiques sont décrites ci-dessous.
+[!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)] 
+
+Lorsque vous déployez une solution, de nombreuses ressources connexes sont déployées en même temps. L’une de ces ressources est l’extension Microsoft Monitoring Agent, ou l’Agent Log Analytics pour Linux. Il s’agit d’extensions de machine virtuelle installées par l’agent invité de la machine virtuelle, qui est chargé de communiquer avec l’espace de travail Log Analytics configuré, en vue d’une coordination ultérieure du téléchargement des fichiers binaires et des autres fichiers sur lesquels dépend la solution que vous intégrez, une fois son exécution lancée.
+En général, vous découvrez les erreurs d’installation de MMA ou de l’Agent Log Analytics pour Linux par l’affichage d’une notification dans le hub Notifications. En cliquant sur cette notification, vous obtenez davantage d’informations sur l’échec. L’accès à la ressource Groupes de ressources, puis à l’élément Déploiements qu’elle contient, permet également d’obtenir des informations détaillées sur les échecs de déploiement.
+L’installation de l’extension MMA ou de l’Agent Log Analytics pour Linux peut échouer pour diverses raisons, et les étapes à suivre pour résoudre ces échecs varient en fonction du problème. Les étapes de résolution spécifiques sont décrites ci-dessous.
 
 La section suivante décrit différents problèmes que vous pouvez rencontrer lors de l’intégration et qui provoquent l’échec du déploiement de l’extension MMA.
 
@@ -146,7 +148,7 @@ Essayez d’installer l’extension MMA lorsque la machine virtuelle sera moins 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez l’un des canaux suivants pour obtenir de l’aide :
+Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
 
 * Obtenez des réponses de la part d’experts Azure via les [Forums Windows](https://azure.microsoft.com/support/forums/)
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), qui est le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées : réponses, support technique et experts.

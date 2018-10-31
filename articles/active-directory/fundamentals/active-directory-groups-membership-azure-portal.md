@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 10/19/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: c28fe5ef226fac993fde221b16bfa875ba4845ca
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 09e023d1d562ea53d9927adf609335beac38a2d7
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579766"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468024"
 ---
 # <a name="how-to-add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Comment : ajouter ou supprimer un groupe d’un autre groupe à l’aide d’Azure Active Directory
 Cet article vous aide à ajouter et supprimer un groupe d’un autre groupe à l’aide d’Azure Active Directory.
@@ -25,12 +25,15 @@ Cet article vous aide à ajouter et supprimer un groupe d’un autre groupe à l
 >[!Note]
 >Si vous essayez de supprimer le groupe parent, consultez [How to update or delete a group and its members](active-directory-groups-delete-group.md) (Comment mettre à jour ou supprimer un groupe et ses membres).
 
-## <a name="add-a-group-as-a-member-to-another-group"></a>Ajouter un groupe en tant que membre d’un autre groupe
-Vous pouvez ajouter un groupe existant à un autre groupe existant, en créant un groupe (ou sous-groupe) de membres et un groupe parent. Le groupe de membres hérite des attributs et des propriétés du groupe parent, vous permettant ainsi de gagner du temps de configuration.
+## <a name="add-a-group-to-another-group"></a>Ajouter à un autre groupe
+Vous pouvez ajouter un groupe de sécurité existant à un autre groupe de sécurité (aussi appelé groupe imbriqué), créer un groupe (ou sous-groupe) de membres et un groupe parent. Le groupe de membres hérite des attributs et des propriétés du groupe parent, vous permettant ainsi de gagner du temps de configuration.
 
-### <a name="to-add-a-group-as-a-member-to-another-group"></a>Pour ajouter un groupe en tant que membre d’un autre groupe
+>[!Important]
+>Nous ne prenons actuellement pas en charge :<ul><li>L’ajout de groupes de sécurité aux groupes Office 365</li><li>L’ajout de groupes Office 365 à des groupes de sécurité ou à d’autres groupes Office 365</li><li>L’affectation d’applications à des groupes imbriqués</li><li>L’application de licences à des groupes imbriqués</li></ul>
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général pour l’annuaire.
+### <a name="to-add-a-group-as-a-member-of-another-group"></a>Pour ajouter un groupe en tant que membre d’un autre groupe
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com) à l’aide d’un compte d’administrateur général pour le répertoire.
 
 2. Sélectionnez **Azure Active Directory**, puis **Groupes**.
 
@@ -55,8 +58,8 @@ Vous pouvez ajouter un groupe existant à un autre groupe existant, en créant u
 
     ![Page d’appartenance au groupe affichant les détails du membre et du groupe](media/active-directory-groups-membership-azure-portal/group-membership-review.png)
 
-## <a name="remove-a-member-group-from-another-group"></a>Supprimer un groupe de membres d’un autre groupe
-Vous pouvez supprimer un groupe de membres existant d’un autre groupe. Toutefois, la suppression de l’appartenance supprime également les attributs et propriétés hérités pour vos utilisateurs.
+## <a name="remove-a-group-from-another-group"></a>Supprimer un groupe d’un autre groupe
+Vous pouvez supprimer un groupe de sécurité existant d’un autre groupe de sécurité. Toutefois, la suppression du groupe supprime également les attributs et propriétés hérités pour ses membres.
 
 ### <a name="to-remove-a-member-group-from-another-group"></a>Pour supprimer un groupe de membres d’un autre groupe
 1. Dans la page **Groupes - Tous les groupes**, recherchez et sélectionnez le groupe qui doit être supprimé en tant que membre d’un autre groupe. Dans cet exercice, nous utilisons une nouvelle fois le groupe **MDM policy - West** (Stratégie GPM - Ouest).
@@ -81,4 +84,6 @@ Ces articles fournissent des informations supplémentaires sur Azure Active Dire
 
 - [Modifier vos paramètres de groupe](active-directory-groups-settings-azure-portal.md)
 
-- [Attribuer des licences aux utilisateurs par groupe](../users-groups-roles/licensing-groups-assign.md)
+- [Utilisation d’un groupe pour gérer l’accès aux applications SaaS](../users-groups-roles/groups-saasapps.md)
+
+- [Scénarios, limitations et problèmes connus liés à l’utilisation de groupes dans le cadre de la gestion des licences dans Azure Active Directory](../users-groups-roles/licensing-group-advanced.md#limitations-and-known-issues)

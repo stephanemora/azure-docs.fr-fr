@@ -17,23 +17,25 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: ad7bb3c3a7bd50521b968b7c1a4e21027fbe18f2
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344874"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986049"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 et flux Pour le compte de OAuth 2.0
+
+[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
+
 Le flux Pour le compte de OAuth 2.0 sert quand une application appelle un service/API web, qui à son tour doit appeler un autre service/API web. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. Pour que le service de niveau intermédiaire puisse faire des demandes authentifiées au service en aval, il doit sécuriser un jeton d’accès d’Azure Active Directory (Azure AD) pour le compte de l’utilisateur.
 
 > [!NOTE]
 > Le point de terminaison v2.0 ne prend pas en charge l’intégralité des scénarios et fonctionnalités d’Azure Active Directory. Pour déterminer si vous devez utiliser le point de terminaison v2.0, consultez les [limitations de v2.0](active-directory-v2-limitations.md).
 >
 
-
 > [!IMPORTANT]
-> [L’octroi implicite](v2-oauth2-implicit-grant-flow.md) ne peut pas être utilisé pour le flux On-Behalf-Of - Les SPA doivent transmettre leur jeton d’accès (flux implicite) à un client confidentiel de la couche intermédiaire pour effectuer des flux OBO. Consultez les [limitations](#client-limitations) pour plus d’informations sur les clients pouvant effectuer des appels On-Behalf-Of.  
+> Depuis mai 2018, il n’est pas possible d’utiliser `id_token` pour le flux Pour le compte de. Les SPA doivent transmettre leur jeton d’**accès** à un client confidentiel de couche intermédiaire pour effectuer les flux OBO. Consultez les [limitations](#client-limitations) pour plus d’informations sur les clients pouvant effectuer des appels On-Behalf-Of.
 
 ## <a name="protocol-diagram"></a>Schéma de protocole
 Supposons que l’utilisateur a été authentifié sur une application à l’aide du [flux d’octroi de code d’autorisation OAuth 2.0](v2-oauth2-auth-code-flow.md). À ce stade, l’application a un jeton d’accès *pour l’API A* (jeton A) avec les revendications et le consentement de l’utilisateur pour accéder à l’API web de niveau intermédiaire (API A). L’API A doit maintenant faire une demande authentifiée à l’API web en aval (API B).

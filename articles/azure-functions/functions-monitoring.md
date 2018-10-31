@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 66d04ca93a79f4d9cdd9f162c6cd3210ae35f4d2
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: e317a9c3cea800e05fbf3d2df73c124d2e7ffd23
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902703"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457661"
 ---
 # <a name="monitor-azure-functions"></a>Surveiller l’exécution des fonctions Azure
 
@@ -211,6 +211,7 @@ Le niveau de journal `None` est expliqué dans la section suivante.
 
 Le fichier *host.json* configure la quantité de journalisation qu’une application de fonction envoie à Application Insights. Pour chaque catégorie, vous indiquez le niveau de journal minimal à envoyer. Voici un exemple :
 
+#### <a name="functions-version-1"></a>Functions Version 1 
 ```json
 {
   "logger": {
@@ -226,6 +227,22 @@ Le fichier *host.json* configure la quantité de journalisation qu’une applica
 }
 ```
 
+#### <a name="functions-version-2"></a>Functions Version 2 
+Functions v2 utilise à présent la [hiérarchie de filtres de journalisation .NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering). 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host.Results": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Trace"
+    }
+  }
+}
+```
+
 Cet exemple montre comment configurer les règles suivantes :
 
 1. Pour les journaux ayant la catégorie « Host.Results » ou « Function », envoyer uniquement les niveaux `Error` et supérieurs à Application Insights. Les journaux pour les niveaux `Warning` et inférieurs sont ignorés.
@@ -236,6 +253,7 @@ La valeur de catégorie dans *host.json* contrôle la journalisation de toutes l
 
 Si *host.json* inclut plusieurs catégories qui commencent par la même chaîne, les plus longues sont traitées en priorité. Par exemple, supposons que vous souhaitez que la totalité du runtime à l’exception de « Host.Aggregator » soit journalisée au niveau `Error`, mais que « Host.Aggregator » soit journalisé au niveau `Information` :
 
+#### <a name="functions-version-1"></a>Functions Version 1 
 ```json
 {
   "logger": {
@@ -246,6 +264,21 @@ Si *host.json* inclut plusieurs catégories qui commencent par la même chaîne,
         "Function": "Error",
         "Host.Aggregator": "Information"
       }
+    }
+  }
+}
+```
+
+#### <a name="functions-version-2"></a>Functions Version 2 
+```json
+{
+  "logging": {
+    "fileLoggingMode": "always",
+    "logLevel": {
+      "default": "Information",
+      "Host": "Error",
+      "Function": "Error",
+      "Host.Aggregator": "Information"
     }
   }
 }

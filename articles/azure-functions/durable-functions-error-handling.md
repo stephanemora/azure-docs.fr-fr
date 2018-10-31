@@ -2,20 +2,20 @@
 title: 'Gestion des erreurs dans Fonctions durables : Azure'
 description: Découvrez comment gérer des erreurs dans l’extension Fonctions durables pour Azure Functions.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6bf9eb2cd2ebdf5f6d53e00923146bab49a142bf
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 61496d91c9ec2cd1dcf498df04d2dab6629e009c
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377903"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49984126"
 ---
 # <a name="handling-errors-in-durable-functions-azure-functions"></a>Gestion des erreurs dans Fonctions durables (Azure Functions)
 
@@ -26,6 +26,8 @@ Les orchestrations Fonctions durables sont implémentées dans du code et peuven
 Toute exception levée dans une fonction d’activité est marshalée vers la fonction d’orchestrateur et levée en tant qu’élément `FunctionFailedException`. Vous pouvez écrire du code de gestion des erreurs et de compensation qui correspond le mieux à vos besoins dans la fonction d’orchestrateur.
 
 Par exemple, considérez la fonction d’orchestrateur suivante, qui transfère des fonds d’un compte à un autre :
+
+#### <a name="c"></a>C#
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -64,11 +66,49 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
+#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const transferDetails = context.df.getInput();
+
+    yield context.df.callActivity("DebitAccount",
+        {
+            account = transferDetails.sourceAccount,
+            amount = transferDetails.amount,
+        }
+    );
+
+    try {
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.destinationAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+    catch (error) {
+        // Refund the source account.
+        // Another try/catch could be used here based on the needs of the application.
+        yield context.df.callActivity("CreditAccount",
+            {
+                account = transferDetails.sourceAccount,
+                amount = transferDetails.amount,
+            }
+        );
+    }
+});
+```
+
 Si l’appel à la fonction **CreditAccount** échoue pour le compte de destination, la fonction d’orchestrateur compense cela replaçant les fonds sur le compte source.
 
 ## <a name="automatic-retry-on-failure"></a>Nouvelle tentative automatique en cas d’échec
 
 Lorsque vous appelez les fonctions d’activité ou les fonctions de sous-orchestration, vous pouvez spécifier une stratégie de nouvelle tentative automatique. L’exemple suivant tente d’appeler une fonction jusqu’à trois fois, et attend 5 secondes avant chaque nouvelle tentative :
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -83,7 +123,21 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-L’API `CallActivityWithRetryAsync` prend un paramètre `RetryOptions`. Les appels de sous-orchestration utilisant l’API `CallSubOrchestratorWithRetryAsync` peuvent utiliser les mêmes stratégies de nouvelle tentative.
+#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const retryOptions = new df.RetryOptions(5000, 3);
+    
+    yield context.df.callActivityWithRetry("FlakyFunction", retryOptions);
+
+    // ...
+});
+```
+
+L’API `CallActivityWithRetryAsync` (C#) `callActivityWithRetry` (JS) ou prend un paramètre `RetryOptions`. Les appels de sous-orchestration utilisant l’API `CallSubOrchestratorWithRetryAsync` (C#) ou `callSubOrchestratorWithRetry` (JS) peuvent utiliser les mêmes stratégies de nouvelle tentative.
 
 Il existe plusieurs options de personnalisation de la stratégie de nouvelle tentative automatique. Les voici :
 
@@ -97,6 +151,8 @@ Il existe plusieurs options de personnalisation de la stratégie de nouvelle ten
 ## <a name="function-timeouts"></a>Délais d’expiration des fonctions
 
 Vous souhaiterez peut-être abandonner un appel de fonction dans une fonction d’orchestration si elle prend trop de temps. Actuellement, la méthode adéquate pour cela consiste à créer un [minuteur durable](durable-functions-timers.md) à l’aide de l’élément `context.CreateTimer`, conjointement avec l’élément `Task.WhenAny`, comme dans l’exemple suivant :
+
+#### <a name="c"></a>C#
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -123,6 +179,30 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
         }
     }
 }
+```
+
+#### <a name="javascript-functions-v2-only"></a>JavaScript (Functions v2 uniquement)
+
+```javascript
+const df = require("durable-functions");
+const moment = require("moment");
+
+module.exports = df.orchestrator(function*(context) {
+    const deadline = moment.utc(context.df.currentUtcDateTime).add(30, "s");
+
+    const activityTask = context.df.callActivity("FlakyFunction");
+    const timeoutTask = context.df.createTimer(deadline.toDate());
+
+    const winner = yield context.df.Task.any([activityTask, timeoutTask]);
+    if (winner === activityTask) {
+        // success case
+        timeoutTask.cancel();
+        return true;
+    } else {
+        // timeout case
+        return false;
+    }
+});
 ```
 
 > [!NOTE]

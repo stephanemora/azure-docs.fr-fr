@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 10/21/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4f2ceae349c921ce0d83fb7401e3b18404722763
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 025202d25d3057f3db7d015faba349a1fe642d4c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362906"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637863"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Authentification directe Azure Active Directory : forum aux questions
 
@@ -83,6 +83,10 @@ Oui. Si Web Proxy Auto-Discovery (WPAD) est activé dans votre environnement sur
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Puis-je installer deux ou plusieurs agents d’authentification directe sur le même serveur ?
 
 Non, vous ne pouvez installer qu’un seul agent d’authentification directe sur un serveur unique. Si vous souhaitez configurer l’authentification directe pour la haute disponibilité, [suivez les instructions fournies ici](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
+
+## <a name="do-i-have-to-manually-renew-certificates-used-by-pass-through-authentication-agents"></a>Dois-je renouveler manuellement les certificats utilisés par les agents d’authentification directe ?
+
+La communication entre les agents d’authentification directe et Azure AD est sécurisée à l’aide de l’authentification basée sur les certificats. Ces [certificats sont renouvelés automatiquement tous les quelques mois par Azure AD](how-to-connect-pta-security-deep-dive.md#operational-security-of -the-authentication-agents). Il n’est pas nécessaire de renouveler manuellement ces certificats. Vous pouvez nettoyer les anciens certificats arrivés à expiration en fonction des besoins.
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Comment supprimer un agent d’authentification directe ?
 

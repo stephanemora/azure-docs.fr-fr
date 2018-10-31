@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 98bd088d4995bd1444b059531dc5b19d0283f551
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c045d82e47d2554c2767e6f52491c780618abc2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46965529"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409524"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Métriques, alertes et journaux Batch pour l’évaluation de diagnostic et la surveillance
 
@@ -85,7 +85,7 @@ Autres destinations facultatives pour les journaux de diagnostic :
 
 * Diffusez les événements du journal de diagnostic Batch vers un service [Azure Event Hub](../event-hubs/event-hubs-what-is-event-hubs.md). Le service Event Hubs peut traiter à chaque seconde des millions d’événements que vous pouvez transformer et stocker à l’aide de tout fournisseur d’analyses en temps réel. 
 
-* Envoyez les journaux de diagnostic à [Azure Log Analytics](../log-analytics/log-analytics-overview.md) où vous pouvez les analyser via le portail Operations Management Suite (OMS), ou les exporter à des fins d’analyse vers Power BI ou Excel.
+* Envoyez les journaux de diagnostic à [Azure Log Analytics](../log-analytics/log-analytics-overview.md), où vous pouvez les analyser ou les importer pour analyse dans Power BI ou Excel.
 
 > [!NOTE]
 > Vous risquez de payer des frais supplémentaires pour stocker ou traiter les données de journal de diagnostics avec les services Azure. 

@@ -8,20 +8,20 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/22/2018
 ms.author: glenga
-ms.openlocfilehash: 9f6746f1bf8fb65e39933afa00b74a2b8266a1a9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2eb736891b12c07441bc8828ca07dd0b9fa13d98
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095434"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458120"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Informations de référence sur les paramètres d’application d’Azure Functions
 
-Les paramètres d’une application de fonction contiennent les options de configuration globale qui affectent l’ensemble des fonctions de cette application de fonction. Lors d’une exécution locale, ces paramètres sont contenus dans des variables d’environnement. Cet article répertorie les paramètres d’application qui sont disponibles dans les applications de fonction.
+Les paramètres d’une application de fonction contiennent les options de configuration globale qui affectent l’ensemble des fonctions de cette application de fonction. Lors d’une exécution locale, ces paramètres sont contenus dans des [variables d’environnement](functions-run-local.md#local-settings-file). Cet article répertorie les paramètres d’application qui sont disponibles dans les applications de fonction.
 
-[!INCLUDE [Paramètres de l’application de fonctions](../../includes/functions-app-settings.md]
+[!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 Les fichiers [host.json](functions-host-json.md) et [local.settings.json](functions-run-local.md#local-settings-file) contiennent d’autres options de configuration globale.
 
@@ -40,6 +40,9 @@ Chaîne de connexion du compte de stockage facultatif pour stocker des journaux 
 |Clé|Exemple de valeur|
 |---|------------|
 |AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+
+> [!TIP]
+> Pour améliorer les performances et l’expérience, il est recommandé d’utiliser APPINSIGHTS_INSTRUMENTATIONKEY et App Insights pour la supervision, plutôt qu’AzureWebJobsDashboard.
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -79,11 +82,11 @@ Chemin d’accès au répertoire racine dans lequel se trouvent les dossiers de 
 
 ## <a name="azurewebjobssecretstoragetype"></a>AzureWebJobsSecretStorageType
 
-Spécifie le référentiel ou le fournisseur à utiliser pour le stockage de clés. Actuellement, les référentiels pris en charge sont l’objet blob (« Blob ») et le système de fichiers (« disabled »). La valeur par défaut est le système de fichiers (« disabled »).
+Spécifie le référentiel ou le fournisseur à utiliser pour le stockage de clés. Actuellement, les référentiels pris en charge sont le stockage d’objets blob (« Blob ») et le système de fichiers local (« Fichiers »). La valeur par défaut est Blob dans la version 1 et le système de fichiers dans la version 2. Notez que dans la version 1, le système de fichiers fonctionne uniquement pour les fonctions en cours d’exécution dans un plan App Service.
 
 |Clé|Exemple de valeur|
 |---|------------|
-|AzureWebJobsSecretStorageType|disabled|
+|AzureWebJobsSecretStorageType|Fichiers|
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
@@ -111,11 +114,19 @@ Les valeurs valides sont « readwrite » et « readonly ».
 
 ## <a name="functionsextensionversion"></a>FUNCTIONS\_EXTENSION\_VERSION
 
-Version du runtime d’Azure Functions à utiliser dans cette application de fonction. Un tilde accompagné d’une version principale désigne l’utilisation de la version la plus récente de cette version principale (par exemple, « ~ 1 »). Lorsque de nouvelles versions sont disponibles pour une même version principale, elles sont automatiquement installées dans l’application de fonction. Pour épingler l’application à une version spécifique, utilisez le numéro de version complet (par exemple, « 1.0.12345 »). La valeur par défaut est « ~1 ».
+Version du runtime Azure Functions à utiliser dans cette application de fonction. Un tilde accompagné d’une version principale désigne l’utilisation de la version la plus récente de cette version principale (par exemple, « ~2 »). Lorsque de nouvelles versions sont disponibles pour une même version principale, elles sont automatiquement installées dans l’application de fonction. Pour épingler l’application à une version spécifique, utilisez le numéro de version complet (par exemple, « 2.0.12345 »). La valeur par défaut est « ~2 ». La valeur `~1` épingle votre application à la version 1.x du runtime.
 
 |Clé|Exemple de valeur|
 |---|------------|
-|FUNCTIONS\_EXTENSION\_VERSION|~1|
+|FUNCTIONS\_EXTENSION\_VERSION|~2|
+
+## <a name="functionsworkerruntime"></a>FUNCTIONS\_WORKER\_RUNTIME
+
+Runtime du rôle de travail de langage à charger dans l’application de fonction.  Correspond au langage utilisé dans votre application (par exemple, « dotnet »). Pour les fonctions dans plusieurs langages, vous devrez les publier dans plusieurs applications, chacune avec une valeur de runtime de travail correspondante.  Les valeurs valides sont `dotnet` (C#/F#), `node` (JavaScript) et `java` (Java).
+
+|Clé|Exemple de valeur|
+|---|------------|
+|FUNCTIONS\_WORKER\_RUNTIME|dotnet|
 
 ## <a name="websitecontentazurefileconnectionstring"></a>WEBSITE_CONTENTAZUREFILECONNECTIONSTRING
 
@@ -138,32 +149,29 @@ Pour les plans de consommation uniquement. Chemin d’accès au fichier contenan
 Nombre maximal d’instances possibles de l’application de fonction. Par défaut, il n’y pas de limite.
 
 > [!NOTE]
-> Ce paramètre concerne une fonctionnalité d’évaluation.
+> Ce paramètre est une fonctionnalité d’évaluation et fiable uniquement si la valeur définie est <= 5
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|10|
+|WEBSITE\_MAX\_DYNAMIC\_APPLICATION\_SCALE\_OUT|5.|
 
 ## <a name="websitenodedefaultversion"></a>WEBSITE\_NODE\_DEFAULT_VERSION
 
-La valeur par défaut est « 6.5.0 ».
+La valeur par défaut est « 8.11.1 ».
 
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE\_NODE\_DEFAULT_VERSION|6.5.0|
+|WEBSITE\_NODE\_DEFAULT_VERSION|8.11.1|
 
-## <a name="websiterunfromzip"></a>WEBSITE\_RUN\_FROM\_ZIP
+## <a name="websiterunfrompackage"></a>WEBSITE\_RUN\_FROM\_PACKAGE
 
 Permet à votre application de fonction de s’exécuter à partir d’un fichier de package monté.
 
-> [!NOTE]
-> Ce paramètre concerne une fonctionnalité d’évaluation.
-
 |Clé|Exemple de valeur|
 |---|------------|
-|WEBSITE\_RUN\_FROM\_ZIP|1|
+|WEBSITE\_RUN\_FROM\_PACKAGE|1|
 
-Les valeurs valides sont soit une URL qui correspond à l’emplacement d’un fichier de package de déploiement, soit `1`. Lorsque la valeur `1` est définie, le package doit se trouver dans le dossier `d:\home\data\SitePackages`. Lorsque vous utilisez le déploiement zip avec ce paramètre, le package est automatiquement chargé vers cet emplacement.  Pour plus d’informations, consultez [Exécuter des fonctions Azure à partir d’un fichier de package](run-functions-from-deployment-package.md).
+Les valeurs valides sont soit une URL qui correspond à l’emplacement d’un fichier de package de déploiement, soit `1`. Lorsque la valeur `1` est définie, le package doit se trouver dans le dossier `d:\home\data\SitePackages`. Lorsque vous utilisez le déploiement zip avec ce paramètre, le package est automatiquement chargé vers cet emplacement. Dans la préversion, ce paramètre s’appelait `WEBSITE_RUN_FROM_ZIP`. Pour plus d’informations, consultez [Exécuter des fonctions Azure à partir d’un fichier de package](run-functions-from-deployment-package.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2018
+ms.date: 10/23/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: f184c18e97144f7efb30d61ebd024344510f3f5c
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 3a3768e796284895b25eb62d00a58b20ca811540
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078764"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958939"
 ---
 # <a name="azure-active-directory-access-tokens"></a>Jetons d’accès Azure Active Directory
 
@@ -179,7 +179,7 @@ https://login.microsoftonline.com/common/.well-known/openid-configuration
 ```
 
 > [!TIP]
-> Testez cette URL dans un navigateur !
+> Testez cette [URL](https://login.microsoftonline.com/common/.well-known/openid-configuration) dans un navigateur !
 
 Ce document de métadonnées :
 
@@ -187,7 +187,7 @@ Ce document de métadonnées :
 * Comprend également un `jwks_uri` qui indique l’emplacement de l’ensemble des clés publiques utilisées pour signer les jetons. Le document JSON situé sous `jwks_uri` contient toutes les informations sur les clés publiques utilisées à cet instant donné. Votre application peut utiliser la revendication `kid` dans l’en-tête JWT pour sélectionner la clé publique utilisée dans ce document pour signer un jeton donné. Elle peut ensuite procéder à la validation des signatures à l’aide de la clé publique correcte et de l’algorithme indiqué.
 
 > [!NOTE]
-> Le point de terminaison v1.0 retourne les revendications `x5t` et `kid`. La revendication `x5t` est absente des jetons v2.0. Le point de terminaison v2.0 répond avec la revendication `kid`. Nous vous recommandons, à l’avenir, d’utiliser la revendication `kid` pour valider votre jeton.
+> Le point de terminaison v1.0 retourne à la fois les revendications `x5t` et `kid`, tandis que le point de terminaison v2.0 répond avec uniquement la revendication `kid`. Nous vous recommandons, à l’avenir, d’utiliser la revendication `kid` pour valider votre jeton.
 
 La validation des signatures dépasse le cadre de ce document. Si vous avez besoin d’aide, de nombreuses bibliothèques open source sont disponibles.
 
@@ -202,7 +202,7 @@ Cette étape est déterminée par la logique métier de votre application, certa
 * Vérifiez que `tid` correspond à un client autorisé à appeler votre API.
 * Utilisez la revendication `acr` pour vérifier que l’utilisateur a effectué la MFA. Notez que ceci doit être exécuté à l’aide de l’[accès conditionnel](https://docs.microsoft.com/azure/active-directory/conditional-access/overview).
 * Si vous avez demandé les revendications `roles` ou `groups` dans le jeton d’accès, vérifiez que l’utilisateur fait bien partie du groupe autorisé à effectuer cette action.
-  * Pour les jetons récupérés à l’aide du flux implicite, vous devrez probablement interroger le [Graph](https://developer.microsoft.com/graph/) de ces données, car il est souvent trop grand pour être contenu dans le jeton. 
+  * Pour les jetons récupérés à l’aide du flux implicite, vous devrez probablement interroger le [Microsoft Graph](https://developer.microsoft.com/graph/) de ces données, car il est souvent trop grand pour être contenu dans le jeton. 
 
 ## <a name="user-and-application-tokens"></a>Jetons d’utilisateur et d’application
 

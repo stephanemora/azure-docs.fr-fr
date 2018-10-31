@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ff96b9a63e7340788ef2474ce9934145c184e1e1
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: ac7cc404998fed6897de1bed4b6bd31fca43e820
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542767"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405818"
 ---
 # <a name="date-claims-transformations"></a>Transformations de revendications Date
 
@@ -25,12 +25,12 @@ Cet article fournit des exemples pour l’utilisation de transformations de reve
 
 ## <a name="assertdatetimeisgreaterthan"></a>AssertDateTimeIsGreaterThan 
 
-Vérifie qu’une revendication de date et d’heure (type de données string) est supérieure à une deuxième revendication de date et d’heure (type de données string) et lève une exception.
+Vérifie qu’une revendication de date et d’heure (type de données string) est postérieure à une deuxième revendication de date et d’heure (type de données string) et lève une exception.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | chaîne | Type de la première revendication, qui doit être supérieure à la deuxième revendication. |
-| inputClaim | rightOperand | chaîne | Type de la deuxième revendication, qui doit être inférieure à la première revendication. |
+| inputClaim | leftOperand | chaîne | Type de la première revendication, qui doit être postérieure à la deuxième revendication. |
+| inputClaim | rightOperand | chaîne | Type de la deuxième revendication, qui doit être antérieure à la première revendication. |
 | InputParameter | AssertIfEqualTo | booléenne | Spécifie si cette assertion doit passer si l’opérande gauche est égal à l’opérande droit. |
 | InputParameter | AssertIfRightOperandIsNotPresent | booléenne | Spécifie si cette assertion doit passer si l’opérande droit est manquante. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Spécifie le nombre de millisecondes autorisées entre les deux dates pour considérer les heures comme égales (par exemple, pour tenir compte du décalage d’horloge). |
@@ -39,7 +39,7 @@ La transformation de revendication **AssertDateTimeIsGreaterThan** est toujours 
 
 ![Exécution de AssertStringClaimsAreEqual](./media/date-transformations/assert-execution.png)
 
-L’exemple suivant compare la revendication `currentDateTime` à la revendication `approvedDateTime`. Une erreur est générée si `currentDateTime` est supérieur à `approvedDateTime`. La transformation traite les valeurs comme étant égales si elles ont une différence de 5 minutes (30 000 millisecondes).
+L’exemple suivant compare la revendication `currentDateTime` à la revendication `approvedDateTime`. Une erreur est générée si `currentDateTime` est postérieur à `approvedDateTime`. La transformation traite les valeurs comme étant égales si elles ont une différence de 5 minutes (30 000 millisecondes).
 
 ```XML
 <ClaimsTransformation Id="AssertApprovedDateTimeLaterThanCurrentDateTime" TransformationMethod="AssertDateTimeIsGreaterThan">
@@ -80,7 +80,7 @@ Le profil technique autodéclaré appelle le profil technique de validation **lo
 
 ### <a name="example"></a>Exemples
 
-- Revendications d’entrée :
+- Revendications d’entrée :
     - **leftOperand**: 2018-10-01T15:00:00.0000000Z
     - **rightOperand**: 2018-10-01T14:00:00.0000000Z
 - Résultat : Erreur levée
@@ -110,7 +110,7 @@ L’exemple suivant illustre la conversion de la revendication `dateOfBirth` (ty
 
 ### <a name="example"></a>Exemples
 
-- Revendications d’entrée :
+- Revendications d’entrée :
     - **inputClaim**: 2019-06-01
 - Revendications de sortie :
     - **outputClaim**: 1559347200 (June 1, 2019 12:00:00 AM)
@@ -133,22 +133,22 @@ Obtient la date et l’heure UTC actuelles et ajoute la valeur à un ClaimType.
 
 ### <a name="example"></a>Exemples
 
-* Revendications de sortie :
+* Revendications de sortie :
     * **currentDateTime**: 1534418820 (August 16, 2018 11:27:00 AM)
 
 ## <a name="datetimecomparison"></a>DateTimeComparison
 
-Détermine si un dateTime est supérieur, inférieur ou égal à un autre. Le résultat est un nouveau ClaimType booléen avec une valeur True ou False.
+Détermine si un dateTime est postérieur, antérieur ou égal à un autre. Le résultat est un nouveau booléen ClaimType avec une valeur `true` ou `false`.
 
 | Item | TransformationClaimType | Type de données | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | firstDateTime | dateTime | Le premier dateTime à comparer. Une valeur null lève une exception. |
-| InputClaim | secondDateTime | dateTime | Le deuxième dateTime à comparer. Traite la valeur null comme le dateTime. |
+| InputClaim | firstDateTime | dateTime | La première valeur dateTime à comparer, pour voir si elle est antérieure ou postérieure à la deuxième valeur dateTime. Une valeur null lève une exception. |
+| InputClaim | secondDateTime | dateTime | La deuxième valeur dateTime à comparer, pour voir si elle est antérieure ou postérieure à la première valeur dateTime. La valeur NULL est considérée comme la valeur datetTime actuelle. |
 | InputParameter | operator | chaîne | Une des valeurs suivantes : identique, plus tard ou antérieur. |
 | InputParameter | timeSpanInSeconds | int | Ajoute l’intervalle de temps au premier dateTime. |
 | OutputClaim | result | booléenne | ClaimType généré après l’appel de cette ClaimsTransformation. |
 
-Utilisez cette transformation de revendication pour déterminer si deux ClaimTypes sont égales, ou bien si l’une est supérieure ou inférieure à l’autre. Par exemple, vous pouvez stocker la dernière fois qu’un utilisateur a accepté vos conditions d’utilisation du service. Après 3 mois, vous pouvez de nouveau lui demander d’accepter les conditions d’utilisation.
+Utilisez cette transformation de revendication pour déterminer si deux ClaimTypes sont égales, ou antérieure ou postérieure à l’autre. Par exemple, vous pouvez stocker la dernière fois qu’un utilisateur a accepté vos conditions d’utilisation du service. Après 3 mois, vous pouvez de nouveau lui demander d’accepter les conditions d’utilisation.
 Pour exécuter la transformation de revendication,vous devez d’abord obtenir le dateTime actuel et la dernière fois que l’utilisateur a accepté les conditions d’utilisation.
 
 ```XML
@@ -158,7 +158,7 @@ Pour exécuter la transformation de revendication,vous devez d’abord obtenir l
     <InputClaim ClaimTypeReferenceId="extension_LastTOSAccepted" TransformationClaimType="secondDateTime" />
   </InputClaims>
   <InputParameters>
-    <InputParameter Id="operator" DataType="string" Value="greater than" />
+    <InputParameter Id="operator" DataType="string" Value="later than" />
     <InputParameter Id="timeSpanInSeconds" DataType="int" Value="7776000" />
   </InputParameters>
   <OutputClaims>
@@ -169,11 +169,11 @@ Pour exécuter la transformation de revendication,vous devez d’abord obtenir l
 
 ### <a name="example"></a>Exemples
 
-- Revendications d’entrée :
+- Revendications d’entrée :
     - **firstDateTime**: 2018-01-01T00:00:00.100000Z
     - **secondDateTime**: 2018-04-01T00:00:00.100000Z
 - Paramètres d’entrée :
-    - **opérateur** : supérieur à
+    - **opérateur** : après
     - **timeSpanInSeconds**: 7776000 (90 jours)
 - Revendications de sortie : 
     - **résultat** : true

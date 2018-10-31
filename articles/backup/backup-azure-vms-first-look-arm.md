@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: sauvegardes; sauvegarde de machine virtuelle
-ms.openlocfilehash: fee0e20e232621764ba10d714b7ddfe9c759dafc
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a30b4081bf01a76c6d89e7557fbb1b40baa86fbc
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717911"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985879"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Sauvegarder des machines virtuelles Azure dans un coffre Recovery Services
 
@@ -96,11 +96,11 @@ La procédure ci-après vous guide dans la configuration du travail de sauvegard
 
   Jusqu’à la fin de la sauvegarde initiale, la zone **État de la dernière sauvegarde** présente la valeur **Avertissement (Sauvegarde initiale en attente)**. Pour connaître l’heure du prochain travail de sauvegarde planifié, sous **Récapitulatif**, cliquez sur le nom de la stratégie. Le menu Stratégie de sauvegarde s’affiche et indique l’heure de la sauvegarde planifiée.
 
-10. Pour protéger la machine virtuelle, cliquez sur **Sauvegarder maintenant**. 
+10. Pour protéger la machine virtuelle, cliquez sur **Sauvegarder maintenant**.
 
   ![Clic sur l’option Sauvegarder maintenant pour exécuter la sauvegarde initiale](./media/backup-azure-vms-first-look-arm/backup-now-update.png)
 
-  Le menu Sauvegarder maintenant s’ouvre. 
+  Le menu Sauvegarder maintenant s’ouvre.
 
   ![Affichage du panneau Sauvegarder maintenant](./media/backup-azure-vms-first-look-arm/backup-now-blade-short.png)
 
@@ -185,7 +185,7 @@ Pour modifier le paramètre de réplication du stockage :
   ![Afficher la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/set-storage-configuration-update.png)
 
 2. Dans le menu Gestion du nouveau coffre, utilisez le curseur vertical pour faire défiler l’écran jusqu’à la section Gestion, puis cliquez sur **Infrastructure de sauvegarde** pour ouvrir le menu Infrastructure de sauvegarde.
- 
+
    ![Définir la configuration de stockage du nouveau coffre](./media/backup-try-azure-backup-in-10-mins/set-storage-config-bkup-infra.png)
 
 3. Dans le menu Infrastructure de sauvegarde, cliquez sur **Configuration de la sauvegarde** pour ouvrir le menu **Configuration de la sauvegarde**.
@@ -291,6 +291,11 @@ Pour exécuter le travail de sauvegarde initial :
   ![Définition du dernier jour de conservation du point de récupération dans le panneau Sauvegarder maintenant](./media/backup-azure-vms-first-look-arm/backup-now-blade-calendar.png)
 
   Les notifications de déploiement vous informent que la sauvegarde a été déclenchée et que vous pouvez surveiller la progression du travail sur la page Travaux de sauvegarde. Selon la taille de votre machine virtuelle, la création de la sauvegarde initiale peut prendre un certain temps.
+
+  > [!NOTE]
+  > Toutes les données sauvegardées par sauvegarde Azure sont chiffrées au repos par le biais de [Storage Service Encryption (SSE)](../storage/common/storage-service-encryption.md).
+  >
+  >
 
 6. Pour afficher ou suivre l’état de la sauvegarde initiale, dans le tableau de bord du coffre, au niveau de la vignette **Travaux de sauvegarde**, cliquez sur **En cours**.
 

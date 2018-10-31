@@ -2,20 +2,20 @@
 title: 'Installer l’extension Fonctions durables et des exemples : Azure'
 description: Découvrez comment installer l’extension Fonctions durables pour Azure Functions, pour le développement de portails ou le développement Visual Studio.
 services: functions
-author: cgillum
+author: kashimiz
 manager: jeconnoc
 keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 2eb838bcb9d3f64d0bbf4657c516adb50d103223
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 6bbf232fc17b9acfd4e8cd84a0cb1346ab8ea9b5
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585303"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986812"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installer l’extension Fonctions durables et des exemples (Azure Functions)
 
@@ -45,7 +45,7 @@ Actuellement, Visual Studio fournit la meilleure expérience de développement d
 Suivez les instructions permettant de commencer par l’exemple, mais procédez comme suit au lieu de télécharger le fichier *.zip* :
 
 1. Créez un projet Function App.
-2. Recherchez la référence de package NuGet suivante à l’aide de *Gérer les packages NuGet* et ajoutez-la au projet : Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0
+2. Recherchez la référence de package NuGet suivante à l’aide de *Gérer les packages NuGet* et ajoutez-la au projet Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.2
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -75,12 +75,12 @@ Visual Studio Code fournit une expérience de développement local qui couvre to
 3. Installez Azure Functions Durable Extension en lançant la commande suivante dans une invite de commande/fenêtre de terminal :
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.2
     ```
 4. Installez Azure Functions Twilio Extension en exécutant la commande suivante dans une invite de commande/fenêtre de terminal :
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0
     ```
 5. Exécutez Azure Storage Emulator ou mettez à jour le fichier *local.settings.json* en ajoutant la chaîne de connexion de stockage Azure réelle.
 6. Ouvrez le projet dans Visual Studio Code. 
@@ -96,14 +96,14 @@ Visual Studio Code fournit une expérience de développement local qui couvre to
 2. Sur votre machine, accédez au [dossier des exemples de JavaScript](https://github.com/Azure/azure-functions-durable-extension/tree/master/samples/javascript). 
 3. Installez Azure Functions Durable Extension en lançant la commande suivante dans une invite de commande/fenêtre de terminal
 
-    ```
+    ```bash
     func extensions install
     ```
     > [!NOTE] 
     > Cela nécessite que le [SDK .NET Core](https://www.microsoft.com/net/download) soit installé sur la machine
 4. Restaurez les packages npm en exécutant la commande suivante dans une invite de commande/fenêtre de terminal :
     
-    ```
+    ```bash
     npm install
     ``` 
 5. Mettez à jour le fichier *local.settings.json* en ajoutant une chaîne de connexion à partir d’un compte de stockage Azure pour `AzureWebJobsStorage`.  Ce compte de stockage sera utilisé pour l’état de la fonction durable.
@@ -119,13 +119,13 @@ Visual Studio Code fournit une expérience de développement local qui couvre to
 1. Dans l'invite de commande/fenêtre de terminal, accédez au dossier qui hébergera votre application de fonction.
 3. Créez un projet Function App en exécutant la commande suivante :
 
-    ```
+    ```bash
     func init
     ``` 
 4. Exécutez Azure Storage Emulator (Windows uniquement) ou mettez à jour le fichier *local.settings.json* en ajoutant la chaîne de connexion de stockage Azure réelle pour `AzureWebJobsStorage`.
 5. Créez ensuite une nouvelle fonction en exécutant la commande suivante, puis suivez les étapes de l'assistant :
 
-    ```
+    ```bash
     func new
     ```
     >[!IMPORTANT]

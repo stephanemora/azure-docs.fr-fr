@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 9f082c5f198ebd7123058bd250d3fef55494d553
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1fd8f7c8499b7f9223939b8d426f274e79fd190e
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287537"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025333"
 ---
 # <a name="aks-troubleshooting"></a>Résolution des problèmes liés à AKS
 Quand vous créez ou gérez des clusters AKS, vous pouvez parfois rencontrer des problèmes. Cet article décrit en détail certains problèmes courants et indique la façon de les résoudre.
 
 ### <a name="in-general-where-do-i-find-information-about-debugging-kubernetes-issues"></a>En règle générale, où puis-je trouver des informations sur le débogage des problèmes liés à Kubernetes ?
 
-[Voici] (https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) un lien officiel indiquant comment résoudre les problèmes liés aux clusters kubernetes.
+[Voici](https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/) un lien officiel indiquant comment résoudre les problèmes liés aux clusters kubernetes.
 [Voici](https://github.com/feiskyer/kubernetes-handbook/blob/master/en/troubleshooting/index.md) un lien vers un guide de résolution des problèmes publié par un ingénieur Microsoft, portant sur la résolution des problèmes liés aux pods, nœuds, clusters, etc.
 
 ### <a name="i-am-getting-a-quota-exceeded-error-during-create-or-upgrade-what-should-i-do"></a>J’obtiens une erreur de dépassement de quota pendant une opération de création ou de mise à niveau. Que dois-je faire ? 

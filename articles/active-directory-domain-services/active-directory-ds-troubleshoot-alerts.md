@@ -12,15 +12,15 @@ ms.component: domain-services
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: conceptual
-ms.date: 02/28/2018
+ms.topic: article
+ms.date: 10/17/2018
 ms.author: ergreenl
-ms.openlocfilehash: 6be67a92c95ccf1161ffeeb636ee4f998c65fa05
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 0eb028e419f05843da308c824d79a8f4e1883fb2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503687"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429743"
 ---
 # <a name="azure-ad-domain-services---troubleshoot-alerts"></a>Azure AD Domain Services : dépannage des alertes
 Cet article fournit des guides de dépannage pour les alertes que vous pouvez rencontrer sur votre domaine géré.
@@ -39,7 +39,7 @@ Choisissez les étapes de résolution qui correspondent à l’ID ou au message 
 | AADDS105 | *Le principal du service avec l’application ID « d87dcbc6-a371-462e-88e3-28ad15ec4e64 » a été supprimé puis recréé. Cette nouvelle création laisse des autorisations incohérentes sur les ressources Azure AD Domain Services nécessaires pour traiter votre domaine managé. La synchronisation des mots de passe dans votre domaine managé pourrait en être affectée.* | [La synchronisation du mot de passe est obsolète](active-directory-ds-troubleshoot-service-principals.md#alert-aadds105-password-synchronization-application-is-out-of-date) |
 | AADDS500 | *La dernière synchronisation du domaine managé avec Azure AD a eu lieu le [date]. Les utilisateurs sont peut-être dans l’impossibilité de se connecter au domaine managé, ou les appartenances aux groupes ne sont peut-être pas synchronisées avec Azure AD.* | [Il n’y a pas eu de synchronisation depuis un certain temps.](#aadds500-synchronization-has-not-completed-in-a-while) |
 | AADDS501 | *La dernière sauvegarde du domaine managé a eu lieu le [date].* | [Il n’y a pas eu de sauvegarde depuis un certain temps.](#aadds501-a-backup-has-not-been-taken-in-a-while) |
-| AADDS502 | *Le certificat LDAP sécurisé pour le domaine managé expirera le [date]].* | [Expiration du certificat LDAP sécurisé](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
+| AADDS502 | *Le certificat LDAP sécurisé pour le domaine managé expirera le [date].* | [Expiration du certificat LDAP sécurisé](active-directory-ds-troubleshoot-ldaps.md#aadds502-secure-ldap-certificate-expiring) |
 | AADDS503 | *Le domaine managé est suspendu, car l’abonnement Azure associé au domaine n’est pas actif.* | [Suspension en raison de l’abonnement désactivé](#aadds503-suspension-due-to-disabled-subscription) |
 | AADDS504 | *Le domaine managé est suspendu en raison d’une configuration non valide. Le service n’a pas pu gérer, corriger ou mettre à jour les contrôleurs du domaine managé depuis un certain temps.* | [Suspension en raison d’une configuration non valide](#aadds504-suspension-due-to-an-invalid-configuration) |
 

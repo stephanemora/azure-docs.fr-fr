@@ -4,16 +4,16 @@ description: Découvrez comment résoudre les problèmes rencontrés avec Update
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/08/2018
+ms.date: 10/17/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 2e47320d5ad88edfa8ea6122f3a0abd104230974
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42145727"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405223"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
@@ -36,7 +36,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 Cette erreur peut être due aux raisons suivantes :
 
 1. La communication avec le compte Automation est bloquée.
-2. La VM embarquée peut provenir d’une machine clonée qui n’a pas été synchronisée avec le Microsoft Monitoring Agent installé.
+2. La machine virtuelle embarquée peut provenir d’une machine clonée qui n’a pas été synchronisée avec la version de Microsoft Monitoring Agent installée.
 
 #### <a name="resolution"></a>Résolution :
 
@@ -105,11 +105,33 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 #### <a name="cause"></a>Cause :
 
-Le Runbook Worker hybride n’a pas pu générer un certificat auto-signé.
+Le Runbook Worker hybride n’a pas pu générer de certificat auto-signé.
 
 #### <a name="resolution"></a>Résolution :
 
 Vérifiez que le compte système a accès en lecture au dossier **C:\ProgramData\Microsoft\Crypto\RSA**, puis réessayez.
+
+### <a name="hresult"></a>Scénario : le machine montre s’affiche comme non évaluée et présente une exception HResult
+
+#### <a name="issue"></a>Problème
+
+Certaines de vos machines portent la mention **non évaluée** sous **Conformité**, et vous voyez un message d’exception.
+
+#### <a name="cause"></a>Cause :
+
+Windows Update n’est pas correctement configuré sur la machine.
+
+#### <a name="resolution"></a>Résolution :
+
+Double-cliquez sur l’exception affichée en rouge pour voir le message d’exception. Consultez le tableau suivant pour connaître les solutions possibles ou les actions appliquer :
+
+|Exception  |Résolution ou action  |
+|---------|---------|
+|`Exception from HRESULT: 0x……C`     | Recherchez le code d’erreur pertinent dans la [liste des codes d’erreur de Windows Update](https://support.microsoft.com/help/938205/windows-update-error-code-list) pour obtenir des détails supplémentaires sur la cause de l’exception.        |
+|`0x8024402C` ou `0x8024401C`     | Ces erreurs sont des problèmes de connectivité réseau. Assurez-vous que votre machine dispose de la connectivité réseau appropriée pour Update Management. Consultez la section sur la [planification réseau](../automation-update-management.md#ports) pour obtenir la liste des ports et des adresses nécessaires.        |
+|`0x8024402C`     | Si vous utilisez un serveur WSUS, assurez-vous que les valeurs de Registre de `WUServer` et `WUStatusServer` sous la clé de Registre `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate` utilisent le bon serveur WSUS.        |
+|`The service cannot be started, either because it is disabled or because it has no enabled devices associated with it. (Exception from HRESULT: 0x80070422)`     | Assurez-vous que le service Windows Update (wuauserv) est en cours d’exécution et qu’il n’est pas désactivé.        |
+|Toute autre exception générique     | Faites une recherche sur Internet pour découvrir les solutions possibles et contactez votre support technique local.         |
 
 ## <a name="linux"></a>Linux
 
@@ -159,7 +181,7 @@ Si vous ne pouvez pas résoudre un problème de mise à jour corrective, pour po
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
+Si votre problème ne figure pas dans cet article ou si vous ne parvenez pas à le résoudre, utilisez un des canaux suivants pour obtenir de l’aide :
 
 * Obtenez des réponses de la part d’experts Azure via les [Forums Windows](https://azure.microsoft.com/support/forums/)
 * Connectez-vous avec [@AzureSupport](https://twitter.com/azuresupport), qui est le compte Microsoft Azure officiel pour améliorer l’expérience client en connectant la communauté Azure aux ressources appropriées : réponses, support technique et experts.

@@ -11,18 +11,19 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 03/09/2018
+ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 490c912a6abd6570c9bc74de8b86a516a8e6f807
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: d1279b5319ddd52ff2f3f6b4e696b73e8fe67607
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358759"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468685"
 ---
 # <a name="resolve-errors-for-sku-not-available"></a>Résoudre les erreurs de référence SKU non disponible
 
-Cet article décrit comment résoudre les erreurs **SkuNotAvailable**.
+Cet article décrit comment résoudre les erreurs **SkuNotAvailable**. Si vous ne parvenez pas à trouver de référence appropriée dans cette région ou une autre qui réponde aux besoins de votre entreprise, envoyez une [demande de référence SKU](https://aka.ms/skurestriction) au support Azure.
+
 
 ## <a name="symptom"></a>Symptôme
 
@@ -36,60 +37,61 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 ## <a name="cause"></a>Cause :
 
-Vous recevez cette erreur lorsque la ressource de référence (SKU) que vous avez sélectionnée (par exemple, la taille de la machine virtuelle) n’est pas disponible pour l’emplacement que vous avez sélectionné.
+Vous recevez cette erreur lorsque la ressource de référence SKU que vous avez sélectionnée (par exemple, la taille de la machine virtuelle) n’est pas disponible pour l’emplacement que vous avez sélectionné.
 
 ## <a name="solution-1---powershell"></a>Solution 1 : PowerShell
 
 Pour déterminer les références SKU qui sont disponibles dans une région, utilisez la commande [Get-AzureRmComputeResourceSku](/powershell/module/azurerm.compute/get-azurermcomputeresourcesku). Filtrez les résultats par emplacement. Pour cette commande, vous devez disposer de la version la plus récente de PowerShell.
 
-```powershell
-Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "southcentralus"}
+```azurepowershell-interactive
+Get-AzureRmComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
-Les résultats incluent une liste de références pour l’emplacement et toutes les restrictions éventuellement liées aux références concernées.
+Les résultats incluent une liste de références pour l’emplacement et toutes les restrictions éventuellement liées aux références concernées. Notez que la référence SKU peut être répertoriée en tant que `NotAvailableForSubscription`.
 
 ```powershell
-ResourceType                Name      Locations Restriction                      Capability Value
-------------                ----      --------- -----------                      ---------- -----
-availabilitySets         Classic southcentralus             MaximumPlatformFaultDomainCount     3
-availabilitySets         Aligned southcentralus             MaximumPlatformFaultDomainCount     3
-virtualMachines      Standard_A0 southcentralus
-virtualMachines      Standard_A1 southcentralus
-virtualMachines      Standard_A2 southcentralus
+ResourceType          Name        Locations   Restriction                      Capability           Value
+------------          ----        ---------   -----------                      ----------           -----
+virtualMachines       Standard_A0 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   20480
+virtualMachines       Standard_A1 centralus   NotAvailableForSubscription      MaxResourceVolumeMB   71680
+virtualMachines       Standard_A2 centralus   NotAvailableForSubscription      MaxResourceVolumeMB  138240
 ```
 
 ## <a name="solution-2---azure-cli"></a>Solution 2 : Azure CLI
 
-Pour déterminer les références SKU qui sont disponibles dans une région, utilisez la commande `az vm list-skus`. Vous pouvez ensuite utiliser `grep` ou un utilitaire similaire pour filtrer la sortie.
+Pour déterminer les références SKU qui sont disponibles dans une région, utilisez la commande `az vm list-skus`. Utilisez le paramètre `--location` pour filtrer la sortie vers l’emplacement que vous utilisez. Utilisez le paramètre `--size` pour rechercher par un nom partiel.
 
-```bash
-$ az vm list-skus --output table
-ResourceType      Locations           Name                    Capabilities                       Tier      Size           Restrictions
-----------------  ------------------  ----------------------  ---------------------------------  --------  -------------  ---------------------------
-availabilitySets  eastus              Classic                 MaximumPlatformFaultDomainCount=3
-avilabilitySets   eastus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  eastus2             Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  westus              Aligned                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Classic                 MaximumPlatformFaultDomainCount=3
-availabilitySets  centralus           Aligned                 MaximumPlatformFaultDomainCount=3
+```azurecli-interactive
+az vm list-skus --location southcentralus --size Standard_F --output table
 ```
+
+La commande retourne des résultats similaires à ce qui suit :
+
+```azurecli
+ResourceType     Locations       Name              Zones    Capabilities    Restrictions
+---------------  --------------  ----------------  -------  --------------  --------------
+virtualMachines  southcentralus  Standard_F1                ...             None
+virtualMachines  southcentralus  Standard_F2                ...             None
+virtualMachines  southcentralus  Standard_F4                ...             None
+...
+```
+
 
 ## <a name="solution-3---azure-portal"></a>Solution 3 : Portail Azure
 
-Pour déterminer les références SKU qui sont disponibles dans une région, consultez le [portail](https://portal.azure.com). Connectez-vous au portail et ajoutez une ressource à travers l’interface. Lorsque vous définissez les valeurs, vous voyez les références (SKU) disponibles pour cette ressource. Vous n’avez pas besoin de terminer le déploiement.
+Pour déterminer les références SKU qui sont disponibles dans une région, consultez le [portail](https://portal.azure.com). Connectez-vous au portail et ajoutez une ressource via l’interface. Lorsque vous définissez les valeurs, vous voyez les références (SKU) disponibles pour cette ressource. Vous n’avez pas besoin de terminer le déploiement.
 
-![Références disponibles](./media/resource-manager-sku-not-available-errors/view-sku.png)
+Par exemple, démarrez le processus de création d’une machine virtuelle. Pour voir les autres tailles disponibles, sélectionnez **Modifier la taille**.
+
+![Créer une machine virtuelle](./media/resource-manager-sku-not-available-errors/create-vm.png)
+
+Vous pouvez filtrer et faire défiler les tailles disponibles.
+
+![Références SKU disponibles](./media/resource-manager-sku-not-available-errors/available-sizes.png)
 
 ## <a name="solution-4---rest"></a>Solution 4 : REST
 
-Pour déterminer les références SKU qui sont disponibles dans une région, utilisez l’API REST pour les machines virtuelles. Envoyez la requête suivante :
-
-```HTTP 
-GET
-https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Compute/skus?api-version=2016-03-30
-```
+Pour déterminer les références SKU disponibles dans une région, utilisez l’opération [Resource Skus - List](/rest/api/compute/resourceskus/list).
 
 Elle renvoie les références et les régions disponibles dans le format suivant :
 
@@ -121,4 +123,3 @@ Elle renvoie les références et les régions disponibles dans le format suivant
 }
 ```
 
-Si vous ne parvenez pas à trouver une référence appropriée dans cette région ou une autre qui réponde aux besoins de votre entreprise, envoyez une [demande de référence SKU](https://aka.ms/skurestriction) au support Azure.

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: magattus
-ms.openlocfilehash: 6834222ec2befa305b558abf0976a1c9899a7086
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d0b804c48f3de4d4ba29ebe0785f6dd991329a53
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093024"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409252"
 ---
 # <a name="azure-diagnostic-logs"></a>Journaux de diagnostic Azure
 
@@ -95,17 +95,23 @@ Pour stocker les journaux à l’aide de Log Analytics, effectuez les étapes su
 
 2. Sélectionnez **Configurer** pour configurer la journalisation Log Analytics. 
 
-   La page **Espaces de travail OMS** s’affiche.
+   La page **Espace de travail Log Analytics** s’affiche.
+
+    >[!NOTE] 
+    >Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics.
 
     ![Portail - Journaux de diagnostics](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
 3. Sélectionnez **Créer un espace de travail**.
 
-    La page **Espace de travail OMS** s’affiche.
+    La page **Espace de travail Log Analytics** s’affiche.
+
+    >[!NOTE] 
+    >Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics.
 
     ![Portail - Journaux de diagnostics](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Dans le champ **Espace de travail OMS**, entrez un nom d’espace de travail OMS. Le nom de l’espace de travail OMS doit être unique et contenir uniquement des lettres, des chiffres et des traits d’union. Les espaces et les traits de soulignement ne sont pas autorisés. 
+4. Pour **Espace de travail Log Analytics**, entrez un nom d’espace de travail Log Analytics. Les noms d’espace de travail Log Analytics doivent être uniques et contenir uniquement des lettres, des chiffres et des traits d’union. Les espaces et les traits de soulignement ne sont pas autorisés. 
 
 5. Dans le champ **Abonnement**, sélectionnez un abonnement existant dans la liste déroulante. 
 

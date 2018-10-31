@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 9a75e7ed8ce25384d39afb22ef50b5453ef543ba
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d8f27063b68ed58b9ac34219d806c1cf8165ea8c
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129673"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026022"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Informations de référence pour les développeurs de scripts C# (.csx) Azure Functions
 
@@ -55,7 +55,7 @@ FunctionsProject
  | - bin
 ```
 
-Il existe un fichier partagé [host.json] (functions-host-json.md) que vous pouvez utiliser pour configurer l’application de fonction. Chaque fonction a son propre fichier de code (.csx) et un fichier de configuration de liaison (function.json).
+Il existe un fichier [host.json](functions-host-json.md) partagé que vous pouvez utiliser pour configurer l’application de fonction. Chaque fonction a son propre fichier de code (.csx) et un fichier de configuration de liaison (function.json).
 
 Les extensions de liaison requises dans la [version 2.x](functions-versions.md) du runtime Functions sont définies dans le fichier `extensions.csproj`, les fichiers de bibliothèque proprement dits se trouvant dans le dossier `bin`. Quand vous développez localement, vous devez [inscrire les extensions de liaison](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Quand vous développez des fonctions dans le portail Azure, cet enregistrement est effectué pour vous.
 
