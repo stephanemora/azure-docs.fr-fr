@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/24/2018
+ms.date: 10/15/2018
 ms.author: magoedte
-ms.openlocfilehash: 5c9211486fa40e49afd91eba7c432990b0ee860b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160619"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387819"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour les machines virtuelles
 Azure comprend plusieurs services qui effectuent individuellement un rôle spécifique ou une tâche dans l’espace de supervision, mais en fournissant une perspective approfondie de l’intégrité du système d’exploitation hébergé sur les machines virtuelles Azure qui n’était pas disponible auparavant.  Bien que vous puissiez surveiller différentes conditions à l’aide de Log Analytics ou d’Azure Monitor, ils n’ont pas été conçus pour modéliser et représenter l’intégrité des composants de base ou l’intégrité globale de la machine virtuelle.  La fonctionnalité de contrôle d’intégrité Azure Monitor pour les machines virtuelles surveille proactivement la disponibilité et les performances du système d'exploitation invité Windows ou Linux avec un modèle qui représente les composants clés et leurs relations (critères spécifiant comment mesurer l’intégrité de ces composants) et vous avertit lorsqu’un problème d’intégrité est détecté.  
@@ -31,7 +31,7 @@ Cet article vous aide à évaluer, examiner et résoudre rapidement les problèm
 Pour plus d’informations sur la configuration d’Azure Monitor pour les machines virtuelles, consultez [Enable Azure Monitor for VMs ](monitoring-vminsights-onboard.md)(Activer Azure Monitor pour les machines virtuelles).
 
 ## <a name="monitoring-configuration-details"></a>Supervision des détails de configuration
-Cette section décrit les critères d’intégrité par défaut définis pour surveiller les machines virtuelles Azure Windows et Linux.
+Cette section décrit les critères d’intégrité par défaut définis pour surveiller les machines virtuelles Azure Windows et Linux. Tous les critères d’intégrité sont préconfigurés pour générer une alerte quand la condition de défectuosité est remplie. 
 
 ### <a name="windows-vms"></a>Machines virtuelles Windows
 
@@ -110,7 +110,7 @@ Pour afficher la collection d’intégrité pour l’ensemble de vos machines vi
 
 ![Affichage de supervision des insights de machine virtuelle à partir d’Azure Monitor](./media/monitoring-vminsights-health/vminsights-aggregate-health.png)
 
-Dans les listes déroulantes **Abonnement** et **Groupe de ressources**, sélectionnez la sauvegarde appropriée qui inclut les machines virtuelles cible intégrées pour afficher leur état d’intégrité. 
+Dans les listes déroulantes **Abonnement** et **Groupe de ressources**, sélectionnez le groupe de ressources approprié qui comprend les machines virtuelles apparentées au groupe de façon à consulter leur état d’intégrité.  Votre sélection s’applique uniquement à la fonctionnalité Intégrité et n’est pas transférée à Performances ou Carte.
 
 Dans l’onglet **Intégrité**, vous découvrez les informations suivantes :
 
@@ -156,7 +156,7 @@ Sélectionnez **Afficher tous les critères d’intégrité** pour ouvrir une pa
 Vous pouvez descendre encore plus dans la hiérarchie pour afficher les instances défectueuses en cliquant sur une valeur de la colonne **Composant défectueux**.  Sur la page, un tableau répertorie les composants qui présentent un état d’intégrité critique.    
 
 ## <a name="health-diagnostics"></a>Diagnostics d'intégrité
-La page **Diagnostics d’intégrité** vous permet de voir tous les composants de la machine virtuelle, les critères d’intégrité associés, les changements d’état et autres problèmes importants rencontrés par la supervision des objets liés à la machine virtuelle. 
+La page **Diagnostics d’intégrité** vous permet de voir tous les composants de la machine virtuelle, les critères d’intégrité associé, les changements d’état et autres problèmes importants rencontrés par la supervision des objets liés à la machine virtuelle. 
 
 ![Exemple de page de Diagnostics d’intégrité pour une machine virtuelle](./media/monitoring-vminsights-health/health-diagnostics-page-01.png)
 
@@ -253,21 +253,29 @@ Le nombre total d’alertes d’intégrité de machine virtuelle classées par n
 
 ![Exemple de toutes les alertes de niveau de gravité 1](./media/monitoring-vminsights-health/vminsights-sev1-alerts-01.png)
 
+Les alertes affichées dans la page **Alertes** ne se limitent pas à celles correspondant à votre sélection : elles sont aussi filtrées en fonction du **type de ressource**. Ainsi, seules sont affichées les alertes d’intégrité déclenchées par les ressources Machines virtuelles.  Cela apparaît dans la liste des alertes, sous la colonne **Ressource cible**, qui indique que l’alerte de machine virtuelle Azure a été déclenchée quand la condition de défectuosité des critères d’intégrité a été remplie.  
+
+Les alertes relatives aux autres types de ressources ou services ne sont pas censées être incluse dans cette vue. Tel est le cas des alertes de journal basées sur des requêtes Log Analytics ou des alertes de métrique qui figurent normalement dans la page par défaut [Toutes les alertes](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) d’Azure Monitor. 
+
 Vous pouvez filtrer cet affichage en sélectionnant des valeurs dans les menus déroulants en haut de la page.
 
 |Colonne |Description | 
 |-------|------------| 
 |Abonnement |Sélectionnez un abonnement Azure. Seules les alertes dans l’abonnement sélectionné sont incluses dans la vue. | 
 |Groupe de ressources |Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. | 
-|Type de ressource |Sélectionnez un ou plusieurs types de ressources. Seules les alertes avec des cibles du type sélectionné sont incluses dans la vue. Cette colonne n’est disponible qu’après qu’un groupe de ressources a été spécifié. | 
+|Type de ressource |Sélectionnez un ou plusieurs types de ressources. Par défaut, seules les alertes des **machines virtuelles** cibles sont sélectionnées et incluses dans cette vue. Cette colonne n’est disponible qu’après qu’un groupe de ressources a été spécifié. | 
 |Ressource |Sélectionnez une ressource. Seules les alertes ayant ces ressources pour cible sont incluses dans l’affichage. Cette colonne n’est disponible qu’après qu’un type de ressource a été spécifié. | 
 |Severity |Sélectionnez un niveau de gravité d’alerte, ou sélectionnez *Tous* pour inclure les alertes quel que soit le niveau de gravité. | 
 |Condition d’analyse |Sélectionnez une condition de surveillance pour filtrer les alertes selon qu’elles soient *déclenchées* par le système ou *résolues* par le système (si la condition n’est plus active). Ou bien sélectionnez *Tous* pour inclure les alertes de toutes les conditions. | 
 |État d’alerte |Sélectionnez un état d’alerte *Nouveau*, *Reconnu*, *Fermé*, ou sélectionnez *Tous* pour inclure les alertes de tous les états. | 
-|Service de surveillance |Sélectionnez un service ou *Tous* pour inclure tous les services. Seules les alertes provenant d’Infrastructure Insights sont prises en charge pour cette fonctionnalité. | 
+|Service de surveillance |Sélectionnez un service ou *Tous* pour inclure tous les services. Seules les alertes de *VM Insights* sont prises en charge pour cette fonctionnalité.| 
 |Période| Seules les alertes déclenchées dans la fenêtre de temps sélectionnée seront incluses dans l’affichage. Les valeurs prises en charge sont : dernière heure, dernières 24 heures, 7 derniers jours et 30 derniers jours. | 
 
-La page **Détails de l’alerte** s’affiche lorsque vous sélectionnez une alerte, vous fournissant des détails sur l’alerte et vous permettant de modifier son état. Pour plus d’informations sur les règles d’alerte et la gestion des alertes, voir [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).
+La page **Détails de l’alerte** s’affiche lorsque vous sélectionnez une alerte, vous fournissant des détails sur l’alerte et vous permettant de modifier son état. Pour plus d’informations sur la gestion des alertes, consultez [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  
+
+>[!NOTE]
+>Pour l’heure, il n’est pas possible de créer des alertes basées sur des critères d’intégrité ni de modifier les règles d’alertes d’intégrité existantes dans Azure Monitor à partir du portail.  
+>
 
 ![Volet des détails de l’alerte pour une alerte sélectionnée](./media/monitoring-vminsights-health/alert-details-pane-01.png)
 
