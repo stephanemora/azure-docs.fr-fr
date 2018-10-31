@@ -2,26 +2,25 @@
 title: 'Sauvegarde Azure : Préparation à la sauvegarde de machines virtuelles'
 description: Assurez-vous que votre environnement est prêt pour la sauvegarde de machines virtuelles dans Azure.
 services: backup
-author: markgalioto
+author: rayne-wiselman
 manager: carmonm
 keywords: sauvegardes ; sauvegarde ;
 ms.service: backup
 ms.topic: conceptual
-ms.date: 9/10/2018
-ms.author: markgal
-ms.openlocfilehash: 7ab88ce3565ccf79f20847a3a5e744c495d5fcb1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 10/23/2018
+ms.author: raynew
+ms.openlocfilehash: 30b35d38c30d3ee9410a85824c53001ca95cf30b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48884931"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025937"
 ---
-# <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Préparation de votre environnement pour la sauvegarde des machines virtuelles Resource Manager
+# <a name="prepare-to-back-up-azure-vms"></a>Préparer la sauvegarde de machines virtuelles Azure
 
-Cet article fournit les étapes de préparation de votre environnement pour la sauvegarde d’une machine virtuelle déployée avec le modèle Azure Resource Manager. Les étapes indiquées dans les procédures utilisent le portail Azure. Quand vous sauvegardez une machine virtuelle, les points de récupération ou les données de sauvegarde sont stockés dans un coffre Recovery Services. Les coffre Recovery Services stockent les données de sauvegarde des machines virtuelles classiques et déployées à l’aide du modèle Resource Manager.
+Cet article fournit les étapes de préparation de votre environnement pour la sauvegarde d’une machine virtuelle déployée avec le modèle Azure Resource Manager. Les étapes indiquées dans les procédures utilisent le portail Azure. Quand vous sauvegardez une machine virtuelle, les points de récupération ou les données de sauvegarde sont stockés dans un coffre de sauvegarde Microsoft Azure Recovery Services. 
 
-> [!NOTE]
-> Azure dispose de deux modèles de déploiement pour créer et utiliser des ressources : [Resource Manager et Classique](../azure-resource-manager/resource-manager-deployment-model.md).
+
 
 Avant de protéger ou sauvegarder une machine virtuelle déployée à l’aide du modèle Resource Manager, vérifiez que les conditions préalables suivantes sont remplies :
 
@@ -47,7 +46,6 @@ Si ces conditions existent déjà dans votre environnement, passez à [l’artic
 Avant de préparer votre environnement, assurez-vous de noter les limitations suivantes :
 
 * La sauvegarde de machines virtuelles ayant plus de 32 disques de données n’est pas prise en charge.
-* La sauvegarde de machines virtuelles avec une adresse IP réservée et sans point de terminaison n’est pas prise en charge.
 * La sauvegarde des machines virtuelles Linux chiffrées via le chiffrement LUKS (Linux Unified Key Setup) n’est pas prise en charge.
 * La sauvegarde des machines virtuelles contenant une configuration de volumes partagés de cluster (CSV) ou de serveur de fichiers avec montée en puissance parallèle n’est pas recommandée. En effet, cela pourrait entraîner l’échec des enregistreurs CSV. Cette sauvegarde exige d’impliquer toutes les machines virtuelles incluses dans la configuration du cluster pendant la tâche de capture instantanée. Sauvegarde Azure ne prend pas en charge la cohérence multimachine virtuelle.
 * Les données de sauvegarde n’incluent pas les lecteurs réseau montés attachés à une machine virtuelle.

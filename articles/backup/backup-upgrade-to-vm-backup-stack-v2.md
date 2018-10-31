@@ -7,14 +7,14 @@ manager: vijayts
 tags: azure-resource-manager, virtual-machine-backup
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/1/2018
+ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 6f19a536861d236a82cc77a17570d8e3004a2ba1
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888269"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406532"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Mise à niveau vers la pile de sauvegarde de machine virtuelle Azure V2
 
@@ -28,8 +28,8 @@ Le modèle de déploiement Resource Manager pour la mise à niveau de la pile de
 
 * Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machine virtuelle.
     > [!NOTE]
-    > Cela ne revient pas au même que de remplacer la machine virtuelle d’origine.
-    >
+    > Cette capacité n’est pas la même que celle qui consiste à remplacer les disques de la machine virtuelle par les données du point de récupération. 
+    
 
 ## <a name="whats-changing-in-the-new-stack"></a>Changements de la nouvelle pile
 Aujourd’hui, la tâche de sauvegarde consiste en deux phases :

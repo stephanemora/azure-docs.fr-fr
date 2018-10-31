@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: ea65dcca3e5de06d1bc966b3e7cb6b608260a053
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 27febb01b04bd8ac82b8cd428afce78dc57f8b8d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803957"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403560"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Bien démarrer avec l’authentification par certificat dans Azure Active Directory
 
@@ -60,7 +60,7 @@ Les informations connexes existent pour les plateformes d’appareils suivantes�
 Pour configurer vos autorités de certification dans Azure Active Directory, pour chaque autorité de certification, vous devez télécharger les éléments suivants :
 
 * La partie publique du certificat, au format *.cer*
-* Les URL accessibles sur Internet où résident les listes de révocation de certificat (CRL)
+* Les URL accessibles sur Internet où résident les listes de révocation de certificat (CRL).
 
 Le schéma d’une autorité de certification se présente comme suit :
 

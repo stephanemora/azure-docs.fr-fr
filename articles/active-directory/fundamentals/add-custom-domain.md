@@ -12,12 +12,12 @@ ms.date: 09/18/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: 30b4a038c2ad9bd86f2ba78d52ed3754acec07f0
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 59743df45cf2c7810404d9e6c636790c2855cf74
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785255"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023115"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Procédure : ajouter votre nom de domaine personnalisé à l’aide du Portail Azure Active Directory
 Chaque nouveau locataire Azure AD est fourni avec un nom de domaine initial au format *nom_de_domaine*.onmicrosoft.com. Vous ne pouvez pas modifier ni supprimer le nom de domaine initial, mais vous pouvez ajouter des noms de votre organisation à la liste. L’ajout de noms de domaine personnalisés vous permet de créer des noms d’utilisateur qui sont familiers à vos utilisateurs, par exemple *alain@contoso.com*.
@@ -28,7 +28,7 @@ Avant de pouvoir ajouter un nom de domaine personnalisé, vous devez créer votr
 ## <a name="create-your-directory-in-azure-ad"></a>Créer votre annuaire dans Azure AD
 Après avoir obtenu votre nom de domaine, vous pouvez créer votre premier annuaire Azure AD.
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com/) en utilisant un compte de propriétaire d’abonnement pour l’annuaire, puis sélectionnez **Azure Active Directory**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com/) de votre annuaire avec un compte disposant du rôle **Propriétaire** de l’abonnement, puis sélectionnez **Azure Active Directory**. Pour plus d’informations sur les rôles d’abonnement, consultez [Rôles d’administrateur d’abonnement classique, rôles RBAC Azure et rôles d’administrateur Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles).
 
     ![Écran du Portail Azure](media/active-directory-access-create-new-tenant/azure-ad-portal.png)
 

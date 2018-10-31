@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 10/20/2018
 ms.author: celested
-ms.reviewer: jeedes
+ms.reviewer: luleon, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5633dfbf59396e79226b196c2b699981409092ab
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 4e80f5cb85a53281da9ec50a02d089f46e97dfde
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902023"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49466714"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procédure : personnaliser des revendications émises dans le jeton SAML pour les applications d’entreprise
 
@@ -49,21 +49,38 @@ Vous pouvez également supprimer les revendications (autres que NameIdentifier) 
 ![Modifier un attribut utilisateur][3]
 
 ## <a name="editing-the-nameidentifier-claim"></a>Modification de la revendication NameIdentifier
-Pour résoudre le problème dans lequel l’application a été déployée à l’aide d’un nom d’utilisateur différent, cliquez sur la liste déroulante **Identificateur d’utilisateur** dans la section **Attributs utilisateur**. Cette action donne accès à une boîte de dialogue qui contient différentes options :
+
+Pour résoudre le problème dans lequel l’application a été déployée à l’aide d’un nom d’utilisateur différent, sélectionnez la liste déroulante **Identificateur d’utilisateur** dans la section **Attributs utilisateur**. Cette action donne accès à une boîte de dialogue qui contient différentes options :
 
 ![Modifier un attribut utilisateur][4]
 
-Dans la liste déroulante, sélectionnez **user.mail** pour faire correspondre la revendication NameIdentifier à l’adresse e-mail de l’utilisateur contenue dans l’annuaire. Sinon, sélectionnez **user.onpremisessamaccountname** pour affecter le nom de compte SAM de l’utilisateur qui a été synchronisé à partir d’Azure AD en local.
+### <a name="attributes"></a>Attributs
 
-Vous pouvez également utiliser la fonction spéciale **ExtractMailPrefix()** pour supprimer le suffixe de domaine de l’adresse e-mail, du nom de compte SAM ou du nom d’utilisateur principal. Ainsi, seule la première partie du nom d’utilisateur transmis est extraite (par exemple, « joe_smith » au lieu de joe_smith@contoso.com).
+Sélectionnez la source souhaitée pour la revendication `NameIdentifier` (ou NameID). Vous pouvez sélectionner les options suivantes.
 
-![Modifier un attribut utilisateur][5]
+| NOM | Description |
+|------|-------------|
+| Email | Adresse e-mail de l’utilisateur |
+| userprincipalName | Nom d’utilisateur principal (UPN) de l’utilisateur |
+| onpremisessamaccount | Nom de compte SAM qui a été synchronisé à partir d’Azure AD en local |
+| objectID | ObjectId de l’utilisateur dans Azure AD |
+| EmployeeID | EmployeeID de l’utilisateur |
+| Extensions d’annuaire | Extensions d’annuaire [ synchronisées à partir d’Active Directory local à l’aide d’Azure AD Connect Sync](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
+| Attributs d’extension 1-15 | Attributs d’extension local utilisés pour étendre le schéma Azure AD |
 
-Nous avons également ajouté la fonction **join()** pour joindre le domaine vérifié à la valeur d’identificateur d’utilisateur. Lorsque vous sélectionnez la fonction join() dans **l’identificateur de l’utilisateur**, sélectionnez d’abord l’identificateur d’utilisateur comme nom d’utilisateur principal ou adresse e-mail, puis, dans la deuxième liste déroulante, sélectionnez votre domaine vérifié. Si vous sélectionnez l’adresse e-mail avec le domaine vérifié, Azure AD extrait le nom d’utilisateur de la première valeur joe_smith de joe_smith@contoso.com, puis l’ajoute à contoso.onmicrosoft.com. Voir l’exemple suivant :
+### <a name="transformations"></a>Transformations
 
-![Modifier un attribut utilisateur][6]
+Vous pouvez également utiliser les fonctions spéciales de transformation de revendication.
+
+| Fonction | Description |
+|----------|-------------|
+| **ExtractMailPrefix()** | Supprime le suffixe de domaine de l’adresse e-mail, du nom du compte SAM ou du nom d’utilisateur principal. Ainsi, seule la première partie du nom d’utilisateur transmis est extraite (par exemple, « joe_smith » au lieu de joe_smith@contoso.com). |
+| **join()** | Joint un attribut avec un domaine vérifié. Si la valeur d’identificateur utilisateur sélectionné possède un domaine, extrait le nom d’utilisateur pour ajouter le domaine vérifié sélectionné. Par exemple, si vous sélectionnez l’adresse e-mail (joe_smith@contoso.com) comme valeur d’identificateur utilisateur et que vous sélectionnez contoso.onmicrosoft.com comme domaine vérifié, le résultat est joe_smith@contoso.onmicrosoft.com. |
+| **ToLower()** | Convertit les caractères de l’attribut sélectionné en minuscules. |
+| **ToUpper()** | Convertit les caractères de l’attribut sélectionné en majuscules. |
 
 ## <a name="adding-claims"></a>Ajout de revendications
+
 Au moment d’ajouter une revendication, vous pouvez spécifier le nom d’attribut (qui ne doit pas nécessairement correspondre de manière stricte à un modèle d’URI, conformément à la spécification SAML). Faites correspondre la valeur à n’importe quel attribut utilisateur stocké dans l’annuaire.
 
 ![Ajouter un attribut utilisateur][7]
@@ -132,8 +149,8 @@ Il existe certaines revendications restreintes dans SAML. Si vous ajoutez ces re
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Gestion des applications dans Azure AD](../manage-apps/what-is-application-management.md)
-* [Configuration de l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
-* [Dépannage de l’authentification unique basée sur SAML](howto-v1-debug-saml-sso-issues.md)
+* [Configurer l’authentification unique pour les applications ne faisant pas partie de la galerie d’applications Azure AD](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
+* [Résoudre les erreurs d’authentification unique basée sur SAML](howto-v1-debug-saml-sso-issues.md)
 
 <!--Image references-->
 [1]: ./media/active-directory-saml-claims-customization/user-attribute-section.png

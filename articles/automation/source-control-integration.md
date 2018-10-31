@@ -9,26 +9,26 @@ ms.author: gwallace
 ms.date: 09/26/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9bbf3582da2664b6e6429677d47aad4d69a7c1bb
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: 5778c38d5a0c44e42b83fd139078be1f0bb45f7f
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785322"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023744"
 ---
 # <a name="source-control-integration-in-azure-automation"></a>Intégration du contrôle de code source dans Azure Automation
 
-Le contrôle de code source vous permet de vous assurer que vos runbooks dans votre compte Automation restent à jour par rapport à vos scripts dans votre référentiel de contrôle de code source GitHub ou Azure DevOps. Le contrôle du code source vous permet de collaborer avec votre équipe en toute simplicité, de suivre les modifications et de restaurer des versions antérieures de vos runbooks. Par exemple, le contrôle de code source vous permet de synchroniser différentes branches dans le contrôle de code source pour vos comptes Automation de développement, de test ou de production. Cela simplifie la promotion du code qui a été testé dans votre environnement de développement dans votre compte Automation de production.
+Le contrôle de code source vous permet de vous assurer que les runbooks dans votre compte Automation restent à jour par rapport à vos scripts dans le référentiel de contrôle de code source GitHub ou Azure DevOps. Le contrôle du code source vous permet de collaborer avec votre équipe en toute simplicité, de suivre les modifications et de restaurer des versions antérieures de vos runbooks. Par exemple, le contrôle de code source vous permet de synchroniser différentes branches dans le contrôle de code source pour vos comptes Automation de développement, de test ou de production. Cela simplifie la promotion du code qui a été testé dans votre environnement de développement dans votre compte Automation de production.
 
 Azure Automation prend en charge 3 types de contrôles de code source :
 
 * GitHub
-* Visual Studio Team Services (Git)
-* Visual Studio Team Services (TFVC)
+* Azure DevOps (Git)
+* Azure DevOps (TFVC)
 
 ## <a name="pre-requisites"></a>Conditions préalables
 
-* Un référentiel de contrôle de code source (GitHub ou Visual Studio Team Services)
+* Un référentiel de contrôle de code source (GitHub ou Azure DevOps)
 * Les [autorisations](#personal-access-token-permissions) appropriées dans le référentiel du contrôle de code source
 * [Un compte d’identification et une connexion](manage-runas-account.md)
 
@@ -50,7 +50,7 @@ Sur la page **Récapitulatif du contrôle de code source**, fournissez les infor
 |Propriété  |Description  |
 |---------|---------|
 |Nom du contrôle de code source     | Nom convivial du contrôle de code source.        |
-|Type de contrôle de code source     | Type de source de contrôle de code source. Options disponibles :</br> Github</br>Visual Studio Team Services (Git)</br> Visual Studio Team Services (TFVC)        |
+|Type de contrôle de code source     | Type de source de contrôle de code source. Options disponibles :</br> Github</br>Azure DevOps (Git)</br> Azure DevOps (TFVC)        |
 |Référentiel     | Nom du référentiel ou du projet. Cette valeur est extraite du référentiel du contrôle de code source. Exemple : $/ContosoFinanceTFVCExample         |
 |Branche     | Branche de laquelle extraire les fichiers sources. Le ciblage de branche n’est pas disponible pour le type de contrôle de code source TFVC.          |
 |Chemin d’accès du dossier     | Dossier contenant les runbooks à synchroniser. Exemple : /Runbooks         |
