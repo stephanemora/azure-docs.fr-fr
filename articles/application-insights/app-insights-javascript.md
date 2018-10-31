@@ -121,7 +121,7 @@ Ouvrez le panneau Navigateurs pour afficher la synthèse des données de perform
 
 ![Dans portal.azure.com, ouvrez les ressources de votre application, puis cliquez sur Paramètres, Navigateur.](./media/app-insights-javascript/03.png)
 
-Pas encore de données ? Cliquez sur **Actualiser en haut de la page. Toujours rien ? Consultez la rubrique [Résolution des problèmes](app-insights-troubleshoot-faq.md).
+Pas encore de données ? Cliquez sur **Actualiser** en haut de la page. Toujours rien ? Consultez la rubrique [Résolution des problèmes](app-insights-troubleshoot-faq.md).
 
 Le panneau navigateur est un [Panneau Metrics Explorer](app-insights-metrics-explorer.md) avec filtres prédéfinis et des sélections de graphique. Si vous le souhaitez, vous pouvez modifier l’intervalle de temps, les filtres et la configuration des graphiques, puis enregistrer le résultat en tant que favori. Cliquez sur **Paramètres par défaut** pour revenir à la configuration d’origine du panneau.
 
