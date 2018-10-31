@@ -5,15 +5,15 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 10/15/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 10e8fb6ac5bcce278de3924ebd3a0d9f90392217
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3a42f09967ec42b47947823025f2f0dcd081d1b1
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528052"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352235"
 ---
 # <a name="azure-importexport-system-requirements"></a>Configuration système requise du service Azure Import/Export
 
@@ -29,15 +29,24 @@ Pour préparer les disques durs à l’aide de l’outil WAImportExport, un cert
 |Windows     | Windows 7 Entreprise, Windows 7 Édition intégrale <br> Windows 8 Pro, Windows 8 Entreprise, Windows 8.1 Professionnel, Windows 8.1 Entreprise <br> Windows 10        |
 |Windows Server     |Windows Server 2008 R2 <br> Windows Server 2012 et Windows Server 2012 R2         |
 
+## <a name="other-required-software-for-windows-client"></a>Autres logiciels nécessaires pour le client Windows
+
+|Plateforme |Version |
+|---------|---------|
+|.NET Framework    | 4.5.1       |
+| BitLocker        |  _          |
+
 
 ## <a name="supported-storage-accounts"></a>Comptes de stockage pris en charge
 
-Le service Azure Import/Export prend en charge les [comptes de stockage Azure](storage-account-options.md) suivants.
+Le service Azure Import/Export prend en charge les types de comptes de stockage suivants :
+
 - Comptes de stockage à usage général v1 (déploiements Classic ou Azure Resource Manager)
 - Comptes de stockage d’objets blob
-- Comptes de stockage à usage général v2
 
-Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-create-storage-account.md#create-a-storage-account).
+Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](storage-account-overview.md).
+
+Chaque tâche peut servir à transférer des données vers ou à partir d'un seul compte de stockage. Autrement dit, une même tâche d’importation/exportation ne peut pas englober plusieurs comptes de stockage. Pour plus d'informations sur la création d'un compte de stockage, consultez la page [Création d'un compte de stockage](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
 > Le service Azure Import/Export ne prend pas en charge les comptes de stockage où la fonctionnalité [Points de terminaison de service sur réseaux virtuels](../../virtual-network/virtual-network-service-endpoints-overview.md) a été activée. 

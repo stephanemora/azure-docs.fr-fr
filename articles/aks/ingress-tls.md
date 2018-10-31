@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 87ea88ad84114c4059e9a461beedb656c1d66bf5
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4679b800126f75596dcb78b46c65c6ac2b616729
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354807"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364623"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée HTTPS dans Azure Kubernetes Service (AKS)
 
@@ -35,13 +35,13 @@ Cet article nécessite également que vous exécutiez Azure CLI version 2.0.41 o
 
 ## <a name="create-an-ingress-controller"></a>Créer un contrôleur d’entrée
 
-Pour créer le contrôleur d’entrée, utilisez `Helm` pour installer *nginx-ingress*.
+Pour créer le contrôleur d’entrée, utilisez `Helm` pour installer *nginx-ingress*. Pour renforcer la redondance, deux réplicas des contrôleurs d’entrée NGINX sont déployés avec le paramètre `--set controller.replicaCount`. Pour tirer pleinement parti de l’exécution de réplicas des contrôleurs d’entrée, vérifiez que votre cluster AKS comprend plusieurs nœuds.
 
 > [!TIP]
 > L’exemple suivant installe le contrôleur d’entrée dans l’espace de noms `kube-system`. Si vous le souhaitez, vous pouvez spécifier un espace de noms différent pour votre propre environnement. Si le contrôle d’accès en fonction du rôle (RBAC) n’est pas activé sur votre cluster AKS, ajoutez `--set rbac.create=false` aux commandes.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system
+helm install stable/nginx-ingress --namespace kube-system --set controller.replicaCount=2
 ```
 
 Pendant l’installation, une adresse IP publique Azure est créée pour le contrôleur d’entrée. Cette adresse IP publique est statique pour la durée de vie du contrôleur d’entrée. Si vous supprimez le contrôleur d’entrée, l’attribution d’adresse IP publique est perdue. Si vous créez ensuite un contrôleur d’entrée supplémentaires, une nouvelle adresse IP publique est attribuée. Si vous souhaitez conserver l’utilisation de l’adresse IP publique, vous pouvez au lieu de cela [créer un contrôleur d’entrée avec une adresse IP publique statique][aks-ingress-static-tls].
@@ -90,17 +90,21 @@ Le contrôleur d’entrée NGINX prend en charge l’arrêt TLS. Il existe plusi
 Pour installer le contrôleur cert-manager dans un cluster où RBAC est activé, utilisez la commande `helm install` suivante :
 
 ```console
-helm install stable/cert-manager --set ingressShim.defaultIssuerName=letsencrypt-staging --set ingressShim.defaultIssuerKind=ClusterIssuer
+helm install stable/cert-manager \
+    --namespace kube-system \
+    --set ingressShim.defaultIssuerName=letsencrypt-staging \
+    --set ingressShim.defaultIssuerKind=ClusterIssuer
 ```
 
 Si RBAC n’est pas activé dans votre cluster, utilisez la commande suivante :
 
 ```console
 helm install stable/cert-manager \
-  --set ingressShim.defaultIssuerName=letsencrypt-staging \
-  --set ingressShim.defaultIssuerKind=ClusterIssuer \
-  --set rbac.create=false \
-  --set serviceAccount.create=false
+    --namespace kube-system \
+    --set ingressShim.defaultIssuerName=letsencrypt-staging \
+    --set ingressShim.defaultIssuerKind=ClusterIssuer \
+    --set rbac.create=false \
+    --set serviceAccount.create=false
 ```
 
 Pour plus d’informations sur la configuration cert-manager, voir le [projet cert-manager][cert-manager].
@@ -252,6 +256,50 @@ L’application de démonstration s’affiche dans le navigateur web :
 Maintenant, ajoutez le chemin */hello-world-two* au nom de domaine complet, par exemple, *https://demo-aks-ingress.eastus.cloudapp.azure.com/hello-world-two*. La deuxième application de démonstration portant le titre personnalisé s’affiche :
 
 ![Exemple d’application numéro deux](media/ingress/app-two.png)
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Cet article vous a montré comment utiliser Helm pour installer les composants d’entrée, les certificats et les exemples d’applications. Quand vous déployez un graphique Helm, une série de ressources Kubernetes est créée. Ces ressources incluent des pods, des déploiements et des services. Pour effectuer le nettoyage, commencez par supprimer les ressources de certificat :
+
+```console
+kubectl delete -f certificates.yaml
+kubectl delete -f cluster-issuer.yaml
+```
+
+À présent, listez les versions de Helm avec la commande `helm list`. Recherchez les graphiques nommés *nginx-ingress*, *cert-manager* et *aks-helloworld*, comme illustré dans l’exemple de sortie suivant :
+
+```
+$ helm list
+
+NAME                    REVISION    UPDATED                     STATUS      CHART                   APP VERSION NAMESPACE
+billowing-kitten        1           Tue Oct 16 17:24:05 2018    DEPLOYED    nginx-ingress-0.22.1    0.15.0      kube-system
+loitering-waterbuffalo  1           Tue Oct 16 17:26:16 2018    DEPLOYED    cert-manager-v0.3.4     v0.3.2      kube-system
+flabby-deer             1           Tue Oct 16 17:27:06 2018    DEPLOYED    aks-helloworld-0.1.0                default
+linting-echidna         1           Tue Oct 16 17:27:02 2018    DEPLOYED    aks-helloworld-0.1.0                default
+```
+
+Supprimez les versions avec la commande `helm delete`. L’exemple suivant supprime le déploiement d’entrée NGINX, le gestionnaire de certificats et les deux exemples d’applications AKS « hello world ».
+
+```
+$ helm delete billowing-kitten loitering-waterbuffalo flabby-deer linting-echidna
+
+release "billowing-kitten" deleted
+release "loitering-waterbuffalo" deleted
+release "flabby-deer" deleted
+release "linting-echidna" deleted
+```
+
+Ensuite, supprimez le référentiel Helm pour l’application AKS « hello world » :
+
+```console
+helm repo remove azure-samples
+```
+
+Enfin, supprimez la route d’entrée qui a dirigé le trafic vers les exemples d’applications :
+
+```console
+kubectl delete -f hello-world-ingress.yaml
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

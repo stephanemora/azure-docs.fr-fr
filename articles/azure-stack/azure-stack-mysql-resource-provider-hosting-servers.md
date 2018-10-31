@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: b11ce8bbbf4b270f7a3b9689f95b0cbfca3b14c9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 833d8e7960bfb7ee3c135df57e6d4dfec97af037
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47408876"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364659"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources MySQL
 
@@ -74,7 +74,25 @@ Les informations suivantes s’appliquent au fournisseur de ressources et aux se
 
 ## <a name="increase-backend-database-capacity"></a>Augmenter la capacité de base de données principale
 
-Vous pouvez augmenter la capacité de base de données principale en déployant plus de serveurs MySQL dans le portail Azure Stack. Ajoutez ces serveurs à une référence (SKU) nouvelle ou existante. Si vous ajoutez un serveur à une référence (SKU) existante, assurez-vous que les caractéristiques du serveur sont les mêmes que pour les autres serveurs dans la référence (SKU).
+Vous pouvez augmenter la capacité de base de données principale en déployant plus de serveurs MySQL dans le portail Azure Stack. Ajoutez ces serveurs à une référence SKU nouvelle ou existante. Si vous ajoutez un serveur à une référence SKU existante, assurez-vous que les caractéristiques du serveur sont les mêmes que pour les autres serveurs de la référence (SKU).
+
+## <a name="sku-notes"></a>Remarques relatives aux références SKU
+Utilisez un nom de référence SKU qui décrit les fonctionnalités des serveurs de la référence, comme la capacité et les performances. Le nom aide les utilisateurs à déployer leurs bases de données dans la référence SKU appropriée. Par exemple, vous pouvez utiliser des noms de référence SKU pour différencier les offres de service avec les caractéristiques suivantes :
+  
+* haute capacité
+* hautes performances
+* haute disponibilité
+
+Il est considéré comme une bonne pratique que tous les serveurs d’hébergement d’une référence SKU aient les mêmes caractéristiques de performances et de ressources.
+
+Vous ne pouvez pas attribuer de références SKU à des utilisateurs ou groupes.
+
+Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Les utilisateurs ne peuvent pas créer de base de données tant que la référence (SKU) n’a pas été complètement créée.
+
+Pour modifier une référence SKU, accédez à **Tous les services** > **Adaptateur MySQL** > **Références**. Sélectionnez la référence SKU à modifier, apportez les changements nécessaires, puis cliquez sur **Enregistrer** pour enregistrer les changements. Pour supprimer une référence SKU dont vous ne vous servez plus, accédez à **Tous les services** > **Adaptateur MySQL** > **Références**. Cliquez sur le nom de la référence SKU et sélectionnez **Supprimer** pour la supprimer.
+
+> [!TIP]
+> Vous pouvez modifier ou supprimer les quotas du fournisseur de ressources MySQL dans le même emplacement.
 
 ## <a name="make-mysql-database-servers-available-to-your-users"></a>Mise à disposition des serveurs de base de données MySQL pour vos utilisateurs
 

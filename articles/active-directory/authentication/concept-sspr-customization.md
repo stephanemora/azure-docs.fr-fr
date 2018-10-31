@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 69f6ed7814feacbd5adf60325aae123d388ffb61
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f523e2e2d55a34825bbb76a5a879c7c046b6b554
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222786"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318960"
 ---
 # <a name="customize-the-azure-ad-functionality-for-self-service-password-reset"></a>Personnaliser les fonctionnalités d’Azure AD pour la réinitialisation du mot passe libre-service
 
@@ -55,7 +55,9 @@ Les administrateurs des services de fédération Active Directory (AD FS) peuven
 
 Pour ajouter un lien vers la page de connexion AD FS, exécutez la commande suivante sur votre serveur AD FS. Les utilisateurs peuvent utiliser cette page pour accéder au flux de travail de réinitialisation du mot de passe libre-service.
 
-``` Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>" ```
+``` powershell
+Set-ADFSGlobalWebContent -SigninPageDescriptionText "<p><A href='https://passwordreset.microsoftonline.com' target='_blank'>Can’t access your account?</A></p>"
+```
 
 ## <a name="customize-the-sign-in-page-and-access-panel-look-and-feel"></a>Personnaliser l’apparence du panneau d’accès et de la page de connexion
 
@@ -65,8 +67,8 @@ Les graphiques que vous choisissez s’affichent dans les circonstances suivante
 
 * Quand un utilisateur entre son nom d’utilisateur
 * Si l’utilisateur accède à l’URL personnalisée :
-    * En passant le paramètre *whr* à la page de réinitialisation du mot de passe, par exemple « https://login.microsoftonline.com/?whr=contoso.com »
-    * En passant le paramètre *username* à la page de réinitialisation du mot de passe, par exemple « https://login.microsoftonline.com/?username=admin@contoso.com »
+    * En passant le paramètre `whr` à la page de réinitialisation du mot de passe, par exemple « https://login.microsoftonline.com/?whr=contoso.com »
+    * En passant le paramètre `username` à la page de réinitialisation du mot de passe, par exemple « https://login.microsoftonline.com/?username=admin@contoso.com »
 
 Retrouvez plus d’informations sur la configuration de la marque de société dans l’article [Ajouter une marque de société à votre page de connexion dans Azure AD](../fundamentals/customize-branding.md).
 

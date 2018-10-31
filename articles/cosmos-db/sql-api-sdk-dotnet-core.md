@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7000fc13a792f4f6def592e78dc759c8cf165881
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 8243d1e297fa778d4fa27f8365d9bb0a935d21e5
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451916"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387992"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Kit SDK .NET Core Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -42,7 +42,7 @@ ms.locfileid: "47451916"
 
 <tr><td>**Exemples**</td><td>[Exemples de code .NET](sql-api-dotnet-samples.md)</td></tr>
 
-<tr><td>**Démarrer**</td><td>[Prise en main du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB](sql-api-dotnetcore-get-started.md)</td></tr>
+<tr><td>**Prise en main**</td><td>[Prise en main du kit de développement logiciel (SDK) .NET Core Azure Cosmos DB](sql-api-dotnetcore-get-started.md)</td></tr>
 
 <tr><td>**Didacticiel d’application web**</td><td>[Développement d’applications web avec Azure Cosmos DB](sql-api-dotnet-application.md)</td></tr>
 
@@ -52,6 +52,14 @@ ms.locfileid: "47451916"
 ## <a name="release-notes"></a>Notes de publication
 
 Le kit de développement logiciel (SDK) .NET Core Azure Cosmos DB assure la parité des fonctions avec la dernière version du [kit de développement logiciel (SDK) .NET Azure Cosmos DB](sql-api-sdk-dotnet.md).
+
+### <a name="a-name213213"></a><a name="2.1.3"/>2.1.3
+
+* System.Net.Security mis à jour à 4.3.2.
+
+### <a name="a-name212212"></a><a name="2.1.2"/>2.1.2
+
+* Améliorations du suivi des diagnostics.
 
 ### <a name="a-name211211"></a><a name="2.1.1"/>2.1.1
 
@@ -204,6 +212,8 @@ Si vous avez des questions liées à ce SDK, publiez sur [StackOverflow](http://
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.1.3](#2.1.3) |15 octobre 2018 |--- |
+| [2.1.2](#2.1.2) |4 octobre 2018 |--- |
 | [2.1.1](#2.1.1) |27 septembre 2018 |--- |
 | [2.1.0](#2.1.0) |21 septembre 2018 |--- |
 | [2.0.0](#2.0.0) |07 septembre 2018 |--- |

@@ -11,31 +11,29 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 5f0e5de7503d06d1aff319434d763d3b034053b3
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/15/2018
+ms.openlocfilehash: 12074ad28e27a249a6dc378986f014ede1cd2ab3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166354"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353577"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Limites du modèle d’achat par vCore d’Azure SQL Database pour une base de données unique
 
 Cet article détaille les limites de ressources des bases de données uniques Azure SQL Database suivant le modèle d’achat par vCore.
 
-Pour les limites du modèle d’achat DTU, consultez [Limites de ressources basées sur des unités DTU](sql-database-dtu-resource-limits.md).
+Pour connaître les limites du modèle d’achat basé sur DTU pour les bases de données sur un serveur logique, consultez [Vue d’ensemble des limites de ressources sur un serveur logique](sql-database-resource-limits-logical-server.md).
 
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
+Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage pour une base de données unique à l’aide du [Portail Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), de [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), de [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [d’Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) ou de [l’API REST](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
-## <a name="single-database-storage-sizes-and-compute-sizes"></a>Base de données unique : tailles de stockage et tailles de calcul
+## <a name="general-purpose-service-tier-storage-sizes-and-compute-sizes"></a>Niveau de service Usage général : tailles de stockage et tailles de capacité de calcul
 
-Pour les bases de données uniques, les tableaux suivants indiquent les ressources disponibles pour une base de données unique à chaque niveau de service et taille de calcul. Vous pouvez définir le niveau de service, la taille de calcul et la quantité de stockage pour une base de données unique à l’aide du [Portail Azure](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), de [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), de [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), [d’Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases) ou de [l’API REST](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+### <a name="generation-4-compute-platform"></a>Plateforme de calcul de génération 4
 
-### <a name="general-purpose-service-tier"></a>Niveau de service Usage général
-
-#### <a name="generation-4-compute-platform"></a>Plateforme de calcul de génération 4
 |Taille de calcul|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|4|
@@ -57,7 +55,8 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
+### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
+
 |Taille de calcul|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |Génération H/W|5.|5.|5.|5.|5.|5.|5.|
@@ -79,9 +78,10 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 |||
 
-### <a name="business-critical-service-tier"></a>Niveau de service critique pour l’entreprise
+## <a name="business-critical-service-tier-storage-sizes-and-compute-sizes"></a>Niveau de service Critique pour l’entreprise : tailles de stockage et tailles de capacité de calcul
 
-#### <a name="generation-4-compute-platform"></a>Plateforme de calcul de génération 4
+### <a name="generation-4-compute-platform"></a>Plateforme de calcul de génération 4
+
 |Taille de calcul|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|4|
@@ -103,7 +103,8 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 |||
 
-#### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
+### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
+
 |Taille de calcul|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Génération H/W|5.|5.|5.|5.|5.|5.|5.|5.|
@@ -125,9 +126,10 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Stockage de sauvegarde inclus|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|1X taille de la base de données|
 |||
 
-### <a name="hyperscale-service-tier-preview"></a>Niveau de service Hyperscale (préversion)
+## <a name="hyperscale-service-tier-preview"></a>Niveau de service Hyperscale (préversion)
 
-#### <a name="generation-4-compute-platform"></a>Plateforme de calcul de génération 4
+### <a name="generation-4-compute-platform-storage-sizes-and-compute-sizes"></a>Plateforme de calcul de génération 4 : tailles de stockage et tailles de calcul
+
 |Niveau de performance|HS_Gen4_1|HS_Gen4_2|HS_Gen4_4|HS_Gen4_8|HS_Gen4_16|HS_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |--: |
 |Génération H/W|4|4|4|4|4|4|
@@ -148,7 +150,9 @@ Pour les bases de données uniques, les tableaux suivants indiquent les ressourc
 |Lecture du Scale-out|OUI|OUI|OUI|OUI|OUI|OUI|
 |Stockage de sauvegarde inclus|7|7|7|7|7|7|
 |||
+
 ### <a name="generation-5-compute-platform"></a>Plateforme de calcul de génération 5
+
 |Niveau de performance|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |Génération H/W|5.|5.|5.|5.|5.|5.|5.|5.|

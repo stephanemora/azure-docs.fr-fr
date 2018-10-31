@@ -16,17 +16,19 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: dkershaw, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: bcac650e4ce4ed3260920feec5687c8265ce0c13
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 92c8da920bf22761ca4b00add4f987d9d19ae325
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46977517"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309358"
 ---
 # <a name="azure-active-directory-graph-api"></a>API Graph Azure Active Directory
 
 > [!IMPORTANT]
 > Nous vous recommandons fortement d’utiliser [Microsoft Graph](https://graph.microsoft.io/) au lieu de l’API Azure AD Graph pour accéder aux ressources Azure Active Directory. Nos efforts de développement sont maintenant axés sur Microsoft Graph et aucune autre amélioration n’est prévue pour l’API Azure AD Graph. Il existe un nombre très limité de scénarios pour lesquels l’API Azure AD Graph peut être appropriée. Pour plus d’informations, consultez le billet de blog [Microsoft Graph ou Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) dans le centre de développement Office.
+
+Cet article s’applique à l’API Graph Azure AD. Pour obtenir des informations similaires sur l’API Microsoft Graph, consultez [Utiliser l’API Microsoft Graph](https://developer.microsoft.com/en-us/graph/docs/concepts/use_the_api). 
 
 L’API Graph Azure Active Directory fournit un accès par programme à Azure AD via les points de terminaison de l’API REST. Les applications peuvent utiliser l’API Azure AD Graph pour des opérations de création, de lecture, de mise à jour et de suppression (CRUD) sur des données et objets du répertoire. Par exemple, l’API Azure AD Graph prend en charge les opérations courantes suivantes pour un objet utilisateur :
 

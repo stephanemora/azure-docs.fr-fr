@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 10/09/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 82d99f575837b47a29bd6d8330ee58f442b6110a
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 62eb28c6cdb2dd6c1ddff1487826c01ef3bf6e3e
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409352"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091587"
 ---
 # <a name="deploy-kubernetes-to-azure-stack"></a>Déployer Kubernetes sur Azure Stack
 
@@ -39,6 +39,8 @@ Vous pouvez utiliser Kubernetes pour ce qui suit :
 - Développer des applications hautement évolutives et extensibles, qui peuvent être déployées en quelques secondes. 
 - Simplifier la conception de vos applications et améliorer leur fiabilité à l’aide de différentes applications Helm. [Helm](https://github.com/kubernetes/helm) est un outil d’empaquetage open source qui vous aide à installer et à gérer le cycle de vie d’applications Kubernetes.
 - Surveiller et diagnostiquer facilement l’intégrité de vos applications grâce à des fonctionnalités de mise à l’échelle et de mise à niveau.
+
+Vous êtes uniquement facturé pour l’utilisation des ressources de calcul qui est nécessaire aux nœuds qui soutiennent votre cluster. Pour plus d’informations, consultez [Utilisation et facturation dans Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-billing-and-chargeback).
 
 ## <a name="prerequisites"></a>Prérequis 
 
@@ -165,6 +167,9 @@ Accordez l’accès à votre abonnement au principal de service afin qu’il pui
 2. Passez vos paramètres en revue.
 
 3. Sélectionnez **OK** pour déployer votre cluster.
+
+> [!TIP]  
+>  Si vous avez des questions concernant votre déploiement, vous pouvez poster votre question ou lire la réponse si quelqu’un y a déjà répondu sur le [Forum Azure Stack](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). 
 
 ## <a name="connect-to-your-cluster"></a>Se connecter au cluster
 

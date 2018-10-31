@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: reference
-ms.date: 8/21/2018
+ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 06d9fda01a89340eb019b4900c02e321e0b73cf5
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818962"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49116191"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure
 
@@ -38,14 +38,14 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 | callerIpAddress | Facultatif | Adresse IP de l’appelant, si l’opération correspond à un appel d’API qui proviendrait d’une entité avec une adresse IP disponible publiquement. |
 | correlationId | Facultatif | GUID utilisé pour regrouper un ensemble d’événements associés. En règle générale, si deux événements ont le même operationName, mais deux états différents (par ex., « Started » et « Succeeded »), ils partagent le même ID de corrélation. Cela peut également représenter d’autres relations entre les événements. |
 | identité | Facultatif | Objet blob JSON qui décrit l’identité de l’utilisateur ou d’une application qui a effectué l’opération. En général, cela inclut l’autorisation et les revendications/Jeton JWT issus d’active directory. |
-| Level | Facultatif | Niveau de gravité de l’événement. Doit être Information, Avertissement, Erreur, ou Critique. |
+| Niveau | Facultatif | Niveau de gravité de l’événement. Doit être Information, Avertissement, Erreur, ou Critique. |
 | location | Facultatif | Région de la ressource générant l’événement, par ex. USA Est ou France Sud |
 | properties | Facultatif | Toutes les propriétés étendues associées à cette catégorie particulière d’événements spécifiques. Toutes les propriétés personnalisées/uniques doivent être placées à l’intérieur de cette « Partie B » du schéma. |
 
 ## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>Schémas spécifiques du service pour les journaux de diagnostic des ressources
 Le schéma des journaux de diagnostic des ressources varie en fonction de la ressource et de la catégorie de journal. Cette liste répertorie tous les services qui mettent des journaux de diagnostics et des liens à disposition du service et un schéma spécifique de la catégorie lorsqu’il est disponible.
 
-| de diffusion en continu | Schéma et documentation |
+| Service | Schéma et documentation |
 | --- | --- |
 | Azure Active Directory | [Vue d’ensemble](../active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md), [Schéma des journaux d’audit](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) et [Schéma des connexions](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
@@ -53,21 +53,22 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 | Passerelles d’application |[Journalisation des diagnostics pour Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics pour Azure Automation](../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Journalisation des diagnostics Azure Batch](../batch/batch-diagnostics.md) |
+| Azure Database pour MySQL | [Journaux de diagnostic Azure Database pour MySQL](../mysql/concepts-server-logs.md#diagnostic-logs) |
+| Azure Database pour PostgreSQL | [Journaux de diagnostic Azure Database pour PostgreSQL](../postgresql/concepts-server-logs.md#diagnostic-logs) |
 | Cognitive Services | Schéma non disponible. |
 | Réseau de distribution de contenu | [Journaux de diagnostic Azure pour CDN](../cdn/cdn-azure-diagnostic-logs.md) |
 | CosmosDB | [Journalisation Azure Cosmos DB](../cosmos-db/logging.md) |
 | Data Factory | [Surveiller les fabriques de données à l’aide d’Azure Monitor](../data-factory/monitor-using-azure-monitor.md) |
 | Data Lake Analytics |[Accès aux journaux de diagnostic d’Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-diagnostic-logs.md) |
 | Data Lake Store |[Accès aux journaux de diagnostic d’Azure Data Lake Store](../data-lake-store/data-lake-store-diagnostic-logs.md) |
-| Base de données pour PostgreSQL |  Schéma non disponible. |
 | Event Hubs |[Journaux de diagnostic d’Azure Event Hubs](../event-hubs/event-hubs-diagnostic-logs.md) |
 | ExpressRoute | Schéma non disponible. |
 | Pare-feu Azure | Schéma non disponible. |
 | IoT Hub | [Opérations IoT Hub](../iot-hub/iot-hub-monitor-resource-health.md#use-azure-monitor) |
 | Key Vault |[Journalisation d’Azure Key Vault](../key-vault/key-vault-logging.md) |
-| Équilibreur de charge |[Analytique des journaux de l'équilibreur de charge Azure](../load-balancer/load-balancer-monitor-log.md) |
+| Load Balancer |[Analytique des journaux de l'équilibreur de charge Azure](../load-balancer/load-balancer-monitor-log.md) |
 | Logic Apps |[Schéma de suivi personnalisé Logic Apps B2B](../logic-apps/logic-apps-track-integration-account-custom-tracking-schema.md) |
-| Network Security Group |[Analyse de journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
+| Network Security Group |[Analytique des journaux pour les groupes de sécurité réseau (NSG)](../virtual-network/virtual-network-nsg-manage-log.md) |
 | Protection DDOS | [Gérer le service Azure DDoS Protection standard](../virtual-network/manage-ddos-protection.md) |
 | Dédié à PowerBI | [Journalisation des diagnostics pour Power BI Embedded dans Azure](https://docs.microsoft.com/power-bi/developer/azure-pbie-diag-logs) |
 | Recovery Services | [Modèle de données pour la sauvegarde Azure](../backup/backup-azure-reports-data-model.md)|
@@ -83,7 +84,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Type de ressource|Catégorie|Nom d’affichage de la catégorie|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|Engine (Moteur)|Engine (Moteur)|
-|Microsoft.AnalysisServices/servers|de diffusion en continu|de diffusion en continu|
+|Microsoft.AnalysisServices/servers|Service|Service|
 |Microsoft.ApiManagement/service|GatewayLogs|Journaux relatifs à la passerelle ApiManagement|
 |Microsoft.Automation/automationAccounts|JobLogs|Journaux de travail|
 |Microsoft.Automation/automationAccounts|JobStreams|Flux de travail|
@@ -104,6 +105,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.DataLakeAnalytics/accounts|Requêtes|Journaux de requête|
 |Microsoft.DataLakeStore/accounts|Audit|Journaux d’audit|
 |Microsoft.DataLakeStore/accounts|Demandes|Journaux de requête|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|Journaux des requêtes lentes MySQL|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Journaux de serveur PostgreSQL|
 |Microsoft.Devices/IotHubs|connexions|connexions|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Télémétrie d’appareil|

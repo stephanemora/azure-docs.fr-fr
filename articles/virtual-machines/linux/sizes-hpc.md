@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 07/06/2018
+ms.date: 10/12/2018
 ms.author: jonbeck
-ms.openlocfilehash: 748cb4612b2b5aed26ba8197cfad0782f2645e1e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 70dca655d5300fcd34b4198093e136f6a971963b
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37902127"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344487"
 ---
 # <a name="high-performance-compute-virtual-machine-sizes"></a>Tailles de machine virtuelle de calcul haute performance
 
@@ -56,9 +56,21 @@ Déployez une machine virtuelle nécessitant beaucoup de ressources système à 
   > Sur les images HPC basées sur CentOS, les mises à jour du noyau sont désactivées dans le fichier de configuration **yum** . Cela s’explique par le fait que les pilotes RDMA Linux sont distribués sous forme de package RPM, et que les mises à jour du pilote peuvent ne pas fonctionner si le noyau est mis à jour.
   > 
  
-### <a name="cluster-configuration"></a>Configuration de clusters 
-    
-Une configuration supplémentaire du système est nécessaire pour exécuter des travaux MPI sur des machines virtuelles en cluster. Par exemple, sur un cluster de machines virtuelles, vous devez établir une approbation entre les nœuds de calcul. Pour les paramètres classiques, consultez [Configurer un cluster RDMA Linux pour exécuter des applications MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+### <a name="cluster-configuration-options"></a>Options de configuration de cluster
+
+Azure fournit plusieurs options pour créer des clusters de machines virtuelles HPC Linux qui peuvent communiquer via le réseau RDMA, notamment : 
+
+* **Machines virtuelles** : Déployez les machines virtuelles HPC compatibles RDMA dans le même groupe à haute disponibilité (quand vous utilisez le modèle de déploiement Azure Resource Manager). Si vous utilisez le modèle de déploiement classique, déployez les machines virtuelles dans le même service cloud. 
+
+* **Groupes de machines virtuelles identiques** : Dans un groupe de machines virtuelles identiques, veillez à limiter le déploiement à un seul groupe de placements. Par exemple, dans un modèle Resource Manager, définissez la propriété `singlePlacementGroup` avec la valeur `true`. 
+
+* **Azure CycleCloud** : Créez un cluster HPC dans [Azure CycleCloud](/azure/cyclecloud/) pour exécuter des travaux MPI sur des nœuds Linux.
+
+* **Azure Batch** : Créez un pool [Azure Batch](/azure/batch/) pour exécuter des charges de travail MPI sur des nœuds de calcul Linux. Pour plus d’informations, consultez [Utiliser des instances compatibles RDMA ou GPU dans les pools Batch](../../batch/batch-pool-compute-intensive-sizes.md). Consultez également le projet [Batch Shipyard](https://github.com/Azure/batch-shipyard) pour l’exécution de charges de travail basées sur des conteneurs sur Batch.
+
+* **Microsoft HPC Pack** - [HPC Pack](https://docs.microsoft.com/powershell/high-performance-computing/overview) prend en charge l’exécution de plusieurs distributions Linux sur les nœuds de calcul déployés dans des machines virtuelles Azure compatibles RDMA et gérés par un nœud principal Windows Server. Pour un exemple de déploiement, consultez [Créer un cluster RDMA HPC Pack Linux dans Azure](https://docs.microsoft.com/powershell/high-performance-computing/hpcpack-linux-openfoam).
+
+Selon l’outil de gestion de clusters que vous choisissez, une configuration système supplémentaire peut être nécessaire pour exécuter des travaux MPI. Par exemple, sur un cluster de machines virtuelles, vous devrez peut-être établir une approbation entre les nœuds de cluster en générant des clés SSH ou en établissant une confiance SSH sans mot de passe.
 
 ### <a name="network-topology-considerations"></a>Considérations sur la topologie réseau
 * Sur des machines virtuelles Linux compatibles RDMA dans Azure, Eth1 est réservé au trafic réseau RDMA. Ne modifiez aucun paramètre Eth1 ou des informations du fichier de configuration faisant référence à ce réseau. Eth0 est réservé au trafic réseau Azure normal.
@@ -66,8 +78,7 @@ Une configuration supplémentaire du système est nécessaire pour exécuter des
 * Le réseau RDMA dans Azure réserve l'espace d’adressage 172.16.0.0/16. 
 
 
-## <a name="using-hpc-pack"></a>Utilisation de HPC Pack
-[HPC Pack](https://technet.microsoft.com/library/jj899572.aspx), solution gratuite de gestion des travaux et des clusters HPC de Microsoft, vous offre un moyen d’utiliser les instances nécessitant beaucoup de ressources système avec Linux. Les dernières versions de HPC Pack prennent en charge l’exécution de plusieurs distributions Linux sur les nœuds de calcul déployés dans les machines virtuelles Azure et gérés par un nœud principal Windows Server. Avec des nœuds de calcul Linux prenant en charge RDMA exécutant Intel MPI, HPC Pack peut planifier et exécuter des applications MPI Linux qui accèdent au réseau RDMA. Consultez [Prise en main des nœuds de calcul Linux dans un cluster HPC Pack dans Azure](classic/hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+
 
 ## <a name="other-sizes"></a>Autres tailles
 - [Usage général](sizes-general.md)
@@ -78,8 +89,6 @@ Une configuration supplémentaire du système est nécessaire pour exécuter des
 - [Générations précédentes](sizes-previous-gen.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
-
-- Pour commencer à déployer et à utiliser des tailles nécessitant beaucoup de ressources système avec RDMA sur Linux, consultez [Configurer un cluster RDMA Linux pour exécuter des applications MPI](classic/rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 - Lisez-en davantage sur les [Unités de calcul Azure (ACU)](acu.md) pour découvrir comment comparer les performances de calcul entre les références Azure.
 

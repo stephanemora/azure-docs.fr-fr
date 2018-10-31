@@ -9,26 +9,27 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: cwatson
 ms.reviewer: sngun
-ms.openlocfilehash: adcd91a8f1b3368d03f4b634e7aef40104d953e3
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 5b15b5f8188f2077b3e9cb17ab3794e881a4deb3
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393636"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49353428"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Comprendre comment la remise de réservation est appliquée à Azure Cosmos DB
 
-Quand vous achetez une capacité réservée Azure Cosmos DB, la remise de réservation est automatiquement appliquée aux ressources Azure Cosmos DB qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre le débit provisionné pour les ressources Azure Cosmos DB, à l’exclusion des logiciels, de la mise en réseau, du stockage ou des frais de conteneurs prédéfinis.
+Quand vous achetez une capacité réservée Azure Cosmos DB, la remise de réservation est automatiquement appliquée aux ressources Azure Cosmos DB qui correspondent aux attributs et à la quantité de la réservation. Une réservation couvre le débit provisionné pour les ressources Azure Cosmos DB. Elle ne couvre pas les frais de logiciel, de réseau, de stockage ou de conteneur prédéfini.
 
 ## <a name="reservation-discount-applied-to-azure-cosmos-db-accounts"></a>Remise de réservation appliquée aux comptes Azure Cosmos DB
 
-Une remise de réservation est appliquée au [débit provisionné](../cosmos-db/request-units.md) en termes d’unités de requête par seconde (RU/s) sur une base horaire. Dans le cas des ressources Azure Cosmos DB qui ne s’exécutent pas pendant une heure entière, la remise de réservation est automatiquement appliquée aux ressources Azure Cosmos DB qui correspondent aux attributs de la réservation. La remise peut être appliquée à des ressources Azure Cosmos DB qui s’exécutent simultanément. Si aucune ressource Cosmos DB ne s’exécute pendant une heure entière et ne correspond aux attributs de la réservation, vous ne bénéficiez pas pleinement de la remise de réservation pour cette heure.
+Une remise de réservation est appliquée au [débit provisionné](../cosmos-db/request-units.md) sous la forme d’unités de requête par seconde (RU/s) et calculée sur une base horaire. Dans le cas des ressources Azure Cosmos DB qui ne s’exécutent pas pendant une heure entière, la remise de réservation est automatiquement appliquée aux ressources Azure Cosmos DB qui correspondent aux attributs de la réservation. La remise peut être appliquée à des ressources Azure Cosmos DB qui s’exécutent simultanément. Si aucune ressource Cosmos DB ne s’exécute pendant une heure entière et ne correspond aux attributs de la réservation, vous ne bénéficiez pas pleinement de la remise de réservation pour cette heure.
 
-* Les remises sont hiérarchisées ; plus le nombre d’unités de requête est élevé pour une réservation, plus celle-ci bénéficie d’une remise importante.  
-* L’achat de réservation applique des remises à toutes les régions selon le taux correspondant aux tarifs à la demande pour chaque région. Pour connaître les taux de remise de réservation dans chaque région, consultez la section [Remise de réservation par région](#reservation-discount-per-region) de cet article.
+Les remises sont hiérarchisées. Plus le nombre d’unités de requête est élevé pour une réservation, plus celle-ci bénéficie d’une remise importante. 
+
+L’achat de réservation applique des remises à toutes les régions selon le taux correspondant aux tarifs à la demande pour chaque région. Pour connaître les taux de remise de réservation dans chaque région, consultez la section [Remise de réservation par région](#reservation-discount-per-region) de cet article.
 
 ## <a name="reservation-discount-per-region"></a>Remise de réservation par région
-La remise de réservation est appliquée aux coûts de débit d’Azure Cosmos DB sur une base horaire dans le cadre de l’abonnement ou du compte. La remise de réservation s’applique à l’utilisation de compteurs dans les différentes régions selon les taux suivants :
+La remise de réservation est appliquée aux coûts de débit d’Azure Cosmos DB sur une base horaire. Elle est appliquée à l’abonnement unique ou à l’étendue du compte/de l’inscription. La remise de réservation s’applique à l’utilisation de compteurs dans les différentes régions, selon les taux suivants :
 
 |Description du compteur  |Région |Ratio  |
 |---------|---------|---------|
@@ -70,15 +71,15 @@ La remise de réservation est appliquée aux coûts de débit d’Azure Cosmos D
 Imaginons les exigences suivantes pour une réservation :
 
 * Débit requis : 50 000 RU/s  
-* Régions utilisées : 2. 
+* Régions utilisées : 2 
 
-Dans ce cas, votre total de frais à la demande correspond à une quantité de 500 par compteur de 100 RU/s dans ces deux régions, soit une consommation de RU/s totale de 100 000 par heure. 
+Dans ce cas, votre total de frais à la demande correspond à une quantité de 500, par compteur de 100 RU/s dans ces deux régions. La consommation de RU/s totale est de 100 000 par heure. 
 
 **Scénario 1**
 
-Par exemple, si vous avez besoin de déploiements d’Azure Cosmos DB dans les régions « USA Centre Nord » et « USA Ouest » et que chaque région a une consommation de débit de 50 000 RU/s, un achat de réservation de 100 000 RU/s couvrirait complètement vos frais à la demande.
+Par exemple, supposons que vous avez besoin de déployer Azure Cosmos DB dans les régions USA Centre Nord et USA Ouest. Chaque région dispose d’une consommation de débit de 50 000 RU/s. un achat de réservation de 100 000 RU/s couvrirait complètement vos frais à la demande.
 
-La remise couverte par une réservation est calculée comme suit (consommation de débit * taux de la remise de réservation pour la région concernée). Pour les régions « USA Centre Nord » et « USA Ouest », le taux de remise de réservation est « 1 ». Ainsi, ce sont au total 100 000 RU/s qui font l’objet d’une remise (50 000 * 1 + 50 000 * 1 = 100 000 RU/s), et vous n’êtes pas obligé de payer des frais supplémentaires aux tarifs habituels de paiement à l’utilisation. 
+La remise qu’une réservation couvre est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Pour les régions USA Centre Nord et USA Ouest, le taux de la remise de réservation est 1. Ainsi, la remise totale de RU/s est de 100 000. Cette valeur est calculée comme suit : 50 000 * 1 + 50 000 * 1 = 100 000 RU/s. Vous ne payez aucun frais supplémentaire au tarif habituel du paiement à l’utilisation. 
 
 |Description du compteur | Région |Consommation de débit (RU/s) |Remise de réservation appliquée aux RU/s |
 |---------|---------|---------|---------|
@@ -87,18 +88,18 @@ La remise couverte par une réservation est calculée comme suit (consommation d
 
 **Scénario 2**
 
-Par exemple, si vous avez besoin de déploiements d’Azure Cosmos DB dans les régions « Australie Centre 2 » et « France Sud » et que chaque région a une consommation de débit de 50 000 RU/s, un achat de réservation de 100 000 RU/s serait applicable comme suit (en supposant que l’utilisation dans la région Australie Centre 2 a fait l’objet d’une remise en premier) :
+Par exemple, supposons que vous avez besoin de déployer Azure Cosmos DB dans les régions Australie Centre 2 et France Sud. Chaque région dispose d’une consommation de débit de 50 000 RU/s. un achat de réservation de 100 000 RU/s serait applicable comme suit (en supposant que l’utilisation dans la région Australie Centre 2 a fait l’objet d’une remise en premier) :
 
 |Description du compteur | Région |Consommation de débit (RU/s) |Remise de réservation appliquée aux RU/s |
 |---------|---------|---------|---------|
 |Azure Cosmos DB - 100 RU/s/heure - Australie Centre 2  |  Australie Centre 2   |  50 000  |  50 000   |
 |Azure Cosmos DB - 100 RU/s/heure - France Sud  |  France Sud   |  50 000 |  15 384  |
 
-50 000 unités d’utilisation dans la région « Australie Centre 2 » correspond à 75 000 RU/s d’utilisation facturable (ou utilisation normalisée). Cette valeur est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée, soit 75 000 RU/s (50 000 * 1,5 = 75 000 RU/s) d’utilisation facturable ou normalisée. 
+Une utilisation de 50 000 unités dans la région Australie Centre 2 correspond à 75 000 RU/s d’utilisation facturable (ou utilisation normalisée). Cette valeur est calculée comme suit : consommation de débit * taux de la remise de réservation pour la région concernée. Le total est de 75 000 RU/s d’utilisation facturable ou normalisée. Cette valeur est calculée comme suit : 50 000 * 1,5 = 75 000 RU/s.
 
-Par rapport aux 75 000 RU/s dans la région « Australie Centre 2 », un achat de réservation de 100 000 RU/s aboutirait à un excédent de 25 000 RU/s au profit de la région « France Sud ». Sur les 25 000 RU/s restantes, une remise de réservation de 15 384 RU/s (25 000/1,625 = 15 384 RU/s) est appliquée à la région « France Sud ». Les 34 616 RU/s restantes dans la région « France Sud » sont facturées aux tarifs habituels de paiement à l’utilisation. 
+L’achat d’une réservation de 100 000 RU/s absorbe les 75 000 RU/s dans la région Australie Centre 2. Il reste 25 000 RU/s pour la région France Sud. Sur les 25 000 RU/s restantes, une remise de réservation de 15 384 RU/s est appliquée à la région France Sud. Cette valeur de remise est calculée comme suit : 25 000 / 1,625 = 15 384 RU/s. Les 34 616 RU/s restantes dans la région France Sud sont facturées au tarif habituel du paiement à l’utilisation. 
 
-Le système de facturation Azure fait bénéficier de l’avantage lié à la facturation de la réservation la première instance traitée satisfaisant à la configuration de la réservation (en l’occurrence, Australie Centre 2).
+Le système de facturation Azure fait bénéficier de l’avantage lié à la facturation de la réservation, la première instance qui est traitée et qui satisfait à la configuration de la réservation. En l’occurrence, dans notre exemple, Australie Centre 2.
 
 Pour comprendre et voir l’application de vos réservations Azure dans les rapports de facturation de l’utilisation, consultez [Comprendre l’utilisation des réservations Azure](../billing/billing-understand-reserved-instance-usage-ea.md).
 

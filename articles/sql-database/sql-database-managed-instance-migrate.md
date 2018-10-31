@@ -11,13 +11,13 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/26/2018
-ms.openlocfilehash: 7653ce7b0823b4e91685e77701a307370261f7e6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 10/15/2018
+ms.openlocfilehash: 6868b842f22a6d107936fcb1e49c46b0c1f58469
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394051"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345303"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>Migration d’une instance SQL Server vers Azure SQL Database Managed Instance
 
@@ -38,9 +38,9 @@ Le processus général de migration d’une base de données ressemble à ce qui
 
 ## <a name="assess-managed-instance-compatibility"></a>Évaluer la compatibilité de Managed Instance
 
-Tout d’abord, déterminez si Managed Instance est compatible avec les exigences de la base de données de votre application. Managed Instance est conçu pour faciliter la migration « lift-and-shift » de la plupart des applications existantes qui utilisent SQL Server localement ou sur des machines virtuelles. Toutefois, vous risquez parfois d’avoir besoin de fonctionnalités qui ne sont pas encore prises en charge et dont le coût d’implémentation d’une solution de contournement est trop élevé. 
+Tout d’abord, déterminez si Managed Instance est compatible avec les exigences de la base de données de votre application. Managed Instance est conçu pour faciliter la migration « lift-and-shift » de la plupart des applications existantes qui utilisent SQL Server localement ou sur des machines virtuelles. Toutefois, vous risquez parfois d’avoir besoin de fonctionnalités qui ne sont pas encore prises en charge et dont le coût d’implémentation d’une solution de contournement est trop élevé.
 
-Utilisez l’[Assistant Migration de données](https://docs.microsoft.com/sql/dma/dma-overview) pour détecter les éventuels problèmes de compatibilité qui impactent le fonctionnement de la base de données sur Azure SQL Database. Cet Assistant ne prend pas encore en charge Managed Instance en tant que destination de migration, mais il est recommandé d’effectuer une évaluation par rapport à Azure SQL Database et d’examiner attentivement la liste des problèmes de compatibilité et de parité de fonctionnalité signalés par rapport à la documentation du produit. Consultez les [fonctionnalités Azure SQL Database](sql-database-features.md) pour savoir si des problèmes de blocage sont signalés dans Managed Instance, car la plupart des problèmes de blocage empêchant de migrer vers une base de données Azure SQL Database ont été supprimés avec Managed Instance. Par exemple, des fonctionnalités comme les requêtes entre plusieurs bases de données, les transactions entre plusieurs bases de données au sein de la même instance, un serveur lié à d’autres sources SQL, la prise en charge du Common Language Runtime, les tables temporaires globales, les affichages au niveau de l’instance, Service Broker, etc. sont disponibles dans Managed Instance. 
+Utilisez l’[Assistant Migration de données](https://docs.microsoft.com/sql/dma/dma-overview) pour détecter les éventuels problèmes de compatibilité qui impactent le fonctionnement de la base de données sur Azure SQL Database. Cet Assistant ne prend pas encore en charge Managed Instance en tant que destination de migration, mais il est recommandé d’effectuer une évaluation par rapport à Azure SQL Database et d’examiner attentivement la liste des problèmes de compatibilité et de parité de fonctionnalité signalés par rapport à la documentation du produit. Consultez les [fonctionnalités Azure SQL Database](sql-database-features.md) pour savoir si des problèmes de blocage sont signalés dans Managed Instance, car la plupart des problèmes de blocage empêchant de migrer vers une base de données Azure SQL Database ont été supprimés avec Managed Instance. Par exemple, des fonctionnalités comme les requêtes entre plusieurs bases de données, les transactions entre plusieurs bases de données au sein de la même instance, un serveur lié à d’autres sources SQL, la prise en charge du Common Language Runtime, les tables temporaires globales, les affichages au niveau de l’instance, Service Broker, etc. sont disponibles dans Managed Instance.
 
 Si certains problèmes de blocage signalés ne sont pas supprimés dans Azure SQL Database Managed Instance, vous devrez sans doute envisager une autre solution, comme par exemple l’utilisation de [SQL Server sur les machines virtuelles dans Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Voici quelques exemples :
 
@@ -60,16 +60,16 @@ Vous pouvez sélectionner des ressources de calcul et de stockage au moment du d
 Pour apprendre à créer l’infrastructure de réseau virtuel et l’option Managed Instance, consultez [Créer une option Managed Instance](sql-database-managed-instance-get-started.md).
 
 > [!IMPORTANT]
-> Il est important de toujours maintenir vos réseau virtuel et sous-réseau de destination en adéquation avec les [exigences pour les réseaux virtuels Managed Instance](sql-database-managed-instance-vnet-configuration.md#requirements). Toute incompatibilité risque de vous empêcher de créer des instances ou d’utiliser celles que vous avez déjà créées.
+> Il est important de toujours maintenir votre réseau virtuel de destination et le sous-réseau en adéquation avec la [Configuration requise pour les réseaux virtuels Managed Instance](sql-database-managed-instance-vnet-configuration.md#requirements). Toute incompatibilité risque de vous empêcher de créer des instances ou d’utiliser celles que vous avez déjà créées.
 
 ## <a name="select-migration-method-and-migrate"></a>Sélectionner une méthode de migration et effectuer la migration
 
-Managed Instance cible des scénarios d’utilisateur qui exigent une migration de base de données en masse depuis des implémentations locales ou IaaS. Ils constituent le meilleur choix lorsque vous avez besoin d’effectuer une migration « lift-and-shift » du backend des applications qui utilisent régulièrement des fonctionnalités au niveau de l’instance et/ou entre plusieurs bases de données. Si cela correspond à votre scénario, vous pouvez déplacer toute une instance vers un environnement correspondant dans Azure sans avoir à reconcevoir l’architecture de vos applications. 
+Managed Instance cible des scénarios d’utilisateur qui exigent une migration de base de données en masse depuis des implémentations locales ou IaaS. Ils constituent le meilleur choix lorsque vous avez besoin d’effectuer une migration « lift-and-shift » du backend des applications qui utilisent régulièrement des fonctionnalités au niveau de l’instance et/ou entre plusieurs bases de données. Si cela correspond à votre scénario, vous pouvez déplacer toute une instance vers un environnement correspondant dans Azure sans avoir à redéfinir l’architecture de vos applications.
 
 Pour déplacer des instances SQL, vous devez planifier avec soin :
 
--   La migration de toutes les bases de données qui ont besoin d’être colocalisées (celles qui s’exécutent sur la même instance)
--   La migration des objets au niveau de l’instance dont votre application dépend, notamment les connexions, les informations d’identification, les travaux et opérateurs de l’Agent SQL, ainsi que les déclencheurs au niveau du serveur. 
+- La migration de toutes les bases de données qui ont besoin d’être colocalisées (celles qui s’exécutent sur la même instance)
+- La migration des objets au niveau de l’instance dont votre application dépend, notamment les connexions, les informations d’identification, les travaux et opérateurs de l’Agent SQL, ainsi que les déclencheurs au niveau du serveur.
 
 Managed Instance est un service entièrement géré qui vous permet de déléguer certaines des activités courantes d’administration des bases de données à la plateforme puisqu’elles y sont intégrées. Ainsi, certaines données au niveau de l’instance n’ont pas besoin de migrer, notamment les travaux de maintenance pour les sauvegardes régulières ou la configuration Always On, étant donné que la [haute disponibilité](sql-database-high-availability.md) est intégrée.
 
@@ -80,7 +80,7 @@ Managed Instance prend en charge les options de migration de base de données su
 
 ### <a name="azure-database-migration-service"></a>Azure Database Migration Service
 
-[Azure Database Migration Service (DMS)](../dms/dms-overview.md) est un service entièrement géré conçu pour permettre des migrations transparentes de plusieurs sources de base de données vers des plateformes de données Azure avec un temps d’arrêt minime. Ce service simplifie les tâches nécessaires pour déplacer des bases de données SQL Server tierces existantes vers Azure. Les options de déploiement en préversion publique incluent Azure SQL Database, Managed Instance et SQL Server dans une machine virtuelle Azure. DMS est la méthode recommandée de migration pour vos charges de travail d’entreprise. 
+[Azure Database Migration Service (DMS)](../dms/dms-overview.md) est un service entièrement géré conçu pour permettre des migrations transparentes de plusieurs sources de base de données vers des plateformes de données Azure avec un temps d’arrêt minime. Ce service simplifie les tâches nécessaires pour déplacer des bases de données SQL Server tierces existantes vers Azure. Les options de déploiement en préversion publique incluent Azure SQL Database, Managed Instance et SQL Server dans une machine virtuelle Azure. DMS est la méthode recommandée de migration pour vos charges de travail d’entreprise.
 
 Si vous utilisez SSIS (SQL Server Integration Services) sur votre serveur SQL Server local, DMS ne prend pas encore en charge la migration du catalogue SSIS (SSISDB) qui stocke les packages SSIS, mais vous pouvez provisionner Azure-SSIS IR (Integration Runtime) dans ADF (Azure Data Factory) pour créer une base de données SSISDB dans Azure SQL Database/Managed Instance. Vous pouvez ensuite y redéployer vos packages (consultez [Créer Azure-SSIS IR dans ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime)).
 
@@ -88,7 +88,7 @@ Pour plus d’informations sur ce scénario et les étapes de configuration de D
 
 ### <a name="native-restore-from-url"></a>Restauration native à partir d’une URL
 
-La restauration de sauvegardes natives (fichiers .bak) issues de SQL Server local ou de [SQL Server sur les machines virtuelles](https://azure.microsoft.com/services/virtual-machines/sql-server/), disponible sur [Stockage Azure](https://azure.microsoft.com/services/storage/), est une des principales fonctionnalités sur SQL Database Managed Instance qui permet d’effectuer rapidement et facilement une migration de base de données hors connexion. 
+La restauration de sauvegardes natives (fichiers .bak) issues de SQL Server local ou de [SQL Server sur les machines virtuelles](https://azure.microsoft.com/services/virtual-machines/sql-server/), disponible sur [Stockage Azure](https://azure.microsoft.com/services/storage/), est une des principales fonctionnalités sur SQL Database Managed Instance qui permet d’effectuer rapidement et facilement une migration de base de données hors connexion.
 
 Le diagramme suivant fournit une vue d’ensemble du processus :
 
@@ -121,6 +121,7 @@ Une fois que vous êtes sur une plateforme entièrement gérée, profitez des av
 De plus, vous n’avez pas à vous soucier de la configuration de la [haute disponibilité](sql-database-high-availability.md) car elle est intégrée.
 
 Pour renforcer la sécurité, envisagez d’utiliser certaines des fonctionnalités disponibles :
+
 - Authentification Azure Active Directory au niveau de la base de données
 - Utilisez des [fonctionnalités de sécurité avancées](sql-database-security-overview.md) pour sécuriser votre instance : [Audit](sql-database-managed-instance-auditing.md), [Détection des menaces](sql-advanced-threat-protection.md), [Sécurité au niveau des lignes](https://docs.microsoft.com/sql/relational-databases/security/row-level-security) et [Dynamic Data Masking](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
 

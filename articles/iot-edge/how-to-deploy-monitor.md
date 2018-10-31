@@ -9,12 +9,12 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 28aa2904f63a9802305d24fec1650f84e38601ab
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258431"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393455"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide du portail Azure
 
@@ -39,11 +39,11 @@ Avant de pouvoir créer un déploiement, vous devez être en mesure de spécifie
 }
 ```
 
-Pour plus d’informations sur les balises et les jumeaux d’appareils, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub][lnk-device-twin].
+Pour plus d’informations sur les étiquettes et les jumeaux d’appareils, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>Créer un déploiement
 
-1. Accédez à votre IoT Hub dans le [portail Azure][lnk-portal]. 
+1. Accédez à votre IoT Hub dans le [Portail Azure](https://portal.azure.com). 
 1. Sélectionnez **IoT Edge**.
 1. Sélectionnez **Ajouter le déploiement IoT Edge**.
 
@@ -77,7 +77,7 @@ Pour ajouter du code personnalisé en tant que module, ou pour ajouter manuellem
 1. Sélectionnez **Module IoT Edge**.
 1. Donnez un **Nom** à votre module.
 1. Dans le champ **URI de l’image**, entrez l’image conteneur pour votre module. 
-1. Spécifiez les **options de création de conteneur** qui doivent être passées au conteneur. Pour plus d’informations, consultez [docker create][lnk-docker-create].
+1. Spécifiez les **options de création de conteneur** qui doivent être passées au conteneur. Pour plus d’informations, consultez [docker create](https://docs.docker.com/engine/reference/commandline/create/).
 1. Utilisez le menu déroulant pour sélectionner une **Stratégie de redémarrage**. Choisissez parmi les options suivantes : 
    * **Toujours** : le module redémarre toujours s’il s’arrête pour une raison quelconque.
    * **Jamais** : le module ne redémarre jamais s’il s’arrête pour une raison quelconque.
@@ -117,11 +117,11 @@ Passez en revue les informations de votre déploiement, puis sélectionnez **Env
 
 Pour afficher les détails d’un déploiement et surveiller les appareils qui l’exécutent, effectuez les étapes suivantes :
 
-1. Connectez-vous au [portail Azure][lnk-portal] et accédez à votre IoT Hub. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre IoT Hub. 
 1. Sélectionnez **IoT Edge**.
 1. Sélectionnez **Déploiements IoT Edge**. 
 
-   ![Afficher les déploiements IoT Edge][1]
+   ![Afficher les déploiements IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Inspectez la liste des déploiements. Pour chaque déploiement, vous pouvez consulter les détails suivants :
    * **ID** : nom du déploiement.
@@ -144,11 +144,11 @@ Si vous mettez à jour la condition cible, les mises à jour suivantes se produi
 
 Pour modifier un déploiement, effectuez les étapes suivantes : 
 
-1. Connectez-vous au [portail Azure][lnk-portal] et accédez à votre IoT Hub. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre IoT Hub. 
 1. Sélectionnez **IoT Edge**.
 1. Sélectionnez **Déploiements IoT Edge**. 
 
-   ![Afficher les déploiements IoT Edge][1]
+   ![Afficher les déploiements IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Sélectionnez le déploiement à modifier. 
 1. Mettez à jour les champs suivants : 
@@ -156,17 +156,17 @@ Pour modifier un déploiement, effectuez les étapes suivantes :
    * Étiquettes 
    * Priorité 
 1. Sélectionnez **Enregistrer**.
-1. Suivez les étapes fournies dans [Surveiller un déploiement][anchor-monitor] pour observer le déploiement des modifications. 
+1. Suivez les étapes fournies dans [Surveiller un déploiement](#monitor-a-deployment) pour observer le déploiement des modifications. 
 
 ## <a name="delete-a-deployment"></a>Supprimer un déploiement
 
 Quand vous supprimez un déploiement, tous les appareils prennent leur déploiement suivant dans l’ordre de priorité. Si vos appareils ne remplissent la condition cible d’aucun autre déploiement, les modules ne sont pas supprimés lors de la suppression du déploiement. 
 
-1. Connectez-vous au [portail Azure][lnk-portal] et accédez à votre IoT Hub. 
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à votre IoT Hub. 
 1. Sélectionnez **IoT Edge**.
 1. Sélectionnez **Déploiements IoT Edge**. 
 
-   ![Afficher les déploiements IoT Edge][1]
+   ![Afficher les déploiements IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Utilisez la case à cocher pour sélectionner le déploiement à supprimer. 
 1. Sélectionnez **Supprimer**.
@@ -174,16 +174,4 @@ Quand vous supprimez un déploiement, tous les appareils prennent leur déploiem
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur le [déploiement des modules sur des appareils Edge][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Découvrez le [déploiement des modules sur des appareils Edge](module-deployment-monitoring.md).

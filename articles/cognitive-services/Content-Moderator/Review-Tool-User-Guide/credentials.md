@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 06/25/2017
 ms.author: sajagtap
-ms.openlocfilehash: 6477879953dc2bb2c7503eb0b2d4b5effa7b6a11
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 911d62fc2baa50cce6d40f8b5bcc455f308d21d7
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024653"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49309653"
 ---
 # <a name="manage-credentials"></a>Gérer les informations d’identification
 
@@ -66,11 +66,11 @@ Notez également l’identificateur de la région associée au point de terminai
 
 ### <a name="resource-id"></a>ID de ressource
 
-Nous avons traité ce sujet dans la section [Utiliser le compte Azure avec l’outil de révision et l’API de révision](credentials.md#how-to-use-your-azure-account-with-the-review-tool). Ce champ est généralement vide, sauf si vous y ajoutez votre ID de ressource Azure, comme expliqué dans la section précédente.
+Ce groupe de champs est abordé dans la section précédente, [Utiliser le compte Azure avec l’outil de révision et l’API de révision](credentials.md#use-the-azure-account-with-the-review-tool-and-review-api). Ce champ est généralement vide, sauf si vous y ajoutez votre ID de ressource Azure, comme expliqué dans la section précédente.
 
 ### <a name="workflows"></a>Flux de travail
 
-Nous avons traité de cet ensemble de champs dans la section précédente concernant l’[utilisation de votre clé Azure pour exécuter les workflow](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Par défaut, l’outil de révision utilise sa clé d’évaluation générée automatiquement pour l’exécution des workflows, et c’est ce qui apparaît pour commencer. Les deux autres champs permettent d’utiliser des listes de termes et d’images au cours des opérations de filtrage de texte et d’évaluation d’images, respectivement.
+Ce groupe de champs est abordé dans la section précédente, [Utiliser le compte Azure avec les workflows dans l’outil de révision](credentials.md#use-the-azure-account-with-the-workflows-in-the-review-tool). Par défaut, l’outil de révision utilise sa clé d’évaluation générée automatiquement pour l’exécution des workflows, et c’est ce qui apparaît pour commencer. Les deux autres champs permettent d’utiliser des listes de termes et d’images au cours des opérations de filtrage de texte et d’évaluation d’images, respectivement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

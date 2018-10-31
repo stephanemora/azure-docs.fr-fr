@@ -1,26 +1,21 @@
 ---
-title: 'Prévision de la demande énergétique : guide technique | Microsoft Docs'
+title: Guide technique sur la prévision de la demande énergétique
 description: Guide technique de l’utilisation du modèle de solution avec Microsoft Cortana Intelligence pour prévoir la demande énergétique.
 services: machine-learning
-documentationcenter: ''
-author: yijichen
+author: garyericson
 manager: cgronlun
-editor: yijichen
-ms.assetid: 7f1a866b-79b7-4b97-ae3e-bc6bebe8c756
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.workload: data-services
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/16/2016
-ms.author: yijichen
-ms.openlocfilehash: ebf037a139b3e443238bc2fc5d0ed73e697dddf5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.author: garye
+ms.openlocfilehash: 8ff5c52b324c95bb48de0f9bbb1011ede737efb0
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842547"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387660"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guide technique de l’utilisation du modèle de solution Cortana Intelligence pour prévoir la demande énergétique
 ## <a name="overview"></a>**Vue d’ensemble**

@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/19/2018
-ms.openlocfilehash: 04077c9acbd9556a66e8337ab8f415de86df1d5a
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.date: 10/12/2018
+ms.openlocfilehash: 68fcdbdc2eb844e08c99c0f9567bac7d39ca6511
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498196"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310196"
 ---
 # <a name="enable-azure-disk-encryption-for-windows-iaas-vms"></a>Activer Azure Disk Encryption pour les machines virtuelles IaaS Windows 
 
@@ -260,7 +260,8 @@ New-AzureRmVM -VM $VirtualMachine -ResouceGroupName "MySecureRG"
 Vous pouvez [ajouter un nouveau disque à une machine virtuelle Windows avec PowerShell](../virtual-machines/windows/attach-disk-ps.md) ou via le [portail Azure](../virtual-machines/windows/attach-managed-disk-portal.md). 
 
 ### <a name="enable-encryption-on-a-newly-added-disk-with-azure-powershell"></a>Activer le chiffrement sur un disque nouvellement ajouté avec Azure PowerShell
- Quand vous utilisez PowerShell pour chiffrer un nouveau disque de machines virtuelles Windows, vous devez spécifier une nouvelle version de la séquence. La version de la séquence doit être unique. Le script ci-dessous génère un GUID pour la version de la séquence. Dans certains cas, un disque de données nouvellement ajouté peut être chiffré automatiquement par l’extension Azure Disk Encryption. Si cela se produit, nous recommandons de réexécuter l’applet de commande Set-AzureRmVmDiskEncryptionExtension avec la nouvelle version de la séquence.
+ Quand vous utilisez PowerShell pour chiffrer un nouveau disque de machines virtuelles Windows, vous devez spécifier une nouvelle version de la séquence. La version de la séquence doit être unique. Le script ci-dessous génère un GUID pour la version de la séquence. Dans certains cas, un disque de données nouvellement ajouté peut être chiffré automatiquement par l’extension Azure Disk Encryption. Le chiffrement automatique se produit généralement quand la machine virtuelle redémarre après la mise en ligne du nouveau disque. Cela est généralement dû au fait que « Tous » était spécifié pour le type de volume quand le chiffrement de disque a été précédemment exécuté sur la machine virtuelle. Si le chiffrement automatique se produit sur un disque de données nouvellement ajouté, nous recommandons de réexécuter l’applet de commande Set-AzureRmVmDiskEncryptionExtension avec la nouvelle version de la séquence. Si votre nouveau disque de données est automatiquement chiffré et que vous ne voulez pas qu’il le soit, déchiffrez d’abord tous les lecteurs, puis chiffrez-les à nouveau avec une nouvelle version de séquence spécifiant le système d’exploitation pour le type de volume. 
+  
  
 
 -  **Chiffrer une machine virtuelle en cours d’exécution :** le script ci-dessous initialise vos variables et exécute l’applet de commande Set-AzureRmVMDiskEncryptionExtension. Les prérequis que sont le groupe de ressources, la machine virtuelle et le coffre de clés doivent déjà avoir été créés. Remplacez MySecureRg, MySecureVM et MySecureVault par vos valeurs. Cet exemple utilise « All » pour le paramètre VolumeType, qui inclut les volumes de données et de systèmes d’exploitation. Si vous souhaitez uniquement chiffrer le volume de systèmes d’exploitation, utilisez « OS » pour le paramètre VolumeType. 

@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: b9808233e08e545c31e171afe104173dccc6abed
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 7b600bd699ce7f9e4a6c7cba1a41b6bdece16bf0
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434923"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49343722"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine-scale-set"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Resource Manager pour un groupe de machines virtuelles identiques Windows
 
@@ -81,7 +81,7 @@ Recherchez la définition de Groupe de machines virtuelles identiques dans la se
 Dans la ressource du groupe de machines virtuelles identiques, recherchez la section **virtualMachineProfile**. Ajoutez un nouveau profil nommé **extensionsProfile** pour gérer les extensions.  
 
 
-Dans **extensionProfile**, ajoutez une nouvelle extension au modèle, comme illustré dans la **section VMSS-WAD-extension**.  Cette section correspond à l’extension Managed Service Identity (MSI) qui garantit que les métriques transmises sont acceptées par Azure Monitor. Le champ du **nom** peut contenir n’importe quel nom. 
+Dans **extensionProfile**, ajoutez une nouvelle extension au modèle, comme illustré dans la **section VMSS-WAD-extension**.  Cette section correspond à l’extension des identités managées pour ressources Azure qui garantit que les métriques émises sont acceptées par Azure Monitor. Le champ du **nom** peut contenir n’importe quel nom. 
 
 Le code ci-après émanant de l’extension MSI ajoute également l’extension Diagnostics et la configuration en tant que ressource d’extension à la ressource du groupe de machines virtuelles identiques. N’hésitez pas à ajouter/supprimer des compteurs de performances si nécessaire. 
 
@@ -89,7 +89,7 @@ Le code ci-après émanant de l’extension MSI ajoute également l’extension 
           "extensionProfile": { 
             "extensions": [ 
             // BEGINNING of added code  
-            // Managed service identity   
+            // Managed identites for Azure resources   
                 { 
                  "name": "VMSS-WAD-extension", 
                  "properties": { 

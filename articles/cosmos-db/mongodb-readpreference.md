@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: sclyon
-ms.openlocfilehash: 90c8d73e32f4c99c6871ce9cdb7839cd1d380b9b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b0af47f9ed72507fe9bc47023b456fcb157e25de
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146262"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091671"
 ---
 # <a name="how-to-globally-distribute-reads-using-read-preference-with-the-azure-cosmos-db-mongodb-api"></a>Guide pratique pour distribuer globalement des lectures à l’aide de la préférence de lecture avec l’API MongoDB d’Azure Cosmos DB 
 
@@ -113,6 +113,28 @@ De même, l’extrait de code ci-dessous montre comment configurer la préféren
   });
 ```
 
+La préférence de lecture peut également être définie en passant `readPreference` comme paramètre dans les options d’URI de chaîne de connexion :
+
+```javascript
+const MongoClient = require('mongodb').MongoClient;
+const assert = require('assert');
+
+// Connection URL
+const url = 'mongodb://localhost:27017?ssl=true&replicaSet=globaldb&readPreference=nearest';
+
+// Database Name
+const dbName = 'myproject';
+
+// Use connect method to connect to the Server
+MongoClient.connect(url, function(err, client) {
+  console.log("Connected correctly to server");
+
+  const db = client.db(dbName);
+
+  client.close();
+});
+```
+
 Pour d’autres plateformes telles que [.NET](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-dotnet-geo-readpreference) et [Java](https://github.com/Azure-Samples/azure-cosmos-db-mongodb-java-geo-readpreference), consultez les dépôts des exemples d’application correspondants.
 
 ## <a name="read-using-tags"></a>Lire à l’aide de balises
@@ -142,7 +164,7 @@ Pour d’autres plateformes telles que [.NET](https://github.com/Azure-Samples/a
 
 Dans cet article, vous avez découvert comment distribuer globalement des opérations de lecture à l’aide de la préférence de lecture avec l’API MongoDB d’Azure Cosmos DB.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous ne prévoyez pas de continuer à utiliser cette application, supprimez toutes les ressources créées par cet article dans le portail Azure en effectuant les étapes suivantes :
 

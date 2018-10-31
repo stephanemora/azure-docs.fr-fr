@@ -14,14 +14,15 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 680cea983fb7435bf4492fc295e29f3a234a4323
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 935fef5ea988908787ae04688985606acec41bfd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355148"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387275"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatiser l’attribution et l’annulation de l’attribution des utilisateurs dans les applications SaaS avec Azure Active Directory
+
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Qu’est-ce que l’attribution automatique des utilisateurs dans les applications SaaS ?
 Azure Active Directory (Azure AD) vous permet d’automatiser la création, la maintenance et la suppression d’identités utilisateur dans les applications cloud ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) comme Dropbox, Salesforce, ServiceNow et bien plus encore.
 
@@ -42,6 +43,7 @@ Azure Active Directory (Azure AD) vous permet d’automatiser la création, la m
 * Création de rapports et journaux d’activité pour faciliter la surveillance et la résolution des problèmes
 
 ## <a name="why-use-automated-provisioning"></a>Pourquoi utiliser l’approvisionnement automatique ?
+
 Voici les principales raisons pour utiliser cette fonctionnalité :
 
 * Réduction des coûts, des inefficacités et des erreurs humaines associés aux processus d’approvisionnement manuel
@@ -69,6 +71,7 @@ Le **service d’approvisionnement Azure AD** approvisionne des utilisateurs po
 Azure AD offre une prise en charge préintégrée d’un large éventail d’applications SaaS et de systèmes de gestion des ressources humaines populaires, ainsi qu’une prise en charge générique des applications qui implémentent des parties spécifiques du standard SCIM 2.0.
 
 ### <a name="pre-integrated-applications"></a>Applications pré-intégrées
+
 Pour obtenir la liste de toutes les applications pour lesquelles Azure AD prend en charge un connecteur d’approvisionnement préintégré, consultez la [liste des didacticiels d’applications pour l’approvisionnement des utilisateurs](../saas-apps/tutorial-list.md).
 
 Pour contacter l’équipe d’ingénierie Azure AD afin de demander une prise en charge de l’approvisionnement pour des applications supplémentaires, écrivez un message sur le [forum des commentaires sur Azure Active Directory](https://feedback.azure.com/forums/374982-azure-active-directory-application-requests/filters/new?category_id=172035).
@@ -77,6 +80,7 @@ Pour contacter l’équipe d’ingénierie Azure AD afin de demander une prise e
 > Pour qu’une application puisse prendre en charge l’approvisionnement automatique des utilisateurs, elle doit d’abord fournir les API de gestion des utilisateurs requises pour permettre aux programmes externes d’automatiser la création, la gestion et la suppression des utilisateurs. Par conséquent, toutes les applications SaaS ne sont pas compatibles avec cette fonctionnalité. Pour les applications qui prennent en charge les API de gestion des utilisateurs, l’équipe d’ingénierie Azure AD peut développer un connecteur d’approvisionnement. Ce travail s’effectue en fonction des besoins des clients actuels et à venir. 
 
 ### <a name="connecting-applications-that-support-scim-20"></a>Connexion d’applications prenant en charge SCIM 2.0
+
 Pour plus d’informations génériques sur la connexion d’applications qui implémentent des API de gestion SCIM 2.0, consultez [Utilisation du protocole SCIM (System for Cross-Domain Identity Management) pour configurer automatiquement des utilisateurs et groupes d’Azure Active Directory dans des applications](use-scim-to-provision-users-and-groups.md).
 
     
@@ -124,26 +128,28 @@ Dans l’écran de gestion des applications, la configuration de l’approvision
 Lorsque Azure AD est le système source, le service d’approvisionnement utilise la [fonctionnalité de requête différentielle de l’API Graph Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query) pour surveiller les utilisateurs et groupes. Le service d’approvisionnement exécute une synchronisation initiale sur le système source et le système cible, suivie de synchronisations incrémentielles périodiques. 
 
 ### <a name="initial-sync"></a>Synchronisation initiale
+
 Lorsque le service d’approvisionnement est démarré, la première synchronisation effectuée permettra de réaliser les opérations suivantes :
 
 1. Interroger tous les utilisateurs et groupes à partir du système source, afin de récupérer tous les attributs définis dans les [mappages d’attributs](customize-application-attributes.md).
 2. Filtrer les utilisateurs et les groupes renvoyés à l’aide [d’affectations](assign-user-or-group-access-portal.md) ou de [filtres d’étendue basés sur un attribut](define-conditional-rules-for-provisioning-user-accounts.md) configurés.
 3. Quand un utilisateur se trouve être affecté ou dans une étendue pour l’approvisionnement, le service interroge le système cible pour rechercher un utilisateur correspondant à l’aide des [attributs de correspondance](customize-application-attributes.md#understanding-attribute-mapping-properties) désignés. Exemple : si le nom userPrincipal dans le système source est l’attribut de correspondance et s’il est mappé à userName dans le système cible, le service d’approvisionnement interroge le système cible pour les userNames qui correspondent aux valeurs de nom userPrincipal dans le système source.
-4. Si aucun utilisateur correspondant n’est trouvé dans le système cible, il est créé à l’aide des attributs renvoyés depuis le système source.
-5. Si un utilisateur correspondant est trouvé, il est mis à jour à l’aide des attributs fournis par le système source.
+4. Si aucun utilisateur correspondant n’est trouvé dans le système cible, il est créé à l’aide des attributs renvoyés depuis le système source. Une fois que le compte d’utilisateur a été créé, le service de provisionnement détecte et met en cache l’ID du nouvel utilisateur dans le système cible ; cet ID sera utilisé pour effectuer toutes les opérations futures sur cet utilisateur.
+5. Si un utilisateur correspondant est trouvé, il est mis à jour à l’aide des attributs fournis par le système source. Une fois que le compte d’utilisateur correspondant a été trouvé, le service de provisionnement détecte et met en cache l’ID du nouvel utilisateur dans le système cible ; cet ID sera utilisé pour effectuer toutes les opérations futures sur cet utilisateur.
 6. Si les mappages d’attributs contiennent des attributs de « référence », le service effectue des mises à jour supplémentaires sur le système cible pour créer et lier les objets référencés. Par exemple, un utilisateur peut avoir un attribut « Manager » dans le système cible, qui est lié à un autre utilisateur créé dans le système cible.
 7. Conserver un filigrane à la fin de la synchronisation initiale, qui fournit le point de départ pour les synchronisations incrémentielles suivantes.
 
 Certaines applications telles que ServiceNow, Google Apps et Box prennent non seulement en charge l’approvisionnement des utilisateurs, mais également celui des groupes et de leurs membres. Dans ce type de situation, si l’approvisionnement des groupes est activé dans les [mappages](customize-application-attributes.md), le service d’approvisionnement synchronise les utilisateurs et les groupes, puis les appartenances au groupe. 
 
 ### <a name="incremental-syncs"></a>Synchronisations incrémentielles
+
 Après la synchronisation initiale, toutes les synchronisations suivantes effectueront les opérations ci-dessous :
 
 1. Interroger le système source pour rechercher les utilisateurs et les groupes qui ont été mis à jour depuis le dernier filigrane enregistré.
 2. Filtrer les utilisateurs et les groupes renvoyés à l’aide [d’affectations](assign-user-or-group-access-portal.md) ou de [filtres d’étendue basés sur un attribut](define-conditional-rules-for-provisioning-user-accounts.md) configurés.
 3. Quand un utilisateur se trouve être affecté ou dans une étendue pour l’approvisionnement, le service interroge le système cible pour rechercher un utilisateur correspondant à l’aide des [attributs de correspondance](customize-application-attributes.md#understanding-attribute-mapping-properties) désignés.
-4. Si aucun utilisateur correspondant n’est trouvé dans le système cible, il est créé à l’aide des attributs renvoyés depuis le système source.
-5. Si un utilisateur correspondant est trouvé, il est mis à jour à l’aide des attributs fournis par le système source.
+4. Si aucun utilisateur correspondant n’est trouvé dans le système cible, il est créé à l’aide des attributs renvoyés depuis le système source. Une fois que le compte d’utilisateur a été créé, le service de provisionnement détecte et met en cache l’ID du nouvel utilisateur dans le système cible ; cet ID sera utilisé pour effectuer toutes les opérations futures sur cet utilisateur.
+5. Si un utilisateur correspondant est trouvé, il est mis à jour à l’aide des attributs fournis par le système source. Si le compte d’utilisateur correspondant trouvé est un nouveau compte assigné, le service de provisionnement détecte et met en cache l’ID du nouvel utilisateur dans le système cible ; cet ID sera utilisé pour effectuer toutes les opérations futures sur cet utilisateur.
 6. Si les mappages d’attributs contiennent des attributs de « référence », le service effectue des mises à jour supplémentaires sur le système cible pour créer et lier les objets référencés. Par exemple, un utilisateur peut avoir un attribut « Manager » dans le système cible, qui est lié à un autre utilisateur créé dans le système cible.
 7. Si un utilisateur qui se trouvait précédemment dans l’étendue de l’approvisionnement est supprimé de l’étendue (y compris si son affectation est annulée), le service désactive l’utilisateur dans le système cible via une mise à jour.
 8. Si un utilisateur qui se trouvait précédemment dans l’étendue de l’approvisionnement est désactivé ou supprimé de façon réversible dans le système source, le service désactive l’utilisateur dans le système cible via une mise à jour.
@@ -160,7 +166,8 @@ Le service d’approvisionnement continuera à exécuter indéfiniment des synch
 * Une nouvelle synchronisation initiale est déclenchée en raison d’une modification dans les mappages d’attributs ou les filtres d’étendue. Cela permet également d’effacer les filigranes stockés et de rendre tous les objets source disponibles pour une nouvelle évaluation.
 * Le processus d’approvisionnement est mis en quarantaine (voir ci-dessous) en raison d’un taux d’erreur élevé et reste en quarantaine pendant plus de quatre semaines. Dans ce cas, le service sera automatiquement désactivé.
 
-### <a name="errors-and-retries"></a>Erreurs et nouvelles tentatives 
+### <a name="errors-and-retries"></a>Erreurs et nouvelles tentatives
+
 Si un utilisateur ne peut pas être ajouté, mis à jour ou supprimé dans le système cible en raison d’une erreur dans le système cible, une nouvelle tentative sera effectuée lors du prochain cycle de synchronisation. Si l’utilisateur continue d’échouer, les nouvelles tentatives ne seront possibles qu’à une fréquence réduite, pour finalement n’être autorisées qu’une seule fois par jour. Pour résoudre le problème, les administrateurs devront vérifier les [journaux d’audit](check-status-user-account-provisioning.md) pour identifier les événements « traitement d’escrow », afin de déterminer la cause racine et prendre les mesures nécessaires. Les échecs courants peuvent inclure :
 
 * Utilisateurs n’ayant pas d’attribut renseigné dans le système source alors qu’il est requis dans le système cible
@@ -169,6 +176,7 @@ Si un utilisateur ne peut pas être ajouté, mis à jour ou supprimé dans le sy
 Ces échecs peuvent être résolus en ajustant les valeurs d’attribut de l’utilisateur concerné dans le système source, ou en ajustant les mappages d’attributs pour ne pas provoquer de conflits.   
 
 ### <a name="quarantine"></a>Mise en quarantaine
+
 Si la plupart ou la totalité des appels effectués sur le système cible échouent en permanence en raison d’une erreur (comme dans le cas d’informations d’identification non valides), le travail d’approvisionnement passe à un état « mis en quarantaine ». Cela est indiqué dans le [rapport de synthèse sur l’approvisionnement](check-status-user-account-provisioning.md) et via les notifications par e-mail si elles ont été configurées dans le portail Azure. 
 
 Lors de la mise en quarantaine, la fréquence des synchronisations incrémentielles est progressivement réduite à une fois par jour. 
@@ -219,26 +227,52 @@ Résumé des facteurs qui influencent le temps nécessaire pour terminer une **s
 * Le nombre et la taille des groupes affectés. La synchronisation des groupes affectés prend plus de temps que la synchronisation des utilisateurs. Le nombre et la taille des groupes affectés ont un impact sur les performances. Si une application comporte des [mappages activés pour la synchronisation des objets de groupe](customize-application-attributes.md#editing-group-attribute-mappings), les propriétés de groupe, telles que les noms de groupe et les appartenances, sont synchronisées en plus des utilisateurs. Ces synchronisations supplémentaires prendront plus temps que la seule synchronisation des objets utilisateur.
 
 
-##<a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Comment savoir si les utilisateurs sont correctement attribués ?
+## <a name="how-can-i-tell-if-users-are-being-provisioned-properly"></a>Comment savoir si les utilisateurs sont correctement attribués ?
 
 Toutes les opérations effectuées par le service d’attribution d’utilisateurs sont enregistrées dans les journaux d’audit Azure AD. Cela comprend toutes les opérations de lecture et d’écriture effectuées sur les systèmes sources et cibles, ainsi que les données utilisateur qui ont été lues ou écrites à chaque opération.
 
 Pour plus d’informations sur la lecture des journaux d’audit dans le portail Azure, consultez le [guide de création de rapports sur le provisionnement](check-status-user-account-provisioning.md).
 
 
-##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Comment résoudre les problèmes liés à l’attribution d’utilisateurs ?
+## <a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Comment résoudre les problèmes liés à l’attribution d’utilisateurs ?
 
 Pour obtenir des instructions basées sur un scénario concernant la manière de résoudre des problèmes d’approvisionnement automatique d’utilisateurs, voir [Problèmes lors de la configuration et de l’approvisionnement des utilisateurs pour une application](application-provisioning-config-problem.md).
 
 
-##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Quelles sont les bonnes pratiques à appliquer pour l’attribution automatique d’utilisateurs ?
+## <a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Quelles sont les bonnes pratiques à appliquer pour l’attribution automatique d’utilisateurs ?
 
 > [!VIDEO https://www.youtube.com/embed/MAy8s5WSe3A]
 
 Si vous souhaitez obtenir un exemple de plan de déploiement pas à pas pour l’attribution d’utilisateurs dans une application, consultez le [guide de déploiement des identités pour l’attribution d’utilisateurs](https://aka.ms/userprovisioningdeploymentplan).
 
+## <a name="more-frequently-asked-questions"></a>Autres questions fréquentes
+
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>L’attribution d’utilisateurs automatique dans les applications SaaS est-elle possible pour les utilisateurs B2B dans Azure AD ?
+
+Oui, il est possible d’utiliser le service d’attribution d’utilisateurs Azure AD pour attribuer des utilisateurs B2B (ou invités) d’Azure AD dans des applications SaaS.
+
+Toutefois, pour permettre aux utilisateurs B2B de se connecter à l’application SaaS à l’aide d’Azure AD, vous devez configurer la fonctionnalité d’authentification unique basée sur SAML de l’application SaaS d’une manière particulière. Pour plus d’informations sur la configuration des applications SaaS afin d’autoriser les connexions d’utilisateurs B2B, consultez [Configurer des applications SaaS pour B2B Collaboration]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps).
+
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-dynamic-groups-in-azure-ad"></a>L’attribution d’utilisateurs automatique dans les applications SaaS est-elle possible pour les groupes dynamiques dans Azure AD ?
+
+Oui. Quand il est configuré pour « synchroniser uniquement les utilisateurs et groupes attribués », le service d’attribution d’utilisateurs Azure AD peut attribuer des utilisateurs, ou annuler leur attribution, dans une application SaaS selon que les utilisateurs sont ou non membres d’un [groupe dynamique](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule]). Les groupes dynamiques peuvent également être définis avec l’option pour « synchroniser tous les utilisateurs et groupes ».
+
+Toutefois, l’utilisation de groupes dynamiques peut impacter les performances globales de l’attribution d’utilisateurs de bout en bout d’Azure AD dans les applications SaaS. Si vous utilisez des groupes dynamiques, gardez à l’esprit les mises en garde et suggestions suivantes :
+
+* L’attribution d’un utilisateur dans un groupe dynamique, ou l’annulation de son attribution, dans une application SaaS est plus ou moins rapide selon la vitesse à laquelle le groupe dynamique réussit à analyser les changements d’appartenance. Pour plus d’informations sur la vérification de l’état de traitement d’un groupe dynamique, consultez [Vérifier l’état de traitement d’une règle d’appartenance](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule#check-processing-status-for-a-membership-rule).
+
+* Quand vous utilisez des groupes dynamiques, vous devez examiner attentivement les règles en lien avec l’attribution d’utilisateurs et l’annulation de leur attribution, car la suppression d’une appartenance entraîne un événement d’annulation de l’attribution.
+
+### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-nested-groups-in-azure-ad"></a>L’attribution d’utilisateurs automatique dans les applications SaaS est-elle possible pour les groupes imbriqués dans Azure AD ?
+
+Non. Quand il est configuré pour « synchroniser uniquement les utilisateurs et groupes assignés », le service d’attribution d’utilisateurs Azure AD n’est pas en mesure d’obtenir ou d’attribuer des utilisateurs qui sont membres de groupes imbriqués. Il peut uniquement obtenir et attribuer les utilisateurs qui se trouvent directement dans le groupe assigné explicitement.
+
+Il s’agit d’une limitation des « assignations basées sur les groupes dans les applications », qui concerne également l’authentification unique. Cette limitation est décrite dans [Utilisation d’un groupe pour gérer l’accès aux applications SaaS](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps ).
+
+La solution est alors d’assigner explicitement (ou [d’inclure dans l’étendue](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts)) les groupes qui contiennent les utilisateurs à attribuer.
 
 ## <a name="related-articles"></a>Articles connexes
+
 * [Liste des didacticiels sur l’intégration des applications SaaS](../saas-apps/tutorial-list.md)
 * [Personnalisation des mappages d’attributs pour l’approvisionnement des utilisateurs](customize-application-attributes.md)
 * [Écriture d’expressions pour les mappages d’attributs](functions-for-customizing-application-data.md)

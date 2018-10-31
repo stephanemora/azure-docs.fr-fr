@@ -1,24 +1,24 @@
 ---
-title: Qu’est-ce que le service de reconnaissance vocale personnalisé ?
-titlesuffix: Azure Cognitive Services
+title: Vue d’ensemble de Custom Speech Service sur Azure | Microsoft Docs
 description: Custom Speech Service est un service cloud qui permet aux utilisateurs de personnaliser des modèles vocaux pour la transcription de la reconnaissance vocale en texte.
 services: cognitive-services
 author: PanosPeriorellis
-manager: cgronlun
+manager: onano
 ms.service: cognitive-services
 ms.component: custom-speech
-ms.topic: overview
+ms.topic: article
 ms.date: 02/07/2017
 ms.author: panosper
-ROBOTS: NOINDEX
-ms.openlocfilehash: f90fc40a42806cfb002da2d9943eaa41736df4d7
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 97eee2b6440dbbf740ad5fa856bd518facabbfef
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222741"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49342291"
 ---
 # <a name="what-is-custom-speech-service"></a>Qu’est-ce que le service de reconnaissance vocale personnalisé ?
+
+[!INCLUDE [Deprecation note](../../../includes/cognitive-services-custom-speech-deprecation-note.md)]
 
 Custom Speech Service est un service cloud qui donne la possibilité aux utilisateurs de personnaliser des modèles vocaux pour la transcription de la reconnaissance vocale en texte.
 Pour utiliser Custom Speech Service, reportez-vous au [portail de Custom Speech Service](https://cris.ai).
@@ -44,7 +44,7 @@ Par exemple, imaginons que vous construisez une application pour effectuer des r
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur la façon d’utiliser Custom Speech Service, consultez le [portail Custom Speech Service] (https://cris.ai).
+Pour plus d’informations sur l’utilisation Custom Speech Service, consultez le [portail Custom Speech Service](https://cris.ai).
 
 * [Prise en main](cognitive-services-custom-speech-get-started.md)
 * [FORUM AUX QUESTIONS](cognitive-services-custom-speech-faq.md)

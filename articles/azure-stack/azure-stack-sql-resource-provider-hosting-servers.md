@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/16/2018
 ms.author: jeffgilb
 ms.reviewer: quying
-ms.openlocfilehash: 8fc24e58af51a249e3305dbe1496c499387be6b1
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a0a482e44617732c9dc6cd6609672e8204001dbc
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407906"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362056"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Ajouter des serveurs d’hébergement pour le fournisseur de ressources SQL
 
@@ -88,7 +88,7 @@ Pour ajouter un serveur d’hébergement autonome déjà configuré, effectuez l
 
    ![Serveurs d’hébergement SQL](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   Sous **Serveurs d’hébergement SQL**, vous pouvez connecter le fournisseur de ressources SQL à des instances de SQL Server qui font office de backend du fournisseur de ressources.
+   Sous **Serveurs d’hébergement SQL**, vous pouvez connecter le fournisseur de ressources SQL à des instances de SQL Server qui font office de back-end du fournisseur de ressources.
 
    ![Tableau de bord de l’adaptateur SQL](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
@@ -173,23 +173,24 @@ Utilisez ces commandes pour définir l’option de serveur contained database au
    > Vous ne pouvez pas mélanger des serveurs autonomes avec des instances Always On dans la même référence SKU. Toute tentative de mélange de types après l’ajout du premier serveur d’hébergement entraîne une erreur.
 
 ## <a name="sku-notes"></a>Remarques relatives aux références (SKU)
-
-Vous pouvez utiliser des références (SKU) pour différencier les offres de service. Par exemple, vous pouvez avoir une instance de SQL Enterprise présentant les caractéristiques suivantes :
+Utilisez un nom de référence SKU qui décrit les fonctionnalités des serveurs de la référence, comme la capacité et les performances. Le nom aide les utilisateurs à déployer leurs bases de données dans la référence (SKU) appropriée. Par exemple, vous pouvez utiliser des noms de référence SKU pour différencier les offres de service avec les caractéristiques suivantes :
   
 * haute capacité
 * hautes performances
 * haute disponibilité
 
-Vous ne pouvez pas attribuer de références SKU à des utilisateurs ou groupes spécifiques dans cette version.
-
- Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Les utilisateurs ne peuvent pas créer de base de données tant que la référence (SKU) n’a pas été complètement créée.
-
->[!TIP]
->Utilisez un nom de référence (SKU) qui reflète les fonctionnalités des serveurs de la référence, comme la capacité et les performances. Le nom aide les utilisateurs à déployer leurs bases de données dans la référence (SKU) appropriée.
-
 Il est considéré comme une bonne pratique que tous les serveurs d’hébergement d’une référence (SKU) aient les mêmes caractéristiques de performances et de ressources.
 
-## <a name="make-the-sql-databases-available-to-users"></a>Mettre à disposition des bases de données SQL pour les utilisateurs
+Vous ne pouvez pas attribuer de références SKU à des utilisateurs ou groupes.
+
+Une heure entière peut être nécessaire avant que les références n’apparaissent dans le portail. Les utilisateurs ne peuvent pas créer de base de données tant que la référence (SKU) n’a pas été complètement créée.
+
+Pour modifier une référence SKU, accédez à **Tous les services** > **Adaptateur SQL** > **Références**. Sélectionnez la référence SKU à modifier, apportez les changements nécessaires, puis cliquez sur **Enregistrer** pour enregistrer les changements. Pour supprimer une référence SKU dont vous ne vous servez plus, accédez à **Tous les services** > **Adaptateur SQL** > **Références**. Cliquez sur le nom de la référence SKU et sélectionnez **Supprimer** pour la supprimer.
+
+> [!TIP]
+> Vous pouvez modifier ou supprimer les quotas du fournisseur de ressources SQL dans le même emplacement.
+
+## <a name="make-sql-databases-available-to-users"></a>Mettre les bases de données SQL à la disposition des utilisateurs
 
 Créez des plans et des offres pour mettre des bases de données SQL à la disposition d’utilisateurs. Ajoutez le service **Microsoft.SqlAdapter** au plan, puis créez un quota.
 

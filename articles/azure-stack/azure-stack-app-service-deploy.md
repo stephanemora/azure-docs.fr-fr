@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 69b025a06abb24bfa3b8ff6b692a2559b3947681
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 08f08d926a9e27e421ff8db46051d8a1e7229041
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995254"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166880"
 ---
 # <a name="add-an-app-service-resource-provider-to-azure-stack"></a>Ajouter un fournisseur de ressources App Service à Azure Stack
 
@@ -70,7 +70,7 @@ Pour déployer le fournisseur de ressources App Service, procédez comme suit :
     a. Sélectionnez **Se connecter** situé en regard de la zone **Abonnements Azure Stack**.
 
      - Si vous utilisez Azure Active Directory (Azure AD), entrez votre compte et mot de passe d’administrateur Azure AD que vous avez indiqués lors du déploiement d’Azure Stack. Sélectionnez **Connexion**.
-     - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis sélectionnez **Se connecter**.
+     - Si vous utilisez Active Directory Federation Services (AD FS), fournissez votre compte d’administrateur. Par exemple : cloudadmin@azurestack.local. Entrez votre mot de passe, puis sélectionnez **Se connecter**.
 
    b. Dans **Abonnements Azure Stack**, sélectionnez **Abonnement au fournisseur par défaut**.
 

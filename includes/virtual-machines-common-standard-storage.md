@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: e3d904358282f303a2d1ab35cf4fdc8026d7db55
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060854"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312382"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Stockage Standard économique et disques de machine virtuelle Azure gérés et non gérés
 
@@ -25,7 +25,7 @@ Cet article se concentre sur l’utilisation de disques SSD et HDD Standard. Pou
 
 Il existe deux façons de créer des disques Standard pour les machines virtuelles Azure :
 
-**Disques non managés** : avec cette méthode d’origine, vous gérez les comptes de stockage utilisés pour stocker les fichiers VHD qui correspondent aux disques des machines virtuelles. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage. Les disques non gérés peuvent être associés à n’importe quelle taille de machine virtuelle Azure, y compris les machines virtuelles qui utilisent principalement le stockage Premium, telles que les séries DSv2 et GS. Les machines virtuelles Azure prennent en charge l’association de plusieurs disques Standard, autorisant jusqu’à 256 Pio de stockage par machine virtuelle. Si vous utilisez les tailles de disque en préversion, vous pouvez avoir jusqu’à environ 2 Pio de stockage par machine virtuelle. 
+**Disques non managés** : avec cette méthode d’origine, vous gérez les comptes de stockage utilisés pour stocker les fichiers VHD qui correspondent aux disques des machines virtuelles. Les fichiers VHD sont stockés en tant qu’objets blob de pages dans les comptes de stockage. Les disques non gérés peuvent être associés à n’importe quelle taille de machine virtuelle Azure, y compris les machines virtuelles qui utilisent principalement le stockage Premium, telles que les séries DSv2 et GS. Les machines virtuelles Azure prennent en charge l’association de plusieurs disques Standard, autorisant jusqu’à 256 Tio de stockage par machine virtuelle. Si vous utilisez les tailles de disque en préversion, vous pouvez avoir jusqu’à environ 2 Pio de stockage par machine virtuelle.
 
 [**Disques gérés Azure**](../articles/virtual-machines/windows/managed-disks-overview.md) : cette fonctionnalité gère les comptes de stockage que vous utilisez pour les disques de machines virtuelles. Vous spécifiez le type (SSD Premium, SSD Standard ou HDD Standard) et la taille de disque dont vous avez besoin, et Azure crée et gère le disque pour vous. Vous n’avez pas à vous occuper de placer les disques sur plusieurs comptes de stockage pour être sûr de rester dans les limites de scalabilité des comptes de stockage : Azure le fait pour vous.
 
@@ -82,7 +82,7 @@ Contrairement aux disques Premium, les opérations d’entrée/sortie par second
 | **Niveau Machine Virtuelle**            | **Niveau de base - Machine virtuelle** | **Niveau standard - Machine virtuelle** |
 |------------------------|-------------------|----------------------|
 | Taille maximale du disque          | 32 767 Gio           | 32 767 Gio        |
-| Max 8 Ko d’E/S par seconde par disque | Jusqu’à 2 000         | Jusqu’à 2 000        |
+| Max 8 Ko d’E/S par seconde par disque | Jusqu’à 2 000         | Jusqu’à 2 000        |
 | Bande passante maximale par disque | Jusqu’à 500 Mo/s     | Jusqu’à 500 Mo/s      |
 
 Si votre charge de travail exige la prise en charge des disques hautes performances à faible latence, vous devez envisager d’utiliser le stockage Premium. Pour en savoir plus les avantages du stockage Premium, visitez [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md).

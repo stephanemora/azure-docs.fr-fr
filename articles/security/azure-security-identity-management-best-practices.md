@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/17/2018
 ms.author: barclayn
-ms.openlocfilehash: f6640e7d179199fbfb5b0c2b0c384729b6f53bcf
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b1002d046014abd15452489e343ecf7c30b00d73
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498247"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49311335"
 ---
 # <a name="azure-identity-management-and-access-control-security-best-practices"></a>Meilleures pratiques en matière de sécurité du contrôle d’accès et de la gestion des identités Azure
 
@@ -113,7 +113,7 @@ Il existe plusieurs options pour exiger une vérification en deux étapes. La me
 
 Voici les options et les avantages de la vérification en deux étapes :
 
-**Option 1** : [Activer l’authentification multifacteur en modifiant l’état de l’utilisateur](../active-directory/authentication/howto-mfa-userstates.md#enable-azure-mfa-by-changing-user-status).   
+**Option 1** : [Activer l’authentification multifacteur en modifiant l’état de l’utilisateur](../active-directory/authentication/howto-mfa-userstates.md).   
 **Avantage** : c’est la méthode traditionnelle pour exiger une vérification en deux étapes. Elle fonctionne avec [l’authentification multifacteur Azure dans le cloud et le serveur Multi-Factor Authentication Azure](../active-directory/authentication/concept-mfa-whichversion.md). Cette méthode nécessite que les utilisateurs effectuent la vérification en deux étapes chaque fois qu’ils se connectent, puis remplace les stratégies d’accès conditionnel.
 
 **Option 2** : [Activer l’authentification multifacteur avec une stratégie d’accès conditionnel](../active-directory/authentication/howto-mfa-getstarted.md#enable-multi-factor-authentication-with-conditional-access).   
@@ -121,7 +121,7 @@ Voici les options et les avantages de la vérification en deux étapes :
 
 Il s’agit de la méthode la plus souple pour activer la vérification en deux étapes pour vos utilisateurs. Activer une stratégie d’accès conditionnel fonctionne uniquement pour l’authentification multifacteur Azure dans le cloud, et c’est une fonctionnalité payante d’Azure AD. Vous pouvez trouver plus d’informations sur cette méthode dans [Déployer une authentification multifacteur Azure basée sur le cloud](../active-directory/authentication/howto-mfa-getstarted.md).
 
-**Option 3**: activer l’authentification multifacteur avec des stratégies d’accès conditionnel en évaluant les risques de l’utilisateur et de la connexion d’[Azure AD Identity Protection](../active-directory/active-directory-identityprotection.md).   
+**Option 3**: activer l’authentification multifacteur avec des stratégies d’accès conditionnel en évaluant les risques de l’utilisateur et de la connexion d’[Azure AD Identity Protection](../active-directory/authentication/tutorial-risk-based-sspr-mfa.md).   
 **Avantage**: cette option vous permet de :
 
 - Détecter des vulnérabilités potentielles qui affectent les identités de votre organisation.
@@ -131,7 +131,7 @@ Il s’agit de la méthode la plus souple pour activer la vérification en deux 
 Cette méthode utilise l’évaluation de risques d’Azure AD Identity Protection pour déterminer si la vérification en deux étapes est exigée en se basant sur les risques de l’utilisateur et de la connexion pour toutes les applications cloud. Cette méthode requiert une licence Azure Active Directory P2. Vous trouverez plus d’informations sur cette méthode dans [Azure Active Directory Identity Protection](../active-directory/identity-protection/overview.md).
 
 > [!Note]
-> Option 1, l’activation de l’authentification multifacteur en modifiant l’état de l’utilisateur, remplace les stratégies conditionnelles. Étant donné que les options 2 et 3 utilisent des stratégies d’accès conditionnel, vous ne pouvez pas utiliser l’option 1 avec elles.
+> Option 1, l’activation de Multi-Factor Authentication en changeant l’état de l’utilisateur remplace les stratégies d’accès conditionnel. Étant donné que les options 2 et 3 utilisent des stratégies d’accès conditionnel, vous ne pouvez pas utiliser l’option 1 avec elles.
 
 Les organisations qui n’ajoutent pas de couche supplémentaire de protection d’identité, comme la vérification en deux étapes, sont plus sensibles au vol d’informations d’identification. Le vol d’informations d’identification peut entraîner une compromission des données.
 

@@ -4,16 +4,16 @@ description: Cet article vous fournit des liens vers les informations sur les so
 services: active-directory-b2c
 author: davidmu1
 ms.author: davidmu
-ms.date: 09/07/2018
+ms.date: 10/11/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: b2c
-ms.openlocfilehash: bdacbe425aa3140f8a3d60fdf121712d1e6eda3e
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 74598aa83a9ed47ee85ef71593745faccfb81ee3
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541600"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165945"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Solutions et formations pour Azure Active Directory B2C
 
@@ -22,6 +22,7 @@ Azure Active Directory (Azure AD) B2C permet aux organisations d’implémenter 
 | Intitulé | Description |
 | ----- | ----------- |
 | [Gestion des identités client avec Azure AD B2C](https://channel9.msdn.com/Shows/On-NET/Customer-Identity-Management-with-Azure-AD-B2C) | Dans cette présentation, Parakh Jain ([@jainparakh](https://twitter.com/jainparakh)), de l’équipe Azure AD B2C, nous fournit une vue d’ensemble du fonctionnement du service. Il nous montre également comment connecter rapidement B2C à une application ASP.NET Core. |
+| [Avantages liés à l’utilisation d’Azure AD B2C](https://aka.ms/b2coverview) | Comprendre les avantages et les scénarios courants d’Azure AD B2C ainsi que la façon dont vos applications peuvent exploiter ce service de gestion des accès et des identités des clients. |
 | [Gaining Expertise in Azure AD B2C: A Course for Developers](https://aka.ms/learnAADB2C) (Acquisition de savoir-faire pour Azure AD B2C : cours destiné aux développeurs) | Ce cours de bout en bout présente aux développeurs le développement d’applications avec Azure AD B2C comme mécanisme d’authentification. Les dix modules approfondis accompagnés de labos couvrent tous les domaines concernés, de la configuration d’un abonnement Azure à la création de stratégies personnalisées qui définissent les parcours qui impliquent vos clients. |
 | [Enabling partners, Suppliers, and Customers to Access Applications with Azure active Directory](https://aka.ms/aadexternalidentities) (Pour que les partenaires, fournisseurs et clients accèdent aux applications avec Azure Active Directory) | La réussite des organisations, quels que soient leur taille, leur secteur ou leur position en matière de conformité et de sécurité, dépend de leur capacité à collaborer avec d’autres organisations et à communiquer avec les clients.<br><br>En rassemblant Azure AD, Azure AD B2C et Azure AD B2B Collaboration, ce guide décrit en détail la valeur métier et les mécanismes de création d’une expérience web ou d’une application qui fournit une expérience d’authentification consolidée adaptée aux contextes de vos employés, partenaires, fournisseurs et clients. |
 | [Migrating Application Authentication to Azure AD B2C in a Hybrid Environment](https://aka.ms/MigratetoAADB2C) (Migration de l’authentification d’application vers Azure AD B2C dans un environnement hybride) | Dans les organisations modernes d’aujourd’hui, la transformation numérique et la migration vers le cloud se déroulent étape par étape, ce qui demande à la plupart des organisations de fonctionner au moins temporairement dans un environnement d’identité hybride.<br><br>Ce guide est consacré à la création d’un plan de migration pour déplacer votre première application vers Azure AD B2C et couvre les éléments à prendre en compte pour effectuer cette migration dans un environnement d’identité hybride. |

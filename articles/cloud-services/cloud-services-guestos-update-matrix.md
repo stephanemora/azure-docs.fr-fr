@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/13/2018
+ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: 239482151384ff555d86e3d639bfe1d75b0d0ceb
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 5a9f8e332aae72d6fb0ce2f697a41391a51c44b6
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604890"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49376667"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -43,6 +43,9 @@ Vous ne savez pas comment mettre à jour votre système d’exploitation invité
 
 ## <a name="news-updates"></a>Nouvelles mises à jour
 
+###### <a name="october-12-2018"></a>**12 octobre 2018**
+Publication du système d’exploitation invité du mois de septembre.
+
 ###### <a name="september-12-2018"></a>**12 septembre 2018**
 Publication du système d’exploitation invité du mois d’août.
 
@@ -58,115 +61,67 @@ Le système d’exploitation invité de mai a été publié.
 ###### <a name="may-4-2018"></a>**4 mai 2018**
 Le système d’exploitation invité d’avril a été publié.
 
-###### <a name="april-6-2018"></a>**6 avril 2018**
-Le système d’exploitation invité de mars a été publié.
-
-###### <a name="march-19-2018"></a>**19 mars 2018**
-Le SE invité de février a publié.
-
-###### <a name="january-29-2018"></a>**29 janvier 2018**
-Le système d’exploitation invité de janvier a été publié pour les familles de système d’exploitation 2 (WA-GUEST-OS-2.70_201801-01) & 3 (WA-GUEST-OS-3.57_201801-01)
-
-###### <a name="january-4-2018"></a>**4 janvier 2018**
-Le système d’exploitation invité de janvier a été publié pour les familles de système d’exploitation 4 (WA-GUEST-OS-4.50_201801-01) et 5 (WA-GUEST-OS-5.15_201801-01). Il contient des correctifs de sécurité importants.  
-
-###### <a name="january-4-2018"></a>**4 janvier 2018**
-Le système d’exploitation invité de décembre a été publié.
-
-###### <a name="december-14-2017"></a>**14 décembre 2017**
-Le système d’exploitation invité de novembre a été publié.
-
-###### <a name="november-8-2017"></a>**8 novembre 2017**
-Publication de l’OS invité octobre.
-
-
 
 ## <a name="releases"></a>Publications
 ## <a name="family-5-releases"></a>Publications de famille 5
 **Windows Server 2016**
 
-.NET Framework est installé : 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+.NET Framework installé : 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
-> Le mot de passe RDP pour la famille 5 de SE doit comporter au moins 10 caractères.
+> Le mot de passe RDP pour la famille 5 de SE doit comporter au moins 10 caractères.
 >
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-5.23_201809-01 |12 octobre 2018 |Post 5.25 |
 | WA-GUEST-OS-5.22_201808-01 |12 septembre 2018 |Post 5.24 |
-| WA-GUEST-OS-5.21_201807-02 |3 août 2018 |Post 5.23 |
+|~~WA-GUEST-OS-5.21_201807-02~~ |3 août 2018 |12 octobre 2018 |
 |~~WA-GUEST-OS-5.20_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
 |~~WA-GUEST-OS-5.19_201805-01~~ |1er juin 2018 |3 août 2018 |
 |~~WA-GUEST-OS-5.18_201804-01~~ |4 mai 2018 |3 juillet 2018 |
-|~~WA-GUEST-OS-5.17_201803-01~~ |6 avril 2018 |1er juin 2018|
-|~~WA-GUEST-OS-5.16_201802-01~~ |12 mars 2018 |4 mai 2018 |
-|~~WA-GUEST-OS-5.15_201801-01~~ |4 janvier 2018 |6 avril 2018 |
-|~~WA-GUEST-OS-5.14_201712-01~~ |4 janvier 2018 |12 mars 2018 |
-|~~WA-GUEST-OS-5.13_201711-01~~ |14 décembre 2017 |4 janvier 2018|
-|~~WA-GUEST-OS-5.12_201710-02~~ |8 novembre 2017 |4 janvier 2018 |
-
 
 ## <a name="family-4-releases"></a>Publications de famille 4
 **Windows Server 2012 R2**
 
-.NET Framework est installé : 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework installé : 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-4.58_201809-01 |12 octobre 2018 |Post 4.60 |
 | WA-GUEST-OS-4.57_201808-01 |12 septembre 2018 |Post 4.59 |
-| WA-GUEST-OS-4.56_201807-02 |3 août 2018 |Post 4.58 |
+|~~WA-GUEST-OS-4.56_201807-02~~ |3 août 2018 |12 octobre 2018 |
 |~~WA-GUEST-OS-4.55_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
 |~~WA-GUEST-OS-4.54_201805-01~~ |1er juin 2018 |3 août 2018 |
 |~~WA-GUEST-OS-4.53_201804-01~~ |4 mai 2018 |3 juillet 2018 |
-|~~WA-GUEST-OS-4.52_201803-01~~ |6 avril 2018 |1er juin 2018 |
-|~~WA-GUEST-OS-4.51_201802-01~~ |12 mars 2018 |4 mai 2018 |
-|~~WA-GUEST-OS-4.50_201801-01~~ |4 janvier 2018 |6 avril 2018 |
-|~~WA-GUEST-OS-4.49_201712-01~~ |4 janvier 2018 |12 mars 2018 |
-|~~WA-GUEST-OS-4.48_201711-01~~ |14 décembre 2017 |4 janvier 2018 |
-|~~WA-GUEST-OS-4.47_201710-02~~ |8 novembre 2017 |4 janvier 2018 |
-
 
 ## <a name="family-3-releases"></a>Publications de famille 3
 **Windows Server 2012**
 
-.NET Framework est installé : 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework installé : 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-3.65_201809-01 |12 octobre 2018 |Post 3.67 |
 | WA-GUEST-OS-3.64_201808-01 |12 septembre 2018 |Post 3.66 |
-| WA-GUEST-OS-3.63_201807-02 |3 août 2018 |Post 3.65 |
+|~~WA-GUEST-OS-3.63_201807-02~~ |3 août 2018 |12 octobre 2018 |
 |~~WA-GUEST-OS-3.62_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
 |~~WA-GUEST-OS-3.61_201805-01~~ |1er juin 2018 |3 août 2018 |
 |~~WA-GUEST-OS-3.60_201804-01~~ |4 mai 2018 |3 juillet 2018 |
-|~~WA-GUEST-OS-3.59_201803-01~~ |6 avril 2018 |1er juin 2018 |
-|~~WA-GUEST-OS-3.58_201802-01~~ |19 mars 2018 |4 mai 2018 |
-|~~WA-GUEST-OS-3.57_201801-01~~ |29 janvier 2018 |6 avril 2018 |
-|~~WA-GUEST-OS-3.56_201712-01~~ |4 janvier 2018 |19 mars 2018 |
-|~~WA-GUEST-OS-3.55_201711-01~~ |14 décembre 2017 |29 janvier 2018 |
-|~~WA-GUEST-OS-3.54_201710-02~~ |8 novembre 2017 |4 janvier 2018 |
-
 
 ## <a name="family-2-releases"></a>Publications de famille 2
 **Windows Server 2008 R2 SP1**
 
-.NET Framework est installé : 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework installé : 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
+| WA-GUEST-OS-2.78_201809-01 |12 octobre 2018 |Post 2.80 |
 | WA-GUEST-OS-2.77_201808-01 |12 septembre 2018 |Post 2.79 |
-| WA-GUEST-OS-2.76_201807-02 |3 août 2018 |Post 2.78 |
+|~~WA-GUEST-OS-2.76_201807-02~~ |3 août 2018 |12 octobre 2018 |
 |~~WA-GUEST-OS-2.75_201806-01~~ |3 juillet 2018 |12 septembre 2018 |
 |~~WA-GUEST-OS-2.74_201805-01~~ |1er juin 2018 |3 août 2018|
 |~~WA-GUEST-OS-2.73_201804-01~~ |4 mai 2018 |3 juillet 2018 |
-|~~WA-GUEST-OS-2.72_201803-01~~ |6 avril 2018 |1er juin 2018 |
-|~~WA-GUEST-OS-2.71_201802-01~~ |12 mars 2018 |4 mai 2018 |
-|~~WA-GUEST-OS-2.70_201801-01~~ |29 janvier 2018 |6 avril 2018 |
-|~~WA-GUEST-OS-2.69_201712-01~~ |4 janvier 2018 |12 mars 2018 |
-|~~WA-GUEST-OS-2.68_201711-01~~ |14 décembre 2017 |29 janvier 2018 |
-|~~WA-GUEST-OS-2.67_201710-02~~ |8 novembre 2017 |4 janvier 2018 |
-|~~WA-GUEST-OS-2.66_201709-01~~ |6 octobre 2017 |14 décembre 2017 |
-|~~WA-GUEST-OS-2.65_201708-01~~ |24 août 2017 |14 décembre 2017 |
-
 
 ## <a name="msrc-patch-updates"></a>Mises à jour correctives MSRC
 La liste des correctifs inclus dans chaque publication mensuelle du SE invité est disponible [ici][patches].
@@ -174,7 +129,7 @@ La liste des correctifs inclus dans chaque publication mensuelle du SE invité e
 ## <a name="sdk-support"></a>Prise en charge des Kits de développement logiciel (SDK)
 La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Azure][retire policy sdk] indique que seules les versions postérieures à la version 2.2 sont prises en charge. Cependant, certaines familles de SE invités permettent l’utilisation de versions antérieures. Vous devez toujours utiliser le Kit de développement logiciel (SDK) pris en charge le plus récent.
 
-| Famille de SE invité | Versions du Kit de développement logiciel (SDK) compatibles |
+| Famille de système d’exploitation invité | Versions de kit SDK compatibles |
 | --- | --- |
 | 5. |Versions 2.9.5.1 et ultérieures |
 | 4 |Versions 2.1 et ultérieures |
@@ -182,14 +137,14 @@ La [stratégie de déclassement pour le Kit de développement logiciel (SDK) Azu
 | 2 |Versions 1.3 et ultérieures |
 | 1 |Versions 1.0 et ultérieures |
 
-## <a name="guest-os-release-information"></a>Informations de publication du SE invité
+## <a name="guest-os-release-information"></a>Informations de publication du système d’exploitation invité
 Trois dates sont importantes à propos des publications du SE invité : la date de **publication**, la date de **désactivation** et la date **d’expiration**. Un SE invité est considéré comme disponible quand il est proposé dans le portail et qu’il peut être sélectionné comme SE invité cible. Quand un SE invité atteint sa date de **désactivation**, il est supprimé d’Azure. Toutefois, tous les services cloud qui ciblent ce SE invité continuent de fonctionner normalement.
 
 Durant la période entre la date de **désactivation** et la date **d’expiration**, vous pouvez facilement passer de votre SE invité actuel à une version plus récente. Si vous utilisez la mise à jour *automatique* pour votre SE invité, vous disposez toujours de la version la plus récente. Vous n’avez donc pas à vous soucier de la date d’expiration.
 
 Après la date **d’expiration** du SE invité, tous les services cloud qui utilisent encore ce SE invité sont arrêtés, supprimés ou mis à niveau de manière forcée. Des informations supplémentaires sur la stratégie de déclassement sont fournies [ici][retirepolicy].
 
-## <a name="guest-os-family-version-explanation"></a>Informations sur les versions des familles de SE invité
+## <a name="guest-os-family-version-explanation"></a>Informations sur les versions des familles de système d’exploitation invité
 Les familles de SE invité sont basées sur les versions publiées de Microsoft Windows Server. Le SE invité est le système d’exploitation sous-jacent sur lequel s’exécute Azure Cloud Services. Chaque SE invité possède un numéro de famille, de version et de publication.
 
 * **Guest OS family**  
@@ -209,7 +164,7 @@ Dans l’exemple ci-dessous, 2 est la famille, 12 est la version et « rel2
 
 Ces informations sont intégrées dans la chaîne de configuration d’un SE invité, ainsi qu’une date indiquant les correctifs MSRC envisagés pour cette publication. Dans cet exemple, les correctifs MSRC produits pour Windows Server 2008 R2 jusqu’à août 2012 inclus ont été envisagés pour l’inclusion. Seuls les correctifs s’appliquant spécifiquement à cette version de Windows Server sont inclus. Par exemple, si un correctif logiciel de MSRC s’applique à Microsoft Office, il ne sera pas inclus, car ce produit ne fait pas partie de l’image de base de Windows Server.
 
-## <a name="guest-os-system-update-process"></a>Processus de mise à jour du SE invité
+## <a name="guest-os-system-update-process"></a>Processus de mise à jour du système d’exploitation invité
 Cette page contient des informations sur les prochaines publications de SE invités. Les clients ont indiqué qu’ils souhaitent être informés lors d’une publication, car leurs rôles de service cloud redémarreront s’ils sont définis pour la mise à jour « Automatique ». Les publications de systèmes d’exploitation invités ont généralement lieu 2 à 3 jours au moins après la publication de mise à jour MSRC survenant le deuxième mardi de chaque mois. Les nouvelles publications incluent tous les correctifs MSRC adéquats pour chaque famille de SE invité.
 
 Microsoft Azure publie constamment des mises à jour. Le SE invité n’est qu’une mise à jour parmi d’autres. Une version peut être affectée par de nombreux facteurs trop nombreux pour être répertoriés ici. En outre, Azure s’exécute sur des centaines de milliers d’ordinateurs. Cela signifie qu’il est impossible de donner une date et une heure précises pour le redémarrage de vos rôles. Nous travaillons sur un plan visant à limiter ou minuter les redémarrages.
@@ -220,7 +175,7 @@ Pour consulter un grand nombre d’informations utiles sur les redémarrages et 
 
 Si vous procédez à une mise à jour manuelle de votre SE invité, consultez la page [Stratégie de suppression du SE invité][retirepolicy] pour plus d’informations.
 
-## <a name="guest-os-supportability-and-retirement-policy"></a>Prise en charge et stratégie de suppression du SE invité
+## <a name="guest-os-supportability-and-retirement-policy"></a>Stratégie de prise en charge et de suppression du système d’exploitation invité
 La prise en charge et la stratégie de suppression du SE invité sont détaillées [ici][retirepolicy].
 
 [cloud updates]: https://docs.microsoft.com/azure/cloud-services/cloud-services-update-azure-service

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7208eb112b5f4a5b458c0374541dff113906aa0c
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47186320"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49400420"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -146,7 +146,7 @@ Les disques SSD Standard sont des disques standard à semi-conducteur, optimisé
 Toutes les régions Azure prennent actuellement en charge les disques SSD Standard.
 
 **La Sauvegarde Azure est-elle disponible pendant l’utilisation de disques SSD Standard ?**
-Non, la Sauvegarde Azure n’est pas encore disponible.
+Oui, le service Sauvegarde Azure est à présent disponible.
 
 **Comment faire pour créer des disques SSD Standard ?**
 Vous pouvez créer des disques SSD Standard en utilisant des modèles Azure Resource Manager, le kit SDK, PowerShell ou CLI. Les paramètres suivants sont nécessaires dans le modèle Resource Manager pour créer des disques SSD Standard :
@@ -171,7 +171,7 @@ L’exemple suivant illustre la section *properties.storageProfile.osDisk* d’u
 Si vous souhaitez un exemple de modèle complet de création d’un disque SSD Standard, consultez [Créer une machine virtuelle à partir d’une image Windows avec des disques de données SSD Standard](https://github.com/azure/azure-quickstart-templates/tree/master/101-vm-with-standardssd-disk/).
 
 **Puis-je convertir mes disques existants en disques SSD standard ?**
-Oui, vous pouvez. Reportez-vous à [Convertir le stockage Managed Disks Azure de standard en premium, et vice versa](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/convert-disk-storage) pour des recommandations générales relatives à la conversion des disques gérés. Et utilisez la valeur suivante pour mettre à jour le type de disque vers un disque SSD standard.
+Oui, vous pouvez. Reportez-vous à [Convertir le stockage Managed Disks Azure de standard en premium, et vice versa](https://docs.microsoft.com/azure/virtual-machines/windows/convert-disk-storage) pour des recommandations générales relatives à la conversion des disques gérés. Et utilisez la valeur suivante pour mettre à jour le type de disque vers un disque SSD standard.
 -AccountType StandardSSD_LRS
 
 **Quel est l’avantage d’utiliser des disques SSD Standard au lieu des disques HDD ?**

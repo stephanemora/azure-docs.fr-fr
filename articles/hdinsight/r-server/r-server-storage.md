@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 5bd5919efa84f2dd22929075b806747b413ac346
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4c3b36891030ae97f382d5e1d0623fa7c698dbf6
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051791"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49395076"
 ---
 # <a name="azure-storage-solutions-for-ml-services-on-azure-hdinsight"></a>Solutions de stockage Azure pour ML Services sur Azure HDInsight
 
@@ -159,7 +159,7 @@ Les commandes suivantes permettent de configurer le compte Data Lake Store avec 
 
 ## <a name="use-azure-file-storage-with-ml-services-on-hdinsight"></a>Utiliser le Stockage Fichier Azure avec ML Services sur HDInsight
 
-Il existe également une option de stockage de données pratique pour le nœud de périmètre, nommée [Azure Files]((https://azure.microsoft.com/services/storage/files/). Elle vous permet de monter un partage de fichiers Azure Storage sur le système de fichiers Linux. Cette option peut être utile pour stocker des fichiers de données, des scripts R et des objets de résultats qui pourront se révéler nécessaires par la suite, lorsqu’il sera judicieux d’utiliser le système de fichiers natif sur le nœud périphérique plutôt que HDFS. 
+Il existe également une option de stockage de données pratique pour le nœud de périmètre, nommée [Azure Files](https://azure.microsoft.com/services/storage/files/). Elle vous permet de monter un partage de fichiers Azure Storage sur le système de fichiers Linux. Cette option peut être utile pour stocker des fichiers de données, des scripts R et des objets de résultats qui pourront se révéler nécessaires par la suite, lorsqu’il sera judicieux d’utiliser le système de fichiers natif sur le nœud périphérique plutôt que HDFS. 
 
 Le principal avantage des fichiers Azure est que les partages de fichiers peuvent être montés et utilisés par tout système disposant d’un système d’exploitation pris en charge, tel que Windows ou Linux. Par exemple, ils peuvent être utilisés par un autre cluster HDInsight que vous ou un membre de votre équipe avez, par une machine virtuelle Azure ou même par un système local. Pour plus d'informations, consultez les pages suivantes :
 

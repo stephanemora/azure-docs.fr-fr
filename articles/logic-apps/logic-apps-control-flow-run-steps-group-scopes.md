@@ -3,21 +3,21 @@ title: Ajouter des étendues exécutant des actions en fonction en fonction de l
 description: Comment créer des étendues qui exécutent des actions de workflow en fonction de l’état d’action du groupe dans Azure Logic Apps
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
 manager: jeconnoc
-ms.date: 03/05/2018
-ms.topic: article
 ms.reviewer: klam, LADocs
-ms.suite: integration
-ms.openlocfilehash: 1258175eb3d28d39be8be08498ba8d2e0998aa43
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.date: 10/03/2018
+ms.topic: article
+ms.openlocfilehash: ac184ce790a0700fcacc63f70c2bb321142d7224
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298812"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320541"
 ---
-# <a name="create-scopes-that-run-workflow-actions-based-on-group-status-in-azure-logic-apps"></a>Créer des étendues qui exécutent des actions de workflow en fonction de l’état du groupe dans Azure Logic Apps
+# <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Exécuter des actions de workflow en fonction de l’état du groupe avec des étendues dans Azure Logic Apps
 
 Pour exécuter des actions uniquement après l’échec ou la réussite d’un groupe d’actions, placez ce groupe dans une *étendue*. Cette structure est utile lorsque vous souhaitez organiser les actions en tant que groupe logique, évaluer l’état de ce groupe et effectuer des actions qui sont basées sur l’état de l’étendue. Une fois que toutes les actions d’une étendue ont été exécutées, l’étendue récupère également son propre état. Par exemple, vous pouvez utiliser des étendues lorsque vous souhaitez implémenter la [gestion des erreurs et des exceptions](../logic-apps/logic-apps-exception-handling.md#scopes). 
 
@@ -54,14 +54,14 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
 1. Si ce n’est pas déjà fait, connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azure</a>. Créez une application logique vide.
 
-2. Ajouter le déclencheur **Planification - Périodicité** avec ces paramètres : **Intervalle** = « 1 » et **Fréquence** = « Minute »
+1. Ajouter le déclencheur **Planification - Périodicité** avec ces paramètres : **Intervalle** = « 1 » et **Fréquence** = « Minute »
 
    ![Configurer le déclencheur « Planification - Périodicité »](./media/logic-apps-control-flow-run-steps-group-scopes/recurrence.png)
 
    > [!TIP]
    > Pour simplifier l’affichage et masquer les détails de chaque action dans le concepteur, réduisez la forme de chaque action au cours de ces étapes.
 
-3. Ajoutez l’action **Bing Maps - Obtenir un itinéraire**. 
+1. Ajoutez l’action **Bing Maps - Obtenir un itinéraire**. 
 
    1. Si vous ne disposez pas d’une connexion à Bing Maps, vous êtes invité à en créer une.
 
@@ -71,7 +71,7 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
       | **Clé API** | <*your-Bing-Maps-key*> | Entrez la clé Bing Cartes que vous avez reçue précédemment. | 
       ||||  
 
-   2. Configurez votre action **Obtenir un itinéraire**, comme le montre le tableau sous cette image :
+   1. Configurez votre action **Obtenir un itinéraire**, comme le montre le tableau sous cette image :
 
       ![Configurer l’action « Bing Maps - Obtenir un itinéraire »](./media/logic-apps-control-flow-run-steps-group-scopes/get-route.png) 
 
@@ -89,45 +89,50 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
       | **Type de date et heure de transit** | Aucun | S’applique au mode transit uniquement. | 
       ||||  
 
-4. Ajoutez une condition pour vérifier si le temps de trajet actuel dépasse une durée spécifiée. Pour cet exemple, suivez les étapes sous cette image :
+1. [Ajoutez une condition](../logic-apps/logic-apps-control-flow-conditional-statement.md) qui vérifie si le temps de trajet actuel dépasse une durée spécifiée. Pour cet exemple, suivez ces étapes :
 
-   ![Créer une condition](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
+   1. Renommez la condition avec cette description : **Si le temps de trajet est supérieur au temps spécifié**
 
-   1. Renommez la condition avec cette description : **Si le temps de trajet est supérieur au temps spécifié**
+   1. Dans la colonne de gauche, cliquez à l’intérieur de la zone **Choisir une valeur** pour afficher la liste de contenu dynamique. Dans cette liste, sélectionnez le champ **Travel Duration Traffic** (Trafic correspondant à la durée du trajet), qui est exprimé en secondes. 
 
-   2. Dans la liste des paramètres, sélectionnez le champ **Travel Duration Traffic** (Trafic correspondant à la durée du trajet), qui est exprimé en secondes. 
+      ![Créer une condition](./media/logic-apps-control-flow-run-steps-group-scopes/build-condition.png)
 
-   3. Sélectionnez cet opérateur de comparaison : **est supérieur à**
+   1. Dans la zone du milieu, sélectionnez cet opérateur : **est supérieur à**.
 
-   4. Pour la valeur de comparaison, entrez **600**, qui est exprimé en secondes et correspond à 10 minutes.
+   1. Dans la colonne la plus à droite, entrez cette valeur de comparaison, équivalente à 10 minutes en secondes : **600**
 
-5. Dans de la branche **If true** (Si true) de la condition, ajoutez une action « Envoyer e-mail » pour votre fournisseur de messagerie. Configurez cette action avec les détails comme indiqué dans le tableau sous cette image :
+      Une fois que vous avez terminé, votre condition ressemble à cet exemple :
+
+      ![Condition terminée](./media/logic-apps-control-flow-run-steps-group-scopes/finished-condition.png)
+
+1. Dans de la branche **If true** (Si true), ajoutez une action « Envoyer e-mail » pour votre fournisseur d’e-mail. Définissez cette action en suivant les étapes décrites sous cette image :
 
    ![Ajouter une action « Envoyer e-mail » à la branche « If true » (Si true)](./media/logic-apps-control-flow-run-steps-group-scopes/send-email.png)
 
-   1. Pour le champ **To** (À), entrez votre adresse e-mail à des fins de test.
+   1. Dans le champ **À**, entrez votre adresse e-mail à des fins de test.
 
-   2. Pour le champ **Sujet**, entrez ce texte :
+   1. Dans le champ **Sujet**, entrez ce texte :
 
       ```Time to leave: Traffic more than 10 minutes```
 
-   3. Pour le champ **Corps**, entrez ce texte avec un espace de fin : 
+   1. Dans le champ **Corps**, entrez ce texte avec un espace de fin : 
 
       ```Travel time: ```
 
       Alors que le curseur s’affiche dans le champ **Corps**, la liste de contenu dynamique reste ouverte afin que vous puissiez sélectionner tous les paramètres qui sont disponibles à ce stade.
 
-   4. Dans la liste de contenu dynamique, choisissez **Expression**.
+   1. Dans la liste de contenu dynamique, choisissez **Expression**.
 
-   5. Recherchez et sélectionnez la fonction **div( )**.
+   1. Recherchez et sélectionnez la fonction **div()**. 
+   Placez votre curseur dans les parenthèses de la fonction.
 
-   6. Alors que votre curseur se trouve dans les parenthèses de la fonction, choisissez **Contenu dynamique** afin d’ajouter ensuite le paramètre **Travel Duration Traffic** (Trafic correspondant à la durée du trajet).
-
-   7. Sous **Obtenir un itinéraire** dans la liste des paramètres dynamiques, sélectionnez le champ **Travel Duration Traffic** (Trafic correspondant à la durée du trajet).
+   1. Alors que votre curseur se trouve dans les parenthèses de la fonction, choisissez **Contenu dynamique** pour afficher la liste de contenu dynamique. 
+   
+   1. À partir de la section **Obtenir un itinéraire**, sélectionnez le champ **Travel Duration Traffic** (Trafic correspondant à la durée du trajet).
 
       ![Sélectionner « Travel Duration Traffic » (Trafic correspondant à la durée du trajet)](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-2.png)
 
-   8. Une fois que le champ correspond au format JSON, ajoutez une **virgule** (```,```) suivie du nombre ```60``` afin de convertir la valeur dans **Travel Duration Traffic** (Trafic correspondant à la durée du trajet) exprimée en secondes en minutes. 
+   1. Une fois que le champ correspond au format JSON, ajoutez une **virgule** (```,```) suivie du nombre ```60``` afin de convertir la valeur dans **Travel Duration Traffic** (Trafic correspondant à la durée du trajet) exprimée en secondes en minutes. 
    
       ```
       div(body('Get_route')?['travelDurationTraffic'],60)
@@ -137,15 +142,15 @@ Vous pouvez enregistrer votre application logique à tout moment, par conséquen
 
       ![Expression finale](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-3.png)  
 
-   9. Pensez à cliquer sur **OK** lorsque vous avez terminé.
+   1. Une fois que vous avez terminé, sélectionnez **OK**.
 
-  10. Une fois l’expression résolue, ajoutez ce texte avec un espace de début : ``` minutes```
+  1. Une fois l’expression résolue, ajoutez ce texte avec un espace de début : ``` minutes```
   
-      Votre champ **Corps** ressemble maintenant à cet exemple :
+     Votre champ **Corps** ressemble maintenant à cet exemple :
 
-      ![Champ « Corps » final](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
+     ![Champ « Corps » final](./media/logic-apps-control-flow-run-steps-group-scopes/send-email-4.png)
 
-6. Enregistrez votre application logique.
+1. Enregistrez votre application logique.
 
 Ensuite, ajoutez une étendue afin que vous puissiez regrouper des actions spécifiques et évaluer leur état.
 
@@ -153,16 +158,19 @@ Ensuite, ajoutez une étendue afin que vous puissiez regrouper des actions spéc
 
 1. Si ce n’est pas déjà le cas, ouvrez votre application logique dans le concepteur d’application logique. 
 
-2. Ajoutez une étendue à l’emplacement du flux de travail que vous souhaitez. Par exemple : 
+1. Ajoutez une étendue à l’emplacement du flux de travail que vous souhaitez. Par exemple, pour ajouter une étendue entre des étapes existantes dans le workflow de l’application logique, effectuez les étapes suivantes : 
 
-   * Pour ajouter une étendue entre des étapes existantes du flux de travail de l’application logique, déplacez le pointeur sur la flèche où vous voulez ajouter l’étendue. 
-   Choisissez le **signe plus** (**+**) > **Ajouter une étendue**.
+   1. Déplacez votre pointeur sur la flèche où vous souhaitez ajouter l’étendue. 
+   Choisissez le **signe plus** (**+**) > **Ajouter une action**.
 
-     ![Ajouter une étendue](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
+      ![Ajouter une étendue](./media/logic-apps-control-flow-run-steps-group-scopes/add-scope.png)
 
-     Quand vous souhaitez ajouter une étendue à la fin de votre flux de travail, accédez au bas de votre application logique et sélectionnez **+ Nouvelle étape** > **...Plus** > **Ajouter une étendue**.
+   1. Dans la zone de recherche, entrez « étendue » comme filtre. 
+   Sélectionnez l’action **Étendue**.
 
-3. Ajoutez maintenant les étapes ou faites glisser les étapes que vous souhaitez exécuter dans l’étendue. Pour cet exemple, faites glisser ces actions dans l’étendue :
+## <a name="add-steps-to-scope"></a>Ajouter des étapes à l’étendue
+
+1. Ajoutez maintenant les étapes ou faites glisser les étapes que vous souhaitez exécuter dans l’étendue. Pour cet exemple, faites glisser ces actions dans l’étendue :
       
    * **Obtenir un itinéraire**
    * **Si le temps de trajet est supérieur au temps spécifié**, qui comprend les branches **true** et **false**
@@ -171,25 +179,50 @@ Ensuite, ajoutez une étendue afin que vous puissiez regrouper des actions spéc
 
    ![Étendue ajoutée](./media/logic-apps-control-flow-run-steps-group-scopes/scope-added.png)
 
-4. Sous l’étendue, ajoutez une condition qui vérifie l’état de l’étendue. Renommez la condition à l’aide de cette description : **Si l’étendue a échoué**
+1. Sous l’étendue, ajoutez une condition qui vérifie l’état de l’étendue. Renommez la condition à l’aide de cette description : **Si l’étendue a échoué**
 
    ![Ajouter une condition pour vérifier l’état de l’étendue](./media/logic-apps-control-flow-run-steps-group-scopes/add-condition-check-scope-status.png)
   
-5. Créez cette expression qui vérifie si l’état de l’étendue est égal à `Failed` ou `Aborted`.
+1. Dans la condition, ajoutez ces expressions qui vérifient si l’état de l’étendue est égal à « Échec » ou « Abandonné ». 
 
-   ![Ajouter l’expression qui vérifie l’état de l’étendue](./media/logic-apps-control-flow-run-steps-group-scopes/build-expression-check-scope-status.png)
+   1. Pour ajouter une ligne, choisissez **Ajouter**. 
 
-   Ou, pour entrer cette expression sous forme de texte, choisissez **Edit in advanced mode** (Modifier en mode avancé).
+   1. Dans chaque ligne, cliquez dans la zone de gauche pour afficher la liste de contenu dynamique. 
+   Dans la liste de contenu dynamique, choisissez **Expression**. Dans la zone d’édition, entrez cette expression, puis choisissez **OK** : 
+   
+      `result('Scope')[0]['status']`
 
-   ```@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')```
+      ![Ajouter l’expression qui vérifie l’état de l’étendue](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status.png)
 
-6. Dans les branches **If true** (Si true) et **If false** (Si false), ajoutez les actions que vous souhaitez effectuer, par exemple, envoyer un e-mail ou un message.
+   1. Pour les deux lignes, sélectionnez **est égal à** comme opérateur. 
+   
+   1. Pour les valeurs de comparaison, dans la première ligne, entrez `Failed`. 
+   Dans la deuxième ligne, entrez `Aborted`. 
 
-   ![Ajouter l’expression qui vérifie l’état de l’étendue](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+      Une fois que vous avez terminé, votre condition ressemble à cet exemple :
 
-7. Enregistrez votre application logique.
+      ![Ajouter l’expression qui vérifie l’état de l’étendue](./media/logic-apps-control-flow-run-steps-group-scopes/check-scope-status-finished.png)
 
-Votre application logique finale ressemble maintenant à cet exemple avec toutes les formes développées :
+      Maintenant, définissez la propriété `runAfter` de la condition afin que celle-ci vérifie l’état de l’étendue et exécute l’action correspondante que vous définissez dans les étapes ultérieures.
+
+   1. Sur la condition **Si l’étendue a échoué**, choisissez le bouton **points de suspension** (...), puis choisissez **Configurer la propriété Exécuter après**.
+
+      ![Configurer la propriété « runAfter »](./media/logic-apps-control-flow-run-steps-group-scopes/configure-run-after.png)
+
+   1. Sélectionnez tous ces états d’étendue : **a réussi**, **a échoué**, **est ignorée** et **a expiré**
+
+      ![Sélectionner les états de l’étendue](./media/logic-apps-control-flow-run-steps-group-scopes/select-run-after-statuses.png)
+
+   1. Quand vous avez fini, choisissez **Terminé**. 
+   La condition affiche maintenant une icône « informations ».
+
+1. Dans les branches **If true** (Si true) et **If false** (Si false), ajoutez les actions que vous souhaitez effectuer en fonction de chaque état d’étendue, par exemple, envoyer un e-mail ou un message.
+
+   ![Ajouter les actions à effectuer en fonction de l’état de l’étendue](./media/logic-apps-control-flow-run-steps-group-scopes/handle-true-false-branches.png)
+
+1. Enregistrez votre application logique.
+
+Votre application logique terminée ressemble maintenant à cet exemple :
 
 ![Application logique finale avec étendue](./media/logic-apps-control-flow-run-steps-group-scopes/scopes-overview.png)
 
@@ -210,7 +243,7 @@ Si vous travaillez en mode code, vous pouvez définir une structure d’étendue
     "recurrence": {
        "frequency": "Minute",
        "interval": 1
-    },
+    }
   }
 }
 ```
@@ -224,7 +257,7 @@ Si vous travaillez en mode code, vous pouvez définir une structure d’étendue
         "type": "ApiConnection",
         "inputs": {
           "body": {
-            "Body": "Scope failed",
+            "Body": "Scope failed. Scope status: @{result('Scope')[0]['status']}",
             "Subject": "Scope failed",
             "To": "<your-email@domain.com>"
           },
@@ -245,7 +278,7 @@ Si vous travaillez en mode code, vous pouvez définir une structure d’étendue
           "type": "ApiConnection",
           "inputs": {
             "body": {
-              "Body": "None",
+              "Body": "Scope succeeded. Scope status: @{result('Scope')[0]['status']}",
               "Subject": "Scope succeeded",
               "To": "<your-email@domain.com>"
             },
@@ -261,10 +294,28 @@ Si vous travaillez en mode code, vous pouvez définir une structure d’étendue
         }
       }
     },
-    "expression": "@equals('@result(''Scope'')[0][''status'']', 'Failed, Aborted')",
+    "expression": {
+      "or": [ 
+         {
+            "equals": [ 
+              "@result('Scope')[0]['status']", 
+              "Failed"
+            ]
+         },
+         {
+            "equals": [
+               "@result('Scope')[0]['status']", 
+               "Aborted"
+            ]
+         } 
+      ]
+    },
     "runAfter": {
       "Scope": [
-        "Succeeded"
+        "Failed",
+        "Skipped",
+        "Succeeded",
+        "TimedOut"
       ]
     }
   },
@@ -291,14 +342,14 @@ Si vous travaillez en mode code, vous pouvez définir une structure d’étendue
         },
         "runAfter": {}
       },
-      "If_traffic_time_more_than_specified_time": {
+      "If_traffic_time_is_more_than_specified_time": {
         "type": "If",
         "actions": {
           "Send_mail_when_traffic_exceeds_10_minutes": {
             "type": "ApiConnection",
             "inputs": {
               "body": {
-                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'], 60)} minutes",
+                 "Body": "Travel time:@{div(body('Get_route')?['travelDurationTraffic'],60)} minutes",
                  "Subject": "Time to leave: Traffic more than 10 minutes",
                  "To": "<your-email@domain.com>"
               },
@@ -313,7 +364,16 @@ Si vous travaillez en mode code, vous pouvez définir une structure d’étendue
             "runAfter": {}
           }
         },
-        "expression": "@greater(body('Get_route')?['travelDurationTraffic'], 600)",
+        "expression": {
+          "and" : [
+            {
+               "greater": [ 
+                  "@body('Get_route')?['travelDurationTraffic']", 
+                  600
+               ]
+            }
+          ]
+        },
         "runAfter": {
           "Get_route": [
             "Succeeded"
@@ -323,7 +383,7 @@ Si vous travaillez en mode code, vous pouvez définir une structure d’étendue
     },
     "runAfter": {}
   }
-}
+},
 ```
 
 ## <a name="get-support"></a>Obtenir de l’aide

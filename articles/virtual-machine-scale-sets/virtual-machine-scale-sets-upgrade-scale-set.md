@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2018
 ms.author: negat
-ms.openlocfilehash: 628d407869d24f466b5a7c056d51d76217e29798
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 49414b06010cf83c10bbc9519f2bced2126661a4
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46996653"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49322071"
 ---
 # <a name="modify-a-virtual-machine-scale-set"></a>Modifier un groupe de machines virtuelles identiques
 Tout au long du cycle de vie de vos applications, vous pourrez avoir besoin de modifier ou de mettre à jour votre groupe de machines virtuelles identiques. Ces mises à jour peuvent être liées à la configuration du groupe de machines ou à la modification de la configuration de l’application. Cet article décrit comment modifier un groupe identique avec les API REST, Azure PowerShell ou Azure CLI.
@@ -126,7 +126,7 @@ Ces propriétés fournissent un récapitulatif de l’état actuel de l’exécu
 
 
 ### <a name="the-scale-set-vm-model-view"></a>Vue de modèle des machines virtuelles du groupe identique
-Comme le groupe identique, chaque machine virtuelle a sa propre vue de modèle. Pour interroger la vue de modèle d’un groupe identique, vous pouvez utiliser :
+Comme le groupe identique, chaque instance de machine virtuelle a sa propre vue de modèle. Pour interroger la vue de modèle d’une instance de machine virtuelle d’un groupe identique, vous pouvez utiliser :
 
 - Les API REST API avec [compute/virtualmachinescalesetvms/get](/rest/api/compute/virtualmachinescalesetvms/get) comme suit :
 
@@ -162,11 +162,11 @@ $ az vmss show --resource-group myResourceGroup --name myScaleSet
 }
 ```
 
-Ces propriétés décrivent la configuration de la machine virtuelle, et non celle du groupe identique dans son ensemble. Par exemple, le modèle du groupe identique a la propriété `overprovision`, contrairement au modèle d’une machine virtuelle d’un groupe identique. En effet, le surprovisionnement est une propriété qui s’applique aux groupes identiques, et pas aux machines virtuelles qui les constituent (pour plus d’informations sur le surprovisionnement, consultez la section [Considérations relatives à la conception de groupes de machines virtuelles identiques](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
+Ces propriétés décrivent la configuration de l’instance de machine virtuelle, et non celle du groupe identique dans son ensemble. Par exemple, le modèle du groupe identique a la propriété `overprovision`, contrairement au modèle d’une instance de machine virtuelle d’un groupe identique. En effet, le surprovisionnement est une propriété qui s’applique aux groupes identiques, mais pas aux instances de machine virtuelle qui les constituent (pour plus d’informations sur le surprovisionnement, consultez la section [Considérations relatives à la conception de groupes de machines virtuelles identiques](virtual-machine-scale-sets-design-overview.md#overprovisioning)).
 
 
 ### <a name="the-scale-set-vm-instance-view"></a>Vue d’instance des machines virtuelles d’un groupe identique
-Comme le groupe identique, chaque machine virtuelle a sa propre vue d’instance. Pour interroger la vue d’instance d’un groupe identique, vous pouvez utiliser :
+Comme le groupe identique, chaque instance de machine virtuelle a sa propre vue d’instance. Pour interroger la vue d’instance d’une instance de machine virtuelle d’un groupe identique, vous pouvez utiliser :
 
 - Les API REST avec [compute/virtualmachinescalesetvms/getinstanceview](/rest/api/compute/virtualmachinescalesetvms/getinstanceview) comme suit :
 
@@ -239,7 +239,7 @@ $ az vmss get-instance-view --resource-group myResourceGroup --name myScaleSet -
 }
 ```
 
-Ces propriétés décrivent l’état actuel de l’exécution de la machine virtuelle, y compris celui des extensions appliquées au groupe identique.
+Ces propriétés décrivent l’état actuel de l’exécution de l’instance de machine virtuelle, qui inclut les extensions appliquées au groupe identique.
 
 
 ## <a name="how-to-update-global-scale-set-properties"></a>Comment mettre à jour les propriétés globales d’un groupe identique
@@ -377,7 +377,7 @@ Il est également courant de déployer des applications à l’aide d’une imag
 Si vous utilisez des images de plateforme Azure, vous pouvez les mettre à jour en modifiant *imageReference* (pour plus d’informations, consultez la [documentation de l’API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 
 >[!NOTE]
-> Avec les images de plateforme, il est courant de spécifier « latest » (dernière) pour la version de référence d’image. Cela signifie que lors de la création, de l’augmentation de la taille des instances et de la réinitialisation du groupe identique, les machines virtuelles sont créées avec la dernière version disponible. Toutefois, cela **ne signifie pas** que l’image du système d’exploitation sera automatiquement mise à jour à chaque nouvelle version d’image. Une fonction distincte, actuellement en version préliminaire, fournit des mises à niveau automatiques du système d’exploitation. Pour plus d’informations, consultez la [documentation relative aux mises à niveau automatiques du système d’exploitation](virtual-machine-scale-sets-automatic-upgrade.md).
+> Avec les images de plateforme, il est courant de spécifier « latest » (dernière) pour la version de référence d’image. Cela signifie que lors de la création, du scale-out et du réimageage du groupe identique, les machines virtuelles sont créées avec la dernière version disponible. Toutefois, cela **ne signifie pas** que l’image du système d’exploitation sera automatiquement mise à jour à chaque nouvelle version d’image. Une fonction distincte, actuellement en version préliminaire, fournit des mises à niveau automatiques du système d’exploitation. Pour plus d’informations, consultez la [documentation relative aux mises à niveau automatiques du système d’exploitation](virtual-machine-scale-sets-automatic-upgrade.md).
 
 Si vous utilisez des images personnalisées, vous pouvez les mettre à jour en modifiant l’ID *imageReference* (pour plus d’informations, consultez la [documentation de l’API REST](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/createorupdate)).
 

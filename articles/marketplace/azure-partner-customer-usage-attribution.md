@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: article
-ms.date: 10/05/2018
+ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 99df133b9f626f970189df578c6d107086b9dab9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a0b3c220a1cd857bc8bea0eb5ab41625845fcc5d
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854998"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365615"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribution de l’utilisation de client partenaire Azure
 
@@ -44,17 +44,19 @@ De nombreuses solutions de partenaires sont déployées pour l’abonnement d’
 
 Pour ajouter un identificateur global unique (GUID), vous devez apporter une modification unique au fichier de modèle principal :
 
-1. Créez un GUID (par exemple, eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. [Créez un GUID](#create-guids) (par exemple, eb7927c8-dd66-43e1-b0cf-c346a422063) et [inscrivez-le](#register-guids-and-offers).
 
 1. Ouvrez le modèle Resource Manager.
 
 1. Ajoutez une nouvelle ressource dans le fichier de modèle principal. Cette ressource doit être uniquement dans le fichier **mainTemplate.json** ou **azuredeploy.json**, et pas dans l’un des modèles imbriqués ou liés.
 
-1. Entrez la valeur GUID après le préfixe **pid-** (par exemple, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
+1. Entrez la valeur du GUID après le préfixe **pid-** (par exemple, pid-eb7927c8-dd66-43e1-b0cf-c346a422063).
 
 1. Recherchez d’éventuelles erreurs dans le modèle.
 
 1. Republiez le modèle dans les référentiels appropriés.
+
+1. [Vérifiez que le GUID a fonctionné dans le déploiement du modèle](#verify-the-guid-deployment).
 
 ### <a name="sample-template-code"></a>Exemple de code de modèle
 
@@ -99,6 +101,24 @@ Lorsque vous utilisez Azure CLI pour ajouter votre GUID, définissez la variable
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
+
+## <a name="create-guids"></a>Créer des GUID
+
+Un GUID désigne un numéro de référence unique à 32 chiffres hexadécimaux. Pour créer un GUID et effectuer son suivi, vous devez utiliser un générateur GUID. Il est recommandé d’utiliser le [formulaire Générateur de GUID de Stockage Azure](https://aka.ms/StoragePartners). Cependant, si vous préférez ne pas utiliser le Générateur de GUID de Stockage Azure, vous pouvez faire appel à l’un des divers [générateurs de GUID en ligne](https://www.bing.com/search?q=guid%20generator).
+
+> [!Note]
+> Nous vous recommandons vivement d’utiliser le [formulaire Générateur de GUID de Stockage Azure](https://aka.ms/StoragePartners) pour créer votre GUID. Pour plus d’informations, consultez notre [Forum Aux Questions (FAQ)](#faq).
+
+Créez un GUID unique pour chaque offre et canal de distribution. Si vous déployez deux solutions à l’aide d’un modèle, et si chacune d’elles est disponible sur la Place de marché Azure et sur GitHub, vous devez créer quatre GUID :
+
+*   Offre A sur la Place de marché Azure 
+*   Offre A sur GitHub
+*   Offre B sur la Place de marché Azure 
+*   Offre B sur GitHub
+
+La création de rapports est effectuée en fonction de la valeur de partenaire (ID partenaire Microsoft) et du GUID. 
+
+Vous pouvez également effectuer le suivi des GUID à un niveau plus granulaire, par exemple au niveau des références SKU, où les références SKU constituent des variantes d’une offre.
 
 ## <a name="register-guids-and-offers"></a>Inscrire des GUID et des offres
 
@@ -183,21 +203,6 @@ foreach ($deployment in $deployments){
 }
 ```
 
-## <a name="create-guids"></a>Créer des GUID
-
-Un GUID désigne un numéro de référence unique à 32 chiffres hexadécimaux. Pour créer un GUID et effectuer son suivi, vous devez utiliser un générateur GUID. Il existe plusieurs [générateurs de GUID en ligne](https://www.bing.com/search?q=guid%20generator&qs=n&form=QBRE&sp=-1&ghc=2&pq=guid%20g&sc=8-6&sk=&cvid=0BAFAFCD70B34E4296BB97FBFA3E1B4E) que vous pouvez utiliser.
-
-Créez un GUID unique pour chaque offre et canal de distribution. Si vous déployez deux solutions à l’aide d’un modèle, et si chacune d’elles est disponible sur la Place de marché Azure et sur GitHub, vous devez créer quatre GUID :
-
-*   Offre A sur la Place de marché Azure 
-*   Offre A sur GitHub
-*   Offre B sur la Place de marché Azure 
-*   Offre B sur GitHub
-
-La création de rapports est effectuée en fonction de la valeur de partenaire (ID partenaire Microsoft) et du GUID. 
-
-Vous pouvez également effectuer le suivi des GUID à un niveau plus granulaire, par exemple au niveau des références SKU, où les références SKU constituent des variantes d’une offre.
-
 ## <a name="notify-your-customers"></a>Informer vos clients
 
 Les partenaires doivent informer leurs clients des déploiements utilisant le suivi de GUID Resource Manager. Microsoft signale au partenaire l’utilisation d’Azure associée à ces déploiements. Les exemples suivants incluent le contenu que vous pouvez utiliser pour informer vos clients de ces déploiements. Dans les exemples, remplacez \<PARTNER> par le nom de votre entreprise. Les partenaires doivent s’assurer que la notification s’aligne sur leurs stratégies de confidentialité et de collecte de données, y compris sur les options relatives aux clients à exclure du suivi. 
@@ -275,3 +280,7 @@ Les clients peuvent effectuer le suivi de leur utilisation des ressources indivi
 **Est-ce que cette méthode de suivi est similaire au partenaire de référence numérique (DPOR) ?**
 
 Cette nouvelle méthode de connexion du déploiement et de l’utilisation à la solution d’un partenaire fournit un mécanisme permettant de lier une solution de partenaire à l’utilisation d’Azure. Le partenaire de référence numérique (DPOR) est destiné à associer un partenaire de conseil (intégrateur de systèmes) ou de gestion (fournisseur de services managés) à l’abonnement Azure d’un client.   
+
+**Quel avantage y a-t-il à utiliser le formulaire Générateur de GUID de Stockage Azure ?**
+
+Le formulaire Générateur de GUID de Stockage Azure est l’assurance de générer un GUID au format adéquat. De plus, si vous utilisez l’une des méthodes de suivi de plan de données de Stockage Azure, vous pouvez utiliser le même GUID pour le suivi de plan de contrôle de la Place de marché. Cela vous permet d’exploiter un même GUID unifié pour l’attribution Partenaire sans avoir à gérer plusieurs GUID.

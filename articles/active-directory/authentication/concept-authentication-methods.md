@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry, michmcla
-ms.openlocfilehash: 7776ca63dd5c02e470ead35e3dad73c051731fd1
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 67f99e68bc4091d076e27aee06c2851bc77e6fc7
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42140287"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378922"
 ---
 # <a name="what-are-authentication-methods"></a>Que sont les méthodes d’authentification ?
 
@@ -31,15 +31,16 @@ Microsoft recommande vivement aux administrateurs de permettre aux utilisateurs 
 | Questions de sécurité | Réinitialisation de mot de passe en libre-service uniquement |
 | Adresse de messagerie | Réinitialisation de mot de passe en libre-service uniquement |
 | Application Microsoft Authenticator | Authentification multifacteur et préversion publique pour la réinitialisation de mot de passe en libre-service |
+| Jetons matériels OATH | Préversion publique pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service |
 | sms | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
 | Appel vocal | Authentification multifacteur et réinitialisation de mot de passe en libre-service |
-| Mots de passe d'application | Authentification aultifacteur uniquement dans certains cas |
+| Mots de passe d'application | Authentification multifacteur uniquement dans certains cas |
 
 ![Méthodes d’authentification en cours d’utilisation sur l’écran de connexion](media/concept-authentication-methods/overview-login.png)
 
 |     |
 | --- |
-| La notification d’application mobile et le code d’application mobile en tant que méthodes réinitialisation de mot de passe en libre-service Azure AD sont des fonctionnalités de la préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| Les jetons matériels OATH pour l’authentification multifacteur et la réinitialisation de mot de passe en libre-service, et la notification d’application mobile ou le code d’application mobile en tant que méthodes de réinitialisation de mot de passe en libre-service Azure AD, sont des fonctionnalités disponibles dans la préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 ## <a name="password"></a>Mot de passe
@@ -146,6 +147,30 @@ L'application Microsoft Authenticator ou une autre application tierce peut être
 > [!WARNING]
 > Quand une seule méthode est requise pour la réinitialisation de mot de passe en libre-service, le code de vérification est la seule option à la disposition des utilisateurs **pour garantir le niveau de sécurité le plus élevé**.
 >
+
+## <a name="oath-hardware-tokens-public-preview"></a>Jetons matériels OATH (préversion publique)
+
+OATH est une norme ouverte qui spécifie le mode de génération des codes de mot de passe (OTP) à usage unique. Azure AD prendra maintenant en charge l’utilisation des jetons OATH-TOTP SHA-1 de 30 secondes ou 60 secondes. Les clients peuvent se procurer ces jetons auprès du fournisseur de leur choix. Notez que les secrets sont limités à 128 caractères et que cette limite peut ne pas être compatible avec tous les jetons.
+
+![Chargement des jetons OATH dans le panneau de jetons OATH du serveur MFA dans le portail Azure](media/concept-authentication-methods/oath-tokens-azure-ad.png)
+
+Les jetons matériels OATH seront pris en charge dans le cadre d’une préversion publique. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)
+
+Après avoir obtenu les jetons, vous devez les charger dans un fichier de valeurs séparées par des virgules (CSV), contenant l’UPN, le numéro de série, le secret, l’intervalle de temps, le fabricant et le modèle, comme dans l’exemple suivant.
+
+```
+upn,serial number,secret key,timeinterval,manufacturer,model
+Helga@contoso.com,1234567,1234567890abcdef1234567890abcdef,60,Contoso,HardwareKey
+```
+
+> [!NOTE]
+> Veillez à inclure la ligne d’en-tête dans votre fichier CSV comme indiqué ci-dessus.
+
+Une fois que le fichier a été correctement mis en forme au format CSV, l’administrateur peut ensuite se connecter au portail Azure et accéder à **Azure Active Directory**, **Serveur MFA**, **Jetons OATH** afin de charger le fichier CSV créé.
+
+L’opération peut prendre plusieurs minutes selon la taille du fichier CSV. Cliquez sur le bouton **Actualiser** pour obtenir l’état actuel. Si le fichier contient des erreurs, vous pouvez télécharger un fichier CSV de toutes les erreurs pour les résoudre plus facilement.
+
+Une fois que toutes les erreurs ont été résolues, l’administrateur peut activer chaque clé en cliquant sur **Activer** pour activer le jeton et en entrant l’OTP affiché sur le jeton.
 
 ## <a name="mobile-phone"></a>Téléphone mobile
 

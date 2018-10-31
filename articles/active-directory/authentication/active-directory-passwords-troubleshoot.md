@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 057af5e0e5b467ab60e8de7534e9f4428b96c3dc
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 668882b8b39052c3c8e7d7b72c881a64c5c05a10
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298317"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321788"
 ---
 # <a name="troubleshoot-self-service-password-reset"></a>Résoudre les problèmes relatifs à la réinitialisation de mot de passe libre-service
 
@@ -173,16 +173,14 @@ Pour plus de granularité, reportez-vous à la liste mise à jour des [plages d�
 
 Pour plus d’informations, vérifiez les prérequis de connectivité dans l’article [Conditions préalables pour Azure AD Connect](../hybrid/how-to-connect-install-prerequisites.md).
 
-
-
 ### <a name="restart-the-azure-ad-connect-sync-service"></a>Redémarrer le service de synchronisation Azure AD Connect
 
 Pour résoudre les problèmes de connectivité ou d’autres problèmes temporaires rencontrés avec le service, redémarrez le service de synchronisation d’Azure AD Connect :
 
    1. En tant qu’administrateur, sélectionnez **Démarrer** sur le serveur exécutant Azure AD Connect.
-   2. Entrez **services.msc** dans le champ de recherche, puis sélectionnez **Entrée**.
-   3. Recherchez l’entrée **Microsoft Azure AD Sync**.
-   4. Cliquez avec le bouton droit sur l’entrée du service, sélectionnez **Redémarrer**, puis attendez que l’opération soit terminée.
+   1. Entrez **services.msc** dans le champ de recherche, puis sélectionnez **Entrée**.
+   1. Recherchez l’entrée **Microsoft Azure AD Sync**.
+   1. Cliquez avec le bouton droit sur l’entrée du service, sélectionnez **Redémarrer**, puis attendez que l’opération soit terminée.
 
    ![Redémarrer le service de synchronisation Azure AD][Service restart]
 
@@ -193,15 +191,15 @@ Ces étapes vont rétablir votre connexion au service cloud et résoudre toute i
 Pour résoudre les problèmes de connectivité, désactivez, puis réactivez la fonctionnalité de réécriture du mot de passe :
 
    1. En tant qu’administrateur, ouvrez l’Assistant Configuration d’Azure AD Connect.
-   2. Dans **Connexion à Azure AD**, entrez vos informations d’identification d’administrateur général d’Azure AD.
-   3. Dans **Connexion à AD DS**, entrez vos informations d’identification d’administrateur des services de domaine AD.
-   4. Dans **Identification de vos utilisateurs uniquement**, sélectionnez le bouton **Suivant**.
-   5. Dans **Fonctionnalités facultatives**, décochez la case **Réécriture du mot de passe**.
-   6. Sélectionnez **Suivant** dans les pages restantes de la boîte de dialogue sans apporter de modification jusqu’à ce que vous atteigniez la page **Prêt pour la configuration**.
-   7. Vérifiez que la page **Prêt pour la configuration** indique l’option **Réécriture du mot de passe** comme **désactivée**, puis sélectionnez le bouton vert **Configurer** pour valider vos modifications.
-   8. Dans **Terminé**, désactivez l’option **Synchroniser maintenant**, puis sélectionnez **Terminer** pour fermer l’Assistant.
-   9. Rouvrez l’Assistant Configuration d’Azure AD Connect.
-   10. Répétez les étapes 2 à 8, en vous assurant cette fois que vous sélectionnez l’option **Réécriture du mot de passe** dans la page **Fonctionnalités facultatives** pour réactiver le service.
+   1. Dans **Connexion à Azure AD**, entrez vos informations d’identification d’administrateur général d’Azure AD.
+   1. Dans **Connexion à AD DS**, entrez vos informations d’identification d’administrateur des services de domaine AD.
+   1. Dans **Identification de vos utilisateurs uniquement**, sélectionnez le bouton **Suivant**.
+   1. Dans **Fonctionnalités facultatives**, décochez la case **Réécriture du mot de passe**.
+   1. Sélectionnez **Suivant** dans les pages restantes de la boîte de dialogue sans apporter de modification jusqu’à ce que vous atteigniez la page **Prêt pour la configuration**.
+   1. Vérifiez que la page **Prêt pour la configuration** indique l’option **Réécriture du mot de passe** comme **désactivée**, puis sélectionnez le bouton vert **Configurer** pour valider vos modifications.
+   1. Dans **Terminé**, désactivez l’option **Synchroniser maintenant**, puis sélectionnez **Terminer** pour fermer l’Assistant.
+   1. Rouvrez l’Assistant Configuration d’Azure AD Connect.
+   1. Répétez les étapes 2 à 8, en vous assurant cette fois que vous sélectionnez l’option **Réécriture du mot de passe** dans la page **Fonctionnalités facultatives** pour réactiver le service.
 
 Ces étapes vont rétablir votre connexion au service cloud et résoudre toute interruption à laquelle vous pouvez être confronté.
 
@@ -215,10 +213,11 @@ Nous vous recommandons d’effectuer cette étape uniquement après avoir tenté
 
 > [!WARNING]
 > Si vous avez personnalisé les règles de synchronisation par défaut, *sauvegardez-les avant de procéder à la mise à niveau, puis redéployez-les manuellement après avoir terminé*.
+>
 
-   1. Téléchargez la dernière version d’Azure AD Connect sur le [Centre de téléchargement de Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
-   2. Puisque vous avez déjà installé Azure AD Connect, il vous suffit d’effectuer une mise à niveau sur place pour mettre à jour votre installation d’Azure AD Connect vers la dernière version.
-   3. Exécutez le package téléchargé et suivez les instructions à l’écran pour mettre à jour votre ordinateur Azure AD Connect.
+1. Téléchargez la dernière version d’Azure AD Connect sur le [Centre de téléchargement de Microsoft](http://go.microsoft.com/fwlink/?LinkId=615771).
+1. Puisque vous avez déjà installé Azure AD Connect, il vous suffit d’effectuer une mise à niveau sur place pour mettre à jour votre installation d’Azure AD Connect vers la dernière version.
+1. Exécutez le package téléchargé et suivez les instructions à l’écran pour mettre à jour votre ordinateur Azure AD Connect.
 
 Les étapes précédentes doivent normalement rétablir votre connexion au service cloud et résoudre toute interruption à laquelle vous pouvez être confronté.
 
@@ -228,34 +227,33 @@ Si l’installation de la dernière version du serveur Azure AD Connect ne réso
 
 Azure AD Connect a besoin de l’autorisation Active Directory **Réinitialiser le mot de passe** pour effectuer une écriture différée du mot de passe. Pour savoir si Azure AD Connect a l’autorisation requise pour un compte d’utilisateur Active Directory local donné, vous pouvez utiliser la fonctionnalité d’autorisation effective de Windows :
 
-   1. Connectez-vous au serveur Azure AD Connect et démarrez **Synchronization Service Manager** en sélectionnant **Démarrer** > **Service de synchronisation**.
-   2. Sous l’onglet **Connecteurs**, sélectionnez le connecteur **Active Directory Domain Services**, puis sélectionnez **Propriétés**.  
-
+1. Connectez-vous au serveur Azure AD Connect et démarrez **Synchronization Service Manager** en sélectionnant **Démarrer** > **Service de synchronisation**.
+1. Sous l’onglet **Connecteurs**, sélectionnez le connecteur **Active Directory Domain Services**, puis sélectionnez **Propriétés**.  
    ![Autorisation effective - Étape 2](./media/active-directory-passwords-troubleshoot/checkpermission01.png)  
   
-   3. Dans la fenêtre indépendante, sélectionnez l’onglet **Se connecter à la forêt Active Directory** et prenez note de la propriété **Nom d’utilisateur**. Cette propriété est le compte AD DS utilisé par Azure AD Connect pour effectuer la synchronisation d’annuaire. Pour qu’Azure AD Connect effectue une écriture différée du mot de passe, il faut que le compte des services AD DS dispose de l’autorisation de réinitialiser le mot de passe.  
+1. Dans la fenêtre indépendante, sélectionnez l’onglet **Se connecter à la forêt Active Directory** et prenez note de la propriété **Nom d’utilisateur**. Cette propriété est le compte AD DS utilisé par Azure AD Connect pour effectuer la synchronisation d’annuaire. Pour qu’Azure AD Connect effectue une écriture différée du mot de passe, il faut que le compte des services AD DS dispose de l’autorisation de réinitialiser le mot de passe.  
    
    ![Autorisation effective - Étape 3](./media/active-directory-passwords-troubleshoot/checkpermission02.png) 
   
-   4. Connectez-vous à un contrôleur de domaine local et démarrez l’application **Utilisateurs et ordinateurs Active Directory**.
-   5. Sélectionnez **Affichage** et vérifiez que l’option **Fonctionnalités avancées** est activée.  
+1. Connectez-vous à un contrôleur de domaine local et démarrez l’application **Utilisateurs et ordinateurs Active Directory**.
+1. Sélectionnez **Affichage** et vérifiez que l’option **Fonctionnalités avancées** est activée.  
    
    ![Autorisation effective - Étape 5](./media/active-directory-passwords-troubleshoot/checkpermission03.png) 
   
-   6. Recherchez le compte d’utilisateur Active Directory à vérifier. Cliquez avec le bouton droit sur le nom du compte et sélectionnez **Propriétés**.  
+1. Recherchez le compte d’utilisateur Active Directory à vérifier. Cliquez avec le bouton droit sur le nom du compte et sélectionnez **Propriétés**.  
    
    ![Autorisation effective - Étape 6](./media/active-directory-passwords-troubleshoot/checkpermission04.png) 
 
-   7. Dans la fenêtre indépendante, accédez à l’onglet **Sécurité** et sélectionnez **Avancé**.  
+1. Dans la fenêtre indépendante, accédez à l’onglet **Sécurité** et sélectionnez **Avancé**.  
    
    ![Autorisation effective - Étape 7](./media/active-directory-passwords-troubleshoot/checkpermission05.png) 
    
-   8. Dans la fenêtre indépendante **Paramètres de sécurité avancés pour Administrateur**, accédez à l’onglet **Accès effectif**.
-   9. Sélectionnez **Sélectionner un utilisateur**, sélectionnez le compte AD DS utilisé par Azure AD Connect (consultez l’étape 3), puis sélectionnez **Afficher l’accès effectif**.  
-   
+1. Dans la fenêtre indépendante **Paramètres de sécurité avancés pour Administrateur**, accédez à l’onglet **Accès effectif**.
+1. Sélectionnez **Sélectionner un utilisateur**, sélectionnez le compte AD DS utilisé par Azure AD Connect (consultez l’étape 3), puis sélectionnez **Afficher l’accès effectif**.
+
    ![Autorisation effective - Étape 9](./media/active-directory-passwords-troubleshoot/checkpermission06.png) 
   
-   10. Faites défiler vers le bas et recherchez **Réinitialiser le mot de passe**. Si l’entrée a une coche, le compte AD DS est autorisé à réinitialiser le mot de passe du compte d’utilisateur Active Directory sélectionné.  
+1. Faites défiler vers le bas et recherchez **Réinitialiser le mot de passe**. Si l’entrée a une coche, le compte AD DS est autorisé à réinitialiser le mot de passe du compte d’utilisateur Active Directory sélectionné.  
    
    ![Autorisation effective - Étape 10](./media/active-directory-passwords-troubleshoot/checkpermission07.png)  
 
@@ -285,8 +283,6 @@ Pour que nous puissions mieux vous aider, nous vous demandons de fournir autant 
     * S’agit-il d’un utilisateur cloud uniquement ?
 * **Licences** : l’utilisateur disposait-il d’une licence Azure AD Premium ou Azure AD Basic ?
 * **Journal des événements de l’application** : si vous utilisez l’écriture différée de mot de passe et que l’erreur se produit dans votre infrastructure locale, veuillez inclure une copie compressée du journal des événements de l’application provenant de votre serveur Azure AD Connect.
-
-
 
 [Service restart]: ./media/active-directory-passwords-troubleshoot/servicerestart.png "Redémarrer le service de synchronisation Azure AD"
 [Support code]: ./media/active-directory-passwords-troubleshoot/supportcode.png "Le code de support se trouve en bas à droite de la fenêtre"

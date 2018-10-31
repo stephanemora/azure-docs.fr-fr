@@ -4,15 +4,15 @@ description: Trouvez des réponses aux questions fréquemment posées sur Azure 
 services: storage
 author: RenaShahMSFT
 ms.service: storage
-ms.date: 09/11/2018
+ms.date: 10/04/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 43acff5c4d37c46245566fb2e1d74d3e14d527bb
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 29f09034988acde3643eebe368445caab035fabd
+ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46949840"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49387501"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Questions fréquentes (FAQ) sur Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers managés dans le cloud qui sont accessibles via le [protocole SMB (Server Message Block)](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx) standard. Vous pouvez monter des partages de fichiers Azure simultanément sur des déploiements cloud ou locaux de Windows, Linux et macOS. Vous pouvez également mettre en cache des partages de fichiers Azure sur des ordinateurs Windows Server à l’aide d’Azure File Sync pour bénéficier d’un accès rapide proche de l’endroit où les données sont utilisées.
@@ -108,60 +108,23 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="sizeondisk-versus-size"></a>
 **Pourquoi la propriété *Taille* sur le disque pour un fichier ne correspond-elle pas à la propriété *Taille* après l’utilisation d’Azure File Sync ?**  
-    L’Explorateur de fichiers Windows expose deux propriétés pour représenter la taille d’un fichier : **Taille** et **Taille sur le disque**. Ces propriétés ont un sens légèrement différent. La **Taille** représente la taille complète du fichier. La **Taille sur le disque** représente la taille du flux de fichier stocké sur le disque. Les valeurs de ces propriétés peuvent différer pour diverses raisons, telles que la compression, l’utilisation de la déduplication des données ou la hiérarchisation cloud avec Azure File Sync. Si un fichier est hiérarchisé sur un partage de fichiers Azure, la taille sur le disque est égale à zéro, car le flux de fichier est stocké dans votre partage de fichiers Azure, et non sur le disque. Un fichier peut également être partiellement hiérarchisé (ou partiellement rappelé). Dans un fichier partiellement hiérarchisé, une partie du fichier est sur le disque. Cela peut se produire quand des fichiers sont partiellement lus par des applications telles que des lecteurs multimédias ou des utilitaires de compression. 
+ Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#sizeondisk-versus-size).
 
 * <a id="is-my-file-tiered"></a>
 **Comment puis-je savoir si un fichier a été hiérarchisé ?**  
-    Vous pouvez déterminer de plusieurs façons si un fichier a été hiérarchisé sur votre partage de fichiers Azure :
-    
-   *  **Vérifier les attributs du fichier.**
-     Pour ce faire, cliquez avec le bouton droit sur le fichier, accédez à **Détails**, puis faites défiler jusqu’à la propriété **Attributs**. Un fichier hiérarchisé a les attributs suivants définis :     
-        
-        | Lettre de l’attribut | Attribut | Définition |
-        |:----------------:|-----------|------------|
-        | A | Archivage | Indique que le fichier doit être sauvegardé par un logiciel de sauvegarde. Cet attribut est toujours défini, que le fichier soit hiérarchisé ou entièrement stocké sur le disque. |
-        | P | Fichier partiellement alloué | Indique qu’il s’agit d’un fichier partiellement alloué. Un fichier partiellement alloué est un type de fichier spécial offert par NTFS, qui est efficace quand le flux sur disque du fichier est pratiquement vide. Azure File Sync utilise des fichiers partiellement alloués, car un fichier est soit entièrement hiérarchisé, soit partiellement rappelé. Dans un fichier entièrement hiérarchisé, le flux de fichier est stocké dans le cloud. Dans un fichier partiellement rappelé, cette partie du fichier est déjà sur le disque. Si un fichier est entièrement rappelé sur le disque, Azure File Sync le convertit d’un fichier partiellement alloué en fichier normal. |
-        | L | Point d’analyse | Indique que le fichier a un point d’analyse. Un point d’analyse est un pointeur spécial destiné à être utilisé par un filtre de système de fichiers. Azure File Sync utilise des points d’analyse pour définir dans le filtre de système de fichiers d’Azure File Sync (StorageSync.sys) à quel endroit du cloud le fichier est stocké. Cela permet de bénéficier d’un accès aisé. Les utilisateurs n’ont pas besoin de savoir qu’Azure File Sync est utilisé, ni comment obtenir l’accès au fichier dans votre partage de fichiers Azure. Quand un fichier est entièrement rappelé, la synchronisation de fichiers Azure supprime le point d’analyse du fichier. |
-        | O | Hors ligne | Indique qu’une partie ou la totalité du contenu du fichier n’est pas stockée sur le disque. Quand un fichier est entièrement rappelé, la synchronisation de fichiers Azure supprime cet attribut. |
-
-        ![Boîte de dialogue Propriétés d’un fichier dans laquelle l’onglet Détails est sélectionné](media/storage-files-faq/azure-file-sync-file-attributes.png)
-        
-        Vous pouvez également voir les attributs de tous les fichiers d’un dossier en ajoutant le champ **Attributs** à l’affichage sous forme de tableau de l’Explorateur de fichiers. Pour ce faire, cliquez avec le bouton droit sur une colonne (par exemple, **Taille**), sélectionnez **Autres**, puis sélectionnez **Attributs** dans la liste déroulante.
-        
-   * **Utiliser `fsutil` pour rechercher les points d’analyse sur un fichier.**
-       Comme indiqué dans l’option précédente, un fichier hiérarchisé a toujours un point d’analyse défini. Un pointeur d’analyse est un pointeur spécial pour le filtre de système de fichiers Azure File Sync (StorageSync.sys). Pour vérifier si un fichier a un point d’analyse, dans une fenêtre d’invite de commandes avec élévation de privilèges ou une fenêtre PowerShell, exécutez l’utilitaire `fsutil` :
-    
-        ```PowerShell
-        fsutil reparsepoint query <your-file-name>
-        ```
-
-        Si le fichier a un point d’analyse, vous devez voir **Valeur de la balise d’analyse : 0x8000001e**. Cette valeur hexadécimale est la valeur de point d’analyse détenue par Azure File Sync. La sortie contient également les données d’analyse qui représentent le chemin du fichier dans votre partage de fichiers Azure.
-
-        > [!WARNING]  
-        > La commande d’utilitaire `fsutil reparsepoint` permet également de supprimer un point d’analyse. N’exécutez pas cette commande, sauf si l’équipe d’ingénierie Azure File Sync vous le demande. L’exécution de cette commande peut entraîner une perte de données. 
+ Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#is-my-file-tiered).
 
 * <a id="afs-recall-file"></a>**Un fichier que je souhaite utiliser a été hiérarchisé. Comment puis-je rappeler le fichier sur le disque pour l’utiliser localement ?**  
-    Pour rappeler un fichier sur le disque, le plus simple consiste à l’ouvrir. Le filtre de système de fichiers d’Azure File Sync (StorageSync.sys) télécharge le fichier à partir de votre partage de fichiers Azure de façon fluide, sans aucune intervention de votre part. Pour les types de fichiers qui peuvent être partiellement lus, tels que les fichiers multimédias ou .zip, l’ouverture d’un fichier n’entraîne pas le téléchargement du fichier entier.
+ Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#afs-recall-file).
 
-    Vous pouvez également utiliser PowerShell pour forcer le rappel d’un fichier. Cette option peut être utile si vous souhaitez rappeler plusieurs fichiers en même temps (par exemple tous les fichiers d’un dossier). Ouvrez une session PowerShell sur le nœud de serveur sur lequel Azure File Sync est installé, puis exécutez les commandes PowerShell suivantes :
-    
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncFileRecall -Path <file-or-directory-to-be-recalled>
-    ```
 
 * <a id="afs-force-tiering"></a>
 **Comment faire pour imposer la hiérarchisation d’un fichier ou répertoire ?**  
-    Quand elle est activée, la fonctionnalité de hiérarchisation cloud hiérarchise automatiquement les fichiers en fonction de la date du dernier accès et de la dernière modification afin d’atteindre le pourcentage d’espace libre du volume spécifié sur le point de terminaison cloud. Parfois, cependant, vous pouvez être amené à imposer une hiérarchisation manuelle d’un fichier. Cette opération peut s’avérer utile si vous enregistrez un fichier volumineux que vous n’envisagez pas de réutiliser pendant un certain temps, et que vous souhaitez dédier dans l’immédiat l’espace libre sur le volume à d’autres fichiers et dossiers. Vous pouvez forcer la hiérarchisation à l’aide des commandes PowerShell suivantes :
-
-    ```PowerShell
-    Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-    Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
-    ```
+ Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#afs-force-tiering).
 
 * <a id="afs-effective-vfs"></a>
 **Comment *l’espace libre du volume* est-il interprété quand il y a plusieurs points de terminaison de serveur sur un volume ?**  
-    Quand il y a plusieurs point de terminaison de serveur sur un volume, le seuil d’espace libre de volume effectif est l’espace libre de volume le plus élevé spécifié sur tous les points de terminaison de serveur sur ce volume. Les fichiers sont hiérarchisés en fonction de leurs modèles d’utilisation, quel que soit le point de terminaison de serveur auquel ils appartiennent. Par exemple, si vous avez deux points de terminaison de serveur sur un volume, Point1 et Point2, où Point1 a un seuil d’espace libre de volume de 25 % et Point2 a un seuil d’espace libre de volume de 50 %, le seuil d’espace libre de volume pour les deux points de terminaison de serveur est de 50 %.
+ Voir [Introduction à la hiérarchisation cloud](storage-sync-cloud-tiering.md#afs-effective-vfs).
 
 * <a id="afs-files-excluded"></a>
 **Quels fichiers ou dossiers sont automatiquement exclus par Azure File Sync ?**  
@@ -186,7 +149,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 
 * <a id="afs-tiered-files-out-of-endpoint"></a>
 **Pourquoi les fichiers hiérarchisés existent-ils en dehors de l’espace de noms du point de terminaison du serveur ?**  
-    Avant la version 3 de l’agent Azure File Sync, Azure File Sync bloquait le déplacement des fichiers hiérarchisés à l’extérieur du point de terminaison du serveur, mais sur le même volume que le point de terminaison du serveur. Les opérations de copie, les déplacements de fichiers non hiérarchisés et les déplacements de fichiers hiérarchisés vers d’autres volumes n’étaient pas concernés. Ce comportement était dû au fait que l’Explorateur de fichiers et les autres API Windows supposent de manière implicite que les opérations de déplacement sur un même volume sont des opérations de changement de nom (presque) instantanées. Cela signifie que les déplacements donneront l’impression que l’Explorateur de fichiers ou d’autres méthodes de déplacement (par exemple, la ligne de commande ou PowerShell) ne répondent plus pendant qu’Azure File Sync rappelle les données à partir du cloud. À partir de la [version 3.0.12.0 de l’agent Azure File Sync](storage-files-release-notes.md#agent-version-30120), Azure File Sync vous permettra de déplacer un fichier hiérarchisé en dehors du point de terminaison du serveur. Nous évitons ainsi les effets négatifs mentionnés précédemment en autorisant l’existence du fichier hiérarchisé sous la forme d’un fichier hiérarchisé en dehors du point de terminaison du serveur, puis en rappelant le fichier en arrière-plan. Cela signifie que les déplacements sur un même volume sont instantanés et que nous faisons tout le travail visant à rappeler le fichier sur le disque une fois le déplacement terminé. 
+    Avant la version 3 de l’agent Azure File Sync, Azure File Sync bloquait le déplacement des fichiers hiérarchisés à l’extérieur du point de terminaison du serveur, mais sur le même volume que le point de terminaison du serveur. Les opérations de copie, les déplacements de fichiers non hiérarchisés et les déplacements de fichiers hiérarchisés vers d’autres volumes n’étaient pas concernés. Ce comportement était dû au fait que l’Explorateur de fichiers et les autres API Windows supposent de manière implicite que les opérations de déplacement sur un même volume sont des opérations de changement de nom (presque) instantanées. Cela signifie que les déplacements donneront l’impression que l’Explorateur de fichiers ou d’autres méthodes de déplacement (par exemple, la ligne de commande ou PowerShell) ne répondent plus pendant qu’Azure File Sync rappelle les données à partir du cloud. À partir de la [version 3.0.12.0 de l’agent Azure File Sync](storage-files-release-notes.md#supported-versions), Azure File Sync vous permettra de déplacer un fichier hiérarchisé en dehors du point de terminaison du serveur. Nous évitons ainsi les effets négatifs mentionnés précédemment en autorisant l’existence du fichier hiérarchisé sous la forme d’un fichier hiérarchisé en dehors du point de terminaison du serveur, puis en rappelant le fichier en arrière-plan. Cela signifie que les déplacements sur un même volume sont instantanés et que nous faisons tout le travail visant à rappeler le fichier sur le disque une fois le déplacement terminé. 
 
 * <a id="afs-do-not-delete-server-endpoint"></a>
 **Je rencontre un problème avec Azure File Sync sur mon serveur (synchronisation, hiérarchisation sur le cloud, etc.). Dois-je supprimer et recréer le point de terminaison de mon serveur ?**  
@@ -194,8 +157,11 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
     
 * <a id="afs-resource-move"></a>
 **Puis-je déplacer le service de synchronisation de stockage et/ou le compte de stockage vers un autre groupe de ressources ou un autre abonnement ?**  
-   Oui, le service de synchronisation de stockage et/ou le compte de stockage peuvent être déplacés vers un autre groupe de ressources ou un autre abonnement. Si le compte de stockage est déplacé, vous devez donner à Hybrid File Sync Service l’accès au compte de stockage (consultez [Vérifiez qu’Azure File Sync a accès au compte de stockage](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
+   Oui, le service de synchronisation de stockage et/ou le compte de stockage peuvent être déplacés vers un autre groupe de ressources ou un autre abonnement à l’intérieur du locataire Azure AD existant. Si le compte de stockage est déplacé, vous devez donner à Hybrid File Sync Service l’accès au compte de stockage (consultez [Vérifiez qu’Azure File Sync a accès au compte de stockage](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cportal#troubleshoot-rbac)).
 
+    > [!Note]  
+    > Azure File Sync ne prend pas en charge le déplacement de l’abonnement vers un autre locataire Azure AD.
+    
 * <a id="afs-ntfs-acls"></a>
 **Azure File Sync conserve-t-il les ACL NTFS de niveau répertoire/fichier en plus des données stockées dans Azure Files ?**
 
@@ -216,7 +182,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 * <a id="ad-support-regions"></a>
 **La préversion d’Azure AD sur SMB pour Azure Files est-elle disponible dans toutes les régions Azure ?**
 
-    La préversion est disponible dans toutes les régions publiques à l’exception de : USA Ouest, USA Ouest 2, USA Centre Sud, USA Est, USA Est 2, USA Centre, USA Centre Nord, Australie Est, Europe Ouest, Europe Nord.
+    La préversion est disponible dans toutes les régions publiques à l’exception de : Europe Nord.
 
 * <a id="ad-support-on-premises"></a>
 **L’authentification Azure AD sur SMB pour Azure Files (préversion) prend-elle en charge l’authentification à l’aide d’Azure AD à partir de machines locales ?**
@@ -276,7 +242,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 * <a id="data-compliance-policies"></a>
 **Quelles sont les stratégies de conformité des données prises en charge par Azure Files ?**  
 
-   Azure Files s’exécute sur la même architecture de stockage que d’autres services de stockage dans Stockage Azure. Azure Files applique les mêmes stratégies de conformité des données que celles utilisées dans d’autres services de stockage Azure. Pour plus d’informations sur la conformité des données de stockage Azure, vous pouvez vous référer aux [Offres de conformité du stockage Azure](https://docs.microsoft.com/en-us/azure/storage/common/storage-compliance-offerings), et accéder au [Centre de gestion de la confidentialité Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
+   Azure Files s’exécute sur la même architecture de stockage que d’autres services de stockage dans Stockage Azure. Azure Files applique les mêmes stratégies de conformité des données que celles utilisées dans d’autres services de stockage Azure. Pour plus d’informations sur la conformité des données de stockage Azure, vous pouvez vous référer aux [Offres de conformité du stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-compliance-offerings), et accéder au [Centre de gestion de la confidentialité Microsoft](https://microsoft.com/en-us/trustcenter/default.aspx).
 
 ## <a name="on-premises-access"></a>Accès local
 * <a id="expressroute-not-required"></a>
@@ -292,7 +258,7 @@ Cet article répond à des questions courantes sur les fonctionnalités d’Azur
 ## <a name="backup"></a>Sauvegarde
 * <a id="backup-share"></a>
 **Comment faire pour sauvegarder mon partage de fichiers Azure ?**  
-    Vous pouvez utiliser des [instantanés de partage](storage-snapshots-files.md) périodiques pour la protection contre les suppressions accidentelles. Vous pouvez aussi utiliser AzCopy, RoboCopy ou un outil de sauvegarde tiers capable de sauvegarder un partage de fichiers monté. Le service Sauvegarde Azure propose une sauvegarde d’Azure Files. En savoir plus sur la [sauvegarder de partages de fichiers Azure par le service Sauvegarde Azure](https://docs.microsoft.com/en-us/azure/backup/backup-azure-files).
+    Vous pouvez utiliser des [instantanés de partage](storage-snapshots-files.md) périodiques pour la protection contre les suppressions accidentelles. Vous pouvez aussi utiliser AzCopy, RoboCopy ou un outil de sauvegarde tiers capable de sauvegarder un partage de fichiers monté. Le service Sauvegarde Azure propose une sauvegarde d’Azure Files. En savoir plus sur la [sauvegarder de partages de fichiers Azure par le service Sauvegarde Azure](https://docs.microsoft.com/azure/backup/backup-azure-files).
 
 ## <a name="share-snapshots"></a>Instantanés de partage
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 033ae1de25fbaada0c2bce715e6bdd71818b341a
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 0c071fbfb962de1bf077dfa720cd66bc06e42178
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906800"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49312559"
 ---
 <!-- F-series, Fs-series* -->
 
@@ -37,15 +37,16 @@ Stockage Premium : pris en charge
 
 Mise en cache du Stockage Premium : pris en charge
 
-| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
-|------------------|--------|-------------|----------------|----------------|-----------------------------------------------------------------------|------------------------------------------------|
-| Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4000 (32)                                                             | 2 / 875                                        |
-| Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8000 (64)                                                             | 2 / 1,750                                      |
-| Standard_F8s_v2   | 8      | 16          | 64             | 16             | 16000 (128)                                                           | 4 / 3,500                                      |
-| Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32000 (256)                                                           | 4 / 7,000                                      |
-| Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64000 (512)                                                           | 8 / 14,000                                     |
-| Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128000 (1024)                                                         | 8 / 28,000                                     |
-| Standard_F72s_v2<sup>2, 3</sup> | 72     | 144         | 576            | 32             | 144000 (1520)                                                         | 8 / 30 000                                     |
+| Taille             | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
+|------------------|--------|-------------|----------------|----------------|--------------------------|--------------------------|------------------------------------------------|
+| Standard_F2s_v2  | 2      | 4           | 16             | 4              | 4 000 / 31 (32)           | 3 200 / 47                | Modéré                                       |
+| Standard_F4s_v2  | 4      | 8           | 32             | 8              | 8 000 / 63 (64)           | 6 400 / 95                | Modéré                                       |
+| Standard_F8s_v2  | 8      | 16          | 64             | 16             | 16 000 / 127 (128)        | 12 800 / 190              | Élevé                                           |
+| Standard_F16s_v2 | 16     | 32          | 128            | 32             | 32 000 / 255 (256)        | 25 600 / 380              | Élevé                                           |
+| Standard_F32s_v2 | 32     | 64          | 256            | 32             | 64 000 / 512 (512)        | 51 200 / 750              | Extrêmement élevée                                 |
+| Standard_F64s_v2 | 64     | 128         | 512            | 32             | 128 000 / 1 024 (1 024)     | 80 000 / 1 100             | Extrêmement élevée                                 |
+| Standard_F72s_v2<sup>2, 3</sup> | 72 | 144 | 576         | 32             | 144 000 / 1 152 (1 520)     | 80 000 / 1 100             | Extrêmement élevée                                 |
+
 
 <sup>1</sup> Machines virtuelles de série Fsv2 dotées de la technologie Hyper-Threading d’Intel®
 
@@ -61,7 +62,7 @@ Stockage Premium : pris en charge
 
 Mise en cache du Stockage Premium : pris en charge
 
-| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / Mbits/s | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
+| Taille | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Disques de données max. | Débit de stockage temporaire et en cache max : E/S par seconde / Mbits/s (taille du cache en Gio) | Débit de disque maximal sans mise en cache : E/S / MBps | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_F1s |1 |2 |4 |4 |4 000 / 32 (12) |3 200 / 48 |2 / 750 |
 | Standard_F2s |2 |4 |8 |8 |8 000 / 64 (24) |6 400 / 96 |2 / 1 500 |
@@ -84,7 +85,7 @@ Stockage Premium : non pris en charge
 
 Mise en cache du Stockage Premium : non pris en charge
 
-| Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde / Mbits/s de lecture / Mbits/s d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (Mbits/s) |
+| Taille         | Processeurs virtuels | Mémoire : Gio | Stockage temporaire (SSD) en Gio | Débit de stockage temporaire local max : E/S par seconde MBps de lecture / MBps d’écriture | Disques de données max / débit : E/S par seconde | Nombre max de cartes réseau / Bande passante réseau attendue (MBps) |
 |--------------|-----------|-------------|----------------|----------------------------------------------------------|-----------------------------------|------------------------------|
 | Standard_F1  | 1         | 2           | 16             | 3000 / 46 / 23                                           | 4 / 4 x 500                         | 2 / 750                 |
 | Standard_F2  | 2         | 4           | 32             | 6000 / 93 / 46                                           | 8 / 8 x 500                         | 2 / 1 500                     |

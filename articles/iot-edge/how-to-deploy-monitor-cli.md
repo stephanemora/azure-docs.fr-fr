@@ -9,22 +9,22 @@ ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c94a58a19558350c3c20377ce750f6758f688c0d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a3d073e9fd7c535ea84d6e4dbbf8003a6c55725b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998506"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49394610"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-cli"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide d’Azure CLI
 
 [!INCLUDE [iot-edge-how-to-deploy-monitor-selector](../../includes/iot-edge-how-to-deploy-monitor-selector.md)]
 
-Azure IoT Edge vous permet de déplacer l’analytique vers la périphérie et fournit une interface cloud afin de pouvoir gérer et surveiller vos appareils IoT Edge sans avoir à accéder physiquement à chacun d’eux. La capacité à gérer à distance des appareils est de plus en plus importante à mesure que les solutions Internet des objets (IoT) deviennent de plus en plus volumineuses et complexes. Azure IoT Edge est conçu pour prendre en charge vos objectifs professionnels, quel que soit le nombre d’appareils que vous ajoutez.
+Azure IoT Edge vous permet de déplacer l’analytique vers la périphérie et fournit une interface cloud afin de pouvoir gérer et superviser vos appareils IoT Edge à distance. La capacité à gérer à distance des appareils est de plus en plus importante à mesure que les solutions Internet des objets (IoT) deviennent de plus en plus volumineuses et complexes. Azure IoT Edge est conçu pour prendre en charge vos objectifs professionnels, quel que soit le nombre d’appareils que vous ajoutez.
 
 Vous pouvez gérer les appareils individuellement et y déployer des modules un à la fois. Toutefois, si vous souhaitez apporter des modifications aux appareils à grande échelle, vous pouvez créer un **déploiement automatique IoT Edge**, qui fait partie de la Gestion automatique des appareils dans IoT Hub. Les déploiements sont des processus dynamiques qui vous permettent de déployer plusieurs modules sur plusieurs appareils à la fois, de suivre l’état et l’intégrité des modules, et d’apporter des modifications si nécessaire. 
 
-Dans cet article, vous configurez Azure CLI et l’extension IoT. Ensuite, vous découvrez comment déployer des modules sur un ensemble d’appareils IoT Edge et surveiller la progression à l’aide des commandes CLI disponibles.
+Dans cet article, vous configurez Azure CLI et l’extension IoT. Ensuite, vous découvrez comment déployer des modules sur un ensemble d’appareils IoT Edge et superviser la progression à l’aide des commandes CLI disponibles.
 
 ## <a name="cli-prerequisites"></a>Prérequis pour l’interface CLI
 
@@ -128,7 +128,7 @@ Avant de pouvoir créer un déploiement, vous devez être en mesure de spécifie
 }
 ```
 
-Pour plus d’informations sur les balises et les jumeaux d’appareils, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub][lnk-device-twin].
+Pour plus d’informations sur les étiquettes et les jumeaux d’appareils, consultez [Comprendre et utiliser les jumeaux d’appareil IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
 ## <a name="create-a-deployment"></a>Créer un déploiement
 
@@ -209,16 +209,4 @@ az iot edge deployment delete --deployment-id [deployment id] --hub-name [hub na
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-En savoir plus sur le [déploiement des modules sur des appareils Edge][lnk-deployments].
-
-<!-- Images -->
-[1]: ./media/how-to-deploy-monitor/iot-edge-deployments.png
-
-<!-- Links -->
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-portal]: https://portal.azure.com
-[lnk-docker-create]: https://docs.docker.com/engine/reference/commandline/create/
-[lnk-deployments]: module-deployment-monitoring.md
-
-<!-- Anchor links -->
-[anchor-monitor]: #monitor-a-deployment
+Découvrez le [déploiement des modules sur des appareils Edge](module-deployment-monitoring.md).

@@ -9,20 +9,16 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/21/2018
-ms.openlocfilehash: 9b076709ee24c61b2699672d28bd61204c88a744
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8e32939f3e253bfdd6f8d989f616f30e1b9f27eb
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048039"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364861"
 ---
 # <a name="use-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Utiliser des blocs-notes Zeppelin avec un cluster Apache Spark sur HDInsight
 
 Les clusters HDInsight Spark incluent des blocs-notes Zeppelin que vous pouvez utiliser pour exécuter des tâches Spark. Dans cet article, vous allez apprendre à utiliser le bloc-notes Zeppelin sur un cluster HDInsight.
-
-> [!NOTE]
-> Les blocs-notes Zeppelin sont disponibles uniquement pour Spark 1.6.3 sur HDInsight 3.5 et Spark 2.1.0 sur HDInsight 3.6.
->
 
 **Configuration requise :**
 
@@ -50,7 +46,7 @@ Les clusters HDInsight Spark incluent des blocs-notes Zeppelin que vous pouvez u
    
     Collez l’extrait suivant dans le paragraphe vide créé par défaut dans le nouveau bloc-notes.
    
-        %livy.spark
+        %livy2.spark
         //The above magic instructs Zeppelin to use the Livy Scala interpreter
    
         // Create an RDD using the default Spark context, sc
@@ -77,6 +73,11 @@ Les clusters HDInsight Spark incluent des blocs-notes Zeppelin que vous pouvez u
     ![Créer une table temporaire à partir de données brutes](./media/apache-spark-zeppelin-notebook/hdinsight-zeppelin-load-data.png "Créer une table temporaire à partir de données brutes")
    
     Vous pouvez également indiquer un titre pour chaque paragraphe. Dans le coin droit, cliquez sur l’icône **Settings**, puis sur **Show title**.
+
+> [!NOTE]
+> L’interpréteur %spark2 n’est pas pris en charge dans les bloc-notes Zeppelin sur toutes les versions HDInsight et l’interpréteur %sh ne sera pas pris en charge à partir de HDInsight 4.0 et versions ultérieures.
+>
+
 1. Vous pouvez maintenant exécuter des instructions Spark SQL dans la table **hvac** . Collez la requête suivante dans un nouveau paragraphe. La requête récupère l’ID de bâtiment et la différence entre les températures cibles et réelles pour chaque bâtiment à une date donnée. Appuyez sur **MAJ + ENTRÉE**.
    
         %sql
@@ -165,7 +166,7 @@ Dans ce cas, vous devez effectuer les étapes suivantes avant de commencer à ex
 
 ### <a name="create-and-run-applications"></a>Création et exécution d’applications
 * [Créer une application autonome avec Scala](apache-spark-create-standalone-application.md)
-* [Exécution de travaux à distance avec Livy sur un cluster Spark](apache-spark-livy-rest-interface.md)
+* [Exécuter des tâches à distance avec Livy sur un cluster Spark](apache-spark-livy-rest-interface.md)
 
 ### <a name="tools-and-extensions"></a>Outils et extensions
 * [Utilisez le plugin d’outils HDInsight pour IntelliJ IDEA pour créer et soumettre des applications Spark Scala](apache-spark-intellij-tool-plugin.md)

@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 3ae7a3193e0a4bacc64524f477b6c179ead20b6b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3b6a0bb47e070c094fd955257e6ed041b6634db8
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355118"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49362965"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée dans Azure Kubernetes Service (AKS)
 
 Un contrôleur d’entrée est un logiciel qui fournit un proxy inversé, un routage du trafic configurable et un arrêt TLS pour les services Kubernetes. Des ressources d’entrée Kubernetes sont utilisées pour configurer les règles d’entrée et les itinéraires des services Kubernetes individuels. En utilisant un contrôleur d’entrée et des règles d’entrée, une seule adresse IP peut être utilisée pour router le trafic vers plusieurs services dans un cluster Kubernetes.
 
-Cet article montre comment déployer le [contrôleur d’entrée NGINX][nginx-ingress] dans un cluster Azure Kubernetes Service (AKS). Plusieurs applications sont alors exécutées dans le cluster AKS, chacune étant accessible via l’adresse IP unique.
+Cet article montre comment déployer le [contrôleur d’entrée NGINX][nginx-ingress] dans un cluster Azure Kubernetes Service (AKS). Plusieurs applications sont ensuite exécutées dans le cluster AKS, chacune étant accessible via l’adresse IP unique.
 
 Vous pouvez également :
 
@@ -35,13 +35,13 @@ Cet article nécessite également que vous exécutiez Azure CLI version 2.0.41 o
 
 ## <a name="create-an-ingress-controller"></a>Créer un contrôleur d’entrée
 
-Pour créer le contrôleur d’entrée, utilisez `Helm` pour installer *nginx-ingress*.
+Pour créer le contrôleur d’entrée, utilisez `Helm` pour installer *nginx-ingress*. Pour renforcer la redondance, deux réplicas des contrôleurs d’entrée NGINX sont déployés avec le paramètre `--set controller.replicaCount`. Pour tirer pleinement parti de l’exécution de réplicas des contrôleurs d’entrée, vérifiez que votre cluster AKS comprend plusieurs nœuds.
 
 > [!TIP]
 > L’exemple suivant installe le contrôleur d’entrée dans l’espace de noms `kube-system`. Si vous le souhaitez, vous pouvez spécifier un espace de noms différent pour votre propre environnement. Si le contrôle d’accès en fonction du rôle (RBAC) n’est pas activé sur votre cluster AKS, ajoutez `--set rbac.create=false` aux commandes.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system
+helm install stable/nginx-ingress --namespace kube-system --set controller.replicaCount=2
 ```
 
 Lorsque le service équilibreur de charge Kubernetes est créé pour le contrôleur d’entrée NGINX, votre adresse IP publique dynamique est affectée, comme indiqué dans l’exemple de sortie suivant :
@@ -126,6 +126,41 @@ Pour tester les itinéraires du contrôleur d’entrée, accédez aux deux appli
 Maintenant, ajoutez le chemin */hello-world-two* à l’adresse IP, par exemple, *http://40.117.74.8/hello-world-two*. La deuxième application de démonstration portant le titre personnalisé s’affiche :
 
 ![Deuxième application en cours d’exécution derrière le contrôleur d’entrée](media/ingress-basic/app-two.png)
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Cet article vous a montré comment utiliser Helm pour installer les composants d’entrée et les exemples d’applications. Quand vous déployez un graphique Helm, une série de ressources Kubernetes est créée. Ces ressources incluent des pods, des déploiements et des services. Pour nettoyer ces ressources, répertoriez tout d’abord les versions Helm au moyen de la commande `helm list`. Recherchez les graphiques nommés *nginx-ingress* et *aks-helloworld*, comme illustré dans l’exemple de sortie suivant :
+
+```
+$ helm list
+
+NAME                REVISION    UPDATED                     STATUS      CHART                   APP VERSION NAMESPACE
+gilded-duck         1           Tue Oct 16 16:52:25 2018    DEPLOYED    nginx-ingress-0.22.1    0.15.0      kube-system
+righteous-numbat    1           Tue Oct 16 16:53:53 2018    DEPLOYED    aks-helloworld-0.1.0                default
+looming-moth        1           Tue Oct 16 16:53:59 2018    DEPLOYED    aks-helloworld-0.1.0                default
+```
+
+Supprimez les versions avec la commande `helm delete`. L’exemple suivant supprime le déploiement d’entrée NGINX et les deux exemples d’applications AKS « hello world ».
+
+```
+$ helm delete gilded-duck righteous-numbat looming-moth
+
+release "gilded-duck" deleted
+release "righteous-numbat" deleted
+release "looming-moth" deleted
+```
+
+Ensuite, supprimez le référentiel Helm pour l’application AKS « hello world » :
+
+```console
+helm repo remove azure-samples
+```
+
+Enfin, supprimez la route d’entrée qui a dirigé le trafic vers les exemples d’applications :
+
+```console
+kubectl delete -f hello-world-ingress.yaml
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

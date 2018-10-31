@@ -11,16 +11,16 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: barbkess
 ms.reviewer: baselden
-ms.openlocfilehash: 750bf1905a3ca352e181dcd5b7fcecdfc8d04f76
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: d2ede423a92fe9e0d45155d9470d63689bc8d281
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465501"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165531"
 ---
 # <a name="resources-for-migrating-applications-to-azure-active-directory"></a>Ressources pour la migration d’applications vers Azure Active Directory
 
-Ressources pour vous aider à migrer l’accès et l’authentification d’applications vers Azure Active Directory (Azure AD). 
+Ressources pour vous aider à migrer l’accès et l’authentification d’applications vers Azure Active Directory (Azure AD). Répondez à cette courte enquête (https://aka.ms/AppsMigrationFeedback) pour nous fournir vos commentaires sur votre expérience de la migration d’applications vers Azure AD (y compris les freins à la migration, les besoins d’outils et/ou de conseils, ou les raisons de votre choix de conserver votre IDP local). 
 
 | Ressource  | Description  |
 |:-----------|:-------------|

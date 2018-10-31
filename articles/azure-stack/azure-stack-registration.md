@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/09/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 09f5dbdb173e1613ed942391da7baaeb045654e4
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: c9106557c7c113281b04d37f1bc3d8b29e2087cc
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452528"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310451"
 ---
 # <a name="register-azure-stack-with-azure"></a>Inscrire Azure Stack auprès d’Azure
 
@@ -45,7 +45,7 @@ Vous devrez mettre en place les éléments suivants avant de vous inscrire :
 
 Avant d’inscrire Azure Stack auprès d’Azure, vous devez disposer des éléments suivants :
 
-- L’ID d’abonnement d’un abonnement Azure. L’inscription est prise en charge uniquement pour les abonnements aux services partagés EA, CSP et CSP. Les CSP ont le choix [d’utiliser un abonnement CSP ou CSPSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>Pour obtenir l’ID, connectez-vous à Azure et cliquez sur **Tous les services**. Ensuite, sous la catégorie **GÉNÉRAL**, sélectionnez **Abonnements** et cliquez sur l’abonnement que vous voulez utiliser. Sous **Éléments principaux**, vous trouverez alors l’ID d’abonnement.
+- L’ID d’abonnement d’un abonnement Azure. L’inscription est prise en charge uniquement pour les abonnements aux services partagés EA, CSP et CSP. Les CSP ont le choix d’[utiliser un abonnement CSP ou APSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-apss-subscription).<br><br>Pour obtenir l’ID, connectez-vous à Azure et cliquez sur **Tous les services**. Ensuite, sous la catégorie **GÉNÉRAL**, sélectionnez **Abonnements** et cliquez sur l’abonnement que vous voulez utiliser. Sous **Éléments principaux**, vous trouverez alors l’ID d’abonnement.
 
   > [!Note]  
   > Les abonnements au cloud en Allemagne ne sont actuellement pas pris en charge.
@@ -99,7 +99,7 @@ Votre déploiement Azure Stack peut être *connecté* ou *déconnecté*.
 Quand vous inscrivez Azure Stack sur Azure, vous devez fournir un nom d’inscription unique. Un moyen simple d’associer votre abonnement Azure Stack avec une inscription Azure est d’utiliser votre **ID cloud** Azure Stack. 
 
 > [!NOTE]
-> Pour les inscriptions Azure Stack basées sur le modèle de facturation par capacité, le nom unique doit être changé lors de la réinscription après l’expiration des abonnements annuels.
+> Pour les inscriptions Azure Stack basées sur le modèle de facturation par capacité, vous devez changer le nom unique lors de la réinscription après l’expiration des abonnements annuels, sauf si vous [supprimez l’inscription expirée](azure-stack-registration.md#change-the-subscription-you-use) et que vous vous réinscrivez à Azure.
 
 Pour déterminer l’ID cloud associé à votre déploiement Azure Stack, ouvrez PowerShell en tant qu’administrateur sur une machine ayant accès au point de terminaison privilégié, exécutez les commandes suivantes et notez la valeur **CloudID** : 
 
@@ -210,11 +210,11 @@ Les environnements connectés peuvent accéder à Internet et à Azure. Pour ces
       -PrivilegedEndpointCredential $CloudAdminCred `
       -PrivilegedEndpoint <PrivilegedEndPoint computer name> `
       -AgreementNumber <EA agreement number> `
-      -BillingModel Capacity
+      -BillingModel Capacity `
       -RegistrationName $RegistrationName
   ```
    > [!Note]  
-   > Vous pouvez désactiver la création de rapports avec le paramètre UsageReportingEnabled pour l’applet de commande **Set-AzsRegistration**. Définissez le paramètre sur false. Par exemple : `UsageReportingEnabled
+   > Vous pouvez désactiver la création de rapports avec le paramètre UsageReportingEnabled pour l’applet de commande **Set-AzsRegistration** en définissant le paramètre avec la valeur false. 
    
   Pour plus d’informations sur l’applet de commande Set-AzsRegistration, voir [Référence de l’inscription](#registration-reference).
 
@@ -318,12 +318,12 @@ Vous devez mettre à jour ou renouveler votre inscription dans les cas suivants�
 
 #### <a name="change-the-subscription-you-use"></a>Modifier l’abonnement que vous utilisez
 
-Si vous souhaitez modifier l’abonnement que vous utilisez, vous devez d’abord exécuter l’applet de commande **Remove-AzsRegistration**, vous assurer d’être connecté au contexte Azure PowerShell correct, puis exécuter **Set-AzsRegistration** avec les paramètres modifiés :
+Si vous souhaitez changer l’abonnement que vous utilisez, vous devez d’abord exécuter l’applet de commande **Remove-AzsRegistration**, vous assurer d’être connecté au contexte Azure PowerShell correct, puis exécuter **Set-AzsRegistration** avec les paramètres modifiés, y compris le \<modèle de facturation\> :
 
   ```PowerShell  
   Remove-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   Set-AzureRmContext -SubscriptionId $NewSubscriptionId
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 #### <a name="change-the-billing-model-or-how-to-offer-features"></a>Modifier le modèle de facturation ou la façon dont les fonctionnalités sont offertes
@@ -331,7 +331,7 @@ Si vous souhaitez modifier l’abonnement que vous utilisez, vous devez d’abor
 Si vous souhaitez modifier le modèle de facturation ou la façon dont les fonctionnalités sont offertes pour votre installation, vous pouvez appeler la fonction d’inscription pour définir les nouvelles valeurs. Vous n’avez pas besoin de supprimer l’inscription actuelle d’abord :
 
   ```PowerShell  
-  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel PayAsYouUse -RegistrationName $RegistrationName
+  Set-AzsRegistration -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel <billing model> -RegistrationName $RegistrationName
   ```
 
 ### <a name="renew-or-change-registration-in-disconnected-environments"></a>Renouveler ou de modifier l’inscription dans des environnements déconnectés

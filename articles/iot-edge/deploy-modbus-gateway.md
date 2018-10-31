@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: kgremban
-ms.openlocfilehash: b5316479011a432f3822448f03b8ad6ecddd4fe1
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 031524f4ef00b57f598c1114d594fb70eeedd15b
+ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39590582"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49393998"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>Connecter des appareils Modbus TCP via une passerelle d’appareils IoT Edge
 
@@ -23,7 +23,7 @@ Si vous souhaitez connecter des appareils IoT utilisant les protocoles Modbus TC
 
 Cet article vous explique comment créer votre propre image conteneur pour un module Modbus (vous pouvez également utiliser un exemple prédéfini), avant de la déployer sur l’appareil IoT Edge qui sera votre passerelle. 
 
-Cet article suppose que vous utilisez le protocole Modbus TCP. Pour plus d’informations sur la façon de configurer le module pour prendre en charge le protocole Modbus RTU, reportez-vous au projet [Module Modbus de Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) sur Github. 
+Cet article suppose que vous utilisez le protocole Modbus TCP. Pour plus d’informations sur la façon de configurer le module pour prendre en charge le protocole Modbus RTU, consultez le projet [Module Modbus Azure IoT Edge](https://github.com/Azure/iot-edge-modbus) sur Github. 
 
 ## <a name="prerequisites"></a>Prérequis
 * Un appareil Azure IoT Edge. Pour une procédure détaillée montrant comment en configurer un, consultez [Déployer Azure IoT Edge sur un appareil simulé dans Windows](quickstart.md) ou [Linux](quickstart-linux.md). 
@@ -54,13 +54,12 @@ Si vous souhaitez créer votre propre module et le personnaliser en fonction de 
 
       ```JSON
       {  
-        "properties.desired":{  
+        "properties.desired":{
           "PublishInterval":"2000",
-          "SlaveConfigs":{  
-            "Slave01":{  
-              "SlaveConnection":"<IPV4 address>",
-              "HwId":"PowerMeter-0a:01:01:01:01:01",
-              "Operations":{  
+          "SlaveConfigs":{
+            "Slave01":{
+              "SlaveConnection":"<IPV4 address>","HwId":"PowerMeter-0a:01:01:01:01:01",
+              "Operations":{
                 "Op01":{  
                   "PollingInterval": "1000",
                   "UnitId":"1",
@@ -100,8 +99,5 @@ Vous pouvez également afficher les données de télémétrie envoyées par l’
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Pour plus d’informations sur le rôle de passerelle des appareils IoT Edge, consultez [Créer un appareil IoT Edge agissant comme une passerelle transparente][lnk-transparent-gateway-linux]
+- Pour plus d’informations sur le rôle de passerelle des appareils IoT Edge, consultez [Créer un appareil IoT Edge agissant comme une passerelle transparente](./how-to-create-transparent-gateway-linux.md)
 - Pour plus d’informations sur le fonctionnement des modules IoT Edge, consultez [Comprendre les modules Azure IoT Edge](iot-edge-modules.md)
-
-<!-- Links -->
-[lnk-transparent-gateway-linux]: ./how-to-create-transparent-gateway-linux.md

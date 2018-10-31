@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 1ddcbba4eacad040420efaf087f170e6c06ab2a0
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 5f6ce3564cf4056dc9295e1885be425bbe3d7701
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47182397"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49165298"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Configurer l’inscription et la connexion avec un compte Google à l’aide d’Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Pour utiliser un compte Google comme fournisseur d’identité dans Azure Active
 3. Entrez un **Nom du projet**, cliquez sur **Créer**, puis vérifiez que vous utilisez le nouveau projet.
 3. Sélectionnez **Informations d’identification** dans le menu de gauche, puis **Créer des informations d’identification** > **ID client OAuth**.
 4. Sélectionnez **Configurer l’écran de consentement**.
-5. Sélectionnez ou spécifiez une **Adresse e-mail** valide, indiquez un **Nom de produit présenté aux utilisateurs**, puis cliquez sur **Enregistrer**.
+5. Sélectionnez ou spécifiez une **adresse e-mail** valide, indiquez un **nom de produit présenté aux utilisateurs**, ajoutez `b2clogin.com` à **Domaines autorisés**, puis cliquez sur **Enregistrer**.
 6. Sous **Type d’application**, sélectionnez **Application web**.
 7. Entrez un **Nom** pour votre application, saisissez `https://your-tenant-name.b2clogin.com` dans **Origines JavaScript autorisées** et `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` dans **URI de redirection autorisés**. Remplacez `your-tenant-name` par le nom de votre locataire. Vous devez utiliser uniquement des minuscules quand vous entrez le nom de votre locataire, même si le locataire est défini à l’aide de majuscules dans Azure AD B2C.
 8. Cliquez sur **Créer**.

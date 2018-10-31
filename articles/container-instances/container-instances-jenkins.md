@@ -2,22 +2,21 @@
 title: Utiliser Azure Container Instances en tant qu’agent de build Jenkins
 description: Découvrez comment utiliser Azure Container Instances en tant qu’agent de build Jenkins.
 services: container-instances
-author: mmacy
-manager: jeconnoc
+author: dlepow
 ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
-ms.author: marsma
-ms.openlocfilehash: 6419753a48e1356b2d94592fca72cee1f848dcdb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.author: danlep
+ms.openlocfilehash: 41c9302d280d6027e12f2516bca26a98d224f301
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390651"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49354187"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Utiliser Azure Container Instances en tant qu’agent de build Jenkins
 
-Le service Azure Container Instances (ACI) offre un environnement à la demande, modulable et isolé pour l’exécution de charges de travail conteneurisées. En raison de ces attributs, ACI constitue une plateforme idéale pour l’exécution des travaux de build Jenkins à grande échelle. Cet article décrit les procédures complètes de déploiement et d’utilisation d’un serveur Jenkins préconfiguré avec ACI en tant que cible de build.
+Le service Azure Container Instances (ACI) offre un environnement à la demande, modulable et isolé pour l’exécution de charges de travail en conteneur. En raison de ces attributs, ACI constitue une plateforme idéale pour l’exécution des travaux de build Jenkins à grande échelle. Cet article décrit les procédures complètes de déploiement et d’utilisation d’un serveur Jenkins préconfiguré avec ACI en tant que cible de build.
 
 Pour plus d’informations sur Azure Container Instances, consultez l’article [À propos d’Azure Container Instances][about-aci].
 
@@ -48,7 +47,7 @@ Pour plus d’informations sur Azure Container Instances, consultez l’article 
 
    ![Paramètres supplémentaires relatifs au déploiement du portail Jenkins](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Dans la zone Service Principal Integration (Intégration de principal de service), sélectionnez **Auto(MSI)** (Automatique [MSI]) afin que la fonctionnalité [Azure Managed Service Identity][managed-service-identity] crée automatiquement une identité d’authentification pour l’instance Jenkins. Si vous préférez fournir vos propres informations d’identification de principal de service, sélectionnez **Manuel**.
+4. Dans la zone Service Principal Integration (Intégration de principal de service), sélectionnez **Auto(MSI)** (Automatique [MSI]) afin que les [identités managées pour les ressources Azure][managed-identities-azure-resources] créent automatiquement une identité d’authentification pour l’instance Jenkins. Si vous préférez fournir vos propres informations d’identification de principal de service, sélectionnez **Manuel**.
 
 5. Les agents cloud configurent une plateforme cloud pour les travaux de build Jenkins. Pour les besoins de cet article, sélectionnez **ACI** (ACI). Avec l’agent cloud ACI, chaque travail de build Jenkins est exécuté dans une instance de conteneur.
 
@@ -130,7 +129,7 @@ Pour tester le travail de build et observer Azure Container Instances en tant qu
 
 ## <a name="troubleshooting-the-jenkins-plugin"></a>Dépannage du plug-in Jenkins
 
-Si vous constatez des bogues dans les plug-ins Jenkins, signalez le problème dans le [Jenkins JIRA](https://issues.jenkins-ci.org/) du composant en question.
+Si vous constatez des bogues dans les plug-ins Jenkins, enregistrez un problème dans le [Jenkins JIRA](https://issues.jenkins-ci.org/) du composant en question.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/17/2018
 ms.author: shvija
-ms.openlocfilehash: fbde6e5a5ed053d6c151b3af25535c397a496ef4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: ed337689360428d66657e5391ee52bb0ae39dc14
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005332"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365643"
 ---
 # <a name="event-hubs-samples"></a>Exemples de hubs d’événements 
 Vous trouverez des exemples Event Hubs sur [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples). Ces exemples présentent les fonctionnalités clés [d’Azure Event Hubs](/azure/event-hubs/). Cette article attribue une catégorie et décrit les exemples disponibles, avec des liens vers chacun d’eux.
@@ -44,6 +44,23 @@ Vous trouverez des exemples Event Hubs sur [GitHub](https://github.com/Azure/azu
 | [EventProcessorSample](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Basic/EventProcessorSample) |Cet exemple montre comment recevoir des événements d’un hub d’événements à l’aide de l’hôte du processeur d’événements. Ce dernier fournit la sélection de partition automatique et le basculement sur plusieurs récepteurs simultanés. | 
 | [AutoScaleOnIngress](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/AutoScaleOnIngress) | Cet exemple montre comment un hub d’événements peut automatiquement monter en puissance sur des charges élevées. L’exemple envoie des événements à un débit qui dépasse le débit configuré d’un concentrateur d’événements, provoquant la montée en puissance du hub d’événements. | 
 | [IngressBenchmark](https://github.com/Azure/azure-event-hubs/blob/master/samples/Java/Benchmarks/IngressBenchmark) | Cet exemple permet de mesurer le débit d’entrée. | 
+
+## <a name="python-samples"></a>Exemples Python
+Vous trouverez des exemples Python pour Azure Event Hubs dans le dépôt GitHub [azure-event-hubs-python](https://github.com/Azure/azure-event-hubs-python/tree/master/examples).
+
+## <a name="nodejs-samples"></a>Exemples relatifs à Node.js
+Vous trouverez des exemples Node.js pour Azure Event Hubs dans le dépôt GitHub [azure-event-hubs-node](https://github.com/Azure/azure-event-hubs-node).
+
+## <a name="go-samples"></a>Exemples Go
+Vous trouverez des exemples Go pour Azure Event Hubs dans le dépôt GitHub [azure-event-hubs-go](https://github.com/Azure/azure-event-hubs-go/tree/master/_examples).
+
+## <a name="azure-cli-samples"></a>Exemples d’interface de ligne de commande Azure
+Vous trouverez des exemples d’interface de ligne de commande Azure pour Azure Event Hubs dans le dépôt GitHub [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/CLI).
+
+## <a name="azure-powershell-samples"></a>Exemples Azure PowerShell
+Vous trouverez des exemples Azure PowerShell pour Azure Event Hubs dans le dépôt GitHub [azure-event-hubs](https://github.com/Azure/azure-event-hubs/tree/master/samples/Management/PowerShell).
+ 
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour plus d’informations sur les hubs d’événements, consultez les articles suivants :

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 07/02/2017
 ms.author: mfussell
-ms.openlocfilehash: 99d34d59bb9d55ff074d454fe4544917c4e91110
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: a80895db8a89b8d9392d0ed067b95daa23474d8b
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34205982"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49113867"
 ---
 # <a name="package-and-deploy-an-existing-executable-to-service-fabric"></a>Empaqueter et déployer un fichier exécutable existant sur Service Fabric
 Lors de l’empaquetage d’un fichier exécutable en tant [qu’exécutable invité](service-fabric-guest-executables-introduction.md), vous pouvez choisir d’utiliser un modèle de projet Visual Studio ou de [créer le package d’application manuellement](#manually). À l’aide de Visual Studio, la structure de package d’application et les fichiers manifeste sont créés pour vous par le modèle de nouveau projet.
@@ -168,7 +168,9 @@ Dans l’exemple ci-dessus, l’élément SetupEntryPoint exécute un fichier de
 </EntryPoint>
 ```
 
-L’élément `EntryPoint` dans le fichier de manifeste de service sert à spécifier comment lancer le service. L’élément `ExeHost` spécifie le fichier exécutable (et les arguments) à utiliser pour lancer le service.
+L’élément `EntryPoint` dans le fichier de manifeste de service sert à spécifier comment lancer le service.
+
+L’élément `ExeHost` spécifie le fichier exécutable (et les arguments) à utiliser pour lancer le service. Vous pouvez éventuellement ajouter l’attribut `IsExternalExecutable="true"` `ExeHost` pour indiquer que le programme est un exécutable externe en dehors du package de code. Par exemple : `<ExeHost IsExternalExecutable="true">`.
 
 * `Program` spécifie le nom de l’exécutable qui doit démarrer le service.
 * `Arguments` spécifie les arguments qui doivent être passés au fichier exécutable. Il peut s’agir d’une liste de paramètres avec des arguments.

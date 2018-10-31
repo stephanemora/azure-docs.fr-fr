@@ -4,7 +4,7 @@ description: Découvrez comment utiliser des tâches web pour exécuter des tâc
 services: app-service
 documentationcenter: ''
 author: ggailey777
-manager: erikre
+manager: jeconnoc
 editor: jimbe
 ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/09/2017
-ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: c3a41733dd193d10349a0126bfa9c25ce4ba56e7
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.date: 10/16/2018
+ms.author: glenga;msangapu;david.ebbo;suwatch;pbatum;naren.soni;
+ms.openlocfilehash: 901cf32557e0a437e938ceb50ecd500c69c8c3be
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577675"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49364028"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Exécuter des tâches en arrière-plan avec WebJobs dans Azure App Service
 
@@ -44,7 +44,7 @@ Le tableau suivant décrit les différences entre une tâche Web *continue* et u
 | Prend en charge le débogage à distance. | Ne prend pas en charge le débogage à distance.|
 
 > [!NOTE]
-> Une application web peut expirer après 20 minutes d’inactivité. Seules les demandes vers le site scm (déploiement) ou des pages de l’application web dans le portail permettent de réinitialiser le minuteur. Les requêtes à destination du site actif ne réinitialisent pas le minuteur. Si votre application exécute des tâches Web continues ou planifiées, activez l’option **Toujours actif** pour vous assurer que les tâches web s’exécutent de manière fiable. Cette fonctionnalité est disponible uniquement dans les [niveaux tarifaires](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) De base, Standard et Premium.
+> Une application web peut expirer après 20 minutes d’inactivité. Seules les requêtes à destination de l’application web active réinitialisent le minuteur. L’affichage de la configuration de l’application dans le portail Azure ou l’envoi de requêtes au site d’outils avancés (https://< nom_application >. scm.azurewebsites.net) ne réinitialise pas le minuteur. Si votre application exécute des tâches Web continues ou planifiées, activez l’option **Toujours actif** pour vous assurer que les tâches web s’exécutent de manière fiable. Cette fonctionnalité est disponible uniquement dans les [niveaux tarifaires](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) De base, Standard et Premium.
 
 ## <a name="acceptablefiles"></a>Types de fichier pris en charge pour les scripts ou les programmes
 
@@ -81,7 +81,7 @@ when making changes in one don't forget the other two.
 
    | Paramètre      | Exemple de valeur   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myContinuousWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »). |
+   | **Nom** | myContinuousWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »). |
    | **Chargement de fichiers** | ConsoleApp.zip | Un fichier *.zip* qui contient votre exécutable un fichier script ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script. Les types de fichiers exécutables ou scripts pris en charge sont répertoriés dans la section [Types de fichiers pris en charge](#acceptablefiles). |
    | **Type** | Continue | Les [types de tâches web](#webjob-types) sont décrites précédemment dans cet article. |
    | **Mettre à l'échelle** | Multi-instances | Disponible uniquement pour les tâches web continues. Détermine si le programme ou le script s’exécute sur toutes les instances ou une seule instance. L’option permettant une exécution sur plusieurs instances ne s’applique pas aux [niveaux tarifaires](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) Gratuit ou Partagé. | 
@@ -119,7 +119,7 @@ when making changes in one don't forget the other two.
 
    | Paramètre      | Exemple de valeur   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myTriggeredWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »).|
+   | **Nom** | myTriggeredWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »).|
    | **Chargement de fichiers** | ConsoleApp.zip | Un fichier *.zip* qui contient votre exécutable un fichier script ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script. Les types de fichiers exécutables ou scripts pris en charge sont répertoriés dans la section [Types de fichiers pris en charge](#acceptablefiles). |
    | **Type** | Déclenchée | Les [types de tâches web](#webjob-types) sont décrites précédemment dans cet article. |
    | **Déclencheurs** | Manuel | |
@@ -157,7 +157,7 @@ when making changes in one don't forget the other two.
 
    | Paramètre      | Exemple de valeur   | Description  |
    | ------------ | ----------------- | ------------ |
-   | **Name** | myScheduledWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »). |
+   | **Nom** | myScheduledWebJob | Un nom unique au sein d’une application App Service. Doit commencer par une lettre ou un chiffre et ne peut pas contenir de caractères spéciaux, à part les tirets et les traits de soulignement (« - » et « _ »). |
    | **Chargement de fichiers** | ConsoleApp.zip | Un fichier *.zip* qui contient votre exécutable un fichier script ainsi que les fichiers de prise en charge requis pour exécuter le programme ou le script. Les types de fichiers exécutables ou scripts pris en charge sont répertoriés dans la section [Types de fichiers pris en charge](#acceptablefiles). |
    | **Type** | Déclenchée | Les [types de tâches web](#webjob-types) sont décrites précédemment dans cet article. |
    | **Déclencheurs** | Planifiée | Pour que la planification fonctionne correctement, activez la fonctionnalité Toujours actif. La fonctionnalité Toujours actif est disponible uniquement dans les niveaux tarifaires De base, Standard et Premium.|

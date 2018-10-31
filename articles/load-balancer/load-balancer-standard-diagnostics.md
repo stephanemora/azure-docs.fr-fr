@@ -13,19 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/27/2018
+ms.date: 10/11/2018
 ms.author: Kumud
-ms.openlocfilehash: 43945dc8810151eb701aa9e1aa1be47d4fbb0491
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 6c730455e2d8b590a4e4b9ca0392985918678bf4
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125642"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167696"
 ---
 # <a name="metrics-and-health-diagnostics-for-standard-load-balancer"></a>Métriques et diagnostics d’intégrité du Load Balancer Standard
 
-Azure Load Balancer Standard dote vos ressources des fonctionnalités de diagnostic suivantes :
-* **Métriques multidimensionnelles** : de nouvelles fonctionnalités de diagnostic multidimensionnel sont proposées pour les configurations d’équilibreur de charge public et interne. Vous pouvez surveiller, gérer et résoudre les problèmes de vos ressources d’équilibreur de charge.
+Azure Standard Load Balancer expose vos ressources avec les fonctionnalités de diagnostic suivantes :
+* **Métriques multidimensionnelles** : de nouvelles fonctionnalités de diagnostic multidimensionnel sont proposées par le biais d’[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) pour les configurations d’équilibreur de charge public et interne. Vous pouvez surveiller, gérer et résoudre les problèmes de vos ressources d’équilibreur de charge.
 
 * **Intégrité des ressources** : la page associée à l’équilibreur de charge dans le portail Azure et celle associée à l’intégrité des ressources (sous Monitor) affichent la section Intégrité des ressources pour la configuration de l’équilibreur de charge public de Load Balancer Standard.
 
@@ -219,6 +219,7 @@ Le tableau suivant répertorie les divers états d’intégrité de ressource et
 
 - En savoir plus sur l’[équilibreur de charge standard](load-balancer-standard-overview.md).
 - En savoir plus sur la [connectivité sortante de votre équilibreur de charge](https://aka.ms/lboutbound).
-- En savoir plus sur l’[l’API REST des métriques Azure Monitor](https://docs.microsoft.com/rest/api/monitor/metrics/).
+- Découvrez [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview).
+- Découvrez l’[API REST Azure Monitor](https://docs.microsoft.com/rest/api/monitor/) et [comment récupérer des métriques par le biais de l’API REST](https://docs.microsoft.com/rest/api/monitor/metrics/metrics_list).
 
 

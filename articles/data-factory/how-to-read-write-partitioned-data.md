@@ -13,18 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: shlo
-ms.openlocfilehash: 59644f3318e2bf9c4f0ea6c3f5699fe1d19f2089
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 24464d110b00508cfb3fde4ab1a050773511e255
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37053708"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091047"
 ---
 # <a name="how-to-read-or-write-partitioned-data-in-azure-data-factory"></a>Guide pratique pour lire ou écrire des données partitionnées dans Azure Data Factory
-Dans la version 1, Azure Data Factory prenait en charge la lecture et l’écriture de données partitionnées à l’aide des variables système SliceStart/SliceEnd/WindowStart/WindowEnd. Dans la version actuelle de Data Factory, ce comportement est obtenu à l’aide d’un paramètre de pipeline ayant comme valeur une heure de début ou une heure planifiée de déclencheur. 
+
+Dans Azure Data Factory version 1, vous pouvez lire ou écrire des données partitionnées à l’aide des variables système **SliceStart**, **SliceEnd**, **WindowStart** et **WindowEnd**. Dans la version actuelle de Data Factory, ce comportement est obtenu à l’aide d’un paramètre de pipeline ayant comme valeur l’heure de début ou l’heure planifiée d’un déclencheur. 
 
 ## <a name="use-a-pipeline-parameter"></a>Utiliser un paramètre de pipeline 
-Dans la version 1, vous pouviez utiliser la propriété partitionedBy et la variable système SliceStart, comme indiqué dans l’exemple suivant : 
+
+Dans Data Factory version 1, vous pouviez utiliser la propriété **partitionedBy** et la variable système **SliceStart** comme indiqué dans l’exemple suivant : 
 
 ```json
 "folderPath": "adfcustomerprofilingsample/logs/marketingcampaigneffectiveness/{Year}/{Month}/{Day}/",
@@ -35,13 +37,13 @@ Dans la version 1, vous pouviez utiliser la propriété partitionedBy et la vari
 ],
 ```
 
-Pour plus d’informations sur la propriété partitonedBy, consultez l’article [Connecteur du stockage Blob version 1](v1/data-factory-azure-blob-connector.md#dataset-properties). 
+Pour plus d’informations sur la propriété **partitonedBy**, consultez [Copier des données vers ou depuis le stockage Blob Azure à l’aide d’Azure Data Factory](v1/data-factory-azure-blob-connector.md#dataset-properties). 
 
-Dans la version actuelle de Data Factory, l’une des manières d’obtenir ce comportement consiste à effectuer les actions suivantes : 
+Pour obtenir ce comportement dans la version actuelle de Data Factory : 
 
-1. Définissez un **paramètre de pipeline** de type chaîne. Dans l’exemple suivant, le nom du paramètre de pipeline est **windowStartTime**. 
+1. Définissez un *paramètre de pipeline* de type **chaîne**. Dans l’exemple suivant, le nom du paramètre de pipeline est **windowStartTime**. 
 2. Dans la définition du jeu de données, définissez **folderPath** de façon à référencer la valeur du paramètre de pipeline. 
-3. Passez la valeur réelle du paramètre lors de l’appel du pipeline à la demande, ou passez dynamiquement l’heure de démarrage/l’heure planifiée d’un déclencheur à l’exécution. 
+3. Passez la valeur réelle du paramètre lors de l’appel du pipeline à la demande. Vous pouvez également passer dynamiquement l’heure de début ou l’heure planifiée d’un déclencheur à l’exécution. 
 
 ```json
 "folderPath": {
@@ -50,8 +52,9 @@ Dans la version actuelle de Data Factory, l’une des manières d’obtenir ce c
 },
 ```
 
-## <a name="pass-in-value-from-a-trigger"></a>Passer une valeur à partir d’un déclencheur
-Dans la définition de déclencheur de fenêtre bascule suivante, l’heure de début de la fenêtre du déclencheur est passée comme valeur du paramètre de pipeline **windowStartTime** : 
+## <a name="pass-in-a-value-from-a-trigger"></a>Passer une valeur à partir d’un déclencheur
+
+Dans la définition de déclencheur de fenêtre bascule suivante, l’heure de début de la fenêtre du déclencheur est passée comme valeur du paramètre de pipeline **windowStartTime** : 
 
 ```json
 {
@@ -176,4 +179,6 @@ Définition du pipeline :
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour obtenir une description complète de la création d’une fabrique de données avec un pipeline, consultez [Démarrage rapide : créer une fabrique de données](quickstart-create-data-factory-powershell.md). 
+
+Pour obtenir une description complète de la création d’une fabrique de données avec un pipeline, consultez [Démarrage rapide : créer une fabrique de données](quickstart-create-data-factory-powershell.md). 
+

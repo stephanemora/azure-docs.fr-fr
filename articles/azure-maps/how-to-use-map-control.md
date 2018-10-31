@@ -3,17 +3,17 @@ title: Guide pratique d’utilisation de la bibliothèque Azure Maps Map Control
 description: Découvrez comment utiliser la bibliothèque JavaScript côté client Azure Maps Map Control.
 author: dsk-2015
 ms.author: dkshir
-ms.date: 09/05/2018
+ms.date: 10/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 45890b4bd474c010b2b086be0405b79d340aeebd
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 850f9b28c112c11fd98a8abc81a1811cd26d81cc
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603157"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166019"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Utiliser le Map Control Azure Maps
 
@@ -43,14 +43,14 @@ Vous pouvez intégrer une carte dans une page web à l’aide de la bibliothèqu
     </style>
     ```
 
-4. Afin d’initialiser le contrôle de la carte, définissez une nouvelle section dans le corps HTML et créez un script. Utilisez votre propre clé de compte Azure Maps dans le script. Si vous devez créer un compte ou rechercher votre clé, consultez la section [Guide de gestion de votre compte et de vos clés Azure Maps](how-to-manage-account-keys.md).
+4. Pour initialiser le contrôle de carte, définissez une nouvelle section dans le corps HTML et créez un script. Utilisez votre propre clé de compte Azure Maps dans le script. Si vous devez créer un compte ou rechercher votre clé, consultez la section [Guide de gestion de votre compte et de vos clés Azure Maps](how-to-manage-account-keys.md). La méthode **setLanguage** spécifie la langue à utiliser pour les étiquettes de carte et les contrôles. Pour plus d’informations sur les langues prises en charge, consultez [Langues prises en charge](https://docs.microsoft.com/azure/azure-maps/supported-languages).
 
     ```html
     <div id="map">
         <script>
-            var MapsAccountKey = "<_your account key_>";
+            atlas.setSubscriptionKey("<_your account key_>");
+            atlas.setLanguage("en");
             var map = new atlas.Map("map", {
-                "subscription-key": MapsAccountKey,
                 center: [-122.33263,47.59093],
                 zoom: 12
             });

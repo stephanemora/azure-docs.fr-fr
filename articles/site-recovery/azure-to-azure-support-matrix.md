@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 0e9c5c7ebaaa0a51d723340751e8ea82bfb96b5e
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 49773e076ed8bb06ff76f9f654b914a709051fb5
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47433665"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378616"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Matrice de support pour la réplication à partir d’une région Azure vers une autre
 
@@ -69,7 +69,7 @@ La prise en charge ci-dessous est applicable à toutes les charges de travail en
 - SUSE Linux Enterprise Server 12 SP1, SP2, SP3 [ (versions du noyau prises en charge)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
 - SUSE Linux Enterprise Server 11 SP3
 - SUSE Linux Enterprise Server 11 SP4
-- Oracle Enterprise Linux 6.4, 6.5, 6.6, 6.7 exécutant le noyau compatible Red Hat ou Unbreakable Enterprise Kernel Release 3 (UEK3)
+- Oracle Linux 6.4, 6.5, 6.6, 6.7 exécutant le noyau compatible Red Hat ou le noyau Unbreakable Enterprise Kernel Release 3 (UEK3)
 
 (La mise à niveau des machines de réplication de SLES 11 SP3 vers SLES 11 SP4 n’est pas prise en charge. Si une machine répliquée a été mise à niveau de SLES 11SP3 vers SLES 11 SP4, vous devez désactiver la réplication et protéger à nouveau la machine après la mise à niveau.)
 
@@ -209,7 +209,7 @@ Proxy authentifié | Non pris en charge | Si la machine virtuelle utilise un pro
 VPN de site à site avec infrastructure locale (avec ou sans ExpressRoute)| Prise en charge | Vérifiez que les itinéraires définis par l’utilisateur et les groupes de sécurité réseau sont configurés de telle sorte que le trafic Site Recovery ne soit pas acheminé vers l’infrastructure locale. Voir le [document d’aide à la mise en réseau](site-recovery-azure-to-azure-networking-guidance.md).  
 Connexion de réseau virtuel à réseau virtuel | Prise en charge | Voir le [document d’aide à la mise en réseau](site-recovery-azure-to-azure-networking-guidance.md).  
 Points de terminaison de service de réseau virtuel | Prise en charge | Les pare-feu pour réseaux virtuels du Stockage Azure ne sont pas pris en charge. L’autorisation d’accès à des réseaux virtuels Azure spécifiques sur des comptes de stockage en cache utilisés pour stocker des données répliquées n’est pas prise en charge.
-Accélération réseau | Pris en charge | L’accélération réseau doit être activée sur la machine virtuelle source. [Plus d’informations](azure-vm-disaster-recovery-with-accelerated-networking.md)
+Mise en réseau accélérée | Pris en charge | L’accélération réseau doit être activée sur la machine virtuelle source. [Plus d’informations](azure-vm-disaster-recovery-with-accelerated-networking.md)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

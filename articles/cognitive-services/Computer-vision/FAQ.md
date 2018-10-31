@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: kefre
-ms.openlocfilehash: 5c0a4e981a290b9a758c8401a75e546c61618b45
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 55b474d0edbb8dc01b9f35d4f8799e53e37862df
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983899"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166370"
 ---
 # <a name="computer-vision-api-frequently-asked-questions"></a>Questions fréquentes (FAQ) sur l’API Vision par ordinateur
 
@@ -44,7 +44,7 @@ ms.locfileid: "45983899"
 | Danois (da-DK)  | Néerlandais (nl-NL)     | Français           | Finnois (fi-FI)            |Français (fr-FR)
 | Allemand (de-DE)  | Grec (el-GR)     | Hongrois (hu-HU) | Italien (it-IT)            | Japonais (ja-JP)
 | Coréen (ko-KR)  | Norvégien (nb-NO) | Polonais (pl-PL)    | Portugais (pt-BR) (pt-PT) | Russe (ru-RU)
-| Espagnol (es-ES)   | Suédois (sv-SV)     | Turc (tr-TU)   |                            |
+| Espagnol (es-ES)   | Suédois (sv-SV)     | Turc (tr-TR)   |                            |
 
 -----
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/28/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 3f2609ea57ea5a5a0cce2544a1031c55199d137b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: bc6d615409f3c2d0f46286d2ad2ba20c32574afd
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529501"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091711"
 ---
 # <a name="deciding-when-to-use-azure-blobs-azure-files-or-azure-disks"></a>Quand utiliser des objets BLOB Azure, des fichiers Azure ou des disques Azure
 
@@ -64,8 +64,8 @@ Le tableau suivant compare les fichiers Azure et les disques Azure.
 |Nettoyage|Automatique|Manuel|  
 |Accès à l’aide de REST|Les fichiers du disque dur virtuel ne sont pas accessibles|Les fichiers stockés dans un partage sont accessibles|  
 |Taille maximale|Disque de 4 Tio|Partage de fichiers de 5 Tio et fichier de 1 Tio au sein du partage|  
-|E/S par seconde de 8 Ko max.|500 E/S par seconde|1 000 E/S par seconde|  
-|Débit|Jusqu’à 60 Mio/s par disque|Jusqu’à 60 Mio/s par partage de fichiers|  
+|Nombre maximal d’IOPS|500 E/S par seconde|1 000 E/S par seconde|  
+|Débit|Jusqu’à 60 Mio/s par disque|La cible est de 60 Mio/s par partage de fichiers (pouvant être plus élevée pour des tailles d’e/s plus élevées)|  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

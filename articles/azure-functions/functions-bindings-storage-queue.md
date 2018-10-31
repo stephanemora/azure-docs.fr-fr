@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 68352db238b92d39119b420ed0d573e88a95bc78
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: cb72b3f6b0a665f1a4d39d1e8533be51faa4c107
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394452"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167135"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Liaisons de stockage File d’attente Azure pour Azure Functions
 
@@ -146,11 +146,16 @@ Voici le fichier *function.json* :
 
 La section [configuration](#trigger---configuration) décrit ces propriétés.
 
+> [!NOTE]
+> Le paramètre de nom se reflète en tant que `context.bindings.<name>` dans le code JavaScript qui contient la charge utile de l’élément de file d’attente. Cette charge utile est également passée comme deuxième paramètre à la fonction.
+
 Voici le code JavaScript :
 
 ```javascript
-module.exports = function (context) {
-    context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
+module.exports = async function (context, message) {
+    context.log('Node.js queue trigger function processed work item', message);
+    // OR access using context.bindings.<name>
+    // context.log('Node.js queue trigger function processed work item', context.bindings.myQueueItem);
     context.log('queueTrigger =', context.bindingData.queueTrigger);
     context.log('expirationTime =', context.bindingData.expirationTime);
     context.log('insertionTime =', context.bindingData.insertionTime);
@@ -244,7 +249,7 @@ Le tableau suivant décrit les propriétés de configuration de liaison que vous
 |---------|---------|----------------------|
 |**type** | n/a| Cette propriété doit être définie sur `queueTrigger`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure.|
 |**direction**| n/a | Dans le fichier *function.json* uniquement. Cette propriété doit être définie sur `in`. Cette propriété est définie automatiquement lorsque vous créez le déclencheur dans le portail Azure. |
-|**name** | n/a |Nom de la variable qui représente la file d’attente dans le code de la fonction.  | 
+|**name** | n/a |Nom de la variable qui contient la charge utile de l’élément de file d’attente dans le code de fonction.  | 
 |**queueName** | **QueueName**| Nom de la file d’attente à interroger. | 
 |**Connexion** | **Connection** |Nom d’un paramètre d’application comportant la chaîne de connexion de stockage à utiliser pour cette liaison. Si le nom du paramètre d’application commence par « AzureWebJobs », vous ne pouvez spécifier que le reste du nom ici. Par exemple, si vous définissez `connection` sur « MyStorage », le runtime Functions recherche un paramètre d’application qui est nommé « AzureWebJobsMyStorage ». Si vous laissez `connection` vide, le runtime Functions utilise la chaîne de connexion de stockage par défaut dans le paramètre d’application nommé `AzureWebJobsStorage`.|
 
@@ -531,7 +536,7 @@ Dans les fonctions JavaScript, utilisez `context.bindings.<name>` pour accéder 
 |---|---|
 | File d'attente | [Codes d’erreur de file d’attente](https://docs.microsoft.com/rest/api/storageservices/queue-service-error-codes) |
 | Objet blob, Table, File d’attente | [Codes d’erreur de stockage](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
-| Objet blob, Table, File d’attente |  [Résolution des problèmes](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
+| Objet blob, Table, File d’attente |  [Dépannage](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

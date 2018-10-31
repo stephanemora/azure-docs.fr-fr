@@ -3,19 +3,19 @@ title: 'Reconnaissance du texte imprimé et manuscrit : Vision par ordinateur'
 titleSuffix: Azure Cognitive Services
 description: Concepts liés à la reconnaissance du texte imprimé et manuscrit dans des images à l’aide de l’API Vision par ordinateur.
 services: cognitive-services
-author: deken
+author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: conceptual
 ms.date: 08/29/2018
-ms.author: v-deken
-ms.openlocfilehash: 49cba0e9b6958beb07b6f074e6dc748679514525
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.author: pafarley
+ms.openlocfilehash: 6827bf5f983834dc5222a3f3028386f8bbcb253a
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985309"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49338098"
 ---
 # <a name="recognizing-printed-and-handwritten-text"></a>Reconnaissance du texte imprimé et manuscrit
 
@@ -29,7 +29,7 @@ Vision par ordinateur peut reconnaître un texte imprimé et manuscrit dans des 
 
 - L’image doit être au format JPEG, PNG ou BMP.
 - La taille de fichier de l’image doit être inférieure à 4 mégaoctets (Mo)
-- Les dimensions de l’image doivent être comprises entre 40 x 40 et 3200 x 3200 pixels.
+- Les dimensions de l’image doivent être comprises entre 50 x 50 et 4200 x 4200 pixels.
 
 > [!NOTE]
 > Cette technologie est actuellement en préversion et n’est disponible que pour du texte écrit en anglais.

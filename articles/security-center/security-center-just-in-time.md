@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 10/10/2018
 ms.author: rkarlin
-ms.openlocfilehash: cb13da7ad9387b7170882752b1620c2756bc3675
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 98533e3c1454867ff09c53902f0f575d198452a3
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46124148"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49320337"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Gérer l’accès Juste à temps à la machine virtuelle
 
@@ -111,6 +111,33 @@ Sous **JIT VM access configuration** (Configuration de l’accès Juste à temps
 > [!NOTE]
 >Lorsque l’accès juste-à-temps aux machines virtuelles est activé pour une machine virtuelle, Azure Security Center crée des règles de refus de tous les trafics entrants pour les ports sélectionnés dans les groupes de sécurité réseau associés. Ces règles auront la plus haute priorité dans vos groupes de sécurité réseau ou seront de priorité plus basse que les règles existantes déjà installées. Cela dépend d’une analyse effectuée par Azure Security Center qui détermine si une règle est sécurisée ou non.
 >
+
+
+## <a name="set-just-in-time-within-a-vm"></a>Définir l’accès juste-à-temps dans une machine virtuelle
+
+Pour faciliter le déploiement de l’accès juste-à-temps entre vos machines virtuelles, vous pouvez configurer une machine virtuelle pour autoriser uniquement l’accès juste-à-temps directement à partir de la machine virtuelle.
+
+1. Dans le portail Azure, sélectionnez **Machines virtuelles**.
+2. Cliquez sur la machine virtuelle pour laquelle vous voulez limiter l’accès juste-à-temps.
+3. Dans le menu, cliquez sur **Configuration**.
+4. Sous **Accès juste-à-temps**, cliquez sur **Activer une stratégie juste-à-temps**. 
+
+Cela permet un accès juste-à-temps pour la machine virtuelle en utilisant les paramètres suivants :
+
+- Serveurs Windows :
+    - Port RDP 3389
+    - 3 heures d’accès
+    - L’option Adresses IP sources autorisées est définie sur Par demande
+- Serveurs Linux :
+    - Port SSH 22
+    - 3 heures d’accès
+    - L’option Adresses IP sources autorisées est définie sur Par demande
+     
+Si l’accès juste-à-temps est déjà activé sur une machine virtuelle, vous pouvez le voir quand vous accédez à sa page de configuration, et vous pouvez utiliser le lien pour ouvrir la stratégie dans Azure Security Center afin d’afficher et de changer les paramètres.
+
+![jit config in vm](./media/security-center-just-in-time/jit-vm-config.png)
+
+
 ## <a name="requesting-access-to-a-vm"></a>Demande d’accès à une machine virtuelle
 
 Pour demander l’accès à une machine virtuelle :

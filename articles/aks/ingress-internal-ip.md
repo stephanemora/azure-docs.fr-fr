@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: iainfou
-ms.openlocfilehash: 76ad9d21f7b328e7f201d227cdd9ace51c62a3fd
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ffa6aa3b9e65577761343e2e09a44ce16a05631f
+ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44355136"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49365592"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>Créer un contrôleur d’entrée pour un réseau virtuel interne dans Azure Kubernetes Service (AKS)
 
@@ -47,13 +47,16 @@ controller:
       service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 ```
 
-À présent, déployez le graphique *nginx-ingress* avec Helm. Pour utiliser le fichier manifeste créé à l’étape précédente, ajoutez le paramètre `-f internal-ingress.yaml` :
+À présent, déployez le graphique *nginx-ingress* avec Helm. Pour utiliser le fichier manifeste créé à l’étape précédente, ajoutez le paramètre `-f internal-ingress.yaml`. Pour renforcer la redondance, deux réplicas des contrôleurs d’entrée NGINX sont déployés avec le paramètre `--set controller.replicaCount`. Pour tirer pleinement parti de l’exécution de réplicas des contrôleurs d’entrée, vérifiez que votre cluster AKS comprend plusieurs nœuds.
 
 > [!TIP]
 > L’exemple suivant installe le contrôleur d’entrée dans l’espace de noms `kube-system`. Si vous le souhaitez, vous pouvez spécifier un espace de noms différent pour votre propre environnement. Si le contrôle d’accès en fonction du rôle (RBAC) n’est pas activé sur votre cluster AKS, ajoutez `--set rbac.create=false` aux commandes.
 
 ```console
-helm install stable/nginx-ingress --namespace kube-system -f internal-ingress.yaml
+helm install stable/nginx-ingress \
+    --namespace kube-system \
+    -f internal-ingress.yaml \
+    --set controller.replicaCount=2
 ```
 
 Lorsque le service équilibreur de charge Kubernetes est créé pour le contrôleur d’entrée NGINX, votre adresse IP interne est affectée, comme indiqué dans l’exemple de sortie suivant :
@@ -173,6 +176,41 @@ $ curl -L -k http://10.240.0.42/hello-world-two
     <link rel="stylesheet" type="text/css" href="/static/default.css">
     <title>AKS Ingress Demo</title>
 [...]
+```
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Cet article vous a montré comment utiliser Helm pour installer les composants d’entrée et les exemples d’applications. Quand vous déployez un graphique Helm, une série de ressources Kubernetes est créée. Ces ressources incluent des pods, des déploiements et des services. Pour nettoyer ces ressources, répertoriez tout d’abord les versions Helm au moyen de la commande `helm list`. Recherchez les graphiques nommés *nginx-ingress* et *aks-helloworld*, comme illustré dans l’exemple de sortie suivant :
+
+```
+$ helm list
+
+NAME                REVISION    UPDATED                     STATUS      CHART                   APP VERSION NAMESPACE
+kissing-ferret      1           Tue Oct 16 17:13:39 2018    DEPLOYED    nginx-ingress-0.22.1    0.15.0      kube-system
+intended-lemur      1           Tue Oct 16 17:20:59 2018    DEPLOYED    aks-helloworld-0.1.0                default
+pioneering-wombat   1           Tue Oct 16 17:21:05 2018    DEPLOYED    aks-helloworld-0.1.0                default
+```
+
+Supprimez les versions avec la commande `helm delete`. L’exemple suivant supprime le déploiement d’entrée NGINX et les deux exemples d’applications AKS « hello world ».
+
+```
+$ helm delete kissing-ferret intended-lemur pioneering-wombat
+
+release "kissing-ferret" deleted
+release "intended-lemur" deleted
+release "pioneering-wombat" deleted
+```
+
+Ensuite, supprimez le référentiel Helm pour l’application AKS « hello world » :
+
+```console
+helm repo remove azure-samples
+```
+
+Enfin, supprimez la route d’entrée qui a dirigé le trafic vers les exemples d’applications :
+
+```console
+kubectl delete -f hello-world-ingress.yaml
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes

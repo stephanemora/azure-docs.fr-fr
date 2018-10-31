@@ -2,19 +2,19 @@
 title: Gestionnaire de sécurité Azure IoT Edge | Microsoft Docs
 description: Gère le principe de sécurité d’appareil IoT Edge et l’intégrité des services de sécurité.
 services: iot-edge
-keywords: sécurité, d’élément, d’enclave, IoT Edge
+keywords: sécurité, élément sécurisé, enclave, TEE, IoT Edge
 author: eustacea
 manager: timlt
 ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: f0e548cdd1c59dc894899ddbac127dd76db7db26
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126341"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49321166"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Gestionnaire de sécurité Azure IoT Edge
 
@@ -113,7 +113,7 @@ La publication de HSM PAL extrait toutes les racines du matériel de confiance p
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Racine de silicium sécurisé du matériel de confiance
 
-Le silicium sécurisé est nécessaire à l’approbation d’ancrage dans le matériel de l’appareil IoT Edge.  Un silicium sécurisé se présente en plusieurs variétés pour inclure le Module de plateforme sécurisée (TPM), élément sécurisé incorporé (eSM), ARM Trustzone, Intel SGX et technologies de silicium sécurisé personnalisé.  L’utilisation de racine de silicium de confiance sur les appareils est hautement recommandée étant donné les menaces associées à l’accessibilité physique des appareils IoT.
+Le silicium sécurisé est nécessaire à l’approbation d’ancrage dans le matériel de l’appareil IoT Edge.  Un silicium sécurisé se présente en plusieurs variétés pour inclure le Module de plateforme sécurisée (TPM), l’élément sécurisé incorporé (eSE), ARM TrustZone, Intel SGX et des technologies de silicium sécurisé personnalisé.  L’utilisation de racine de silicium de confiance sur les appareils est hautement recommandée étant donné les menaces associées à l’accessibilité physique des appareils IoT.
 
 ## <a name="iot-edge-security-manager-integration-and-maintenance"></a>Maintenance et intégration de gestionnaire de sécurité IoT Edge
 

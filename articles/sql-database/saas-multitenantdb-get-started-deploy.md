@@ -12,14 +12,14 @@ ms.author: genemi
 ms.reviewer: billgib, stein
 manager: craigg
 ms.date: 04/02/2018
-ms.openlocfilehash: b91960920f0181939e634a221080d493fb8cea63
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: ff09a5f09393ad642ddb2059b58bd69a17591aff
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056656"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352209"
 ---
-# <a name="deploy-and-explore-a-sharded-multi-tenant-application-that-uses-azure-sql-database"></a>Déployer et explorer une application multilocataire partitionnée qui utilise Azure SQL Database
+# <a name="deploy-and-explore-a-sharded-multi-tenant-application"></a>Déployer et explorer une application mutualisée sharded
 
 Ce didacticiel montre comment déployer et explorer un exemple d’application SaaS mutualisée nommée Wingtip Tickets. L’application Wingtip Tickets est conçue pour tirer parti des fonctionnalités Azure SQL Database qui simplifient l’implémentation de scénarios SaaS.
 
@@ -27,7 +27,7 @@ Cette implémentation de l’application Wingtip Tickets utilise un modèle de b
 
 Ce modèle de base de données vous permet de stocker un ou plusieurs locataires dans chaque partition ou base de données. Vous pouvez optimiser les coûts en partitionnant chaque base de données entre plusieurs locataires. Vous pouvez également l’isolation en faisant en sorte que chaque base de données ne stocke qu’un seul locataire. Votre choix d’optimisation peut s’appliquer de manière indépendante pour chaque locataire spécifique. Effectuez votre choix lors du premier stockage du locataire, vous pourrez toujours changer d’avis ultérieurement. L’application est conçue pour fonctionner correctement dans les deux cas.
 
-#### <a name="app-deploys-quickly"></a>Déploiement rapide de l’application
+## <a name="app-deploys-quickly"></a>Déploiement rapide de l’application
 
 L’application s’exécute dans le cloud Azure et utilise Azure SQL Database. La section relative au déploiement qui suit inclut le bouton bleu **Déployer dans Azure**. Lors de l’activation du bouton est activé, l’application est entièrement déployée vers votre abonnement Azure dans les cinq minutes. Vous avez un accès complet pour utiliser les composants d’application individuels.
 
@@ -35,7 +35,7 @@ L’application est déployée avec des données pour trois exemples de locatair
 
 N’importe quel utilisateur peut télécharger le code source C# et PowerShell pour Wingtip Tickets à partir du [référentiel GitHub][link-github-wingtip-multitenantdb-55g].
 
-#### <a name="learn-in-this-tutorial"></a>Découvrir, dans ce didacticiel, comment
+## <a name="learn-in-this-tutorial"></a>Découvrir, dans ce didacticiel, comment
 
 > [!div class="checklist"]
 > - Comment déployer l’application SaaS Wingtip Tickets.
@@ -55,7 +55,7 @@ Pour suivre ce didacticiel, vérifiez que les prérequis suivants sont remplis 
 
 ## <a name="deploy-the-wingtip-tickets-app"></a>Déployer l’application Wingtip Tickets
 
-#### <a name="plan-the-names"></a>Planifier les noms
+### <a name="plan-the-names"></a>Planifier les noms
 
 Les étapes de cette section vous permettent de fournir une valeur *utilisateur* utilisée pour garantir que les noms de ressources sont globalement uniques et un nom du *groupe de ressources* qui contient toutes les ressources créées par un déploiement de l’application. Pour une personne nommée *Ann Finley*, nous vous suggérons :
 - *Utilisateur :* **af1**  *(ses initiales, plus un chiffre. Utilisez une valeur différente (par exemple, af2) si vous déployez l’application une deuxième fois.)*
@@ -63,7 +63,7 @@ Les étapes de cette section vous permettent de fournir une valeur *utilisateur*
 
 Choisissez vos noms maintenant et notez-les. 
 
-#### <a name="steps"></a>Étapes
+### <a name="steps"></a>Étapes
 
 1. Cliquez sur le bouton bleu **Déployer dans Azure** suivant.
     - Il ouvre le portail Azure avec le modèle de déploiement Wingtip Tickets SaaS.
@@ -133,7 +133,7 @@ Une page web centrale de **concentrateur d’événements** fournit une liste de
 
    ![Événements](./media/saas-multitenantdb-get-started-deploy/fabrikam.png)
 
-#### <a name="azure-traffic-manager"></a>Azure Traffic Manager
+### <a name="azure-traffic-manager"></a>Azure Traffic Manager
 
 Pour contrôler la distribution des requêtes entrantes, l’application Wingtip utilise [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md). La page des événements de chaque locataire inclut le nom du locataire dans son URL. Chaque URL comprend également la valeur d’utilisateur spécifique. Chaque URL respecte le format indiqué en procédant comme suit :
 
@@ -144,7 +144,7 @@ Pour contrôler la distribution des requêtes entrantes, l’application Wingtip
 3. L’application recherche la clé dans le catalogue et obtient l’emplacement correspondant de la base de données du locataire.
 4. L’application utilise les informations d’emplacement pour rechercher une base de données qui contient toutes les données du locataire et y accéder.
 
-#### <a name="events-hub"></a>Concentrateur d’événements
+### <a name="events-hub"></a>Concentrateur d’événements
 
 1. Le **concentrateur d’événements** répertorie tous les locataires inscrits dans le catalogue et les lieux correspondants.
 2. Le **concentrateur d’événements** utilise les métadonnées étendues dans le catalogue pour récupérer le nom du locataire associé à chaque mappage pour créer les URL.
@@ -185,6 +185,7 @@ Actualisez le **concentrateur d’événements** : le nouveau locataire appara�
 ## <a name="provision-a-new-tenant-in-its-own-database"></a>Approvisionner un nouveau locataire dans sa propre base de données
 
 Le modèle multilocataire partitionné vous permet de choisir s’il faut approvisionner un nouveau locataire dans une base de données qui contient d’autres locataires dans sa propre base de données. Un locataire isolé dans sa propre base de données bénéficie des avantages suivants :
+
 - Les performances de la base de données du locataire peuvent être gérés indépendamment des besoins des autres locataires.
 - Si nécessaire, la base de données peut être restaurée à un point antérieur dans le temps, car aucun autre locataire n’est impacté.
 
@@ -221,7 +222,6 @@ Examinons maintenant quelques-unes des ressources qui ont été déployées :
 
    ![serveur de locataires](./media/saas-multitenantdb-get-started-deploy/tenants-server.png)
 
-
 ## <a name="monitor-the-performance-of-the-database"></a>Surveiller les performances de la base de données
 
 Si le générateur de charge s’exécute depuis plusieurs minutes, suffisamment de télémétrie est disponible pour rechercher les fonctionnalités de surveillance de base de données intégrées au portail Azure.
@@ -238,7 +238,7 @@ Si le générateur de charge s’exécute depuis plusieurs minutes, suffisamment
 
 Le générateur de charge applique une charge similaire sur chaque locataire, quelle que soit la base de données dans laquelle se trouve chaque locataire. Avec un seul locataire dans la base de données **salixsalsa**, vous pouvez constater que la base de données peut supporter une charge bien supérieure à celle de la base de données en contenant plusieurs. 
 
-#### <a name="resource-allocations-vary-by-workload"></a>Allocations de ressources variant selon la charge de travail
+### <a name="resource-allocations-vary-by-workload"></a>Allocations de ressources variant selon la charge de travail
 
 Pour fournir de bonnes performances, une base de données multilocataire exige parfois davantage de ressources qu’une base de données à locataire unique, mais pas toujours. La répartition optimale des ressources dépend des caractéristiques de charge de travail pour les locataires de votre système.
 
@@ -249,8 +249,9 @@ Les charges de travail générées par le script de génération de charge sont 
 - Pour de plus amples informations sur les applications SaaS mutualisées, consultez [Modèles de location de base de données SaaS multi-locataire](saas-tenancy-app-design-patterns.md).
 
 - Pour en savoir plus sur les pools élastiques, voir :
-    - [Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Azure SQL](sql-database-elastic-pool.md)
-    - [Montée en charge avec Azure SQL Database](sql-database-elastic-scale-introduction.md)
+
+  - [Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Azure SQL](sql-database-elastic-pool.md)
+  - [Montée en charge avec Azure SQL Database](sql-database-elastic-scale-introduction.md)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

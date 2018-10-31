@@ -14,89 +14,85 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: qianw211
-ms.openlocfilehash: d7fd09928c0a687755d216e7f10f7eac23677c63
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 3ad9308f3bc714ee2877627da8fdb328459b9fe4
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45987340"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49351947"
 ---
-# <a name="enable-a-microsoft-appsource-and-azure-marketplace-listing-by-using-azure-active-directory"></a>Activer une liste Microsoft AppSource et Place de marché Microsoft Azure à l’aide d’Azure Active Directory
+# <a name="enable-an-appsource-and-marketplace-listing-by-using-azure-active-directory"></a>Activer une liste AppSource et Place de marché en utilisant Azure Active Directory
 
-Microsoft Azure Active Directory (Azure AD) est un service d’identité cloud, qui permet de s’authentifier avec un compte Microsoft à l’aide de systèmes standards.  Pour plus d’informations sur Azure AD, consultez [Azure Active Directory](https://azure.microsoft.com/services/active-directory).
+ Azure Active Directory (Azure AD) est un service d’identité cloud qui permet de s’authentifier avec un compte Microsoft. Azure AD utilise les infrastructures standard du secteur. [En savoir plus sur Azure Active Directory](https://azure.microsoft.com/services/active-directory).
 
-## <a name="benefits-of-using-azure-active-directory"></a>Avantages d’Azure Active Directory
+## <a name="azure-ad-benefits"></a>Avantages d’Azure AD
 
-Les clients de Microsoft AppSource et de la place de marché Azure utilisent des fonctions intégrées au produit pour effectuer des recherches dans les catalogues. Pour ce faire, ils doivent se connecter au produit.  En intégrant votre application avec Azure AD, vous pouvez accélérer l’engagement et optimiser l’expérience client. Azure AD :
+Les clients de Microsoft AppSource et de la Place de marché Azure utilisent les expériences intégrées au produit pour effectuer des recherches dans les catalogues. Ces actions nécessitent que les clients se connectent au produit. L’intégration Azure AD offre les avantages suivants :
 
-- Permet l’authentification unique (SSO) pour des millions d’utilisateurs en entreprise.
-- Permet une expérience d’authentification utilisateur cohérente entre les applications publiées par différents partenaires.
-- Permet une authentification multiplateforme évolutive pour vos applications mobiles et cloud.
+- Un engagement plus rapide et une expérience client optimisée
+- Une authentification unique (SSO) pour des millions d’utilisateurs en entreprise
+- Une expérience d’authentification cohérente parmi les applications publiées par différents partenaires
+- Une authentification multiplateforme scalable pour les applications mobiles et cloud
 
-Comme indiqué dans la section ci-dessous, certaines offres requièrent l’implémentation d’Azure AD pour publier sur la place de marché.
+## <a name="offers-that-require-azure-ad"></a>Offres qui nécessitent Azure AD
 
-## <a name="azure-active-directory-requirements"></a>Configuration requise d’Azure Active Directory
+Aux différents [types d’offre et options de référencement](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) pour AppSource et la Place de marché Azure correspondent différentes exigences pour l’implémentation d’Azure AD. Pour plus de détails, consultez le tableau suivant :
 
-Il existe différents [options de liste et types d’offres](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type) pour Microsoft AppSource et la place de marché Azure.  La configuration requise d’Azure AD pour ces options de liste et ces types d’offres est présentée ci-dessous :
-
-| **Type d’offre**    | **Authentification unique AAD requise ?**  |  |   |  |
+| **Type d’offre**    | **Authentification unique Azure AD nécessaire ?**  |  |   |  |
 | :------------------- | :-------------------|:-------------------|:-------------------|:-------------------|
-|  | Me contacter | Version d’évaluation | Version d’évaluation | Transaction |
+|  | Me contacter | Essai | Test Drive | Transaction |
 | Machine virtuelle | N/A | Non  | Non  | Non  |
 | Applications Azure ( modèle de solution)  | N/A | N/A | N/A | N/A |
 | Applications managées  | N/A | N/A | N/A | Non  |
 | SaaS  | Non  | OUI | OUI | Oui |
-| Containers  | N/A | N/A | N/A | Non  |
+| Conteneurs  | N/A | N/A | N/A | Non  |
 | Services de conseil  | Non  | N/A | N/A | N/A |
 
 Pour plus d’informations sur les exigences techniques SaaS, consultez le [guide de publication de l’offre des applications SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
-## <a name="integration-with-azure-active-directory"></a>Intégration avec Azure Active Directory
+## <a name="azure-ad-integration"></a>Intégration Azure AD
 
-Pour plus d’informations sur l’intégration avec Azure AD pour activer l’authentification unique, consultez https://aka.ms/aaddev.
+- Pour savoir comment activer l’authentification unique en intégrant Azure AD dans votre liste, consultez [Azure Active Directory pour les développeurs]( https://aka.ms/aaddev).
+- Pour obtenir des détails sur l’authentification unique Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
 
-Pour en savoir plus sur l’authentification unique Azure AD, consultez la rubrique [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+## <a name="enable-a-trial-listing"></a>Activer une liste d’essai
 
-## <a name="enable-a-trial-listing-by-using-azure-active-directory"></a>Activer un référencement Version d’évaluation à l’aide d’Azure Active Directory
+La configuration automatisée des clients peut accroître les chances de conversion. Quand un client sélectionne votre liste d’essai et qu’il est redirigé vers votre environnement d’essai, vous pouvez configurer le client directement sans avoir besoin d’étapes de connexion supplémentaires.
 
-Une fois que votre client sélectionne votre référencement Version d’évaluation dans la Place de marché, il est redirigé vers votre environnement d’évaluation. Dans votre environnement d’évaluation, vous pouvez configurer votre client directement sans avoir besoin d’étapes de connexion supplémentaires. Votre application ou votre offre reçoit un jeton d’Azure AD lors de l’authentification. Le jeton inclut des informations utilisateur utiles qui sont utilisées pour créer un compte utilisateur dans votre application ou votre offre. Vous pouvez automatiser votre configuration de votre client et augmenter la probabilité de conversion.
+Pendant l’authentification, Azure AD envoie un jeton à votre application ou offre. Les informations utilisateur fournies par le jeton permettent la création d’un compte d’utilisateur dans votre application ou offre. Pour plus d’informations, consultez [Exemples de jetons](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
 
-Pour plus d’informations sur le jeton qui est envoyé à partir d’Azure AD lors de l’authentification, consultez [Exemples de jetons](https://docs.microsoft.com/azure/active-directory/develop/active-directory-token-and-claims#sample-tokens).
+Quand vous utilisez Azure AD pour activer l’authentification en un clic dans votre application ou liste d’essai, vous :
 
-Utilisez Azure AD pour activer l’authentification en un clic dans votre application ou version d’évaluation. Azure AD vous offre les avantages suivants : 
-*   Simplifiez l’expérience utilisateur, de la Place de marché jusqu’à la version d’évaluation.
-*   Fournissez une expérience d’utilisation réelle du produit, même lorsque l’utilisateur est redirigé de la Place de marché vers votre domaine ou l’environnement de votre version d’évaluation.
-*   Réduisez la probabilité d’un abandon après redirection, car aucune autre étape de connexion supplémentaire n’est nécessaire.
-*   Réduisez les obstacles de déploiement pour les nombreux utilisateurs d’Azure AD.
+- Simplifiez l’expérience du client entre la Place de marché et votre liste d’essai.
+- Laissez l’impression d’une utilisation dans le produit, même quand l’utilisateur est redirigé de la Place de marché vers votre domaine ou environnement d’essai.
+- Réduisez la probabilité d’un abandon quand les utilisateurs sont redirigés du fait de l’absence d’étapes de connexion supplémentaires.
+- Réduisez les obstacles de déploiement pour les nombreux utilisateurs d’Azure AD.
 
-### <a name="verify-your-azure-ad-integration-in-the-marketplace-multitenant-apps"></a>Vérifiez votre intégration Azure AD pour la Place de marché : Applications mutualisées
-Utilisez Azure AD pour prendre en charge les options suivantes pour votre solution :
-*   Enregistrez votre application dans les vitrines de la Place de marché.
-*   Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour bénéficier de l’expérience de version d’évaluation en un clic.
+## <a name="verify-azure-ad-integration"></a>Vérifier l’intégration Azure AD
 
-Pour plus d’informations, consultez [Intégration d’applications avec Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications).
+### <a name="multitenant-solutions"></a>Solutions multi-locataires
 
-Si vous n’avez jamais utilisé l’authentification unique (SSO) fédérée Azure AD, procédez comme suit :
-1.  Inscrivez votre application sur la Place de marché. 
-2.  Développez l’authentification unique avec Azure AD à l’aide d’OpenID Connect ou d’OAuth 2.0.
-    *   Pour plus d’informations sur OAuth 2.0, consultez [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code).
-    *   Pour plus d’informations sur Open ID Connect, consultez [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
-3.  Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour fournir une expérience de version d’évaluation en un clic.
-    
-    Pour plus d’informations sur la certification AppSource, consultez [Certification AppSource](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified). 
+Utilisez Azure AD pour permettre les actions suivantes :
 
-### <a name="verify-your-azure-ad-integration-in-the-marketplace-single-tenant-apps"></a>Vérifiez votre intégration Azure AD dans la Place de marché : Applications avec un seul locataire
-Utilisez Azure AD pour prendre en charge l’une des options suivantes pour votre solution avec un seul locataire : 
-*   Ajoutez des utilisateurs à votre répertoire en tant qu’utilisateurs invités à l’aide d’Azure Active Directory B2B (Azure AD B2B). Pour plus d’informations sur Azure AD B2B, consultez [Qu’est-ce qu’une collaboration Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
-*   Configurez manuellement les versions d’évaluation pour les clients en utilisant l’option de publication Contact Me.
-*   Développer un test drive par client.
-*   Créez un exemple d’application de démonstration mutualisée utilisant le SSO.
+- Inscrire votre application dans l’une des vitrines de la Place de marché. Pour plus d’informations, consultez [Inscription d’une application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) ou [Certification AppSource](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-appsource-certified).
+- Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour bénéficier de l’expérience de version d’évaluation en un clic.
+
+Si vous n’avez jamais utilisé l’authentification unique fédérée Azure AD, effectuez les étapes suivantes :
+
+1. Inscrivez votre application sur la Place de marché.
+1. Développez l’authentification unique avec Azure AD en utilisant [OAuth 2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-oauth-code) ou [OpenID Connect](https://docs.microsoft.com/azure/active-directory/develop/active-directory-protocols-openid-connect-code).
+1. Activez la fonctionnalité de prise en charge multilocataire dans Azure AD pour fournir une expérience de version d’évaluation en un clic.
+
+### <a name="single-tenant-solutions"></a>Solutions à un seul locataire
+
+Utilisez Azure AD pour permettre l’une des actions suivantes :
+
+- Ajouter des utilisateurs invités à votre annuaire en utilisant [Azure AD B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Configurer manuellement des versions d’évaluation pour les clients en utilisant l’option de publication **Me contacter**.
+- Développer un test drive par client.
+- Créez un exemple d’application de démonstration mutualisée utilisant le SSO.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Si vous ne l’avez pas déjà fait, 
-- [Inscrivez-vous](https://azuremarketplace.microsoft.com/sell) sur la place de marché.
-
-Si vous êtes inscrit et créez une nouvelle offre ou travaillez sur une offre existante,
+- Vérifiez que vous êtes [inscrit sur la Place de marché Azure](https://azuremarketplace.microsoft.com/sell).
 - [Connectez-vous au portail Cloud Partner](https://cloudpartner.azure.com/) pour créer ou terminer votre offre.
-

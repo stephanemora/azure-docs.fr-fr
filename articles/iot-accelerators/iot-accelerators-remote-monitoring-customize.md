@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/17/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7971a5aeadd2b2edaa43da8bacae9743937ce30e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 59f2860168782d96bf82d0a27f9bb9eeed0f1020
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127344"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49167492"
 ---
 # <a name="customize-the-remote-monitoring-solution-accelerator"></a>Personnaliser l’accélérateur de solution de surveillance à distance
 
@@ -460,9 +460,15 @@ Pour affiner la couche de présentation et de visualisations dans la solution de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez découvert les ressources disponibles pour personnaliser l’interface utilisateur web dans l’accélérateur de solution de surveillance à distance.
+Dans cet article, vous avez découvert les ressources disponibles pour personnaliser l’interface utilisateur web dans l’accélérateur de solution de surveillance à distance. Pour en savoir plus sur la personnalisation de l’interface utilisateur, consultez les articles suivants :
+
+* [Ajouter une page personnalisée à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-page.md)
+* [Ajouter un service personnalisé à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-service.md)
+* [Ajouter une grille personnalisée à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-grid.md)
+* [Ajouter un menu volant personnalisé à l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-flyout.md)
+* [Ajouter un panneau personnalisé au tableau de bord dans l’interface utilisateur web de l’accélérateur de solution Supervision à distance](iot-accelerators-remote-monitoring-customize-panel.md)
 
 Pour plus d’informations conceptuelles sur l’accélérateur de solution de surveillance à distance, consultez [Architecture de la surveillance à distance](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 
-Pour plus d’informations sur la personnalisation de la solution de surveillance à distance, consultez [Personnaliser et redéployer un microservice](iot-accelerators-microservices-example.md)
-<!-- Next tutorials in the sequence -->.
+Pour plus d’informations sur la personnalisation des microservices de la solution Supervision à distance, consultez [Personnaliser et redéployer un microservice](iot-accelerators-microservices-example.md).
+<!-- Next tutorials in the sequence -->

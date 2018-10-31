@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/11/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 46c99011a22f855f6faf53e03169b2d1e4c6ce85
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 4a90dc1d97121426e7b161b1d5c92df78b0925a6
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669005"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49114156"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Fonctionnement : Azure Multi-Factor Authentication
 
@@ -42,23 +42,13 @@ Le service Multi-Factor Authentication est fourni avec les offres suivantes :
 > [!NOTE]
 > De nouveaux clients ne pourront peut-être plus acheter une authentification multifacteur Azure en tant qu’offre autonome à partir du 1er septembre 2018. L’authentification multifacteur restera une fonctionnalité disponible dans les licences Azure AD Premium.
 
-### <a name="auth-provider-or-mfa-license"></a>Fournisseur d’authentification ou licence MFA
-
-Si vous disposez d’Azure AD Premium ou d’un autre ensemble de licences incluant Azure AD Premium, vous avez déjà Azure MFA. Votre organisation n’a pas besoin d’étendre la fonctionnalité de vérification en deux étapes à tous les utilisateurs. Vous devez uniquement attribuer une licence à un utilisateur. Ensuite, vous pouvez activer l’authentification MFA.
-
-Si vous n’avez pas de licences englobant Azure MFA, ou si vous n’avez pas suffisamment de licences pour couvrir l’ensemble de vos utilisateurs, vous pouvez créer un [Fournisseur d’authentification MFA](concept-mfa-authprovider.md) et étendre toutes les fonctionnalités de MFA aux utilisateurs qui en ont besoin.
-
-> [!IMPORTANT]
-> Si vous n’avez pas suffisamment de licences pour tous vos utilisateurs, vous pouvez créer un fournisseur d’authentification multifacteur par utilisateur pour couvrir le reste de votre organisation. Ne créez pas de fournisseur d’authentification multifacteur par authentification. Si vous procédez ainsi, vous êtes susceptible de payer pour des requêtes de vérification d’utilisateurs qui ont déjà des licences.
-
 ## <a name="supportability"></a>Prise en charge
 
 Dans la mesure où la plupart des utilisateurs sont habitués à utiliser uniquement les mots de passe pour s’authentifier, il est important que votre organisation informe l’ensemble des utilisateurs sur ce processus. Le fait d’en être averti peut réduire la probabilité que les utilisateurs appellent votre support technique pour des problèmes mineurs liés à l’authentification MFA. Toutefois, pour certains scénarios, il est nécessaire de désactiver provisoirement l’authentification Multifacteur. Suivez les indications suivantes pour comprendre comment gérer ces scénarios :
 
 * Formez le personnel de votre support technique à la gestion de scénarios dans lesquels l’utilisateur ne parvient pas à se connecter, car il n’a pas accès à ses méthodes d’authentification, ou parce que celles-ci ne fonctionnent pas correctement.
    * À l’aide de stratégies d’accès conditionnel pour le service Azure MFA, votre personnel du support technique peut ajouter un utilisateur à un groupe qui est exclu d’une stratégie nécessitant MFA.
-   * L’équipe du support technique peut activer un contournement temporaire à usage unique pour les utilisateurs du serveur Azure MFA, afin d’autoriser un utilisateur à s’authentifier sans procéder à la vérification en deux étapes. Le contournement est temporaire et expire après le nombre de secondes spécifié.
-   * À l’aide de stratégies d’accès conditionnel pour le service Azure MFA, votre personnel du support technique peut ajouter un utilisateur à un groupe qui est exclu d’une stratégie nécessitant MFA.
+   * L’équipe du support technique peut activer un contournement temporaire à usage unique pour les utilisateurs du serveur Azure MFA, afin d’autoriser un utilisateur à s’authentifier sans procéder à la vérification en deux étapes. Le contournement est temporaire et expire après le nombre de secondes spécifié.   
 * Envisagez d’utiliser des adresses IP approuvées ou des emplacements nommés comme moyen de réduire les invites de vérification en deux étapes. Avec cette fonction, les administrateurs d’un locataire géré ou fédéré peuvent contourner la vérification en deux étapes des utilisateurs qui se connectent depuis un emplacement réseau approuvé, tel que l’intranet de leur organisation.
 * Déployez [Azure AD Identity Protection](../active-directory-identityprotection.md) et déclenchez la vérification en deux étapes en fonction des événements à risque.
 

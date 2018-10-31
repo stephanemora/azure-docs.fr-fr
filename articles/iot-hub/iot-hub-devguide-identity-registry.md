@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 041eed3a65faeb4e6c19cd9220a9e6393e18532a
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 6291350cab41c123b41f7fee811bf72a21d9ff35
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452205"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49319130"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Comprendre le registre des identités dans votre IoT Hub
 
@@ -29,7 +29,9 @@ Utilisez le registre des identités lorsque vous avez besoin d’effectuer les a
 * Contrôler l’accès par appareil/module aux points de terminaison côté appareil ou module de votre hub.
 
 > [!NOTE]
-> Le registre des identités ne contient pas de métadonnées spécifiques de l’application.
+> * Le registre des identités ne contient pas de métadonnées spécifiques de l’application.
+> * L’identité de module et le jumeau de module sont disponibles en préversion publique. Les fonctionnalités ci-après seront prises en charge sur l’identité de module quand il sera en disponibilité générale.
+>
 
 ## <a name="identity-registry-operations"></a>Opérations du registre d’identité
 
@@ -40,7 +42,6 @@ Le registre des identités IoT Hub expose les opérations suivantes :
 * Récupération d’une identité d’appareil ou de module par ID
 * Suppression de l’identité d’appareil ou de module
 * Création de listes contenant jusqu’à 1 000 identités
-> L’identité de module et le jumeau de module sont disponibles en préversion publique. Les fonctionnalités ci-après seront prises en charge sur l’identité de module quand il sera en disponibilité générale.
 * Exportation des identités d’appareil vers le stockage Blob Azure
 * Importation des identités d’appareil depuis le stockage Blob Azure
 
@@ -82,7 +83,7 @@ Pour plus d’informations sur l’importation et l’exportation d’API, consu
 
 Les données d’appareil qu’une solution IoT donnée stocke dépendent des exigences spécifiques de cette solution. Mais une solution doit au minimum stocker les clés d’authentification et les identités des appareils. Azure IoT Hub inclut un registre d’identité qui peut stocker des valeurs pour chaque appareil, comme les ID, les clés d’authentification et les codes d’état. Une solution peut utiliser d’autres services Azure, tels que le stockage de tables, le stockage Blob ou Cosmos DB pour stocker des données d’appareil supplémentaires.
 
-*Approvisionnement des appareils* est le processus d'ajout des données d'appareil initial aux magasins dans votre solution. Pour permettre à un nouvel appareil de se connecter à votre hub, vous devez ajouter un ID et des clés d’appareil au registre des identités IoT Hub. Dans le cadre du processus d’approvisionnement, vous devrez peut-être initialiser les données spécifiques à l’appareil dans d’autres magasins de la solution. Vous pouvez également utiliser le service de d’approvisionnement des appareils IoT Hub pour activer l’approvisionnement sans contact et juste-à-temps vers un ou plusieurs hubs IoT sans qu’une intervention humaine soit nécessaire. Pour plus d’informations, consultez la [documentation relative au service d’approvisionnement](https://azure.microsoft.com/documentation/services/iot-dps).
+*Approvisionnement des appareils* est le processus d'ajout des données d'appareil initial aux magasins dans votre solution. Pour permettre à un nouvel appareil de se connecter à votre hub, vous devez ajouter un ID et des clés d’appareil au registre des identités d’IoT Hub. Dans le cadre du processus d’approvisionnement, vous devrez peut-être initialiser les données spécifiques à l’appareil dans d’autres magasins de la solution. Vous pouvez également utiliser le service de d’approvisionnement des appareils IoT Hub pour activer l’approvisionnement sans contact et juste-à-temps vers un ou plusieurs hubs IoT sans qu’une intervention humaine soit nécessaire. Pour plus d’informations, consultez la [documentation relative au service d’approvisionnement](https://azure.microsoft.com/documentation/services/iot-dps).
 
 ## <a name="device-heartbeat"></a>Pulsation des appareils
 
@@ -197,6 +198,9 @@ Les identités des appareils sont représentées sous forme de documents JSON av
 > [!NOTE]
 > L’état de la connexion peut uniquement représenter la vue IoT Hub de l’état de la connexion. Les mises à jour à cet état peuvent être différées en fonction des conditions et des configurations du réseau.
 
+> [!NOTE]
+> Les SDK d’appareil ne prennent pas en charge l’utilisation des caractères `+` et `#` dans le **deviceId**.
+
 ## <a name="module-identity-properties"></a>Propriétés d’identité des modules
 
 Les identités des modules sont représentées sous forme de documents JSON avec les propriétés suivantes :
@@ -216,11 +220,14 @@ Les identités des modules sont représentées sous forme de documents JSON avec
 | connectionStateUpdatedTime |en lecture seule |Un indicateur temporel, indiquant la date et la dernière heure de mise à jour de l’état de la connexion. |
 | lastActivityTime |en lecture seule |Un indicateur temporel, indiquant la date et la dernière heure de connexion de l’appareil, de réception d’un message ou d’envoi d’un message. |
 
+> [!NOTE]
+> Les SDK d’appareil ne prennent pas en charge l’utilisation des caractères `+` et `#` dans les **deviceId** et **moduleId**.
+
 ## <a name="additional-reference-material"></a>Matériel de référence supplémentaire
 
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
 
-* La rubrique [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md) décrit les différents points de terminaison que chaque hub IoT expose pour les opérations d’exécution et de gestion.
+* La rubrique [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md), qui décrit les différents points de terminaison que chaque hub IoT expose pour les opérations d’exécution et de gestion.
 
 * La rubrique [Quotas et limitation IoT Hub](iot-hub-devguide-quotas-throttling.md) décrit les quotas et le comportement de limitation qui s’appliquent au service IoT Hub.
 
@@ -228,7 +235,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 * La rubrique [Langage de requête IoT Hub](iot-hub-devguide-query-language.md) décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur les jumeaux d’appareil et les travaux.
 
-* La rubrique [Prise en charge de MQTT dans IoT Hub](iot-hub-mqtt-support.md) fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
+* La rubrique [Prise en charge de MQTT au niveau d’IoT Hub](iot-hub-mqtt-support.md), qui fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

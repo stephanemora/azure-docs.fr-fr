@@ -1,19 +1,19 @@
 ---
 title: Présentation de la prise en charge de MQTT au niveau d’Azure IoT Hub | Microsoft Docs
 description: 'Guide du développeur : prise en charge des appareils se connectant à un point de terminaison IoT Hub côté appareil en utilisant le protocole MQTT. Inclut des informations sur la prise en charge intégrée de MQTT dans les Azure IoT device SDK.'
-author: fsautomata
+author: rezasherafat
 manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/05/2018
-ms.author: elioda
-ms.openlocfilehash: 2e45422ca6a861894193600eff17f192bc20b357
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.date: 10/12/2018
+ms.author: rezas
+ms.openlocfilehash: 6e2ab773f865a8e52c7b04b94a188dd244540e0d
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42141267"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49344963"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>Communication avec votre IoT Hub à l’aide du protocole MQTT
 
@@ -107,7 +107,7 @@ Pour Device Explorer :
 
 Pour les paquets de connexion et de déconnexion MQTT, IoT Hub émet un événement sur le canal **Surveillance des opérations** . Cet événement comporte des informations supplémentaires qui peuvent vous aider à résoudre les problèmes de connectivité.
 
-L’application de l’appareil peut spécifier un message **Will** dans le paquet **CONNECTER**. L’application de l’appareil doit utiliser `devices/{device_id}/messages/events/{property_bag}` ou `devices/{device_id}/messages/events/{property_bag}` comme nom de rubrique **Will** pour définir des messages **Will** à transmettre en tant que message de télémétrie. Dans ce cas, si la connexion réseau est fermée, mais qu’un paquet **DÉCONNECTER** n’a pas été préalablement reçu à partir de l’appareil, IoT Hub envoie le message **Will** fourni dans le paquet **CONNECTER** au canal de télémétrie. Le canal de télémétrie peut être soit le point de terminaison **Événements** par défaut, soit un point de terminaison personnalisé défini par le routage d’IoT Hub. Le message a la propriété **iothub-MessageType**, à laquelle une valeur de **Will** est affectée.
+L’application de l’appareil peut spécifier un message **Will** dans le paquet **CONNECTER**. L’application de l’appareil doit utiliser `devices/{device_id}/messages/events/` ou `devices/{device_id}/messages/events/{property_bag}` comme nom de rubrique **Will** pour définir des messages **Will** à transmettre en tant que message de télémétrie. Dans ce cas, si la connexion réseau est fermée, mais qu’un paquet **DÉCONNECTER** n’a pas été préalablement reçu à partir de l’appareil, IoT Hub envoie le message **Will** fourni dans le paquet **CONNECTER** au canal de télémétrie. Le canal de télémétrie peut être soit le point de terminaison **Événements** par défaut, soit un point de terminaison personnalisé défini par le routage d’IoT Hub. Le message a la propriété **iothub-MessageType**, à laquelle une valeur de **Will** est affectée.
 
 ### <a name="tlsssl-configuration"></a>Configuration TLS/SSL
 
@@ -228,6 +228,8 @@ Pour en savoir plus, reportez-vous au [Guide du développeur de jumeaux d’appa
 
 ### <a name="update-device-twins-reported-properties"></a>Mettre à jour les propriétés signalées du jumeau d’appareil
 
+Pour mettre à jour les propriétés signalées, l’appareil émet une demande à destination d’IoT Hub via une publication sur une rubrique MQTT désignée. Après avoir traité la demande, IoT Hub répond en indiquant l’état de réussite ou d’échec de l’opération de mise à jour via une publication sur une autre rubrique. L’appareil peut souscrire à cette rubrique pour être informé du résultat de sa demande de mise à jour dans le jumeau. Pour implémenter ce type d’interaction demande/réponse dans MQTT, nous tirons parti de la notion d’ID de demande (`$rid`) fournie initialement par l’appareil dans sa demande de mise à jour. Cet ID de demande est également inclus dans la réponse d’IoT Hub pour autoriser l’appareil à mettre en corrélation la réponse avec sa demande antérieure particulière.
+
 La séquence suivante décrit comment un appareil met à jour les propriétés déclarées dans le jumeau d’appareil IoT Hub :
 
 1. Un appareil doit tout d’abord s’abonner à la rubrique `$iothub/twin/res/#` pour recevoir des réponses d’opération de IoT Hub.
@@ -253,6 +255,20 @@ Les codes d’état possibles sont :
 | 400 | Demande incorrecte. JSON incorrect |
 | 429 | Trop de demandes (limité), selon la [Limitation IoT Hub][lnk-quotas] |
 | 5** | Erreurs de serveur |
+
+L’extrait de code python ci-dessous illustre le processus de mise à jour des propriétés signalées du jumeau via MQTT (à l’aide du client Paho MQTT) :
+```python
+from paho.mqtt import client as mqtt
+
+# authenticate the client with IoT Hub (not shown here)
+
+client.subscribe("$iothub/twin/res/#")
+rid = "1"
+twin_reported_property_patch = "{\"firmware_version\": \"v1.1\"}"
+client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" + rid, twin_reported_property_patch, qos=0)
+```
+
+En cas de réussite de l’opération de mise à jour des propriétés signalées du jumeau ci-dessus, le message de la publication à partir d’IoT Hub comprend la rubrique suivante : `$iothub/twin/res/204/?$rid=1&$version=6`, où `204` est le code d’état indiquant la réussite, `$rid=1` correspond à l’ID de demande fourni par l’appareil dans le code et `$version` désigne la version de la section des propriétés signalées des jumeaux d’appareil après la mise à jour.
 
 Pour en savoir plus, reportez-vous au [Guide du développeur de jumeaux d’appareil][lnk-devguide-twin].
 

@@ -11,15 +11,15 @@ ms.service: site-recovery
 ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 0311fed95adf7005512f0b675031ab90657c963a
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: a04a372e52c682af428938514eac5d5e0f4274f0
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159956"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49093712"
 ---
 # <a name="azure-site-recovery-deployment-planner-for-vmware-to-azure"></a>Planificateur de déploiement Azure Site Recovery de VMware vers Azure
 Cet article est le guide de l’utilisateur d’Azure Site Recovery Deployment Planner portant sur les déploiements de production de VMware vers Azure.
@@ -85,7 +85,7 @@ L’outil comporte deux phases principales : le profilage et la génération d
 | Configuration requise du serveur | Description|
 |---|---|
 |Profilage et mesure du débit| <ul><li>Système d’exploitation : Windows Server 2016 ou Windows Server 2012 R2<br>(dans l’idéal, correspondant au moins aux [recommandations de taille pour le serveur de configuration](https://aka.ms/asr-v2a-on-prem-components))</li><li>Configuration de la machine : 8 processeurs virtuels, 16 Go de RAM, disque dur de 300 Go</li><li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli)</li><li>[Visual C++ Redistributable pour Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>Accès Internet à Azure à partir de ce serveur</li><li>Compte Azure Storage</li><li>Accès administrateur sur le serveur</li><li>Au minimum 100 Go d’espace disque disponible (en supposant que 1 000 machines virtuelles avec une moyenne de trois disques chacune, profilage pour 30 jours)</li><li>Les paramètres de niveau de statistiques de VMware vCenter peuvent être définis sur 1 ou un niveau supérieur</li><li>Autoriser le port vCenter (port 443 par défaut) : le planificateur de déploiement Site Recovery se sert de ce port pour se connecter au serveur vCenter/à l’hôte ESXi</ul></ul>|
-| Génération de rapport | Un PC Windows ou serveur Windows Server doté de Excel 2013 ou version ultérieure.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable pour Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) est requis uniquement lorsque vous passez l’option -User dans la commande de génération de rapport pour extraire les dernières informations de configuration de machine virtuelle des machines virtuelles. Lorsque l’option -User est passée, le planificateur le déploiement se connecte au serveur vCenter. Autoriser le port vCenter (port 443 par défaut) à se connecter au serveur vCenter.</li>|
+| Génération de rapport | Un PC Windows ou serveur Windows Server doté de Excel 2013 ou version ultérieure.<li>[.NET Framework 4.5](https://aka.ms/dotnet-framework-45)</li><li>[Visual C++ Redistributable pour Visual Studio 2012](https://aka.ms/vcplusplus-redistributable)</li><li>[VMware vSphere PowerCLI 6.0 R3](https://aka.ms/download_powercli) est requis uniquement lorsque vous passez l’option -User dans la commande de génération de rapport pour extraire les dernières informations de configuration de machine virtuelle des machines virtuelles. Le planificateur de déploiement se connecte au serveur vCenter. Autoriser le port vCenter (port 443 par défaut) à se connecter au serveur vCenter.</li>|
 | Autorisations utilisateur | Autorisation de lecture seule pour le compte d’utilisateur utilisé pour accéder au serveur VMware vCenter/à l’hôte VMware vSphere ESXi lors du profilage |
 
 > [!NOTE]

@@ -3,23 +3,19 @@ title: Gérer des instances dans Fonctions durables (Azure)
 description: Découvrez comment gérer des instances dans l’extension Fonctions durables pour Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
-ms.date: 03/19/2018
+ms.topic: conceptual
+ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 5cb3ccbc949f8250101fab6cb7899b859149fdfd
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: c9b3cd112cef7a34e0d475cdeb85b9e07d77f584
+ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341090"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49352591"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>Gérer des instances dans Fonctions durables (Azure Functions)
 
@@ -64,6 +60,19 @@ module.exports = function (context, input) {
 
     context.done(null);
 };
+```
+Le code ci-dessus suppose que, dans le fichier function.json, vous avez défini une liaison de sortie portant le nom « starter » avec le type « orchestrationClient ». Si la liaison n’est pas définie, l’instance de fonction durable n’est pas créée.
+
+Pour la fonction durable à appeler, le fichier function.json doit être modifié afin de contenir une liaison au client d’orchestration, comme décrit ci-dessous
+
+```js
+{
+    "bindings": [{
+        "name":"starter",
+        "type":"orchestrationClient",
+        "direction":"out"
+    }]
+}
 ```
 
 > [!NOTE]
@@ -119,6 +128,32 @@ public static async Task Run(
     };
 }
 ```
+## <a name="querying-instances-with-filters"></a>Interrogation d’instances avec des filtres
+
+Vous pouvez également utiliser la méthode `GetStatusAsync` pour obtenir une liste des instances d’orchestration qui correspondent à un ensemble de filtres prédéfinis. Les options de filtre possibles incluent l’heure de création de l’orchestration et l’état de l’exécution de l’orchestration.
+
+```csharp
+[FunctionName("QueryStatus")]
+public static async Task Run(
+    [HttpTrigger(AuthorizationLevel.Anonymous, "get", "post")]HttpRequestMessage req,
+    [OrchestrationClient] DurableOrchestrationClient client,
+    TraceWriter log)
+{
+    IEnumerable<OrchestrationRuntimeStatus> runtimeStatus = new List<OrchestrationRuntimeStatus> {
+        OrchestrationRuntimeStatus.Completed,
+        OrchestrationRuntimeStatus.Running
+    };
+    IList<DurableOrchestrationStatus> instances = await starter.GetStatusAsync(
+        new DateTime(2018, 3, 10, 10, 1, 0),
+        new DateTime(2018, 3, 10, 10, 23, 59),
+        runtimeStatus
+    ); // You can pass CancellationToken as a parameter.
+    foreach (var instance in instances)
+    {
+        log.Info(JsonConvert.SerializeObject(instance));
+    };
+}
+```
 
 ## <a name="terminating-instances"></a>Arrêt des instances
 
@@ -149,8 +184,6 @@ Les paramètres de [RaiseEventAsync](https://azure.github.io/azure-functions-dur
 * **EventData** : charge utile JSON sérialisable à envoyer à l’instance.
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -211,7 +244,8 @@ Selon le temps nécessaire pour obtenir la réponse de l’instance d’orchestr
             "id": "d3b72dddefce4e758d92f4d411567177",
             "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
             "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "rewindPostUri": "https://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/rewind?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
         }
     ```
 
@@ -232,12 +266,12 @@ La méthode renvoie une instance de [HttpManagementPayload](https://azure.github
 * **StatusQueryGetUri** : URL de l’état de l’instance de l’orchestration.
 * **SendEventPostUri** : URL « déclencher un événement » de l’instance de l’orchestration.
 * **TerminatePostUri** : URL « d’arrêt » de l’instance de l’orchestration.
+* **RewindPostUri** : URL de « rembobinage » de l’instance d’orchestration.
 
 Les fonctions d’activité peuvent envoyer une instance de [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) à des systèmes externes pour surveiller ou déclencher des événements sur une orchestration :
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
+[FunctionName("SendInstanceInfo")]
 public static void SendInstanceInfo(
     [ActivityTrigger] DurableActivityContext ctx,
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -250,6 +284,29 @@ public static void SendInstanceInfo(
 
     // send the payload to Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
+
+## <a name="rewinding-instances-preview"></a>Rembobinage d’instances (préversion)
+
+Une instance d’orchestration ayant échoué peut être *rembobinée* jusqu’à un état sain précédent au moyen de l’API [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_). Le principe consiste à remettre l’orchestration dans l’état *En cours d’exécution* et à réexécuter les échecs d’exécution d’activité et/ou de sous-orchestration ayant provoqué l’échec de l’orchestration.
+
+> [!NOTE]
+> Cette API n’est pas destinée à se substituer à des stratégies appropriées de nouvelles tentatives et de gestion des erreurs. Son utilisation est plutôt uniquement réservée dans les cas où les instances d’orchestration échouent pour des raisons inattendues. Pour plus d’informations sur les stratégies de nouvelles tentatives et de gestion des erreurs, consultez la rubrique [Gestion des erreurs](durable-functions-error-handling.md).
+
+Un exemple de cas d’utilisation pour le *rewind* (rembobinage) s’illustre dans un workflow impliquant une série d’[approbations humaines](durable-functions-overview.md#pattern-5-human-interaction). Supposons une série de fonctions d’activité qui informent une personne que son approbation est nécessaire, et qui attendent la réponse en temps réel. Une fois que toutes les activités d’approbation ont reçu des réponses ou ont expiré, une autre activité échoue en raison d’un problème de configuration d’application (par exemple, une chaîne de connexion de base de données non valide). Il en résulte un échec de l’orchestration, survenu en profondeur dans le workflow. Avec l’API `RewindAsync`, un administrateur d’application peut corriger l’erreur de configuration et *rewind* (rembobiner) l’orchestration ayant échoué jusqu’à l’état situé immédiatement avant l’échec. Aucune des étapes nécessitant une interaction humaine ne doit être approuvée de nouveau, et l’orchestration peut désormais s’effectuer correctement.
+
+> [!NOTE]
+> La fonctionnalité *rewind* ne prend pas en charge les instances d’orchestration de rembobinage qui utilisent des minuteurs durables.
+
+```csharp
+[FunctionName("RewindInstance")]
+public static Task Run(
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [ManualTrigger] string instanceId)
+{
+    string reason = "Orchestrator failed and needs to be revived.";
+    return client.RewindAsync(instanceId, reason);
 }
 ```
 

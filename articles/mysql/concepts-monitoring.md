@@ -8,16 +8,16 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 09/17/2018
-ms.openlocfilehash: 3c9e0acfe9f8ffb159cacf50923f249be175ea77
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.date: 10/03/2018
+ms.openlocfilehash: c2248f185c5c1c5dd8c4e1d4a24e6145a82ec5cb
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981920"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49091553"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoring dans Azure Database pour MySQL
-Le monitoring des données sur vos serveurs vous permet de résoudre les problèmes et d’optimiser votre charge de travail. Azure Database pour MySQL propose diverses métriques qui fournissent des insights sur le comportement des ressources prenant en charge le serveur MySQL. 
+La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour MySQL propose diverses métriques qui fournissent des insights sur le comportement de votre serveur.
 
 ## <a name="metrics"></a>Mesures
 Toutes les métriques Azure présentent une fréquence d’une minute et chaque métrique fournit 30 jours d’historique. Vous pouvez configurer des alertes basées sur les métriques. Pour obtenir des instructions détaillées, consultez [Configurer des alertes sur les métriques](howto-alert-on-metric.md). Les autres tâches incluent la configuration d’actions automatisées, l’exécution d’analyses avancées et l’archivage de l’historique. Pour plus d’informations, consultez [Vue d’ensemble des mesures dans Microsoft Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
@@ -41,6 +41,9 @@ Ces métriques sont disponibles pour Azure Database pour MySQL :
 |seconds_behind_master|Décalage de la réplication en secondes|Count|Nombre de secondes de latence du serveur réplica par rapport au serveur maître.|
 |network_bytes_egress|Network Out|Octets|Sortie réseau entre connexions actives.|
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
+
+## <a name="server-logs"></a>Journaux des serveurs
+Vous pouvez activer la journalisation des requêtes lentes sur votre serveur. Ces journaux sont également disponibles via les journaux de diagnostic Azure dans OMS Log Analytics, Event Hubs et le compte de stockage. Pour en savoir plus sur la journalisation, consultez la page [journaux serveur](concepts-server-logs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez le [guide pratique pour configurer des alertes](howto-alert-on-metric.md) pour savoir comment créer une alerte sur une métrique.

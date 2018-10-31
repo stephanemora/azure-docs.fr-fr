@@ -5,24 +5,24 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: reference
-ms.date: 08/17/2018
+ms.date: 10/12/2018
 ms.author: tomfitz
-ms.openlocfilehash: 22629ba553cc58435f99ed0fed97be252b24b409
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ffc9eba251cbf4d9e2542791d90943ecdd1a972a
+ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42141292"
+ms.lasthandoff: 10/13/2018
+ms.locfileid: "49310570"
 ---
 # <a name="azure-event-grid-event-schema-for-resource-groups"></a>Schéma d’événements Azure Event Grid pour les groupes de ressources
 
 Cet article fournit les propriétés et les schémas des événements de groupe de ressources. Pour une présentation des schémas d’événements, consultez [Schéma d’événements Azure Event Grid](event-schema.md).
 
-Les abonnements Azure et les groupes de ressources émettent les mêmes types d’événements. Les types d’événements sont liés aux modifications des ressources. La principale différence est que les groupes de ressources émettent des événements pour les ressources appartenant au groupe de ressources, alors que les abonnements Azure émettent des événements pour les ressources de l’abonnement.
+Les abonnements Azure et les groupes de ressources émettent les mêmes types d’événements. Les types d’événements sont liés aux modifications ou actions des ressources. La principale différence est que les groupes de ressources émettent des événements pour les ressources appartenant au groupe de ressources, alors que les abonnements Azure émettent des événements pour les ressources de l’abonnement.
 
-Les événements de ressource sont créés pour les opérations PUT, PATCH et DELETE envoyées à `management.azure.com`. Les opérations POST et GET ne créent pas d’événements. Les opérations envoyées au plan de données (comme `myaccount.blob.core.windows.net`) ne créent pas d’événements.
+Des événements de ressource sont créés pour les opérations PUT, PATCH, POST et DELETE envoyées à `management.azure.com`. Les opérations GET ne créent pas d’événements. Les opérations envoyées au plan de données (comme `myaccount.blob.core.windows.net`) ne créent pas d’événements. Les événements d’action fournissent des données d’événement pour des opérations comme l’énumération des clés pour une ressource.
 
-Quand vous vous abonnez aux événements d’un groupe de ressources, votre point de terminaison reçoit tous les événements pour ce groupe de ressources. Les événements peuvent inclure des événements que vous souhaitez visualiser, comme la mise à jour d’une machine virtuelle, mais également des événements qui ne sont peut-être pas importants pour vous, comme l’écriture d’une nouvelle entrée dans l’historique de déploiement. Vous pouvez recevoir tous les événements à votre point de terminaison et écrire du code qui traite les événements que vous souhaitez gérer ou définir un filtre lors de la création de l’abonnement aux événements.
+Quand vous vous abonnez aux événements d’un groupe de ressources, votre point de terminaison reçoit tous les événements pour ce groupe de ressources. Les événements peuvent inclure des événements que vous souhaitez visualiser, comme la mise à jour d’une machine virtuelle, mais également des événements qui ne sont peut-être pas importants pour vous, comme l’écriture d’une nouvelle entrée dans l’historique de déploiement. Vous pouvez recevoir tous les événements à votre point de terminaison et écrire du code qui traite les événements que vous souhaitez gérer. Vous pouvez aussi définir un filtre lors de la création de l’abonnement aux événements.
 
 Pour gérer les événements par programmation, vous pouvez les trier selon la valeur `operationName`. Par exemple, votre point de terminaison d’événement peut traiter uniquement les événements pour les opérations correspondant à `Microsoft.Compute/virtualMachines/write` ou `Microsoft.Storage/storageAccounts/write`.
 
@@ -36,12 +36,15 @@ Les groupes de ressources émettent des événements de gestion à partir d’Az
 
 | Type d'événement | Description |
 | ---------- | ----------- |
-| Microsoft.Resources.ResourceWriteSuccess | Déclenché quand une opération de création ou de mise à jour de ressource réussit. |
-| Microsoft.Resources.ResourceWriteFailure | Déclenché quand une opération de création ou de mise à jour de ressource échoue. |
-| Microsoft.Resources.ResourceWriteCancel | Déclenché quand une opération de création ou de mise à jour de ressource est annulée. |
-| Microsoft.Resources.ResourceDeleteSuccess | Déclenché quand une opération de suppression de ressource réussit. |
-| Microsoft.Resources.ResourceDeleteFailure | Déclenché quand une opération de suppression de ressource échoue. |
-| Microsoft.Resources.ResourceDeleteCancel | Déclenché quand une opération de suppression de ressource est annulée. Cet événement se produit lorsque le déploiement d’un modèle est annulé. |
+| Microsoft.Resources.ResourceActionCancel | Déclenché quand une action sur une ressource est annulée. |
+| Microsoft.Resources.ResourceActionFailure | Déclenché quand une action sur une ressource échoue. |
+| Microsoft.Resources.ResourceActionSuccess | Déclenché quand une action sur une ressource réussit. |
+| Microsoft.Resources.ResourceDeleteCancel | Déclenché quand une opération de suppression est annulée. Cet événement se produit lorsque le déploiement d’un modèle est annulé. |
+| Microsoft.Resources.ResourceDeleteFailure | Déclenché quand une opération de suppression échoue. |
+| Microsoft.Resources.ResourceDeleteSuccess | Déclenché quand une opération de suppression réussit. |
+| Microsoft.Resources.ResourceWriteCancel | Déclenché quand une opération de création ou de mise à jour est annulée. |
+| Microsoft.Resources.ResourceWriteFailure | Déclenché quand une opération de création ou de mise à jour échoue. |
+| Microsoft.Resources.ResourceWriteSuccess | Déclenché quand une opération de création ou de mise à jour réussit. |
 
 ## <a name="example-event"></a>Exemple d’événement
 
@@ -171,6 +174,62 @@ L’exemple suivant montre le schéma d’un événement **ResourceDeleteSuccess
 }]
 ```
 
+L’exemple suivant montre le schéma d’un événement **ResourceActionSuccess**. Le même schéma est utilisé pour les événements **ResourceActionFailure** et **ResourceActionCancel** avec différentes valeurs pour `eventType`.
+
+```json
+[{   
+  "subject": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+  "eventType": "Microsoft.Resources.ResourceActionSuccess",
+  "eventTime": "2018-10-08T22:46:22.6022559Z",
+  "id": "{ID}",
+  "data": {
+    "authorization": {
+      "scope": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+      "action": "Microsoft.EventHub/namespaces/AuthorizationRules/listKeys/action",
+      "evidence": {
+        "role": "Contributor",
+        "roleAssignmentScope": "/subscriptions/{subscription-id}",
+        "roleAssignmentId": "{ID}",
+        "roleDefinitionId": "{ID}",
+        "principalId": "{ID}",
+        "principalType": "ServicePrincipal"
+      }     
+    },
+    "claims": {
+      "aud": "{audience-claim}",
+      "iss": "{issuer-claim}",
+      "iat": "{issued-at-claim}",
+      "nbf": "{not-before-claim}",
+      "exp": "{expiration-claim}",
+      "aio": "{token}",
+      "appid": "{ID}",
+      "appidacr": "2",
+      "http://schemas.microsoft.com/identity/claims/identityprovider": "{URL}",
+      "http://schemas.microsoft.com/identity/claims/objectidentifier": "{ID}",
+      "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "{ID}",       "http://schemas.microsoft.com/identity/claims/tenantid": "{ID}",
+      "uti": "{ID}",
+      "ver": "1.0"
+    },
+    "correlationId": "{ID}",
+    "httpRequest": {
+      "clientRequestId": "{ID}",
+      "clientIpAddress": "{IP-address}",
+      "method": "POST",
+      "url": "https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey/listKeys?api-version=2017-04-01"
+    },
+    "resourceProvider": "Microsoft.EventHub",
+    "resourceUri": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}/providers/Microsoft.EventHub/namespaces/{namespace}/AuthorizationRules/RootManageSharedAccessKey",
+    "operationName": "Microsoft.EventHub/namespaces/AuthorizationRules/listKeys/action",
+    "status": "Succeeded",
+    "subscriptionId": "{subscription-id}",
+    "tenantId": "{tenant-id}"
+  },
+  "dataVersion": "2",
+  "metadataVersion": "1",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{resource-group}" 
+}]
+```
+
 ## <a name="event-properties"></a>Propriétés d’événement
 
 Un événement contient les données générales suivantes :
@@ -194,7 +253,7 @@ L’objet de données comporte les propriétés suivantes :
 | réclamations | objet | Propriétés des revendications. Pour en savoir plus, consultez la [Spécification JWT](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html). |
 | correlationId | chaîne | ID d’opération pour le dépannage. |
 | httpRequest | objet | Détails de l’opération. Cet objet est inclus uniquement lors de la mise à jour ou de la suppression d’une ressource existante. |
-| resourceProvider | chaîne | Fournisseur de ressources qui effectue l’opération. |
+| resourceProvider | chaîne | Fournisseur de ressources pour l’opération. |
 | resourceUri | chaîne | URI de la ressource dans l’opération. |
 | operationName | chaîne | Opération effectuée. |
 | status | chaîne | L’état de l’opération. |

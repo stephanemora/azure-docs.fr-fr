@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: 4ed911766a14dd35ea662326a5d50df11cf81698
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f3076054eb6e18eb5143a34ba558c1f9e43ea4a5
+ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984062"
+ms.lasthandoff: 10/16/2018
+ms.locfileid: "49345184"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-using-a-resource-manager-template-for-a-windows-virtual-machine"></a>Envoyer des métriques de système d’exploitation invité vers le magasin de métriques d’Azure Monitor à l’aide d’un modèle Resource Manager pour une machine virtuelle Windows
 
@@ -64,7 +64,7 @@ Ajoutez un identificateur de compte de stockage à la section **variables** du m
     "accountid": "[resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))]", 
 ```
 
-Ajoutez cette extension MSI (Managed Service Identity) au modèle en haut de la section « ressources ».  L’extension garantit qu’Azure Monitor accepte les métriques émises.  
+Ajoutez cette l’extension des identités managées pour ressources Azure au modèle en haut de la section « resources ».  L’extension garantit qu’Azure Monitor accepte les métriques émises.  
 
 ```json
 //Find this code 

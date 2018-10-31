@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/08/2018
 ms.author: cephalin
 ms.custom: include file
-ms.openlocfilehash: ac2cf4d688b1bdc54ed2d7341f0e195d3b2fe42d
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 91a4a9ae1d3d84f1396adad07d1cda73ee3747c9
+ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35236465"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49312390"
 ---
 ## <a name="what-happens-to-my-app-during-deployment"></a>Que se passe-t-il au niveau de mon application pendant le déploiement ?
 
@@ -21,4 +21,4 @@ Toutes les méthodes de déploiement officiellement prises en charge ont un poin
 
 - Arrêtez votre application ou activez le mode hors connexion pendant le déploiement. Pour plus d’informations, consultez [Gestion des fichiers verrouillés au cours du déploiement](https://github.com/projectkudu/kudu/wiki/Dealing-with-locked-files-during-deployment).
 - Effectuez le déploiement sur un [emplacement de préproduction](../articles/app-service/web-sites-staged-publishing.md) avec [échange automatique](../articles/app-service/web-sites-staged-publishing.md#configure-auto-swap) activé. 
-- Utilisez à la place [Run-from-Zip](https://github.com/Azure/app-service-announcements/issues/84).
+- Utilisez plutôt [Run From Package](https://github.com/Azure/app-service-announcements/issues/84).

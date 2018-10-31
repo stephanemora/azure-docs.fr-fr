@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/31/2018
+ms.date: 10/12/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 713c0f676067cb32a84361dd7801031295e2244f
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 2678b9a1b80b1c9de6f1b554ce43bcd4f2dd5d50
+ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634436"
+ms.lasthandoff: 10/12/2018
+ms.locfileid: "49166999"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Suivre les modifications apportées à votre environnement grâce à la solution Suivi des modifications
 
@@ -224,6 +224,17 @@ Le contrôle des modifications apportées aux clés de Registre a pour objectif 
 |&nbsp;&nbsp;&nbsp;&nbsp;Surveille la liste des DLL système connues ou couramment utilisées. Ce système empêche quiconque d’exploiter des autorisations faibles de répertoire d’application en déposant des versions de type cheval de Troie des DLL système.|
 > |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify**|
 |&nbsp;&nbsp;&nbsp;&nbsp;Surveille la liste des packages capables de recevoir des notifications d’événements de la part de Winlogon, le modèle de prise en charge de l’ouverture de session interactive du système d’exploitation Windows.|
+
+## <a name="network-requirements"></a>Configuration requise pour le réseau
+
+Les adresses suivantes sont exigées particulièrement pour Change Tracking. La communication avec ces adresses s’effectue par le biais du port 443.
+
+|Azure (public)  |Azure Government  |
+|---------|---------|
+|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
+|* .azure-automation.net|*.azure-automation.us|
 
 ## <a name="use-change-tracking"></a>Utilisation du suivi des modifications
 

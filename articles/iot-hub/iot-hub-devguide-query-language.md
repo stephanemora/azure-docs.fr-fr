@@ -2,22 +2,21 @@
 title: Comprendre le langage de requête d’Azure IoT Hub | Microsoft Docs
 description: Guide du développeur - Description du langage de requête IoT Hub de type SQL utilisé pour récupérer des informations sur les jumeaux d’appareil/de module et les travaux à partir de votre hub IoT.
 author: fsautomata
-manager: ''
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 02/26/2018
 ms.author: elioda
-ms.openlocfilehash: 2e4b356fec642e06e3223700967eeacd19f1c49c
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f28a41f4a80806df14e314dae05405b7b45449b1
+ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952475"
+ms.lasthandoff: 10/15/2018
+ms.locfileid: "49318246"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil et de module, les travaux et le routage des messages
 
-IoT Hub fournit un puissant langage de type SQL pour récupérer des informations concernant les [jumeaux d’appareil][lnk-twins], les [travaux][lnk-jobs] et le [routage des messages][lnk-devguide-messaging-routes]. Cet article présente les éléments suivants :
+IoT Hub fournit un puissant langage de type SQL pour récupérer des informations concernant les [jumeaux d’appareil](iot-hub-devguide-device-twins.md), les [travaux](iot-hub-devguide-jobs.md) et le [routage des messages](iot-hub-devguide-messages-d2c.md). Cet article présente les éléments suivants :
 
 * Une introduction aux principales fonctionnalités du langage de requête d’IoT Hub
 * Une description détaillée du langage Pour plus d’informations sur le langage de requête pour le routage des messages, consultez [Requêtes dans le routage des messages](../iot-hub/iot-hub-devguide-routing-query-syntax.md).
@@ -25,7 +24,9 @@ IoT Hub fournit un puissant langage de type SQL pour récupérer des information
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 ## <a name="device-and-module-twin-queries"></a>Requêtes de jumeaux de l’appareil et du module
-Des [jumeaux d’appareil][lnk-twins] et des jumeaux de module peuvent contenir des objets JSON arbitraires tels que des balises et des propriétés. IoT Hub vous permet d’interroger des jumeaux d’appareil et des jumeaux de module sous la forme d’un seul document JSON contenant toutes les informations sur les jumeaux.
+
+Des [jumeaux d’appareil](iot-hub-devguide-device-twins.md) et des jumeaux de module peuvent contenir des objets JSON arbitraires tels que des étiquettes et des propriétés. IoT Hub vous permet d’interroger des jumeaux d’appareil et des jumeaux de module sous la forme d’un seul document JSON contenant toutes les informations sur les jumeaux.
+
 Par exemple, supposons que les jumeaux d’appareil de votre hub IoT ont la structure suivante (qui serait similaire dans le cas d’un jumeau de module, avec simplement un ID de module supplémentaire) :
 
 ```json
@@ -80,15 +81,14 @@ Par exemple, supposons que les jumeaux d’appareil de votre hub IoT ont la stru
 
 ### <a name="device-twin-queries"></a>Requêtes de représentations d’appareil
 
-IoT Hub expose les jumeaux d’appareil en tant que collection de documents appelée **appareils**.
-Par conséquent, la requête suivante récupère l’ensemble des jumeaux d’appareil :
+IoT Hub expose les jumeaux d’appareil en tant que collection de documents appelée **appareils**. Par exemple, la requête suivante récupère l’ensemble des jumeaux d’appareil :
 
 ```sql
 SELECT * FROM devices
 ```
 
 > [!NOTE]
-> Les kits [Azure IoT SDK][lnk-hub-sdks] prennent en charge la pagination des résultats volumineux.
+> Les kits [Azure IoT SDK](iot-hub-devguide-sdks.md) prennent en charge la pagination des résultats volumineux.
 
 IoT Hub vous permet de récupérer les jumeaux d’appareil en les filtrant avec des conditions arbitraires. Par exemple, pour obtenir les jumeaux d’appareil dont la balise **location.region** est définie sur **US** (États-Uns), utilisez la requête suivante :
 
@@ -97,11 +97,11 @@ SELECT * FROM devices
 WHERE tags.location.region = 'US'
 ```
 
-Les opérateurs booléens et les comparaisons arithmétiques sont également pris en charge. Par exemple, pour récupérer les jumeaux d’appareil situés aux États-Unis et configurés pour envoyer des données de télémétrie à un intervalle supérieur à une minute, utilisez la requête suivante :
+Les opérateurs booléens et les comparaisons arithmétiques sont également pris en charge. Par exemple, pour récupérer les jumeaux d’appareil situés aux États-Unis et configurés pour envoyer des données de télémétrie à un intervalle supérieur à une minute, utilisez la requête suivante :
 
 ```sql
 SELECT * FROM devices
-WHERE tags.location.region = 'US'
+  WHERE tags.location.region = 'US'
     AND properties.reported.telemetryConfig.sendFrequencyInSecs >= 60
 ```
 
@@ -109,25 +109,25 @@ Pour des raisons pratiques, il est également possible d’utiliser des constant
 
 ```sql
 SELECT * FROM devices
-WHERE properties.reported.connectivity IN ['wired', 'wifi']
+  WHERE properties.reported.connectivity IN ['wired', 'wifi']
 ```
 
 Il est souvent nécessaire d’identifier tous les jumeaux d’appareil qui contiennent une propriété spécifique. IoT Hub prend en charge la fonction `is_defined()` à cette fin. Par exemple, pour récupérer les jumeaux d’appareil qui définissent la propriété `connectivity`, utilisez la requête suivante :
 
 ```SQL
 SELECT * FROM devices
-WHERE is_defined(properties.reported.connectivity)
+  WHERE is_defined(properties.reported.connectivity)
 ```
 
-Pour une référence complète sur les fonctionnalités de filtrage, consultez la section [clause WHERE][lnk-query-where].
+Pour une référence complète sur les fonctionnalités de filtrage, consultez la section [clause WHERE](iot-hub-devguide-query-language.md#where-clause).
 
-Le regroupement et les agrégations sont également pris en charge. Par exemple, pour savoir combien d’appareils présentent chaque état de configuration de télémétrie, utilisez la requête suivante :
+Le regroupement et les agrégations sont également pris en charge. Par exemple, pour savoir combien d’appareils présentent chaque état de configuration de télémétrie, utilisez la requête suivante :
 
 ```sql
 SELECT properties.reported.telemetryConfig.status AS status,
     COUNT() AS numberOfDevices
-FROM devices
-GROUP BY properties.reported.telemetryConfig.status
+  FROM devices
+  GROUP BY properties.reported.telemetryConfig.status
 ```
 
 Cette requête de regroupement retourne un résultat similaire à l’exemple ci-dessous :
@@ -159,7 +159,7 @@ SELECT LastActivityTime FROM devices WHERE status = 'enabled'
 
 ### <a name="module-twin-queries"></a>Requêtes de jumeaux de module
 
-L’interrogation de jumeaux de module est similaire à l’interrogation de jumeaux d’appareil, à la différence que vous utilisez une collection/un espace de noms différent. En d’autres termes, au lieu d’utiliser « from devices », vous pouvez exécuter la requête suivante :
+L’interrogation de jumeaux de module est similaire à l’interrogation de jumeaux d’appareil, à la différence que vous utilisez une collection/un espace de noms différent. En d’autres termes, au lieu d’utiliser « from devices », vous pouvez interroger device.modules :
 
 ```sql
 SELECT * FROM devices.modules
@@ -171,14 +171,18 @@ Nous n’autorisons pas de jointure entre les collections devices et devices.mod
 Select * from devices.modules where properties.reported.status = 'scanning'
 ```
 
-Cette requête retourne tous les jumeaux de module ayant pour état « scanning » (analyse), mais uniquement sur le sous-ensemble d’appareils spécifié.
+Cette requête retourne tous les jumeaux de module ayant pour état « scanning » (analyse), mais uniquement sur le sous-ensemble d’appareils spécifié :
 
 ```sql
-Select * from devices.modules where properties.reported.status = 'scanning' and deviceId IN ('device1', 'device2')  
+Select * from devices.modules 
+  where properties.reported.status = 'scanning' 
+  and deviceId IN ['device1', 'device2']
 ```
 
 ### <a name="c-example"></a>Exemple en code C#
-La fonctionnalité de requête est exposée par [Service SDK C#][lnk-hub-sdks] dans la classe **RegistryManager**.
+
+La fonctionnalité de requête est exposée par [Service SDK C#](iot-hub-devguide-sdks.md) dans la classe **RegistryManager**.
+
 Voici un exemple de requête simple :
 
 ```csharp
@@ -198,7 +202,9 @@ L’objet **query** est instancié avec une taille de page (jusqu’à 100). Ens
 L’objet de requête expose plusieurs valeurs **Next**, en fonction de l’option de désérialisation requise par la requête. Par exemple, les objets de travail ou de jumeau d’appareil, ou le code JSON brut lors de l’utilisation de projections.
 
 ### <a name="nodejs-example"></a>Exemple de Node.js
-La fonctionnalité de requête est exposée par le [Kit de développement logiciel (SDK) de service Azure IoT pour Node.js][lnk-hub-sdks] dans l’objet **Registry**.
+
+La fonctionnalité de requête est exposée par le [Kit Azure IoT service SDK pour Node.js](iot-hub-devguide-sdks.md) dans l’objet **Registry**.
+
 Voici un exemple de requête simple :
 
 ```nodejs
@@ -233,8 +239,7 @@ Actuellement, les comparaisons ne sont prises en charge qu’entre types primiti
 
 ## <a name="get-started-with-jobs-queries"></a>Bien démarrer avec les requêtes de travaux
 
-Les [travaux][lnk-jobs] constituent un moyen d’exécuter des opérations sur des ensembles d’appareils. Chaque jumeau d’appareil contient les informations des travaux auxquels il participe dans un regroupement nommé **travaux**.
-Sous forme logique,
+Les [travaux](iot-hub-devguide-jobs.md) constituent un moyen d’exécuter des opérations sur des ensembles d’appareils. Chaque jumeau d’appareil contient les informations des travaux auxquels il participe dans un regroupement nommé **travaux**.
 
 ```json
 {
@@ -276,16 +281,18 @@ Par exemple, pour obtenir tous les travaux (passés et planifiés) qui affectent
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
 ```
 
 Notez comment cette requête fournit l’état spécifique de l’appareil (et éventuellement la réponse de méthode directe) pour chaque travail retourné.
+
 Il est également possible de filtrer avec des conditions booléennes arbitraires sur toutes les propriétés d’objet du regroupement **devices.jobs**.
+
 Par exemple, pour récupérer tous les travaux de mise à jour de jumeau d’appareil créés après septembre 2016 pour un appareil spécifique, utilisez la requête suivante :
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.deviceId = 'myDeviceId'
+  WHERE devices.jobs.deviceId = 'myDeviceId'
     AND devices.jobs.jobType = 'scheduleTwinUpdate'
     AND devices.jobs.status = 'completed'
     AND devices.jobs.createdTimeUtc > '2016-09-01'
@@ -295,10 +302,11 @@ Vous pouvez également récupérer les résultats d’un travail unique par appa
 
 ```sql
 SELECT * FROM devices.jobs
-WHERE devices.jobs.jobId = 'myJobId'
+  WHERE devices.jobs.jobId = 'myJobId'
 ```
 
 ### <a name="limitations"></a>Limites
+
 Actuellement, les requêtes sur **devices.jobs** ne prennent pas en charge :
 
 * Les projections, par conséquent seul `SELECT *` est possible.
@@ -306,24 +314,28 @@ Actuellement, les requêtes sur **devices.jobs** ne prennent pas en charge :
 * L’exécution d’agrégations, par exemple, count, avg, group by.
 
 ## <a name="basics-of-an-iot-hub-query"></a>Principes de base d’une requête IoT Hub
+
 Chaque requête IoT Hub se compose de clauses SELECT et FROM, avec des clauses WHERE et GROUP BY facultatives. Chaque requête est exécutée sur un regroupement de documents JSON, par exemple des jumeaux d’appareil. La clause FROM indique le regroupement de documents sur lequel elle doit être itérée (**devices** ou **devices.jobs**). Ensuite, le filtre dans la clause WHERE est appliqué. Avec des agrégations, les résultats de cette étape sont regroupés tel que spécifié dans la clause GROUP BY. Pour chaque groupe, une ligne est générée tel que spécifié dans la clause SELECT.
 
 ```sql
 SELECT <select_list>
-FROM <from_specification>
-[WHERE <filter_condition>]
-[GROUP BY <group_specification>]
+  FROM <from_specification>
+  [WHERE <filter_condition>]
+  [GROUP BY <group_specification>]
 ```
 
 ## <a name="from-clause"></a>Clause FROM
+
 La clause **FROM <from_specification>** ne peut supposer que deux valeurs : **FROM devices** pour interroger les jumeaux d’appareil ou **FROM devices.jobs** pour interroger les détails de travaux par appareil.
+
 
 ## <a name="where-clause"></a>Clause WHERE
 La clause **WHERE <filter_condition>** est facultative. Elle indique une ou plusieurs conditions que les documents JSON du regroupement FROM doivent remplir pour être inclus dans le résultat. Pour être inclus dans le résultat, chaque document JSON doit évaluer les conditions spécifiées comme « true ».
 
-Les conditions autorisées sont décrites dans la section [Expressions et conditions][lnk-query-expressions].
+Les conditions autorisées sont décrites dans la section [Expressions et conditions](iot-hub-devguide-query-language.md#expressions-and-conditions).
 
 ## <a name="select-clause"></a>Clause SELECT
+
 La clause **SELECT <select_list>**) est obligatoire. Elle spécifie les valeurs qui sont récupérées de la requête. Elle spécifie les valeurs JSON à utiliser pour générer de nouveaux objets JSON.
 Pour chaque élément du sous-ensemble filtré (et éventuellement groupé) du regroupement FROM, la phase de projection génère un nouvel objet JSON. Cet objet est construit avec les valeurs spécifiées dans la clause SELECT.
 
@@ -349,7 +361,7 @@ SELECT [TOP <max number>] <projection list>
     | max(<projection_element>)
 ```
 
-**Attribute_name** fait référence à n’importe quelle propriété du document JSON dans le regroupement FROM. Vous trouverez des exemples de clauses SELECT dans la section [Bien démarrer avec les requêtes de jumeau d’appareil][lnk-query-getstarted].
+**Attribute_name** fait référence à n’importe quelle propriété du document JSON dans le regroupement FROM. Vous trouverez des exemples de clauses SELECT dans la section [Bien démarrer avec les requêtes de jumeau d’appareil](iot-hub-devguide-query-language.md#get-started-with-device-twin-queries).
 
 Actuellement, les clauses de sélection autres que **SELECT*** sont prises en charge uniquement dans les requêtes d’agrégation sur des jumeaux d’appareil.
 
@@ -483,18 +495,5 @@ Dans les conditions d’itinéraire, les fonctions de chaîne suivantes sont pri
 | CONTAINS(x,y) | Retourne une valeur booléenne indiquant si la première expression de chaîne contient la seconde. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez comment exécuter des requêtes dans vos applications à l’aide des [Kits de développement logiciel (SDK) Azure IoT][lnk-hub-sdks].
 
-[lnk-query-where]: iot-hub-devguide-query-language.md#where-clause
-[lnk-query-expressions]: iot-hub-devguide-query-language.md#expressions-and-conditions
-[lnk-query-getstarted]: iot-hub-devguide-query-language.md#get-started-with-device-twin-queries
-
-[lnk-twins]: iot-hub-devguide-device-twins.md
-[lnk-jobs]: iot-hub-devguide-jobs.md
-[lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
-[lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
-[lnk-devguide-mqtt]: iot-hub-mqtt-support.md
-[lnk-devguide-messaging-routes]: iot-hub-devguide-messages-d2c.md
-[lnk-devguide-messaging-format]: iot-hub-devguide-messages-construct.md
-
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md
+Découvrez comment exécuter des requêtes dans vos applications à l’aide des [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md).
