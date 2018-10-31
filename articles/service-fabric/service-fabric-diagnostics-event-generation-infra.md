@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/25/2018
 ms.author: dekapur
-ms.openlocfilehash: 31f23e3f8e792c6b61870c640f99ec3392a940d3
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 96bbb221f5fa133ee88a09d489627e3d2f9b0713
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211172"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409184"
 ---
 # <a name="monitoring-the-cluster-and-platform"></a>Monitoring du cluster et de la plateforme
 
@@ -91,7 +91,7 @@ Pour obtenir la liste des compteurs de performances à collecter lors de l’uti
 Voici deux manières fréquentes de configurer la collecte des compteurs de performances pour votre cluster :
 
 * **Utiliser un agent**  
-C’est le meilleur moyen de collecter les performances d’un ordinateur, car les agents comportent généralement une liste des mesures de performances qui peuvent être collectées, et le processus de sélection et de modification des mesures à collecter est relativement simple. Lisez les articles sur la [configuration d’OMS pour Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) et la [configuration de l’agent Windows OMS](../log-analytics/log-analytics-windows-agent.md) pour en savoir plus sur l’agent OMS, un agent de surveillance qui est en mesure de récupérer les données de performances des machines virtuelles de cluster et des conteneurs déployés.
+Il s’agit du meilleur moyen de collecter les performances d’une machine, car les agents comportent généralement une liste des métriques de performances qui peuvent être collectées, et le processus de sélection et de modification des métriques à collecter est relativement simple. Lisez les articles sur la [configuration de l’agent Log Analytics pour Service Fabric](service-fabric-diagnostics-event-analysis-oms.md) et sur la [configuration de l’agent Log Analytics](../log-analytics/log-analytics-windows-agent.md) pour en savoir plus sur l’agent Log Analytics, un agent de supervision qui est en mesure de récupérer les données de performances des machines virtuelles de cluster et des conteneurs déployés.
 
 * **Configurer les diagnostics pour écrire les compteurs de performance dans une table**  
 Pour les clusters sur Azure, cela implique de modifier la configuration d’Azure Diagnostics de façon à récupérer les compteurs de performances appropriés sur les machines virtuelles du cluster et à lui permettre de récupérer les statistiques de docker pour pouvoir déployer des conteneurs. Lisez l’article sur les [compteurs de performances dans WAD](service-fabric-diagnostics-event-aggregation-wad.md) dans Service Fabric pour configurer la collecte des compteurs de performances.

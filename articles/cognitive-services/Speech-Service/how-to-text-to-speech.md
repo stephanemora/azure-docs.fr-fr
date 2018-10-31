@@ -1,22 +1,23 @@
 ---
-title: Utilisez la synthèse vocale à l’aide des services Speech
+title: Utiliser l’API Synthèse vocale du service Speech
+titleSuffix: Azure Cognitive Services
 description: Découvrez comment utiliser la fonctionnalité Synthèse vocale du service Speech.
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: erhopf
-ms.openlocfilehash: 774425d19101e4d326f0d6435d56aff1b37a31f7
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 162b690d4b371cfe76738cd83ce484a3062d139f
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165043"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469911"
 ---
-# <a name="use-text-to-speech-in-speech-service"></a>Utiliser la fonctionnalité Synthèse vocale du service Speech
+# <a name="use-text-to-speech-in-speech-service"></a>Utiliser l’API Synthèse vocale du service Speech
 
 Le service Speech vous offre une fonctionnalité de synthèse vocale par le biais d’une simple requête HTTP. Vous effectuez un `POST` du texte à énoncer sur le point de terminaison approprié, puis le service vous renvoie un fichier audio (`.wav`) contenant la voix de synthèse. Votre application peut ensuite utiliser ce fichier audio selon vos besoins.
 

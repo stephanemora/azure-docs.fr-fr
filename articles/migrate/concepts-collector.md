@@ -4,15 +4,15 @@ description: Fournit des informations sur l’appliance Collector dans Azure Mig
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/28/2018
+ms.date: 10/24/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: b79045e54b9c2ee4846f2216704a419e0ff85501
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434430"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986778"
 ---
 # <a name="about-the-collector-appliance"></a>À propos de l’appliance Collector
 
@@ -179,11 +179,11 @@ Le Collecteur communique une fois avec vCenter Server pour rassembler les métad
 - Pour cette méthode de découverte, vous devez définir les paramètres de statistiques dans vCenter Server sur le niveau 3.
 - Une fois que vous avez défini le niveau sur 3, la génération des compteurs de performances peut prendre un jour. Ainsi, nous vous recommandons d’attendre 24 heures avant d’exécuter la découverte.
 - Quand elle collecte les données de performances relatives à une machine virtuelle, l’appliance s’appuie sur les données de performances historiques stockées dans vCenter Server. Elle collecte l’historique des performances du mois passé.
-- Azure Migrate collecte une valeur moyenne (plutôt qu’une valeur maximale) pour chaque métrique.
+- Azure Migrate collecte des données de compteurs de moyenne (plutôt que des compteurs de pic) pour chaque mesure, ce qui peut aboutir à un sous-dimensionnement.
 
-### <a name="continuous-discovery"></a>Découverte en continu
+### <a name="continuous-discovery"></a>Détection continue
 
-L’appliance Collector est connectée en permanence au projet Azure Migrate.
+L’appliance Collecteur est connectée en permanence au projet Azure Migrate et elle collecte en continu les données de performance des machines virtuelles.
 
 - Le Collecteur profile en permanence l’environnement local pour collecter les données d’utilisation en temps réel toutes les 20 secondes.
 - Ce modèle ne dépend pas des paramètres de statistiques vCenter Server pour collecter les données de performances.
@@ -191,8 +191,14 @@ L’appliance Collector est connectée en permanence au projet Azure Migrate.
 - Pour créer le point de données, l’appliance sélectionne la valeur maximale dans les échantillons de 20 secondes et l’envoie à Azure.
 - Vous pouvez arrêter à tout moment le profilage continu à partir du Collecteur.
 
+Notez que l’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
+
+1. Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications dans le portail Azure, vous pouvez arrêter la détection de l’appliance et puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
+
+2. Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
+
 > [!NOTE]
-> La fonctionnalité de découverte en continu est en préversion. Si les paramètres de statistiques vCenter Server ne sont pas définis sur le niveau 3, nous vous recommandons d’utiliser cette méthode.
+> La fonctionnalité de découverte en continu est en préversion. Nous vous recommandons d’utiliser cette méthode, car elle collecte des données de performances granulaires pour un dimensionnement correct.
 
 
 ## <a name="discovery-process"></a>Processus de découverte
@@ -241,8 +247,8 @@ virtualDisk.read.average | 2 | 2 | Calcule la taille du disque, le coût de stoc
 virtualDisk.write.average | 2 | 2  | Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
 virtualDisk.numberReadAveraged.average | 1 | 3 |  Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
 virtualDisk.numberWriteAveraged.average | 1 | 3 |   Calcule la taille du disque, le coût de stockage et la taille de la machine virtuelle
-net.received.average | 2 | 3 |  Calcule la taille de la machine virtuelle et le coût du réseau                        |
-net.transmitted.average | 2 | 3 | Calcule la taille de la machine virtuelle et le coût du réseau    
+net.received.average | 2 | 3 |  Calcule la taille de machine virtuelle                          |
+net.transmitted.average | 2 | 3 | Calcule la taille de machine virtuelle     
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 09/26/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cefecdf0f87483a1fb544d1eb4e3e514e388259
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 90b4bc17de60baa59d6c159105674468a63d10f9
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406914"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430168"
 ---
 # <a name="sql-server-azure-virtual-machines-dbms-deployment-for-sap-netweaver"></a>Déploiement SGBD de machines virtuelles SQL Server Azure pour SAP NetWeaver
 
@@ -418,7 +418,7 @@ La seconde méthode est décrite de façon plus détaillée dans l’article [Sa
 
 
 ### <a name="automated-backup-for-sql-server"></a>Sauvegarde automatisée de SQL Server
-La sauvegarde automatisée fournit un service de sauvegarde automatique pour les éditions SQL Server Standard et Entreprise s’exécutant sur une machine virtuelle Microsoft Azure. Ce service est fourni par [l’extension SQL Server IaaS Agent](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), qui est automatiquement installée sur les images de machine virtuelle Windows SQL Server dans le portail Azure. Si vous déployez vos propres images de système d’exploitation avec SQL Server installé, vous devez installer les extensions de machine virtuelle séparément. Les étapes nécessaires sont documentées dans cet [article](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+La sauvegarde automatisée fournit un service de sauvegarde automatique pour les éditions SQL Server Standard et Entreprise s’exécutant sur une machine virtuelle Windows dans Azure. Ce service est fourni par [l’extension SQL Server IaaS Agent](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension), qui est automatiquement installée sur les images de machine virtuelle Windows SQL Server dans le portail Azure. Si vous déployez vos propres images de système d’exploitation avec SQL Server installé, vous devez installer les extensions de machine virtuelle séparément. Les étapes nécessaires sont documentées dans cet [article](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
 
 Vous trouverez plus d’informations sur les potentiels de cette méthode dans les articles suivants :
 

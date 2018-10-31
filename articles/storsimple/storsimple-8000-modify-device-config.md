@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 09/28/2017
 ms.author: alkohli
-ms.openlocfilehash: 13ff24c24a881297775fa5f65821e53ceb83c351
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 727cf523f2a505729377f36738657fc5489134a7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108757"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025988"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-modify-your-storsimple-device-configuration"></a>Utiliser le service StorSimple Device Manager pour modifier la configuration de votre appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Le section **Paramètres de l’appareil** du panneau **Paramètres** du portail Azure contient tous les paramètres d’appareil que vous pouvez reconfigurer sur un appareil StorSimple géré par un service StorSimple Device Manager. Ce didacticiel explique comment utiliser le panneau **Paramètres** pour effectuer les tâches suivantes au niveau de l’appareil :
 
@@ -65,7 +65,7 @@ Votre appareil doit synchroniser l’heure pour s’authentifier auprès du four
 
  Sélectionnez votre fuseau horaire dans la liste déroulante. Vous pouvez spécifier jusqu’à deux serveurs NTP (Network Time Protocol) :
 
- - **Serveur NTP principal** - Sa configuration est obligatoire. Il est spécifié durant la configuration de l’appareil dans Windows PowerShell pour StorSimple. Vous pouvez choisir le serveur NTP par défaut de Windows Server, **time.windows.com**. Vous pouvez consulter la configuration du serveur NTP principal dans le portail Azure, mais vous devez utiliser l’interface Windows PowerShell pour la modifier. Utilisez l’applet de commande `Set-HcsNTPClientServerAddress` pour modifier le serveur NTP principal de votre appareil. Pour plus d’informations, accédez à la page décrivant la synxtaxe de l’applet de commande [Set-HcsNTPClientServerAddress] (https://technet.microsoft.com/library/dn688138.aspx).
+ - **Serveur NTP principal** - Sa configuration est obligatoire. Il est spécifié durant la configuration de l’appareil dans Windows PowerShell pour StorSimple. Vous pouvez choisir le serveur NTP par défaut de Windows Server, **time.windows.com**. Vous pouvez consulter la configuration du serveur NTP principal dans le portail Azure, mais vous devez utiliser l’interface Windows PowerShell pour la modifier. Utilisez l’applet de commande `Set-HcsNTPClientServerAddress` pour modifier le serveur NTP principal de votre appareil. Pour plus d’informations, accédez à la page décrivant la syntaxe de la cmdlet [Set-HcsNTPClientServerAddress](https://technet.microsoft.com/library/dn688138.aspx).
 
 - **Serveur NTP secondaire** - Sa configuration est facultative. Vous pouvez utiliser le portail Azure pour configurer un serveur NTP secondaire.
 

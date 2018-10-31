@@ -1,6 +1,6 @@
 ---
-title: Créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant dans une zone à l’aide d’Azure CLI | Microsoft Docs
-description: Découvrez comment créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant dans une zone à l’aide d’Azure CLI.
+title: Créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant interzone à l’aide d’Azure CLI | Microsoft Docs
+description: Découvrez comment créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant interzone à l’aide d’Azure CLI.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -22,9 +22,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46967674"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Créer une instance publique de Load Balancer Standard avec un frontend redondant dans une zone à l’aide d’Azure CLI
+#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-frontend-using-azure-cli"></a>Créer une instance publique de Load Balancer Standard avec un frontend redondant interzone à l’aide d’Azure CLI
 
-Cet article décrit les étapes de création d’une instance publique de [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) avec un frontend redondant dans une zone qui utilise une adresse IP publique Standard.
+Cet article décrit les étapes de création d’une instance publique de [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) avec un frontend redondant interzone qui utilise une adresse IP publique Standard.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 

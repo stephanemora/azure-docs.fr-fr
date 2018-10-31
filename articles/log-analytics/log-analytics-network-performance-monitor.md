@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 634958265193a1dedb7c860c34f712160e4120d2
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353289"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49638194"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -65,17 +65,17 @@ Utilisez les procédures de base d’installation des agents décrites dans [Con
 
 ### <a name="where-to-install-the-agents"></a>Où installer les agents 
 
-* **Analyseur de performances** : installez des agents Operations Management Suite sur au moins un nœud connecté à chaque sous-réseau à partir duquel vous souhaitez analyser la connectivité réseau vers d’autres sous-réseaux.
+* **Analyseur de performances** : installez des agents Log Analytics sur au moins un nœud connecté à chaque sous-réseau à partir duquel vous souhaitez analyser la connectivité réseau vers d’autres sous-réseaux.
 
     Pour analyser un lien réseau, installez des agents sur les deux points de terminaison de cette dernière. Si vous n’êtes pas certain de la topologie de votre réseau, installez les agents sur des serveurs présentant des charges de travail critiques entre lesquels vous souhaitez analyser les performances réseau. Par exemple, si vous souhaitez analyser la connexion réseau entre un serveur web et un serveur exécutant SQL Server, installez un agent sur les deux serveurs. Les agents surveillent la connectivité (liens) réseau entre les hôtes et non les hôtes proprement dits. 
 
-* **Moniteur de connectivité de service** : installez un agent Operations Management Suite sur chaque nœud à partir duquel vous souhaitez analyser la connectivité réseau au point de terminaison de service. Par exemple, si vous souhaitez analyser la connectivité réseau à Office 365 à partir de vos sites Office étiquetés O1, O2 et O3. Installez l’agent Operations Management Suite sur au moins un nœud dans O1, O2 et O3. 
+* **Moniteur de connectivité de service** : installez un agent Log Analytics sur chaque nœud à partir duquel vous souhaitez analyser la connectivité réseau au point de terminaison de service. Par exemple, si vous souhaitez analyser la connectivité réseau à Office 365 à partir de vos sites Office étiquetés O1, O2 et O3. Installez l’agent Log Analytics sur au moins un nœud dans O1, O2 et O3. 
 
-* **Moniteur d’ExpressRoute**: installez au moins un agent Operations Management Suite dans votre réseau virtuel Azure. De plus, installez au moins un agent dans votre sous-réseau local, connecté via l’homologation privée ExpressRoute.  
+* **Moniteur ExpressRoute** : installez au moins un agent Log Analytics dans votre réseau virtuel Azure. De plus, installez au moins un agent dans votre sous-réseau local, connecté via l’homologation privée ExpressRoute.  
 
-### <a name="configure-operations-management-suite-agents-for-monitoring"></a>Configurer les agents Operations Management Suite pour l’analyse 
+### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurer des agents Log Analytics pour la surveillance 
 
-Network Performance Monitor utilise des transactions synthétiques pour analyser les performances réseau entre les agents sources et cibles. Vous pouvez choisir une analyse effectuée par le biais du protocole TCP et ICMP dans les fonctionnalités de l’Analyseur de performances et du Moniteur de connectivité de service. Seul le protocole TCP est disponible comme protocole d’analyse pour le Moniteur ExpressRoute. Vérifiez que le pare-feu autorise les communications entre les agents Operations Management Suite utilisés pour l’analyse sur le protocole que vous avez choisi. 
+Network Performance Monitor utilise des transactions synthétiques pour analyser les performances réseau entre les agents sources et cibles. Vous pouvez choisir une analyse effectuée par le biais du protocole TCP et ICMP dans les fonctionnalités de l’Analyseur de performances et du Moniteur de connectivité de service. Seul le protocole TCP est disponible comme protocole d’analyse pour le Moniteur ExpressRoute. Vérifiez que le pare-feu autorise les communications entre les agents Log Analytics utilisés pour l’analyse sur le protocole que vous avez choisi. 
 
 * **Protocole TCP** : si vous choisissez le protocole TCP pour l’analyse, ouvrez le port du pare-feu sur les agents utilisés pour Network Performance Monitor et le Moniteur ExpressRoute afin de vous assurer que les agents peuvent se connecter entre eux. Pour ouvrir le port, exécutez le script PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) sans paramètre dans une fenêtre PowerShell avec des privilèges d’administrateur.
 
@@ -109,7 +109,7 @@ Network Performance Monitor utilise des transactions synthétiques pour analyser
 
    ![Vignette Analyseur de performances réseau](media/log-analytics-network-performance-monitor/npm-config.png)
 
-4. Sur la page **Installer**, l’option d’installation des agents Operations Management Suite et de configuration des agents pour l’analyse dans l’affichage **Paramètres communs** apparaît. Comme expliqué précédemment, si des agents Operations Management Suite sont installés et configurés, sélectionnez l’affichage **Installer** pour configurer la fonctionnalité que vous souhaitez utiliser. 
+4. Dans la page **Installation**, vous pouvez installer des agents Log Analytics et les configurer à des fins d’analyse dans la vue **Paramètres communs**. Comme expliqué précédemment, si vous avez installé et configuré des agents Log Analytics, sélectionnez la vue **Installation** pour configurer la fonctionnalité que vous souhaitez utiliser. 
 
    **Analyseur de performances** : choisissez le protocole qui sera utilisé pour les transactions synthétiques dans la règle Analyseur de performances **Par défaut**, puis sélectionnez **Enregistrer et continuer**. Cette sélection de protocole ne conserve que la règle par défaut générée par le système. Vous devez choisir le protocole chaque fois que vous créez une règle de l’Analyseur de performances explicitement. Vous pouvez toujours passer aux paramètres de règle **Par défaut** dans l’onglet **Analyseur de performances** (qui apparaît une fois que vous avez terminé la configuration du jour 0) et modifier le protocole ultérieurement. Si vous n’êtes pas intéressé par la fonctionnalité de l’Analyseur de performances, vous pouvez désactiver la règle par défaut dans les paramètres de règle **Par défaut** de l’onglet **Analyseur de performances**.
 
@@ -135,7 +135,7 @@ Network Performance Monitor utilise des transactions synthétiques pour analyser
     
 L’analyse de ces homologations est initialement à l’état désactivée. Sélectionnez chaque homologation que vous souhaitez analyser et configurez leur analyse à partir de l’affichage des détails sur la droite. Sélectionnez **Enregistrer** pour enregistrer la configuration. Pour en savoir plus, Consultez l’article « Configurer l’analyse ExpressRoute ». 
 
-Une fois l’installation terminée, les données sont renseignées en 30 minutes à une heure. Pendant que la solution agrège les données à partir de votre réseau, le message *La solution nécessite une configuration supplémentaire* apparaît sur la mosaïque **Vue d’ensemble** de Network Performance Monitor. Une fois les données collectées et indexées, la mosaïque **Vue d’ensemble** change et vous informe de l’intégrité de votre réseau dans un résumé. Vous pouvez ensuite modifier l’analyse des nœuds sur lesquels les agents Operations Management Suite sont installés, ainsi que les sous-réseaux détectés à partir de votre environnement.
+Une fois l’installation terminée, les données sont renseignées en 30 minutes à une heure. Pendant que la solution agrège les données à partir de votre réseau, le message *La solution nécessite une configuration supplémentaire* apparaît sur la mosaïque **Vue d’ensemble** de Network Performance Monitor. Une fois les données collectées et indexées, la mosaïque **Vue d’ensemble** change et vous informe de l’intégrité de votre réseau dans un résumé. Vous pouvez ensuite modifier l’analyse des nœuds sur lesquels les agents Log Analytics sont installés, ainsi que les sous-réseaux détectés à partir de votre environnement.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>Modifier les paramètres de surveillance pour les sous-réseaux et les nœuds 
 
@@ -144,7 +144,7 @@ Tous les sous-réseaux pour lesquels au moins un agent a été installé sont r�
 
 Pour activer ou désactiver l’analyse de sous-réseaux spécifiques :
 
-1. cochez ou décochez la case à côté de  **ID de sous-réseau**. Puis, assurez-vous que la case **Utiliser pour l’analyse** est cochée ou décochée, le cas échéant. Vous pouvez activer ou désactiver plusieurs sous-réseaux. Les sous-réseaux désactivés ne sont pas analysés et les agents sont mis à jour pour arrêter l’envoi de commandes ping à d’autres agents. 
+1. cochez ou décochez la case située à côté de **l’ID de sous-réseau**. Assurez-vous ensuite que la case **Utiliser pour l’analyse** est cochée ou décochée, comme il convient. Vous pouvez activer ou désactiver plusieurs sous-réseaux. Les sous-réseaux désactivés ne sont pas analysés et les agents sont mis à jour pour arrêter l’envoi de commandes ping à d’autres agents. 
 2. Choisissez les nœuds que vous souhaitez analyser dans un sous-réseau spécifique. Sélectionnez le sous-réseau dans la liste et déplacez les nœuds requis entre les listes qui contiennent des nœuds non analysés et analysés. Vous pouvez ajouter une description personnalisée au sous-réseau.
 3. Sélectionnez **Enregistrer** pour enregistrer la configuration. 
 
@@ -176,7 +176,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
  
 
  
-La solution utilise des transactions synthétiques pour évaluer l’intégrité du réseau. Les agents Operations Management Suite installés à différents points du réseau échangent des paquets TCP ou un écho ICMP les uns avec les autres. Le fait que les agents utilisent des paquets TCP ou écho ICMP dépend du protocole sélectionné pour l’analyse. Au cours du processus, les agents détectent, le cas échéant, la durée des boucles et la perte de paquets. Périodiquement, chaque agent effectue également une détermination d’itinéraire d’autres agents afin de trouver tous les itinéraires à tester au sein du réseau. Ces données permettent aux agents de déduire les chiffres relatifs aux pertes de paquets et à la latence du réseau. Les tests sont répétés toutes les cinq secondes. Les données sont agrégées pendant environ trois minutes par les agents avant d’être téléchargées vers le service Log Analytics.
+La solution utilise des transactions synthétiques pour évaluer l’intégrité du réseau. Les agents Log Analytics installés à différents points du réseau échangent des paquets TCP ou un écho ICMP les uns avec les autres. Le fait que les agents utilisent des paquets TCP ou écho ICMP dépend du protocole sélectionné pour l’analyse. Au cours du processus, les agents détectent, le cas échéant, la durée des boucles et la perte de paquets. Périodiquement, chaque agent effectue également une détermination d’itinéraire d’autres agents afin de trouver tous les itinéraires à tester au sein du réseau. Ces données permettent aux agents de déduire les chiffres relatifs aux pertes de paquets et à la latence du réseau. Les tests sont répétés toutes les cinq secondes. Les données sont agrégées pendant environ trois minutes par les agents avant d’être téléchargées vers le service Log Analytics.
 
 
 
@@ -259,7 +259,7 @@ Network Performance Monitor utilise les fonctionnalités d’alerte [d’Azure M
 
 Cela signifie que toutes les notifications sont gérées à l’aide de [groupes d’actions](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups#overview).  
 
-Si vous êtes un utilisateur NPM créant une alerte via OMS : 
+Si vous êtes un utilisateur NPM créant une alerte via Log Analytics : 
 1. Un lien permettant de vous rediriger vers le portail Azure s’affiche. Cliquez dessus pour accéder au portail.
 2. Cliquez sur la vignette de la solution Network Performance Monitor. 
 3. Accédez Configurer.  

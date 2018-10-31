@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 7c3ce5571c54d6c613114ea49999e450934c8ff4
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 0047ed4f0a172451bd50af3f62e2fecb8e147bf2
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136196"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944437"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologie de Service Fabric mesh
 
@@ -22,25 +22,38 @@ Azure Service Fabric mesh est un service entièrement géré qui permet aux dév
 
 ## <a name="service-fabric"></a>Service Fabric
 
-Azure Service Fabric est une plateforme de systèmes distribués open source qui facilite l’empaquetage, le déploiement et la gestion de microservices évolutifs et fiables. Service Fabric est l’orchestrateur qui sous-tend Service Fabric mesh. Service Fabric offre des options pour la façon de générer et d’exécuter des applications de microservices. Vous pouvez utiliser n’importe quelle infrastructure pour écrire vos services, et choisir l’emplacement où exécuter l’application parmi plusieurs options d’environnement.
+[Service Fabric](/azure/service-fabric/) est une plateforme de systèmes distribués open source qui facilite l’empaquetage, le déploiement et la gestion de microservices évolutifs et fiables. Service Fabric est l’orchestrateur qui sous-tend Service Fabric mesh. Service Fabric offre des options pour la façon de générer et d’exécuter des applications de microservices. Vous pouvez utiliser n’importe quelle infrastructure pour écrire vos services, et choisir l’emplacement où exécuter l’application parmi plusieurs options d’environnement.
+
+## <a name="application-and-service-concepts"></a>Concepts de l’application et du service
+
+**Application Service Fabric Mesh** : les applications Service Fabric Mesh sont décrites par le [modèle de ressource](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources) (fichiers de ressources YAML et JSON) et peuvent être déployées sur n’importe quel environnement dans lequel Service Fabric s’exécute.
+
+**Application native Service Fabric** : les applications natives Service Fabric sont décrites par le [modèle d’application native](/azure/service-fabric/service-fabric-application-model) (manifestes d’applications et de services basés sur XML).  Les applications natives Service Fabric ne peuvent pas s’exécuter dans Service Fabric Mesh.
+
+**Application** : une application Service Fabric Mesh est l’unité de déploiement, de contrôle de version et de durée de vie d’une application Mesh. Le cycle de vie de chaque instance d’application peut être géré de manière indépendante.  Les applications sont composées d’un ou de plusieurs packages de code de service et paramètres. Une application est définie à l’aide du schéma de modèle de ressource Azure (RM).  Les services sont décrits en tant que propriétés de la ressource d’application dans le modèle RM.  Les réseaux et volumes utilisés par l’application sont référencés par l’application.  Lorsque vous créez une application, l’application, les services, le réseau et les volumes sont modélisés à l’aide du modèle de ressources Service Fabric.
+
+**Service** : un service dans une application représente un microservice et exécute une fonction complète et autonome. Chaque service se compose d’un ou plusieurs packages de code qui décrivent tout ce qui est nécessaire pour exécuter l’image conteneur associée au package de code.  Le nombre de services dans une application peut être augmenté ou diminué.
+
+**Package de code** : les packages de code décrivent tout ce qui est nécessaire pour exécuter l’image conteneur associée au package de code, notamment :
+
+* Nom, version et registre du conteneur
+* Ressources de processeur et de mémoire requises pour chaque conteneur
+* Points de terminaison réseau
+* Volumes à monter dans le conteneur, faisant référence à une ressource de volume distincte.
 
 ## <a name="deployment-and-application-models"></a>Modèles de déploiement et d’application 
 
 Pour déployer vos services, vous devez décrire la manière dont ils doivent s’exécuter. Service Fabric prend en charge trois modèles de déploiement :
 
 ### <a name="resource-model"></a>Modèle de ressource
-Les ressources sont tout ce qui peut être déployé individuellement sur Service Fabric, dont des applications, des services, des réseaux et des volumes. Les ressources sont définies à l’aide d’un fichier YAML ou JSON utilisant le schéma de modèle de ressource Azure.
-
-Le modèle de ressource est la façon la plus simple de décrire vos applications Service Fabric. Son principal objectif est un déploiement et une gestion simples des services en conteneur.
-
-Les ressources peuvent être déployées partout où Service Fabric s’exécute.
+Les ressources Service Fabric sont tout ce qui peut être déployé individuellement sur Service Fabric, dont des applications, des services, des réseaux et des volumes. Les ressources sont définies à l’aide d’un fichier JSON, qui peut être déployé sur un point de terminaison de cluster.  Le schéma de modèle de ressource Azure est utilisé pour Service Fabric Mesh. Un schéma de fichier YAML peut également être utilisé pour créer plus facilement des fichiers de définition. Les ressources peuvent être déployées partout où Service Fabric s’exécute. Le modèle de ressource est la façon la plus simple de décrire vos applications Service Fabric. Son principal objectif est un déploiement et une gestion simples des services en conteneur. Pour en savoir plus, consultez [Présentation du modèle de ressource Azure Service Fabric](/azure/service-fabric-mesh/service-fabric-mesh-service-fabric-resources).
 
 ### <a name="native-model"></a>Modèle natif
 Le modèle d’application natif fournit à vos applications un accès complet de bas niveau à Service Fabric. Les applications et services sont définis en tant que types inscrits dans des fichiers manifeste XML.
 
 Le modèle natif prend en charge l’infrastructure Reliable Services, qui fournit un accès aux API de runtime de Service Fabric et aux API de gestion du cluster en C# et Java. Le modèle natif prend également en charge les conteneurs et exécutables arbitraires.
 
-Le modèle natif n’est pas pris en charge dans l’environnement de Service Fabric mesh.
+Le modèle natif n’est pas pris en charge dans l’environnement de Service Fabric mesh.  Pour plus d’informations, consultez l’article [Vue d’ensemble des modèles de programmation Service Fabric](/azure/service-fabric/service-fabric-choose-framework).
 
 ### <a name="docker-compose"></a>Docker Compose 
 [Docker Compose](https://docs.docker.com/compose/) fait partie du projet Docker. Service Fabric fournit un support limité pour le déploiement d’applications à l’aide du modèle Docker Compose.
@@ -57,17 +70,17 @@ Service Fabric est une technologie de plateforme open source sur laquelle sont b
 ## <a name="environment-framework-and-deployment-model-support-matrix"></a>Matrice de prise en charge d’environnement, d’infrastructure et de modèle de déploiement
 Les différents environnements ont différents niveaux de prise en charge pour les infrastructures et les modèles de déploiement. Le tableau suivant décrit les combinaisons d’infrastructure et de modèle de déploiement prises en charge.
 
-| Type d’Application | Décrit par | Azure Service Fabric mesh | Clusters de service Azure (tout système d’exploitation)| Cluster local : Windows | Cluster local : Linux | Cluster local : Mac | Cluster autonome (Windows)
+| Type d’Application | Décrit par | Azure Service Fabric mesh | Clusters Azure Service Fabric (tout système d’exploitation)| Cluster local | Cluster autonome |
 |---|---|---|---|---|---|---|---|---|---|
-| Applications Service Fabric mesh | Modèle de ressource (YAML et JSON) | Prise en charge |Non pris en charge | Prise en charge |Non pris en charge | Non pris en charge | Non pris en charge |
-|Applications natives Service Fabric | Modèle d’application native (XML) | Non pris en charge| Prise en charge|Prise en charge|Prise en charge|Prise en charge|Prise en charge|
+| Applications Service Fabric mesh | Modèle de ressource (YAML et JSON) | Pris en charge |Non pris en charge | Windows : pris en charge, Linux et Mac : non pris en charge | Windows : non pris en charge |
+|Applications natives Service Fabric | Modèle d’application native (XML) | Non pris en charge| Pris en charge|Pris en charge|Windows : pris en charge|
 
 Le tableau suivant décrit les différents modèles d’application et les outils existants pour ceux-ci par rapport à Service Fabric.
 
-| Type d’Application | Décrit par | Visual Studio 2017 | Visual Studio 2015 | Eclipse | Visual Studio Code | SFCTL | AZ CLI | PowerShell
+| Type d’Application | Décrit par | Visual Studio | Eclipse | SFCTL | AZ CLI | PowerShell|
 |---|---|---|---|---|---|---|---|---|---|
-| Applications Service Fabric mesh | Modèle de ressource (YAML et JSON) | Prise en charge |Non pris en charge |Non pris en charge |Non pris en charge |Non pris en charge | Pris en charge : environnement Mesh uniquement | Non pris en charge
-|Applications natives Service Fabric | Modèle d’application native (XML) | Prise en charge| Prise en charge|Prise en charge|Prise en charge|Prise en charge|Prise en charge|Prise en charge|
+| Applications Service Fabric mesh | Modèle de ressource (YAML et JSON) | VS 2017 |Non pris en charge |Non pris en charge | Pris en charge : environnement Mesh uniquement | Non pris en charge|
+|Applications natives Service Fabric | Modèle d’application native (XML) | VS 2017 et VS 2015| Pris en charge|Pris en charge|Pris en charge|Pris en charge|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

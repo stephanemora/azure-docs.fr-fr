@@ -1,25 +1,21 @@
 ---
 title: Migrer vos machines virtuelles Windows vers le stockage Premium Azure à l’aide d’Azure Site Recovery | Microsoft Docs
 description: Migrez vos machines virtuelles existantes vers le stockage Premium Azure à l'aide de Site Recovery. Premium Storage offre une prise en charge très performante et à faible latence des disques pour les charges de travail utilisant beaucoup d'E/S exécutées sur les machines virtuelles Azure.
-services: virtual-machines-windows
+services: virtual-machines-windows,storage
 cloud: Azure
-documentationcenter: na
 author: luywang
-manager: jeconnoc
-ms.assetid: ''
 ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2017
 ms.author: luywang
-ms.openlocfilehash: 8a7becc1dc5a2556ace249b7a743836ebf4cc048
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.component: disks
+ms.openlocfilehash: 7378331e5f7540d807c76511226fcd2ed99883fa
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32779449"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404135"
 ---
 # <a name="migrate-to-premium-storage-by-using-azure-site-recovery"></a>Migrer vers le stockage Premium à l’aide d’Azure Site Recovery
 
@@ -71,7 +67,6 @@ Voici les prérequis Azure pour ce scénario de migration :
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 * Identifiez les composants de scénario de migration pertinents de la section précédente.
 * Planifiez votre temps d’arrêt en vous familiarisant avec le [basculement dans Site Recovery](../../site-recovery/site-recovery-failover.md).
 
@@ -82,8 +77,10 @@ Vous pouvez utiliser Site Recovery pour migrer des machines virtuelles IaaS Azur
 ### <a name="step-1-create-a-recovery-services-vault"></a>Étape 1 : Création du coffre Recovery Services
 
 1. Ouvrez le [portail Azure](https://portal.azure.com).
-2. Sélectionnez **Créer une ressource** > **Gestion** > **Backup and Site Recovery (OMS)**. Vous pouvez aussi sélectionner **Parcourir** > **Coffre Recovery Services** > **Ajouter**. 
-3. Spécifiez une région sur laquelle répliquer les machines virtuelles. Pour effectuer une migration au sein de la même région, sélectionnez la région dans laquelle se trouvent vos machines virtuelles source et les comptes de stockage source. 
+2. Sélectionnez **Créer une ressource** > **Gestion** > **Backup and Site Recovery (OMS)**. Vous pouvez aussi sélectionner **Parcourir** > **Coffre Recovery Services** > **Ajouter**.
+   >[!NOTE]
+   >Sauvegarde et Site Recovery faisaient précédemment partie intégrante de la ![suite OMS](https://github.com/MicrosoftDocs/azure-docs-pr/pull/azure-monitor/azure-monitor-rebrand.md#retirement-of-operations-management-suite-brand).
+1. Spécifiez une région sur laquelle répliquer les machines virtuelles. Pour effectuer une migration au sein de la même région, sélectionnez la région dans laquelle se trouvent vos machines virtuelles source et les comptes de stockage source. 
 
 ### <a name="step-2-choose-your-protection-goals"></a>Étape 2 : Choisir vos objectifs de protection 
 
@@ -218,13 +215,13 @@ Site Recovery crée une instance de machine virtuelle dont le type est identique
 Pour des scénarios propres à la migration de machines virtuelles, consultez les ressources suivantes :
 
 * [Migrer des machines virtuelles Azure entre les comptes de stockage](https://azure.microsoft.com/blog/2014/10/22/migrate-azure-virtual-machines-between-storage-accounts/)
-* [Créer et charger un disque dur virtuel Windows Server dans Azure.](upload-generalized-managed.md)
+* [Créer et charger un disque dur virtuel Windows Server dans Azure](upload-generalized-managed.md)
 * [Migration de machines virtuelles à partir d’Amazon AWS vers Microsoft Azure](http://channel9.msdn.com/Series/Migrating-Virtual-Machines-from-Amazon-AWS-to-Microsoft-Azure)
 
 Consultez également les ressources suivantes pour en savoir plus sur Azure Storage et les machines virtuelles Azure :
 
 * [Stockage Azure](https://azure.microsoft.com/documentation/services/storage/)
-* [Azure Virtual Machines](https://azure.microsoft.com/documentation/services/virtual-machines/)
+* [Machines virtuelles Azure](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.](premium-storage.md)
 
 [1]:./media/migrate-to-premium-storage-using-azure-site-recovery/migrate-to-premium-storage-using-azure-site-recovery-1.png

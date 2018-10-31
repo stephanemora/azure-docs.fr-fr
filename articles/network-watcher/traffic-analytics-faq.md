@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 69d2d80e40400cc7fa40aeb5a163dce5036905ab
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578308"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402758"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Forum aux questions pour l’analyse de trafic
 
@@ -77,9 +77,9 @@ Oui.
 
 Oui. Si vous sélectionnez un espace de travail existant, vérifiez qu’il a été migré vers le nouveau langage de requête. Si vous ne souhaitez pas mettre à niveau l’espace de travail, vous devez en créer un autre. Pour plus d’informations sur le nouveau langage de requête, consultez [Mise à niveau Azure Log Analytics avec la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md).
 
-## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-operations-management-suite-workspace-be-in-a-different-subscription"></a>Mon compte de stockage Azure peut-il être associé à un abonnement et mon espace de travail Operations Management Suite à un autre ?
+## <a name="can-my-azure-storage-account-be-in-one-subscription-and-my-log-analytics-workspace-be-in-a-different-subscription"></a>Mon compte Stockage Azure peut-il être dans un abonnement spécifique et mon espace de travail Log Analytics dans un autre abonnement ?
 
-Oui, votre compte de stockage Azure peut être associé à un abonnement et votre espace de travail Operations Management Suite à un autre.
+Oui, votre compte Stockage Azure peut être dans un abonnement spécifique et votre espace de travail Log Analytics dans un autre abonnement.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>Puis-je stocker les journaux bruts dans un autre abonnement ?
 
@@ -115,7 +115,7 @@ Si les problèmes persistent, expliquez votre problème dans le [forum des utili
 
 Ce message peut s’afficher pour les raisons suivantes :
 - L’analytique du trafic a été récemment activée et peut ne pas avoir agrégé suffisamment de données pour qu’en ressortent des insights significatifs.
-- Vous utilisez la version gratuite de l’espace de travail Operations Management Suite, et les limites de quota ont été dépassées. Vous devrez peut-être utiliser un espace de travail d’une capacité supérieure.
+- Vous utilisez la version gratuite de l’espace de travail Log Analytics, et les limites de quota ont été dépassées. Vous devrez peut-être utiliser un espace de travail d’une capacité supérieure.
     
 Si les problèmes persistent, expliquez votre problème dans le [forum des utilisateurs](https://feedback.azure.com/forums/217313-networking?category_id=195844).
     

@@ -1,6 +1,6 @@
 ---
 title: 'Didacticiel : Équilibrer la charge des machines virtuelles entre des zones de disponibilité à l’aide du portail Azure | Microsoft Docs'
-description: Ce didacticiel montre comment créer un équilibreur de charge standard avec frontend redondant dans une zone pour équilibrer la charge des machines virtuelles entre des zones de disponibilité à l’aide du portail Azure.
+description: Ce didacticiel montre comment créer un équilibreur de charge standard avec frontend redondant interzone pour équilibrer la charge des machines virtuelles entre des zones de disponibilité à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -31,7 +31,7 @@ L’équilibrage de charge offre un niveau plus élevé de disponibilité en ré
 > [!div class="checklist"]
 > * Créer un équilibreur de charge standard
 > * Créer des groupes de sécurité réseau pour définir des règles applicables au trafic entrant
-> * Créer des machines virtuelles redondantes dans une zone déployées dans plusieurs zones et les attacher à un équilibreur de charge
+> * Créer des machines virtuelles redondantes interzone déployées dans plusieurs zones et les attacher à un équilibreur de charge
 > * Créer une sonde d’intégrité d’équilibreur de charge
 > * Créer des règles de trafic pour l’équilibrage de charge
 > * Créer un site IIS de base
@@ -49,13 +49,13 @@ Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azur
 
 ## <a name="create-a-standard-load-balancer"></a>Créer un équilibreur de charge standard
 
-L’équilibreur de charge standard prend uniquement en charge une adresse IP publique standard. Lorsque vous créez une nouvelle adresse IP publique en créant l’équilibreur de charge, celle-ci est automatiquement configurée comme version de référence standard et est également automatiquement redondante dans une zone.
+L’équilibreur de charge standard prend uniquement en charge une adresse IP publique standard. Lorsque vous créez une nouvelle adresse IP publique en créant l’équilibreur de charge, celle-ci est automatiquement configurée comme version de référence standard et est également automatiquement redondante interzone.
 
 1. En haut à gauche de l’écran, cliquez sur **Créer une ressource** > **Mise en réseau** > **Équilibreur de charge**.
 2. Dans la page **Créer un équilibreur de charge**, entrez les valeurs suivantes pour l’équilibreur de charge :
     - *myLoadBalancer* : pour le nom de l’équilibreur de charge.
     - **Public** : pour le type de l’équilibreur de charge.
-     - *myPublicIP* : pour la nouvelle adresse IP publique créée. Pour ce faire, cliquez sur **Choisir une adresse IP publique,** puis sur **Créer**. Pour le nom, tapez *myPublicIP*, conservez la référence Standard par défaut et sélectionnez **Redondante dans une zone** pour **Zone de disponibilité**.
+     - *myPublicIP* : pour la nouvelle adresse IP publique créée. Pour ce faire, cliquez sur **Choisir une adresse IP publique,** puis sur **Créer**. Pour le nom, tapez *myPublicIP*, conservez la référence Standard par défaut et sélectionnez **Redondante interzone** pour **Zone de disponibilité**.
     - *myResourceGroupLBAZ* : pour le nom du nouveau groupe de ressources que vous créez.
     - **westeurope** : pour l’emplacement.
 3. Cliquez sur **Créer** pour générer l’équilibreur de charge.
@@ -65,7 +65,7 @@ L’équilibreur de charge standard prend uniquement en charge une adresse IP pu
 
 ## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
-Dans cette section, vous allez créer un réseau virtuel, des machines virtuelles dans différentes zones de la région, puis installer IIS sur les machines virtuelles afin de tester l’équilibreur de charge redondant dans une zone. Ainsi, si une zone échoue, la sonde d’intégrité de la machine virtuelle de la même zone échoue, et le trafic continue à être pris en charge par les machines virtuelles dans les autres zones.
+Dans cette section, vous allez créer un réseau virtuel, des machines virtuelles dans différentes zones de la région, puis installer IIS sur les machines virtuelles afin de tester l’équilibreur de charge redondant interzone. Ainsi, si une zone échoue, la sonde d’intégrité de la machine virtuelle de la même zone échoue, et le trafic continue à être pris en charge par les machines virtuelles dans les autres zones.
 
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 Créez un réseau virtuel pour le déploiement de vos serveurs principaux.

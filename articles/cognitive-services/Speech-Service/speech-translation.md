@@ -1,26 +1,27 @@
 ---
 title: À propos de la traduction vocale
+titlesuffix: Azure Cognitive Services
 description: Vue d’ensemble des fonctionnalités de traduction vocale
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/28/2018
 ms.author: erhopf
-ms.openlocfilehash: f3c22589270ccee2c60ca5ea5b15047d9c81fabe
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: af363a45ab113d89c7aad7a38c6e10d335bc6035
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165435"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469133"
 ---
 # <a name="about-the-speech-translation-api"></a>À propos de l’API Traduction vocale
 
-L’API Microsoft Speech vous permet d’ajouter une traduction de bout en bout, en temps réel et multilingue de la parole à vos applications, outils et appareils. La même API peut être utilisée pour la traduction de parole en parole et de parole en texte.
+L’API du service Speech vous permet d’ajouter une traduction de bout en bout, en temps réel et multilingue de la parole à vos applications, outils et appareils. La même API peut être utilisée pour la traduction de parole en parole et de parole en texte.
 
-Avec l’API de traduction de conversation Translator Speech Microsoft, les applications clientes diffusent l’audio de la parole vers le service, et reçoivent un flux de résultats. Ces résultats incluent le texte reconnu dans la langue source et sa traduction dans la langue cible. Des traductions intermédiaires peuvent être fournies jusqu’à ce qu’un énoncé soit complet, moment auquel une traduction finale est fournie.
+Avec l’API de traduction de conversation Translator Speech, les applications clientes diffusent l’audio de la parole vers le service, et reçoivent un flux de résultats. Ces résultats incluent le texte reconnu dans la langue source et sa traduction dans la langue cible. Des traductions intermédiaires peuvent être fournies jusqu’à ce qu’un énoncé soit complet, moment auquel une traduction finale est fournie.
 
 Si vous le souhaitez, une version audio synthétisée de la traduction finale peut être préparée, qui permet une véritable traduction de parole en parole.
 

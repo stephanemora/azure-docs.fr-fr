@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: 3d7cf50bd2c845764aa2c3ac3b3db6891ff5c8d8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: cc051e1ba0bbea68bb1e888168883351bf4f730f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993848"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406209"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Analyse des performances avec Log Analytics
 
@@ -30,7 +30,7 @@ Cet article explique comment ajouter l’agent Log Analytics à un cluster sous 
 
 ## <a name="add-the-agent-extension-via-azure-cli"></a>Ajouter l’extension d’agent via Azure CLI
 
-La meilleure façon d’ajouter l’agent Log Analytics à un cluster est d’utiliser les API des groupes de machines virtuelles identiques d’Azure CLI. Si vous n’avez pas encore configuré Azure CLI, accédez au portail Azure, puis ouvrez une instance [Cloud Shell](../cloud-shell/overview.md) ou [installez Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
+La meilleure façon d’ajouter l’agent Log Analytics à un cluster est d’utiliser les API des groupes de machines virtuelles identiques avec Azure CLI. Si vous n’avez pas encore configuré Azure CLI, accédez au portail Azure, puis ouvrez une instance [Cloud Shell](../cloud-shell/overview.md) ou [installez Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
 1. Lorsque votre instance de Cloud Shell est demandée, veillez à vous trouver dans le même abonnement que votre ressource. Utilisez la commande `az account show` pour vérifier que la valeur « name » correspond à celle de l’abonnement de votre cluster.
 
@@ -54,7 +54,7 @@ La meilleure façon d’ajouter l’agent Log Analytics à un cluster est d’ut
     az vmss extension set --name OmsAgentForLinux --publisher Microsoft.EnterpriseCloud.Monitoring --resource-group <nameOfResourceGroup> --vmss-name <nameOfNodeType> --settings "{'workspaceId':'<Log AnalyticsworkspaceId>'}" --protected-settings "{'workspaceKey':'<Log AnalyticsworkspaceKey>'}"
     ```
 
-    Voici un exemple montrant l’ajout de l’agent Log Analytics à un cluster Windows.
+    Voici un exemple illustrant l’ajout de l’agent Log Analytics à un cluster Windows.
 
     ![Commande CLI de l’agent Log Analytics](media/service-fabric-diagnostics-oms-agent/cli-command.png)
  
@@ -66,7 +66,7 @@ La meilleure façon d’ajouter l’agent Log Analytics à un cluster est d’ut
 
 ## <a name="add-the-agent-via-the-resource-manager-template"></a>Ajouter l’agent en utilisant un modèle Resource Manager
 
-Des exemples de modèles Gestionnaire des ressources qui déploient un espace de travail Azure Log Analytics et ajoutent un agent à chacun de vos nœuds sont disponibles pour [Windows](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Windows) ou [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
+Des exemples de modèles Gestionnaire des ressources qui déploient un espace de travail Azure Log Analytics et ajoutent un agent à chacun de vos nœuds sont disponibles pour [Windows](https://github.com/Azure-Samples/service-fabric-cluster-templates/tree/master/5-VM-Windows-OMS-UnSecure) ou [Linux](https://github.com/ChackDan/Service-Fabric/tree/master/ARM%20Templates/SF%20OMS%20Samples/Linux).
 
 Vous pouvez télécharger et modifier ces modèles pour déployer un cluster qui correspond mieux à vos besoins.
 
@@ -86,7 +86,7 @@ Maintenant que vous avez ajouté l’agent Log Analytics, accédez au portail Lo
 
 6. Fermez le panneau Paramètres avancés.
 
-7. Sous le titre Général, cliquez sur **Vue d’ensemble**.
+7. Sous le titre Général, cliquez sur **Récapitulatif de l’espace de travail**.
 
 8. Des vignettes représentant un graphique s’affichent pour chacune des solutions activées, y compris pour Service Fabric. Cliquez sur le graphique **Service Fabric** pour accéder à la solution Service Fabric Analytics.
 

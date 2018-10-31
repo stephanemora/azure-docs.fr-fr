@@ -11,13 +11,13 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, bonova
 manager: craigg
-ms.date: 08/13/2018
-ms.openlocfilehash: 2f512c666555ca8bee58305b76573459f6e631e2
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 10/24/2018
+ms.openlocfilehash: fd63d0ce9ef335efdebf9759d52cf93312986d16
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166501"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025376"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Différences T-SQL entre Azure SQL Database Managed Instance et SQL Server 
 
@@ -103,7 +103,7 @@ Consultez [CREATE CERTIFICATE](https://docs.microsoft.com/sql/t-sql/statements/c
 > ``` 
 CREATE CERTIFICATE  
  FROM BINARY = asn_encoded_certificate    
-WITH PRIVATE KEY ( <private_key_options> ) 
+WITH PRIVATE KEY (<private_key_options>) 
 >```   
  
 ### <a name="clr"></a>CLR 
@@ -333,21 +333,22 @@ Pour plus d’informations sur les instructions de restauration, consultez [Inst
  - `remote proc trans` 
 - `sp_execute_external_scripts` n’est pas pris en charge. Consultez [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
 - `xp_cmdshell` n’est pas pris en charge. Consultez [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures` ne sont pas pris en charge, y compris `sp_addextendedproc` et `sp_dropextendedproc`. Consultez [Procédures stockées étendues](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
+- `Extended stored procedures` ne sont pas pris en charge, y compris `sp_addextendedproc`  et `sp_dropextendedproc`. Consultez [Procédures stockées étendues](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql)
 - `sp_attach_db`, `sp_attach_single_file_db`, et `sp_detach_db` ne sont pas pris en charge. Consultez [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql) et [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` n’est pas pris en charge. Consultez [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
 ### <a name="sql-server-agent"></a>Agent SQL Server
 
 - Les paramètres de l’Agent SQL sont en lecture seule. La procédure `sp_set_agent_properties` n’est pas prise en charge dans Managed Instance.  
-- Travaux (jobs) : les étapes de travail T-SQL sont prises en charge
-- Les autres types d’étapes de travail T-SQL ne sont pas pris en charge (d’autres étapes seront ajoutées à la préversion publique).
-  - Les travaux de réplication non pris en charge sont les suivants :
+- Tâches
+ - Les étapes de travail T-SQL sont prises en charge.
+ - Les travaux de réplication suivants sont pris en charge :
     - Lecteur de journaux de transactions  
     - Instantané
-    - Serveur de distribution  
-    - Fusion  
-  - SSIS n’est pas encore pris en charge. 
+    - Serveur de distribution
+ - SSIS est pris en charge. 
+- Les autres types d’étapes de travail ne sont pas actuellement pris en charge, notamment :
+  - L’étape de travail de réplication de fusion n’est pas prise en charge.  
   - L’agent de lecture de la file d’attente n’est pas pris en charge.  
   - L’interface de commande n’est pas encore prise en charge. 
   - Managed Instance ne peut pas accéder aux ressources externes (par exemple, les partages réseau via robocopy).  
@@ -411,7 +412,7 @@ Dans cet exemple, les bases de données existantes continuent de fonctionner et 
 ### <a name="incorrect-configuration-of-sas-key-during-database-restore"></a>Configuration incorrecte de la clé SAP au cours d’une restauration de la base de données
 
 Il se peut que `RESTORE DATABASE` qui lit le fichier .bak réessaie constamment de lire le fichier .bak et retourne une erreur après une longue période si la signature d’accès partagé dans `CREDENTIAL` est incorrecte. Exécutez RESTORE HEADERONLY avant de restaurer une base de données pour vous assurer que la clé SAP est correcte.
-Assurez-vous que vous supprimez le `?` de début de la clé SAP générée à l’aide du portail Azure.
+Veillez à supprimer le `?` au début de la clé SAP générée à l’aide du portail Microsoft Azure.
 
 ### <a name="tooling"></a>Outils
 

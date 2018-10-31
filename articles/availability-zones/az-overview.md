@@ -58,7 +58,7 @@ Les services Azure qui prennent en charge les zones de disponibilité sont les s
 - Managed Disks
 - Load Balancer
 - Adresse IP publique
-- Stockage redondant dans une zone
+- Stockage redondant interzone
 - Base de données SQL
 - Event Hubs
 - Service Bus

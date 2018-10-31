@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 06/19/2018
-ms.openlocfilehash: 5bf5385824eb9b711a2fee547c29d24d7ef5a01d
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 666c998a781f13ea2a26ccfc0b94aeead0308f5b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125766"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405682"
 ---
 # <a name="track-b2b-communication-with-azure-log-analytics"></a>Suivre la communication B2B avec Azure Log Analytics
 
@@ -40,9 +40,9 @@ Une fois la communication B2B configurée entre deux processus ou applications d
 >  
 > Si vous n’avez pas d’espace de travail Log Analytics, découvrez [comment créer un espace de travail Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
-## <a name="add-the-logic-apps-b2b-solution-to-log-analytics"></a>Ajouter la solution Logic Apps B2B à Log Analytics
+## <a name="add-the-logic-apps-b2b-solution-to-azure"></a>Ajouter la solution Logic Apps B2B à Azure
 
-Pour que Log Analytics effectue le suivi des messages B2B pour votre application logique, vous devez ajouter la solution **Logic Apps B2B** au portail OMS. En savoir plus sur l’[Ajout de solutions à Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
+Pour que Log Analytics effectue le suivi des messages B2B pour votre application logique, vous devez ajouter la solution **Logic Apps B2B** à Log Analytics. En savoir plus sur l’[Ajout de solutions à Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md).
 
 1. Dans le [portail Azure](https://portal.azure.com), choisissez **Tous les services**. Recherchez « log analytics », puis choisissez **Log Analytics** comme illustré ici :
 
@@ -52,7 +52,7 @@ Pour que Log Analytics effectue le suivi des messages B2B pour votre application
 
    ![Sélectionnez votre espace de travail Log Analytics.](media/logic-apps-track-b2b-messages-omsportal/selectla.png)
 
-3. Sous **Gestion**, choisissez **Vue d’ensemble**.
+3. Sous **Gestion**, choisissez **Résumé de l’espace de travail**.
 
    ![Sélection du portail Log Analytics](media/logic-apps-track-b2b-messages-omsportal/omsportalpage.png)
 

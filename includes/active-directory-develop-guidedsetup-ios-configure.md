@@ -14,30 +14,34 @@ ms.workload: identity
 ms.date: 09/19/2018
 ms.author: brandwe
 ms.custom: include file
-ms.openlocfilehash: 331d16df55e26df5d49555c636b307499dd052af
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 1604b7c9ee9888375e65aa679803c6e996e13b14
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48843361"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49988240"
 ---
 ## <a name="register-your-application"></a>Inscrivez votre application
+
 Vous pouvez inscrire votre application de deux manières, comme décrit dans les deux sections suivantes.
 
 ### <a name="option-1-express-mode"></a>Option 1 : mode Express
+
 Maintenant, vous devez inscrire votre application dans le *portail d’inscription des applications de Microsoft* :
+
 1. Inscrivez votre application via le [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=ios&step=configure).
-2.  Entrez un nom pour votre application, ainsi que votre adresse e-mail.
-3.  Assurez-vous que la case de l’option Guided Setup (Installation guidée) est activée.
-4.  Suivez les instructions à l’écran pour obtenir l’ID de l’application et collez-le dans votre code.
+2. Entrez un nom pour votre application, ainsi que votre adresse e-mail.
+3. Assurez-vous que la case de l’option Assistant Installation est cochée.
+4. Suivez les instructions à l’écran pour obtenir l’ID de l’application et collez-le dans votre code.
 
 ### <a name="option-2-advanced-mode"></a>Option 2 : mode Avancé
 
-1.  Accédez au [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app).
-2.  Entrez un nom pour votre application.
-3.  Assurez-vous que la case de l’option Guided Setup (Installation guidée) est désactivée.
-4.  Cliquez sur `Add Platform`, puis sélectionnez `Native Application` et cliquez sur `Save`.
-5.  Revenez à Xcode. Dans `ViewController.swift`, remplacez la ligne commençant par « `let kClientID` » par l’ID d’application que vous venez d’inscrire :
+1. Accédez au [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app).
+2. Entrez un nom pour votre application.
+3. Assurez-vous que la case de l’option Assistant Installation est décochée.
+4. Sélectionnez `Add Platform`, puis `Native Application`.
+5. Sélectionnez `Save`.
+6. Revenez à Xcode. Dans `ViewController.swift`, remplacez la ligne commençant par « `let kClientID` » par l’ID d’application que vous venez d’inscrire :
 
 ```swift
 let kClientID = "Your_Application_Id_Here"

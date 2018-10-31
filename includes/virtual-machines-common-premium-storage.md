@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: a05d0c623c1abdb5713c1d49b0b577298c1d6c7d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49347010"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49437151"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Stockage Premium hautes performances et disques gérés pour machines virtuelles
 
@@ -151,7 +151,11 @@ Si vous utilisez des comptes de stockage Premium pour des disques non gérés et
 ### <a name="premium-storage-disk-limits"></a>Limites des disques de stockage Premium
 Lorsque vous configurez un disque de stockage Premium, la taille du disque détermine la valeur maximale d’E/S par seconde et le débit (bande passante). Azure propose huit types GA de disques de stockage premium : P4 (Managed Disks uniquement), P6 (Managed Disks uniquement), P10, P15 (Managed Disks uniquement), P20, P30, P40 et P50. Plus trois tailles de disque en préversion : P60, P70 et P80. Chaque type de disque de stockage Premium a des limites d’E/S par seconde et de débit spécifiques. Les limites pour ces types de disques sont décrites dans le tableau suivant :
 
-| Type Disques Premium | P4    | P6    | P10   | P15   | P20   | P30   | P40   | P50   | P60   | P70   | P80   | |---------------------|-------|-------|-------|-------|-------|-------|-------|-------||-------||-------||-------| | Taille de disque           | 32 Gio| 64 Gio| 128 Gio| 256 Gio| 512 Gio            | 1 024 Gio (1 Tio)    | 2 048 Gio (2 Tio)    | 4 095 Gio (4 Tio)    | 8 192 Gio (8 Tio)    | 16 384 Gio (16 Tio)    | 32 767 Gio (32 Tio)    | | IOPS par disque       | 120   | 240   | 500   | 1 100   | 2 300              | 5 000              | 7 500              | 7 500              | 12 500              | 15 000              | 20 000              | | Débit par disque | 25 Mo par seconde | 50 Mo par seconde  | 100 Mo par seconde | 125 Mo par seconde | 150 Mo par seconde | 200 Mo par seconde | 250 Mo par seconde | 250 Mo par seconde | 480 Mo par seconde | 750 Mo par seconde | 750 Mo par seconde |
+| Type de disque Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+|---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
+| Taille du disque           | 32 Gio| 64 Gio| 128 Go| 256 Gio| 512 Go| 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio)| 4 095 Gio (4 Tio)| 8192 Gio (8 Tio)| 16 384 Gio (16 Tio)| 32 767 Gio (32 Tio)|
+| IOPS par disque       | 120   | 240   | 500    | 1100   | 2 300   | 5 000             | 7500            | 7500            | 12 500          | 15 000             | 20 000             |
+| Débit par disque | 25 Mo par seconde | 50 Mo par seconde | 100 Mo par seconde | 125 Mo par seconde | 150 Mo par seconde | 200 Mo par seconde | 250 Mo par seconde | 250 Mo par seconde | 480 Mo par seconde | 750 Mo par seconde | 750 Mo par seconde |
 
 > [!NOTE]
 > Assurez-vous que suffisamment de bande passante soit disponible sur votre machine virtuelle pour le trafic du disque, comme décrit dans [Machines virtuelles prises en charge par le stockage Premium](#premium-storage-supported-vms). Dans le cas contraire, votre débit de disque et les E/S par seconde sont limités à des valeurs moindres. Le débit maximal et les E/S par seconde sont basés sur les limites de la machine virtuelle, pas sur les limites du disque décrites dans le tableau précédent.  

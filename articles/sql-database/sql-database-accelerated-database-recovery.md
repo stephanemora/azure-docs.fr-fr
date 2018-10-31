@@ -11,12 +11,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/11/2018
-ms.openlocfilehash: ad9ef7aa56cde9dd2ae644b97570b3bcfb727516
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 49ef31996cb9c55ed244202a85e123faf52fbd2a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49355235"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649764"
 ---
 # <a name="accelerated-database-recovery-preview"></a>Récupération de base de données accélérée (préversion)
 
@@ -127,4 +127,4 @@ Les types suivants de clients doivent envisager l’utilisation de la récupéra
 
 ## <a name="to-enable-adr-during-this-preview-period"></a>Pour activer la récupération de base de données accélérée pendant cette période de préversion
 
-Pendant la période de préversion, pour activer cette fonctionnalité, envoyez un e-mail à [mailto:adr@microsoft.com](mailto:adr@microsoft.com) pour en savoir plus et essayer la récupération de base de données accélérée. Dans l’e-mail, incluez le nom de votre serveur logique (pour les bases de données uniques, les pools élastiques et Azure Data Warehouse). Cette fonctionnalité étant en préversion, votre serveur de test ne doit pas être un serveur de production.
+Pendant la période de préversion, pour activer cette fonctionnalité, envoyez un e-mail à [adr@microsoft.com](mailto:adr@microsoft.com) pour en savoir plus et essayer la récupération de base de données accélérée. Dans l’e-mail, incluez le nom de votre serveur logique (pour les bases de données uniques, les pools élastiques et Azure Data Warehouse). Cette fonctionnalité étant en préversion, votre serveur de test ne doit pas être un serveur de production.

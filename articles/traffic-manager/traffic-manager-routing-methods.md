@@ -4,7 +4,6 @@ description: Cet article va vous aider à comprendre les différentes méthodes 
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jpconnock
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -12,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: be429e7d3ae847eec6dc4fd5ad6b9c3e5d76d5b5
-ms.sourcegitcommit: 4edf9354a00bb63082c3b844b979165b64f46286
+ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48785407"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955216"
 ---
 # <a name="traffic-manager-routing-methods"></a>Méthodes de routage de Traffic Manager
 
@@ -129,8 +128,11 @@ Comme expliqué dans [Fonctionnement de Traffic Manager](traffic-manager-how-it-
 La méthode de routage du trafic **Valeurs multiples** vous permet d’obtenir plusieurs points de terminaison intègres dans une seule réponse à une requête DNS. Cela permet à l’appelant de faire de nouvelles tentatives côté client avec d’autres points de terminaison quand un point de terminaison retourné ne répond pas. Ce modèle peut augmenter la disponibilité d’un service et réduire la latence associée à une nouvelle requête DNS pour obtenir un point de terminaison sain. La méthode de routage Valeurs multiples ne fonctionne que si tous les points de terminaison sont de type « Externe » et sont des adresses IPv4 ou IPv6 spécifiées. Lors de la réception d’une requête pour ce profil, tous les points de terminaison sains sont retournés et soumis à un nombre de retours maximal configurable.
 
 ## <a name = "subnet"></a>Méthode de routage du trafic Sous-réseau
-La méthode de routage du trafic **Sous-réseau** vous permet de mapper un ensemble de plages d’adresses IP d’utilisateur final à des points de terminaison spécifiques dans un profil. Ensuite, si Traffic Manager reçoit une requête DNS pour ce profil, il inspecte l’adresse IP source de cette demande (dans la plupart des cas, il s’agit de l’adresse IP sortante de la résolution DNS utilisée par l’appelant), détermine le point de terminaison auquel elle est mappée, et retourne ce point de terminaison dans la réponse à la requête. L’adresse IP à associer à un point de terminaison peut être spécifiée en tant que plage CIDR (par exemple, 1.2.3.0/24) ou plage d’adresses (par exemple, 1.2.3.4-5.6.7.8). Les plages d’adresses IP associées à un point de terminaison doivent être uniques au sein de ce profil, et il ne peut pas y avoir de chevauchement avec l’ensemble d’adresses IP d’un autre point de terminaison dans le même profil.
-S’il n’y a aucun point de terminaison auquel cette adresse IP puisse être mappée, Traffic Manager envoie une réponse NODATA. Il est par conséquent hautement recommandé de vérifier que toutes les plages d’adresses IP possibles sont spécifiées sur vos points de terminaison.
+La méthode de routage du trafic **Sous-réseau** vous permet de mapper un ensemble de plages d’adresses IP d’utilisateur final à des points de terminaison spécifiques dans un profil. Ensuite, si Traffic Manager reçoit une requête DNS pour ce profil, il inspecte l’adresse IP source de cette demande (dans la plupart des cas, il s’agit de l’adresse IP sortante de la résolution DNS utilisée par l’appelant), détermine le point de terminaison auquel elle est mappée, et retourne ce point de terminaison dans la réponse à la requête. 
+
+L’adresse IP à associer à un point de terminaison peut être spécifiée en tant que plage CIDR (par exemple, 1.2.3.0/24) ou plage d’adresses (par exemple, 1.2.3.4-5.6.7.8). Les plages d’adresses IP associées à un point de terminaison doivent être uniques au sein de ce profil, et il ne peut pas y avoir de chevauchement avec l’ensemble d’adresses IP d’un autre point de terminaison dans le même profil.
+Si vous définissez un point de terminaison sans plage d’adresses, il fait office de secours et récupère le trafic de n’importe quel sous-réseau restant. Si aucun point de terminaison de secours n’est inclus, Traffic Manager envoie une réponse NODATA pour toutes les plages non définies. Il est par conséquent hautement recommandé de définir un point de terminaison de secours ou de vérifier que toutes les plages d’adresses IP possibles sont spécifiées sur vos points de terminaison.
+
 Un routage de sous-réseau permet d’offrir une expérience différente au utilisateurs qui se connectent à partir d’un espace d’adressage IP spécifique. Par exemple, en utilisant un routage de sous-réseau, un client peut faire en sorte que toutes les demandes émanant de son bureau d’entreprise soient acheminées vers un autre point de terminaison où il peut tester une version uniquement interne de son application. Un autre scénario est quand vous souhaitez offrir une expérience différente aux utilisateurs qui se connectent à partir d’un fournisseur de services Internet (ISP) spécifique (par exemple, pour bloquer les utilisateurs d’un ISP donné).
 
 ## <a name="next-steps"></a>Étapes suivantes

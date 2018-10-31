@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 19a611ca88310f06503bea2b8606699fe3e1c709
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 8d3e0874637bc3f13905c6038349b34c18b5fe56
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406038"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637795"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Supervision des données collectées par Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) est un service qui vous permet de surveiller vos applications et les ressources dont elles dépendent. Au cœur de cette fonction se trouve le stockage de données de télémétrie et d’autres données tirées des ressources supervisées. Cet article décrit de manière exhaustive la façon dont ces données sont stockées et utilisées par Azure Monitor.
@@ -108,7 +108,7 @@ Les tâches que vous pouvez effectuer avec les métriques sont les suivantes :
 
 
 ### <a name="viewing-metrics"></a>Affichage des métriques
-Les métriques dans Azure sont collectées au sein du magasin de métriques Azure Monitor. Il s’agit d’une base de données de séries chronologiques optimisée pour une récupération rapide et stockant les valeurs métriques pendant 93 jours. Copiez les métriques vers Log Analytics pour une analyse et des tendances à long terme.
+Les métriques dans Azure sont collectées au sein de la base de données de métriques Azure Monitor. Il s’agit d’une base de données de séries chronologiques optimisée pour une récupération rapide et stockant les valeurs métriques pendant 93 jours. Copiez les métriques vers Log Analytics pour une analyse et des tendances à long terme.
 
 Les données métriques sont utilisées de différentes façons, comme décrit ci-dessus. Utilisez [Metrics Explorer](../monitoring-and-diagnostics/monitoring-metric-charts.md) pour analyser directement les données dans votre magasin de métriques et représenter les valeurs de plusieurs métriques au fil du temps dans un graphique. Vous pouvez afficher les graphiques de manière interactive ou les épingler au tableau de bord pour les voir avec d’autres visualisations. Vous pouvez également extraire des métriques à l’aide de l’[API REST Azure Monitoring](../monitoring-and-diagnostics/monitoring-rest-api-walkthrough.md).
 
@@ -173,7 +173,7 @@ Vous pouvez copier les métriques dans Log Analytics pour effectuer une analyse 
 Pour trouver des conseils concernant la collecte de métriques à partir de ressources Azure, voir [Collecte des journaux et des métriques des services Azure à utiliser dans Log Analytics](../log-analytics/log-analytics-azure-storage.md). Pour obtenir des conseils concernant la collecte de métriques de ressources Azure PaaS, voir [Configurer la collecte de métriques de ressources Azure PaaS avec Log Analytics](../log-analytics/log-analytics-collect-azurepass-posh.md).
 
 ### <a name="logs-to-metrics"></a>Des journaux aux métriques
-Comme décrit précédemment, les métriques sont plus réactives que les journaux, ce qui vous permet de créer des alertes avec une latence faible et à moindre coût. Log Analytics collecte une quantité significative de données numériques qui seraient appropriées pour des métriques, mais qui ne sont pas stockées dans le magasin de métriques Azure.  Un exemple courant est celui des données de performances collectées auprès d’agents et de solutions de gestion. Certaines de ces valeurs peuvent être copiées dans le magasin de métriques où elles sont disponibles pour la génération d’alertes et pour l’analyse avec Metrics Explorer.
+Comme décrit précédemment, les métriques sont plus réactives que les journaux, ce qui vous permet de créer des alertes avec une latence faible et à moindre coût. Log Analytics collecte une quantité significative de données numériques qui seraient appropriées pour des métriques, mais qui ne sont pas stockées dans la base de données de métriques Azure.  Un exemple courant est celui des données de performances collectées auprès d’agents et de solutions de gestion. Certaines de ces valeurs peuvent être copiées dans la base de données de métriques où elles sont disponibles pour la génération d’alertes et pour l’analyse avec Metrics Explorer.
 
 Pour une explication de cette fonctionnalité, voir [Créer des alertes de métrique de journaux dans Azure Monitor](../monitoring-and-diagnostics/monitoring-metric-alerts-logs.md). La liste des valeurs prises en charge est disponible dans le document [Métriques prises en charge avec Azure Monitor](../monitoring-and-diagnostics/monitoring-supported-metrics.md#microsoftoperationalinsightsworkspaces).
 

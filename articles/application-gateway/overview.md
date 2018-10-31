@@ -43,7 +43,7 @@ Outre les fonctionnalités décrites dans cet article, Application Gateway offre
 
 - **Performances de déchargement SSL 5 fois supérieures** à celles des références SKU généralement disponibles.
 
-Pour plus d’informations sur les fonctionnalités d’évaluation publique d’Application Gateway, consultez [Passerelle d’application redondante dans une zone et avec mise à l’échelle automatique (préversion publique)](application-gateway-autoscaling-zone-redundant.md).
+Pour plus d’informations sur les fonctionnalités d’évaluation publique d’Application Gateway, consultez [Passerelle d’application redondante interzone et avec mise à l’échelle automatique (préversion publique)](application-gateway-autoscaling-zone-redundant.md).
 
 ## <a name="azure-kubernetes-service-aks-ingress-controller-preview"></a>Préversion du contrôleur d’entrée d’Azure Kubernetes Service (AKS) 
 

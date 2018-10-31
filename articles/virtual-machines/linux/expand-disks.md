@@ -12,39 +12,39 @@ ms.devlang: azurecli
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/13/2017
+ms.date: 10/15/2018
 ms.author: rogarana
-ms.openlocfilehash: 0c2d4d1413b6cfd0b5e457e720b59c6c7b575092
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 62057d3041aa83e0097b688b48386b80f5c4f87e
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46974542"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637287"
 ---
-# <a name="how-to-expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Comment développer des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI
+# <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Étendre des disques durs virtuels sur une machine virtuelle Linux avec Azure CLI
 
-La taille par défaut de disque virtuel pour le système d’exploitation est généralement de 30 Go sur une machine virtuelle Linux dans Azure. Vous pouvez [ajouter des disques de données](add-disk.md) afin d’offrir un espace de stockage supplémentaire, mais vous pouvez également développer un disque de données existant. Cet article explique comment développer les disques managés pour une machine virtuelle Linux avec Azure CLI. 
+Cet article explique comment étendre des disques managés pour une machine virtuelle Linux avec Azure CLI. Vous pouvez [ajouter des disques de données](add-disk.md) afin d’offrir un espace de stockage supplémentaire, et vous pouvez également étendre un disque de données existant. La taille par défaut de disque dur virtuel pour le système d’exploitation est généralement de 30 Go sur une machine virtuelle Linux dans Azure. 
 
 > [!WARNING]
 > Assurez-vous de toujours sauvegarder vos données avant de redimensionner des disques. Pour plus d’informations, consultez [Back up Linux VMs in Azure](tutorial-backup-vms.md) (Sauvegarder des machines virtuelles Linux dans Azure).
 
-## <a name="expand-azure-managed-disk"></a>Développer un disque géré Azure
-Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec [az login](/cli/azure/reference-index#az_login).
+## <a name="expand-an-azure-managed-disk"></a>Étendre un disque managé Azure
+Vérifiez que vous avez installé la dernière version [d’Azure CLI](/cli/azure/install-az-cli2) et que vous êtes connecté à un compte Azure avec la commande [az login](/cli/azure/reference-index#az-login).
 
 Cet article nécessite une machine virtuelle existante dans Azure avec au moins un disque de données attaché et préparé. Si vous n’avez pas encore de machine virtuelle à utiliser, consultez [Create and prepare a VM with data disks](tutorial-manage-disks.md#create-and-attach-disks) (Créer et préparer une machine virtuelle avec des disques de données).
 
-Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos propres valeurs. Les noms de paramètre sont par exemple *myResourceGroup* et *myVM*.
+Dans les exemples ci-après, remplacez les exemples de nom de paramètre, tels que *myResourceGroup* et *myVM*, par vos propres valeurs.
 
-1. Il est impossible d’exécuter les opérations sur les disques durs virtuels avec la machine virtuelle en cours d’exécution. Libérez la machine virtuelle avec la commande [az vm deallocate](/cli/azure/vm#az_vm_deallocate). L’exemple suivant libère la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
+1. Il est impossible d’effectuer des opérations sur les disques durs virtuels avec la machine virtuelle en cours d’exécution. Libérez la machine virtuelle avec la commande [az vm deallocate](/cli/azure/vm#az-vm-deallocate). L’exemple suivant libère la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
     > [!NOTE]
-    > La machine virtuelle doit être libérée pour développer le disque dur virtuel. `az vm stop` ne publie pas les ressources de calcul. Pour publier les ressources de calcul, utilisez `az vm deallocate`.
+    > La machine virtuelle doit être libérée pour développer le disque dur virtuel. L’arrêt de la machine virtuelle avec `az vm stop` ne libère pas les ressources de calcul. Pour publier les ressources de calcul, utilisez `az vm deallocate`.
 
-1. Affichez la liste des disques gérés dans un groupe de ressources avec la commande [az disk list](/cli/azure/disk#az_disk_list). L’exemple suivant affiche la liste des disques managés dans le groupe de ressources nommé *myResourceGroup* :
+1. Affichez la liste des disques gérés dans un groupe de ressources avec la commande [az disk list](/cli/azure/disk#az-disk-list). L’exemple suivant affiche la liste des disques managés dans le groupe de ressources nommé *myResourceGroup* :
 
     ```azurecli
     az disk list \
@@ -53,7 +53,7 @@ Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos
         --output table
     ```
 
-    Développez le disque requis avec la commande [az disk update](/cli/azure/disk#az_disk_update). L’exemple suivant développe le disque managé nommé *myDataDisk* pour qu’il ait une taille de *200* Go :
+    Développez le disque requis avec la commande [az disk update](/cli/azure/disk#az-disk-update). L’exemple ci-après étend la taille du disque managé nommé *myDataDisk* à *200* Go :
 
     ```azurecli
     az disk update \
@@ -63,25 +63,25 @@ Dans les exemples suivants, remplacez les exemples de noms de paramètre par vos
     ```
 
     > [!NOTE]
-    > Lorsque vous développez un disque géré, la taille mise à jour est mappée à la taille de disque géré la plus proche. Pour obtenir un tableau des tailles et des niveaux de disques gérés disponibles, consultez [Vue d’ensemble des disques gérés Azure - Tarification et facturation](../windows/managed-disks-overview.md#pricing-and-billing).
+    > Lorsque vous étendez un disque managé, la taille mise à jour est arrondie à la taille de disque managé la plus proche. Pour obtenir un tableau des tailles et des niveaux de disques gérés disponibles, consultez [Vue d’ensemble des disques gérés Azure - Tarification et facturation](../windows/managed-disks-overview.md#pricing-and-billing).
 
-1. Démarrez votre machine virtuelle avec [az vm start](/cli/azure/vm#az_vm_start). L’exemple suivant démarre la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
+1. Démarrez votre machine virtuelle avec [az vm start](/cli/azure/vm#az-vm-start). L’exemple suivant démarre la machine virtuelle nommée *myVM* dans le groupe de ressources nommé *myResourceGroup* :
 
     ```azurecli
     az vm start --resource-group myResourceGroup --name myVM
     ```
 
 
-## <a name="expand-disk-partition-and-filesystem"></a>Développer le système de fichiers et la partition du disque
-Pour utiliser le disque étendu, vous devez développer la partition et le système de fichiers sous-jacents.
+## <a name="expand-a-disk-partition-and-filesystem"></a>Étendre une partition de disque et un système de fichiers
+Pour utiliser un disque étendu, étendez la partition et le système de fichiers sous-jacents.
 
-1. Établissez une connexion SSH à votre machine virtuelle à l’aide des informations d’identification appropriées. Vous pouvez obtenir l’adresse IP publique de votre machine virtuelle à l’aide de la commande [az vm show](/cli/azure/vm#az_vm_show) :
+1. Établissez une connexion SSH à votre machine virtuelle à l’aide des informations d’identification appropriées. Vous pouvez visualiser l’adresse IP publique de votre machine virtuelle avec la commande [az vm show](/cli/azure/vm#az-vm-show) :
 
     ```azurecli
     az vm show --resource-group myResourceGroup --name myVM -d --query [publicIps] --o tsv
     ```
 
-1. Pour utiliser le disque étendu, vous devez développer la partition et le système de fichiers sous-jacents.
+1. Étendez la partition et le système de fichiers sous-jacents.
 
     a. Si le disque est déjà monté, démontez-le :
 
@@ -95,7 +95,7 @@ Pour utiliser le disque étendu, vous devez développer la partition et le syst�
     sudo parted /dev/sdc
     ```
 
-    Affichez les informations sur la disposition actuelle de la partition avec `print`. Le résultat est comparable à l’exemple ci-dessous, qui indique que le disque sous-jacent fait 215 Go :
+    Affichez les informations sur la disposition actuelle de la partition avec `print`. Le résultat est comparable à l’exemple ci-après, qui indique que le disque sous-jacent présente une taille de 215 Go :
 
     ```bash
     GNU Parted 3.2
@@ -120,7 +120,7 @@ Pour utiliser le disque étendu, vous devez développer la partition et le syst�
     End?  [107GB]? 215GB
     ```
 
-    d. Pour quitter l’outil, saisissez `quit`.
+    d. Pour quitter l’outil, entrez `quit`.
 
 1. Une fois la partition redimensionnée, vérifiez la cohérence de la partition avec `e2fsck` :
 
@@ -128,7 +128,7 @@ Pour utiliser le disque étendu, vous devez développer la partition et le syst�
     sudo e2fsck -f /dev/sdc1
     ```
 
-1. Redimensionnez ensuite le système de fichiers avec `resize2fs` :
+1. Redimensionnez le système de fichiers avec `resize2fs` :
 
     ```bash
     sudo resize2fs /dev/sdc1
@@ -140,7 +140,7 @@ Pour utiliser le disque étendu, vous devez développer la partition et le syst�
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Pour vérifier que le disque du système d’exploitation a été redimensionné, utilisez `df -h`. L’exemple de sortie suivant indique que le disque de données */dev/sdc1* fait désormais 200 Go :
+1. Pour vérifier que le disque du système d’exploitation a été redimensionné, utilisez `df -h`. L’exemple de sortie ci-après indique que le lecteur de données */dev/sdc1* présente désormais une taille de 200 Go :
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
@@ -148,4 +148,5 @@ Pour utiliser le disque étendu, vous devez développer la partition et le syst�
     ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-Si vous avez besoin de stockage supplémentaire, vous pouvez également [ajouter des disques de données à une machine virtuelle Linux](add-disk.md). Pour plus d’informations sur le chiffrement de disque, consultez la section [Chiffrer des disques sur une machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure (CLI)](encrypt-disks.md).
+* Si vous avez besoin de stockage supplémentaire, vous pouvez également [ajouter des disques de données à une machine virtuelle Linux](add-disk.md). 
+* Pour plus d’informations sur le chiffrement de disque, consultez la section [Chiffrer des disques sur une machine virtuelle Linux à l’aide de l’interface de ligne de commande Azure (CLI)](encrypt-disks.md).

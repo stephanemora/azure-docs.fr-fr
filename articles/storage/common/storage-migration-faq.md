@@ -270,7 +270,7 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
 **Pour un compte de stockage répliqué (par exemple un stockage redondant dans une zone, un stockage géoredondant ou un stockage redondant avec accès en lecture), comment accéder aux données stockées dans la région secondaire ?**
 
--   Si vous utilisez un stockage redondant dans une zone ou un stockage géoredondant, vous ne pouvez pas accéder aux données de la région secondaire à moins qu'un basculement ne se produise. Pour plus d'informations sur le processus de basculement, voir [Que se passe-t-il en cas de basculement d’Azure Storage ?](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs)
+-   Si vous utilisez un stockage redondant interzone ou un stockage géoredondant, vous ne pouvez pas accéder aux données de la région secondaire à moins qu'un basculement ne se produise. Pour plus d'informations sur le processus de basculement, voir [Que se passe-t-il en cas de basculement d’Azure Storage ?](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs)
 
 -   Si vous utilisez un stockage géoredondant avec accès en lecture, vous pouvez accéder à tout moment aux données de la région secondaire. Utilisez l’une des méthodes suivantes :  
       

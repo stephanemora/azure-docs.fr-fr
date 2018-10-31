@@ -1,6 +1,6 @@
 ---
-title: Se connecter à des réseaux virtuels Azure à partir d’Azure Logic Apps
-description: Pour accéder à des réseaux virtuels Azure à partir d’Azure Logic Apps, vous pouvez créer des environnements de service d’intégration privés, dédiés et isolés, qui séparent les applications et les autres ressources d’Azure public ou « mondial »
+title: Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps via un environnement de service d’intégration (ISE)
+description: Créer un environnement de service d’intégration (ISE) afin que les applications logiques et les comptes d’intégration puissent accéder aux réseaux virtuels Azure tout en restant privés et isolés de l’environnement Azure public ou « global »
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -9,23 +9,21 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/25/2018
-ms.openlocfilehash: 354c31014448b914b33d2bef5483efc78092f726
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b4e4e801c3c54b635f2f13b319257018ea544c03
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47391919"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404118"
 ---
-# <a name="create-isolated-environments-to-access-azure-virtual-networks-from-azure-logic-apps"></a>Créer des environnements isolés pour accéder à des réseaux virtuels Azure à partir d’Azure Logic Apps
+# <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-through-an-integration-service-environment-ise"></a>Connexion à des réseaux virtuels Azure à partir d’Azure Logic Apps via un environnement de service d’intégration (ISE)
 
 > [!NOTE]
 > Cette fonctionnalité est disponible en *préversion privée*. Pour demander l’accès, [créez votre demande de participation ici](https://aka.ms/iseprivatepreview).
 
-Pour les scénarios d’intégration où vos applications logiques et vos comptes d’intégration ont besoin d’accéder à un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md), vous pouvez créer un [*environnement de service d’intégration*](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) qui établit un lien avec votre réseau virtuel et déploie le service Logic Apps dans votre réseau. Quand vous créez des applications logiques et des comptes d’intégration, vous sélectionnez pour leur emplacement cet environnement de service d’intégration. Vos applications logiques et vos comptes d’intégration peuvent ensuite accéder directement à des ressources, comme des machines virtuelles, des serveurs, des systèmes et des services, dans votre réseau virtuel. 
+Pour les scénarios d’intégration dans lesquels vos applications logiques et comptes d’intégration doivent accéder à un [réseau virtuel Azure](../virtual-network/virtual-networks-overview.md), créez un [*environnement de service d’intégration* (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), qui est un environnement privé et isolé utilisant le stockage dédié et d’autres ressources séparément du service Logic Apps public ou *global*. Cette séparation réduit également l’impact que d’autres locataires Azure peuvent avoir sur les performances de vos applications. Vous pouvez lier cet environnement ISE à votre réseau virtuel Azure, qui déploie ensuite le service Logic Apps dans votre réseau virtuel. Quand vous créez une application logique ou un compte d’intégration, sélectionnez cet environnement ISE comme emplacement. Votre application logique ou votre compte d’intégration peut ensuite accéder directement à des ressources, comme des machines virtuelles, des serveurs, des systèmes et des services, dans votre réseau virtuel. 
 
 ![Sélection d’un environnement de service d’intégration](./media/connect-virtual-network-vnet-isolated-environment/select-logic-app-integration-service-environment.png)
-
-Votre environnement de service d’intégration est un environnement privé et isolé, qui utilise un stockage dédié et d’autres ressources qui existent séparément du service Logic Apps public ou *mondial*. Cette séparation permet également de réduire l’impact que d’autres locataires Azure peuvent avoir sur les performances de vos applications. 
 
 Cet article vous explique comment effectuer ces tâches :
 
@@ -149,7 +147,7 @@ Dans la liste des résultats, sélectionnez **Environnement de service d’inté
 
    | Propriété | Obligatoire | Valeur | Description |
    |----------|----------|-------|-------------|
-   | **Name** | Oui | <*nom-environnement*> | Nom à donner à votre environnement | 
+   | **Nom** | Oui | <*nom-environnement*> | Nom à donner à votre environnement | 
    | **Abonnement** | Oui | <*Azure-subscription-name*> | Abonnement Azure à utiliser pour votre environnement | 
    | **Groupe de ressources** | Oui | <*nom-groupe-de-ressources-Azure*> | Groupe de ressources Azure où vous voulez créer votre environnement |
    | **Lieu** | Oui | <*région-centre de données-Azure*> | Région du centre de données Azure où stocker les informations relatives à votre environnement |

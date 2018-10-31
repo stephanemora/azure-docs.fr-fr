@@ -5,21 +5,21 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/19/2018
+ms.date: 10/15/2018
 ms.author: tamram
-ms.openlocfilehash: 6ee80aa7b7a58e2f02ed36d3c0c4b1a0889a906f
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: ae6f7646192b7bee8cbd836f1eff3814c26a6b46
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831464"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427307"
 ---
 # <a name="enable-azure-active-directory-authentication-over-smb-for-azure-files-preview"></a>Activer l’authentification Azure Active Directory sur SMB pour Azure Files (préversion)
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
 Pour avoir une vue d’ensemble de l’authentification Azure AD sur SMB pour Azure Files, consultez [Vue d’ensemble de l’authentification Azure Active Directory sur SMB pour Azure Files (préversion)](storage-files-active-directory-overview.md).
 
-## <a name="workflow-overview"></a>Vue d’ensemble du workflow
+## <a name="overview-of-the-workflow"></a>Vue d’ensemble du workflow
 Avant d’activer Azure AD sur SMB pour Azure Files, vérifiez que vos environnements Azure AD et de stockage Azure sont correctement configurés. Nous vous recommandons de passer en revue les [prérequis](#prerequisites) pour vérifier que vous avez effectué toutes les étapes nécessaires. 
 
 Ensuite, accordez l’accès aux ressources Azure Files avec les informations d’identification Azure AD en suivant ces étapes : 
@@ -34,6 +34,9 @@ Le diagramme ci-dessous illustre le workflow de bout en bout pour l’activation
 ![Diagramme montrant le workflow AD Azure sur SMB pour Azure Files](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
 ## <a name="prerequisites"></a>Prérequis 
+
+Avant d’activer Azure AD sur SMB pour Azure Files, assurez-vous de remplir les conditions préalables suivantes :
+
 1.  **Sélectionner ou créer un locataire Azure AD.**
 
     Vous pouvez utiliser un locataire nouveau ou existant pour l’authentification Azure AD sur SMB. Le locataire et le partage de fichiers auquel vous voulez accéder doivent être associés au même abonnement.
@@ -57,7 +60,7 @@ Le diagramme ci-dessous illustre le workflow de bout en bout pour l’activation
 
     Sélectionnez un partage de fichiers nouveau ou existant associé au même abonnement que celui de votre locataire Azure AD. Pour plus d’informations sur la création d’un partage de fichiers, consultez [Créer un partage de fichiers dans Azure Files](storage-how-to-create-file-share.md). 
 
-    Le locataire Azure AD doit être déployé dans une région prise en charge pour la préversion d’Azure AD sur SMB. La préversion est disponible dans toutes les régions publiques à l’exception de : USA Ouest, USA Ouest 2, USA Centre Sud, USA Est, USA Est 2, USA Centre, USA Centre Nord, Australie Est, Europe Ouest, Europe Nord.
+    Le locataire Azure AD doit être déployé dans une région prise en charge pour la préversion d’Azure AD sur SMB. La préversion est disponible dans toutes les régions publiques à l’exception des régions suivantes : USA Ouest, USA Ouest 2, USA Centre Sud, USA Est, USA Est 2, USA Centre, USA Centre Nord, Australie Est, Europe Ouest, Europe Nord.
 
     Pour des performances optimales, Microsoft recommande que votre partage de fichiers soit dans la même région que celle de la machine virtuelle à partir de laquelle vous voulez accéder au partage.
 
@@ -65,20 +68,29 @@ Le diagramme ci-dessous illustre le workflow de bout en bout pour l’activation
 
     Pour vérifier que votre machine virtuelle et le partage de fichiers sont configurés correctement, essayez de monter le partage de fichiers à l’aide de votre clé de compte de stockage. Pour plus d’informations, consultez [Monter un partage de fichiers Azure et accéder au partage dans Windows](storage-how-to-use-files-windows.md).
 
-## <a name="enable-azure-ad-authentication"></a>Activer l’authentification Azure AD
-Une fois les [prérequis](#prerequisites) vérifiés, vous pouvez activer l’authentification Azure AD sur SMB.
+## <a name="enable-azure-ad-authentication-for-your-account"></a>Activer l’authentification Azure AD pour votre compte
 
-### <a name="step-1-enable-azure-ad-authentication-over-smb-for-your-storage-account"></a>Étape 1 : Activer l’authentification Azure AD sur SMB pour votre compte de stockage
-Pour activer l’authentification Azure AD sur SMB pour Azure Files, vous pouvez définir une propriété sur les comptes de stockage créés après le 29 août 2018, à l’aide du fournisseur de ressources de stockage Azure à partir de PowerShell ou Azure CLI. La définition de la propriété dans le portail Azure n’est pas prise en charge pour la préversion. 
-
-La définition de cette propriété inscrit le compte de stockage auprès du déploiement Azure AD Domain Services associé. L’authentification Azure AD sur SMB est alors activée pour tous les partages de fichiers nouveaux et existants dans le compte de stockage. 
+Pour activer l’authentification Azure AD sur SMB pour Azure Files, vous pouvez définir une propriété sur les comptes de stockage créés après le 24 septembre 2018, à l’aide du Portail Azure, d’Azure PowerShell ou d’Azure CLI. La définition de cette propriété inscrit le compte de stockage auprès du déploiement Azure AD Domain Services associé. L’authentification Azure AD sur SMB est alors activée pour tous les partages de fichiers nouveaux et existants dans le compte de stockage. 
 
 N’oubliez pas que vous pouvez activer l’authentification Azure AD sur SMB uniquement après avoir correctement déployé Azure AD Domain Services sur votre locataire Azure AD. Pour plus d’informations, consultez les [prérequis](#prerequisites).
 
-**PowerShell**  
-Pour activer l’authentification Azure AD sur SMB, installez le module PowerShell `AzureRM.Storage 6.0.0-preview`. Pour plus d’informations sur l’installation de PowerShell, consultez [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+### <a name="azure-portal"></a>Portail Azure
 
-Ensuite, appelez [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) et définissez le paramètre **EnableAzureFilesAadIntegrationForSMB** sur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs.
+Pour activer l’authentification Azure AD sur SMB à l’aide du [Portail Azure](https://portal.azure.com), procédez comme suit :
+
+1. Dans le Portail Azure, accédez à votre compte de stockage existant, ou [créez un compte de stockage](../common/storage-quickstart-create-account.md).
+2. Dans la section **Paramètres**, sélectionnez **Configuration**.
+3. Activez **Azure Active Directory Authentication for Azure Files (preview)** (Azure Active Directory Authentication pour Azure Files (préversion)).
+
+L’image suivante montre comment activer l’authentification Azure AD sur SMB pour votre compte de stockage.
+
+![Activer l’authentification Azure AD sur SMB dans le Portail Azure](media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png)
+  
+### <a name="powershell"></a>PowerShell  
+
+Pour activer l’authentification Azure AD sur SMB à partir d’Azure PowerShell, commencez par installer le module `AzureRM.Storage 6.0.0-preview`. Pour plus d’informations sur l’installation de PowerShell, consultez [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+
+Ensuite, créez un compte de stockage, appelez [Set-AzureRmStorageAccount](https://docs.microsoft.com/powershell/module/azurerm.storage/set-azurermstorageaccount) et définissez le paramètre **EnableAzureFilesAadIntegrationForSMB** sur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs.
 
 ```powershell
 # Create a new storage account
@@ -90,37 +102,40 @@ New-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
     -EnableAzureFilesAadIntegrationForSMB $true
 
 # Update an existing storage account
-# Supported for storage accounts created after August 29, 2018 only
+# Supported for storage accounts created after September 24, 2018 only
 Set-AzureRmStorageAccount -ResourceGroupName "<resource-group-name>" `
     -Name "<storage-account-name>" `
     -EnableAzureFilesAadIntegrationForSMB $true```
 ```
 
-**INTERFACE DE LIGNE DE COMMANDE**  
-Pour activer l’authentification Azure AD sur SMB à partir d’Azure CLI 2.0, commencez par installer l’extension *storage-preview* :
+### <a name="azure-cli"></a>Azure CLI
 
-```azurecli-interactive
+Pour activer l’authentification Azure AD sur SMB à partir d’Azure CLI 2.0, commencez par installer l’extension `storage-preview` :
+
+```cli-interactive
 az extension add --name storage-preview
 ```
-
-Ensuite, appelez [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) et définissez la propriété `--file-aad` sur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs.
+  
+Ensuite, créez un compte de stockage, appelez [az storage account update](https://docs.microsoft.com/cli/azure/storage/account#az-storage-account-update) et définissez la propriété `--file-aad` sur **true**. Dans l’exemple ci-dessous, remplacez les valeurs d’espace réservé par vos propres valeurs.
 
 ```azurecli-interactive
 # Create a new storage account
 az storage account create -n <storage-account-name> -g <resource-group-name> --file-aad true
 
 # Update an existing storage account
-# Supported for storage accounts created after August 29, 2018 only
+# Supported for storage accounts created after September 24, 2018 only
 az storage account update -n <storage-account-name> -g <resource-group-name> --file-aad true
 ```
 
-### <a name="step-2-assign-access-permissions-to-an-identity"></a>Étape 2 : Attribuer des autorisations d’accès à une identité 
-Pour accéder aux ressources Azure Files à l’aide des informations d’identification Azure AD, une identité (utilisateur, groupe ou principal de service) doit avoir les autorisations nécessaires au niveau du partage. Les instructions pas à pas ci-dessous montrent comment attribuer à une identité des autorisations de lecture, d’écriture ou de suppression sur un partage de fichiers.
+## <a name="assign-access-permissions-to-an-identity"></a>Assigner des autorisations d’accès à une identité 
+
+Pour accéder aux ressources Azure Files à l’aide des informations d’identification Azure AD, une identité (utilisateur, groupe ou principal de service) doit avoir les autorisations nécessaires au niveau du partage. Les instructions dans cette section montrent comment assigner des autorisations de lecture, d’écriture ou de suppression pour un partage de fichiers à une identité.
 
 > [!IMPORTANT]
 > Le contrôle administratif total d’un partage de fichiers, y compris la possibilité d’attribuer un rôle à une identité, nécessite l’utilisation de la clé de compte de stockage. Le contrôle administratif n’est pas pris en charge avec les informations d’identification Azure AD. 
 
-#### <a name="step-21-define-a-custom-role"></a>Étape 2.1 : Définir un rôle personnalisé
+### <a name="define-a-custom-role"></a>Définir un rôle personnalisé
+
 Pour accorder des autorisations au niveau du partage, définissez un rôle RBAC personnalisé et attribuez-le à une identité en l’étendant à un partage de fichiers spécifique. Ce processus est semblable à la spécification des autorisations de partage Windows, où vous spécifiez le type d’accès dont dispose un utilisateur donné sur un partage de fichiers.  
 
 Les modèles indiqués dans les sections suivantes fournissent des autorisations de lecture ou de modification sur un partage de fichiers. Pour définir un rôle personnalisé, créez un fichier JSON et copiez le modèle approprié dans ce fichier. Pour plus d’informations sur la définition des rôles RBAC personnalisés, consultez [Rôles personnalisés dans Azure](../../role-based-access-control/custom-roles.md).
@@ -172,19 +187,39 @@ Le modèle de rôle personnalisé suivant fournit des autorisations de lecture a
 }
 ```
 
-#### <a name="step-22-create-the-custom-role-and-assign-it-to-the-target-identity"></a>Étape 2.2 : Créer le rôle personnalisé et l’attribuer à l’identité cible
-Ensuite, utilisez PowerShell ou Azure CLI pour créer le rôle et l’attribuer à une identité Azure AD. 
+### <a name="create-the-custom-role"></a>Créer le rôle personnalisé
 
-**PowerShell**  
-Pour activer l’authentification Azure AD sur SMB, installez le module PowerShell `AzureRM.Storage 6.0.0-preview`. Pour plus d’informations sur l’installation de PowerShell, consultez [Installer Azure PowerShell sur Windows avec PowerShellGet](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+Pour créer le rôle personnalisé, utilisez PowerShell ou Azure CLI. 
 
-La commande PowerShell suivante crée un rôle personnalisé et attribue le rôle à une identité Azure AD, basée sur le nom de connexion. Pour plus d’informations sur l’attribution de rôles RBAC avec PowerShell, consultez [Gérer l’accès à l’aide de RBAC et Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+#### <a name="powershell"></a>PowerShell
 
-Quand vous exécutez l’exemple de script suivant, n’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs.
+La commande PowerShell suivante crée un rôle personnalisé basé sur l’un des exemples de modèles.
 
 ```powershell
 #Create a custom role based on the sample template above
 New-AzureRmRoleDefinition -InputFile "<custom-role-def-json-path>"
+```
+
+#### <a name="cli"></a>Interface de ligne de commande 
+
+La commande Azure CLI suivante crée un rôle personnalisé basé sur l’un des exemples de modèles.
+
+```azurecli-interactive
+#Create a custom role based on the sample templates above
+az role definition create --role-definition "<Custom-role-def-JSON-path>"
+```
+
+### <a name="assign-the-custom-role-to-the-target-identity"></a>Assigner le rôle personnalisé à l’identité cible
+
+Ensuite, utilisez PowerShell ou Azure CLI pour assigner le rôle personnalisé à une identité Azure AD. 
+
+#### <a name="powershell"></a>PowerShell
+
+La commande PowerShell suivante montre comment répertorier les rôles personnalisés disponibles, puis assigner un rôle personnalisé à une identité Azure AD, en fonction du nom de connexion. Pour plus d’informations sur l’attribution de rôles RBAC avec PowerShell, consultez [Gérer l’accès à l’aide de RBAC et Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
+
+Quand vous exécutez l’exemple de script suivant, n’oubliez pas de remplacer les valeurs d’espace réservé, y compris les crochets, par vos propres valeurs.
+
+```powershell
 #Get the name of the custom role
 $FileShareContributorRole = Get-AzureRmRoleDefinition "<role-name>"
 #Constrain the scope to the target file share
@@ -193,21 +228,20 @@ $scope = "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/provi
 New-AzureRmRoleAssignment -SignInName <user-principal-name> -RoleDefinitionName $FileShareContributorRole.Name -Scope $scope
 ```
 
-**INTERFACE DE LIGNE DE COMMANDE**  
-La commande CLI 2.0 suivante crée un rôle personnalisé et attribue le rôle à une identité Azure AD, basée sur le nom de connexion. Pour plus d’informations sur l’attribution de rôles RBAC avec Azure CLI, consultez [Gérer l’accès à l’aide de RBAC et Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
+#### <a name="cli"></a>Interface de ligne de commande
+  
+La commande CLI 2.0 suivante montre comment répertorier les rôles personnalisés disponibles, puis assigner un rôle personnalisé à une identité Azure AD, en fonction du nom de connexion. Pour plus d’informations sur l’attribution de rôles RBAC avec Azure CLI, consultez [Gérer l’accès à l’aide de RBAC et Azure CLI](../../role-based-access-control/role-assignments-cli.md). 
 
-Quand vous exécutez l’exemple de script suivant, n’oubliez pas de remplacer les valeurs d’espace réservé par vos propres valeurs.
+Quand vous exécutez l’exemple de script suivant, n’oubliez pas de remplacer les valeurs d’espace réservé, y compris les crochets, par vos propres valeurs.
 
 ```azurecli-interactive
-#Create a custom role based on the sample templates above
-az role definition create --role-definition "<Custom-role-def-JSON-path>"
 #List the custom roles
 az role definition list --custom-role-only true --output json | jq '.[] | {"roleName":.roleName, "description":.description, "roleType":.roleType}'
 #Assign the custom role to the target identity
 az role assignment create --role "<custome-role-name>" --assignee <user-principal-name> --scope "/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/fileServices/default/fileshare/<share-name>"
 ```
 
-### <a name="step-3-configure-ntfs-permissions-over-smb"></a>Étape 3 : Configurer les autorisations NTFS sur SMB 
+## <a name="configure-ntfs-permissions-over-smb"></a>Configurer les autorisations NTFS sur SMB 
 Une fois que vous avez attribué des autorisations au niveau du partage avec RBAC, vous devez attribuer les autorisations NTFS appropriées au niveau du fichier, du répertoire ou de la racine. Les autorisations au niveau du partage représentent le gardien au plus haut niveau qui détermine si un utilisateur peut accéder au partage, tandis que les autorisations NTFS agissent à un niveau plus granulaire pour déterminer les opérations que l’utilisateur peut effectuer au niveau du répertoire ou du fichier. 
 
 Azure Files prend en charge l’ensemble des autorisations NTFS de base et avancées. Vous pouvez voir et configurer les autorisations NTFS sur les répertoires et les fichiers dans un partage de fichiers Azure en montant le partage, puis en exécutant la commande Windows [icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls) ou [Set-ACL](https://docs.microsoft.com/powershell/module/microsoft.powershell.security/get-acl). 
@@ -227,14 +261,15 @@ Les ensembles d’autorisations suivants sont pris en charge dans le répertoire
 - NT AUTHORITY\SYSTEM:(F)
 - CREATOR OWNER:(OI)(CI)(IO)(F)
 
-#### <a name="step-31-mount-an-azure-file-share-from-the-command-prompt"></a>Étape 3.1 : Monter un partage de fichiers Azure à partir de l’invite de commandes
+### <a name="mount-a-file-share-from-the-command-prompt"></a>Monter un partage de fichiers Azure à partir de l’invite de commandes
+
 Utilisez la commande Windows **net use** pour monter le partage de fichiers Azure. N’oubliez pas de remplacer les valeurs d’espace réservé dans l’exemple par vos propres valeurs. Pour plus d’informations sur le montage des partages de fichiers, consultez [Monter un partage de fichiers Azure et accéder au partage dans Windows](storage-how-to-use-files-windows.md).
 
 ```
 net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
 ```
 
-#### <a name="step-32-configure-ntfs-permissions-with-icacls"></a>Étape 3.2 : Configurer les autorisations NTFS avec icacls
+### <a name="configure-ntfs-permissions-with-icacls"></a>Configurer des autorisations NTFS avec icacls
 Utilisez la commande Windows suivante pour accorder des autorisations complètes sur tous les répertoires et fichiers du partage de fichiers, y compris le répertoire racine. N’oubliez pas de remplacer les valeurs d’espace réservé dans l’exemple par vos propres valeurs.
 
 ```
@@ -243,7 +278,8 @@ icacls <mounted-drive-letter> /grant <user-email>:(f)
 
 Pour plus d’informations sur l’utilisation d’icacls afin de définir des autorisations NTFS et sur les différents types d’autorisation pris en charge, consultez les [informations de référence sur la ligne de commande pour icacls](https://docs.microsoft.com/windows-server/administration/windows-commands/icacls).
 
-### <a name="step-4-mount-an-azure-file-share-from-a-domain-joined-vm"></a>Étape 4 : Monter un partage de fichiers Azure à partir d’une machine virtuelle jointe à un domaine 
+## <a name="mount-a-file-share-from-a-domain-joined-vm"></a>Monter un partage de fichiers Azure à partir d’une machine virtuelle jointe à un domaine 
+
 Vous allez maintenant vérifier que vous avez effectué correctement les étapes ci-dessus en utilisant vos informations d’identification Azure AD pour accéder à un partage de fichiers Azure à partir d’une machine virtuelle jointe à un domaine. Tout d’abord, connectez-vous à la machine virtuelle à l’aide de l’identité Azure AD à laquelle vous avez accordé les autorisations, comme illustré dans l’image suivante.
 
 ![Capture d’écran montrant l’écran de connexion Azure AD pour l’authentification utilisateur](media/storage-files-active-directory-enable/azure-active-directory-authentication-dialog.png)
@@ -257,6 +293,7 @@ net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<
 Vous avez maintenant activé l’authentification Azure AD sur SMB et attribué à un rôle personnalisé qui fournit l’accès à une identité Azure AD au partage de fichiers. Pour accorder l’accès au partage de fichiers à d’autres utilisateurs, suivez les instructions fournies aux étapes 2 et 3.
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 Pour plus d’informations sur Azure Files et l’utilisation d’Azure AD sur SMB, consultez ces ressources :
 
 - [Présentation d’Azure Files](storage-files-introduction.md)

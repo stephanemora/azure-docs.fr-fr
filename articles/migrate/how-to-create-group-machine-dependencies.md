@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 09/21/2018
 ms.author: raynew
-ms.openlocfilehash: ac1cf5a30dee29f2737a05133aed774e86f78932
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: de093976a318b2658ff4009f4c5e314851f66b81
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163424"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403807"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Grouper des machines à l’aide du mappage de dépendances de machine
 
@@ -35,7 +35,7 @@ Pour tirer parti de la visualisation des dépendances, vous pouvez associer un e
 > Vous ne pouvez pas changer l’espace de travail associé à un projet de migration.
 
 ### <a name="download-and-install-the-vm-agents"></a>Téléchargement et installation des agents de machines virtuelles
-Une fois que vous avez configuré un espace de travail, vous devez télécharger et installer des agents sur chacune des machines locales à évaluer. Si, par ailleurs, certaines de vos machines n’ont pas de connexion Internet, il vous faudra télécharger et y installer la [passerelle OMS](../log-analytics/log-analytics-oms-gateway.md).
+Une fois que vous avez configuré un espace de travail, vous devez télécharger et installer des agents sur chacune des machines locales à évaluer. En outre, si certaines de vos machines sont dépourvues de connexion Internet, vous devez télécharger et installer la [passerelle Log Analytics](../log-analytics/log-analytics-oms-gateway.md) sur ces machines.
 
 1. Dans **Vue d’ensemble**, cliquez sur **Gérer** > **Machines** et sélectionnez la machine souhaitée.
 2. Dans la colonne **Dépendances**, cliquez sur **Installer des agents**.

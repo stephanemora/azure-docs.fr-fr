@@ -10,19 +10,19 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: 9b3ac6e6d10fb0e70549cadfd7bf65220deb8f33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: aa59ce89bf8c2c4b31d85c572dcdfb3645f06884
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126919"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646006"
 ---
 # <a name="how-to-use-collaborative-translation-framework-ctf-reporting"></a>Guide pratique pour utiliser le compte-rendu CTF (Collaborative Translation Framework)
 
 > [!NOTE]
 > Cette méthode est dépréciée. Elle n’est pas disponible dans la version 3.0 de l’API de traduction de texte Translator Text.
 
-> L’infrastructure CTF (Collaborative Translation Framework), disponible pour la version 2.0 de l’API de traduction de texte Translator Text, a été dépréciée à compter du 1er février 2018. Les fonctions AddTranslation et AddTranslationArray permettent aux utilisateurs d’activer les corrections via l’infrastructure CTF. Depuis le 31 janvier 2018, ces deux fonctions n’ont pas accepté de nouvelles soumissions de phrases, et les utilisateurs reçoivent un message d’erreur. Ces fonctions ont été retirées et ne seront pas remplacées. 
+> L’infrastructure CTF (Collaborative Translation Framework), disponible pour la version 2.0 de l’API de traduction de texte Translator Text, a été dépréciée à compter du 1er février 2018. Les fonctions AddTranslation et AddTranslationArray permettent aux utilisateurs d’activer les corrections via l’infrastructure CTF. Depuis le 31 janvier 2018, ces deux fonctions n’ont pas accepté de nouvelles soumissions de phrases, et les utilisateurs reçoivent un message d’erreur. Ces fonctions ont été retirées et ne seront pas remplacées.
 
 >Une fonctionnalité similaire est disponible dans l’API Translator Hub, qui vous permet de créer un système de traduction personnalisé avec votre terminologie et votre style. Vous pouvez l’appeler en utilisant l’ID de catégorie dans l’API de traduction de texte Translator Text. Translator Hub : [https://hub.microsofttranslator.com](https://hub.microsofttranslator.com). API Translator Hub : [https://hub.microsofttranslator.com/swagger](https://hub.microsofttranslator.com/swagger).
 
@@ -33,7 +33,7 @@ L’API de compte-rendu de l’infrastructure CTF (Collaborative Translation Fra
 
 ## <a name="endpoint"></a>Point de terminaison
 Point de terminaison de l’API de compte-rendu CTF http://api.microsofttranslator.com/v2/beta/ctfreporting.svc
-                        
+
 
 ## <a name="methods"></a>Méthodes
 | NOM |    Description|
@@ -64,7 +64,7 @@ UserTranslationCount[]GetUserTranslationCounts(
            string to,
            int? minRating,
            int? maxRating,
-           string user, 
+           string user,
            string category
            DateTime? minDateUtc,
            DateTime? maxDateUtc,
@@ -135,12 +135,12 @@ UserTranslation[] GetUserTranslations (
             string to,
             int? minRating,
             int? maxRating,
-            string user, 
+            string user,
             string category
             DateTime? minDateUtc,
             DateTime? maxDateUtc,
             int? skip,
-            int? take); 
+            int? take);
 ```
 
 **Paramètres**
@@ -154,8 +154,8 @@ UserTranslation[] GetUserTranslations (
 | minRating| **Facultatif** Entier représentant le niveau de qualité minimal pour le texte traduit. La valeur valide est comprise entre -10 et 10. La valeur par défaut est 1.|
 | maxRating| **Facultatif** Entier représentant le niveau de qualité maximal pour le texte traduit. La valeur valide est comprise entre -10 et 10. La valeur par défaut est 1.|
 | user| **Facultatif. Chaîne utilisée pour filtrer le résultat en fonction de la personne à l’origine de la soumission**|
-| category| **Facultatif** Chaîne contenant la catégorie ou le domaine de la traduction. Ce paramètre prend en charge uniquement l’option par défaut générale.| 
-| minDateUtc| **Facultatif** Date à partir de laquelle vous souhaitez récupérer les traductions. La date doit être au format UTC.| 
+| category| **Facultatif** Chaîne contenant la catégorie ou le domaine de la traduction. Ce paramètre prend en charge uniquement l’option par défaut générale.|
+| minDateUtc| **Facultatif** Date à partir de laquelle vous souhaitez récupérer les traductions. La date doit être au format UTC.|
 | maxDateUtc| **Facultatif** Date jusqu’à laquelle vous souhaitez récupérer les traductions. La date doit être au format UTC.|
 | skip| **Facultatif** Nombre de résultats que vous souhaitez ignorer sur une page. Par exemple, si vous souhaitez ignorer les 20 premières lignes des résultats et affichez les résultats à partir du 21e enregistrement, spécifiez 20 pour ce paramètre. La valeur par défaut pour ce paramètre est 0.|
 | take| **Facultatif** Nombre de résultats que vous souhaitez récupérer. Le nombre maximal de chaque demande est 100. La valeur par défaut est de 50.|
@@ -192,21 +192,3 @@ Le jeu de résultats contient un tableau des éléments **UserTranslation**. Cha
 **Affichage d’exemples de code sur GitHib**
 * [C#](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-csharp.md)
 * [PHP](https://github.com/MicrosoftTranslator/Documentation-Code-TextAPI/blob/master/ctf/ctf-getusertranslations-example-php.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -11,13 +11,13 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: ''
 manager: craigg
-ms.date: 08/20/2018
-ms.openlocfilehash: 1d292007b06e12b6be28e053bc6def3b12c7befe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 10/22/2018
+ms.openlocfilehash: 4bc655f1e9da00a42c60e1ab763c5503b393d4a1
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063646"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646296"
 ---
 # <a name="best-practices-for-sql-data-sync"></a>Bonnes pratiques pour SQL Data Sync 
 
@@ -70,6 +70,10 @@ Vous n'avez pas besoin d'inclure toutes les tables figurant dans une base de don
 Chaque table dans un groupe de synchronisation doit avoir une clé primaire. Le service SQL Data Sync ne peut pas synchroniser une table qui n’a pas de clé primaire.
 
 Avant d’utiliser SQL Data Sync en production, testez les performances de synchronisation initiales et actuelles.
+
+#### <a name="empty-tables-provide-the-best-performance"></a>Les tables vides optimisent les performances
+
+Les tables vides offrent les meilleures performances au moment de l’initialisation. Si la table cible est vide, Data Sync utilise l’insertion en bloc pour charger les données. Dans le cas contraire, Data Sync effectue une comparaison et une insertion ligne par ligne afin de rechercher les conflits. Toutefois, si les performances ne sont pas un critère important, vous pouvez configurer la synchronisation entre des tables qui contiennent déjà des données.
 
 ### <a name="provisioning-destination-databases"></a> Provisionnement des bases de données de destination
 

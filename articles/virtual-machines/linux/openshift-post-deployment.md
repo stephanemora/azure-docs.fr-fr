@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: ''
+ms.date: 05/09/2018
 ms.author: haroldw
-ms.openlocfilehash: d400512c2e96e0e24bbf965b2e201adf92ccbb0f
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 39febceff58127fb9777ace6e3063fbe41605b79
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434889"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426445"
 ---
 # <a name="post-deployment-tasks"></a>Tâches de post-déploiement
 
@@ -82,7 +82,7 @@ Dans le portail Azure :
 
   ![Inscription d’application](media/openshift-post-deployment/app-registration.png)
 
-6.  Cliquez sur Étape 1 : sélectionnez API, cliquez sur **Windows Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Cliquez sur **Sélectionner** en bas.
+6.  Cliquez sur Étape 1 : sélectionnez API, cliquez sur **Azure Active Directory (Microsoft.Azure.ActiveDirectory)**. Cliquez sur **Sélectionner** en bas.
 
   ![Inscription d’application - Sélectionner une API](media/openshift-post-deployment/app-registration-select-api.png)
 
@@ -174,7 +174,7 @@ Dans la console OpenShift, vous voyez maintenant deux options pour l’authentif
 
 ## <a name="monitor-openshift-with-log-analytics"></a>Surveiller OpenShift avec Log Analytics
 
-Pour surveiller OpenShift avec Log Analytics, vous avez deux possibilités : installation de l’agent OMS sur un hôte de machines virtuelles ou un conteneur OMS. Cet article fournit des instructions sur le déploiement du conteneur OMS.
+Pour surveiller OpenShift avec Log Analytics, vous avez deux possibilités : installation de l’agent Log Analytics sur un hôte de machine virtuelle, ou un conteneur Log Analytics. Cet article fournit des instructions sur le déploiement du conteneur Log Analytics.
 
 ## <a name="create-an-openshift-project-for-log-analytics-and-set-user-access"></a>Créer un projet OpenShift pour Log Analytics et définir l’accès utilisateur
 
@@ -276,7 +276,7 @@ Déployez le fichier de secret :
 oc create -f ocp-secret.yml
 ```
 
-Déployez le jeu de démons de l’agent OMS :
+Déployer le jeu de démons de l’Agent Log Analytics :
 
 ```bash
 oc create -f ocp-omsagent.yml

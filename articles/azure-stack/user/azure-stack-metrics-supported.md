@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 0cd8d309cfbf72a05c83c2a536d754e9cbc6e008
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: a9849b5c96b38fbfe6fa8ef4a69a1a2d4d6e6f2f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022657"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958072"
 ---
 # <a name="supported-metrics-with-azure-monitor-on-azure-stack"></a>Métriques prises en charge avec Azure Monitor sur Azure Stack
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
-Vous pouvez récupérer vos métriques à partir d’Azure Monitor sur Azure Stack de la même façon que sur le système Azure global. Vous pouvez consulter vos métriques sur le portail, les récupérer à partir de l’API REST ou bien les interroger avec PowerShell ou l’interface de ligne de commande.
+Vous pouvez récupérer vos métriques à partir d’Azure Monitor sur Azure Stack de la même façon que sur le système Azure global. Vous pouvez créer vos métriques sur le portail, les récupérer à partir de l’API REST ou bien les interroger avec PowerShell ou l’interface de ligne de commande.
 
 Les tableaux suivants répertorient les métriques disponibles avec le pipeline de métriques d’Azure Monitor sur Azure Stack. Pour interroger ces métriques et y accéder, vous devez disposer de la version du profil de l’API datant du **01/01/2018**. Pour plus d’informations sur les profils d’API et Azure Stack, consultez [Gérer les profils de version des API dans Azure Stack](azure-stack-version-profiles.md).
 

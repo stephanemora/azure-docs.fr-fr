@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 10/02/2018
+ms.date: 10/22/2018
 ms.author: jeffgilb
 ms.reviewer: wfayed
 keywords: ''
-ms.openlocfilehash: 4ba890f4763fc77981917d9311cf2bf6c97ec80f
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 8a33d4edb4107b936c36a744bb082c02b7830868
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902441"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024441"
 ---
 # <a name="azure-stack-datacenter-integration---identity"></a>Intégration au centre de données Azure Stack - Identité
 Vous pouvez déployer Azure Stack en utilisant Azure Active Directory (Azure AD) ou Active Directory Federation Services (AD FS) en tant que fournisseur d’identité. Vous devez faire le choix avant de déployer Azure Stack. Le déploiement à l’aide d’AD FS est également appelé déploiement d’Azure Stack en mode déconnecté.
@@ -53,7 +53,6 @@ Pour la dernière étape, un nouveau propriétaire est configuré pour l’abonn
 
 Requirements:
 
-
 |Composant|Prérequis|
 |---------|---------|
 |Graph|Microsoft Active Directory 2012/2012 R2/2016|
@@ -65,11 +64,21 @@ Graph prend uniquement en charge l’intégration avec une seule forêt Active D
 
 Les informations suivantes sont requises en tant qu’entrées pour les paramètres d’automation :
 
-
 |Paramètre|Description|Exemples|
 |---------|---------|---------|
 |CustomADGlobalCatalog|Nom de domaine complet de la forêt Active Directory cible<br>que vous souhaitez intégrer dans|Contoso.com|
 |CustomADAdminCredentials|Un utilisateur avec autorisation de lecture LDAP|YOURDOMAIN\graphservice|
+
+### <a name="configure-active-directory-sites"></a>Configurer les sites Active Directory
+
+Pour les déploiements d’Active Directory sur plusieurs sites, configurez le site Active Directory le plus proche de votre déploiement Azure Stack. La configuration évite que le service Azure Stack Graph ne résolve les requêtes en utilisant un serveur de catalogue global d’un site distant.
+
+Ajoutez le sous-réseau [Réseau de l’adresse IP virtuelle publique](azure-stack-network.md#public-vip-network) Azure Stack au site Azure Active Directory le plus proche d’Azure Stack. Par exemple, si vous avez deux sites Active Directory, un à Seattle et l’autre à Redmond, et qu’Azure Stack est déployé sur le site de Seattle, vous devez ajouter le sous-réseau du réseau d’adresse IP virtuelle publique Azure Stack au site Azure AD de Seattle.
+
+Pour plus d’informations sur les sites Active Directory, consultez [Conception de la topologie du site](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology).
+
+> [!Note]  
+> Si vous n’avez qu’un seul site Active Directory, vous pouvez ignorer cette étape. Si vous avez configuré un sous-réseau fourre-tout, assurez-vous qu’il ne contient pas le sous-réseau du réseau d’adresse IP virtuelle publique Azure Stack.
 
 ### <a name="create-user-account-in-the-existing-active-directory-optional"></a>Créer un compte d’utilisateur dans l’Active Directory existant (facultatif)
 
@@ -85,14 +94,14 @@ Vous pouvez également créer un compte pour le service Graph dans l’Active Di
 
 Pour cette procédure, utilisez un ordinateur de votre réseau de centre de données qui peut communiquer avec le point de terminaison privilégié dans Azure Stack.
 
-2. Ouvrez une session Windows PowerShell avec élévation de privilèges (exécuter en tant qu’administrateur) et connectez-vous à l’adresse IP du point de terminaison privilégié. Utilisez les informations d’identification de **CloudAdmin** à authentifier.
+1. Ouvrez une session Windows PowerShell avec élévation de privilèges (exécuter en tant qu’administrateur) et connectez-vous à l’adresse IP du point de terminaison privilégié. Utilisez les informations d’identification de **CloudAdmin** à authentifier.
 
    ```PowerShell  
    $creds = Get-Credential
    Enter-PSSession -ComputerName <IP Address of ERCS> -ConfigurationName PrivilegedEndpoint -Credential $creds
    ```
 
-3. Maintenant que vous êtes connecté au point de terminaison privilégié, exécutez la commande suivante : 
+2. Maintenant que vous êtes connecté au point de terminaison privilégié, exécutez la commande suivante : 
 
    ```PowerShell  
    Register-DirectoryService -CustomADGlobalCatalog contoso.com
@@ -199,6 +208,9 @@ Pour cette procédure, utilisez un ordinateur qui peut communiquer avec le point
    Set-ServiceAdminOwner -ServiceAdminOwnerUpn "administrator@contoso.com"
    ```
 
+   > [!Note]  
+   > Quand vous activez le certificat sur les services AD FS existants (compte STS), vous devez configurer à nouveau l’intégration AD FS. Vous devez configurer l’intégration même si le point de terminaison des métadonnées est accessible ou a été configuré à l’aide du fichier de métadonnées.
+
 ## <a name="configure-relying-party-on-existing-ad-fs-deployment-account-sts"></a>Configurer la partie de confiance sur le déploiement AD FS existant (compte STS)
 
 Microsoft fournit un script qui configure la partie de confiance, y compris les règles de transformation de revendication. L’utilisation du script est facultative car vous pouvez exécuter les commandes manuellement.
@@ -263,7 +275,7 @@ Si vous décidez d’exécuter manuellement les commandes, procédez comme suit�
    Add-ADFSRelyingPartyTrust -Name AzureStack -MetadataUrl "https://YourAzureStackADFSEndpoint/FederationMetadata/2007-06/FederationMetadata.xml" -IssuanceTransformRulesFile "C:\ClaimIssuanceRules.txt" -AutoUpdateEnabled:$true -MonitoringEnabled:$true -enabled:$true -TokenLifeTime 1440
    ```
 
-   > [!IMPORTANT]
+   > [!IMPORTANT]  
    > Vous devez utiliser le composant logiciel enfichable MMC AD FS pour configurer les règles d’autorisation d’émission si vous utilisez AD FS sous Windows Server 2012 ou 2012 R2.
 
 4. Si vous utilisez Internet Explorer ou Edge pour accéder à Azure Stack, vous devez ignorer les liaisons de jeton. Sinon, les tentatives de connexion échouent. Sur votre instance AD FS ou membre de la batterie de serveurs, exécutez la commande suivante :
@@ -283,7 +295,7 @@ Il existe plusieurs scénarios qui requièrent l’utilisation d’un nom princi
 - Pack d’administration System Center pour Azure Stack lors d’un déploiement avec AD FS
 - Fournisseurs de ressources dans Azure Stack lors d’un déploiement avec AD FS
 - Différentes applications
-- Une ouverture de session non interactive est requise
+- Une connexion non interactive est requise
 
 > [!Important]  
 > AD FS prend uniquement en charge les sessions ouvertes interactives. Si vous avez besoin d’une ouverture de session non interactive pour un scénario automatisé, vous devez utiliser un nom de principal du service (SPN).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/03/2018
 ms.author: genli
-ms.openlocfilehash: 7d8325ce04a9fa7853fb622062022a6938375f96
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 2f6db23e02c836dea6d640757d12275b654ad468
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47430979"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024617"
 ---
 # <a name="instance-level-public-ip-classic-overview"></a>Vue d’ensemble des adresses IP publiques de niveau d’instance (classique)
 Une adresse IP publique de niveau d’instance (ILPIP) est une adresse IP publique que vous pouvez attribuer directement à une machine virtuelle ou instance de rôle de services cloud, plutôt qu’au service cloud dans lequel réside cette machine ou cette instance. Une adresse ILPIP ne remplace pas l’adresse IP virtuelle (VIP) affectée à votre service cloud. Il s’agit plutôt d’une adresse IP supplémentaire que vous pouvez utiliser pour vous connecter directement à votre machine virtuelle ou instance de rôle.
@@ -47,7 +47,7 @@ Quand vous créez un service cloud dans Azure, les enregistrements DNS A corresp
 ## <a name="why-would-i-request-an-ilpip"></a>Pourquoi demander une adresse ILPIP ?
 Si vous souhaitez pouvoir vous connecter à votre machine virtuelle ou instance de rôle à l’aide d’une adresse IP qui vous est attribuée directement, demandez une adresse ILPIP pour votre machine virtuelle ou instance de rôle, au lieu d’utiliser l’adresse VIP:&lt;numéro-port&gt; du service cloud.
 
-* **Mode FTP actif** : en affectant une adresse ILPIP à une machine virtuelle, cette dernière peut recevoir du trafic sur n’importe quel port. Les points de terminaison ne sont pas requis pour que la machine virtuelle reçoive du trafic.  Consultez [Vue d’ensemble du protocole FTP] https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) pour en savoir plus sur le protocole FTP.
+* **Mode FTP actif** : en affectant une adresse ILPIP à une machine virtuelle, cette dernière peut recevoir du trafic sur n’importe quel port. Les points de terminaison ne sont pas requis pour que la machine virtuelle reçoive du trafic.  Consultez [Vue d’ensemble du protocole FTP](https://en.wikipedia.org/wiki/File_Transfer_Protocol#Protocol_overview) pour en savoir plus sur le protocole FTP.
 * **Adresse IP sortante** : le trafic sortant de la machine virtuelle est mappé à l’adresse ILPIP en tant que source, identifiant ainsi de manière univoque la machine virtuelle auprès des entités externes.
 
 > [!NOTE]

@@ -1,22 +1,25 @@
 ---
-title: Qu’est-ce que Custom Voice ? - Azure Cognitive Services
-description: Cet article présente la personnalisation vocale Microsoft Text to Speech, qui vous permet de créer une voix reconnaissable et propre à la marque.
+title: Création d’une police de la voix personnalisée
+titlesuffix: Azure Cognitive Services
+description: Cet article présente la personnalisation de la voix de Synthèse vocale, qui vous permet de créer une voix reconnaissable et propre à la marque.
 services: cognitive-services
-author: noellelacharite
+author: PanosPeriorellis
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: nolach
-ms.openlocfilehash: 21b37d2b61af81e6481de4c5e7537a3382d895b6
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.author: panosper
+ms.openlocfilehash: bf06042d3b820e61d1f5b316a8b7b26d1a366388
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113918"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467716"
 ---
 # <a name="creating-custom-voice-fonts"></a>Création de polices de voix personnalisée
 
-La personnalisation vocale Microsoft Text-to-Speech (TTS) vous permet de créer une voix reconnaissable et propre à la marque. C’est ce que l’on appelle une *police de la voix*. 
+La personnalisation de la voix de Synthèse vocale vous permet de créer une voix reconnaissable et propre à la marque. C’est ce que l’on appelle une *police de la voix*. 
 
 Pour créer votre police de la voix, effectuez un enregistrement en studio et chargez les scripts associés en tant que données d’apprentissage. Le service crée ensuite un modèle vocal unique adapté à votre enregistrement. Vous pouvez alors utiliser cette police de la voix pour synthétiser la parole. 
 

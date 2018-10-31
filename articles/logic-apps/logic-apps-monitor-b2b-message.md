@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: bb7d9432-b697-44db-aa88-bd16ddfad23f
 ms.date: 07/21/2017
-ms.openlocfilehash: fd48dfaf7b863ab026da1758751509d9911ae01e
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 63aa455851633d1e49fd1b26861aaac8a670ef15
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46948007"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404782"
 ---
 # <a name="monitor-b2b-messages-and-set-up-logging-for-integration-accounts-in-azure-logic-apps"></a>Surveiller les messages B2B et configurer la journalisation pour les comptes d’intégration dans Azure Logic Apps
 
@@ -58,7 +58,9 @@ Vous pouvez activer la journalisation directement à partir de votre compte d’
 
    1. Sélectionnez **Envoyer à Log Analytics**. 
    2. Sous **Log Analytics**, choisissez **Configurer**. 
-   3. Sous **Espaces de travail OMS**, sélectionnez l’espace de travail Log Analytics à utiliser pour la journalisation.
+   3. Sous **Espaces de travail OMS**, sélectionnez l’espace de travail Log Analytics à utiliser pour la journalisation. 
+   > [!NOTE]
+   > Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics. 
    4. Sous **Journal**, sélectionnez la catégorie **IntegrationAccountTrackingEvents**.
    5. Choisissez **Enregistrer**.
 
@@ -93,6 +95,8 @@ Vous pouvez activer la journalisation directement à partir de votre compte d’
    1. Sélectionnez **Envoyer à Log Analytics**. 
    2. Sous **Log Analytics**, choisissez **Configurer**. 
    3. Sous **Espaces de travail OMS**, sélectionnez l’espace de travail Log Analytics à utiliser pour la journalisation.
+   > [!NOTE]
+   > Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics.
    4. Sous **Journal**, sélectionnez la catégorie **IntegrationAccountTrackingEvents**.
    5. Une fois ces opérations effectuées, sélectionnez **Enregistrer**.
 
@@ -129,6 +133,6 @@ Azure prend en charge les types de schémas de suivi ci-dessous, qui ont tous de
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Suivre les messages B2B dans Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Suivre les messages B2B dans OMS")
-* [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "Découvrez Enterprise Integration Pack")
+* [Suivre les messages B2B dans Azure Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md "Suivre les messages B2B dans Azure Log Analytics")
+* [En savoir plus sur Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "En savoir plus sur Enterprise Integration Pack")
 

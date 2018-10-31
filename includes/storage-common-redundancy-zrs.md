@@ -15,7 +15,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/06/2018
 ms.locfileid: "44027445"
 ---
-Le stockage redondant dans une zone (ZRS) réplique vos données de façon synchrone sur trois clusters de stockage dans une seule région. Chaque cluster de stockage est physiquement séparé des autres et se trouve dans sa propre zone de disponibilité. Chaque zone de disponibilité, et le cluster ZRS qu’elle contient, est autonome, avec des utilitaires et fonctionnalités de mise en réseau séparés.
+Le stockage redondant interzone (ZRS) réplique vos données de façon synchrone sur trois clusters de stockage dans une seule région. Chaque cluster de stockage est physiquement séparé des autres et se trouve dans sa propre zone de disponibilité. Chaque zone de disponibilité, et le cluster ZRS qu’elle contient, est autonome, avec des utilitaires et fonctionnalités de mise en réseau séparés.
 
 Le stockage de vos données dans un compte ZRS vous permet d’accéder et de gérer vos données au cas où une zone n’est plus disponible. Le stockage redondant dans une zone (ZRS) offre d’excellentes performances et une latence faible. Le stockage ZRS offre les mêmes [objectifs d’évolutivité](../articles/storage/common/storage-scalability-targets.md) que le [stockage localement redondant (LRS)](../articles/storage/common/storage-redundancy-lrs.md).
 

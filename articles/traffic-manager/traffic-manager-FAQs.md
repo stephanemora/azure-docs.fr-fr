@@ -4,9 +4,6 @@ description: Cet article fournit des réponses aux questions fréquemment posée
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: 75d5ff9a-f4b9-4b05-af32-700e7bdfea5a
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 8c3d632063c8ed9347aa870d0971cc09dc1a658e
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d784bf3637c83c724c3616a1a42b66c4914b4ff7
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129537"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49987237"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Forum Aux Questions (FAQ) relatif à Traffic Manager
 
@@ -32,7 +29,7 @@ Comme expliqué dans la section [Fonctionnement de Traffic Manager](../traffic-m
 Par conséquent, Traffic Manager ne fournit pas de point de terminaison ou d’adresse IP pour permettre aux clients de se connecter. Si vous souhaitez une adresse IP statique pour votre service, celle-ci doit être configurée au niveau du service, pas dans Traffic Manager.
 
 ### <a name="what-types-of-traffic-can-be-routed-using-traffic-manager"></a>Quels types de trafic peuvent être routés à l’aide de Traffic Manager ?
-Comme expliqué dans [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), un point de terminaison Traffic Manager peut être n’importe quel service orienté Internet hébergé à l’intérieur ou en dehors d’Azure. Par conséquent, Traffic Manager peut acheminer le trafic provenant de l’Internet public vers un ensemble de points de terminaison également orienté Internet. Si vous avez des points de terminaison à l’intérieur d’un réseau privé (par exemple, une version interne de [l’équilibrage de charge Azure](../load-balancer/load-balancer-overview.md#internalloadbalancer)) ou des utilisateurs qui effectuent des demandes DNS à partir de tels réseaux internes, Traffic Manager ne peut pas être utilisé pour leur trafic.
+Comme expliqué dans [Fonctionnement de Traffic Manager](../traffic-manager/traffic-manager-how-it-works.md), un point de terminaison Traffic Manager peut être n’importe quel service orienté Internet hébergé à l’intérieur ou en dehors d’Azure. Par conséquent, Traffic Manager peut acheminer le trafic provenant de l’Internet public vers un ensemble de points de terminaison également orienté Internet. Si vous disposez de points de terminaison à l’intérieur d’un réseau privé (par exemple, une version interne [d’Azure Load Balancer](../load-balancer/load-balancer-overview.md#internalloadbalancer)), ou que vos utilisateurs exécutent des requêtes DNS à partir de tels réseaux internes, vous ne pouvez pas utiliser Traffic Manager pour router ce trafic.
 
 
 ### <a name="does-traffic-manager-support-sticky-sessions"></a>Traffic Manager prend-il en charge les sessions « persistantes » ?
@@ -87,7 +84,7 @@ Lorsqu’une requête DNS arrive sur Traffic Manager, il définit une valeur dan
 Vous pouvez définir, au niveau du profil, la durée de vie DNS entre 0 et 2 147 483 647 secondes (la plage maximale conformément à la norme [RFC-1035](https://www.ietf.org/rfc/rfc1035.txt )). Une durée de vie de 0 signifie que les programmes de résolution DNS en aval ne mettent pas en cache les réponses aux requêtes et toutes les requêtes doivent alors atteindre les serveurs DNS Traffic Manager pour être résolues.
 
 ### <a name="how-can-i-understand-the-volume-of-queries-coming-to-my-profile"></a>Comment comprendre le volume de requêtes entrantes sur mon profil ? 
-Une des métriques fournie par Traffic Manager est le nombre de requêtes ayant obtenu une réponse d’un profil. Vous pouvez obtenir cette information à une agrégation de niveau de profil ou la fractionner encore plus pour voir le volume de requêtes où des points de terminaison spécifiques ont été retournés. En outre, vous pouvez configurer des alertes pour vous avertir si le volume de réponse à des requêtes dépasse les conditions que vous avez définies. Pour plus de détails, voir [Métriques et alertes de Traffic Manager](traffic-manager-metrics-alerts.md).
+L’une des métriques fournies par Traffic Manager correspond au nombre de requêtes ayant obtenu une réponse d’un profil. Vous pouvez obtenir cette information à une agrégation de niveau de profil ou la fractionner encore plus pour voir le volume de requêtes où des points de terminaison spécifiques ont été retournés. En outre, vous pouvez configurer des alertes destinées à vous avertir si le volume de réponses à des requêtes dépasse les conditions que vous avez définies. Pour plus de détails, voir [Métriques et alertes de Traffic Manager](traffic-manager-metrics-alerts.md).
 
 ## <a name="traffic-manager-geographic-traffic-routing-method"></a>Méthode de routage du trafic « Geographic » (Géographique) de Traffic Manager
 
@@ -128,7 +125,7 @@ Au moins une région doit être mappée à tous les points de terminaison sous u
 
 ###  <a name="why-is-it-strongly-recommended-that-customers-create-nested-profiles-instead-of-endpoints-under-a-profile-with-geographic-routing-enabled"></a>Pourquoi est-il vivement recommandé que les clients créent des profils imbriqués à la place de points de terminaison sous un profil avec le routage géographique activé ? 
 
-Une région ne peut être affectée qu’à un seul point de terminaison dans un profil s’il utilise le type de routage géographique. Si ce point de terminaison n’est pas un type imbriqué auquel un profil enfant est attaché et s’il devient défectueux, Traffic Manager continue à lui envoyer le trafic puisque l’alternative de ne pas envoyer de trafic ne se révèle pas meilleure. Traffic Manager ne bascule vers aucun autre point de terminaison même si la région affectée est « parente » de la région affectée au point de terminaison qui s’est détérioré (par exemple, si un point de terminaison auquel la région Espagne est affectée devient défectueux, nous ne basculons pas vers un autre point de terminaison auquel la région Europe est affectée). De cette façon, Traffic Manager respecte les limites géographiques qu’un client a configurées dans son profil. Pour profiter du basculement vers un autre point de terminaison lorsqu’un point de terminaison est défectueux, il est recommandé d’affecter les régions géographiques aux profils imbriqués avec plusieurs points de terminaison et non des points de terminaison individuels. De cette façon, en cas d’échec d’un point de terminaison du profil enfant imbriqué, le trafic peut basculer vers un autre point de terminaison dans le même profil enfant imbriqué.
+Une région ne peut être affectée qu’à un seul point de terminaison dans un profil s’il utilise la méthode de routage géographique. Si ce point de terminaison n’est pas un type imbriqué auquel un profil enfant est attaché et s’il devient défectueux, Traffic Manager continue à lui envoyer le trafic puisque l’alternative de ne pas envoyer de trafic ne se révèle pas meilleure. Traffic Manager ne bascule vers aucun autre point de terminaison même si la région affectée est « parente » de la région affectée au point de terminaison qui s’est détérioré (par exemple, si un point de terminaison auquel la région Espagne est affectée devient défectueux, nous ne basculons pas vers un autre point de terminaison auquel la région Europe est affectée). De cette façon, Traffic Manager respecte les limites géographiques qu’un client a configurées dans son profil. Pour profiter du basculement vers un autre point de terminaison lorsqu’un point de terminaison est défectueux, il est recommandé d’affecter les régions géographiques aux profils imbriqués avec plusieurs points de terminaison et non des points de terminaison individuels. De cette façon, en cas d’échec d’un point de terminaison du profil enfant imbriqué, le trafic peut basculer vers un autre point de terminaison dans le même profil enfant imbriqué.
 
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Existe-t-il des restrictions quant à la version de l’API qui prend en charge ce type de routage ?
 
@@ -141,24 +138,24 @@ Le routage en fonction du sous-réseau permet de différencier l’expérience q
 Il est possible d’utiliser la méthode de routage en fonction du sous-réseau conjointement à d’autres profils dans un ensemble de profils imbriqués. Par exemple, si vous souhaitez utiliser la méthode de routage géographique pour la délimitation géographique des utilisateurs, et que vous souhaitez appliquer une autre méthode de routage pour un fournisseur d’accès spécifique, vous pouvez avoir une profil avec la méthode de routage en fonction du sous-réseau comme profil parent et passer outre ce fournisseur de services Internet pour utiliser un profil enfant spécifique, et avoir le profil géographique standard pour tous les autres.
 
 ### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Comment Traffic Manager connaît-il l’adresse IP de l’utilisateur final ?
-Les appareils des utilisateurs finaux ont généralement recours à un programme de résolution DNS qui effectue la recherche DNS en leur nom. L’adresse IP sortante de ces programmes de résolution est ce que Traffic Manager considère comme adresse IP source. En outre, la méthode de routage en fonction du sous-réseau recherche également s’il existe des informations de sous-réseau client étendu (ECS) EDNS0 transmises avec la requête. En présence d’informations ECS, cette adresse est utilisée pour déterminer le routage. En l’absence d’informations ECS, l’adresse IP source de la requête est utilisée pour le routage.
+Les appareils des utilisateurs finaux ont généralement recours à un programme de résolution DNS qui effectue la recherche DNS en leur nom. L’adresse IP sortante de ces programmes de résolution est ce que Traffic Manager voit comme adresse IP source. En outre, la méthode de routage en fonction du sous-réseau recherche également s’il existe des informations de sous-réseau client étendu (ECS) EDNS0 transmises avec la requête. En présence d’informations ECS, cette adresse est utilisée pour déterminer le routage. En l’absence d’informations ECS, l’adresse IP source de la requête est utilisée pour le routage.
 
 ### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>Comment puis-je spécifier des adresses IP avec le routage en fonction du sous-réseau ?
-Les adresses IP à associer à un point de terminaison peuvent être spécifiées de deux manières. Tout d’abord, vous pouvez utiliser la notation d’octet décimale à quatre points avec une adresse de début et une adresse de fin pour spécifier la plage (par exemple, 1.2.3.4-5.6.7.8 ou 3.4.5.6-3.4.5.6). Ensuite, vous pouvez utiliser la notation CIDR pour spécifier la plage (par exemple, 1.2.3.0/24). Vous pouvez spécifier plusieurs plages et utiliser les deux types de notation dans un ensemble de plages. Quelques restrictions s’appliquent.
+Les adresses IP à associer à un point de terminaison peuvent être spécifiées de deux manières. Tout d’abord, vous pouvez utiliser la notation d’octet décimale à quatre points avec une adresse de début et une adresse de fin pour spécifier la plage (par exemple, 1.2.3.4-5.6.7.8 ou 3.4.5.6-3.4.5.6). Ensuite, vous pouvez utiliser la notation CIDR pour spécifier la plage (par exemple, 1.2.3.0/24). Vous pouvez spécifier plusieurs plages et utiliser les deux types de notation dans un ensemble de plages. Quelques restrictions s’appliquent.
 -   Les plages d’adresses ne peuvent pas se chevaucher, dans la mesure où chaque adresse IP doit être mappée avec un seul point de terminaison unique.
 -   L’adresse de début ne peut pas être supérieure à l’adresse de fin.
--   Dans le cas de la notation CIDR, l’adresse IP avant « / » doit être l’adresse de début de la plage (par exemple, 1.2.3.0/24 est valide, mais 1.2.3.4.4/24 ne l’est pas).
+-   Dans le cas de la notation CIDR, l’adresse IP qui précède le caractère « / » doit être l’adresse de début de la plage (par exemple, 1.2.3.0/24 est valide, alors que 1.2.3.4.4/24 ne l’est PAS).
 
 ### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Comment puis-je spécifier un point de terminaison de secours avec le routage en fonction du sous-réseau ?
 Dans un profil avec le routage en fonction du sous-réseau, si vous avez un point de terminaison qui n’est mappé avec aucun sous-réseau, toute requête qui ne correspond pas à d’autres points de terminaison est redirigée vers ce point. Il est vivement recommandé d’avoir un point de terminaison de secours dans votre profil, car Traffic Manager renvoie une réponse NXDOMAIN si une requête arrive et qu’elle n’est mappée avec aucun point de terminaison, ou si elle est mappée avec un point de terminaison défectueux.
 
 ### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>Que se passe-t-il si un point de terminaison est désactivé dans un profil de type de routage en fonction du sous-réseau ?
-Dans un profil avec le routage en fonction du sous-réseau, si vous avez un point de terminaison désactivé, Traffic Manager se comporte comme si ce point de terminaison et les mappages de sous-réseau n’existent pas. Si une requête susceptible de correspondre à son mappage d’adresse IP est reçue et que le point de terminaison est désactivé, Traffic Manager renvoie un point de terminaison de secours (sans mappage). Si ce point de terminaison n’est pas présent, il renvoie une réponse NXDOMAIN.
+Dans un profil avec le routage en fonction du sous-réseau, si vous avez un point de terminaison désactivé, Traffic Manager se comporte comme si ce point de terminaison et les mappages de sous-réseau n’existent pas. Si une requête susceptible de correspondre à son mappage d’adresse IP est reçue et que le point de terminaison est désactivé, Traffic Manager renvoie un point de terminaison de secours (sans mappage). Si ce point de terminaison n’est pas présent, il renvoie une réponse NXDOMAIN.
 
 ## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Méthode de routage du trafic MultiValue de Traffic Manager
 
 ### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>Quels sont les cas d’utilisation dans lesquels le routage MultiValue est utile ?
-Le routage MultiValue renvoie plusieurs points de terminaison intègres dans une réponse unique à une requête. Principal avantage : si un point de terminaison est défectueux, le client dispose de davantage d’options pour effectuer une nouvelle tentative sans autre appel DNS (qui peut renvoyer la même valeur à partir d’un cache en amont). Cela s’applique pour les applications sensibles à la disponibilité pour minimiser le temps d’arrêt.
+Le routage MultiValue renvoie plusieurs points de terminaison intègres dans une réponse unique à une requête. Principal avantage : si un point de terminaison est défectueux, le client dispose de davantage d’options pour effectuer une nouvelle tentative sans autre appel DNS (qui peut renvoyer la même valeur à partir d’un cache en amont). Cela s’applique aux applications sensibles à la disponibilité afin de minimiser le temps d’arrêt.
 Autre utilisation de la méthode de routage MultiValue : si un point de terminaison est « à double hébergement » pour les adresses IPv4 et IPv6, et que vous souhaitez permettre à l’appelant de choisir entre ces deux options lorsqu’il établit une connexion au point de terminaison.
 
 ### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>Combien de points de terminaison sont renvoyés avec le routage MultiValue ?
@@ -170,13 +167,13 @@ Nous ne pouvons pas garantir que le même ensemble de points de terminaison est 
 ## <a name="real-user-measurements"></a>Mesures des utilisateurs réels
 
 ### <a name="what-are-the-benefits-of-using-real-user-measurements"></a>Quels sont les avantages de l’utilisation des mesures des utilisateurs réels ?
-Quand vous utilisez la méthode de routage basé sur les performances, Traffic Manager sélectionne la meilleure région Azure à laquelle votre utilisateur final se connecte. Pour cela, Traffic Manager inspecte l’adresse IP source et le sous-réseau du client EDNS (s’il est passé), puis les compare aux informations sur la latence réseau que le service tient à jour. La fonctionnalité Mesures des utilisateurs réels optimise ce processus pour votre base d’utilisateurs finaux : d’une part, en prenant en compte l’expérience des utilisateurs finaux dans la table de latence et, d’autre part, en veillant à ce que cette table couvre de manière adéquate les réseaux des utilisateurs finaux à partir desquels ils se connectent à Azure. Il en résulte un routage plus précis des utilisateurs finaux.
+Quand vous utilisez la méthode de routage basé sur les performances, Traffic Manager sélectionne la meilleure région Azure à laquelle votre utilisateur final se connecte. Pour cela, Traffic Manager inspecte l’adresse IP source et le sous-réseau du client EDNS (s’il est passé), puis les compare aux informations sur la latence réseau que le service tient à jour. La fonctionnalité Mesures des utilisateurs réels optimise ce processus pour votre base d’utilisateurs finaux : d’une part, en prenant en compte l’expérience des utilisateurs finaux dans la table de latence et, d’autre part, en veillant à ce que cette table couvre de manière adéquate les réseaux des utilisateurs finaux à partir desquels ils se connectent à Azure. Il en résulte un routage plus précis de votre utilisateur final.
 
 ### <a name="can-i-use-real-user-measurements-with-non-azure-regions"></a>Puis-je utiliser les mesures des utilisateurs réels avec des zones non-Azure ?
 La fonctionnalité Mesures des utilisateurs réels calcule et signale uniquement la latence jusqu’aux régions Azure. Si vous utilisez le routage basé sur les performances avec des points de terminaison hébergés dans des régions non-Azure, vous pouvez encore tirer parti de cette fonctionnalité en associant les informations supplémentaires sur la latence de la région Azure représentative sélectionnée à ce point de terminaison.
 
 ### <a name="which-routing-method-benefits-from-real-user-measurements"></a>Quelle méthode de routage bénéficie de la fonctionnalité Mesures des utilisateurs réels ?
-Les informations supplémentaires acquises par la fonctionnalité Mesures des utilisateurs réels s’appliquent uniquement aux profils qui utilisent la méthode de routage basé sur les performances. Notez que le lien Mesures des utilisateurs réels est disponible à partir de tous les profils dans le portail Azure.
+Les informations supplémentaires acquises par la fonctionnalité Mesures des utilisateurs réels s’appliquent uniquement aux profils qui utilisent la méthode de routage basé sur les performances. Le lien Mesures utilisateur réelles est disponible à partir de tous les profils dans le Portail Azure.
 
 ### <a name="do-i-need-to-enable-real-user-measurements-each-profile-separately"></a>Dois-je activer la fonctionnalité Mesures des utilisateurs réels séparément pour chaque profil ?
 Non, il vous suffit de l’activer une fois par abonnement pour que toutes les informations de latence mesurées et signalées soient accessibles à tous les profils.
@@ -190,12 +187,12 @@ Vous pouvez aussi désactiver la fonctionnalité Mesures utilisateur réelles en
 Oui, la fonctionnalité Mesures des utilisateurs réels est conçue pour ingérer les données collectées à l’aide d’autres types de clients d’utilisateurs finaux. Ce FAQ sera mis à jour pour refléter les nouveaux types d’applications clientes pris en charge.
 
 ### <a name="how-many-measurements-are-made-each-time-my-real-user-measurements-enabled-web-page-is-rendered"></a>Combien de mesures sont effectuées à chaque affichage d’une page web sur laquelle la fonctionnalité Mesures des utilisateurs réels est activée ?
-Quand la fonctionnalité Mesures des utilisateurs réels est utilisée avec le script JavaScript de mesure fourni, chaque affichage de page produit six mesures. Celles-ci sont alors signalées au service Traffic Manager. Notez que les frais qui vous sont facturés pour cette fonctionnalité varient en fonction du nombre de mesures signalées au service Traffic Manager. Si, par exemple, un utilisateur quitte votre page web avant le signalement des mesures effectuées, celles-ci ne sont pas facturées.
+Quand la fonctionnalité Mesures des utilisateurs réels est utilisée avec le script JavaScript de mesure fourni, chaque affichage de page produit six mesures. Celles-ci sont alors signalées au service Traffic Manager. Les frais qui vous sont facturés pour cette fonctionnalité varient en fonction du nombre de mesures signalées au service Traffic Manager. Si, par exemple, un utilisateur quitte votre page web avant le signalement des mesures effectuées, celles-ci ne sont pas facturées.
 
 ### <a name="is-there-a-delay-before-real-user-measurements-script-runs-in-my-webpage"></a>Y a-t-il un délai avant l’exécution du script Mesures des utilisateurs réels dans ma page web ?
 Non, l’appel du script n’est pas précédé d’un délai programmé.
 
-### <a name="can-i-use-configure-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>Puis-je configurer la fonctionnalité Mesures des utilisateurs réels de manière à mesurer uniquement certaines régions Azure ?
+### <a name="can-i-use-real-user-measurements-with-only-the-azure-regions-i-want-to-measure"></a>Puis-je utiliser la fonctionnalité Mesures utilisateur réelles de manière à mesurer uniquement certaines régions Azure ?
 Non, chaque fois qu’il est appelé, le script Mesures des utilisateurs réels mesure un ensemble de six régions Azure déterminées par le service. Cet ensemble varie d’un appel à l’autre et, quand un grand nombre de ces appels se produit, la couverture de la mesure s’étend à différentes régions Azure.
 
 ### <a name="can-i-limit-the-number-of-measurements-made-to-a-specific-number"></a>Est-il possible de limiter le nombre de mesures effectuées à un nombre spécifique ?
@@ -223,10 +220,10 @@ Si le script JavaScript de mesure fourni est utilisé, Traffic Manager peut voir
 Non, l’utilisation de Traffic Manager n’est pas obligatoire. La partie routage de Traffic Manager fonctionne séparément de la partie Mesures des utilisateurs réels. Elles ne doivent pas nécessairement se trouver dans la même propriété web, même si cela est une bonne idée.
 
 ### <a name="do-i-need-to-host-any-service-on-azure-regions-to-use-with-real-user-measurements"></a>Dois-je héberger un service sur les régions Azure à utiliser avec la fonctionnalité Mesures des utilisateurs réels ?
-Non, la fonctionnalité Mesures utilisateur réelles ne nécessite pas de composant côté serveur pour fonctionner. L’image à pixel unique téléchargée par le script JavaScript de mesure et le service qui l’exécute dans différentes régions Azure est hébergée et gérée par Azure. 
+Non, la fonctionnalité Mesures utilisateur réelles ne nécessite pas de composant côté serveur sur Azure pour fonctionner. L’image à pixel unique téléchargée par le script JavaScript de mesure et le service qui l’exécute dans différentes régions Azure est hébergée et gérée par Azure. 
 
 ### <a name="will-my-azure-bandwidth-usage-increase-when-i-use-real-user-measurements"></a>L’utilisation de la bande passante Azure augmente-t-elle quand j’utilise la fonctionnalité Mesures des utilisateurs réels ?
-Comme indiqué dans la réponse précédente, les composants côté serveur de la fonctionnalité Mesures des utilisateurs réels sont hébergés et gérés par Azure. La fonctionnalité Mesures des utilisateurs réels n’entraîne donc pas une augmentation de la bande passante Azure utilisée. Notez que ceci n’inclut pas l’utilisation de la bande passante au-delà de ce que facture Azure. Pour minimiser la bande passante utilisée, nous téléchargeons une image à pixel unique pour mesurer la latence jusqu’à une région Azure. 
+Comme indiqué dans la réponse précédente, les composants côté serveur de la fonctionnalité Mesures des utilisateurs réels sont hébergés et gérés par Azure. La fonctionnalité Mesures des utilisateurs réels n’entraîne donc pas une augmentation de la bande passante Azure utilisée. Ceci n’inclut pas l’utilisation de la bande passante au-delà de ce que facture Azure. Pour minimiser la bande passante utilisée, nous téléchargeons une image à pixel unique pour mesurer la latence jusqu’à une région Azure. 
 
 ## <a name="traffic-view"></a>Affichage du trafic
 
@@ -290,7 +287,7 @@ Oui. Les emplacements intermédiaires de services cloud peuvent être configuré
 
 Traffic Manager ne fournit pas actuellement de serveurs de noms adressables en IPv6. Toutefois, il prend en charge les clients IPv6 connectés à des points de terminaison IPv6. Un client n’effectue pas de requêtes DNS directement vers Traffic Manager. Au lieu de cela, il utilise un service DNS récursif. Un client utilisant uniquement IPv6 envoie des requêtes au service DNS récursif via IPv6. Après quoi le service récursif doit être en mesure de contacter les serveurs de noms Traffic Manager à l’aide du protocole IPv4.
 
-Traffic Manager répond avec le nom DNS ou l’adresse IP du point de terminaison. Pour prendre en charge un point de terminaison IPv6, il existe deux options. Vous pouvez ajouter le point de terminaison en tant que nom DNS associé à un enregistrement AAAA. Traffic Manager contrôle alors l’intégrité de ce point de terminaison et le renvoie en tant qu’un enregistrement CNAME dans la réponse à la requête. Vous pouvez également ajouter ce point de terminaison directement à l’aide de l’adresse IPv6, auquel cas Traffic Manager renvoie un enregistrement de type AAAA dans la réponse à la requête. 
+Traffic Manager répond avec le nom DNS ou l’adresse IP du point de terminaison. Pour prendre en charge un point de terminaison IPv6, il existe deux options. Vous pouvez ajouter le point de terminaison en tant que nom DNS associé à un enregistrement AAAA. Traffic Manager contrôle alors l’intégrité de ce point de terminaison et le renvoie sous la forme d’un enregistrement CNAME dans la réponse à la requête. Vous pouvez également ajouter ce point de terminaison directement à l’aide de l’adresse IPv6, auquel cas Traffic Manager renvoie un enregistrement de type AAAA dans la réponse à la requête. 
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Puis-je utiliser Traffic Manager avec plusieurs applications web dans la même région ?
 
@@ -334,7 +331,7 @@ Traffic manager ne peut pas fournir de validation de certificat :
 * Les certificats clients ne sont pas pris en charge.
 
 ### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Dois-je utiliser une adresse IP ou un nom DNS lors de l’ajout d’un point de terminaison ?
-Traffic Manager prend en charge l’ajout de points de terminaison de trois façons : nom DNS, adresse IPv4 et adresse IPv6. Si le point de terminaison est ajouté en tant qu’adresse IPv4 ou IPv6, la réponse à la requête est un type d’enregistrement A ou AAAA, respectivement. Si le point de terminaison a été ajouté en tant que nom DNS, la réponse à la requête est un type d’enregistrement CNAME. Notez que l’ajout de points de terminaison en tant qu’adresse IPv4 ou IPv6 est autorisé uniquement si le point de terminaison est externe.
+Traffic Manager prend en charge l’ajout de points de terminaison de trois façons : nom DNS, adresse IPv4 et adresse IPv6. Si le point de terminaison est ajouté en tant qu’adresse IPv4 ou IPv6, la réponse à la requête est un type d’enregistrement A ou AAAA, respectivement. Si le point de terminaison a été ajouté en tant que nom DNS, la réponse à la requête est un type d’enregistrement CNAME. L’ajout de points de terminaison en tant qu’adresse IPv4 ou IPv6 n’est autorisé que si le point de terminaison est de type **Externe**.
 L’ensemble des méthodes de routage et des paramètres de surveillance sont pris en charge par les trois types d’adressage de point de terminaison.
 
 ### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>Quels types d’adresses IP puis-je utiliser lors de l’ajout d’un point de terminaison ?

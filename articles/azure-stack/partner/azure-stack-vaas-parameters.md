@@ -1,6 +1,6 @@
 ---
 title: Paramètres de flux de travail communs dans la validation en tant que service Azure Stack| Microsoft Docs
-description: Paramètres de flux de travail communs dans la validation en tant que service Azure Stack| Microsoft Docs
+description: Paramètres de flux de travail communs pour la validation en tant que service Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -10,53 +10,82 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 10/19/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: c50e4b5c9eb81c9386e2cb0db96a88de70dcb9e9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 25c93560b24b2915ef9a9077b5bca0d15286b0e3
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157801"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646777"
 ---
-# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Paramètres de flux de travail communs dans la validation en tant que service Azure Stack| Microsoft Docs
+# <a name="workflow-common-parameters-for-azure-stack-validation-as-a-service"></a>Paramètres de flux de travail communs pour la validation en tant que service Azure Stack
 
 [!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
-Les paramètres communs comprennent des valeurs, telles que les variables d’environnement et les informations d’identification utilisateur, qui sont exigées par tous les tests de la validation en tant que service (VaaS). Vous définissez ces valeurs au niveau du flux de travail. Vous enregistrez les valeurs lorsque vous créez ou modifiez un flux de travail. Au moment de la planification, le flux de travail charge les valeurs pour le test. 
+Les paramètres communs comprennent des valeurs telles que les variables d’environnement et les informations d’identification utilisateur, qui sont exigées par tous les tests de la validation en tant que service (VaaS). Ces valeurs sont définies au niveau du flux de travail lorsque vous créez ou modifiez un flux de travail. Lors de la planification des tests, ces valeurs sont transmises en tant que paramètres pour chaque test dans le flux de travail.
+
+> [!NOTE]
+> Chaque test définit son propre ensemble de paramètres. Lors de la planification, un test peut vous obliger à entrer une valeur indépendamment des paramètres communs, ou vous autoriser à remplacer la valeur du paramètre commun.
 
 ## <a name="environment-parameters"></a>Paramètres d’environnement
 
-Les paramètres d’environnement décrivent l’environnement Azure Stack testé. Ces valeurs doivent être fournies en générant et en chargeant votre fichier de configuration de tampon `&lt;link&gt;. [How to get the stamp info link].`
+Les paramètres d’environnement décrivent l’environnement Azure Stack testé. Ces valeurs doivent être fournies en générant et en chargeant un fichier d’informations d’horodatage Azure Stack pour l’instance spécifique que vous testez.
 
-| Nom du paramètre | Obligatoire | type | Description |
-|----------------------------------|----------|------|---------------------------------------------------------------------------------------------------------------------------------|
-| Build Azure Stack | Obligatoire |  | Numéro de build du déploiement Azure Stack (par exemple, 1.0.170330.9) |
-| Version OEM | Oui |  | Numéro de version du package OEM utilisé au cours du déploiement Azure Stack. |
-| Signature OEM | Oui |  | Signature du package OEM utilisé au cours du déploiement Azure Stack. |
-| ID de locataire AAD | Obligatoire |  | GUID de locataire Azure Active Directory spécifié au cours du déploiement Azure Stack.|
-| Région | Obligatoire |  | Région de déploiement Azure Stack. |
-| Point de terminaison Resource Manager du locataire | Obligatoire |  | Point de terminaison pour les opérations Azure Resource Manager de locataire (par exemple, https://management.<ExternalFqdn>) |
-| Point de terminaison Resource Manager de l’administrateur | Oui |  | Point de terminaison pour les opérations Azure Resource Manager de locataire (par exemple, https://adminmanagement.<ExternalFqdn>) |
-| FQDN externe | Oui |  | Nom de domaine complet externe utilisé comme suffixe pour les points de terminaison. (par exemple, local.azurestack.external ou redmond.contoso.com). |
-| Nombre de nœuds | Oui |  | Nombre de nœuds dans le déploiement. |
+> [!NOTE]
+> Dans les flux de travail de validation officielle, les paramètres d’environnement ne peuvent pas être modifiés après la création du flux de travail.
+
+### <a name="generate-the-stamp-information-file"></a>Générer le fichier d’informations d’horodatage
+
+1. Connectez-vous à la machine DVM ou à n’importe quelle machine ayant accès à l’environnement Azure Stack.
+2. Exécutez les commandes suivantes dans une fenêtre PowerShell avec élévation des privilèges :
+    ```PowerShell
+    $CloudAdminUser = "<cloud admin username>"
+    $stampInfoPass = ConvertTo-SecureString "<cloud admin password>" -AsPlainText -Force
+    $stampInfoCreds = New-Object System.Management.Automation.PSCredential($CloudAdminUser, $stampInfoPass)
+    $params = Invoke-RestMethod -Method Get -Uri 'https://ASAppGateway:4443/ServiceTypeId/4dde37cc-6ee0-4d75-9444-7061e156507f/CloudDefinition/GetStampInformation'
+    ConvertTo-Json $params > stampinfoproperties.json
+    ```
+
+### <a name="locate-values-in-the-ece-configuration-file"></a>Rechercher les valeurs dans le fichier de configuration ECE
+
+Les valeurs de paramètre d’environnement peuvent également être recherchées de façon manuelle dans le **fichier de configuration ECE** situé dans `C:\EceStore\403314e1-d945-9558-fad2-42ba21985248\80e0921f-56b5-17d3-29f5-cd41bf862787` sur la machine DVM.
 
 ## <a name="test-parameters"></a>Paramètres de test
 
-Les paramètres de test communs comportent des informations sensibles qui ne peuvent pas stockées dans des fichiers de configuration, et qui doivent être fournies manuellement.
+Les paramètres de test communs comportent des informations sensibles qui ne peuvent pas être stockées dans des fichiers de configuration. Celles-ci doivent être fournies manuellement.
 
-| Nom du paramètre | Obligatoire | type | Description |
-|--------------------------------|------------------------------------------------------------------------------|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Nom d'utilisateur du locataire | Obligatoire |  | Administrateur du locataire Azure Active Directory qui était déjà provisionné ou qui doit être provisionné par l’administrateur de service dans l’annuaire AAD. Pour plus d’informations sur le provisionnement du compte de locataire, consultez [Bien démarrer avec Azure AD](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad). Cette valeur est utilisée par le test pour effectuer des opérations au niveau du locataire, telles que le déploiement de modèles pour provisionner des ressources (machines virtuelles, comptes de stockage etc.) et exécuter des charges de travail. Cette valeur est utilisée par le test pour effectuer des opérations au niveau du locataire, telles que le déploiement de modèles pour provisionner des ressources (machines virtuelles, comptes de stockage etc.) et exécuter des charges de travail. |
-| Mot de passe du locataire | Obligatoire |  | Mot de passe de l’utilisateur locataire. |
-| Nom d’utilisateur de l’administrateur de service | Obligatoire : validation de solution, validation de package<br>Facultatif: Passe de test |  | Administrateur Azure Active Directory du locataire AAD spécifié au cours du déploiement Azure Stack. |
-| Mot de passe de l’administrateur de service | Obligatoire : validation de solution, validation de package<br>Facultatif: Passe de test |  | Mot de passe de l’utilisateur administrateur de service. |
-| Nom d’utilisateur de l’administrateur de cloud | Obligatoire |  | Compte d’administrateur de domaine Azure Stack (par exemple, contoso\cloudadmin). Recherchez « User Role="CloudAdmin" » dans le fichier de configuration et sélectionnez la valeur dans la balise UserName du fichier de configuration. |
-| Mot de passe d’administrateur de cloud | Obligatoire |  | Mot de passe de l’utilisateur administrateur de cloud. |
-| Chaîne de connexion des diagnostics | Obligatoire |  | URI de signature d’accès partagé (SAP) d’un compte de stockage Azure dans lequel les journaux de diagnostic sont copiés pendant l’exécution des tests. Les instructions pour la génération de l’URI SAP se trouvent dans [Configurer un compte de stockage d’objets blob](azure-stack-vaas-set-up-account.md). |
+Paramètre    | Description
+-------------|-----------------
+Tenant Administrator User (Utilisateur administrateur de locataire)                            | Administrateur de locataire Azure Active Directory qui a été approvisionné par l’administrateur de services fédérés dans le répertoire AAD. Cet utilisateur exécute des actions au niveau du locataire, comme le déploiement de modèles pour configurer des ressources (machines virtuelles, comptes de stockage, etc.) et l’exécution de charges de travail. Pour plus d’informations sur l’approvisionnement du compte de locataire, consultez [Ajouter un nouveau compte de locataire Azure Stack dans Azure Active Directory](https://docs.microsoft.com/azure/azure-stack/azure-stack-add-new-user-aad).
+Utilisateur administrateur de service             | Administrateur Azure Active Directory du locataire du répertoire AAD spécifié au cours du déploiement Azure Stack. Recherchez `AADTenant` dans le fichier config ECE et sélectionnez la valeur dans l’élément `UniqueName`.
+Cloud Administrator User (Utilisateur administrateur de cloud)               | Compte administrateur de domaine Azure Stack (par exemple, `contoso\cloudadmin`). Recherchez `User Role="CloudAdmin"` dans le fichier config ECE et sélectionnez la valeur dans l’élément `UserName`.
+Chaîne de connexion des diagnostics          | Une URL de signature d’accès partagé d’un compte Stockage Azure dans lequel les journaux de diagnostic sont copiés pendant l’exécution des tests. Pour obtenir des instructions sur la génération de l’URL de signature d’accès partagé, consultez [Générer la chaîne de connexion des diagnostics](#generate-the-diagnostics-connection-string). |
 
+> [!IMPORTANT]
+> La **chaîne de connexion des diagnostics** doit être valide pour pouvoir continuer.
+
+### <a name="generate-the-diagnostics-connection-string"></a>Générer la chaîne de connexion des diagnostics
+
+La chaîne de connexion des diagnostics est requise pour le stockage des journaux de diagnostics pendant l’exécution du test. Utilisez le compte Stockage Azure créé pendant la configuration (consultez [Tutorial: Set up resources for Validation as a Service](azure-stack-vaas-set-up-resources.md) (Didacticiel : Configurer des ressources pour la validation en tant que service)) pour créer une URL de signature d’accès partagé et accorder l’accès VaaS pour charger des journaux dans votre compte de stockage.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_navigate](includes/azure-stack-vaas-sas-step_navigate.md)]
+
+1. Sélectionnez l’option **Blob** dans **Services autorisés**. Désélectionnez les autres options.
+
+1. Sélectionnez **Service**, **Conteneur** et **Objet** dans **Types de ressources autorisés**.
+
+1. Sélectionnez **Lire**, **Écrire**, **Lister**, **Ajouter**, **Créer**  dans **Permissions autorisées**. Désélectionnez les autres options.
+
+1. Définissez **Heure de début** sur l’heure actuelle et **Heure de fin** sur trois mois à partir de l’heure actuelle.
+
+1. [!INCLUDE [azure-stack-vaas-sas-step_generate](includes/azure-stack-vaas-sas-step_generate.md)]
+
+> [!NOTE]  
+> L’URL de signature d’accès partagé expire à l’heure de fin définie lors de la génération de l’URL.  
+Lors de la planification des tests, assurez-vous que l’URL est valide pendant au moins 30 jours plus le temps nécessaire pour l’exécution des tests (nous vous recommandons une durée de trois mois).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Apprenez-en davantage sur la [Validation en tant que service Azure Stack](https://docs.microsoft.com/azure/azure-stack/partner).
+- Découvrez les [concepts clés à propos de la validation en tant que service](azure-stack-vaas-key-concepts.md)

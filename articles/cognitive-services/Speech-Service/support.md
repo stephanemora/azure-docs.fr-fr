@@ -1,19 +1,21 @@
 ---
 title: Options d’aide et de support
-description: Découvrir comment obtenir une assistance par rapport à des questions et à des problèmes rencontrés quand vous créez des applications s’intégrant au service Speech d’Azure Cognitive Services
+titlesuffix: Azure Cognitive Services
+description: Comment obtenir une assistance par rapport à des questions et à des problèmes rencontrés quand vous créez des applications s’intégrant au service Speech
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: custom-speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: wolfma
-ms.openlocfilehash: c08cc34631afdec4a4b08b4c599b79e1a161558c
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 58fb5d4be2137eed7d62e702f08bdd66c80be347
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364155"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49468056"
 ---
 # <a name="support-and-help-options"></a>Options d’aide et de support
 
@@ -74,8 +76,41 @@ Si vous ne trouvez pas de solution par l’intermédiaire de la recherche, soume
 
 Les exemples sont souvent publiés en open source. Si vous avez des questions, ou en cas de problème, créez un *problème* dans le dépôt GitHub correspondant. Vous pouvez également envoyer une demande de tirage (pull request). La liste suivante contient des liens vers les référentiels d’exemples :
 
-* [Speech SDK](https://aka.ms/csspeech/samples)
-* [Device SDK](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK)
+* [Kit de développement logiciel (SDK) de reconnaissance vocale](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues)
+* [Kit de développement logiciel d’appareils](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK/issues)
+
+Vous pouvez créer un rapport de bogues, demander une fonctionnalité ou poser une question générale et partager les meilleures pratiques. Pour les rapports de bogues, veuillez suivre le modèle fourni :
+
+**Décrire le bogue**
+
+Description claire et concise du bogue.
+
+**Opérations à reproduire**
+
+Étapes pour reproduire le problème :
+1. ...
+2. ...
+
+**Comportement attendu**
+
+Description claire et concise du comportement normal attendu.
+
+**Version du kit de développement logiciel Speech de Cognitive Services**
+
+Version du kit de développement logiciel utilisé.
+
+**Plateforme, système d’exploitation et langage de programmation**
+
+ - Système d’exploitation : [par exemple, Windows, Linux, Android, iOS,...] - Merci d’être précis
+ - Matériel - x64, x86, ARM...
+ - Navigateur [par exemple, Chrome, Safari] (le cas échéant) - Merci d’être précis
+
+**Contexte supplémentaire**
+
+ - Messages d’erreur, informations du journal, trace, etc.
+ - Si vous signalez une erreur pour une interaction de service spécifique, veuillez indiquer l’ID de session et l’heure (y compris le fuseau horaire) des incidents. L’ID de session figure dans tous les rappels/événements reçus.
+ - Toute autre information supplémentaire
+
 
 ## <a name="uservoice-forum"></a>Forum UserVoice
 

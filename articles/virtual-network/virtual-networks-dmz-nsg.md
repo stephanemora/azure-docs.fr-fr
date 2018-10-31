@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/03/2017
 ms.author: jonor
-ms.openlocfilehash: ec29e6b250f927a3a4a94ffdf83d6c7c0e325722
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 2f399b5084ab65736adfebb5cf0a77ccfbc972e8
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "23126677"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457287"
 ---
 # <a name="example-1--build-a-simple-dmz-using-nsgs-with-an-azure-resource-manager-template"></a>Exemple 1 – Créer une zone DMZ simple à l’aide de groupes de sécurité réseau avec un modèle Azure Resource Manager
 [Revenir à la page Meilleures pratiques relatives aux frontières de sécurité][HOME]
@@ -99,7 +99,7 @@ Chaque règle est décrite plus en détail comme suit :
     ``` 
 
 2. La première règle de cet exemple autorise le trafic DNS entre tous les réseaux internes au serveur DNS sur le sous-réseau du serveur principal. La règle comporte certains paramètres importants :
-  * « destinationAddressPrefix » - Les règles peuvent utiliser un type spécial de préfixe d’adresse appelé « balise par défaut » ; ces balises sont des identificateurs fournis par le système qui permettent de facilement adresser une catégorie supérieure de préfixes d’adresses. Cette règle utilise la balise par défaut « Internet » pour identifier toute adresse en dehors du réseau virtuel. Les autres étiquettes de préfixe sont VirtualNetwork et AzureLoadBalancer.
+  * « destinationAddressPrefix » - le préfixe d’adresse de destination est défini sur « 10.0.2.4 » afin que le trafic DNS soit autorisé à atteindre le serveur DNS.
   * « Direction » indique le sens du trafic qui sera appliqué à cette règle. La direction est déterminée du point de vue du sous-réseau ou de la machine virtuelle (selon l'élément auquel ce groupe de sécurité réseau est lié). Donc si Direction est « Entrant » et si le trafic entre dans le sous-réseau, la règle s’applique et le trafic quittant le sous-réseau n’est pas concerné.
   * « Priorité » définit l’ordre dans lequel le flux de trafic est évalué. Plus le numéro de priorité est faible, plus la priorité de la règle est élevée. Lorsqu’une règle s’applique à un flux de trafic spécifique, aucune autre règle n’est traitée. Donc si une règle de priorité 1 autorise le trafic et une règle de priorité 2 le refuse, si les deux règles s’appliquent, alors le trafic est autorisé à circuler (dans la mesure où la règle 1 a une priorité plus élevée et est appliquée, aucune autre règle n’est prise en compte).
   * « Accès » indique si le trafic concerné par cette règle est bloqué (« Deny ») ou autorisé (« Allow »).
@@ -180,7 +180,7 @@ Chaque règle est décrite plus en détail comme suit :
     },
      ```
 
-6. Cette règle refuse le trafic en provenance d’Internet vers des serveurs sur le réseau. Avec les règles de priorité 110 et 120, elle permet uniquement au trafic Internet entrant d’accéder au pare-feu et aux ports RDP d’autres serveurs et bloque tout le reste. Cette règle est une règle de « prévention de défaillance » qui bloque tous les flux inattendus.
+6. Les règles peuvent utiliser un type spécial de préfixe d’adresse appelé « balise par défaut » ; ces balises sont des identificateurs fournis par le système qui permettent de facilement adresser une catégorie supérieure de préfixes d’adresses. Cette règle utilise la balise par défaut « VirtualNetwork » pour le préfixe d’adresse de destination, afin d’établir une correspondance à l’intérieur du réseau virtuel. Les autres étiquettes de préfixe sont Internet et AzureLoadBalancer. Cette règle refuse le trafic en provenance d’Internet vers des serveurs sur le réseau. Avec les règles de priorité 110 et 120, elle permet uniquement au trafic Internet entrant d’accéder au pare-feu et aux ports RDP d’autres serveurs et bloque tout le reste. Cette règle est une règle de « prévention de défaillance » qui bloque tous les flux inattendus.
 
     ```JSON
     {

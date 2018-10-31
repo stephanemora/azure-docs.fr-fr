@@ -1,23 +1,24 @@
 ---
-title: API REST du service de reconnaissance vocale
-description: Informations de référence pour les API REST du service de reconnaissance vocale.
+title: API REST du service Speech
+description: Informations de référence sur les API REST du service Speech.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: speech
-ms.topic: article
+ms.component: speech-service
+ms.topic: conceptual
 ms.date: 05/09/2018
-ms.author: v-jerkin
-ms.openlocfilehash: 6758cd658daf75beeea93bf9c719508cd271c8be
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.author: erhopf
+ms.openlocfilehash: 7f3daf71f4d94371af5f7d98c4e03761d7217a2a
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032425"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025835"
 ---
-# <a name="speech-service-rest-apis"></a>API REST du service de reconnaissance vocale
+# <a name="speech-service-rest-apis"></a>API REST du service Speech
 
-Les API REST du service Speech unifié Azure Cognitive Services sont similaires aux API fournies par l’[API Reconnaissance vocale Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Les points de terminaison sont différents de ceux utilisés par le service Reconnaissance vocale Bing. Des points de terminaison régionaux sont disponibles, et vous devez utiliser une clé d’abonnement qui correspond au point de terminaison que vous utilisez.
+Les API REST du service Azure Cognitive Services Speech sont similaires aux API fournies par l’[API Reconnaissance vocale Bing](https://docs.microsoft.com/azure/cognitive-services/Speech). Les points de terminaison sont différents de ceux utilisés par le service Reconnaissance vocale Bing. Des points de terminaison régionaux sont disponibles, et vous devez utiliser une clé d’abonnement qui correspond au point de terminaison que vous utilisez.
 
 ## <a name="speech-to-text"></a>Reconnaissance vocale
 
@@ -30,13 +31,14 @@ Les points de terminaison pour l’API REST de reconnaissance vocale sont affich
 
 Cette API prend en charge uniquement les énoncés courts. Les requêtes peuvent contenir jusqu’à 10 secondes de contenu audio et durer 14 secondes maximum. L’API REST retourne uniquement les résultats finaux, et non les résultats partiels ou intermédiaires. Le service Speech a également une API de [transcription par lot](batch-transcription.md) capable de transcrire des séquences audio plus longues.
 
+
 ### <a name="query-parameters"></a>Paramètres de requête
 
-Les paramètres suivants peuvent être inclus dans la chaîne de requête de la requête REST.
+Les paramètres suivants peuvent être inclus dans la chaîne de la requête REST.
 
 |Nom du paramètre|Obligatoire ou facultatif|Signification|
 |-|-|-|
-|`language`|Obligatoire|Identificateur de la langue reconnaitre. Voir [Langues prises en charge](supported-languages.md#speech-to-text).|
+|`language`|Obligatoire|Identificateur de la langue reconnaitre. Voir [Langues prises en charge](language-support.md#speech-to-text).|
 |`format`|Facultatif<br>Par défaut : `simple`|Format de résultat, `simple` ou `detailed`. Les résultats simples incluent `RecognitionStatus`, `DisplayText`, `Offset` et la durée. Les résultats détaillés incluent plusieurs candidats avec des valeurs de niveau de confiance et quatre différentes représentations.|
 |`profanity`|Facultatif<br>Par défaut : `masked`|Comment traiter la vulgarité dans les résultats de la reconnaissance. Peut être `masked` (remplace les obscénités par des astérisques), `removed` (supprime toutes les obscénités) ou `raw` (inclut les obscénités).
 
@@ -49,19 +51,25 @@ Les champs suivants sont envoyés dans l’en-tête de requête HTTP.
 |`Ocp-Apim-Subscription-Key`|Votre clé d’abonnement du service Speech. Vous devez fournir cet en-tête ou `Authorization`.|
 |`Authorization`|Un jeton d’autorisation précédé du mot `Bearer`. Vous devez fournir cet en-tête ou `Ocp-Apim-Subscription-Key`. Voir [Authentification](#authentication).|
 |`Content-type`|Décrit le format et le codec des données audio. Actuellement, cette valeur doit être `audio/wav; codec=audio/pcm; samplerate=16000`.|
-|`Transfer-Encoding`|Facultatif. Si spécifié, doit être `chunked` pour permettre l’envoi des données audio en plusieurs petits blocs au lieu d’un seul fichier.|
+|`Transfer-Encoding`|facultatif. Si spécifié, doit être `chunked` pour permettre l’envoi des données audio en plusieurs petits blocs au lieu d’un seul fichier.|
 |`Expect`|Si vous utilisez le transfert en bloc, envoyez `Expect: 100-continue`. Le service Speech accuse réception de la requête initiale et attend des données supplémentaires.|
-|`Accept`|Facultatif. S’il est fourni, doit inclure `application/json`, car le service Speech fournit les résultats au format JSON. (Certains frameworks de requêtes web fournissent une valeur par défaut incompatible si vous n’en spécifiez pas une. Il est donc conseillé de toujours inclure `Accept`.)|
+|`Accept`|facultatif. S’il est fourni, doit inclure `application/json`, car le service Speech fournit les résultats au format JSON. (Certains frameworks de requêtes web fournissent une valeur par défaut incompatible si vous n’en spécifiez pas une. Il est donc conseillé de toujours inclure `Accept`.)|
 
 ### <a name="audio-format"></a>Format audio
 
-L’audio envoyé dans le corps de la requête HTTP `PUT`. Il doit être au format WAV 16 bits avec canal unique PCM (mono) à 16 KHz.
+L’audio envoyé dans le corps de la requête HTTP `POST`. Il doit être au format WAV 16 bits avec canal unique PCM (mono) à 16 KHz, dans les formats/encodages suivants.
+
+* Format WAV avec le codec PCM
+* Format Ogg avec le codec OPUS
+
+>[!NOTE]
+>Les formats ci-dessus sont pris en charge via l’API REST et WebSocket dans le service Speech. Pour l’instant, le [kit de développement logiciel (SDK) Speech](/index.yml) ne prend en charge que le format WAV avec le codec PCM.
 
 ### <a name="chunked-transfer"></a>Transfert en bloc
 
 Le transfert en bloc (`Transfer-Encoding: chunked`) peut aider à réduire la latence de reconnaissance, car il permet au service Speech de commencer le traitement du fichier audio pendant sa transmission. L’API REST ne fournit pas de résultats partiels ou intermédiaires. Cette option est destinée uniquement à améliorer la réactivité.
 
-Le code suivant montre comment envoyer des données audio en blocs. `request` est un objet HTTPWebRequest connecté au point de terminaison REST approprié. `audioFile` est le chemin vers un fichier audio sur disque.
+Le code suivant montre comment envoyer des données audio en blocs. Seul le premier segment doit contenir l’en-tête du fichier audio. `request` est un objet HTTPWebRequest connecté au point de terminaison REST approprié. `audioFile` est le chemin vers un fichier audio sur disque.
 
 ```csharp
 using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
@@ -137,7 +145,7 @@ Le champ `RecognitionStatus` peut contenir les valeurs suivantes.
 | `Error` | Le service de reconnaissance a rencontré une erreur interne et n’a pas pu continuer. Réessayez si possible. |
 
 > [!NOTE]
-> Si l’audio est composé uniquement de grossièretés et que le paramètre de requête `profanity` a la valeur `remove`, le service ne retourne pas de résultat de reconnaissance vocale. 
+> Si l’audio est composé uniquement de grossièretés et que le paramètre de requête `profanity` a la valeur `remove`, le service ne retourne pas de résultat de reconnaissance vocale.
 
 
 Le format `detailed` inclut les mêmes champs que le format `simple`, ainsi qu’un champ `NBest`. Le champ `NBest` est une liste d’interprétations alternatives du même discours, classées de la plus probable à la moins probable. La première entrée est identique au principal résultat de reconnaissance. Chaque entrée contient les champs suivants :
@@ -195,17 +203,14 @@ Voici les points de terminaison REST pour l’API Synthèse vocale du service Sp
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
-> [!NOTE]
-> Si vous avez créé une police de voix personnalisée, utilisez plutôt le point de terminaison personnalisé associé.
-
 Le service Speech prend en charge la sortie audio 24 KHz en plus de la sortie 16 Khz prise en charge par Reconnaissance vocale Bing. Quatre formats de sortie 24 KHz peuvent être utilisés dans l’en-tête HTTP `X-Microsoft-OutputFormat`, ainsi que deux voix 24 KHz, `Jessa24kRUS` et `Guy24kRUS`.
 
 Paramètres régionaux | Langage   | Sexe | Mappage du nom du service
 -------|------------|--------|------------
-fr-FR  | Français | Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, Jessa24kRUS) » 
+fr-FR  | Français | Féminin | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, Jessa24kRUS) »
 fr-FR  | Français | Masculin   | « Voix de synthèse vocale pour la reconnaissance vocale Microsoft Server (en-US, Guy24kRUS) »
 
-Vous trouverez une liste complète des voix disponibles dans [Langues prises en charge](supported-languages.md#text-to-speech).
+Vous trouverez une liste complète des voix disponibles dans [Langues prises en charge](language-support.md#text-to-speech).
 
 ### <a name="request-headers"></a>En-têtes de requête
 
@@ -230,9 +235,9 @@ Les formats de sortie audio disponibles (`X-Microsoft-OutputFormat`) incorporent
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
 > [!NOTE]
-> Si la voix que vous avez sélectionnée ne présente pas la même vitesse de transmission que le format de sortie spécifié, les données audio sont rééchantillonnées si nécessaire. Toutefois, es voix à 24 kHz ne prennent pas en charge les formats de sortie `audio-16khz-16kbps-mono-siren` et `riff-16khz-16kbps-mono-siren`. 
+> Si la voix que vous avez sélectionnée ne présente pas la même vitesse de transmission que le format de sortie spécifié, les données audio sont rééchantillonnées si nécessaire. Toutefois, es voix à 24 kHz ne prennent pas en charge les formats de sortie `audio-16khz-16kbps-mono-siren` et `riff-16khz-16kbps-mono-siren`.
 
-### <a name="request-body"></a>Corps de la requête
+### <a name="request-body"></a>Corps de la demande
 
 Le texte à convertir en parole est envoyé comme corps d’une requête HTTP `POST` en texte brut (ASCII ou UTF-8) ou au format SSML ([Speech Synthesis Markup Language](speech-synthesis-markup.md)) (UTF-8). Les requêtes en texte brut utilisent la langue et la voix par défaut du service. Envoyez les données au format SSML pour utiliser une voix différente.
 
@@ -249,7 +254,7 @@ Host: westus.tts.speech.microsoft.com
 Content-Length: 225
 Authorization: Bearer [Base64 access_token]
 
-<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female'
     name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
         Microsoft Speech Service Text-to-Speech API
 </voice></speak>
@@ -264,8 +269,9 @@ Code HTTP|Signification|Raison possible
 200|OK|La requête a réussi ; le corps de réponse est un fichier audio.
 400 |Demande incorrecte |Un paramètre obligatoire est manquant, vide ou présente une valeur Null. Il est également possible que la valeur transmise à un paramètre obligatoire ou facultatif ne soit pas valide. Ce problème est généralement dû à un en-tête trop long.
 401|Non autorisé |La demande n’est pas autorisée. Vérifiez que votre clé d’abonnement ou votre jeton est valide et dans la région appropriée.
-413|Entité de requête trop grande|L’entrée SSML comporte plus de 1 024 caractères.
-|502|Passerelle incorrecte    | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides.
+413|Entité de requête trop volumineuse|L’entrée SSML comporte plus de 1 024 caractères.
+429|Trop de demandes|Vous avez dépassé le quota ou le taux de requêtes autorisé pour votre abonnement.
+502|Passerelle incorrecte | Problème de réseau ou côté serveur. Cette erreur peut également signaler des en-têtes non valides.
 
 Si l’état HTTP est `200 OK`, le corps de la réponse contient un fichier audio au format demandé. Ce fichier peut être lu pendant son transfert ou son enregistrement dans un fichier ou une mémoire tampon en vue d’une lecture ultérieure ou autre utilisation.
 
@@ -283,7 +289,7 @@ Les sections suivantes montrent comment obtenir un jeton et comment l’utiliser
 
 ### <a name="get-a-token-http"></a>Obtenir un jeton : HTTP
 
-L’exemple suivant est un exemple de requête HTTP pour l’obtention d’un jeton. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service Speech. Si votre abonnement n’est pas dans la région USA Ouest, remplacez l’en-tête `Host` par le nom d’hôte de votre région.
+L’exemple suivant est un exemple de requête HTTP pour l’obtention d’un jeton. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Si votre abonnement n’est pas dans la région USA Ouest, remplacez l’en-tête `Host` par le nom d’hôte de votre région.
 
 ```
 POST /sts/v1.0/issueToken HTTP/1.1
@@ -297,7 +303,7 @@ Le corps de la réponse à cette requête est le jeton d’accès au format Java
 
 ### <a name="get-a-token-powershell"></a>Obtenir un jeton : PowerShell
 
-Le script Windows PowerShell ci-dessous illustre comment obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service Speech. Si votre abonnement n’est pas dans la région USA Ouest, modifiez le nom d’hôte de l’URI fournie en conséquence.
+Le script Windows PowerShell ci-dessous illustre comment obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Si votre abonnement n’est pas dans la région USA Ouest, modifiez le nom d’hôte de l’URI fournie en conséquence.
 
 ```Powershell
 $FetchTokenHeader = @{
@@ -316,16 +322,16 @@ $OAuthToken
 
 ### <a name="get-a-token-curl"></a>Obtenir un jeton : cURL
 
-cURL est un outil en ligne de commande disponible dans Linux (ainsi que dans le sous-système Windows pour Linux). La commande cURL ci-dessous illustre comment obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service Speech. Si votre abonnement n’est pas dans la région USA Ouest, modifiez le nom d’hôte de l’URI fournie en conséquence.
+cURL est un outil en ligne de commande disponible dans Linux (ainsi que dans le sous-système Windows pour Linux). La commande cURL ci-dessous illustre comment obtenir un jeton d’accès. Remplacez `YOUR_SUBSCRIPTION_KEY` par votre clé d’abonnement de service de reconnaissance vocale. Si votre abonnement n’est pas dans la région USA Ouest, modifiez le nom d’hôte de l’URI fournie en conséquence.
 
 > [!NOTE]
 > La commande est affichée sur plusieurs lignes pour plus de lisibilité, mais vous devez la taper sur une seule ligne à l’invite de l’interpréteur de commandes.
 
 ```
-curl -v -X POST 
- "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken" 
- -H "Content-type: application/x-www-form-urlencoded" 
- -H "Content-Length: 0" 
+curl -v -X POST
+ "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken"
+ -H "Content-type: application/x-www-form-urlencoded"
+ -H "Content-Length: 0"
  -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
 ```
 
@@ -405,7 +411,7 @@ Comme précédemment, assurez-vous que la valeur `FetchTokenUri` correspond à l
     */
 public class Authentication
 {
-    public static readonly string FetchTokenUri = 
+    public static readonly string FetchTokenUri =
         "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
     private string subscriptionKey;
     private string token;
@@ -480,4 +486,3 @@ public class Authentication
 - [Obtenir votre abonnement d’essai gratuit au service Speech](https://azure.microsoft.com/try/cognitive-services/)
 - [Personnaliser les modèles acoustiques](how-to-customize-acoustic-models.md)
 - [Personnaliser les modèles de langage](how-to-customize-language-model.md)
-

@@ -1,6 +1,6 @@
 ---
 title: Collecte des données Log Analytics avec un runbook dans Azure Automation | Microsoft Docs
-description: Didacticiel étape par étape expliquant comment créer un runbook dans Azure Automation pour collecter des données dans le référentiel OMS en vue de l’analyse par Log Analytics.
+description: Didacticiel étape par étape expliquant comment créer un runbook dans Azure Automation pour collecter des données dans le référentiel à des fins d’analyse par Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/27/2017
 ms.author: bwren
-ms.openlocfilehash: d3e8e876a6c01123d65c1e8df13328bdd5fad71f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: f1a106a4f99c09134b8784e98ca547db51ce0eae
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347724"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409507"
 ---
 # <a name="collect-data-in-log-analytics-with-an-azure-automation-runbook"></a>Collecter des données dans Log Analytics avec un runbook Azure Automation
 Vous pouvez collecter une quantité importante de données dans Log Analytics à partir de diverses sources, y compris des [sources de données](../log-analytics/log-analytics-data-sources.md) sur les agents et les [données recueillies à partir d’Azure](../log-analytics/log-analytics-azure-storage.md).  Il existe cependant des cas où vous devez recueillir des données qui ne sont pas accessibles via ces sources standard.  Dans ce cas, vous pouvez utiliser l’[API Collecte de données HTTP](../log-analytics/log-analytics-data-collector-api.md) pour écrire des données dans Log Analytics à partir de n’importe quel client API REST.  Une méthode courante pour effectuer cette collecte de données consiste à utiliser un runbook dans Azure Automation.   
@@ -56,7 +56,7 @@ PowerShell Gallery offre cependant une option rapide pour déployer un module di
 
 
 ## <a name="2-create-automation-variables"></a>2. Créer des variables Automation
-Les [variables Automation](..\automation\automation-variables.md) contiennent des valeurs qui peuvent être utilisées par tous les runbooks de votre compte Automation.  Elles rendent les runbooks plus souples en vous permettant de modifier ces valeurs sans modifier le runbook en lui-même. Chaque requête émanant de l’API du collecteur de données HTTP nécessite l’ID et la clé de l’espace de travail OMS. Les ressources de variables sont idéales pour stocker ces informations.  
+Les [variables Automation](..\automation\automation-variables.md) contiennent des valeurs qui peuvent être utilisées par tous les runbooks de votre compte Automation.  Elles rendent les runbooks plus souples en vous permettant de modifier ces valeurs sans modifier le runbook en lui-même. Chaque requête émanant de l’API du collecteur de données HTTP nécessite l’ID et la clé de l’espace de travail Log Analytics. Les ressources de variables sont idéales pour stocker ces informations.  
 
 ![variables](media/monitoring-runbook-datacollect/variables.png)
 
@@ -69,7 +69,7 @@ Les [variables Automation](..\automation\automation-variables.md) contiennent de
 | NOM | WorkspaceID | WorkspaceKey |
 | type | Chaîne | Chaîne |
 | Valeur | Collez l’ID de votre espace de travail Log Analytics. | Collez la clé principale ou secondaire de votre espace de travail Log Analytics. |
-| Chiffré | Non  | OUI |
+| Chiffré | Non  | Oui |
 
 
 

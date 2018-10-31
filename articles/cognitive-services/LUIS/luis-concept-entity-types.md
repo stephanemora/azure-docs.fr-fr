@@ -7,15 +7,15 @@ author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: article
-ms.date: 09/10/2018
+ms.topic: conceptual
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 3ed10ac428b7ce2e528ccf46e34c1d394523bdec
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47042446"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650109"
 ---
 # <a name="entities-in-luis"></a>Entités dans LUIS
 
@@ -61,6 +61,10 @@ Dans l’énoncé « Me réserver un ticket pour Paris », « Paris » est u
 ## <a name="assign-entities-in-none-intent"></a>Affecter des entités dans une intention None
 Toutes les intentions, notamment l’intention **None**, doivent avoir des entités étiquetées. Cela permet à LUIS de savoir où les entités se trouvent dans les énoncés et quels mots entourent les entités. 
 
+## <a name="entity-status-for-predictions"></a>État de l’entité pour les prédictions
+
+Consultez [Entity Status predictions](luis-how-to-add-example-utterances.md#entity-status-predictions) (prédictions de l’état de l’entité) pour plus d’informations. 
+
 ## <a name="types-of-entities"></a>Types d’entités
 LUIS offre de nombreux types d’entités : entités prédéfinies, entités personnalisées issues de l’apprentissage automatique et entités de liste.
 
@@ -93,7 +97,7 @@ LUIS offre de nombreux types d’entités : entités prédéfinies, entités pe
 Consultez les [limites](luis-boundaries.md#model-boundaries) pour comprendre le nombre de chaque type d’entité que vous pouvez ajouter à un modèle.
 
 ## <a name="entity-roles"></a>Rôles d’entité
-Les [rôles](luis-concept-roles.md) d’entité ne sont utilisés que dans les modèles. 
+Les [rôles](luis-concept-roles.md) d’entité s’appliquent aux entités personnalisées et prédéfinies, et sont utilisées dans les modèles uniquement. 
 
 ## <a name="composite-vs-hierarchical-entities"></a>Entités composites et hiérarchiques
 Les entités composites et les entités hiérarchiques ont des relations parent-enfant et sont issues de l’apprentissage automatique. L’apprentissage automatique permet à LUIS de comprendre les entités dans différents contextes (organisation des mots). Les entités composite sont plus flexibles, car elles acceptent différents types d’entités en tant qu’enfants. Les enfants d’une entité hiérarchique sont des entités simples. 

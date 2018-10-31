@@ -1,5 +1,5 @@
 ---
-title: 'Exemples PowerShell Azure : groupe identique redondant dans une zone | Microsoft Docs'
+title: 'Exemples PowerShell Azure : groupe identique redondant interzone | Microsoft Docs'
 description: Exemples Azure PowerShell
 services: virtual-machine-scale-sets
 documentationcenter: ''
@@ -23,7 +23,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 10/19/2018
 ms.locfileid: "49470752"
 ---
-# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Créer un groupe de machines virtuelles identiques redondant dans une zone à l’aide de PowerShell
+# <a name="create-a-zone-redundant-virtual-machine-scale-set-with-powershell"></a>Créer un groupe de machines virtuelles identiques redondant interzone à l’aide de PowerShell
 Ce script crée un groupe de machines virtuelles identiques exécutant Windows Server 2016 sur plusieurs zones de disponibilité. Une fois que vous avez exécuté le script, vous pouvez accéder à la machine virtuelle via RDP.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]

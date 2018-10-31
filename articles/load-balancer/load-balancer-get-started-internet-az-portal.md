@@ -1,6 +1,6 @@
 ---
-title: Créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant dans une zone à l’aide du portail Azure | Microsoft Docs
-description: Découvrez comment créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant dans une zone à l’aide du portail Azure.
+title: Créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant interzone à l’aide du portail Azure | Microsoft Docs
+description: Découvrez comment créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant interzone à l’aide du portail Azure.
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -22,9 +22,9 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 05/16/2018
 ms.locfileid: "34200256"
 ---
-#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant dans une zone à l’aide du portail Azure
+#  <a name="create-a-public-load-balancer-standard-with-zone-redundant-public-ip-address-frontend-using-azure-portal"></a>Créer une instance publique de Load Balancer Standard avec un frontend d’adresse IP publique redondant interzone à l’aide du portail Azure
 
-Cet article décrit les étapes de création d’une instance publique de [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) avec un frontend redondant dans une zone qui utilise une adresse IP publique Standard. Par défaut, une adresse IP de serveur frontal unique dans un équilibreur de charge standard est redondante dans une zone.
+Cet article décrit les étapes de création d’une instance publique de [Load Balancer Standard](https://aka.ms/azureloadbalancerstandard) avec un frontend redondant interzone qui utilise une adresse IP publique Standard. Par défaut, une adresse IP de serveur frontal unique dans un équilibreur de charge standard est redondante interzone.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -44,7 +44,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 5. Sous Référence SKU, sélectionnez **Standard**.
 6. Cliquez sur **Adresse IP publique**, puis sur **Créer**, puis, dans **Créer une adresse IP publique**, sous Nom, tapez **myPublicIPStandard**.
     >[!NOTE] 
-    > L’adresse IP publique créée à cette étape a la référence SKU Standard. Par défaut, elle est redondante dans une zone. 
+    > L’adresse IP publique créée à cette étape a la référence SKU Standard. Par défaut, elle est redondante interzone. 
 8. Sous **Emplacement**, sélectionnez **Est des États-Unis 2**, puis cliquez sur **OK**. L’équilibreur de charge commence ensuite le déploiement, qui peut prendre plusieurs minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes

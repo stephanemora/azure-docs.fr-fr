@@ -5,21 +5,23 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 10/15/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c26eee05a59a10036138f81086b3f6a9e0de6d5d
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 5da34e8e79c0df88cfad0b398aa8e1c22f158489
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737292"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49428876"
 ---
-# <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Gérer les droits d’accès aux données du Stockage Azure avec RBAC (préversion)
+# <a name="manage-access-rights-to-azure-blob-and-queue-data-with-rbac-preview"></a>Gérer les droits d’accès aux données d’objet blob et de file d’attente Azure avec RBAC (préversion)
 
 Azure Active Directory (Azure AD) autorise les droits d’accès aux ressources sécurisées via [RBAC (contrôle d’accès en fonction du rôle)](https://docs.microsoft.com/azure/role-based-access-control/overview). Le Stockage Azure définit un ensemble de rôles RBAC intégrés qui englobent les ensembles communs d’autorisations permettant d’accéder aux conteneurs ou aux files d’attente. Quand un rôle RBAC est attribué à une identité Azure AD, celle-ci est autorisée à accéder aux ressources correspondantes, en fonction de l’étendue spécifiée. L’accès peut être limité au niveau de l’abonnement, du groupe de ressources, du compte de stockage ou d’un conteneur ou d’une file d’attente individuelle. Vous pouvez attribuer des droits d’accès aux ressources de stockage Azure à l’aide du Portail Azure, des outils en ligne de commande Azure et des API de gestion Azure. 
 
 Une identité Azure AD peut correspondre à un utilisateur, un groupe ou un principal du service d’application, ou éventuellement à une identité managée pour ressources Azure. Un principal de sécurité peut correspondre à un utilisateur, un groupe ou un principal du service d’application. Une [identité managée pour ressources Azure](../../active-directory/managed-identities-azure-resources/overview.md) est une identité administrée automatiquement, qui permet de s’authentifier à partir d’applications s’exécutant dans Machines virtuelles Azure, des applications de fonction, des groupes de machines virtuelles identiques, etc. Pour une vue d’ensemble de l’identité dans Azure AD, consultez [Comprendre les solutions d’identité Azure](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="rbac-roles-for-blobs-and-queues"></a>Rôles RBAC pour objets blob et files d’attente
 

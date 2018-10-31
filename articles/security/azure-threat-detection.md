@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 9b688ca6faaa7e0d84dff0ae28e2a9b8b8279490
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 33a9cc0a7b3d18004e19d73a0d9b91bf33cdb055
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856876"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408827"
 ---
 # <a name="azure-advanced-threat-detection"></a>Détection avancée des menaces Azure
 
-Azure intègre une fonctionnalité de détection des menaces avancée à travers certains services, comme Azure Active Directory (Azure AD), Azure Operations Management Suite (OMS) et Azure Security Center. Cet ensemble de fonctionnalités et de services de sécurité fournit un moyen simple et rapide de comprendre ce qui se passe dans vos déploiements Azure.
+Azure intègre une fonctionnalité de détection des menaces avancée via certains services, comme Azure Active Directory (Azure AD), Azure Log Analytics et Azure Security Center. Cet ensemble de fonctionnalités et de services de sécurité fournit un moyen simple et rapide de comprendre ce qui se passe dans vos déploiements Azure.
 
 Azure propose un large choix d’options pour configurer et personnaliser la sécurité afin de satisfaire les besoins de vos déploiements d’applications. Cet article mentionne comment répondre à ces exigences.
 
@@ -75,21 +75,21 @@ PIM vous permet de :
 
 -   Recevoir des alertes sur l'accès à un rôle privilégié.
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+## <a name="azure-log-analytics"></a>Azure Log Analytics
 
-[Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et dans le cloud. La solution OMS étant implémentée sous la forme d’un service informatique, elle peut être opérationnelle rapidement, avec un investissement minimal dans des services d’infrastructure. Les nouvelles fonctionnalités de sécurité sont fournies automatiquement, ce qui vous permet d’économiser sur les coûts de mise à niveau et de maintenance.
+[Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est une solution de gestion informatique basée sur le cloud de Microsoft qui vous permet de gérer et de protéger votre infrastructure locale et cloud. La solution Log Analytics étant implémentée sous la forme d’un service informatique, elle peut être opérationnelle rapidement, avec un investissement minimal en services d’infrastructure. Les nouvelles fonctionnalités de sécurité sont fournies automatiquement, ce qui vous permet d’économiser sur les coûts de mise à niveau et de maintenance.
 
-En plus de fournir de précieux services de manière autonome, OMS peut intégrer des composants System Center tels que [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), afin d’étendre dans le cloud vos investissements existants en matière de gestion de la sécurité. System Center et OMS peuvent fonctionner simultanément pour fournir une expérience de gestion hybride.
+En plus de fournir de précieux services de manière autonome, Log Analytics peut s’intégrer à des composants System Center tels que [System Center Operations Manager](https://blogs.technet.microsoft.com/cbernier/2013/10/23/monitoring-windows-azure-with-system-center-operations-manager-2012-get-me-started/), afin d’étendre dans le cloud vos investissements existants en matière de gestion de la sécurité. System Center et Log Analytics peuvent fonctionner ensemble pour fournir une expérience de gestion hybride.
 
 ### <a name="holistic-security-and-compliance-posture"></a>Approche globale de la sécurité et de la conformité
 
-Le [tableau de bord de sécurité et d’audit d’OMS](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre une vue détaillée de la sécurité informatique de votre organisation. Elle fournit des requêtes de recherche intégrées pour détecter les problèmes importants qui requièrent votre attention. Le tableau de bord Sécurité et audit est l’écran d’accueil pour tout ce qui se rapporte à la sécurité dans OMS. Il fournit un aperçu global de l’état de sécurité de vos ordinateurs. Vous pouvez également voir tous les événements des dernières 24 heures, des 7 derniers jours ou de n’importe quel intervalle de temps personnalisé.
+Le [tableau de bord Log Analytics Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre une vue détaillée de la sécurité informatique de votre organisation. Elle fournit des requêtes de recherche intégrées pour détecter les problèmes importants qui requièrent votre attention. Le tableau de bord Security and Audit est l’écran d’accueil pour tout ce qui se rapporte à la sécurité dans Log Analytics. Il fournit un aperçu global de l’état de sécurité de vos ordinateurs. Vous pouvez également voir tous les événements des dernières 24 heures, des 7 derniers jours ou de n’importe quel intervalle de temps personnalisé.
 
-Les tableaux de bord d’OMS vous permettent de comprendre rapidement et facilement les conditions de sécurité globales de n’importe quel environnement, dans le contexte des opérations informatiques, notamment : évaluation des mises à jour logicielles, évaluation des logiciel anti-programmes malveillants et référentiels de configuration. Les données des journaux de sécurité sont facilement accessibles afin de rationaliser les processus d’audit de sécurité et de conformité.
+Log Analytics vous permet de comprendre rapidement et facilement les conditions de sécurité globales de n’importe quel environnement, dans le contexte des opérations informatiques, notamment : évaluation des mises à jour logicielles, évaluation des logiciels anti-programmes malveillants et référentiels de configuration. Les données des journaux de sécurité sont facilement accessibles afin de rationaliser les processus d’audit de sécurité et de conformité.
 
-![Tableau de bord de la solution de sécurité et d’audit d’OMS](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
+![Tableau de bord Log Analytics Security and Audit](./media/azure-threat-detection/azure-threat-detection-fig3.jpg)
 
-Le tableau de bord de la solution de sécurité et d’audit d’OMS est organisé en quatre catégories principales :
+Le tableau de bord Log Analytics Security and Audit est organisé en quatre catégories principales :
 
 -   **Security Domains**(Domaines de sécurité) : vous permet d’explorer plus en détail les enregistrements de sécurité au fil du temps, d’accéder à l’évaluation des programmes malveillants, l’évaluation des mises à jour, la sécurité du réseau, les informations d’identité et d’accès, de consulter les ordinateurs présentant des événements de sécurité, et d’accéder rapidement au tableau de bord du Centre de sécurité Azure.
 
@@ -102,25 +102,25 @@ Le tableau de bord de la solution de sécurité et d’audit d’OMS est organis
 -   **Requêtes de sécurité courantes** : répertorie les requêtes de sécurité les plus courantes que vous pouvez utiliser pour surveiller votre environnement. Lorsque vous sélectionnez une requête, le volet Recherche s’ouvre et affiche les résultats de cette requête.
 
 ### <a name="insight-and-analytics"></a>Avis et analyses
-Au cœur de [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) se trouve le référentiel OMS, qui est hébergé par Azure.
+Au cœur de [Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) se trouve le référentiel qui est hébergé par Azure.
 
 ![Diagramme Insight et Analytics](./media/azure-threat-detection/azure-threat-detection-fig4.png)
 
 Vous collectez des données dans le référentiel à partir de sources connectées en configurant des sources de données et en ajoutant des solutions à votre abonnement.
 
-![Tableau de bord OMS ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
+![Tableau de bord Log Analytics ](./media/azure-threat-detection/azure-threat-detection-fig5.png)
 
 Les sources de données et les solutions créent chacune différents types d'enregistrements avec leur propre jeu de propriétés, mais vous pouvez toujours les analyser ensemble dans des requêtes vers le référentiel. Vous pouvez utiliser les mêmes outils et méthodes pour utiliser diverses données collectées par différentes sources.
 
 
-La plupart de vos interactions avec Log Analytics s’effectuent via le portail OMS qui s’exécute dans un navigateur et vous fournit un accès aux paramètres de configuration et à plusieurs outils pour analyser et agir sur les données collectées. À partir du portail, vous pouvez utiliser :
+La plupart de vos interactions avec Log Analytics s’effectuent via le portail Azure qui s’exécute dans un navigateur et vous fournit un accès aux paramètres de configuration et à plusieurs outils pour analyser et agir sur les données collectées. À partir du portail, vous pouvez utiliser :
 * [Recherche dans les journaux](https://docs.microsoft.com/azure/log-analytics/log-analytics-log-searches) où vous avez élaboré des requêtes pour analyser des données collectées.
 * [Tableaux de bord](https://docs.microsoft.com/azure/log-analytics/log-analytics-dashboards), que vous pouvez personnaliser avec des vues graphiques de vos recherches les plus précieuses.
 * [Solutions](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions), qui fournissent des outils d’analyse et des fonctionnalités supplémentaires.
 
 ![Outils d’analyse](./media/azure-threat-detection/azure-threat-detection-fig6.png)
 
-Les solutions permettent d’ajouter des fonctionnalités à Log Analytics. Elles s'exécutent principalement dans le cloud et fournissent une analyse des données collectées dans le référentiel OMS. Ces solutions peuvent également définir de nouveaux types d'enregistrements à collecter qui peuvent être analysés avec des recherches de journaux ou via une interface utilisateur supplémentaire fournie par la solution dans le tableau de bord OMS.
+Les solutions permettent d’ajouter des fonctionnalités à Log Analytics. Elles s’exécutent principalement dans le cloud et fournissent une analyse des données collectées dans le référentiel Log Analytics. Ces solutions peuvent également définir de nouveaux types d’enregistrements à collecter qui peuvent être analysés avec des recherches de journaux ou via une interface utilisateur supplémentaire fournie par la solution dans le tableau de bord Log Analytics.
 
 Le tableau de bord Sécurité et Audit est un exemple de ces types de solutions.
 

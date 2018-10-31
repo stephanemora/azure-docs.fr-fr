@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: a5792998654ed1d334e514591da3bef9805a5e79
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 712c729a214cdab66961fb399c9d797a758fcf7b
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163356"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49409677"
 ---
 # <a name="monitor-sql-data-sync-with-log-analytics"></a>Surveiller SQL Data Sync à l’aide de Log Analytics 
 
@@ -97,7 +97,7 @@ Pour plus d’informations sur la création d’un runbook, consultez [Mon premi
 
     2.  Informations sur les groupes de synchronisation.
 
-    3.  Informations OMS. Recherchez ces informations sur le portail OMS | Paramètres | Sources connectées. Pour plus d’informations sur l’envoi de données à Log Analytics, consultez [Transmettre des données à Log Analytics avec l’API Collecteur de données HTTP (préversion)](../log-analytics/log-analytics-data-collector-api.md).
+    3.  Informations Log Analytics. Recherchez ces informations dans le Portail Azure | Paramètres | Sources connectées. Pour plus d’informations sur l’envoi de données à Log Analytics, consultez [Transmettre des données à Log Analytics avec l’API Collecteur de données HTTP (préversion publique)](../log-analytics/log-analytics-data-collector-api.md).
 
 11. Exécutez le runbook dans le volet Test. Vérifiez que le test a réussi.
 
@@ -117,7 +117,7 @@ Pour planifier le runbook
 
 4.  Sélectionnez **Créer une planification**.
 
-5.  Définissez **Récurrence** sur Récurrent et définissez l’intervalle souhaité. Utilisez le même intervalle ici, dans le script et dans OMS.
+5.  Définissez **Récurrence** sur Récurrent et définissez l’intervalle souhaité. Utilisez le même intervalle ici, dans le script et dans Log Analytics.
 
 6.  Sélectionnez **Créer**.
 
@@ -129,7 +129,7 @@ Pour surveiller si votre automation s’exécute comme prévu, sous **Vue d’en
 
 Pour créer une alerte qui utilise Log Analytics, effectuez les étapes suivantes. Comme prérequis, vous devez lier Log Analytics à un espace de travail Log Analytics.
 
-1.  Dans le portail OMS, sélectionnez **Recherche dans les journaux**.
+1.  Dans le Portail Azure, sélectionnez **Recherche dans les journaux**.
 
 2.  Créez une requête pour sélectionner les erreurs et avertissements par groupe de synchronisation dans l’intervalle que vous avez sélectionné. Par exemple : 
 
@@ -147,9 +147,9 @@ Pour créer une alerte qui utilise Log Analytics, effectuez les étapes suivante
 
 6.  Cliquez sur **Enregistrer**. Les destinataires spécifiés reçoivent maintenant des notifications par e-mail quand des erreurs se produisent.
 
-## <a name="create-an-oms-view-for-monitoring"></a>Créer une vue OMS pour la surveillance
+## <a name="create-a-log-analytics-view-for-monitoring"></a>Créer une vue Log Analytics pour la supervision
 
-Cette étape crée une vue OMS pour surveiller visuellement tous les groupes de synchronisation spécifiés. La vue comprend plusieurs composants :
+Cette étape crée une vue Log Analytics pour surveiller visuellement tous les groupes de synchronisation spécifiés. La vue comprend plusieurs composants :
 
 -   Une vignette de vue d’ensemble, qui montre combien d’erreurs, de succès et d’avertissements ont tous les groupes de synchronisation.
 
@@ -157,9 +157,9 @@ Cette étape crée une vue OMS pour surveiller visuellement tous les groupes de 
 
 -   Une vignette pour chaque groupe de synchronisation, qui montre le nombre d’erreurs, de succès et d’avertissements et les messages d’erreur récents.
 
-Pour configurer la vue OMS, effectuez les étapes suivantes :
+Pour configurer la vue Log Analytics, procédez comme suit :
 
-1.  Dans la page d’accueil OMS, sélectionnez le signe plus à gauche pour ouvrir le **Concepteur de vue**.
+1.  Sur la page d’accueil Log Analytics, sélectionnez le signe plus à gauche pour ouvrir le **Concepteur de vue**.
 
 2.  Sélectionnez **Importer** dans la barre supérieure du Concepteur de vue. Sélectionnez ensuite l’exemple de fichier « DataSyncLogOMSView ».
 

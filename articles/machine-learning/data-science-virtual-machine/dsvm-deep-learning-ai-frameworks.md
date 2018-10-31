@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 891059a440189112c834f3402725781a6b4a3960
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 234e9233e69877c9afe79a5a053a4310d013a9ab
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952822"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49646108"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Frameworks d’apprentissage profond et d’intelligence artificielle
 La machine virtuelle [DSVM](http://aka.ms/dsvm) (Data Science Virtual Machine) et la machine virtuelle [DLVM](http://aka.ms/dsvm/deeplearning) (Deep Learning Virtual Machine) prennent en charge plusieurs frameworks d’apprentissage profond pour créer des applications d’intelligence artificielle (IA) avec des fonctionnalités cognitives et d’analytique prédictive comme la compréhension d’image et de langue. 
@@ -81,7 +81,7 @@ Voici les détails de tous les frameworks d’apprentissage profond disponibles 
 | Qu’est-ce que c’est ?   | Framework d’apprentissage profond      |
 | Éditions DSVM prises en charge      | Ubuntu     |
 | Comment est-il configuré / installé sur la machine virtuelle DSVM ?  | Caffe est installé dans `/opt/caffe`.    |
-| Comment basculer vers Python 2.7 ? | Exécutez `source activate root`. |
+| Comment basculer vers Python 2.7 ? | Exécutez `source activate root` |
 | Liens vers des exemples      | Des exemples sont inclus dans `/opt/caffe/examples`.      |
 | Outils connexes sur la machine virtuelle DSVM      | Caffe2      |
 ### <a name="how-to-use--run-it"></a>Comment l’utiliser/l’exécuter ?  
@@ -174,7 +174,7 @@ Connectez-vous à la machine virtuelle avec X2Go. Sur un terminal, démarrez le 
 
     sudo systemctl start digits
 
-Le démarrage du service prend environ une minute. Démarrez un navigateur web et accédez à `http://localhost:5000`.
+Le démarrage du service prend environ une minute. Démarrez un navigateur web et accédez à `http://localhost:5000`. Notez que DIGITS ne fournit pas de connexion sécurisée et ne doit pas être exposé en dehors de la machine virtuelle.
 
 
 

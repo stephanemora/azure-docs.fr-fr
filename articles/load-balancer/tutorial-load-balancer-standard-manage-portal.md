@@ -54,7 +54,7 @@ Dans cette section, vous créez un équilibreur de charge public qui équilibre 
     | NOM                   | *myLoadBalancer*                                   |
     | type          | Public                                        |
     | SKU           | standard                          |
-    | Adresse IP publique | Sélectionnez **Créer un nouveau**  et tapez *myPublicIP* dans la zone de texte. La référence SKU standard pour l’adresse IP publique est sélectionnée par défaut. Pour **Zone de disponibilité**, sélectionnez **Redondant dans une zone**. |
+    | Adresse IP publique | Sélectionnez **Créer un nouveau**  et tapez *myPublicIP* dans la zone de texte. La référence SKU standard pour l’adresse IP publique est sélectionnée par défaut. Pour **Zone de disponibilité**, sélectionnez **Redondant interzone**. |
     | Abonnement               | Sélectionnez votre abonnement.    |
     |Groupe de ressources | Sélectionnez **Créer un nouveau**, puis tapez *myResourceGroupSLB*.    |
     | Lieu           | Sélectionnez **Europe Ouest**.                          |

@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: b2916e5c414562c55c35c9c5e7ab378963e004be
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 42e1704df315c754b2b506a0470d128b7666c280
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248065"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645795"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics-preview"></a>Comment utiliser une reconnaissance d’entité nommée dans Analyse de texte (préversion)
 
@@ -26,14 +26,14 @@ L’[API Reconnaissance d’entité](https://westus.dev.cognitive.microsoft.com/
 Le point de terminaison `entities` d’Analyse de texte prend en charge la reconnaissance d’entités nommées (NER) et la liaison d’entités.
 
 ### <a name="entity-linking"></a>Liaison d’entités
-La liaison d'entités est la possibilité d’identifier une entité présente dans un texte et de lever l’ambiguïté sur son identité (par exemple, en déterminant si « Mars » fait référence à la planète ou au dieu romain de la guerre). Ce processus nécessite la présence d’une base de connaissances à laquelle les entités reconnues sont liées. Wikipédia est utilisé en tant que base de connaissances pour le point de terminaison `entities` d’Analyse de texte.
+La liaison d’entités est la possibilité d’identifier une entité présente dans un texte et de lever l’ambiguïté sur son identité (par exemple, en déterminant si « Mars » fait référence à la planète ou au dieu romain de la guerre). Ce processus nécessite la présence d’une base de connaissances à laquelle les entités reconnues sont liées. Wikipédia est utilisé en tant que base de connaissances pour le point de terminaison `entities` d’Analyse de texte.
 
-Dans la préversion d’Analyse de texte [version 2.1](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), une seule liaison d’entités est disponible.
+Dans Analyse de texte [version 2.0](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634), une seule liaison d’entités est disponible.
 
 ### <a name="named-entity-recognition-ner"></a>Reconnaissance d’entité nommée (NER)
 La reconnaissance d’entité nommée (NER) est la capacité d’identifier différentes entités dans du texte et de les classer en classes prédéfinies. Les classes d’entités prises en charge sont répertoriées ci-dessous.
 
-Dans la préversion d’Analyse de texte version 2.1 (`https://[region].api.cognitive.microsoft.com/text/analytics/v2.1-preview/entities`), la liaison d’entités et la reconnaissance d’entité nommée (NER) sont disponibles.
+Dans la préversion d’Analyse de texte [version 2.1](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634), la liaison d’entités et la reconnaissance d’entité nommée (NER) sont disponibles.
 
 ### <a name="language-support"></a>Support multilingue
 
@@ -50,16 +50,16 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 | Quantité      | Pourcentage    | « 50 % », « cinquante pour cent »| 
 | Quantité      | Ordinal       | « 2nd », « second »     | 
 | Quantité      | NumberRange   | « 4 à 8 »     | 
-| Quantité      | Âge           | « 90 jours », « 30 ans »    | 
+| Quantité      | Age           | « 90 jours », « 30 ans »    | 
 | Quantité      | Devise      | « 10,99 $ »     | 
 | Quantité      | Dimension     | « 10 miles », « 40 cm »     | 
 | Quantité      | Température   | « 32 degrés »    |
 | Datetime      | N/A\*         | « 6 h 30 le 4 février 2012 »      | 
 | Datetime      | Date          | « 2 mai 2017 », « 02/05/2017 »   | 
-| Date Heure     | Heure          | « 8 h », « 8:00 »  | 
+| Date Heure     | Temps          | « 8 h », « 8:00 »  | 
 | Datetime      | DateRange     | « Du 2 au 5 mai »    | 
 | Datetime      | TimeRange     | « De 18 à 19 h »     | 
-| Datetime      | Durée      | « 1 minute et 45 secondes »   | 
+| Datetime      | Duration      | « 1 minute et 45 secondes »   | 
 | Datetime      | Définir           | « Chaque mardi »     | 
 | Datetime      | TimeZone      |    | 
 | URL           | N/A\*         | "http://www.bing.com"    |
@@ -72,7 +72,7 @@ L’utilisation de la liaison d'entités dans différentes langues requiert l’
 
 Vous devez disposer de documents JSON dans le format : id, texte, langue
 
-Pour les langues actuellement prises en charge, consultez [cette liste](../text-analytics-supported-languages.md).
+Pour connaître les langues actuellement prises en charge, consultez [cette liste](../text-analytics-supported-languages.md).
 
 La taille des documents doit être inférieure à 5 000 caractères par document et vous pouvez avoir jusqu'à 1 000 éléments (ID) par collection. La collection est soumise dans le corps de la demande. L’exemple suivant illustre le contenu qui peut être soumis à l’extrémité de la liaison d'entités.
 

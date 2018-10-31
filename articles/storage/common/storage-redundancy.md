@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: c5cbeed7f689a7ae159d753963c35281b051f632
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 618e1f5249f2e05c26e91231b4283d82546a880b
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49114190"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49954485"
 ---
 # <a name="azure-storage-replication"></a>Réplication Azure Storage
 
@@ -37,8 +37,8 @@ Le tableau suivant fournit une brève vue d’ensemble de l’étendue de la dur
 | Indisponibilité des nœuds dans un centre de données                                                                 | OUI                             | OUI                              | OUI                                  | OUI                                  |
 | Indisponibilité d’un centre de données complet (zonal ou non)                                           | Non                               | OUI                              | OUI                                  | OUI                                  |
 | Panne à l’échelle d’une région                                                                                     | Non                               | Non                                | OUI                                  | OUI                                  |
-| Accès en lecture aux données (dans une région distante, géorépliquée) en cas d’indisponibilité à l’échelle de la région | Non                               | Non                                | Non                                    | OUI                                  |
-| Conçu pour fournir une certaine durabilité des objets sur une année donnée                                          | Au moins 99,999999999 % (11 chiffres 9) | Au moins 99,9999999999 % (12 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) |
+| Accès en lecture aux données (dans une région distante, géorépliquée) en cas d’indisponibilité à l’échelle de la région | Non                               | Non                                | Non                                    | Oui                                  |
+| Conçu pour assurer une durabilité des objets \_\_ sur une année donnée                                          | Au moins 99,999999999 % (11 chiffres 9) | Au moins 99,9999999999 % (12 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) |
 | Types de compte de stockage pris en charge                                                                   | GPv2, GPv1, Blob                | GPv2, GPv1 (par le biais de PowerShell, d’Azure CLI ou de l’API du fournisseur de ressources)                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | Contrat SLA de disponibilité pour les requêtes de lecture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,99 % (99,9 % pour le niveau d’accès froid) |
 | Contrat SLA de disponibilité pour les requêtes d’écriture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) |

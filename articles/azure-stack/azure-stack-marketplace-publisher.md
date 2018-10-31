@@ -12,15 +12,15 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 9/26/2018
+ms.date: 10/24/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: 518384776f777c3ea7cbd636dd2a48d919952f28
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fabc72e6dc31bb7f244cda9634af3b2556ba23a9
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409114"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023791"
 ---
 #  <a name="add-marketplace-items-using-publishing-tool"></a>Ajouter des éléments de Place de Marché à l’aide de l’outil de publication
 
@@ -28,7 +28,7 @@ L’ajout de votre contenu à la [Place de Marché Azure Stack](azure-stack-mark
 
 ## <a name="prerequisites"></a>Prérequis
 
- - Vous devez exécuter la boîte à outils sur l’hôte Azure Stack, ou avoir une connectivité [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) à partir de la machine sur laquelle vous exécutez l’outil.
+ - Vous devez exécuter la boîte à outils sur l’hôte Azure Stack, ou avoir une connectivité [VPN](.\asdk\asdk-connect.md#connect-to-azure-stack-with-vpn) à l’hôte ASDK à partir de la machine sur laquelle vous exécutez l’outil.
 
  - Téléchargez les [modèles de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates/archive/master.zip) et effectuez leur extraction.
 

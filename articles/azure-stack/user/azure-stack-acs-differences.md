@@ -36,7 +36,7 @@ Cet article récapitule les différences connues entre le stockage Azure Stack e
 |Stockage Fichier|Partages de fichiers SMB sur le cloud pris en charge|Pas encore pris en charge
 |Chiffrement du service de stockage Azure pour les données au repos|Chiffrement AES 256 bits|Chiffrement AES 128 bits BitLocker
 |Type de compte de stockage|Comptes de stockage à usage général et comptes de stockage d’objets blob Azure|À usage général uniquement.
-|Options de réplication|Stockage localement redondant, stockage géoredondant, stockage géoredondant avec accès en lecture et stockage redondant dans une zone|Stockage localement redondant.
+|Options de réplication|Stockage localement redondant, stockage géoredondant, stockage géoredondant avec accès en lecture et stockage redondant interzone|Stockage localement redondant.
 |Stockage Premium|Entièrement pris en charge|Peut être approvisionné, mais sans limite ni garantie de performances.
 |Disques gérés|Premium et standard pris en charge|Pris en charge lorsque vous utilisez la version 1808 ou ultérieure.
 |Nom de l’objet blob|1 024 caractères (2 048 octets)|880 caractères (1 760 octets)

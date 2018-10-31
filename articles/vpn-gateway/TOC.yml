@@ -33,7 +33,7 @@ items:
     href: point-to-site-about.md
   - name: À propos du routage VPN point à site
     href: vpn-gateway-about-point-to-site-routing.md
-  - name: À propos des passerelles redondantes pour les Zones de disponibilité
+  - name: À propos des passerelles redondantes interzone pour les Zones de disponibilité
     href: about-zone-redundant-vnet-gateways.md
   - name: Interopérabilité de connectivité du serveur principal
     items:
@@ -129,7 +129,7 @@ items:
     items:
     - name: Azure PowerShell
       href: vpn-gateway-activeactive-rm-powershell.md
-  - name: Créer une passerelle de réseau virtuel redondante dans une zone dans les zones de disponibilité Azure
+  - name: Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure
     href: create-zone-redundant-vnet-gateway.md
   - name: Routage, BGP et homologation de réseau virtuel
     items:

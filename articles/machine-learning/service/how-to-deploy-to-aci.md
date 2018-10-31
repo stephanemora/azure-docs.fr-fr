@@ -9,12 +9,12 @@ ms.author: raymondl
 author: raymondlaghaeian
 ms.reviewer: sgilley
 ms.date: 09/24/2018
-ms.openlocfilehash: e796feaf8ef25eaa91b7db810a11a67da13e9df1
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 8a736516a598eee051b416834d2b737211e66b96
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237175"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429455"
 ---
 # <a name="deploy-web-services-to-azure-container-instances"></a>Déployer des services web sur Azure Container Instances 
 
@@ -33,7 +33,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un espace de travail de service Azure Machine Learning et le SDK Azure Machine Learning pour Python installé. Découvrez comment obtenir ces prérequis dans le guide de démarrage rapide [Bien démarrer avec Azure Machine Learning](quickstart-get-started.md).
+- Un espace de travail du service Azure Machine Learning et le kit SDK Azure Machine Learning pour Python installé. Découvrez comment obtenir ces prérequis dans le guide de démarrage rapide [Bien démarrer avec Azure Machine Learning](quickstart-get-started.md).
 
 - L’objet d’espace de travail de service Microsoft Azure Machine Learning
 
@@ -82,10 +82,10 @@ aciconfig = AciWebservice.deploy_configuration(cpu_cores = 1,
 
 > Ignorez ce prérequis si vous [déployez à partir d’un fichier de modèle](#deploy-from-model-file) (`Webservice.deploy()`).
 
-Inscrivez un modèle pour utiliser [`Webservice.deploy_from_model`](#deploy-from-registered-model) ou [`Webservice.deploy_from_image`](#deploy-from-image). Si vous avez déjà un modèle inscrit, récupérez-le maintenant.
+Inscrivez un modèle pour utiliser [Webservice.deploy_from_model](#deploy-from-registered-model) ou [Webservice.deploy_from_image](#deploy-from-image). Si vous avez déjà un modèle inscrit, récupérez-le maintenant.
 
 ### <a name="retrieve-a-registered-model"></a>Récupérer un modèle inscrit
-Si vous utilisez Azure Machine Learning pour entraîner votre modèle, il se peut qu’il soit déjà inscrit dans votre espace de travail.  Par exemple, la dernière étape du tutoriel [Entraîner un modèle](tutorial-train-models-with-aml.md) a inscrit le modèle.  Vous récupérez ensuite le modèle inscrit à déployer.
+Si vous utilisez Azure Machine Learning pour entraîner votre modèle, il se peut qu’il soit déjà inscrit dans votre espace de travail.  Par exemple, la dernière étape du [tutoriel Entraîner un modèle](tutorial-train-models-with-aml.md) a inscrit le modèle.  Vous récupérez ensuite le modèle inscrit à déployer.
 
 ```python
 from azureml.core.model import Model
@@ -109,7 +109,7 @@ model = Model.register(model_path = "sklearn_mnist_model.pkl",
                         workspace = ws)
 ```
 
-
+<a name='deploy-from-model-file'/>
 ## <a name="option-1-deploy-from-model-file"></a>Option 1 : Déployer à partir d’un fichier de modèle
 
 L’option de déploiement à partir d’un fichier de modèle nécessite le moins de code, mais elle offre également un moindre contrôle sur le nommage des composants. Cette option commence avec un fichier de modèle, et l’inscrit dans l’espace de travail pour vous.  Toutefois, vous ne pouvez pas nommer le modèle, ni y associer des balises ou une description.  
@@ -148,6 +148,7 @@ Cette option utilise la méthode du SDK, Webservice.deploy().
 
 1. Vous pouvez à présent [tester le service web](#test-web-service).
 
+<a name='deploy-from-registered-model'/>
 ## <a name="option-2-deploy-from-registered-model"></a>Option 2 : Déployer à partir d’un modèle inscrit
 
 L’option de déploiement d’un fichier de modèle inscrit nécessite quelques lignes de code supplémentaires et offre un certain contrôle sur le nommage des sorties. Cette option constitue un moyen efficace de déployer un modèle inscrit dont vous disposez déjà.  Toutefois, vous ne pouvez pas nommer l’image Docker.  
@@ -173,6 +174,7 @@ Cette option utilise la méthode du SDK, Webservice.deploy_from_model().
 
 1. Vous pouvez à présent [tester le service web](#test-web-service).
 
+<a name='deploy-from-image'/>
 ## <a name="option-3-deploy-from-image"></a>Option 3 : Déployer à partir d’une image
 
 Déployez un modèle inscrit (`model`) à l’aide de `Webservice.deploy_from_image()`. Cette méthode vous permet de créer l’image Docker séparément, puis de déployer à partir de cette image.
@@ -215,6 +217,7 @@ Cette méthode offre le plus de contrôle sur la création et le nommage des com
 
 Vous pouvez maintenant tester le service web.
 
+<a name='test-web-service'/>
 ## <a name="test-the-web-service"></a>Test du service web
 
 Le service web est le même quelle que soit la méthode utilisée.  Pour obtenir des prédictions, utilisez la méthode `run` du service.  

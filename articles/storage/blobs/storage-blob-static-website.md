@@ -1,51 +1,77 @@
 ---
-title: Hébergement de sites web statiques dans le stockage Azure (préversion) | Microsoft Docs
-description: Le stockage Azure propose désormais un hébergement de sites web statiques (préversion) en fournissant une solution économique et scalable pour l’hébergement d’applications web modernes.
+title: Hébergement de sites web statiques dans le service Stockage Azure
+description: L’hébergement de sites web statiques dans Stockage Azure constitue une solution évolutive économique pour l’hébergement d’applications web modernes.
 services: storage
-author: MichaelHauss
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 08/17/18
-ms.author: mihauss
+ms.date: 10/19/18
+ms.author: tamram
 ms.component: blobs
-ms.openlocfilehash: 65a1cd85baf18ac1f0d193e7e6d6c3139919fb59
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: ddc85cb7c9bd4488295b22e687d199a73d23922c
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617395"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955624"
 ---
-# <a name="static-website-hosting-in-azure-storage-preview"></a>Hébergement de sites web statiques dans le stockage Azure (préversion)
-Le stockage Azure propose désormais un hébergement de sites web statiques (préversion), ce qui vous permet de déployer des applications web modernes économiques et scalables sur Azure. Sur un site web statique, les pages web contiennent du contenu statique et JavaScript ou un autre code côté client. En revanche, les sites web dynamiques dépendent du code côté serveur et peuvent être hébergés avec [Azure Web Apps](/azure/app-service/app-service-web-overview).
+# <a name="static-website-hosting-in-azure-storage"></a>Hébergement de sites web statiques dans le service Stockage Azure
+Les comptes GPv2 du service Stockage Azure vous permettent de distribuer du contenu statique (fichiers HTML, CSS, JavaScript et image) directement à partir d’un conteneur de stockage nommé *$web*. La fonctionnalité d’hébergement dans Stockage Azure vous permet d’utiliser des architectures serverless, notamment [Azure Functions](/azure/azure-functions/functions-overview) et d’autres services PaaS.
 
-Comment les déploiements évoluent vers des modèles économiques et élastiques, la possibilité de fournir du contenu web sans avoir à gérer de serveur est essentielle. L’introduction d’un hébergement de sites web statiques dans le stockage Azure rend tout cela possible, en activant de puissantes fonctionnalités de backend avec des architectures sans serveur qui tirent parti [d’Azure Functions](/azure/azure-functions/functions-overview) et d’autres services PaaS.
+Contrairement aux sites web statiques, les sites dynamiques qui dépendent du code côté serveur sont hébergés de manière plus efficace à l’aide [d’Azure Web Apps](/azure/app-service/app-service-web-overview).
 
 ## <a name="how-does-it-work"></a>Comment cela fonctionne-t-il ?
-Quand vous activez des sites web statiques sur votre compte de stockage, un point de terminaison de service web est créé sous la forme `<account-name>.<zone-name>.web.core.windows.net`.
+Lorsque vous activez l’hébergement de sites web statiques sur votre compte de stockage, vous sélectionnez le nom de votre fichier par défaut, et si vous le souhaitez, vous fournissez un chemin d’accès à une page 404 personnalisée. Lorsque cette fonctionnalité est activée, un conteneur nommé *$web* est créé s’il n’existe pas déjà. 
 
-Le point de terminaison de service web autorise toujours un accès en lecture anonyme, retourne des pages HTML mises en forme en réponse aux erreurs de service et autorise uniquement les opérations de lecture d’objet. Le point de terminaison de service web retourne le document d’index dans le répertoire demandé pour la racine et tous les sous-répertoires. Quand le service de stockage retourne une erreur 404, le point de terminaison web retourne un document d’erreur personnalisé si vous l’avez configuré.
+Les fichiers présents dans le conteneur *$web* sont :
 
-Le contenu de votre site web statique est hébergé dans un conteneur spécial nommé $web. Dans le cadre du processus d’activation, $web est créé pour vous s’il n’existe pas déjà. Le contenu de $web est accessible à la racine du compte à l’aide du point de terminaison web. Par exemple `https://contoso.z4.web.core.windows.net/` retourne le document d’index que vous avez configuré pour votre site web si un document portant ce nom existe dans le répertoire racine de $web.
+- traités par le biais de requêtes d’accès anonyme ;
+- uniquement disponibles par l’intermédiaire d’opérations de lecture d’objet ;
+- respecte la casse
+- accessibles au web public suivant ce modèle : 
+    - `https://<ACCOUNT_NAME>.<ZONE_NAME>.web.core.windows.net/<FILE_NAME>`
+- disponibles par le biais d’un point de terminaison de stockage Blob suivant ce modèle : 
+    - `https://<ACCOUNT_NAME>.blob.core.windows.net/$web/<FILE_NAME>`
 
-Lors du chargement de contenu sur votre site web, utilisez le point de terminaison de stockage Blob. Pour charger un objet blob nommé image.jpg qui est accessible à la racine du compte, utilisez l’URL `https://contoso.blob.core.windows.net/$web/image.jpg`. L’image chargée peut être affichée dans un navigateur web au point de terminaison web correspondant `https://contoso.z4.web.core.windows.net/image.jpg`.
+Vous utilisez le point de terminaison de stockage Blob pour charger les fichiers. Par exemple, le fichier chargé à l’emplacement suivant :
+
+```bash
+https://contoso.blob.core.windows.net/$web/image.png
+```
+
+est accessible dans le navigateur à un emplacement tel que celui-ci :
+
+```bash
+https://contoso.z4.web.core.windows.net/image.png
+```
+
+Lorsqu’un nom de fichier n’est pas fourni, le nom de fichier par défaut sélectionné est utilisé à la racine et dans tous les sous-répertoires. Si le serveur renvoie une erreur 404 et que vous ne fournissez aucun chemin d’accès de document d’erreur, une page 404 par défaut est renvoyée à l’utilisateur.
+
+## <a name="cdn-and-ssl-support"></a>Prise en charge du service CDN (réseau de distribution de contenu) et du protocole SSL
+
+Pour faire en sorte que vos fichiers de site web statique soient accessibles sur HTTPS, consultez l’article [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md). Dans le cadre de ce processus, vous devez *pointer votre CDN sur le point de terminaison web* plutôt que sur le point de terminaison d’objet blob. Vous devrez peut-être patienter quelques minutes avant que votre contenu soit visible, car la configuration du CDN n’est pas exécutée immédiatement.
 
 
 ## <a name="custom-domain-names"></a>Noms de domaine personnalisés
-Vous pouvez utiliser un domaine personnalisé pour héberger votre contenu web. Pour ce faire, suivez les conseils dans [Configurer un nom de domaine personnalisé pour votre compte de stockage Azure](storage-custom-domain-name.md). Pour accéder à votre site web hébergé sur un nom de domaine personnalisé via HTTPS, consultez [Utilisation d’Azure CDN pour accéder aux objets blob avec des domaines personnalisés via HTTPS](storage-https-custom-domain-cdn.md). Dirigez votre réseau de distribution de contenu vers le point de terminaison web plutôt que vers le point de terminaison d’objet blob, et n’oubliez pas que la configuration du réseau de distribution de contenu n’est pas instantanée, et que vous devrez probablement attendre quelques minutes avant de voir votre contenu.
 
-## <a name="pricing-and-billing"></a>Tarification et facturation
+Vous pouvez [configurer un nom de domaine personnalisé pour votre compte Stockage Azure](storage-custom-domain-name.md) afin que votre site web statique soit accessible par le biais d’un domaine personnalisé. Pour découvrir la procédure détaillée d’hébergement de votre domaine sur Azure, consultez l’article [Héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md).
+
+## <a name="pricing"></a>Tarifs
 L’hébergement de sites web statiques est fourni sans coût supplémentaire. Pour plus de détails sur les prix du stockage Blob Azure, consultez la [page relative aux tarifs du stockage Blob Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="quickstart"></a>Démarrage rapide
+
 ### <a name="azure-portal"></a>Portail Azure
-Si ce n’est déjà fait, [créez un compte de stockage GPv2](../common/storage-quickstart-create-account.md). Pour démarrer l’hébergement de votre application web, vous pouvez configurer la fonctionnalité à l’aide du portail Azure et cliquer sur « Site web statique (préversion) » sous « Paramètres » dans la barre de navigation gauche. Cliquez sur Activé, puis entrez le nom du document d’index et (éventuellement) le chemin du document d’erreur personnalisé.
+Commencez par ouvrir le Portail Azure à l’adresse https://portal.azure.com, puis exécutez la procédure ci-après sur votre compte de stockage GPv2 :
+
+1. Cliquez sur **Paramètres**.
+2. Cliquez sur **Site web statique**.
+3. Entrez un *nom de document d’index*. (Un nom courant est *index.html*.)
+4. Si vous le souhaitez, entrez un *chemin d’accès de document d’erreur* pointant vers une page 404 personnalisée. (Une valeur courante est *404.html*.)
 
 ![](media/storage-blob-static-website/storage-blob-static-website-portal-config.PNG)
 
-Chargez vos ressources web sur le conteneur $web qui a été créé dans le cadre de l’activation du site web statique. Vous pouvez effectuer cette opération directement dans le portail Azure ou tirer parti de [l’Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour charger des structures de répertoires entières. Veillez à inclure un document d’index avec le nom que vous avez configuré. Dans cet exemple, le nom du document est index.html.
-
-> [!NOTE]
-> Le nom du document respectant la casse, il doit correspondre exactement au nom du fichier dans le stockage.
+Ensuite, chargez vos ressources dans le conteneur *$web* par le biais du Portail Azure ou de l’application [Explorateur Stockage Azure](https://azure.microsoft.com/features/storage-explorer/) pour charger des répertoires entiers. Veillez à inclure un fichier correspondant au *nom de document d’index* que vous avez sélectionné lors de l’activation de la fonctionnalité.
 
 Enfin, accédez au point de terminaison web pour tester votre site web.
 
@@ -55,25 +81,74 @@ Installez l’extension stockage en préversion :
 ```azurecli-interactive
 az extension add --name storage-preview
 ```
-Activez la fonctionnalité :
+Si vous disposez de plusieurs abonnements, définissez votre interface de ligne de commande sur l’abonnement du compte de stockage GPv2 que vous souhaitez activer :
 
 ```azurecli-interactive
-az storage blob service-properties update --account-name <account-name> --static-website --404-document <error-doc-name> --index-document <index-doc-name>
+az account set --subscription <SUBSCRIPTION_ID>
+```
+Activez la fonctionnalité. Veillez à remplacer toutes les valeurs d’espace réservé, y compris les crochets, par vos propres valeurs :
+
+```azurecli-interactive
+az storage blob service-properties update --account-name <ACCOUNT_NAME> --static-website --404-document <ERROR_DOCUMENT_NAME> --index-document <INDEX_DOCUMENT_NAME>
 ```
 Interrogez l’URL de point de terminaison web :
 
 ```azurecli-interactive
-az storage account show -n <account-name> -g <resource-group> --query "primaryEndpoints.web" --output tsv
+az storage account show -n <ACCOUNT_NAME> -g <RESOURCE_GROUP> --query "primaryEndpoints.web" --output tsv
 ```
 
-Chargez des objets dans le conteneur $web :
+Chargez des objets dans le conteneur *$web* à partir d’un répertoire source :
 
 ```azurecli-interactive
-az storage blob upload-batch -s deploy -d $web --account-name <account-name>
+az storage blob upload-batch -s <SOURCE_PATH> -d $web --account-name <ACCOUNT_NAME>
 ```
 
+## <a name="deployment"></a>Déploiement
+
+Les méthodes disponibles pour le déploiement de contenu dans un conteneur de stockage sont les suivantes :
+
+- [AZCopy](../common/storage-use-azcopy.md)
+- [Explorateur Stockage](https://azure.microsoft.com/features/storage-explorer/)
+- [Visual Studio Team Services](https://code.visualstudio.com/tutorials/static-website/deploy-VSTS)
+- [Extension Visual Studio Code](https://code.visualstudio.com/tutorials/static-website/getting-started)
+
+Dans tous les cas, prenez soin de copier les fichiers dans le conteneur *$web*.
+
+## <a name="metrics"></a>Mesures
+
+Pour activer les métriques sur vos pages de site web statique, cliquez sur **Paramètres** > **Surveillance** > **Métriques**.
+
+Les données de métriques sont générées par raccordement aux différentes API de métriques. Le portail affiche uniquement les membres d’API utilisés dans un délai d’exécution donné afin de se focaliser exclusivement sur les membres qui renvoient des données. Pour garantir votre capacité à sélectionner le membre d’API nécessaire, la première étape consiste à étendre le délai d’exécution.
+
+Cliquez sur le bouton de délai d’exécution, sélectionnez **Dernières 24 heures**, puis cliquez sur **Appliquer**. 
+
+![Intervalle de temps des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-time-range.png)
+
+Ensuite, sélectionnez **Blob** dans la liste déroulante *Espace de noms*.
+
+![Espace de noms des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-namespace.png)
+
+Ensuite, sélectionnez la métrique **Sortie**.
+
+![Métrique des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
+
+Dans le sélecteur **Agrégation**, sélectionnez *Somme*.
+
+![Agrégation des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
+
+Ensuite, cliquez sur le bouton **Ajouter un filtre**, puis choisissez **Nom API** dans le sélecteur *Propriété*.
+
+![Nom d’API des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-api-name.png)
+
+Enfin, cochez la case en regard de **GetWebContent** dans le sélecteur *Valeurs* pour remplir le rapport des métriques.
+
+![Valeur GetWebContent des métriques de sites web statiques dans Stockage Azure](./media/storage-blob-static-website/storage-blob-static-website-metrics-getwebcontent.png)
+
+Une fois activées, les statistiques de trafic relatives aux fichiers du conteneur *$web* sont signalées dans le tableau de bord des métriques.
+
 ## <a name="faq"></a>Forum Aux Questions
-**Les sites web statiques sont-ils disponibles pour tous les types de comptes de stockage ?**  
+
+**La fonctionnalité de sites web statiques est-elle disponible pour tous les types de comptes de stockage ?**  
 Non, l’hébergement de sites web statiques est disponible uniquement dans les comptes de stockage standard GPv2.
 
 **Est-ce que les règles de pare-feu et de réseau virtuel de stockage sont prises en charge sur le nouveau point de terminaison web ?**  
@@ -87,4 +162,5 @@ Oui, le point de terminaison web respecte la casse, tout comme le point de termi
 * [Configurer un nom de domaine personnalisé pour le point de terminaison de votre objet blob ou web](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure Web Apps](/azure/app-service/app-service-web-overview)
-* [Générer votre première application web sans serveur](https://aka.ms/static-serverless-webapp)
+* [Générer votre première application web sans serveur](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
+* [Didacticiel : héberger votre domaine dans Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

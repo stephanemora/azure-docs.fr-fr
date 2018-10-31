@@ -11,20 +11,23 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 4f6c98533a2ab1289ca5f1da25c44fe1a77a983c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 6de91e28ebced1d41e128cec1180839e4b353020
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353663"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945465"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-firewall-rules"></a>Règles de pare-feu Azure SQL Database et SQL Data Warehouse
 
 Microsoft Azure [SQL Database](sql-database-technical-overview.md) et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) fournissent un service de base de données relationnelle pour Azure et d’autres applications Internet. Pour aider à protéger vos données, le pare-feu empêche tout accès à votre serveur de base de données jusqu’à ce que vous spécifiiez les ordinateurs qui disposent d’autorisations. Le pare-feu octroie l’accès à la base de données en fonction de l’adresse IP d’origine de chaque demande.
 
 > [!NOTE]
-> Cette rubrique s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse.
+> Cet article s’applique à un serveur SQL Azure et aux bases de données SQL Database et SQL Data Warehouse créées sur le serveur SQL Azure. Par souci de simplicité, la base de données SQL est utilisée pour faire référence à SQL Database et SQL Data Warehouse. 
+
+> [!IMPORTANT]
+> Cet article ne s’applique *pas* à **Azure SQL Database Managed Instance**. Consultez l’article suivant sur la [connexion à une instance Managed Instance](sql-database-managed-instance-connect-app.md) pour en savoir plus sur la configuration réseau nécessaire.
 
 ## <a name="virtual-network-rules-as-alternatives-to-ip-rules"></a>Règles de réseau virtuel comme alternatives aux règles d’adresses IP
 
@@ -80,7 +83,7 @@ Pour autoriser des applications d’Azure à se connecter à Azure SQL Server, l
 
 ## <a name="creating-and-managing-firewall-rules"></a>Création et gestion des règles de pare-feu
 
-Le premier paramètre de pare-feu au niveau du serveur peut être créé à l’aide du [portail Azure](https://portal.azure.com/) ou par programmation avec [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [l’interface de ligne de commande Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) ou [l’API REST](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate). Les règles de pare-feu au niveau du serveur suivantes peuvent être créées et gérées à l’aide de ces méthodes, et par le biais de Transact-SQL.
+Le premier paramètre de pare-feu au niveau du serveur peut être créé à l’aide du [portail Azure](https://portal.azure.com/) ou par programmation avec [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql), [l’interface de ligne de commande Azure](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create) ou [l’API REST](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate). Les règles de pare-feu au niveau du serveur suivantes peuvent être créées et gérées à l’aide de ces méthodes, et par le biais de Transact-SQL.
 
 > [!IMPORTANT]
 > Les règles de pare-feu au niveau de la base de données ne peuvent être créées et gérées qu’avec Transact-SQL.
@@ -117,7 +120,7 @@ La page de présentation de votre serveur s’ouvre, affiche le nom de serveur c
 
 ## <a name="manage-firewall-rules-using-transact-sql"></a>Gérer les règles de pare-feu à l’aide de Transact-SQL
 
-| Vue de catalogue ou procédure stockée | Level | Description |
+| Vue de catalogue ou procédure stockée | Niveau | Description |
 | --- | --- | --- |
 | [sys.firewall_rules](https://msdn.microsoft.com/library/dn269980.aspx) |Serveur |Affiche les règles de pare-feu au niveau du serveur actuelles |
 | [sp_set_firewall_rule](https://msdn.microsoft.com/library/dn270017.aspx) |Serveur |Crée ou met à jour les règles de pare-feu au niveau du serveur |
@@ -147,7 +150,7 @@ EXECUTE sp_delete_firewall_rule @name = N'ContosoFirewallRule'
 
 ## <a name="manage-firewall-rules-using-azure-powershell"></a>Gérer les règles de pare-feu à l’aide d’Azure PowerShell
 
-| Applet de commande | Level | Description |
+| Applet de commande | Niveau | Description |
 | --- | --- | --- |
 | [Get-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/get-azurermsqlserverfirewallrule) |Serveur |Retourne les règles de pare-feu au niveau du serveur actuelles |
 | [New-AzureRmSqlServerFirewallRule](/powershell/module/azurerm.sql/new-azurermsqlserverfirewallrule) |Serveur |Crée une règle de pare-feu au niveau du serveur |
@@ -167,7 +170,7 @@ New-AzureRmSqlServerFirewallRule -ResourceGroupName "myResourceGroup" `
 
 ## <a name="manage-firewall-rules-using-azure-cli"></a>Gérer les règles de pare-feu à l’aide d’Azure CLI
 
-| Applet de commande | Level | Description |
+| Applet de commande | Niveau | Description |
 | --- | --- | --- |
 |[az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-create)|Serveur|Crée la règle de pare-feu d’un serveur|
 |[az sql server firewall-rule list](/cli/azure/sql/server/firewall-rule#az-sql-server-firewall-rule-list)|Serveur|Répertorie les règles de pare-feu sur un serveur|
@@ -187,12 +190,12 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 
 ## <a name="manage-firewall-rules-using-rest-api"></a>Gérer les règles de pare-feu à l’aide de l’API REST
 
-| API | Level | Description |
+| API | Niveau | Description |
 | --- | --- | --- |
-| [Répertorier les règles de pare-feu](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_listbyserver) |Serveur |Affiche les règles de pare-feu au niveau du serveur actuelles |
-| [Créer ou mettre à jour une règle de pare-feu](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_createorupdate) |Serveur |Crée ou met à jour les règles de pare-feu au niveau du serveur |
-| [Supprimer une règle de pare-feu](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_delete) |Serveur |Supprime des règles de pare-feu au niveau du serveur |
-| [Obtenir les règles de pare-feu](https://docs.microsoft.com/rest/api/sql/firewallrules/firewallrules_get) | Serveur | Obtient les règles de pare-feu au niveau du serveur |
+| [Répertorier les règles de pare-feu](https://docs.microsoft.com/rest/api/sql/firewallrules/listbyserver) |Serveur |Affiche les règles de pare-feu au niveau du serveur actuelles |
+| [Créer ou mettre à jour une règle de pare-feu](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate) |Serveur |Crée ou met à jour les règles de pare-feu au niveau du serveur |
+| [Supprimer une règle de pare-feu](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Serveur |Supprime des règles de pare-feu au niveau du serveur |
+| [Obtenir les règles de pare-feu](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Serveur | Obtient les règles de pare-feu au niveau du serveur |
 
 ## <a name="server-level-firewall-rule-versus-a-database-level-firewall-rule"></a>Règle de pare-feu au niveau du serveur par rapport à une règle de pare-feu au niveau de la base de données
 

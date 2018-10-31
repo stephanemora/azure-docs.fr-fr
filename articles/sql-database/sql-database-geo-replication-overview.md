@@ -1,6 +1,6 @@
 ---
 title: 'Azure SQL Database : groupes de basculement et géo-réplication active | Documents Microsoft'
-description: Utilisez des groupes de basculement automatique avec géoréplication active et activez les basculement automatique en cas de panne.
+description: Utilisez des groupes de basculement automatique avec géoréplication active et activez le basculement automatique en cas de panne.
 services: sql-database
 ms.service: sql-database
 ms.subservice: operations
@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/15/2018
-ms.openlocfilehash: 6e77d24c31401051d82501ca8064d02201bf218e
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.date: 10/19/2018
+ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354272"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471473"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Vue d’ensemble : géoréplication active et groupes de basculement automatique
 
@@ -279,8 +279,8 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 
 | API | Description |
 | --- | --- |
-| [.Créer ou mettre à jour la base de données (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |Crée, met à jour ou restaure une base de données principale ou secondaire. |
-| [Créer ou mettre à jour l’état de la base de données](https://docs.microsoft.com/rest/api/sql/databases/databases_createorupdate) |Retourne l’état durant une opération de création. |
+| [.Créer ou mettre à jour la base de données (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Crée, met à jour ou restaure une base de données principale ou secondaire. |
+| [Créer ou mettre à jour l’état de la base de données](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Retourne l’état durant une opération de création. |
 | [Définir la base de données secondaire comme principale (basculement planifié)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. |
 | [Définir la base de données secondaire comme principale (basculement non planifié)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. Cette opération peut entraîner une perte de données. |
 | [Obtenir un lien de réplication](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Obtient un liens de réplication spécifique pour une base de données SQL particulière dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |

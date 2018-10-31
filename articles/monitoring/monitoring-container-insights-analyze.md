@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/14/2018
+ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 6df7d42bc291713a815cac9f719f53136ed35b19
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 430145119721ac947162d3b661377290a0ae2c11
+ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956653"
+ms.lasthandoff: 10/22/2018
+ms.locfileid: "49637982"
 ---
-## <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprendre les performances du cluster AKS avec Azure Monitor pour les conteneurs
+# <a name="understand-aks-cluster-performance-with-azure-monitor-for-containers"></a>Comprendre les performances du cluster AKS avec Azure Monitor pour les conteneurs
 L’affichage des performances de vos clusters Azure Kubernetes Service (AKS) peut s’effectuer selon deux perspectives avec Azure Monitor pour les conteneurs : directement à partir d’un cluster AKS ou en visualisant tous les clusters AKS d’un abonnement à partir d’Azure Monitor. 
 
 Cet article vous aidera à comprendre l’expérience entre les deux perspectives et à rapidement évaluer, examiner et résoudre les problèmes détectés.
@@ -91,7 +91,7 @@ Le graphique de performances affiche quatre métriques de performance :
 - **Node CPU Utilization&nbsp;%** (Pourcentage d’utilisation du processeur par le nœud) : vue agrégée de l’utilisation du processeur pour le cluster entier. Vous pouvez filtrer les résultats pour l’intervalle de temps en sélectionnant une ou plusieurs des options **Avg** (Moy), **Min**, **Max**, **50th** (50e), **90th** (90e) et **95th**  (95e) du sélecteur de centiles. 
 - **Node memory utilization&nbsp;%** (Pourcentage d’utilisation de la mémoire par le nœud) : vue agrégée de l’utilisation de la mémoire pour le cluster entier. Vous pouvez filtrer les résultats pour l’intervalle de temps en sélectionnant une ou plusieurs des options **Avg** (Moy), **Min**, **Max**, **50th** (50e), **90th** (90e) et **95th**  (95e) du sélecteur de centiles. 
 - **Node count** (Nombre de nœuds) : nombre et état des nœuds fournis par Kubernetes. L’état des nœuds de cluster représentés sont *All* (Tous), *Ready* (Prêts) et *Not Ready* (Non prêts). Il est possible de les filtrer individuellement ou en les combinant à l’aide du sélecteur situé au-dessus du graphique. 
-- **Activity pod count** (Nombre de pods d’activité) : nombre et état des pods fournis par Kubernetes. Les états des pods représentés sont *All* (Tous), *Pending* (En attente), *Running* (En cours d’exécution) et *Unknown* (Inconnus). Il est possible de les filtrer individuellement ou en les combinant à l’aide du sélecteur situé au-dessus du graphique. 
+- **Activity pod count** (Nombre de pods d’activité) : nombre et état des pods fournis par Kubernetes. L’état des pods représentés sont *All* (Tous), *Pending* (En attente), *Running* (En cours d’exécution) et *Unknown* (Inconnus). Il est possible de les filtrer individuellement ou en les combinant à l’aide du sélecteur situé au-dessus du graphique. 
 
 Quand vous passez à l’onglet **Nodes** (Nœuds), **Controllers** (Contrôleurs) et **Containers** (Conteneurs), le volet des propriétés s’affiche automatiquement à droite de la page.  Il présente les propriétés de l’élément sélectionné, notamment les étiquettes que vous définissez pour organiser les objets Kubernetes. Cliquez sur le lien **>>** dans le volet pour afficher ou masquer le volet.  
 
@@ -109,7 +109,11 @@ Sous l’onglet **Nodes** (Nœuds), la hiérarchie de ligne suit le modèle d’
 
 ![Exemple de hiérarchie de nœud Kubernetes dans l’affichage des performances](./media/monitoring-container-insights-analyze/containers-nodes-view.png)
 
-Vous pouvez sélectionner des contrôleurs ou des conteneurs en haut de la page, puis examiner l’état et l’utilisation des ressources pour ces objets.  Si vous préférez afficher l’utilisation de la mémoire, dans la liste déroulante **Metric** (Métrique), sélectionnez **Memory RSS** (Mémoire RSS) ou **Memory working set** (Plage de travail de la mémoire). L’option **Memory RSS** (Mémoire RSS) est uniquement prise en charge par Kubernetes 1.8 et versions ultérieures. Sinon, vous pouvez afficher les valeurs **Min&nbsp;%** sous la forme *NaN&nbsp;%*, qui est une valeur de type données numériques représentant une valeur non définie ou non représentable. 
+À partir d’un nœud développé, vous pouvez explorer le pod ou le conteneur exécuté sur le nœud jusqu’au contrôleur pour afficher les données de performances filtrées pour ce contrôleur. Cliquez sur la valeur sous la colonne **Contrôleur** du nœud spécifique.   
+
+![Exemple de zoom depuis le nœud jusqu’au contrôleur dans l’affichage des performances](./media/monitoring-container-insights-analyze/drill-down-node-controller.png)
+
+Vous pouvez sélectionner des contrôleurs ou des conteneurs en haut de la page, puis examiner l’état et l’utilisation des ressources pour ces objets.  Si vous préférez afficher l’utilisation de la mémoire, dans la liste déroulante **Metric** (Métrique), sélectionnez **Memory RSS** (Mémoire RSS) ou **Memory working set** (Plage de travail de la mémoire). L’option **Memory RSS** (Mémoire RSS) est uniquement prise en charge par Kubernetes 1.8 et versions ultérieures. Sinon, vous pouvez afficher les valeurs **Min&nbsp;%** sous la forme *NaN&nbsp;%*, qui est une valeur de type données numérique représentant une valeur non définie ou non représentable. 
 
 ![Affichage des performances des nœuds d’un conteneur](./media/monitoring-container-insights-analyze/containers-node-metric-dropdown.png)
 
@@ -144,14 +148,16 @@ Ici, vous pouvez voir l’intégrité des performances de vos contrôleurs.
 
 ![Affichage des performances des contrôleurs <nom>](./media/monitoring-container-insights-analyze/containers-controllers-view.png)
 
-La hiérarchie de ligne commence par un contrôleur et étend le contrôleur. Vous pouvez voir un ou plusieurs conteneurs. Développez un pod : vous voyez que la dernière ligne affiche le conteneur lié à un pod.  
+La hiérarchie de lignes commence par un contrôleur que vous développez pour afficher un ou plusieurs pods.  Développez un pod, et la dernière ligne affiche le conteneur lié au pod. À partir d’un contrôleur développé, vous pouvez explorer jusqu’au nœud en cours d’exécution pour afficher les données de performances filtrées pour ce nœud. Cliquez sur la valeur sous la colonne **Nœud** du contrôleur spécifique.   
+
+![Exemple de zoom depuis le nœud jusqu’au contrôleur dans l’affichage des performances](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 Les informations qui sont affichées dans les contrôleurs sont décrites dans le tableau suivant :
 
 | Colonne | Description | 
 |--------|-------------|
 | NOM | Nom du contrôleur.|
-| Statut | État du cumul des conteneurs lorsque l’exécution est terminée, par exemple, *OK*, *Terminated* (Terminé), *Failed* (Échec), *Stopped* (Arrêt) ou *Paused* (Pause). Si le conteneur est en cours d’exécution, mais que l’état n’est pas correctement affiché, ou n’a pas été identifié par l’agent et n’a pas répondu dans un délai de 30 minutes, l’état est *Unknown* (Inconnu). Des détails supplémentaires sur l’icône d’état sont fournis dans le tableau ci-dessous.|
+| Statut | État du cumul des conteneurs lorsque l’exécution est terminée, par exemple, *OK*, *Terminated* (Terminé), *Failed* (Échec), *Stopped* (Arrêt) ou *Paused* (Pause). Si le conteneur est en cours d’exécution, mais que l’état n’est pas correctement affiché, ou n’a pas été identifié par l’agent et n’a pas répondu dans un délai de 30 minutes, l’état est *Unknown* (Inconnu). Des détails supplémentaires sur l’icône d’état sont fournies dans le tableau ci-dessous.|
 | Avg&nbsp;%, Min&nbsp;%, Max&nbsp;%, 50th&nbsp;%, 90th&nbsp;% | Moyenne cumulée du pourcentage moyen de chaque entité pour la métrique et le centile sélectionnés. |
 | Avg, Min, Max, 50th, 90th  | Cumul de la performance moyenne du processeur ou de la mémoire du conteneur pour le centile sélectionné. La valeur moyenne est mesurée à partir de la limite Processeur/Mémoire définie pour un pod. |
 | Containers | Nombre total de conteneurs pour le contrôleur ou pod. |
@@ -178,6 +184,10 @@ Dans le sélecteur, sélectionnez **Containers** (Conteneurs).
 Ici, vous pouvez voir l’intégrité des performances de vos conteneurs Azure Kubernetes.  
 
 ![Affichage des performances des contrôleurs <nom>](./media/monitoring-container-insights-analyze/containers-containers-view.png)
+
+À partir d’un conteneur, vous pouvez accéder à un pod ou un nœud pour afficher les données de performance filtrées pour cet objet. Cliquez sur la valeur sous la colonne **Pod** ou **Node** pour le conteneur.   
+
+![Exemple de zoom depuis le nœud jusqu’au contrôleur dans l’affichage des performances](./media/monitoring-container-insights-analyze/drill-down-controller-node.png)
 
 Les informations qui sont affichées dans les conteneurs sont décrites dans le tableau suivant :
 

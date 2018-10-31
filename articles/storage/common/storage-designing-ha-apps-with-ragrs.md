@@ -29,7 +29,7 @@ Pour plus d’informations sur les appairages entre régions primaires et régio
 Vous y trouverez aussi des extraits de code et, à la fin, un lien vers un exemple complet que vous pouvez télécharger et exécuter.
 
 > [!NOTE]
-> Le stockage Azure prend maintenant en charge le stockage redondant dans une zone (ZRS) pour générer des applications hautement disponibles. Le stockage ZRS offre une solution simple pour les besoins de redondance de nombreuses applications. Il protège contre les défaillances matérielles ou les catastrophes naturelles qui affecteraient un centre de données unique. Pour plus d’informations, consultez [Stockage redondant dans une zone (ZRS) : applications de stockage Azure hautement disponibles](storage-redundancy-zrs.md).
+> Le stockage Azure prend maintenant en charge le stockage redondant interzone (ZRS) pour générer des applications hautement disponibles. Le stockage ZRS offre une solution simple pour les besoins de redondance de nombreuses applications. Il protège contre les défaillances matérielles ou les catastrophes naturelles qui affecteraient un centre de données unique. Pour plus d’informations, consultez [Stockage redondant interzone (ZRS) : applications de stockage Azure hautement disponibles](storage-redundancy-zrs.md).
 
 ## <a name="key-features-of-ra-grs"></a>Fonctionnalités clés du stockage RA-GRS
 

@@ -10,12 +10,12 @@ ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.assetid: 5c1b1e15-3b6c-49dc-98a6-bdbe7cb75339
 ms.date: 07/21/2017
-ms.openlocfilehash: a08cd6289fc85b79ccec731126a33a9549d60546
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c2e487f421d2dfc875efde82c078f557f7bd03d2
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123531"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405733"
 ---
 # <a name="monitor-status-set-up-diagnostics-logging-and-turn-on-alerts-for-azure-logic-apps"></a>Surveiller l’état, configurer la journalisation des diagnostics et activer les alertes pour Azure Logic Apps
 
@@ -90,7 +90,9 @@ Avant de commencer, vous devez disposer d’un espace de travail Log Analytics. 
 
    1. Sélectionnez **Envoyer à Log Analytics**. 
    2. Sous **Log Analytics**, choisissez **Configurer**. 
-   3. Sous **Espaces de travail OMS**, sélectionnez l’espace de travail Log Analytics à utiliser pour la journalisation.
+   3. Sous **Espaces de travail OMS**, sélectionnez l’espace de travail à utiliser pour la journalisation.
+   > [!NOTE]
+   > Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics.
    4. Sous **Journal**, sélectionnez la catégorie **WorkflowRuntime**.
    5. Choisissez l’intervalle de mesure.
    6. Une fois ces opérations effectuées, sélectionnez **Enregistrer**.

@@ -14,33 +14,35 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/1/2017
 ms.author: dekapur
-ms.openlocfilehash: 79d30a47b017379107b63b0006a35534f68c43b9
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aabdae370c28f8fa633372be4505c00c25254408
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210774"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403248"
 ---
 # <a name="monitor-containers-with-log-analytics"></a>Surveiller les conteneurs avec Log Analytics
  
-Cet article traite des étapes nécessaires pour configurer la solution de surveillance de conteneur OMS Log Analytics, qui permet d’afficher les événements de conteneur. Pour configurer votre cluster afin de collecter les événements de conteneur, consultez ce [tutoriel pas à pas](service-fabric-tutorial-monitoring-wincontainers.md).
+Cet article traite des étapes nécessaires pour configurer la solution de supervision de conteneurs Azure Log Analytics, qui permet de visualiser les événements de conteneur. Pour configurer votre cluster afin de collecter les événements de conteneur, consultez ce [tutoriel pas à pas](service-fabric-tutorial-monitoring-wincontainers.md). 
+
+[!INCLUDE [log-analytics-agent-note.md](../../includes/log-analytics-agent-note.md)]
 
 ## <a name="set-up-the-container-monitoring-solution"></a>Configurer la solution de surveillance des conteneurs
 
 > [!NOTE]
-> Vous devez configurer Log Analytics pour votre cluster et déployer l’agent OMS sur vos nœuds. Si ce n’est pas le cas, suivez les étapes des rubriques [Configurer Log Analytics](service-fabric-diagnostics-oms-setup.md) et [Ajouter l’agent OMS à un cluster](service-fabric-diagnostics-oms-agent.md).
+> Vous devez avoir configuré Log Analytics pour votre cluster et déployé l’agent Log Analytics sur vos nœuds. Si ce n’est pas le cas, commencez par suivre les procédures des articles indiquant comment [configurer Log Analytics](service-fabric-diagnostics-oms-setup.md) et [ajouter l’agent Log Analytics à un cluster](service-fabric-diagnostics-oms-agent.md).
 
-1. Une fois que votre cluster est configuré avec Log Analytics et l’agent OMS, déployez vos conteneurs. Attendez que vos conteneurs soient déployés avant de passer à l’étape suivante.
+1. Une fois votre cluster configuré avec Log Analytics et l’agent Log Analytics, déployez vos conteneurs. Attendez que vos conteneurs soient déployés avant de passer à l’étape suivante.
 
 2. Dans la Place de marché Azure, recherchez *Solution Container Monitoring*, puis cliquez sur la ressource **Solution Container Monitoring** qui doit s’afficher sous la catégorie Surveillance + Gestion.
 
     ![Ajout de la solution Conteneurs](./media/service-fabric-diagnostics-event-analysis-oms/containers-solution.png)
 
-3. Créez la solution dans l’espace de travail qui a été créé pour le cluster. Après cette modification, l’agent se met à collecter des données Docker sur les conteneurs. Au bout de 15 minutes environ, la solution doit s’afficher avec les journaux et les statistiques entrants, comme le montre l’illustration ci-dessous.
+3. Créez la solution dans l’espace de travail qui a été créé pour le cluster. Après cette modification, l’agent se met à collecter des données Docker sur les conteneurs. Au bout de 15 minutes environ, la solution doit s’afficher avec les statistiques et journaux entrants, comme illustré ci-après.
 
-    ![Tableau de bord OMS de base](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
+    ![Tableau de bord Log Analytics de base](./media/service-fabric-diagnostics-event-analysis-oms/oms-containers-dashboard.png)
 
-L’agent permet de collecter plusieurs journaux spécifiques aux conteneurs qui peuvent être interrogés dans OMS ou utilisés pour visualiser les indicateurs de performance. Les types de journaux collectés sont :
+L’agent permet de collecter plusieurs journaux propres aux conteneurs qui peuvent être interrogés dans Log Analytics ou utilisés pour visualiser les indicateurs de performance. Les types de journaux collectés sont :
 
 * ContainerInventory : affiche des informations sur les images, le nom et l’emplacement du conteneur
 * ContainerImageInventory : informations sur les images déployées, ID ou tailles compris
@@ -51,7 +53,7 @@ L’agent permet de collecter plusieurs journaux spécifiques aux conteneurs qui
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur les [solution de conteneur d’OMS](../log-analytics/log-analytics-containers.md).
+* Apprenez-en davantage sur la [solution Container Monitoring de Log Analytics](../log-analytics/log-analytics-containers.md).
 * En savoir plus sur l’orchestration des conteneurs dans Service Fabric : [Service Fabric et conteneurs](service-fabric-containers-overview.md)
 * Familiarisez-vous avec les fonctionnalités de [requêtes et recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) offertes dans le cadre de Log Analytics
 * Configurez Log Analytics pour paramétrer des règles d’[alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics

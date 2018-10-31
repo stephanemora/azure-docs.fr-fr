@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/28/2018
+ms.date: 10/16/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 61c91f7e1f2ba266be6453bb6e6fb25f3834485e
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 112940dbacf0bfdaff735eb0abd79e177cf5c9c5
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585894"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49457000"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Exigences de certificat pour infrastructure à clé publique Azure Stack
 
@@ -40,8 +40,9 @@ La liste suivante décrit les exigences de certificat nécessaires pour déploye
 - Lors de la rotation des certificats, les certificats doivent être émis à partir de la même autorité de certification interne utilisée pour signer des certificats fournie au déploiement ou de toute autorité de certification publique ci-dessus
 - L’utilisation des certificats auto-signés n’est pas prise en charge
 - Pour le déploiement et la rotation, vous pouvez utiliser un certificat unique couvrant tous les espaces de noms dans les champs Nom de l’objet et Autre nom de l’objet du certificat OU vous pouvez utiliser des certificats individuels pour chaque espace de noms ci-dessous que les services Azure Stack que vous envisagez d’utiliser nécessitent. Les deux approches requièrent l’utilisation de caractères génériques pour les points de terminaison où ils sont requis, comme **KeyVault** et **KeyVaultInternal**. 
-- L’algorithme de signature de certificat doit être 3DES. L’algorithme ne peut pas être SHA1, car il doit être plus puissant. 
+- L’algorithme de signature ne peut pas être SHA1, car il doit être plus sécurisé. 
 - Le format du certificat doit être PFX, car les clés publiques et privées sont requises pour l’installation d’Azure Stack. 
+- Le chiffrement PFX doit être 3DES (paramètre par défaut en cas d’exportation depuis un client Windows 10 ou un magasin de certificats Windows Server 2016).
 - Les fichiers pfx de certificat doivent avoir une valeur « Signature numérique » et « KeyEncipherment » dans le champ « Utilisation de la clé ».
 - Dans le champ « Utilisation avancée de la clé », les fichiers pfx de certificat doivent avoir les valeurs « Authentification du serveur (1.3.6.1.5.5.7.3.1) » et « Authentification du client (1.3.6.1.5.5.7.3.2) ».
 - Le contenu des champs « Délivré à » et « Délivré par » du certificat ne peut pas être identique.
@@ -63,7 +64,7 @@ Des certificats avec des noms DNS appropriés pour chaque point de terminaison d
 Pour votre déploiement, les valeurs [region] et [externalfqdn] doivent correspondre à la région et aux noms de domaines externes que vous avez choisis pour votre système Azure Stack. Par exemple, si le nom de la région était *Redmond* et le nom de domaine externe *contoso.com*, les noms DNS aurait le format *&lt;prefix>.redmond.contoso.com*. Les valeurs *&lt;prefix>* sont prédéfinies par Microsoft pour décrire le point de terminaison sécurisé par le certificat. Les valeurs *&lt;prefix>* des points de terminaison d’infrastructure externe dépendent également du service Azure Stack qui utilise un point de terminaison spécifique. 
 
 > [!note]  
-> Les certificats peuvent être fournis sous la forme d’un certificat avec caractères génériques unique couvrant tous les espaces de noms dans les champs Sujet et Autre nom de l’objet (SAN) copiés dans tous les répertoires, ou sous la forme de certificats individuels pour chaque point de terminaison copié dans le répertoire correspondant. N’oubliez pas que les deux options requièrent l’utilisation de certificats avec caractères génériques pour les points de terminaison tels que**acs** et le coffre de clés lorsqu’ils sont requis. 
+> Pour les environnements de production, nous recommandons de générer des certificats individuels pour chaque point de terminaison et de les copier dans le répertoire correspondant. Pour les environnements de développement, les certificats peuvent être fournis sous la forme d’un certificat unique avec caractères génériques couvrant tous les espaces de noms dans les champs Sujet et Autre nom de l’objet (SAN) copiés dans tous les répertoires. Un certificat unique couvrant tous les points de terminaison et services pose des problèmes de sécurité ; cette approche est donc destinée aux équipes de développement uniquement. N’oubliez pas que les deux options requièrent l’utilisation de certificats avec caractères génériques pour les points de terminaison tels que**acs** et le coffre de clés lorsqu’ils sont requis. 
 
 | Dossier de déploiement | Objet et autres noms de l’objet (SAN) du certificat requis | Étendue (par région) | Espace de noms de sous-domaine |
 |-------------------------------|------------------------------------------------------------------|----------------------------------|-----------------------------|

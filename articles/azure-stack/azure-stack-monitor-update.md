@@ -5,27 +5,26 @@ services: azure-stack
 documentationcenter: ''
 author: mattbriggs
 manager: femila
-editor: ''
-ms.assetid: 449ae53e-b951-401a-b2c9-17fee2f491f1
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2018
+ms.date: 10/22/2019
 ms.author: mabrigg
-ms.openlocfilehash: 8f384a79811c9a9b104acb98c8f6b6e162946ab8
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.reviewer: fiseraci
+ms.openlocfilehash: 76f3db3631e1d66413bdce8d3f2379c2735a2eaf
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41946518"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945601"
 ---
 # <a name="monitor-updates-in-azure-stack-using-the-privileged-endpoint"></a>Surveiller les mises à jour dans Azure Stack à l'aide du point de terminaison privilégié
 
 *S’applique à : systèmes intégrés Azure Stack*
 
-Vous pouvez utiliser le point de terminaison privilégié pour surveiller la progression de l'exécution d’une mise à jour Azure Stack et reprendre une mise à jour ayant échoué à partir de la dernière étape réussie si le portail de Azure Stack n’est plus disponible.  Utiliser le portail de Azure Stack est la méthode recommandée pour gérer les mises à jour dans Azure Stack.
+Vous pouvez utiliser le [point de terminaison privilégié](azure-stack-privileged-endpoint.md) pour surveiller la progression de l’exécution d’une mise à jour Azure Stack et reprendre une mise à jour ayant échoué à partir de la dernière étape réussie si le portail Azure Stack n’est plus disponible.  Utiliser le portail de Azure Stack est la méthode recommandée pour gérer les mises à jour dans Azure Stack.
 
 Les nouvelles applets de commande PowerShell suivantes pour la gestion des mises à jour sont incluses dans la mise à jour 1710 des systèmes intégrés Azure Stack.
 

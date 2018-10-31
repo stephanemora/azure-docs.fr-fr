@@ -29,7 +29,7 @@ Le service Base de données SQL Azure offre les fonctionnalités suivantes pour 
 Pour en savoir plus sur les scénarios de continuité d’activité et les fonctionnalités prenant en charge ces scénarios, consultez [Continuité des activités](sql-database-business-continuity.md).
 
 > [!NOTE]
-> Si vous utilisez des bases de données ou des pools Premium ou Critiques pour l’entreprise redondants dans une zone, sachez que le processus de récupération est automatisé et que le reste de ce document ne vous sera d’aucune utilité. 
+> Si vous utilisez des bases de données ou des pools Premium ou Critiques pour l’entreprise redondants interzone, sachez que le processus de récupération est automatisé et que le reste de ce document ne vous sera d’aucune utilité. 
 
 ### <a name="prepare-for-the-event-of-an-outage"></a>Préparation à une panne
 Pour parvenir à une récupération vers une autre région de données à l’aide des groupes de basculement ou des sauvegardes géoredondantes, vous devez préparer un serveur dans un autre centre de données. Celui-ci deviendra le nouveau serveur principal en cas de besoin. Vous devez également suivre des étapes précises, documentées et approuvées pour garantir une récupération optimale. Les étapes de préparation sont les suivantes :

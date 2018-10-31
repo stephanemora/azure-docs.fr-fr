@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: de272e3a8ca316d46efafc0af637b6f783f9cdd3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 32f37acd95494cbfceac5429442e0e655cf74e4d
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579528"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405308"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-pci-dss"></a>Blueprint de sécurité et de conformité Azure : Analytique pour PCI DSS
 
@@ -31,7 +31,7 @@ Ce blueprint de sécurité et de conformité Azure offre une plateforme analytiq
 
 Azure offre divers services de création de rapports et d’analyse pour le client. Cette solution incorpore les services Azure Machine Learning parallèlement à Azure SQL Database pour parcourir rapidement les données et accélérer la fourniture de résultats par le biais d’une modélisation plus intelligente. Azure Machine Learning accélère la vitesse des requêtes en découvrant de nouvelles relations entre les jeux de données. Une fois cet apprentissage des données effectué par le biais de diverses fonctions statistiques, vous pouvez synchroniser jusqu’à 7 pools de requêtes supplémentaires (8 au total en comptant le serveur du client) avec les mêmes modèles tabulaires pour répartir la charge de travail des requêtes et réduire les temps de réponse.
 
-Les bases de données SQL Azure peuvent être configurées avec des index columnstore afin d’améliorer les fonctions d’analyse et de génération de rapports. Azure Machine Learning et les base de données SQL Azure peuvent faire l’objet d’une montée ou descente en puissance ou être complètement arrêtés en fonction de l’utilisation du client. La totalité du trafic SQL est chiffrée avec SSL grâce à l’inclusion de certificats auto-signés. En guise de meilleure pratique, Azure préconise l’utilisation d’une autorité de certification de confiance afin de renforcer la sécurité.
+Les bases de données SQL Azure peuvent être configurées avec des index columnstore afin d’améliorer les fonctions d’analyse et de génération de rapports. Azure Machine Learning et les bases de données SQL peuvent faire l’objet d’une montée ou descente en puissance ou être complètement arrêtés en fonction de l’utilisation du client. La totalité du trafic SQL est chiffrée avec SSL grâce à l’inclusion de certificats auto-signés. En guise de meilleure pratique, Azure préconise l’utilisation d’une autorité de certification de confiance afin de renforcer la sécurité.
 
 Une fois les données chargées dans Azure SQL Database et assimilées par Azure Machine Learning, elles sont synthétisées par l’utilisateur du secteur opérationnel et par l’administrateur SQL/de données à l’aide de Power BI. Power BI assure un affichage intuitif des données et fusionne les informations de plusieurs jeux de données afin d’offrir un meilleur aperçu de l’activité. Grâce à son haut niveau d’adaptabilité et à sa simplicité d’intégration à Azure SQL Database, Power BI est configurable pour la prise en charge d’un large éventail de scénarios basés sur les besoins métiers des clients.
 
@@ -61,7 +61,6 @@ Cette solution utilise les services Azure suivants. Les informations détaillée
     - (1) réseau /16
     - (2) /24 réseaux
     - (2) groupes de sécurité réseau
-- Operations Management Suite
 - tableau de bord Power BI
 
 ## <a name="deployment-architecture"></a>Architecture de déploiement
@@ -150,7 +149,7 @@ Les services Azure assurent une journalisation complète de l’activité du sys
 - **Journaux d’activité :** les [journaux d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) fournissent des informations sur les opérations effectuées sur les ressources d’un abonnement. Les journaux d’activité peuvent aider à déterminer l’initiateur, l’heure d’exécution et l’état d’une opération.
 - **Journaux de diagnostic :** les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) sont tous les journaux émis par toutes les ressources. Ils incluent les journaux des événements système de Windows, les journaux de Stockage Azure, les journaux d’audit du Key Vault, ainsi que les journaux de pare-feu et d’accès d’Application Gateway. Tous les journaux de diagnostic sont consignés dans un compte de stockage Azure centralisé et chiffré pour l’archivage. L’utilisateur peut configurer la rétention jusqu’à 730 jours pour répondre aux exigences de rétention spécifiques de l’entreprise.
 
-**Log Analytics** : ces journaux sont consolidés dans [Log Analytics](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de tableaux de bord. Une fois collectées, les données sont organisées dans différentes tables en fonction du type de données dans des espaces de travail Operations Management Suite. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. Par ailleurs, Azure Security Center s’intègre à Log Analytics pour permettre aux clients d’utiliser des requêtes Log Analytics afin d’accéder à leurs données d’événement de sécurité et de les combiner avec des données provenant d’autres services.
+**Log Analytics** : ces journaux sont consolidés dans [Log Analytics](https://azure.microsoft.com/services/log-analytics/) à des fins de traitement, de stockage et de génération de tableaux de bord. Une fois collectées, les données sont organisées dans différentes tables en fonction du type de données dans des espaces de travail Log Analytics. Toutes les données sont ainsi analysées ensemble, quelle que soit leur source d’origine. Par ailleurs, Azure Security Center s’intègre à Log Analytics pour permettre aux clients d’utiliser des requêtes Log Analytics afin d’accéder à leurs données d’événement de sécurité et de les combiner avec des données provenant d’autres services.
 
 Les [solutions de gestion](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions) Log Analytics suivantes sont également incluses dans cette architecture :
 -   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de suggestions spécifiques de l’infrastructure de serveur déployée.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 81eb23a0955bbc6a5f9dcd95c6874f0c5a8c286c
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: ce2b4304ea53be7e9a7be42b8a7fb30f713d85f8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434028"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405206"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation d’Azure Security
 ## <a name="overview"></a>Vue d’ensemble
@@ -69,15 +69,15 @@ Vous pouvez consulter les fonctionnalités répertoriées ci-après pour vous as
 ### <a name="security-features-offered-by-azure-to-secure-data-and-application"></a>Fonctionnalités de sécurité fournies par Azure pour sécuriser les données et applications
 En fonction du modèle de service cloud, la responsabilité de la personne chargée de la gestion de la sécurité de l’application ou du service varie. La plateforme Azure propose des fonctionnalités pour vous aider à remplir ces tâches via des fonctionnalités intégrées et des solutions pour partenaires qui peuvent être déployées dans un abonnement Azure.
 
-Les fonctionnalités intégrées sont organisées en six (6) zones fonctionnelles : opérations, applications, stockage, réseau, calcul et identité. Des informations supplémentaires sur les fonctionnalités et fonctions disponibles dans ces six (6) zones de la plateforme Azure sont fournies par le biais des informations de synthèse.
+Les fonctionnalités intégrées sont organisées en six (6) zones fonctionnelles : opérations, applications, stockage, mise en réseau, calcul et identité. Des informations supplémentaires sur les fonctionnalités et fonctions disponibles dans ces six (6) zones de la plateforme Azure sont fournies par le biais des informations de synthèse.
 
 ## <a name="operations"></a>Opérations
 Cette section contient des informations supplémentaires sur les fonctionnalités clés des opérations de sécurité et des informations de synthèse sur ces fonctionnalités.
 
-### <a name="operations-management-suite-security-and-audit-dashboard"></a>Tableau de bord Sécurité et audit d’Operations Management Suite
-La [solution de sécurité et d’audit d’OMS](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre une vue détaillée de la sécurité informatique de votre organisation. Elle fournit des [requêtes de recherche](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) intégrées pour détecter les problèmes importants qui requièrent votre attention. Le tableau de bord [Sécurité et audit](https://technet.microsoft.com/library/mt484091.aspx) est l’écran d’accueil pour tout ce qui se rapporte à la sécurité dans OMS. Il fournit un aperçu global de l’état de sécurité de vos ordinateurs. Il vous permet également de voir tous les événements des dernières 24 heures, des 7 derniers jours ou de n’importe quel intervalle de temps personnalisé.
+### <a name="security-and-audit-dashboard"></a>Tableau de bord Security and Audit
+La [solution Security and Audit](https://docs.microsoft.com/azure/operations-management-suite/oms-security-getting-started) offre une vue détaillée de la sécurité informatique de votre organisation. Elle fournit des [requêtes de recherche](https://blogs.technet.microsoft.com/msoms/2016/01/21/easy-microsoft-operations-management-suite-search-queries/) intégrées pour détecter les problèmes importants qui requièrent votre attention. Le tableau de bord [Security and Audit](https://technet.microsoft.com/library/mt484091.aspx) est l’écran d’accueil pour tout ce qui se rapporte à la sécurité dans Log Analytics. Il fournit un aperçu global de l’état de sécurité de vos ordinateurs. Il vous permet également de voir tous les événements des dernières 24 heures, des 7 derniers jours ou de n’importe quel intervalle de temps personnalisé.
 
-En outre, vous pouvez configurer Sécurité et conformité d’OMS pour [effectuer automatiquement des actions spécifiques](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) lorsqu’un événement particulier est détecté.
+En outre, vous pouvez configurer Security & Compliance pour [effectuer automatiquement des actions spécifiques](https://blogs.technet.microsoft.com/robdavies/2016/04/20/simple-look-at-oms-alert-remediation-with-runbooks-part-1/) lorsqu’un événement particulier est détecté.
 
 ### <a name="azure-resource-manager"></a>Azure Resource Manager
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) vous permet d’utiliser les ressources de votre solution sous forme de groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un [modèle Azure Resource Manager](https://blogs.technet.microsoft.com/canitpro/2015/06/29/devops-basics-infrastructure-as-code-arm-templates/) de déploiement pouvant fonctionner dans différents environnements (environnements de test, intermédiaire et de production). Le gestionnaire de ressources assure la sécurité, les fonctions d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement.
@@ -95,7 +95,7 @@ En cas d’incidents, d’échecs ou de problèmes de performances, vous pouvez 
 [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) offre des services de visualisation, requête, routage, alertes, mise à l’échelle automatique et automatisation pour les données de l’infrastructure Azure ([journal d’activité](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)) et pour chaque ressource Azure ([journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)). Vous pouvez utiliser Azure Monitor pour vous alerter sur les événements liés à la sécurité qui sont générés dans les journaux Azure.
 
 ### <a name="log-analytics"></a>Log Analytics
-[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/), composant [d’Operations Management Suite](https://www.microsoft.com/cloud-platform/operations-management-suite), fournit une solution de gestion informatique aussi bien pour les infrastructures sur site que pour les solutions tierces basées sur le cloud (comme AWS) en plus des ressources Azure. Les données d’Azure Monitor peuvent être acheminées directement dans Log Analytics afin de voir les mesures et journaux pour l’ensemble de votre environnement en un seul endroit.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics/) fournit une solution de gestion informatique aussi bien pour les infrastructures sur site que pour les solutions tierces basées sur le cloud (comme AWS) en plus des ressources Azure. Les données d’Azure Monitor peuvent être acheminées directement dans Log Analytics afin de voir les mesures et journaux pour l’ensemble de votre environnement en un seul endroit.
 
 Log Analytics peut être un outil utile dans l’analyse d’investigation et dans les autres analyses de la sécurité, car il vous permet d’effectuer rapidement des recherches dans de grandes quantités d’entrées liées à la sécurité avec une approche de type requête flexible. Par ailleurs, des [journaux pare-feu et proxy locaux peuvent être exportés dans Azure et mis à disposition pour des analyses dans Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-proxy-firewall).
 

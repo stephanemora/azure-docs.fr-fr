@@ -11,13 +11,13 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: a9e274cea7543fc3361b1f2d0a60fc18176b6248
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 10/22/2018
+ms.openlocfilehash: 00e5a77bdf8554d473194b2e84947d7adb10df90
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831311"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955251"
 ---
 # <a name="dtu-based-service-tiers"></a>Niveaux de service basés sur des unités DTU
 
@@ -25,7 +25,6 @@ Les niveaux de service basés sur des unités DTU se distinguent par une plage d
 
 > [!IMPORTANT]
 > SQL Database Managed Instance, qui est actuellement en préversion publique, ne prend pas en charge le modèle d’achat DTU. Pour plus d’informations, consultez [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
-
 > [!NOTE]
 > Pour plus d’informations sur les niveaux de service basés sur vCore, voir [Niveaux de service basés sur des vCore](sql-database-service-tiers-vcore.md). Pour plus d’informations sur ce qui différencie les niveaux de service basés sur des unités DTU et les niveaux de service basés sur vCore, voir [Modèles d’achat d’Azure SQL Database](sql-database-service-tiers.md).
 
@@ -33,7 +32,7 @@ Les niveaux de service basés sur des unités DTU se distinguent par une plage d
 
 Le choix d’un niveau de service dépend principalement des exigences de continuité d’activité, de stockage et de performance.
 ||De base|standard|Premium|
-| :-- | --: |--:| --:| --:| 
+| :-- | --: |--:| --:| --:|
 |Charge de travail cible|Développement et production|Développement et production|Développement et production||
 |Contrat SLA de durée de fonctionnement|99,99 %|99,99 %|99,99 %|N/A pendant la version préliminaire|
 |Rétention des sauvegardes|7 jours|35 jours|35 jours|
@@ -44,13 +43,16 @@ Le choix d’un niveau de service dépend principalement des exigences de contin
 |OLTP en mémoire|N/A|N/A|Pris en charge|
 |||||
 
+> [!NOTE]
+> Vous pouvez obtenir une base de données Azure SQL Database gratuite au niveau de service De base avec un compte Azure gratuit pour explorer Azure. Pour plus d’informations, rendez-vous sur la page [Créer une base de données cloud managée avec votre compte gratuit Azure](https://azure.microsoft.com/free/services/sql-database/).
+
 ## <a name="single-database-dtu-and-storage-limits"></a>Limites de stockage et unités DTU d’une base de données unique
 
 Les tailles de calcul sont exprimées en unités de transaction de base de données (DTU) pour les bases de données uniques, et en unités de transaction de base de données élastique (eDTU) pour les pools élastiques. Pour plus d’informations sur les DTU et les eDTU, voir [Modèle d’achat basé sur des unités DTU](sql-database-service-tiers.md#dtu-based-purchasing-model).
 
 ||De base|standard|Premium|
 | :-- | --: | --: | --: | --: |
-| Taille de stockage maximale | 2 Go | 1 To | 4 To  | 
+| Taille de stockage maximale | 2 Go | 1 To | 4 To  |
 | DTU maximales | 5. | 3000 | 4000 | |
 ||||||
 
@@ -59,18 +61,17 @@ Les tailles de calcul sont exprimées en unités de transaction de base de donn�
 
 ## <a name="elastic-pool-edtu-storage-and-pooled-database-limits"></a>eDTU de pool élastique, stockage et limites de base de données mise en pool
 
-| | **De base** | **Standard** | **Premium** | 
+| | **De base** | **Standard** | **Premium** |
 | :-- | --: | --: | --: | --: |
-| Taille de stockage maximale par base de données  | 2 Go | 1 To | 1 To | 
-| Taille de stockage maximale par pool | 156 Go | 4 To | 4 To | 
-| Nombre maximal d’eDTU par base de données | 5. | 3000 | 4000 | 
-| eDTU maximales par pool | 1 600 | 3000 | 4000 | 
-| Nombre maximal de bases de données par pool | 500  | 500 | 100 | 
+| Taille de stockage maximale par base de données  | 2 Go | 1 To | 1 To |
+| Taille de stockage maximale par pool | 156 Go | 4 To | 4 To |
+| Nombre maximal d’eDTU par base de données | 5. | 3000 | 4000 |
+| eDTU maximales par pool | 1 600 | 3000 | 4000 |
+| Nombre maximal de bases de données par pool | 500  | 500 | 100 |
 ||||||
 
 > [!IMPORTANT]
 > Le niveau Premium offre plus de 1 To de stockage dans toutes les régions à l’exception des suivantes : USA Centre-Ouest, Chine Est, USDoDCentral, Allemagne - Centre, USDoDEast, US Gov Sud-Ouest, US Gov Iowa, Allemagne - Nord-Est, Chine Nord. Dans les autres régions, l’espace de stockage maximal au niveau Premium est limité à 1 To. Consultez [Limitations actuelles P11-P15](sql-database-dtu-resource-limits-single-databases.md#single-database-limitations-of-p11-and-p15-when-the-maximum-size-greater-than-1-tb).  
-
 > [!IMPORTANT]
 > Dans certaines circonstances, vous devrez peut-être réduire une base de données pour récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 

@@ -1,26 +1,18 @@
 ---
 title: Créer une passerelle VPN basée sur des itinéraires - Portail Azure | Microsoft Docs
-description: Créez rapidement une passerelle VPN basée sur des itinéraires à l’aide du portail Azure.
+description: Créer une passerelle VPN basée sur des itinéraires à l’aide du portail Azure
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/04/2018
+ms.date: 10/18/2018
 ms.author: cherylmc
-ms.openlocfilehash: fe05ab36f971105cf72342b8df5e2a82de7fc2b8
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 7139b2de79b4e092ca761a4e51061c233e6031b5
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391791"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470300"
 ---
 # <a name="create-a-route-based-vpn-gateway-using-the-azure-portal"></a>Créer une passerelle VPN basée sur des itinéraires à l’aide du portail Azure
 
@@ -74,33 +66,19 @@ Le sous-réseau de passerelle contient les adresses IP réservées utilisées pa
   - **Référence (SKU)** : VpnGw1
   - **Emplacement** : USA Est
   - **Réseau virtuel** : cliquez sur **Réseau virtuel/Choisir un réseau virtuel** pour ouvrir la page **Choisir un réseau virtuel**. Sélectionnez **VNet1**.
+  - **Adresse IP publique** : ce paramètre spécifie l’objet d’adresse IP publique qui est associé à la passerelle VPN. L’adresse IP publique est attribuée dynamiquement à cet objet pendant la création de la passerelle VPN. Actuellement, la passerelle VPN prend uniquement en charge l’allocation d’adresses IP publiques *dynamiques*. Toutefois, cela ne signifie pas que l’adresse IP change après son affectation à votre passerelle VPN. L’adresse IP publique change uniquement lorsque la passerelle est supprimée, puis recréée. Elle n’est pas modifiée lors du redimensionnement, de la réinitialisation ou des autres opérations de maintenance/mise à niveau internes de votre passerelle VPN.
 
-  ![Configuration des paramètres de la passerelle](./media/create-routebased-vpn-gateway-portal/configure-gateway.png "Configuration des paramètres de la passerelle")
+    - Laissez l’option **Créer** sélectionnée.
+    - Dans la zone de texte, donnez un **nom** à votre adresse IP publique. Pour cet exercice, utilisez **VNet1GWIP**.<br>
 
-## <a name="pip"></a>Créer une adresse IP publique
-
-Une passerelle VPN doit présenter une adresse IP publique allouée dynamiquement. Quand vous créez une connexion à une passerelle VPN, il s’agit de l’adresse IP à laquelle votre appareil local se connecte.
-
-1. Sélectionnez **Première configuration IP - Créer une configuration IP de passerelle** pour demander une adresse IP publique.
-
-  ![Première configuration IP](./media/create-routebased-vpn-gateway-portal/add-public-ip-address.png "Première configuration IP")
-2. Dans la page **Choisir une adresse IP publique**, cliquez sur **+ Créer** pour ouvrir la page **Créer une adresse IP publique**.
-3. Configurez les paramètres en appliquant les valeurs suivantes :
-
-  - **Nom** : **VNet1GWIP**
-  - **Référence (SKU)** : **De base**
-
-  ![Créer l’adresse IP publique](./media/create-routebased-vpn-gateway-portal/public-ip-address-name.png "Créer PIP")
-4. Cliquez sur **OK** en bas de cette page pour enregistrer vos modifications.
+    ![Configuration des paramètres de la passerelle](./media/create-routebased-vpn-gateway-portal/gw.png "Configuration des paramètres de la passerelle")
 
 ## <a name="creategw"></a>Créer la passerelle VPN
 
 1. Vérifiez les paramètres dans la page **Créer une passerelle de réseau virtuel**. Ajustez les valeurs si nécessaire.
-
-  ![Création de la passerelle VPN](./media/create-routebased-vpn-gateway-portal/create-vpn-gateway.png "Création de la passerelle VPN")
 2. Cliquez sur **Créer** en bas de la page.
 
-Une fois que vous avez cliqué sur **Créer**, les paramètres sont validés et la vignette **Déploiement d’une passerelle de réseau virtuel** s’affiche sur le tableau de bord. La création d’une passerelle VPN peut prendre jusqu’à 45 minutes. Vous devrez peut-être actualiser la page du portail pour que l’état terminé apparaisse.
+  Une fois que vous avez cliqué sur **Créer**, les paramètres sont validés et la vignette **Déploiement d’une passerelle de réseau virtuel** s’affiche sur le tableau de bord. La création d’une passerelle VPN peut prendre jusqu’à 45 minutes. Vous devrez peut-être actualiser la page du portail pour que l’état terminé apparaisse.
 
 ## <a name="viewgw"></a>Afficher la passerelle VPN
 

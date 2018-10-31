@@ -14,23 +14,23 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 4305afff1e35e9e05f1b2314f8fb9d5a96383e9f
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575216"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955641"
 ---
 # <a name="azure-operational-security-overview"></a>Vue d’ensemble d’Azure Operational Security
 [Azure Operational Security](https://docs.microsoft.com/azure/security/azure-operational-security) comprend les services, contrôles et fonctionnalités auxquels les utilisateurs ont accès pour protéger leurs données, leurs applications et d’autres ressources dans Microsoft Azure. C’est un cadre qui intègre les connaissances acquises via différents outils propres à Microsoft. Ces fonctionnalités incluent Microsoft Security Development Lifecycle (SDL), le programme Microsoft Security Response Center et une connaissance approfondie du paysage des menaces de cybersécurité.
 
-## <a name="operations-management-suite"></a>Operations Management Suite
+##  <a name="azure-management-services"></a>Services de gestion Azure
 Une équipe des opérations informatiques est chargée de gérer l’infrastructure du centre de données, les applications et les données, ainsi que la stabilité et la sécurité de ces systèmes. Toutefois, l’obtention d’informations de sécurité dans des environnements informatiques de plus en plus complexes requiert souvent de la part des organisations qu’elles bricolent et rassemblent les données de plusieurs systèmes de sécurité et de gestion.
 
-[Microsoft Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est une solution de gestion informatique basée sur le cloud qui vous permet de gérer et de protéger votre infrastructure locale et cloud. Ses fonctionnalités principales sont fournies par les services suivants qui s’exécutent dans Azure. Chaque service propose une fonction de gestion spécifique. Vous pouvez combiner des services pour obtenir différents scénarios d’administration. 
+[Microsoft Log Analytics](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview) est une solution de gestion informatique basée sur le cloud qui vous permet de gérer et protéger votre infrastructure locale et dans le cloud. Ses fonctionnalités principales sont fournies par les services suivants qui s’exécutent dans Azure. Azure comporte plusieurs services qui vous aident à gérer et protéger votre infrastructure locale et cloud. Chaque service propose une fonction de gestion spécifique. Vous pouvez combiner des services pour obtenir différents scénarios d’administration. 
 
-### <a name="log-analytics"></a>Log Analytics
-[Azure Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) fournit les services de surveillance d’Operations Management Suite en collectant des données sur les ressources managées dans un référentiel central. Ces données peuvent inclure des événements, des données de performance ou des données personnalisées fournies par l’API. Une fois collectées, les données sont disponibles pour les fonctions d’alerte, d’analyse et d’exportation. 
+### <a name="azure-monitor"></a>Azure Monitor
+[Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview) collecte des données à partir de sources managées dans des banques de données centrales. Ces données peuvent inclure des événements, des données de performance ou des données personnalisées fournies par l’API. Une fois collectées, les données sont disponibles pour les fonctions d’alerte, d’analyse et d’exportation. 
 
 Vous pouvez consolide rles données provenant de différentes sources, et combiner celles de vos services Azure à celles de votre environnement local. Log Analytics dissocie clairement la collecte des données, de l’action exécutée sur celles-ci, afin que toutes les actions soient disponibles pour tous les types de données.
 
@@ -85,7 +85,7 @@ Security Center évalue la configuration de vos ressources pour identifier les v
 >[!Note]
 >Pour plus d’informations sur les rôles et les actions autorisées dans Security Center, consultez [Permissions in Azure Security Center (Autorisations dans Azure Security Center)](https://docs.microsoft.com/azure/security-center/security-center-permissions).
 
-Security Center utilise Microsoft Monitoring Agent. Il s’agit du même agent qu’utilisent Operations Management Suite et le service Log Analytics. Les données collectées par cet agent sont stockées dans un [espace de travail](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) Log Analytics associé à votre abonnement Azure ou dans un nouvel espace de travail, selon l’emplacement géographique de la machine virtuelle.
+Security Center utilise Microsoft Monitoring Agent. Il s’agit du même agent qui celui utilisé par le service Log Analytics. Les données collectées par cet agent sont stockées dans un [espace de travail](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) Log Analytics associé à votre abonnement Azure ou dans un nouvel espace de travail, selon l’emplacement géographique de la machine virtuelle.
 
 ## <a name="azure-monitor"></a>Azure Monitor
 Les problèmes de performances dans votre application cloud peuvent affecter votre entreprise. Avec plusieurs composants interconnectés et de nouvelles versions fréquentes, des dégradations peuvent se produire à tout moment. Et si vous développez une application, vos utilisateurs découvrent généralement des problèmes que vous n’avez pas trouvés dans le test. Vous devez être informé de ces problèmes immédiatement et avoir en main des outils pour les diagnostiquer et les résoudre.
@@ -155,8 +155,8 @@ Les professionnels DevOps expérimentés adoptent plusieurs des pratiques suivan
 -   L’architecture en [microservices](https://www.visualstudio.com/learn/what-are-microservices/) permet d’isoler des cas d’usage métier en petits services réutilisables.  Cette architecture est synonyme d’extensibilité et d’efficacité.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour en savoir plus sur la solution Security and Audit d’Operations Management Suite, consultez les articles suivants :
+Pour en savoir plus sur la solution Security and Audit, consultez les articles suivants :
 
 - [Sécurité et conformité](https://www.microsoft.com/cloud-platform/security-and-compliance)
-- [Surveiller et répondre aux alertes de sécurité dans la solution de sécurité et d’audit d’Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/oms-security-responding-alerts)
-- [Surveillance des ressources dans la solution de sécurité et d’audit d’Operations Management Suite](https://docs.microsoft.com/azure/operations-management-suite/oms-security-monitoring-resources)
+- [Centre de sécurité Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
+- [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/overview)

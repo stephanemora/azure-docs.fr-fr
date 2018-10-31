@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 4b24ab406cc9cdbc3ce03ee203ec034843d5630a
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465807"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986421"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Surveiller les groupes de ressources avec Azure Monitor (préversion)
 
@@ -113,7 +113,12 @@ Dans ce cas, si vous sélectionnez Modifier, vous verrez que cet ensemble de vis
 ## <a name="troubleshooting"></a>Résolution de problèmes
 
 ### <a name="enabling-access-to-alerts"></a>Activation de l’accès aux alertes
-Azure Monitor pour les groupes de ressources a besoin de certaines autorisations pour accéder à l’état d’alerte des ressources dans votre groupe de ressources. Si vous voyez un message d’erreur lors du chargement des alertes, vous ne disposez pas des autorisations suffisantes. Demandez à l’administrateur de vous accorder le rôle de **propriétaire** ou **contributeur** pour l’abonnement contenant le groupe de ressources.
+
+Pour visualiser les alertes dans Azure Monitor pour les groupes de ressources, un utilisateur doté du rôle Propriétaire ou Contributeur pour cet abonnement doit ouvrir Azure Monitor pour les groupes de ressources pour n’importe quel groupe de ressources de l’abonnement. Cette opération autorise toute personne disposant d’un accès en lecture à visualiser les alertes dans Azure Monitor pour les groupes de ressources pour tous les groupes de ressources de l’abonnement. Si vous disposez du rôle Propriétaire ou Contributeur, actualisez cette page au bout de quelques minutes.
+
+Azure Monitor pour les groupes de ressources s’appuie sur le système Azure Monitor Alerts Management pour récupérer l’état des alertes. La solution Alerts Management n’est pas configurée pour chaque groupe de ressources et abonnement par défaut, et ne peut être activée que par une personne disposant du rôle Propriétaire ou Contributeur. Elle est activable de deux manières :
+* ouverture d’Azure Monitor pour les groupes de ressources pour n’importe quel groupe de ressources de l’abonnement ;
+* accès à l’abonnement, clic sur **Fournisseurs de ressources**, puis clic sur **Register for Alerts Management** (S’inscrire à Alerts Management).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

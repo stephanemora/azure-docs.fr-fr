@@ -1,5 +1,5 @@
 ---
-title: Équilibrer la charge de machines virtuelles redondantes dans une zone à l’aide d’Azure CLI | Microsoft Docs
+title: Équilibrer la charge de machines virtuelles redondantes interzone à l’aide d’Azure CLI | Microsoft Docs
 description: Apprendre à créer une instance publique d’un équilibreur de charge standard avec un frontend redondant dans une zone à l’aide d’Azure CLI
 services: load-balancer
 documentationcenter: na
@@ -24,7 +24,7 @@ ms.locfileid: "46948534"
 ---
 #  <a name="load-balance-vms-across-all-availability-zones-using-azure-cli"></a>Équilibrer la charge de machines virtuelles entre toutes les zones de disponibilité avec Azure CLI
 
-Cet article détaille les étapes de la création d’un [équilibreur de charge standard](https://aka.ms/azureloadbalancerstandard) public avec un frontend redondant dans une zone pour obtenir une redondance de zone sans dépendance envers plusieurs enregistrements DNS. Une adresse IP de serveur frontal unique est automatiquement redondante dans une zone.  Avec une adresse IP unique et un frontend redondant dans une zone pour votre équilibreur de charge, vous pouvez maintenant atteindre toutes les machines virtuelles d’un réseau virtuel au sein d’une région parmi toutes les zones de disponibilité. Utilisez les zones de disponibilité pour protéger vos applications et vos données dans l’éventualité peu probable d’une défaillance ou d’une perte d’un centre de données entier.
+Cet article détaille les étapes de la création d’un [équilibreur de charge standard](https://aka.ms/azureloadbalancerstandard) public avec un frontend redondant interzone pour obtenir une redondance interzone sans dépendance envers plusieurs enregistrements DNS. Une adresse IP de serveur frontal unique est automatiquement redondante interzone.  Avec une adresse IP unique et un frontend redondant dans une zone pour votre équilibreur de charge, vous pouvez maintenant atteindre toutes les machines virtuelles d’un réseau virtuel au sein d’une région parmi toutes les zones de disponibilité. Utilisez les zones de disponibilité pour protéger vos applications et vos données dans l’éventualité peu probable d’une défaillance ou d’une perte d’un centre de données entier.
 
 Pour plus d’informations sur l’utilisation des zones de disponibilité avec un équilibreur de charge standard, voir [Équilibreur de charge standard et zones de disponibilité](load-balancer-standard-availability-zones.md).
 
@@ -50,7 +50,7 @@ az group create \
 ```
 
 ## <a name="create-a-zone-redundant-public-ip-standard"></a>Créer une adresse IP publique standard redondante dans une zone
-Pour accéder à votre application sur Internet, vous avez besoin d’une adresse IP publique pour l’équilibreur de charge. Un serveur frontal redondant dans une zone est servi par toutes les zones de disponibilité d’une région simultanément. Créez une adresse IP publique redondante dans une zone avec [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Par défaut, lorsque vous créez une adresse IP publique standard, elle est redondante dans une zone.
+Pour accéder à votre application sur Internet, vous avez besoin d’une adresse IP publique pour l’équilibreur de charge. Un serveur frontal redondant interzone est servi par toutes les zones de disponibilité d’une région simultanément. Créez une adresse IP publique redondante dans une zone avec [New-AzureRmPublicIpAddress](/powershell/module/azurerm.network/new-azurermpublicipaddress). Par défaut, lorsque vous créez une adresse IP publique standard, elle est redondante dans une zone.
 
 L’exemple suivant crée une adresse IP publique redondante dans une zone nommée *myPublicIP* dans le groupe de ressources *myResourceGroupLoadBalancer*.
 

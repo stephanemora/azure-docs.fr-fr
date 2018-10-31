@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 10/10/2018
 ms.author: diberry
-ms.openlocfilehash: adb44dcc8c41b1a7846ff346d141dc0c4b028e96
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 6a3edfd426fcdce83bd60332ba2b1ff6224dae1a
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888286"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49645557"
 ---
 # <a name="add-example-utterances-and-label-with-entities"></a>Ajouter des exemples d’énoncés et les étiqueter avec des entités
 
@@ -159,6 +159,36 @@ Dans l’énoncé `Book 2 tickets from Seattle to Cairo`, Seattle est le lieu de
     >Les noms d’entité enfant doivent être uniques parmi toutes les entités dans une même application. Deux entités hiérarchiques différentes ne peuvent pas contenir d’entités enfants portant le même nom. 
 
     Pour en savoir plus sur l’extraction de l’entité hiérarchique à partir de la réponse à la requête JSON du point de terminaison, voir [Extraction de données](luis-concept-data-extraction.md#hierarchical-entity-data). Pour en savoir plus sur l’utilisation d’une entité hiérarchique, essayez le [démarrage rapide](luis-quickstart-intent-and-hier-entity.md) d’entité hiérarchique.
+
+## <a name="entity-status-predictions"></a>Prédictions de l’état de l’entité
+
+Lorsque vous entrez un nouvel énoncé dans le portail LUIS, l’énoncé peut comporter des erreurs de prédiction de l’entité. L’erreur de prédiction est la différence entre la façon dont une entité est étiquetée et la façon dont LUIS a prédit l’entité. 
+
+Cette différence est représentée visuellement dans le portail LUIS par un trait de soulignement rouge dans l’énoncé. Le trait de soulignement rouge peut apparaître entre ou en dehors des crochets d’entité. 
+
+![Capture d’écran montrant une incohérence de prédiction de l’état de l’entité](./media/luis-how-to-add-example-utterances/entity-prediction-error.png)
+
+Sélectionnez les mots soulignés en rouge dans l’énoncé. 
+
+En cas incohérence de prédiction, la zone de l’entité affiche un point d’exclamation rouge en regard de l’**état de l’entité**. Pour voir les différences entre les entités étiquetées et les entités prévues, sélectionnez **État de l’entité** et sélectionnez l’élément à droite.
+
+![Capture d’écran montrant une incohérence de prédiction de l’état de l’entité](./media/luis-how-to-add-example-utterances/entity-status.png)
+
+La ligne rouge peut apparaître dans les situations suivantes :
+
+    * Entre la saisie de l’énoncé et l’étiquetage de l’entité
+    * Lorsque l’étiquette de l’entité est appliquée
+    * Lorsque l’étiquette de l’entité est supprimée
+    * Lorsque plusieurs étiquettes d’entité sont prédites pour ce texte 
+
+Les solutions suivantes permettent de résoudre les écarts de prédiction d’entité :
+
+|Entité|Indicateur visuel|Prédiction|Solution|
+|--|--|--|--|
+|Énoncé saisi, entité pas encore étiquetée.|trait de soulignement rouge|La prédiction est correcte.|Étiquetez l’entité avec la valeur prédite.|
+|Texte sans étiquette|trait de soulignement rouge|Prédiction incorrecte|Les énoncés actuels utilisant cette entité incorrecte doivent être intégralement passés en revue. Les énoncés actuels ont faussement indiqué à LUIS que ce texte est l’entité prévue.
+|Texte correctement étiqueté|mise en surbrillance de l’entité en bleu, trait de soulignement rouge|Prédiction incorrecte|Fournit davantage d’énoncés avec la bonne étiquette d’entité dans une grande diversité d’emplacements et d’utilisations. Les énoncés actuels ne permettent pas à LUIS de savoir s’il s’agit de l’entité ou si des entités similaires apparaissent dans le même contexte. L’entité similaire doit être combinée en une seule entité pour ne pas induire LUIS en erreur. Une autre solution consiste à ajouter une liste d’expressions pour améliorer la précision des mots. |
+|Texte mal étiqueté|mise en surbrillance de l’entité en bleu, trait de soulignement rouge|Prédiction correcte| Fournit davantage d’énoncés avec la bonne étiquette d’entité dans une grande diversité d’emplacements et d’utilisations. 
 
 
 ## <a name="remove-entity-labels-from-utterances"></a>Supprimer des étiquettes d’entité d’énoncés

@@ -6,14 +6,14 @@ author: rajani-janaki-ram
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/19/2018
 ms.author: rajanaki
-ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 06a7e23eb16cf6296a8997273ea8d554851600c3
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574400"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49456488"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Mise à jour automatique du service Mobilité dans la réplication Azure à Azure
 
@@ -61,6 +61,19 @@ Lorsque vous activez la réplication pour une machine virtuelle [à partir de la
 
 > [!Note] 
 > Les deux options vous informent du compte Automation qui permet de gérer les mises à jour. Si vous activez cette fonctionnalité pour la première fois dans un coffre, un nouveau compte Automation est créé. Toutes les activations de réplications suivantes dans le même coffre utilisent celui créé précédemment.
+
+### <a name="manage-manually"></a>Gérer manuellement
+
+1. Si de nouvelles mises à jour sont disponibles pour le service Mobilité installé sur vos machines virtuelles Azure, vous voyez une notification indiquant que la nouvelle mise à jour de l’agent de réplication de Site Recovery est disponible. Cliquez pour installer. »
+
+     ![Fenêtre Éléments répliqués](.\media\vmware-azure-install-mobility-service\replicated-item-notif.png)
+3. Sélectionnez la notification pour ouvrir la page de sélection des machines virtuelles.
+4. Sélectionnez les machines virtuelles sur lesquelles vous souhaitez mettre à niveau le service Mobilité, puis sélectionnez **OK**.
+
+     ![Éléments répliqués - Liste des machines virtuelles](.\media\vmware-azure-install-mobility-service\update-okpng.png)
+
+La tâche Mettre à jour le service Mobilité est alors démarrée pour chacune des machines virtuelles sélectionnées.
+
 
 ## <a name="common-issues--troubleshooting"></a>Problèmes courants et résolutions
 

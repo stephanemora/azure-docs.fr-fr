@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: ''
 ms.topic: include
-ms.date: 10/15/2018
+ms.date: 10/20/2018
 ms.author: victorh
 ms.custom: include file
-ms.openlocfilehash: 1d52c9b3b9b91873bd6f34443f162c74d724a65c
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: e4d698b8b9c3f9e304780ee49bd4243a76e69138
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49367095"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471528"
 ---
 ### <a name="what-is-azure-firewall"></a>Qu’est-ce qu’un pare-feu Azure ?
 
@@ -30,13 +30,6 @@ Pare-feu Azure est un service de sécurité réseau informatique géré qui prot
 * Prise en charge du trafic DNAT entrant
 * Création, application et journalisation centralisées de stratégies de connectivité réseau et d’application entre les abonnements et les réseaux virtuels Azure
 * Intégration totale avec Azure Monitor pour la journalisation et l’analytique
-
-### <a name="what-is-the-pricing-for-azure-firewall"></a>Quels sont les tarifs de Pare-feu Azure ?
-
-Pare-feu Azure présente un coût fixe + coût variable :
-
-* Frais fixes : 1,25 USD/pare-feu/heure
-* Frais variables : 0,03 USD/Go traité par le pare-feu (en entrée ou en sortie)
 
 ### <a name="what-is-the-typical-deployment-model-for-azure-firewall"></a>Qu’est le modèle de déploiement type de Pare-feu Azure ?
 
@@ -78,6 +71,17 @@ Le service Pare-feu Azure complète les fonctionnalités de groupe de sécurité
 ### <a name="how-do-i-set-up-azure-firewall-with-my-service-endpoints"></a>Comment faire pour configurer Pare-feu Azure avec mes points de terminaison de service ?
 
 Pour bénéficier d’un accès sécurisé aux services PaaS, nous vous recommandons des points de terminaison de service. Vous pouvez choisir d’activer des points de terminaison de service dans le sous-réseau de Pare-feu Azure et les désactiver dans les réseaux virtuels spoke connectés. De cette façon, vous bénéficiez des deux fonctionnalités : sécurité de point de terminaison de service et journalisation centralisée pour tout le trafic.
+
+### <a name="what-is-the-pricing-for-azure-firewall"></a>Quels sont les tarifs de Pare-feu Azure ?
+
+Pare-feu Azure présente un coût fixe + coût variable :
+
+* Frais fixes : 1,25 USD/pare-feu/heure
+* Frais variables : 0,03 USD/Go traité par le pare-feu (en entrée ou en sortie)
+
+Un pare-feu désalloué est gratuit.
+
+Pour plus d’informations, consultez la page [Tarification du pare-feu Azure](https://azure.microsoft.com/pricing/details/azure-firewall/).
 
 ### <a name="how-can-i-stop-and-start-azure-firewall"></a>Comment arrêter et démarrer le Pare-feu Azure ?
 

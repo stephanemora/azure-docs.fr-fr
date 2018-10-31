@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: snehaa
-ms.openlocfilehash: 2b704edee55f7d15da1b59d8f8b357b9ba7ca8f3
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: e39cf260cc4931fc0dddc4922479522cb521d08e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48239215"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407059"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Forum aux questions
 
@@ -98,7 +98,7 @@ Nous avons introduit le profilage continu des données de performances (en prév
 
 Les données collectées par l’appliance sont stockées à l’emplacement Azure que vous spécifiez lors de la création du projet de migration. Les données sont stockées de façon sécurisée dans un abonnement Microsoft et sont supprimées quand l’utilisateur supprime le projet Azure Migrate.
 
-Pour la visualisation des dépendances, si vous installez des agents sur les machines virtuelles, les données collectées par ces agents sont stockées aux États-Unis dans un espace de travail OMS créé dans l’abonnement de l’utilisateur. Ces données sont supprimées lorsque vous supprimez l’espace de travail OMS dans votre abonnement. [Plus d’informations](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization)
+Pour la visualisation des dépendances, si vous installez des agents sur les machines virtuelles, les données collectées par ces agents sont stockées aux États-Unis dans un espace de travail Log Analytics créé dans l’abonnement de l’utilisateur. Ces données sont supprimées lorsque vous supprimez l’espace de travail Log Analytics de votre abonnement. [Plus d’informations](https://docs.microsoft.com/azure/migrate/concepts-dependency-visualization)
 
 ### <a name="is-the-data-encrypted-at-rest-and-while-in-transit"></a>Les données sont-elles chiffrées au repos et en transit ?
 

@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/16/2018
+ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 4001d0e21e7a0c8977d785463fb54aa4de45786c
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: db68f979239a5783338d99360209ae231a75c936
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378735"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945033"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Notes de publication Azure Media Services v3 
 
@@ -35,10 +35,6 @@ Cette section décrit les mises à jour d’octobre d’Azure Media Services (AM
 ### <a name="rest-v3-ga-release"></a>Version en disponibilité générale de REST v3
 
 La [version en disponibilité générale de REST v3](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) contient davantage d’API pour les filtres de manifeste de niveau En direct, Compte/Élément multimédia, ainsi qu’une prise en charge de DRM.
-
-#### <a name="azure-cli-20"></a>Azure CLI 2.0
- 
-Module Azure CLI 2.0 pour toutes les fonctionnalités, dont En direct, Stratégies de clé de contenu, Filtres de comptes/éléments multimédias, Stratégies de streaming.
 
 #### <a name="azure-resource-management"></a>Gestion des ressources Azure 
 
@@ -62,7 +58,7 @@ Le nouvel objet **Transform** simplifie le modèle d’encodage. Le nouvel objet
 
 L’authentification et le contrôle d’accès en fonction du rôle (RBAC) Azure AD autorise les transformations sécurisées, les événements en direct, les stratégies de clé de contenu ou les éléments multimédias par rôle ou utilisateurs dans Azure AD.
 
-#### <a name="client-sdks"></a>Kits SDK client  
+#### <a name="client-sdks"></a>Kits de développement logiciel (SDK) client  
 
 Langages pris en charge dans Media Services v3 : .NET Core, Java, Node.js, Ruby, Typescript, Python, Go.
 
@@ -95,7 +91,9 @@ La version en disponibilité générale de l’indexeur vidéo a été annoncée
 
 ### <a name="plans-for-changes"></a>Modifications planifiées
 
-Le lancement d’Azure CLI est prévu pour le 23/10/2018.
+#### <a name="azure-cli-20"></a>Azure CLI 2.0
+ 
+Le module Azure CLI 2.0 qui inclut des opérations sur toutes les fonctionnalités (dont En direct, Stratégies de clé de contenu, Filtres de comptes/éléments multimédias, Stratégies de streaming) sera bientôt disponible. 
 
 ### <a name="known-issues"></a>Problèmes connus
 

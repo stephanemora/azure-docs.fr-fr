@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/25/2017
 ms.author: cephalin
-ms.openlocfilehash: 84bd2019e9586fa008560dba07119323ecb7f02e
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cf3a6fe24082a10db6a5b1267b70435d9e36b720
+ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36293714"
+ms.lasthandoff: 10/11/2018
+ms.locfileid: "49115520"
 ---
 # <a name="configure-web-apps-in-azure-app-service"></a>Configurer des applications web dans Azure App Service
 
-Cet article explique comment configurer une application web à l’aide du [Portail Azure].
+Cet article explique comment configurer une application web à l’aide du [portail Azure].
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]
 
@@ -73,6 +73,7 @@ Pour des raisons techniques, l’activation de Java pour votre application désa
 Cette section contient des paires nom/valeur qui seront chargées par votre application web au démarrage. 
 
 * Dans le cas des applications .NET, ces paramètres sont inclus dans les `AppSettings` de votre configuration .NET au moment de l’exécution, en remplacement des paramètres existants. 
+* Pour App Service sur Linux ou Web App pour conteneurs, si vous avez imbriqué une structure de clé json dans votre nom, par exemple `ApplicationInsights:InstrumentationKey`, vous avez besoin d’utiliser `ApplicationInsights__InstrumentationKey` comme nom de clé. Ainsi, notez le remplacement de `:` par `__` (autrement dit, un trait de soulignement double).
 * Les applications PHP, Python, Java et Node peuvent accéder à ces paramètres sous forme de variables d'environnement au moment de l'exécution. Pour chaque paramètre d'application, deux variables d'environnement sont créées : l'une avec le nom spécifié par l'entrée du paramètre d'application, et l'autre avec le préfixe APPSETTING_. Elles contiennent toutes les deux la même valeur.
 
 Une fois stockés, les paramètres d’application sont toujours chiffrés (chiffrement au repos).

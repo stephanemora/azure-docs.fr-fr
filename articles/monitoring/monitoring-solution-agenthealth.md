@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: f0737c6a6ff228b92a030242faf7f4d634bdd9f2
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e9ac4b7f7a0900f8b49f95c0db9ba5e9c962fa0e
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45733179"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404033"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Solution Agent Health dans Azure
 La solution Agent Health dans Azure vous permet de savoir quels agents, au service de cet espace de travail ou d’un groupe d’administration System Center Operations Manager connecté à Log Analytics, ne répondent pas et renvoient des données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
@@ -65,7 +65,7 @@ Cliquez sur la vignette **Agent Health** pour ouvrir le tableau de bord **Agent 
 | Distribution selon la catégorie de l’agent | Partition des différentes catégories d’agents émettant des événements de pulsation : agents directs, agents Operations Manager ou serveur d’administration Operations Manager.|
 | Distribution selon le groupe d’administration | Partition des différents groupes d’administration SCOM de votre environnement.|
 | Géolocalisation des agents | Partition des différents pays dans lesquels vous disposez d’agents et nombre total d’agents installés par pays.|
-| Nombre de passerelles installées | Nombre et liste des serveurs disposant d’une passerelle Log Analytics.|
+| Nombre de passerelles installées | Nombre et liste des serveurs disposant de la passerelle Log Analytics.|
 
 ![Exemple de tableau de bord pour la solution Agent Health](./media/monitoring-solution-agenthealth/agenthealth-solution-dashboard.png)  
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: e3620bbf92cab926d56c4de0817f833b61cf2b03
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125083"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406319"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
@@ -37,7 +37,7 @@ Les conditions suivantes sont requises avant l’installation et la configuratio
 
 - Abonnement à Office 365 organisationnel.
 - Informations d’identification pour un compte d’utilisateur qui est un administrateur global.
-- Pour recevoir des données d’audit, vous devez [configurer l’audit](https://support.office.com/en-us/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) dans votre abonnement Office 365.  Notez que [l’audit de boîte aux lettres](https://technet.microsoft.com/library/dn879651.aspx) est configuré séparément.  Vous pouvez toujours installer la solution et collecter d’autres données si l’audit n’est pas configuré.
+- Pour recevoir des données d’audit, vous devez [configurer l’audit](https://support.office.com/article/Search-the-audit-log-in-the-Office-365-Security-Compliance-Center-0d4d0f35-390b-4518-800e-0c7ec95e946c?ui=en-US&rs=en-US&ad=US#PickTab=Before_you_begin) dans votre abonnement Office 365.  Notez que [l’audit de boîte aux lettres](https://technet.microsoft.com/library/dn879651.aspx) est configuré séparément.  Vous pouvez toujours installer la solution et collecter d’autres données si l’audit n’est pas configuré.
  
 
 ## <a name="management-packs"></a>Packs d’administration
@@ -477,7 +477,7 @@ Vous pouvez supprimer la solution de gestion Office 365 suivant le processus dé
 
 ## <a name="data-collection"></a>Collecte des données
 ### <a name="supported-agents"></a>Agents pris en charge
-La solution Office 365 ne récupère pas des données à partir des [agents OMS](../log-analytics/log-analytics-data-sources.md).  Il récupère les données directement à partir d’Office 365.
+La solution Office 365 ne récupère pas de données des [agents Log Analytics](../log-analytics/log-analytics-data-sources.md).  Il récupère les données directement à partir d’Office 365.
 
 ### <a name="collection-frequency"></a>Fréquence de collecte
 La collecte initiale des données peut prendre quelques heures. Dès qu’elle a commencé, Office 365 envoie une [notification Webhook](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference#receiving-notifications) avec des données détaillées à Log Analytics à chaque fois qu’un enregistrement est créé. Cet enregistrement est disponible dans Log Analytics quelques minutes après sa réception.

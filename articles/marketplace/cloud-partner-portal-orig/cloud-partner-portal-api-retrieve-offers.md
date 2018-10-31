@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: reference
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3429917fcee520ae932253f1fdfead4ffb6535e6
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: cf6e2fa296d3d9f152edf22685b930586b4de524
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806018"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024804"
 ---
 <a name="retrieve-offers"></a>Récupération des offres
 ===============
@@ -80,7 +80,7 @@ Récupère une liste récapitulative des offres sous un espace de noms du serveu
 |  status         | État de l’offre. Pour la liste des valeurs possibles, consultez [État de l’offre](#offer-status) ci-dessous.                         |
 |  id             | GUID qui identifie de façon unique l’offre dans l’espace de noms du serveur de publication.                                                    |
 |  version        | Version actuelle de l’offre. La propriété de version ne peut pas être modifiée par le client. Elle est incrémentée après chaque publication. |
-|  Définition     | Contient une vue résumée de la définition réelle de la charge de travail. Pour obtenir une définition détaillée, utilisez l’API [Récupération d’une offre spécifique] (. / cloud-partner-portal-api-retrieve-specific-offer.md). |
+|  Définition     | Contient une vue résumée de la définition réelle de la charge de travail. Pour obtenir une définition détaillée, utilisez l’API[Récupérer une offre spécifique](./cloud-partner-portal-api-retrieve-specific-offer.md). |
 |  changedTime    | Heure UTC de la dernière modification de l’offre                                                                              |
 |  |  |
 

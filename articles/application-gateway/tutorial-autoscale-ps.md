@@ -19,10 +19,10 @@ ms.locfileid: "48016932"
 
 Ce didacticiel explique comment créer une passerelle Azure Application Gateway à l’aide des cmdlets Azure PowerShell et du modèle de déploiement Azure Resource Manager. Ce didacticiel se concentre sur les différences entre la nouvelle référence SKU de mise à l’échelle automatique et la référence SKU Standard existante. Plus précisément, les fonctionnalités de prise en charge de la mise à l’échelle automatique, de redondance de zone et d’adresses IP virtuelles réservées (adresses IP statiques).
 
-Pour plus d’informations sur la mise à l’échelle de la passerelle d’application et la redondance de zone, consultez [Passerelle d’application redondante dans une zone et avec mise à l’échelle automatique (préversion publique)](application-gateway-autoscaling-zone-redundant.md).
+Pour plus d’informations sur la mise à l’échelle de la passerelle d’application et la redondance interzone, consultez [Passerelle d’application redondante interzone et avec mise à l’échelle automatique (préversion publique)](application-gateway-autoscaling-zone-redundant.md).
 
 > [!IMPORTANT]
-> La référence SKU de la passerelle d’application redondante dans une zone et avec mise à l’échelle automatique est disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La référence SKU de la passerelle d’application redondante interzone et avec mise à l’échelle automatique est disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 

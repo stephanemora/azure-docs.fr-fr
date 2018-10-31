@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: dd9a2c6a5b2183d4909b6bcfd24dc1fae401c785
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: fa316ee47e6fdabacf22e1e419bfd501620dd83d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411758"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429148"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Comprendre un redémarrage du système pour Azure
 
@@ -73,7 +73,7 @@ Plusieurs actions de modification de la configuration peuvent également entraî
 ### <a name="azure-security-center-and-windows-update"></a>Azure Security Center et Windows Update
 Azure Security Center recherche quotidiennement les mises à jour manquantes du système d’exploitation sur les machines virtuelles Windows et Linux. Security Center récupère une liste des mises à jour de sécurité et critiques disponibles dans Windows Update ou WSUS (Windows Server Update Services), selon le service configuré sur les machines virtuelles Windows. Security Center recherche également les dernières mises à jour pour les systèmes Linux. S’il manque une mise à jour système sur votre machine virtuelle, Security Center vous recommande de l’appliquer. L’application de ces mises à jour du système est contrôlée par Security Center sur le portail Azure. L’application de certaines mises à jour peut nécessiter un redémarrage des machines virtuelles. Pour en savoir plus, consultez [Appliquer les mises à jour système dans Azure Security Center](../../security-center/security-center-apply-system-updates.md).
 
-Comme pour les serveurs locaux, Azure n’envoie pas les mises à jour depuis Windows Update sur les machines virtuelles Windows Azure, dans la mesure où ces machines sont destinées à être gérées par l’utilisateur. Cependant, vous êtes invité à maintenir la configuration automatique de Windows Update activée. L’installation automatique des mises à jour de Windows Update peut également entraîner des redémarrages une fois les mises à jour appliquées. Pour plus d’informations, consultez [Windows Update : Forum Aux Questions](https://support.microsoft.com/help/12373/windows-update-faq).
+Comme pour les serveurs locaux, Azure n’envoie pas les mises à jour de Windows Update à des machines virtuelles Windows, car ces machines doivent être gérées par l’utilisateur. Cependant, vous êtes invité à maintenir la configuration automatique de Windows Update activée. L’installation automatique des mises à jour de Windows Update peut également entraîner des redémarrages une fois les mises à jour appliquées. Pour plus d’informations, consultez [Windows Update : Forum Aux Questions](https://support.microsoft.com/help/12373/windows-update-faq).
 
 ### <a name="other-situations-affecting-the-availability-of-your-vm"></a>Autres situations affectant la disponibilité de votre machine virtuelle
 Il existe des autres cas dans lesquels Azure peut interrompre activement l’utilisation d’une machine virtuelle. Vous recevrez des e-mails de notification avant d’effectuer cette action pour vous donner la possibilité de résoudre les problèmes sous-jacents. Les violations de sécurité et l’expiration de modes de paiement sont des exemples de problèmes qui affectent la disponibilité d’une machine virtuelle.

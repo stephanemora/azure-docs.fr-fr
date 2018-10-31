@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 25e6fba6ac8aa34c0c30fd61f5fe297b94720439
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46983665"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429556"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gérer le cycle de vie du stockage d'objets blob Azure (préversion)
 
@@ -37,7 +37,7 @@ La stratégie de gestion du cycle de vie est disponible avec le compte à usage 
 La fonctionnalité de gestion du cycle de vie est gratuite dans la version préliminaire. Les clients sont facturés le coût de fonctionnement normal pour les appels d’API [Répertorier les objets blob](https://docs.microsoft.com/rest/api/storageservices/list-blobs) et [Définir le niveau d’objet blob](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier). Pour en savoir plus sur la tarification, consultez [Tarification Objets blob de blocs](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
 ## <a name="register-for-preview"></a>S’inscrire pour la préversion 
-Pour vous inscrire à la version préliminaire publique, vous devez envoyer une demande afin d’enregistrer cette fonctionnalité dans votre abonnement. Une fois votre demande approuvée (au bout de quelques jours), cette fonctionnalité sera activée pour tout compte GPv2 ou de stockage d’objets blob existant ou nouveau dans la région USA Ouest 2, USA Centre-Ouest et Europe Ouest. Lors de la version préliminaire, seul l’objet blob de blocs est pris en charge. Comme pour la plupart des versions préliminaires, cette fonctionnalité ne doit pas être utilisée pour les charges de production avant d’avoir atteint la disponibilité générale.
+Pour vous inscrire à la version préliminaire publique, vous devez envoyer une demande afin d’enregistrer cette fonctionnalité dans votre abonnement. Une fois votre demande approuvée (au bout de quelques jours), cette fonctionnalité est activée pour tout compte GPv2 ou Stockage Blob existant ou nouveau dans la région USA Ouest 2, USA Centre-Ouest, USA Est 2 et Europe Ouest. Lors de la version préliminaire, seul l’objet blob de blocs est pris en charge. Comme pour la plupart des versions préliminaires, cette fonctionnalité ne doit pas être utilisée pour les charges de production avant d’avoir atteint la disponibilité générale.
 
 Pour soumettre une requête, exécutez les commandes PowerShell ou CLI suivantes.
 
@@ -69,7 +69,7 @@ Si la fonctionnalité est approuvée et correctement inscrite, vous devriez rece
 
 ## <a name="add-or-remove-policies"></a>Ajouter ou supprimer des stratégies 
 
-Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du Portail Azure, de [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), des [API REST](https://docs.microsoft.com/rest/api/storagerp/storageaccounts/createorupdatemanagementpolicies) ou des outils clients dans les langages suivants : [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du Portail Azure, de [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), des [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate) ou des outils clients dans les langages suivants : [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Portail Azure
 
@@ -316,6 +316,10 @@ Pour les données qui sont modifiées et consultées régulièrement tout au lon
   ]
 }
 ```
+## <a name="faq"></a>Forum Aux Questions
+### <a name="i-created-a-new-policy-why-are-the-actions-specified-not-executed-immediately"></a>J’ai créé une stratégie. Pourquoi les actions spécifiées ne sont-elles pas exécutées immédiatement ? 
+
+La stratégie de cycle de vie est exécutée une fois par jour par la plateforme. Une fois qu’une nouvelle stratégie est définie, l’initiation et l’exécution des actions telles que la hiérarchisation ou la suppression peuvent prendre 24 heures.  
 
 ## <a name="next-steps"></a>Étapes suivantes
 

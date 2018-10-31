@@ -28,7 +28,7 @@ Les régions primaire et secondaire gèrent les réplicas dans des domaines d’
 
 Gardez ces points à l’esprit au moment de choisir une option de réplication :
 
-* Le stockage redondant dans une zone (ZRS), qui assure la haute disponibilité avec réplication synchrone, peut représenter dans certains scénarios un meilleur choix que le stockage géoredondant et le stockage géographiquement redondant avec accès en lecture. Pour plus d’informations sur le stockage redondant dans une zone, voir [ZRS](../articles/storage/common/storage-redundancy-zrs.md).
+* Le stockage redondant interzone (ZRS), qui assure la haute disponibilité avec réplication synchrone, peut représenter dans certains scénarios un meilleur choix que le stockage géoredondant et le stockage géographiquement redondant avec accès en lecture. Pour plus d’informations sur le stockage redondant dans une zone, voir [ZRS](../articles/storage/common/storage-redundancy-zrs.md).
 * La réplication asynchrone impliquant un délai, il est possible que, en cas de sinistre régional, les modifications n’ayant pas encore été répliquées dans la région secondaire soient perdues si les données ne sont pas récupérables à partir de la région primaire.
 * Avec le stockage géoredondant, le réplica n’est disponible que si Microsoft lance le basculement vers la région secondaire. Si Microsoft initie un basculement vers la région secondaire, vous obtiendrez un accès en lecture et écriture à ces données une fois le basculement effectué. Pour plus d’informations, consultez [Conseils sur la récupération d’urgence](../articles/storage/common/storage-disaster-recovery-guidance.md).
 * Si votre application doit lire les données de la région secondaire, activez le stockage géographiquement redondant avec accès en lecture.

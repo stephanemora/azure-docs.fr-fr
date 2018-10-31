@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 481fcb869004a6fca83fdf19c32c41010057de32
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: aa68bb0cb2e404072ef359591ce9309f8c27b631
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008193"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49403983"
 ---
 # <a name="azure-operational-security-checklist"></a>Liste de contrôle de la sécurité opérationnelle Azure
 Le déploiement d’une application sur Azure est rapide, simple et rentable. Avant de déployer une application cloud en production, il peut être judicieux de disposer d’une liste de contrôle pour vous aider à évaluer votre application par rapport à une liste d’actions de sécurité opérationnelle essentielles et recommandées à prendre en compte.
@@ -51,8 +51,7 @@ Cette liste de contrôle est conçue pour aider les entreprises à penser aux di
 De nombreuses organisations ont correctement déployé et utilisé leurs applications cloud sur Azure. Les listes de contrôle fournies mettent en évidence plusieurs aspects essentiels et vous permettent d’augmenter la probabilité de réussite des déploiements, ainsi que des opérations conviviales. Nous vous recommandons vivement de tenir compte de ces considérations opérationnelles et stratégiques pour vos déploiements d’applications, nouveaux et existants, sur Azure.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Ce document vous a présenté la solution de sécurité et d’audit d’OMS. Pour plus d’informations sur la sécurité OMS, consultez les articles suivants :
+Pour plus d’informations sur la sécurité, consultez les articles suivants :
 
-- [Présentation d’Operations Management Suite (OMS)](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-overview).
 - [Conception et sécurité opérationnelle](https://www.microsoft.com/trustcenter/security/designopsecurity).
 - [Guide des opérations et de planification d’Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide).

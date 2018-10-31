@@ -63,7 +63,7 @@ Standard Load Balancer prend uniquement en charge une adresse IP publique standa
 
 ## <a name="create-backend-servers"></a>Créer des serveurs principaux
 
-Dans cette section, vous créez un réseau virtuel. Vous créez également deux machines virtuelles dans la même zone (à savoir, la zone 1) pour la région à ajouter au pool principal de votre équilibreur de charge. Vous installez ensuite IIS sur les machines virtuelles pour faciliter le test de l’équilibreur de charge redondant dans une zone. Si une machine virtuelle échoue, la sonde d’intégrité de la machine virtuelle dans la même zone échoue. Le trafic continue à être pris en charge par les autres machines virtuelles au sein de la même zone.
+Dans cette section, vous créez un réseau virtuel. Vous créez également deux machines virtuelles dans la même zone (à savoir, la zone 1) pour la région à ajouter au pool principal de votre équilibreur de charge. Vous installez ensuite IIS sur les machines virtuelles pour faciliter le test de l’équilibreur de charge redondant interzone. Si une machine virtuelle échoue, la sonde d’intégrité de la machine virtuelle dans la même zone échoue. Le trafic continue à être pris en charge par les autres machines virtuelles au sein de la même zone.
 
 ### <a name="create-a-virtual-network"></a>Créez un réseau virtuel
 1. Dans le coin supérieur gauche de l’écran, sélectionnez **Créer une ressource** > **Mise en réseau** > **Réseau virtuel**.  Entrez ces valeurs pour le réseau virtuel :

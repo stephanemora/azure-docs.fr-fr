@@ -1,5 +1,5 @@
 ---
-title: À propos des passerelles de réseau virtuel redondantes dans une zone dans les Zones de disponibilité Azure | Microsoft Docs
+title: À propos des passerelles de réseau virtuel redondantes interzone dans les Zones de disponibilité Azure | Microsoft Docs
 description: Apprenez-en plus sur les passerelles VPN et ExpressRoute dans les Zones de disponibilité.
 services: vpn-gateway
 author: cherylmc
@@ -15,13 +15,13 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/24/2018
 ms.locfileid: "46975649"
 ---
-# <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>À propos des passerelles de réseau virtuel redondantes dans une zone dans les Zones de disponibilité Azure
+# <a name="about-zone-redundant-virtual-network-gateways-in-azure-availability-zones"></a>À propos des passerelles de réseau virtuel redondantes interzone dans les Zones de disponibilité Azure
 
 Vous pouvez déployer des passerelles VPN et ExpressRoute dans des [zones de disponibilité Azure](../availability-zones/az-overview.md). Cela apporte de la résilience, de l’extensibilité et une plus grande disponibilité aux passerelles de réseau virtuel. Le déploiement de passerelles dans les zones de disponibilité Azure sépare les passerelles physiquement et logiquement au sein d’une région, tout en protégeant votre connectivité de réseau local à Azure à partir d’échecs au niveau de la zone.
 
 ### <a name="zrgw"></a>Passerelles redondantes dans une zone
 
-Pour déployer automatiquement vos passerelles de réseau virtuel entre des zones de disponibilité, vous pouvez utiliser des passerelles de réseau virtuel redondantes dans une zone. Avec les passerelles redondantes dans une zone, vous pouvez bénéficier de la résilience aux zones pour accéder à vos services évolutifs et critiques sur Azure.
+Pour déployer automatiquement vos passerelles de réseau virtuel entre des zones de disponibilité, vous pouvez utiliser des passerelles de réseau virtuel redondantes interzone. Avec les passerelles redondantes interzone, vous pouvez bénéficier de la résilience aux zones pour accéder à vos services évolutifs et critiques sur Azure.
 
 <br>
 <br>
@@ -39,7 +39,7 @@ Pour le déploiement de passerelles dans une zone spécifique, vous pouvez utili
 
 ## <a name="gwskus"></a>SKU de passerelle
 
-Les passerelles zonales et redondantes dans une zone sont disponibles en tant que nouvelles références SKU de passerelle. Nous avons ajouté de nouvelles références SKU de passerelle de réseau virtuel dans les régions Azure AZ. Ces références SKU sont semblables aux références SKU correspondantes qui existent déjà pour les passerelles VPN et ExpressRoute, sauf qu’elles sont spécifiques aux passerelles zonales et redondantes dans une zone.
+Les passerelles zonales et redondantes interzone sont disponibles en tant que nouvelles références SKU de passerelle. Nous avons ajouté de nouvelles références SKU de passerelle de réseau virtuel dans les régions Azure AZ. Ces références SKU sont semblables aux références SKU correspondantes qui existent déjà pour les passerelles VPN et ExpressRoute, sauf qu’elles sont spécifiques aux passerelles zonales et redondantes interzone.
 
 Les nouvelles références SKU de passerelle sont :
 
@@ -57,7 +57,7 @@ Les nouvelles références SKU de passerelle sont :
 
 ## <a name="pipskus"></a>Références SKU d’adresse IP publique
 
-Les passerelles zonales et redondantes dans une zone s’appuient sur la référence (SKU) de ressource d’adresse IP publique *Standard*. La configuration de la ressource d’adresse IP publique Azure détermine si la passerelle que vous déployez est zonale ou redondante dans une zone. Si vous créez une ressource d’adresse IP publique avec une référence (SKU) *De base*, la passerelle n’aura aucune redondance de zone, et les ressources de la passerelle seront régionales.
+Les passerelles zonales et redondantes interzone s’appuient sur la référence (SKU) de ressource d’adresse IP publique *Standard*. La configuration de la ressource d’adresse IP publique Azure détermine si la passerelle que vous déployez est zonale ou redondante interzone. Si vous créez une ressource d’adresse IP publique avec une référence (SKU) *De base*, la passerelle n’aura aucune redondance de zone, et les ressources de la passerelle seront régionales.
 
 ### <a name="pipzrg"></a>Passerelles redondantes dans une zone
 
@@ -86,11 +86,11 @@ Oui, vous pouvez utiliser le Portail Azure pour déployer les nouvelles référe
 
 ### <a name="what-regions-are-available-for-me-to-use-the-new-skus"></a>Dans quelles régions puis-je utiliser les nouvelles références SKU ?
 
-Les nouvelles références SKU sont disponibles dans les régions Azure disposant de Zones de disponibilité Azure, c’est-à-dire les régions USA Centre, France Centre et Europe Ouest. À l’avenir, nous rendrons les passerelles redondantes dans une zone disponibles pour vous dans d’autres régions Azure publiques.
+Les nouvelles références SKU sont disponibles dans les régions Azure disposant de Zones de disponibilité Azure, c’est-à-dire les régions USA Centre, France Centre et Europe Ouest. À l’avenir, nous rendrons les passerelles redondantes interzone disponibles pour vous dans d’autres régions Azure publiques.
 
-### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Puis-je changer/migrer/mettre à niveau mes passerelles de réseau virtuel existantes vers des passerelles zonales ou redondantes dans une zone ?
+### <a name="can-i-changemigrateupgrade-my-existing-virtual-network-gateways-to-zone-redundant-or-zonal-gateways"></a>Puis-je changer/migrer/mettre à niveau mes passerelles de réseau virtuel existantes vers des passerelles zonales ou redondantes interzone ?
 
-La migration de vos passerelles de réseau virtuel existantes vers des passerelles zonales ou redondantes dans une zone n’est pas prise en charge pour le moment. Toutefois, vous pouvez supprimer votre passerelle existante et recréer une passerelle zonale ou redondante dans une zone.
+La migration de vos passerelles de réseau virtuel existantes vers des passerelles zonales ou redondantes interzone n’est pas prise en charge pour le moment. Toutefois, vous pouvez supprimer votre passerelle existante et recréer une passerelle zonale ou redondante interzone.
 
 ### <a name="can-i-deploy-both-vpn-and-express-route-gateways-in-same-virtual-network"></a>Puis-je déployer des passerelles VPN et ExpressRoute dans le même réseau virtuel ?
 

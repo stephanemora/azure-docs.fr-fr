@@ -76,7 +76,7 @@ Pour plus d’informations, consultez [Sondes d’intégrité Load Balancer](loa
 
 Load Balancer Standard prend en charge des fonctionnalités supplémentaires dans les régions où les Zones de disponibilité sont disponibles.  Ces fonctionnalités sont incrémentielles pour tous les Load Balancer Standard fournis.  Les configurations de Zones de disponibilité sont disponibles pour Load Balancer Standard public et interne.
 
-Des serveurs frontaux non-zonaux deviennent redondants dans une zone par défaut lors du déploiement dans une région avec des Zones de disponibilité.   Un serveur frontal redondant dans une zone survit à des échecs de zone et est pris en charge par une infrastructure dédiée dans toutes les zones simultanément. 
+Des serveurs frontaux non-zonaux deviennent redondants interzone par défaut lors du déploiement dans une région avec des Zones de disponibilité.   Un serveur frontal redondant interzone survit à des échecs de zone et est pris en charge par une infrastructure dédiée dans toutes les zones simultanément. 
 
 En outre, vous pouvez garantir un serveur frontal dans une zone spécifique. Un serveur frontal zonal partage le même devenir que la zone concernée et est pris en charge uniquement par une infrastructure dédiée dans une seule zone.
 

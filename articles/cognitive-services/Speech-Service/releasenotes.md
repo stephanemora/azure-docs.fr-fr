@@ -1,33 +1,34 @@
 ---
-title: Documentation du Kit de développement logiciel (SDK) Speech de Cognitive Services | Microsoft Docs
+title: Documentation du SDK du service Speech
+titlesuffix: Azure Cognitive Services
 description: Notes de publication - ce qui a changé dans les versions les plus récentes
-titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: wolfma61
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: wolfma
-ms.openlocfilehash: 3a9da3b0f2165dadd99691c6dc9e41cbf3d48620
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: b5e4d239121b2449a45dfce826c99765f1c3f4be
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339999"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49471134"
 ---
 # <a name="release-notes"></a>Notes de publication
 
-## <a name="cognitive-services-speech-sdk-101"></a>SDK Cognitive Services Speech 1.0.1
+## <a name="speech-service-sdk-101"></a>Kit de développement logiciel (SDK) 1.0.1 du service Speech
 
 Améliorations de la fiabilité et résolution des bogues :
 
-* Corriger une éventuelle erreur irrécupérable en raison d’une condition de concurrence lors de la suppression du module de reconnaissance
-* Corriger une éventuelle erreur irrécupérable en cas de propriétés non définies.
+* Correction d’une erreur irrécupérable potentielle due à une condition de concurrence lors de la suppression du module de reconnaissance
+* Correction d’une erreur irrécupérable potentielle en cas de propriétés non définies.
 * Vérification supplémentaire des erreurs et des paramètres.
-* Objective-C : corriger une erreur irrécupérable possible provoquée par le remplacement d’un nom dans une chaîne NSString.
-* Objectice-C : régler la visibilité de l’API
-* JavaScript : correctifs concernant des événements et leurs charges utiles.
+* Objective-C : correction d’une erreur irrécupérable possible provoquée par le remplacement d’un nom dans une chaîne NSString.
+* Objective-C : réglage de la visibilité de l’API.
+* JavaScript : correction des événements et de leurs charges utiles.
 * Améliorations de la documentation.
 
 Dans notre [exemple de référentiel](https://aka.ms/csspeech/samples), un nouvel échantillon pour JavaScript a été ajouté.

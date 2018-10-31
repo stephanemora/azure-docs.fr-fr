@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7e4889148a752b552f8bd65702ea5dda450ded31
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 81eacf464c90d56c4ebeae1d1cefbd6f2f0fdab8
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044295"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408538"
 ---
 # <a name="computer-groups-in-log-analytics-log-searches"></a>Groupes d’ordinateurs dans les recherches de journal Log Analytics
 
@@ -62,7 +62,7 @@ Utilisez la procédure suivante pour créer un groupe d’ordinateurs à partir 
 
 
 ### <a name="active-directory"></a>Active Directory
-Lorsque vous configurez Log Analytics pour importer les appartenances aux groupes Active Directory, Log Analytics analyse l’appartenance au groupe des ordinateurs joints à un domaine avec l’Agent OMS.  Un groupe d’ordinateurs est créé dans Log Analytics pour chaque groupe de sécurité dans Active Directory, et chaque ordinateur est ajouté aux groupes d’ordinateurs correspondant aux groupes de sécurité auxquels il appartient.  Cet appartenance est mise à jour toutes les 4 heures.  
+Lorsque vous configurez Log Analytics pour importer les appartenances aux groupes Active Directory, le service analyse l’appartenance au groupe des ordinateurs joints à un domaine avec l’agent Log Analytics.  Un groupe d’ordinateurs est créé dans Log Analytics pour chaque groupe de sécurité dans Active Directory, et chaque ordinateur est ajouté aux groupes d’ordinateurs correspondant aux groupes de sécurité auxquels il appartient.  Cet appartenance est mise à jour toutes les 4 heures.  
 
 Vous configurez Log Analytics pour importer des groupes de sécurité Active Directory à partir des **paramètres avancés** de Log Analytics dans le portail Azure.  Sélectionnez **Groupes d’ordinateurs**, **Active Directory**, puis **Importer les appartenances à des groupes Active Directory depuis les ordinateurs**.  Aucune configuration supplémentaire n’est requise.
 
@@ -71,7 +71,7 @@ Vous configurez Log Analytics pour importer des groupes de sécurité Active Dir
 Une fois des groupes importés, le menu répertorie le nombre d’ordinateurs détectés avec une appartenance à un groupe et le nombre de groupes importés.  Vous pouvez cliquer sur l’un de ces liens pour retourner les enregistrements **ComputerGroup**avec ces informations.
 
 ### <a name="windows-server-update-service"></a>Windows Server Update Service
-Lorsque vous configurez Log Analytics pour importer les appartenances aux groupes WSUS, le service analyse les appartenances aux groupes de ciblage de tous les ordinateurs avec l’Agent OMS.  Si vous utilisez un ciblage côté client, l’appartenance à un groupe de tout ordinateur connecté à Log Analytics et faisant partie d’un groupe de ciblage WSUS est importée dans Log Analytics. Si vous utilisez un ciblage côté serveur, l’Agent OMS doit être installé sur le serveur WSUS afin que les informations d’appartenance au groupe soient importées dans Log Analytics.  Cet appartenance est mise à jour toutes les 4 heures. 
+Lorsque vous configurez Log Analytics pour importer les appartenances aux groupes WSUS, le service analyse les appartenances aux groupes de ciblage de tous les ordinateurs avec l’agent Log Analytics.  Si vous utilisez un ciblage côté client, l’appartenance à un groupe de tout ordinateur connecté à Log Analytics et faisant partie d’un groupe de ciblage WSUS est importée dans Log Analytics. Si vous utilisez un ciblage côté serveur, l’agent Log Analytics doit être installé sur le serveur WSUS afin que les informations d’appartenance au groupe soient importées dans Log Analytics.  Cet appartenance est mise à jour toutes les 4 heures. 
 
 Vous configurez Log Analytics pour importer des groupes WSUS à partir des **paramètres avancés** de Log Analytics dans le portail Azure.  Sélectionnez **Groupes d’ordinateurs**, **WSUS**, puis **Importer les appartenances à un groupe WSUS**.  Aucune configuration supplémentaire n’est requise.
 

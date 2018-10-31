@@ -1,36 +1,37 @@
 ---
-title: À propos du kit SDK Speech de Cognitive Services
-description: Vue d’ensemble des kits SDK disponibles pour le service Speech.
+title: À propos du kit de développement logiciel (SDK) du service Speech
 titleSuffix: Azure Cognitive Services
+description: Vue d’ensemble des SDK disponibles pour le service Speech.
 services: cognitive-services
 author: erhopf
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 4be6b1e8373b6e7a7db8d97f2c99137cb6aca9bf
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f071c15ea586f7b146b82a6201adf16dadc65add
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364640"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49464806"
 ---
-# <a name="about-the-cognitive-services-speech-sdk"></a>À propos du kit SDK Speech de Cognitive Services
+# <a name="about-the-speech-service-sdk"></a>À propos du kit de développement logiciel (SDK) du service Speech
 
-Le kit de développement logiciel (SDK) Speech de Cognitive Services permet à vos applications un accès natif aux fonctions du service Speech, ce qui facilite le développement de logiciels. Actuellement, le SDK fournit un accès à **Reconnaissance vocale**, **Traduction vocale** et **Reconnaissance de l'intention**.
+Le kit de développement logiciel (SDK) du service Speech permet à vos applications un accès natif aux fonctions du service Speech, ce qui facilite le développement de logiciels. Actuellement, le SDK fournit un accès à **Reconnaissance vocale**, **Traduction vocale** et **Reconnaissance de l'intention**.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-## <a name="get-the-sdk"></a>Obtenir le kit SDK
+## <a name="get-the-sdk"></a>Obtention du Kit de développement logiciel (SDK)
 
 ### <a name="windows"></a>Windows
 
 Pour Windows, nous prenons en charge les langages suivants :
 
-* C# (UWP et .NET), C++ : vous pouvez référencer et utiliser la dernière version de notre package NuGet du kit SDK Speech. Le package inclut des bibliothèques clientes 32 bits et 64 bits, ainsi que des bibliothèques managées (.NET). Le SDK peut être installé dans Visual Studio à l’aide de NuGet. Recherchez **Microsoft.CognitiveServices.Speech**.
+* C# (UWP et .NET), C++ : vous pouvez référencer et utiliser la dernière version de notre package NuGet du Kit de développement logiciel (SDK) de reconnaissance vocale. Le package inclut des bibliothèques clientes 32 bits et 64 bits, ainsi que des bibliothèques managées (.NET). Le SDK peut être installé dans Visual Studio à l’aide de NuGet. Recherchez **Microsoft.CognitiveServices.Speech**.
 
 * Java : vous pouvez référencer et utiliser la dernière version de notre package Maven du SDK Speech, qui prend uniquement en charge Windows x64. Dans votre projet Maven, ajoutez `https://csspeechstorage.blob.core.windows.net/maven/` comme référentiel supplémentaire, puis référencez `com.microsoft.cognitiveservices.speech:client-sdk:1.0.1` comme dépendance. 
 
@@ -56,7 +57,7 @@ sudo apt-get install build-essential libssl1.0.0 libcurl3 libasound2
 
 * C++ : téléchargez le SDK sous la forme [package .tar](https://aka.ms/csspeech/linuxbinary) et décompressez les fichiers dans un répertoire de votre choix. Le tableau suivant montre la structure de dossiers du SDK :
 
-  |Chemin|Description|
+  |path|Description|
   |-|-|
   |`license.md`|Licence|
   |`ThirdPartyNotices.md`|Mentions tierces|
@@ -84,7 +85,7 @@ Pour utiliser le package dans votre projet Android Studio, effectuez les changem
   implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.0.1'
   ```
 
-Le SDK Java fait aussi partie du [Kit SDK Speech Devices](speech-devices-sdk.md).
+Le Kit de développement logiciel (SDK) Java fait aussi partie du [Kit de développement logiciel (SDK) Speech Devices](speech-devices-sdk.md).
 
 [!INCLUDE [Get the samples](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 

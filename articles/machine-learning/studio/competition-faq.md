@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 1db1b8ee7ba3611f8d1d69f711f1ec72308c7d06
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 15d46f16c78b8fa757d7810542b3d6bfa9a95f3c
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833326"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49465625"
 ---
 # <a name="microsoft-cortana-intelligence-competitions-faq"></a>FAQ sur les concours Microsoft Cortana Intelligence
 **Que sont les concours Cortana Intelligence ?**
@@ -59,7 +59,7 @@ Non. En fait, nous encourageons les passionnés de données, ceux qui s’intér
 
 * **Développeurs de données**, **scientifiques de données**, **professionnels du décisionnel** et de **l’analyse** : ceux qui sont chargés de produire des données et du contenu d’analyse que d’autres utiliseront
 * **Gestionnaires de données** : ceux qui disposent de connaissances sur les données, ce qu’elles signifient, comment elles sont censées être utilisées et dans quel but
-* **Étudiants** et  & **chercheurs** : ceux qui étudient et acquièrent des compétences portant sur les données dans le cadre de cursus universitaires ou ceux qui participent aux cours MOOC (Massive Open Online Courses).
+* **Étudiants** et **chercheurs** : ceux qui étudient et acquièrent des compétences portant sur les données dans le cadre de cursus universitaires ou ceux qui participent aux cours en ligne ouverts à tous (MOOC)
 
 **Puis-je participer avec mes collaborateurs en équipe ?**
 
@@ -110,7 +110,7 @@ Non. Vous devez utiliser un espace de travail gratuit ou standard pour participe
 
 **Puis-je participer avec un espace de travail dans une autre région Azure ?**
 
-La plateforme de concours ne prend actuellement en charge que les contributions envoyées à partir d’un espace de travail dans la région Azure **Sud du Centre des États-Unis**. Tous les espaces de travail gratuits résident dans le Sud du Centre des États-Unis, ce qui vous permet d’envoyer une contribution à partir de n’importe quel espace de travail gratuit. Si vous choisissez d’utiliser un espace de travail standard, assurez-vous simplement qu’il réside dans la région Azure Sud du Centre des États-Unis, sinon votre contribution échouera. 
+La plateforme de concours ne prend actuellement en charge que les contributions envoyées à partir d’un espace de travail dans la région Azure **USA Centre Sud**. Tous les espaces de travail gratuits résident dans la région USA Centre Sud, ce qui vous permet d’envoyer une contribution à partir de n’importe quel espace de travail gratuit. Si vous choisissez d’utiliser un espace de travail standard, assurez-vous simplement qu’il réside dans la région Azure USA Centre Sud, sinon votre contribution échouera. 
 
 **Conservons-nous les solutions/contributions des concours des utilisateurs ?**
 

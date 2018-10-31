@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 10/16/2018
 ms.author: spelluru
-ms.openlocfilehash: f13e46b310f4f9048b38ab50ce0241d1b2b3161b
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 00ae254a9e9d40ec88802f2f46666aff72cb242a
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395693"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49377631"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Utilisation des rubriques et abonnements Service Bus avec Node.js
 
@@ -61,7 +61,7 @@ Pour utiliser Service Bus, téléchargez le package Azure Node.js. Ce dernier in
    ├── xml2js@0.2.7 (sax@0.5.2)
    └── request@2.21.0 (json-stringify-safe@4.0.0, forever-agent@0.5.0, aws-sign@0.3.0, tunnel-agent@0.3.0, oauth-sign@0.3.0, qs@0.6.5, cookie-jar@0.3.0, node-uuid@1.4.0, http-signature@0.9.11, form-data@0.0.8, hawk@0.13.1)
    ```
-3. Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node\_modules** a été créé. Dans ce dossier, recherchez le package **azure**, qui contient les bibliothèques nécessaires pour accéder aux rubriques de Service Bus.
+3. Vous pouvez exécuter manuellement la commande **ls** pour vérifier que le dossier **node\_modules** a été créé. Dans ce dossier, recherchez le package **azure**, qui contient les bibliothèques nécessaires pour accéder aux rubriques Service Bus.
 
 ### <a name="import-the-module"></a>Importation du module
 À l’aide d’un éditeur de texte, comme le Bloc-notes, ajoutez la commande suivante au début du fichier **server.js** de l’application :
@@ -73,7 +73,7 @@ var azure = require('azure');
 ### <a name="set-up-a-service-bus-connection"></a>Configuration d’une connexion Service Bus
 Le module Azure lit la variable d’environnement `AZURE_SERVICEBUS_CONNECTION_STRING` pour la chaîne de connexion que vous avez obtenue à l’étape précédente, « Obtenir les informations d’identification ». Si cette variable d’environnement n’est pas définie, vous devez spécifier les informations de compte lors de l’appel de `createServiceBusService`.
 
-Pour obtenir un exemple de paramétrage des variables d’environnement pour un service cloud Azure, consultez [Service cloud Node.js avec stockage][Node.js Cloud Service with Storage].
+Pour obtenir un exemple de paramétrage des variables d’environnement pour un service cloud Azure, consultez [Définir des variables d’environnement](../container-instances/container-instances-environment-variables.md#azure-cli-example).
 
 
 
@@ -242,7 +242,7 @@ Pour envoyer un message à une rubrique Service Bus, votre application doit uti
 Les messages envoyés aux rubriques Service Bus sont des objets **BrokeredMessage**.
 Les objets **BrokeredMessage** possèdent un ensemble de propriétés standard (telles que `Label` et `TimeToLive`), un dictionnaire servant à conserver les propriétés personnalisées propres à une application, ainsi qu’un corps de données de chaîne. Une application peut définir le corps du message en transmettant une valeur de chaîne à la méthode `sendTopicMessage` pour remplir toutes les propriétés standard requises avec les valeurs par défaut.
 
-L’exemple suivant montre comment envoyer cinq messages de test à `MyTopic`. La valeur de la propriété `messagenumber` de chaque message varie au niveau de l’itération de la boucle (ce qui détermine les abonnements qui le reçoivent) :
+L’exemple suivant montre comment envoyer cinq messages de test à `MyTopic`. La valeur de la propriété `messagenumber` de chaque message varie au niveau de l’itération de la boucle (cette propriété détermine les abonnements qui le reçoivent) :
 
 ```javascript
 var message = {
@@ -268,7 +268,7 @@ Les rubriques Service Bus prennent en charge une taille de message maximale de 2
 ## <a name="receive-messages-from-a-subscription"></a>Réception des messages d’un abonnement
 La méthode `receiveSubscriptionMessage` de l’objet **ServiceBusService** permet de recevoir les messages d’un abonnement. Par défaut, les messages sont supprimés de l’abonnement au fur et à mesure de leur lecture. Toutefois, vous pouvez définir le paramètre facultatif `isPeekLock` sur **true** pour lire (afficher un aperçu) et verrouiller le message sans le supprimer de l’abonnement.
 
-Le comportement par défaut de lecture et de suppression du message dans le cadre de l’opération de réception est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application est capable de tolérer le non-traitement d’un message en cas d’échec. Pour mieux comprendre ce comportement, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Étant donné que Service Bus a marqué le message comme étant consommé, quand l’application redémarre et recommence à consommer des messages, elle a manqué le message consommé avant l’incident.
+Le comportement de lecture et de suppression du message par défaut dans le cadre de l’opération de réception est le modèle le plus simple et le mieux adapté aux scénarios dans lesquels une application peut tolérer le non-traitement d’un message après un échec. Pour mieux comprendre ce comportement, imaginez un scénario dans lequel le consommateur émet la demande de réception et subit un incident avant de la traiter. Étant donné que Service Bus a marqué le message comme étant consommé, quand l’application redémarre et recommence à consommer des messages, elle a manqué le message consommé avant l’incident.
 
 Si le paramètre `isPeekLock` est défini sur **true**, la réception devient une opération en deux étapes, qui autorise une prise en charge des applications qui ne peuvent pas tolérer de messages manquants. Lorsque Service Bus reçoit une requête, il recherche le message suivant à consommer, le verrouille pour empêcher d’autres consommateurs de le recevoir, et le renvoie à l’application.
 Dès lors que l’application traite le message (ou qu’elle le stocke de manière fiable pour un traitement ultérieur), elle accomplit la deuxième étape du processus de réception en appelant la méthode **deleteMessage**, et passe le message à supprimer sous la forme d’un paramètre. La méthode **deleteMessage** marque le message comme consommé et le supprime de l’abonnement.

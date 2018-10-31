@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/18/2018
 ms.author: magoedte
-ms.openlocfilehash: 63549768f616e60e92c853047525c18cefdaddb4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: a63a9d22638231aa076cc4ced9030a378d0c36e4
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386267"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429485"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms"></a>Comment créer des graphiques de performances avec Azure Monitor pour les machines virtuelles
 Azure Monitor pour les machines virtuelles comprend un ensemble de graphiques de performances qui ciblent divers indicateurs de performance clés (KPI) pour vous aider à déterminer l’intégrité du fonctionnement d’une machine virtuelle. Les graphiques illustrent l’utilisation des ressources sur une période de temps pour que vous puissiez identifier les goulots d’étranglement ou les anomalies. Vous pouvez également basculer sur une perspective répertoriant toutes les machines virtuelles pour afficher l’utilisation des ressources en fonction de la métrique sélectionnée. Bien qu’il existe de nombreux éléments à prendre en compte pour le traitement des performances, Azure Monitor pour les machines virtuelles se concentre sur le système d’exploitation, représenté par le processeur, la mémoire, les cartes réseau et les disques. La fonctionnalité Performances vient compléter celle de supervision de l’intégrité et permet d’exposer les problèmes indiquant une panne éventuelle d’un composant système, de prendre en charge les réglages et l’optimisation pour améliorer l’efficacité ou de prendre en charge la planification de la capacité.  
@@ -33,17 +33,17 @@ Dans Azure Monitor, la fonctionnalité Performances fournit un affichage avec pl
 
 ![Affichage Top N List (Liste N premiers) - Performances - Insights de machine virtuelle](./media/monitoring-vminsights-performance/vminsights-performance-aggview-01.png)
 
-Dans l’onglet **Graphiques N premiers**, si vous avez plusieurs espaces de travail Log Analytics, choisissez celui qui est activé avec la solution à partir du sélecteur **Espace de travail** en haut de la page. Le sélecteur **Groupe** retourne les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../log-analytics/log-analytics-computer-groups.md) et les groupes de machines virtuelles identiques associés à l’espace de travail sélectionné, que vous pouvez utiliser pour filtrer davantage les résultats présentés dans les graphiques sur cette page et dans les autres pages. Votre sélection s’applique seulement à la fonctionnalité Performances, et n’est pas reportée sur Intégrité ou Carte.  
+Dans l’onglet **Graphiques N premiers**, si vous avez plusieurs espaces de travail Log Analytics, choisissez celui qui est activé avec la solution à partir du sélecteur **Espace de travail** en haut de la page. Le sélecteur **Groupe** retourne les abonnements, les groupes de ressources, les [groupes d’ordinateurs](../log-analytics/log-analytics-computer-groups.md) et les groupes de machines virtuelles identiques associés à l’espace de travail sélectionné que vous pouvez utiliser pour filtrer davantage les résultats présentés dans les graphiques de cette page et dans les autres pages. Votre sélection s’applique seulement à la fonctionnalité Performances, et n’est pas reportée sur Intégrité ou Carte.  
 
 Par défaut, les graphiques montrent les dernières 24 heures. À l’aide du sélecteur **TimeRange**, vous pouvez interroger les intervalles de temps précédents (jusqu’à 30 jours) pour afficher l’état des performances passées.   
 
 Les cinq graphiques d’utilisation de capacité affichés sur la page sont :
 
-* CPU Utilization % (% d’utilisation de l’UC) : affiche les 5 premières machines avec la moyenne d’utilisation du processeur la plus élevée 
-* Mémoire disponible : affiche les 5 premières machines avec la quantité moyenne de mémoire disponible la plus basse 
-* Logical Disk Space Used % (% d’espace disque logique utilisé) : affiche les 5 premières machines avec le pourcentage moyen d’espace disque utilisé le plus élevé pour tous les volumes de disque 
-* Bytes Sent Rate (Taux d’octets envoyés) : affiche les 5 premières machines avec la moyenne d’octets envoyés la plus élevée 
-* Bytes Received Rate (Taux d’octets reçus) : affiche les 5 premières machines avec la moyenne d’octets reçus la plus élevée 
+* Pourcentage d’utilisation de l’UC : affiche les cinq premières machines avec la moyenne d’utilisation du processeur la plus élevée 
+* Mémoire disponible : affiche les cinq premières machines avec la quantité moyenne de mémoire disponible la plus basse 
+* Logical Disk Space Used % (% d’espace disque logique utilisé) : affiche les cinq premières machines avec le pourcentage moyen d’espace disque utilisé le plus élevé pour tous les volumes de disque 
+* Bytes Sent Rate (Taux d’octets envoyés) : affiche les cinq premières machines avec la moyenne d’octets envoyés la plus élevée 
+* Bytes Received Rate (Taux d’octets reçus) : affiche les cinq premières machines avec la moyenne d’octets reçus la plus élevée 
 
 Cliquez dans le coin supérieur droit de l’un des cinq graphiques pour ouvrir l’affichage **Top N List** (Liste N premiers).  Ici, vous pouvez voir l’utilisation des ressources pour cette métrique de performances par machine virtuelle dans un affichage de liste, ainsi que la machine virtuelle avec les tendances d’utilisation les plus élevées.  
 
@@ -104,7 +104,11 @@ Les graphiques d’utilisation de la capacité suivants sont fournis :
 ![Performances - Insights de machine virtuelle directement depuis l’affichage de la machine virtuelle](./media/monitoring-vminsights-performance/vminsights-performance-directvm-01.png)
 
 ## <a name="alerting-and-alert-management"></a>Alertes et gestion des alertes 
-Les métriques de performances activées dans le cadre d’Azure Monitor pour les machines virtuelles n’incluent pas les règles d’alerte préconfigurées. Bien qu’il existe des alertes d’intégrité correspondant à des problèmes de performances détectés sur votre machine virtuelle Azure, comme une utilisation élevée de l’UC, peu de mémoire encore disponible, espace disque faible, etc., ces alertes d’intégrité sont appliquées seulement à toutes les machines virtuelles connectées au même espace de travail Log Analytics intégré à Azure Monitor pour les machines virtuelles. Si vous avez besoin de spécifier vos propres critères ou votre propre logique, vous pouvez créer des règles d’alerte personnalisées en suivant [Créer, afficher et gérer des alertes avec Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). 
+Les métriques de performances activées dans le cadre d’Azure Monitor pour les machines virtuelles n’incluent pas les règles d’alerte préconfigurées. Bien qu’il existe des [alertes d’intégrité](monitoring-vminsights-health.md#alerting-and-alert-management) correspondant à des problèmes de performances détectés sur votre machine virtuelle Azure, comme une utilisation élevée de l’UC, peu de mémoire encore disponible, les E/S de disque, un espace disque faible, etc., ces alertes d’intégrité sont appliquées seulement à toutes les machines virtuelles connectées au même espace de travail Log Analytics activé pour Azure Monitor pour les machines virtuelles. 
+
+Toutefois, nous pouvons uniquement collecter et stocker un sous-ensemble de mesures de performances dont vous avez besoin dans l’espace de travail Log Analytics. Si votre stratégie de surveillance nécessite une analyse ou la génération d’alertes qui incluent d’autres mesures de performances afin d’évaluer efficacement la capacité ou l’intégrité de la machine virtuelle, ou si vous avez besoin de flexibilité pour spécifier vos propres critères ou votre propre logique d’alerte, vous pouvez configurer la [collecte de ces compteurs de performances](../log-analytics/log-analytics-data-sources-performance-counters.md?toc=/azure/azure-monitor/toc.json) dans Log Analytics et définir des [alertes de journal](../monitoring-and-diagnostics/alert-log.md?toc=/azure/azure-monitor/toc.json). Si Log Analytics vous permet d’effectuer une analyse complexe avec d’autres types de données et de fournir une durée de rétention plus longue pour prendre en charge l’analyse des tendances, les métriques quant à elles sont légères et en mesure de prendre en charge des scénarios en quasi temps réel. Elles sont collectées par [l’agent Azure Diagnostic](../virtual-machines/windows/monitor.md) et stockées dans le magasin de métriques Azure Monitor, ce qui vous permet de créer des alertes avec une latence plus faible et à moindre coût.
+
+Passez en revue la vue d’ensemble de la [collecte des métriques et des journaux avec Azure Monitor](monitoring-data-collection.md?toc=/azure/azure-monitor/toc.json) pour mieux comprendre les différences fondamentales et autres points à prendre en compte avant de configurer la collecte de ces mesures supplémentaires et les règles d’alerte.  
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour savoir comment utiliser la fonctionnalité d’intégrité, consultez [Comprendre l’intégrité de vos machines virtuelles Azure avec Azure Monitor pour machines virtuelles](monitoring-vminsights-health.md), ou pour afficher les dépendances des applications détectées, consultez [Afficher la carte Azure Monitor pour machines virtuelles](monitoring-vminsights-maps.md). 
+Pour savoir comment utiliser la fonctionnalité d’intégrité, consultez [Understand the health of your Azure virtual machines with Azure Monitor for VMs](monitoring-vminsights-health.md) (Comprendre l’intégrité de vos machines virtuelles Azure avec Azure Monitor pour les machines virtuelles), ou pour afficher les dépendances des applications détectées, consultez [Using Azure Monitor for VMs Map to understand application components](monitoring-vminsights-maps.md) (Utilisation d’Azure Monitor pour le mappage de machines virtuelles afin de comprendre les composants d’application). 

@@ -121,12 +121,12 @@ New-AzureRmStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2 
 ```
 
-Pour créer un compte de stockage à usage général v2 avec l’option Stockage redondant dans une zone (ZRS en préversion), Stockage géoredondant (GRS) ou Stockage géoredondant avec accès en lecture (RA-GRS), remplacez la valeur souhaitée dans le tableau ci-dessous pour le paramètre **SkuName**. 
+Pour créer un compte de stockage à usage général v2 avec l’option Stockage redondant interzone (ZRS en préversion), Stockage géoredondant (GRS) ou Stockage géoredondant avec accès en lecture (RA-GRS), remplacez la valeur souhaitée dans le tableau ci-dessous pour le paramètre **SkuName**. 
 
 |Option de réplication  |Paramètre SkuName  |
 |---------|---------|
 |Stockage localement redondant (LRS)     |Standard_LRS         |
-|Stockage redondant dans une zone (ZRS)     |Standard_ZRS         |
+|Stockage redondant interzone (ZRS)     |Standard_ZRS         |
 |Stockage géo-redondant (GRS)     |Standard_GRS         |
 |Stockage géo-redondant avec accès en lecture (RA-GRS)     |Standard_RAGRS         |
 
@@ -159,12 +159,12 @@ az storage account create \
     --kind StorageV2
 ```
 
-Pour créer un compte de stockage à usage général v2 avec l’option Stockage redondant dans une zone (préversion ZRS), Stockage géo-redondant (GRS) ou Stockage géo-redondant avec accès en lecture (RA-GRS), remplacez la valeur souhaitée dans le tableau ci-dessous pour le paramètre **sku**. 
+Pour créer un compte de stockage à usage général v2 avec l’option Stockage redondant interzone (préversion ZRS), Stockage géoredondant (GRS) ou Stockage géoredondant avec accès en lecture (RA-GRS), remplacez la valeur souhaitée dans le tableau ci-dessous pour le paramètre **sku**. 
 
 |Option de réplication  |Paramètre sku  |
 |---------|---------|
 |Stockage localement redondant (LRS)     |Standard_LRS         |
-|Stockage redondant dans une zone (ZRS)     |Standard_ZRS         |
+|Stockage redondant interzone (ZRS)     |Standard_ZRS         |
 |Stockage géo-redondant (GRS)     |Standard_GRS         |
 |Stockage géo-redondant avec accès en lecture (RA-GRS)     |Standard_RAGRS         |
 

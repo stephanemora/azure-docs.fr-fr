@@ -11,20 +11,22 @@ author: ronitr
 ms.author: ronitr
 ms.reviewer: vanto
 manager: craigg
-ms.date: 10/04/2018
-ms.openlocfilehash: e40f2f3f0a6551fd9fc38ad138d92f694a09879f
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.date: 10/15/2018
+ms.openlocfilehash: 32b60a53581a0f372a7d994cfa260ebd7bcb27b2
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803237"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49467039"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Découverte et classification des données Azure SQL Database
+
 Découverte et classification des données (actuellement en préversion) offre des fonctionnalités avancées intégrées à Azure SQL Database pour la **découverte**, la **classification**, l’**étiquetage**  & et la **protection** des données sensibles dans vos bases de données.
 La découverte et la classification de vos données les plus sensibles (professionnelles/financières, soins de santé, informations d’identification personnelle, etc.) peuvent jouer un rôle essentiel dans la protection des informations de l’organisation. Elles peuvent servir d’infrastructure pour :
-* Aider à répondre aux normes de confidentialité des données et aux exigences de conformité aux normes.
-* Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles.
-* Contrôler l’accès et renforcer la sécurité des bases de données contenant des données sensibles.
+
+- Aider à répondre aux normes de confidentialité des données et aux exigences de conformité aux normes.
+- Divers scénarios de sécurité, comme la surveillance (audit) et la génération d’alertes en cas d’accès anormaux aux données sensibles.
+- Contrôler l’accès et renforcer la sécurité des bases de données contenant des données sensibles.
 
 Découverte et classification des données fait partie de l’offre [SQL Advanced Threat Protection](sql-advanced-threat-protection.md) (ATP) qui est un package unifié de fonctionnalités de sécurité SQL avancées. L’accès au composant Découverte et classification des données ainsi que sa gestion se font via le portail SQL ATP central.
 
@@ -32,18 +34,33 @@ Découverte et classification des données fait partie de l’offre [SQL Advance
 > Ce document se rapporte uniquement à Azure SQL Database. Pour SQL Server (local), consultez [Découverte et classification de données SQL](https://go.microsoft.com/fwlink/?linkid=866999).
 
 ## <a id="subheading-1"></a>Présentation de Découverte et classification des données
+
 Découverte et classification des données introduit un ensemble de services avancés et de nouvelles fonctionnalités SQL qui forment un nouveau paradigme de protection des informations SQL visant à protéger les données, et pas seulement la base de données :
-* **Découverte et recommandations** : Le moteur de classification analyse votre base de données et identifie les colonnes contenant des données potentiellement sensibles. Il vous permet ensuite de vérifier et d’appliquer facilement les recommandations de classification appropriées par le biais du portail Azure.
-* **Étiquetage** : Vous pouvez appliquer de manière permanente des étiquettes de classification de sensibilité sur des colonnes à l’aide de nouveaux attributs de métadonnées de classification introduits dans le moteur SQL. Vous pouvez ensuite utiliser ces métadonnées pour des scénarios avancés d’audit et de protection basés sur la sensibilité.
-* **Interrogation de la sensibilité du jeu de résultats** : La sensibilité du jeu de résultats est calculée en temps réel à des fins d’audit.
-* **Visibilité** : Vous pouvez afficher l’état de classification de la base de données dans un tableau de bord détaillé dans le portail. Vous pouvez aussi télécharger un rapport (au format Excel) à utiliser entre autres à des fins de conformité et d’audit.
+
+- **Découverte et recommandations**
+
+  Le moteur de classification analyse votre base de données et identifie les colonnes contenant des données potentiellement sensibles. Il vous permet ensuite de vérifier et d’appliquer facilement les recommandations de classification appropriées par le biais du portail Azure.
+
+- **Étiquetage**
+
+  Vous pouvez appliquer de manière permanente des étiquettes de classification de sensibilité sur des colonnes à l’aide de nouveaux attributs de métadonnées de classification introduits dans le moteur SQL. Vous pouvez ensuite utiliser ces métadonnées pour des scénarios avancés d’audit et de protection basés sur la sensibilité.
+
+- **Sensibilité du jeu de résultats de requête**
+
+  La sensibilité du jeu de résultats de requête est calculée en temps réel à des fins d’audit.
+
+- **Visibilité**
+
+  Vous pouvez afficher l’état de classification de la base de données dans un tableau de bord détaillé dans le portail. Vous pouvez aussi télécharger un rapport (au format Excel) à utiliser entre autres à des fins de conformité et d’audit.
 
 ## <a id="subheading-2"></a>Découvrir, classer et étiqueter des colonnes contenant des données sensibles
+
 La section suivante décrit les étapes de découverte, de classification et d’étiquetage des colonnes contenant des données sensibles dans votre base de données, ainsi que l’affichage de l’état actuel de la classification de votre base de données et l’exportation de rapports.
 
 La classification comprend deux attributs de métadonnées :
-* Étiquettes : principaux attributs de classification, utilisés pour définir le niveau de confidentialité des données stockées dans la colonne.  
-* Types d’informations : spécifiez une granularité supplémentaire concernant le type des données stockées dans la colonne.
+
+- Étiquettes : principaux attributs de classification, utilisés pour définir le niveau de confidentialité des données stockées dans la colonne.  
+- Types d’informations : spécifiez une granularité supplémentaire concernant le type des données stockées dans la colonne.
 
 ## <a name="define-and-customize-your-classification-taxonomy"></a>Définir et personnaliser votre taxonomie de classification
 
@@ -72,31 +89,31 @@ Une fois que la stratégie au niveau du locataire a été définie, vous pouvez 
 
    ![Exporter vers Excel](./media/sql-data-discovery-and-classification/3_data_classification_export_report.png)
 
-5.  <a id="step-5"></a>Pour commencer à classifier vos données, cliquez sur l’onglet **Classification** en haut de la fenêtre.
+5. <a id="step-5"></a>Pour commencer à classifier vos données, cliquez sur l’onglet **Classification** en haut de la fenêtre.
 
     ![Classer les données](./media/sql-data-discovery-and-classification/4_data_classification_classification_tab_click.png)
 
 6. Le moteur de classification analyse votre base de données à la recherche de colonnes contenant des données potentiellement sensibles, et il fournit une liste de **classifications de colonnes recommandées**. Pour afficher et appliquer les recommandations de classification :
 
-    * Pour afficher la liste des classifications de colonnes recommandées, cliquez sur le panneau de recommandations en bas de la fenêtre :
+   - Pour afficher la liste des classifications de colonnes recommandées, cliquez sur le panneau de recommandations en bas de la fenêtre :
 
       ![Classer les données](./media/sql-data-discovery-and-classification/5_data_classification_recommendations_panel.png)
 
-    * Passez en revue la liste des recommandations. Pour accepter une recommandation pour une colonne spécifique, cochez la case dans la colonne de gauche de la ligne concernée. Vous pouvez également accepter *toutes les recommandations* en cochant la case dans l’en-tête de table de recommandations.
+   - Passez en revue la liste des recommandations. Pour accepter une recommandation pour une colonne spécifique, cochez la case dans la colonne de gauche de la ligne concernée. Vous pouvez également accepter *toutes les recommandations* en cochant la case dans l’en-tête de table de recommandations.
 
        ![Passer en revue la liste des recommandations](./media/sql-data-discovery-and-classification/6_data_classification_recommendations_list.png)
 
-    * Pour appliquer les recommandations sélectionnées, cliquez sur le bouton bleu **Accepter les recommandations sélectionnées**.
+   - Pour appliquer les recommandations sélectionnées, cliquez sur le bouton bleu **Accepter les recommandations sélectionnées**.
 
       ![Appliquer les recommandations](./media/sql-data-discovery-and-classification/7_data_classification_accept_selected_recommendations.png)
 
 7. Vous pouvez aussi, en guise d’alternative, **classifier manuellement** des colonnes ou, en plus de la classification basée sur les recommandations :
 
-    * Cliquez sur **Ajouter une classification** dans le menu en haut de la fenêtre.
+   - Cliquez sur **Ajouter une classification** dans le menu en haut de la fenêtre.
 
       ![Ajouter manuellement une classification](./media/sql-data-discovery-and-classification/8_data_classification_add_classification_button.png)
 
-    * Dans la fenêtre contextuelle qui apparaît, sélectionnez le schéma > table > colonne que vous souhaitez classifier, ainsi que l’étiquette de sensibilité et le type d’informations. Cliquez sur le bouton bleu **Ajouter une classification** en bas de la fenêtre contextuelle.
+   - Dans la fenêtre contextuelle qui apparaît, sélectionnez le schéma > table > colonne que vous souhaitez classifier, ainsi que l’étiquette de sensibilité et le type d’informations. Cliquez sur le bouton bleu **Ajouter une classification** en bas de la fenêtre contextuelle.
 
       ![Sélectionner une colonne à classer](./media/sql-data-discovery-and-classification/9_data_classification_manual_classification.png)
 
@@ -117,16 +134,16 @@ Vous pouvez utiliser T-SQL pour ajouter/supprimer des classifications de colonne
 > [!NOTE]
 > Quand vous utilisez T-SQL pour gérer les étiquettes, aucune validation n’est effectuée pour vérifier que les étiquettes ajoutées à une colonne existent dans la stratégie de protection des informations de l’organisation (ensemble des étiquettes qui apparaissent dans les recommandations du portail). Il vous appartient d’effectuer cette validation.
 
-* Ajouter/mettre à jour la classification d’une ou plusieurs colonnes : [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
-* Supprimer la classification d’une ou plusieurs colonnes : [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
-* Voir toutes les classifications sur la base de données : [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
+- Ajouter/mettre à jour la classification d’une ou plusieurs colonnes : [ADD SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/add-sensitivity-classification-transact-sql)
+- Supprimer la classification d’une ou plusieurs colonnes : [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
+- Voir toutes les classifications sur la base de données : [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
 Vous pouvez également utiliser des API REST pour gérer par programme les classifications. Les API REST publiées prennent en charge les opérations suivantes :
-* [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : crée ou met à jour l’étiquette de sensibilité d’une colonne donnée
-* [Supprimer](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) : supprime l’étiquette de sensibilité d’une colonne donnée
-* [Obtenir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) : obtient l’étiquette de sensibilité d’une colonne donnée
-* [Liste par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) : affiche les étiquettes de sensibilité d’une base de données spécifiée
 
+- [Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) : crée ou met à jour l’étiquette de sensibilité d’une colonne donnée
+- [Supprimer](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/delete) : supprime l’étiquette de sensibilité d’une colonne donnée
+- [Obtenir](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/get) : obtient l’étiquette de sensibilité d’une colonne donnée
+- [Liste par base de données](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/listbydatabase) : affiche les étiquettes de sensibilité d’une base de données spécifiée
 
 ## <a id="subheading-5"></a>Étapes suivantes
 

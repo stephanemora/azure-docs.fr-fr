@@ -25,7 +25,7 @@ ms.locfileid: "47064266"
 Pour créer et déployer des services cloud avec Azure SQL Database, utilisez des [groupes de basculement et une géoréplication active](sql-database-geo-replication-overview.md) pour fournir une tolérance aux pannes régionales et aux défaillances graves. La même fonctionnalité vous permet de créer des applications distribuées mondialement et optimisées pour l’accès local aux données. Cet article aborde les modèles d’application courants et présente les avantages et inconvénients de chacun d’eux. 
 
 > [!NOTE]
-> Si vous utilisez des bases de données et des pools élastiques Premium ou Critique pour l’entreprise, vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone. Consultez [Zone-redundant databases](sql-database-high-availability.md) (Bases de données redondantes dans une zone).  
+> Si vous utilisez des bases de données et des pools élastiques Premium ou Critique pour l’entreprise, vous pouvez les rendre résistants aux pannes régionales en les transformant en configuration de déploiement redondante dans une zone. Consultez [Bases de données redondantes interzone](sql-database-high-availability.md).  
 
 ## <a name="scenario-1-using-two-azure-regions-for-business-continuity-with-minimal-downtime"></a>Scénario 1 : Utilisation de deux régions Azure pour la continuité d’activité avec temps d’arrêt minimal
 Dans ce scénario, les applications ont les caractéristiques suivantes : 

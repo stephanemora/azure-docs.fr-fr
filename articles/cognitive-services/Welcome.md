@@ -9,12 +9,12 @@ ms.component: ''
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: nitinme
-ms.openlocfilehash: 5fcd625edf913e6629bfedb7ce7a6b5fe204af28
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: f7a68aab4959c3793c7688504d73d2b539a26f83
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901428"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50025393"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Présentation d’Azure Cognitive Services
 
@@ -52,7 +52,7 @@ La solution Azure Cognitive Services est une famille d’API, de kits de dévelo
 |[Traduction de texte Translator Text](https://docs.microsoft.com/azure/cognitive-services/translator/ "Traduction de texte Translator Text")|La Traduction de texte Translator Text fournit une traduction de texte automatique en quasi temps réel.||
 |[Web Language Model](https://docs.microsoft.com/azure/cognitive-services/web-language-model/home "Web Language Model") (préversion)|Traitement en langage naturel pour la prédiction de l’ordonnancement des mots, la saisie semi-automatique et la césure de chaînes sans espaces.|
 
-## <a name="search-apis"></a>Les API Recherche
+## <a name="search-apis"></a>API Recherche
 
 |Nom du service|Description du service|
 |:-----------|:------------------|
@@ -74,11 +74,11 @@ La solution Azure Cognitive Services est une famille d’API, de kits de dévelo
 
 ## <a name="use-free-trials"></a>Utilisation des essais gratuits
 
-L’[inscription aux essais gratuits] (https://azure.microsoft.com/try/cognitive-services/ « Aide à l’inscription ») ne nécessite qu’un e-mail et quelques étapes simples. Vous devez créer un compte Microsoft si vous n’en avez pas. Vous recevrez une paire unique de clés pour chaque API demandée. La seconde est une simple clé de secours. Ne partagez les clés secrètes avec personne. Les essais ont un débit limité en termes à la fois de transactions par seconde ou minute et de plafond d’utilisation mensuel. Une transaction est un simple appel d’API. Vous pouvez effectuer une mise à niveau vers des niveaux payants pour débloquer ces restrictions.
+L’[inscription aux essais gratuits](https://azure.microsoft.com/try/cognitive-services/ "aide à l’inscription") ne nécessite qu’un e-mail et quelques étapes simples. Vous devez créer un compte Microsoft si vous n’en avez pas. Vous recevrez une paire unique de clés pour chaque API demandée. La seconde est une simple clé de secours. Ne partagez les clés secrètes avec personne. Les essais ont un débit limité en termes à la fois de transactions par seconde ou minute et de plafond d’utilisation mensuel. Une transaction est un simple appel d’API. Vous pouvez effectuer une mise à niveau vers des niveaux payants pour débloquer ces restrictions.
 
 ## <a name="subscription-management"></a>Gestion des abonnements
 
-Une fois connecté avec votre compte Microsoft, vous pouvez accéder à [Mes abonnements] (https://www.microsoft.com/cognitive-services/en-us/subscriptions « Mes abonnements ») pour afficher les produits que vous utilisez, les quotas restants et la possibilité d’ajouter des produits à votre abonnement.
+Une fois connecté avec votre compte Microsoft, vous pouvez accéder à [Mes abonnements](https://www.microsoft.com/cognitive-services/en-us/subscriptions "Mes abonnements") pour afficher les produits que vous utilisez, les quotas restants et la possibilité d’ajouter des produits à votre abonnement.
 
 ## <a name="upgrade-to-unlock-limits"></a>Mettre à niveau pour débloquer les limites
 

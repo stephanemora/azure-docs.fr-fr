@@ -1,6 +1,6 @@
 ---
-title: Collecte des performances d’application Linux dans OMS Log Analytics | Documents Microsoft
-description: Cet article fournit des détails sur la configuration de l’agent OMS pour Linux pour collecter les compteurs de performances pour MySQL et Apache HTTP Server.
+title: Collecte des performances d’application Linux dans Log Analytics | Microsoft Docs
+description: Cet article fournit des détails sur la configuration de l’agent Log Analytics pour Linux pour la collecte des compteurs de performances pour MySQL et Apache HTTP Server.
 services: log-analytics
 documentationcenter: ''
 author: mgoedtel
@@ -15,26 +15,27 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5120fa869d9c3fe28630b189b84b9c3e3f5577e2
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: df5e55c2c03fec13ada258be91f0d98b7ce70d94
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044567"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406158"
 ---
 # <a name="collect-performance-counters-for-linux-applications-in-log-analytics"></a>Collecte des compteurs de performances pour les applications Linux dans Log Analytics 
-Cet article fournit des détails sur la configuration de l’[agent OMS pour Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) pour la collecte des compteurs de performances pour des applications spécifiques.  Les applications incluses dans cet article sont :  
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
+Cet article fournit des détails sur la configuration de l’[agent Log Analytics pour Linux](https://github.com/Microsoft/OMS-Agent-for-Linux) pour la collecte des compteurs de performances pour des applications spécifiques.  Les applications incluses dans cet article sont :  
 
 - [MySQL](#MySQL)
 - [Apache HTTP Server](#apache-http-server)
 
 ## <a name="mysql"></a>MySQL
-Si le serveur MySQL ou MariaDB est détecté sur l’ordinateur lorsque l’agent OMS est installé, un fournisseur de surveillance des performances pour le serveur MySQL est automatiquement installé. Ce fournisseur se connecte au serveur MySQL/MariaDB local pour afficher les statistiques de performances. Vous devez configurer les informations d’identification de l’utilisateur MySQL, afin que le fournisseur puisse accéder au serveur MySQL.
+Si le serveur MySQL ou MariaDB est détecté sur l’ordinateur lorsque l’agent Log Analytics est installé, un fournisseur de surveillance des performances pour le serveur MySQL est automatiquement installé. Ce fournisseur se connecte au serveur MySQL/MariaDB local pour afficher les statistiques de performances. Vous devez configurer les informations d’identification de l’utilisateur MySQL, afin que le fournisseur puisse accéder au serveur MySQL.
 
 ### <a name="configure-mysql-credentials"></a>Configuration des informations d’identification de MySQL
 Le fournisseur MySQL OMI nécessite un utilisateur MySQL préconfiguré et des bibliothèques clientes MySQL installées pour pouvoir interroger les informations d’intégrité et de performances de l’instance MySQL.  Ces informations d’identification sont stockées dans un fichier d’authentification, lui-même stocké sur l’agent Linux.  Le fichier d’authentification indique l’adresse de liaison et le port qu’écoute l’instance MySQL, ainsi que les informations d’identification à utiliser pour collecter des mesures.  
 
-Pendant l’installation de l’agent OMS pour Linux, le fournisseur MySQL OMI recherche l’adresse de liaison et le port dans les fichiers de configuration my.cnf MySQL (emplacements par défaut), et configurera partiellement le fichier d’authentification OMI MySQL.
+Pendant l’installation de l’agent Log Analytics pour Linux, le fournisseur OMI MySQL recherche l’adresse de liaison et le port dans les fichiers de configuration my.cnf MySQL (emplacements par défaut), et configure partiellement le fichier d’authentification OMI MySQL.
 
 Le fichier d’authentification MySQL est stocké dans `/var/opt/microsoft/mysql-cimprov/auth/omsagent/mysql-auth`.
 
@@ -115,7 +116,7 @@ Ces privilèges peuvent être accordés à l’aide des commandes Grant suivante
 
 ### <a name="define-performance-counters"></a>Définition des compteurs de performances
 
-Une fois l’agent OMS pour Linux configuré pour envoyer des données vers Log Analytics, vous devez configurer les compteurs de performances à collecter.  Utilisez la procédure décrite dans [Sources de données de performances Windows et Linux dans Log Analytics](log-analytics-data-sources-windows-events.md) avec les compteurs de le tableau suivant.
+Une fois l’agent Log Analytics pour Linux configuré pour envoyer des données vers Log Analytics, vous devez configurer les compteurs de performances à collecter.  Utilisez la procédure décrite dans [Sources de données de performances Windows et Linux dans Log Analytics](log-analytics-data-sources-windows-events.md) avec les compteurs de le tableau suivant.
 
 | Nom d’objet | Nom de compteur |
 |:--|:--|
@@ -151,7 +152,7 @@ sudo /opt/microsoft/apache-cimprov/bin/apache_config.sh -u
 
 ### <a name="define-performance-counters"></a>Définition des compteurs de performances
 
-Une fois l’agent OMS pour Linux configuré pour envoyer des données vers Log Analytics, vous devez configurer les compteurs de performances à collecter.  Utilisez la procédure décrite dans [Sources de données de performances Windows et Linux dans Log Analytics](log-analytics-data-sources-windows-events.md) avec les compteurs de le tableau suivant.
+Une fois l’agent Log Analytics pour Linux configuré pour envoyer des données vers Log Analytics, vous devez configurer les compteurs de performances à collecter.  Utilisez la procédure décrite dans [Sources de données de performances Windows et Linux dans Log Analytics](log-analytics-data-sources-windows-events.md) avec les compteurs de le tableau suivant.
 
 | Nom d’objet | Nom de compteur |
 |:--|:--|

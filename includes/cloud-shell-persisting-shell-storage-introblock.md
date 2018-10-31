@@ -35,7 +35,7 @@ Le partage de fichiers contient également une image de 5 Go. Automatiquement c
 
 ## <a name="use-existing-resources"></a>Utiliser les ressources existantes
 
-L’option Avancé vous permet d’associer des ressources existantes. Lorsque l’invite de configuration du stockage s’affiche, sélectionnez **Afficher les paramètres avancés** pour visualiser des options supplémentaires. Les options de stockage renseignées filtrent les comptes de stockage localement redondant (LRS), de stockage géoredondant (GRS) et de stockage redondant dans une zone (ZRS). Accédez [ici pour en savoir plus](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option) sur les options de réplication pour les comptes de Stockage Azure.
+L’option Avancé vous permet d’associer des ressources existantes. Lorsque l’invite de configuration du stockage s’affiche, sélectionnez **Afficher les paramètres avancés** pour visualiser des options supplémentaires. Les options de stockage renseignées filtrent les comptes de stockage localement redondant (LRS), de stockage géoredondant (GRS) et de stockage redondant interzone (ZRS). Accédez [ici pour en savoir plus](https://docs.microsoft.com/azure/storage/common/storage-redundancy#choosing-a-replication-option) sur les options de réplication pour les comptes de Stockage Azure.
 
 ![Paramètre Groupe de ressources](../articles/cloud-shell/media/persisting-shell-storage/advanced-storage.png)
 

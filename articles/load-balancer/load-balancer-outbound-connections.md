@@ -114,7 +114,7 @@ L’équilibreur de charge de base choisit un seul frontend à utiliser pour les
 
 ### <a name="az"></a> Zones de disponibilité
 
-Lorsque vous utilisez [Équilibreur de charge standard avec zones de disponibilité](load-balancer-standard-availability-zones.md), les serveurs frontaux de redondance de zones peuvent fournir des connexions SNAT sortantes de redondance de zones et la programmation du SNAT survit à l’échec de la zone.  Lorsque vous utilisez des serveurs frontaux de zones, les connexions sortantes SNAT connaissent le même sort que la zone à laquelle ils appartiennent.
+Lorsque vous utilisez [Équilibreur de charge standard avec zones de disponibilité](load-balancer-standard-availability-zones.md), les serveurs frontaux redondants interzone peuvent fournir des connexions SNAT sortantes redondantes interzone et la programmation du SNAT survit à l’échec de la zone.  Lorsque vous utilisez des serveurs frontaux de zones, les connexions sortantes SNAT connaissent le même sort que la zone à laquelle ils appartiennent.
 
 ## <a name="snat"></a>Présentation de la traduction d’adresses réseau sources et de la traduction d’adresse de port
 

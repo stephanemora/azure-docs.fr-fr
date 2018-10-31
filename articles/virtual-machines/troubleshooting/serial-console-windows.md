@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/07/2018
+ms.date: 10/22/2018
 ms.author: harijay
-ms.openlocfilehash: e1884048d0f02de1b3a354bc4dac2b3e98dcccc9
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: facd9be037894932e516e8294e36b6b0e55374c8
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411871"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024411"
 ---
 # <a name="virtual-machine-serial-console"></a>Console série de machine virtuelle
 
@@ -28,8 +28,8 @@ La console série de machine virtuelle Azure permet aux machines virtuelles Wind
 
 Pour obtenir la documentation sur la console série pour les machines virtuelles Linux, [cliquez ici](serial-console-linux.md).
 
-> [!Note] 
-> La console série pour les machines virtuelles est généralement disponible dans les régions Azure globales. À ce stade, la console série n’est pas encore disponible dans les clouds Azure Government ni Azure China.
+> [!NOTE] 
+> La console série pour les machines virtuelles est généralement disponible dans les régions Azure globales. À ce jour, la console série n’est pas encore disponible dans les clouds Azure Government, ni dans les clouds Azure - Chine.
 
  
 
@@ -41,7 +41,7 @@ Pour obtenir la documentation sur la console série pour les machines virtuelles
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
 * Le compte qui utilise la console série doit disposer du [rôle Contributeur](../../role-based-access-control/built-in-roles.md) pour la machine virtuelle et pour le compte de stockage avec [diagnostics de démarrage](boot-diagnostics.md). 
-* La machine virtuelle pour laquelle vous accédez à la console doit également avoir un compte avec mot de passe. Vous pouvez en créer un avec la fonctionnalité [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles (voir la capture d’écran ci-dessous).
+* La machine virtuelle pour laquelle vous accédez à la console série doit également avoir un compte avec mot de passe. Vous pouvez en créer un avec la fonctionnalité [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles (voir la capture d’écran ci-dessous).
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
@@ -51,8 +51,7 @@ Pour les machines virtuelles, la console série est accessible uniquement via le
   1. Ouvrez le portail Azure
   2. Dans le menu de gauche, sélectionnez Machines virtuelles.
   3. Cliquez sur la machine virtuelle de votre choix dans la liste. La page de présentation de la machine virtuelle s’ouvre.
-  4. Faites défiler jusqu’à la section Support + dépannage, puis cliquez sur l’option Console série. Un nouveau volet s’ouvre avec la console série, puis démarre la connexion.
-
+  4. Faites défiler jusqu’à la section Support + dépannage, puis cliquez sur l’option « Console série ». Un nouveau volet s’ouvre avec la console série, puis démarre la connexion.
 
 ## <a name="enable-serial-console-in-custom-or-older-images"></a>Activer la console série dans les images personnalisées ou anciennes
 La [console SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) est activée par défaut dans les nouvelles images Windows Server sur Azure. La console SAC est prise en charge sur les versions serveur de Windows, mais elle n’est pas disponible sur les versions client (par exemple Windows 10, Windows 8 ou Windows 7). Pour activer la console série dans les machines virtuelles Windows créées avant février 2018, effectuez les étapes suivantes : 
@@ -74,7 +73,7 @@ Si nécessaire, la console SAC peut aussi être activée hors connexion :
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>Comment savoir si la console SAC est activée ?
 
-Si la [console SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) n’est pas activée, la console série n’affiche pas l’invite pour la console SAC. Parfois, les informations d’intégrité de la machine virtuelle s’affichent, et d’autres fois non. Si vous utilisez une image Windows Server créée avant février 2018, la console SAC n’est probablement pas activée.
+Si la [console SAC](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) n’est pas activée, la console série n’affiche pas l’invite pour la console SAC. Parfois, les informations d’intégrité de la machine virtuelle s’affichent, et d’autres fois non. Si vous utilisez une image Windows Server créée avant février 2018, la console SAC n’est probablement pas activée.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Activer le menu de démarrage Windows dans la console série 
 
@@ -83,9 +82,12 @@ Si vous souhaitez que les invites de commandes du chargeur de démarrage Windows
 1. Connectez-vous à la machine virtuelle Windows via le Bureau à distance
 2. Dans une invite de commandes d’administration, exécutez les commandes suivantes : 
 * `bcdedit /set {bootmgr} displaybootmenu yes`
-* `bcdedit /set {bootmgr} timeout 5`
+* `bcdedit /set {bootmgr} timeout 10`
 * `bcdedit /set {bootmgr} bootems yes`
 3. Redémarrer le système pour activer le menu de démarrage
+
+> [!NOTE] 
+> Le délai d’expiration que vous avez défini pour le menu du gestionnaire de démarrage à afficher aura un impact sur le temps de démarrage de votre système d’exploitation. Tandis que certains jugent acceptable d’ajouter un délai d’expiration de 10 secondes pour s’assurer que le gestionnaire de démarrage est visible via la console série, d’autres préféreront un délai d’expiration plus court ou plus long. Définissez la valeur du délai d’expiration qui vous convient le mieux.
 
 ## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Utiliser la console série pour les appels NMI dans les machines virtuelles Windows
 Une interruption non masquable (NMI) est conçue pour créer un signal que les logiciels sur une machine virtuelle n’ignoreront pas. À l’origine, les NMI ont été utilisées pour surveiller les problèmes matériels sur les systèmes nécessitant des temps de réponse spécifiques.  Aujourd’hui, les programmeurs et les administrateurs système utilisent souvent les NMI comme mécanisme de débogage ou de dépannage des systèmes qui ne réponde pas.
@@ -96,10 +98,25 @@ La console série peut être utilisée pour envoyer une NMI à une machine virtu
 
 Pour plus d’informations sur la configuration de Windows pour créer un vidage sur incident lorsqu’il reçoit une NMI, consultez la section [Comment générer un fichier complet de vidage sur incident ou un fichier complet de vidage sur incident du noyau à l’aide d’une NMI sur un système Windows](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
+## <a name="open-cmd-or-powershell-in-serial-console"></a>Ouvrir CMD ou Powershell dans la console série
+
+1. Connectez-vous à la console série. Si vous êtes connecté à la console série, vous pouvez voir **SAC>** comme le montre la capture d’écran suivante :
+
+    ![Se connecter à la console SAC](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect-sac.png)
+
+3.  Tapez `cmd` pour créer un canal qui a une instance CMD. 
+4.  Tapez `ch -si 1` pour basculer vers le canal qui exécute l’instance CMD. 
+5.  Appuyez sur Entrée et saisissez vos informations d’identification ayant une autorisation d’administration.
+6.  Après avoir entré des informations d’identification valides, l’instance CMD s’ouvre.
+7.  Pour démarrer une instance PowerShell, tapez `PowerShell` dans l’instance CMD, puis appuyez sur Entrée. 
+
+    ![Ouvrir l’instance PowerShell](./media/virtual-machines-serial-console/virtual-machine-windows-serial-console-powershell.png)
+
+
 ## <a name="disable-serial-console"></a>Désactiver la console série
 Par défaut, tous les abonnements ont accès à la console série pour toutes les machines virtuelles. Vous pouvez désactiver la console série au niveau de l’abonnement ou au niveau de la machine virtuelle.
 
-> [!Note]       
+> [!NOTE]       
 > Pour activer ou désactiver la console série pour un abonnement, vous devez disposer des autorisations en écriture sur l’abonnement. Cela inclut, mais sans s’y limiter, les rôles d’administrateur ou de propriétaire. Les rôles personnalisés peuvent également avoir des autorisations en écriture.
 
 ### <a name="subscription-level-disable"></a>Désactiver au niveau de l’abonnement
@@ -107,7 +124,7 @@ La console série peut être désactivée pour un abonnement entier par le biais
 
 ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
 
-Vous pouvez également utiliser le jeu de commandes ci-dessous dans Cloud Shell (commandes bash indiquées) pour désactiver, activer et afficher l’état de la console série pour un abonnement. 
+Vous pouvez également utiliser le jeu de commandes ci-dessous dans Cloud Shell (commandes bash indiquées) pour désactiver, activer et afficher l’état désactivé de la console série pour un abonnement. 
 
 * Pour obtenir l’état désactivé de la console série pour un abonnement :
     ```azurecli-interactive
@@ -193,11 +210,11 @@ Nous sommes conscients de certains problèmes avec la console série. Voici une 
 
 Problème                             |   Atténuation 
 :---------------------------------|:--------------------------------------------|
-L’invite de connexion ne s’affiche pas lorsque vous appuyez sur la touche Entrée après l’affichage de la bannière de connexion | Consultez la page suivante : [La touche Entrée n’a aucun effet](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Cela peut se produire si vous exécutez une machine virtuelle personnalisée, une appliance à sécurité renforcée ou une configuration de GRUB qui fait que Windows ne parvient pas à se connecter correctement au port série.
+L’invite de connexion ne s’affiche pas lorsque vous appuyez sur la touche Entrée après l’affichage de la bannière de connexion | consultez cette page : [La touche Entrée n’a aucun effet](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Cela peut se produire si vous exécutez une machine virtuelle personnalisée, une appliance à sécurité renforcée ou une configuration de démarrage qui fait que Windows ne parvient pas à se connecter correctement au port série. Ce phénomène peut également avoir lieu si vous exécutez une machine virtuelle cliente Windows 10, étant donné que seules les machines virtuelles Windows Server sont configurées pour avoir EMS activé.
 Impossible de saisir des données sur l’invite de commandes de la console SAC si le débogage du noyau est activé | Établissez une connexion RDP vers la machine virtuelle et exécutez `bcdedit /debug {current} off` à partir d’une invite de commandes avec élévation de privilèges. Si vous ne pouvez pas établir de connexion RDP, vous pouvez joindre le disque du système d’exploitation à une autre machine virtuelle Azure et le modifier lorsqu’il est joint en tant que disque de données à l’aide de `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, puis rebasculer le disque.
-Coller du contenu dans PowerShell sous la console SAC génère un troisième caractère si le contenu d’origine contenait un caractère répété | Une solution de contournement consiste à décharger le module PSReadLine à partir de la session active. Exécutez `Remove-Module PSReadLine` pour décharger le module PSReadLine à partir de la session active : cela ne va pas supprimer ni désinstaller le module.
+Coller du contenu dans PowerShell sous la console SAC génère un troisième caractère si le contenu d’origine contenait un caractère répété | Une solution de contournement consiste à décharger le module PSReadLine à partir de la session active. Exécutez `Remove-Module PSReadLine` pour décharger le module PSReadLine à partir de la session active : cette action ne va pas supprimer ni désinstaller le module.
 Certaines entrées de clavier produisent une sortie étrange de la console SAC (par exemple, `[A`, `[3~`) | Les séquences d’échappement [VT100](https://aka.ms/vtsequences) ne sont pas prises en charge par l’invite de la console SAC.
-Le collage de chaînes très longues ne fonctionne pas | La console série limite la longueur des chaînes collées dans le terminal à 2 048 caractères. Cela vise à empêcher une surcharge de la bande passante de port série.
+Le collage de chaînes très longues ne fonctionne pas | La console série limite la longueur des chaînes collées dans le terminal à 2 048 caractères. Cela vise à empêcher une surcharge de la bande passante du port série.
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ) 
 
@@ -207,19 +224,19 @@ R. Pour nous contacter au sujet d’un problème, accédez à la page https://ak
 
 **Q. Est-ce que la console série prend en charge l’opération Copier/Coller ?**
 
-R. Oui, c’est le cas. Utilisez Ctrl+Maj+C et Ctrl+Maj+V pour copier et coller dans le terminal.
+R. Oui, c’est le cas. Utilisez Ctrl+Maj+C et Ctrl+Maj+V pour copier et coller du texte dans le terminal.
 
 **Q. Qui peut activer ou désactiver la console série pour mon abonnement ?**
 
-R. Pour activer ou désactiver la console série au niveau d’un abonnement, vous devez disposer des autorisations en écriture sur l’abonnement. Les rôles ayant une autorisation en écriture incluent, mais sans s’y limiter, les rôles d’administrateur ou de propriétaire. Les rôles personnalisés peuvent également avoir des autorisations en écriture.
+R. Pour activer ou désactiver la console série au niveau d’un abonnement, vous devez disposer des autorisations en écriture sur l’abonnement. Les rôles ayant une autorisation en écriture incluent, mais de façon non limitative, les rôles d’administrateur ou de propriétaire. Les rôles personnalisés peuvent également avoir des autorisations en écriture.
 
 **Q. Qui peut accéder à la console série pour ma machine virtuelle ?**
 
-R. Vous devez avoir un accès de niveau collaborateur ou supérieur à une machine virtuelle afin d’accéder à sa console série. 
+R. Vous devez avoir un accès de niveau contributeur ou supérieur à une machine virtuelle afin d’accéder à sa console série. 
 
 **Q. Ma console série n’affiche rien, que dois-je faire ?**
 
-R. Votre image est probablement mal configurée pour l’accès à la console série. Consultez [Activer la console série dans les images personnalisées ou anciennes](#Enable-Serial-Console-in-custom-or-older-images) pour plus d’informations sur la configuration de votre image pour activer la console série.
+R. Votre image est probablement mal configurée pour l’accès à la console série. Consultez la section [Activer la console série dans les images personnalisées ou anciennes](#enable-serial-console-in-custom-or-older-images) pour plus d’informations sur la configuration de votre image pour activer la console série.
 
 **Q. La console série est-elle disponible pour Virtual Machine Scale Sets ?**
 

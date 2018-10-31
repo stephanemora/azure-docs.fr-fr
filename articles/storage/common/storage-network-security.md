@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: bcb772185f0a16183b8a6c9674419781ef41be3e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7c01940c41067029bc3d47d19c2ded1d710cc2c6
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068534"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49470062"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Configurer des pare-feu et des réseaux virtuels dans Stockage Azure
 Le service Stockage Azure fournit un modèle de sécurité en couche qui vous permet de sécuriser vos comptes de stockage sur un ensemble spécifique de réseaux autorisés.  Quand des règles de réseau sont configurées, seules les applications des réseaux autorisés peuvent accéder à un compte de stockage.  En cas d’appel à partir d’un réseau autorisé, les applications continuent à demander une autorisation appropriée (une clé d’accès ou un jeton SAS valide) pour accéder au compte de stockage.
@@ -188,11 +188,15 @@ Les plages d’adresses Internet autorisées peuvent être fournies à l’aide 
 > Les petites plages d’adresses qui utilisent les tailles de préfixe « /31 » ou « /32 » ne sont pas prises en charge.  Ces plages doivent être configurées à l’aide des règles d’adresses IP individuelles.
 >
 
-Les règles de réseau IP sont autorisées uniquement pour les adresses IP **Internet publiques**.  Les plages d’adresses IP réservées aux réseaux privés (comme défini dans RFC 1918) ne sont pas autorisées dans les règles IP.  Les réseaux privés incluent les adresses qui commencent par *10.\**, *172.16.\** et *192.168.\**
+Les règles de réseau IP sont autorisées uniquement pour les adresses IP **Internet publiques**.  Les plages d’adresses IP réservées aux réseaux privés (comme défini dans [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) ne sont pas autorisées dans les règles IP.  Les réseaux privés incluent des adresses qui commencent par *10.\**, *172.16.\** - *172.31.\** et *192.168.\**.
+
+> [!NOTE]
+> Les règles de réseau IP n’ont aucun effet sur les requêtes provenant de la même région Azure que le compte de stockage.  Utilisez des [règles de réseau virtuel](#grant-access-from-a-virtual-network) pour autoriser les requêtes de même région.
+>
 
 Seules les adresses IPv4 sont prises en charge pour le moment.
 
-Chaque compte de stockage peut prendre en charge jusqu'à 100 règles de réseau IP qui peuvent être combinées avec des [règles de réseau virtuel](#grant-access-from-a-virtual-network)
+Chaque compte de stockage peut prendre en charge jusqu’à 100 règles de réseau IP qui peuvent être combinées avec des [règles de réseau virtuel](#grant-access-from-a-virtual-network).
 
 ### <a name="configuring-access-from-on-premises-networks"></a>Configuration de l’accès à partir de réseaux locaux
 Pour accorder l’accès à votre compte de stockage à partir de réseaux locaux avec une règle de réseau IP, vous devez identifier les adresses IP Internet utilisées par votre réseau.  Contactez votre administrateur réseau pour obtenir de l’aide.

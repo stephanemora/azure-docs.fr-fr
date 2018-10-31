@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 04/04/2017
-ms.openlocfilehash: 17354891b50138911f36314620f0c826db4b5dac
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: dcf4e9fa9435d8f20784b20f3873d408adb78c20
+ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34833663"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49469824"
 ---
 # <a name="create-many-machine-learning-models-and-web-service-endpoints-from-one-experiment-using-powershell"></a>Créer de nombreux modèles Machine Learning et points de terminaison de service web à partir d’une expérience à l’aide de PowerShell
 Voici un problème d’apprentissage automatique courant : vous souhaitez créer un grand nombre de modèles ayant le même flux de travail d’apprentissage et utilisant le même algorithme. Mais vous souhaitez qu’ils aient différents jeux de données d’apprentissage comme entrée. Cet article montre comment procéder dans Azure Machine Learning Studio à l’aide d’une expérience unique.
@@ -69,7 +69,7 @@ Vous devez effectuer quelques petits ajustements pour qu’elle fonctionne en ta
 
 Pour vous éviter ce travail, vous pouvez ouvrir [l’expérience prédictive](https://gallery.cortanaintelligence.com/Experiment/Bike-Rental-Predicative-Experiment-1) déjà préparée dans la galerie.
 
-Pour déployer le service web, exécutez l’expérience prédictive, puis cliquez sur le bouton **Deploy Web Service** sous le canevas. Nommez le service web de notation « Bike Rental Scoring ».
+Pour déployer le service web, exécutez l’expérience prédictive, puis cliquez sur le bouton **Deploy Web Service** sous le canevas. Nommez le service web de scoring « Bike Rental Scoring ».
 
 ## <a name="create-10-identical-web-service-endpoints-with-powershell"></a>Créer 10 points de terminaison de service web identiques avec PowerShell
 Ce service web est fourni avec un point de terminaison par défaut. Mais celui-ci ne nous intéresse pas, car il ne peut pas être mis à jour. Vous devez créer 10 points de terminaison supplémentaires, un pour chaque emplacement. Vous pouvez pour cela utiliser PowerShell.

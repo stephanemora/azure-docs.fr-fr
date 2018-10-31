@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 34409197a080b4d755b76f140111b7694925b5df
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: a0aa63291a7fb3f069663d40687f81c3a3265712
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094052"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945941"
 ---
 # <a name="contoso-migration-assess-on-premises-workloads-for-migration-to-azure"></a>Migration de Contoso : évaluer facilement vos charges de travail locales en vue d’une migration vers Azure
 
@@ -232,7 +232,7 @@ L’évaluation de Contoso utilise le mappage de dépendance. Le mappage des dé
 
 ### <a name="set-statistics-settings"></a>Définir les paramètres de statistiques
 
-Avant de commencer le déploiement, Contoso doit définir les paramètres de statistiques de vCenter Server sur le niveau 3. 
+Avant de commencer le déploiement, Contoso doit définir les paramètres de statistiques de vCenter Server sur le niveau 3.
 
 > [!NOTE]
 > - Après avoir défini le niveau, Contoso doit attendre au moins un jour avant de lancer l’évaluation. Sinon, l’évaluation peut ne pas fonctionner comme prévu.
@@ -258,7 +258,7 @@ Pour détecter les machines virtuelles, Contoso crée un projet Azure Migrate. C
 ### <a name="create-a-project"></a>Création d’un projet
 
 1. Dans le [portail Azure](https://portal.azure.com), Contoso recherche **Azure Migrate**. Ensuite, Contoso crée un projet.
-2. Contoso spécifie un nom de projet (**ContosoMigration**) et l’abonnement Azure. Elle crée un groupe de ressources Azure (**ContosoFailoverRG**). 
+2. Contoso spécifie un nom de projet (**ContosoMigration**) et l’abonnement Azure. Elle crée un groupe de ressources Azure (**ContosoFailoverRG**).
     > [!NOTE]
     > - Vous ne pouvez créer un projet Azure Migrate que dans la région USA Centre-Ouest ou USA Est.
     > - Vous pouvez planifier une migration pour n’importe quel emplacement cible.
@@ -283,17 +283,25 @@ Avant de déployer la machine virtuelle, Contoso vérifie que le fichier .OVA es
 2. Contoso exécute la commande suivante pour générer le code de hachage du modèle OVA :
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    
-    **Exemple** 
-    
-    ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. Le hachage généré doit correspondre aux paramètres ci-après (version 1.0.9.14) :
 
+    **Exemple**
+
+    ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
+3. Le hachage généré doit correspondre aux paramètres ci-après (version 1.0.9.15) :
+
+<<<<<<< HEAD
     **Algorithme** | **Valeur de hachage**
     --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
+    MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+    SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+    SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+=======
+**Algorithme** | **Valeur de hachage**
+--- | ---
+MD5 | e9ef16b0c837638c506b5fc0ef75ebfa
+SHA1 | 37b4b1e92b3c6ac2782ff5258450df6686c89864
+SHA256 | 8a86fc17f69b69968eb20a5c4c288c194cdcffb4ee6568d85ae5ba96835559ba
+>>>>>>> 20dc93529e7c0a4d17f2f4524752b5e2bead4e37
 
 ### <a name="create-the-collector-appliance"></a>Créer l’appliance de collecteur
 
@@ -411,8 +419,8 @@ Contoso exécute l’installation sur chaque machine virtuelle.
 3. Contoso installe Microsoft Monitoring Agent :
     - Contoso entre l’ID et la clé de l’espace de travail dans la commande.
     - Ces commandes sont de type 64 bits.
-    - L’ID et la clé primaire de l’espace de travail sont situés sur le portail Microsoft Operations Management Suite (OMS). Sélectionnez **Paramètres**, puis l’onglet **Sources connectées**.
-    - Exécutez les commandes suivantes pour télécharger l’agent OMS, valider la somme de contrôle, puis installer et intégrer l’agent :
+    - L’ID de l’espace de travail et la clé primaire se trouvent dans l’espace de travail Log Analytics dans le portail Azure. Sélectionnez **Paramètres**, puis l’onglet **Sources connectées**.
+    - Exécutez les commandes suivantes pour télécharger l’agent Log Analytics, valider la somme de contrôle, puis installer et intégrer l’agent :
 
     ```
     wget https://raw.githubusercontent.com/Microsoft/OMS-Agent-for-Linux/master/installer/scripts/onboard_agent.sh && sh onboard_agent.sh -w 6b7fcaff-7efb-4356-ae06-516cacf5e25d -s k7gAMAw5Bk8pFVUTZKmk2lG4eUciswzWfYLDTxGcD8pcyc4oT8c6ZRgsMy3MmsQSHuSOcmBUsCjoRiG2x9A8Mg==

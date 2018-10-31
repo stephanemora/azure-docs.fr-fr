@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 10/10/2018
+ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: b5433ea0a92635b5bf9c2a4887451f1e64ec62e6
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: db8fc0b6926930521f11285dc56c886c10c42fc2
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067758"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649310"
 ---
 # <a name="language-understanding-faq"></a>FAQ sur Language Understanding
 
@@ -157,11 +157,9 @@ Si vous utilisez votre journal à des fins d’analyse prédictive, ne capturez 
 * Vous pouvez supprimer des énoncés de la liste des énoncés d’utilisateurs que LUIS suggère dans la page **Review endpoint utterances** (Examiner les énoncés du point de terminaison). La suppression d’énoncés de cette liste a pour effet d’empêcher leur suggestion, mais pas de les supprimer des journaux.
 * Si vous supprimez un compte, toutes les applications sont supprimées, ainsi que leurs exemples d’énoncés et journaux. Les données sont conservées sur les serveurs pendant 60 jours avant leur suppression définitive.
 
-### <a name="does-microsoft-access-my-luis-app-data-for-its-own-purposes-for-example-to-enhance-luis-or-microsoft-in-general"></a>Microsoft accède-t-il à mes données d’application LUIS à ses propres fins, par exemple, pour améliorer LUIS ou Microsoft en général ?
+### <a name="how-does-microsoft-manage-data-i-send-to-luis"></a>Comment Microsoft gère-t-il les données que j’envoie à LUIS ?
 
-Non. Le modèle de données de l’application LUIS n'est pas utilisé pour l’amélioration de LUIS en tant que plateforme, ou par Microsoft d’une quelconque façon. Chaque donnée d’application est séparée et détenue uniquement par l’utilisateur et ses collaborateurs.
-
-Découvrez-en plus sur la [confidentialité des utilisateurs](luis-user-privacy.md), la [conformité de sécurité supplémentaire](luis-concept-security.md#security-compliance), et le [stockage de données](luis-concept-data-storage.md).
+Le [Centre de gestion de la confidentialité](https://www.microsoft.com/trustcenter) présente nos engagements et les options disponibles pour la gestion des données et des accès dans Azure Services.
 
 ## <a name="language-and-translation-support"></a>Prise en charge des langues et de la traduction
 

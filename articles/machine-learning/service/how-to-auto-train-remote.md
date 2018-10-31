@@ -10,12 +10,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 2ec0dea7e50747f8af337874c8f12463cecb8df7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 798960f30ae13f42c0198cf4bf63412192edc63e
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47163475"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429828"
 ---
 # <a name="train-models-with-automated-machine-learning-in-the-cloud"></a>Entraîner des modèles avec le machine learning automatisé dans le cloud
 
@@ -110,7 +110,7 @@ def get_data():
 
 ## <a name="configure-experiment"></a>Configurer une expérience
 
-Spécifiez les paramètres pour `AutoMLConfig`.  (Consultez la [liste complète des paramètres]() et leurs valeurs possibles.)
+Spécifiez les paramètres pour `AutoMLConfig`.  (Consultez la [liste complète des paramètres](how-to-configure-auto-train.md#configure-experiment) et leurs valeurs possibles.)
 
 Dans les paramètres, `run_configuration` est défini sur l’objet `run_config`, qui contient les paramètres et la configuration de l’image DSVM.  
 
@@ -141,7 +141,7 @@ automl_config = AutoMLConfig(task='classification',
 
 ## <a name="submit-training-experiment"></a>Soumettre une expérience d’entraînement
 
-À présent, soumettez la configuration afin de sélectionner automatiquement l’algorithme et les hyper-paramètres, et entraînez le modèle. (Apprenez-en [davantage sur les paramètres]() pour la méthode `submit`.)
+À présent, soumettez la configuration afin de sélectionner automatiquement l’algorithme et les hyper-paramètres, et entraînez le modèle.
 
 ```python
 from azureml.core.experiment import Experiment
@@ -203,7 +203,7 @@ Vous pouvez consulter les journaux sur l’image DSVM sous /tmp/azureml_run/{ite
 
 ## <a name="example"></a>Exemples
 
-Le bloc-notes `automl/03.auto-ml-remote-execution.ipynb` illustre les concepts de cet article.  Consultez ce bloc-notes :
+Le bloc-notes [automl/03.auto-ml-remote-execution.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/automl/03.auto-ml-remote-execution.ipynb) montre les concepts de cet article.  Consultez ce bloc-notes :
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]
 

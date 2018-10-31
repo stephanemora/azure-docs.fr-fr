@@ -9,12 +9,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: rarangap
-ms.openlocfilehash: cbeee643ee4a2705d3f0202a7206e10fbcc5acab
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: c0255ff31353ca8fe0cf684af53a12654b400208
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831617"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407552"
 ---
 # <a name="azure-security-and-compliance-blueprint---hipaahitrust-health-data-and-ai"></a>Plan de sécurité et de conformité Azure - AI et données de santé HIPAA/HITRUST
 
@@ -361,8 +361,8 @@ Le solution prend en charge Event Grid, un service unique permettant de gérer l
 ### <a name="azure-alerts"></a>Alertes Azure
 - [Les alertes offrent un moyen de surveiller les services Azure et vous permettent de configurer des conditions sur les données. Elles fournissent également des notifications quand une condition d’alerte correspond aux données de surveillance.
 
-### <a name="operations-management-suite-oms"></a>Operations Management Suite (OMS)
-[Operations Management Suite (également appelé OMS)](/azure/operations-management-suite/operations-management-suite-overview) est une collection de services de gestion.
+### <a name="log-analytics"></a>Log Analytics
+[Log Analytics](/azure/operations-management-suite/operations-management-suite-overview) est un ensemble de services de gestion.
 
 -   L’espace de travail est activé pour Security Center
 

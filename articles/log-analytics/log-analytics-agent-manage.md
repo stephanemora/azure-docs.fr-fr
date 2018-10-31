@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: e00ccc4d55da805538801a0a8f3ee5502d871fab
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: eaf6aa538a4733528b52b1417c2d53318064e068
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042306"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405393"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Gestion et maintenance de l’agent Log Analytics sous Windows et Linux
 
@@ -34,7 +34,7 @@ Après le déploiement initial de l’agent Log Analytics sous Windows ou Linux,
 
 1. Connectez-vous à la machine avec un compte disposant des droits d’administration.
 2. Ouvrez le **Panneau de configuration**.
-3. Sélectionnez **Microsoft Monitoring Agent** puis cliquez sur l’onglet **Azure Log Analytics (OMS)**.
+3. Sélectionnez **Microsoft Monitoring Agent**, puis cliquez sur l’onglet **Azure Log Analytics**.
 4. Pour supprimer un espace de travail, sélectionnez-le puis cliquez sur **Supprimer**. Répétez cette étape pour le ou les autres espaces de travail auxquels l’agent ne doit plus communiquer d’informations.
 5. Pour ajouter un espace de travail, cliquez sur **Ajouter**, puis dans la boîte de dialogue **Ajouter un espace de travail Log Analytics**, collez l’ID et la clé de l’espace de travail (clé primaire). Si la machine doit communiquer avec un espace de travail Log Analytics dans le cloud Azure Government, sélectionnez Azure - Gouvernement des États-Unis dans la liste déroulante Cloud Azure. 
 6. Cliquez sur **OK** pour enregistrer vos modifications.
@@ -101,7 +101,7 @@ Les étapes suivantes montrent comment reconfigurer l’agent Linux si vous déc
 Le service de l’agent n’a pas besoin être redémarré pour que les modifications prennent effet.
 
 ## <a name="update-proxy-settings"></a>Mettre à jour les paramètres de proxy 
-Pour permettre à l’agent de communiquer avec le service via un serveur proxy ou [Passerelle OMS](log-analytics-oms-gateway.md) après le déploiement, utilisez l’une des méthodes suivantes.
+Pour permettre à l’agent de communiquer avec le service via un serveur proxy ou une [passerelle Log Analytics](log-analytics-oms-gateway.md) après le déploiement, utilisez l’une des méthodes suivantes.
 
 ### <a name="windows-agent"></a>Agent Windows
 
@@ -110,7 +110,7 @@ Pour permettre à l’agent de communiquer avec le service via un serveur proxy 
 1. Connectez-vous à la machine avec un compte disposant des droits d’administration.
 2. Ouvrez le **Panneau de configuration**.
 3. Sélectionnez **Microsoft Monitoring Agent** puis cliquez sur l’onglet **Paramètres proxy**.
-4. Cliquez sur **Utiliser un serveur proxy** et indiquez l’URL et le numéro de port du serveur proxy ou de la passerelle. Si votre serveur proxy ou Passerelle OMS requiert une authentification, tapez le nom d’utilisateur et un mot de passe pour vous authentifier, puis cliquez sur **OK**. 
+4. Cliquez sur **Utiliser un serveur proxy** et indiquez l’URL et le numéro de port du serveur proxy ou de la passerelle. Si votre serveur proxy ou passerelle Log Analytics requiert une authentification, tapez le nom d’utilisateur et un mot de passe pour vous authentifier, puis cliquez sur **OK**. 
 
 #### <a name="update-settings-using-powershell"></a>Mettre à jour les paramètres à l’aide de PowerShell 
 
@@ -141,7 +141,7 @@ $healthServiceSettings.SetProxyInfo($ProxyDomainName, $ProxyUserName, $cred.GetN
 ```  
 
 ### <a name="linux-agent"></a>Agent Linux
-Effectuez les opérations suivantes si vos ordinateurs Linux doivent communiquer avec Log Analytics via un serveur proxy ou Passerelle OMS.  La valeur de configuration de proxy a la syntaxe suivante `[protocol://][user:password@]proxyhost[:port]`.  La propriété *proxyhost* accepte un nom de domaine complet ou l’adresse IP du serveur proxy.
+Effectuez les opérations suivantes si vos ordinateurs Linux doivent communiquer via un serveur proxy ou une passerelle Log Analytics.  La valeur de configuration de proxy a la syntaxe suivante `[protocol://][user:password@]proxyhost[:port]`.  La propriété *proxyhost* accepte un nom de domaine complet ou l’adresse IP du serveur proxy.
 
 1. Modifiez le fichier `/etc/opt/microsoft/omsagent/proxy.conf` en exécutant les commandes suivantes et modifiez les valeurs en vous basant sur vos paramètres spécifiques.
 
@@ -185,7 +185,9 @@ Pour supprimer l’agent, exécutez la commande suivante sur l’ordinateur Linu
 ## <a name="configure-agent-to-report-to-an-operations-manager-management-group"></a>Configurer l’agent pour qu’il communique avec un groupe d’administration Operations Manager
 
 ### <a name="windows-agent"></a>Agent Windows
-Procédez comme suit pour que l’Agent OMS pour Windows communique avec un groupe d’administration System Center Operations Manager. 
+Procédez comme suit pour que l’agent Log Analytics pour Windows communique avec un groupe d’administration System Center Operations Manager.
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)] 
 
 1. Connectez-vous à la machine avec un compte disposant des droits d’administration.
 2. Ouvrez le **Panneau de configuration**. 
@@ -199,7 +201,9 @@ Procédez comme suit pour que l’Agent OMS pour Windows communique avec un grou
 10. Cliquez sur **OK** pour fermer la boîte de dialogue **Ajouter un groupe d’administration**, puis cliquez sur **OK** pour fermer la boîte de dialogue **Propriétés de l’agent Microsoft Monitoring Agent**.
 
 ### <a name="linux-agent"></a>Agent Linux
-Procédez comme suit pour configurer l’Agent OMS pour Linux pour envoyer des rapports à un groupe d’administration System Center Operations Manager. 
+Procédez comme suit pour que l’agent Log Analytics pour Linux communique avec un groupe d’administration System Center Operations Manager. 
+
+[!INCLUDE [log-analytics-agent-note](../../includes/log-analytics-agent-note.md)]
 
 1. Modifiez le fichier `/etc/opt/omi/conf/omiserver.conf`
 2. Vérifiez que la ligne commençant par `httpsport=` spécifie le port 1270. Par exemple : `httpsport=1270`

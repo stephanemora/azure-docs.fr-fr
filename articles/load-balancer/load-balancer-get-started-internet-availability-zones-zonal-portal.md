@@ -50,7 +50,7 @@ Connectez-vous au portail Azure sur https://portal.azure.com.
 7. Pour **Groupe de ressources**, cliquez sur **Créer nouveau**, puis tapez **myResourceGroupZLB** comme nom du groupe de ressources.
 8. Pour **Emplacement**, sélectionnez **Europe de l’Ouest**, puis cliquez sur **OK**. L’équilibreur de charge commence ensuite le déploiement, qui peut prendre plusieurs minutes.
 
-    ![Créer une instance de Load Balancer Standard redondante dans une zone à l’aide du portail Azure](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
+    ![Créer une instance de Load Balancer Standard redondante interzone à l’aide du portail Azure](./media/load-balancer-get-started-internet-availability-zones-zonal-portal/load-balancer-zonal-frontend.png)
 
 
 ## <a name="next-steps"></a>Étapes suivantes

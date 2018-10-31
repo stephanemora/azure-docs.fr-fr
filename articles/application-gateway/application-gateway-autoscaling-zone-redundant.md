@@ -1,5 +1,5 @@
 ---
-title: Passerelle d’application redondante dans une zone et avec mise à l’échelle automatique dans Azure (préversion publique) | Microsoft Docs
+title: Passerelle d’application redondante interzone et avec mise à l’échelle automatique dans Azure (préversion publique) | Microsoft Docs
 description: Cet article fournit des informations sur les limites de la taille des demandes adressées au pare-feu d’applications web et sur les listes d’exclusions dans Application Gateway avec le portail Azure.
 documentationcenter: na
 services: application-gateway
@@ -20,7 +20,7 @@ ms.contentlocale: fr-FR
 ms.lasthandoff: 09/25/2018
 ms.locfileid: "47165227"
 ---
-# <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Passerelle d’application redondante dans une zone et avec mise à l’échelle automatique (préversion publique)
+# <a name="autoscaling-and-zone-redundant-application-gateway-public-preview"></a>Passerelle d’application redondante interzone et avec mise à l’échelle automatique (préversion publique)
 
 Application Gateway et le pare-feu d’applications web (WAF) sont désormais disponibles en préversion publique sous une nouvelle référence SKU qui offre des améliorations des performances et ajoute la prise en charge de nouvelles fonctionnalités critiques telles que la mise à l’échelle automatique, la redondance de zone et la prise en charge des adresses IP virtuelles statiques. Les fonctionnalités existantes sous la référence SKU à disponibilité générale continuent à être prises en charge dans la nouvelle référence SKU, à quelques exceptions près répertoriées dans la section relative aux limitations connues. Les nouvelles références SKU incluent les améliorations suivantes :
 
@@ -34,7 +34,7 @@ Application Gateway et le pare-feu d’applications web (WAF) sont désormais di
 - **Adresse IP virtuelle statique** : l’adresse IP virtuelle de la passerelle d’application prend désormais exclusivement en charge le type d’adresse IP virtuelle statique. Cela garantit que l’adresse IP virtuelle associée à la passerelle d’application ne change pas même après un redémarrage.
 
 > [!IMPORTANT]
-> La référence SKU de la passerelle d’application redondante dans une zone et avec mise à l’échelle automatique est disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> La référence SKU de la passerelle d’application redondante interzone et avec mise à l’échelle automatique est disponible en préversion publique. Cette préversion est fournie sans contrat de niveau de service et n’est pas recommandée pour les charges de travail de production. Certaines fonctionnalités peuvent être limitées ou non prises en charge. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 

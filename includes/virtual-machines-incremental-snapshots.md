@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 88a9348ea7d6282b7410d5a323fd482dc82416c6
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 06e6e491fa1e9a047527efb78149855b125771ef
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45978925"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49960222"
 ---
 # <a name="back-up-azure-unmanaged-vm-disks-with-incremental-snapshots"></a>Sauvegarder les disques de machines virtuelles Azure non gérés avec des captures instantanées incrémentielles
 ## <a name="overview"></a>Vue d’ensemble
@@ -66,7 +66,7 @@ Lorsque vous disposez d’une stratégie de sauvegarde personnalisée à l’aid
 Vous pouvez implémenter la copie d’un instantané incrémentiel de la manière suivante :
 
 * Prenez un instantané de l’objet blob de base à l’aide de [Snapshot Blob](https://docs.microsoft.com/rest/api/storageservices/Snapshot-Blob).
-* Copiez l’instantané vers le compte de stockage de sauvegarde cible à l’aide de [Copie d’un objet blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Il s’agit de l’objet blob de pages de sauvegarde. Prenez une capture instantanée de l’objet blob de pages de sauvegarde et stockez-la dans le compte de stockage de sauvegarde.
+* Copiez l’instantané vers le compte de stockage de sauvegarde cible dans la même région Azure ou dans une autre région à l’aide de l’opération [Copy Blob](https://docs.microsoft.com/rest/api/storageservices/Copy-Blob). Il s’agit de l’objet blob de pages de sauvegarde. Prenez une capture instantanée de l’objet blob de pages de sauvegarde et stockez-la dans le compte de stockage de sauvegarde.
 * Prenez un autre instantané de l’objet blob de base à l’aide de Snapshot Blob.
 * Comparez la première et la deuxième capture instantanée du blob de base à l’aide de [GetPageRanges](https://docs.microsoft.com/rest/api/storageservices/Get-Page-Ranges). Utilisez le nouveau paramètre **prevsnapshot** pour spécifier la valeur DateTime de la capture instantanée à comparer. Quand ce paramètre est présent, la réponse REST n’inclut que les pages ayant été modifié entre la capture instantanée cible et la capture instantanée précédente, y compris les pages effacées.
 * Utilisez [PutPage](https://docs.microsoft.com/rest/api/storageservices/Put-Page) pour appliquer ces modifications à l’objet blob de pages de sauvegarde.

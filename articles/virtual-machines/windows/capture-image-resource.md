@@ -89,7 +89,7 @@ Avant de commencer, assurez-vous que vous disposez de la dernière version du mo
 
 
 > [!NOTE]
-> Si vous voulez stocker votre image dans un stockage redondant dans une zone, vous devez la créer dans une région qui prend en charge les [zones de disponibilité](../../availability-zones/az-overview.md) et inclut le paramètre `-ZoneResilient` dans la configuration de l’image (commande `New-AzureRmImageConfig`).
+> Si vous voulez stocker votre image dans un stockage redondant interzone, vous devez la créer dans une région qui prend en charge les [zones de disponibilité](../../availability-zones/az-overview.md) et inclut le paramètre `-ZoneResilient` dans la configuration de l’image (commande `New-AzureRmImageConfig`).
 
 Pour créer une image de machine virtuelle, procédez comme suit :
 

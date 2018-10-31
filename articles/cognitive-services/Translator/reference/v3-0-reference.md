@@ -10,12 +10,12 @@ ms.component: translator-text
 ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9282d8af30cbfb3346394bcd71510faf8d8c8a21
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 243ee16f8de8add8283581c8c03a37594797864b
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129384"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430029"
 ---
 # <a name="translator-text-api-v30"></a>API de traduction de texte Translator Text v3.0
 
@@ -95,8 +95,48 @@ Par exemple, un client avec un abonnement d’essai gratuit recevrait l’erreur
 ```
 {
   "error": {
-    "code":403000,
-    "message":"The subscription has exceeded its free quota."
+    "code":403001,
+    "message":"The operation is not allowed because the subscription has exceeded its free quota."
     }
 }
 ```
+Le code d’erreur est un nombre à 6 chiffres qui combine le code d’état HTTP à 3 chiffres et un nombre à 3 chiffres qui sert à catégoriser plus précisément l’erreur. Voici les codes d’erreur courants :
+
+| Code | Description |
+|:----|:-----|
+| 400000| Une des requêtes d’entrées n’est pas valide.|
+| 400001| Le paramètre « scope » n’est pas valide.|
+| 400002| Le paramètre « category » n’est pas valide.|
+| 400003| Un spécificateur de langage est manquant ou non valide.|
+| 400004| Un spécificateur de script cible (« To script ») est manquant ou non valide.|
+| 400005| Un texte d’entrée est manquant ou non valide.|
+| 400006| La combinaison de langue et de script n’est pas valide.|
+| 400018| Un spécificateur de script source (« From script ») est manquant ou non valide.|
+| 400019| L’une des langues spécifiées n’est pas prise en charge.|
+| 400020| L’un des éléments du tableau de texte d’entrée n’est pas valide.|
+| 400021| Le paramètre de version d’API est manquant ou non valide.|
+| 400023| L’une des paires de langues spécifiées n’est pas valide.|
+| 400035| La langue source (champ « From ») n’est pas valide.|
+| 400036| La langue cible (champ « To ») est manquante ou non valide.|
+| 400042| L’une des options spécifiées (champ « Options ») n’est pas valide.|
+| 400043| L’ID de trace client (champ de ClientTraceId ou en-tête de X-ClientTranceId) est manquant ou non valide.|
+| 400050| Le texte d’entrée est trop long.|
+| 400064| Le paramètre « translation » est manquant ou non valide.|
+| 400070| Le nombre de scripts de cible (paramètre ToScript) ne correspond pas au nombre de langages cible (paramètre To).|
+| 400071| La valeur n’est pas valide pour TextType.|
+| 400072| Le tableau de texte d’entrée compte trop d’éléments.|
+| 400073| Le paramètre de script n’est pas valide.|
+| 400074| Le corps de la requête n’est pas un élément JSON valide.|
+| 400075| La combinaison de paire de langue et de catégorie n’est pas valide.|
+| 400077| La taille de requête maximale a été dépassée.|
+| 400079| Le système personnalisé demandé pour la traduction entre le langage source et le langage cible n’existe pas.|
+| 401000| La requête n’est pas autorisée car les informations d’identification sont manquantes ou non valides.|
+| 401015| « Les informations d’identification fournies sont valables pour l’API Speech. Cette requête nécessite des informations d’identification pour l’API Texte. Veuillez utiliser un abonnement à l’API de traduction de texte Translator Text. »|
+| 403000| L’opération n’est pas autorisée.|
+| 403001| L’opération n’est pas autorisée, car l’abonnement a dépassé son quota gratuit.|
+| 405000| La méthode de requête n’est pas prise en charge pour la ressource demandée.|
+| 415000| L’en-tête Content-Type est manquante ou invalide.|
+| 429000, 429001, 429002| Le serveur a rejeté la requête, car le client envoie trop de requête. Réduisez la fréquence des requêtes pour pallier la limitation.|
+| 500000| Une erreur inattendue s’est produite. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de l’erreur, identificateur de la demande dans l’en-tête de réponse X-RequestId, et identificateur du client dans l’en-tête de demande X-ClientTraceId.|
+| 503000| Le service est temporairement indisponible. Veuillez réessayer. Si l’erreur persiste, signalez-la en fournissant les informations suivantes : date et heure de l’erreur, identificateur de la demande dans l’en-tête de réponse X-RequestId, et identificateur du client dans l’en-tête de demande X-ClientTraceId.|
+

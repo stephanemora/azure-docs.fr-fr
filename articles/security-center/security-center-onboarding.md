@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d5a4cfa3a91b82aa0f5b1725f86c732fecf632d4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379993"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405444"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Intégration d’Azure Security Center Standard pour une sécurité renforcée
 Effectuez la mise à niveau vers Security Center Standard pour tirer profit d’une gestion de la sécurité et d’une protection contre les menaces renforcées pour vos charges de travail cloud hybrides.  Vous pouvez essayer gratuitement le niveau Standard pendant 60 jours. Pour plus d’informations, consultez la [page de tarification](https://azure.microsoft.com/pricing/details/security-center/) de Security Center.
@@ -82,6 +82,8 @@ Si vous avez des espaces de travail existants, ils sont répertoriés dans **Add
    ![Ajouter un espace de travail][4]
 
 2. Dans **Security and Audit**, sélectionnez **Espace de travail OMS** pour créer un espace de travail.
+> [!NOTE]
+> Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics.
 3. Dans **Espace de travail OMS**, entrez les informations de votre espace de travail.
 4. Dans **Espace de travail OMS**, sélectionnez **OK**.  Une fois que vous sélectionnez OK, vous obtenez un lien pour télécharger un agent Windows ou Linux et des clés pour votre ID d’espace de travail, afin de les utiliser pour la configuration de l’agent.
 5. Dans **Security and Audit**, sélectionnez **OK**.

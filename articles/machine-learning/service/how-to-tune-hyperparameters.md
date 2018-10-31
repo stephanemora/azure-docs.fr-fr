@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 950d985ca87cce484edeb7930ca1bda34d812f33
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344130"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49430016"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Optimiser les hyperparamètres pour votre modèle
 
@@ -28,7 +28,7 @@ Ajustez avec efficacité les hyperparamètres de votre modèle à l’aide d’A
 * Visualiser les exécutions d’entraînement
 * Sélectionner la configuration la plus performante pour votre modèle
 
-## <a name="what-are-hyperparameters"></a>Que sont les hyperparamètres ?
+## <a name="what-are-hyperparameters"></a>Présentation des hyperparamètres
 
 Les hyperparamètres sont des paramètres ajustables que vous choisissez pour entraîner un modèle qui régit le processus d’entraînement lui-même. Par exemple, pour entraîner un réseau neuronal profond, vous décidez du nombre de couches masquées dans le réseau et du nombre de nœuds dans chaque couche préalablement à l’entraînement du modèle. Ces valeurs restent généralement constantes au cours du processus d’entraînement.
 
@@ -141,8 +141,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> L’échantillonnage bayésien ne prend pas en charge les stratégies d’arrêt anticipé (consultez [Spécifier une stratégie d’arrêt anticipé](#specify-an-early-termination-policy)). Quand vous utilisez l’échantillonnage de paramètres bayésien, définissez `early_termination_policy = None` ou laissez le paramètre `early_termination_policy` désactivé.
-`
+> L’échantillonnage bayésien ne prend pas en charge les stratégies d’arrêt anticipé (consultez [Spécifier une stratégie d’arrêt anticipé](#specify-early-termination-policy)). Quand vous utilisez l’échantillonnage de paramètres bayésien, définissez `early_termination_policy = None` ou laissez le paramètre `early_termination_policy` désactivé.
+
+<a name='specify-primary-metric-to-optimize'/>
 
 ## <a name="specify-primary-metric"></a>Spécifier la métrique principale
 
@@ -158,9 +159,11 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Optimisez les exécutions de façon à maximiser la précision (« accuracy »).  Veillez à journaliser cette valeur dans votre script d’entraînement.
 
+<a name='log-metrics-for-hyperparameter-tuning'/>
+
 ### <a name="log-metrics-for-hyperparameter-tuning"></a>Journaliser des métriques pour l’optimisation des hyperparamètres
 
-Le script d’entraînement de votre modèle doit journaliser les métriques importantes pendant l’entraînement du modèle. Au moment de configurer l’optimisation des hyperparamètres, vous spécifiez la métrique principale à utiliser pour l’évaluation des performances d’exécution. (Consultez [Spécifier une métrique principale à optimiser](#specify-a-primary-metric-to-optimize).)  Dans votre script d’entraînement, vous devez journaliser cette métrique de façon à la rendre accessible au processus d’optimisation des hyperparamètres.
+Le script d’entraînement de votre modèle doit journaliser les métriques importantes pendant l’entraînement du modèle. Au moment de configurer l’optimisation des hyperparamètres, vous spécifiez la métrique principale à utiliser pour l’évaluation des performances d’exécution. (Consultez [Spécifier une métrique principale à optimiser](#specify-primary-metric-to-optimize).)  Dans votre script d’entraînement, vous devez journaliser cette métrique de façon à la rendre accessible au processus d’optimisation des hyperparamètres.
 
 Journalisez cette métrique dans votre script d’entraînement avec l’extrait de code suivant :
 
@@ -171,6 +174,8 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 Le script d’entraînement calcule la valeur de `val_accuracy` et la journalise comme valeur de précision (« accuracy »), qui est utilisée comme métrique principale. Chaque fois que la métrique est journalisée, elle est reçue par le service d’optimisation des hyperparamètres. Il incombe au développeur du modèle de déterminer la fréquence de collecte de cette métrique.
+
+<a name='specify-early-termination-policy'/>
 
 ## <a name="specify-early-termination-policy"></a>Spécifier une stratégie d’arrêt anticipé
 
@@ -297,7 +302,7 @@ experiment = Experiment(workspace, experiment_name)
 hyperdrive_run = experiment.submit(hyperdrive_run_config)
 ```
 
-`experiment_name` est le nom que vous voulez attribuer à votre expérience d’optimisation des hyperparamètres, et `workspace` est l’espace de travail dans lequel vous voulez créer l’expérience (pour plus d’informations sur les expériences, consultez [Fonctionnement du service Azure Machine Learning](/concept-azure-machine-learning-architecture.md)).
+`experiment_name` est le nom que vous voulez attribuer à votre expérience d’optimisation des hyperparamètres, et `workspace` est l’espace de travail dans lequel vous voulez créer l’expérience (pour plus d’informations sur les expériences, consultez [Fonctionnement du service Azure Machine Learning](concept-azure-machine-learning-architecture.md)).
 
 ## <a name="visualize-experiment"></a>Visualiser l’expérience
 
@@ -320,7 +325,7 @@ De plus, vous pouvez identifier visuellement la corrélation entre les performan
 
 ![Coordonnées parallèles de l’optimisation des hyperparamètres](media/how-to-tune-hyperparameters/HyperparameterTuningParallelCoordinates.png)
 
-Vous pouvez aussi visualiser toutes vos exécutions d’optimisation des hyperparamètres dans le portail web Azure. Pour plus d’informations sur la visualisation d’une expérience sur le portail web, consultez le [guide pratique pour suivre les expériences](/how-to-track-experiments.md/#view-the-experiment-in-the-web-portal).
+Vous pouvez aussi visualiser toutes vos exécutions d’optimisation des hyperparamètres dans le portail web Azure. Pour plus d’informations sur la visualisation d’une expérience sur le portail web, consultez le [guide pratique pour suivre les expériences](how-to-track-experiments.md#view-the-experiment-in-the-web-portal).
 
 ![Portail de l’optimisation des hyperparamètres](media/how-to-tune-hyperparameters/HyperparameterTuningPortal.png)
 

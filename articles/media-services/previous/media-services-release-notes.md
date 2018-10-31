@@ -4,22 +4,21 @@ description: Notes de publication de Media Services
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 3ca2d7af-1cf0-45fa-9585-3b73f3ee057d
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: cdfd19f2dfd599eacaa0759b63c94767e760a874
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 531cdf9a69e0ecfa2d2d8ae02f8f88fd5f400479
+ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42144339"
+ms.lasthandoff: 10/17/2018
+ms.locfileid: "49378939"
 ---
 # <a name="azure-media-services-release-notes"></a>Notes de publication d'Azure Media Services
 Ces notes de publication pour Azure Media Services récapitulent les modifications par rapport aux précédentes versions et les problèmes connus.
@@ -45,6 +44,16 @@ Ces notes de publication pour Azure Media Services récapitulent les modificatio
 
 ## <a name="a-idrestversionhistoryrest-api-version-history"></a><a id="rest_version_history"/>Historique des versions de l’API REST
 Pour obtenir des informations sur l’historique des versions de l’API REST, consultez la [Référence de l’API REST d’Azure Media Services].
+
+## <a name="october-2018"></a>Octobre 2018
+
+### <a name="cmaf-support"></a>Prise en charge de CMAF
+
+Prise en charge du chiffrement CMAF et « cbcs » pour les lecteurs Apple HLS (iOS 11+) et MPEG-DASH qui prennent en charge CMAF.
+
+### <a name="web-vtt-thumbnail-sprites"></a>Sprites de miniatures WebVTT
+
+Vous pouvez désormais utiliser Media Services pour générer des sprites de miniatures WebVTT à l’aide de nos API v2. Pour plus d’informations, consultez [Générer un sprite de miniatures](generate-thumbnail-sprite.md).
 
 ## <a name="july-2018"></a>Juillet 2018
 
@@ -533,9 +542,6 @@ La fonctionnalité suivante est une nouveauté de la version de novembre du SDK 
 * Prise en charge de la méthode asynchrone
   
     * La prise en charge asynchrone a été ajoutée à toutes les méthodes.
-
-## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
-[!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

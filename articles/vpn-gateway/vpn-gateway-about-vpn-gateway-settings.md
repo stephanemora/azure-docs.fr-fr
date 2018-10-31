@@ -2,25 +2,17 @@
 title: Paramètres de la passerelle VPN pour les connexions Azure entre locaux | Microsoft Docs
 description: Découvrez les paramètres de passerelle VPN pour les passerelles de réseau virtuel Azure.
 services: vpn-gateway
-documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager,azure-service-management
-ms.assetid: ae665bc5-0089-45d0-a0d5-bc0ab4e79899
 ms.service: vpn-gateway
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 03/20/2018
+ms.topic: conceptual
+ms.date: 10/22/2018
 ms.author: cherylmc
-ms.openlocfilehash: 60cdc7bbe08df7816560e9720f96edc51769c342
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 30edc7308ad2d01d5245f8cd1073a7def674b74d
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38618219"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49649837"
 ---
 # <a name="about-vpn-gateway-configuration-settings"></a>À propos des paramètres de configuration de la passerelle VPN
 
@@ -29,10 +21,11 @@ Une passerelle VPN est un type de passerelle de réseau virtuel qui envoie le tr
 Une connexion de passerelle VPN s’appuie sur la configuration de plusieurs ressources, contenant chacune des paramètres configurables. Les sections de cet article présentent les ressources et les paramètres relatifs à une passerelle VPN pour un réseau virtuel créé dans le modèle de déploiement Resource Manager. Vous trouverez les descriptions et les diagrammes de topologie de chaque solution de connexion dans l’article [À propos la passerelle VPN](vpn-gateway-about-vpngateways.md).
 
 >[!NOTE]
-> Les valeurs dans cet article s’appliquent à des passerelles de réseau virtuel qui utilisent le -GatewayType 'Vpn'. C’est pourquoi ces passerelles de réseau virtuel spécifiques sont appelées passerelles VPN. Les valeurs pour les passerelles ExpressRoute ne sont pas les mêmes valeurs que vous utilisez pour les passerelles VPN.
+> Les valeurs figurant dans cet article s’appliquent à des passerelles VPN (passerelles de réseau virtuel) qui utilisent le -GatewayType Vpn. Cet article ne couvre pas l’ensemble des types de passerelles, ni les passerelles redondantes interzone.
 >
->Pour les valeurs qui s’appliquent au -GatewayType 'ExpressRoute', consultez [Passerelles de réseau virtuel pour ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
->
+>* Pour les valeurs qui s’appliquent au -GatewayType 'ExpressRoute', consultez [Passerelles de réseau virtuel pour ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md).
+>* Pour les passerelles redondantes interzone, consultez l’article [À propos des passerelles redondantes pour les Zones de disponibilité](about-zone-redundant-vnet-gateways.md).
+>* Pour le service Virtual WAN, consultez l’article [À propos du WAN virtuel](../virtual-wan/virtual-wan-about.md). 
 >
 
 ## <a name="gwtype"></a>Types de passerelle
@@ -176,7 +169,7 @@ Pour accéder à des ressources techniques supplémentaires et connaître les ex
 | --- | --- |
 | [PowerShell](/powershell/module/azure#networking) |[PowerShell](/powershell/module/azurerm.network#vpn) |
 | [API REST](https://msdn.microsoft.com/library/jj154113) |[API REST](/rest/api/network/virtualnetworkgateways) |
-| Non pris en charge | [interface de ligne de commande Azure](/cli/azure/network/vnet-gateway)|
+| Non pris en charge | [Interface de ligne de commande Azure](/cli/azure/network/vnet-gateway)|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

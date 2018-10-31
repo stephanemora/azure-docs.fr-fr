@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 3154a2f8b283f68ec3e10ba621ccba3ee6d77de2
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 82cfa9e62dcc6b3a72dcb1ccf97f1f52a88a75c4
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324748"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404101"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Détails sur la collecte de données pour les solutions de gestion dans Azure
 Cet article fournit la liste des [solutions de gestion](monitoring-solutions.md) disponibles auprès de Microsoft avec des liens vers leur documentation détaillée.  Il fournit également des informations sur leur méthode et leur fréquence de collecte de données dans Log Analytics.  Vous pouvez utiliser les informations de cet article pour identifier les différentes solutions disponibles et comprendre leurs exigences en termes de flux de données et de connexion. 
@@ -34,7 +34,7 @@ Les explications des colonnes sont les suivantes :
 - **Operations Manager** : agent identique à Microsoft Monitoring Agent. Dans cette configuration, il est [connecté à un groupe d’administration Operations Manager](../log-analytics/log-analytics-om-agents.md) qui est connecté à Log Analytics. 
 -  **Azure Storage** : solution collectant les données à partir d’un compte de stockage Azure. 
 - **Operations Manager requis ?** : un groupe d’administration Operations Manager connecté est requis pour la collecte de données par la solution de gestion. 
-- **Données de l’agent Operations Manager envoyées via le groupe d’administration** : si l’agent est [connecté à un groupe d’administration SCOM](../log-analytics/log-analytics-om-agents.md), les données sont envoyées depuis le serveur d’administration à Log Analytics. Dans ce cas, l’agent n’a pas besoin de se connecter directement à Log Analytics. Si cette case n’est pas cochée, les données sont envoyées directement par l’agent à Log Analytics, même si l’agent est connecté à un groupe d’administration SCOM. Il doit pouvoir communiquer avec Log Analytics via une [passerelle OMS](../log-analytics/log-analytics-oms-gateway.md).
+- **Données de l’agent Operations Manager envoyées via le groupe d’administration** : si l’agent est [connecté à un groupe d’administration SCOM](../log-analytics/log-analytics-om-agents.md), les données sont envoyées depuis le serveur d’administration à Log Analytics. Dans ce cas, l’agent n’a pas besoin de se connecter directement à Log Analytics. Si cette case n’est pas cochée, les données sont envoyées directement par l’agent à Log Analytics, même si l’agent est connecté à un groupe d’administration SCOM. Il doit pouvoir communiquer avec Log Analytics via la [passerelle Log Analytics](../log-analytics/log-analytics-oms-gateway.md).
 - **Fréquence de collecte** : spécifie la fréquence de collecte des données par la solution de gestion. 
 
 
@@ -42,8 +42,8 @@ Les explications des colonnes sont les suivantes :
 | **Solution de gestion** | **Plateforme** | **Microsoft Monitoring Agent** | **Agent Operations Manager** | **Azure Storage** | **Operations Manager requis ?** | **Données de l’agent Operations Manager envoyées via un groupe d’administration** | **Fréquence de collecte** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [Activity Log Analytics](../log-analytics/log-analytics-activity.md) | Azure | | | | | | sur notification |
-| [AD Assessment](../log-analytics/log-analytics-ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 jours |
-| [AD Replication Status](../log-analytics/log-analytics-ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 jours |
+| [Évaluation d'AD](../log-analytics/log-analytics-ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 jours |
+| [État de la réplication AD](../log-analytics/log-analytics-ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5 jours |
 | [Agent Health](../operations-management-suite/oms-solution-agenthealth.md) | Windows et Linux | &#8226; | &#8226; | | | &#8226; | 1 minute |
 | [Alert Management](../log-analytics/log-analytics-solution-alert-management.md) (Nagios) |Linux |&#8226; | | | | |à l'arrivée |
 | [Alert Management](../log-analytics/log-analytics-solution-alert-management.md) (Zabbix) |Linux |&#8226; | | | | |1 minute |
@@ -67,7 +67,7 @@ Les explications des colonnes sont les suivantes :
 | **Solution de gestion** | **Plateforme** | **Microsoft Monitoring Agent** | **Agent Operations Manager** | **Azure Storage** | **Operations Manager requis ?** | **Données de l’agent Operations Manager envoyées via un groupe d’administration** | **Fréquence de collecte** |
 | [Service Fabric](../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minutes |
 | [Service Map](../operations-management-suite/operations-management-suite-service-map.md) | Windows et Linux | &#8226; | &#8226; |  |  |  | 15 secondes |
-| [SQL Assessment](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 jours |
+| [Évaluation de SQL](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 jours |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |à l'arrivée |
 | [System Center Operations Manager Assessment (préversion)](../log-analytics/log-analytics-scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | sept jours |
 | [Gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |au moins 2 fois par jour et 15 minutes après l'installation d'une mise à jour |

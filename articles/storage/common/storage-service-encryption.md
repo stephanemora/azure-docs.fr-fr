@@ -75,7 +75,7 @@ Avec le chiffrement activé par défaut, toutes les données stockées dans les 
 Storage Service Encryption est activé par défaut lors de la création d’un compte de stockage (classique ou Resource Manager). Vous pouvez vérifier les propriétés du compte à l’aide d’Azure PowerShell et de l’interface de ligne de commande Azure.
 
 **Mon compte de stockage est configuré pour être répliqué de manière géoredondante. Avec Storage Service Encryption, ma copie redondante sera-t-elle également chiffrée ?**  
-Oui, toutes les copies du compte de stockage sont chiffrées. Toutes les options de redondance sont prises en charge : stockage localement redondant, stockage redondant dans une zone, stockage géoredondant et stockage géoredondant avec accès en lecture.
+Oui, toutes les copies du compte de stockage sont chiffrées. Toutes les options de redondance sont prises en charge : stockage localement redondant, stockage redondant interzone, stockage géoredondant et stockage géoredondant avec accès en lecture.
 
 **Storage Service Encryption est-il autorisé uniquement dans certaines régions ?**  
 Storage Service Encryption est disponible dans toutes les régions.

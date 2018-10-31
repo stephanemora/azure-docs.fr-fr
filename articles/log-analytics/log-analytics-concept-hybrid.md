@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9decd861ff20a45939f700eef99245b6555829f8
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 03133c6d6518444f8e6fb15cfa425969dbafdedc
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319742"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49406872"
 ---
 # <a name="collect-data-in-a-hybrid-environment-with-log-analytics-agent"></a>Collecter des données dans un environnement hybride avec l’agent Log Analytics
 
@@ -38,7 +38,7 @@ Les ordinateurs hébergés dans l’environnement peuvent être connectés direc
 
 Avant d’analyser et d’exploiter les données collectées, vous devez commencer par installer et connecter les agents de tous les ordinateurs qui devront envoyer des données au service Log Analytics. Pour installer des agents sur vos ordinateurs locaux, vous pouvez utiliser le programme d’installation, la ligne de commande ou la fonction Desired State Configuration (DSC) d’Azure Automation. 
 
-L’agent pour Linux et Windows communique en sortie avec le service Log Analytics via le port TCP 443. Si l’ordinateur se connecte à un pare-feu ou à un serveur proxy pour communiquer sur Internet, consultez les exigences ci-dessous pour connaître la configuration réseau nécessaire.  Si vos stratégies de sécurité informatique n’autorisent pas les ordinateurs du réseau à se connecter à Internet, vous pouvez configurer une [passerelle OMS](log-analytics-oms-gateway.md), puis configurer l’agent pour qu’il se connecte à Log Analytics via la passerelle. L’agent peut ensuite recevoir des informations de configuration et envoyer les données collectées en fonction des règles de collecte de données et des solutions que vous avez activées. 
+L’agent pour Linux et Windows communique en sortie avec le service Log Analytics via le port TCP 443. Si l’ordinateur se connecte à un pare-feu ou à un serveur proxy pour communiquer sur Internet, consultez les exigences ci-dessous pour connaître la configuration réseau nécessaire.  Si vos stratégies de sécurité informatique n’autorisent pas les ordinateurs du réseau à se connecter à Internet, vous pouvez configurer une [passerelle Log Analytics](log-analytics-oms-gateway.md), puis configurer l’agent pour qu’il se connecte à Log Analytics via la passerelle. L’agent peut ensuite recevoir des informations de configuration et envoyer les données collectées en fonction des règles de collecte de données et des solutions que vous avez activées. 
 
 Si vous effectuez le monitoring de l’ordinateur avec System Center Operations Manager 2012 R2 ou ultérieur, il peut être multihébergé avec le service Log Analytics pour collecter des données et les transférer au service, tandis [qu’Operations Manager](log-analytics-om-agents.md) poursuit le monitoring. Les ordinateurs Linux analysés par un groupe d’administration Operations Manager intégré à Log Analytics ne reçoivent pas de configuration des sources de données et transmettent les données collectées par l’intermédiaire du groupe d’administration. L’agent Windows peut envoyer des rapports à quatre espaces de travail, contre un seul pour l’agent Linux.  
 
@@ -92,7 +92,7 @@ Voici la liste des informations de configuration du proxy et du pare-feu requise
 
 Si vous envisagez d’utiliser le Runbook Worker hybride Azure Automation pour vous connecter et vous inscrire auprès du service Automation afin d’utiliser les runbooks dans votre environnement, il doit avoir accès au numéro de port et aux URL décrites dans la section [Configurer votre réseau pour le Runbook Worker hybride](../automation/automation-hybrid-runbook-worker.md#network-planning). 
 
-L’agent Windows et Linux prend en charge la communication par l’intermédiaire d’un serveur proxy ou de la passerelle OMS avec le service Log Analytics, au moyen du protocole HTTPS.  L’authentification anonyme et l’authentification de base (nom d’utilisateur/mot de passe) sont prises en charge.  Pour l’agent Windows connecté directement au service, la configuration du proxy est indiquée pendant l’installation ou [après le déploiement](log-analytics-agent-manage.md#update-proxy-settings), dans le panneau de configuration ou avec PowerShell.  
+L’agent Windows et Linux prend en charge la communication par l’intermédiaire d’un serveur proxy ou de la passerelle Log Analytics avec le service Log Analytics, au moyen du protocole HTTPS.  L’authentification anonyme et l’authentification de base (nom d’utilisateur/mot de passe) sont prises en charge.  Pour l’agent Windows connecté directement au service, la configuration du proxy est indiquée pendant l’installation ou [après le déploiement](log-analytics-agent-manage.md#update-proxy-settings), dans le panneau de configuration ou avec PowerShell.  
 
 Pour l’agent Linux, le serveur proxy est indiqué pendant ou [après l’installation](log-analytics-agent-manage.md#update-proxy-settings) en modifiant le fichier de configuration du fichier proxy.conf.  La valeur de configuration du proxy de l’agent Linux adopte la syntaxe suivante :
 
@@ -106,8 +106,8 @@ Pour l’agent Linux, le serveur proxy est indiqué pendant ou [après l’insta
 |Protocole | https |
 |user | Nom d’utilisateur facultatif pour l’authentification du proxy |
 |password | Mot de passe facultatif pour l’authentification du proxy |
-|proxyhost | Adresse ou nom de domaine complet du serveur proxy/de la passerelle OMS |
-|port | Numéro de port facultatif pour le serveur proxy/la passerelle OMS |
+|proxyhost | Adresse ou nom de domaine complet du serveur proxy/de la passerelle Log Analytics |
+|port | Numéro de port facultatif pour le serveur proxy/la passerelle Log Analytics |
 
 Par exemple : `https://user01:password@proxy01.contoso.com:30443`
 
@@ -129,4 +129,4 @@ Pour connecter directement des ordinateurs locaux avec Log Analytics, différent
 
 * Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions. 
 
-* Découvrez les [solutions](log-analytics-add-solutions.md) qui ajoutent des fonctionnalités à Log Analytics et collectent également des données dans le référentiel OMS.
+* Découvrez les [solutions](log-analytics-add-solutions.md) qui ajoutent des fonctionnalités à Log Analytics et collectent également des données dans l’espace de travail Log Analytics.

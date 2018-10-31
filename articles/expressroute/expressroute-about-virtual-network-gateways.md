@@ -47,15 +47,15 @@ Le tableau ci-dessous présente les types de passerelle et les performances esti
 
 Vous pouvez également déployer des passerelles ExpressRoute dans des zones de disponibilité Azure. Cela les sépare physiquement et logiquement dans différentes zones de disponibilité, tout en protégeant votre connectivité de réseau local à Azure des échecs au niveau de la zone.
 
-![Passerelle ExpressRoute redondante dans la zone](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
+![Passerelle ExpressRoute redondante interzone](./media/expressroute-about-virtual-network-gateways/zone-redundant.png)
 
-Les passerelles redondante dans la zone utilisent de nouvelles références SKU spécifiques de passerelle pour la passerelle ExpressRoute. Les nouvelles références SKU sont actuellement disponibles en **Préversion publique**.
+Les passerelles redondantes interzone utilisent de nouvelles références SKU spécifiques de passerelle pour la passerelle ExpressRoute. Les nouvelles références SKU sont actuellement disponibles en **Préversion publique**.
 
 * ErGw1AZ
 * ErGw2AZ
 * ErGw3AZ
 
-Les nouvelles références SKU de passerelle prennent également en charge les autres options de déploiement pour mieux répondre à vos besoins. Lorsque vous créez une passerelle de réseau virtuel avec les nouvelles références SKU de passerelle, vous avez également la possibilité de déployer la passerelle dans une zone spécifique. Il s’agit alors d’une passerelle zonale. Lorsque vous déployez une passerelle zonale, les deux instances de la passerelle sont déployées dans la même zone de disponibilité. Pour s’inscrire à la préversion, consultez [Créer une passerelle de réseau virtuel redondante dans la zone](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
+Les nouvelles références SKU de passerelle prennent également en charge les autres options de déploiement pour mieux répondre à vos besoins. Lorsque vous créez une passerelle de réseau virtuel avec les nouvelles références SKU de passerelle, vous avez également la possibilité de déployer la passerelle dans une zone spécifique. Il s’agit alors d’une passerelle zonale. Lorsque vous déployez une passerelle zonale, les deux instances de la passerelle sont déployées dans la même zone de disponibilité. Pour s’inscrire à la préversion, consultez [Créer une passerelle de réseau virtuel redondante interzone](../../articles/vpn-gateway/create-zone-redundant-vnet-gateway.md).
 
 ## <a name="resources"></a>API REST et applets de commande PowerShell
 Pour accéder à des ressources techniques supplémentaires et connaître les exigences spécifiques en matière de syntaxe lors de l’utilisation d’API REST et d’applets de commande PowerShell pour les configurations de passerelles de réseau virtuel, consultez les pages suivantes :

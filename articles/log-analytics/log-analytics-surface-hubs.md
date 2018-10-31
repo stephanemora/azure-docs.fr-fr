@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: b38ce59a80d3fa78449892c8a76ed70b4dc698d3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f7fe7cee39468558ce503c050d5574e4be15ebf5
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041476"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49407161"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surveiller les Surface Hubs avec Log Analytics pour suivre leur intégrité
 
@@ -51,7 +51,7 @@ Intune est un produit Microsoft permettant de gérer de manière centralisée le
 1. Connectez-vous à Intune.
 2. Accédez à **Paramètres** > **Sources connectées**.
 3. Créez ou modifiez une stratégie basée sur le modèle Surface Hub.
-4. Accédez à la section OMS (Azure Operational Insights) de la stratégie, puis ajoutez l’*ID de l’espace de travail* et la *Clé de l’espace de travail* Log Analytics à la stratégie.
+4. Accédez à la section Azure Operational Insights de la stratégie, puis ajoutez *l’ID de l’espace de travail* et la *Clé de l’espace de travail* Log Analytics à la stratégie.
 5. Enregistrez la stratégie.
 6. Associez la stratégie au groupe approprié d’appareils.
 
@@ -66,9 +66,9 @@ Si vous n’utilisez pas Intune pour gérer votre environnement, vous pouvez ins
 
 1. Sur votre Surface Hub, ouvrez **Paramètres**.
 2. Entrez les informations d’identification d’administrateur de l’appareil lorsque vous y êtes invité.
-3. Cliquez sur **Cet appareil**, puis, sous **Analyse**, cliquez sur **Configurer les paramètres OMS**.
+3. Cliquez sur **Cet appareil**, puis, sous **Analyse**, cliquez sur **Configurer les paramètres Log Analytics**.
 4. Sélectionnez **Activer l’analyse**.
-5. Dans la boîte de dialogue Paramètres OMS, entrez l’**ID de l’espace de travail** et la **Clé de l’espace de travail**.  
+5. Dans la boîte de dialogue Paramètres Log Analytics, entrez **l’ID de l’espace de travail** et la **Clé de l’espace de travail**.  
    ![settings](./media/log-analytics-surface-hubs/settings.png)
 6. Cliquez sur **OK** pour achever la configuration.
 

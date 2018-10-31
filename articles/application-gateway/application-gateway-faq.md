@@ -194,7 +194,7 @@ Les clients peuvent utiliser Traffic Manager pour répartir le trafic entre plus
 
 **Q. La mise à l’échelle automatique est-elle prise en charge ?**
 
-Oui. La référence SKU V2 d’Application Gateway prend en charge la mise à l’échelle automatique. Pour plus d’informations, voir [Passerelle d’application redondante dans une zone et avec mise à l’échelle automatique (préversion publique)](application-gateway-autoscaling-zone-redundant.md).
+Oui. La référence SKU V2 d’Application Gateway prend en charge la mise à l’échelle automatique. Pour plus d’informations, voir [Passerelle d’application redondante interzone et avec mise à l’échelle automatique (préversion publique)](application-gateway-autoscaling-zone-redundant.md).
 
 **Q. Est-ce que les opérations de montée/descente en puissance effectuées manuellement interrompent le service ?**
 
