@@ -3,7 +3,7 @@ title: Création de rapports sur des bases de données cloud mises à l’échel
 description: comment configurer des requêtes élastiques sur les partitions horizontales
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: mlandzic
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 906c6825dbfdf7d4873c765d0b3eba626ef52e1b
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: e1eec489bf33cbf03269f68413c39c9fb03bbb22
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159361"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240390"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Création de rapports sur des bases de données cloud mises à l’échelle (version préliminaire)
 ![Requête sur plusieurs partitions][1]
