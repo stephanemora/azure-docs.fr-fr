@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines-linux
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 5df1f7ff44a1603dd03d1d803ae9960dc124781e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227497"
+---
 ## <a name="install-wordpress"></a>Installer WordPress
 
 Si vous souhaitez essayer votre pile, installez un exemple d’application. Ainsi, les étapes suivantes installent la plateforme open source [WordPress](https://wordpress.org/) pour créer des sites web et des blogs. Les autres charges de travail à essayer incluent [Drupal](http://www.drupal.org) et [Moodle](https://moodle.org/). 
@@ -8,7 +21,7 @@ Ce programme d’installation de WordPress est destiné uniquement à la preuve 
 
 ### <a name="install-the-wordpress-package"></a>Installez le package WordPress
 
-Exécutez la commande suivante :
+Exécutez la commande suivante :
 
 ```bash
 sudo apt install wordpress
@@ -24,7 +37,7 @@ Dans un répertoire de travail, créez un fichier texte `wordpress.sql` pour con
 sudo sensible-editor wordpress.sql
 ```
 
-Ajoutez les commandes suivantes, en remplaçant *yourPassword* par le mot de passe de base de données de votre choix (laissez les autres valeurs inchangées). Si vous aviez configuré une stratégie de sécurité MySQL pour valider la force du mot de passe, vérifiez que le mot de passe répond à ces exigences. Enregistrez le fichier.
+Ajoutez les commandes suivantes, en remplaçant *yourPassword* par le mot de passe de base de données de votre choix (laissez les autres valeurs inchangées). Si vous aviez configuré une stratégie de sécurité MySQL pour valider la force du mot de passe, vérifiez que le mot de passe répond à ces exigences. Enregistrez le fichier .
 
 ```sql
 CREATE DATABASE wordpress;

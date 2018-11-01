@@ -5,14 +5,14 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: tutorial
-ms.date: 10/15/2018
+ms.date: 10/26/2018
 ms.author: dkshir
-ms.openlocfilehash: 1e5cb18b4e526cd0a0607f5bc93788fcf07430e1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: cf45cb8de0e40dfe5f5772dcb1a0be2aa7585fd6
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364232"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156678"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins"></a>Didacticiel : Approvisionner votre bâtiment et surveiller les conditions de travail avec Azure Digital Twins
 
@@ -161,7 +161,7 @@ Dans l’exemple de fichier *provisionSample.yaml*, recherchez une section comme
             }
         ```
         
-        L’UDF modifiée recherchera une condition où la salle est disponible et où son niveau de dioxyde de carbone et sa température se situent dans la plage acceptable. Il génère une notification avec l’instruction `parentSpace.Notify(JSON.stringigy(alert));` lorsque cette condition est remplie. Il définit la valeur de l’espace surveillé, sans tenir compte du fait que la condition est remplie ou non, avec le message correspondant.
+        L’UDF modifiée recherchera une condition où la salle est disponible et où son niveau de dioxyde de carbone et sa température se situent dans la plage acceptable. Il génère une notification avec l’instruction `parentSpace.Notify(JSON.stringify(alert));` lorsque cette condition est remplie. Il définit la valeur de l’espace surveillé, sans tenir compte du fait que la condition est remplie ou non, avec le message correspondant.
     
     1. Enregistrez le fichier . 
     

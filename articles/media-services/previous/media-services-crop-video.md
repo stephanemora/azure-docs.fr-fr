@@ -4,22 +4,21 @@ description: Cet article explique comment rogner des vidéos avec Media Encoder 
 services: media-services
 documentationcenter: ''
 author: anilmur
-manager: cfowler
+manager: femila
 editor: ''
-ms.assetid: 7628f674-2005-4531-8b61-d7a4f53e46ba
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/09/2017
+ms.date: 29/10/2018
 ms.author: anilmur;juliako;
-ms.openlocfilehash: 2592316481c9e265fbae20b832beb21ae4905b14
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f6c853648b138763675e016d8de6eaff6377f166
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782948"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50229598"
 ---
 # <a name="crop-videos-with-media-encoder-standard"></a>Rogner des vidéos avec l’encodeur multimédia standard
 Vous pouvez utiliser Media Encoder Standard (MES) pour rogner votre vidéo d’entrée. Le rognage consiste à sélectionner une fenêtre rectangulaire dans l’image vidéo et à encoder uniquement les pixels dans cette fenêtre. Le schéma suivant permet d’illustrer le processus.
@@ -139,8 +138,7 @@ Les contraintes suivantes s’appliquent à la fonctionnalité de rognage. Si el
 ## <a name="provide-feedback"></a>Fournir des commentaires
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="next-step"></a>Étapes suivantes
-
+## <a name="next-step"></a>Étape suivante
 Consultez les parcours d’apprentissage Azure Media Services pour en savoir plus sur les fonctionnalités exceptionnelles offertes par AMS.  
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

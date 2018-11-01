@@ -8,12 +8,12 @@ ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: 3e63a4c05fde570e598ba05c65fb99cec0427711
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f1dd07756ca484171a3d662df35493efbe5a5ee7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47226415"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415611"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Utiliser un partage de fichiers Azure avec Windows
 [Azure Files](storage-files-introduction.md) est le système de fichiers cloud facile à utiliser de Microsoft. Il est possible d’utiliser sans problème le partage de fichiers Azure dans Windows et Windows Server. Cet article décrit les considérations concernant l’utilisation d’un partage de fichiers Azure avec Windows et Windows Server.
@@ -49,7 +49,7 @@ Vous pouvez utiliser des partages de fichiers Azure sur une installation Window
 * **Vérifiez que le port 445 est ouvert** : le protocole SMB requiert que le port TCP 445 soit ouvert, les connexions échoueront si ce port est bloqué. Vous pouvez vérifier si votre pare-feu bloque le port 445 avec l’applet de commande `Test-NetConnection`. N’oubliez pas de remplacer `your-storage-account-name` par le nom approprié de votre compte de stockage.
 
     ```PowerShell
-    Test-NetConnection -ComputerName <your-storage-account-name>.core.windows.net -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.file.core.windows.net -Port 445
     
     ```
 

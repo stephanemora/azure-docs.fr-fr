@@ -4,9 +4,6 @@ description: Cet article explique les différents types de points de terminaison
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: 4e506986-f78d-41d1-becf-56c8516e4d21
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
 ms.author: kumud
-ms.openlocfilehash: 06965c43408e943922048804099f8f28d69c8540
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: acdae15af1e81bf194bb9e599b97152af98ef5d4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248283"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139786"
 ---
 # <a name="traffic-manager-endpoints"></a>Points de terminaison Traffic Manager
 Microsoft Azure Traffic Manager vous permet de contrôler la distribution du trafic réseau sur vos déploiements d’applications exécutés dans différents centres de données. Vous pouvez configurer chaque déploiement d’application en tant que « point de terminaison » dans Traffic Manager. Lorsque Traffic Manager reçoit une demande DNS, il choisit un point de terminaison disponible à renvoyer dans la réponse DNS. Traffic Manager base son choix sur l’état du point de terminaison actuel et la méthode de routage du trafic. Pour plus d’informations, consultez l’article [Fonctionnement de Traffic Manager](traffic-manager-how-it-works.md).
@@ -46,7 +43,7 @@ Les ressources PublicIPAddress sont des ressources Azure Resource Manager. Elles
 
 Lorsque vous utilisez des points de terminaison Azure, Traffic Manager détecte l’arrêt ou le démarrage d’une machine virtuelle IaaS « classique », d’un service cloud ou d’une application web. Cet état est reflété dans l’état du point de terminaison. Pour plus d’informations, consultez [Surveillance des points de terminaison Traffic Manager](traffic-manager-monitoring.md#endpoint-and-profile-status). Lorsque le service sous-jacent est arrêté, Traffic Manager n’effectue pas les vérifications d’intégrité des points de terminaison et ne dirige pas le trafic vers le point de terminaison. Aucun événement de facturation Traffic Manager ne se produit pour l’instance arrêtée. Lorsque le service est redémarré, la facturation reprend et le point de terminaison est éligible pour recevoir le trafic. Cette détection ne s’applique pas aux points de terminaison PublicIpAddress.
 
-## <a name="external-endpoints"></a>Points de terminaison externes
+## <a name="external-endpoints"></a>points de terminaison externes
 
 Des points de terminaison externes sont utilisés pour les adresses IPv4/IPv6 ou pour des services hébergés en dehors d’Azure. L’usage de points de terminaison d’adresse IPv4/IPv6 autorise Traffic Manager à vérifier l’intégrité de ceux-ci sans exiger de nom DNS. Par conséquent, Traffic Manager peut répondre à des requêtes avec des enregistrements A/AAAA lors du retour de ce point de terminaison dans une réponse. Des services extérieurs à Azure peuvent inclure un service hébergé en local ou avec un autre fournisseur. Des points de terminaison externes peuvent être utilisées individuellement ou combinés avec des points de terminaison Azure dans le même profil Traffic Manager, à l’exception des points de terminaison spécifiés en tant qu’adresses IPv4 ou IPv6 qui ne peuvent être que des points de terminaison externes. La combinaison de points de terminaison Azure avec des points de terminaison externes permet la prise en charge de divers scénarios :
 

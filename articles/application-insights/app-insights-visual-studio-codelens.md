@@ -3,7 +3,7 @@ title: Données de télémétrie Application Insights dans Visual Studio CodeLen
 description: Accédez rapidement à vos données de télémétrie des requêtes et des exceptions Application Insights à l’aide de CodeLens dans Visual Studio.
 services: application-insights
 documentationcenter: .net
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.assetid: 93559e44-23cb-4b9d-8425-60f7f0d0a82c
 ms.service: application-insights
@@ -13,14 +13,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/17/2017
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 7df49258895aa0dfa5c8cc592914ba6998a97cb8
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 70b0f66fcbcd54b5eb2f3dc938b005090a08c62f
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442108"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137257"
 ---
 # <a name="application-insights-telemetry-in-visual-studio-codelens"></a>Données de télémétrie Application Insights dans Visual Studio CodeLens
 Les méthodes indiquées dans le code de votre application web peuvent être annotées avec des données de télémétrie sur les exceptions runtime et les temps de réponse des requêtes. Si vous installez [Azure Application Insights](app-insights-overview.md) dans votre application, les données de télémétrie s’affichent dans Visual Studio [CodeLens](https://msdn.microsoft.com/library/dn269218.aspx) ; il s’agit des notes en haut de chaque fonction où vous avez l’habitude de voir des informations utiles telles que le nombre d’emplacements dans lesquels la fonction est référencée ou la dernière personne à l’avoir modifiée.

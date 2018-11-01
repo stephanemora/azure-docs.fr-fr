@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: bff2543ec48c66c10db697650def0077e3de28be
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132910"
+---
 Pour activer la réinitialisation de mot de passe affinée sur votre application, vous utilisez une stratégie de **réinitialisation de mot de passe**. Notez que l’option de réinitialisation du mot de passe au niveau du client est spécifiée [ici](../articles/active-directory-b2c/active-directory-b2c-reference-sspr.md). Cette stratégie décrit les expériences clients lors de la réinitialisation de mot de passe, ainsi que le contenu des jetons que l’application reçoit en cas d’opération réussie.
 
 [!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](active-directory-b2c-portal-navigate-b2c-service.md)]

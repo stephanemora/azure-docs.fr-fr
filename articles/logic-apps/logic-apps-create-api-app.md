@@ -10,12 +10,12 @@ ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
 ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.date: 05/26/2017
-ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: a3f837b41ba6ec7ecadb3e34917a8088e4d1e2d9
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122244"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233512"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Créer des API personnalisées que vous pouvez appeler à partir d’Azure Logic Apps
 
@@ -41,7 +41,7 @@ Vous pouvez héberger vos API sur [Azure App Service](../app-service/app-service
 > * [Python](../app-service/containers/quickstart-python.md)
 > * [Ruby](../app-service/containers/quickstart-ruby.md)
 >
-> Pour obtenir des exemples d’application API générées pour les applications logiques, consultez le [référentiel GitHub Azure Logic Apps](http://github.com/logicappsio) ou le [blog](http://aka.ms/logicappsblog).
+> Pour obtenir des exemples d’application API générées pour les applications logiques, consultez le [référentiel GitHub Azure Logic Apps](http://github.com/logicappsio) ou le [blog](https://aka.ms/logicappsblog).
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Quelles sont les différences entre les API personnalisées et les connecteurs personnalisés ?
 
@@ -230,7 +230,7 @@ Pour mettre vos API personnalisées à la disposition de tous les utilisateurs d
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
 
-* Afin de contribuer à améliorer Logic Apps, votez pour des idées ou soumettez-en sur le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish). 
+* Afin de contribuer à améliorer Logic Apps, votez pour des idées ou soumettez-en sur le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

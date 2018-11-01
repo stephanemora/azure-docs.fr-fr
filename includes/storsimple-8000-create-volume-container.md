@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: abef93d30ff9cdf1ecdbbfd450d9f96e6352a513
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165790"
+---
 <!--author=alkohli last changed: 06/22/17-->
 
 #### <a name="to-create-a-volume-container"></a>Pour créer un conteneur de volumes
@@ -20,7 +33,7 @@
       Si vos informations d’utilisation de la bande passante sont disponibles, vous pouvez allouer de la bande passante selon une planification en spécifiant **Sélectionner un modèle de bande passante**. Pour une procédure pas à pas, consultez la page [Ajouter un modèle de bande passante](../articles/storsimple/storsimple-8000-manage-bandwidth-templates.md#add-a-bandwidth-template).
 
       ![Panneau du conteneur de volumes](./media/storsimple-8000-create-volume-container/createvolumecontainer6b.png)
-   7. Cliquez sur **Create**.
+   7. Cliquez sur **Créer**.
 
         ![Panneau du conteneur de volumes](./media/storsimple-8000-create-volume-container/createvolumecontainer6.png)
    

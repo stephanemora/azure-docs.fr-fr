@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 70d7adc9ea8c65a7e6a21165864b7e6d661c6f8c
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 8a8c8c7abf5b6f0f2a870f6983c7e855db1e0192
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042289"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231812"
 ---
 # <a name="check-traffic-on-a-schedule-with-azure-logic-apps"></a>Vérifier le trafic selon une planification avec Azure Logic Apps
 
@@ -59,7 +59,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
    | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
-   | **Name** | LA-TravelTime | Nom de l’application logique. | 
+   | **Nom** | LA-TravelTime | Nom de l’application logique. | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
    | **Groupe de ressources** | LA-TravelTime-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes. | 
    | **Lieu** | USA Est 2 | Région dans laquelle stocker les informations sur votre application logique | 
@@ -141,7 +141,7 @@ Maintenant que vous disposez d’un déclencheur, ajoutez une [action](../logic-
    | **Étape 2** | <*end-location*> | Destination de l’itinéraire. | 
    | **Avoid** | Aucun | Tous les éléments à éviter sur votre itinéraire, par exemple les autoroutes, les péages, etc. | 
    | **Optimize** | timeWithTraffic | Paramètre permettant d’optimiser votre itinéraire, par exemple la distance, la durée du trajet avec le trafic en cours, etc. Sélectionnez ce paramètre : « timeWithTraffic ». | 
-   | **Unité de distance** | <*your-preference*> | Unité de distance utilisée pour l’itinéraire. Cet article utilise l’unité suivante : « mile ».  | 
+   | **Unité de distance** | <*your-preference*> | Unité de distance utilisé pour l’itinéraire. Cet article utilise l’unité suivante : « mile ».  | 
    | **Mode de déplacement** | Conduite | Mode de déplacement pour parcourir l’itinéraire. Sélectionnez ce mode : « Conduite ». | 
    | **Date et heure de transit** | Aucun | S’applique au mode transit uniquement. | 
    | **Type de date et d’heure** | Aucun | S’applique au mode transit uniquement. | 
@@ -171,7 +171,7 @@ Par défaut, l’action **Obtenir l’itinéraire** précédente retourne la dur
 
    | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
-   | **Name** | travelTime | Nom de la variable. | 
+   | **Nom** | travelTime | Nom de la variable. | 
    | **Type** | Entier  | Type de données de la variable. | 
    | **Valeur** | Expression qui convertit la durée du trajet actuel de secondes en minutes (voir les étapes décrites sous ce tableau). | Valeur initiale de votre variable. | 
    |||| 
@@ -331,7 +331,7 @@ Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contie
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

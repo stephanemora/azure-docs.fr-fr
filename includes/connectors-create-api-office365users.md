@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>Configuration requise
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: ebae0fac5edc0bb79e6a19d8bdc741960f0b0e20
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134115"
+---
+### <a name="prerequisites"></a>Prérequis
 * Un compte [Office 365 Users](https://office365.com)  
 
 Avant de pouvoir utiliser votre compte Office 365 Users dans une application logique, vous devez autoriser l’application logique à se connecter à votre compte Office 365 Users. Heureusement, vous pouvez faire cela facilement à partir de votre application logique sur le portail Azure.  

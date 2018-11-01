@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 3851bfef71aab6553e109bb8108edd7bec182f0e
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 87cfcefd91652194adc0a5ca4580a8d00ba4d234
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041950"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412744"
 ---
 # <a name="filters-in-log-analytics-views"></a>Filtres dans les vues de Log Analytics
 Un **filtre** dans une [vue de Log Analytics](log-analytics-view-designer.md) permet aux utilisateurs de filtrer les données au moyen d’une valeur d’une propriété particulière, sans modifier la vue proprement dite.  Par exemple, vous pouvez autoriser les utilisateurs de votre vue à filtrer l’affichage des données uniquement à partir d’un ordinateur ou d’un ensemble d’ordinateurs particulier.  Vous pouvez créer plusieurs filtres sur une seule et unique vue pour permettre aux utilisateurs d’effectuer un filtrage avec plusieurs propriétés.  Cet article décrit comment utiliser un filtre et en ajouter un à une vue personnalisée.
@@ -28,12 +28,12 @@ Un **filtre** dans une [vue de Log Analytics](log-analytics-view-designer.md) pe
 ## <a name="using-a-filter"></a>Utilisation d’un filtre
 Cliquez sur l’intervalle de temps de données en haut de la vue pour ouvrir la liste déroulante où vous pouvez changer l’intervalle de temps des données pour la vue.
 
-![Exemple de filtre](media/log-analytics-view-designer/filters-example-time.png)
+![Exemple de filtre](media/log-analytics-view-designer-filters/filters-example-time.png)
 
 Cliquez sur le **+** pour ajouter un filtre à l’aide des filtres personnalisés définis pour la vue. Sélectionner une valeur pour le filtre dans la liste déroulante ou tapez une valeur. Continuez à ajouter des filtres en cliquant sur le **+**. 
 
 
-![Exemple de filtre](media/log-analytics-view-designer/filters-example-custom.png)
+![Exemple de filtre](media/log-analytics-view-designer-filters/filters-example-custom.png)
 
 Si vous supprimez toutes les valeurs d’un filtre, celui-ci n’est plus appliqué.
 
@@ -42,7 +42,7 @@ Si vous supprimez toutes les valeurs d’un filtre, celui-ci n’est plus appliq
 
 Créez un filtre à partir de l’onglet **Filtres** lors de la [modification d’une vue](log-analytics-view-designer.md).  Le filtre est global pour la vue et s’applique à toutes ses parties.  
 
-![Paramètres de filtre](media/log-analytics-view-designer/filters-settings.png)
+![Paramètres de filtre](media/log-analytics-view-designer-filters/filters-settings.png)
 
 Le tableau suivant décrit les paramètres d’un filtre.
 

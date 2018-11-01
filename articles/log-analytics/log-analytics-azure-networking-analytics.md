@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/21/2018
 ms.author: richrund
 ms.component: ''
-ms.openlocfilehash: f1db673ad750a5d9d9d6bda9f41555d5e3affe8d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: bc2b93312ed005154aa7d2530fb5493278a15c67
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043084"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418600"
 ---
 # <a name="azure-networking-monitoring-solutions-in-log-analytics"></a>Solutions d’analyse réseaux Azure dans Log Analytics
 
@@ -70,7 +70,7 @@ Le tableau suivant présente les méthodes de collecte des données et d’autre
 
 ## <a name="azure-application-gateway-analytics-solution-in-log-analytics"></a>Solution d’analytique Azure Application Gateway dans Log Analytics
 
-![Symbole d’Azure Application Gateway Analytics](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Symbole d’Azure Application Gateway Analytics](media/log-analytics-azure-networking-analytics/azure-analytics-symbol.png)
 
 Les journaux pris en charge pour les passerelles d’application sont les suivants :
 
@@ -94,10 +94,10 @@ Pour installer et configurer la solution d’analytique Azure Application Gatewa
 1. Dans le Portail Azure, accédez à la ressource Application Gateway à surveiller.
 2. Sélectionnez *Journaux de diagnostic* pour ouvrir la page suivante.
 
-   ![Image de la ressource Azure Application Gateway](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics01.png)
+   ![Image de la ressource Azure Application Gateway](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-enable-diagnostics01.png)
 3. Cliquez sur *Activer les diagnostics* pour ouvrir la page suivante.
 
-   ![Image de la ressource Azure Application Gateway](./media/log-analytics-azure-networking/log-analytics-appgateway-enable-diagnostics02.png)
+   ![Image de la ressource Azure Application Gateway](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-enable-diagnostics02.png)
 4. Pour activer les diagnostics, cliquez sur *Activé* sous *État*.
 5. Cochez la case à côté de l’option *Envoyer à Log Analytics*.
 6. Sélectionnez un espace de travail Log Analytics existant ou créez-en un.
@@ -117,7 +117,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $work
 ```
 
 ### <a name="use-azure-application-gateway-analytics"></a>Utiliser l’analytique Azure Application Gateway
-![Image de la mosaïque d’analytique Azure Application Gateway](./media/log-analytics-azure-networking/log-analytics-appgateway-tile.png)
+![Image de la mosaïque d’analytique Azure Application Gateway](media/log-analytics-azure-networking-analytics/log-analytics-appgateway-tile.png)
 
 Une fois que vous avez cliqué sur la mosaïque **d’analytique Azure Application Gateway** dans la Vue d’ensemble, vous pouvez consulter les résumés de vos journaux et entrer dans les détails des catégories suivantes :
 
@@ -130,9 +130,9 @@ Une fois que vous avez cliqué sur la mosaïque **d’analytique Azure Applicati
   * Intégrité de l’hôte pour la passerelle d’application
   * Nombre maximal et 95e centile pour les échecs de demande de passerelle d’application
 
-![Image du tableau de bord d’analytique Azure Application Gateway](./media/log-analytics-azure-networking/log-analytics-appgateway01.png)
+![Image du tableau de bord d’analytique Azure Application Gateway](media/log-analytics-azure-networking-analytics/log-analytics-appgateway01.png)
 
-![Image du tableau de bord d’analytique Azure Application Gateway](./media/log-analytics-azure-networking/log-analytics-appgateway02.png)
+![Image du tableau de bord d’analytique Azure Application Gateway](media/log-analytics-azure-networking-analytics/log-analytics-appgateway02.png)
 
 Sur le tableau de bord **d’analytique Azure Application Gateway**, consultez les informations du résumé dans l’un des panneaux, puis cliquez sur l’un d’entre eux pour afficher des informations détaillées sur la page de recherche dans les journaux.
 
@@ -141,7 +141,7 @@ Sur l’une des pages de recherche de journal, vous pouvez afficher les résulta
 
 ## <a name="azure-network-security-group-analytics-solution-in-log-analytics"></a>Solution d’analytique Azure Network Security Group dans Log Analytics
 
-![Symbole d’Azure Network Security Group Analytics](./media/log-analytics-azure-networking/azure-analytics-symbol.png)
+![Symbole d’Azure Network Security Group Analytics](media/log-analytics-azure-networking-analytics/azure-analytics-symbol.png)
 
 > [!NOTE]
 > La solution d’analytique Groupe de sécurité réseau passe au support Communauté, puisqu’elle a été remplacée par [Traffic Analytics](../network-watcher/traffic-analytics.md).
@@ -165,10 +165,10 @@ Pour installer et configurer la solution d’analytique du réseau Azure, suivez
 1. Dans le Portail Azure, accédez à la ressource Network Security Group à surveiller.
 2. Sélectionnez *Journaux de diagnostic* pour ouvrir la page suivante.
 
-   ![Image de la ressource Azure Network Security Group](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics01.png)
+   ![Image de la ressource Azure Network Security Group](media/log-analytics-azure-networking-analytics/log-analytics-nsg-enable-diagnostics01.png)
 3. Cliquez sur *Activer les diagnostics* pour ouvrir la page suivante.
 
-   ![Image de la ressource Azure Network Security Group](./media/log-analytics-azure-networking/log-analytics-nsg-enable-diagnostics02.png)
+   ![Image de la ressource Azure Network Security Group](media/log-analytics-azure-networking-analytics/log-analytics-nsg-enable-diagnostics02.png)
 4. Pour activer les diagnostics, cliquez sur *Activé* sous *État*.
 5. Cochez la case à côté de l’option *Envoyer à Log Analytics*.
 6. Sélectionnez un espace de travail Log Analytics existant ou créez-en un.
@@ -196,9 +196,9 @@ Une fois que vous avez cliqué sur la mosaïque **d’analytique Azure Network S
   * Règles de groupe de sécurité réseau avec flux autorisés
   * Adresses MAC avec flux autorisés
 
-![Image du tableau de bord d’analytique Azure Network Security Group](./media/log-analytics-azure-networking/log-analytics-nsg01.png)
+![Image du tableau de bord d’analytique Azure Network Security Group](media/log-analytics-azure-networking-analytics/log-analytics-nsg01.png)
 
-![Image du tableau de bord d’analytique Azure Network Security Group](./media/log-analytics-azure-networking/log-analytics-nsg02.png)
+![Image du tableau de bord d’analytique Azure Network Security Group](media/log-analytics-azure-networking-analytics/log-analytics-nsg02.png)
 
 Sur le tableau de bord **d’analytique Azure Network Security Group**, consultez les informations du résumé dans l’un des panneaux, puis cliquez sur l’un d’entre eux pour afficher des informations détaillées sur la page de recherche dans les journaux.
 

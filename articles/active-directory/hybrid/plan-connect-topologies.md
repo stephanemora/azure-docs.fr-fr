@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/09/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: ef72829d507d6a471ec9a8972ead262da7f7b582
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4362a6b936c52319f6f6fc625370733f3c84e361
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068691"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158854"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologies pour Azure AD Connect
 Cet article décrit diverses topologies locales et Azure Active Directory (Azure AD) qui utilisent Azure AD Connect Sync comme solution d’intégration clé. Cet article inclut les configurations prises en charge et celles qui ne le sont pas.
@@ -87,7 +87,7 @@ Le fait de disposer de plusieurs serveurs Azure AD Connect Sync à un locataire 
 ### <a name="multiple-forests-separate-topologies"></a>Plusieurs forêts, topologies distinctes
 ![Option pour ne représenter les utilisateurs qu’une seule fois à travers tous les annuaires](./media/plan-connect-topologies/MultiForestUsersOnce.png)
 
-![Représentation de plusieurs forêts et de topologies distinctes](./media/plan-connect-topologies/MultiForestSeperateTopologies.png)
+![Représentation de plusieurs forêts et de topologies distinctes](./media/plan-connect-topologies/MultiForestSeparateTopologies.png)
 
 Dans cet environnement, toutes les forêts locales sont traitées comme des entités distinctes. Aucun utilisateur n’est présent dans une autre forêt. Chaque forêt a sa propre organisation Exchange et il n’existe pas de GALSync entre les forêts. Cette topologie peut se présenter suite à une fusion/acquisition ou dans une organisation où chaque division fonctionne indépendamment. Dans Azure AD, ces forêts sont dans la même organisation et s’affichent avec une liste d’adresses globale unifiée. Dans l’image précédente, chaque objet de chaque forêt est représenté une seule fois dans le métaverse et agrégé dans le locataire Azure AD cible.
 

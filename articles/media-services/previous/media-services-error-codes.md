@@ -2,7 +2,7 @@
 title: Codes d’erreur d’Azure Media Services | Microsoft Docs
 description: Cette rubrique fournit une vue d’ensemble des codes d’erreur d’Azure Media Services.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2017
+ms.date: 10/29/2018
 ms.author: juliako
-ms.openlocfilehash: 8a374393a6a5b3d563a441654b7b5df8a510f304
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 43e2b2b7f398e8adce0760678c6f0a5208c24c34
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783568"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240526"
 ---
 # <a name="azure-media-services-error-codes"></a>Codes d’erreur d’Azure Media Services
 lors de l’utilisation de Microsoft Azure Media Services, il se peut que vous receviez du service des codes d’erreur HTTP liés à problèmes tels que des jetons d’authentification qui expirent pour des actions qui ne sont pas prises en charge dans Media Services. Vous trouverez ci-dessous la liste des **codes d’erreur HTTP** qui peuvent être retournés par Media Services, ainsi que leurs causes possibles.  

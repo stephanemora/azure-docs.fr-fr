@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 9a5ef8df9b1ca87430fb5e8d1da94f1899c4a856
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 24597c36ab6569abb53c7be331631556e2abfe66
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985860"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085952"
 ---
 # <a name="content-key-policies"></a>Stratégies de clé de contenu
 
@@ -28,16 +28,16 @@ Dans Azure Media Services v3, les stratégies de clé de contenu vous permetten
 
 Le tableau suivant présente les propriétés d’une stratégie ContentKeyPolicy et en donne la définition.
 
-|NOM|type|Description|
-|---|---|---|
-|id|chaîne|ID de ressource complet pour la ressource.|
-|Nom|chaîne|Nom de la ressource.|
-|properties.created |chaîne|Date de création de la stratégie.|
-|properties.description |chaîne|Description de la stratégie.|
-|properties.lastModified    |chaîne|Date de la dernière modification de la stratégie.|
-|properties.options |ContentKeyPolicyOption[]|Options de la stratégie de clé.|
-|properties.policyId    |chaîne|ID de stratégie hérité.|
-|Type   |chaîne|Type de la ressource.|
+|NOM|Description|
+|---|---|
+|id|ID de ressource complet pour la ressource.|
+|Nom|Nom de la ressource.|
+|properties.created |Date de création de la stratégie.|
+|properties.description |Description de la stratégie.|
+|properties.lastModified|Date de la dernière modification de la stratégie.|
+|properties.options |Options de la stratégie de clé.|
+|properties.policyId    |ID de stratégie hérité.|
+|Type   |Type de la ressource.|
 
 Pour obtenir la définition complète, consultez [Stratégies de clé de contenu](https://docs.microsoft.com/rest/api/media/contentkeypolicies).
 
@@ -50,7 +50,7 @@ Media Services prend en charge les options de requête OData suivantes pour les 
 * $top 
 * $skiptoken 
 
-Description des opérateurs :
+Description des opérateurs :
 
 * Eq = est égal à
 * Ne = n’est pas égal à

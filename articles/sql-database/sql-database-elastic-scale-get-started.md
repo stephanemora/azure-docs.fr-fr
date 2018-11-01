@@ -2,19 +2,22 @@
 title: Bien démarrer avec les outils de base de données élastique - Azure | Microsoft Docs
 description: Explication basique de la fonctionnalité Outils de base de données élastique d’Azure SQL Database, comprenant un exemple d’application simple à exécuter.
 services: sql-database
-manager: craigg
-author: anumjs
 ms.service: sql-database
-ms.custom: scale out apps
+ms.subservice: elastic-scale
+ms.custom: ''
+ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/27/2018
+author: anumjs
 ms.author: anjangsh
-ms.openlocfilehash: 778d08f6154b999215f27b765560b7394c2cd59b
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.reviewer: ''
+manager: craigg
+ms.date: 08/27/2018
+ms.openlocfilehash: 74bbaeeee390952bf42407a53684bc33a7cfc543
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123381"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242771"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Bien démarrer avec les outils de base de données élastique
 Ce document présente l’expérience du développeur dans la [bibliothèque cliente de base de données élastique](sql-database-elastic-database-client-library.md) en vous aidant à exécuter un exemple d’application. L’exemple d’application crée une application partitionnée simple et explore les fonctionnalités clés des outils de base de données élastique d’Azure SQL Database. Il s’intéresse aux cas d’utilisation pour la [gestion des cartes de partition](sql-database-elastic-scale-shard-map-management.md), le [routage dépendant des données](sql-database-elastic-scale-data-dependent-routing.md) et [l’interrogation de plusieurs partitions](sql-database-elastic-scale-multishard-querying.md). La bibliothèque cliente est disponible pour .NET ainsi que Java. 

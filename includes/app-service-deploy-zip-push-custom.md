@@ -1,3 +1,16 @@
+---
+author: cephalin
+ms.service: app-service
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: cephalin
+ms.openlocfilehash: 79fb8517ec6880e8a3eae0e74275567a24644b87
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133076"
+---
 ## <a name="deployment-customization"></a>Personnalisation du déploiement
 
 Le processus de déploiement suppose que le fichier .zip que vous envoyez (push) contienne une application prête à l’exécution. Par défaut, aucune personnalisation n’est exécutée. Pour activer les même processus de génération que ceux obtenus avec l’intégration continue, ajoutez ceci aux paramètres de votre application :

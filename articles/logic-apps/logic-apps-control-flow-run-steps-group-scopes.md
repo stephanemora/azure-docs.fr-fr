@@ -10,12 +10,12 @@ manager: jeconnoc
 ms.reviewer: klam, LADocs
 ms.date: 10/03/2018
 ms.topic: article
-ms.openlocfilehash: ac184ce790a0700fcacc63f70c2bb321142d7224
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: aac59e087ba106bc20d94fea85cb8a3cd9273482
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49320541"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233070"
 ---
 # <a name="run-actions-based-on-group-status-with-scopes-in-azure-logic-apps"></a>Exécuter des actions de workflow en fonction de l’état du groupe avec des étendues dans Azure Logic Apps
 
@@ -389,7 +389,7 @@ Si vous travaillez en mode code, vous pouvez définir une structure d’étendue
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des fonctionnalités et suggestions ou pour en soumettre, visitez le [site de commentaires des utilisateurs Azure Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des fonctionnalités et suggestions ou pour en soumettre, visitez le [site de commentaires des utilisateurs Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

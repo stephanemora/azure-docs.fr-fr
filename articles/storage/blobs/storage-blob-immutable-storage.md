@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/18/2018
 ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: 14b5dfb0a12df6c5251ee9f9e6b35a7ce527a1d3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 38e34391294e1a070d506583fbc30dcdb703bea0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46961975"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156899"
 ---
 # <a name="store-business-critical-data-in-azure-blob-storage"></a>Stocker des données vitales pour l’entreprise dans le stockage Blob Azure
 
@@ -35,7 +35,7 @@ Le stockage immuable permet les prises en charge suivantes :
 
 - **Prise en charge de la stratégie de conservation limitée dans le temps** : les utilisateurs définissent des stratégies pour stocker les données pendant une période donnée.
 
-- **Prise en charge de la stratégie d’archivage juridique** : lorsque la période de conservation est inconnue, les utilisateurs peuvent définir des stratégies d’archivage juridique pour stocker les données de telle sorte qu’elles ne soient pas modifiables tant que les stratégies n’ont pas été levées.  Lorsqu’un archivage juridique est définie, des objets Blob peuvent être créés et lus, mais ils ne peuvent pas être modifiés ni supprimés. Chaque archivage juridique est associé à une balise alphanumérique définie par l’utilisateur, utilisée comme chaîne d’identificateur (comme pour l’ID d’un cas).
+- **Prise en charge de la stratégie d’archivage juridique** : lorsque la période de conservation est inconnue, les utilisateurs peuvent définir des stratégies d’archivage juridique pour stocker les données de telle sorte qu’elles ne soient pas modifiables tant que les stratégies n’ont pas été levées.  Lorsqu’une conservation juridique est définie, des objets Blob peuvent être créés et lus, mais ils ne peuvent pas être modifiés ni supprimés. Chaque archivage juridique est associé à une balise alphanumérique définie par l’utilisateur, utilisée comme chaîne d’identificateur (comme pour l’ID d’un cas).
 
 - **Prise en charge de tous les niveaux d’objets blob** : les stratégies WORM sont indépendantes du niveau de Stockage Blob Azure et s’appliquent à tous les niveaux (chaud, froid et archive). Les clients peuvent transférer les données au niveau ayant le coût le plus adapté à leurs charges de travail tout en conservant l’immuabilité des données.
 
@@ -67,7 +67,7 @@ Pour les nouveaux objets Blob, la durée de rétention effective est égale à l
 >
 > Un nouvel objet blob, testblob2, est maintenant chargé dans le conteneur. La période de conservation effective de ce nouvel objet blob est de cinq ans.
 
-### <a name="legal-holds"></a>Archivage juridique
+### <a name="legal-holds"></a>Conservation juridique
 
 En cas de définition d’une stratégie d’archivage juridique, tous les objets blob (anciens et nouveaux) conservent l’état immuable jusqu’à ce qu’elle soit levée. Pour savoir comment définir et lever une stratégie d’archivage juridique, voir la section [Bien démarrer](#Getting-started).
 
@@ -77,7 +77,7 @@ Le tableau suivant montre les types d’opérations blob désactivées dans chaq
 
 |Scénario  |État des objets blob  |Opérations blob non autorisées  |
 |---------|---------|---------|
-|L’intervalle de rétention effective sur l’objet Blob n’a pas encore expiré et/ou un archivage juridique est défini     |Immuable : non modifiable et non supprimable         |Delete Container, Delete Blob, Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
+|L’intervalle de rétention effective sur l’objet Blob n’a pas encore expiré et/ou une conservation juridique est définie     |Immuable : non modifiable et non supprimable         |Delete Container, Delete Blob, Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
 |L’intervalle de rétention effective sur l’objet Blob a expiré     |Non modifiable seulement (suppressions autorisées)         |Put Blob<sup>1</sup>, Put Block<sup>1</sup>, Put Block List<sup>1</sup>, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
 |Stratégies d’archivage juridique levées ; aucune stratégie de conservation limitée dans le temps dans le conteneur     |Mutable         |Aucun         |
 |Aucune stratégie WORM créée (conservation limitée dans le temps ou archivage juridique)     |Mutable         |Aucun         |
@@ -180,9 +180,9 @@ Vous pouvez utiliser le stockage immuable avec tous les comptes de stockage univ
 
 L’opération Supprimer le conteneur échoue s’il existe un ou plusieurs objets blob ayant une stratégie de conservation limitée dans le temps verrouillée ou un archivage juridique. L’opération Supprimer le conteneur réussit uniquement s’il n’y a aucun objet blob avec une période de conservation ou avec un archivage juridique. Il est nécessaire de supprimer les objets blob pour pouvoir supprimer le conteneur.
 
-**Que se passe-t-il si j’essaie de supprimer un compte de stockage avec un conteneur WORM disposant d’une stratégie de rétention basée sur le temps *verrouillée* ou d’un archivage juridique ?**
+**Que se passe-t-il si j’essaie de supprimer un compte de stockage avec un conteneur WORM disposant d’une stratégie de rétention basée sur le temps *verrouillée* ou d’une conservation juridique ?**
 
-La suppression du compte de stockage échoue s’il s’agit d’un conteneur WORM disposant d’une stratégie de rétention basée sur le temps verrouillée ou d’un archivage juridique.  Il est nécessaire de supprimer tous les conteneurs WORM pour pouvoir supprimer le compte de stockage. Pour plus d’informations sur la suppression des conteneurs, voir la question précédente.
+La suppression du compte de stockage échoue s’il s’agit d’un conteneur WORM disposant d’une stratégie de rétention basée sur le temps verrouillée ou d’une conservation juridique.  Il est nécessaire de supprimer tous les conteneurs WORM pour pouvoir supprimer le compte de stockage. Pour plus d’informations sur la suppression des conteneurs, voir la question précédente.
 
 **Puis-je déplacer les données sur différents niveaux d’objets blob (chaud, froid, archive) lorsque l’objet blob est dans l’état immuable ?**
 
@@ -222,7 +222,7 @@ New-AzureRmResourceGroup -Name $ResourceGroup -Location $location
 
 # Create your Azure storage account
 New-AzureRmStorageAccount -ResourceGroupName $ResourceGroup -StorageAccountName `
-    $StorageAccount -SkuName Standard_LRS -Location $location -Kind Storage
+    $StorageAccount -SkuName Standard_LRS -Location $location -Kind StorageV2
 
 # Create a new container
 New-AzureRmStorageContainer -ResourceGroupName $ResourceGroup `

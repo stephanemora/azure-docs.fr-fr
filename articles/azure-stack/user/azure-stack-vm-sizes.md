@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/22/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: dc9e1b3fb59aca8fba0c84fbfa674931c24c12c9
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1af7a1d595b39878f3ed30591e8ad78e767e8cf7
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945890"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087489"
 ---
 # <a name="virtual-machine-sizes-supported-in-azure-stack"></a>Tailles de machine virtuelle prises en charge dans Azure Stack
 
@@ -31,6 +31,10 @@ Cet article répertorie les tailles de machine virtuelle disponibles dans Azure 
 Les tailles de machine virtuelle à usage général ont un ratio processeur/mémoire équilibré. Idéal pour le test et le développement, les bases de données petites à moyennes et les serveurs web au trafic faible à moyen.
 
 ### <a name="basic-a"></a>De base A
+
+> [!NOTE]
+> Les tailles de machine virtuelle *De base A* ne sont plus disponibles pour la [création de groupes de machines virtuelles identiques](../azure-stack-compute-add-scalesets.md) (VMSS) dans le portail. Pour créer un groupe de machines virtuelles identiques avec cette taille, utilisez PowerShell ou un modèle.
+
 |Taille - Taille\Nom |Processeurs virtuels     |Mémoire | Taille max. du disque temporaire | Débit de disque du système d’exploitation max. : (E/S par seconde) | Débit de stockage temporaire max. (E/S par seconde) | Débit de disque de données max. (E/S par seconde) | Nombre max de cartes réseau |    
 |-----------------|-----|---------|---------|-----|------|-----------|----|
 |**A0\Basic_A0**  |1    |768 Mo   | 20 Go   |300  | 300  |1 / 1x300  |1   |

@@ -1,3 +1,16 @@
+---
+author: tamram
+ms.service: storage
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: tamram
+ms.openlocfilehash: c5cb1c5a005265950f8dcd02c8e7675918751dab
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50166241"
+---
 ## <a name="create-a-resource-group"></a>Créer un groupe de ressources
 
 Créez un groupe de ressources Azure avec la commande [az group create](/cli/azure/group#az_group_create). Un groupe de ressources est un conteneur logique dans lequel les ressources Azure sont déployées et gérées.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 838717aa8f426ea54f4736453aac8c6fcf9a0099
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 1db805efe7eaec77fcafeb169b3d99098b57f582
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344495"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155761"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Créer une application web ASP.NET avec inscription, connexion, modification du profil et réinitialisation du mot de passe Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Ce didacticiel vous explique les procédures suivantes :
 > * Inscrire votre application web auprès de votre répertoire Azure AD B2C
 > * Créer une stratégie d’inscription/de connexion d’utilisateur, de modification du profil et de réinitialisation du mot de passe pour votre application web
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
 - Vous devez connecter votre locataire B2C à un compte Azure. Vous pouvez créer un compte Azure gratuit [ici](https://azure.microsoft.com/).
 - Vous avez besoin de [Microsoft Visual Studio](https://www.visualstudio.com/) ou d’un programme similaire pour afficher et modifier l’exemple de code.
@@ -195,7 +195,7 @@ public partial class Startup
                     NameClaimType = "name"
                 },
 
-                // Specify the scope by appending all of the scopes requested into one string (seperated by a blank space)
+                // Specify the scope by appending all of the scopes requested into one string (separated by a blank space)
                 Scope = $"openid profile offline_access {ReadTasksScope} {WriteTasksScope}"
             }
         );

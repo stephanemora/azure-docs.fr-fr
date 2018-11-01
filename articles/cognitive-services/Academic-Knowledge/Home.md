@@ -3,19 +3,19 @@ title: Présentation de l’API Connaissances universitaires
 titlesuffix: Azure Cognitive Services
 description: Utilisez l’API Connaissances universitaires pour interpréter les requêtes utilisateur et récupérer des informations enrichies à partir d’Academic Graph.
 services: cognitive-services
-author: mvorvoreanu
+author: darrine
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: academic-knowledge
 ms.topic: overview
-ms.date: 03/27/2017
-ms.author: mivorvor
-ms.openlocfilehash: d08cd7124b232e50365e72753eba97c6309f401c
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.date: 10/30/2018
+ms.author: darrine
+ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48901208"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240356"
 ---
 # <a name="academic-knowledge-api"></a>API Connaissances universitaires
 
@@ -32,13 +32,10 @@ L’API Connaissances universitaires se compose de quatre points de terminaison 
   1. **Interpret**. Interprète une chaîne de requête utilisateur en langage naturel. Retourne des interprétations annotées pour permettre des expériences enrichies de saisie semi-automatique dans les zones de recherche qui anticipent la saisie utilisateur.  
   2. **evaluate**. Évalue une expression de requête et retourne les résultats de l’entité Connaissances universitaires.  
   3. **calchistogram**. Calcule un histogramme de la distribution des valeurs d’attribut pour des entités du secteur universitaire retournées par une expression de requête, comme la distribution de citations par année et auteur.  
-  4. **graph search**. Recherche un modèle de graphe donné et retourne les résultats d’entités correspondants.
-
+  
 Utilisées conjointement, ces méthodes API vous permettent de créer une expérience de recherche sémantique riche. En fonction d’une chaîne de requête utilisateur, la méthode **interpret** vous fournit une version annotée de la requête et une expression de requête structurée, tout en terminant éventuellement la requête de l’utilisateur selon la sémantique des données universitaires sous-jacentes. Par exemple, si un utilisateur tape la chaîne *latent s*, la méthode **interpret** peut fournir un ensemble d’interprétations classées, suggérant que l’utilisateur peut être à la recherche du champ d’étude *analyse sémantique latente*, de l’article *analyse de structure latente* ou d’autres expressions d’entités commençant par *latent s*. Ces informations peuvent être utilisées pour guider rapidement l’utilisateur vers les résultats de recherche désirés.
 
 La méthode **evaluate** peut s’utiliser pour récupérer un jeu d’entités de documents correspondants à partir de la base de connaissances universitaire, et la méthode **calchistogram** servir pour calculer la distribution des valeurs d’attribut d’un jeu d’entités de documents qui est utilisable pour filtrer davantage les résultats de recherche.        
-
-La méthode **graph search** comporte deux modes : *json* et *lambda*. Le mode *json* peut effectuer la mise en correspondance des modèles de graphe selon les modèles de graphe spécifiés par un objet JSON. Le mode *lambda* peut effectuer des calculs côté serveur pendant les parcours de graphe selon les expressions lambda spécifiées par l’utilisateur.
 
 ## <a name="getting-started"></a>Mise en route 
 Consultez les sous-rubriques à gauche pour une documentation détaillée.  Notez que pour améliorer la lisibilité des exemples, les appels d’API REST contiennent des caractères (comme les espaces) qui n’ont pas été codés URL.  Votre code doit appliquer les codages URL appropriés.

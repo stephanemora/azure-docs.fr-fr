@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 07ee05128333df963c2d8ff3dd3f6442a3843d07
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 485ee48bf197ad996bba8a516b80882f44ba623a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48866888"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212911"
 ---
 # <a name="delete-data-from-azure-data-explorer"></a>Supprimer des données de l’Explorateur de données Azure
 
@@ -39,4 +39,4 @@ L’Explorateur de données Azure prend en charge plusieurs approches de suppres
 
     Pour plus d’informations, consultez [Stratégie de conservation](https://docs.microsoft.com/azure/kusto/concepts/retentionpolicy).
 
-Si vous avez besoin d’aide pour résoudre des problèmes de suppression de données, ouvrez une demande de support dans le [portail Azure](https://portal.azure.com).
+Si vous avez besoin d’aide pour résoudre des problèmes de suppression de données, ouvrez une demande de support dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

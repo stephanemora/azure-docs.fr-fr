@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.component: users-groups-roles
-ms.date: 01/14/2018
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: seohack1
-ms.openlocfilehash: 5beee2fae518fec23b65ff05a79281e0fc3f1417
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 4272d16a2acba992f05bb0874a40affa7d30abb5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48800738"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213642"
 ---
 # <a name="how-to-add-licensed-users-to-a-group-for-licensing-in-azure-active-directory"></a>Ajout d’utilisateurs sous licence à un groupe de licences dans Azure Active Directory
 
@@ -84,7 +84,9 @@ Voici ce à quoi le processus de migration peut ressembler :
 
 Pour plus d’informations sur d’autres scénarios de gestion des licences par le biais des groupes, consultez :
 
-* [Assigning licenses to a group in Azure Active Directory (Attribution de licences à un groupe dans Azure Active Directory)](licensing-groups-assign.md)
 * [What is group-based licensing in Azure Active Directory? (Présentation des licences basées sur le groupe dans Azure Active Directory)](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+* [Affectation de licences à un groupe dans Azure Active Directory](licensing-groups-assign.md)
 * [Identification et résolution des problèmes de licence pour un groupe dans Azure Active Directory](licensing-groups-resolve-problems.md)
+* [Guide pratique pour migrer des utilisateurs entre des licences de produit à l’aide de la gestion de licences basée sur des groupes dans Azure Active Directory](licensing-groups-change-licenses.md)
 * [Azure Active Directory group-based licensing additional scenarios (Autres scénarios de licence basée sur le groupe Azure Active Directory)](licensing-group-advanced.md)
+* [Exemples PowerShell pour les licences basées sur les groupes dans Azure Active Directory](licensing-ps-examples.md)

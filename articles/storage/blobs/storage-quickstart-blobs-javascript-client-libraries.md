@@ -3,19 +3,19 @@ title: Guide de démarrage rapide Azure - Créer un objet blob dans le stockage 
 description: Apprenez à utiliser une instance de BlobService pour télécharger, répertorier et supprimer des objets BLOB à l’aide de JavaScript dans une page HTML.
 services: storage
 keywords: stockage, javascript, html
-author: craigshoemaker
+author: tamram
 ms.custom: mvc
 ms.service: storage
-ms.author: cshoe
+ms.author: tamram
 ms.date: 10/18/2018
 ms.topic: quickstart
 ms.component: blobs
-ms.openlocfilehash: 27a01cae8bd099355034df40289837e6025c2550
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3b4bf95b0f5d275f6c8b4325e88a7ac326efa16b
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429286"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139456"
 ---
 <!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 

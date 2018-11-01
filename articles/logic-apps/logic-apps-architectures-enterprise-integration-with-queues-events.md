@@ -9,12 +9,12 @@ ms.author: mattfarm
 ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/15/2018
-ms.openlocfilehash: 8fbc84b4016659b6d0d6ce9ec47c05a0b241c3d9
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 5b58f4b71d8d9f3ca91d8cefc6215073fd836765
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855372"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093664"
 ---
 # <a name="enterprise-integration-architecture-with-queues-and-events"></a>Architecture d’intégration d’entreprise avec files d’attente et événements
 
@@ -26,7 +26,7 @@ Cette gamme décrit les composants réutilisables qui peuvent s’appliquer à l
 
 ## <a name="architecture-components"></a>Composants de l’architecture
 
-Cette architecture repose sur celle qui est décrite dans l’article [Architecture de référence : intégration d’entreprise simple](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md). Les [recommandations](../logic-apps/logic-apps-architectures-simple-enterprise-integration.md#recommendations) de cette architecture s’appliquent également ici. Toutefois, par souci de concision, cet article omet ces recommandations de la section [Recommandations](#recommendations). Cette architecture d’intégration d’entreprise inclut les composants suivants :
+Cette architecture repose sur celle qui est décrite dans l’article [Architecture de référence : intégration d’entreprise simple](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration). Les [recommandations](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration#recommendations) de cette architecture s’appliquent également ici. Toutefois, par souci de concision, cet article omet ces recommandations de la section [Recommandations](#recommendations). Cette architecture d’intégration d’entreprise inclut les composants suivants :
 
 - **Groupe de ressources** : un [groupe de ressources](../azure-resource-manager/resource-group-overview.md) est un conteneur logique pour ressources Azure.
 
@@ -143,4 +143,4 @@ Le service Event Grid sécurise la distribution des événements au moyen d’un
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur l’[intégration d’entreprise simple](logic-apps-architectures-simple-enterprise-integration.md).
+* En savoir plus sur l’[intégration d’entreprise simple](/azure/architecture/reference-architectures/enterprise-integration/simple-enterprise-integration).

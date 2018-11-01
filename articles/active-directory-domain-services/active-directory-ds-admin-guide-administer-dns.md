@@ -3,7 +3,7 @@ title: 'Version préliminaire des services de domaine Azure Active Directory : a
 description: Administrer DNS sur les domaines gérés par les services de domaine Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: 938a5fbc-2dd1-4759-bcce-628a6e19ab9d
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: f20b2859f72087e208e8963fb18b297c7c670f4f
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: f2eea139209a03950217a855b5c8af7bc9a17372
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39504282"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155301"
 ---
 # <a name="administer-dns-on-an-azure-ad-domain-services-managed-domain"></a>Gérer le serveur DNS sur un domaine géré par les services de domaine Azure Active Directory
 Les services de domaine Azure Active Directory incluent un serveur DNS (Domain Name Resolution) qui gère la résolution DNS du domaine géré. Il se peut que vous deviez configurer parfois DNS dans le domaine géré. Vous devrez peut-être créer des enregistrements DNS pour les machines qui ne sont pas jointes au domaine, ou configurer les adresses IP virtuelles des équilibreurs de charge ou des redirecteurs DNS externes. Pour cette raison, les utilisateurs qui appartiennent au groupe « AAD DC Administrators » bénéficient de privilèges d’administration DNS sur le domaine géré.
@@ -102,7 +102,7 @@ Vous pouvez à présent utiliser les outils DNS Windows Server pour administrer 
 Pour plus d’informations sur la gestion DNS, consultez l’article [Outils DNS](https://technet.microsoft.com/library/cc753579.aspx)sur Technet.
 
 ## <a name="related-content"></a>Contenu connexe
-* [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)
+* [Services de domaine Azure AD : guide de mise en route](active-directory-ds-getting-started.md)
 * [Joindre une machine virtuelle Windows Server à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Administrer un domaine géré par les services de domaine Azure Active Directory](active-directory-ds-admin-guide-administer-domain.md)
 * [Outils d’administration DNS](https://technet.microsoft.com/library/cc753579.aspx)

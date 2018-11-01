@@ -4,29 +4,26 @@ description: Découvrez comment créer un équilibreur de charge public dans Res
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-tags: azure-resource-manager
-ms.assetid: b24f4729-4559-4458-8527-71009d242647
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 8452d3a6e165bbcd6007d9dc2261e458746b475a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0ca988fba91cd1d4a97ca376a6f3ff45fae214ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38687717"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418974"
 ---
 # <a name="creating-a-public-load-balancer-using-a-template"></a>Création d’un équilibreur de charge public à l’aide d’un modèle
 
 > [!div class="op_single_selector"]
-> * [Portail](../load-balancer/load-balancer-get-started-internet-portal.md)
+> * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md)
-> * [interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
+> * [Interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-internet-arm-cli.md)
 > * [Modèle](../load-balancer/load-balancer-get-started-internet-arm-template.md)
 
 
@@ -43,7 +40,7 @@ L’exemple de modèle disponible dans le référentiel public utilise un fichie
 
 Pour déployer le modèle téléchargé à l’aide de PowerShell, suivez les étapes ci-dessous.
 
-1. Si vous n'avez jamais utilisé Azure PowerShell, consultez la page [Installation et configuration d'Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu'à la fin pour vous connecter à Azure et sélectionner votre abonnement.
+1. Si vous n’avez jamais utilisé Azure PowerShell, consultez [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) et suivez les instructions jusqu’à la fin pour vous connecter à Azure et sélectionner votre abonnement.
 2. Pour créer un groupe de ressources à l'aide du modèle, exécutez l'applet de commande **New-AzureRmResourceGroupDeployment** .
 
     ```powershell
