@@ -2,7 +2,7 @@
 title: Présélection Media Encoder Standard H264 - Vitesse de transmission unique - 1 080 pixels - Azure | Microsoft Docs
 description: Cette rubrique offre une vue d’ensemble de la présélection de tâche **H264 - Vitesse de transmission unique - 1 080 pixels**.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 1cfce559dae6533b62283764e8aff62f8a141946
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 9c03866cdb66db2d5178aa0cd4d5f1c817824912
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783008"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247417"
 ---
 # <a name="h264-single-bitrate-1080p"></a>H264 - Vitesse de transmission unique - 1 080 pixels
 `Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création des travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md).  

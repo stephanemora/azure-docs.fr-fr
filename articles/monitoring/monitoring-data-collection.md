@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: bwren
-ms.openlocfilehash: 8d3e0874637bc3f13905c6038349b34c18b5fe56
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: a810de5c3c70322560bb45bcc2aee5cf0798cea9
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637795"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248708"
 ---
 # <a name="monitoring-data-collected-by-azure-monitor"></a>Supervision des données collectées par Azure Monitor
 [Azure Monitor](../azure-monitor/overview.md) est un service qui vous permet de surveiller vos applications et les ressources dont elles dépendent. Au cœur de cette fonction se trouve le stockage de données de télémétrie et d’autres données tirées des ressources supervisées. Cet article décrit de manière exhaustive la façon dont ces données sont stockées et utilisées par Azure Monitor.
 
 Toutes les données collectées par Azure Monitor font partie d’un des deux types fondamentaux : les [métriques](#metrics) et les [journaux](#logs). Les métriques sont des valeurs numériques décrivant un aspect d’un système à un moment précis dans le temps. Elles sont légères et capables de prendre en charge des scénarios en quasi-temps réel. Les journaux contiennent différents types de données organisées en enregistrements, avec différents jeux de propriétés pour chaque type. Les données de télémétrie, comme les événements et les traces, sont stockées sous forme de journaux en plus des données de performances, afin qu’elles puissent être combinées pour analyse.
 
-![Vue d’ensemble d’Azure Monitor](../azure-monitor/media/overview/overview.png)
+![Vue d’ensemble d’Azure Monitor](media/monitoring-data-collection/overview.png)
 
 ## <a name="metrics"></a>Mesures
 Les métriques sont des valeurs numériques décrivant certains aspects d’un système à un moment donné. Elles sont légères et capables de prendre en charge des scénarios en quasi-temps réel. Les métriques sont collectées à intervalles réguliers, que la valeur change ou non. Elles sont utiles pour créer des alertes, dans la mesure où elles peuvent être échantillonnées fréquemment, et où une alerte peut être déclenchée rapidement avec un circuit logique assez simple. 
