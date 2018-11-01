@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 01/19/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: df88e9025da305701dc7168f663cad2e8f5ac738
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5b52fd41fc3e37078bbddc721c0c54af2c430b43
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42819410"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419229"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>Diagnostics de transaction entre composants unifiés
 
@@ -38,7 +38,7 @@ Les composants sont des parties pouvant être déployées de manière indépenda
 ## <a name="transaction-diagnostics-experience"></a>Expériences de diagnostics de transaction
 Cette vue compte quatre parties principales : une liste de résultats, un graphique de transaction entre composants, une liste de séquence horaire de toutes les données de télémétrie relatives à l’opération, et le volet d’informations de l’élément de télémétrie sélectionné sur la gauche.
 
-![Parties principales](media/app-insights-e2eTxn-diagnostics/4partsCrossComponent.png)
+![Parties principales](media/app-insights-transaction-diagnostics/4partsCrossComponent.png)
 
 ## <a name="cross-component-transaction-chart"></a>Graphique des transactions entre composants
 
@@ -57,19 +57,19 @@ Les appels vers d’autres composants comptent deux lignes : une ligne représe
 
 Cette section montre la liste plate dans une séquence horaire de toutes les données de télémétrie associées à cette transaction. Elle montre également les événements personnalisés, ainsi que les traces qui ne sont pas affichées dans le graphique des transactions. Vous pouvez filtrer cette liste pour n’afficher que les données de télémétrie qui ont été générées par un composant ou un appel donné. Vous pouvez sélectionner un élément de télémétrie de cette liste pour afficher les [détails correspondants à droite](#details-of-the-selected-telemetry).
 
-![Séquence horaire de l’ensemble de la télémétrie](media/app-insights-e2eTxn-diagnostics/allTelemetryDrawerOpened.png)
+![Séquence horaire de l’ensemble de la télémétrie](media/app-insights-transaction-diagnostics/allTelemetryDrawerOpened.png)
 
 ## <a name="details-of-the-selected-telemetry"></a>Détails de la télémétrie sélectionnée
 
 Ce volet réductible affiche les détails de l’élément qui a été sélectionné dans le graphique de transactions ou dans la liste. « Afficher tout » répertorie tous les attributs standard qui sont collectés. Les attributs personnalisés sont répertoriés séparément sous le jeu standard. Cliquez sur « ... » sous la fenêtre de la trace de pile pour afficher l’option permettant de copier la trace. Les options « Ouvrir les traces Profiler » et « Ouvrir l’instantané de débogage » montrent les diagnostics au niveau du code dans les volets d’informations correspondants.
 
-![Détail de l’exception](media/app-insights-e2eTxn-diagnostics/exceptiondetail.png)
+![Détail de l’exception](media/app-insights-transaction-diagnostics/exceptiondetail.png)
 
 ## <a name="search-results"></a>Résultats de la recherche
 
 Ce volet réductible affiche les autres résultats qui correspondent aux critères de filtrage. Cliquez sur un résultat pour mettre à jour les détails des trois sections ci-dessus. Nous avons tenté de trouver les exemples qui sont les plus susceptibles d’avoir des informations disponibles pour tous les composants, même si l’échantillonnage est appliqué dans l’un d’eux. Les exemples suivants tiennent lieu de suggestions.
 
-![Résultats de la recherche](media/app-insights-e2eTxn-diagnostics/searchResults.png)
+![Résultats de la recherche](media/app-insights-transaction-diagnostics/searchResults.png)
 
 ## <a name="profiler-and-snapshot-debugger"></a>Profileur et débogueur de capture instantanée
 
@@ -79,7 +79,7 @@ Si Profiler ne fonctionne pas, contactez **serviceprofilerhelp@microsoft.com**.
 
 Si le Débogueur de capture instantanée ne fonctionne pas, contactez **snapshothelp@microsoft.com**.
 
-![Intégration de Profiler](media/app-insights-e2eTxn-diagnostics/profilerTraces.png)
+![Intégration de Profiler](media/app-insights-transaction-diagnostics/profilerTraces.png)
 
 ## <a name="faq"></a>Forum Aux Questions
 

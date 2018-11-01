@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 682288338d66f1006e9f1d7f3d6d30f822626425
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50227293"
+---
 Pour utiliser l’interface de ligne de commande Azure avec les commandes et modèles de Resource Manager afin de déployer des ressources et charges de travail Azure à l’aide de groupes de ressources, vous devez disposer d’un compte Azure. Si vous ne disposez pas d’un compte, vous pouvez obtenir une [version d’essai gratuite d’Azure ici](https://azure.microsoft.com/pricing/free-trial/).
 
 Si vous n’avez pas encore installé l’interface de ligne de commande Azure et connecté cette dernière à votre abonnement, consultez l’article [Installer l’interface de ligne de commande Microsoft Azure](../articles/cli-install-nodejs.md), définissez le mode sur `arm` avec `azure config mode arm`, puis connectez-vous à Azure avec la commande `azure login`.

@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 8e6db54853efcba4d648c1d3bc793a9d1ce57441
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164316"
+---
 <!--author=alkohli last changed: 9/16/15-->
 
 
@@ -33,8 +46,8 @@
     | 2 |PCM 0 |
     | 3 |PCM 1 |
     | 4 |Contrôleur 0 |
-    | 5 |Contrôleur 1 |
-    | 6 |Contrôleur 0 du boîtier EBOD |
+    | 5. |Contrôleur 1 |
+    | 6. |Contrôleur 0 du boîtier EBOD |
     | 7 |Contrôleur 1 du boîtier EBOD |
     | 8 |Boîtier EBOD |
     | 9 |PDU |

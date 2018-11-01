@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 0b2e0ff800ab80a2c638293ce23fc1911390f2dd
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 79a02115a449c710778e4c69f470efc3ebebae53
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221110"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087047"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Créer une fonction qui s’intègre avec Azure Logic Apps
 
@@ -57,7 +57,7 @@ Les API Cognitive Services sont disponibles dans Azure en tant que ressources in
 
     | Paramètre      |  Valeur suggérée   | Description                                        |
     | --- | --- | --- |
-    | **Name** | MyCognitiveServicesAccnt | Choisissez un nom de compte unique. |
+    | **Nom** | MyCognitiveServicesAccnt | Choisissez un nom de compte unique. |
     | **Lieu** | USA Ouest | Utilisez l’emplacement le plus proche de vous. |
     | **Niveau tarifaire** | F0 | Démarrez avec le niveau le plus bas. Si vous manquez d’appels, choisissez un niveau plus élevé.|
     | **Groupe de ressources** | myResourceGroup | Utilisez le même groupe de ressources pour tous les services de ce didacticiel.|
@@ -100,6 +100,7 @@ Les fonctions offrent un excellent moyen de se décharger des tâches de traitem
     using System;
     using System.Net;
     using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Primitives;
     using Newtonsoft.Json;
     
@@ -128,7 +129,7 @@ Les fonctions offrent un excellent moyen de se décharger des tâches de traitem
     ```
     Le code de cette fonction renvoie une catégorie de couleur en fonction du score des sentiments reçu dans la requête. 
 
-4. Pour tester la fonction, cliquez sur **Test** tout à droite pour développer l’onglet de test. Tapez la valeur `0.2` pour le **corps de la requête**, puis cliquez sur **Exécuter**. La valeur **RED** est renvoyée dans le corps de la réponse. 
+4. Pour tester la fonction, cliquez sur **Test** tout à droite pour développer l’onglet de test. Tapez la valeur  pour le corps de la requête`0.2`, puis cliquez sur **Exécuter**. La valeur **RED** est renvoyée dans le corps de la réponse. 
 
     ![Testez la fonction dans le portail Azure](./media/functions-twitter-email/test.png)
 
@@ -146,7 +147,7 @@ Vous disposez maintenant d’une fonction permettant de classer les scores des s
 
     | Paramètre      |  Valeur suggérée   | Description                                        |
     | ----------------- | ------------ | ------------- |
-    | **Name** | TweetSentiment | Choisissez un nom approprié pour votre application. |
+    | **Nom** | TweetSentiment | Choisissez un nom approprié pour votre application. |
     | **Groupe de ressources** | myResourceGroup | Choisissez le même groupe de ressources existant que précédemment. |
     | **Lieu** | USA Est | Choisissez un emplacement proche de vous. |    
 

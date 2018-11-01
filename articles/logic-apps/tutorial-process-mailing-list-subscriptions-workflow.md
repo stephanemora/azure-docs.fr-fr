@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.openlocfilehash: 96a151b3de5d59ad74eaf7061b1a3ff91d602759
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: b48ecce1c87c0a29996e437d621c3ce396a84856
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044414"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232662"
 ---
 # <a name="manage-mailing-list-requests-with-azure-logic-apps"></a>Gérer les requêtes de liste de diffusion avec Azure Logic Apps
 
@@ -61,7 +61,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
    | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
-   | **Name** | LA-MailingList | Nom de l’application logique. | 
+   | **Nom** | LA-MailingList | Nom de l’application logique. | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
    | **Groupe de ressources** | LA-MailingList-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes. | 
    | **Lieu** | USA Est 2 | Région dans laquelle stocker les informations sur votre application logique | 
@@ -317,7 +317,7 @@ Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contie
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

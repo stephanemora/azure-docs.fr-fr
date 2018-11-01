@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: 1254afc1ad1c513c18d565be8a6543a6ee0ae94b
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 17a15ca00d7343064bde84860de91b62ff136cfe
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48040589"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414115"
 ---
 # <a name="network-performance-monitor-solution-performance-monitoring"></a>Solution Network Performance Monitor : Analyseur de performances
 
@@ -33,12 +33,12 @@ La fonctionnalité Analyseur de performances de [Network Performance Monitor](lo
 - Surveiller l’intégrité du réseau sans SNMP.
 
 
-![Network Performance Monitor](media/log-analytics-network-performance-monitor/npm-performance-monitor.png)
+![Network Performance Monitor](media/log-analytics-network-performance-monitor-performance-monitor/npm-performance-monitor.png)
 
 ## <a name="configuration"></a>Configuration
 Pour ouvrir la configuration de Network Performance Monitor, ouvrez la [solution Network Performance Monitor](log-analytics-network-performance-monitor.md) et sélectionnez **Configurer**.
 
-![Configurer Network Performance Monitor](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Configurer Network Performance Monitor](media/log-analytics-network-performance-monitor-performance-monitor/npm-configure-button.png)
 
 ### <a name="create-new-networks"></a>Créer des réseaux
 
@@ -120,21 +120,21 @@ La page détaillée montre que le lien réseau **DMZ2-DMZ1** n’est pas sain. S
 
 La page détaillée affiche tous les liens de sous-réseau du lien réseau **DMZ2-DMZ1**. Pour les deux liens de sous-réseau, la latence a dépassé le seuil. Le lien réseau est donc considéré comme non sain. Vous pouvez également voir les tendances de latence des deux liens de sous-réseau. La commande de sélection de plage horaire dans le graphe vous permet de vous concentrer sur la plage horaire requise. Vous pouvez voir l’heure à laquelle la latence a atteint son pic. Effectuez ensuite une recherche dans les journaux correspondant à cette période pour investiguer le problème. Sélectionnez **Afficher les liens de nœud** pour consulter des détails supplémentaires. 
  
- ![Page Liens de sous-réseau](media/log-analytics-network-performance-monitor/subnetwork-links.png) 
+ ![Page Liens de sous-réseau](media/log-analytics-network-performance-monitor-performance-monitor/subnetwork-links.png) 
 
 Comme la page précédente, la page détaillée relative au lien de sous-réseau concerné liste les liens de nœud qui le composent. Vous pouvez effectuer ici des actions similaires à celles que vous avez faites à l’étape précédente. Sélectionnez **Afficher la topologie** pour afficher la topologie entre les deux nœuds. 
  
- ![Page Liens de nœud](media/log-analytics-network-performance-monitor/node-links.png) 
+ ![Page Liens de nœud](media/log-analytics-network-performance-monitor-performance-monitor/node-links.png) 
 
 Tous les chemins entre les deux nœuds sélectionnés sont représentés dans la carte topologique. Vous pouvez visualiser, tronçon par tronçon, la topologie des itinéraires entre deux nœuds sur la carte topologique. Vous obtenez ainsi une vision claire du nombre d’itinéraires existant entre les nœuds et des chemins qu’empruntent les paquets de données. Les goulots d’étranglement des performances du réseau sont marqués en rouge. Pour localiser une connexion réseau ou un appareil réseau défectueux, examinez les éléments en rouge sur la carte topologique. 
 
- ![Tableau de bord de topologie avec carte topologique](media/log-analytics-network-performance-monitor/topology-dashboard.png) 
+ ![Tableau de bord de topologie avec carte topologique](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard.png) 
 
 Vous pouvez consulter les pertes, la latence et le nombre de sauts de chaque chemin dans le volet **Actions**. Utilisez la barre de défilement pour afficher les détails des chemins non sains. Utilisez les filtres pour sélectionner les chemins d’accès avec le saut défectueux afin de tracer uniquement la topologie des chemins d’accès sélectionnés. Pour effectuer un zoom avant ou arrière sur la carte topologique, utilisez la roulette de votre souris. 
 
 Dans l’image suivante, la cause racine des zones à problème dans la section spécifique du réseau est représentée par un point rouge sur les chemins et tronçons. Sélectionnez un nœud dans la carte topologique pour révéler les propriétés du nœud, notamment son nom de domaine complet et son adresse IP. La sélection d’un tronçon affiche son adresse IP. 
  
-![Carte topologique avec les propriétés du nœud sélectionnées](media/log-analytics-network-performance-monitor/topology-dashboard-root-cause.png) 
+![Carte topologique avec les propriétés du nœud sélectionnées](media/log-analytics-network-performance-monitor-performance-monitor/topology-dashboard-root-cause.png) 
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Rechercher dans les journaux](log-analytics-log-searches.md) pour afficher des enregistrements de données détaillées sur les performances réseau.

@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
-ms.openlocfilehash: d07342bac3f76472a4783c28cac0741906049bb2
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 3d4e91465e2f9986ec1029b304e1c026e39f45b6
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "41921003"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231966"
 ---
 # <a name="process-emails-and-attachments-with-azure-logic-apps"></a>Traiter les e-mails et les pièces jointes avec Azure Logic Apps
 
@@ -60,7 +60,7 @@ Vous pouvez enregistrer les e-mails entrants et les pièces jointes en tant qu�
 
    | Paramètre | Valeur | Description | 
    |---------|-------|-------------| 
-   | **Name** | attachmentstorageacct | Nom de votre compte de stockage | 
+   | **Nom** | attachmentstorageacct | Nom de votre compte de stockage | 
    | **Modèle de déploiement** | Resource manager | [Modèle de déploiement](../azure-resource-manager/resource-manager-deployment-model.md) pour la gestion du déploiement des ressources. | 
    | **Type de compte** | Usage général | [Type de compte de stockage](../storage/common/storage-introduction.md#types-of-storage-accounts). | 
    | **Lieu** | USA Ouest | Région dans laquelle stocker les informations sur votre compte de stockage. | 
@@ -231,7 +231,7 @@ Après avoir vérifié le bon fonctionnement de votre fonction, créez votre app
 
    | Paramètre | Valeur | Description | 
    | ------- | ----- | ----------- | 
-   | **Name** | LA-ProcessAttachment | Nom de l’application logique. | 
+   | **Nom** | LA-ProcessAttachment | Nom de l’application logique. | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Abonnement Azure que vous avez utilisé précédemment. | 
    | **Groupe de ressources** | LA-Tutorial-RG | Groupe de ressources Azure que vous avez utilisé précédemment. |
    | **Lieu** | USA Ouest | Région que vous avez utilisée précédemment. | 
@@ -661,7 +661,7 @@ Ajoutez une action afin que votre application logique envoie un e-mail pour pass
 
 Félicitations ! Vous avez maintenant créé et exécuté une application logique qui automatise les tâches dans différents services Azure et appelle un code personnalisé.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées. Dans le menu principal Azure, accédez à **Groupes de ressources**, puis sélectionnez le groupe de ressources de votre application logique. Choisissez **Supprimer un groupe de ressources**. Confirmez le nom du groupe de ressources, puis choisissez **Supprimer**.
 
@@ -670,7 +670,7 @@ Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contie
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

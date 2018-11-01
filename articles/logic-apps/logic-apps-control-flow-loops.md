@@ -10,12 +10,12 @@ ms.date: 03/05/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 87595eeb0330a2d8210258c097c29b205b628cf4
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5ba5e5abef4ebdc58c44cbe7f5ba584efe8abfc7
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298183"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233104"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Créer des boucles qui répètent des actions de workflow ou des tableaux de processus dans Azure Logic Apps
 
@@ -177,7 +177,7 @@ Par exemple, à 8 h 00 chaque jour, cette application logique incrémente une va
 
    | Propriété | Valeur | Description |
    | -------- | ----- | ----------- |
-   | **Name** | Limite | Nom de votre variable | 
+   | **Nom** | Limite | Nom de votre variable | 
    | **Type** | Entier  | Type de données de votre variable | 
    | **Valeur** | 0 | Valeur de départ de votre variable | 
    |||| 
@@ -311,7 +311,7 @@ Dans un autre exemple, cette boucle « Until » appelle un point de terminaison 
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées et suggestions de fonctionnalités ou pour en soumettre, rendez-vous sur le [site de commentaires des utilisateurs Azure Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des idées et suggestions de fonctionnalités ou pour en soumettre, rendez-vous sur le [site de commentaires des utilisateurs Azure Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

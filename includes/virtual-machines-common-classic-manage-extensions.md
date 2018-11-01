@@ -1,6 +1,16 @@
-
-
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: d14cfb82ae74f85425dbd3e8a365e8b99969641d
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226777"
+---
 ## <a name="using-vm-extensions"></a>Utilisation d'extensions de machines virtuelles
 Les extensions de machines virtuelles Azure mettent en œuvre des comportements ou des fonctionnalités grâce auxquels d’autres programmes peuvent fonctionner sur des machines virtuelles Azure (par exemple, l’extension **WebDeployForVSDevTest** permet à Visual Studio de déployer des solutions web sur votre machine virtuelle Azure) ou d’interagir avec votre machine virtuelle pour prendre en charge un autre comportement (par exemple, vous pouvez utiliser les extensions d’accès à la machine virtuelle à partir de PowerShell, l’interface de ligne de commande Azure et des clients REST pour réinitialiser ou modifier des valeurs d’accès à distance de votre machine virtuelle Azure).
 
@@ -23,7 +33,7 @@ Vous pouvez localiser l’extension et obtenir des informations étendues en uti
 * Interface de ligne de commande interplateforme Azure (Azure CLI)
 * API REST de gestion de service
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 Certaines extensions disposent d’applets de commande PowerShell spécifiques, ce qui simplifie leur configuration à partir de PowerShell. Mais les applets de commande suivantes fonctionnent pour toutes les extensions de machine virtuelle.
 
 Vous pouvez utiliser les applets de commande suivantes pour obtenir des informations sur les extensions disponibles :
@@ -85,7 +95,7 @@ Vous pouvez utiliser les API REST suivantes pour obtenir des informations sur le
 ## <a name="add-update-or-disable-extensions"></a>Ajout, mise à jour ou désactivation des extensions
 Des extensions peuvent être ajoutées à une instance créée ou déjà exécutée. Des extensions peuvent être mises à jour, désactivées ou supprimées. Vous pouvez effectuer ces actions à l'aide des applets de commande Azure PowerShell ou des opérations de l'API REST de gestion des services. Des paramètres sont requis pour installer et configurer certaines extensions. Des paramètres publics et privés sont pris en charge pour les extensions.
 
-### <a name="azure-powershell"></a>Azure PowerShell
+### <a name="azure-powershell"></a>Azure PowerShell
 Le moyen le plus simple pour ajouter et mettre à jour des extensions consiste à utiliser les applets de commande Azure PowerShell. Lorsque vous utilisez les applets de commande de l'extension, la majeure partie de la configuration de l'extension est effectuée pour vous. Il peut arriver que vous deviez ajouter une extension par programmation. Le cas échéant, vous devez indiquer la configuration de l'extension.
 
 Vous pouvez utiliser les applets de commande suivantes pour savoir si une extension nécessite une configuration de paramètres publics et privés :

@@ -4,9 +4,6 @@ description: Cet article vous aide à créer, désactiver, activer et supprimer 
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: f06e0365-0a20-4d08-b7e1-e56025e64f66
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: hero-article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
 ms.author: kumud
-ms.openlocfilehash: e19f8f373fed8c7e9ab64f2fc9e34eba182af717
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 19f8f1f89031ba392b8d986fbcb0725c5c8f212f
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29398054"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138478"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Gestion d’un profil Azure Traffic Manager
 
@@ -33,7 +30,7 @@ Vous pouvez créer un profil Traffic Manager à l’aide du portail Azure. Aprè
 
 1. Dans un navigateur, connectez-vous au [portail Azure](http://portal.azure.com). Si vous ne possédez pas encore de compte, vous pouvez [vous inscrire pour bénéficier d’un essai gratuit d’un mois](https://azure.microsoft.com/free/). 
 2. Cliquez sur **Créer une ressource** > **Mise en réseau** > **Profil Traffic Manager** > **Créer**.
-4. Dans **Créer un profil Traffic Manager**, procédez comme suit :
+4. Dans **Créer un profil Traffic Manager**, procédez comme suit :
     1. Sous **Nom**, entrez un nom pour votre profil. Ce nom doit être unique au sein de la zone trafficmanager.net et affiche le nom DNS <name>, trafficmanager.net, qui est utilisé pour accéder à votre profil Traffic Manager.
     2. Sous **Méthode de routage**, sélectionnez la méthode de routage **Priorité**.
     3. Sous **Abonnement**, sélectionnez l’abonnement pour lequel vous souhaitez créer ce profil.
@@ -70,7 +67,7 @@ Vous pouvez désactiver un profil existant afin que Traffic Manager ne renvoie p
 3. Cliquez sur **Vue d’ensemble** > **Supprimer**.
 4. Confirmez pour supprimer le profil Traffic Manager.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * [Ajout d’un point de terminaison](traffic-manager-endpoints.md)
 * [Configurer la méthode de routage en fonction de la priorité](traffic-manager-configure-priority-routing-method.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 3e1f4076c7a90cbb348f31b7b92e745fff79a04f
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: f2a48756252f538adc7d813aafe6dbfbf3a270b5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35262135"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416680"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights
 Les services cloud, les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric utilisent l’extension Azure Diagnostics pour collecter des données.  Les diagnostics Azure envoient les données dans des tables de stockage Azure.  Toutefois, vous pouvez également transmettre toutes les données ou un sous-ensemble de données vers d’autres emplacements à l’aide de l’extension Azure Diagnostics 1.5 ou version ultérieure.
@@ -77,11 +77,11 @@ Un canal fonctionne comme un filtre et vous permet de sélectionner les niveaux 
 
 Le graphique suivant illustre cette relation.
 
-![Configuration publique des diagnostics](./media/azure-diagnostics-configure-applicationinsights/AzDiag_Channels_App_Insights.png)
+![Configuration publique des diagnostics](media/azure-diagnostics-configure-application-insights/AzDiag_Channels_App_Insights.png)
 
 Le graphique suivant résume les valeurs de configuration et leur fonctionnement. Vous pouvez inclure plusieurs récepteurs à la configuration à différents niveaux de la hiérarchie. Le récepteur spécifié au niveau supérieur fonctionne comme un paramètre global et celui spécifié au niveau des éléments individuels écrase ce paramètre global.
 
-![Récepteurs de diagnostics - Configuration avec Application Insights](./media/azure-diagnostics-configure-applicationinsights/Azure_Diagnostics_Sinks.png)
+![Récepteurs de diagnostics - Configuration avec Application Insights](media/azure-diagnostics-configure-application-insights/Azure_Diagnostics_Sinks.png)
 
 ## <a name="complete-sink-configuration-example"></a>Exemple de configuration complète de récepteur
 Voici un exemple complet de fichier de configuration publique qui

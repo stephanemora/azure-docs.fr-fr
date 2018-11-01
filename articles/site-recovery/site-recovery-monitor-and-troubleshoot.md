@@ -1,19 +1,18 @@
 ---
 title: Surveiller Azure Site Recovery | Microsoft Docs
 description: Surveiller et résoudre les opérations et les problèmes de réplication d’Azure Site Recovery à l’aide du portail
-services: site-recovery
 author: bsiva
 manager: abhemra
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 07/19/2018
 ms.author: bsiva
-ms.openlocfilehash: 89270a0bd1914a2486c8cc634563bdded743adaa
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: dc089e29889b12a5a6d3fcb17328cfc13fe8d0c9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746471"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211806"
 ---
 # <a name="monitor-and-troubleshoot-site-recovery"></a>Surveiller et résoudre les problèmes liés à Site Recovery
 
@@ -121,7 +120,7 @@ Seules les machines sur lesquelles la réplication initiale est terminée sont i
 
 ## <a name="monitor-recovery-plans"></a>Surveiller les plans de récupération
 
-Dans la **section Plans de récupération**, vous pouvez consulter le nombre de plans, créer des plans et modifier des plans existantes.  
+Dans la **section Plans de récupération**, vous pouvez consulter le nombre de plans, créer des plans et modifier des plans existants.  
 
 ## <a name="monitor-jobs"></a>Surveiller des travaux
 

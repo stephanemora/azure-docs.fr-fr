@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0fe35b67a424caedcea2c71885d1757943ace9d1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377392"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232594"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Accès sécurisé dans Azure Logic Apps
 
@@ -168,7 +168,7 @@ Vous souhaiterez peut-être paramétrer certains aspects d’une définition de 
 
 ### <a name="using-parameters-and-secure-parameters"></a>Utilisation des paramètres et des paramètres sécurisés
 
-Le [langage de définition de flux de travail](http://aka.ms/logicappsdocs) fournit une opération `@parameters()` pour accéder à la valeur d’un paramètre de ressource lors de l’exécution. Vous pouvez également [spécifier des paramètres dans le modèle de déploiement de ressource](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Mais si vous spécifiez le type de paramètre `securestring`, le paramètre n’est pas renvoyé avec la définition de la ressource, et n’est donc pas accessible en consultant la ressource après le déploiement.
+Le [langage de définition de flux de travail](https://aka.ms/logicappsdocs) fournit une opération `@parameters()` pour accéder à la valeur d’un paramètre de ressource lors de l’exécution. Vous pouvez également [spécifier des paramètres dans le modèle de déploiement de ressource](../azure-resource-manager/resource-group-authoring-templates.md#parameters). Mais si vous spécifiez le type de paramètre `securestring`, le paramètre n’est pas renvoyé avec la définition de la ressource, et n’est donc pas accessible en consultant la ressource après le déploiement.
 
 > [!NOTE]
 > Si votre paramètre est utilisé dans les en-têtes ou le corps d’une requête, il peut être visible en accédant à l’historique d’exécution et à la requête HTTP sortante. Veillez à définir vos stratégies d’accès au contenu en conséquence.

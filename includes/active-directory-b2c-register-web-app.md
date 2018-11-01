@@ -1,3 +1,16 @@
+---
+author: PatAltimore
+ms.service: active-directory-b2c
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: patricka
+ms.openlocfilehash: 4d5c8373f2a8f02ccfbe51cb970ab08744950e7e
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132931"
+---
 [!INCLUDE [active-directory-b2c-portal-add-application](active-directory-b2c-portal-add-application.md)]
 
 Pour inscrire votre application web, utilisez les paramètres spécifiés dans la table.
@@ -6,9 +19,9 @@ Pour inscrire votre application web, utilisez les paramètres spécifiés dans l
 
 | Paramètre      | Exemple de valeur  | Description                                        |
 | ------------ | ------- | -------------------------------------------------- |
-| **Name** | Application de Contoso B2C | Entrez un **Nom** pour l’application qui décrira votre application aux consommateurs. | 
-| **Inclure une application/API web** | OUI | Sélectionnez **Oui** pour une application web. |
-| **Autoriser le flux implicite** | OUI | Choisissez **Oui** si votre application doit utiliser une [connexion OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md). |
+| **Nom** | Application de Contoso B2C | Entrez un **Nom** pour l’application qui décrira votre application aux consommateurs. | 
+| **Inclure une application/API web** | Oui | Sélectionnez **Oui** pour une application web. |
+| **Autoriser le flux implicite** | Oui | Choisissez **Oui** si votre application doit utiliser une [connexion OpenID Connect](../articles/active-directory-b2c/active-directory-b2c-reference-oidc.md). |
 | **URL de réponse** | `https://localhost:44316` | Les URL de réponse sont des points de terminaison auxquels Azure AD B2C renvoie les jetons demandés par votre application. Entrez une URL [appropriée](../articles/active-directory-b2c/active-directory-b2c-app-registration.md#choosing-a-web-app-or-api-reply-url) comme **URL de réponse**. Dans cet exemple, votre application web est locale et à l’écoute sur le port 44316. |
 
 Cliquez sur **Créer** pour inscrire votre application.

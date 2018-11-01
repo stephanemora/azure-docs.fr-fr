@@ -4,29 +4,26 @@ description: Découvrez comment créer un équilibrage de charge interne dans le
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jennoc
-tags: azure-resource-manager
-ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
 ms.service: load-balancer
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 1b599e5b88026c06a6912ede9952497c489b0269
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4e99411ec56f25e249429e4e65bae4a8e7071cc1
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38697302"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412684"
 ---
 # <a name="create-an-internal-load-balancer-by-using-the-azure-powershell-module"></a>Créer un équilibreur de charge interne à l’aide du module Azure PowerShell
 
 > [!div class="op_single_selector"]
 > * [Portail Azure](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
 > * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
-> * [interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Interface de ligne de commande Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
 > * [Modèle](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 
@@ -92,7 +89,7 @@ New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 
 Azure Resource Manager requiert que tous les groupes de ressources spécifient un emplacement. Cet emplacement est utilisé comme emplacement par défaut pour toutes les ressources du groupe de ressources. Utilisez toujours le même groupe de ressources pour toutes les commandes liées à la création de l’équilibreur de charge.
 
-Dans cet exemple, nous avons créé un groupe de ressources appelé **NRP-RG** avec l’emplacement « West US ».
+Dans cet exemple, nous avons créé un groupe de ressources appelé **NRP-RG** avec l’emplacement « USA Ouest ».
 
 ## <a name="create-the-virtual-network-and-ip-address-for-the-front-end-ip-pool"></a>Créez le réseau virtuel et l’adresse IP pour le pool d’adresses IP frontales.
 

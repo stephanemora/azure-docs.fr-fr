@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2c5d0dc322a4a56f0de9bd3c1af7efc158131a89
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 16e78784337771d1e31d826f475c92c86fe20411
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954213"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212316"
 ---
 # <a name="azure-resource-manager-overview"></a>Présentation d’Azure Resource Manager
 L’infrastructure sur laquelle s’appuie votre application est généralement constituée de plusieurs composants, par exemple une machine virtuelle, un compte de stockage et un réseau virtuel ou bien une application web, une base de données, un serveur de base de données et des services tiers. Vous ne voyez pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. Azure Resource Manager vous permet de travailler avec les ressources de solution sous forme de groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Le gestionnaire de ressources assure la sécurité, les fonctions d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement. 
@@ -65,29 +65,7 @@ Pour obtenir des conseils sur l’utilisation de Resource Manager par les entrep
 
 Pour obtenir des recommandations sur la création de modèles Resource Manager utilisables dans Azure partout dans le monde, les clouds souverains Azure et Azure Stack, consultez [Développer des modèles Azure Resource Manager pour la cohérence du cloud](templates-cloud-consistency.md).
 
-## <a name="quickstarts-and-tutorials"></a>Guides de démarrage rapide et didacticiels
-
-Utilisez les guides de démarrage rapide et les didacticiels suivants pour apprendre comment développer des modèles Resource Manager :
-
-- Démarrages rapides
-
-    |Intitulé|Description|
-    |------|-----|
-    |[Utiliser le portail Azure](./resource-manager-quickstart-create-templates-use-the-portal.md)|Générer un modèle à l’aide du portail ainsi que le processus de modification et de déploiement du modèle.|
-    |[Utiliser Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)|Utilisation de Visual Studio Code pour créer et modifier les modèles et comment utiliser Azure Cloud Shell pour déployer des modèles.|
-    |[Utiliser Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)|Utilisation de Visual Studio pour créer, modifier et déployer des modèles.|
-
-- Didacticiels
-
-    |Intitulé|Description|
-    |------|-----|
-    |[Utiliser la référence de modèle](./resource-manager-tutorial-create-encrypted-storage-accounts.md)|Utilisation de la documentation de référence du modèle pour développer des modèles. Dans ce didacticiel, trouvez le schéma de compte de stockage et utilisez ces informations pour créer un compte de stockage chiffré.|
-    |[Créer plusieurs instances](./resource-manager-tutorial-create-multiple-instances.md)|Créer plusieurs instances de ressources Azure. Dans ce didacticiel, vous créez plusieurs instances de compte de stockage.|
-    |[Définir l’ordre de déploiement des ressources](./resource-manager-tutorial-create-templates-with-dependent-resources.md)|Définir les dépendances des ressources. Dans ce didacticiel, vous créez un réseau virtuel, une machine virtuelle et les ressources Azure dépendantes. Vous découvrez comment les dépendances sont définies.|
-    |[Utiliser des conditions](./resource-manager-tutorial-use-conditions.md)|Déployer des ressources basées sur certaines valeurs de paramètres. Dans ce didacticiel, vous définissez un modèle pour créer un nouveau compte de stockage ou utilisez un compte de stockage existant basé sur la valeur d’un paramètre.|
-    |[Intégrer Key Vault](./resource-manager-tutorial-use-key-vault.md)|Récupérer des données secrètes/mots de passe depuis Azure Key Vault. Dans ce didacticiel, vous créez une machine virtuelle.  Le mot de passe d’administrateur de la machine virtuelle est récupéré depuis un Key Vault.|
-    |[Créer des modèles liés](./resource-manager-tutorial-create-linked-templates.md)|Modulariser des modèles et appeler d’autres modèles depuis un modèle. Dans ce didacticiel, vous créez un réseau virtuel, une machine virtuelle et les ressources dépendantes.  Le compte de stockage dépendant est défini dans un modèle lié. |
-    |[Utiliser des pratiques de déploiement sécurisé](./deployment-manager-tutorial.md)|Utiliser Azure Deployment Manager. |
+[!INCLUDE [arm-tutorials-quickstarts](../../includes/resource-manager-tutorials-quickstarts.md)]
 
 ## <a name="resource-groups"></a>Groupes de ressources
 Lorsque vous définissez votre groupe de ressources, vous devez prendre en compte certains facteurs importants :

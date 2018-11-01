@@ -10,12 +10,12 @@ ms.component: translator-speech
 ms.topic: quickstart
 ms.date: 3/5/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4147e164434109a90a2a044565a1fb0b2e1b48bf
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: ebff07a68975f3629b57df4cfc8a5bbcf564ce27
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386500"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412922"
 ---
 # <a name="quickstart-translator-speech-api-with-java"></a>Démarrage rapide : API de traduction de conversation Translator Speech avec Java 
 <a name="HOLTop"></a>
@@ -26,7 +26,7 @@ Cet article explique comment utiliser l’API de traduction de conversation Tran
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour compiler et exécuter ce code, vous devez disposer de [JDK 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html). Vous pouvez utiliser un IDE Java si vous le souhaitez, mais un éditeur de texte est suffisant.
+Pour compiler et exécuter ce code, vous devez disposer de [JDK 7 ou 8](https://aka.ms/azure-jdks). Vous pouvez utiliser un IDE Java si vous le souhaitez, mais un éditeur de texte est suffisant.
 
 Il vous faudra les fichiers suivants.
 - [javax.websocket-api-1.1.jar (ou une version ultérieure)](https://mvnrepository.com/artifact/javax.websocket/javax.websocket-api)

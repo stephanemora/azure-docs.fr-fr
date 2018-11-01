@@ -3,7 +3,7 @@ title: Analyse des utilisateurs, des sessions et des événements dans Azure App
 description: Analyse démographique des utilisateurs de votre application web.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,14 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 01/24/2018
-ms.reviewer: daviste
-ms.author: mbullwin
-ms.openlocfilehash: 2bc10a292855832b7ddb9b8e3a59fbe0f17d8dc6
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.reviewer: mbullwin
+ms.pm_owner: daviste;NumberByColors
+ms.author: daviste
+ms.openlocfilehash: 6fd8adab93f5741afe6d3eab0c50ca50a327fbff
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093806"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140330"
 ---
 # <a name="users-sessions-and-events-analysis-in-application-insights"></a>Analyse des utilisateurs, des sessions et des événements dans Application Insights
 
@@ -48,10 +49,10 @@ Explorez les différents groupes d’utilisateurs en ajustant les options d’in
 * Qui a utilisé : choisissez les événements personnalisés et les affichages de pages.
 * Pendant : choisissez un intervalle de temps.
 * Par : choisissez comment compartimenter les données, soit par période temporelle, soit par une autre propriété telle que le navigateur ou la ville.
-* Fractionner par : choisissez une propriété selon laquelle fractionner ou segmenter les données. 
-* Ajouter des filtres : limitez la requête à certains utilisateurs, certaines sessions ou certains événements en fonction de leurs propriétés, telles que le navigateur ou la ville. 
- 
-## <a name="saving-and-sharing-reports"></a>Enregistrement et partage de rapports 
+* Fractionner par : choisissez une propriété selon laquelle fractionner ou segmenter les données. 
+* Ajouter des filtres : limitez la requête à certains utilisateurs, certaines sessions ou certains événements en fonction de leurs propriétés, telles que le navigateur ou la ville. 
+ 
+## <a name="saving-and-sharing-reports"></a>Enregistrement et partage de rapports 
 Vous pouvez enregistrer des rapports d’utilisateurs, privés (uniquement pour vous) dans la section Mes rapports, ou partagés avec tout le monde, avec un accès à cette ressource Application Insights dans la section Rapports partagés.
 
 Pour partager un lien vers un rapport des utilisateurs, des sessions ou des événements ; cliquez sur **Partager** dans la barre d’outils, puis copiez le lien.

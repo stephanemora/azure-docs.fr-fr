@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/16/2018
 ms.author: srrengar
-ms.openlocfilehash: cc051e1ba0bbea68bb1e888168883351bf4f730f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: e440cca59bde1c845bc99ef137c18242e888ee06
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406209"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230095"
 ---
 # <a name="performance-monitoring-with-log-analytics"></a>Analyse des performances avec Log Analytics
 
@@ -100,4 +100,4 @@ Maintenant que vous avez ajouté l’agent Log Analytics, accédez au portail Lo
 
 * Collectez les [compteurs de performances](service-fabric-diagnostics-event-generation-perf.md) dont vous avez besoin. Pour configurer l’agent Log Analytics de façon à collecter certains compteurs de performances, voir [Configurer les sources de données](../log-analytics/log-analytics-data-sources.md#configuring-data-sources).
 * Configurez Log Analytics pour paramétrer [l’alerte automatisée](../log-analytics/log-analytics-alerts.md) afin de faciliter la détection et les diagnostics
-* En guise d’alternative, vous pouvez collecter des compteurs de performances via [l’extension Azure Diagnostics et les envoyer à Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-ai-sink-to-the-resource-manager-template)
+* En guise d’alternative, vous pouvez collecter des compteurs de performances via [l’extension Azure Diagnostics et les envoyer à Application Insights](service-fabric-diagnostics-event-analysis-appinsights.md#add-the-application-insights-sink-to-the-resource-manager-template)

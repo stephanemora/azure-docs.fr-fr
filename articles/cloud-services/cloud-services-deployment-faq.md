@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 05217129d4993514acaf8c717847040584984cb3
-ms.sourcegitcommit: c52123364e2ba086722bc860f2972642115316ef
+ms.openlocfilehash: d44cfc0164892c34bcbe16ca07e9ec67190ada24
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34068902"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415302"
 ---
 # <a name="deployment-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Problèmes de déploiement pour Azure Cloud Services : questions fréquentes (FAQ)
 
@@ -64,17 +64,16 @@ Vous ne pouvez pas modifier la taille de machine virtuelle d’un service cloud 
 
 Pour plus d’informations, consultez [Comment mettre à jour un service clou](cloud-services-update-azure-service.md).
 
-## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Pourquoi ne puis-je pas déployer de services cloud via les API Gestion des services ou PowerShell en utilisant le compte de stockage Azure Resource Manager ? 
+## <a name="why-am-i-not-able-to-deploy-cloud-services-through-service-management-apis-or-powershell-when-using-azure-resource-manager-storage-account"></a>Pourquoi ne puis-je pas déployer de services cloud via les API Gestion des services ou PowerShell en utilisant le compte de stockage Azure Resource Manager ? 
 
-Étant donné que le service cloud est une ressource classique qui n’est pas directement compatible avec le modèle Azure Resource Manager, vous ne pouvez pas l’associer aux comptes de stockage Azure Resource Manager. Voici quelques solutions alternatives possibles : 
- 
+Étant donné que le service cloud est une ressource classique qui n’est pas directement compatible avec le modèle Azure Resource Manager, vous ne pouvez pas l’associer aux comptes de stockage Azure Resource Manager. Voici quelques solutions alternatives possibles : 
+ 
 - Déploiement via l’API REST.
 
-    Quand vous déployez via l’API REST Gestion des services, vous pouvez obtenir la limitation en spécifiant une URL SAS pour le stockage d’objets blob, qui fonctionnera à la fois avec un compte de stockage Azure Resource Manager et classique. Pour en savoir plus sur la propriété 'PackageUrl', cliquez [ici](https://msdn.microsoft.com/library/azure/ee460813.aspx).
-  
+    Quand vous déployez via l’API REST Gestion des services, vous pouvez obtenir la limitation en spécifiant une URL SAS pour le stockage d’objets blob, qui fonctionnera à la fois avec un compte de stockage Azure Resource Manager et classique. Pour en savoir plus sur la propriété 'PackageUrl', cliquez [ici](https://msdn.microsoft.com/library/azure/ee460813.aspx).  
 - Déploiement via le [portail Azure](https://portal.azure.com).
 
-    Le déploiement est possible à partir du [portail Azure](https://portal.azure.com), car l’appel passe par un proxy/shim qui permet la communication entre les ressources Azure Resource Manager et classiques. 
+    Le déploiement est possible à partir du [portail Azure](https://portal.azure.com), car l’appel passe par un proxy/shim qui permet la communication entre les ressources Azure Resource Manager et classiques. 
  
 ## <a name="why-does-azure-portal-require-me-to-provide-a-storage-account-for-deployment"></a>Pourquoi le portail Azure me demande-t-il de fournir un compte de stockage pour le déploiement ? 
 

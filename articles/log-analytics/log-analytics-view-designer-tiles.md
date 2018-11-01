@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 1c9c93c198b4d88da55ecd241e096e73e4a40d5d
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: aa9e91614152aed6a04fa748521991920a0ed569
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042176"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413058"
 ---
 # <a name="reference-guide-to-view-designer-tiles-in-log-analytics"></a>Guide de référence des vignettes du Concepteur de vues dans Log Analytics
 Grâce au Concepteur de vues d’Azure Log Analytics, vous pouvez créer des vues personnalisées dans le portail Azure qui présentent différentes visualisations de données dans votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des vignettes disponibles dans vos vues personnalisées.
@@ -47,7 +47,7 @@ Les sections suivantes décrivent les types de vignettes et leurs propriétés e
 ## <a name="number-tile"></a>Vignette Nombre
 La vignette **Nombre** affiche à la fois le nombre d’enregistrements retournés par une requête de journal et une étiquette.
 
-![Vignette Nombre](media/log-analytics-view-designer/tile-number.png)
+![Vignette Nombre](media/log-analytics-view-designer-tiles/tile-number.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -65,7 +65,7 @@ La vignette **Nombre** affiche à la fois le nombre d’enregistrements retourn�
 ## <a name="two-numbers-tile"></a>Vignette Deux nombres
 Cette vignette affiche le nombre d’enregistrements retournés par deux requêtes de journal distinctes, et une étiquette pour chacune d’elles.
 
-![Vignette Deux nombres](media/log-analytics-view-designer/tile-two-numbers.png)
+![Vignette Deux nombres](media/log-analytics-view-designer-tiles/tile-two-numbers.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -86,7 +86,7 @@ Cette vignette affiche le nombre d’enregistrements retournés par deux requêt
 ## <a name="donut-tile"></a>Vignette Anneau
 La vignette **Anneau** affiche un nombre unique qui résume une colonne de valeur dans une requête de journal. L’anneau affiche sous forme graphique les résultats des trois premiers enregistrements.
 
-![Vignette Anneau](media/log-analytics-view-designer/tile-donut.png)
+![Vignette Anneau](media/log-analytics-view-designer-tiles/tile-donut.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -110,7 +110,7 @@ La vignette **Anneau** affiche un nombre unique qui résume une colonne de valeu
 ## <a name="line-chart-tile"></a>Vignette Graphique en courbes
 Cette vignette est un graphique en courbes qui affiche plusieurs séries à partir d’une requête de journal dans le temps. 
 
-![Vignette Graphique en courbes et légende](media/log-analytics-view-designer/tile-line-chart.png)
+![Vignette Graphique en courbes et légende](media/log-analytics-view-designer-tiles/tile-line-chart.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -131,7 +131,7 @@ Cette vignette est un graphique en courbes qui affiche plusieurs séries à part
 ## <a name="line-chart-and-callout-tile"></a>Vignette Graphique en courbes et légende
 Cette vignette contient à la fois un graphique en courbes avec plusieurs séries à partir d’une requête de journal dans le temps, et une légende avec une valeur de synthèse. 
 
-![Vignette Graphique en courbes et légende](media/log-analytics-view-designer/tile-line-chart-callout.png)
+![Vignette Graphique en courbes et légende](media/log-analytics-view-designer-tiles/tile-line-chart-callout.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -156,7 +156,7 @@ Cette vignette contient à la fois un graphique en courbes avec plusieurs série
 ## <a name="two-timelines-tile"></a>Vignette Deux chronologies
 La vignette **Deux chronologies** affiche les résultats de deux requêtes de journal dans le temps sous la forme de graphiques à barres. Une légende est affichée pour chaque série. 
 
-![Vignette Deux chronologies](media/log-analytics-view-designer/tile-two-timelines.png)
+![Vignette Deux chronologies](media/log-analytics-view-designer-tiles/tile-two-timelines.png)
 
 | Paramètre | Description |
 |:--- |:--- |

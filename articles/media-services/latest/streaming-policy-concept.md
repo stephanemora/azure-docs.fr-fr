@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/22/2018
 ms.author: juliako
-ms.openlocfilehash: 118660e8947663328554ac0116b5519267197336
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: c5f441fef95989e5c82586d96fc6c10e00a9627c
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49984296"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085493"
 ---
 # <a name="streaming-policies"></a>Stratégies de diffusion en continu
 
@@ -29,17 +29,17 @@ Dans Azure Media Services v3, les stratégies de streaming vous permettent de d
 
 Le tableau suivant présente les propriétés d’une stratégie StreamingPolicy et en donne la définition.
 
-|NOM|type|Description|
-|---|---|---|
-|id|chaîne|ID de ressource complet pour la ressource.|
-|Nom|chaîne|Nom de la ressource.|
-|properties.commonEncryptionCbcs|CommonEncryptionCbcs|Configuration de CommonEncryptionCbcs|
-|properties.commonEncryptionCenc|CommonEncryptionCenc|Configuration de CommonEncryptionCenc|
-|properties.created |chaîne|Heure de création de la stratégie de streaming|
-|properties.defaultContentKeyPolicyName |chaîne|Clé de contenu (ContentKey) par défaut utilisée par la stratégie de streaming active|
-|properties.envelopeEncryption  |EnvelopeEncryption|Configuration de EnvelopeEncryption|
-|properties.noEncryption|NoEncryption|Configurations de NoEncryption|
-|Type|chaîne|Type de la ressource.|
+|NOM|Description|
+|---|---|
+|id|ID de ressource complet pour la ressource.|
+|Nom|Nom de la ressource.|
+|properties.commonEncryptionCbcs|Configuration de CommonEncryptionCbcs|
+|properties.commonEncryptionCenc|Configuration de CommonEncryptionCenc|
+|properties.created |Heure de création de la stratégie de streaming|
+|properties.defaultContentKeyPolicyName |Clé de contenu (ContentKey) par défaut utilisée par la stratégie de streaming active|
+|properties.envelopeEncryption  |Configuration de EnvelopeEncryption|
+|properties.noEncryption|Configurations de NoEncryption|
+|Type|Type de la ressource.|
 
 Pour obtenir la définition complète, consultez [Stratégies de streaming](https://docs.microsoft.com/rest/api/media/streamingpolicies).
 
@@ -52,7 +52,7 @@ Media Services prend en charge les options de requête OData suivantes pour les 
 * $top 
 * $skiptoken 
 
-Description des opérateurs :
+Description des opérateurs :
 
 * Eq = est égal à
 * Ne = n’est pas égal à

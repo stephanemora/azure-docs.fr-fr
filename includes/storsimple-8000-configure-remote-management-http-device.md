@@ -1,4 +1,16 @@
-
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: b397d77b525bdb63f2531634e397ec210d4a6202
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165314"
+---
 #### <a name="to-configure-remote-management-on-cloud-appliance"></a>Pour configurer la gestion à distance sur l’appliance cloud
 
 1. Dans le service StorSimple Device Manager, cliquez sur **Appareils**. Sélectionnez et cliquez sur votre appliance cloud dans la liste des appareils connectés au service.

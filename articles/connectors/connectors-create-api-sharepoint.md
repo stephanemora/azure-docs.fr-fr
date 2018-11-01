@@ -11,12 +11,12 @@ ms.assetid: e0ec3149-507a-409d-8e7b-d5fbded006ce
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 5a3968e1aec98092767712220d8aaf676aba89cd
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f076b2e859d334b407fe5c93fcec1bb67cb75e48
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43053291"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233257"
 ---
 # <a name="monitor-and-manage-sharepoint-resources-with-azure-logic-apps"></a>Superviser et gérer les ressources SharePoint avec Azure Logic Apps
 
@@ -61,7 +61,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
 
-1. Pour les applications logiques vides, dans la zone de recherche, entrez « sharepoint » comme filtre. Sous la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
+1. Pour les applications logiques vides, dans la zone de recherche, entrez « sharepoint » comme filtre. Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
 
    -ou-
 
@@ -74,7 +74,7 @@ Si vous débutez avec les applications logiques, consultez [Qu’est-ce qu’Azu
 
 1. Quand vous êtes invité à vous connecter, fournissez les informations de connexion nécessaires. Si vous utilisez SharePoint Server, veillez à sélectionner **Se connecter via une passerelle de données locale**. Lorsque vous êtes prêt, choisissez **Créer**.
 
-1. Fournissez les informations nécessaires pour le déclencheur ou l’action sélectionné et continuez à générer le flux de travail de votre application logique.
+1. Fournissez les informations nécessaires pour le déclencheur ou l’action sélectionnés et continuez à générer le flux de travail de votre application logique.
 
 ## <a name="connector-reference"></a>Référence de connecteur
 
@@ -83,7 +83,7 @@ Pour obtenir des détails techniques sur les déclencheurs, les actions et les l
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

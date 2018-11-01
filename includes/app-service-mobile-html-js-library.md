@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: 32d09722e8c396a64451018ac92fbc7bc072f461
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50132965"
+---
 ## <a name="create-client"></a>Créer une connexion cliente
 Créez une connexion cliente en créant un objet `WindowsAzure.MobileServiceClient` .  Remplacez `appUrl` par l’URL de votre application mobile.
 

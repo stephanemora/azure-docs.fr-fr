@@ -1,4 +1,16 @@
-
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: ae29451e3f7ec263f296e69656a5c66045334687
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226681"
+---
 1. Connectez-vous à votre abonnement Azure en suivant les étapes décrites dans [Se connecter à Azure à partir de l’interface de ligne de commande classique Azure](/cli/azure/authenticate-azure-cli).
 
 2. Vérifiez que vous êtes dans le mode de déploiement Classic comme suit :

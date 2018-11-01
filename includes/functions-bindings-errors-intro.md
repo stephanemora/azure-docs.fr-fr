@@ -1,8 +1,21 @@
+---
+author: ggailey777
+ms.service: azure-functions
+ms.topic: include
+ms.date: 09/04/2018
+ms.author: glenga
+ms.openlocfilehash: 9fb462b83eccde3d2b486d491517973fe6bac4f1
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133080"
+---
 Les [déclencheurs et les liaisons](..\articles\azure-functions\functions-triggers-bindings.md) Azure Functions communiquent avec divers services Azure. Lors de l’intégration avec ces services, vous pouvez des erreurs qui proviennent des API des services Azure sous-jacents peuvent être déclenchées. Des erreurs peuvent également se produire lorsque vous tentez de communiquer avec d’autres services à partir de votre code de fonction à l’aide des bibliothèques REST ou clientes. Pour éviter la perte de données et garantir un comportement correct de vos fonctions, il est important de gérer les erreurs provenant de chaque source.
 
 Les déclencheurs suivants prennent en charge les nouvelles tentatives intégrées :
 
-* [Stockage Azure BLOB](../articles/azure-functions/functions-bindings-storage-blob.md)
+* [stockage d’objets blob Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
 * [Stockage File d’attente Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Azure Service Bus (file d’attente/rubrique)](../articles/azure-functions/functions-bindings-service-bus.md)
 

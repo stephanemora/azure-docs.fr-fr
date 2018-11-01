@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: 7574cc7c-e5a1-4b7c-97f6-0cffb1a5d536
 ms.date: 10/15/2017
-ms.openlocfilehash: 70af92c2afd450d357bf9f30187ef200334698ba
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 274fa3153f6a354b121b7fd8338d8e0d2d94f4f4
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124715"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230810"
 ---
 # <a name="create-and-deploy-logic-apps-with-azure-resource-manager-templates"></a>Créer et déployer des applications logiques à l’aide des modèles Azure Resource Manager
 
@@ -91,7 +91,7 @@ En savoir plus sur [la définition et les propriétés de l’API REST de flux d
 
 Pour créer et déployer automatiquement une application logique dans Azure, choisissez **Déployer sur Azure** ici :
 
-[![Déploiement sur Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
+[![Déployer sur Azure](./media/logic-apps-create-deploy-azure-resource-manager-templates/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-logic-app-create%2Fazuredeploy.json)
 
 Vous êtes alors connecté au portail Azure où vous pouvez indiquer les détails de votre application logique et apporter des modifications au modèle ou aux paramètres. Par exemple, le portail Azure vous invite à indiquer les détails suivants :
 
@@ -121,7 +121,7 @@ azure group deployment create --template-uri https://raw.githubusercontent.com/A
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

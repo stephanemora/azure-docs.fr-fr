@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/10/2017
 ms.author: dobett
-ms.openlocfilehash: 1b49303588c785af149bfc5656bccdbab5216249
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 18e52fc9d924e4e9a12e6f8e5fb426c2b1f7f4cf
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376462"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417274"
 ---
 # <a name="schedule-and-broadcast-jobs-java"></a>Planifier et diffuser des travaux (Java)
 
@@ -37,24 +37,24 @@ Pour plus d’informations sur chacune de ces fonctionnalités, consultez les pa
 
 Ce didacticiel vous explique les procédures suivantes :
 
-* Créer une application d’appareil implémentant une méthode directe nommée **lockDoor**. L’application d’appareil reçoit également les modifications de propriétés souhaitées envoyées par l’application de back-end.
+* Créer une application pour périphérique implémentant une méthode directe nommée **lockDoor**. L’application pour périphérique reçoit également les modifications de propriétés souhaitées envoyées par l’application principale.
 
 * Créer une application principale qui crée un travail pour appeler la méthode directe **lockDoor** sur plusieurs appareils. Un autre travail envoie les mises à jour de propriétés souhaitées à plusieurs appareils.
 
-À la fin de ce tutoriel, vous disposerez d’une application d’appareil de console Java et d’une application back-end de console Java :
+À la fin de ce didacticiel, vous disposerez d’une application pour périphérique de console Java et d’une application principale de console Java :
 
 **simulated-device** se connecte à IoT Hub et implémente la méthode directe **lockDoor** et gère les modifications de propriétés souhaitées.
 
 **schedule-jobs** utilise des travaux pour appeler la méthode directe **lockDoor** et mettre à jour les propriétés souhaitées du jumeau de plusieurs appareils.
 
 > [!NOTE]
-> L’article [Kits SDK Azure IoT](iot-hub-devguide-sdks.md) fournit des informations sur les SDK Azure que vous pouvez utiliser pour créer des applications d’appareil et de back-end.
+> L’article relatif aux [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md) fournit des informations sur les Kits de développement logiciel (SDK) Azure que l’on peut utiliser pour générer des applications pour périphérique et des applications principales.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* La version la plus récente de [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* La version la plus récente de [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 
 * [Maven 3](https://maven.apache.org/install.html)
 
@@ -64,7 +64,7 @@ Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-Vous pouvez également utiliser l’outil [Extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) pour ajouter un appareil à votre hub IoT.
+Vous pouvez également utiliser l’outil [Extension IoT pour Azure CLI](https://github.com/Azure/azure-iot-cli-extension) pour ajouter un appareil à votre IoT Hub.
 
 ## <a name="create-the-service-app"></a>Créer l’application de service
 
@@ -84,7 +84,7 @@ Pour créer l’application :
 
 3. Dans votre invite de commandes, accédez au dossier `schedule-jobs`.
 
-4. Dans un éditeur de texte, ouvrez le fichier `pom.xml` dans le dossier `schedule-jobs` et ajoutez la dépendance suivante au nœud **dependencies**. Cette dépendance vous permet d’utiliser le package **iot-service-client** dans votre application pour communiquer avec votre hub IoT :
+4. Dans un éditeur de texte, ouvrez le fichier `pom.xml` dans le dossier `schedule-jobs` et ajoutez la dépendance suivante au nœud **dependencies**. Cette dépendance vous permet d’utiliser le package **iot-service-client** dans votre application pour communiquer avec votre IoT Hub :
 
     ```xml
     <dependency>
@@ -138,7 +138,7 @@ Pour créer l’application :
     import java.util.UUID;
     ```
 
-9. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubconnectionstring}` par la chaîne de connexion de votre hub IoT, que vous avez notée dans la section *Créer un hub IoT* :
+9. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubconnectionstring}` par la chaîne de connexion de votre IoT Hub, que vous avez notée dans la section *Créer un IoT Hub* :
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -296,7 +296,7 @@ Dans cette section, vous créez une application de console Java qui gère les pr
 
 2. Dans votre invite de commandes, accédez au dossier `simulated-device`.
 
-3. Dans un éditeur de texte, ouvrez le fichier `pom.xml` dans le dossier `simulated-device` et ajoutez les dépendances suivantes au nœud **dependencies**. Cette dépendance vous permet d’utiliser le package **iot-device-client** dans votre application pour communiquer avec votre hub IoT :
+3. Dans un éditeur de texte, ouvrez le fichier `pom.xml` dans le dossier `simulated-device` et ajoutez les dépendances suivantes au nœud **dependencies**. Cette dépendance vous permet d’utiliser le package **iot-device-client** dans votre application pour communiquer avec votre IoT Hub :
 
     ```xml
     <dependency>
@@ -342,7 +342,7 @@ Dans cette section, vous créez une application de console Java qui gère les pr
     import java.util.Scanner;
     ```
 
-8. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubname}` par le nom de votre hub IoT, et `{yourdevicekey}` par la valeur de clé de l’appareil que vous avez générée dans la section *Créer une identité d’appareil* :
+8. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubname}` par le nom de votre IoT Hub, et `{yourdevicekey}` par la valeur de clé de l’appareil que vous avez générée dans la section *Créer une identité d’appareil* :
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -468,7 +468,7 @@ Vous êtes maintenant prêt à exécuter les applications de console.
 
     `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
 
-    ![Le client d’appareil démarre](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
+    ![Le client de périphérique démarre](./media/iot-hub-java-java-schedule-jobs/device-app-1.png)
 
 2. À l’invite de commande du dossier `schedule-jobs`, exécutez la commande suivante pour faire fonctionner l’application de service **schedule-jobs** lors de l’exécution de deux travaux. Le premier définit les valeurs de propriété de votre choix et le second appelle la méthode directe :
 
@@ -476,13 +476,13 @@ Vous êtes maintenant prêt à exécuter les applications de console.
 
     ![L’application de service Java IoT Hub crée deux travaux](./media/iot-hub-java-java-schedule-jobs/service-app-1.png)
 
-3. L’application d’application gère la modification de propriété souhaitée et l’appel de méthode directe :
+3. L’application pour périphérique gère la modification de propriété souhaitée et l’appel de méthode directe :
 
     ![Le client d’appareil répond aux modifications](./media/iot-hub-java-java-schedule-jobs/device-app-2.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez configuré un nouveau hub IoT dans le portail Azure, puis créé une identité d’appareil dans le registre des identités du hub IoT. Vous avez créé une application principale pour exécuter deux travaux. Le premier travail a défini des valeurs de propriété de votre choix, et le deuxième a appelé une méthode directe.
+Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azure, puis créé une identité d’appareil dans le registre des identités de l’IoT Hub. Vous avez créé une application principale pour exécuter deux travaux. Le premier travail a défini des valeurs de propriété de votre choix, et le deuxième a appelé une méthode directe.
 
 Utilisez les ressources suivantes :
 

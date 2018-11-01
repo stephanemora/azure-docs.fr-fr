@@ -113,11 +113,11 @@ Dans les cas où vous ne pouvez pas utiliser les outils, la procédure pas à pa
 
 1. Pour estimer le nombre d’eDTU ou de vCore nécessaires pour le pool, procédez de la manière suivante :
 
-   Pour le modèle d’achat DTU : MAX(<*nombre total de bases de données* X *utilisation DTU moyenne par base de données*>,<br>
-   <*Nombre de bases de données connaissant un pic simultané* X *utilisation DTU maximale par base de données*)
+   Pour le modèle d’achat DTU : MAX(<*nombre total de bases de données* X *utilisation DTU moyenne par base de données* >,<br>
+   < *Nombre de bases de données connaissant un pic simultané* X *utilisation DTU maximale par base de données* )
 
-   Pour le modèle d’achat vCore : MAX(<*nombre total de bases de données* X *utilisation vCore moyenne par base de données*>,<br>
-   <*Nombre de bases de données connaissant un pic simultané* X *utilisation vCore maximale par base de données*)
+   Pour le modèle d’achat vCore : MAX(<*nombre total de bases de données* X *utilisation vCore moyenne par base de données* >,<br>
+   < *Nombre de bases de données connaissant un pic simultané* X *utilisation vCore maximale par base de données* )
 
 2. Estimez l’espace de stockage nécessaire pour le pool en ajoutant le nombre d’octets nécessaires pour toutes les bases de données du pool. Déterminez ensuite la taille du pool d’eDTU qui fournit cette quantité de stockage.
 3. Pour le modèle d’achat DTU, prenez la plus grande des estimations d’eDTU de l’étape 1 et de l’étape 2. Pour le modèle d’achat vCore, prenez l’estimation vCore de l’étape 1.

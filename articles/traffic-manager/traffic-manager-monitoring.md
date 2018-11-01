@@ -4,9 +4,6 @@ description: Cet article explique comment Traffic Manager utilise la surveillanc
 services: traffic-manager
 documentationcenter: ''
 author: KumudD
-manager: jeconnoc
-editor: ''
-ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 64f3595206c580d0d177622d23aa49753100d3c0
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 15b609bbf4ab048722f2512371eeffece92b3245
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221092"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138138"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Surveillance des points de terminaison Traffic Manager
 
@@ -140,7 +137,7 @@ Lorsqu’un point de terminaison est détérioré, il n’est plus renvoyé en r
 * **Performances**. Le point de terminaison le plus proche de l’utilisateur final est renvoyé. Si ce point de terminaison n’est pas disponible, Traffic Manager déplace le trafic vers les points de terminaison dans la région Azure suivante la plus proche. Vous pouvez configurer d’autres plans de basculement pour le routage du trafic à l’aide des [profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Géographique**. Le point de terminaison mappé pour servir la zone géographique en fonction de l’adresse IP de la requête est renvoyé. Si ce point de terminaison n’est pas disponible, aucun autre point de terminaison ne sera sélectionné pour le basculement, car un emplacement géographique ne peut être mappé qu’à un seul point de terminaison dans un profil (plus de détails dans la rubrique [FAQ](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Lorsque le routage géographique est utilisé, nous recommandons aux clients d’utiliser des profiles Traffic Manager imbriqués avec plusieurs points de terminaison comme points de terminaison du profil.
 * **Valeurs multiples** Plusieurs points de terminaison mappés sur des adresses IPv4/IPv6 sont retournés. Lorsqu’une requête est reçue pour ce profil, les points de terminaison sains sont retournés en fonction de la valeur du **nombre maximal d’enregistrements de la réponse** que vous avez spécifiée. Par défaut, le nombre de réponses correspond à deux points de terminaison.
-* **Sous-réseau** Le point de terminaison mappé à un ensemble de plages d’adresses IP est retourné. Lorsqu’une requête est reçue à partir de cette adresse IP, le point de terminaison retourné est celui qui est mappé pour cette adresse IP. 
+* **Sous-réseau** Le point de terminaison mappé à un ensemble de plages d’adresses IP est retourné. Lorsqu’une requête est reçue à partir de cette adresse IP, le point de terminaison retourné est celui qui est mappé pour cette adresse IP. 
 
 Pour plus d’informations, consultez la rubrique relative aux [méthodes de routage du trafic dans Traffic Manager](traffic-manager-routing-methods.md).
 

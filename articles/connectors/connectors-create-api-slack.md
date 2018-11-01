@@ -11,12 +11,12 @@ ms.assetid: 234cad64-b13d-4494-ae78-18b17119ba24
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: 7af2db528866d687064e854e00e43e81d2601b2b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 675e37120b06af3add58b564495f22875647a0fa
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042323"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230350"
 ---
 # <a name="monitor-and-manage-slack-with-azure-logic-apps"></a>Superviser et gérer Slack avec Azure Logic Apps
 
@@ -47,7 +47,7 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre com
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) et ouvrez votre application logique dans le concepteur d’application logique, si elle n’est pas déjà ouverte.
 
-1. Pour les applications logiques vides, dans la zone de recherche, entrez « slack » comme filtre. Sous la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
+1. Pour les applications logiques vides, dans la zone de recherche, entrez « slack » comme filtre. Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
 
    -ou-
 
@@ -75,7 +75,7 @@ Pour obtenir des détails techniques sur les déclencheurs, les actions et les l
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 06/04/2018
-ms.openlocfilehash: 7ae97274b03dda4dcf5150c8faacc7d406dad9fd
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 10/26/2018
+ms.openlocfilehash: 5fe85d74b247e890790ec577d813d42f15290cde
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389613"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140906"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Utiliser Terraform pour créer un groupe de machines virtuelles identiques Azure
 
@@ -34,7 +34,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser [Azure Cloud Shell](/azure
 
 ## <a name="prerequisites"></a>Prérequis
 
-- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
+- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) avant de commencer.
 
 - **Installation de Terraform** : suivez les instructions de l’article [Installer et configurer Terraform pour approvisionner les machines virtuelles et d’autres infrastructures dans Azure](/azure/virtual-machines/linux/terraform-install-configure).
 
@@ -60,7 +60,7 @@ Dans ce didacticiel, vous allez apprendre à utiliser [Azure Cloud Shell](/azure
     mkdir vmss
     ```
 
-1. Remplacez les répertoires par le nouveau répertoire :
+1. Déplacez-vous dans le nouveau répertoire :
 
     ```bash
     cd vmss
@@ -311,7 +311,7 @@ Dans Cloud Shell, effectuez la procédure suivante :
     }
 
     storage_profile_os_disk {
-      name              = "osdisk"
+      name              = ""
       caching           = "ReadWrite"
       create_option     = "FromImage"
       managed_disk_type = "Standard_LRS"
@@ -343,6 +343,7 @@ Dans Cloud Shell, effectuez la procédure suivante :
         name                                   = "IPConfiguration"
         subnet_id                              = "${azurerm_subnet.vmss.id}"
         load_balancer_backend_address_pool_ids = ["${azurerm_lb_backend_address_pool.bpepool.id}"]
+        primary = true
       }
     }
 

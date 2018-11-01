@@ -1,25 +1,18 @@
 ---
 title: Configurer un VPN de site à site via un appairage Microsoft pour Azure ExpressRoute | Microsoft Docs
 description: Configurez une connectivité IPsec/IKE vers Azure via un circuit d’appairage Microsoft ExpressRoute à l’aide d’une passerelle VPN de site à site.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 86e101ee78cfa709c6957c7658f103ce787a6351
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 5fb4a4034a744b8b2b769a1cfd2d9df12ea90dde
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110852"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240904"
 ---
 # <a name="configure-a-site-to-site-vpn-over-expressroute-microsoft-peering"></a>Configurer un réseau VPN de site à site via l’appairage Microsoft ExpressRoute
 
@@ -29,12 +22,13 @@ Cet article a été conçu pour vous aider à configurer une connectivité chiff
 
 Vous pouvez utiliser l’appairage Microsoft pour établir un tunnel VPN IPsec/IKE de site à site entre les réseaux locaux sélectionnés et les réseaux virtuels Azure.
 
-  ![présentation de la connectivité](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
-
->[!NOTE]
+  >[!NOTE]
 >Lorsque vous configurez un VPN de site à site via l’appairage Microsoft, la passerelle VPN et la sortie VPN vous sont facturées. Pour plus d’informations, consultez [Tarification Passerelle VPN](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 >
+
+  ![présentation de la connectivité](./media/site-to-site-vpn-over-microsoft-peering/IPsecER_Overview.png)
+
 
 Pour la haute disponibilité et la redondance, vous pouvez configurer plusieurs tunnels sur les deux paires MSEE-PE d’un circuit ExpressRoute, puis activer l’équilibrage de charge entre ces tunnels.
 
@@ -75,7 +69,7 @@ Un filtre de routage vous permet d’identifier les services que vous souhaitez 
 
 ![Filtre de routage](./media/site-to-site-vpn-over-microsoft-peering/route-filter.png)
 
-Dans cet exemple, le déploiement a lieu uniquement dans la région *Azure Ouest des États-Unis 2*. Une règle de filtre de routage est ajoutée pour permettre uniquement la publication des préfixes régionaux Azure Ouest des États-Unis 2, dont la valeur de communauté BGP est *12076:51026*. Vous pouvez spécifier les préfixes régionaux que vous souhaitez autoriser en sélectionnant **Gérer la règle**.
+Dans cet exemple, le déploiement a lieu uniquement dans la région *Azure USA Ouest 2*. Une règle de filtre de routage est ajoutée pour permettre uniquement la publication des préfixes régionaux Azure USA Ouest 2, dont la valeur de communauté BGP est *12076:51026*. Vous pouvez spécifier les préfixes régionaux que vous souhaitez autoriser en sélectionnant **Gérer la règle**.
 
 Dans le filtre de routage, vous devez également choisir les circuits ExpressRoute auxquels s’applique le filtre. Vous pouvez choisir les circuits ExpressRoute en sélectionnant **Ajouter un circuit**. Dans la figure précédente, le filtre de routage est associé à l’exemple de circuit ExpressRoute.
 
@@ -112,7 +106,7 @@ sh ip bgp vpnv4 vrf 10 neighbors X.243.229.34 received-routes
 
 Pour vérifier que vous recevez le bon jeu de préfixes, vous pouvez effectuer une vérification croisée. La sortie de commande Azure PowerShell suivante répertorie les préfixes publiés via l’appairage Microsoft pour chacun des services et chacune des régions Azure :
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmBgpServiceCommunity
 ```
 
@@ -487,13 +481,13 @@ Configurez votre pare-feu et votre filtrage selon vos besoins.
 
 L’état des tunnels IPsec peut être vérifié sur la passerelle VPN Azure à l’aide de commandes Powershell :
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object  ConnectionStatus,EgressBytesTransferred,IngressBytesTransferred | fl
 ```
 
 Exemple de sortie :
 
-```powershell
+```azurepowershell
 ConnectionStatus        : Connected
 EgressBytesTransferred  : 17734660
 IngressBytesTransferred : 10538211
@@ -501,13 +495,13 @@ IngressBytesTransferred : 10538211
 
 Pour vérifier l’état des tunnels de chacune des instances de passerelles VPN Azure, utilisez l’exemple suivant :
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayConnection -Name vpn2local1 -ResourceGroupName myRG | Select-Object -ExpandProperty TunnelConnectionStatus
 ```
 
 Exemple de sortie :
 
-```powershell
+```azurepowershell
 Tunnel                           : vpn2local1_52.175.250.191
 ConnectionStatus                 : Connected
 IngressBytesTransferred          : 4877438
@@ -623,13 +617,13 @@ Success rate is 100 percent (5/5), round-trip min/avg/max = 4/5/6 ms
 
 Sur la passerelle VPN Azure, vérifiez l’état du pair BGP :
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayBGPPeerStatus -VirtualNetworkGatewayName vpnGtw -ResourceGroupName SEA-C1-VPN-ER | ft
 ```
 
 Exemple de sortie :
 
-```powershell
+```azurepowershell
   Asn ConnectedDuration LocalAddress MessagesReceived MessagesSent Neighbor    RoutesReceived State    
   --- ----------------- ------------ ---------------- ------------ --------    -------------- -----    
 65010 00:57:19.9003584  10.2.0.228               68           72   172.16.0.10              2 Connected
@@ -639,13 +633,13 @@ Exemple de sortie :
 
 Pour vérifier la liste des préfixes réseau envoyés via eBGP par le concentrateur VPN local, vous pouvez filtrer selon l’attribut « Origin » :
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayLearnedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG  | Where-Object Origin -eq "EBgp" |ft
 ```
 
 Dans l’exemple de sortie, l’ASN 65010 correspond au numéro de système autonome BGP dans le VPN local.
 
-```powershell
+```azurepowershell
 AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
 ------ ------------ -------      -------     ------ ----------  ------
 65010  10.2.0.228   10.1.10.0/25 172.16.0.10 EBgp   172.16.0.10  32768
@@ -654,13 +648,13 @@ AsPath LocalAddress Network      NextHop     Origin SourcePeer  Weight
 
 Pour afficher la liste des itinéraires publiés :
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmVirtualNetworkGatewayAdvertisedRoute -VirtualNetworkGatewayName vpnGtw -ResourceGroupName myRG -Peer 10.2.0.228 | ft
 ```
 
 Exemple de sortie :
 
-```powershell
+```azurepowershell
 AsPath LocalAddress Network        NextHop    Origin SourcePeer Weight
 ------ ------------ -------        -------    ------ ---------- ------
        10.2.0.229   10.2.0.0/24    10.2.0.229 Igp                  0
@@ -694,7 +688,7 @@ Total number of prefixes 4
 
 La liste des réseaux publiés à partir du routeur local Cisco CSR1000 sur la passerelle VPN Azure peut être obtenue à l’aide de la commande suivante :
 
-```powershell
+```
 csr1#show ip bgp neighbors 10.2.0.228 advertised-routes
 BGP table version is 7, local router ID is 172.16.0.10
 Status codes: s suppressed, d damped, h history, * valid, > best, i - internal,

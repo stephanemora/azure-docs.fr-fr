@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d65a33dc13d0b91a9ace04dab0be6c37bcd2188f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: b34597c604160cc5c0880561a6c3afb70816f9b3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617624"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417325"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>FAQ sur les technologies open source pour Azure Web Apps
 
@@ -43,9 +43,9 @@ Pour activer la journalisation PHP :
 9. Sélectionnez **Enregistrer**.
 10. Sélectionnez l’icône du crayon en regard de **wp-config.php**.
 11. Remplacez le texte par le code suivant :
-   ```
+   ```php
    //Enable WP_DEBUG modedefine('WP_DEBUG', true);//Enable debug logging to /wp-content/debug.logdefine('WP_DEBUG_LOG', true);
-   //Supress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
+   //Suppress errors and warnings to screendefine('WP_DEBUG_DISPLAY', false);//Supress PHP errors to screenini_set('display_errors', 0);
    ```
 12. Dans le portail Azure, dans le menu de l’application web, redémarrez votre application web.
 
@@ -70,7 +70,7 @@ Pour modifier la version de l’application Node.js, vous pouvez utiliser l’un
 *   Modifiez le fichier iisnode.yml. La modification de la version de Node.js dans le fichier iisnode.yml configure uniquement l’environnement d’exécution utilisé par iisnode. Votre cmd Kudu et le reste utilisent toujours la version de Node.js définie sous **Paramètres de l’application** dans le portail Azure.
 
     Pour définir le fichier iisnode.yml manuellement, créez un fichier iisnode.yml dans le dossier racine de votre application. Incluez la ligne suivante dans le fichier :
-   ```
+   ```yml
    nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
    ```
    
@@ -80,7 +80,7 @@ Pour modifier la version de l’application Node.js, vous pouvez utiliser l’un
     2. Crée un script de déploiement par défaut, s’il n’en existe pas (fichiers deploy.cmd, .deployment) dans le dossier racine de l’application web.
     3. Exécute un script de déploiement dans lequel il crée un fichier iisnode.yml si vous indiquez la version de Node.js dans le fichier package.json > moteur `"engines": {"node": "5.9.1","npm": "3.7.3"}`
     4. Le fichier iisnode.yml contient la ligne de code suivante :
-        ```
+        ```yml
         nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
         ```
 
@@ -146,7 +146,7 @@ Pour résoudre l’erreur :
 2. Si vous utilisez le serveur web Tomcat ou Place de marché Azure Tomcat personnalisé, copiez ce fichier .jar dans le dossier lib de Tomcat.
 3. Si vous activez Java à partir du portail Azure (sélectionnez **Java 1.8** > **Serveur Tomcat**), copiez le fichier sqljdbc.*jar dans le dossier parallèle à votre application. Ensuite, ajoutez le paramètre classpath suivant au fichier web.config :
 
-    ```
+    ```xml
     <httpPlatform>
     <environmentVariables>
     <environmentVariablename ="JAVA_OPTS" value=" -Djava.net.preferIPv4Stack=true

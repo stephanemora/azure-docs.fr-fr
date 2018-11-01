@@ -14,12 +14,12 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 09/07/2018
 ms.author: spelluru
-ms.openlocfilehash: 30ff970a1f6243bbba6aa42046cf6e08c808f4e5
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 0d3cbc83c5d2558d7eba3de897477814df81893c
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068858"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242430"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Prise en main des files d’attente Service Bus
 
@@ -40,7 +40,7 @@ Ce didacticiel couvre les étapes suivantes :
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## <a name="1-create-a-namespace-using-the-azure-portal"></a>1. Créer un espace de noms à l’aide du Portail Azure
+## <a name="create-a-namespace-using-the-azure-portal"></a>Créer un espace de noms à l’aide du Portail Azure
 
 > [!NOTE] 
 > Vous pouvez également créer des entités de messagerie et un espace de noms Service Bus à l’aide de [PowerShell](/powershell/azure/get-started-azureps). Pour plus d’informations, consultez [Utiliser PowerShell pour gérer les ressources Service Bus](service-bus-manage-with-ps.md).
@@ -49,13 +49,13 @@ Si vous avez déjà créé un espace de noms de messagerie Service Bus, passez 
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
-## <a name="2-create-a-queue-using-the-azure-portal"></a>2. Créer une file d’attente à l’aide du Portail Azure
+## <a name="create-a-queue-using-the-azure-portal"></a>Créer une file d’attente à l’aide du Portail Azure
 
 Si vous avez déjà créé une file d’attente Service Bus, passez directement à la section [Envoyer des messages à la file d’attente](#3-send-messages-to-the-queue).
 
 [!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
-## <a name="3-send-messages-to-the-queue"></a>3. Envoyer des messages à la file d’attente
+## <a name="send-messages-to-the-queue"></a>Envoyer des messages à la file d’attente
 
 Pour envoyer des messages à la file d’attente, écrivez une application de console C# à l’aide de Visual Studio.
 
@@ -214,7 +214,7 @@ Ouvrez Visual Studio et créez un projet **Application de console (.NET Core)**.
    
       ![Taille des messages][queue-message]
 
-## <a name="4-receive-messages-from-the-queue"></a>4. Recevoir les messages d'une file d'attente
+## <a name="receive-messages-from-the-queue"></a>Recevoir les messages d'une file d'attente
 
 Pour recevoir les messages que vous venez d’envoyer, créez une autre application de console .NET Core et installez le package NuGet **Microsoft.Azure.ServiceBus**, identique à l’application d’expéditeur précédente.
 

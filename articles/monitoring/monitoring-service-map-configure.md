@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: daseidma;bwren
-ms.openlocfilehash: 70cf6fe1e2256ba2ed58d020111669e59d9db56b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 4461b98c56bcf99fc11aa9d89e6c6dc5961c86ac
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405512"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419518"
 ---
 # <a name="configure-service-map-in-azure"></a>Configurer Service Map dans Azure
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Cette solution permet d’afficher les serveurs comme on se les représente, c’est-à-dire comme des systèmes interconnectés qui fournissent des services critiques. Service Map affiche les connexions entre les serveurs, les processus et les ports sur n’importe quelle architecture connectée par TCP, sans configuration requise autre que l’installation d’un agent.
@@ -146,7 +146,7 @@ Dans cet article, nous faisons référence à tous les agents (Linux ou Windows,
 
 L’agent Carte de service ne transmet pas les données lui-même et il n’est pas nécessaire d’apporter des modifications au pare-feu ni aux ports. Les données de Service Map sont toujours transmises par l’agent Log Analytics au service Log Analytics, directement ou par le biais de la passerelle Log Analytics.
 
-![Agents Service Map](media/monitoring-service-map/agents.png)
+![Agents Service Map](media/monitoring-service-map-configure/agents.png)
 
 Si vous êtes un utilisateur de System Center Operations Manager avec un groupe d’administration connecté à Log Analytics :
 
@@ -172,7 +172,7 @@ Pour plus d’informations sur la collecte et l’utilisation des données, cons
 
 ## <a name="installation"></a>Installation
 
-## <a name="azure-vm-extension"></a>Extension de machine virtuelle Azure
+### <a name="azure-vm-extension"></a>Extension de machine virtuelle Azure
 Une extension est disponible pour Windows (DependencyAgentWindows) et Linux (DependencyAgentLinux), et vous pouvez facilement déployer l’agent de dépendances sur vos machines virtuelles Azure à l’aide d’une [extension de machine virtuelle Azure](https://docs.microsoft.com/azure/virtual-machines/windows/extensions-features).  Avec l’extension de machine virtuelle Azure, vous pouvez déployer l’agent de dépendances sur vos machines virtuelles Windows et Linux à l’aide d’un script PowerShell ou directement dans la machine virtuelle avec un modèle Azure Resource Manager.  Si vous déployez l’agent à l’aide de l’extension de machine virtuelle Azure, vos agents sont mis à jour automatiquement avec la dernière version.
 
 Pour déployer l’extension de machine virtuelle Azure avec PowerShell, vous pouvez utiliser l’exemple suivant :

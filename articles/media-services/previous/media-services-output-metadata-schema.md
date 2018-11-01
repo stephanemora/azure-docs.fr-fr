@@ -2,7 +2,7 @@
 title: Schéma de métadonnées de sortie Azure Media Services | Microsoft Docs
 description: Cette rubrique fournit une vue d’ensemble du schéma de métadonnées de sortie d’Azure Media Services.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,17 +12,17 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 4babceb9454a229903c54aab7083c5e5ed138b8e
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e92bcd412071d1a991a0bd3ec7b28df9f509c54c
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783828"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50250884"
 ---
 # <a name="output-metadata"></a>Métadonnées de sortie
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Un travail d’encodage est associé à un élément multimédia d’entrée (ou plusieurs) sur lequel vous souhaitez effectuer des tâches d’encodage. Par exemple, encoder un fichier MP4 en ensembles de fichiers MP4 à vitesse de transmission adaptative H.264, créer une miniature, créer des superpositions. À l’achèvement d’une tâche, une ressource de sortie est générée.  L’élément multimédia de sortie contient la vidéo, l’audio, les miniatures, et ainsi de suite. L’élément multimédia de sortie contient également un fichier avec des métadonnées relatives à l’élément multimédia de sortie. Le nom du fichier XML de métadonnées a le format suivant : &lt;nom_fichier_source&gt;_manifest.xml (par exemple, BigBuckBunny_manifest.xml).  
 
 Si vous souhaitez examiner le fichier de métadonnées, vous pouvez créer un localisateur **SAS** et télécharger le fichier sur votre ordinateur local.  
@@ -48,7 +48,7 @@ Vous trouverez un exemple de XML [Exemple de XML](media-services-output-metadata
 ### <a name="attributes"></a>Attributs
 | NOM | type | Description |
 | --- | --- | --- |
-| **Name**<br/><br/> Obligatoire |**xs:string** |Le nom du fichier multimédia. |
+| **Nom**<br/><br/> Obligatoire |**xs:string** |Le nom du fichier multimédia. |
 | **Taille**<br/><br/> minInclusive ="0"<br/><br/> Obligatoire |**xs:long** |Taille du fichier de ressource en octets. |
 | **Durée**<br/><br/> Obligatoire |**xs:duration** |Durée de lecture du contenu. |
 
@@ -77,7 +77,7 @@ Vous trouverez un exemple de XML [Exemple de XML](media-services-output-metadata
 ### <a name="attributes"></a>Attributs
 | NOM | type | Description |
 | --- | --- | --- |
-| **Name**<br/><br/> Obligatoire |**xs:string** |Nom du fichier source d’entrée. |
+| **Nom**<br/><br/> Obligatoire |**xs:string** |Nom du fichier source d’entrée. |
 
 ## <a name="VideoTracks "></a> Élément VideoTracks
 Chaque élément AssetFile physique peut contenir zéro ou plusieurs pistes vidéo entrelacées dans un format de conteneur approprié. L’élément **VideoTracks** représente une collection de toutes les pistes vidéo.  

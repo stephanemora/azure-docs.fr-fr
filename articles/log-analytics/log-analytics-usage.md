@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d3714f7226de2a457f37e6ea4afa2b066ee460d1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409133"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415254"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analyser l’utilisation des données dans Log Analytics
 
@@ -49,12 +49,12 @@ Le tableau de bord **Utilisation de Log Analytics** affiche les informations sui
     - Temps nécessaire pour recueillir et indexer les données  
 - Liste de requêtes
 
-![Tableau de bord répertoriant les coûts et l’utilisation](./media/log-analytics-manage-cost-storage/usage-estimated-cost-dashboard-01.png)<br>
+![Tableau de bord répertoriant les coûts et l’utilisation](media/log-analytics-usage/usage-estimated-cost-dashboard-01.png)<br>
 )
 
 ### <a name="to-work-with-usage-data"></a>Utilisation des données d’utilisation
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.<br><br> ![Portail Azure](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)<br><br>  
+2. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.<br><br> ![Portail Azure](media/log-analytics-usage/azure-portal-01.png)<br><br>  
 3. Dans votre liste d’espaces de travail Log Analytics, sélectionnez un espace de travail.
 4. Sélectionnez **Utilisation et estimation des coûts** dans la liste du volet gauche.
 5. Dans le tableau de bord **Utilisation et estimation des coûts**, vous pouvez modifier l’intervalle de temps en sélectionnant **Heure : Dernières 24 heures**.<br><br> ![Intervalle de temps](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>

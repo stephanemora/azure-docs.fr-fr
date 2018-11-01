@@ -2,7 +2,7 @@
 title: Schéma de métadonnées d’entrée Azure Media Services | Microsoft Docs
 description: Cette rubrique fournit une vue d’ensemble du schéma de métadonnées d’entrée d’Azure Media Services.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 9edfdee82a289d3b966510281305dc45a451c35f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1f37dcd14c1b3e85c3fae3bbf7aa67c16b8a898d
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783818"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249006"
 ---
 # <a name="input-metadata"></a>Métadonnées d'entrée
 Un travail d’encodage est associé à un élément multimédia d’entrée (ou plusieurs) sur lequel vous souhaitez effectuer des tâches d’encodage.  À l’achèvement d’une tâche, une ressource de sortie est générée.  L’élément multimédia de sortie contient la vidéo, l’audio, les miniatures, le manifeste, et ainsi de suite. Il contient également un fichier avec des métadonnées relatives à l’élément multimédia d’entrée. Le nom du fichier XML de métadonnées a le format suivant : &lt;asset_id&gt;_metadata.xml (par exemple, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), où &lt;asset_id&gt; est la valeur AssetId de l’élément multimédia d’entrée.  
@@ -50,7 +50,7 @@ Consultez l’exemple de XML à la fin de cet article : [Exemple de XML](media-s
 ### <a name="attributes"></a>Attributs
 | NOM | type | Description |
 | --- | --- | --- |
-| **Name**<br /><br /> Obligatoire |**xs:string** |Nom du fichier de ressource. |
+| **Nom**<br /><br /> Obligatoire |**xs:string** |Nom du fichier de ressource. |
 | **Taille**<br /><br /> Obligatoire |**xs:long** |Taille du fichier de ressource en octets. |
 | **Durée**<br /><br /> Obligatoire |**xs:duration** |Durée de lecture du contenu. Exemple : Duration="PT25M37.757S". |
 | **NumberOfStreams**<br /><br /> Obligatoire |**xs:int** |Nombre de flux dans le fichier de ressource. |

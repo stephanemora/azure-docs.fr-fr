@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/23/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 30cca10a83be09b8c9736df546958c3a1fe66f37
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 1aeaff486ed9f7cb99ea0b95451fc765344847a1
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025622"
+ms.locfileid: "50086673"
 ---
 # <a name="about-azure-migrate"></a>À propos d’Azure Migrate
 
@@ -37,7 +37,7 @@ Azure Migrate vous aide à :
 -  Vous ne pouvez créer un projet Azure Migrate que dans la zone géographique États-Unis. Toutefois, vous pouvez planifier une migration vers n’importe quel emplacement Azure cible.
     - Seules les métadonnées détectées à partir de l’environnement local sont stockées dans la région du projet de migration.
     - Les métadonnées sont stockées dans une des régions de la zone géographique : USA Centre-Ouest/USA Est.
-    - Si vous utilisez la visualisation des dépendances avec un espace de travail Log Analytics, il est créé dans la même région que le projet. 
+    - Si vous utilisez la visualisation des dépendances avec un espace de travail Log Analytics, il est créé dans la même région que le projet.
 
 
 ## <a name="what-do-i-need-to-pay-for"></a>Pour quoi dois-je payer ?

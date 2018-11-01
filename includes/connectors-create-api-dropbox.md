@@ -1,4 +1,17 @@
-### <a name="prerequisites"></a>Composants requis
+---
+author: ecfan
+ms.service: logic-apps
+ms.topic: include
+ms.date: 11/03/2016
+ms.author: estfan
+ms.openlocfilehash: 3f4430631a664f81f53f9df1f46ebc27c635de36
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50133054"
+---
+### <a name="prerequisites"></a>Prérequis
 * Un compte [Dropbox](https://www.Dropbox.com/) 
 
 Pour utiliser votre compte Dropbox dans une application logique, vous devez autoriser l’application à se connecter à votre compte. Heureusement, cette opération est très simple à effectuer dans votre application logique sur le portail Azure. 

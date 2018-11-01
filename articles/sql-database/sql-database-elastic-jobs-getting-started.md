@@ -3,7 +3,7 @@ title: Prise en main des tâches de base de données élastiques | Microsoft Doc
 description: Utilisez des tâches de base de données élastique pour exécuter des scripts T-SQL qui s’étendent sur plusieurs bases de données.
 services: sql-database
 ms.service: sql-database
-subservice: sacoperations
+ms.subservice: operations
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 07/16/2018
-ms.openlocfilehash: e760aee960cf9d84cd5076c993b1a9583b045860
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: ada95f9fc09aeb7e8dac67bc5f9c4af96f9700df
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159276"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241359"
 ---
 # <a name="getting-started-with-elastic-database-jobs"></a>Prise en main de Tâches de bases de données élastiques
 

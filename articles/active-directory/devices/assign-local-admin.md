@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/09/2018
 ms.author: markvi
 ms.reviewer: ravenn
-ms.openlocfilehash: cde364cb5231c1cc0b1947da35994862cf45b571
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 267e398305939048014038b7350b2a10481fdfbd
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042159"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238724"
 ---
 # <a name="how-to-manage-the-local-administrators-group-on-azure-ad-joined-devices"></a>Guide pratique pour gérer le groupe Administrateurs local sur des appareils joints à Azure AD
 
@@ -92,9 +92,9 @@ Outre l’utilisation du processus de jonction à Azure AD, vous pouvez égaleme
  
 Vous pouvez également ajouter des utilisateurs à l’invite de commandes :
 
-- Si vos utilisateurs locataires sont synchronisés à partir d’Active Directory en local, utilisez `net localgroup administrators /add “Contoso\username”`.
+- Si vos utilisateurs locataires sont synchronisés à partir d’Active Directory en local, utilisez `net localgroup administrators /add "Contoso\username"`.
 
-- Si vos utilisateurs locataires sont créés dans Azure AD, utilisez `net localgroup administrators /add “AzureAD\UserUpn”`.
+- Si vos utilisateurs locataires sont créés dans Azure AD, utilisez `net localgroup administrators /add "AzureAD\UserUpn"`.
 
 
 ## <a name="considerations"></a>Considérations 

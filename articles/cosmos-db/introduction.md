@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 12e3cf028b4812abd43dd2b6f23190fa6b75157a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696446"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242288"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Bienvenue dans Azure Cosmos DB
 
@@ -55,7 +55,7 @@ En tant que service de base de données multi-model distribué, Azure Cosmos DB 
 * **Assurer une disponibilité en continu**
     * Contrat SLA de disponibilité à 99,99 % pour tous les comptes de base de données à une seule région, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions.
     * Déployez dans n’importe quel nombre de [régions Azure](https://azure.microsoft.com/regions) pour bénéficier d’une plus haute disponibilité et de meilleures performances.
-    * Définissez de manière dynamique des priorités pour les régions et [simulez une panne](regional-failover.md) d’une ou plusieurs régions avec comme garantie l’absence de perte de données pour tester la disponibilité de bout en bout pour l’application entière (au-delà de la base de données uniquement). 
+    * Définissez de manière dynamique des priorités pour les régions et [simulez une panne](high-availability.md) d’une ou plusieurs régions avec comme garantie l’absence de perte de données pour tester la disponibilité de bout en bout pour l’application entière (au-delà de la base de données uniquement). 
 
 * **Écrire des applications distribuées mondialement, de la bonne façon**
     * Les cinq [modèles de cohérence](consistency-levels.md) bien définis, pratiques et intuitifs fournissent un spectre de cohérence allant d’une cohérence forte de type SQL jusqu’à une cohérence éventuelle plus souple de type NoSQL, comprenant toutes les cohérences intermédiaires. 

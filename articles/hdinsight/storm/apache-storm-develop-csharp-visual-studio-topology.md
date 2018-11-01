@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 11/27/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 371f8c1d69482381e3a400da6010825bc3ac7c1a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2765021d80701826644f095d22c650160001e907
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697779"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414894"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Développer des topologies C# pour Apache Storm à l’aide de Data Lake Tools pour Visual Studio
 
@@ -57,7 +57,7 @@ Pour installer Data Lake Tools pour Visual Studio, procédez de la manière déc
 
 Lorsque vous soumettez une topologie Storm à partir de Visual Studio, SCP.NET génère un fichier zip contenant la topologie et les dépendances. Java est utilisé pour créer ces fichiers zip, car il utilise un format qui est plus compatible avec les clusters basés sur Linux.
 
-1. Installez Java Development Kit (JDK) 7 ou version ultérieure dans votre environnement de développement. Vous pouvez obtenir le JDK Oracle à partir de la page [Oracle](http://www.oracle.com/technetwork/java/javase/downloads/index.html). Vous pouvez également utiliser d’[autres distributions Java](http://openjdk.java.net/).
+1. Installez Java Development Kit (JDK) 7 ou version ultérieure dans votre environnement de développement. Vous pouvez obtenir le JDK Oracle à partir de la page [Oracle](https://aka.ms/azure-jdks). Vous pouvez également utiliser d’[autres distributions Java](http://openjdk.java.net/).
 
 2. La variable d’environnement `JAVA_HOME` doit pointer vers le répertoire contenant Java.
 
@@ -70,30 +70,30 @@ using System;
 using System.IO;
 namespace ConsoleApplication2
 {
-   class Program
-   {
-       static void Main(string[] args)
-       {
-           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
-           if (!string.IsNullOrEmpty(javaHome))
-           {
-               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
-               if (File.Exists(jarExe))
-               {
-                   Console.WriteLine("JAVA Is Installed properly");
-                    return;
-               }
-               else
-               {
-                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
-               }
-           }
-           else
-           {
-             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
-           }
-       }  
-   }
+   class Program
+   {
+       static void Main(string[] args)
+       {
+           string javaHome = Environment.GetEnvironmentVariable("JAVA_HOME");
+           if (!string.IsNullOrEmpty(javaHome))
+           {
+               string jarExe = Path.Combine(javaHome + @"\bin", "jar.exe");
+               if (File.Exists(jarExe))
+               {
+                   Console.WriteLine("JAVA Is Installed properly");
+                    return;
+               }
+               else
+               {
+                   Console.WriteLine("A valid JAVA JDK is not found. Looks like JRE is installed instead of JDK.");
+               }
+           }
+           else
+           {
+             Console.WriteLine("A valid JAVA JDK is not found. JAVA_HOME environment variable is not set.");
+           }
+       }  
+   }
 }
 ```
 

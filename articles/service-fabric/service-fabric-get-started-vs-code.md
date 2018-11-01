@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/29/2018
 ms.author: v-jamebr
-ms.openlocfilehash: 367829c269bd1d96e6aa5fab1be008483a4ab5ab
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: dc9c11e2c0d5642e31eace2a4dcb6065d990e25d
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37115357"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413653"
 ---
 # <a name="service-fabric-for-visual-studio-code"></a>Service Fabric pour Visual Studio Code
 
@@ -50,7 +50,7 @@ Les composants requis suivants doivent être installés sur tous les environneme
 
 Les composants requis suivants doivent être installés pour le développement Java :
 
-* [SDK Java](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (version 1.8)
+* [SDK Java](https://aka.ms/azure-jdks) (version 1.8)
 * [Gradle](https://gradle.org/install/)
 * [Débogueur pour l’extension Java VS Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-java-debug) Nécessaire pour déboguer les services Java. Le débogage des services Java n’est pris en charge que sur Linux. Vous pouvez effectuer l’installation en cliquant sur l’icône Extensions dans la **barre d’activités** de VS Code et en recherchant l’extension, ou bien à partir de la place de marché VS Code.
 

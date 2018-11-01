@@ -11,12 +11,12 @@ ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: eea70d979a69a4855b6eeb892d1705ecadaa8434
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 0fbd89202796cb4543dbecbeee605c9b87cc9d05
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918643"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230656"
 ---
 # <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Superviser et gérer Twitter à l’aide d’Azure Logic Apps
 
@@ -48,7 +48,7 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre com
 1. Choisissez une procédure : 
 
    * Pour les applications logiques vides, dans la zone de recherche, entrez « twitter » comme filtre. 
-   Sous la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
+   Dans la liste des déclencheurs, sélectionnez le déclencheur souhaité. 
 
      -ou-
 
@@ -66,7 +66,7 @@ Vous pouvez utiliser des déclencheurs qui obtiennent des réponses de votre com
 
 1. Si vous êtes invité à vous connecter à Twitter, faites-le maintenant afin de pouvoir autoriser l’accès pour votre application logique.
 
-1. Fournissez les informations nécessaires pour le déclencheur ou l’action sélectionné et continuez à générer le flux de travail de votre application logique.
+1. Fournissez les informations nécessaires pour le déclencheur ou l’action sélectionnés et continuez à générer le flux de travail de votre application logique.
 
 ## <a name="examples"></a>Exemples
 
@@ -89,7 +89,7 @@ Pour obtenir des détails techniques sur les déclencheurs, les actions et les l
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

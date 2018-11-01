@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: 93aa77edaedbd3984e9e83ccfb7374422952e83a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226787"
+---
 L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau sur lesquels le groupe de disponibilité de SQL Server écoute. Pour créer l’écouteur de groupe de disponibilité, procédez comme suit :
 
 1. <a name="getnet"></a>Récupérez le nom de la ressource réseau de cluster.
@@ -68,7 +81,7 @@ L’écouteur de groupe de disponibilité est une adresse IP et un nom réseau s
    ![Ressource IP](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
     >[!TIP]
-    >Vous pouvez vérifier que les dépendances sont correctement configurées. Dans le Gestionnaire du cluster de basculement, accédez à Rôles, cliquez avec le bouton droit sur le groupe de disponibilité, et cliquez sur **Autres actions**, puis sur **Afficher le rapport de dépendance**. Lorsque les dépendances sont correctement configurées, le groupe de disponibilité dépend du nom réseau, et le nom réseau dépend de l’adresse IP. 
+    >Vous pouvez vérifier que les dépendances sont correctement configurées. Dans le Gestionnaire du cluster de basculement, accédez à Rôles, cliquez avez le bouton droit sur le groupe de disponibilité, et cliquez sur **Autres actions**, puis sur **Afficher le rapport de dépendance**. Lorsque les dépendances sont correctement configurées, le groupe de disponibilité dépend du nom réseau, et le nom réseau dépend de l’adresse IP. 
 
 
 1. <a name="setparam"></a>Définissez les paramètres de cluster dans PowerShell.

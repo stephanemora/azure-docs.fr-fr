@@ -2,19 +2,18 @@
 title: Bien démarrer avec les jumeaux d’appareils Azure IoT Hub (Java) | Microsoft Docs
 description: Guide d’utilisation des jumeaux d’appareils Azure IoT Hub pour ajouter des balises, puis utiliser une requête IoT Hub. Vous utilisez Azure IoT device SDK pour Java afin d’implémenter l’application pour appareils et Azure IoT service SDK afin d’implémenter une application de service qui ajoute les balises et exécute la requête IoT Hub.
 author: dominicbetts
-manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.devlang: java
 ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: dobett
-ms.openlocfilehash: b8884cafbf250b9d7a88219b5647addafee9904a
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 98ef140635da1d773da86bbbe41e5494453d6287
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186898"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418039"
 ---
 # <a name="get-started-with-device-twins-java"></a>Bien démarrer avec les jumeaux d’appareils (Java)
 
@@ -30,8 +29,10 @@ Dans ce tutoriel, vous allez créer deux applications de console Java :
 
 Pour suivre ce didacticiel, vous avez besoin des éléments suivants :
 
-* La version la plus récente de [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* La version la plus récente de [Java SE Development Kit 8](https://aka.ms/azure-jdks)
+
 * [Maven 3](https://maven.apache.org/install.html)
+
 * Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
@@ -44,13 +45,15 @@ Dans cette section, vous créez une application Java qui ajoute des métadonnée
 
 1. Sur votre ordinateur de développement, créez un dossier vide nommé `iot-java-twin-getstarted`.
 
-1. Dans le dossier `iot-java-twin-getstarted`, créez un projet Maven nommé **add-tags-query** en lançant la commande ci-dessous dans votre invite de commandes. Il s’agit d’une commande unique et longue :
+2. Dans le dossier `iot-java-twin-getstarted`, créez un projet Maven nommé **add-tags-query** en lançant la commande ci-dessous dans votre invite de commandes. Il s’agit d’une commande unique et longue :
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=add-tags-query -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
-1. Dans votre invite de commandes, accédez au dossier `add-tags-query`.
+3. Dans votre invite de commandes, accédez au dossier `add-tags-query`.
 
-1. Dans un éditeur de texte, ouvrez le fichier `pom.xml` dans le dossier `add-tags-query` et ajoutez la dépendance suivante au nœud **dependencies**. Cette dépendance vous permet d’utiliser le package **iot-service-client** dans votre application pour communiquer avec votre IoT Hub :
+4. Dans un éditeur de texte, ouvrez le fichier `pom.xml` dans le dossier `add-tags-query` et ajoutez la dépendance suivante au nœud **dependencies**. Cette dépendance vous permet d’utiliser le package **iot-service-client** dans votre application pour communiquer avec votre IoT Hub :
 
     ```xml
     <dependency>
@@ -64,7 +67,7 @@ Dans cette section, vous créez une application Java qui ajoute des métadonnée
     > [!NOTE]
     > Vous pouvez rechercher la dernière version de **iot-service-client** avec la [recherche Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-service-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Ajoutez le nœud **build** suivant après le nœud **dependencies**. Cette configuration ordonne à Maven d’utiliser Java 1.8 pour générer l’application :
+5. Ajoutez le nœud **build** suivant après le nœud **dependencies**. Cette configuration ordonne à Maven d’utiliser Java 1.8 pour générer l’application :
 
     ```xml
     <build>
@@ -82,11 +85,11 @@ Dans cette section, vous créez une application Java qui ajoute des métadonnée
     </build>
     ```
 
-1. Enregistrez et fermez le fichier `pom.xml`.
+6. Enregistrez et fermez le fichier `pom.xml`.
 
-1. Ouvrez le fichier `add-tags-query\src\main\java\com\mycompany\app\App.java` dans un éditeur de texte.
+7. Ouvrez le fichier `add-tags-query\src\main\java\com\mycompany\app\App.java` dans un éditeur de texte.
 
-1. Ajoutez les instructions **import** suivantes au fichier :
+8. Ajoutez les instructions **import** suivantes au fichier :
 
     ```java
     import com.microsoft.azure.sdk.iot.service.devicetwin.*;
@@ -97,7 +100,7 @@ Dans cette section, vous créez une application Java qui ajoute des métadonnée
     import java.util.Set;
     ```
 
-1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubconnectionstring}` par la chaîne de connexion de votre hub IoT, que vous avez notée dans la section *Créer un hub IoT* :
+9. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubconnectionstring}` par la chaîne de connexion de votre hub IoT, que vous avez notée dans la section *Créer un hub IoT* :
 
     ```java
     public static final String iotHubConnectionString = "{youriothubconnectionstring}";
@@ -107,13 +110,13 @@ Dans cette section, vous créez une application Java qui ajoute des métadonnée
     public static final String plant = "Redmond43";
     ```
 
-1. Mettez à jour la signature de la méthode **main** pour qu’elle inclue la clause `throws` suivante :
+10. Mettez à jour la signature de la méthode **main** pour qu’elle inclue la clause `throws` suivante :
 
     ```java
     public static void main( String[] args ) throws IOException
     ```
 
-1. Ajoutez le code suivant à la méthode **main** pour créer les objets **DeviceTwin** et **DeviceTwinDevice**. L’objet **DeviceTwin** gère la communication avec votre hub IoT. L’objet **DeviceTwinDevice** représente le jumeau de l’appareil avec ses propriétés et ses balises :
+11. Ajoutez le code suivant à la méthode **main** pour créer les objets **DeviceTwin** et **DeviceTwinDevice**. L’objet **DeviceTwin** gère la communication avec votre hub IoT. L’objet **DeviceTwinDevice** représente le jumeau de l’appareil avec ses propriétés et ses balises :
 
     ```java
     // Get the DeviceTwin and DeviceTwinDevice objects
@@ -121,7 +124,7 @@ Dans cette section, vous créez une application Java qui ajoute des métadonnée
     DeviceTwinDevice device = new DeviceTwinDevice(deviceId);
     ```
 
-1. Ajoutez le bloc `try/catch` suivant à la méthode **main** :
+12. Ajoutez le bloc `try/catch` suivant à la méthode **main** :
 
     ```java
     try {
@@ -133,7 +136,7 @@ Dans cette section, vous créez une application Java qui ajoute des métadonnée
     }
     ```
 
-1. Pour mettre à jour les balises **region** et **plant** du jumeau de l’appareil, ajoutez le code suivant dans le bloc `try` :
+13. Pour mettre à jour les balises **region** et **plant** du jumeau de l’appareil, ajoutez le code suivant dans le bloc `try` :
 
     ```java
     // Get the device twin from IoT Hub
@@ -162,7 +165,7 @@ Dans cette section, vous créez une application Java qui ajoute des métadonnée
     System.out.println(device);
     ```
 
-1. Pour interroger les jumeaux d’appareils dans IoT Hub, ajoutez le code suivant au bloc `try` après le code que vous avez ajouté à l’étape précédente. Le code exécute deux requêtes. Chaque requête retourne un maximum de 100 appareils :
+14. Pour interroger les jumeaux d’appareils dans IoT Hub, ajoutez le code suivant au bloc `try` après le code que vous avez ajouté à l’étape précédente. Le code exécute deux requêtes. Chaque requête retourne un maximum de 100 appareils :
 
     ```java
     // Query the device twins in IoT Hub
@@ -191,11 +194,13 @@ Dans cette section, vous créez une application Java qui ajoute des métadonnée
     }
     ```
 
-1. Enregistrez et fermez le fichier `add-tags-query\src\main\java\com\mycompany\app\App.java`.
+15. Enregistrez et fermez le fichier `add-tags-query\src\main\java\com\mycompany\app\App.java`.
 
-1. Générez l’application **add-tags-query** et corrigez les erreurs éventuelles. Dans votre invite de commandes, accédez au dossier `add-tags-query` et exécutez la commande suivante :
+16. Générez l’application **add-tags-query** et corrigez les erreurs éventuelles. Dans votre invite de commandes, accédez au dossier `add-tags-query` et exécutez la commande suivante :
 
-    `mvn clean package -DskipTests`
+    ```
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="create-a-device-app"></a>Créer une application pour appareils
 
@@ -203,11 +208,13 @@ Dans cette section, vous allez créer une application console Java qui définit 
 
 1. Dans le dossier `iot-java-twin-getstarted`, créez un projet Maven nommé **simulated-device** en lançant la commande suivante dans votre invite de commandes. Il s’agit d’une commande unique et longue :
 
-    `mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false`
+    ```
+    mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=simulated-device -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
+    ```
 
-1. Dans votre invite de commandes, accédez au dossier `simulated-device`.
+2. Dans votre invite de commandes, accédez au dossier `simulated-device`.
 
-1. Dans un éditeur de texte, ouvrez le fichier `pom.xml` dans le dossier `simulated-device` et ajoutez les dépendances suivantes au nœud **dependencies**. Cette dépendance vous permet d’utiliser le package **iot-device-client** dans votre application pour communiquer avec votre IoT Hub :
+3. Dans un éditeur de texte, ouvrez le fichier `pom.xml` dans le dossier `simulated-device` et ajoutez les dépendances suivantes au nœud **dependencies**. Cette dépendance vous permet d’utiliser le package **iot-device-client** dans votre application pour communiquer avec votre IoT Hub :
 
     ```xml
     <dependency>
@@ -220,7 +227,7 @@ Dans cette section, vous allez créer une application console Java qui définit 
     > [!NOTE]
     > Vous pouvez rechercher la dernière version de **iot-device-client** avec la [recherche Maven](http://search.maven.org/#search%7Cga%7C1%7Ca%3A%22iot-device-client%22%20g%3A%22com.microsoft.azure.sdk.iot%22).
 
-1. Ajoutez le nœud **build** suivant après le nœud **dependencies**. Cette configuration ordonne à Maven d’utiliser Java 1.8 pour générer l’application :
+4. Ajoutez le nœud **build** suivant après le nœud **dependencies**. Cette configuration ordonne à Maven d’utiliser Java 1.8 pour générer l’application :
 
     ```xml
     <build>
@@ -238,11 +245,11 @@ Dans cette section, vous allez créer une application console Java qui définit 
     </build>
     ```
 
-1. Enregistrez et fermez le fichier `pom.xml`.
+5. Enregistrez et fermez le fichier `pom.xml`.
 
-1. Ouvrez le fichier `simulated-device\src\main\java\com\mycompany\app\App.java` dans un éditeur de texte.
+6. Ouvrez le fichier `simulated-device\src\main\java\com\mycompany\app\App.java` dans un éditeur de texte.
 
-1. Ajoutez les instructions **import** suivantes au fichier :
+7. Ajoutez les instructions **import** suivantes au fichier :
 
     ```java
     import com.microsoft.azure.sdk.iot.device.*;
@@ -253,7 +260,7 @@ Dans cette section, vous allez créer une application console Java qui définit 
     import java.util.Scanner;
     ```
 
-1. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubname}` par le nom de votre IoT Hub, et `{yourdevicekey}` par la valeur de clé de l’appareil que vous avez générée dans la section *Créer une identité d’appareil* :
+8. Ajoutez les variables de niveau classe suivantes à la classe **App** . Remplacez `{youriothubname}` par le nom de votre IoT Hub, et `{yourdevicekey}` par la valeur de clé de l’appareil que vous avez générée dans la section *Créer une identité d’appareil* :
 
     ```java
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myDeviceID;SharedAccessKey={yourdevicekey}";
@@ -263,7 +270,7 @@ Dans cette section, vous allez créer une application console Java qui définit 
 
     Cet exemple d’application utilise la variable **protocol** lorsqu’il instancie un objet **DeviceClient**. 
 
-1. Ajoutez le code suivant à la méthode **main** pour :
+9. Ajoutez le code suivant à la méthode **main** pour :
     * créer un client d’appareil afin de communiquer avec IoT Hub.
     * créer un objet **Device** afin de stocker les propriétés du jumeau d’appareil.
 
@@ -280,7 +287,7 @@ Dans cette section, vous allez créer une application console Java qui définit 
     };
     ```
 
-1. Ajoutez le code suivant à la méthode **main** pour créer une propriété signalée **connectivityType** et l’envoyer à IoT Hub :
+10. Ajoutez le code suivant à la méthode **main** pour créer une propriété signalée **connectivityType** et l’envoyer à IoT Hub :
 
     ```java
     try {
@@ -300,7 +307,7 @@ Dans cette section, vous allez créer une application console Java qui définit 
     }
     ```
 
-1. Ajoutez le code suivant à la fin de la méthode **main**. Le fait d’attendre la touche **Entrée** laisse le temps à IoT Hub de signaler l’état des opérations du jumeau d’appareil :
+11. Ajoutez le code suivant à la fin de la méthode **main**. Le fait d’attendre la touche **Entrée** laisse le temps à IoT Hub de signaler l’état des opérations du jumeau d’appareil :
 
     ```java
     System.out.println("Press any key to exit...");
@@ -312,11 +319,13 @@ Dans cette section, vous allez créer une application console Java qui définit 
     client.close();
     ```
 
-1. Enregistrez et fermez le fichier `simulated-device\src\main\java\com\mycompany\app\App.java`.
+12. Enregistrez et fermez le fichier `simulated-device\src\main\java\com\mycompany\app\App.java`.
 
-1. Générez l’application **simulated-device** et corrigez les erreurs. Dans votre invite de commandes, accédez au dossier `simulated-device` et exécutez la commande suivante :
+13. Générez l’application **simulated-device** et corrigez les erreurs. Dans votre invite de commandes, accédez au dossier `simulated-device` et exécutez la commande suivante :
 
-    `mvn clean package -DskipTests`
+    ```
+    mvn clean package -DskipTests
+    ```
 
 ## <a name="run-the-apps"></a>Exécuter les applications
 
@@ -324,23 +333,29 @@ Vous êtes maintenant prêt à exécuter les applications de console.
 
 1. Dans une invite de commande, exécutez la commande suivante dans le dossier `add-tags-query` pour exécuter l’application de service **add-tags-query** :
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
-    ![Application de service Java IoT Hub pour mettre à jour la valeur des balises et exécuter les requêtes des appareils](media/iot-hub-java-java-twin-getstarted/service-app-1.png)
+    ![Application de service Java IoT Hub pour mettre à jour la valeur des balises et exécuter les requêtes des appareils](./media/iot-hub-java-java-twin-getstarted/service-app-1.png)
 
     Vous pouvez constater que les balises **plant** et **region** sont ajoutées au jumeau d’appareil. La première requête retourne votre appareil, la seconde non.
 
-1. Dans une invite de commandes, exécutez la commande suivante dans le dossier `simulated-device` pour ajouter la propriété signalée **connectivityType** au jumeau d’appareil :
+2. Dans une invite de commandes, exécutez la commande suivante dans le dossier `simulated-device` pour ajouter la propriété signalée **connectivityType** au jumeau d’appareil :
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
-    ![Le client d’appareil ajoute la propriété signalée **connectivityType**](media/iot-hub-java-java-twin-getstarted/device-app-1.png)
+    ![Le client d’appareil ajoute la propriété signalée **connectivityType**](./media/iot-hub-java-java-twin-getstarted/device-app-1.png)
 
-1. Dans une invite de commandes, exécutez la commande suivante dans le dossier `add-tags-query` pour exécuter de nouveau l’application de service **add-tags-query** :
+3. Dans une invite de commandes, exécutez la commande suivante dans le dossier `add-tags-query` pour exécuter de nouveau l’application de service **add-tags-query** :
 
-    `mvn exec:java -Dexec.mainClass="com.mycompany.app.App"`
+    ```
+    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
+    ```
 
-    ![Application de service Java IoT Hub pour mettre à jour la valeur des balises et exécuter les requêtes des appareils](media/iot-hub-java-java-twin-getstarted/service-app-2.png)
+    ![Application de service Java IoT Hub pour mettre à jour la valeur des balises et exécuter les requêtes des appareils](./media/iot-hub-java-java-twin-getstarted/service-app-2.png)
 
     Maintenant que votre appareil a envoyé la propriété **connectivityType** à IoT Hub, la deuxième requête retourne votre appareil.
 
@@ -351,12 +366,5 @@ Dans ce didacticiel, vous avez configuré un nouveau IoT Hub dans le portail Azu
 Utilisez les ressources suivantes :
 
 * Envoyez des données de télémétrie à partir d’appareils en suivant le didacticiel [Bien démarrer avec IoT Hub](quickstart-send-telemetry-java.md).
+
 * Contrôlez les appareils de façon interactive (par exemple pour mettre en marche un ventilateur à partir d’une application contrôlée par l’utilisateur) en suivant le didacticiel [Utiliser des méthodes directes](quickstart-control-device-java.md).
-
-<!-- Images. -->
-[7]: ./media/iot-hub-java-java-twin-getstarted/invoke-method.png
-[8]: ./media/iot-hub-java-java-twin-getstarted/device-listen.png
-[9]: ./media/iot-hub-java-java-twin-getstarted/device-respond.png
-
-<!-- Links -->
-[lnk-hub-sdks]: iot-hub-devguide-sdks.md

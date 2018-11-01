@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 10/24/2018
 ms.author: juliako
-ms.openlocfilehash: 62cc4634a0f76b0562d5b3c1355a7442fc5cf989
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: e7abdb568b11870fb467ee6d3759881ca337d3cc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985231"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085786"
 ---
 # <a name="assets"></a>Éléments multimédias
 
@@ -34,19 +34,19 @@ Consultez également les articles sur les [comptes de stockage dans Media Servic
 
 Le tableau suivant présente les propriétés de l’actif multimédia ainsi que leurs définitions.
 
-|NOM|type|Description|
-|---|---|---|
-|id|chaîne|ID de ressource complet pour la ressource.|
-|Nom|chaîne|Nom de la ressource.|
-|properties.alternateId |chaîne|Autre ID de l’actif multimédia.|
-|properties.assetId |chaîne|ID de l’actif multimédia.|
-|properties.container |chaîne|Nom du conteneur d’objets blob d’actifs multimédias.|
-|properties.created |chaîne|Date de création de l’actif multimédia.|
-|properties.description |chaîne|Description de l’actif multimédia.|
-|properties.lastModified |chaîne|Date de dernière modification de l’actif multimédia.|
-|properties.storageAccountName |chaîne|Nom du compte de stockage.|
-|properties.storageEncryptionFormat |AssetStorageEncryptionFormat |Format de chiffrement de l’actif multimédia. None ou MediaStorageEncryption.|
-|Type|chaîne|Type de la ressource.|
+|NOM|Description|
+|---|---|
+|id|ID de ressource complet pour la ressource.|
+|Nom|Nom de la ressource.|
+|properties.alternateId |Autre ID de l’actif multimédia.|
+|properties.assetId |ID de l’actif multimédia.|
+|properties.container |Nom du conteneur d’objets blob d’actifs multimédias.|
+|properties.created |Date de création de l’actif multimédia.|
+|properties.description|Description de l’actif multimédia.|
+|properties.lastModified |Date de dernière modification de l’actif multimédia.|
+|properties.storageAccountName |Nom du compte de stockage.|
+|properties.storageEncryptionFormat |Format de chiffrement de l’actif multimédia. None ou MediaStorageEncryption.|
+|Type|Type de la ressource.|
 
 Pour obtenir la définition complète, consultez [Actifs](https://docs.microsoft.com/rest/api/media/assets).
 
@@ -59,7 +59,7 @@ Media Services prend en charge les options de requête OData suivantes pour les 
 * $top 
 * $skiptoken 
 
-Description des opérateurs :
+Description des opérateurs :
 
 * Eq = est égal à
 * Ne = n’est pas égal à

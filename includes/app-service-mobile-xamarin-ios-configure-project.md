@@ -1,3 +1,16 @@
+---
+author: conceptdev
+ms.service: app-service-mobile
+ms.topic: include
+ms.date: 08/23/2018
+ms.author: crdun
+ms.openlocfilehash: a69df0cc9ea14a2c9fa172c77663afb1d6861f9b
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50134047"
+---
 #### <a name="configure-the-ios-project-in-xamarin-studio"></a>Configurer le projet iOS dans Xamarin Studio
 1. Dans Xamarin.Studio, ouvrez **Info.plist**, puis mettez à jour la valeur du champ **Bundle Identifier (Identificateur d’offre groupée)** avec l’ID d’offre groupée que vous avez créé précédemment avec votre nouvel ID d’application.
 

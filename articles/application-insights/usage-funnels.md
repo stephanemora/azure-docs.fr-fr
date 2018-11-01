@@ -3,7 +3,7 @@ title: Entonnoirs Azure Application Insights
 description: Apprenez à utiliser les entonnoirs pour découvrir de quelle façon les clients interagissent avec votre application.
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,13 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/17/2017
-ms.author: mbullwin
-ms.openlocfilehash: 8478106fd68f6fcc65dff832b5cb27ca8db5f5bd
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.pm_owner: daviste;NumberByColors
+ms.reviewer: mbullwin
+ms.author: daviste
+ms.openlocfilehash: 3d4d6ba7e185b1cc5fdcee1633a11e579d8194e8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093719"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413959"
 ---
 # <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Découvrir comment les clients utilisent votre application avec les entonnoirs Application Insights
 
@@ -38,7 +40,7 @@ Voici les étapes qu’ils suivent pour créer leur entonnoir.
 La capture d’écran suivante montre un exemple du type de données que l’outil Entonnoirs génère. Les propriétaires de Fabrikam peuvent constater qu’au cours des 90 derniers jours, 54,3 pourcent de leurs clients ayant visité la page d’accueil ont créé un ticket client. Ils peuvent également constater que 2 700 de leurs clients sont parvenus à l’index à partir de la page d’accueil. Cela peut indiquer un problème d’actualisation.
 
 
-![Capture d’écran de l’outil Entonnoirs avec des données](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Capture d’écran de l’outil Entonnoirs avec des données](media/usage-funnels/funnel1.png)
 
 ### <a name="funnels-features"></a>Fonctionnalités des entonnoirs
 La capture d’écran précédente inclut cinq zones mises en surbrillance. Il s’agit des fonctionnalités des entonnoirs. La liste suivante explique en détail chaque zone correspondante dans la capture d’écran :

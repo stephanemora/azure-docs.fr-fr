@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 05/07/2018
-ms.openlocfilehash: fc1f952128b4cfbb082f4c539a102f40d3b85e8d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c984f5a96ef9dcc1e4fb6f5b3f54159c26cafdbc
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040296"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50412837"
 ---
 # <a name="tutorial-create-a-scala-maven-application-for-spark-in-hdinsight-using-intellij"></a>Didacticiel : créer une application Scala Maven pour Spark dans HDInsight à l’aide d’IntelliJ
 
@@ -40,7 +40,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 ## <a name="prerequisites"></a>Prérequis
 
 * Un cluster Apache Spark sur HDInsight. Pour obtenir des instructions, consultez [Création de clusters Apache Spark dans Azure HDInsight](apache-spark-jupyter-spark-sql.md).
-* Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir d’ [ici](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html).
+* Kit de développement logiciel (SDK) Oracle Java. Vous pouvez l’installer à partir d’ [ici](https://aka.ms/azure-jdks).
 * IDE Java. Cet article utilise IntelliJ IDEA 18.1.1. Vous pouvez l’installer à partir [d’ici](https://www.jetbrains.com/idea/download/).
 
 ## <a name="use-intellij-to-create-application"></a>Utilisez IntelliJ pour créer l’application
@@ -194,5 +194,5 @@ Pour exécuter l’application sur le cluster, vous pouvez procéder comme suit 
 Dans cet article, vous avez appris à créer une application Spark Scala. Passez à l’article suivant pour savoir comment exécuter cette application sur un cluster HDInsight Spark en utilisant Livy.
 
 > [!div class="nextstepaction"]
->[Exécution de travaux à distance avec Livy sur un cluster Spark](./apache-spark-livy-rest-interface.md)
+>[Exécuter des tâches à distance avec Livy sur un cluster Spark](./apache-spark-livy-rest-interface.md)
 

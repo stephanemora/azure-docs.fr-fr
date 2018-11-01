@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: maquaran
-ms.openlocfilehash: 5c916f847bf5098145c3ed14fad87c7669d916c8
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 3c97c89bde40357981d82dce8dd53febff25c8f3
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222690"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239880"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Réseaux sociaux avec Azure Cosmos DB
 Vivre dans une société massivement interconnectée signifie qu’à un moment donné, vous vous joignez à un **réseau social**. Vous utilisez les réseaux sociaux pour rester en contact avec vos amis, vos collègues, votre famille, ou parfois pour partager votre passion avec des personnes ayant des intérêts communs.
@@ -233,7 +233,7 @@ Imaginez que les choses continuent de s’améliorer et que des utilisateurs d�
 
 Mais vous constatez rapidement que leur expérience avec votre plate-forme n’est pas optimale car ils sont si éloignés de votre région opérationnelle que la latence est catastrophique et risquerait de les dissuader d’utiliser votre plate-forme. Mais il existe un moyen facile de **développer votre visibilité globale** !
 
-Cosmos DB vous permet de [répliquer vos données globalement](../cosmos-db/tutorial-global-distribution-sql-api.md) et de manière transparente en quelques clics, mais aussi de choisir automatiquement parmi les régions disponibles à partir de votre [code client](../cosmos-db/tutorial-global-distribution-sql-api.md). Cela signifie également que vous pouvez avoir [plusieurs régions de basculement](regional-failover.md). 
+Cosmos DB vous permet de [répliquer vos données globalement](../cosmos-db/tutorial-global-distribution-sql-api.md) et de manière transparente en quelques clics, mais aussi de choisir automatiquement parmi les régions disponibles à partir de votre [code client](../cosmos-db/tutorial-global-distribution-sql-api.md). Cela signifie également que vous pouvez avoir [plusieurs régions de basculement](high-availability.md). 
 
 Lorsque vous répliquez vos données globalement, vous devez vous assurer que vos clients peuvent en tirer parti. Si vous utilisez un frontend web ou que vous accédez aux API à partir de clients mobiles, vous pouvez déployer [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) et cloner votre Azure App Service dans toutes les régions de votre choix en utilisant une configuration des performances pour prendre en charge votre couverture étendue globale. Quand vos clients accèdent à votre serveur frontal ou API, ils sont redirigés vers l’instance App Service la plus proche qui, à son tour, se connecte au réplica Cosmos DB local.
 

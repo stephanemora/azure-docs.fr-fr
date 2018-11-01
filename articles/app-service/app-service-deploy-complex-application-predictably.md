@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c4071da60ed1311d8dd75d6a369c48cf711778cb
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050744"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243212"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Mise en service et déploiement de microservices de manière prévisible dans Azure
 Ce didacticiel explique comment mettre en service et déployer une application composée de [microservices](https://en.wikipedia.org/wiki/Microservices) dans [Azure App Service](https://azure.microsoft.com/services/app-service/) sous la forme d'une unité unique et de manière prévisible, à l'aide de modèles de groupe de ressources JSON et des scripts PowerShell. 
@@ -148,7 +148,7 @@ Les paramètres d’application sont également définis en tant que ressource i
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
 
-Dans l’élément `properties` de `config/appsettings`, vous disposez de deux paramètres d’application au format `“<name>” : “<value>”`.
+Dans l’élément `properties` de `config/appsettings`, vous disposez de deux paramètres d’application au format `"<name>" : "<value>"`.
 
 * `PROJECT` est un [paramètre KUDU](https://github.com/projectkudu/kudu/wiki/Customizing-deployments) qui indique au processus de déploiement de Microsoft Azure quel projet utiliser dans une solution Visual Studio à plusieurs projets. Plus tard, je vous montrerai comment le contrôle de code source est configuré. Toutefois, comme le code ToDoApp figure dans une solution Visual Studio à plusieurs projets, nous avons besoin de ce paramètre.
 * L’élément `clientUrl` est simplement un paramètre d’application utilisé par le code d’application.
@@ -158,7 +158,7 @@ Les chaînes de connexion sont également définies en tant que ressource imbriq
 
 ![](./media/app-service-deploy-complex-application-predictably/examinejson-7-webappconnstr.png)
 
-Dans l’élément `properties` relatif à `config/connectionstrings`, chaque chaîne de connexion est définie comme une paire nom:valeur, avec le format spécifique de l’élément `“<name>” : {“value”: “…”, “type”: “…”}`. Pour l’élément `type`, les valeurs possibles sont les suivantes : `MySql`, `SQLServer`, `SQLAzure` et `Custom`.
+Dans l’élément `properties` relatif à `config/connectionstrings`, chaque chaîne de connexion est définie comme une paire nom:valeur, avec le format spécifique de l’élément `"<name>" : {"value": "…", "type": "…"}`. Pour l’élément `type`, les valeurs possibles sont les suivantes : `MySql`, `SQLServer`, `SQLAzure` et `Custom`.
 
 > [!TIP]
 > Pour obtenir une liste définitive des types de chaîne de connexion, exécutez la commande suivante dans Azure PowerShell : \[Enum]::GetNames("Microsoft.WindowsAzure.Commands.Utilities.Websites.Services.WebEntities.DatabaseType").
@@ -264,7 +264,7 @@ Dans DevOps, la répétition et la prévisibilité jouent un rôle majeur pour 
 
 ## <a name="more-resources"></a>Autres ressources
 * [Langue du modèle Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
-* [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
+* [Création de modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md)
 * [Fonctions des modèles Azure Resource Manager](../azure-resource-manager/resource-group-template-functions.md)
 * [Déploiement d’une application avec un modèle Azure Resource Manager](../azure-resource-manager/resource-group-template-deploy.md)
 * [Utilisation d’Azure PowerShell avec Azure Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md)

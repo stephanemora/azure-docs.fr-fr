@@ -8,12 +8,12 @@ ms.service: data-explorer
 services: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 59a6a94e2906413423a4ae03a7c1c115b2ec0cc0
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: bd3be916587ab884ea5579234a6189af54b53797
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47046166"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209205"
 ---
 # <a name="manage-cluster-scaling-to-accommodate-changing-demand"></a>Gérer la mise à l’échelle du cluster pour prendre en compte les fluctuations de la demande
 
@@ -63,4 +63,4 @@ Le graphisme suivant illustre le flux des prochaines étapes. Nous fournissons d
 
 Vous venez de configurer une opération de montée en charge pour votre cluster de l’Explorateur de données Azure. Ajoutez une autre règle pour une opération de diminution de la taille. Cela permet à votre cluster d’être mis à l’échelle dynamiquement en fonction des métriques d’utilisation que vous spécifiez.
 
-Si vous avez besoin d’aide pour résoudre des problèmes de mise à l’échelle de clusters, ouvrez une demande de support dans le [portail Azure](https://portal.azure.com).
+Si vous avez besoin d’aide pour résoudre des problèmes de mise à l’échelle de clusters, ouvrez une demande de support dans le [portail Azure](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).

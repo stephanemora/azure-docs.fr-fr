@@ -3,7 +3,7 @@ title: Créer et gérer des pools élastiques – Azure SQL Database | Microsof
 description: Créez et gérez des pools élastiques SQL Azure.
 services: sql-database
 ms.service: sql-database
-subservice: elastic-pool
+ms.subservice: elastic-pool
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -11,13 +11,13 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 0c939956a8f3336b5071748a8c2bdf8840b749ad
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: acf17533ee73313937c2edb9badaef9007309373
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466067"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243093"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Créer et gérer des pools élastiques dans Azure SQL Database
 
@@ -99,11 +99,11 @@ Pour créer et gérer des pools élastiques SQL Database et des bases de donnée
 
 | Commande | Description |
 | --- | --- |
-|[Pools élastiques - Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_createorupdate)|Crée un pool élastique ou met à jour un pool élastique existant.|
-|[Pools élastiques - Supprimer](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_delete)|Supprime le pool élastique.|
-|[Pools élastiques - Obtenir](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_get)|Obtenir un pool élastique.|
-|[Pools élastiques - Lister par serveur](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Renvoie une liste de pools élastiques dans un serveur.|
-|[Pools élastiques - Mettre à jour](https://docs.microsoft.com/rest/api/sql/elasticpools/elasticpools_listbyserver)|Met à jour un pool élastique existant.|
+|[Pools élastiques - Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/elasticpools/createorupdate)|Crée un pool élastique ou met à jour un pool élastique existant.|
+|[Pools élastiques - Supprimer](https://docs.microsoft.com/rest/api/sql/elasticpools/delete)|Supprime le pool élastique.|
+|[Pools élastiques - Obtenir](https://docs.microsoft.com/rest/api/sql/elasticpools/get)|Obtenir un pool élastique.|
+|[Pools élastiques - Lister par serveur](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Renvoie une liste de pools élastiques dans un serveur.|
+|[Pools élastiques - Mettre à jour](https://docs.microsoft.com/rest/api/sql/elasticpools/listbyserver)|Met à jour un pool élastique existant.|
 |[Activités de pool élastique](https://docs.microsoft.com/rest/api/sql/elasticpoolactivities)|Retourne les activités de pool élastique.|
 |[Activités de bases de données du pool élastique](https://docs.microsoft.com/rest/api/sql/elasticpooldatabaseactivities)|Retourne l’activité sur les bases de données à l’intérieur d’un pool élastique.|
 |[Bases de données - Créer ou mettre à jour](https://docs.microsoft.com/rest/api/sql/databases/createorupdate)|Crée une base de données ou met à jour une base de données existante.|

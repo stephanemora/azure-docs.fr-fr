@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 8cc654fca8e645253ffc79ef808075bdbe887530
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 31ee14369cc3f1c03d13c59e1239aa567bce3552
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48043292"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419773"
 ---
 # <a name="reference-guide-to-view-designer-visualization-parts-in-log-analytics"></a>Guide de référence des composants de visualisation du Concepteur de vues dans Log Analytics
 Grâce au Concepteur de vues d’Azure Log Analytics, vous pouvez créer des vues personnalisées dans le portail Azure qui présentent différentes visualisations de données de votre espace de travail Log Analytics. Cet article est un guide de référence pour les paramètres des composants de visualisation disponibles dans vos vues personnalisées.
@@ -50,7 +50,7 @@ Les sections suivantes décrivent les types de vignettes et leurs propriétés e
 ## <a name="list-of-queries-part"></a>Liste de parties de requêtes
 La liste des parties de requêtes affiche une liste de requêtes de recherche dans les journaux. Vous pouvez sélectionner chaque requête pour afficher ses résultats. La vue inclut une requête par défaut, et vous pouvez sélectionner **+ Requête** pour ajouter des requêtes supplémentaires.
 
-![Liste de vues de requêtes](media/log-analytics-view-designer/view-list-queries.png)
+![Liste de vues de requêtes](media/log-analytics-view-designer-parts/view-list-queries.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -66,7 +66,7 @@ La liste des parties de requêtes affiche une liste de requêtes de recherche da
 ## <a name="number-and-list-part"></a>Partie Nombre et liste
 L’en-tête affiche une valeur qui indique le nombre d’enregistrements obtenus à partir d’une requête de recherche dans les journaux. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps.
 
-![Liste de vues de requêtes](media/log-analytics-view-designer/view-number-list.png)
+![Liste de vues de requêtes](media/log-analytics-view-designer-parts/view-number-list.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -95,7 +95,7 @@ L’en-tête affiche une valeur qui indique le nombre d’enregistrements obtenu
 ## <a name="two-numbers-and-list-part"></a>Partie Deux nombres et liste
 L’en-tête affiche deux valeurs indiquant le nombre d’enregistrements obtenus à partir de requêtes de recherche distinctes dans les journaux. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps.
 
-![Deux nombres et affichage de liste](media/log-analytics-view-designer/view-two-numbers-list.png)
+![Deux nombres et affichage de liste](media/log-analytics-view-designer-parts/view-two-numbers-list.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -126,7 +126,7 @@ L’en-tête affiche deux valeurs indiquant le nombre d’enregistrements obtenu
 ## <a name="donut-and-list-part"></a>Partie Anneau et liste
 L’en-tête affiche un nombre unique qui résume une colonne de valeur dans une requête de journal. L’anneau affiche sous forme graphique les résultats des trois premiers enregistrements.
 
-![Vue Anneau et liste](media/log-analytics-view-designer/view-donut-list.png)
+![Vue Anneau et liste](media/log-analytics-view-designer-parts/view-donut-list.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -167,7 +167,7 @@ L’en-tête affiche un nombre unique qui résume une colonne de valeur dans une
 ## <a name="two-timelines-and-list-part"></a>Partie Deux chronologies et liste
 L’en-tête affiche les résultats de deux requêtes de journal dans le temps, sous forme d’histogrammes avec une légende affichant un nombre qui résume une colonne de valeur dans une requête de journal. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps.
 
-![Vue Deux chronologies et liste](media/log-analytics-view-designer/view-two-timelines-list.png)
+![Vue Deux chronologies et liste](media/log-analytics-view-designer-parts/view-two-timelines-list.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -199,7 +199,7 @@ L’en-tête affiche les résultats de deux requêtes de journal dans le temps, 
 ## <a name="information-part"></a>Partie des informations
 L’en-tête affiche un texte statique et un lien facultatif. La liste affiche un ou plusieurs éléments avec un titre et un texte statiques.
 
-![Vue Informations](media/log-analytics-view-designer/view-information.png)
+![Vue Informations](media/log-analytics-view-designer-parts/view-information.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -220,7 +220,7 @@ L’en-tête affiche un texte statique et un lien facultatif. La liste affiche u
 ## <a name="line-chart-callout-and-list-part"></a>Partie Graphique en courbes, légende et liste
 L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d’une requête de journal dans le temps, et une légende avec une valeur de synthèse. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps.
 
-![Vue Graphique en courbes, légende et liste](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Vue Graphique en courbes, légende et liste](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -260,7 +260,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 ## <a name="line-chart-and-list-part"></a>Partie Graphique en courbes et liste
 L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d’une requête de journal dans le temps. La liste affiche les dix premiers résultats d’une requête, avec un graphique qui indique la valeur relative d’une colonne numérique ou ses changements avec le temps.
 
-![Vue Graphique en courbes et liste](media/log-analytics-view-designer/view-line-chart-callout-list.png)
+![Vue Graphique en courbes et liste](media/log-analytics-view-designer-parts/view-line-chart-callout-list.png)
 
 | Paramètre | Description |
 |:--- |:--- |
@@ -296,7 +296,7 @@ L’en-tête affiche un graphique en courbes avec plusieurs séries à partir d�
 ## <a name="stack-of-line-charts-part"></a>Partie de pile de graphiques de courbes
 La pile de graphique en courbes affiche trois graphiques en courbes distincts avec plusieurs séries à partir d’une requête de journal dans le temps, comme illustré ici :
 
-![Pile de graphiques en courbes](media/log-analytics-view-designer/view-stack-line-charts.png)
+![Pile de graphiques en courbes](media/log-analytics-view-designer-parts/view-stack-line-charts.png)
 
 | Paramètre | Description |
 |:--- |:--- |

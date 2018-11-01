@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: e78e7b5b4dba0bfea4f3398ca20b381a291fe44f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 410559ab03f0e0be71f2eba27ed71c9f7cf05862
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46307818"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238537"
 ---
 # <a name="azure-ad-connect-how-to-recover-from-localdb-10-gb-limit"></a>Azure AD Connect : Comment récupérer de la limite de 10 Go de base de données locale
 Azure AD Connect nécessite une base de données SQL Server pour stocker les données d’identité. Vous pouvez utiliser la base de données locale par défaut de SQL Server 2012 installée avec Azure AD Connect ou utiliser votre propre base de données SQL complète. SQL Server Express impose une limite de taille de 10 Go. Lorsque vous utilisez la base de données locale et que cette limite est atteinte, le service de synchronisation Azure AD Connect ne peut plus démarrer ou se synchroniser correctement. Cet article indique les étapes de récupération.
@@ -71,7 +71,7 @@ Le nom de la base de données créée pour Azure AD Connect est **ADSync**. Pour
 
 3. Accédez au dossier `%ProgramFiles%\Microsoft SQL Server\110\Tools\Binn`.
 
-4. Démarrez l’utilitaire **sqlcmd** en exécutant la commande `./SQLCMD.EXE -S “(localdb)\.\ADSync” -U <Username> -P <Password>`, à l’aide des informations d’identification de l’administrateur système ou du propriétaire de la base de données.
+4. Démarrez l’utilitaire **sqlcmd** en exécutant la commande `./SQLCMD.EXE -S "(localdb)\.\ADSync" -U <Username> -P <Password>`, à l’aide des informations d’identification de l’administrateur système ou du propriétaire de la base de données.
 
 5. Pour réduire la base de données, à l’invite sqlcmd (1>), entrez `DBCC Shrinkdatabase(ADSync,1);` suivi par `GO` dans la ligne suivante.
 

@@ -3,18 +3,17 @@ title: Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 description: Ce didacticiel vous apprend à déployer et configurer un pare-feu Azure à l’aide du portail Azure.
 services: firewall
 author: vhorne
-manager: jpconnock
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/5/2018
+ms.date: 10/30/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8fb459d197c15cf7760a924c7161fed59cc1caac
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 47a04df843ec307b54cc1d6597f9a3cf8668e291
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801877"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238826"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -31,7 +30,7 @@ Le trafic réseau est soumis aux règles de pare-feu configurées lorsque vous r
 
 Les règles de réseau et d’application sont stockées dans les *regroupements de règles*. Un regroupement de règles est une liste de règles qui partagent la même action et la même priorité.  Un regroupement de règles de réseau est une liste de règles de réseau, et un regroupement de règles d’application est une liste de règles d’application.
 
-Le service Pare-feu Azure comporte des règles de traduction d’adresses réseau (NAT), des règles de réseau et des règles d’application. Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](rule-processing.md).
+Pour plus d’informations sur la logique de traitement des règles de Pare-feu Azure, consultez l’article [Logique de traitement des règles du service Pare-feu Azure](rule-processing.md).
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
@@ -42,8 +41,6 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > * Configurer des règles d’application
 > * Configurer des règles de réseau
 > * Tester le pare-feu
-
-
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -56,32 +53,32 @@ Pour ce tutoriel, vous devez créer un seul réseau virtuel avec trois sous-rés
 
 Ce tutoriel utilise une configuration réseau simplifiée pour faciliter le déploiement. Pour les déploiements de production, un [modèle Hub and Spoke](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) est recommandé, dans lequel le pare-feu est dans son propre réseau virtuel, et les serveurs de la charge de travail se trouvent dans des réseaux virtuels homologués dans la même région avec un ou plusieurs sous-réseaux.
 
-
-
 ## <a name="set-up-the-network-environment"></a>Configurer l’environnement réseau
+
 Tout d’abord, créez un groupe de ressources qui contiendra les ressources nécessaires pour déployer le pare-feu. Ensuite, créez un réseau virtuel, des sous-réseaux et des serveurs de test.
 
 ### <a name="create-a-resource-group"></a>Créer un groupe de ressources
-1. Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
-1. Dans la page d’accueil du portail Azure, cliquez sur **Groupes de ressources**, puis cliquez sur **Ajouter**.
-2. Pour **Nom du groupe de ressources**, entrez **Test-FW-RG**.
-3. Pour **Abonnement**, sélectionnez votre abonnement.
-4. Pour **Emplacement du groupe de ressources**, sélectionnez un emplacement. Toutes les ressources suivantes que vous créez doivent se trouver dans le même emplacement.
-5. Cliquez sur **Créer**.
 
+1. Connectez-vous au portail Azure sur [http://portal.azure.com](http://portal.azure.com).
+2. Dans la page d’accueil du portail Azure, cliquez sur **Groupes de ressources**, puis cliquez sur **Ajouter**.
+3. Pour **Nom du groupe de ressources**, entrez **Test-FW-RG**.
+4. Pour **Abonnement**, sélectionnez votre abonnement.
+5. Pour **Emplacement du groupe de ressources**, sélectionnez un emplacement. Toutes les ressources suivantes que vous créez doivent se trouver dans le même emplacement.
+6. Cliquez sur **Créer**.
 
 ### <a name="create-a-vnet"></a>Créer un réseau virtuel
+
 1. À partir de la page d’accueil du portail Azure, cliquez sur **Tous les services**.
 2. Sous **Mise en réseau**, cliquez sur **Réseaux virtuels**.
 3. Cliquez sur **Add**.
 4. Pour **Nom**, entrez **Test-FW-VN**.
 5. Pour **Espace d’adressage**, entrez **10.0.0.0/16**.
-7. Pour **Abonnement**, sélectionnez votre abonnement.
-8. Pour **Groupe de ressources**, sélectionnez **Existant** puis **Test-FW-RG**.
-9. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
-10. Sous **Sous-réseau**, pour **Nom**, entrez **AzureFirewallSubnet**. Le pare-feu se trouvera dans ce sous-réseau et le nom du sous-réseau **doit** être AzureFirewallSubnet.
-11. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.
-12. Utilisez les autres paramètres par défaut, puis cliquez sur **Créer**.
+6. Pour **Abonnement**, sélectionnez votre abonnement.
+7. Pour **Groupe de ressources**, sélectionnez **Existant** puis **Test-FW-RG**.
+8. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
+9. Sous **Sous-réseau**, pour **Nom**, entrez **AzureFirewallSubnet**. Le pare-feu se trouvera dans ce sous-réseau et le nom du sous-réseau **doit** être AzureFirewallSubnet.
+10. Pour **Plage d’adresses**, entrez **10.0.1.0/24**.
+11. Utilisez les autres paramètres par défaut, puis cliquez sur **Créer**.
 
 > [!NOTE]
 > La taille minimale du sous-réseau AzureFirewallSubnet est /25.
@@ -138,13 +135,11 @@ Répétez ce processus pour créer une autre machine virtuelle nommée **Srv-Wor
 
 Utilisez les informations du tableau suivant pour configurer les **Paramètres** de la machine virtuelle Srv-Work. Le reste de la configuration est identique à celle de la machine virtuelle Srv-Jump.
 
-
 |Paramètre  |Valeur  |
 |---------|---------|
 |Sous-réseau|Workload-SN|
 |Adresse IP publique|Aucun|
 |Sélectionner des ports entrants publics|Aucun port entrant public|
-
 
 ## <a name="deploy-the-firewall"></a>Déployer le pare-feu
 
@@ -168,7 +163,6 @@ Utilisez les informations du tableau suivant pour configurer les **Paramètres**
    Le déploiement nécessite quelques minutes.
 4. Une fois le déploiement terminé, accédez au groupe de ressources **Test-FW-RG**, puis cliquez sur le pare-feu **Test-FW01**.
 6. Notez l’adresse IP privée. Vous l’utiliserez plus tard lors de la création de l’itinéraire par défaut.
-
 
 ## <a name="create-a-default-route"></a>Créer un itinéraire par défaut
 
@@ -200,9 +194,7 @@ Pour le sous-réseau **Workload-SN**, vous devez configurer l’itinéraire sort
 18. Pour **Adresse de tronçon suivant**, entrez l’adresse IP privée pour le pare-feu que vous avez notée précédemment.
 19. Cliquez sur **OK**.
 
-
 ## <a name="configure-application-rules"></a>Configurer des règles d’application
-
 
 1. Ouvrez **Test-FW-RG**, et cliquez sur le pare-feu **Test-FW01**.
 2. Sur la page **Test-FW01**, sous **Paramètres**, cliquez sur **Règles**.
@@ -244,7 +236,6 @@ Le Pare-feu Azure comprend un regroupement de règles intégré pour les noms de
 6. Cliquez sur **Enregistrer**. 
 7. Redémarrez la machine virtuelle **Srv-Work**.
 
-
 ## <a name="test-the-firewall"></a>Tester le pare-feu
 
 1. À partir du portail Azure, passez en revue les paramètres réseau de la machine virtuelle **Srv-Work** et notez l’adresse IP privée.
@@ -267,7 +258,6 @@ Maintenant que vous avez vérifié que les règles de pare-feu fonctionnent :
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous pouvez garder vos ressources de pare-feu pour le prochain didacticiel, ou, si vous n’en avez plus besoin, vous pouvez supprimer le groupe de ressources **Test-FW-RG** pour supprimer toutes les ressources associées au pare-feu.
-
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -1,3 +1,16 @@
+---
+author: jasonwhowell
+ms.service: hdinsight
+ms.topic: include
+ms.date: 10/25/2018
+ms.author: jasonh
+ms.openlocfilehash: 4b4b1f3a52dcbaa01f9fac73bce09a75495408df
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165068"
+---
 > [!IMPORTANT]
 > La prise en charge de la gestion des ressources HDInsight à l’aide d’ASM (Azure Service Manager) par le biais d’Azure PowerShell, de l’interface CLI Azure et du Kit de développement logiciel (SDK) HDInsight .NET est **déconseillée**. Elle a pris fin le 1er janvier 2017. La procédure décrite dans ce document utilise les nouvelles applets de commande Azure PowerShell, les commandes de la CLI Azure et le kit de développement logiciel (SDK) .NET qui fonctionnent avec Azure Resource Manager.
 > 

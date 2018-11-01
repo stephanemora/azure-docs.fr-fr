@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 0482a882b2dea47752eb38eadbaaa72e36ae2eae
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: a759aad346e25fa42f16d9ccfdb42d9fd5b1cd38
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411686"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413483"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Extension de diagnostic de performance des machines virtuelles Azure pour Windows
 
@@ -67,7 +67,7 @@ Le code JSON suivant montre le schéma de l’extension de machine virtuelle Dia
 
 ### <a name="property-values"></a>Valeurs de propriétés
 
-|   **Name**   |**Valeur/Exemple**|       **Description**      |
+|   **Nom**   |**Valeur/Exemple**|       **Description**      |
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|Version de l’API.
 |publisher|Microsoft.Azure.Performance.Diagnostics|Espace de noms du serveur de publication de l’extension.
