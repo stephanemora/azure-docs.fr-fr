@@ -3,7 +3,7 @@ title: Disques de données associés de groupes de machines virtuelles identique
 description: Découvrez comment utiliser des disques de données associés à des groupes de machines virtuelles identiques
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: gatneil
+author: mayanknayar
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 4/25/2017
-ms.author: negat
-ms.openlocfilehash: cfe49e7f4e3692518c890b48582a2f4a6aa16faa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.author: manayar
+ms.openlocfilehash: 551d90661f845aa98a41ed7de0b75c657c234f52
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46952458"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741400"
 ---
 # <a name="azure-virtual-machine-scale-sets-and-attached-data-disks"></a>Groupes de machines virtuelles identiques Azure et disques de données associés
 Pour développer votre espace de stockage, les [groupes de machines virtuelles identiques](/azure/virtual-machine-scale-sets/) Azure prennent en charge les instances de machine virtuelle avec des disques de données associés. Vous pouvez associer des disques de données lorsque le groupe identique est créé ou sur un groupe identique existant.
@@ -32,7 +32,7 @@ Pour développer votre espace de stockage, les [groupes de machines virtuelles i
 ## <a name="create-and-manage-disks-in-a-scale-set"></a>Créer et gérer des disques dans un groupe identique
 Pour plus d’informations sur la création d’un groupe identique avec des disques de données associés, préparer et formater ou ajouter et supprimer des disques de données, consultez l’un des didacticiels suivants :
 
-- [interface de ligne de commande Azure](tutorial-use-disks-cli.md)
+- [Interface de ligne de commande Azure](tutorial-use-disks-cli.md)
 - [Azure PowerShell](tutorial-use-disks-powershell.md)
 
 Le reste de cet article décrit les cas d’usage spécifiques tels que les clusters Service Fabric qui nécessitent des disques de données, ou l’association de disques de données existants à du contenu pour un groupe identique.

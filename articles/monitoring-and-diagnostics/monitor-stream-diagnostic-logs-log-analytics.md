@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: c419a3c44a38f72d56f2b7b362c62e683fc20c7f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 057ce4b93be27c27e27d49e61a89a7c2b9e46dc8
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46993015"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421065"
 ---
 # <a name="stream-azure-diagnostic-logs-to-log-analytics"></a>Diffuser en continu les journaux de diagnostic Azure vers Log Analytics
 
@@ -44,21 +44,21 @@ Il n’est pas nécessaire que l’espace de travail Log Analytics se trouve dan
 ## <a name="stream-diagnostic-logs-using-the-portal"></a>Diffuser en continu les journaux de diagnostic à l’aide du portail
 1. Dans le portail, accédez à Azure Monitor, puis cliquez sur **Paramètres de diagnostic**
 
-    ![Section Surveillance d’Azure Monitor](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-blade.png)
+    ![Section Surveillance d’Azure Monitor](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-blade.png)
 
 2. Vous pouvez également filtrer la liste par type ou groupe de ressources, puis cliquez sur la ressource pour laquelle vous souhaitez définir un paramètre de diagnostic.
 
 3. S’il n’existe aucun paramètre sur la ressource que vous avez sélectionnée, vous êtes invité à créer un paramètre. Cliquez sur « Activer les diagnostics ».
 
-   ![Ajouter le paramètre de diagnostic - aucun paramètre existant](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-none.png)
+   ![Ajouter le paramètre de diagnostic - aucun paramètre existant](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-none.png)
 
    S’il existe des paramètres existants sur la ressource, vous verrez une liste de paramètres déjà configurés sur cette ressource. Cliquez sur « Ajouter le paramètre de diagnostic ».
 
-   ![Ajouter le paramètre de diagnostic - paramètres existants](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-multiple.png)
+   ![Ajouter le paramètre de diagnostic - paramètres existants](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-multiple.png)
 
 3. Donnez un nom à votre définition, cochez la case **Envoyer à Log Analytics**, puis sélectionnez un espace de travail Log Analytics.
 
-   ![Ajouter le paramètre de diagnostic - paramètres existants](media/monitoring-stream-diagnostic-logs-to-log-analytics/diagnostic-settings-configure.png)
+   ![Ajouter le paramètre de diagnostic - paramètres existants](media/monitor-stream-diagnostic-logs-log-analytics/diagnostic-settings-configure.png)
 
 4. Cliquez sur **Enregistrer**.
 

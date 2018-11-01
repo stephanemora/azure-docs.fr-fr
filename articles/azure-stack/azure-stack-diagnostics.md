@@ -7,15 +7,15 @@ manager: femila
 cloud: azure-stack
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/27/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 5a9621ef9a8d6c545617e5bf3ef6f4197b70be88
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 3dd3e3391cc2536f56a5e42610c09c85b4068234
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419597"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740551"
 ---
 # <a name="azure-stack-diagnostics-tools"></a>Outils de diagnostics Azure Stack
 
@@ -86,32 +86,38 @@ if($s)
   Collecter tous les journaux pour tous les rôles :
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred
   ```
 
   Collecter les journaux à partir des rôles VirtualMachines et BareMetal :
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal
   ```
 
   Collecter les journaux à partir des rôles VirtualMachines et BareMetal, avec un filtrage de date pour les fichiers journaux pour les huit dernières heures :
     
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8)
   ```
 
   Collecter les journaux à partir des rôles VirtualMachines et BareMetal, avec un filtrage de date pour les fichiers journaux des 2 à 8 dernières heures :
 
   ```powershell
-  Get-AzureStackLog -OutputPath C:\AzureStackLogs -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
+  Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred -FilterByRole VirtualMachines,BareMetal -FromDate (Get-Date).AddHours(-8) -ToDate (Get-Date).AddHours(-2)
   ```
 
 ### <a name="parameter-considerations-for-both-asdk-and-integrated-systems"></a>Considérations relatives aux paramètres du kit ASDK et des systèmes intégrés
 
 - Si vous ne spécifiez pas les paramètres **FromDate** et **ToDate**, par défaut les journaux sont collectés pour les quatre dernières heures.
-- Utilisez le paramètre **FilterByNode** pour filtrer les journaux par nom d’ordinateur. Par exemple : ```Get-AzureStackLog -OutputPath <path> -FilterByNode azs-xrp01```
-- Utilisez le paramètre **FilterByLogType** pour filtrer les journaux par type. Vous pouvez choisir de filtrer par fichier, partage ou événement Windows. Par exemple : ```Get-AzureStackLog -OutputPath <path> -FilterByLogType File```
+- Utilisez le paramètre **FilterByNode** pour filtrer les journaux par nom d’ordinateur. Par exemple : 
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByNode azs-xrp01
+```
+- Utilisez le paramètre **FilterByLogType** pour filtrer les journaux par type. Vous pouvez choisir de filtrer par fichier, partage ou événement Windows. Par exemple : 
+```powershell
+Get-AzureStackLog -OutputSharePath “<path>” -OutputShareCredential $cred ` -FilterByLogType File
+```
 - Vous pouvez utiliser le paramètre **TimeOutInMinutes** pour définir le délai d’expiration pour la collecte des journaux. Il est défini sur 150 (2,5 heures) par défaut.
 - Dans les versions 1805 et ultérieures, la collecte de journaux de fichiers de vidage est désactivée par défaut. Pour l’activer, utilisez le paramètre booléen **IncludeDumpFile**. 
 - Actuellement, vous pouvez utiliser le paramètre **FilterByRole** pour filtrer la collecte de journaux en fonction des rôles suivants :

@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: pafarley
-ms.openlocfilehash: 6dae10262c40a127cb24dd40f0d5389c0cdd7c20
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: bfbdba780e9de1b89737cf2a6aa02f7de82a5df7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340016"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414928"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-rest-api-and-java-in-computer-vision"></a>Démarrage rapide : Analyser une image distante à l’aide de l’API REST et Java dans Vision par ordinateur
 
@@ -25,7 +25,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Vous devez utiliser la plateforme [Java&trade;, avec le kit Standard Edition Development 7 ou 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) (JDK 7 ou 8) installé.
+- Vous devez utiliser la plateforme [Java&trade;, avec le kit Standard Edition Development 7 ou 8](https://aka.ms/azure-jdks) (JDK 7 ou 8) installé.
 - Vous devez avoir une clé d’abonnement pour Vision par ordinateur. Pour obtenir une clé d’abonnement, consultez [Obtention de clés d’abonnement](../Vision-API-How-to-Topics/HowToSubscribe.md).
 
 ## <a name="create-and-run-the-sample-application"></a>Créer et exécuter l’exemple d’application

@@ -4,10 +4,6 @@ description: Découvrez plus d’informations sur l’équilibrage de charge des
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager
-ms.assetid: 46b152c5-6a27-4bfc-bea3-05de9ce06a57
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -15,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/07/2018
 ms.author: kumud
-ms.openlocfilehash: 716a3dafe08e896924bd28e44d69141e4c229687
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 744cd933e901b930aa0394b36e9770bab6de38df
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005501"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740329"
 ---
 # <a name="high-availability-ports-overview"></a>Vue d’ensemble des ports haute disponibilité
 
@@ -93,7 +89,7 @@ Vous pouvez configurer *une* ressource d’équilibreur de charge standard publi
 >[!NOTE]
 >Cette fonctionnalité est actuellement disponible via les modèles Azure Resource Manager, mais pas via le portail Azure.
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 
 - La configuration des ports haute disponibilité est disponible uniquement pour les équilibreurs de charge internes. Elle n’est pas disponible pour les équilibreurs de charge publics.
 
