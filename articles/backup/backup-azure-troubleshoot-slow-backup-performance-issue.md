@@ -6,14 +6,14 @@ author: genlin
 manager: cshepard
 ms.service: backup
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: e78ea2a132a75a5424c0078c2b41edb8209c781c
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: ab338964a67991c0e97bf218f8aa004e0e5dfe38
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831532"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418243"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Résolution des problèmes de sauvegarde lente de fichiers et de dossiers dans Azure Backup
 Cet article apporte des conseils visant à vous aider à diagnostiquer la cause du ralentissement des performances de sauvegarde des fichiers et des dossiers avec Azure Backup. Lorsque vous utilisez l’agent Azure Backup pour sauvegarder des fichiers, le processus de sauvegarde peut prendre plus longtemps que prévu. Ce ralentissement peut être dû à une ou plusieurs des raisons suivantes :

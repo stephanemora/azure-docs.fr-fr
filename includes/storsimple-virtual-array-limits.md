@@ -1,5 +1,16 @@
-
-
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 658fd9178495f14274c85eab2129c9dcd3be7693
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50165393"
+---
 | **Identificateur de la limite** | **Limite** | **Commentaires** |
 | --- | --- | --- |
 | Capacité totale (y compris le cloud) |Jusqu'à 64 To par appareil virtuel |Vous pouvez basculer une baie virtuelle StorSimple Virtual Array vers une autre baie vide. Si vous essayez de restaurer sur le même appareil, assurez-vous de disposer de suffisamment d'espace sur l’appareil pour terminer cette opération. Après avoir dépassé 32 To, vous ne pouvez pas restaurer sur le même appareil. |
@@ -15,7 +26,7 @@
 | Taille maximale d'un volume épinglé localement |200 Go | |
 | Nombre maximal de connexions iSCSI à partir d'initiateurs |512 | |
 | Nombre maximal d'enregistrements de contrôle d'accès par appareil |64 | |
-| Nombre maximal de sauvegardes conservées par l'appareil virtuel dans le dossier *.backups* pour le serveur de fichiers |5 |Cela inclut les sauvegardes les plus récentes planifiées (générées par la stratégie de sauvegarde par défaut) et les sauvegardes manuelles. |
+| Nombre maximal de sauvegardes conservées par l'appareil virtuel dans le dossier *.backups* pour le serveur de fichiers |5. |Cela inclut les sauvegardes les plus récentes planifiées (générées par la stratégie de sauvegarde par défaut) et les sauvegardes manuelles. |
 | Nombre maximal de sauvegardes planifiées conservées par l'appareil |55 |30 sauvegardes quotidiennes<br>12 sauvegardes mensuelles<br>13 sauvegardes annuelles |
 | Nombre maximal de sauvegardes manuelles conservées par l'appareil |45 | |
 | Nombre maximal de fichiers par partage pour un serveur de fichiers |1 million |Lorsque vous effectuez une restauration d’appareil, les délais de restauration sont proportionnels au nombre de fichiers se trouvant sur tous les partages de l’appareil. |
