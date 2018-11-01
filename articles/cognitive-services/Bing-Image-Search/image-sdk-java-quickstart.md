@@ -10,12 +10,12 @@ ms.component: bing-image-search
 ms.topic: quickstart
 ms.date: 08/28/2018
 ms.author: aahi
-ms.openlocfilehash: 36f59e1c405ef9e5cf69a19e49d69a3adfdc4636
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 42fc3dfb48c041ba187e2034eed81183dba02cb4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298181"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413875"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-and-java"></a>Démarrage rapide : Rechercher des images avec le SDK Recherche d’images Bing et Java
 
@@ -25,9 +25,9 @@ Le code source de cet exemple est disponible sur [GitHub](https://github.com/Azu
 
 ## <a name="prerequisites"></a>Prérequis
 
-La dernière version du [JDK (Java Development Kit)](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+La dernière version du [JDK (Java Development Kit)](https://aka.ms/azure-jdks)
 
-Installez les dépendances du kit SDK Recherche d’images Bing en utilisant Maven, Gradle ou un autre système de gestion des dépendances. Le fichier POM Maven nécessite la déclaration suivante :
+Installez les dépendances du Kit de développement logiciel (SDK) pour Recherche d’images Bing en utilisant Maven, Gradle ou un autre système de gestion des dépendances. Le fichier POM Maven nécessite la déclaration suivante :
 
 ```xml
  <dependencies>

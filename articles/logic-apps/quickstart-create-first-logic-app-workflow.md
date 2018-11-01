@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 0f38aabf008f0335a6f9e21717aa38aefdd21615
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: fe2ca48c1cab3789f2bb501eaf00aeb9cd866b8c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42023732"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233682"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Démarrage rapide : créer votre premier flux de travail automatisé avec Azure Logic Apps - portail Azure
 
@@ -44,7 +44,7 @@ Connectez-vous au <a href="https://portal.azure.com" target="_blank">portail Azu
 
    | Propriété | Valeur | Description | 
    |----------|-------|-------------| 
-   | **Name** | MyFirstLogicApp | Nom de l’application logique. | 
+   | **Nom** | MyFirstLogicApp | Nom de l’application logique. | 
    | **Abonnement** | <*your-Azure-subscription-name*> | Nom de votre abonnement Azure. | 
    | **Groupe de ressources** | My-First-LA-RG | Nom du [groupe de ressources Azure](../azure-resource-manager/resource-group-overview.md) utilisé pour organiser les ressources connexes. | 
    | **Lieu** | USA Ouest | Région dans laquelle stocker les informations sur votre application logique. | 
@@ -160,7 +160,7 @@ Si le déclencheur ne trouve pas de nouveaux éléments, il ne s’active pas et
 
 Félicitations, vous avez correctement généré et exécuté votre première application logique avec le portail Azure !
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contient votre application logique et les ressources associées. 
 
@@ -178,7 +178,7 @@ Quand vous n’en avez plus besoin, supprimez le groupe de ressources qui contie
 ## <a name="get-support"></a>Obtenir de l’aide
 
 * Si vous avez des questions, consultez le [forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps).
-* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](http://aka.ms/logicapps-wish).
+* Pour voter pour des idées de fonctionnalités ou pour en soumettre, visitez le [site de commentaires des utilisateurs Logic Apps](https://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

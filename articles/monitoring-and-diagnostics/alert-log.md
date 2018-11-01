@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 627c0ee5a2fab333b8a120867ab54ea76bc66823
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46976837"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419365"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor  
 
@@ -34,26 +34,26 @@ Vous trouverez ci-après un guide pas à pas sur l’utilisation des alertes de 
 
 ### <a name="create-a-log-alert-rule-with-the-azure-portal"></a>Créer une règle d’alerte de journal avec le portail Azure
 1. Dans le [portail](https://portal.azure.com/), sélectionnez **Surveiller** et choisissez **Alertes** dans la section SURVEILLER.  
-    ![Surveillance](./media/monitor-alerts-unified/AlertsPreviewMenu.png)
+    ![Surveillance](media/alert-log/AlertsPreviewMenu.png)
 
 1. Cliquez sur le bouton **Nouvelle règle d’alerte** pour créer une alerte dans Azure.
-    ![Ajouter une alerte](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+    ![Ajouter une alerte](media/alert-log/AlertsPreviewOption.png)
 
 1. La section Créer une alerte s’affiche avec ses trois parties : *définition de la condition d’alerte*, *définition des détails de l’alerte* et *définition du groupe d’actions*.
 
-    ![Créer une règle](./media/monitor-alerts-unified/AlertsPreviewAdd.png)
+    ![Créer une règle](media/alert-log/AlertsPreviewAdd.png)
 
 1.  Définissez la condition d’alerte en utilisant le lien **Sélectionner une ressource**, puis en spécifiant la cible via la sélection d’une ressource. Filtrez en choisissant l’_abonnement_, le _type de ressource_ et la _ressource_ nécessaire. 
 
     >[!NOTE]
 
     > Pour créer une alerte de journal, avant de continuer, vérifiez le signal de **journal** disponible pour la ressource sélectionnée.
-    ![Sélectionner une ressource](./media/monitor-alerts-unified/Alert-SelectResourceLog.png)
+    ![Sélectionner une ressource](media/alert-log/Alert-SelectResourceLog.png)
 
  
 1. *Alertes de journal* : assurez-vous que le **Type de ressource** est une source analytique telle que *Log Analytics* ou *Application Insights* et le type de signal **Journal**. Ensuite, une fois la **ressource** appropriée choisie, cliquez sur le bouton *Terminé*. Utilisez ensuite le bouton **Ajouter des critères** pour afficher la liste des options de signal disponibles pour la ressource et à partir de l’option **Recherche de journal personnalisée** de la liste de signaux pour le service de surveillance des journaux choisi, tel que *Log Analytics* ou *Application Insights*.
 
-   ![Sélectionner une ressource : recherche de journal personnalisée](./media/monitor-alerts-unified/AlertsPreviewResourceSelectionLog.png)
+   ![Sélectionner une ressource : recherche de journal personnalisée](media/alert-log/AlertsPreviewResourceSelectionLog.png)
 
    > [!NOTE]
 
@@ -61,7 +61,7 @@ Vous trouverez ci-après un guide pas à pas sur l’utilisation des alertes de 
 
 1.  *Alertes de journal* : une fois sélectionnée, la requête de génération d’alerte peut être indiquée dans le champ **Requête de recherche**. Si la syntaxe de la requête est incorrecte, le champ affiche le message d’erreur en rouge. Si la syntaxe de la requête est correcte, les données de la requête indiquée sont indiquées à titre de référence sous forme de graphique avec la possibilité d’ajuster la fenêtre de temps entre les six dernières heures et la semaine précédente.
 
- ![Configurer une règle d’alerte](./media/monitor-alerts-unified/AlertsPreviewAlertLog.png)
+ ![Configurer une règle d’alerte](media/alert-log/AlertsPreviewAlertLog.png)
 
  > [!NOTE]
 
@@ -69,7 +69,7 @@ Vous trouverez ci-après un guide pas à pas sur l’utilisation des alertes de 
 
     >  Pour le type de mesure de métrique d’alertes de journal utilisant Application Insights, vous pouvez spécifier la variable à utiliser pour regrouper les données à l’aide de l’option **Agréger sur**, comme illustré ci-dessous :
 
-    ![Option Agréger sur](./media/monitor-alerts-unified/aggregate-on.png)
+    ![Option Agréger sur](media/alert-log/aggregate-on.png)
 
 1.  *Alertes de journal* : avec la visualisation en place, la **logique d’alerte** peut être sélectionnée parmi les options proposées de condition, d’agrégation et de seuil. Enfin, dans la logique, spécifiez le moment auquel évaluer la condition indiquée à l’aide de l’option **Période**. Précisez également la fréquence d’exécution de l’alerte en sélectionnant **Fréquence**.
 Les **alertes de journal** peuvent reposer sur les éléments suivants :
@@ -83,7 +83,7 @@ Les **alertes de journal** peuvent reposer sur les éléments suivants :
 
     - **Supprimer des alertes** : quand vous activez la suppression de la règle d’alerte, les actions correspondant à la règle sont désactivées pour une durée définie après la création d’une alerte. La règle est toujours en cours d’exécution et crée des enregistrements d’alerte si les critères sont satisfaits. Cela vous donne le temps de résoudre le problème sans exécuter des actions en double.
 
-        ![Supprimer des alertes de journal](./media/monitor-alerts-unified/AlertsPreviewSuppress.png)
+        ![Supprimer des alertes de journal](media/alert-log/AlertsPreviewSuppress.png)
 
         > [!TIP]
         > Spécifiez une valeur Supprimer l’alerte supérieure à la fréquence de l’alerte pour garantir l’arrêt des notifications sans chevauchement
@@ -98,19 +98,19 @@ Les **alertes de journal** peuvent reposer sur les éléments suivants :
     - **Notification par courrier électronique** : substitue *l’objet du message électronique* dans le message, envoyé via le groupe d’actions, si une ou plusieurs actions de messagerie existent dans ledit groupe d’actions. Vous ne pouvez pas modifier le corps du message et ce champ n’est **pas** destiné à l’adresse de messagerie.
     - **Inclure la charge utile Json personnalisée** : remplace le JSON webhook utilisé par les groupes d’actions, si une ou plusieurs actions de webhook existent dans ledit groupe d’actions. L’utilisateur peut spécifier le format JSON à utiliser pour tous les webhooks configurés dans le groupe d’actions associé ; Pour plus d’informations sur les formats de webhook, voir [Action webhook pour les alertes de journal](monitor-alerts-unified-log-webhook.md). L’option d’affichage de Webhook est fournie pour vérifier le format à l’aide d’exemples de données JSON.
 
-        ![Remplacements d’actions pour les alertes de journal](./media/monitor-alerts-unified/AlertsPreviewOverrideLog.png)
+        ![Remplacements d’actions pour les alertes de journal](media/alert-log/AlertsPreviewOverrideLog.png)
 
 
 1. Si tous les champs sont valides et qu’une coche verte est visible, le bouton **Créer une règle d’alerte** peut être activé. Une alerte est alors créée dans Azure Monitor – Alertes. Toutes les alertes peuvent être consultées dans le tableau de bord des alertes.
 
-    ![Création de règles](./media/monitor-alerts-unified/AlertsPreviewCreate.png)
+    ![Création de règles](media/alert-log/AlertsPreviewCreate.png)
 
     Après quelques minutes, l’alerte est active et se déclenche comme décrit précédemment.
 
 Les utilisateurs peuvent également finaliser leur requête d’analyse dans la [page Log Analytics du portail Azure](../log-analytics/log-analytics-log-search-portals.md#log-analytics-page
 ), l’envoyer (push) afin de créer une alerte à l’aide du bouton « Définir l’alerte », puis suivre les instructions à partir de l’étape 6 du didacticiel ci-dessus.
 
- ![Log Analytics - Définir l’alerte](./media/monitor-alerts-unified/AlertsAnalyticsCreate.png)
+ ![Log Analytics - Définir l’alerte](media/alert-log/AlertsAnalyticsCreate.png)
 
 ### <a name="view--manage-log-alerts-in-azure-portal"></a>Afficher et gérer les alertes de journal dans le portail Azure
 
@@ -122,7 +122,7 @@ Les utilisateurs peuvent également finaliser leur requête d’analyse dans la 
 
 
 1. Cliquez sur le bouton **Gérer les règles** dans la barre supérieure pour accéder à la section de gestion des règles, où toutes les règles d’alerte créées sont répertoriées, y compris les alertes désactivées.
-    ![ Gérer les règles d’alerte](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ Gérer les règles d’alerte](media/alert-log/manage-alert-rules.png)
 
 ## <a name="managing-log-alerts-using-azure-resource-template"></a>Gestion des alertes de journal à l’aide du modèle de ressource Azure
 Des alertes de journal peuvent actuellement être créées à l’aide de deux modèles de ressources différents en fonction de la plateforme d’analyse sur laquelle l’alerte doit se trouver : Log Analytics ou Application Insights.

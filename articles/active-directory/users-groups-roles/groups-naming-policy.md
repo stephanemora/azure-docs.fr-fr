@@ -14,12 +14,12 @@ ms.date: 05/21/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 111be7d3ee00f2b40ace3bfe4efdacc5029ccf77
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 2857f95eff0b2d039a1a3c7bbe566a8ed3ca4fea
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239132"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243127"
 ---
 # <a name="enforce-a-naming-policy-for-office-365-groups-in-azure-active-directory-preview"></a>Appliquer une stratégie de nommage pour les groupes Office 365 dans Azure Active Directory (préversion)
 
@@ -49,7 +49,7 @@ Vous pouvez utiliser des chaînes pour faciliter l’analyse et la différenciat
 
 #### <a name="user-attributes"></a>Attributs utilisateur
 
-Vous pouvez utiliser des attributs pour vous aider, à vous et vos utilisateurs, à identifier le service, le bureau ou la région géographique pour lequel/laquelle le groupe a été créé. Par exemple, si vous définissez la stratégie de nommage `PrefixSuffixNamingRequirement = “GRP [GroupName] [Department]”` et `User’s department = Engineering`, vous pouvez obtenir le nom de groupe appliqué « GRP Mon groupe Ingénierie ». Les attributs Azure AD pris en charge sont \[Department\], \[Company\], \[Office\], \[StateOrProvince\], \[CountryOrRegion \], \[Title\]. Les attributs utilisateur non pris en charge sont traités comme des chaînes fixes ; par exemple, « \[postalCode\] ». Les attributs d’extension et les attributs personnalisés ne sont pas pris en charge.
+Vous pouvez utiliser des attributs pour vous aider, à vous et vos utilisateurs, à identifier le service, le bureau ou la région géographique pour lequel/laquelle le groupe a été créé. Par exemple, si vous définissez la stratégie de nommage `PrefixSuffixNamingRequirement = "GRP [GroupName] [Department]"` et `User’s department = Engineering`, vous pouvez obtenir le nom de groupe appliqué « GRP Mon groupe Ingénierie ». Les attributs Azure AD pris en charge sont \[Department\], \[Company\], \[Office\], \[StateOrProvince\], \[CountryOrRegion \], \[Title\]. Les attributs utilisateur non pris en charge sont traités comme des chaînes fixes ; par exemple, « \[postalCode\] ». Les attributs d’extension et les attributs personnalisés ne sont pas pris en charge.
 
 Nous vous recommandons d’utiliser des attributs dont les valeurs sont remplies pour tous les utilisateurs de votre organisation et évitez d’utiliser des attributs ayant des valeurs de type Long.
 

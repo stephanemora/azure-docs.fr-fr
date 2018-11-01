@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: 910225e74fcd4655a9eff711d3ac1316d948c2b3
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886192"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50414792"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Questions sur le service de sauvegarde de machine virtuelle Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de la sauvegarde de machine virtuelle Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -48,7 +48,7 @@ Oui. Même lorsqu’une machine est éteinte, les sauvegardes fonctionnent et le
 Oui. Vous pouvez annuler le travail de sauvegarde s’il est dans la phase « Capture instantanée en cours ». **Vous ne pouvez pas annuler un travail si un transfert de données à partir de la capture instantanée est en cours**.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>J’ai activé le verrou de groupe de ressources sur mes machines virtuelles à disque géré sauvegardées. Est-ce que mes sauvegardes continueront de fonctionner ?
-Si l’utilisateur verrouille le groupe de ressources, le service de sauvegarde ne peut pas supprimer les anciens points de restauration. Pour cette raison, les nouvelles sauvegardes échouent, car une limite maximale de 18 points de restauration est imposée par le back-end. Si vos sauvegardes échouent avec une erreur interne après le verrouillage du groupe de ressources, suivez ces [étapes pour supprimer la collection de points de restauration](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#backup-service-does-not-have-permission-to-delete-the-old-restore-points-due-to-resource-group-lock).
+Si l’utilisateur verrouille le groupe de ressources, le service de sauvegarde ne peut pas supprimer les anciens points de restauration. Pour cette raison, les nouvelles sauvegardes échouent, car une limite maximale de 18 points de restauration est imposée par le back-end. Si vos sauvegardes échouent avec une erreur interne après le verrouillage du groupe de ressources, suivez ces [étapes pour supprimer la collection de points de restauration](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>La stratégie de sauvegarde prend-elle en compte l’heure d’été ?
 Non. N’oubliez pas que la date et l’heure de votre ordinateur local s’affichent dans votre fuseau local avec le décalage actuel lié à l’heure d’été. La durée configurée pour les sauvegardes planifiées peut donc être différente de votre heure locale en raison de l’heure d’été.

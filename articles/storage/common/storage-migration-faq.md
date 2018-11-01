@@ -5,15 +5,15 @@ services: storage
 author: genlin
 ms.service: storage
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: 3c671fe6dcb1af25bfb0aa09fecf8ad5e5ceb97b
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 85f93e15cfce1d44567c48c6c6f4b38c42dfb296
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732258"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416390"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Questions fréquemment posées (FAQ) sur la migration de Stockage Azure
 
@@ -268,7 +268,7 @@ Pour autoriser d'autres personnes à accéder aux ressources de stockage :
 
 -   Si vous avez installé la version 64 bits, AzCopy se trouve ici : **%ProgramFiles%\\Microsoft SDKs\\Azure\\AzCopy**.
 
-**Pour un compte de stockage répliqué (par exemple un stockage redondant dans une zone, un stockage géoredondant ou un stockage redondant avec accès en lecture), comment accéder aux données stockées dans la région secondaire ?**
+**Pour un compte de stockage répliqué (par exemple un stockage redondant interzone, un stockage géoredondant ou un stockage redondant avec accès en lecture), comment accéder aux données stockées dans la région secondaire ?**
 
 -   Si vous utilisez un stockage redondant interzone ou un stockage géoredondant, vous ne pouvez pas accéder aux données de la région secondaire à moins qu'un basculement ne se produise. Pour plus d'informations sur le processus de basculement, voir [Que se passe-t-il en cas de basculement d’Azure Storage ?](storage-disaster-recovery-guidance.md#what-to-expect-if-a-storage-failover-occurs)
 

@@ -3,19 +3,19 @@ title: Sécurité de la base de données - Azure Cosmos DB | Microsoft Docs
 description: Découvrez comment Azure Cosmos DB garantit la protection de la base de données et la sécurité de vos données.
 keywords: sécurité de la base de données NoSQL, sécurité des informations, sécurité des données, chiffrement de base de données, protection de base de données, stratégies de sécurité, tests de sécurité
 services: cosmos-db
-author: SnehaGunda
+author: rafats
 manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.author: sngun
-ms.openlocfilehash: c9ef406ecab0d88468c9f7ff290669cfbbae1856
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.author: rafats
+ms.openlocfilehash: e0cbf806b7999a56ccdf2826a735238fe8130bf5
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860178"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50240577"
 ---
 # <a name="azure-cosmos-db-database-security"></a>Sécurité de la base de données Azure Cosmos DB
 
@@ -47,6 +47,7 @@ Nous vous recommandons d’utiliser la liste de vérification suivante qui répe
 - Réponse aux attaques
 - Possibilité de délimiter géographiquement les données pour respecter les restrictions de gouvernance des données
 - Protection physique des serveurs dans les centres de données protégés
+- Certifications
 
 Bien que cela paraisse évident, de récents exemples de [violations de base de données à grande échelle](http://thehackernews.com/2017/01/mongodb-database-security.html) nous rappellent l’importance simple mais critique des exigences suivantes :
 - Serveurs corrigés et régulièrement mis à jour
@@ -66,7 +67,7 @@ Examinons à présent chacune d’entre elles en détail.
 |Utilisateurs et autorisations|À l’aide de la [clé principale](#master-key) du compte, vous pouvez créer des ressources d’utilisateur et d’autorisation par base de données. Un [jeton de ressource](#resource-token) est associé à une autorisation dans une base de données et détermine si l’utilisateur a accès (en lecture-écriture, en lecture seule ou aucun accès) à une ressource d’application dans la base de données. Les ressources d’application comprennent les conteneurs, les documents, les pièces jointes, les procédures stockées, les déclencheurs et les fonctions définies par l’utilisateur. La jeton de ressource est ensuite utilisé lors de l’authentification pour autoriser ou refuser l’accès à la ressource.<br><br>Pour en savoir plus, consultez [Sécurisation de l’accès aux données Azure Cosmos DB](secure-access-to-data.md).|
 |Intégration d’Active Directory (RBAC)| Vous pouvez également fournir l’accès au compte de base de données à l’aide du contrôle d’accès (IAM) dans le portail Azure, comme l’illustre la capture d’écran qui suit ce tableau. IAM fournit un contrôle d’accès basé sur les rôles et s’intègre à Active Directory. Vous pouvez utiliser les rôles intégrés ou personnalisés pour les individus et les groupes, comme illustré dans l’image suivante.|
 |Réplication mondiale|Azure Cosmos DB offre une diffusion mondiale clé en main, ce qui vous permet de répliquer vos données dans n’importe quel centre de données Azure dans le monde en un seul clic. La réplication mondiale vous permet une mise à l’échelle globale et fournit un accès à faible latence à vos données dans le monde entier.<br><br>En matière de sécurité, la réplication mondiale protège les données contre les défaillances régionales.<br><br>Pour en savoir plus, consultez [Distribution mondiale des données avec DocumentDB](distribute-data-globally.md).|
-|Basculements régionaux|Si vous avez répliqué vos données dans plusieurs centres de données, Azure Cosmos DB bascule automatiquement vos opérations si un centre de données régional est indisponible. Vous pouvez créer une liste des régions de basculement prioritaires comportant les régions dans lesquelles vos données sont répliquées. <br><br>Pour en savoir plus, consultez [Basculements régionaux automatiques pour la continuité des activités dans Azure Cosmos DB](regional-failover.md).|
+|Basculements régionaux|Si vous avez répliqué vos données dans plusieurs centres de données, Azure Cosmos DB bascule automatiquement vos opérations si un centre de données régional est indisponible. Vous pouvez créer une liste des régions de basculement prioritaires comportant les régions dans lesquelles vos données sont répliquées. <br><br>Pour en savoir plus, consultez [Basculements régionaux automatiques pour la continuité des activités dans Azure Cosmos DB](high-availability.md).|
 |Réplication locale|Même dans un centre de données, Azure Cosmos DB réplique automatiquement les données pour garantir une haute disponibilité et vous donne la possibilité de choisir des [niveaux de cohérence](consistency-levels.md). Cela garantit un [contrat SLA de disponibilité](https://azure.microsoft.com/support/legal/sla/cosmos-db) à 99,99 % pour tous les comptes à région unique et à plusieurs régions avec cohérence souple, ainsi qu’une disponibilité de lecture à 99,999 % pour tous les comptes de base de données à plusieurs régions.|
 |Sauvegardes en ligne automatisées|Les bases de données Azure Cosmos DB sont régulièrement sauvegardées et stockées dans un magasin géoredondant. <br><br>Pour en savoir plus, consultez [Sauvegarde et restauration en ligne automatiques avec Azure Cosmos DB](online-backup-and-restore.md).|
 |Restauration de données supprimées|Les sauvegardes en ligne automatisées peuvent être utilisées pour récupérer des données que vous avez accidentellement supprimées jusqu’à environ 30 jours après l’événement. <br><br>Pour en savoir plus, consultez [Sauvegarde et restauration en ligne automatiques avec Azure Cosmos DB](online-backup-and-restore.md).|
@@ -79,7 +80,7 @@ Examinons à présent chacune d’entre elles en détail.
 |Chiffrement au repos|Toutes les données stockées dans Azure Cosmos DB sont chiffrées au repos. Pour en savoir plus, consultez [Chiffrement de base de données Azure Cosmos DB au repos](.\database-encryption-at-rest.md).|
 |Serveurs corrigés|En tant que base de données NoSQL gérée, Azure Cosmos DB ne nécessite aucune gestion ou correction des serveurs. Tout est fait automatiquement.|
 |Comptes administratifs avec des mots de passe forts|Il est difficile de croire que nous devions encore mentionner cette exigence, mais contrairement à certains de nos concurrents, il est impossible d’avoir un compte d’administrateur sans mot de passe dans Azure Cosmos DB.<br><br> La sécurité via SSL et l’authentification basée sur un secret HMAC sont intégrées par défaut.|
-|Certifications de sécurité et de protection des données|Azure Cosmos DB détient les certifications [ISO 27001](https://www.microsoft.com/en-us/TrustCenter/Compliance/ISO-IEC-27001), [EUMC (European Model Clauses)](https://www.microsoft.com/en-us/TrustCenter/Compliance/EU-Model-Clauses) et [HIPAA](https://www.microsoft.com/en-us/TrustCenter/Compliance/HIPAA). Des certifications supplémentaires sont en cours.|
+|Certifications de sécurité et de protection des données|Pour obtenir la toute dernière liste de certifications, consultez le site général de conformité Azure [https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings], ainsi que le document le plus récent dédié à la conformité Azure [https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942] contenant toutes les certifications (effectuez une recherche sur Cosmos). Pour une lecture plus ciblée, lisez le billet du 25 avril 2018 (Azure #CosmosDB: Secure, private, compliant) [https://azure.microsoft.com/blog/azure-cosmosdb-secure-private-compliant/] qui inclut SOCS 1/2 Type 2, HITRUST, PCI DSS niveau 1, ISO 27001, HIPPAA, FedRAMP High et de nombreuses autres certifications.
 
 La capture d’écran suivante montre l’intégration Active Directory (RBAC) à l’aide du contrôle d’accès (IAM) dans le portail Azure : ![Contrôle d’accès (IAM) dans le portail Azure - Démonstration de la sécurité de la base de données](./media/database-security/nosql-database-security-identity-access-management-iam-rbac.png)
 

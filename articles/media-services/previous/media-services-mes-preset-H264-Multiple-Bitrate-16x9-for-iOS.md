@@ -2,7 +2,7 @@
 title: H264 - Vitesse de transmission multiples - 16 x 9 pour iOS | Microsoft Docs
 description: Cette rubrique vous procure une vue d’ensemble de la présélection de tâches **H264 - Vitesse de transmission multiple - 16x9 pour iOS**.
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/20/2017
+ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 9b938a5396e9f29fc9f2222056b84fbf13179dff
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b052d3caa8a7231153f72523eff6e9d24778cb26
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783328"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249711"
 ---
 # <a name="h264-multiple-bitrate-16x9-for-ios"></a>H264 – Vitesse de transmission multiple – 16 x 9 pour iOS
 `Media Encoder Standard` définit un ensemble de présélections d’encodage à utiliser lors de la création des travaux d’encodage. Vous pouvez utiliser un `preset name` afin de spécifier le format dans lequel vous souhaitez encoder votre fichier multimédia. Sinon, vous pouvez créer vos propres présélections basées sur JSON ou XML (à l’aide de l’encodage UTF-8 ou UTF-16). Vous pouvez ensuite transmettre la présélection personnalisée à l’encodeur. Pour obtenir la liste de tous les noms de présélections pris en charge par cet encodeur `Media Encoder Standard`, consultez [Présélections de tâches pour Media Encoder Standard](media-services-mes-presets-overview.md).  

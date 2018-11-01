@@ -3,7 +3,7 @@ title: Glossaire des outils des bases de données élastiques | Microsoft Docs
 description: Explication des termes utilisés pour les outils de base de données élastique
 services: sql-database
 ms.service: sql-database
-subservice: elastic-scale
+ms.subservice: elastic-scale
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
@@ -12,19 +12,19 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 09/14/2018
-ms.openlocfilehash: 354d972e78a7fb7270b1b09f4af5aa95709fcd06
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 7af8e25fa46155d5054d494485de336c68caa7f2
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162574"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50239064"
 ---
 # <a name="elastic-database-tools-glossary"></a>Glossaire des outils de base de données élastique
 Les termes suivants sont définis pour les [outils des bases de données élastiques](sql-database-elastic-scale-introduction.md), une fonction de Base de données SQL Azure. Les outils permettent de gérer les [cartes de partition](sql-database-elastic-scale-shard-map-management.md) et incluent la [bibliothèque cliente](sql-database-elastic-database-client-library.md), [l’outil de fusion et de fractionnement](sql-database-elastic-scale-overview-split-and-merge.md), les [pools élastiques](sql-database-elastic-pool.md) et les [requêtes](sql-database-elastic-query-overview.md). 
 
 Ces termes sont utilisés dans [Ajout d’une partition à l’aide des outils de base de données élastique](sql-database-elastic-scale-add-a-shard.md) et [Utiliser la classe RecoveryManager pour résoudre les problèmes de carte de partition](sql-database-elastic-database-recovery-manager.md).
 
-![Termes liés à l’infrastructure flexible][1]
+![Termes liés ç l’infrastructure flexible][1]
 
 **Base de données**: une base de données SQL Azure. 
 
