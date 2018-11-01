@@ -11,13 +11,13 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 10/19/2018
-ms.openlocfilehash: 9332bcb5849deacde13d67e4a18ea19af8af2977
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.date: 10/29/2018
+ms.openlocfilehash: 3495a923683d78446e61ff0545c7d86023c14bc0
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471473"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233852"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Vue d’ensemble : géoréplication active et groupes de basculement automatique
 
@@ -281,18 +281,18 @@ Comme indiqué plus haut, les groupes de basculement automatique et la géo-rép
 | --- | --- |
 | [.Créer ou mettre à jour la base de données (createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Crée, met à jour ou restaure une base de données principale ou secondaire. |
 | [Créer ou mettre à jour l’état de la base de données](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |Retourne l’état durant une opération de création. |
-| [Définir la base de données secondaire comme principale (basculement planifié)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failover) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. |
-| [Définir la base de données secondaire comme principale (basculement non planifié)](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_failoverallowdataloss) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. Cette opération peut entraîner une perte de données. |
-| [Obtenir un lien de réplication](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_get) |Obtient un liens de réplication spécifique pour une base de données SQL particulière dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
-| [Liens de réplication - Liste par base de données](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_listbydatabase) | Obtient tous les liens de réplication pour une base de données SQL donnée dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
-| [Supprimer un lien de réplication](https://docs.microsoft.com/rest/api/sql/replicationlinks/replicationlinks_delete) | Supprime un lien de réplication de base de données. Opération impossible pendant le basculement. |
-| [Créer ou mettre à jour un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_createorupdate) | Crée ou met à jour un groupe de basculement |
-| [Supprimer un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_delete) | Supprime un groupe de basculement du serveur |
-| [Basculement (planifié)](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_failover) | Bascule du serveur principal actuel vers ce serveur. |
-| [Forcer le basculement et autoriser la perte de données](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_forcefailoverallowdataloss) |Bascule du serveur principal actuel vers ce serveur. Cette opération peut entraîner une perte de données. |
-| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_get) (Obtenir un groupe de basculement) | Obtient un groupe de basculement. |
-| [Répertorier les groupes de basculement par serveur](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_listbyserver) | Répertorie les groupes de basculement d’un serveur. |
-| [Mettre à jour un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups/failovergroups_update) | Met à jour un groupe de basculement. |
+| [Définir la base de données secondaire comme principale (basculement planifié)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. |
+| [Définir la base de données secondaire comme principale (basculement non planifié)](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |Définit la base de données réplica principale en basculant à partir de la base de données réplica principale actuelle. Cette opération peut entraîner une perte de données. |
+| [Obtenir un lien de réplication](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |Obtient un liens de réplication spécifique pour une base de données SQL particulière dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
+| [Liens de réplication - Liste par base de données](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | Obtient tous les liens de réplication pour une base de données SQL donnée dans un partenariat de géo-réplication. Récupère les informations visibles dans la vue de catalogue sys.geo_replication_links. |
+| [Supprimer un lien de réplication](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | Supprime un lien de réplication de base de données. Opération impossible pendant le basculement. |
+| [Créer ou mettre à jour un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups/createorupdate) | Crée ou met à jour un groupe de basculement |
+| [Supprimer un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups/delete) | Supprime un groupe de basculement du serveur |
+| [Basculement (planifié)](https://docs.microsoft.com/rest/api/sql/failovergroups/failover) | Bascule du serveur principal actuel vers ce serveur. |
+| [Forcer le basculement et autoriser la perte de données](https://docs.microsoft.com/rest/api/sql/failovergroups/forcefailoverallowdataloss) |Bascule du serveur principal actuel vers ce serveur. Cette opération peut entraîner une perte de données. |
+| [Get Failover Group](https://docs.microsoft.com/rest/api/sql/failovergroups/get) (Obtenir un groupe de basculement) | Obtient un groupe de basculement. |
+| [Répertorier les groupes de basculement par serveur](https://docs.microsoft.com/rest/api/sql/failovergroups/listbyserver) | Répertorie les groupes de basculement d’un serveur. |
+| [Mettre à jour un groupe de basculement](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Met à jour un groupe de basculement. |
 |  | |
 
 ## <a name="next-steps"></a>Étapes suivantes

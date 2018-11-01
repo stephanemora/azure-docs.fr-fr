@@ -1,24 +1,20 @@
 ---
-title: Utiliser la CLI Databricks à partir d’Azure Cloud Shell | Microsoft Docs
+title: 'Utiliser la CLI Databricks à partir d’Azure Cloud Shell '
 description: Découvrez comment utiliser la CLI Databricks à partir d’Azure Cloud Shell.
 services: azure-databricks
-documentationcenter: ''
-author: nitinme
-manager: cgronlun
-editor: cgronlun
+author: mamccrea
+ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.workload: big-data
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/29/2018
-ms.author: nitinme
-ms.openlocfilehash: 3ea4ebbd95237b50054fb0e344f260120d597ab5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.author: mamccrea
+ms.openlocfilehash: dae481fb477223f149404c6a09cad024bc15cd90
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225232"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416692"
 ---
 # <a name="use-databricks-cli-from-azure-cloud-shell"></a>Utiliser la CLI Databricks à partir d’Azure Cloud Shell
 
@@ -60,7 +56,7 @@ Découvrez comment utiliser la CLI Databricks à partir d’Azure Cloud Shell po
 
     Les invites suivantes s’affichent :
 
-    * Tout d’abord, vous êtes invité à saisir l’hôte Databricks. Saisissez la valeur au format `https://eastus2.azuredatabricks.net`. Ici, **Est des États-Unis 2** correspond à la région Azure où vous avez créé votre espace de travail Azure Databricks.
+    * Tout d’abord, vous êtes invité à saisir l’hôte Databricks. Saisissez la valeur au format `https://eastus2.azuredatabricks.net`. Ici, **USA Est 2** correspond à la région Azure où vous avez créé votre espace de travail Azure Databricks.
 
     * Ensuite, vous êtes invité à saisir un jeton. Entrez le jeton que vous avez créé précédemment.
 

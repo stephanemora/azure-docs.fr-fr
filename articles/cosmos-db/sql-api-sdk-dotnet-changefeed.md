@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 05/21/2018
+ms.date: 10/24/2018
 ms.author: maquaran
-ms.openlocfilehash: 6c4dafa5b15548b3dbc02a9c093232197b3f1400
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: f09430aeb38e6762729167494a23096c7bc5ca85
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716551"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023949"
 ---
 # <a name="net-change-feed-processor-sdk-download-and-release-notes"></a>Kit SDK du processeur de flux de modification .NET : téléchargement et notes de publication
 > [!div class="op_single_selector"]
@@ -36,12 +36,20 @@ ms.locfileid: "44716551"
 |---|---|
 |**Téléchargement du Kit de développement logiciel (SDK)**|[NuGet](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.ChangeFeedProcessor/)|
 |**Documentation de l’API**|[Documentation de référence de l’API de la bibliothèque du processeur de flux de modification](/dotnet/api/microsoft.azure.documents.changefeedprocessor?view=azure-dotnet)|
-|**Démarrer**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
+|**Prise en main**|[Prise en main du kit SDK du processeur de flux de modification .NET](change-feed.md)|
 |**Infrastructure actuellement prise en charge**| [Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</br> [Microsoft .NET Core](https://www.microsoft.com/net/download/core) |
 
 ## <a name="release-notes"></a>Notes de publication
 
 ### <a name="v2-builds"></a>Builds V2
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Calcul de l'estimateur fixe pour les comptes multimaîtres et le nouveau format de jeton de session.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Ajout de la prise en charge des collections de baux partitionnées. La clé de partition doit être définie comme /id.
+* Changement cassant mineur : les méthodes de l’interface IChangeFeedDocumentClient et la classe ChangeFeedDocumentClient ont été modifiées pour inclure les paramètres RequestOptions et CancellationToken. IChangeFeedDocumentClient est un point d’extensibilité avancée qui vous permet d'offrir une implémentation personnalisée du client du document à utiliser le processeur de flux de modification, par exemple, décorer DocumentClient et intercepter tous les appels correspondants pour renforcer le suivi, la gestion des erreurs, etc. Avec cette mise à jour, le code qui implémente IChangeFeedDocumentClient devra être modifié pour inclure les nouveaux paramètres dans l’implémentation.
+* Améliorations mineures des diagnostics.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Ajout de la nouvelle API, Task&lt;IReadOnlyList&lt;RemainingPartitionWork&gt;&gt; IRemainingWorkEstimator.GetEstimatedRemainingWorkPerPartitionAsync(). Elle peut être utilisée pour estimer un travail pour chaque partition.
@@ -134,6 +142,7 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.2.1](#2.2.1) |24 octobre 2018 |--- |
 | [1.3.3](#1.3.3) |8 mai 2018 |--- |
 | [1.3.2](#1.3.2) |18 avril 2018 |--- |
 | [1.3.1](#1.3.1) |13 mars 2018 |--- |

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/25/2017
+ms.date: 10/22/2017
 ms.author: jingwang
-ms.openlocfilehash: e1be16ec6a7536cedf3a27ffacb9c4dffe42bbef
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 3428fb5034435d9f3444347329171d803136177c
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37052413"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49944666"
 ---
 # <a name="store-credential-in-azure-key-vault"></a>Stocker des informations d’identification dans Azure Key Vault
 
@@ -30,7 +30,7 @@ Actuellement, tous les types d’activité, à l’exception des activités pers
 Cette fonctionnalité repose sur l’identité de service de la fabrique de données. Découvrez comment cela fonctionne dans [Identité du service de fabrique de données](data-factory-service-identity.md) et vérifiez que votre fabrique de données est bien associée à une identité de service.
 
 >[!TIP]
->Dans Azure Key Vault, lorsque vous créez un secret, **placez la valeur entière d’une propriété de secret demandée par le service lié ADF (par exemple, chaîne de connexion/mot de passe/clé du principal de service/etc.)**. Par exemple, pour le service lié Stockage Azure, placez `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` en tant que secret AKV, puis référencez-le dans le champ « connectionString » ADF ; pour le service lié Dynamics, placez `myPassword` en tant que secret AKV, puis référencez-le dans le champ « paassword » ADF. Reportez-vous à chaque article relatif au connecteur/calcul pour connaître les détails de propriété pris en charge.
+>Dans Azure Key Vault, lorsque vous créez un secret, **placez la valeur entière d’une propriété de secret demandée par le service lié ADF (par exemple, chaîne de connexion/mot de passe/clé du principal de service/etc.)**. Par exemple, pour le service lié Stockage Azure, placez `DefaultEndpointsProtocol=http;AccountName=myAccount;AccountKey=myKey;` en tant que secret AKV, puis référencez-le dans le champ « connectionString » ADF ; pour le service lié Dynamics, placez `myPassword` en tant que secret AKV, puis référencez-le dans le champ « password » ADF. Reportez-vous à chaque article relatif au connecteur/calcul pour connaître les détails de propriété pris en charge.
 
 ## <a name="steps"></a>Étapes
 
@@ -47,8 +47,8 @@ Les propriétés suivantes sont prises en charge pour le service lié Azure Key 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type doit être définie sur **AzureKeyVault**. | OUI |
-| baseUrl | Spécifiez l’URL d’Azure Key Vault. | OUI |
+| Type | La propriété de type doit être définie sur **AzureKeyVault**. | Oui |
+| baseUrl | Spécifiez l’URL d’Azure Key Vault. | Oui |
 
 **Utilisation de l’interface utilisateur de création :**
 
@@ -80,10 +80,10 @@ Les propriétés suivantes sont prises en charge lorsque vous configurez un cham
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété de type du champ doit être définie sur **AzureKeyVaultSecret**. | OUI |
-| secretName | Nom du secret dans le coffre de clés Azure. | OUI |
+| Type | La propriété de type du champ doit être définie sur **AzureKeyVaultSecret**. | Oui |
+| secretName | Nom du secret dans le coffre de clés Azure. | Oui |
 | secretVersion | Version du secret dans le coffre de clés Azure.<br/>Si elle n’est pas spécifiée, la version la plus récente du secret est utilisée.<br/>Si elle est spécifiée, elle utilise la version spécifiée.| Non  |
-| store | Fait référence au service lié Azure Key Vault que vous utilisez pour stocker les informations d’identification. | OUI |
+| store | Fait référence au service lié Azure Key Vault que vous utilisez pour stocker les informations d’identification. | Oui |
 
 **Utilisation de l’interface utilisateur de création :**
 

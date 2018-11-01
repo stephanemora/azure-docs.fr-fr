@@ -1,3 +1,16 @@
+---
+author: alkohli
+ms.service: storsimple
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: alkohli
+ms.openlocfilehash: 792589f4aa2a80c05378224ffe4e4d1dad2f935c
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50164864"
+---
 <!--author=alkohli last changed:02/22/16-->
 
 #### <a name="to-attach-the-sas-cables"></a>Attacher les câbles SAS
@@ -33,7 +46,7 @@
       | Étiquette | Description |
       |:--- |:--- |
       | Une |Boîtier principal |
-      | B |Boîtier EBOD |
+      | b |Boîtier EBOD |
       | 1 |Contrôleur 0 |
       | 2 |Contrôleur 1 |
       | 3 |Contrôleur 0 du boîtier EBOD |

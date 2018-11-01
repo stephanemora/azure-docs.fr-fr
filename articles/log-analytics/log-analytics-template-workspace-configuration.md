@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: f1cf38dd5687e14b0183de03b8eda41fe39808e3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: a715c300cc5490eef9dbe7971dabe1733fd47f49
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041372"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402214"
 ---
 # <a name="manage-log-analytics-using-azure-resource-manager-templates"></a>Gérer Log Analytics à l’aide de modèles Azure Resource Manager
 Vous pouvez utiliser des [modèles Azure Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) pour créer et configurer des espaces de travail Log Analytics. Voici quelques exemples de tâches que vous pouvez effectuer avec des modèles :
@@ -178,7 +178,7 @@ L’exemple de modèle suivant illustre comment :
       "minValue": 7,
       "maxValue": 730,
       "metadata": {
-        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and OMS plans include 30 days for free"
+        "description": "Number of days of retention. Free plans can only have 7 days, Standalone and Log Analytics plans include 30 days for free"
       }
     },
     "location": {
@@ -518,7 +518,7 @@ La galerie de modèles de démarrage rapide Azure comprend plusieurs modèles po
 * [Déployer une machine virtuelle exécutant Linux avec l’extension de machine virtuelle Log Analytics](https://azure.microsoft.com/documentation/templates/201-oms-extension-ubuntu-vm/)
 * [Analyser Azure Site Recovery à l’aide d’un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/asr-oms-monitoring/)
 * [Analyser les applications web Azure à l’aide d’un espace de travail Log Analytics existant](https://azure.microsoft.com/documentation/templates/101-webappazure-oms-monitoring/)
-* [Ajouter un compte de stockage existant à OMS](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
+* [Ajouter un compte de stockage existant à Log Analytics](https://azure.microsoft.com/resources/templates/oms-existing-storage-account/)
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Déployez l’agent Windows sur des machines virtuelles Azure à l’aide du modèle Resource Manager](../virtual-machines/windows/extensions-oms.md).

@@ -4,7 +4,7 @@ description: Découvrez comment configurer les journaux de diagnostic pour Event
 keywords: ''
 documentationcenter: ''
 services: event-hubs
-author: banisadr
+author: ShubhaVijayasarathy
 manager: ''
 editor: ''
 ms.assetid: ''
@@ -14,15 +14,15 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 07/02/2018
-ms.author: sethm
-ms.openlocfilehash: fd7b85d18aeb1674ad7a5e67dd9ac65345c56887
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.author: shvija
+ms.openlocfilehash: bee6219bca21c3bc2bf4f97aa061fce0b30d55ff
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435029"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49985164"
 ---
-# <a name="event-hubs-diagnostic-logs"></a>Journaux de diagnostic d’Event Hubs
+# <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurer les journaux de diagnostic pour un Event Hub Azure.
 
 Vous pouvez afficher deux types de journaux pour Azure Event Hubs :
 

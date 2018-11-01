@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: bfeee293dfb86db2be8e799f60b5e025477293d5
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 913d1b9125bcfa57334e70dcca44965fdb3d5ba6
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49465557"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50242056"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-the-azure-cli"></a>Tutoriel : Installer des applications dans des groupes de machines virtuelles identiques avec Azure CLI
 Pour exécuter des applications sur des instances de machine virtuelle d’un groupe identique, vous devez d’abord installer les composants d’application et les fichiers requis. Dans un didacticiel précédent, vous avez appris à créer et utiliser une image personnalisée de machine virtuelle pour déployer vos instances de machine virtuelle. Cette image personnalisée comprenait l’installation et la configuration manuelles d’applications. Vous pouvez également automatiser l’installation des applications pour un groupe identique après le déploiement de chaque instance de machine virtuelle, ou mettre à jour une application déjà exécutée dans un groupe identique. Ce didacticiel vous montre comment effectuer les opérations suivantes :
@@ -49,7 +49,7 @@ Pour utiliser l’extension de script personnalisé avec l’interface CLI Azure
 ## <a name="create-custom-script-extension-definition"></a>Créer une définition d’extension de script personnalisé
 Pour voir l’extension de script personnalisé en action, il faut créer un groupe identique qui installe le serveur web NGINX et affiche le nom d’hôte de l’instance de machine virtuelle du groupe identique. La définition d’extension de script personnalisé suivante télécharge un exemple de script à partir de GitHub, installe les packages requis, puis écrit le nom d’hôte de l’instance de machine virtuelle sur une page HTML de base.
 
-Dans l’interpréteur de commandes actuel, créez un fichier nommé *customConfig.json* et collez la configuration suivante. Par exemple, créez le fichier dans l’interpréteur de commandes Cloud et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor cloudConfig.json` dans Cloud Shell pour créer le fichier et afficher la liste des éditeurs disponibles.
+Dans l’interpréteur de commandes actuel, créez un fichier nommé *customConfig.json* et collez la configuration suivante. Par exemple, créez le fichier dans l’interpréteur de commandes Cloud et non sur votre ordinateur local. Vous pouvez utiliser l’éditeur de votre choix. Entrez `sensible-editor customConfig.json` dans Cloud Shell pour créer le fichier et afficher la liste des éditeurs disponibles.
 
 ```json
 {
