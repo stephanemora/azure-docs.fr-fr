@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: efedb2f48748264fb936fe82a1dbb3cf4403cc5e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40166130"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50035381"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Afficher les machines virtuelles sur lesquelles une maintenance est planifiée dans le portail
 
@@ -49,7 +49,7 @@ Vous pouvez utiliser le portail Azure et rechercher les machines virtuelles sur 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notification et alertes dans le portail
 
-Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité Azure. Pour plus d’informations, consultez [Surveiller l’activité d’abonnement avec le journal d’activité Azure] (../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md)
+Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité Azure. Pour en savoir plus, consultez [Surveiller l’activité d’abonnement avec le journal d’activité Azure](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Dans le menu de gauche, sélectionnez **Surveiller**. 

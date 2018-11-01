@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: quickstart
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 03fd376e58062ae9b4593fcaf7904200157c4dc3
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c492a0d0a9d90a79b0e05d4e7de6f5ef0796184a
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031422"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50417529"
 ---
 # <a name="quickstart-get-intent-using-java"></a>Démarrage rapide : Reconnaître l’intention à l’aide de Java
 
@@ -24,7 +24,7 @@ ms.locfileid: "47031422"
 
 ## <a name="prerequisites"></a>Prérequis
 
-* [JDK SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (Kit de développement Java, Édition Standard)
+* [JDK SE](https://aka.ms/azure-jdks) (Kit de développement Java, Édition Standard)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * ID d’application publique : df67dcdb-c37d-46af-88e1-8b97951ca1c2
 

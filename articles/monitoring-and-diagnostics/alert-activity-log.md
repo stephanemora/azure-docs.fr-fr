@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a95cdbb48371cf960211f55bf077cea9db783db5
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 3c8202f762c65d72417020b0524e415e55076eb0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48248327"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415260"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal d'activité avec Azure Monitor  
 
@@ -43,11 +43,11 @@ Procédez comme suit :
 1. Dans le portail Azure, sélectionnez **Surveiller** > **Alertes**.
 2. Cliquez sur **Nouvelle règle d’alerte** en haut de la fenêtre **Alertes**.
 
-     ![nouvelle règle d'alerte](./media/monitor-alerts-unified/AlertsPreviewOption.png)
+     ![nouvelle règle d'alerte](media/alert-activity-log/AlertsPreviewOption.png)
 
      La fenêtre **Créer une règle** s’affiche.
 
-      ![nouvelles options d'alerte](./media/monitoring-activity-log-alerts-new-experience/create-new-alert-rule-options.png)
+      ![nouvelles options d'alerte](media/alert-activity-log/create-new-alert-rule-options.png)
 
 3. Sous **Définir une condition d’alerte,** indiquez les informations suivantes, puis cliquez sur **Fait**.
 
@@ -57,7 +57,7 @@ Procédez comme suit :
 
     > Vous pouvez sélectionner une ressource, un groupe de ressources ou un abonnement entier comme signal du journal d'activité.
 
-    **Vue Exemple de cible de l’alerte** ![Sélectionner la cible](./media/monitoring-activity-log-alerts-new-experience/select-target.png)
+    **Vue Exemple de cible de l’alerte** ![Sélectionner la cible](media/alert-activity-log/select-target.png)
 
     - Sous **Critères de ciblage**, cliquez sur **Ajouter des critères**. Tous les signaux disponibles pour la cible s’affichent alors, y compris ceux des différentes catégories du **journal d’activité**. Le nom de la catégorie est ajouté dans le nom **Service de surveillance**.
 
@@ -67,7 +67,7 @@ Procédez comme suit :
 
     **Écran Ajouter des critères**
 
-    ![ajouter des critères](./media/monitoring-activity-log-alerts-new-experience/add-criteria.png)
+    ![ajouter des critères](media/alert-activity-log/add-criteria.png)
 
     **Échelle de l’historique** : les événements disponibles pour l’opération sélectionnée peuvent s’être déroulés au cours des 6/12/24 dernières heures ou la dernière semaine.
 
@@ -79,7 +79,7 @@ Procédez comme suit :
 
         Exemple de graphique de signal avec application d’une logique d’alerte :
 
-        ![ critères sélectionnés](./media/monitoring-activity-log-alerts-new-experience/criteria-selected.png)
+        ![ critères sélectionnés](media/alert-activity-log/criteria-selected.png)
 
 4. Sous **Définir les détails des règles d’alerte**, indiquez les informations suivantes :
 
@@ -99,20 +99,20 @@ Procédez comme suit :
 
 Sinon, pour bien comprendre les conditions dans lesquelles des règles d’alerte peuvent être créées sur le journal d’activité, il est possible d’explorer ou de filtrer les événements par le biais du [Journal d’activité dans le portail Azure](monitoring-overview-activity-logs.md#query-the-activity-log-in-the-azure-portal). Dans Azure Monitor - Journal d’activité, il est possible de filtrer ou de rechercher l’événement requis, puis de créer une alerte à l’aide du bouton **Ajouter une alerte de journal d’activité**. Poursuivez ensuite jusqu’à l’étape 4 comme indiqué dans le didacticiel ci-dessus.
     
- ![ ajouter une alerte du journal d’activité](./media/monitoring-activity-log-alerts-new-experience/add-activity-log.png)
+ ![ ajouter une alerte du journal d’activité](media/alert-activity-log/add-activity-log.png)
     
 
 ### <a name="view-and-manage-in-azure-portal"></a>Afficher et gérer dans le Portail Azure
 
 1. Dans le portail Azure, cliquez sur **Surveiller** > **Alertes**, puis sur **Gérer les règles** en haut à gauche de la fenêtre.
 
-    ![ gérer les règles d’alerte](./media/monitoring-activity-log-alerts-new-experience/manage-alert-rules.png)
+    ![ gérer les règles d’alerte](media/alert-activity-log/manage-alert-rules.png)
 
     La liste des règles disponibles s’affiche.
 
 2. Recherchez la règle de journal d’activité à modifier.
 
-    ![ rechercher des règles d’alerte de journal d'activité](./media/monitoring-activity-log-alerts-new-experience/searth-activity-log-rule-to-edit.png)
+    ![ rechercher des règles d’alerte de journal d'activité](media/alert-activity-log/searth-activity-log-rule-to-edit.png)
 
     Vous pouvez utiliser les filtres disponibles (_Abonnement_, _Groupe de ressources_, _Ressource_, _Type de signal_ ou _État_) pour trouver la règle d’activité que vous souhaitez modifier.
 
@@ -122,7 +122,7 @@ Sinon, pour bien comprendre les conditions dans lesquelles des règles d’alert
 
 3.  Sélectionnez la règle, puis double-cliquez pour modifier ses options. Apportez les modifications nécessaires, puis cliquez sur **Enregistrer**.
 
-    ![ gérer les règles d’alerte](./media/monitoring-activity-log-alerts-new-experience/activity-log-rule-edit-page.png)
+    ![ gérer les règles d’alerte](media/alert-activity-log/activity-log-rule-edit-page.png)
 
 4.  Vous pouvez désactiver, activer ou supprimer un profil. Sélectionnez l’option souhaitée en haut de la fenêtre, après avoir sélectionné la règle en suivant les instructions de l’étape 2.
 

@@ -9,12 +9,12 @@ ms.date: 09/15/2018
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 853fd1e9939631b6c459caf89994299e7a8406b0
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 64e49dee5bf560dec263e67daa3c130a0ba8b40c
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165527"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420946"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Collecter les traces distribuées à partir de Go (préversion)
 
@@ -208,7 +208,7 @@ Vous devez tout d’abord créer une ressource Application Insights qui génère
 
     Étant donné que nous n’avons suivi qu’un seul appel de méthode, notre cartographie d’application n’est pas aussi intéressante. Mais vous pouvez la mettre à l’échelle pour visualiser des applications beaucoup plus distribuées :
 
-   ![Mise en correspondance d'applications](./media/app-insights-nodejs-quick-start/application-map.png)
+   ![Mise en correspondance d'applications](media/opencensus-go/application-map.png)
 
 4. Sélectionnez **Examiner les performances** pour effectuer une analyse détaillée des performances et déterminer la cause racine du ralentissement des performances.
 

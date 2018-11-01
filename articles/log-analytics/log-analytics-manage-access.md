@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 633bf2cf68449849c019ba940644d78d1478efc3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 75faceb641382df29a93c44803af48dcfed142d4
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042324"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421167"
 ---
 # <a name="manage-workspaces"></a>Gestion des espaces de travail
 
@@ -64,7 +64,7 @@ Vous pouvez afficher des détails sur votre espace de travail dans le portail Az
 
 2. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.  
 
-    ![Portail Azure](./media/log-analytics-quick-collect-azurevm/azure-portal-01.png)  
+    ![Portail Azure](media/log-analytics-manage-access/azure-portal-01.png)  
 
 3. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail.
 

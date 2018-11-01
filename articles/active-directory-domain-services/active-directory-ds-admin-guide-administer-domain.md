@@ -3,7 +3,7 @@ title: 'Version préliminaire des services de domaine Azure Active Directory : a
 description: Administrer les domaines gérés par les services de domaine Azure Active Directory
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: d4fdbc75-3e6b-4e20-8494-5dcc3bf2220a
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
-ms.author: maheshu
-ms.openlocfilehash: c2258b9d26a62fd7c8e50c1ed7b3583c06e1c353
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: 031c609ee5dcd04fc461af74b7f49973fbd290c3
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503432"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157617"
 ---
 # <a name="administer-an-azure-active-directory-domain-services-managed-domain"></a>Administrer un domaine géré par les services de domaine Azure Active Directory
 Cet article indique comment administrer un domaine géré par les services de domaine Azure Active Directory (AD).
@@ -120,6 +120,6 @@ Vous pouvez à présent utiliser les outils d’administration AD Windows Server
 <br>
 
 ## <a name="related-content"></a>Contenu connexe
-* [Services de domaine Azure AD : guide de prise en main](active-directory-ds-getting-started.md)
+* [Services de domaine Azure AD : guide de mise en route](active-directory-ds-getting-started.md)
 * [Joindre une machine virtuelle Windows Server à un domaine géré par les services de domaine Azure AD](active-directory-ds-admin-guide-join-windows-vm.md)
 * [Déployer les Outils d’administration de serveur distant](https://technet.microsoft.com/library/hh831501.aspx)

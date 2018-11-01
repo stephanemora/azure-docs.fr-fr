@@ -9,12 +9,12 @@ ms.date: 11/13/2017
 ms.service: application-insights
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 75401614b6892402083af5192b691f00d82c8d05
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301620"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413619"
 ---
 # <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Ajouter l’analyse continue à votre pipeline de mise en production
 
@@ -28,13 +28,13 @@ Azure DevOps Services prend désormais en charge l’analyse continue, grâce à
 
 2. Passez le curseur sur **Build et mise en production** > sélectionnez **Versions** > cliquez sur le **signe plus** > **Création d’une définition de version** > recherchez **Analyse** > **Déploiement d’Azure App Service avec l’analyse continue.**
 
-   ![Nouveau pipeline de mise en production d’Azure DevOps Services](.\media\app-insights-continuous-monitoring\001.png)
+   ![Nouveau pipeline de mise en production d’Azure DevOps Services](media/app-insights-vsts-continuous-monitoring/001.png)
 
 3. Cliquez sur **Appliquer**.
 
 4. À côté du point d’exclamation rouge, sélectionnez le texte en bleu pour **afficher les tâches d’environnement.**
 
-   ![Afficher les tâches d’environnement](.\media\app-insights-continuous-monitoring\002.png)
+   ![Afficher les tâches d’environnement](media/app-insights-vsts-continuous-monitoring/002.png)
 
    Une boîte de configuration s’affiche : utilisez le tableau suivant pour remplir les champs d’entrée.
 
@@ -60,7 +60,7 @@ Azure DevOps Services prend désormais en charge l’analyse continue, grâce à
 
 3. Modifiez le **seuil** de disponibilité pour répondre à vos exigences de niveau de service.
 
-   ![Modifier l’alerte](.\media\app-insights-continuous-monitoring\003.png)
+   ![Modifier l’alerte](media/app-insights-vsts-continuous-monitoring/003.png)
 
 4. Sélectionnez **OK** > **Enregistrer** > entrez un commentaire descriptif > cliquez sur **OK.**
 
@@ -68,13 +68,13 @@ Azure DevOps Services prend désormais en charge l’analyse continue, grâce à
 
 1. Cliquez sur **Pipeline** > sélectionnez le symbole des conditions **pré** ou **post-déploiement** en fonction de l’étape nécessitant un portail d’analyse continue.
 
-   ![Conditions préalables au déploiement](.\media\app-insights-continuous-monitoring\004.png)
+   ![Conditions préalables au déploiement](media/app-insights-vsts-continuous-monitoring/004.png)
 
 2. Définissez **Portails** sur **Activé** > **Portails d’approbation**> cliquez sur **Ajouter.**
 
 3. Sélectionnez **Azure Monitor** (cette option vous permet d’accéder aux alertes à partir d’Azure Monitor et d’Application Insights).
 
-    ![Azure Monitor](.\media\app-insights-continuous-monitoring\005.png)
+    ![Azure Monitor](media/app-insights-vsts-continuous-monitoring/005.png)
 
 4. Saisissez une valeur pour le **délai d’attente des portails**.
 
@@ -86,7 +86,7 @@ Une fois que vous ajoutez des portails de déploiement, une alerte dans Applicat
 
 Pour observer ce comportement, sélectionnez **Mises en production** > clic droit sur le nom de la mise en production **ouvrir** > **Journaux.**
 
-![Journaux](.\media\app-insights-continuous-monitoring\006.png)
+![Journaux](media/app-insights-vsts-continuous-monitoring/006.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

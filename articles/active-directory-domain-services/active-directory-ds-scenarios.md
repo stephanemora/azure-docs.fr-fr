@@ -3,7 +3,7 @@ title: 'Services de domaine Azure Active Directory : scénarios de déploiement
 description: Scénarios de déploiement pour les Services de domaine Azure AD
 services: active-directory-ds
 documentationcenter: ''
-author: mahesh-unnikrishnan
+author: eringreenlee
 manager: mtillman
 editor: curtand
 ms.assetid: c5216ec9-4c4f-4b7e-830b-9d70cf176b20
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/21/2017
-ms.author: maheshu
-ms.openlocfilehash: db2bd855300d93d832a3dd7ca0ce526478824ccc
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.author: ergreenl
+ms.openlocfilehash: b660bb2675332612b73879e95b89ace9c7714bbf
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39502567"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155284"
 ---
 # <a name="deployment-scenarios-and-use-cases"></a>Scénarios de déploiement et cas d'usage
 Dans cette section, nous examinons quelques scénarios et cas pratiques qui tirent parti des services de domaine Azure Active Directory (AD).

@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/07/2018
 ms.author: cephalin
-ms.openlocfilehash: e597ba5236fb2d7fea8649f423c4a952b01f87ee
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9b66dad87708ad127186b0bbbc39965fe90b6b75
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599617"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416152"
 ---
 # <a name="tutorial-authenticate-and-authorize-users-end-to-end-in-azure-app-service"></a>Tutoriel : Authentifier et autoriser des utilisateurs de bout en bout dans Azure App Service
 
@@ -52,7 +52,6 @@ Vous pouvez suivre les étapes de ce tutoriel sur macOS, Linux, Windows.
 
 ## <a name="prerequisites"></a>Prérequis
 
-
 Pour suivre ce tutoriel :
 
 * [Installer Git](https://git-scm.com/).
@@ -83,6 +82,10 @@ Pour arrêter ASP.NET Core à tout moment, appuyez sur `Ctrl+C` dans le terminal
 ## <a name="deploy-apps-to-azure"></a>Déployer des applications dans Azure
 
 Dans cette étape, vous déployez le projet dans deux applications App Service. La première est l’application frontale, et la deuxième est l’application principale.
+
+### <a name="configure-a-deployment-user"></a>Configuration d’un utilisateur de déploiement
+
+[!INCLUDE [Configure deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="create-azure-resources"></a>Créer des ressources Azure
 
@@ -415,7 +418,7 @@ Félicitations ! Votre code du client accède maintenant aux données de serveu
 
 Votre jeton d’accès expire après un certain laps de temps. Pour plus d’informations sur la façon d’actualiser vos jetons d’accès sans obliger les utilisateurs à se réauthentifier avec votre application, consultez [Actualiser les jetons d’accès](app-service-authentication-how-to.md#refresh-access-tokens).
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Au cours des étapes précédentes, vous avez créé des ressources Azure au sein d’un groupe de ressources. Si vous ne pensez pas avoir besoin de ces ressources à l’avenir, supprimez le groupe de ressources en exécutant la commande suivante dans Cloud Shell :
 

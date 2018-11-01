@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 06/28/2017
 ms.author: dobett
-ms.openlocfilehash: 74761448b88daa93e11fe45256c4d2fc75833b0f
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: a3019a18fe28840f69a6e14b20dddc72516aa593
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376445"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419535"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub"></a>Charger des fichiers sur le cloud à partir d’un appareil avec IoT Hub
 
@@ -36,7 +36,7 @@ Ces fichiers sont généralement traités par lot dans le cloud à l’aide d’
 
 À la fin de ce didacticiel, vous exécuterez deux applications de console Java :
 
-* **simulated-device**, version modifiée de l’application créée dans le cadre du didacticiel [Envoyer des messages du cloud vers un appareil avec IoT Hub]. Cette application charge un fichier de stockage à l’aide d’un URI SAP fourni par votre hub IoT.
+* **simulated-device**, version modifiée de l’application créée dans le cadre du didacticiel [Envoyer des messages du cloud vers un appareil avec IoT Hub]. Cette application charge un fichier de stockage à l’aide d’un URI SAP fourni par votre IoT Hub.
 
 * **read-file-upload-notification**, qui reçoit les notifications de chargement de fichiers envoyées par le hub IoT.
 
@@ -45,7 +45,7 @@ Ces fichiers sont généralement traités par lot dans le cloud à l’aide d’
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-* La version la plus récente de [Java SE Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* La version la plus récente de [Java SE Development Kit 8](https://aka.ms/azure-jdks)
 
 * [Maven 3](https://maven.apache.org/install.html)
 
@@ -263,10 +263,10 @@ Vous pouvez utiliser le portail pour afficher le fichier chargé dans le contene
 
 Dans ce didacticiel, vous avez appris à utiliser les fonctionnalités de téléchargement de fichier d’IoT Hub pour simplifier les chargements de fichiers à partir d’appareils. Vous pouvez continuer à explorer les scénarios et fonctionnalités d’IoT Hub avec les articles suivants :
 
-* [Créer un hub IoT par programmation](iot-hub-rm-template-powershell.md)
+* [Créer un IoT Hub par programmation](iot-hub-rm-template-powershell.md)
 * [Présentation du SDK C](iot-hub-device-sdk-c-intro.md)
-* [Kits SDK Azure IoT](iot-hub-devguide-sdks.md)
+* [Kits de développement logiciel (SDK) Azure IoT](iot-hub-devguide-sdks.md)
 
-Pour explorer davantage les capacités d’IoT Hub, consultez :
+Pour explorer davantage les capacités de IoT Hub, consultez :
 
 * [Simulation d’un appareil avec IoT Edge](../iot-edge/tutorial-simulate-device-linux.md)

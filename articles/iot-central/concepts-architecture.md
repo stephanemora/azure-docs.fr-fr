@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 44408e7b6ad1a068f265bf7b78d973e6aae3001b
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 564ea3efe35a1054b8c905cff4b7f4c739cc9216
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628757"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156372"
 ---
 # <a name="azure-iot-central-architecture"></a>Architecture d’Azure IoT Central
 
@@ -79,7 +79,7 @@ Dans un modèle d’appareil :
 
 Une application peut avoir un ou plusieurs appareils simulés et réels basés sur chaque modèle d’appareil.
 
-## <a name="rbac"></a>RBAC
+## <a name="role-based-access-control-rbac"></a>Contrôle d’accès en fonction du rôle
 
 Un [administrateur peut définir des règles d’accès](howto-administer.md) pour une application Azure IoT Central en utilisant les rôles prédéfinis. Un administrateur peut affecter des utilisateurs à des rôles qui déterminent les zones de l’application auxquelles l’utilisateur a accès.
 

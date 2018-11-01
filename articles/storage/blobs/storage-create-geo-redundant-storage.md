@@ -9,12 +9,12 @@ ms.date: 03/26/2018
 ms.author: tamram
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: d50291a33a9456fad20382d8e646bf6a19d6179e
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: 162b30444a22ea193d93e8a6a2c7374dcd2f5fd3
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180879"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415982"
 ---
 # <a name="tutorial-make-your-application-data-highly-available-with-azure-storage"></a>Didacticiel : Rendre vos données d’application hautement disponibles avec Stockage Azure
 
@@ -49,7 +49,7 @@ Pour suivre ce tutoriel :
 # <a name="java-tabjava"></a>[Java] (#tab/java)
 
 * Installer et configurer [Maven](http://maven.apache.org/download.cgi) pour qu’il fonctionne à partir de la ligne de commande
-* Installer et configurer [JDK](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* Installer et configurer [JDK](https://aka.ms/azure-jdks)
 
 ---
 
@@ -72,7 +72,7 @@ Suivez ces étapes pour créer un compte de stockage géographiquement redondant
 
    | Paramètre       | Valeur suggérée | Description |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Name** | mystorageaccount | Valeur unique pour votre compte de stockage |
+   | **Nom** | mystorageaccount | Valeur unique pour votre compte de stockage |
    | **Modèle de déploiement** | Gestionnaire de ressources  | Le Gestionnaire des ressources contient les fonctionnalités les plus récentes.|
    | **Type de compte** | StorageV2 | Pour plus d’informations sur les types de compte, consultez [Types de compte de stockage](../common/storage-introduction.md#types-of-storage-accounts) |
    | **Performances** | standard | Le type Standard est suffisant pour l’exemple de scénario. |
