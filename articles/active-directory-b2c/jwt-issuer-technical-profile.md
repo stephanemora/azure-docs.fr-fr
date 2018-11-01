@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 10/30/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cb004745cfbc6af185a06c4787fb34326eccc69a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 25352d12e578c289ccb4ab8aab60dc55a444762e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44382555"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50413500"
 ---
 # <a name="define-a-technical-profile-for-a-jwt-token-issuer-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique pour un émetteur de jeton JSON Web Token dans une stratégie personnalisée Azure Active Directory B2C
 
@@ -52,7 +52,7 @@ Les éléments **InputClaims**, **OutputClaims** et **PersistClaims** sont vides
 | id_token_lifetime_secs | Non  | Durées de vie des jetons d’ID. La valeur par défaut est 3 600 secondes (1 heure). La valeur minimale (inclusive) est 300 secondes (5 minutes). La valeur maximale (inclusive) est 86 400 secondes (24 heures). | 
 | refresh_token_lifetime_secs | Non  | Durées de vie des jetons d’actualisation. Période maximale avant laquelle un jeton d’actualisation peut être utilisé pour acquérir un nouveau jeton d’accès si l’étendue offline_access a été accordée à votre application. La valeur par défaut est 1 209 600 secondes (14 jours). La valeur minimale (inclusive) est 86 400 secondes (24 heures). La valeur maximale (inclusive) est 7 776 000 secondes (90 jours). | 
 | rolling_refresh_token_lifetime_secs | Non  | Durée de vie de la fenêtre glissante du jeton d'actualisation. Une fois cette période écoulée, l’utilisateur est obligé de s’authentifier de nouveau, quelle que soit la période de validité du dernier jeton d’actualisation acquis par l’application. Si vous ne souhaitez pas appliquer une durée de vie de fenêtre glissante, définissez la valeur d’allow_infinite_rolling_refresh_token sur `true`. La valeur par défaut est 7 776 000 secondes (90 jours). La valeur minimale (inclusive) est 86 400 secondes (24 heures). La valeur maximale (inclusive) est 31 536 000 secondes (365 jours). | 
-| rolling_refresh_token_lifetime_secs | Non  | Si la valeur est `true`, la durée de vie de la fenêtre glissante jeton d’actualisation n’expire jamais. |
+| allow_infinite_rolling_refresh_token | Non  | Si la valeur est `true`, la durée de vie de la fenêtre glissante jeton d’actualisation n’expire jamais. |
 | IssuanceClaimPattern | Oui | Contrôle la revendication d’émetteur (iss). Une des valeurs suivantes :<ul><li>AuthorityAndTenantGuid : la revendication iss inclut votre nom de domaine, tel que `login.microsoftonline` ou `tenant-name.b2clogin.com`, et votre identificateur de locataire https://login.microsoftonline.com/00000000-0000-0000-0000-000000000000/v2.0/.</li><li>AuthorityWithTfp : la revendication iss inclut votre nom de domaine, tel que `login.microsoftonline` ou `tenant-name.b2clogin.com`, votre identificateur de locataire et votre nom de stratégie de partie de confiance. https://login.microsoftonline.com/tfp/00000000-0000-0000-0000-000000000000/b2c_1a_tp_sign-up-or-sign-in/v2.0/</li></ul> | 
 | AuthenticationContextReferenceClaimPattern | Non  | Contrôle la valeur de revendication `acr`.<ul><li>None : Azure AD B2C ne génère pas la revendication acr</li><li>PolicyId : la revendication `acr` contient le nom de la stratégie</li></ul>Les options permettant de définir cette valeur sont TFP (Trust Framework Policy) et ACR (Authentication Context Reference). Il est recommandé de définir cette valeur sur TFP. Pour définir la valeur, assurez-vous que `<Item>` avec `Key="AuthenticationContextReferenceClaimPattern"` existe et que la valeur est `None`. Dans votre stratégie de partie de confiance, ajoutez <OutputClaims> item et ajoutez cet élément `<OutputClaim ClaimTypeReferenceId="trustFrameworkPolicy" Required="true" DefaultValue="{policy}" />`. Vérifiez également que votre stratégie contient le type de revendication `<ClaimType Id="trustFrameworkPolicy"> <DisplayName>trustFrameworkPolicy</DisplayName>     <DataType>string</DataType> </ClaimType>` | 
 
