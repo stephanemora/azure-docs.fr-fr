@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/11/2017
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: cd7a6c43cb791ed607a763f10e781794ef513500
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7ffe51077c7152c52b9becd2318fa33eea055c20
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46950401"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956854"
 ---
 # <a name="create-and-modify-routing-for-an-expressroute-circuit-using-cli"></a>Créer et modifier le routage d’un circuit ExpressRoute à l’aide de l’interface CLI
 
@@ -29,7 +29,7 @@ Cet article est conçu pour vous aider à créer et à gérer la configuration d
 > [!div class="op_single_selector"]
 > * [Portail Azure](expressroute-howto-routing-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-routing-arm.md)
-> * [interface de ligne de commande Azure](howto-routing-cli.md)
+> * [Interface de ligne de commande Azure](howto-routing-cli.md)
 > * [Vidéo - Homologation privée](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-private-peering-for-your-expressroute-circuit)
 > * [Vidéo - Homologation publique](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit)
 > * [Vidéo - Homologation Microsoft](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit)
@@ -318,7 +318,7 @@ az network express-route peering update --vlan-id 500 -g ExpressRouteResourceGro
 Vous pouvez supprimer votre configuration d’homologation en exécutant l’exemple suivant :
 
 > [!WARNING]
-> Vous devez vous assurer que tous les réseaux virtuels sont dissociés du circuit ExpressRoute avant d’exécuter cet exemple. 
+> Vous devez vous assurer que la totalité des réseaux virtuels et des connexions ExpressRoute Global Reach sont supprimés avant d’exécuter cet exemple. 
 > 
 > 
 

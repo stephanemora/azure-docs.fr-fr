@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: c90ef26c0170db67b1d422701b6969ca3f9c9e38
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465790"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958511"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Ajouter Key Vault à votre application web à l’aide des Services connectés Visual Studio
 
@@ -138,9 +138,31 @@ Pour accéder à vos secrets :
       <h3>@ViewBag.Secret2</h3>
    ```
 
-Vous savez désormais que votre application web est capable d’utiliser le coffre de clés pour accéder aux secrets qui sont stockés de manière sécurisée.
+1. Exécutez votre application localement afin de vérifier que vous pouvez lire la valeur du secret que vous avez entrée dans le portail Azure, pas la valeur factice issue de votre fichier de configuration.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+Ensuite, publiez votre application web sur Azure.
+
+## <a name="publish-to-azure-app-service"></a>Publier sur Azure App Service
+
+1. Cliquez avec le bouton droit sur le nœud du projet et sélectionnez **Publier**. Un écran s’affiche indiquant **Choisir une cible de publication**. Sur la gauche, choisissez **App Service**, puis **Créer**.
+
+   ![Publier sur App Service](media/vs-key-vault-add-connected-service/AppServicePublish1.PNG)
+
+1. Dans l’écran **Créer App Service**, vérifiez que l’abonnement et le groupe de ressources sont les mêmes que ceux dans lesquels vous avez créé le coffre de clés, puis choisissez **Créer**.
+
+   ![Créer un App Service](media/vs-key-vault-add-connected-service/AppServicePublish2.PNG)
+
+1. Une fois votre application web créée, l’écran **Publier** s’affiche. Notez l’URL de votre application web publiée, hébergée dans Azure. Si vous voyez **Aucun** à côté de **Coffre de clés**, vous devez indiquer à App Service à quel coffre de clés se connecter. Choisissez le lien **Ajouter un coffre de clés**, puis choisissez le coffre de clés que vous avez créé.
+
+   ![Ajouter un coffre de clés](media/vs-key-vault-add-connected-service/AppServicePublish3.PNG)
+
+   Si vous voyez **Gérer le coffre de clés**, vous pouvez cliquer dessus pour afficher les paramètres actuels, modifier les autorisations ou apporter des modifications à vos secrets dans le portail Azure.
+
+1. À présent, cliquez sur le lien URL du site pour visiter votre application web dans le navigateur. Vérifiez que vous voyez la valeur correcte dans le coffre de clés.
+
+Vous savez que votre application web est capable d’utiliser le coffre de clés pour accéder aux secrets qui sont stockés de manière sécurisée quand elle est exécutée dans Azure.
+
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsqu’il n’est plus nécessaire, supprimez le groupe de ressources. Cette opération supprime le coffre de clés et les ressources qui lui sont associées. Pour supprimer le groupe de ressources à l’aide du portail :
 

@@ -3,7 +3,7 @@ title: Mettre automatiquement à l’échelle les unités de débit Azure Event 
 description: Activez la majoration automatique sur un espace de noms pour automatiquement mettre à l’échelle les unités de débit.
 services: event-hubs
 documentationcenter: na
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/02/2018
-ms.author: sethm
-ms.openlocfilehash: 46ed6acc14356221eaf24b03dfa37dc4c76efcbc
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.date: 10/18/2018
+ms.author: shvija
+ms.openlocfilehash: 19525086b1bd41afcc730fb3860d7a01875e4832
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37434638"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49986999"
 ---
 # <a name="automatically-scale-up-azure-event-hubs-throughput-units"></a>Mettre automatiquement à l’échelle les unités de débit Azure Event Hubs
 
@@ -27,6 +27,8 @@ Azure Event Hubs est une plateforme hautement évolutive de diffusion de donnée
 
 * Les taux d’entrée de données sont supérieurs aux unités de débit définies.
 * Les taux de demande de sortie de données sont supérieurs aux unités de débit définies.
+
+Le service Event Hubs augmente le débit quand la charge dépasse le seuil minimal, sans qu’aucune demande échoue avec des erreurs ServerBusy.
 
 ## <a name="how-auto-inflate-works"></a>Fonctionnement de la majoration automatique
 
@@ -54,6 +56,10 @@ Une fois cette option activée, vous pouvez commencer par utiliser le nombre min
 Vous pouvez également activer la majoration automatique à l’aide de l’option **Mettre à l’échelle** dans le panneau des paramètres du portail :
  
 ![](./media/event-hubs-auto-inflate/event-hubs-auto-inflate2.png)
+
+
+> [!NOTE]
+> Quand vous appliquez la configuration avec augmentation automatique afin d’augmenter les unités de débit, le service Event Hubs émet des journaux de diagnostic qui vous indiquent quand et pourquoi le débit a augmenté. Pour activer la journalisation des diagnostics pour un hub d’événements, sélectionnez **Paramètres de diagnostic** dans le menu de gauche de la page Hub d’événements dans le portail Azure. Pour plus d’informations, consultez [Configurer les journaux de diagnostic pour un hub d’événements Azure](event-hubs-diagnostic-logs.md). 
 
 ### <a name="enable-auto-inflate-using-an-azure-resource-manager-template"></a>Activer la majoration automatique à l’aide d’un modèle Azure Resource Manager
 
@@ -101,6 +107,7 @@ Vous pouvez activer la majoration automatique durant le déploiement d’un mod�
 ```
 
 Pour accéder au modèle complet, consultez le modèle [Create Event Hubs namespace and enable inflate](https://github.com/Azure/azure-quickstart-templates/tree/master/201-eventhubs-create-namespace-and-enable-inflate) (Créer un espace de noms Event Hubs et activer la majoration) sur GitHub.
+
 
 ## <a name="next-steps"></a>Étapes suivantes
 

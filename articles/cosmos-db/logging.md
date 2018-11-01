@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: sngun
-ms.openlocfilehash: 68eb567235897641d5d4027160f62c5aa6e7e4f9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 26500f3e557a27046edc5c833b8c8d88ae266e68
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46963387"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49408997"
 ---
 # <a name="azure-cosmos-db-diagnostic-logging"></a>Journalisation des diagnostics Azure Cosmos DB
 
@@ -356,11 +356,14 @@ Les journaux de diagnostic sont disponibles dans votre compte pendant les deux h
 
 Si vous avez sélectionné l’option **Envoyer à Log Analytics** lorsque vous avez activé la journalisation des diagnostics, les données de diagnostic de votre conteneur sont transférées à Log Analytics dans les deux heures qui suivent. Si vous consultez Log Analytics immédiatement après l’activation de la journalisation, aucune donnée ne s’affichera. Il vous suffit alors d’attendre deux heures et de réessayer. 
 
-Avant de consulter vos journaux, vérifiez que votre espace de travail Log Analytics a été mis à niveau pour utiliser le nouveau langage de requête Log Analytics. Pour effectuer cette vérification, ouvrez le [portail Azure](https://portal.azure.com), sélectionnez **Log Analytics** tout à gauche, puis sélectionnez le nom de l’espace de travail, comme indiqué dans l’image suivante. La page **Espace de travail OMS** s’affiche :
+Avant de consulter vos journaux, vérifiez que votre espace de travail Log Analytics a été mis à niveau pour utiliser le nouveau langage de requête Log Analytics. Pour effectuer cette vérification, ouvrez le [portail Azure](https://portal.azure.com), sélectionnez **Log Analytics** tout à gauche, puis sélectionnez le nom de l’espace de travail, comme indiqué dans l’image suivante. La page **Espace de travail Log Analytics** est affichée :
 
 ![Log Analytics dans le portail Azure](./media/logging/azure-portal.png)
 
-Si le message suivant s’affiche dans la page **Espace de travail OMS**, cela signifie que votre espace de travail n’a pas été mis à niveau pour utiliser le nouveau langage. Pour plus d’informations sur la mise à niveau vers le nouveau langage de requête, consultez [Mise à niveau de votre espace de travail Azure Log Analytics vers la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md). 
+>[!NOTE]
+>Les espaces de travail OMS sont désormais appelés « espaces de travail Log Analytics ».  
+
+Si le message suivant s’affiche dans la page **Espace de travail Log Analytics**, cela signifie que votre espace de travail n’a pas été mis à niveau pour utiliser le nouveau langage. Pour plus d’informations sur la mise à niveau vers le nouveau langage de requête, consultez [Mise à niveau de votre espace de travail Azure Log Analytics vers la nouvelle recherche dans les journaux](../log-analytics/log-analytics-log-search-upgrade.md). 
 
 ![Message de mise à niveau de Log Analytics](./media/logging/upgrade-notification.png)
 

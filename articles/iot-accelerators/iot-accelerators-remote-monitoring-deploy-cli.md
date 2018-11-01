@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 56f233afed8c403d19c9b668e98ecfec45470b64
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721617"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956695"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Déployer l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI
 
@@ -75,20 +75,20 @@ La création d’une solution de base entraîne le provisionnement des services 
 | 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Gestion des identités d’utilisateur et de la sécurité |
 | 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | standard                | Affichage des emplacements de ressources |
 | 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 unités              | Prise en charge des analyses en temps réel |
-| 1     | [Service de provisionnement des appareils Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Approvisionnement des appareils à grande échelle |
+| 1     | [Service d’approvisionnement des appareils Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Approvisionnement des appareils à grande échelle |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 : 1 unité              | Stockage des données de messages et activation de l’analyse approfondie des données de télémétrie |
 
 
 
 ### <a name="standard"></a>standard
-Le déploiement standard est un déploiement prêt pour la production, qu’un développeur peut personnaliser et étendre pour répondre à ses besoins. Pour des raisons de fiabilité et de scalabilité, les microservices de l’application sont créés en tant que conteneurs Docker et déployés en utilisant un orchestrateur ([Kubernetes](https://kubernetes.io/) est choisi par défaut). L’orchestrateur est responsable du déploiement, de la mise à l’échelle et de la gestion de l’application.
+Le déploiement standard est un déploiement prêt pour la production, qu’un développeur peut personnaliser et étendre pour répondre à ses besoins. Le développeur doit utiliser l’option de déploiement standard quand il est prêt à personnaliser une architecture prête pour la production, créée pour la scalabilité et l’extensibilité. Les microservices d’application sont générés en tant que conteneurs Docker et déployés à l’aide d’Azure Kubernetes Service (AKS). L’orchestrateur est responsable du déploiement, de la mise à l’échelle et de la gestion de l’application.
+
 
 La création d’une solution standard entraîne le provisionnement des services Azure suivants dans votre abonnement Azure au coût ci-après :
 
 | Count | Ressource                                     | Référence (SKU) / Taille      | Utilisation |
 |-------|----------------------------------------------|-----------------|----------|
-| 4     | [Machines virtuelles Linux](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 maître et 3 agents pour l’hébergement des microservices avec redondance |
-| 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | Orchestrateur [Kubernetes](https://kubernetes.io) |
+| 1     | [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service)| Utilisez un service d’orchestration de conteneurs Kubernetes entièrement managé (3 agents par défaut).|
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | Niveau Standard S2 | Gestion des appareils, commande et contrôle |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | standard        | Stockage des données de configuration et de télémétrie d’appareil comme les règles, les alarmes et les messages |
 | 5.     | [Comptes de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | standard        | 4 pour le stockage de machine virtuelle et 1 pour les points de contrôle streaming |

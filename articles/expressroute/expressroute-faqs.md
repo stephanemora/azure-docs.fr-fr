@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 101dec93713983e5f2082a59103288fcda346740
-ms.sourcegitcommit: 3150596c9d4a53d3650cc9254c107871ae0aab88
+ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47419302"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958418"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -246,7 +246,7 @@ Vous pouvez mettre à jour de la bande passante du circuit ExpressRoute à l’a
 ExpressRoute Premium est un ensemble de fonctionnalités répertoriées ci-dessous.
 
 * Augmentation de la limite de la table d’itinéraires de 4 000 à 10 000 itinéraires pour l’homologation privée.
-* Augmentation du nombre de réseaux virtuels qui peuvent être connectés à un circuit ExpressRoute (la valeur par défaut est 10). Pour plus d’informations, consultez le tableau [Limites d’ExpressRoute](#limits).
+* Augmentation du nombre de réseaux virtuels et de connexions ExpressRoute Global Reach activables sur un circuit ExpressRoute (la valeur par défaut est 10). Pour plus d’informations, consultez le tableau [Limites d’ExpressRoute](#limits).
 * Connectivité à Office 365 et Dynamics 365.
 * Connectivité globale sur le réseau principal Microsoft. Vous pouvez désormais lier un réseau virtuel dans une région géopolitique à un circuit ExpressRoute d’une autre région.<br>
     **Exemples :**
@@ -255,9 +255,9 @@ ExpressRoute Premium est un ensemble de fonctionnalités répertoriées ci-desso
     *  Sur l’homologation Microsoft, les préfixes d’autres régions géopolitiques sont publiés de sorte que vous pouvez vous connecter, par exemple, à SQL Azure en Europe de l’Ouest à partir d’un circuit situé dans la Silicon Valley.
 
 
-### <a name="limits"></a>Combien de réseaux virtuels puis-je lier à un circuit ExpressRoute si j’ai activé ExpressRoute Premium ?
+### <a name="limits"></a>Combien de réseaux virtuels et de connexions ExpressRoute Global Reach puis-je activer sur un circuit ExpressRoute si j’ai activé ExpressRoute Premium ?
 
-Les tableaux suivants indiquent les limites d’ExpressRoute et le nombre de réseaux virtuels par circuit ExpressRoute.
+Les tableaux suivants indiquent les limites d’ExpressRoute et le nombre de réseaux virtuels et de connexions ExpressRoute Global Reach par circuit ExpressRoute :
 
 [!INCLUDE [ExpressRoute limits](../../includes/expressroute-limits.md)]
 

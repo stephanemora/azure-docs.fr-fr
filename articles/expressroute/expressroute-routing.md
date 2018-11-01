@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: ganesr
-ms.openlocfilehash: 525d75264ecb54d42d920cacb0712397f4d8c3a8
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 35644912da2b75009ba2b16f4a188011ba1f813e
+ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43304355"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49650126"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -211,7 +211,11 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | SharePoint Online | 12076:5020 |
 | Skype Entreprise Online | 12076:5030 |
 | Dynamics 365 | 12076:5040 |
+| Services globaux Azure* | 12076:5050 |
 | Autres services Office 365 en ligne | 12076:5100 |
+
+***Les services globaux Azure incluent Azure DevOps**
+
 
 > [!NOTE]
 > Microsoft ignore les valeurs de communauté BGP définies sur les itinéraires proposés à Microsoft.
@@ -223,12 +227,12 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | **Région Azure pour les clouds nationaux**| **Valeur de communauté BGP** |
 | --- | --- |
 | **Gouvernement américain** |  |
-| Gouvernement des États-Unis – Arizona | 12076:51106 |
+| US Gov Arizona | 12076:51106 |
 | US Gov Iowa | 12076:51109 |
-| Gouvernement américain - Virginie | 12076:51105 |
-| Gouvernement des États-Unis – Texas | 12076:51108 |
-| Centre des États-Unis – US DoD | 12076:51209 |
-| Est des États-Unis – US DoD | 12076:51205 |
+| US Gov Virginie | 12076:51105 |
+| US Gov Texas | 12076:51108 |
+| USA Centre DoD | 12076:51209 |
+| USA Est DoD | 12076:51205 |
 
 
 | **Service dans les clouds nationaux** | **Valeur de communauté BGP** |

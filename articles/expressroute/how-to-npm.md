@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/28/2018
 ms.author: cherylmc
-ms.openlocfilehash: 47f219b7319e4d2bbadf03954f7bd7f6f39da3b4
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: d334fdba48f248bb7989c2b549517413b1ef793c
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37128977"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404339"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurer Network Performance Monitor pour ExpressRoute
 
@@ -43,7 +43,7 @@ Vous pouvez :
 
 Des agents de surveillance sont installés sur plusieurs serveurs, en local et sur Azure. Les agents communiquent entre eux mais n’envoient pas de données. Ils envoient des paquets de négociation TCP. La communication entre les agents permet à Azure de mapper la topologie réseau et le chemin d’accès que le trafic peut prendre.
 
-1. Créez un espace de travail NPM. Il est identique à un espace de travail OMS.
+1. Créez un espace de travail NPM. Il est identique à un espace de travail Log Analytics.
 2. Installer et configurer des agents logiciels : 
     * Installez des agents de surveillance sur les serveurs locaux et les machines virtuelles Azure (pour l’appairage privé).
     * Configurez les paramètres sur les serveurs de l’agent de surveillance pour autoriser les agents de surveillance à communiquer. (Ouvrez les ports du pare-feu, etc.)
@@ -63,10 +63,10 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
    >
 
    ![portail](.\media\how-to-npm\3.png)<br><br>
-2. En bas de la page **Network Performance Monitor**, cliquez sur **Créer** pour ouvrir la page **Network Performance Monitor - Créer une solution**. Cliquez sur **Espace de travail OMS - Sélectionner un espace de travail** pour ouvrir la page Espaces de travail. Cliquez sur **+ Créer un espace de travail** pour ouvrir la page Espaces de travail.
-3. Sur la page **Espace de travail OMS**, sélectionnez **Créer**, puis configurez les paramètres suivants :
+2. En bas de la page **Network Performance Monitor**, cliquez sur **Créer** pour ouvrir la page **Network Performance Monitor - Créer une solution**. Cliquez sur **Espace de travail Log Analytics - Sélectionner un espace de travail** pour ouvrir la page Espaces de travail. Cliquez sur **+ Créer un espace de travail** pour ouvrir la page Espaces de travail.
+3. Dans la page **Espace de travail Log Analytics**, sélectionnez **Créer**, puis configurez les paramètres suivants :
 
-  * Espace de travail OMS : saisissez un nom pour votre espace de travail.
+  * Espace de travail Log Analytics : entrez un nom pour votre espace de travail.
   * Abonnement : si vous possédez plusieurs abonnements, choisissez celui que vous souhaitez associer au nouvel espace de travail.
   * Groupe de ressources : créez un groupe de ressources ou utilisez un groupe existant.
   * Emplacement : cet emplacement est utilisé pour spécifier l’emplacement du compte de stockage qui est utilisé pour les journaux de connexion de l’agent.
@@ -86,9 +86,9 @@ Créez un espace de travail dans l’abonnement où les réseaux virtuels sont l
 
 ### <a name="download"></a>2.1 : Télécharger le fichier de configuration de l’agent
 
-1. Accédez à l’onglet **Paramètres communs** de la page **Configuration de Network Performance Monitor** de votre ressource. Cliquez sur l’agent qui correspond au processeur de votre serveur dans la section **Installer les agents OMS**, puis téléchargez le fichier d’installation.
+1. Accédez à l’onglet **Paramètres communs** de la page **Configuration de Network Performance Monitor** de votre ressource. Cliquez sur l’agent qui correspond au processeur de votre serveur dans la section **Installer les agents Log Analytics**, puis téléchargez le fichier d’installation.
 2. Ensuite, copiez et collez **l’ID d’espace de travail** et la **clé primaire** dans le bloc-notes.
-3. Dans la section **Configurer les agents OMS pour le monitoring avec le protocole TCP**, téléchargez le script PowerShell. Le script PowerShell vous permet d’ouvrir le port de pare-feu approprié pour les transactions TCP.
+3. Dans la section **Configurer les agents Log Analytics pour le monitoring avec le protocole TCP**, téléchargez le script PowerShell. Le script PowerShell vous permet d’ouvrir le port de pare-feu approprié pour les transactions TCP.
 
   ![Script PowerShell](.\media\how-to-npm\7.png)
 
@@ -117,7 +117,7 @@ Nous vous recommandons d’installer au moins deux agents de chaque côté de la
     ![Compte](.\media\how-to-npm\10.png)
 6. Dans la page **Prêt pour l’installation**, passez en revue vos choix, puis cliquez sur **Installer**.
 7. Dans la page **Configuration effectuée**, cliquez sur **Terminer**.
-8. Lorsque vous avez terminé, Microsoft Monitoring Agent apparaît dans le Panneau de configuration. Vous pouvez y contrôler votre configuration et vérifier que l’agent est bien connecté à Azure Log Analytics (OMS). Une fois connecté, l’agent affiche un message indiquant : **La connexion de Microsoft Monitoring Agent au service Microsoft Operations Management Suite est réussie**.
+8. Lorsque vous avez terminé, Microsoft Monitoring Agent apparaît dans le Panneau de configuration. Vous pouvez y contrôler votre configuration et vérifier que l’agent est bien connecté à Azure Log Analytics. Une fois connecté, l’agent affiche un message indiquant : **La connexion de Microsoft Monitoring Agent au service Microsoft Operations Management Suite est réussie**.
 
 9. Répétez cette procédure pour chaque réseau virtuel dont vous voulez effectuer la surveillance.
 

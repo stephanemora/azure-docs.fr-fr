@@ -7,34 +7,33 @@ manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 10/16/2018
 ms.author: sethm
-ms.openlocfilehash: 762e21cfc7d16b614eb637c569f8bfc5b6115db1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: bb77ed69ae8f2229cbd62afa545cac9f048689e8
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703408"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458001"
 ---
 # <a name="send-events-to-event-hubs-using-python"></a>Envoyer des événements à Event Hubs avec Python
 
-Azure Event Hubs est un système de gestion des événements capable de traiter des millions d’événements par seconde, ce qui permet aux applications de traiter et d’analyser d’énormes quantités de données produites par des appareils connectés et autres applications. Une fois les événements collectés dans le hub d'événements, vous pouvez les recevoir et les gérer à l’aide de gestionnaires intra-processus ou par transfert vers d’autres systèmes d’analyse.
+Azure Event Hubs est une plateforme de diffusion de données volumineuses et un service d’ingestion d’événements, capable de recevoir et de traiter des millions d’événements par seconde. Les concentrateurs d’événements peuvent traiter et stocker des événements, des données ou la télémétrie produits par des logiciels et appareils distribués. Les données envoyées à un concentrateur d’événements peuvent être transformées et stockées à l’aide d’adaptateurs de traitement par lot/stockage ou d’un fournisseur d’analyse en temps réel. Pour une présentation détaillée d’Event Hubs, consultez [Vue d’ensemble d’Event Hubs](event-hubs-about.md) et [Fonctionnalités d’Event Hubs](event-hubs-features.md).
 
-Pour en savoir plus sur Event Hubs, voir [Vue d’ensemble d’Event Hubs][Event Hubs overview].
+Ce tutoriel décrit comment envoyer des événements à un hub d’événements à partir d’une application écrite en Python. 
 
-Ce tutoriel décrit comment envoyer des événements à un hub d’événements à partir d’une application écrite en Python. Pour recevoir des événements, consultez [l’article correspondant sur la réception](event-hubs-python-get-started-receive.md).
-
-Le code utilisé dans ce didacticiel est extrait de ces [exemples GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) que vous pouvez examiner pour voir l’application pleinement fonctionnelle, avec des instructions d’importation et des déclarations de variable. D’autres exemples sont disponibles dans le même dossier GitHub.
+> [!NOTE]
+> Vous pouvez télécharger ce guide de démarrage rapide sous forme d’exemple depuis [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples), remplacer les chaînes `EventHubConnectionString` et `EventHubName` par les valeurs de votre hub d’événements, puis l’exécuter. Ou, vous pouvez suivre les étapes de ce didacticiel pour créer le vôtre.
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour effectuer ce didacticiel, vous avez besoin de ce qui suit :
 
 - Python 3.4 ou version ultérieure.
-- Un espace de noms Event Hubs et un hub d’événements existants. Vous pouvez créer ces entités en suivant les instructions de [cet article](event-hubs-create.md). 
 
-[!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
+## <a name="create-an-event-hubs-namespace-and-an-event-hub"></a>Création d’un espace de noms Event Hubs et d’un concentrateur d’événements
+La première étape consiste à utiliser le [portail Azure](https://portal.azure.com) pour créer un espace de noms de type Event Hubs et obtenir les informations de gestion nécessaires à votre application pour communiquer avec le concentrateur d’événements. Pour créer un espace de noms et un hub d’événements, suivez la procédure décrite dans [cet article](event-hubs-create.md), puis passez aux étapes suivantes de ce tutoriel.
 
 ## <a name="install-python-package"></a>Installer le package Python
 
@@ -98,23 +97,18 @@ except KeyboardInterrupt:
     pass
 ```
 
-## <a name="send-events"></a>Envoyer des événements
+## <a name="run-application-to-send-events"></a>Exécuter l’application pour envoyer des événements
 
 Pour exécuter le script, ouvrez une invite de commandes qui a Python dans son chemin, puis exécutez cette commande :
 
 ```bash
 start python send.py
 ```
+
+Félicitations ! Vous venez d’envoyer des messages à un concentrateur d’événements.
  
 ## <a name="next-steps"></a>Étapes suivantes
-
-Maintenant que vous avez envoyé des événements à un hub d’événements avec Python, consultez [l’article correspondant sur la réception](event-hubs-python-get-started-receive.md) pour recevoir des événements.
-
-Pour plus d’informations sur Event Hubs, visitez les pages suivantes :
-
-* [Vue d’ensemble des hubs d’événements][Event Hubs overview]
-* [Créer un concentrateur d’événements](event-hubs-create.md)
-* [FAQ sur les hubs d’événements](event-hubs-faq.md)
+Dans ce guide de démarrage rapide, vous avez envoyé des messages à un hub d’événements à l’aide de Python. Pour découvrir comment recevoir des événements depuis un hub d’événements à l’aide de Python, consultez [Recevoir des événements depuis Event Hub - Python](event-hubs-python-get-started-receive.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md

@@ -9,19 +9,18 @@ ms.topic: article
 ms.date: 12/09/2016
 ms.author: bburns
 ms.custom: mvc
-ms.openlocfilehash: 3b014ce4c91d1dc9fae744ef4b528c98f9f787b3
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: a353fe3803b2d93c151559076960df06eb260bfe
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32164317"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49426411"
 ---
 # <a name="monitor-an-azure-container-service-cluster-with-log-analytics"></a>Analyser un cluster Azure Container Service avec Log Analytics
 
 [!INCLUDE [aks-preview-redirect.md](../../../includes/aks-preview-redirect.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cette procédure pas à pas suppose que vous avez [créé un cluster Kubernetes à l’aide d’Azure Container Service](container-service-kubernetes-walkthrough.md).
 
 Elle suppose également que vous avez installé l’outil `az` de l’interface Azure CLI et l’outil `kubectl`.
@@ -70,7 +69,7 @@ Pour plus d’informations sur la solution Conteneurs, reportez-vous à [Solutio
 
 ### <a name="obtain-your-workspace-id-and-key"></a>Obtenir l’ID et la clé d’espace de travail
 Pour que l’agent Log Analytics puisse communiquer avec le service, il doit être configuré avec un ID et une clé d’espace de travail. Pour obtenir l’ID et la clé de l’espace de travail, vous devez créer un compte sur <https://mms.microsoft.com>.
-Suivez la procédure de création de compte. Une fois que vous avez créé le compte, vous devez obtenir votre ID et votre clé d’espace de travail en cliquant sur **Paramètres**, **Sources connectées**, puis sur **Serveurs Linux**, comme indiqué ci-dessous.
+Suivez la procédure de création de compte. Une fois que vous avez terminé la création du compte, vous pouvez obtenir votre ID et votre clé en cliquant dans le panneau **Log Analytics**, puis sur le nom de votre espace de travail. Ensuite, sous **Paramètres avancés**, **Sources connectées**, puis **Serveurs Linux**, vous trouverez les informations dont vous avez besoin, comme indiqué ci-dessous.
 
  ![](media/container-service-monitoring-oms/image5.png)
 
