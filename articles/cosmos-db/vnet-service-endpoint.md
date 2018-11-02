@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: govindk
-ms.openlocfilehash: 868f465cc651043d3ef4b1735b4b528252572dbb
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 6d9d05a56376c07013fdea1c94b0a3262d2397c2
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49378083"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026294"
 ---
 # <a name="secure-access-to-an-azure-cosmos-db-account-by-using-azure-virtual-network-service-endpoint"></a>Sécuriser l’accès à un compte Azure Cosmos DB à l’aide du point de terminaison de service Réseau virtuel Azure
 
@@ -56,8 +56,8 @@ Désormais, votre compte Azure Cosmos DB autorisera uniquement le trafic provena
 
 1. À partir du panneau **Toutes les ressources**, recherchez le compte Azure Cosmos DB que vous souhaitez sécuriser.  
 
-> [!NOTE]
-> Si vous avez un pare-feu IP existant configuré pour votre compte Azure Cosmos DB, notez la configuration du pare-feu, supprimez le pare-feu IP, puis configurez le point de terminaison de service. Si vous activez le point de terminaison de service sans désactiver le pare-feu, le trafic à partir de cette plage IP perdra l’identité de l’IP virtuelle et il est supprimé avec un message d’erreur de filtre IP. Donc pour éviter cette erreur, vous devez toujours désactiver les règles de pare-feu, les copier, activer le point de terminaison de service à partir du sous-réseau puis activer l’ACL du sous-réseau à partir de Cosmos DB. Une fois le point de terminaison de service configuré et l’ACL ajoutée, vous pouvez réactiver le pare-feu IP si nécessaire.
+   > [!NOTE]
+   > Si vous avez un pare-feu IP existant configuré pour votre compte Azure Cosmos DB, notez la configuration du pare-feu, supprimez le pare-feu IP, puis configurez le point de terminaison de service. Si vous activez le point de terminaison de service sans désactiver le pare-feu, le trafic à partir de cette plage IP perdra l’identité de l’IP virtuelle et il est supprimé avec un message d’erreur de filtre IP. Donc pour éviter cette erreur, vous devez toujours désactiver les règles de pare-feu, les copier, activer le point de terminaison de service à partir du sous-réseau puis activer l’ACL du sous-réseau à partir de Cosmos DB. Une fois le point de terminaison de service configuré et l’ACL ajoutée, vous pouvez réactiver le pare-feu IP si nécessaire.
 
 2. Avant d’activer le point de terminaison de service de réseau virtuel, copiez les informations sur le pare-feu IP associé à votre compte Azure Cosmos DB pour une utilisation ultérieure. Vous pourrez réactiver le pare-feu IP après avoir configuré le point de terminaison de service.  
 
@@ -97,9 +97,8 @@ Effectuez les étapes suivantes afin de configurer le point de terminaison de se
 
 1. Installez la dernière version d’[Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps) et [connectez-vous](https://docs.microsoft.com/powershell/azure/authenticate-azureps).  Prenez note des paramètres de pare-feu IP et supprimez complètement le pare-feu IP avant d’activer le point de terminaison de service pour le compte.
 
-
-> [!NOTE]
-> Si vous avez un pare-feu IP existant configuré pour votre compte Azure Cosmos DB, notez la configuration du pare-feu, supprimez le pare-feu IP, puis configurez le point de terminaison de service. Si vous activez le point de terminaison de service sans désactiver le pare-feu, le trafic à partir de cette plage IP perdra l’identité de l’IP virtuelle et il est supprimé avec un message d’erreur de filtre IP. Donc pour éviter cette erreur, vous devez toujours désactiver les règles de pare-feu, les copier, activer le point de terminaison de service à partir du sous-réseau puis activer l’ACL du sous-réseau à partir de Cosmos DB. Une fois le point de terminaison de service configuré et l’ACL ajoutée, vous pouvez réactiver le pare-feu IP si nécessaire.
+  > [!NOTE]
+  > Si vous avez un pare-feu IP existant configuré pour votre compte Azure Cosmos DB, notez la configuration du pare-feu, supprimez le pare-feu IP, puis configurez le point de terminaison de service. Si vous activez le point de terminaison de service sans désactiver le pare-feu, le trafic à partir de cette plage IP perdra l’identité de l’IP virtuelle et il est supprimé avec un message d’erreur de filtre IP. Donc pour éviter cette erreur, vous devez toujours désactiver les règles de pare-feu, les copier, activer le point de terminaison de service à partir du sous-réseau puis activer l’ACL du sous-réseau à partir de Cosmos DB. Une fois le point de terminaison de service configuré et l’ACL ajoutée, vous pouvez réactiver le pare-feu IP si nécessaire.
 
 2. Avant d’activer le point de terminaison de service de réseau virtuel, copiez les informations sur le pare-feu IP associé à votre compte Azure Cosmos DB pour une utilisation ultérieure. Vous réactiverez le pare-feu IP après avoir configuré le point de terminaison de service.  
 
@@ -132,7 +131,7 @@ Effectuez les étapes suivantes afin de configurer le point de terminaison de se
    $apiVersion = "2015-04-08"
    $acctName = "<Azure Cosmos DB account name>"
 
-   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+   $cosmosDBConfiguration = Get-AzureRmResource -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
@@ -174,7 +173,7 @@ Effectuez les étapes suivantes afin de configurer le point de terminaison de se
    $cosmosDBProperties['isVirtualNetworkFilterEnabled'] = $accountVNETFilterEnabled
 
    Set-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName -Properties $CosmosDBProperties
@@ -184,7 +183,7 @@ Effectuez les étapes suivantes afin de configurer le point de terminaison de se
 
    ```powershell
    $UpdatedcosmosDBConfiguration = Get-AzureRmResource `
-     -ResourceType "Microsoft.DocumentDb/databaseAccounts" `
+     -ResourceType "Microsoft.DocumentDB/databaseAccounts" `
      -ApiVersion $apiVersion `
      -ResourceGroupName $rgName `
      -Name $acctName
@@ -270,7 +269,7 @@ Quand des points de terminaison de service de réseau virtuel sont activés, les
 
 Azure Cosmos DB est un service multilocataire avec une adresse IP publique. Quand vous limitez l’accès à un sous-réseau d’un Réseau virtuel Azure à l’aide de la fonctionnalité de point de terminaison de service, l’accès est restreint pour votre compte Azure Cosmos DB par le biais du Réseau virtuel Azure donné et de son sous-réseau.  Le compte Azure Cosmos DB ne réside pas sur ce Réseau virtuel Azure. 
 
-### <a name="what-if-anything-will-be-logged-in-log-analyticsoms-if-it-is-enabled"></a>Que se passe-t-il si des événements sont enregistrés dans Log Analytics/OMS s’il est activé ?  
+### <a name="what-if-anything-will-be-logged-in-log-analytics-if-it-is-enabled"></a>Que se passe-t-il si des événements sont enregistrés dans Log Analytics s’il est activé ?  
 
 Azure Cosmos DB envoie les journaux avec l’adresse IP (sans le dernier octet) avec l’état 403 pour les requêtes bloquées par la liste ACL.  
 

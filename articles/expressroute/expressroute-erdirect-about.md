@@ -7,20 +7,20 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: cherylmc
-ms.openlocfilehash: c33bec76fe17336221c873778c2993d75fec81e8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ce4bc88f6b599bb3f5f760b2ba83c81f2b6acc5f
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962224"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49405176"
 ---
 # <a name="about-expressroute-direct-preview"></a>À propos d’ExpressRoute Direct (préversion)
 
-Avec ExpressRoute Direct, les clients ont la possibilité de se connecter directement au réseau mondial Microsoft à partir d’emplacements d’homologation qui sont distribués stratégiquement dans le monde entier. ExpressRoute Direct offre une double connectivité de 100 Gbit/s qui prend en charge la connectivité Active/Active à l’échelle. 
+Avec ExpressRoute Direct, les clients ont la possibilité de se connecter directement au réseau international de Microsoft à partir d’emplacements d’appairage qui sont distribués stratégiquement dans le monde entier. ExpressRoute Direct offre une double connectivité de 100 Gbits/s qui prend en charge la connectivité Active/Active à grande échelle. 
 
 Les principales fonctionnalités offertes par ExpressRoute Direct sont les suivantes (sans s’y limiter) :
 
-* Ingestion massive de données dans les services tels que le Stockage et Cosmos DB 
+* Ingestion de données massive dans des services comme le stockage et Cosmos DB 
 * Isolation physique pour les secteurs qui sont réglementés, pour lesquels la connectivité isolée et dédiée est obligatoire (secteur bancaire, public et de vente au détail, par exemple) 
 * Contrôle précis de la distribution du circuit en fonction de l’unité commerciale
 
@@ -31,12 +31,12 @@ Les principales fonctionnalités offertes par ExpressRoute Direct sont les suiva
 
 ## <a name="enroll-in-the-preview"></a>S’inscrire à la préversion
 
-Avant de pouvoir utiliser ExpressRoute Direct, vous devez tout d’abord inscrire votre abonnement à la préversion. Pour vous abonner, envoyez un e-mail à <ExpressRouteDirect@microsoft.com> avec votre ID d’abonnement. ExpressRoute Direct est une fonctionnalité de qualité professionnelle. Veuillez fournir des informations supplémentaires :
+Avant d’utiliser ExpressRoute Direct, vous devez tout d’abord inscrire votre abonnement à la préversion. Pour vous abonner, envoyez un e-mail à <ExpressRouteDirect@microsoft.com> avec votre ID d’abonnement. ExpressRoute Direct est une fonctionnalité de qualité professionnelle. Veuillez fournir des informations supplémentaires :
 
 * Scénarios que vous souhaitez réaliser avec **ExpressRoute Direct**
 * Préférences d’emplacement : consultez l’article [Partenaires et emplacements d’homologation](expressroute-locations-providers.md) pour obtenir la liste complète de tous les emplacements
 * Chronologie d'implémentation
-* Toutes questions à propos des services
+* D’autres questions
 
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute avec fournisseur de services et ExpressRoute Direct
 
@@ -44,7 +44,7 @@ Avant de pouvoir utiliser ExpressRoute Direct, vous devez tout d’abord inscrir
 | --- | --- | 
 | Utilisation d’un fournisseur de services afin de permettre une intégration et une connectivité rapides dans l’infrastructure existante | Infrastructure de 100 Gbit/s et gestion complète de toutes les couches obligatoires
 | Intégration avec des centaines de fournisseurs, y compris Ethernet et MPLS | Capacité directe dédiée pour les secteurs réglementés et ingestion massive de données | 
-| Références SKU de circuits à partir de 50 Mbits/s jusqu’à 10 Gbit/s | Références SKU de circuits à partir de 1Gbit/s jusqu’à 100 Gbit/s
+| Références SKU de circuits de 50 Mbits/s à 10 Gbits/s | Références SKU de circuits de 5 Gbit/s à 100 Gbits/s (5 Gbits/s, 10 Gbits/s, 40 Gbits/s, 100 Gbits/s)
 | Optimisé pour monolocataire | Optimisé pour monolocataire/fournisseurs de services cloud/unités commerciales multiples
 
 ## <a name="expressroute-direct-circuits"></a>Circuits ExpressRoute Direct
@@ -57,7 +57,7 @@ Dans la plupart des scénarios, la fonctionnalité se comporte comme des circuit
 
 ## <a name="circuit-skus"></a>Références SKU de circuit
 
-ExpressRoute Direct prend en charge des scénarios d’ingestion massive de données dans le Stockage Azure et d’autres services de Big Data. Désormais, les circuits ExpressRoute sur ExpressRoute Direct prennent également en charge les références SKU de circuit **40 G** et **100 G**. 
+ExpressRoute Direct prend en charge des scénarios d’ingestion massive de données dans le Stockage Azure et d’autres services de Big Data. Désormais, les circuits ExpressRoute sur ExpressRoute Direct prennent également en charge les références SKU de circuit **40 Gbit/s** et **100 Gbit/s**. 
 
 ## <a name="vlan-tagging"></a>Balisage VLAN
 

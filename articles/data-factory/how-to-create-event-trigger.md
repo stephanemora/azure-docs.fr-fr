@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/11/2018
+ms.date: 10/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 20ee69654a6b19365c9b7c46e1fa11e102168365
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: f744e379521fe62f4b3fbbad0cc524ccb3e1b18d
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309345"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49429386"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-in-response-to-an-event"></a>Créer un déclencheur qui exécute un pipeline en réponse à un événement
 
@@ -71,23 +71,26 @@ Le tableau suivant fournit une vue d’ensemble des éléments de schéma associ
 | **Élément JSON** | **Description** | **Type** | **Valeurs autorisées** | **Obligatoire** |
 | ---------------- | --------------- | -------- | ------------------ | ------------ |
 | **scope** | ID de ressource Azure Resource Manager du compte de stockage. | Chaîne | ID d’Azure Resource Manager | Oui |
-| **events** | Type des événements qui entraîne l’activation de ce déclencheur. | Tableau    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Oui, n’importe quelle combinaison. |
-| **blobPathBeginsWith** | Le chemin d’accès de l’objet blob doit commencer par le modèle fourni pour activer le déclencheur. Par exemple, '/records/blobs/december/' n’activera le déclencheur que pour les objets blob dans le dossier « december » sous le conteneur « records ». | Chaîne   | | Au moins une de ces propriétés doit être fournie : blobPathBeginsWith, blobPathEndsWith. |
-| **blobPathEndsWith** | Le chemin d’accès de l’objet blob doit se terminer par le modèle fourni pour activer le déclencheur. Par exemple, 'december/boxes.csv' n’activera le déclencheur que pour les objets blob nommés « boxes » dans un dossier « december ». | Chaîne   | | Au moins une de ces propriétés doit être fournie : blobPathBeginsWith, blobPathEndsWith. |
+| **events** | Type des événements qui entraîne l’activation de ce déclencheur. | Tableau    | Microsoft.Storage.BlobCreated, Microsoft.Storage.BlobDeleted | Oui, n’importe quelle combinaison de ces valeurs. |
+| **blobPathBeginsWith** | Le chemin d’accès de l’objet blob doit commencer par le modèle fourni pour activer le déclencheur. Par exemple, `/records/blobs/december/` active uniquement le déclencheur pour les objets blob du dossier `december` sous le conteneur `records`. | Chaîne   | | Vous devez indiquer une valeur pour l’une de ces propriétés au moins : `blobPathBeginsWith` ou `blobPathEndsWith`. |
+| **blobPathEndsWith** | Le chemin d’accès de l’objet blob doit se terminer par le modèle fourni pour activer le déclencheur. Par exemple, `december/boxes.csv` active uniquement le déclencheur pour les objets blob nommés `boxes` dans un dossier `december`. | Chaîne   | | Vous devez indiquer une valeur pour l’une de ces propriétés au moins : `blobPathBeginsWith` ou `blobPathEndsWith`. |
 
 ## <a name="examples-of-event-based-triggers"></a>Exemples de déclencheurs basés sur un événement
 
 Cette section fournit des exemples de paramètres de déclencheur basé sur un événement.
 
--   **Blob path begins with**('/containername/') : reçoit des événements pour tout objet blob dans le conteneur.
--   **Blob path begins with**('/containername/blobs/foldername') : reçoit des événements pour tout objet blob dans le conteneur containername et le dossier foldername. Vous pouvez également référencer un sous-dossier, par exemple, /containername/blobs/foldername/subfoldername/.
--   **Blob path begins with**('/containername/blobs/foldername/file.txt') : reçoit des événements pour un objet blob nommé file.txt dans le dossier foldername sous le conteneur containername.
--   **Blob path ends with**('file.txt') : reçoit des événements pour un objet blob nommé « file.txt » dans n’importe quel chemin d’accès.
--   **Blob path ends with**('/containername/blobs/file.txt') : reçoit des événements pour un objet blob nommé file.txt sous le conteneur containername.
--   **Blob path ends with**('/foldername/file.txt') : reçoit des événements pour un objet blob nommé « file.txt » dans le dossier « foldername » sous n’importe quel conteneur.
+> [!IMPORTANT]
+> Vous devez inclure le segment `/blobs/` du chemin, comme indiqué dans les exemples suivants, chaque fois que vous spécifiez conteneur et dossier, conteneur et fichier, ou conteneur, dossier et fichier.
 
-> [!NOTE]
-> Vous devez inclure le segment `/blobs/` du chemin chaque fois que vous spécifiez conteneur et dossier, conteneur et fichier, ou conteneur, dossier et fichier.
+| Propriété | Exemples | Description |
+|---|---|---|
+| **Blob path begins with** | `/containername/` | Reçoit les événements de tout objet blob du conteneur. |
+| **Blob path begins with** | `/containername/blobs/foldername/` | Reçoit les événements de tout objet blob du conteneur `containername` et du dossier `foldername`. |
+| **Blob path begins with** | `/containername/blobs/foldername/subfoldername/` | Vous pouvez également référencer un sous-dossier. |
+| **Blob path begins with** | `/containername/blobs/foldername/file.txt` | Reçoit les événements d’un objet blob nommé `file.txt` dans le dossier `foldername`, sous le conteneur `containername`. |
+| **Blob path ends with** | `file.txt` | Reçoit les événements d’un objet blob nommé `file.txt` dans n’importe quel chemin d’accès. |
+| **Blob path ends with** | `/containername/blobs/file.txt` | Reçoit les événements d’un objet blob nommé `file.txt` sous le conteneur `containername`. |
+| **Blob path ends with** | `foldername/file.txt` | Reçoit les événements d’un objet blob nommé `file.txt`, dans le dossier `foldername`, sous n’importe quel conteneur. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous trouverez des informations détaillées sur les déclencheurs sur la page [Exécution de pipelines et déclencheurs](concepts-pipeline-execution-triggers.md#triggers).

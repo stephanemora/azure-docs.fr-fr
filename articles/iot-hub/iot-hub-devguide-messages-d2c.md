@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: abc32b726eea55f08a052f29a12f1eb237d4f5d6
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 8424fa721d87467de70b4365578d196b3145b4b0
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311318"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50024268"
 ---
 # <a name="use-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Utiliser le routage des messages pour envoyer des messages appareil-à-cloud à différents points de terminaison
 
@@ -27,7 +27,7 @@ Le routage des messages vous permet d’envoyer des messages de vos appareils ve
 
 IoT Hub doit pouvoir accéder en écriture à ces points de terminaison de service pour que le routage des messages fonctionne. Si vous configurez vos points de terminaison via le portail Azure, les autorisations nécessaires sont ajoutées pour vous. Veillez à configurer vos services pour prendre en charge le débit prévu. Lorsque vous configurez votre solution IoT pour la première fois, vous devrez peut-être surveiller vos points de terminaison supplémentaires et apporter les modifications nécessaires en fonction de la charge réelle.
 
-IoT Hub définit un [format commun](iot-hub-devguide-messages-construct.md) pour toute messagerie appareil-à-cloud, afin de favoriser l’interopérabilité entre les différents protocoles. Si un message correspond à plusieurs routes qui pointent vers le même point de terminaison, IoT Hub ne remet ce message qu’une seule fois à ce point de terminaison. Par conséquent, vous n’avez pas besoin de configurer une déduplication sur votre file d’attente ou votre rubrique Service Bus. Dans les files d’attente partitionnées, l’affinité de la partition assure le classement des messages. Utilisez ce tutoriel pour découvrir comment [configurer le routage des messages] (tutorial-routing.md).
+IoT Hub définit un [format commun](iot-hub-devguide-messages-construct.md) pour toute messagerie appareil-à-cloud, afin de favoriser l’interopérabilité entre les différents protocoles. Si un message correspond à plusieurs routes qui pointent vers le même point de terminaison, IoT Hub ne remet ce message qu’une seule fois à ce point de terminaison. Par conséquent, vous n’avez pas besoin de configurer une déduplication sur votre file d’attente ou votre rubrique Service Bus. Dans les files d’attente partitionnées, l’affinité de la partition assure le classement des messages. Utilisez ce tutoriel pour découvrir comment [configurer le routage des messages](tutorial-routing.md).
 
 ## <a name="routing-endpoints"></a>Points de terminaison de routage
 
@@ -37,7 +37,7 @@ Un hub IoT a un point de terminaison intégré par défaut (**messages/événeme
 
 Vous pouvez utiliser [l’intégration et les SDK standard Event Hubs](iot-hub-devguide-messages-read-builtin.md) pour recevoir des messages appareil-à-cloud du point de terminaison intégré (**messages/événements**). Notez qu’une fois qu’une route est créée, les données cessent de circuler vers le point de terminaison intégré, sauf si une route est créée vers ce point de terminaison.
 
-### <a name="azure-blob-storage"></a>Stockage Blob Azure
+### <a name="azure-blob-storage"></a>un stockage Azure Blob
 
 IoT Hub prend en charge l’écriture de données sur Stockage Blob Azure seulement au format [Apache Avro](http://avro.apache.org/). IoT Hub regroupe les messages dans des lots et écrit les données dans un objet blob quand le lot atteint une certaine taille ou après un certain laps de temps.
 

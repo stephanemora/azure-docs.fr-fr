@@ -9,16 +9,18 @@ ms.date: 10/03/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6fdfc1002528fa48145e577dfee3eac935f31fcd
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 4b86f73302d9f5d07cd1e6e8c7801de56a988cc7
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344844"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49955276"
 ---
 # <a name="store-data-at-the-edge-with-azure-blob-storage-on-iot-edge-preview"></a>Stocker des données à la périphérie avec le Stockage Blob Azure sur IoT Edge (préversion)
 
-Le Stockage Blob Azure sur IoT Edge fournit une solution de stockage des objets blob de blocs en périphérie. Un module de stockage d’objets blob sur votre appareil IoT Edge se comporte comme un service d’objets blob Azure, à ceci près que les objets blob de blocs sont stockés localement sur votre appareil IoT Edge. Vous pouvez accéder à vos objets blob avec les mêmes méthodes que celles du kit SDK de stockage Azure, ou aux appels d’API objets blob de blocs auxquels vous êtes déjà habitué. 
+Le Stockage Blob Azure sur IoT Edge fournit une solution de stockage des [objets blob de blocs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs#about-block-blobs) en périphérie. Un module de stockage d’objets blob sur votre appareil IoT Edge se comporte comme un service d’objets blob de blocs Azure, à ceci près que ces derniers sont stockés localement sur votre appareil IoT Edge. Vous pouvez accéder à vos objets blob avec les mêmes méthodes que celles du kit SDK de stockage Azure, ou aux appels d’API objets blob de blocs auxquels vous êtes déjà habitué. 
+
+Voici de bons exemples de scénarios dans lesquels utiliser ce module : lorsque des données comme des vidéos, des images, des données financières, des données hospitalières ou toutes les données devant être stockées localement, doivent pouvoir être traitées ultérieurement en local ou transférées vers le cloud.
 
 Cet article fournit des instructions pour le déploiement d’un stockage Blob Azure sur le conteneur IoT Edge qui exécute un service d’objets blob sur votre appareil IoT Edge. 
 
@@ -48,21 +50,33 @@ Ressources cloud :
 
 ## <a name="deploy-blob-storage-to-your-device"></a>Déployer le stockage d’objets blob sur votre appareil
 
-Le stockage Blob Azure sur IoT Edge offre trois images de conteneur standard, deux pour les conteneurs Linux (architectures AMD64 et ARM32) et un pour les conteneurs Windows (AMD64). Lorsque vous utilisez une de ces images de module pour déployer le stockage d’objets blob sur votre appareil IoT Edge, vous fournissez trois informations pour configurer l’instance du module pour votre appareil :
-
-* Un **nom de compte** et une **clé de compte**. Pour maintenir une cohérence avec le stockage Azure, les modules de stockage d’objets blob utilisent des noms de compte et des clés de compte pour la gestion de l’accès. Les noms de compte doivent être compris entre trois et vingt-quatre caractères, et inclure des lettres minuscules et des chiffres. Les clés de compte doivent être encodées en base64 et être d’une longueur de 64 octets. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64).
-* Une **option de stockage local**. Le module de stockage d’objets blob stocke les objets blob localement sur l’appareil IoT Edge, afin que les objets blob persistent si le module s’arrête ou redémarre. Déclarez un [volume](https://docs.docker.com/storage/volumes
-) existant ou un chemin de dossier local où stocker les objets blob sur votre appareil. 
-
 Il existe plusieurs façons de déployer des modules sur un appareil IoT Edge, et toutes fonctionnent pour les modules de stockage Blob Azure sur IoT Edge. Les deux méthodes les plus simples consistent à utiliser les modèles de Visual Studio Code ou du portail Azure. 
 
 ### <a name="azure-portal"></a>Portail Azure
 
-Pour déployer le stockage d’objets blob via le portail Azure, suivez les étapes dans [Déployer des modules Azure IoT Edge à partir du portail Azure](how-to-deploy-modules-portal.md). Avant de procéder au déploiement de votre module, copiez l’URI de l’image et préparez les options de création du conteneur en fonction votre système d’exploitation conteneur. Utilisez ces valeurs à la section **Configurer un manifeste de déploiement** dans l’article de déploiement. 
+#### <a name="find-the-module"></a>Rechercher le module
 
-Fournissez l’URI de l’image pour le module de stockage d’objets blob : **mcr.microsoft.com/azure-blob-storage:latest**. 
-   
-Utilisez le modèle JSON suivant pour le champ **Options de création de conteneur**. Configurez le fichier JSON avec le nom du compte de stockage, la clé du compte de stockage et la liaison au répertoire de stockage.  
+Recherchez le module de stockage d’objets blob à l’aide de l’une des méthodes suivantes :
+
+1. Dans le portail Azure, recherchez « stockage Blob Azure sur IoT Edge ». Et **sélectionnez** l’élément correspondant dans les résultats de recherche
+2. Accédez à la Place de marché à partir du portail Azure, puis cliquez sur « Internet des objets ». Sous la section « Modules IoT Edge », sélectionnez « Stockage Blob Azure sur IoT Edge ». Et cliquez sur **Créer**
+
+#### <a name="steps-to-deploy"></a>Étapes de déploiement
+
+**Appareils cibles pour le module IoT Edge**
+
+1. Sélectionnez « l’abonnement » sur lequel votre hub IoT est déployé.
+2. Sélectionnez votre « hub IoT ».
+3. Indiquez le « nom de l’appareil IoT Edge » sur lequel vous souhaitez déployer ce module. Vous pouvez choisir d’utiliser l’option « Rechercher un appareil » pour le localiser.
+4. Cliquez sur **Créer**.
+
+**Définir des modules**
+
+1. Dans la section « Ajouter des modules », sous « Modules de déploiement », vous verrez que ce module est déjà répertorié avec un nom commençant par « AzureBlobStorageonIoTEdge ». 
+2. **Sélectionnez** le module de stockage d’objets blob dans la liste des « Modules de déploiement ». Le panneau latéral « Modules personnalisés IoT Edge » s’ouvre.
+3. **Nom** : vous pouvez modifier le nom du module ici
+4. **URI de l’image** : remplacez l’URI par **mcr.microsoft.com/azure-blob-storage:latest**
+5. **Options de création de conteneur** : modifiez le code JSON ci-dessous avec vos valeurs et remplacez-le par le code JSON de la page du portail :
    
    ```json
    {
@@ -81,17 +95,23 @@ Utilisez le modèle JSON suivant pour le champ **Options de création de contene
    }
    ```   
    
-Dans le fichier JSON des options de création, mettez à jour `\<your storage account name\>` avec le nom de votre choix. Mettez à jour `\<your storage account key\>` avec une clé en base64 de 64 octets. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64), qui vous permettent de sélectionner la longueur en octets. Vous utilisez ces informations d’identification pour accéder au stockage d’objets blob à partir d’autres modules.
+    * Mettez à jour `<your storage account name>`. Les noms de compte doivent être compris entre trois et vingt-quatre caractères, et inclure des lettres minuscules et des chiffres.
+    * Mettez à jour `<your storage account key>` avec une clé en base64 de 64 octets. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Vous utilisez ces informations d’identification pour accéder au stockage d’objets blob à partir d’autres modules.
+    * Mettez à jour `<storage directory bind>`. En fonction du système d’exploitation de votre conteneur. Indiquez le nom d’un [volume](https://docs.docker.com/storage/volumes/) ou le chemin absolu à un répertoire sur votre appareil IoT Edge où vous souhaitez que le module d’objets blob stocke ses données.  
 
-Dans le fichier JSON des options de création, mettez à jour `<storage directory bind>` en fonction de votre système d’exploitation conteneur. Indiquez le nom d’un [volume](https://docs.docker.com/storage/volumes/) ou le chemin absolu à un répertoire sur votre appareil IoT Edge où vous souhaitez que le module d’objets blob stocke ses données.  
-
-   * Conteneurs Linux : **\<chemin de stockage>:/blobroot**. Par exemple, /srv/containerdata:/blobroot. Ou, my-volume:/blobroot. 
-   * Conteneurs Windows : **\<chemin de stockage>:C:/BlobRoot**. Par exemple, C:/ContainerData:C:/BlobRoot. Ou, my-volume:C:/blobroot.
+       * Conteneurs Linux : **\<chemin de stockage>:/blobroot**. Par exemple, /srv/containerdata:/blobroot. Ou, my-volume:/blobroot. 
+       * Conteneurs Windows : **\<chemin de stockage>:C:/BlobRoot**. Par exemple, C:/ContainerData:C:/BlobRoot. Ou, my-volume:C:/blobroot.
    
    > [!CAUTION]
    > Ne changez pas le "/blobroot" pour Linux ni le "C:/BlobRoot" pour Windows, pour les valeurs **\<liaison du répertoire de stockage>**.
 
-Il n’est pas nécessaire de fournir des informations d’identification de registre pour accéder au stockage Blob Azure sur IoT Edge, ni de déclarer des itinéraires pour votre déploiement. 
+    ![Mettre à jour les valeurs des modules](./media/how-to-store-data-blob/edit-module.png)
+
+6. **Enregistrez** les valeurs de la section « Modules personnalisés IoT Edge ».
+7. Cliquez sur **Suivant** dans la section « Définir des modules ».
+8. Cliquez sur **Suivant** dans la section « Spécifier des routes ».
+9. Après vérification, cliquez sur **Envoyer** dans la section « Passer en revue le déploiement ».
+10. Dans votre hub IoT, vérifiez que l’appareil exécute le module de stockage d’objets blob 
 
 ### <a name="visual-studio-code-templates"></a>Modèles Visual Studio Code
 
@@ -150,7 +170,7 @@ Le modèle de solution crée un modèle de manifeste de déploiement qui inclut 
    STORAGE_ACCOUNT_KEY=
    ```
 
-8. Indiquez un nom de compte de stockage, et fournissez une clé en base64 de 64 octets comme clé de compte de stockage. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Vous utilisez ces informations d’identification pour accéder au stockage d’objets blob à partir d’autres modules. 
+8. Indiquez une valeur pour `STORAGE_ACCOUNT_NAME`. Les noms de compte doivent être compris entre trois et vingt-quatre caractères, et inclure des lettres minuscules et des chiffres. Et fournissez une clé base64 de 64 octets pour `STORAGE_ACCOUNT_KEY`. Vous pouvez générer une clé avec des outils tels que [GeneratePlus](https://generate.plus/en/base64?gp_base64_base[length]=64). Vous utilisez ces informations d’identification pour accéder au stockage d’objets blob à partir d’autres modules. 
 
 9. Enregistrez **.env**. 
 

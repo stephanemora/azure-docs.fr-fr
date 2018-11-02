@@ -10,12 +10,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/10/2018
 ms.author: rithorn
-ms.openlocfilehash: 6273f265ebb5f9a2336040aacc01d1428fd0db11
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 6a45ffa13ead40b72fd1a0a3c2696a6e6829a4d5
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49077746"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49956406"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Créer des groupes d’administration pour la gestion et l’organisation des ressources
 
@@ -48,7 +48,7 @@ Vous pouvez créer un groupe d’administration en utilisant le portail, PowerSh
 
 ### <a name="create-in-powershell"></a>Créer dans PowerShell
 
-Dans PowerShell, utilisez les cmdlets New-AzureRmManagementGroups :
+Dans PowerShell, utilisez l’applet de commande New-AzureRmManagementGroup :
 
 ```azurepowershell-interactive
 New-AzureRmManagementGroup -GroupName 'Contoso'
@@ -78,6 +78,6 @@ Pour en savoir plus sur les groupes d’administration, consultez :
 
 - [Organiser vos ressources avec des groupes d’administration Azure](overview.md)
 - [Guide pratique pour modifier, supprimer ou gérer vos groupes d’administration](manage.md)
-- [Installer le module Azure Powershell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
+- [Installer le module Azure PowerShell](https://www.powershellgallery.com/packages/AzureRM.ManagementGroups)
 - [Passer en revue les spécifications de l’API REST](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/managementgroups/resource-manager/Microsoft.Management/preview)
 - [Installer l’extension Azure CLI](/cli/azure/extension?view=azure-cli-latest#az-extension-list-available)

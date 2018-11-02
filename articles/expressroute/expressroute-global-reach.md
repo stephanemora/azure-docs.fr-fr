@@ -6,14 +6,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/24/2018
 ms.author: cherylmc
-ms.openlocfilehash: c96841274f73be766b0157f036746599cc836dd3
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 324225600ed52c523228f54c540c810a15ffd5d7
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068041"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50023234"
 ---
 # <a name="expressroute-global-reach-preview"></a>ExpressRoute Global Reach (préversion)
 ExpressRoute vous permet de connecter vos réseaux locaux à Microsoft Cloud de manière privée et résiliente. Vous pouvez accéder à de nombreux services Microsoft Cloud, tels que Azure, Office 365 et Dynamics 365, depuis votre centre de données privé ou le réseau de votre entreprise. Par exemple, vous pouvez avoir une succursale à San Francisco avec un circuit ExpressRoute dans la Silicon Valley, et une autre à Londres avec un circuit ExpressRoute dans cette même ville. Les deux succursales peuvent disposer d’une connectivité haut débit avec les ressources Azure situées dans les régions USA Ouest et Royaume-Uni Sud, mais elles ne peuvent pas échanger de données directement entre elles. En d’autres termes, 10.0.1.0/24 peut envoyer des données à 10.0.3.0/24 et 10.0.4.0/24, mais PAS à 10.0.2.0/24.
@@ -24,7 +24,7 @@ Avec **ExpressRoute Global Reach**, vous pouvez associer des circuits ExpressRou
 
 ![with][2]
 
-## <a name="use-case"></a>Cas d’usage
+## <a name="use-case"></a>Cas d’utilisation
 ExpressRoute Global Reach est conçu pour compléter l’implémentation du réseau étendu (WAN) de votre fournisseur de services et connecter vos succursales à travers le monde. Par exemple, si votre fournisseur de services opère principalement aux États-Unis et a connecté toutes vos branches dans ce pays, mais qu’il n’opère ni au Japon ni à Hong Kong, ExpressRoute Global Reach vous permet de travailler avec un fournisseur de services local, et Microsoft connecte vos branches situées là-bas à celles figurant aux États-Unis à l’aide d’ExpressRoute et de notre réseau mondial.
 
 ![Cas d’usage][3]
@@ -32,13 +32,14 @@ ExpressRoute Global Reach est conçu pour compléter l’implémentation du rés
 ## <a name="availability"></a>Disponibilité 
 ExpressRoute Global Reach est actuellement pris en charge dans les pays et dans le territoire suivants.
 
-* États-Unis
-* Royaume-Uni 
-* Irlande
-* Pays-bas
 * Australie
-* Hong Kong (R.A.S.) 
+* France
+* Hong Kong (R.A.S.)
+* Irlande
 * Japon
+* Pays-bas
+* Royaume-Uni
+* États-Unis
 
 Vos circuits ExpressRoute doivent être créés sur les [sites d’homologation ExpressRoute](expressroute-locations.md) dans le territoire ou les pays indiqués ci-dessus. Pour activer ExpressRoute Global Reach entre [différentes régions](expressroute-locations.md), vous devez disposer de circuits Premium.
 

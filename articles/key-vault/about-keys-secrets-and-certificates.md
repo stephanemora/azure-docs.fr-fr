@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: bryanla
-ms.openlocfilehash: 1d6f84612dd2bac34c238ad7eaf323dc7fa00ba3
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: d93ad4185be3d4875c5747fd10359baab69af95d
+ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49311352"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "49958650"
 ---
-# <a name="about-keys-secrets-and-certificates"></a>À propos des clés, des secrets et des certificats
+# <a name="about-keys-secrets-and-certificates"></a>Présentation des clés, des secrets et des certificats
 
 Azure Key Vault permet aux utilisateurs et aux applications Microsoft Azure de stocker et d’utiliser plusieurs types de données de secret/clé :
 
@@ -38,7 +38,7 @@ Les sections suivantes fournissent des informations générales applicables à l
 
 ###  <a name="supporting-standards"></a>Prise en charge des standards
 
-Les spécifications JSON (JavaScript Object Notation) et JOSE (JavaScript Object Signing and Encryption) sont des informations d’arrière-plan importantes.  
+Les spécifications JavaScript Object Notation (JSON) and JavaScript Object Signing and Encryption (JOSE) sont des informations d’arrière-plan importantes.  
 
 -   [Clé web JSON (JWK)](http://tools.ietf.org/html/draft-ietf-jose-json-web-key)  
 -   [Chiffrement web JSON (JWE)](http://tools.ietf.org/html/draft-ietf-jose-json-web-encryption)  
@@ -78,9 +78,9 @@ Où :
 
 |||  
 |-|-|  
-|`keyvault-name`|Le nom d’un coffre de clés dans le service Microsoft Azure Key Vault.<br /><br /> Les noms de coffre de clés sont choisis par l’utilisateur et sont globalement uniques.<br /><br /> Le nom d’un coffre de clés doit être une chaîne comprise entre 3 et 24 caractères qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -).|  
+|`keyvault-name`|Le nom d’un coffre de clés dans le service Microsoft Azure Key Vault.<br /><br /> Les noms de Key Vault sont choisis par l’utilisateur et sont globalement uniques.<br /><br /> Le nom d’un coffre de clés doit être une chaîne comprise entre 3 et 24 caractères qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -).|  
 |`object-type`|Le type de l’objet, « clés » ou « secrets ».|  
-|`object-name`|Un `object-name` est un nom fourni par l’utilisateur et doit être unique dans un coffre de clés. Le nom doit être une chaîne comprise entre 1 et 127 caractères qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -).|  
+|`object-name`|Un `object-name` est un nom fourni par l’utilisateur et doit être unique dans un Key Vault. Le nom doit être une chaîne comprise entre 1 et 127 caractères qui doit contenir uniquement des chiffres, des lettres et des tirets (0-9, a-z, A-Z et -).|  
 |`object-version`|Un `object-version` est un identificateur de chaîne de 32 caractères généré par le système qui peut être utilisé pour une version unique d’un objet.|  
 
 ## <a name="key-vault-keys"></a>Clés Key Vault
@@ -101,7 +101,7 @@ Key Vault prend en charge les clés RSA et Elliptic Curve uniquement.
 -   **RSA** : clé « logicielle » RSA.
 -   **RSA-HSM** : clé « matérielle » RSA.
 
-Key Vault prend en charge les clés RSA de taille 2 048, 3 072 et 4 096. Key Vault prend en charge les clés Elliptic Curve de type P-256, P-384, P-521 et P-256K.
+Key Vault prend en charge les clés RSA de taille 2 048, 3 072 et 4 096. Key Vault prend en charge les clés Elliptic Curve de type P-256, P-384, P-521 et P-256K (SECP256K1).
 
 ### <a name="cryptographic-protection"></a>Protection par chiffrement
 
@@ -110,12 +110,19 @@ Les modules de chiffrement qu’utilise Key Vault, HSM ou logiciel, sont conform
 ###  <a name="ec-algorithms"></a>Algorithmes EC
  Les identificateurs d’algorithme suivants sont pris en charge avec les clés EC et EC-HSM dans Key Vault. 
 
+#### <a name="curve-types"></a>Types de courbe
+
+-   **P-256** - La courbe NIST P-256, définie sur [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-256K** - La courbe SEC SECP256K1, définie sur [SEC 2: Recommended Elliptic Curve Domain Parameters](http://www.secg.org/sec2-v2.pdf) (SEC 2 : paramètres de domaine Elliptic Curve recommandés).
+-   **P-384** - La courbe NIST P-384, définie sur [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+-   **P-521** - La courbe NIST P-521, définie sur [DSS FIPS PUB 186-4](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.186-4.pdf).
+
 #### <a name="signverify"></a>SIGN/VERIFY
 
--   **ES256** : ECDSA pour codes de hachage SHA-256 et clés créées avec la courbe P-256. Cet algorithme est décrit dans [RFC7518].
+-   **ES256** : ECDSA pour codes de hachage SHA-256 et clés créées avec la courbe P-256. Cet algorithme est décrit dans [RFC7518](https://tools.ietf.org/html/rfc7518).
 -   **ES256K** : ECDSA pour codes de hachage SHA-256 et clés créées avec la courbe P-256K. Cet algorithme est en attente de normalisation.
--   **ES384** : ECDSA pour codes de hachage SHA-384 et clés créées avec la courbe P-384. Cet algorithme est décrit dans [RFC7518].
--   **ES512** : ECDSA pour codes de hachage SHA-512 et clés créées avec la courbe P-521. Cet algorithme est décrit dans [RFC7518].
+-   **ES384** : ECDSA pour codes de hachage SHA-384 et clés créées avec la courbe P-384. Cet algorithme est décrit dans [RFC7518](https://tools.ietf.org/html/rfc7518).
+-   **ES512** : ECDSA pour codes de hachage SHA-512 et clés créées avec la courbe P-521. Cet algorithme est décrit dans [RFC7518](https://tools.ietf.org/html/rfc7518).
 
 ###  <a name="rsa-algorithms"></a>Algorithmes RSA  
  Les identificateurs d’algorithme suivants sont pris en charge avec les clés RSA et RSA-HSM dans Key Vault.  
@@ -143,8 +150,8 @@ Key Vault prend en charge les opérations sur les objets de clés suivantes :
 -   **List** : permet à un client de lister toutes les clés d’un coffre de clés donné.  
 -   **List versions** : permet à un client de lister toutes les versions d’une clé donnée dans un coffre de clés donné.  
 -   **Get** : permet à un client de récupérer les parties publiques d’une clé donnée dans un coffre de clés.  
--   **Backup** : permet d’exporter une clé sous une forme protégée.  
--   **Restore** : permet d’importer une clé précédemment sauvegardée.  
+-   **Backup** : permet d’exporter une clé sous une forme protégée.  
+-   **Restore** : permet d’importer une clé précédemment sauvegardée.  
 
 Pour plus d’informations, voir [Informations de référence sur les opérations liées aux clés dans l’API REST Key Vault](/rest/api/keyvault).  
 
@@ -194,13 +201,13 @@ Vous pouvez spécifier des métadonnées spécifiques à l’application supplé
 
 ###  <a name="key-access-control"></a>Contrôle d’accès aux clés
 
-Le contrôle d’accès pour les clés gérées par Key Vault est fourni au niveau d’un coffre de clés qui fait office de conteneur de clés. La stratégie de contrôle d’accès pour les clés est différente de la stratégie de contrôle d’accès pour les secrets dans un même coffre de clés. Les utilisateurs peuvent créer un ou plusieurs coffres pour stocker les clés et doivent maintenir une segmentation et une gestion des clés appropriées au scénario. Le contrôle d’accès pour les clés est indépendant du contrôle d’accès pour les secrets.  
+Le contrôle d’accès pour les clés géré par Key Vault est fourni au niveau d’un Key Vault qui agit comme le conteneur de clés. La stratégie de contrôle d’accès pour les clés est différente de la stratégie de contrôle d’accès pour les secrets dans un même coffre de clés. Les utilisateurs peuvent créer un ou plusieurs coffres pour stocker les clés et doivent maintenir une segmentation et une gestion des clés appropriées au scénario. Le contrôle d’accès pour les clés est indépendant du contrôle d’accès pour les secrets.  
 
 Les autorisations suivantes peuvent être accordées, par utilisateur/principal du service, dans l’entrée du contrôle d’accès aux clés sur un coffre. Ces autorisations reflètent précisément les opérations autorisées sur un objet clé :  
 
 - Autorisations pour les opérations de gestion de clés
   - *get* : lire la partie publique d’une clé, ainsi que ses attributs
-  - *list* : lister les clés ou les versions d’une clé stockée dans un coffre de clés
+  - *list* : répertorier les clés ou les versions d’une clé stockée dans un coffre de clés
   - *update* : mettre à jour les attributs d’une clé
   - *create* : créer de nouvelles clés
   - *import* : importer une clé dans un coffre de clés
@@ -259,7 +266,7 @@ Les autorisations suivantes peuvent être utilisées, par principal, dans l’en
 
 - Autorisations pour les opérations de gestion de secrets
   - *get* : lire un secret  
-  - *list* : lister les secrets ou les versions d’un secret stocké dans un coffre de clés  
+  - *list* : répertorier les secrets ou les versions d’un secret stocké dans un Key Vault  
   - *set* : créer un secret  
   - *delete* : supprimer un secret  
   - *recover* : récupérer un secret supprimé
@@ -381,7 +388,7 @@ Un objet certificat Key Vault conserve une configuration utilisée pour communiq
 |DigiCert|Pris en charge dans tous les emplacements de service de coffre de clés dans le cloud public et Azure Government|
 |GlobalSign|Pris en charge dans tous les emplacements de service de coffre de clés dans le cloud public et Azure Government|
 
-Avant de pouvoir créer un émetteur de certificat dans un coffre de clés, les étapes préliminaires 1 et 2 suivantes doivent être exécutées.  
+Avant de pouvoir créer un émetteur de certificat dans un Key Vault, les étapes préliminaires 1 et 2 suivantes doivent être exécutées.  
 
 1. Intégrer aux fournisseurs d’autorités de certification  
 

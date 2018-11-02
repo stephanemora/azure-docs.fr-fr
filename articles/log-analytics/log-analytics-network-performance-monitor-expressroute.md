@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: f08b9e60a632428a120f9cfa50d29f1454e0b1d5
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 73978609d018eb43ab8031dc6e8261861e1ee3bf
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041157"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49402528"
 ---
 # <a name="expressroute-monitor"></a>Moniteur ExpressRoute
 
@@ -36,7 +36,7 @@ Vous pouvez utiliser la fonctionnalité Moniteur Azure ExpressRoute de [Network 
 Pour ouvrir la configuration de Network Performance Monitor, ouvrez la [solution Network Performance Monitor](log-analytics-network-performance-monitor.md) et sélectionnez **Configurer**.
 
 ### <a name="configure-network-security-group-rules"></a>Configurer les règles du groupe de sécurité réseau 
-Pour les serveurs se trouvant dans Azure utilisés pour la surveillance via Network Performance Monitor, configurez les règles du groupe de sécurité réseau (NSG) pour autoriser le trafic TCP sur un port utilisé par Network Performance Monitor pour les transactions synthétiques. Par défaut, il s’agit du port 8084. Cette configuration permet à l’agent Operations Management Suite installé sur les machines virtuelles Azure de communiquer avec un agent de surveillance local. 
+Pour les serveurs se trouvant dans Azure utilisés pour la surveillance via Network Performance Monitor, configurez les règles du groupe de sécurité réseau (NSG) pour autoriser le trafic TCP sur un port utilisé par Network Performance Monitor pour les transactions synthétiques. Par défaut, il s’agit du port 8084. Cette configuration permet à l’agent Log Analytics installé sur les machines virtuelles Azure de communiquer avec un agent de surveillance local. 
 
 Pour plus d’informations sur les Groupes de sécurité réseau, voir  [Groupes de sécurité réseau](../virtual-network/manage-network-security-group.md). 
 

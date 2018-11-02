@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: e3770fe29d6f1073a0ca6507fdf57059cbd3727e
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
+ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067532"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49427397"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -200,7 +200,7 @@ Une condition évalue si un champ (**field**) répond à certains critères. Les
 Avec les conditions **like** et **notLike**, vous pouvez utiliser un caractère générique (`*`) dans la valeur.
 Celle-ci ne doit pas en comporter plus d’un (`*`).
 
-Lorsque vous utilisez les conditions **correspondance** et **non correspondance** entrez `#` pour représenter un chiffre, `?` pour une lettre et tout autre caractère pour représenter ce caractère réel. Pour obtenir des exemples, consultez [Autoriser plusieurs modèles de nom](../samples/allow-multiple-name-patterns.md).
+Lorsque vous utilisez les conditions **correspondance** et **non-correspondance**, entrez `#` pour représenter un chiffre, `?` pour une lettre, `.`pour tous les caractères, et tout autre caractère pour représenter ce caractère réel. Pour obtenir des exemples, consultez [Autoriser plusieurs modèles de nom](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Champs
 

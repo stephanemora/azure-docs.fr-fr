@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
 ms.author: sharadag
-ms.openlocfilehash: 253ec8c0d1d6725e6ae5c47c79882284c633d6e9
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4c9f92481af1e69a111869cb6fc1305923bb0484
+ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46984464"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50026005"
 ---
 # <a name="load-balancing-with-azures-application-delivery-suite"></a>Équilibrage de charge avec la suite de livraison d’application Azure
 
@@ -36,7 +36,7 @@ La combinaison de services globaux et régionaux dans votre application offre un
 - Le routage basé sur les performances permet de rediriger le demandeur vers le backend le plus proche en termes de latence.
 - Le routage par priorité permet de rediriger l’ensemble du trafic vers un backend, les autres backends jouant le rôle de backends de secours.
 - Le routage du trafic en tourniquet (round robin) pondéré permet de répartir le trafic en fonction de la pondération associée à chaque backend.
-- Le routage géographique pour s’assurer que les demandeurs situés dans des zones géographiques spécifiques sont dirigés vers les backends mappés à ces régions (par exemple, toutes les requêtes d’Espagne doivent être dirigées vers la région Azure USA Est).
+- Le routage géographique pour s’assurer que les demandeurs situés dans des zones géographiques spécifiques sont dirigés vers les backends mappés à ces régions (par exemple, toutes les requêtes d’Espagne doivent être dirigées vers la région Azure France Centre)
 - Le routage de sous-réseau, qui vous permet de mapper des plages d’adresses IP à des backends afin que les requêtes entrantes en provenance de ces adresses IP soient envoyées au backend spécifié (par exemple, tous les utilisateurs qui se connectent à partir de la plage d’adresses IP du siège de votre société doivent obtenir un contenu web différent des utilisateurs ordinaires).
 
 Le client se connecte directement à ce backend. Azure Traffic Manager détecte quand un backend est défectueux, et il redirige les clients vers une autre instance intègre. Pour plus d’informations sur ce service, consultez la [documentation Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md).
@@ -60,7 +60,7 @@ Quand vous devez choisir qui de Traffic Manager ou d’Azure Front Door utiliser
 | --------------- | ------------------------ |
 |**N’importe quel protocole :** étant donné que Traffic Manager fonctionne au niveau de la couche DNS, vous pouvez acheminer tous les types de trafic réseau : HTTP, TCP, UDP, et ainsi de suite. | **Accélération HTTP :** avec Front Door, le trafic est acheminé en proxy à la périphérie du réseau Microsoft.  Pour cette raison, la latence et le débit des requêtes HTTP(S) sont améliorées, ce qui réduit la latence pour la négociation SSL et l’utilisation de connexions à chaud d’AFD vers votre application.|
 |**Routage local :** avec le routage au niveau d’une couche DNS, le trafic va toujours de point à point.  Le routage de votre filiale vers votre centre de données local peut prendre un chemin direct, même sur votre propre réseau à l’aide de Traffic Manager. | **Scalabilité indépendante :** comme Front Door fonctionne avec la requête HTTP, les requêtes pour différents chemins d’URL peuvent être routées vers différents pools de backends / services régionaux (microservices) en fonction de règles et de l’intégrité de chaque microservice d’application.|
-|**Format de facturation :** la facturation basée sur DNS est mise à l’échelle en fonction du nombre d’utilisateurs et, pour les services à davantage d’utilisateurs, se stabilise afin de réduire le coût. |**Sécurité inline :** Front Door active des règles telles que la limitation du débit et les listes ACL d’adresses IP pour vous permettre de protéger vos backends avant que le trafic n’atteigne votre application. 
+|**Format de facturation :** la facturation basée sur DNS est mise à l’échelle en fonction du nombre d’utilisateurs et, pour les services à davantage d’utilisateurs, se stabilise afin de réduire le coût. |**Sécurité inline :** Front Door active des règles telles que la limitation du débit et les listes ACL d’adresses IP pour vous permettre de protéger vos backends avant que le trafic n’atteigne votre application. 
 
 </br>En raison des avantages offerts par Front Door en termes de performances, d’opérabilité et de sécurité pour les charges de travail HTTP, nous recommandons aux clients d’utiliser Front Door pour leurs charges de travail HTTP.    Traffic Manager et Front Door peuvent être utilisés en parallèle afin de servir tout le trafic pour votre application. 
 

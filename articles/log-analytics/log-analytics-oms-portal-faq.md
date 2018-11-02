@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2018
+ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: d1ad629ff5c6909256baa94573d045a8c2c09fb5
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
+ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223829"
+ms.lasthandoff: 10/18/2018
+ms.locfileid: "49404560"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Questions courantes pour la transition depuis le portail OMS vers le portail Azure pour les utilisateurs de Log Analytics
 Log Analytics utilisait initialement son propre portail appelé portail OMS pour gérer sa configuration et analyser les données collectées.  Toutes les fonctionnalités accessibles depuis ce portail ont été déplacées vers le portail Azure où elles continueront d’être développées.
@@ -113,7 +113,7 @@ Dans le portail OMS, vous installez des solutions de gestion à partir de la gal
 Les règles d’alerte basées sur des requêtes Log Analytics sont désormais gérées dans [l’expérience d’alerte unifiée](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Consultez [Comment étendre des alertes à partir de Log Analytics dans Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) pour plus d’informations sur la configuration et l’utilisation d’alertes dans le portail Azure.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Comment accéder à mes tableaux de bord ?
-[Tableaux de bord](../log-analytics/log-analytics-dashboards.md) dans Log Analytics est maintenant déconseillé.  Vous pouvez visualiser les données dans Log Analytics à l’aide du [Concepteur de vue](../log-analytics/log-analytics-view-designer.md) qui a des fonctionnalités supplémentaires, des requêtes de code confidentiel et des vues des tableaux de bord Azure.
+La fonctionnalité [Mon tableau de bord](../log-analytics/log-analytics-dashboards.md) de Log Analytics est déconseillée. Cette fonctionnalité vous permettait d’avoir une collection privée de composants du Concepteur de vues. Elle a été remplacée par la fonctionnalité de tableau de bord Azure intégrée. Vous pouvez continuer à visualiser les données dans Log Analytics à l’aide du [Concepteur de vues](../log-analytics/log-analytics-view-designer.md) pour les vues partagées. Vous pouvez également épingler des visualisations à partir de ces vues, ou pour les [requêtes individuelles](../log-analytics/log-analytics-tutorial-dashboards.md), dans les tableaux de bord Azure.
 
 ## <a name="how-do-i-check-my-usage"></a>Comment vérifier mon utilisation ?
 Vous pouvez désormais facilement afficher et gérer votre utilisation et coût de Log Analytics en sélectionnant **Utilisation et coûts estimés** dans votre espace de travail.

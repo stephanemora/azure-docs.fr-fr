@@ -7,13 +7,13 @@ ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/26/2018
-ms.openlocfilehash: 98c62f54e2413bd67600db182c452d0d5965f239
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 10/08/2018
+ms.openlocfilehash: 5ee249aee5d95f22f2e1f52d6356f09ea41ccd68
+ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972179"
+ms.lasthandoff: 10/23/2018
+ms.locfileid: "49945754"
 ---
 # <a name="extend-azure-hdinsight-using-an-azure-virtual-network"></a>Étendre HDInsight à l’aide d’un réseau virtuel Azure
 
@@ -173,7 +173,7 @@ Pour plus d’informations, voir le document [Résolution de noms pour les machi
 
 ## <a name="directly-connect-to-hadoop-services"></a>Se connecter directement aux services Hadoop
 
-L’essentiel de la documentation relative à HDInsight part du principe que vous avez accès au cluster via Internet. Par exemple, vous devez pouvoir vous connecter au cluster à l’adresse https://CLUSTERNAME.azurehdinsight.net. Cette adresse utilise la passerelle publique qui n’est pas disponible si vous avez utilisé des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur pour restreindre l’accès à partir d’Internet.
+Vous pouvez vous connecter au cluster à l’adresse https://CLUSTERNAME.azurehdinsight.net. Il s’agit d’une adresse IP publique, qui ne sera peut-être pas accessible si vous avez utilisé des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur (UDR) pour limiter le trafic entrant d’Internet. En outre, lorsque vous déployez le cluster dans un réseau virtuel, vous pouvez y accéder à partir du point de terminaison privé https://CLUSTERNAME-int.azurehdinsight.net. Ce point de terminaison correspond à une adresse IP privée au sein du réseau virtuel pour l’accès au cluster.
 
 Pour vous connecter à Ambari et à d’autres pages web via le réseau virtuel, procédez comme suit :
 
@@ -253,7 +253,7 @@ Le tunneling forcé est une configuration d’itinéraire défini par l’utilis
 >
 > Si vous n’utilisez pas de groupes de sécurité réseau ou d’itinéraires définis par l’utilisateur pour contrôler le trafic, vous pouvez ignorer cette section.
 
-Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur, vous devez autoriser le trafic provenant des services de gestion et d’intégrité Azure à se diriger vers HDInsight. Pour trouver les adresses IP qui doivent être autorisées, effectuez les opérations suivantes :
+Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis par l’utilisateur, vous devez autoriser le trafic provenant des services de gestion et d’intégrité Azure à se diriger vers HDInsight. Vous devez également autoriser le trafic entre les machines virtuelles à l’intérieur du sous-réseau. Pour trouver les adresses IP qui doivent être autorisées, effectuez les opérations suivantes :
 
 1. Vous devez toujours autoriser le trafic à partir des adresses IP suivantes :
 
@@ -280,6 +280,7 @@ Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis 
     | &nbsp; | Centre du Canada | 52.228.37.66</br>52.228.45.222 | 443 | Trafic entrant |
     | Chine | Chine du Nord | 42.159.96.170</br>139.217.2.219 | 443 | Trafic entrant |
     | &nbsp; | Chine orientale | 42.159.198.178</br>42.159.234.157 | 443 | Trafic entrant |
+    | &nbsp; | Chine Nord 2 | 40.73.37.141</br>40.73.38.172 | 443 | Trafic entrant |
     | Europe | Europe Nord | 52.164.210.96</br>13.74.153.132 | 443 | Trafic entrant |
     | &nbsp; | Europe Ouest| 52.166.243.90</br>52.174.36.244 | 443 | Trafic entrant |
     | Allemagne | Centre de l’Allemagne | 51.4.146.68</br>51.4.146.80 | 443 | Trafic entrant |
@@ -301,7 +302,7 @@ Si vous utilisez des groupes de sécurité réseau ou des itinéraires définis 
 
     Pour plus d’informations sur les adresses IP à utiliser pour Azure Government, voir le document [Intelligence et analyse Azure Government](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics).
 
-3. Si vous utilisez un serveur DNS personnalisé avec votre réseau virtuel, vous devez également autoriser l’accès à partir de __168.63.129.16__. Cette adresse est celle d’un programme de résolution récursive d’Azure. Pour plus d’informations, voir le document [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
+3. Vous devez également autoriser l’accès depuis l’adresse IP __168.63.129.16__. Cette adresse est celle d’un programme de résolution récursive d’Azure. Pour plus d’informations, voir le document [Résolution de noms pour les machines virtuelles et les instances de rôle](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
 
 Pour plus d’informations, voir la section [Contrôler le trafic réseau](#networktraffic).
 
@@ -575,7 +576,7 @@ Sur le serveur DNS personnalisé dans le réseau virtuel :
     
     * Remplacez la valeur `192.168.0.1` par l’adresse IP de votre serveur DNS local. Cette entrée a pour effet de router toutes les autres demandes DNS vers le serveur DNS local.
 
-3. Pour utiliser la configuration, redémarrez Bind. Par exemple : `sudo service bind9 restart`.
+3. Pour utiliser la configuration, redémarrez Bind. Par exemple : `sudo service bind9 restart`.
 
 4. Ajouter un redirecteur conditionnel au serveur DNS local. Configurez le redirecteur conditionnel de façon envoyer des demandes du suffixe DNS de l’étape 1 au serveur DNS personnalisé.
 
