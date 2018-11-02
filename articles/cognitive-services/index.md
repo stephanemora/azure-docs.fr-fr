@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.author: nitinme
 ms.date: 10/23/2018
 ms.topic: hub-page
-ms.openlocfilehash: 0564cd1b2c7acf09ee59b858eafb49a4217afe35
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 10f0062f27c03d8776415272766a1ec0729e1f80
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954825"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747284"
 ---
 <h1>Documentation Azure Cognitive Services</h1>
         <p style="font-size: 1.12rem;margin-bottom: 1rem;">Découvrez comment générer des algorithmes intelligents dans vos applications, sites web et bots pour voir, écouter, énoncer, et comprendre les besoins de vos utilisateurs au moyen de méthodes naturelles de communication. Ces tutoriels, démarrages rapides, références d’API et exemples vous montrent comment.</p>
@@ -325,6 +325,7 @@ ms.locfileid: "49954825"
                         <p><a href="/azure/cognitive-services/bing-entities-search/">Recherche d’entités Bing</a></p>
                         <p><a href="/azure/cognitive-services/bing-image-search">Recherche d’images Bing</a></p>
                         <p><a href="/azure/cognitive-services/bing-visual-search">Recherche visuelle Bing</a></p>
+                        <p><a href="/azure/cognitive-services/bing-local-business-search"><span>Recherche d’entreprises locales Bing&nbsp;<sup style="font-size:70%">APERÇU</sup></span></a></p>
                     </div>
                 </div>
             </div>

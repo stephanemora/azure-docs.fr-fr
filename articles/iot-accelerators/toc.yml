@@ -19,16 +19,24 @@ items:
     href: quickstart-device-simulation-deploy.md
 - name: Didacticiels
   items:
-  - name: Surveiller des appareils IoT
-    href: iot-accelerators-remote-monitoring-monitor.md
-  - name: Détecter les problèmes liés aux appareils
-    href: iot-accelerators-remote-monitoring-automate.md
-  - name: Configurer et gérer des appareils
-    href: iot-accelerators-remote-monitoring-manage.md
-  - name: Effectuer une analyse de cause racine sur une alerte
-    href: iot-accelerators-remote-monitoring-root-cause-analysis.md
-  - name: Utiliser les alertes et résoudre les problèmes liés aux appareils
-    href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Surveillance à distance
+    items:
+    - name: Surveiller des appareils IoT
+      href: iot-accelerators-remote-monitoring-monitor.md
+    - name: Détecter les problèmes liés aux appareils
+      href: iot-accelerators-remote-monitoring-automate.md
+    - name: Configurer et gérer des appareils
+      href: iot-accelerators-remote-monitoring-manage.md
+    - name: Effectuer une analyse de cause racine sur une alerte
+      href: iot-accelerators-remote-monitoring-root-cause-analysis.md
+    - name: Utiliser les alertes et résoudre les problèmes liés aux appareils
+      href: iot-accelerators-remote-monitoring-maintain.md
+  - name: Simulation d’appareil
+    items:
+    - name: Créer et exécuter une simulation
+      href: iot-accelerators-device-simulation-create-simulation.md
+    - name: Créer un appareil simulé personnalisé
+      href: iot-accelerators-device-simulation-create-custom-device.md
 - name: Concepts
   items:
   - name: Surveillance à distance
@@ -47,12 +55,6 @@ items:
     items:
     - name: Architecture
       href: iot-accelerators-connected-factory-sample-walkthrough.md
-  - name: Simulation d’appareil
-    items:
-    - name: Schéma du modèle d’appareil
-      href: iot-accelerators-device-simulation-device-schema.md
-    - name: Comportement du modèle d’appareil
-      href: iot-accelerators-device-simulation-device-behavior.md
   - name: Autorisations sur le site azureiotsolutions.com
     href: iot-accelerators-permissions.md
 - name: Procédures
@@ -124,14 +126,10 @@ items:
     items:
     - name: Utiliser un hub IoT existant
       href: iot-accelerators-device-simulation-choose-hub.md
-    - name: Utiliser un modèle d’appareil personnalisé
-      href: iot-accelerators-device-simulation-custom-model.md
+    - name: Créer un appareil simulé avancé
+      href: iot-accelerators-device-simulation-advanced-device.md
     - name: Visualiser des données de télémétrie avec Azure Time Series Insights
       href: iot-accelerators-device-simulation-time-series-insights.md
-    - name: Créez un appareil simulé.
-      href: iot-accelerators-device-simulation-create-simulated-device.md
-    - name: Déployer un appareil simulé
-      href: iot-accelerators-device-simulation-deploy-simulated-device.md
 - name: Informations de référence
   items:
   - name: Surveillance à distance
@@ -212,9 +210,9 @@ items:
     href: https://stackoverflow.com/questions/tagged/azure-iot-suite
   - name: Parcours d’apprentissage sur les accélérateurs de solution IoT
     href: https://azure.microsoft.com/documentation/learning-paths/iot-suite/
-ms.openlocfilehash: e28f7e30378291c3384ddbd90af6fe02d1aa365b
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: f9b92b06850668f0f92fa77a67ac640e4c245c37
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49165333"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50754016"
