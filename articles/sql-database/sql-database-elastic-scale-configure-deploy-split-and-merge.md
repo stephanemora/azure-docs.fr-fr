@@ -143,7 +143,7 @@ Si votre rôle de travail ne parvient pas à être en ligne, mais que votre rôl
    ```
 
 * Assurez-vous que le nom du serveur ne commence pas par **https://**.
-* Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Pour ce faire, ouvrez votre base de données dans le portail et vérifiez que le paramètre **Autoriser l’accès aux services Azure** est défini sur **Activé****.
+* Vérifiez que votre serveur Azure SQL DB autorise les services Azure à s’y connecter. Pour ce faire, ouvrez votre base de données dans le portail et vérifiez que le paramètre **Autoriser l’accès aux services Azure** est défini sur **Activé** **.
 
 ## <a name="test-the-service-deployment"></a>Tester le déploiement du service
 ### <a name="connect-with-a-web-browser"></a>Se connecter avec un navigateur Web
