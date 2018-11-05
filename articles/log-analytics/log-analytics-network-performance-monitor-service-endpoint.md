@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fb84b20630eb63cb53ccb1d13a383ed6287b802b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 76c8421286633dc3c81a073423a7d9f9ca1e1d85
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406617"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420844"
 ---
 # <a name="service-connectivity-monitor"></a>Moniteur de connectivité de service
 
@@ -35,13 +35,13 @@ Vous pouvez effectuer les fonctions suivantes avec Moniteur de connectivité de 
 - Identifier les zones réactives sur le réseau qui peuvent être à l’origine des performances médiocres des applications en affichant la latence de chaque tronçon sur une carte topologique.
 
 
-![Moniteur de connectivité de service](media/log-analytics-network-performance-monitor/service-endpoint-intro.png)
+![Moniteur de connectivité de service](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-intro.png)
 
 
 ## <a name="configuration"></a>Configuration 
 Pour ouvrir la configuration de Network Performance Monitor, ouvrez la [solution Network Performance Monitor](log-analytics-network-performance-monitor.md) et sélectionnez **Configurer**.
 
-![Configurer Network Performance Monitor](media/log-analytics-network-performance-monitor/npm-configure-button.png)
+![Configurer Network Performance Monitor](media/log-analytics-network-performance-monitor-service-endpoint/npm-configure-button.png)
 
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurer des agents Log Analytics pour la surveillance
@@ -79,7 +79,7 @@ Commencez par créer des tests pour surveiller la connectivité réseau vers les
 10. Choisissez les conditions d’analyse. Vous pouvez définir des seuils personnalisés pour la génération d’événements d’intégrité en entrant des valeurs de seuil. Chaque fois que la valeur d’une condition dépasse son seuil sélectionné pour la paire de réseaux ou sous-réseaux sélectionnée, un événement d’intégrité est généré. 
 11. Sélectionnez **Enregistrer** pour enregistrer la configuration. 
 
-    ![Configurations de test Moniteur de connectivité de service](media/log-analytics-network-performance-monitor/service-endpoint-configuration.png)
+    ![Configurations de test Moniteur de connectivité de service](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-configuration.png)
 
 
 
@@ -87,11 +87,11 @@ Commencez par créer des tests pour surveiller la connectivité réseau vers les
 
 Accédez à la vue du tableau de bord de Network Performance Monitor. La page **Moniteur de connectivité de service** fournit un résumé de l’intégrité des différents tests que vous avez créés. 
 
-![Page Moniteur de connectivité de service](media/log-analytics-network-performance-monitor/service-endpoint-blade.png)
+![Page Moniteur de connectivité de service](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-blade.png)
 
 Sélectionnez la vignette pour afficher les détails des tests sur la page **Tests**. Dans la table de gauche, vous pouvez consulter l’intégrité à un moment donné, ainsi que la valeur du temps de réponse du service, la latence du réseau et la perte de paquets pour tous les tests. Utilisez le contrôle de l’enregistreur de l’état du réseau pour afficher l’instantané du réseau à un autre moment passé. Sélectionnez le test à examiner dans la table. Vous pouvez afficher la tendance historique de la perte, la latence et les valeurs de temps de réponse dans les graphiques du volet de droite. Sélectionnez le lien **Détails du test** pour afficher les performances de chaque nœud.
 
-![Tests Moniteur de connectivité de service](media/log-analytics-network-performance-monitor/service-endpoint-tests.png)
+![Tests Moniteur de connectivité de service](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-tests.png)
 
 Dans la vue des **nœuds de test**, vous pouvez observer la connectivité réseau de chaque nœud. Sélectionnez le nœud qui présente une détérioration des performances. Il s’agit du nœud sur lequel l’application s’exécute trop lentement.
 
@@ -99,15 +99,15 @@ Déterminez si les performances médiocres de l’application sont dues au rése
 
 * **Problème d’application :** un pic dans le temps de réponse, mais une latence de réseau cohérente suggèrent que le réseau fonctionne correctement et que le problème émane peut-être de l’application. 
 
-    ![Problème d’application Moniteur de connectivité de service.](media/log-analytics-network-performance-monitor/service-endpoint-application-issue.png)
+    ![Problème d’application Moniteur de connectivité de service.](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-application-issue.png)
 
 * **Problème réseau :** un pic dans le temps de réponse accompagné d’un pic correspondant de la latence du réseau suggère que l’augmentation du temps de réponse est peut-être due à une augmentation de la latence du réseau. 
 
-    ![Problème de réseau Moniteur de connectivité de service.](media/log-analytics-network-performance-monitor/service-endpoint-network-issue.png)
+    ![Problème de réseau Moniteur de connectivité de service.](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-network-issue.png)
 
 Une fois que vous avez déterminé que le problème provient du réseau, sélectionnez la vue **Topologie** pour identifier le tronçon problématique sur la carte topologique. L’image suivante en contient un exemple. 96 des 105 ms de latence totale entre le nœud et le point de terminaison d’application sont dues au tronçon marqué en rouge. Une fois que vous avez identifié le tronçon problématique, vous pouvez effectuer une action corrective. 
 
-![Tests Moniteur de connectivité de service](media/log-analytics-network-performance-monitor/service-endpoint-topology.png)
+![Tests Moniteur de connectivité de service](media/log-analytics-network-performance-monitor-service-endpoint/service-endpoint-topology.png)
 
 ## <a name="diagnostics"></a>Diagnostics 
 

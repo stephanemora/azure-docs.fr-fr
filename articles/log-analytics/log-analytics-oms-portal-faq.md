@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 49aed496d8c125da8c2269186b569693c794d290
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49404560"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419790"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Questions courantes pour la transition depuis le portail OMS vers le portail Azure pour les utilisateurs de Log Analytics
 Log Analytics utilisait initialement son propre portail appelé portail OMS pour gérer sa configuration et analyser les données collectées.  Toutes les fonctionnalités accessibles depuis ce portail ont été déplacées vers le portail Azure où elles continueront d’être développées.
@@ -32,7 +32,7 @@ Non. Aucune modification n’est apportée à Log Analytics lui-même, donc rien
 ## <a name="where-do-i-find-log-analytics-in-azure"></a>Où puis-je trouver Log Analytics dans Azure ?
 Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https://portal.azure.com).  Cliquez sur **Plus de services** et, dans la liste des ressources, tapez **Log Analytics**. Sélectionnez **Log Analytics** puis sélectionnez votre espace de travail. La page de résumé pour l’espace de travail s’affiche.
 
-![Espace de travail Log Analytics](media/log-analytics-new-portal/log-analytics.png)
+![Espace de travail Log Analytics](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Comment gérer les autorisations ?
 Si vous n’avez pas accès à votre espace de travail Log Analytics dans le portail Azure, vous devez configurer vos autorisations à l’aide de [l’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md). Pour plus d’informations sur la gestion des autorisations de l’espace de travail, consultez [Gérer les espaces de travail](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Pour plus d’informations sur la gestion des autorisations pour les alertes, consultez [Prise en main des rôles, autorisations et de la sécurité avec Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
@@ -40,12 +40,12 @@ Si vous n’avez pas accès à votre espace de travail Log Analytics dans le por
 ## <a name="how-do-i-create-a-new-workspace"></a>Comment créer un nouvel espace de travail ? 
 Dans la liste des espaces de travail au sein du portail Azure, cliquez sur **Ajouter** dans la liste des espaces de travail.  Pour plus de détails, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../log-analytics/log-analytics-quick-create-workspace.md).
 
-![Page Vue d’ensemble](media/log-analytics-new-portal/new-workspace.png)
+![Page Vue d’ensemble](media/log-analytics-oms-portal-faq/new-workspace.png)
 
 ## <a name="where-is-my-overview-page"></a>Où se trouve ma page Vue d’ensemble ?
 L’écran principal dans le portail OMS affiche les vignettes pour toutes les solutions de gestion installées dans votre espace de travail ainsi que les vues personnalisées que vous avez créées. Cette même vue est disponible sur le Portail Azure. Dans votre espace de travail, sélectionnez **Résumé de l’espace de travail**.
 
-![Page Vue d’ensemble](media/log-analytics-new-portal/overview.png)
+![Page Vue d’ensemble](media/log-analytics-oms-portal-faq/overview.png)
 
 ## <a name="how-do-i-open-log-search-and-view-designer"></a>Comment ouvrir la Recherche dans les journaux et le Concepteur de vue ?
 La **Recherche dans les journaux** et le **Concepteur de vue** sont disponibles sur la page principale et dans le menu de gauche de votre espace de travail dans le portail Azure, à côté de **Vue d’ensemble**.
@@ -53,7 +53,7 @@ La **Recherche dans les journaux** et le **Concepteur de vue** sont disponibles 
 ## <a name="where-do-i-find-settings"></a>Où trouver les paramètres ?
 Un grand nombre de paramètres dans la section **Paramètres** du portail OMS sont disponibles dans le menu **Paramètres avancés** dans le portail Azure pour l’espace de travail.
 
-![Paramètres avancés](media/log-analytics-new-portal/advanced-settings.png)
+![Paramètres avancés](media/log-analytics-oms-portal-faq/advanced-settings.png)
 
 Les sections suivantes fournissent une liste complète pour accéder aux paramètres qui étaient précédemment disponibles dans la section **Paramètres** du portail OMS.
 
@@ -118,7 +118,7 @@ La fonctionnalité [Mon tableau de bord](../log-analytics/log-analytics-dashboar
 ## <a name="how-do-i-check-my-usage"></a>Comment vérifier mon utilisation ?
 Vous pouvez désormais facilement afficher et gérer votre utilisation et coût de Log Analytics en sélectionnant **Utilisation et coûts estimés** dans votre espace de travail.
 
-![Utilisation et estimation des coûts](media/log-analytics-new-portal/usage.png)
+![Utilisation et estimation des coûts](media/log-analytics-oms-portal-faq/usage.png)
 
 
 ## <a name="can-i-still-use-the-classic-portal"></a>Puis-je toujours utiliser le portail Classic ?
