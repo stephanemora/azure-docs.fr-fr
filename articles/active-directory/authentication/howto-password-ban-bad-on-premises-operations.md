@@ -4,37 +4,37 @@ description: Opérations en préversion de post-déploiement et rapport de prote
 services: active-directory
 ms.service: active-directory
 ms.component: authentication
-ms.topic: conceptual
-ms.date: 07/11/2018
+ms.topic: article
+ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 14aa52b6d424423f4863efa63f3e2e66b84dac70
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 6a61fdeaf1a751ab4001257335abdcbd6fac9cbf
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39163563"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739462"
 ---
-# <a name="preview-azure-ad-password-protection-post-deployment"></a>Préversion : post-déploiement de la protection du mot de passe Azure AD
+# <a name="preview-azure-ad-password-protection-operational-procedures"></a>Préversion : procédures opérationnelles de la protection par mot de passe Azure AD
 
 |     |
 | --- |
-| La protection de mot de passe Azure AD et la liste de mots de passe interdits personnalisée sont des fonctionnalités de la préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
+| La protection par mot de passe Azure AD est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
-Une fois que vous avez terminé l’[installation de la protection de mot de passe Azure AD](howto-password-ban-bad-on-premises.md) locale, quelques éléments doivent être configurés dans le portail Azure.
+Une fois que vous avez terminé l’[installation de la protection de mot de passe Azure AD](howto-password-ban-bad-on-premises-deploy.md) locale, quelques éléments doivent être configurés dans le portail Azure.
 
 ## <a name="configure-the-custom-banned-password-list"></a>Configurer la liste des mots de passe interdits personnalisée
 
-Suivez les instructions dans l’article [Configurer la liste des mots de passe interdits personnalisée](howto-password-ban-bad.md) pour savoir comment personnaliser la liste des mots de passe interdits pour votre organisation.
+Suivez les instructions dans l’article [Configurer la liste des mots de passe interdits personnalisée](howto-password-ban-bad-configure.md) pour savoir comment personnaliser la liste des mots de passe interdits pour votre organisation.
 
 ## <a name="enable-password-protection"></a>Activer la protection de mot de passe
 
-1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory**, **Méthodes d’authentification**, puis **Protection par mot de passe (préversion)**.
+1. Connectez-vous au [portail Azure](https://portal.azure.com) et accédez à **Azure Active Directory**, **Méthodes d’authentification**, puis **Password protection (Preview)** (Protection par mot de passe (préversion)).
 1. Réglez **Activer la protection de mot de passe pour Windows Server Active Directory** sur**Oui**
-1. Comme mentionné dans le [Guide de déploiement](howto-password-ban-bad-on-premises.md#deployment-strategy), il est recommandé de régler de base le **Mode** sur **Audit**
+1. Comme mentionné dans le [Guide de déploiement](howto-password-ban-bad-on-premises-deploy.md#deployment-strategy), il est recommandé de régler de base le **Mode** sur **Audit**
    * Une fois que vous êtes familiarisé avec la fonctionnalité, vous pouvez basculer le **Mode** sur **Appliqué**
 1. Cliquez sur **Enregistrer**.
 
@@ -45,19 +45,23 @@ Suivez les instructions dans l’article [Configurer la liste des mots de passe 
 Le mode Audit est conçu comme un moyen d’exécuter le logiciel dans un mode de « simulation ». Chaque service d’agent DC évalue un mot de passe entrant en fonction de la stratégie active. Si la stratégie actuelle est configurée pour être en mode Audit, les « mauvais » mots de passe entraînent l’apparition de messages dans le journal des événements, mais sont acceptés. C’est la seule différence entre le mode d’Audit et le mode Appliquer ; toutes les autres opérations s’exécuteront de la même manière.
 
 > [!NOTE]
-> Microsoft recommande que les déploiement et test initiaux soient toujours démarrés en mode Audit. Les événements dans le journal des événements doivent ensuite être surveillés pour tenter d’anticiper si un processus opérationnel existant serait dérangé une fois que le mode Appliquer est activé.
+> Microsoft recommande que les déploiements et test initiaux soient toujours démarrés en mode Audit. Les événements dans le journal des événements doivent ensuite être surveillés pour tenter d’anticiper si un processus opérationnel existant serait dérangé une fois que le mode Appliquer est activé.
 
 ## <a name="enforce-mode"></a>Mode Appliquer
 
 Le mode Appliquer est conçu comme la configuration finale. Comme dans le mode Audit, chaque service d’agent DC évalue les mots de passe entrant en fonction de la stratégie active. Cependant, si le mode Appliquer est activé, un mot de passe qui est considéré comme non sécurisé, en accord avec la stratégie sera rejeté.
 
-Lorsqu’un mot de passe est refusé en mode Appliquer par l’agent DC de la protection de mot de passe Azure AD, l’impact visible vu par un utilisateur final est le même que si leur mot de passe avait été rejeté par l’application sur site traditionnelle de la complexité de mot de passe. Par exemple, un utilisateur peut voir le message d’erreur traditionnel suivant sur l’écran de mot de passe logon\change :
+Lorsqu’un mot de passe est refusé en mode Appliquer par l’agent DC de la protection de mot de passe Azure AD, l’impact visible vu par un utilisateur final est le même que si leur mot de passe avait été rejeté par l’application sur site traditionnelle de la complexité de mot de passe. Par exemple, un utilisateur peut voir le message d’erreur traditionnel suivant sur l’écran de mot de passe logon\change Windows :
 
-« Impossible de mettre à jour le mot de passe. La valeur fournie pour le nouveau mot de passe ne respecte pas la longueur, la complexité, ou les exigences de l’historique du domaine. »
+`Unable to update the password. The value provided for the new password does not meet the length, complexity, or history requirements of the domain.`
 
 Ce message n’est qu’un seul exemple de plusieurs résultats possibles. Le message d’erreur spécifique peut varier selon le logiciel réel ou le scénario qui tente de définir un mot de passe non sécurisé.
 
 Les utilisateurs finaux concernés devront peut-être travailler avec leur service informatique pour comprendre les nouvelles exigences et être plus en mesure de choisir des mots de passe sécurisés.
+
+## <a name="enable-mode"></a>Mode d’activation
+
+Ce paramètre doit normalement être laissé à son état par défaut (Oui). La configuration de ce paramètre sur désactivé (Non) provoquera le passage en mode inactif de tous les agents contrôleurs de domaine déployés avec protection par mot de passe Azure AD : tous les mots de passe sont acceptés en l’état et aucune activité de validation ne sera exécutée (par exemple, même aucun événement d’audit ne sera émis).
 
 ## <a name="usage-reporting"></a>Rapports d’utilisation
 
@@ -79,8 +83,11 @@ PasswordSetErrors               : 1
 L’étendue du rapport de la cmdlet peut être influencée à l’aide d’un des paramètres –Forest, -Domain ou –DomainController. Ne pas spécifier un paramètre équivaut à –Forest.
 
 > [!NOTE]
+> Cette cmdlet fonctionne en ouvrant une session Powershell sur chaque contrôleur de domaine. Pour réussir, le support de la session à distance Powershell doit être activé sur chaque contrôleur de domaine et le client doit disposer de privilèges suffisants. Pour plus d’informations sur les exigences de session à distance Powershell, exécutez « Get-Help about_Remote_Troubleshooting» dans une fenêtre Powershell.
+
+> [!NOTE]
 > Cette cmdlet fonctionne en interrogeant à distance le journal des événements administrateur de chaque agent de service DC. Si les journaux des événements contiennent un grand nombre d’événements, la cmdlet peut prendre beaucoup de temps à se faire. En outre, les requêtes de réseau en bloc de grands jeux de données peuvent affecter les performances du contrôleur de domaine. Par conséquent, cette cmdlet doit être utilisée avec précaution dans les environnements de production.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-[Résolution des problèmes et journalisation des informations dans la protection de mot de passe Azure AD](howto-password-ban-bad-on-premises-troubleshoot.md)
+[Résolution des problèmes et surveillance pour la protection par mot de passe Azure AD](howto-password-ban-bad-on-premises-troubleshoot.md)

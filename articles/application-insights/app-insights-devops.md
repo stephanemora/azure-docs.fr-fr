@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: e77389411e52853efb52252a17c8612f0480fa61
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ae033b944e93fe90392af9b17de883d791d3e4dc
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298640"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958592"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Diagnostic approfondi des applications et services web avec Application Insights
 ## <a name="why-do-i-need-application-insights"></a>Pourquoi ai-je besoin d’Application Insights ?
@@ -172,7 +172,7 @@ Lorsqu’une alerte est émise, Application Insights peut automatiquement créer
 ## <a name="next-steps"></a>Étapes suivantes
 La prise en main d’Application Insights est simple. Les principales options sont les suivantes :
 
-* Instrumenter une application web déjà en cours d’exécution. Cela vous donne toutes les données télémétriques de performance intégrées. Elles sont disponibles pour [Java](app-insights-java-live.md) et les [serveurs IIS](app-insights-monitor-performance-live-website-now.md), ainsi que pour les [applications web Azure](app-insights-azure.md).
+* Instrumenter une application web déjà en cours d’exécution. Cela vous donne toutes les données télémétriques de performance intégrées. Elles sont disponibles pour [Java](app-insights-java-live.md) et les [serveurs IIS](app-insights-monitor-performance-live-website-now.md), ainsi que pour les [applications web Azure](app-insights-overview.md).
 * Instrumenter votre projet pendant le développement. Vous pouvez effectuer cette tâche pour des applications [ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md) et [Node.js](app-insights-nodejs.md) et une multitude d’[autres types](app-insights-platforms.md). 
 * Instrumenter [n’importe quelle page web](app-insights-javascript.md) en y ajoutant un court extrait de code.
 

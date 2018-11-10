@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: prchint
-ms.openlocfilehash: 5ebddbf1fea49fbf868d15a544a18e5a8c6369fd
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: ec4d8ef43510c07e73ab18de227176d3c282b8e1
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078305"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740839"
 ---
 # <a name="azure-stack-capacity-planner"></a>Azure Stack Capacity Planner
 Azure Stack Capacity Planner est un tableur utilisé pour la planification de la capacité des ressources Azure Stack. Un planificateur de capacité vous permet de concevoir diverses allocations de ressources de calcul afin de voir comment celles-ci pourraient s’inscrire dans une offre de matériel. Vous trouverez ci-dessous des instructions détaillées pour l’utilisation de la calculatrice Azure Stack.
@@ -56,7 +56,7 @@ Cet outil permet d’allouer des ressources de machine virtuelle de deux façons
 ## <a name="definebyvmfootprint-instructions"></a>Instructions concernant l’utilisation de l’onglet DefineByVMFootprint
 Pour créer un modèle utilisant une collection simple de diverses tailles et quantités de machines virtuelles, sélectionnez l’onglet « DefineByVMFootprint », puis procédez comme suit.
 
-1. Dans l’angle supérieur droit de cette feuille de calcul, utilisez les contrôles zone de liste déroulante fournis pour sélectionner un nombre initial de serveurs (de 4 à 12) à installer dans chaque système matériel (référence SKU). Ce nombre de serveurs peut être modifié à tout moment pendant le processus de modélisation pour voir comment cela affecte les ressources globales disponibles pour votre modèle d’allocation de ressources.
+1. En haut à droite de cette feuille de calcul, utilisez les contrôles de zone de liste déroulante fournis pour sélectionner un nombre initial de serveurs (de 4 à 16) à installer dans chaque système matériel (référence SKU). Ce nombre de serveurs peut être modifié à tout moment pendant le processus de modélisation pour voir comment cela affecte les ressources globales disponibles pour votre modèle d’allocation de ressources.
 2. Si vous souhaitez modéliser diverses allocations de ressources de machine virtuelle pour une configuration matérielle spécifique, accédez à la zone de liste de déroulante bleue juste sous l’étiquette « Current SKU » (Référence SKU actuelle) dans l’angle supérieur droit de la page. Déroulez cette zone de liste, puis sélectionnez la référence SKU du matériel de votre choix.
 3. Vous êtes maintenant prêt à commencer à ajouter des machines virtuelles de différentes tailles à votre modèle. Pour inclure un type particulier de machine virtuelle, entrez une quantité dans la zone au contour bleu à gauche de cette entrée de machine virtuelle.
 
@@ -73,7 +73,7 @@ Pour créer un modèle utilisant une collection de charges de travail Azure Stac
 > [!TIP]
 > Pour savoir comment modifier la taille de stockage fournie pour une machine virtuelle Azure Stack, consultez la remarque à l’étape 3 de la section précédente.
 
-1. Dans l’angle supérieur droit de cette page, utilisez les contrôles zone de liste déroulante fournis pour sélectionner un nombre initial de serveurs (de 4 à 12) à installer dans chaque système matériel (référence SKU).
+1. En haut à droite de cette page, utilisez les contrôles de zone de liste déroulante fournis pour sélectionner un nombre initial de serveurs (de 4 à 16) à installer dans chaque système matériel (référence SKU).
 2. Si vous souhaitez modéliser diverses allocations de ressources de machine virtuelle pour une configuration matérielle spécifique, accédez à la zone de liste de déroulante bleue juste sous l’étiquette « Current SKU » (Référence SKU actuelle) dans l’angle supérieur droit de la page. Déroulez cette zone de liste, puis sélectionnez la référence SKU du matériel de votre choix.
 3. Sélectionnez la taille de stockage appropriée pour chaque machine virtuelle Azure Stack de votre choix sur la page DefineByVMFootprint, comme décrit ci-dessus à l’étape trois des Instructions concernant l’utilisation de l’onglet DefineByWorkloadFootprint. La taille de stockage par machine virtuelle est définie dans la feuille DefineByVMFootprint.
 4. En partant de la partie supérieure gauche de la page DefineByWorkloadFootprint, créez des configurations pour jusqu’à six types de charges de travail en entrant la quantité de chaque type de machine virtuelle contenue dans chaque charge de travail. Pour ce faire, vous devez entrer des valeurs numériques dans la colonne située juste sous le nom de la charge de travail concernée. Vous pouvez modifier les noms des charges de travail afin de refléter les types de charges de travail pris en charge par cette configuration particulière.

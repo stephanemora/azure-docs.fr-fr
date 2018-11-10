@@ -5,14 +5,14 @@ services: container-service
 author: seanmck
 ms.service: container-service
 ms.topic: troubleshooting
-ms.date: 09/13/2018
+ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: e29308b7b1c17377cf1d627f2a32a2ba6ea4d077
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 01095ac4ed8e362f1a89a53b10b5da6a547feb57
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310088"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218631"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>Vérification des meilleures pratiques Kubernetes dans votre cluster
 
@@ -30,7 +30,7 @@ L’[outil kube-advisor][kube-advisor-github] est un conteneur unique conçu pou
 Pour exécuter l’outil sur un cluster configuré pour le [contrôle d’accès en fonction du rôle (RBAC)](aad-integration.md), à l’aide des commandes suivantes. La première commande crée un compte de service Kubernetes. La deuxième commande exécute l’outil dans un pod à l’aide de ce compte de service et configure le pod pour qu’il soit supprimé après sa fermeture. 
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
+kubectl apply -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 
 kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --restart=Never --overrides="{ \"apiVersion\": \"v1\", \"spec\": { \"serviceAccountName\": \"kube-advisor\" } }"
 ```
@@ -60,7 +60,7 @@ Par défaut, aucune demande ni aucune limite ne sont définies dans les spécifi
 Si le contrôle d’accès en fonction du rôle (RBAC) est activé sur votre cluster, vous pouvez nettoyer le `ClusterRoleBinding` après avoir exécuté l’outil à l’aide de la commande suivante :
 
 ```bash
-kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml?token=ABLLDrNcuHMro9jQ0xduCaEbpzLupzQUks5bh3RhwA%3D%3D
+kubectl delete -f https://raw.githubusercontent.com/Azure/kube-advisor/master/sa.yaml
 ```
 
 Si vous exécutez l’outil sur un cluster dont le RBAC n’est pas activé, aucun nettoyage n’est requis.

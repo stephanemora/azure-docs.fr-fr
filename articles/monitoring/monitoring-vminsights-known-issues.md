@@ -1,5 +1,5 @@
 ---
-title: Problèmes connus avec Azure Monitor pour machines virtuelles | Microsoft Docs
+title: Problèmes connus avec Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
 description: Azure Monitor pour machines virtuelles est une solution d’Azure qui supervise à la fois l’intégrité et les performances du système d’exploitation de la machine virtuelle Azure. En outre, elle identifie automatiquement les composants des applications et leurs dépendances avec les autres ressources, et effectue le mappage de leurs communications respectives. Cet article porte sur des problèmes connus.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 6d1f1d1ae07ec32262f655fd6ed7205a70e252f4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: eba9e26f12fd9e1862727adec4f8c8f594e8f659
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385084"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091672"
 ---
-# <a name="known-issues-with-azure-monitor-for-vms"></a>Problèmes connus avec Azure Monitor pour machines virtuelles
+# <a name="known-issues-with-azure-monitor-for-vms-preview"></a>Problèmes connus avec Azure Monitor pour machines virtuelles (préversion)
 
 Les problèmes suivants concernent la fonctionnalité Health (Intégrité) d’Azure Monitor pour machines virtuelles :
 

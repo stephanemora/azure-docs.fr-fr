@@ -4,11 +4,7 @@ description: Comment déployer la prise en charge du protocole IPv6 pour l’éq
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-editor: ''
-tags: azure-resource-manager
 keywords: IPv6, équilibreur de charge azure, double pile, adresse ip publique, ipv6 natif, mobile, iot
-ms.assetid: 2998e943-13fc-4ea9-a68c-875e53a08db3
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -16,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: 431b43979ac364d943c58c40b4199b7f30f9acf6
-ms.sourcegitcommit: c3d53d8901622f93efcd13a31863161019325216
+ms.openlocfilehash: 14a28fb341692c309ff4f965628b38a767c56633
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/29/2018
-ms.locfileid: "30263076"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740740"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Déployer une solution d’équilibrage de charge sur Internet avec IPv6, à l’aide d’un modèle
 
@@ -115,8 +111,8 @@ L’exemple de modèle utilisé dans cet article comprend les variables et les p
 | --- | --- |
 | adminUsername |Spécifiez le nom du compte administrateur utilisé pour la connexion aux machines virtuelles. |
 | adminPassword |Spécifiez le mot de passe du compte administrateur utilisé pour la connexion aux machines virtuelles. |
-| dnsNameforIPv4LbIP |Spécifiez le nom d’hôte DNS que vous souhaitez affecter comme nom public de l’équilibrage de charge. Ce nom correspond à l’adresse IPv4 publique de l’équilibrage de charge. Le nom doit être en majuscule et correspondre à l’expression régulière suivante : ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. |
-| dnsNameforIPv6LbIP |Spécifiez le nom d’hôte DNS que vous souhaitez affecter comme nom public de l’équilibrage de charge. Ce nom correspond à l’adresse IPv6 publique de l’équilibrage de charge. Le nom doit être en majuscule et correspondre à l’expression régulière suivante : ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. Il peut s’agir du nom de l’adresse IPv4. Lorsqu’un client envoie une requête DNS pour ce nom, Azure renvoie les enregistrements A et AAAA au moment du partage du nom. |
+| dnsNameforIPv4LbIP |Spécifiez le nom d’hôte DNS que vous souhaitez affecter comme nom public de l’équilibrage de charge. Ce nom correspond à l’adresse IPv4 publique de l’équilibrage de charge. Le nom doit être en minuscules et correspondre à l’expression régulière suivante : ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. |
+| dnsNameforIPv6LbIP |Spécifiez le nom d’hôte DNS que vous souhaitez affecter comme nom public de l’équilibrage de charge. Ce nom correspond à l’adresse IPv6 publique de l’équilibrage de charge. Le nom doit être en minuscules et correspondre à l’expression régulière suivante : ^[a-z][a-z0-9-]{1,61}[a-z0-9]$. Il peut s’agir du nom de l’adresse IPv4. Lorsqu’un client envoie une requête DNS pour ce nom, Azure renvoie les enregistrements A et AAAA au moment du partage du nom. |
 | vmNamePrefix |Spécifiez le préfixe du nom de la machine virtuelle. Le modèle ajoute un chiffre (0,1, etc.) au nom au moment de la création des machines virtuelles. |
 | nicNamePrefix |Spécifiez le préfixe de nom d’interface réseau. Le modèle ajoute un chiffre (0,1, etc.) au nom au moment de la création des interfaces réseau. |
 | storageAccountName |Entrez le nom d’un compte de stockage existant ou spécifiez le nom d’une nouvelle instance à créer par le modèle. |
@@ -126,10 +122,10 @@ L’exemple de modèle utilisé dans cet article comprend les variables et les p
 | subnetPrefix |Le préfixe d’adresse utilisé pour définir la plage d’adresses du sous-réseau. |
 | vnetName |Spécifiez le nom du réseau virtuel utilisé par les machines virtuelles. |
 | ipv4PrivateIPAddressType |La méthode d’allocation utilisé pour l’adresse IP privée (statique ou dynamique) |
-| ipv6PrivateIPAddressType |La méthode d’allocation utilisé pour l’adresse IP privée (dynamique). IPv6 prend uniquement en charge l’allocation dynamique. |
+| ipv6PrivateIPAddressType |La méthode d’allocation utilisée pour l’adresse IP privée (dynamique). IPv6 prend uniquement en charge l’allocation dynamique. |
 | numberOfInstances |Le nombre d’instances à charge équilibrée déployées par le modèle. |
 | ipv4PublicIPAddressName |Spécifiez le nom DNS que vous souhaitez utiliser pour communiquer avec l’adresse IPv4 publique de l’équilibrage de charge. |
-| ipv4PublicIPAddressType |La méthode d’allocation utilisé pour l’adresse IP publique (statique ou dynamique) |
+| ipv4PublicIPAddressType |La méthode d’allocation utilisée pour l’adresse IP publique (statique ou dynamique) |
 | Ipv6PublicIPAddressName |Spécifiez le nom DNS que vous souhaitez utiliser pour communiquer avec l’adresse IPv6 publique de l’équilibrage de charge. |
 | ipv6PublicIPAddressType |La méthode d’allocation utilisé pour l’adresse IP publique (dynamique). IPv6 prend uniquement en charge l’allocation dynamique. |
 | lbName |Spécifiez le nom de l’équilibrage de charge. Le nom est affiché dans le portail ou utilisé lors d’une référence à l’aide d’une commande CLI ou PowerShell. |

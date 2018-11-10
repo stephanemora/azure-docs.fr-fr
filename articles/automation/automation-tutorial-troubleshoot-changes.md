@@ -7,16 +7,16 @@ ms.component: change-inventory-management
 keywords: modification, suivi, automatisation
 author: jennyhunter-msft
 ms.author: jehunte
-ms.date: 09/12/2018
+ms.date: 11/01/2018
 ms.topic: tutorial
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 16d5a025f0c0ff571298e0f528fb9119e37950f3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1865fcf47510bbaae82f98ccad85993a85ffc1ab
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46995250"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959135"
 ---
 # <a name="troubleshoot-changes-in-your-environment"></a>Dépanner les modifications apportées à votre environnement
 
@@ -53,7 +53,7 @@ Pour ce didacticiel, vous devez d’abord activer Suivi des modifications et inv
 1. Dans le menu de gauche, sélectionnez **Machines virtuelles**, puis choisissez une machine virtuelle dans la liste
 1. Dans le menu de gauche, dans la section **OPÉRATIONS**, cliquez sur **Inventaire**. La page **Suivi des modifications** s’ouvre.
 
-![Activer la modification](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) L’écran **Change Tracking** s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espaces de travail et compte Automation doivent être utilisés.
+![Activer la modification](./media/automation-tutorial-troubleshoot-changes/enableinventory.png) L’écran **Change Tracking** s’ouvre. Configurez l’emplacement, l’espace de travail Log Analytics et un compte Automation à utiliser, puis cliquez sur **Activer**. Si les champs sont grisés, cela signifie qu’une autre solution d’automatisation est activée pour la machine virtuelle, et les mêmes espace de travail et compte Automation doivent être utilisés.
 
 Un espace de travail [Log Analytics](../log-analytics/log-analytics-overview.md?toc=%2fazure%2fautomation%2ftoc.json) est utilisé pour collecter les données générées par les fonctionnalités et les services, comme l’inventaire.
 L’espace de travail fournit un emplacement unique permettant de consulter et d’analyser les données provenant de plusieurs sources.
