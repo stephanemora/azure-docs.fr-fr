@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/12/2018
 ms.author: vinynigam
-ms.openlocfilehash: 2821f3fa07d8d9ada02da212084639c93e469d0b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 91cfa35cd10772da0042566bdd9030f780329f93
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408878"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50415183"
 ---
 # <a name="network-performance-monitor-solution-faq"></a>FAQ relative à la solution Network Performance Monitor
 
-![Symbole de Network Performance Monitor](media/log-analytics-network-performance-monitor/npm-symbol.png)
+![Symbole de Network Performance Monitor](media/log-analytics-network-performance-monitor-faq/npm-symbol.png)
 
 Cet article présente les questions fréquemment posées sur Network Performance Monitor (NPM) dans Azure
 
@@ -44,7 +44,7 @@ Vous trouverez ci-dessous la plateforme requise pour les différentes fonctionna
 La fonctionnalité de surveillance des réseaux utilisant des nœuds basés sur Linux est actuellement en préversion privée. Pour en savoir plus, adressez-vous au responsable de votre compte. Lorsque vous aurez entré l'ID d'espace de travail, nous activerons la fonctionnalité. Les agents Linux fournissent une fonctionnalité de surveillance réservée à la fonctionnalité Analyseur de performances de NPM et ne sont pas disponibles pour les fonctionnalités Analyseur de connectivité de service et Moniteur ExpressRoute
 
 ### <a name="what-are-the-size-requirements-of-the-nodes-to-be-used-for-monitoring-by-npm"></a>Quelle est la taille requise pour les nœuds à utiliser à des fins de surveillance par NPM ?
-Pour exécuter la solution NPM sur des machines virtuelles à nœuds, ces derniers doivent présenter au moins 500 Mo de mémoire et un cœur. Vous n'êtes pas tenu d’utiliser des nœuds distincts pour exécuter NPM. La solution peut s’exécuter sur des nœuds présentant d'autres charges de travail. La solution peut arrêter le processus de surveillance si elle utilise plus de 5 % d'UC.
+Pour exécuter la solution NPM sur des machines virtuelles à nœuds, ces derniers doivent présenter au moins 500 Mo de mémoire et un cœur. Vous n'êtes pas tenu d’utiliser des nœuds distincts pour exécuter NPM. La solution peut s’exécuter sur des nœuds présentant d'autres charges de travail. La solution peut arrêter le processus de surveillance si elle utilise plus de 5 % d'UC.
 
 ### <a name="to-use-npm-should-i-connect-my-nodes-as-direct-agent-or-through-system-center-operations-manager"></a>Pour utiliser NPM, dois-je connecter mes nœuds en tant qu’agents directs ou via System Center Operations Manager ?
 Les fonctionnalités Analyseur de performances et Moniteur de connectivité de service prennent en charge les nœuds [connectés en tant qu'agents directs](log-analytics-agent-windows.md) et [connectés via Operations Manager](log-analytics-om-agents.md).
@@ -54,7 +54,7 @@ Pour la fonctionnalité Moniteur ExpressRoute, les nœuds Azure doivent être co
 ### <a name="which-protocol-among-tcp-and-icmp-should-be-chosen-for-monitoring"></a>Quel protocole choisir entre TCP et ICMP à des fins de surveillance ?
 Si vous surveillez votre réseau à l’aide de nœuds basés sur le serveur Windows, nous vous recommandons d'utiliser TCP en tant que protocole de surveillance car il offre une meilleure précision. 
 
-Pour les nœuds basés sur les systèmes d'exploitation de poste de travail/client, nous vous recommandons d'utiliser ICMP car cette plateforme ne permet pas l'envoi de données TCP via des sockets bruts, ce qui est requis par NPM pour détecter la topologie du réseau.
+ICMP est recommandé pour les nœuds basés sur le système d’exploitation des postes de travail/clients Windows. Cette plateforme n’autorise pas l’envoi de données TCP sur les sockets bruts, que NPM utilise pour découvrir la topologie réseau.
 
 Vous trouverez plus d'informations sur les avantages liés à chaque protocole [ici](log-analytics-network-performance-monitor-performance-monitor.md#choose-the-protocol).
 

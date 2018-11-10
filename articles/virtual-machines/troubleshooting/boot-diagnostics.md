@@ -8,14 +8,14 @@ editor: ''
 tags: azure-resource-manager
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 06/15/2018
+ms.date: 10/31/2018
 ms.author: delhan
-ms.openlocfilehash: 64641f8acfe7b58763756e2a0707fa799ee804b2
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: 9341458336e4c95b84590eadbc86073e7dbf09a0
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411746"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50419552"
 ---
 # <a name="how-to-use-boot-diagnostics-to-troubleshoot-virtual-machines-in-azure"></a>Comment utiliser les diagnostics de démarrage pour résoudre les problèmes des machines virtuelles dans Azure
 
@@ -24,6 +24,10 @@ La prise en charge de deux fonctionnalités de débogage est désormais disponib
 Lorsque vous importez votre propre image dans Azure ou même lorsque vous démarrez l’une des images de plateforme, de nombreuses raisons peuvent expliquer pourquoi une machine virtuelle passe à l’état non démarrable. Ces fonctionnalités vous permettent de diagnostiquer facilement des échecs de démarrage et de récupérer vos machines virtuelles.
 
 Dans le cas des machines virtuelles Linux, vous pouvez facilement afficher la sortie de votre journal de console à partir du portail. Pour les machines virtuelles Windows et Linux, Azure vous permet également de voir une capture d’écran de la machine virtuelle à partir de l’hyperviseur. Ces deux fonctionnalités sont prises en charge par les machines virtuelles Azure dans toutes les régions. Notez que des captures d’écran ainsi que des sorties peuvent prendre jusqu'à 10 minutes pour apparaître dans votre compte de stockage.
+
+Vous pouvez sélectionner l’option **Diagnostics de démarrage** pour afficher le journal et la capture d’écran.
+
+![Gestionnaire de ressources](./media/virtual-machines-common-boot-diagnostics/screenshot1.png)
 
 ## <a name="common-boot-errors"></a>Erreurs de démarrage courantes
 
@@ -70,7 +74,7 @@ Dans le cas des machines virtuelles Linux, vous pouvez facilement afficher la so
             "diagnosticsProfile": {
                 "bootDiagnostics": {
                 "enabled": true,
-                "storageUri": "[concat('http://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
+                "storageUri": "[concat('https://', parameters('newStorageAccountName'), '.blob.core.windows.net')]"
                 }
             }
             }

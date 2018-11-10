@@ -12,12 +12,12 @@ ms.author: jodebrui
 ms.reviewer: MightyPen
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8c683e86cd78f4c4ebe7a537c469c875b8ca07fe
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 4455e0c0f31c9026526820b50214efb83720da0d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159837"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228043"
 ---
 # <a name="use-in-memory-oltp-to-improve-your-application-performance-in-sql-database"></a>Utilisation de l’OLTP en mémoire pour améliorer les performances de votre SQL Database
 [L’OLTP en mémoire](sql-database-in-memory.md) peut être utilisé pour améliorer les performances de traitement des transactions, l’ingestion des données et des scénarios de données temporaires, dans des bases de données SQL Azure de niveau [Premium et Critique pour l’entreprise](sql-database-service-tiers-vcore.md) sans augmenter le niveau tarifaire. 
@@ -47,7 +47,7 @@ Dans SSMS, pour générer le rapport :
 * Dans l’ **Explorateur d’objets**, cliquez avec le bouton droit sur le nœud de votre base de données.
 * Cliquez sur **Rapports** > **Rapports Standard** > **Présentation de l’analyse des performances des transactions**.
 
-Pour plus d’informations, voir [Déterminer si une table ou une procédure stockée doit être déplacée vers In-Memory OLTP](http://msdn.microsoft.com/library/dn205133.aspx).
+Pour plus d’informations, voir [Déterminer si une table ou une procédure stockée doit être déplacée vers In-Memory OLTP](https://msdn.microsoft.com/library/dn205133.aspx).
 
 ## <a name="step-3-create-a-comparable-test-database"></a>Étape 3 : Créer une base de données de test comparable
 Supposons que le rapport indique que votre base de données est équipée d’une table qui gagnerait à être convertie en table à mémoire optimisée. Nous vous recommandons de commencer par effectuer un test pour confirmer l’indication.
@@ -80,9 +80,9 @@ Pour utiliser cette option de migration :
    * L’assistant **Conseiller d’optimiseur de mémoire de table** s’affiche.
 3. Dans l’assistant, cliquez sur **Validation de migration** (ou sur le bouton **Suivant**) pour voir si la table possède des fonctionnalités non prises en charge dans les tables optimisées par mémoire. Pour plus d'informations, consultez les pages suivantes :
    
-   * La *liste de vérification d’optimisation de mémoire* dans [Memory Optimization Advisor](http://msdn.microsoft.com/library/dn284308.aspx).
-   * [Constructions Transact-SQL non prises en charge par In-Memory OLTP](http://msdn.microsoft.com/library/dn246937.aspx).
-   * [Migration vers In-Memory OLTP](http://msdn.microsoft.com/library/dn247639.aspx).
+   * La *liste de vérification d’optimisation de mémoire* dans [Memory Optimization Advisor](https://msdn.microsoft.com/library/dn284308.aspx).
+   * [Constructions Transact-SQL non prises en charge par In-Memory OLTP](https://msdn.microsoft.com/library/dn246937.aspx).
+   * [Migration vers In-Memory OLTP](https://msdn.microsoft.com/library/dn247639.aspx).
 4. Si la table ne possède pas de fonctions non prises en charge, l’Assistant peut exécuter le schéma et la migration des données pour vous.
 
 #### <a name="manual-t-sql"></a>T-SQL manuel
@@ -114,7 +114,7 @@ Une procédure stockée compilée en mode natif doit avoir les options suivantes
 * NATIVE_COMPILATION
 * SCHEMABINDING : les tables significatives figurant dans la procédure stockée ne peuvent voir leurs définitions modifiées de quelque manière que ce soit susceptible d’affecter la procédure stockée, à moins que vous ne glissiez la procédure stockée.
 
-Un module natif doit utiliser un grand [bloc ATOMIC](http://msdn.microsoft.com/library/dn452281.aspx) pour la gestion de transaction. Il n’existe aucun rôle pour une instruction BEGIN TRANSACTION ou ROLLBACK TRANSACTION explicite. Si votre code détecte une violation de règle métier, il peut terminer le bloc atomique avec une instruction [THROW](http://msdn.microsoft.com/library/ee677615.aspx) .
+Un module natif doit utiliser un grand [bloc ATOMIC](https://msdn.microsoft.com/library/dn452281.aspx) pour la gestion de transaction. Il n’existe aucun rôle pour une instruction BEGIN TRANSACTION ou ROLLBACK TRANSACTION explicite. Si votre code détecte une violation de règle métier, il peut terminer le bloc atomique avec une instruction [THROW](https://msdn.microsoft.com/library/ee677615.aspx) .
 
 ### <a name="typical-create-procedure-for-natively-compiled"></a>En général, CREATE PROCEDURE compilée en mode natif
 En général, le code T-SQL pour créer une procédure stockée compilée en mode natif est similaire au modèle suivant :
@@ -145,7 +145,7 @@ Les étapes de la migration sont les suivantes :
 2. Réécrire son en-tête pour qu’il corresponde au modèle précédent.
 3. Déterminer si le code TSQL de procédure stocké utilise les fonctions non prises en charge pour les procédures stockées compilées en mode natif. Mettre en œuvre des solutions de contournement si nécessaire.
    
-   * Pour plus d’informations, voir [Problèmes de migration pour les procédures stockées compilées natives](http://msdn.microsoft.com/library/dn296678.aspx).
+   * Pour plus d’informations, voir [Problèmes de migration pour les procédures stockées compilées natives](https://msdn.microsoft.com/library/dn296678.aspx).
 4. Renommez l’ancienne procédure stockée en utilisant SP_RENAME. Ou FAITES-LE SIMPLEMENT GLISSER (DROP).
 5. Exécutez le script CREATE PROCEDURE T-SQL modifié.
 
@@ -168,7 +168,7 @@ Veillez à surveiller les effets des performances de vos implémentations In-Mem
 * [Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique](sql-database-monitoring-with-dmvs.md)
 
 ## <a name="related-links"></a>Liens connexes
-* [In-Memory OLTP (optimisation en mémoire)](http://msdn.microsoft.com/library/dn133186.aspx)
-* [Présentation des procédures stockées compilées en mode natif](http://msdn.microsoft.com/library/dn133184.aspx)
-* [Conseil d’optimisation par mémoire](http://msdn.microsoft.com/library/dn284308.aspx)
+* [In-Memory OLTP (optimisation en mémoire)](https://msdn.microsoft.com/library/dn133186.aspx)
+* [Présentation des procédures stockées compilées en mode natif](https://msdn.microsoft.com/library/dn133184.aspx)
+* [Conseil d’optimisation par mémoire](https://msdn.microsoft.com/library/dn284308.aspx)
 

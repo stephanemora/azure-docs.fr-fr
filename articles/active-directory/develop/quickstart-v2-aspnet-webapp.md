@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/24/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: cabc4f2212e18d774066efad70d9654bb70020d5
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: 4035e93b8eed0a7bc1dd0cddbc42f41e9c26f333
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48831498"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218863"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-an-aspnet-web-app"></a>Démarrage rapide : Ajouter la connexion avec Microsoft à une application web ASP.NET
 
@@ -31,17 +31,29 @@ Dans ce démarrage rapide, vous découvrirez comment une application web ASP.NET
 ![Fonctionnement de l’exemple d’application généré par ce démarrage rapide](media/quickstart-v2-aspnet-webapp/aspnetwebapp-intro.png)
 
 > [!div renderon="docs"]
-> ## <a name="register-your-application-and-download-your-quickstart-app"></a>Inscrire votre application et télécharger votre application de démarrage rapide
+> ## <a name="register-and-download-your-quickstart-app"></a>Inscrire et télécharger votre application de démarrage rapide
+> Vous disposez de deux options pour démarrer votre application de démarrage rapide :
+> * [Express] [Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code](#option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample)
+> * [Manuel] [Option 2 : Inscrire et configurer manuellement votre application et exemple de code](#option-2-register-and-manually-configure-your-application-and-code-sample)
 >
-> ### <a name="register-and-configure-your-application-and-code-sample"></a>Inscrire et configurer votre application et votre exemple de code
+> ### <a name="option-1-register-and-auto-configure-your-app-and-then-download-your-code-sample"></a>Option 1 : Inscrire et configurer automatiquement votre application, puis télécharger votre exemple de code
+>
+> 1. Accédez au [portail Azure - Inscription d’applications (préversion)](https://portal.azure.com/?Microsoft_AAD_RegisteredApps=true#blade/Microsoft_AAD_RegisteredApps/applicationsListBlade/quickStartType/AspNetWebAppQuickstartPage/sourceType/docs).
+> 1. Saisissez un nom pour votre application et cliquez sur **Inscrire**.
+> 1. Suivez les instructions pour télécharger et configurer automatiquement votre nouvelle application pour vous en un seul clic.
+>
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Option 2 : Inscrire et configurer manuellement votre application et exemple de code
+>
 > #### <a name="step-1-register-your-application"></a>Étape 1 : Inscrire votre application
-> 
-> 1. Accédez au [portail d’inscription des applications de Microsoft](https://apps.dev.microsoft.com/portal/register-app).
-> 1. Entrez le nom de votre application. Vérifiez que la case de l’option **Assistant Installation** est décochée, puis cliquez sur **Créer**.
-> 1. Cliquez sur `Add Platform`, puis sélectionnez `Web`.
-> 1. Assurez-vous que la case **Autoriser un flux implicite** est *cochée*.
-> 1. Dans **URL de redirection**, entrez `https://localhost:44368/`.
-> 1. Faites défiler la page jusqu’en bas, puis cliquez sur **Enregistrer**.
+> Pour inscrire votre application et ajouter manuellement les informations d’inscription de l’application à votre solution, procédez comme suit :
+>
+> 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
+> 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
+> 1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, puis sélectionnez **Inscriptions d’applications (préversion)** > **Nouvelle inscription**.
+> 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
+>      - Dans la section **Nom**, saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application, par exemple `ASPNET-Quickstart`.
+>      - Ajoutez `https://localhost:44368/` dans **URL de réponse**, puis cliquez sur **Inscrire**.
+Sélectionnez le menu **Authentification**, définissez les **Jetons d’ID** sous **Octroi implicite**, puis sélectionnez **Enregistrer**.
 
 > [!div class="sxs-lookup" renderon="portal"]
 > #### <a name="step-1-configure-your-application-in-azure-portal"></a>Étape 1 : Configurer votre application dans le Portail Azure
@@ -60,15 +72,23 @@ Dans ce démarrage rapide, vous découvrirez comment une application web ASP.NET
 
 1. Extrayez le fichier zip dans un dossier local proche du dossier racine (par exemple, **C:\Azure-Samples**)
 1. Ouvrez la solution dans Visual Studio (AppModelv2-WebApp-OpenIDConnect-DotNet.sln)
-1. Modifiez **Web.config** et remplacez `Enter_the_Application_Id_here` par l’ID de l’application que vous venez d’inscrire :
+1. Modifiez **Web.config** et remplacez les paramètres `ClientId` et `Tenant` par :
 
     ```xml
     <add key="ClientId" value="Enter_the_Application_Id_here" />
+    <add key="Tenant" value="Enter_the_Tenant_Info_Here" />
     ```
-    
-> [!div class="sxs-lookup" renderon="portal"]
-> [!IMPORTANT]
-> Si votre application est une *application à client unique* (ciblant les comptes de ce répertoire uniquement), dans votre fichier **Web.config**, recherchez la valeur de `Tenant` et remplacez `common` par votre **ID client** ou **nom de client** (par exemple, contoso.microsoft.com). Le nom du client est disponible dans la **page Vue d’ensemble**.
+
+> [!div renderon="docs"]
+> Où :
+> - `Enter_the_Application_Id_here` - est l’ID de l’application pour l’application que vous avez inscrite.
+> - `Enter_the_Tenant_Info_Here` - correspond à l’une des options ci-dessous :
+>   - Si votre application prend en charge **Mon organisation uniquement**, remplacez cette valeur avec l’**ID de locataire** ou le **nom du locataire** (par exemple, contoso.microsoft.com)
+>   - Si votre application prend en charge **Comptes dans un annuaire organisationnel**, remplacez cette valeur par `organizations`
+>   - Si votre application prend en charge **tous les utilisateurs de compte Microsoft**, remplacez cette valeur par `common`
+>
+> > [!TIP]
+> > Pour connaître les valeurs de l’*ID d’Application*, de l’*ID de l’annuaire (locataire)*, et des *Types de comptes pris en charge*, consultez la page **Vue d’ensemble**
 
 ## <a name="more-information"></a>Plus d’informations
 

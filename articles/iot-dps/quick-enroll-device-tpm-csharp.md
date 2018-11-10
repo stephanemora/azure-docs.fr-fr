@@ -1,6 +1,6 @@
 ---
 title: Inscrire un appareil TPM auprès du service Azure Device Provisioning avec C# | Microsoft Docs
-description: 'Démarrage rapide d’Azure : Inscrire un appareil TPM auprès du service Azure IoT Hub Device Provisioning à l’aide du C# Service SDK'
+description: 'Démarrage rapide Azure : Inscrire un appareil TPM auprès du service Azure IoT Hub Device Provisioning à l’aide du kit de développement logiciel (SDK) du service C#. Ce démarrage rapide utilise des inscriptions individuelles.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 01/16/2018
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 5c0ac54996f66f44d39389d8ed1bc0c40793933b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 48409fec8a9edd8a56f6e0664e1451e9677c4281
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528076"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155032"
 ---
 # <a name="enroll-tpm-device-to-iot-hub-device-provisioning-service-using-c-service-sdk"></a>Inscrire un appareil TPM auprès du service IoT Hub Device Provisioning à l’aide du C# Service SDK
 
@@ -137,7 +137,7 @@ Les étapes décrites dans cette section montrent comment créer une application
  
 4. (Facultatif) Si vous avez effectué les étapes décrites dans le démarrage rapide [Créer et configurer un appareil TPM simulé à l’aide du C# Device SDK](quick-create-simulated-device-tpm-csharp.md), vous pouvez continuer avec les étapes restantes de ce démarrage rapide pour inscrire votre appareil simulé. Ne suivez pas les étapes de création d’une inscription individuelle à l’aide du portail Azure.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 Si vous prévoyez d’aller plus loin dans l’étude de l’exemple de service C#, ne supprimez pas les ressources créées dans ce démarrage rapide. Sinon, procédez aux étapes suivantes pour supprimer toutes les ressources créées lors de ce démarrage rapide.
 
 1. Fermez la fenêtre de sortie de l’exemple C# sur votre ordinateur.

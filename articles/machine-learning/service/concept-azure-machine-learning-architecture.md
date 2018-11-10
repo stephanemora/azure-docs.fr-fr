@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.author: haining
 author: hning86
 ms.reviewer: larryfr
-ms.date: 09/24/2018
-ms.openlocfilehash: 64104fc70c7be1589c9332905f243a2e1e692eee
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.date: 10/24/2018
+ms.openlocfilehash: 95f74b23b9d0c89966347f066041b23f64f3b82c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237974"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210684"
 ---
-# <a name="architecture-and-concepts-how-does-azure-machine-learning-service-work"></a>Architecture et concepts : fonctionnement du service Azure Machine Learning 
+# <a name="how-the-azure-machine-learning-service-works-architecture-and-concepts"></a>Fonctionnement du service Azure Machine Learning : Architecture et concepts
 
 Ce document décrit l’architecture et les concepts du service Azure Machine Learning. Le diagramme suivant montre les principaux composants du service et illustre le flux de travail général lors de l’utilisation du service : 
 
@@ -143,7 +143,7 @@ Une exécution est un enregistrement qui contient les informations suivantes :
 
 * Les métadonnées relatives à l’exécution (horodatage, durée, etc.)
 * Les métriques journalisées par votre script
-* Les fichiers de sortie collectés automatiquement par l’expérience, ou chargés explicitement par l’utilisateur
+* Les fichiers de sortie collectés automatiquement par l’expérience ou chargés explicitement par l’utilisateur
 * Un instantané du répertoire qui contient vos scripts, avant l’exécution
 
 Une exécution est déclenchée lorsque vous envoyez un script pour entraîner un modèle. Une exécution peut avoir zéro, une ou plusieurs exécutions enfants. De fait, l’exécution de niveau supérieur peut avoir deux exécutions enfants, et chacune d’elles peut avoir ses propres exécutions enfants.
@@ -156,16 +156,28 @@ Une expérience est un regroupement d’exécutions provenant d’un script donn
 
 Pour obtenir un exemple d’utilisation d’une expérience, consultez le document [Démarrage rapide : bien démarrer avec le service Azure Machine Learning](quickstart-get-started.md).
 
+## <a name="pipelines"></a>Pipelines
+
+Les pipelines permettent de créer et gérer des flux de travail qui combinent les phases de Machine Learning. Par exemple, un pipeline peut inclure les phases de préparation des données, de formation du modèle, de déploiement du modèle et d’inférence. Chaque phase peut englober plusieurs étapes, chacune d’elles pouvant s’exécuter sans assistance dans différentes cibles de calcul.
+
+Pour plus d’informations sur les pipelines Machine Learning disposant de ce service, consultez l’article [Pipelines et Azure Machine Learning](concept-ml-pipelines.md).
+
 ## <a name="compute-target"></a>Cible de calcul
 
-Une cible de calcul est une ressource de calcul qui est utilisée pour exécuter votre script d’entraînement ou pour héberger votre déploiement de service web. Les cibles de calcul prises en charge sont les suivantes : 
+Une cible de calcul est une ressource de calcul utilisée pour exécuter votre script de formation ou pour héberger votre déploiement de service. Les cibles de calcul prises en charge sont les suivantes : 
 
-* Votre ordinateur local
-* Une machine virtuelle Linux dans Azure (par exemple, Data Science Virtual Machine)
-* Un cluster Azure Batch AI
-* Apache Spark pour HDInsight
-* Azure Container Instance
-* Azure Kubernetes Service
+| Cible de calcul | Formation | Déploiement |
+| ---- |:----:|:----:|
+| Votre ordinateur local | ✓ | &nbsp; |
+| Une machine virtuelle Linux dans Azure</br>(par exemple Data Science Virtual Machine) | ✓ | &nbsp; |
+| Un cluster Azure Batch AI | ✓ | &nbsp; |
+| Azure Databricks | ✓ | &nbsp; | &nbsp; |
+| Service Analytique Azure Data Lake | ✓ | &nbsp; |
+| Apache Spark pour HDInsight | ✓ | &nbsp; |
+| Azure Container Instance | ✓ | ✓ |
+| Azure Kubernetes Service | &nbsp; | ✓ |
+| Azure IoT Edge | &nbsp; | ✓ |
+| Projet Brainwave</br>(Field programmable gate array) | &nbsp; | ✓ |
 
 Les cibles de calcul sont attachées à un espace de travail. Les cibles de calcul autres que l’ordinateur local sont partagées par les utilisateurs de l’espace de travail.
 
@@ -187,7 +199,7 @@ Pour obtenir des exemples de configurations d’exécutions, consultez le docume
 
 Pour entraîner un modèle, vous devez spécifier le répertoire qui contient le script d’entraînement et les fichiers associés. Vous pouvez également spécifier un nom pour l’expérience, qui est utilisée pour stocker les informations collectées au cours de l’entraînement. Pendant l’entraînement, l’intégralité du répertoire est copiée dans l’environnement d’entraînement (la cible de calcul) et le script spécifié par la configuration d’exécution est démarré. Un instantané du répertoire est également stocké sous l’expérience, dans l’espace de travail.
 
-Pour obtenir un exemple d’utilisation des scripts pour entraîner un modèle, consultez [Créer un espace de travail avec Python](quickstart-get-started.md)
+Pour en voir un exemple, consultez [Créer un espace de travail avec Python](quickstart-get-started.md).
 
 ## <a name="logging"></a>Journalisation
 

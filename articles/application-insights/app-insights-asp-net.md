@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/19/2018
 ms.author: mbullwin
-ms.openlocfilehash: 86c0343a3492bf91eedda9303e3c6ac9cf86c4c3
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 498633d9f73c4a9b669ddd3469b62c01d2a19397
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947317"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958710"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>Configurer Application Insights pour votre site web ASP.NET
 
@@ -137,7 +137,7 @@ Si vous avez apporté des personnalisations à ApplicationInsights.config, conse
 Vous pouvez consulter d’autres rubriques selon les aspects qui vous intéressent :
 
 * [Instrumentation d’une application web au moment de l’exécution](app-insights-monitor-performance-live-website-now.md)
-* [Services cloud Azure](app-insights-cloudservices.md)
+* [Azure Cloud Services](app-insights-cloudservices.md)
 
 ### <a name="more-telemetry"></a>Données de télémétrie supplémentaires
 
@@ -150,7 +150,7 @@ Vous pouvez consulter d’autres rubriques selon les aspects qui vous intéresse
 
 * **[Utilisation d’Application Insights dans Visual Studio](app-insights-visual-studio.md)**<br/>Inclut des informations sur le débogage avec la télémétrie, la recherche de diagnostic et l’accès au code.
 * **[Utilisation du portail Application Insights](app-insights-dashboards.md)**<br/> Inclut des informations sur les tableaux de bord, les puissants outils de diagnostic et d’analyse, les alertes, le mappage direct des dépendances de votre application et l’exportation des données de télémétrie.
-* **[Analytics](app-insights-analytics-tour.md)** : un puissant langage de requête.
+* **[Analytics](../log-analytics/query-language/get-started-analytics-portal.md)** : un puissant langage de requête.
 
 ### <a name="alerts"></a>Alertes
 

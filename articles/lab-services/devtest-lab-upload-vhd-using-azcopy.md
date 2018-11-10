@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: e35686e7ba7c2e88d62930082d39856673a661b6
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 482bfe41ebfec7353466f7e243e9e767caee7828
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33782448"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228281"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>Télécharger un fichier de disque dur virtuel dans le compte de stockage d’un laboratoire avec AzCopy
 
@@ -33,11 +33,11 @@ Dans Azure DevTest Labs, les fichiers de disque dur virtuel peuvent être utilis
 
 ## <a name="step-by-step-instructions"></a>Instructions pas à pas
 
-Les étapes suivantes vous guident lors du téléchargement d’un fichier de disque dur virtuel dans Azure DevTest Labs à l’aide d’[AzCopy](http://aka.ms/downloadazcopy). 
+Les étapes suivantes vous guident lors du téléchargement d’un fichier de disque dur virtuel dans Azure DevTest Labs à l’aide d’[AzCopy](https://aka.ms/downloadazcopy). 
 
 1. Obtenez le nom du compte de stockage du laboratoire à l’aide du portail Azure :
 
-1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 
@@ -65,7 +65,7 @@ Les étapes suivantes vous guident lors du téléchargement d’un fichier de di
 
 1. Téléchargez le fichier de disque dur virtuel à l’aide d’AzCopy :
  
-1. [Téléchargez et installez la dernière version d’AzCopy](http://aka.ms/downloadazcopy).
+1. [Téléchargez et installez la dernière version d’AzCopy](https://aka.ms/downloadazcopy).
 
 1. Ouvrez une fenêtre Commande et naviguez jusqu’au répertoire d’installation d’AzCopy. Si vous le souhaitez, vous pouvez ajouter l’emplacement d’installation d’AzCopy au chemin de votre système. Par défaut, AzCopy est installé dans le répertoire suivant :
 

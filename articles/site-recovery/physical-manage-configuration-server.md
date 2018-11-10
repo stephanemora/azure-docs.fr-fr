@@ -1,18 +1,18 @@
 ---
-title: " Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique avec Azure Site Recovery | Microsoft Docs"
-description: Cet article explique comment gérer un serveur de configuration existant pour la reprise après sinistre d’un serveur physique sur Azure, à l’aide du service Azure Site Recovery.
+title: Gérer le serveur de configuration pour la récupération d’urgence de serveurs physiques locaux sur Azure avec Azure Site Recovery | Microsoft Docs
+description: Cet article explique comment gérer le serveur de configuration Azure Site Recovery pour la récupération d’urgence d’un serveur physique sur Azure.
 services: site-recovery
-author: AnoopVasudavan
+author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
-ms.author: anoopkv
-ms.openlocfilehash: 068d2774791995fab1c07c73e6d733a6e09379f1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: 4bf9277598c3e56c0429dddcb2204cb1338a33be
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951174"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213240"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique
 

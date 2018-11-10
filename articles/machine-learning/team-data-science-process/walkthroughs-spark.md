@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 2fd6d556e908c47baf3c58c46172c0684b66cdd9
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 3d39e752e874b6b0c6fbdf678d6eddda0b0d9404
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394252"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226546"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Guides de la science des données HDInsight Spark avec PySpark et Scala sur Azure
 
@@ -44,7 +44,7 @@ consultez la page [Exploration et modélisation avancées des données avec Spar
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Prédire les pourboires laissés aux taxis avec Scala sur Azure Spark
 
-Le guide [Utiliser Scala avec Spark sur Azure](scala-walkthrough.md) utilise des données sur les taxis de New York pour prédire si un pourboire sera laissé, ainsi que la distribution attendue des montants. Il montre comment utiliser Scala pour les tâches de Machine Learning supervisé avec la bibliothèque de Machine Learning (MLlib) Spark et les packages SparkML sur un cluster Azure HDInsight Spark. Elle vous guide à travers les tâches qui constituent le [processus de science des données](http://aka.ms/datascienceprocess): ingestion et exploration des données, visualisation, conception de fonctionnalités et consommation de modèles. Les modèles conçus incluent la régression logistique, la régression linéaire, les forêts aléatoires et les arbres GBT (Gradient Boosted Tree).
+Le guide [Utiliser Scala avec Spark sur Azure](scala-walkthrough.md) utilise des données sur les taxis de New York pour prédire si un pourboire sera laissé, ainsi que la distribution attendue des montants. Il montre comment utiliser Scala pour les tâches de Machine Learning supervisé avec la bibliothèque de Machine Learning (MLlib) Spark et les packages SparkML sur un cluster Azure HDInsight Spark. Elle vous guide à travers les tâches qui constituent le [processus de science des données](https://aka.ms/datascienceprocess): ingestion et exploration des données, visualisation, conception de fonctionnalités et consommation de modèles. Les modèles conçus incluent la régression logistique, la régression linéaire, les forêts aléatoires et les arbres GBT (Gradient Boosted Tree).
 
 
 ## <a name="next-steps"></a>Étapes suivantes

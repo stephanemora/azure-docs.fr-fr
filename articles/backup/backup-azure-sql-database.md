@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/02/2018
 ms.author: markgal;anuragm
 ms.custom: ''
-ms.openlocfilehash: aab0ac2dfba47741eaf5a75ef46d9ca5f8873d50
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 72d48bd1716e1b62ae92f8317f3f9611ac463453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434243"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211500"
 ---
 # <a name="back-up-sql-server-databases-to-azure"></a>Sauvegarder des bases de données SQL Server sur Azure
 
@@ -658,23 +658,23 @@ Le service Sauvegarde Azure utilise des API natives de SQL pour toutes les opér
 L’exemple suivant est une requête permettant d’extraire tous les travaux de sauvegarde pour la base de données nommée **DB1**. Personnalisez la requête pour une surveillance plus poussée.
 
 ```
-select CAST (
+select CAST (
 Case type
-                when 'D' 
-                                 then 'Full'
-                when  'I'
-                               then 'Differential' 
-                ELSE 'Log'
-                END         
-                AS varchar ) AS 'BackupType',
-database_name, 
+                when 'D' 
+                                 then 'Full'
+                when  'I'
+                               then 'Differential' 
+                ELSE 'Log'
+                END         
+                AS varchar ) AS 'BackupType',
+database_name, 
 server_name,
 machine_name,
 backup_start_date,
 backup_finish_date,
-DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
-backup_size AS BackupSizeInBytes
-  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
+DATEDIFF(SECOND, backup_start_date, backup_finish_date) AS TimeTakenByBackupInSeconds,
+backup_size AS BackupSizeInBytes
+  from msdb.dbo.backupset where user_name = 'NT SERVICE\AzureWLBackupPluginSvc' AND database_name =  <DB1>  
  
 ```
 
@@ -703,7 +703,7 @@ Si vous arrêtez la protection d’une base de données SQL Server, Sauvegarde A
 * Arrêter tous les travaux de sauvegarde à venir et supprimer tous les points de récupération.
 * Arrêter tous les travaux de sauvegarde à venir en conservant les points de récupération.
 
-La conservation des points de récupération a un coût. Les points de récupération de SQL entraînent la tarification de l’instance SQL protégée ainsi que de l’espace de stockage utilisé. Pour plus d’informations sur la tarification du service Sauvegarde Azure, consultez la [page de la tarification de la sauvegarde Azure](https://azure.microsoft.com/pricing/details/backup/). 
+Si vous choisissez d’arrêter la sauvegarde en conservant les données, les points de récupération sont nettoyés conformément à la stratégie de sauvegarde. Le coût de l’instance SQL protégée et l’espace de stockage utilisé vous sont facturés jusqu’à ce que tous les points de récupération soient nettoyés. Pour plus d’informations sur la tarification du service Sauvegarde Azure, consultez la [page de la tarification de la sauvegarde Azure](https://azure.microsoft.com/pricing/details/backup/). 
 
 Pour arrêter la protection de la base de données :
 

@@ -6,14 +6,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: b7561848ffd0158e22e97530774112dcee2a9864
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a45f82b142ee4f4c9c88ea755607b88323feaae5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323721"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210123"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Traitement des données et fonctions définies par l’utilisateur
 
@@ -25,7 +25,7 @@ Une fois que les appareils ont envoyé des données de télémétrie à Digital 
 
 ![Flux de traitement des données Digital Twins][1]
 
-1. La phase _Validation_ convertit le message de télémétrie entrant en un format [`data transfer object`](https://en.wikipedia.org/wiki/Data_transfer_object) généralement bien compris. Cette phase exécute également la validation de l’appareil et du capteur.
+1. La phase _Validation_ convertit le message de télémétrie entrant en un format d’[**objet de transfert de données**](https://en.wikipedia.org/wiki/Data_transfer_object) généralement bien compris. Cette phase exécute également la validation de l’appareil et du capteur.
 1. La phase _Détection_ recherche la ou les fonctions définies par l’utilisateur qui doivent être exécutées. Les détecteurs prédéfinis recherchent les fonctions définies par l’utilisateur en se basant sur les informations relatives à l’appareil, au capteur et à l’espace qui sont issues du message de télémétrie entrant.
 1. La phase _Calcul_ exécute la ou les fonctions définies par l’utilisateur qui ont été détectées dans la phase précédente. Ces fonctions peuvent lire et mettre à jour les valeurs calculées présentes sur les nœuds d’un graphe spatial, et peuvent émettre des notifications personnalisées.
 1. La phase _Distribution_ achemine toutes les notifications personnalisées, de la phase de calcul vers les points de terminaison définis dans le graphe.
@@ -40,11 +40,11 @@ Dans Azure Digital Twins, le traitement des données consiste à définir les tr
 
 Les _détecteurs_ définissent un ensemble de conditions qui évaluent les actions qui auront lieu en fonction des données de télémétrie entrantes du capteur. Ces conditions peuvent inclure les propriétés du capteur, l’appareil parent du capteur et l’espace parent du capteur. Les conditions sont exprimées sous forme de comparaisons à un [chemin JSON](http://jsonpath.com/), comme dans l’exemple ci-dessous :
 
-- Tous les capteurs dont le type de données est `Temperature`.
+- Tous les capteurs dont le type de données est **Température**.
 - Avoir un port qui comprend `01`.
-- Qui appartient aux appareils dont la clé de propriété étendue `Manufacturer` a la valeur `GoodCorp`.
-- Qui appartient aux espaces de type `Venue`.
-- Qui sont descendants du parent `SpaceId` `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
+- Qui appartient aux appareils dont la clé de propriété étendue **Fabricant** a la valeur `"GoodCorp"`.
+- Qui appartient aux espaces de type `"Venue"`.
+- Qui sont descendants du parent **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`.
 
 ```JSON
 {

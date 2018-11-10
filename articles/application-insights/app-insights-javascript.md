@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 6d826702d8302246a225ebfcdf0a5987cf9d2045
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: 46939e15100468eab0d5575546eb6bd58df4aacd
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49167050"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961073"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights pour les pages web
 Apprenez-en plus sur les performances et l’utilisation de votre page web ou de votre application. Ajoutez [Application Insights](app-insights-overview.md) à votre script de page pour obtenir le minutage des chargements de page et des appels AJAX, le nombre d’exceptions du navigateur et d’échecs d’AJAX et leurs détails, ainsi que le nombre d’utilisateurs et de sessions. Toutes ces données peuvent être segmentées par page, par version de système d’exploitation ou de navigateur client, par emplacement géographique et en fonction d’autres aspects. Vous pouvez définir des alertes en cas de dépassement d’un certain nombre d’échecs ou de ralentissement du chargement des pages. Et en insérant des suivis d’appel dans votre code JavaScript, vous pouvez suivre l’utilisation des différentes fonctionnalités de votre application de page web.
@@ -230,7 +230,7 @@ Le nom d'une page peut contenir les mêmes caractères qu'une URL, mais tout ce 
 ## <a name="usage-tracking"></a>Suivi de l’utilisation
 Vous souhaitez savoir ce que vos utilisateurs font avec votre application ?
 
-* [Découvrez plus d’informations sur les outils d’analytique du comportement des utilisateurs](app-insights-web-track-usage.md)
+* [Découvrez plus d’informations sur les outils d’analytique du comportement des utilisateurs](app-insights-usage-overview.md)
 * [En savoir plus sur les événements personnalisés et les API de métriques](app-insights-api-custom-events-metrics.md).
 
 ## <a name="video"></a> Vidéo
@@ -241,7 +241,7 @@ Vous souhaitez savoir ce que vos utilisateurs font avec votre application ?
 
 
 ## <a name="next"></a> Étapes suivantes
-* [Suivi de l'utilisation](app-insights-web-track-usage.md)
+* [Suivi de l'utilisation](app-insights-usage-overview.md)
 * [Mesures et événements personnalisés](app-insights-api-custom-events-metrics.md)
-* [Développer-mesurer-apprendre](app-insights-web-track-usage.md)
+* [Développer-mesurer-apprendre](app-insights-usage-overview.md)
 

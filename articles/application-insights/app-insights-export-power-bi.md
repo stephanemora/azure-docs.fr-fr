@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: fc651b3bc28e59c5c5a195211d811e206eee3e42
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 71d5c26c8c41c470e188291dea4a4dab2811a67e
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246472"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963113"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Alimentation de Power BI à partir d’Application Insights
 [Power BI](http://www.powerbi.com/) est une suite d’outils métier permettant d’analyser les données et de partager les informations. Chaque périphérique bénéficie de tableaux de bord riches. Vous pouvez combiner des données provenant de nombreuses sources, notamment des requêtes Analytics d’[Azure Application Insights](app-insights-overview.md).
@@ -41,7 +41,7 @@ Pour importer votre requête Application Insights, vous utilisez la version pour
 Installez [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
 ### <a name="export-an-analytics-query"></a>Exporter une requête Analytics
-1. [Ouvrez Analytics et écrivez votre requête](app-insights-analytics-tour.md).
+1. [Ouvrez Analytics et écrivez votre requête](../log-analytics/query-language/get-started-analytics-portal.md).
 2. Testez et affinez la requête jusqu'à ce que vous soyez satisfait des résultats. Vérifiez que la requête s’exécute correctement dans Analytics avant de l’exporter.
 3. Dans le menu **Exporter**, choisissez **Power BI (M)**. Enregistrez le fichier texte.
    
@@ -109,7 +109,7 @@ Si la réduction du jeu de données provenant de la requête Analytics ne vous c
    * Remplacez **https://management.azure.com/subscriptions/...**
    * par **https://api.applicationinsights.io/beta/apps/...**
 3. Enfin, mettez à jour les informations d’identification de base et utilisez votre clé API.
-  
+ �
 
 **Script existant**
  ```
@@ -155,5 +155,5 @@ Après l’importation initiale, le tableau de bord et les rapports sont mis à 
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Power BI - En savoir plus](http://www.powerbi.com/learning/)
-* [Didacticiel Analytics](app-insights-analytics-tour.md)
+* [Didacticiel Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 

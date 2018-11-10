@@ -8,32 +8,40 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/25/2018
 ms.author: tulasim
-ms.openlocfilehash: efefd595c43d7f46ff1ead91577d070cf8fb90e4
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 9597b878eb3d92727b352ba42a9e5557bb1cc799
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47164614"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211432"
 ---
 # <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
 
 ## <a name="why-is-my-urlsfiles-is-not-extracting-question-answer-pairs"></a>Pourquoi mon URL/mes fichiers n’extraient-ils pas les paires de question-réponse ?
 
-Il est possible que QnA Maker ne puisse pas extraire automatiquement du contenu question-réponse (QnA) à partir des URL de FAQ valides. Dans ce cas, vous pouvez coller le contenu QnA dans un fichier .txt et voir si l’outil peut l’ingérer. Vous pouvez également ajouter manuellement du contenu à votre base de connaissances.
+Il est possible que QnA Maker ne puisse pas extraire automatiquement du contenu question-réponse (QnA) à partir des URL de FAQ valides. Dans ce cas, vous pouvez coller le contenu QnA dans un fichier .txt et voir si l’outil peut l’ingérer. Vous pouvez également ajouter manuellement du contenu à votre base de connaissances par le biais du [portail QnA Maker](https://qnamaker.ai).
 
 ## <a name="how-large-a-knowledge-base-can-i-create"></a>Quelle taille maximale peut avoir une base de connaissances ?
 
 La taille de la base de connaissances dépend de la référence SKU de Recherche Azure que vous choisissez lors de la création du service QnA Maker. Lisez plus d’informations [ici](./Tutorials/choosing-capacity-qnamaker-deployment.md).
 
-## <a name="why-do-i-not-see-anything-in-the-drop-down-for-when-i-try-to-create-a-new-knowledge-base"></a>Pourquoi rien ne s’affiche dans la liste déroulante lorsque j’essaie de créer une nouvelle base de connaissances ?
+## <a name="why-cant-i-see-anything-in-the-drop-down-when-i-try-to-create-a-new-knowledge-base"></a>Pourquoi rien ne s’affiche dans la liste déroulante quand j’essaie de créer une base de connaissances ?
 
-Vous n’avez encore jamais créé de services QnA Maker dans Azure. Lisez [ici](./How-To/set-up-qnamaker-service-azure.md) comment procéder.
+Vous n’avez encore jamais créé de services QnA Maker dans Azure. Lisez [cet article](./How-To/set-up-qnamaker-service-azure.md) pour apprendre à le faire.
 
-## <a name="how-do-i-share-a-knowledge-base-with-other"></a>Comment partager une base de connaissances avec d’autres utilisateurs ?
+## <a name="how-do-i-share-a-knowledge-base-with-others"></a>Comment partager une base de connaissances avec d’autres utilisateurs ?
 
-Le partage fonctionne au niveau d’un service QnA Maker, autrement dit, toutes les bases de connaissances dans les services seront partagées. Lisez [ici](./How-To/collaborate-knowledge-base.md) comment collaborer sur une base de connaissances.
+Le partage fonctionne au niveau d’un service QnA Maker, autrement dit, toutes les bases de connaissances dans le service seront partagées. Lisez [ici](./How-To/collaborate-knowledge-base.md) comment collaborer sur une base de connaissances.
+
+## <a name="can-you-share-a-kb-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-kb"></a>Est-il possible de partager une base de connaissances avec un contributeur qui n’est pas dans le même locataire AAD dans le but de la modifier ? 
+
+Le partage est basé sur le contrôle d’accès en fonction du rôle Azure (RBAC). Si vous pouvez partager _n’importe quelle_ ressource dans Azure avec un autre utilisateur, vous pouvez également partager QnA Maker.
+
+## <a name="if-you-have-an-app-service-plan-with-5-qnamaker-kbs-can-you-assign-readwrite-rights-to-5-different-users-so-each-of-them-can-access-only-1-qnamaker-kb"></a>Si vous avez un plan App Service avec cinq bases de connaissances QnA Maker. Est-il possible d’attribuer des droits de lecture/écriture à 5 utilisateurs différents afin que chacun d’eux ne puisse accéder qu’à une seule base de connaissances QnA Maker ?
+
+Vous pouvez partager un service QnAMaker entier, mais pas des bases de connaissances individuelles.
 
 ## <a name="how-can-i-change-the-default-message-when-no-good-match-is-found"></a>Comment puis-je modifier le message par défaut si aucune bonne correspondance n’est trouvée ?
 
@@ -56,11 +64,11 @@ L’outil analyse uniquement les URL publiques et ne prend pas en charge les sou
 
 ## <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>Les mises à jour apportées à ma base de connaissances ne sont pas reflétées lors de la publication. Pourquoi ?
 
-Toute opération de modification, qu’elle soit effectuée dans la table, le test ou les paramètres, doit être enregistrée avant d’être publiée. Pensez à appuyer sur le bouton Enregistrer et former après chaque opération de modification.
+Toute opération de modification, qu’elle soit effectuée dans une mise à jour de table, un test ou un paramètre, doit être enregistrée avant d’être publiée. Pensez à appuyer sur le bouton  **Save and train**  (Enregistrer et entraîner) après chaque opération de modification.
 
 ## <a name="when-should-i-refresh-my-endpoint-keys"></a>Quand dois-je actualiser mes clés de point de terminaison ?
 
-Vous devez actualiser vos clés de point de terminaison si vous pensez qu’elles ont été compromises.
+Actualisez vos clés de point de terminaison si vous pensez qu’elles ont été compromises.
 
 ## <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>La base de connaissances prend-elle en charge les données enrichies ou le contenu multimédia ?
 
@@ -74,13 +82,17 @@ Affichez plus d’informations sur les [langues prises en charge](./Overview/lan
 
 Si vous avez du contenu dans plusieurs langues, veillez à créer un service distinct pour chaque langue.
 
+## <a name="can-i-use-the-same-azure-search-resource-for-kbs-using-multiple-languages"></a>Puis-je utiliser la même ressource Recherche Azure pour des bases de connaissances utilisant plusieurs langues ?
+
+Pour utiliser plusieurs langues et plusieurs bases de connaissances, l’utilisateur doit créer une ressource QnA Maker pour chaque langue. Cette opération crée un service de recherche Azure distinct par langue. La combinaison de bases de connaissances en différentes langues dans un même service de recherche Azure entraîne une détérioration de la pertinence des résultats.
+
 ## <a name="do-i-need-to-use-bot-framework-in-order-to-use-qna-maker"></a>Dois-je utiliser Bot Framework pour pouvoir utiliser QnA Maker ?
 
-Non, vous n’avez pas besoin d’utiliser Bot Framework avec QnA Maker. Toutefois, QnA Maker est proposé parmi plusieurs modèles dans Azure Bot Service. Bot Service permet un développement de bot intelligent rapide via Microsoft Bot Framework, et il s’exécute dans un environnement serverless.
+Non, vous n’avez pas besoin d’utiliser Bot Framework avec QnA Maker. Toutefois, QnA Maker est proposé parmi plusieurs modèles dans Azure Bot Service. Bot Service permet le développement rapide de bot intelligent via Microsoft Bot Framework et s’exécute dans un environnement serverless.
 
 ## <a name="how-can-i-create-a-bot-with-qna-maker"></a>Comment puis-je créer un bot avec QnA Maker ?
 
-Suivez les instructions de [cette](./Tutorials/create-qna-bot.md) documentation pour créer votre bot avec Azure Bot.
+Suivez les instructions de [cette](./Tutorials/create-qna-bot.md) documentation pour créer votre bot avec Azure Bot Service.
 
 ## <a name="how-do-i-embed-the-qna-maker-service-in-my-website"></a>Comment incorporer le service QnA Maker dans mon site web ?
 

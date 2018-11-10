@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: 8c369ab05059e57f2e2a98339052c27292ac7c0d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 8240cf5beb50ef16aa2bd03415e6bbff9a2f4250
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628774"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158140"
 ---
 <!---
 Purpose of an Overview article: 
@@ -25,7 +25,7 @@ Purpose of an Overview article:
 
 # <a name="what-is-azure-iot-central"></a>Qu’est-ce que Azure IoT Central
 
-Microsoft Azure IoT Central est une solution IoT Software-as-a-Service (SaaS) entièrement gérée qui permet de créer facilement des produits qui se connectent à aux mondes physique et numérique. Vous pouvez donner vie à votre vision du produit connecté par :
+Azure IoT Central est une solution IoT Software-as-a-Service (SaaS) complètement managée qui permet de créer facilement des produits qui connectent les mondes physiques et numériques. Vous pouvez donner vie à votre vision du produit connecté par :
 
 - L’obtention de nouveaux insights depuis des périphériques connectés pour améliorer les produits et les expériences de vos clients.
 - La création de nouvelles opportunités commerciales pour votre organisation.
@@ -42,7 +42,7 @@ La vidéo suivante donne une vue d’ensemble de Azure IoT Central :
 
 >[!VIDEO https://channel9.msdn.com/Shows/Internet-of-Things-Show/Microsoft-IoT-Central-intro-walkthrough/Player]
 
-Le reste de cet article décrit pour Azure IoT Central :
+Le reste de cet article présente Azure IoT Central :
 
 - Les personnages types associés à un projet.
 - La procédure de création de votre application.
@@ -65,11 +65,11 @@ En tant que générateur, vous utilisez Azure IoT Central pour créer une soluti
 - Une application basée sur le cloud qui reçoit des données de télémétrie de vos appareils et qui vous permet de gérer ces appareils.
 - Un code personnalisé exécuté sur plusieurs appareils, connecté à votre application basée sur le cloud.
 
-Vous pouvez déployer rapidement une nouvelle application Azure IoT Central, puis la personnaliser selon vos propres exigences, directement depuis dans votre navigateur. En tant que générateur d’Azure IoT Central, vous pouvez utiliser les outils web pour créer un _modèle d’appareil_ pour les appareils qui se connectent à votre application. Un modèle d’appareil est la blueprint d’un modèle d’appareil partagée par tous les appareils créés à partir du modèle d’appareil. Un modèle d’appareil définit les caractéristiques et le comportement d’un type d’appareils tel que :
+Vous pouvez déployer rapidement une nouvelle application Azure IoT Central, puis la personnaliser selon vos propres exigences, directement depuis dans votre navigateur. En tant que générateur d’Azure IoT Central, vous pouvez utiliser les outils web pour créer un _modèle d’appareil_ pour les appareils qui se connectent à votre application. Un modèle d’appareil est le blueprint du modèle d’un appareil. Tous les appareils créés depuis le même modèle d’appareil partagent le modèle. Un modèle d’appareil définit les caractéristiques et le comportement d’un type d’appareils tel que :
 
 - Les données de télémétrie qu’il envoie.
 - Les propriétés commerciales qu’un opérateur peut modifier.
-- Les propriétés d’appareil définies par un appareil et qui sont en lecture seule dans l’application.
+- Les propriétés d’appareil qui sont définies par un appareil et en lecture seule dans l’application.
 - Les seuils auxquels l’application répond.
 - Les paramètres qui déterminent le comportement de l’appareil.
 

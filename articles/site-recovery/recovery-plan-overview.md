@@ -1,29 +1,24 @@
 ---
-title: Utiliser des plans de récupération dans Azure Site Recovery | Microsoft Docs
-description: Apprenez-en plus sur les plans de récupération dans Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Utiliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec Azure Site Recovery | Microsoft Docs
+description: Découvrez comment utiliser des plans de reprise d’activité pour la reprise d’activité après sinistre avec le service Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.devlang: na
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 011c9acb5d34e15f65b64d59867e7501f0720a08
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 463a7fc51cac6160fbb97fc53077d0b5eda80533
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920107"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215189"
 ---
 # <a name="about-recovery-plans"></a>À propos des plans de récupération
 
 Cet article décrit les plans de récupération dans [Azure Site Recovery](site-recovery-overview.md).
 
 Un plan de récupération rassemble les machines dans des groupes de récupération. Vous pouvez personnaliser un plan en y ajoutant un ordre, des instructions et des tâches. Lorsqu’un plan est défini, vous pouvez basculer vers celui-ci.
-
-
 
 
 

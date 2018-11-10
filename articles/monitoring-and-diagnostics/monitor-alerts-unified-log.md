@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 49607809d6bb8697cc6b7a4063a45d893b9e1eac
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f6f94f12fc0a639743f310638af0f0b6ac0d2932
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421082"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958149"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Alertes de journal dans Azure Monitor
 Cet article fournit des informations sur les alertes de journal, qui sont l’un des types d’alertes pris en charge dans les [Alertes Azure](monitoring-overview-unified-alerts.md), et qui permettent aux utilisateurs d’utiliser la plateforme d’analyse d’Azure comme base pour la génération d’alertes.
@@ -122,4 +122,4 @@ La tarification applicable aux alertes de journal est présentée à la page [Ta
 * Comprendre les [webhooks dans les alertes de journal dans Azure](monitor-alerts-unified-log-webhook.md).
 * En savoir plus sur [Alertes Azure](monitoring-overview-unified-alerts.md).
 * En savoir plus sur [Application Insights](../application-insights/app-insights-analytics.md).
-* En savoir plus sur [Log Analytics](../log-analytics/log-analytics-overview.md).    
+* En savoir plus sur [Log Analytics](../log-analytics/log-analytics-queries.md).    

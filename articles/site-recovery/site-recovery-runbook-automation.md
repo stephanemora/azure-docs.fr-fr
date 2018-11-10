@@ -1,25 +1,18 @@
 ---
-title: Ajouter des runbooks Azure Automation à des plans de récupération dans Azure Site Recovery | Microsoft Docs
-description: Découvrez comment Azure Site Recovery peut vous aider à étendre des plans de récupération à l’aide d’Azure Automation. Découvrez comment effectuer des tâches complexes lors de la récupération sur Azure.
-services: site-recovery
-documentationcenter: ''
+title: Ajouter des runbooks Azure Automation à des plans de reprise d’activité avec Site Recovery | Microsoft Docs
+description: Découvrez comment étendre des plans de reprise d’activité avec Azure Automation pour la reprise d’activité avec Azure Site Recovery.
 author: ruturaj
 manager: gauravd
-editor: ''
-ms.assetid: ecece14d-5f92-4596-bbaf-5204addb95c2
 ms.service: site-recovery
-ms.devlang: powershell
-ms.tgt_pltfrm: na
-ms.topic: article
-ms.workload: storage-backup-recovery
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 55160f3c43d8cbfc5f8b3e6aaf26bcb911387c52
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 5da623d07c34114d82c2b818a7c06420ffb9c886
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39578763"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211109"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Ajouter des runbooks Azure Automation à des plans de récupération
 Cet article décrit comment Azure Site Recovery s’intègre avec Azure Automation pour vous aider à étendre vos plans de récupération. Des plans de récupération peuvent orchestrer la récupération de machines virtuelles protégées par Site Recovery. Les plans de récupération fonctionnent aussi bien pour la réplication sur un cloud secondaire que pour la réplication sur Azure. Ils aident également à rendre la récupération **toujours précise**, **répétable** et **automatisée**. Si vous basculez de vos machines virtuelles vers Azure, l’intégration avec Azure Automation étend vos plans de récupération. Vous pouvez l’utiliser pour exécuter des runbooks qui offrent des tâches d’automatisation puissantes.
@@ -249,7 +242,7 @@ Vous pouvez utiliser le même script pour différents plans de récupération. E
 
 Pour déployer les exemples de scripts sur votre compte Automation, cliquez sur le bouton **Déployer sur Azure**.
 
-[![Déploiement sur Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
+[![Déployer sur Azure](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/c4803408-340e-49e3-9a1f-0ed3f689813d.png)](https://aka.ms/asr-automationrunbooks-deploy)
 
 Pour un autre exemple, regardez la vidéo suivante. Elle montre comment récupérer une application WordPress à deux niveaux dans Azure :
 

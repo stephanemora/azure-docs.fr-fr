@@ -1,19 +1,18 @@
 ---
-title: Préparer la cible (Physique vers Azure) | Microsoft Docs
-description: Cet article décrit comment préparer votre environnement Azure pour lancer la réplication des serveurs physiques exécutant Windows ou Linux vers Azure.
-services: site-recovery
+title: Configurer l’environnement cible pour la récupération d’urgence des serveurs physiques locaux sur Azure | Microsoft Docs'
+description: Cet article décrit comment configurer l’environnement Azure cible pour la récupération d’urgence des serveurs physiques à l’aide d’Azure Site Recovery.
 author: bsiva
 manager: abhemraj
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 370d245e39b848acade18d0e73f60a3246737629
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: b89d04a6e2fd11a61de8b56690664f6204c208ad
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915518"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209290"
 ---
 # <a name="prepare-target-vmware-to-azure"></a>Préparer la cible (VMware vers Azure)
 

@@ -4,9 +4,6 @@ description: Cet article répertorie la hiérarchie de pays/région utilisée pa
 services: traffic-manager
 documentationcenter: ''
 author: kumudd
-manager: timlt
-editor: ''
-ms.assetid: ''
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
@@ -14,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: kumud
-ms.openlocfilehash: 45fa209b4417ce8b65d1fa4f2f59ff6c2d50f3a4
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.openlocfilehash: 1609daa4edbc3db9384941d575c141faaa799fb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28201494"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138240"
 ---
 # <a name="countryregion-hierarchy-used-by-azure-traffic-manager-for-geographic-traffic-routing-method"></a>Hiérarchie de pays/région utilisée par Azure Traffic Manager pour la méthode de routage du trafic géographique
 
-Cet article répertorie les pays et les régions utilisés par la méthode de routage du trafic **géographique** dans Azure Traffic Manager. Vous pouvez également obtenir ces informations par programme en appelant [l’API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
+Cet article répertorie les pays et les régions utilisés par la méthode de routage du trafic **géographique** dans Azure Traffic Manager. Vous pouvez également obtenir ces informations par programme en appelant l’[API REST d’Azure Traffic Manager](https://docs.microsoft.com/rest/api/trafficmanager/). 
 
 - WORLD(Monde)
 
@@ -43,7 +40,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - BG(Bulgarie)
 
-        - BY(Bélarus)
+        - BY(Biélorussie)
 
         - CH(Suisse)
 
@@ -97,7 +94,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - MC(Monaco)
 
-        - MD(Moldova)
+        - MD(Moldavie)
 
         - ME(Monténégro)
 
@@ -169,7 +166,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - YE(Yémen)
 
-    - GEO-NA(Amérique du Nord / Amérique Centrale / Les Antilles)
+    - GEO-NA(Amérique du Nord / Amérique Centrale / Caraïbes)
 
         - AG(Antigua-et-Barbuda)
 
@@ -241,7 +238,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - JM(Jamaïque)
 
-        - KN(Saint-Kitts-et-Nevis)
+        - KN(Saint-Christophe-et-Niévès)
 
         - KY(Îles Caïmans)
 
@@ -265,7 +262,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - SV(Salvador)
 
-        - SX(Saint-Martin)
+        - SX(Saint-Martin [partie néerlandaise])
 
         - TC(Îles Turques-et-Caïques)
 
@@ -433,7 +430,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - LK(Sri Lanka)
 
-        - MM(Myanmar)
+        - MM(Birmanie)
 
         - MN(Mongolie)
 
@@ -455,7 +452,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - TJ(Tadjikistan)
 
-        - TL(Timor-Leste)
+        - TL(Timor oriental)
 
         - TM(Turkménistan)
 
@@ -489,7 +486,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - CM(Cameroun)
 
-        - CV(Cabo Verde)
+        - CV(Cap-Vert)
 
         - DJ(Djibouti)
 
@@ -603,7 +600,7 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - EC(Équateur)
 
-        - FK(Îles Malouines)
+        - FK(Îles Falkland)
 
         - GF(Guyane française)
 
@@ -691,6 +688,6 @@ Cet article répertorie les pays et les régions utilisés par la méthode de ro
 
         - WS(Samoa)
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 - En savoir plus sur la [méthode de routage du trafic géographique dans Azure Traffic Manager](traffic-manager-routing-methods.md#geographic).

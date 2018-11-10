@@ -1,21 +1,21 @@
 ---
-title: Préparer l’environnement cible (VMware/physique vers Azure) | Microsoft Docs
-description: Cet article décrit comment préparer votre environnement cible Azure en vue d’une réplication de machines virtuelles VMware et de serveurs physiques sur Azure.
+title: Préparation de l’environnement cible en vue de la réplication VMware sur Azure | Microsoft Docs
+description: Cet article décrit comment préparer votre environnement cible Azure en vue d’une réplication de machines virtuelles VMware sur Azure.
 services: site-recovery
-author: bsiva
-manager: abhemraj
+author: Rajeswari-Mamilla
+manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 09/28/2018
-ms.author: bsiva
-ms.openlocfilehash: 948812f05697362978ad041566d22977efec92a1
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.date: 10/29/2018
+ms.author: ramamill
+ms.openlocfilehash: a6f983b08415659b9a989ebed824cddd210396e1
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47434634"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233427"
 ---
-# <a name="prepare-the-target-environment-vmwarephysical-to-azure"></a>Préparer l’environnement cible (VMware/physique vers Azure)
+# <a name="prepare-the-target-environment-for-disaster-recovery-of-vmware-vms-or-physical-servers-to-azure"></a>Préparer l’environnement cible pour la récupération d’urgence des machines virtuelles VMware ou serveurs physiques vers Azure
 
 Cet article décrit comment préparer votre environnement cible Azure avant de commencer la réplication de machines virtuelles VMware ou de serveurs physiques sur Azure.
 

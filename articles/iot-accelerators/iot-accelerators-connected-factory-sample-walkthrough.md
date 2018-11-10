@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: ae5218bae12b9489d67b0264f0e5fdb6d833cb9e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 23b36fb647c2949dca1c5efe7f8194ec5a397965
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187765"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140398"
 ---
 # <a name="connected-factory-solution-accelerator-walkthrough"></a>Procédure pas à pas de l’accélérateur de solution Usine connectée
 
@@ -53,23 +53,27 @@ La solution dispose également d’un client OPC UA intégré à une application
 
 Les postes et les systèmes d'exécution de la fabrication (MES) simulés constituent une chaîne de fabrication d’usine. Les appareils simulés et le module Éditeur d’OPC sont basés sur le [Standard OPC UA .NET][lnk-OPC-UA-NET-Standard] publié par la Fondation OPC.
 
-Le Proxy OPC et le module Éditeur d’OPC sont implémentés en tant que modules basés sur [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Chaque ligne de production simulée dispose d’une passerelle désignée associée.
+Le Proxy OPC et le module Éditeur d’OPC sont implémentés en tant que modules basés sur [Azure IoT Edge][lnk-Azure-IoT-Gateway]. Chaque ligne de production simulée est associée à une passerelle.
 
 Tous les composants de simulation sont exécutés dans des conteneurs Docker hébergés dans une machine virtuelle Linux Azure. La simulation est configurée pour exécuter huit lignes de production simulées par défaut.
 
 ## <a name="simulated-production-line"></a>Ligne de production simulée
 
-Une ligne de production fabrique des parties. Elle est composée de différents postes : un poste d’assembly, un poste de test et un poste de packaging.
+Une ligne de production fabrique des parties. Elle est composée de différentes stations : une station d’assembly, une station de test et une station de packaging.
 
-La simulation s’exécute et met à jour les données exposées via les nœuds OPC UA. Toutes les stations de ligne de production simulées sont orchestrées par le MES via OPC UA.
+La simulation s’exécute et met à jour les données rendues disponibles via les nœuds OPC UA. Toutes les stations de ligne de production simulées sont orchestrées par le MES via OPC UA.
 
 ## <a name="simulated-manufacturing-execution-system"></a>Simulation de système d’exécution de fabrication
 
-Le MES analyse chaque poste dans la ligne de production via OPC UA pour détecter les modifications d’état des postes. Il appelle des méthodes OPC UA pour contrôler les stations et transmet les produits d’un poste à l’autre jusqu'à la fin de l’opération.
+Le MES analyse chaque poste dans la ligne de production via OPC UA pour détecter les modifications d’état des postes. Il appelle des méthodes OPC UA pour contrôler les stations et transmet les produits d’une station à l’autre jusqu’à la fin de l’opération.
 
 ## <a name="gateway-opc-publisher-module"></a>Module Éditeur d’OPC de la passerelle
 
-Le module Éditeur d’OPC se connecte aux serveurs de poste OPC UA et s’abonne aux nœuds OPC à publier. Le module convertit les données de nœud au format JSON, les chiffre et les envoie au IoT Hub sous forme de messages OPC UA Pub/Sub.
+Le module Éditeur d’OPC se connecte aux serveurs de poste OPC UA et s’abonne aux nœuds OPC à publier. Le module :
+
+1. Convertit les données du nœud au format JSON.
+1. Chiffre le code JSON.
+1. Envoie le code JSON à IoT Hub sous la forme de messages Pub/Sub OPC UA.
 
 Le module Éditeur d’OPC nécessite un port sortant https (443) uniquement et fonctionne avec l’infrastructure d’entreprise existante.
 
@@ -77,7 +81,7 @@ Le module Éditeur d’OPC nécessite un port sortant https (443) uniquement et 
 
 Le module proxy OPC UA de la passerelle « tunnele » les messages OPC UA binaires de commande et de contrôle et nécessite seulement un port sortant https (443). Il est compatible avec l’infrastructure d’entreprise existante, y compris les proxys Web.
 
-Il utilise des méthodes d’appareil IoT Hub pour transférer des données TCP/IP en paquets à la couche d’application et garantit ainsi l’approbation du point de terminaison, le chiffrement des données et l’intégrité à l’aide de SSL/TLS.
+Il utilise des méthodes d’appareil IoT Hub pour transférer des données TCP/IP en paquets à la couche d’application, et garantit ainsi l’approbation du point de terminaison, le chiffrement des données et l’intégrité à l’aide de SSL/TLS.
 
 Le protocole binaire OPC UA relayé via le proxy utilise le chiffrement et l’authentification UA.
 
@@ -93,13 +97,13 @@ IoT Hub fournit une source d’événements à Azure STI. STI stocke les donnée
 * Source timestamp
 * OPC UA DisplayName
 
-Actuellement, STI n’autorise pas les clients à personnaliser la durée pendant laquelle ils souhaitent conserver les données.
+TSI ne permet pas aux clients de personnaliser la durée pendant laquelle ils souhaitent conserver les données.
 
-Requêtes de STI sur les données de nœud à l’aide d’un **SearchSpan** (**Time.From**, **Time.To**) et des agrégats par **OPC UA ApplicationUri** ou **OPC UA NodeId** ou **OPC UA DisplayName**.
+TSI interroge les données de nœud à l’aide d’un **SearchSpan** basé sur le temps, et agrège les données en fonction du **OPC UA ApplicationUri**, du **OPC UA NodeId** ou du **OPC UA DisplayName**.
 
-Pour récupérer les données pour les jauges OEE et KPI et les graphiques de séries chronologiques, les données sont agrégées par nombre d’événements, Sum, Avg, Min et Max.
+Pour récupérer les données des jauges TRG et KPI, et les graphiques de séries chronologiques, la solution agrège les données selon le nombre d’événements, **Sum**, **Avg**, **Min** et **Max**.
 
-Les séries chronologiques sont créées à l’aide d’un processus différent. Les OOE et les KPI sont calculées à partir des données de base des postes et propagées pour la topologie (lignes de production, usines, entreprise) dans l’application.
+Les séries chronologiques sont créées à l’aide d’un processus différent. La solution calcule les valeurs TRG et KPI à partir des données de base de la station, et propage ces valeurs aux lignes de production, aux usines et à l’entreprise.
 
 En outre, les séries chronologiques pour la topologie OEE et KPI sont calculées dans l’application, chaque fois qu’un intervalle de temps affiché est prêt. Par exemple, l’affichage quotidien est mis à jour chaque heure complète.
 
@@ -116,7 +120,7 @@ L’instance IoT Hub de la solution effectue également ce qui suit :
 La solution utilise le stockage d’objets blob Azure comme stockage sur disque pour la machine virtuelle et pour stocker les données de déploiement.
 
 ## <a name="web-app"></a>Application web
-L’application web déployée dans le cadre de l’accélérateur de solution comprend un client UA OPC intégré, un système de traitement des alertes et un système de visualisation de télémétrie.
+L’application web déployée dans le cadre de l’accélérateur de solution comprend un client OPC UA intégré, un système de traitement des alertes et un système de visualisation de télémétrie.
 
 ## <a name="telemetry-data-flow"></a>Flux de données de télémétrie
 
@@ -182,7 +186,7 @@ L’application web déployée dans le cadre de l’accélérateur de solution c
 
 2. Le proxy OPC (composant serveur) s’inscrit avec IoT Hub.
     - Lit tous les périphériques connus de IoT Hub.
-    - Utilise MQTT via Socket ou Secure Websocket.
+    - Utilise MQTT via TLS over Socket ou Secure WebSocket.
 
 3. Le navigateur web se connecte à l’application web Usine connectée et affiche le tableau de bord Usine connectée.
     - Utilise le protocole HTTPS.
@@ -212,7 +216,7 @@ L’application web déployée dans le cadre de l’accélérateur de solution c
     - Ces données sont fournies à la pile UA OPC dans l’application Usine connectée.
 
 11. L’application web Usine connectée renvoie le navigateur OPC UX enrichi avec les informations spécifiques d’UA OPC provenant du serveur UA OPC vers le navigateur web et les affiche.
-    - En naviguant dans l’espace d’adresse OPC et en appliquant les fonctions aux nœuds dans l’espace d’adresse OPC, le client UX du navigateur OPC utilise des appels AJAX par le biais du protocole sécurisé HTTPS avec des jetons anti-contrefaçon pour obtenir des données de l’application web Usine connectée.
+    - Lorsqu’un utilisateur navigue dans l’espace d’adresse OPC et applique des fonctions aux nœuds de cet espace, le client UX du navigateur OPC utilise des appels AJAX par le biais du protocole sécurisé HTTPS avec des jetons anti-contrefaçon afin d’obtenir des données de l’application web Usine connectée.
     - Si nécessaire, le client utilise les communications détaillées de l’étape 4 à 10 pour échanger des informations avec le serveur UA OPC.
 
 > [!NOTE]

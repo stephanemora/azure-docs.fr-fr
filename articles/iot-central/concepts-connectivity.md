@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: d2ed07be829e48cc4fc0538c08fd498dea99e71e
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: ad77f1f0a99fbdb355163e1bc83461c8c4eb75fa
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985173"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157698"
 ---
 # <a name="device-connectivity-in-azure-iot-central"></a>Connectivité des appareils dans Azure IoT Central
 
@@ -102,7 +102,7 @@ Pour exporter en bloc des appareils à partir de votre application :
 1.  Sélectionnez les appareils que vous souhaitez exporter, puis cliquez sur l’action **Exporter**.
 1.  Une fois l’exportation terminée, un message de réussite s’affiche avec un lien pour télécharger le fichier généré.
 1.  Cliquez sur le message de réussite pour télécharger le fichier vers un dossier local sur le disque.
-1.  Le fichier CSV exporté dispose des informations de colonnes suivantes : **Id de l’appareil, nom de l’appareil, clé primaire/secondaire de l’appareil, et thumbprints de certificat primaire/secondaire**
+1.  Le fichier CSV exporté contient les informations de colonnes suivantes : **ID de l’appareil, nom de l’appareil, clé primaire/secondaire de l’appareil, et thumbprints de certificat primaire/secondaire**
     *   IOTC_DEVICEID
     *   IOTC_DEVICENAME
     *   IOTC_SASKEY_PRIMARY

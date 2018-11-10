@@ -5,23 +5,23 @@ services: application-insights
 keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 10/15/2018
+ms.date: 10/29/2018
 ms.service: application-insights
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: f4de10c29364ab96f54e5d07e9c416a2beb038f6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8e764bfc4481343a1e1fb710df7d09f7a38f4f78
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49380180"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50420352"
 ---
 # <a name="start-monitoring-your-website"></a>Démarrer la surveillance de votre site web
 
 Azure Monitor Application Insights vous permet de surveiller facilement la disponibilité, les performances et l’utilisation de votre site web. De plus, vous pouvez rapidement identifier et diagnostiquer les erreurs dans votre application sans attendre qu’un utilisateur ne les signale. Application Insights offre des fonctionnalités de supervision côté serveur et côté client/navigateur.
 
-Ce démarrage rapide vous guide à travers le processus d’ajout du [Kit de développement logiciel (SDK) JavaScript open source d’Application Insight](https://github.com/Microsoft/ApplicationInsights-JS) qui vous permet de comprendre l’expérience côté client/navigateur relative aux visiteurs de votre site web.
+Ce démarrage rapide vous guide dans le processus d’ajout du [Kit de développement logiciel (SDK) JavaScript open source d’Application Insight](https://github.com/Microsoft/ApplicationInsights-JS) qui vous permet de comprendre l’expérience côté client/navigateur relative aux visiteurs de votre site web.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -45,7 +45,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
     | Paramètres        | Valeur           | Description  |
    | ------------- |:-------------|:-----|
-   | **Name**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
+   | **Nom**      | Valeur globalement unique | Nom identifiant l’application que vous analysez |
    | **Type d’application** | Application générale | Type de l’application que vous analysez |
    | **Groupe de ressources**     | myResourceGroup      | Nom du nouveau groupe de ressources pour héberger les données Application Insights |
    | **Lieu** | USA Est | Choisissez un emplacement près de chez vous ou proche de l’endroit où votre application est hébergée |
@@ -74,7 +74,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 1. Sélectionnez **Vue d’ensemble** > **Éléments principaux** > copiez la **clé d’instrumentation** de votre application.
 
-   ![Formulaire de nouvelle ressource Application Insights](./media/app-insights-nodejs-quick-start/instrumentation-key-001.png)
+   ![Formulaire de nouvelle ressource Application Insights](media/app-insights-website-monitoring/instrumentation-key-001.png)
 
 2. Ajoutez le script suivant à votre ``hello_world.html`` avant la balise de fermeture ``</head>`` :
 
@@ -98,7 +98,7 @@ Application Insights permet de recueillir les données de télémétrie à parti
 
 1. Vous pouvez à présent rouvrir la page de **présentation** d’Application Insights dans le portail Azure où vous avez récupéré votre clé d’instrumentation afin d’afficher les détails sur votre application en cours d’exécution. Les quatre graphiques par défaut sur la page de présentation sont limités aux données d’application côté serveur. Étant donné que nous instrumentons les interactions côté client/navigateur avec le Kit de développement logiciel (SDK) JavaScript, et à moins qu’un SDK côté serveur soit également installé, cet affichage particulier ne s’applique pas.
 
-2. Cliquez sur l’![icône Cartographie d’application](./media/app-insights-nodejs-quick-start/006.png) **Analytics**.  Vous ouvrez ainsi **Analytics**, lequel fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Pour afficher les données associées aux requêtes de navigateur côté client, exécutez la requête suivante :
+2. Cliquez sur l’![icône Cartographie d’application](media/app-insights-website-monitoring/006.png) **Analytics**.  Vous ouvrez ainsi **Analytics**, lequel fournit un langage de requête enrichi permettant d’analyser toutes les données collectées par Application Insights. Pour afficher les données associées aux requêtes de navigateur côté client, exécutez la requête suivante :
 
     ```kusto
     // average pageView duration by name

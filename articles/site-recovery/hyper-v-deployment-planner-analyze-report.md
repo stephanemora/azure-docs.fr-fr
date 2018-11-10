@@ -1,6 +1,6 @@
 ---
-title: Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure| Microsoft Docs
-description: Cet article décrit l’analyse d’un rapport généré du Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure.
+title: Analyser le rapport du planificateur de déploiement Azure Site Recovery pour la reprise d’activité de machines virtuelles Hyper-V sur Azure | Microsoft Docs
+description: Cet article décrit comment analyser un rapport généré par le planificateur de déploiement Azure Site Recovery pour la reprise d’activité de machines virtuelles Hyper-V sur Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -8,14 +8,14 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: d5e8038aea547977ed11d0bd5d2675322921d8ef
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ad53b32b9809e8cce459d8317a916a9ddab0e336
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092913"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210928"
 ---
-# <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analyser le rapport du Planificateur de déploiement Azure Site Recovery
+# <a name="analyze-the-azure-site-recovery-deployment-planner-report"></a>Analyser le rapport du planificateur de déploiement Azure Site Recovery
 Cet article décrit les feuilles de calcul du rapport Excel généré par le Planificateur de déploiement Azure Site Recovery pour le déploiement d’Hyper-V vers Azure.
 
 ## <a name="on-premises-summary"></a>Résumé local
