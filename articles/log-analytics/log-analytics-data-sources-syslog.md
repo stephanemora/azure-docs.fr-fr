@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/28/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3b1724853b4c874a1482a13c4de0ccb179f52f98
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 132935371a1b4f52892ae2fb956407079906e79a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041101"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004900"
 ---
 # <a name="syslog-data-sources-in-log-analytics"></a>Sources de données Syslog dans Log Analytics
 Syslog est un protocole de journalisation d’événements commun à Linux.  Les applications envoient les messages qui peuvent être stockés sur l’ordinateur local ou remis à un collecteur Syslog.  Lorsque l’agent OMS pour Linux est installé, il configure le démon Syslog local pour qu’il transfère des messages à l’agent.  L’agent envoie ensuite le message à Log Analytics où un enregistrement correspondant est créé dans le référentiel OMS.  
@@ -45,7 +45,7 @@ Vous pouvez ajouter une nouvelle installation en tapant son nom et en cliquant s
 Par défaut, toutes les modifications de configuration sont automatiquement transmises à l’ensemble des agents.  Si vous souhaitez configurer Syslog manuellement sur chaque agent Linux, décochez la case *Appliquer la configuration ci-dessous à mes machines Linux*.
 
 ### <a name="configure-syslog-on-linux-agent"></a>Configurer l’agent Syslog sur Linux
-Lorsque [l’agent OMS est installé sur un client Linux](log-analytics-linux-agents.md), il installe un fichier de configuration syslog par défaut qui définit l’installation et le niveau de gravité des messages qui sont collectés.  Vous pouvez modifier ce fichier pour changer la configuration.  Le fichier de configuration est différent selon le démon Syslog installé par le client.
+Lorsque [l’agent OMS est installé sur un client Linux](log-analytics-quick-collect-linux-computer.md), il installe un fichier de configuration syslog par défaut qui définit l’installation et le niveau de gravité des messages qui sont collectés.  Vous pouvez modifier ce fichier pour changer la configuration.  Le fichier de configuration est différent selon le démon Syslog installé par le client.
 
 > [!NOTE]
 > Si vous modifiez cette configuration, vous devez redémarrer le démon syslog pour que les modifications prennent effet.
@@ -207,6 +207,6 @@ Le tableau suivant fournit plusieurs exemples de requêtes de journaux qui extra
 | Syslog &#124; summarize AggregatedValue = count() by Facility |Nombre d’enregistrements Syslog par installation. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.
+* Découvrez les [recherches de journaux](log-analytics-queries.md) pour analyser les données collectées à partir de sources de données et de solutions.
 * Utilisez les [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les données des enregistrements syslog dans des champs individuels.
-* [Configurez les agents Linux](log-analytics-linux-agents.md) pour qu’ils collectent d’autres types de données.
+* [Configurez les agents Linux](log-analytics-quick-collect-linux-computer.md) pour qu’ils collectent d’autres types de données.

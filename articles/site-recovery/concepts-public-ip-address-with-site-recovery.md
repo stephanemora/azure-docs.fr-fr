@@ -1,22 +1,21 @@
 ---
-title: Adresse IP publique avec Site Recovery | Microsoft Docs
+title: Utiliser des adresses IP publiques après un basculement avec Azure Site Recovery | Microsoft Docs
 description: Cet article explique comment configurer des adresses IP publiques avec Azure Site Recovery et Azure Traffic Manager pour la migration et la reprise d’activité
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
 ms.date: 09/28/2018
 ms.author: mayg
-ms.openlocfilehash: fd17c786515a6db1f8aa5c1aff7c0dcd42ed7dc6
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 80c38ecc766d60fba578e877998aeb216ea66012
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47435820"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215274"
 ---
-# <a name="public-ip-address-with-site-recovery"></a>Adresse IP publique avec Site Recovery
+# <a name="set-up-public-ip-addresses-after-failover"></a>Configurer des adresses IP publiques après un basculement
 
 Les adresses IP publiques permettent aux ressources Internet de communiquer avec les ressources Azure (communication entrante). Les adresses IP publiques permettent également aux ressources Azure de communiquer avec Internet et les services Azure publics (communication sortante) quand une adresse IP est attribuée à la ressource.
 - Communication entrante d’Internet vers la ressource, par exemple les machines virtuelles Azure (VM), les passerelles Azure Application Gateway, les équilibreurs de charge Azure Load Balancer, les passerelles VPN Azure, etc. Vous pouvez toujours communiquer avec des ressources telles qu’une machine virtuelle, à partir d’Internet si aucune adresse IP publique ne lui est attribuée à condition que la machine virtuelle fasse partie d’un pool principal à équilibreur de charge et qu’une adresse IP publique soit attribuée à l’équilibreur de charge.

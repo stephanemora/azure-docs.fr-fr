@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 44e71c8e9256bdfd3a55cdd21a6658bccfd5daad
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 4fec410db81077fd454f29d3359dc3728aad4bff
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987521"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739615"
 ---
 # <a name="fan-outfan-in-scenario-in-durable-functions---cloud-backup-example"></a>Scénario fan-out/fan-in dans Fonctions durables - exemple de sauvegarde cloud
 
@@ -131,7 +131,7 @@ Content-Length: 20
 ```
 
 > [!NOTE]
-> La fonction `HttpStart` que vous appelez fonctionne uniquement avec un contenu au format JSON. Pour cette raison, l’en-tête `Content-Type: application/json` est requis, et le chemin d’accès au répertoire est encodé sous forme de chaîne JSON.
+> La fonction `HttpStart` que vous appelez fonctionne uniquement avec un contenu au format JSON. Pour cette raison, l’en-tête `Content-Type: application/json` est requis, et le chemin d’accès au répertoire est encodé sous forme de chaîne JSON. De plus, l’extrait de code HTTP suppose qu’il existe une entrée dans le fichier `host.json`, qui supprime le préfixe `api/` par défaut de toutes les URL de fonctions de déclencheur HTTP. Le balisage pour cette configuration figure dans le fichier `host.json` dans les exemples.
 
 Cette requête HTTP déclenche l’orchestrateur `E2_BackupSiteContent` et transmet la chaîne `D:\home\LogFiles` en tant que paramètre. La réponse fournit un lien pour obtenir l’état de l’opération de sauvegarde :
 

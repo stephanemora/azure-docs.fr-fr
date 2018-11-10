@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 06fe9f1fd65f70e41d528a513e44e61edb4a7e4f
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 00563b93a3601ba6299c479c49375fd252841f79
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39307906"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748117"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>FAQ sur les performances des applications web Azure dans Azure
 
@@ -34,11 +34,11 @@ Plusieurs facteurs peuvent ralentir les performances d’une application. Pour o
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Comment puis-je résoudre un problème de consommation excessive du processeur ?
 
-Dans certaines situations de consommation excessive du processeur, votre application peut vraiment nécessiter davantage de ressources informatiques. Dans ce cas, vous pouvez évoluer vers un niveau de service supérieur afin que l’application obtienne toutes les ressources dont elle a besoin. Dans d’autres cas, une consommation excessive du processeur peut être due à une boucle incorrecte ou à une méthode de codage. Obtenir un aperçu de ce qui déclenche une consommation excessive du processeur est un processus en deux parties. Créez d’abord un vidage du processus puis analysez ce vidage de processus. Pour plus d’informations, consultez [Capturer et analyser un fichier de vidage en cas de consommation excessive du processeur pour Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+Dans certaines situations de consommation excessive du processeur, votre application peut vraiment nécessiter davantage de ressources informatiques. Dans ce cas, vous pouvez évoluer vers un niveau de service supérieur afin que l’application obtienne toutes les ressources dont elle a besoin. Dans d’autres cas, une consommation excessive du processeur peut être due à une boucle incorrecte ou à une méthode de codage. Obtenir un aperçu de ce qui déclenche une consommation excessive du processeur est un processus en deux parties. Créez d’abord un vidage du processus puis analysez ce vidage de processus. Pour plus d’informations, consultez [Capturer et analyser un fichier de vidage en cas de consommation excessive du processeur pour Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Comment résoudre les problèmes de consommation excessive de la mémoire ?
 
-Dans certaines situations de consommation excessive de mémoire, votre application peut vraiment nécessiter davantage de ressources informatiques. Dans ce cas, vous pouvez évoluer vers un niveau de service supérieur afin que l’application obtienne toutes les ressources dont elle a besoin. À d’autres moments, un bogue dans le code peut entraîner une fuite de mémoire. Une pratique de codage peut également augmenter la consommation de mémoire. Obtenir un aperçu de ce qui déclenche une consommation excessive de mémoire est un processus en deux parties. Créez d’abord un vidage du processus puis analysez ce vidage de processus. L’outil Crash Diagnoser d’Azure Site Extension Gallery peut effectuer efficacement ces deux étapes. Pour plus d’informations, consultez [Capturer et analyser un fichier de vidage en cas de consommation excessive intermittente de mémoire pour Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+Dans certaines situations de consommation excessive de mémoire, votre application peut vraiment nécessiter davantage de ressources informatiques. Dans ce cas, vous pouvez évoluer vers un niveau de service supérieur afin que l’application obtienne toutes les ressources dont elle a besoin. À d’autres moments, un bogue dans le code peut entraîner une fuite de mémoire. Une pratique de codage peut également augmenter la consommation de mémoire. Obtenir un aperçu de ce qui déclenche une consommation excessive de mémoire est un processus en deux parties. Créez d’abord un vidage du processus puis analysez ce vidage de processus. L’outil Crash Diagnoser d’Azure Site Extension Gallery peut effectuer efficacement ces deux étapes. Pour plus d’informations, consultez [Capturer et analyser un fichier de vidage en cas de consommation excessive intermittente de mémoire pour Web Apps](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Comment automatiser les applications web App Service à l’aide de PowerShell ?
 

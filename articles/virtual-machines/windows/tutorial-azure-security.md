@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 0fd843b150148057399a4e05f5e25a728cd4ae56
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7cf3db5020d6a100ca6afdd5a1dccd522189720d
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298508"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978500"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-windows-virtual-machines"></a>Didacticiel : utiliser Azure Security Center pour surveiller les machines virtuelles Windows
 
@@ -133,7 +133,7 @@ Ce didacticiel vous a montré comment configurer Azure Security Center, puis exa
 > * Afficher et résoudre des problèmes d’intégrité de configuration
 > * Examiner les menaces détectées
 
-Passez au tutoriel suivant pour découvrir comment créer un pipeline CI/CD avec Azure DevOps Services et une machine virtuelle Windows exécutant IIS.
+Passez à l’étape suivante du didacticiel pour apprendre à installer la pile SQL&#92;IIS&#92;.NET sur deux machines virtuelles Windows.
 
 > [!div class="nextstepaction"]
-> [Azure Pipelines(./tutorial-vsts-iis-cicd.md)
+> [Pile SQL&#92;IIS&#92;.NET](tutorial-iis-sql.md)

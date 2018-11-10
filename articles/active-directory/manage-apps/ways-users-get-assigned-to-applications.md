@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2017
 ms.author: barbkess
-ms.openlocfilehash: 2301c2eee2853617251053713b50f9915962027b
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d34671d4197735ea2c30aafc8fd01a5893427ff3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354799"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226842"
 ---
 # <a name="how-to-assign-users-to-applications"></a>Guide pratique pour affecter des utilisateurs à des applications
 
@@ -51,9 +51,9 @@ Pour qu’un utilisateur puisse accéder à une application, il doit tout d’ab
 
 6.  Un administrateur active la [gestion des groupes en libre-service](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) pour permettre à un utilisateur de joindre un groupe auquel une application est affectée, mais uniquement **après approbation d’un ensemble sélectionné d’approbateurs d’entreprise**
 
-7.  Un administrateur affecte une licence à un utilisateur pour une première application, par exemple [Microsoft Office 365](http://products.office.com/)
+7.  Un administrateur affecte une licence à un utilisateur pour une première application, par exemple [Microsoft Office 365](https://products.office.com/)
 
-8.  Un administrateur affecte une licence à un groupe dont l’utilisateur est membre pour une première application, par exemple [Microsoft Office 365](http://products.office.com/)
+8.  Un administrateur affecte une licence à un groupe dont l’utilisateur est membre pour une première application, par exemple [Microsoft Office 365](https://products.office.com/)
 
 9.  Un [administrateur donne son consentement à une application](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview#understanding-user-and-admin-consent) pour être utilisée par tous les utilisateurs, puis un utilisateur se connecte à l’application
 

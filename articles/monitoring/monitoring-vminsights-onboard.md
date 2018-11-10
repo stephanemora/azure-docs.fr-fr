@@ -1,5 +1,5 @@
 ---
-title: Intégrer Azure Monitor pour machines virtuelles | Microsoft Docs
+title: Intégrer Azure Monitor pour machines virtuelles (préversion) | Microsoft Docs
 description: Cet article décrit la façon dont vous intégrez et configurez Azure Monitor pour les machines virtuelles afin que vous puissiez comprendre comment votre application distribuée s’exécute et les problèmes d’intégrité qui ont été identifiés.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/16/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 33d16e211667edc6c082ab8c101e69ee5875efb8
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f55f81d1e28a7626dfe00f6bea349bf74e3a1d24
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390242"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092772"
 ---
-# <a name="how-to-onboard-the-azure-monitor-for-vms"></a>Comment intégrer Azure Monitor pour machines virtuelles 
+# <a name="how-to-onboard-the-azure-monitor-for-vms-preview"></a>Comment intégrer Azure Monitor pour machines virtuelles (préversion)
 Cet article décrit comment configurer Azure Monitor pour surveiller l’intégrité du système d’exploitation de vos machines virtuelles Azure et comment découvrir et mapper les dépendances des applications pouvant être hébergées dessus.  
 
 L’activation d’Azure Monitor pour machines virtuelles est accomplie en utilisant l’une des méthodes suivantes, des détails sur l’utilisation de chaque méthode sont fournis plus loin dans l’article.  
@@ -31,7 +31,7 @@ L’activation d’Azure Monitor pour machines virtuelles est accomplie en utili
 * Plusieurs machines virtuelles Azure ou des groupes de machines virtuelles identiques sur un abonnement ou un groupe de ressources spécifié à l’aide de PowerShell.
 
 ## <a name="prerequisites"></a>Prérequis
-Avant de commencer, vérifiez que vous remplissez les conditions décrites dans les sous-sections suivantes.
+Avant de commencer, prenez connaissance de ce qui suit.
 
 ### <a name="log-analytics"></a>Log Analytics 
 
@@ -352,21 +352,21 @@ Pour plus d’informations sur l’affectation de stratégies Azure Policy, cons
 
 Le tableau suivant répertorie les définitions de stratégie fournies.  
 
-|Nom |Description |Type |  
+|NOM |Description |type |  
 |-----|------------|-----|  
-|[Préversion] : Activer Azure Monitor pour les machines virtuelles |Active Azure Monitor pour machines virtuelles dans l’étendue spécifiée (groupe d'administration, abonnement ou groupe de ressources). Utilise l’espace de travail Log Analytics comme paramètre. |Initiative |  
-|[Préversion] : Vérifier le déploiement de Dependency Agent - Image de machine virtuelle (OS) non listée |Présente les machines virtuelles comme non conformes si l’image de machine virtuelle (OS) n’est pas dans la liste définie et que l’agent n’est pas installé. |Stratégie |  
-|[Préversion] : Vérifier le déploiement de Log Analytics Agent - Image de machine virtuelle (OS) non listée |Présente les machines virtuelles comme non conformes si l’image de machine virtuelle (OS) n’est pas dans la liste définie et que l’agent n’est pas installé. |Stratégie |  
-|[Préversion] : Déployer Dependency Agent pour les machines virtuelles Linux |Déploie Dependency Agent pour les machines virtuelles Linux si l’image de machine virtuelle (OS) est dans la liste définie et que l’agent n’est pas installé. |Stratégie |  
-|[Préversion] : Déployer Dependency Agent pour les machines virtuelles Windows |Déploie Dependency Agent pour les machines virtuelles Windows si l’image de machine virtuelle (OS) est dans la liste définie et que l’agent n’est pas installé. |Stratégie |  
-|[Préversion] : Déployer Log Analytics Agent pour les machines virtuelles Linux |Déploie Log Analytics Agent pour les machines virtuelles Linux si l’image de machine virtuelle (OS) est dans la liste définie et que l’agent n’est pas installé. |Stratégie |  
-|[Préversion] : Déployer Log Analytics Agent pour les machines virtuelles Windows |Déploie Log Analytics Agent pour les machines virtuelles Windows si l’image de machine virtuelle (OS) est dans la liste définie et que l’agent n’est pas installé. |Stratégie |  
+|[Aperçu] : Activer Azure Monitor pour les machines virtuelles |Active Azure Monitor pour machines virtuelles dans l’étendue spécifiée (groupe d'administration, abonnement ou groupe de ressources). Utilise l’espace de travail Log Analytics comme paramètre. |Initiative |  
+|[Aperçu] : Vérifier le déploiement de Dependency Agent - Image de machine virtuelle (OS) non listée |Présente les machines virtuelles comme non conformes si l’image de machine virtuelle (OS) n’est pas dans la liste définie et que l’agent n’est pas installé. |Stratégie |  
+|[Aperçu] : Vérifier le déploiement de Log Analytics Agent - Image de machine virtuelle (OS) non listée |Présente les machines virtuelles comme non conformes si l’image de machine virtuelle (OS) n’est pas dans la liste définie et que l’agent n’est pas installé. |Stratégie |  
+|[Aperçu] : Déployer Dependency Agent pour les machines virtuelles Linux |Déploie Dependency Agent pour les machines virtuelles Linux si l’image de machine virtuelle (OS) est dans la liste définie et que l’agent n’est pas installé. |Stratégie |  
+|[Aperçu] : Déployer Dependency Agent pour les machines virtuelles Windows |Déploie Dependency Agent pour les machines virtuelles Windows si l’image de machine virtuelle (OS) est dans la liste définie et que l’agent n’est pas installé. |Stratégie |  
+|[Aperçu] : Déployer Log Analytics Agent pour les machines virtuelles Linux |Déploie Log Analytics Agent pour les machines virtuelles Linux si l’image de machine virtuelle (OS) est dans la liste définie et que l’agent n’est pas installé. |Stratégie |  
+|[Aperçu] : Déployer Log Analytics Agent pour les machines virtuelles Windows |Déploie Log Analytics Agent pour les machines virtuelles Windows si l’image de machine virtuelle (OS) est dans la liste définie et que l’agent n’est pas installé. |Stratégie |  
 
 Stratégie autonome (non incluse avec l’initiative) 
 
-|Nom |Description |Type |  
+|NOM |Description |type |  
 |-----|------------|-----|  
-|[Préversion] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités |Présente les machines virtuelles comme non conformes si elles ne journalisent pas dans l’espace de travail LA spécifié dans l’attribution de stratégie/d’initiative. |Stratégie |
+|[Aperçu] : Vérifier les machines virtuelles de l’espace de travail Log Analytics - Signaler les incompatibilités |Présente les machines virtuelles comme non conformes si elles ne journalisent pas dans l’espace de travail LA spécifié dans l’attribution de stratégie/d’initiative. |Stratégie |
 
 #### <a name="assign-azure-monitor-initiative"></a>Affecter une initiative Azure Monitor
 Avec cette version initiale, vous pouvez uniquement créer l’affectation de stratégie à partir du portail Azure. Pour savoir comment effectuer ces étapes, consultez  [Créer une affectation de stratégie à partir du portail Azure](../governance/policy/assign-policy-portal.md). 
@@ -376,7 +376,7 @@ Avec cette version initiale, vous pouvez uniquement créer l’affectation de st
 3. Sélectionnez **Affecter l’initiative** en haut de la page**Stratégie - Affectations**.
 4. Dans la page **Affecter l’initiative**, sélectionnez l’**étendue** en cliquant sur les points de suspension et en sélectionnant un groupe d’administration ou un abonnement et éventuellement un groupe de ressources. Une étendue limite dans notre cas l’affectation de stratégie à un regroupement de machines virtuelles pour la mise en conformité. Cliquez sur **Sélectionner** au bas de la page **Étendue** pour enregistrer vos modifications.
 5. Les **exclusions** vous permettent d’omettre une ou plusieurs ressources de l’étendue, ce qui est facultatif. 
-6. Sélectionnez les points de suspension **Définition d’initiative** pour ouvrir la liste des définitions disponibles, sélectionnez  **[Préversion] Activer Azure Monitor pour les machines virtuelles** dans la liste, puis cliquez sur **Sélectionner**.
+6. Sélectionnez les points de suspension **Définition d’initiative** pour ouvrir la liste des définitions disponibles, sélectionnez  **[Aperçu] Activer Azure Monitor pour les machines virtuelles** dans la liste, puis cliquez sur **Sélectionner**.
 7. Le champ **Nom de l’attribution** est automatiquement rempli avec le nom d’initiative que vous avez sélectionné, mais vous pouvez le modifier. Vous pouvez également ajouter une **Description** (facultatif). **Attribué par** est rempli automatiquement en fonction de l’utilisateur qui est connecté, et ce champ est facultatif.
 8. Sélectionnez un **Espace de travail Log Analytics** dans la liste déroulante qui est disponible dans la région prise en charge.
 
@@ -389,7 +389,7 @@ Avec cette version initiale, vous pouvez uniquement créer l’affectation de st
 
 #### <a name="review-and-remediate-the-compliance-results"></a>Examiner et corriger les résultats de conformité 
 
-Pour savoir comment examiner les résultats de conformité, vous pouvez consulter [Identifier les ressources non conformes](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). Sélectionnez **Conformité** dans la partie gauche de la page, puis repérez l’initiative **[Préversion] Activer Azure Monitor pour les machines virtuelles** qui n’est pas conforme selon l’affectation que vous avez créée.
+Pour savoir comment examiner les résultats de conformité, vous pouvez consulter [Identifier les ressources non conformes](../governance/policy/assign-policy-portal.md#identify-non-compliant-resources). Sélectionnez **Conformité** dans la partie gauche de la page, puis repérez l’initiative **[Aperçu] Activer Azure Monitor pour les machines virtuelles** qui n’est pas conforme selon l’affectation que vous avez créée.
 
 ![Conformité de stratégie pour les machines virtuelles Azure](./media/monitoring-vminsights-onboard/policy-view-compliance-01.png)
 
@@ -398,21 +398,21 @@ Sur la base des résultats des stratégies incluses avec l’initiative, les mac
 1. Log Analytics ou Dependency Agent n’est pas déployé.  
    Il s’agit d’un cas courant pour une étendue comportant des machines virtuelles existantes. Pour limiter ce risque, [créez des tâches de correction](../governance/policy/how-to/remediate-resources.md) sur une stratégie non conforme pour déployer les agents requis.    
  
-    - [Préversion]: Deploy Dependency Agent for Linux VMs   
-    - [Préversion]: Deploy Dependency Agent for Windows VMs  
-    - [Préversion]: Deploy Log Analytics Agent for Linux VMs  
-    - [Préversion]: Deploy Log Analytics Agent for Windows VMs  
+    - [Aperçu]: Deploy Dependency Agent for Linux VMs   
+    - [Aperçu]: Deploy Dependency Agent for Windows VMs  
+    - [Aperçu]: Deploy Log Analytics Agent for Linux VMs  
+    - [Aperçu]: Deploy Log Analytics Agent for Windows VMs  
 
 2. L’image de machine virtuelle (OS) n’est pas dans la liste identifiée dans la définition de stratégie.  
    Les critères de la stratégie de déploiement incluent uniquement les machines virtuelles qui sont déployées à partir d’images de machine virtuelle Azure connues. Consultez la documentation pour savoir si le système d’exploitation de la machine virtuelle est pris en charge. Si ce n’est pas le cas, vous devez dupliquer la stratégie de déploiement et la mettre à jour/modifier pour rendre l’image conforme. 
   
-    - [Préversion] : Vérifier le déploiement de Dependency Agent - Image de machine virtuelle (OS) non listée  
-    - [Préversion] : Vérifier le déploiement de Log Analytics Agent - Image de machine virtuelle (OS) non listée
+    - [Aperçu] : Vérifier le déploiement de Dependency Agent - Image de machine virtuelle (OS) non listée  
+    - [Aperçu] : Vérifier le déploiement de Log Analytics Agent - Image de machine virtuelle (OS) non listée
 
 3. Les machines virtuelles ne journalisent pas dans l’espace de travail LA spécifié.  
 Il est possible que certaines machines virtuelles situées dans l’étendue de l’initiative journalisent dans un espace de travail LA différent de celui qui était auparavant spécifié dans l’affectation de stratégie. Cette stratégie est un outil qui permet d’identifier les machines virtuelles qui relèvent d’un espace de travail non conforme.  
  
-    - [Préversion]: Audit Log Analytics Workspace for VM - Report Mismatch  
+    - [Aperçu]: Audit Log Analytics Workspace for VM - Report Mismatch  
 
 ### <a name="enable-with-powershell"></a>Activer avec PowerShell
 Pour activer Azure Monitor pour machines virtuelles pour plusieurs machines virtuelles ou des groupes de machines virtuelles identiques, vous pouvez utiliser un script PowerShell fourni ([Install-VMInsights.ps1](https://www.powershellgallery.com/packages/Install-VMInsights/1.0)) disponible dans Azure PowerShell Gallery pour effectuer cette tâche.  Ce script effectue une itération dans chaque machine virtuelle et groupe identique de machines virtuelles de votre abonnement, au sein du groupe de ressources à portée spécifié par *ResourceGroup*, ou dans une seule machine virtuelle ou groupe de machines virtuelles identiques spécifié par *Name*.  Pour chaque machine virtuelle ou groupe de machines virtuelles identiques, le script vérifie si l’extension de machine virtuelle est déjà installée. Si ce n’est pas le cas, il tente une réinstallation.  Sinon, il choisit d’installer les extensions de machine virtuelle Agent de dépendances et Log Analytics.   

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 10/19/2018
 ms.author: diberry
-ms.openlocfilehash: 92b4864f8991380740e6edb498328ce2eea98250
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fdf81943a7bdbae80f4474915a72bb61f1123a30
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650109"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085831"
 ---
 # <a name="entities-in-luis"></a>Entités dans LUIS
 
@@ -96,8 +96,9 @@ LUIS offre de nombreux types d’entités : entités prédéfinies, entités pe
 ## <a name="entity-limits"></a>Limites de l’entité
 Consultez les [limites](luis-boundaries.md#model-boundaries) pour comprendre le nombre de chaque type d’entité que vous pouvez ajouter à un modèle.
 
-## <a name="entity-roles"></a>Rôles d’entité
-Les [rôles](luis-concept-roles.md) d’entité s’appliquent aux entités personnalisées et prédéfinies, et sont utilisées dans les modèles uniquement. 
+## <a name="roles-versus-hierarchical-entities"></a>Rôles et entités hiérarchiques
+
+Pour plus d’informations, consultez [Rôles et entités hiérarchiques](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="composite-vs-hierarchical-entities"></a>Entités composites et hiérarchiques
 Les entités composites et les entités hiérarchiques ont des relations parent-enfant et sont issues de l’apprentissage automatique. L’apprentissage automatique permet à LUIS de comprendre les entités dans différents contextes (organisation des mots). Les entités composite sont plus flexibles, car elles acceptent différents types d’entités en tant qu’enfants. Les enfants d’une entité hiérarchique sont des entités simples. 

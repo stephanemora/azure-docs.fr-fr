@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: iainfou
-ms.openlocfilehash: fb428e63be54688744bcdb022ba276a957f8aee1
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 1b0b3d0db2067a492905d8f828934f0b63fb8f54
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648766"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155981"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concepts de base de Kubernetes pour AKS (Azure Kubernetes Service)
 
@@ -71,6 +71,27 @@ La taille des machines virtuelles Azure pour vos nœuds détermine le nombre d�
 Dans AKS, l’image de machine virtuelle pour les nœuds de votre cluster est basée sur Ubuntu Linux. Quand vous créez un cluster AKS ou augmentez le nombre de nœuds, la plateforme Azure crée le nombre demandé de machines virtuelles et les configure. Vous ne devez effectuer aucune configuration manuelle.
 
 Si vous avez besoin d’utiliser un autre système d’exploitation hôte ou runtime de conteneur, ou bien d’inclure des packages personnalisés, vous pouvez déployer votre propre cluster Kubernetes à l’aide d’[acs-engine][acs-engine]. Les versions d’`acs-engine` en amont présentent et fournissent des options de configuration avant qu’elles ne soient officiellement prises en charge dans les clusters AKS. Par exemple, si vous souhaitez utiliser des conteneurs Windows ou un runtime de conteneur autre que Docker, vous pouvez utiliser `acs-engine` pour configurer et déployer un cluster Kubernetes qui répond à vos besoins actuels.
+
+### <a name="resource-reservations"></a>Réservations de ressources
+
+Vous n’avez pas besoin de gérer les principaux composants de Kubernetes sur chaque nœud, tels que *kubelet*, *kube-proxy* et *kube-dns*, mais ils consomment une part des ressources de calcul disponibles. Pour conserver les fonctionnalités et les performances des nœuds, les ressources de calcul suivantes sont réservées sur chaque nœud :
+
+- **UC** - 60 ms
+- **Mémoire** -20 % jusqu'à 4 Gio
+
+Ces réservations signifient que la quantité disponible d’UC et de mémoire pour vos applications peut apparaître inférieure à ce que le nœud lui-même contient. S’il existe des contraintes de ressources en raison du nombre d’applications que vous exécutez, ces réservations garantissent que l’UC et la mémoire restent disponibles pour les principaux composants de Kubernetes. Les réservations de ressources ne peuvent pas être modifiées.
+
+Par exemple : 
+
+- La taille de nœud **Standard DS2 v2** contient 2 processeurs virtuels et 7 Gio de mémoire
+    - 20 % de 7 Gio de mémoire = 1,4 Gio
+    - Un total de *(7 - 1,4) = 5,6 Gio* de mémoire est disponible pour le nœud
+    
+- La taille de nœud **Standard E4s v3** contient 4 processeurs virtuels et 32 Gio de mémoire
+    - 20 % de 32 Gio de mémoire = 6,4 Gio, mais AKS réserve uniquement un maximum de 4 Gio
+    - Un total de *(32 - 4) = 28 Gio* de mémoire est disponible pour le nœud
+    
+Le système d’exploitation du nœud sous-jacent nécessite également une certaine quantité de ressources d’UC et de mémoire pour effectuer ses propres fonctions principales.
 
 ### <a name="node-pools"></a>Pools de nœuds
 

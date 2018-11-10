@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
-ms.openlocfilehash: 058e1f9abbf094fb49a21191f60195df53615451
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 4453516626c39f73deea8fce0d744fcecbd5c3fc
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985292"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085783"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Utilisation du portail administrateur dans Azure Stack
 
@@ -40,6 +40,8 @@ Pour accéder au portail administrateur, accédez à l’URL du portail, puis co
 | | |
 
  ![Le portail administrateur](media/azure-stack-manage-portals/admin-portal.png)
+
+Notez que le fuseau horaire par défaut pour tous les déploiements Azure Stack est défini sur le Temps universel coordonné (UTC). Vous pouvez sélectionner un fuseau horaire lors de l’installation d’Azure Stack, mais il est automatiquement rétabli par défaut au format UTC lors de l’installation.
 
 Dans le portail administrateur, vous pouvez effectuer des opérations telles que les suivantes :
 

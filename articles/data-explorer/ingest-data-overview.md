@@ -8,12 +8,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 94f96d949f2a05f71e9565fdcbc7b48ed2c2a5c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f1df22c505bffdfaf60bf9c6eec3ad4e698fff02
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46972656"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139524"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Ingestion des données dans l’Explorateur de données Azure
 
@@ -58,11 +58,17 @@ Kusto propose des SDK client qui peuvent être utilisés pour ingérer et interr
 
 * [Kit de développement logiciel (SDK) .NET](https://docs.microsoft.com/azure/kusto/api/netfx/about-the-sdk)
 
-* [Kit de développement logiciel (SDK) Java](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
+* [Kit SDK Java](https://docs.microsoft.com/azure/kusto/api/java/kusto-java-client-library)
+
+* [Kit SDK Node]
 
 * [API REST](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Techniques d’ingestion par programmation** :
+
+* Ingestion de données par le biais du service de gestion de données Explorateur de données Azure (ingestion à débit élevé et fiable)
+
+  * [**Ingestion par lot**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (fournie par le SDK) : le client charge les données vers le stockage d’objets blob Azure (désigné par le service de gestion des données Explorateur de données Azure) et envoie une notification à une file d’attente Azure. Il s’agit de la technique recommandée pour une ingestion des données à volume élevé, fiable et peu coûteuse.
 
 * Ingestion des données directement dans le moteur de l’Explorateur de données Azure (approche la plus appropriée pour l’exploration et le prototypage) :
 
@@ -71,10 +77,6 @@ Kusto propose des SDK client qui peuvent être utilisés pour ingérer et interr
   * **Ingestion à partir de requête** : commande de contrôle (.set, .set-or-append, .set-or-replace) qui pointe vers des résultats de requête et qui sert à générer des rapports ou de petites tables temporaires.
 
   * **Ingestion à partir du stockage** : commande de contrôle (.ingest into) avec données stockées en externe (par exemple, stockage d’objets blob Azure) qui permet d’effectuer une ingestion en bloc efficace des données.
-
-* Ingestion de données par le biais du service de gestion de données Explorateur de données Azure (ingestion à débit élevé et fiable)
-
-  * [**Ingestion par lot**](https://docs.microsoft.com/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) (fournie par le SDK) : le client charge les données vers le stockage d’objets blob Azure (désigné par le service de gestion des données Explorateur de données Azure) et envoie une notification à une file d’attente Azure. Il s’agit de la technique recommandée pour une ingestion des données à volume élevé, fiable et peu coûteuse.
 
 **Latence des différentes méthodes** :
 

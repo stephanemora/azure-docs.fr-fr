@@ -3,18 +3,18 @@ title: Rotation des informations d’identification dans les travaux Azure Strea
 description: Cet article décrit comment mettre à jour les informations d’identification des récepteurs d’entrée et de sortie dans les travaux Azure Stream Analytics.
 services: stream-analytics
 author: jasonwhowell
-ms.author: jasonh
+ms.author: mamccrea
 manager: kfile
 ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/11/2018
-ms.openlocfilehash: 2dd5721ad0f45080a73172e150891cfb5f48d329
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 362fdca3b9a54ea0a8785ae37b32b88cbe0f67ba
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025767"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978764"
 ---
 # <a name="rotate-login-credentials-for-inputs-and-outputs-of-a-stream-analytics-job"></a>Rotation des informations d'identification pour les entrées et les sorties dans un travail Stream Analytics
 

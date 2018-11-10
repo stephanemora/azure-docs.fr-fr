@@ -5,30 +5,30 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 743576d8cbd7135369fb692e601360cb57a6c3bd
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8e1c85b345acdce6f50cfa169977c513ba0ae2a3
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46989633"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740423"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>Tutoriel : Gérer les coûts à l’aide de Cloudyn
 
-Vous gérez les coûts et générez des rapports de récupération des données de facturation dans Cloudyn en allouant les coûts en fonction des étiquettes. Le processus d’allocation des coûts affecte des coûts à vos ressources cloud consommées. Les coûts sont entièrement alloués quand toutes les ressources sont classées avec des étiquettes. Une fois les coûts alloués, vous pouvez fournir à vos utilisateurs des informations de récupération des données de facturation ou de facturation interne sous la forme de rapports et de tableaux de bord. Toutefois, il arrive que de nombreuses ressources ne soient pas étiquetées ou étiquetables quand vous commencez à utiliser Cloudyn.
+Vous gérez les coûts et générez des rapports de récupération des données de facturation dans Cloudyn en allouant les coûts en fonction des étiquettes. Le processus d’allocation des coûts affecte des coûts à vos ressources cloud consommées. Les coûts sont entièrement alloués quand toutes les ressources sont classées avec des balises. Une fois les coûts alloués, vous pouvez fournir à vos utilisateurs des informations de récupération des données de facturation ou de facturation interne sous la forme de rapports et de tableaux de bord. Toutefois, il arrive que de nombreuses ressources ne soient pas étiquetées ou étiquetables quand vous commencez à utiliser Cloudyn.
 
-Par exemple, vous pouvez souhaiter être remboursé de coûts d’ingénierie. Vous devez pouvoir montrer à votre équipe d’ingénierie que vous avez besoin d’un montant spécifique, basé sur les coûts des ressources. Vous pouvez leur montrer un rapport pour toutes les ressources consommées qui portent l’étiquette *ingénierie*.
+Par exemple, vous pouvez souhaiter être remboursé de coûts d’ingénierie. Vous devez pouvoir montrer à votre équipe d’ingénierie que vous avez besoin d’un montant spécifique, basé sur les coûts des ressources. Vous pouvez leur montrer un rapport pour toutes les ressources consommées qui portent la balise *ingénierie*.
 
 Dans cet article, les étiquettes et les catégories sont parfois synonymes. Les catégories sont de vastes collections qui peuvent correspondre à beaucoup de choses. Elles peuvent inclure des unités commerciales, des centres de coûts, des services web ou tout élément étiqueté. Les étiquettes sont des paires nom/valeur qui vous permettent de catégoriser les ressources, ainsi que d’afficher et de gérer les informations de facturation consolidées en appliquant la même étiquette à plusieurs ressources et groupes de ressources. Dans les versions antérieures du portail Azure, un *nom d’étiquette* s’appelait une *clé*. Les étiquettes sont créées et stockées par un seul abonnement Azure. Les étiquettes dans AWS se composent de paires clé/valeur. Dans la mesure où Azure et AWS ont tous deux utilisé le terme *clé*, Cloudyn utilise ce terme. Le Gestionnaire de catégories utilise des clés (noms d’étiquettes) pour fusionner les étiquettes.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 > [!div class="checklist"]
-> * Utiliser des étiquettes personnalisées pour allouer les coûts.
+> * Utiliser des balises personnalisées pour allouer les coûts.
 > * Créer des rapports de récupération des données de facturation et de facturation interne.
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -41,7 +41,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 - La [supervision d’invités](azure-vm-extended-metrics.md) doit être activée sur vos machines virtuelles.
 
 
-## <a name="use-custom-tags-to-allocate-costs"></a>Utiliser des étiquettes personnalisées pour allouer les coûts
+## <a name="use-custom-tags-to-allocate-costs"></a>Utiliser des balises personnalisées pour allouer les coûts
 
 Cloudyn récupère les données d’étiquette de groupe de ressources auprès d’Azure et les propage automatiquement vers les ressources. Dans l’affectation des coûts, vous pouvez voir le coût en fonction des étiquettes de ressources.
 
@@ -49,19 +49,19 @@ Cloudyn récupère les données d’étiquette de groupe de ressources auprès d
 
 N’oubliez pas que les informations sur les étiquettes n’apparaissent pas pour ces ressources dans les rapports d’*analyse des coûts*. De plus, les étiquettes appliquées dans Cloudyn à l’aide de l’affectation des coûts ne sont pas envoyées à Azure. Vous ne les voyez donc pas dans le portail Azure.
 
-Quand vous démarrez l’allocation des coûts, vous devez commencer par définir l’étendue à l’aide d’un modèle de coût. Le modèle de coût ne change pas les coûts, mais les distribue. Quand vous créez un modèle de coût, vous segmentez vos données par entité de coût, compte ou abonnement et par plusieurs étiquettes. Parmi les exemples d’étiquette courants citons un code de facturation, un centre de coûts ou un nom de groupe. En outre, les étiquettes vous aident à effectuer des opérations de récupération des données de facturation ou de facturation interne sur d’autres parties de votre organisation.
+Quand vous démarrez l’allocation des coûts, vous devez commencer par définir l’étendue à l’aide d’un modèle de coût. Le modèle de coût ne change pas les coûts, mais les distribue. Quand vous créez un modèle de coût, vous segmentez vos données par entité de coût, compte ou abonnement et par plusieurs balises. Parmi les exemples de balise courants citons un code de facturation, un centre de coûts ou un nom de groupe. En outre, les balises vous aident à effectuer des opérations de récupération des données de facturation ou de facturation interne sur d’autres parties de votre organisation.
 
 Pour créer un modèle d’affectation des coûts personnalisé, sélectionnez **Costs** (Coûts) &gt; **Cost Management** (Gestion des coûts) &gt; **Cost Allocation 360°** (Affectation des coûts 360°) dans le menu du rapport.
 
 ![Sélection de l’option Cost Allocation 360°(Allocation des coûts 360°)](./media/tutorial-manage-costs/cost-allocation-360.png)
 
-Dans la page **Cost Allocation 360** (Allocation des coûts 360), sélectionnez **Add** (Ajouter), puis entrez un nom et une description pour votre modèle de coût. Sélectionnez tous les comptes ou des comptes individuels. Si vous souhaitez utiliser des comptes individuels, vous pouvez sélectionner plusieurs comptes à partir de plusieurs fournisseurs de services cloud. Ensuite, cliquez sur **Categorization** (Catégorisation) pour choisir les étiquettes découvertes qui classent les données de coût. Choisissez les étiquettes (catégories) que vous souhaitez inclure dans votre modèle. Dans l’exemple suivant, l’étiquette **Unit** (Unité) est sélectionnée.
+Dans la page **Cost Allocation 360** (Allocation des coûts 360), sélectionnez **Add** (Ajouter), puis entrez un nom et une description pour votre modèle de coût. Sélectionnez tous les comptes ou des comptes individuels. Si vous souhaitez utiliser des comptes individuels, vous pouvez sélectionner plusieurs comptes à partir de plusieurs fournisseurs de services cloud. Ensuite, cliquez sur **Categorization** (Catégorisation) pour choisir les balises découvertes qui classent les données de coût. Choisissez les balises (catégories) que vous souhaitez inclure dans votre modèle. Dans l’exemple suivant, la balise **Unit** (Unité) est sélectionnée.
 
 ![Exemple de catégorisation avec modèle de coût](./media/tutorial-manage-costs/cost-model01.png)
 
 
 
-L’exemple montre qu’un montant de 14.444 $ n’entre dans aucune des catégories (aucune étiquettes spécifique associée).
+L’exemple montre qu’un montant de 19 680 $ n’entre dans aucune des catégories (aucune balise spécifique associée).
 
 Ensuite, sélectionnez **Uncategorized Resources** (Ressources sans catégorie) et sélectionnez les services qui ont des coûts non alloués. Ensuite, définissez des règles pour allouer les coûts.
 
@@ -87,7 +87,7 @@ La liste des modèles de coût affiche votre nouveau modèle de coût comme éta
 
 ### <a name="category-manager"></a>Gestionnaire de catégories
 
-Category Manager (Gestionnaire de catégories) est un outil de nettoyage des données qui vous permet de fusionner les valeurs de plusieurs catégories (étiquettes) pour en créer d’autres. Avec cet outil simple basé sur les règles, vous pouvez sélectionner une catégorie et créer des règles pour fusionner des valeurs existantes. Par exemple, vous pouvez avoir des catégories existantes pour **R&amp;D** et **dev**, qui représentent toutes deux le groupe de développement.
+Category Manager (Gestionnaire de catégories) est un outil de nettoyage des données qui vous permet de fusionner les valeurs de plusieurs catégories (balises) pour en créer d’autres. Avec cet outil simple basé sur les règles, vous pouvez sélectionner une catégorie et créer des règles pour fusionner des valeurs existantes. Par exemple, vous pouvez avoir des catégories existantes pour **R&amp;D** et **dev**, qui représentent toutes deux le groupe de développement.
 
 Dans le portail Cloudyn, cliquez sur le symbole d’engrenage dans le coin supérieur droit et sélectionnez **Category Manager** (Gestionnaire de catégories). Pour créer une catégorie, sélectionnez le signe plus (**+**). Entrez un nom pour la catégorie, puis sous **Keys** (Clés), entrez les clés de catégorie que vous souhaitez inclure dans la nouvelle catégorie.
 
@@ -99,30 +99,30 @@ L’image suivante montre un exemple de règles créées pour une nouvelle caté
 
 ![Exemple de catégorie](./media/tutorial-manage-costs/category01.png)
 
-### <a name="tag-sources-and-reports"></a>Sources et rapports d’étiquette
+### <a name="tag-sources-and-reports"></a>Sources et rapports de balise
 
-Les données d’étiquette présentes dans les rapports Cloudyn proviennent de trois emplacements :
+Les données de balise présentes dans les rapports Cloudyn proviennent de trois emplacements :
 
 - API de ressources de fournisseur de cloud
 - API de facturation de fournisseur de cloud
-- Étiquettes créées manuellement à partir des sources suivantes :
-    - Étiquettes d’entité Cloudyn : métadonnées définies par l’utilisateur appliquées aux entités Cloudyn
-    - Category Manager : outil de nettoyage de données qui crée de nouvelles étiquettes basées sur des règles appliquées aux étiquettes existantes
+- Balises créées manuellement à partir des sources suivantes :
+    - Balises d’entité Cloudyn : métadonnées définies par l’utilisateur appliquées aux entités Cloudyn
+    - Category Manager : outil de nettoyage de données qui crée de nouvelles balises basées sur des règles appliquées aux balises existantes
 
-Pour afficher des étiquettes de fournisseur de cloud dans des rapports de coût Cloudyn, vous devez créer un modèle de répartition de coût personnalisé à l’aide de Cost Allocation 360. Pour ce faire, accédez à **Cost** (Coût) > **Cost Management** (Gestion des coûts) > **Cost Allocation 360°** (Affectation des coûts 360°), sélectionnez les étiquettes souhaitées, puis définissez des règles permettant de gérer les coûts non étiquetés. Créez ensuite un nouveau modèle de coût. Par la suite, vous pouvez afficher des rapports dans Cost Allocation Analysis pour consulter, filtrer et trier sur vos étiquettes de ressources Azure.
+Pour afficher des balises de fournisseur de cloud dans des rapports de coût Cloudyn, vous devez créer un modèle de répartition de coût personnalisé à l’aide de Cost Allocation 360. Pour ce faire, accédez à **Cost** (Coût) > **Cost Management** (Gestion des coûts) > **Cost Allocation 360°** (Affectation des coûts 360°), sélectionnez les étiquettes souhaitées, puis définissez des règles permettant de gérer les coûts non étiquetés. Créez ensuite un nouveau modèle de coût. Par la suite, vous pouvez afficher des rapports dans Cost Allocation Analysis pour consulter, filtrer et trier sur vos balises de ressources Azure.
 
 Les étiquettes de ressources Azure apparaissent uniquement dans les rapports **Costs** (Coûts) > **Cost Allocation Analysis** (Analyse d’affectation des coûts).
 
-Les étiquettes de facturation de fournisseur de cloud apparaissent dans tous les rapports de coût.
+Les balises de facturation de fournisseur de cloud apparaissent dans tous les rapports de coût.
 
-Les étiquettes d’entités Cloudyn et les étiquettes que vous créez manuellement apparaissent dans tous les rapports de coût.
+Les balises d’entités Cloudyn et les balises que vous créez manuellement apparaissent dans tous les rapports de coût.
 
 
 ## <a name="create-showback-and-chargeback-reports"></a>Créer des rapports de récupération des données de facturation et de facturation interne
 
 La méthode qu’utilisent les organisations pour effectuer des opérations de récupération des données de facturation et de facturation interne varie considérablement. Toutefois, dans les deux cas, vous pouvez vous baser sur les tableaux de bord et rapports mis à votre disposition dans le portail Cloudyn. Vous pouvez fournir l’accès utilisateur à toute personne de votre organisation afin qu’elle puisse afficher les tableaux de bord et les rapports à la demande. Tous les rapports d’analyse des coûts prennent en charge les opérations de récupération des données de facturation, car ils montrent aux utilisateurs les ressources qu’ils ont consommées. En outre, ils permettent aux utilisateurs d’explorer les données de coût ou d’utilisation propres à leur groupe au sein de votre organisation.
 
-Pour afficher les résultats de l’allocation des coûts, ouvrez le rapport d’analyse des coûts et sélectionnez le modèle de coût que vous avez créé. Ensuite, ajoutez un regroupement en fonction d’une ou de plusieurs étiquettes sélectionnées dans le modèle de coût.
+Pour afficher les résultats de l’allocation des coûts, ouvrez le rapport d’analyse des coûts et sélectionnez le modèle de coût que vous avez créé. Ensuite, ajoutez un regroupement en fonction d’une ou de plusieurs balises sélectionnées dans le modèle de coût.
 
 ![Rapport d’analyse des coûts](./media/tutorial-manage-costs/cost-analysis.png)
 
@@ -136,7 +136,7 @@ Si vous avez besoin de fournir des données de capture instantanée à d’autre
 Dans ce tutoriel, vous avez appris à :
 
 > [!div class="checklist"]
-> * Utiliser des étiquettes personnalisées pour allouer les coûts.
+> * Utiliser des balises personnalisées pour allouer les coûts.
 > * Créer des rapports de récupération des données de facturation et de facturation interne.
 
 

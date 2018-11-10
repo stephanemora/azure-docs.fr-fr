@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/11/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c14013121517267445e89f43e228b03ba184f013
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ad3deaad8c069cfb11bb0eb997d886807ecdb0f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415254"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006496"
 ---
 # <a name="analyze-data-usage-in-log-analytics"></a>Analyser l’utilisation des données dans Log Analytics
 
@@ -58,7 +58,7 @@ Le tableau de bord **Utilisation de Log Analytics** affiche les informations sui
 3. Dans votre liste d’espaces de travail Log Analytics, sélectionnez un espace de travail.
 4. Sélectionnez **Utilisation et estimation des coûts** dans la liste du volet gauche.
 5. Dans le tableau de bord **Utilisation et estimation des coûts**, vous pouvez modifier l’intervalle de temps en sélectionnant **Heure : Dernières 24 heures**.<br><br> ![Intervalle de temps](./media/log-analytics-usage/usage-time-filter-01.png)<br><br>
-6. Affichez les panneaux de catégorie d’utilisation qui montrent les domaines qui vous intéressent. Choisissez un panneau, puis cliquez dessus pour afficher plus de détails dans [Recherche de journal](log-analytics-log-searches.md).<br><br> ![Exemple de kpi d’utilisation des données](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
+6. Affichez les panneaux de catégorie d’utilisation qui montrent les domaines qui vous intéressent. Choisissez un panneau, puis cliquez dessus pour afficher plus de détails dans [Recherche de journal](log-analytics-queries.md).<br><br> ![Exemple de kpi d’utilisation des données](media/log-analytics-usage/data-volume-kpi-01.png)<br><br>
 7. Dans le tableau de bord Recherche de journal, passez en revue les résultats renvoyés par la recherche.<br><br> ![exemple de recherche de journal d’utilisation](./media/log-analytics-usage/usage-log-search-01.png)
 
 ## <a name="create-an-alert-when-data-collection-is-higher-than-expected"></a>Créer une alerte lorsque la collection de données est plus volumineuse que prévu
@@ -78,7 +78,7 @@ La requête suivante utilise une formule simple pour prévoir le moment où plus
 
 Pour alerter sur un volume de données différent, remplacez la valeur de 100 dans les requêtes par le nombre de Go pour lequel vous souhaitez créer une alerte.
 
-Utilisez les étapes décrites dans [Création d’une alerte de journal](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) pour être averti lorsque la collection de données est plus volumineuse que prévu.
+Utilisez les étapes décrites dans [Création d’une alerte de journal](../monitoring-and-diagnostics/alert-metric.md) pour être averti lorsque la collection de données est plus volumineuse que prévu.
 
 Lors de la création de l’alerte pour la première requête, lorsque plus de 100 Go de données sont collectés en 24 heures, définissez :  
 
@@ -163,19 +163,19 @@ Pour réduire le volume de journaux collectés, procédez comme suit :
 | Journaux d’événements                 | Modifiez la [configuration du journal d’événements](log-analytics-data-sources-windows-events.md) de façon à : <br> - Réduire le nombre de journaux des événements collectés <br> - Collecter uniquement les niveaux d’événement requis Par exemple, ne collectez pas les événements de niveau *Informations*. |
 | syslog                     | Modifiez la [configuration du syslog](log-analytics-data-sources-syslog.md) de façon à : <br> - Réduire le nombre d’installations collectées <br> - Collecter uniquement les niveaux d’événement requis Par exemple, ne collectez pas les événements de niveau *Informations* et *Débogage*. |
 | AzureDiagnostics           | Modifiez la collection de journaux de ressources pour : <br> - Réduire le nombre de journaux d’envoi de ressources à Log Analytics <br> - Collecter uniquement les journaux nécessaires |
-| Données de solution d’ordinateurs n’ayant pas besoin de la solution | Utilisez le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement. |
+| Données de solution d’ordinateurs n’ayant pas besoin de la solution | Utilisez le [ciblage de solution](../monitoring/monitoring-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement. |
 
 ### <a name="check-if-there-are-more-nodes-than-expected"></a>Vérifier s’il y a plus de nœuds que prévu
 Si vous utilisez le niveau tarifaire *Par nœud (Log Analytics)*, vous êtes facturé en fonction du nombre de nœuds et de solutions que vous utilisez. Vous pouvez voir le nombre de nœuds utilisés par offre dans la section *Offres* du tableau de bord d’utilisation.<br><br> ![tableau de bord utilisation](./media/log-analytics-usage/log-analytics-usage-offerings.png)<br><br>
 
 Cliquez sur **Afficher tout...**  pour consulter la liste complète des ordinateurs envoyant des données pour l’offre sélectionnée.
 
-Utilisez le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement.
+Utilisez le [ciblage de solution](../monitoring/monitoring-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez [Recherche de données à l’aide de recherches de journal](log-analytics-log-searches.md) pour apprendre à utiliser le langage de recherche. Vous pouvez utiliser des requêtes de recherche pour effectuer des analyses supplémentaires sur les données d’utilisation.
-* Utilisez les étapes décrites dans [Création d’une alerte de journal](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) pour être averti lorsqu’un critère de recherche est rempli.
-* Utilisez le [ciblage de solution](../operations-management-suite/operations-management-suite-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement.
+* Consultez [Recherche de données à l’aide de recherches de journal](log-analytics-queries.md) pour apprendre à utiliser le langage de recherche. Vous pouvez utiliser des requêtes de recherche pour effectuer des analyses supplémentaires sur les données d’utilisation.
+* Utilisez les étapes décrites dans [Création d’une alerte de journal](../monitoring-and-diagnostics/alert-metric.md) pour être averti lorsqu’un critère de recherche est rempli.
+* Utilisez le [ciblage de solution](../monitoring/monitoring-solution-targeting.md) pour collecter des données des groupes d’ordinateurs requis uniquement.
 * Pour configurer une règle efficace de collecte d’événements de sécurité, passez en revue [Stratégie de filtrage de Azure Security Center](../security-center/security-center-enable-data-collection.md).
 * Modifier la [configuration du compteur de performances](log-analytics-data-sources-performance-counters.md).
 * Pour modifier vos paramètres de collecte d’événements, consultez [Configuration du journal des événements](log-analytics-data-sources-windows-events.md).

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 3e0e9a59d7f77355077fc1f7781eb3be4dbe0532
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c245a844ae594f5d78b47a168ad5870f8aea10e9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296701"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227771"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Rôles et tâches du responsable de l’équipe Team Data Science Process
 
@@ -66,7 +66,7 @@ Ce schéma et la présentation suivante, plus détaillée, des tâches attribué
 > [!NOTE]
 > Les instructions suivantes expliquent comment configurer un environnement TDSP et effectuer d’autres tâches de science des données dans Azure DevOps. Nous indiquons comment accomplir ces tâches avec Azure DevOps, car c’est de cette façon que nous implémentons le processus TDSP chez Microsoft. Azure DevOps facilite la collaboration en intégrant la gestion des éléments qui effectuent le suivi des tâches et un service d’hébergement de code utilisé pour partager les utilitaires, organiser les versions et garantir une sécurité basée sur les rôles. Vous pouvez choisir d’autres plateformes pour implémenter les tâches présentées par le projet TDSP. Toutefois, toutes les fonctionnalités issues d’Azure DevOps ne sont pas forcément disponibles sur chaque plateforme. 
 >
->Les instructions présentées ici utilisent également la [machine virtuelle Data Science Virtual Machine (DSVM)](http://aka.ms/dsvm) sur le cloud Azure comme bureau d’analyse avec plusieurs outils de science des données courants, préconfigurés et compatibles avec différents logiciels Microsoft et services Azure. Vous pouvez utiliser la machine DSVM ou tout autre environnement de développement pour implémenter TDSP. 
+>Les instructions présentées ici utilisent également la [machine virtuelle Data Science Virtual Machine (DSVM)](https://aka.ms/dsvm) sur le cloud Azure comme bureau d’analyse avec plusieurs outils de science des données courants, préconfigurés et compatibles avec différents logiciels Microsoft et services Azure. Vous pouvez utiliser la machine DSVM ou tout autre environnement de développement pour implémenter TDSP. 
 
 
 ## <a name="group-manager-tasks"></a>Tâches du responsable de groupe

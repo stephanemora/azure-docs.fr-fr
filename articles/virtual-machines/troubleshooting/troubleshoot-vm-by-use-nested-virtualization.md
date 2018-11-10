@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 04/06/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 36c42830738f160b24f65e86576ba93aac1ea737
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c84d015da907c8792f09d1d60e6bc8eddb7e2957
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47411811"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005596"
 ---
 # <a name="troubleshoot-a-problem-azure-vm-by-using-nested-virtualization-in-azure"></a>Dépanner une machine virtuelle Azure à l’aide de la virtualisation imbriquée dans Azure
 
@@ -101,7 +101,7 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de secou
 
 11. Sélectionnez **Attacher un disque dur virtuel ultérieurement**.
 
-    ![image de l’option Attacher un disque dur virtuel ultérieurement](/media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
+    ![image de l’option Attacher un disque dur virtuel ultérieurement](media/troubleshoot-vm-by-use-nested-virtualization/attach-disk-later.png)
 
 12. Sélectionnez **Terminer** quand la machine virtuelle a été créée.
 
@@ -109,11 +109,11 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de secou
 
 14. Sélectionnez **Contrôleur IDE 0**, sélectionnez **Disque dur**, puis cliquez sur **Ajouter**.
 
-    ![image de l’ajout d’un nouveau disque dur](/media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
+    ![image de l’ajout d’un nouveau disque dur](media/troubleshoot-vm-by-use-nested-virtualization/create-new-drive.png)    
 
 15. Dans **Disque dur physique**, sélectionnez le disque de la machine virtuelle posant problème que vous avez attaché à la machine virtuelle Azure. Si vous ne voyez pas de disques répertoriés, vérifiez si le disque est défini sur Hors connexion à l’aide de la fonction Gestion des disques.
 
-    ![image du montage du disque](/media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
+    ![image du montage du disque](media/troubleshoot-vm-by-use-nested-virtualization/mount-disk.png)  
 
 
 17. Sélectionnez **Apply** (Appliquer), puis **OK**.
@@ -130,11 +130,11 @@ Pour monter la machine virtuelle posant problème, la machine virtuelle de secou
 
 3.  Accédez à **Toutes les ressources**, recherchez le nom du disque, puis sélectionnez le disque.
 
-     ![image de la recherche du disque](/media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
+     ![image de la recherche du disque](media/troubleshoot-vm-by-use-nested-virtualization/search-disk.png)     
 
 4. Cliquez sur **Créer une machine virtuelle**.
 
-     ![image de la création de la machine virtuelle à partir du disque](./media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
+     ![image de la création de la machine virtuelle à partir du disque](media/troubleshoot-vm-by-use-nested-virtualization/create-vm-from-vhd.png) 
 
 Vous pouvez également utiliser Azure PowerShell pour créer la machine virtuelle à partir du disque. Pour plus d’informations, consultez [Créer la machine virtuelle à partir d’un disque existant à l’aide de PowerShell](../windows/create-vm-specialized.md#create-the-new-vm). 
 

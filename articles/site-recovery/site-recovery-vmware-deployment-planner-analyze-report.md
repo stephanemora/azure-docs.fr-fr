@@ -1,21 +1,21 @@
 ---
-title: Azure Site Recovery deployment planner pour le déploiement de VMware vers Azure| Microsoft Docs
-description: Cet article décrit l’analyse d’un rapport généré de Azure Site Recovery Deployment Planner pour le déploiement de VMware vers Azure.
-services: site-recovery
+title: Analyser le rapport du Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence de VMware sur Azure | Microsoft Docs
+description: Cet article décrit comment analyser un rapport généré par le Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence VMware sur Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: e6aa3a8c788fe06a528a9c363a28faffa0a9ca88
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: d709b13aaf6b6ee9a913484ed503da1e76982d17
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094086"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213914"
 ---
-# <a name="azure-site-recovery-deployment-planner-report"></a>Rapport de Azure Site Recovery Deployment Planner
+# <a name="analyze-the-azure-site-recovery-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analyser le rapport du Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence VMware sur Azure
+
 Le rapport Microsoft Excel généré contient les feuilles suivantes :
 ## <a name="on-premises-summary"></a>Résumé local
 La feuille de calcul du résumé local fournit une vue d’ensemble de l’environnement VMware profilé.

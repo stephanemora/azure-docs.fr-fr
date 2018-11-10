@@ -8,14 +8,14 @@ ms.service: batch
 ms.devlang: multiple
 ms.topic: article
 ms.workload: na
-ms.date: 06/04/2018
+ms.date: 10/24/2018
 ms.author: danlep
-ms.openlocfilehash: a85db0315a2ee8aa9fd34b8c18893f4cb1068528
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 458b0f7bbf581c7f2490a8122f351dac612b4ff0
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39090960"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50155602"
 ---
 # <a name="run-container-applications-on-azure-batch"></a>Exécuter des applications de conteneur sur Azure Batch
 
@@ -40,7 +40,7 @@ L’utilisation de conteneurs permet de lancer simplement des tâches par lot sa
 
 * **Une image de machine virtuelle prise en charge** : les conteneurs sont uniquement pris en charge dans les pools créés lors de la configuration des machines virtuelles à partir d’images détaillées dans la section « Images de machines virtuelles prises en charge ». Si vous fournissez une image personnalisée, consultez les considérations présentées dans la section suivante et la configuration requise dans [Utiliser une image personnalisée managée pour créer un pool de machines virtuelles](batch-custom-images.md). 
 
-### <a name="limitations"></a>Limitations
+### <a name="limitations"></a>Limites
 
 * Batch prend en charge RDMA uniquement pour les conteneurs exécutés sur les pools Linux.
 
@@ -225,11 +225,15 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 
 ## <a name="container-settings-for-the-task"></a>Paramètres de conteneur pour la tâche
 
-Pour exécuter des tâches de conteneur sur les nœuds de calcul, vous devez spécifier les paramètres spécifiques aux conteneurs, tels que des options d’exécution des tâches, des images à utiliser et un registre.
+Pour exécuter des tâches de conteneur sur les nœuds de calcul, vous devez spécifier des paramètres spécifiques aux conteneurs, tels que des options d’exécution de conteneurs, des images à utiliser et un registre.
 
 Utilisez la propriété `ContainerSettings` des classes de tâches pour configurer les paramètres spécifiques au conteneur. Ces paramètres sont définis par la classe [TaskContainerSettings](/dotnet/api/microsoft.azure.batch.taskcontainersettings).
 
 Si vous exécutez des tâches sur des images conteneur, la [tâche de cloud](/dotnet/api/microsoft.azure.batch.cloudtask) et la [tâche du gestionnaire de travaux](/dotnet/api/microsoft.azure.batch.cloudjob.jobmanagertask) nécessitent des paramètres de conteneur. Toutefois, la [tâche de démarrage](/dotnet/api/microsoft.azure.batch.starttask), la [tâche de préparation du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobpreparationtask) et la [tâche de mise en production du travail](/dotnet/api/microsoft.azure.batch.cloudjob.jobreleasetask) ne nécessitent pas de paramètres de conteneur (autrement dit, elles peuvent s’exécuter dans un contexte de conteneur ou directement sur le nœud).
+
+Les [ContainerRunOptions](/dotnet/api/microsoft.azure.batch.taskcontainersettings.containerrunoptions) non obligatoires sont des arguments supplémentaires pour la commande `docker create` exécutée par la tâche pour créer le conteneur.
+
+### <a name="container-task-working-directory"></a>Répertoire de travail de la tâche de conteneur
 
 La ligne de commande pour une tâche de conteneur Azure Batch s’exécute dans un répertoire de travail du conteneur qui est très similaire à l’environnement configuré par Batch pour une tâche (non-conteneur) normale :
 
@@ -237,9 +241,13 @@ La ligne de commande pour une tâche de conteneur Azure Batch s’exécute dans 
 * Toutes les variables d’environnement de la tâche sont mappées dans le conteneur.
 * Le répertoire de travail de l’application est défini de la même façon que pour une tâche normale : vous pouvez donc utiliser des fonctionnalités comme les packages d’application et les fichiers de ressources.
 
-Comme Batch change le répertoire de travail par défaut dans votre conteneur, la tâche s’exécute à un emplacement du point d’entrée habituel du conteneur (par exemple `c:\` par défaut sur un conteneur Windows, ou `/` sur Linux). Vérifiez que la ligne de commande ou le point d’entrée du conteneur de votre tâche spécifie un chemin absolu, si ce n’est pas déjà le cas.
+Étant donné que Batch change le répertoire de travail par défaut dans le conteneur, la tâche s’exécute à un autre emplacement que celui du répertoire de travail habituel du conteneur (par exemple, `c:\` par défaut sur un conteneur Windows, `/` sur Linux, ou un autre répertoire s’il est configuré dans l’image conteneur). Pour vous assurer que vos applications de conteneur s’exécutent correctement dans le contexte Batch, effectuez l’une des opérations suivantes : 
 
-L’extrait de code Python suivant montre une ligne de commande de base exécutée dans un conteneur Ubuntu extrait du Hub Docker. Les options d’exécution du conteneur sont des arguments supplémentaires pour la commande `docker create` exécutée par la tâche. Ici, l’option `--rm` supprime le conteneur une fois que la tâche est terminée.
+* Vérifiez que la ligne de commande (ou le répertoire de travail du conteneur) de votre tâche spécifie un chemin absolu, si ce n’est pas déjà le cas.
+
+* Dans ContainerSettings de la tâche, définissez un répertoire de travail dans les options d’exécution du conteneur. Par exemple : `--workdir /app`.
+
+L’extrait de code Python suivant montre une ligne de commande de base exécutée dans un conteneur Ubuntu extrait du Hub Docker. Ici, l’option d’exécution du conteneur `--rm` supprime le conteneur une fois que la tâche est terminée.
 
 ```python
 task_id = 'sampletask'

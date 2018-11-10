@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2018
 ms.author: iainfou
-ms.openlocfilehash: cdf8c64f20e15074a1f055d2ab7abf4304d62505
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 5417e59f15ffcf48cc2af27044355d2bb5c9edaf
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017905"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50087693"
 ---
 # <a name="create-a-continuous-deployment-pipeline-with-jenkins-and-azure-kubernetes-service-aks"></a>Créer un pipeline de déploiement continu avec Jenkins et Azure Kubernetes Service (AKS)
 
@@ -34,9 +34,11 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 - Un [cluster AKS][aks-quickstart] et `kubectl` configuré avec les [informations d’identification du cluster AKS][aks-credentials].
 - Un [registre Azure Container Registry (ACR)][acr-quickstart], le nom du serveur de connexion ACR et le cluster AKS configuré pour [s’authentifier auprès du registre ACR][acr-authentication].
 
-- Azure CLI version 2.0.46 ou ultérieure installé et configuré. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
+- Azure CLI version 2.0.46 ou ultérieure installé et configuré. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 - [Docker installé][docker-install] sur votre système de développement.
 - Un compte GitHub, un [jeton d’accès personnel GitHub][git-access-token] et un client Git installé sur votre système de développement.
+
+- Si vous fournissez votre propre instance Jenkins à la place de cet exemple de façon scriptée de déployer Jenkins, votre instance Jenkins a besoin de [Docker installé et configuré][docker-install], et de [kubectl][kubectl-install].
 
 ## <a name="prepare-the-application"></a>Préparer l’application
 
@@ -317,6 +319,7 @@ Dans cet article, vous avez appris à utiliser Jenkins dans le cadre d’une sol
 [kubectl-apply]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#apply
 [kubectl-get]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 [docker-install]: https://docs.docker.com/install/
+[kubectl-install]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 
 <!-- LINKS - internal -->
 [az-acr-list]: /cli/azure/acr#az-acr-list

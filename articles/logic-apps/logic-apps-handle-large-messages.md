@@ -14,18 +14,18 @@ ms.tgt_pltfrm: ''
 ms.topic: article
 ms.date: 4/27/2018
 ms.author: shhurst
-ms.openlocfilehash: e6ac6a4aa46feb768df437ff9d5969b2b41092c3
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 5aa5ea2a39a0fb9f969e965fed14063522197cda
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041643"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085779"
 ---
 # <a name="handle-large-messages-with-chunking-in-azure-logic-apps"></a>Gérer les messages volumineux avec la segmentation dans Azure Logic Apps
 
 Pour traiter les messages, Logic Apps limite leur contenu à une taille maximale. Cette limite permet de réduire la surcharge créée par le stockage et le traitement des messages volumineux. Pour gérer les messages dépassant cette limite de taille, Logic Apps peut *segmenter* un message volumineux en messages de plus petite taille. De cette façon, vous pouvez toujours transférer des fichiers volumineux à l’aide de Logic Apps dans des conditions spécifiques. Lors de la communication avec d’autres services via des connecteurs ou HTTP, Logic Apps peut traiter des messages volumineux mais *uniquement* sous forme de segments. Cette condition signifie que les connecteurs doivent également prendre en charge la segmentation, ou que le protocole d’échange de messages HTTP sous-jacent entre Logic Apps et ces services doit utiliser la segmentation.
 
-Cet article explique comment configurer la prise en charge de la segmentation pour les messages qui dépassent la taille maximale autorisée.
+Cet article explique comment configurer la segmentation des actions de gestion des messages qui dépassent la taille maximale autorisée. Les déclencheurs d’application logique ne prennent pas en charge la segmentation en raison de la surcharge liée à l’échange de nombreux messages. 
 
 ## <a name="what-makes-messages-large"></a>Qu’est-ce qui rend les messages « volumineux » ?
 

@@ -8,12 +8,12 @@ ms.date: 09/21/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5d80b6438569e74ee254d27e0061443a87efc6ce
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 80679d6efd44598fbe403707ad2e757010eb8d91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423389"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741672"
 ---
 # <a name="understand-azure-iot-edge-modules"></a>Présentation des modules Azure IoT Edge
 
@@ -31,7 +31,7 @@ Les images existent dans le cloud et peuvent être mises à jour, modifiées et 
 
 Chaque fois qu’une image de module est déployée sur un appareil et démarrée par le runtime IoT Edge, une nouvelle instance de ce module est créée. Deux appareils dans différentes parties du monde peuvent utiliser la même image de module. Toutefois, chacun aurait sa propre instance du module lors du démarrage du module sur l’appareil. 
 
-![Images de modules dans le cloud - instances de modules sur les appareils][1]
+![Images de modules dans le cloud - instances de modules sur les appareils](./media/iot-edge-modules/image_instance.png)
 
 Dans l’implémentation, les images de modules existent en tant qu’images de conteneurs dans un référentiel tandis que les instances de modules sont des conteneurs sur des appareils. 
 
@@ -46,23 +46,23 @@ L’identité associée à une instance de module dépend de l’identité de l�
 
 Il est clair que dans les scénarios où vous avez besoin de déployer une image de module plusieurs fois sur le même appareil, vous pouvez déployer la même image plusieurs fois avec des noms différents.
 
-![Les identités de modules sont uniques][2]
+![Les identités de modules sont uniques](./media/iot-edge-modules/identity.png)
 
 ## <a name="module-twins"></a>Jumeaux de module
 
 Chaque instance de module a aussi un jumeau de module correspondant que vous pouvez utiliser pour configurer l’instance de module. L’instance et le jumeau sont associés par le biais de l’identité de module. 
 
-Un jumeau de module est un document JSON qui stocke des propriétés de configuration et des informations sur un module. Ce concept s’apparente au concept de [jumeau d’appareil][lnk-device-twin] dans IoT Hub. La structure d’un jumeau de module est exactement identique à celle d’un jumeau d’appareil. Les API utilisées pour interagir avec les deux types de jumeaux sont identiques. La seule différence entre les deux est l’identité utilisée pour instancier le SDK client. 
+Un jumeau de module est un document JSON qui stocke des propriétés de configuration et des informations sur un module. Ce concept s’apparente au concept de [jumeau d’appareil](../iot-hub/iot-hub-devguide-device-twins.md) dans IoT Hub. La structure d’un jumeau de module est exactement identique à celle d’un jumeau d’appareil. Les API utilisées pour interagir avec les deux types de jumeaux sont identiques. La seule différence entre les deux est l’identité utilisée pour instancier le SDK client. 
 
 ```csharp
-// Create a ModuleClient object. This ModuleClient will act on behalf of a 
-// module since it is created with a module’s connection string instead 
-// of a device connection string. 
-ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
-await client.OpenAsync(); 
- 
-// Get the module twin 
-Twin twin = await client.GetTwinAsync(); 
+// Create a ModuleClient object. This ModuleClient will act on behalf of a 
+// module since it is created with a module’s connection string instead 
+// of a device connection string. 
+ModuleClient client = new ModuleClient.CreateFromEnvironmentAsync(settings); 
+await client.OpenAsync(); 
+ 
+// Get the module twin 
+Twin twin = await client.GetTwinAsync(); 
 ```
 
 ## <a name="offline-capabilities"></a>Fonctionnalités hors ligne
@@ -79,15 +79,8 @@ Les modules IoT Edge peuvent être hors connexion pendant de longues périodes, 
 Des fonctionnalités hors connexion supplémentaires sont disponibles en préversion publique. Pour plus d’informations, consultez [Introduction aux fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge](offline-capabilities.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
- - [Comprendre les conditions requises et les outils de développement de modules IoT Edge][lnk-mod-dev]
- - [Présentation du runtime Azure IoT Edge et de son architecture][lnk-runtime]
+ - [Comprendre les conditions requises et les outils de développement de modules IoT Edge](module-development.md)
+ - [Présentation du runtime Azure IoT Edge et de son architecture](iot-edge-runtime.md)
 
 <!-- Images -->
-[1]: ./media/iot-edge-modules/image_instance.png
 [2]: ./media/iot-edge-modules/identity.png
-
-<!-- Links -->
-[lnk-device-identity]: ../iot-hub/iot-hub-devguide-identity-registry.md
-[lnk-device-twin]: ../iot-hub/iot-hub-devguide-device-twins.md
-[lnk-runtime]: iot-edge-runtime.md
-[lnk-mod-dev]: module-development.md

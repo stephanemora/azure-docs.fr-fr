@@ -3,19 +3,19 @@ title: Présentation de HBase dans Azure HDInsight
 description: Présentation d’Apache HBase dans HDInsight, une base de données NoSQL reposant sur Hadoop. En savoir plus sur les cas d'utilisation et la comparaison de HBase sur d'autres clusters Hadoop.
 keywords: Bigtable,NoSQL,présentation de HBase,Apache HBase,HBase,vue d’ensemble de HBase,
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jasonh
-ms.openlocfilehash: 17f607cacc9b243df7f066a1f6be38dacdb0e2fb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 8cdf6ec4b02c6e194ea631687078d1851c465e45
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048611"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005714"
 ---
 # <a name="what-is-hbase-in-hdinsight-a-nosql-database-that-provides-bigtable-like-capabilities-for-hadoop"></a>Présentation de HBase dans HDInsight : une base de données NoSQL fournissant des fonctionnalités similaires à BigTable pour Hadoop
 Apache HBase est une base de données NoSQL open source, basée sur Hadoop et modélisée d'après Google BigTable. HBase fournit un accès aléatoire et une forte cohérence pour de vastes quantités de données non structurées et semi-structurées, dans une base de données sans schéma, organisée par familles de colonnes.
@@ -55,7 +55,7 @@ Les recherches Web sont le cas d'utilisation canonique pour lequel BigTable, et 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Prise en main de HBase avec Hadoop dans HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Création de clusters HBase sur Azure Virtual Network](./apache-hbase-provision-vnet.md)
-* [Configuration de la géo-réplication HBase dans HDInsigtht](apache-hbase-replication.md)
+* [Configuration de la réplication HBase dans HDInsigtht](apache-hbase-replication.md)
 * [Utilisation de Maven pour créer des applications Java utilisant HBase avec HDInsight (Hadoop)](./apache-hbase-build-java-maven-linux.md)
 
 ## <a name="see-also"></a>Voir aussi

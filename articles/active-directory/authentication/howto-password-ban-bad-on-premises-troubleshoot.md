@@ -5,23 +5,23 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 10/30/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 1eea6380d4276644db0c7681f23a4b0c5e79ff09
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187347"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741179"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Préversion : surveillance, rapports et résolution des problèmes dans la protection de mot de passe Azure AD
 
 |     |
 | --- |
-| La protection de mot de passe Azure AD et la liste de mots de passe interdits personnalisée sont des fonctionnalités de la préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez la rubrique [Conditions d'utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).|
+| La protection par mot de passe Azure AD est une fonctionnalité d’évaluation publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
 
 Après le déploiement de la protection de mot de passe Azure AD, la surveillance et la génération de rapports sont des tâches essentielles. Cet article détaillé vous aide à comprendre où chaque service journalise les informations et comment créer un rapport sur l’utilisation de la protection de mot de passe Azure AD.
@@ -88,7 +88,7 @@ Voici d’autres messages clés de journal des événements à connaître :
 
 Le mot de passe pour l’utilisateur spécifié a été accepté, car aucune stratégie de mot de passe Azure n’est pas encore disponible.
 
-UserName: <user> FullName: <user>
+UserName : SomeUser FullName : Certains utilisateurs
 
 Cela peut être dû à une ou plusieurs des raisons suivantes : %n
 
@@ -173,7 +173,7 @@ Le logiciel de service d’agent DC installe un objet de compteur de performanc
 |Requêtes de filtre de mot de passe/seconde |Ce compteur affiche la vitesse à laquelle les mots de passe sont traités.|
 |Temps de traitement des requêtes de filtre de mot de passe |Ce compteur affiche le temps moyen nécessaire pour traiter une requête de filtre de mot de passe.|
 |Temps maximal de traitement des requêtes de filtre de mot de passe |Ce compteur affiche le temps de traitement maximal de requêtes de filtre de mot de passe depuis le dernier redémarrage.|
-|Mots de passe acceptés en raison du mode d’audit |Ce compteur affiche le nombre total de mots de passe qui aurait normalement été rejetés, mais qui ont été acceptés, car la stratégie de mot de passe a été configurée en mode d’audit (depuis le dernier redémarrage).|
+|Mots de passe acceptés en raison du mode d’audit |Ce compteur affiche le nombre total de mots de passe qui auraient normalement été rejetés, mais qui ont été acceptés, car la stratégie de mot de passe a été configurée en mode d’audit (depuis le dernier redémarrage).|
 
 ## <a name="directory-services-repair-mode"></a>Mode de réparation des services d'annuaire
 
@@ -195,8 +195,8 @@ Si vous décidez de désinstaller le logiciel de la version préliminaire publiq
 2. Désinstallez le logiciel de l’agent DC sur tous les contrôleurs de domaine. Cette étape **requiert** un redémarrage.
 3. Supprimez manuellement tous les points de connexion de service de proxy dans chaque contexte de nommage de domaine. L’emplacement de ces objets peut être détecté avec la commande Powershell Active Directory suivante :
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{EBEFB703-6113-413D-9167-9F8DD4D24468}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
@@ -207,8 +207,8 @@ Si vous décidez de désinstaller le logiciel de la version préliminaire publiq
 4. Supprimez manuellement tous les points de connexion d’agent DC dans chaque contexte de nommage de domaine. Il peut exister un de ces objets par contrôleur de domaine dans la forêt, selon la portée du déploiement du logiciel de la version préliminaire publique. L’emplacement de cet objet peut être détecté avec la commande Powershell Active Directory suivante :
 
    ```
-   $scp = “serviceConnectionPoint”
-   $keywords = “{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*”
+   $scp = "serviceConnectionPoint"
+   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 

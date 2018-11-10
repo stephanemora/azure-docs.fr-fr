@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 1f3dcc7da3e91d3805cae805422778978d0187c5
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 68021d25e3deab1c6551d29b0febd9f07e144b57
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46971329"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095336"
 ---
 # <a name="tutorial-create-cross-cloud-scaling-solutions-with-azure"></a>Didacticiel : Créer des solutions de mise à l’échelle dans le cloud avec Azure
 
@@ -40,7 +40,7 @@ Dans ce tutoriel, vous créez un exemple d’environnement pour :
 
 > [!Tip]  
 > ![hybrid-pillars.png](./media/azure-stack-solution-cloud-burst/hybrid-pillars.png)  
-> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local et active le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tous lieux.  
+> Microsoft Azure Stack est une extension d’Azure. Azure Stack apporte l’agilité et l’innovation du cloud computing à votre environnement local et active le seul cloud hybride qui vous permet de créer et de déployer des applications hybrides en tout lieu.  
 > 
 > Le livre blanc [Design Considerations for Hybrid Applications](https://aka.ms/hybrid-cloud-applications-pillars) (Étude des conceptions pour les applications hybrides) se penche sur les fondements de la qualité logicielle (sélection élective, extensibilité, disponibilité, résilience, facilité de gestion et sécurité) en matière de conception, de déploiement et d’exploitation des applications hybrides. Les considérations de conception vous aident à optimiser la conception des applications hybrides, en réduisant les risques dans les environnements de production.
 
@@ -49,7 +49,7 @@ Dans ce tutoriel, vous créez un exemple d’environnement pour :
 -   Abonnement Azure. Si nécessaire, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 - Système intégré Azure Stack ou déploiement du Kit de développement Azure Stack.
-    - Vous trouverez des instructions pour l’installation d’Azure Stack dans [Installer le Kit de développement Azure Stack](/articles/azure-stack/asdk/asdk-install).
+    - La page [Installer le Kit de développement Azure Stack](/articles/azure-stack/asdk/asdk-install) comporte des instructions permettant d’installer Azure Stack.
     - [https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1](https://github.com/mattmcspirit/azurestack/blob/master/deployment/ConfigASDK.ps1) Cette installation peut nécessiter plusieurs heures.
 
 -   Déployez les services PaaS [App Service](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-deploy) sur Azure Stack.
@@ -101,7 +101,7 @@ Configurez l’intégration continue et le déploiement continu (CI/CD) hybride 
 
 ### <a name="add-code-to-visual-studio-team-services-project"></a>Ajouter du code au projet Visual Studio Team Services
 
-1. Connectez-vous à Visual Studio Team Services (VSTS) avec un compte disposant des droits de création de projet sur VSTS~~.~~
+1. Connectez-vous à Visual Studio Team Services (VSTS) avec un compte disposant des droits de création de projet sur VSTS.
 
     La CI/CD hybride peut s’appliquer au code d’application et au code d’infrastructure. Utilisez les [modèles Azure Resource Manager](https://azure.microsoft.com/resources/templates/) pour les développements cloud privé et hébergé.
 

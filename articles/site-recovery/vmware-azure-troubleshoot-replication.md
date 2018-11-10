@@ -1,19 +1,18 @@
 ---
-title: Résoudre les problèmes de réplication sur Azure pour les serveurs physiques et machines virtuelles VMware avec Azure Site Recovery | Microsoft Docs
-description: Cet article propose des solutions aux problèmes courants de réplication sur Azure des serveurs physiques et machines virtuelles VMware avec Azure Site Recovery.
-services: site-recovery
+title: Résoudre les problèmes de réplication pendant la reprise d’activité de serveurs physiques et machines virtuelles VMware sur Azure avec Azure Site Recovery | Microsoft Docs
+description: Cet article décrit des solutions aux problèmes courants de réplication pendant la reprise d’activité de serveurs physiques et machines virtuelles VMware sur Azure avec Azure Site Recovery.
 author: Rajeswari-Mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: c2100ee2388ae09bd309167b1be77f7bdbe32f69
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 915f7d7d2d6be02dfef0cd6bb9a2fa156ed565bc
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126015"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50214730"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Résoudre les problèmes de réplication pour les serveurs physiques et machines virtuelles VMware
 
@@ -70,7 +69,7 @@ Si vous rencontrez des problèmes, dans la ligne de commande du serveur de trait
 Si vous ne parvenez pas à vous connecter, vérifiez si le problème d’accès est dû au pare-feu ou au proxy, comme décrit dans l’étape suivante.
 
 
-* **Vérifiez si le pare-feu basé sur l’adresse IP du serveur de traitement ne bloque pas l’accès** : si vous utilisez des règles de pare-feu basées sur l’adresse IP sur le serveur, téléchargez la liste complète des plages d’IP du centre de données Microsoft Azure [ici](https://www.microsoft.com/download/details.aspx?id=41653) et ajoutez-les à la configuration de votre pare-feu pour vous assurer que la communication avec Azure (et le port HTTPS (443)) est autorisée.  Autorisez les plages d’adresses IP relatives à la région de votre abonnement Azure et à la région des États-Unis de l’Ouest (utilisées pour la gestion du contrôle d’accès et des identités).
+* **Vérifiez si le pare-feu basé sur l’adresse IP du serveur de traitement ne bloque pas l’accès** : si vous utilisez des règles de pare-feu basées sur l’adresse IP sur le serveur, téléchargez la liste complète des plages d’IP du centre de données Microsoft Azure [ici](https://www.microsoft.com/download/details.aspx?id=41653) et ajoutez-les à la configuration de votre pare-feu pour vous assurer que la communication avec Azure (et le port HTTPS (443)) est autorisée.  Autorisez les plages d’adresses IP relatives à la région de votre abonnement Azure et à la région USA Ouest (utilisées pour la gestion du contrôle d’accès et des identités).
 
 * **Vérifiez si le pare-feu basé sur l’URL du serveur de traitement ne bloque pas l’accès** : si vous utilisez des règles de pare-feu basées sur l’URL sur le serveur, vérifiez que les URL suivantes figurent dans la configuration du pare-feu.
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: ergreenl
-ms.openlocfilehash: 332ad288230654eb70e7b6ead862ed57a1cf52f7
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9c37eb064fb12ff548763a9c70a2e79219113b67
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155131"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227363"
 ---
 # <a name="enable-password-hash-synchronization-to-azure-active-directory-domain-services"></a>Activer la synchronisation de hachage de mot de passe pour Azure Active Directory Domain Services
 Dans les tâches précédentes, vous avez activé Azure Active Directory Domain Services pour votre locataire Azure Active Directory (Azure AD). Dans la tâche suivante, vous allez activer la synchronisation des hachages de mot de passe requise pour l’authentification NT LAN Manager (NTLM) et Kerberos avec Azure AD Domain Services. Une fois la synchronisation des informations de hachage de mot de passe configurée, les utilisateurs peuvent se connecter au domaine managé à l’aide de leurs informations d’identification d’entreprise.
@@ -53,7 +53,7 @@ Le processus de modification du mot de passe entraîne la génération, dans Azu
 ### <a name="enable-ntlm-and-kerberos-password-hash-generation-for-a-cloud-only-user-account"></a>Activer la génération du hachage de mot de passe NTLM et Kerberos pour un compte d’utilisateur dans le cloud uniquement
 Voici les instructions que vous devez fournir aux utilisateurs pour qu’ils puissent modifier leur mot de passe :
 
-1. Accédez à la [page du volet d’accès Azure AD](http://myapps.microsoft.com) de votre organisation.
+1. Accédez à la [page du volet d’accès Azure AD](https://myapps.microsoft.com) de votre organisation.
 
     ![Ouvrez le panneau d’accès Azure AD](./media/active-directory-domain-services-getting-started/access-panel.png)
 

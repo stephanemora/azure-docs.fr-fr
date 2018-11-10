@@ -4,21 +4,21 @@ description: Utilisez des blueprints Azure pour créer, définir et déployer de
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 6b7ca276f3273faa485d08633061f882493f72f7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2c53c5c51a6e93fa99f32400e512f0e13503b436
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647270"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092125"
 ---
 # <a name="define-and-assign-an-azure-blueprint-in-the-portal"></a>Définir et affecter un blueprint Azure dans le portail
 
-Une organisation qui sait comment créer et affecter des blueprints dans Azure peut définir des modèles courants de cohérence et développer des configurations réutilisables et rapides à déployer en fonction de modèles Resource Manager, de stratégies, d’exigences en matière de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprint pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation, notamment :
+Un utilisateur qui sait comment créer et affecter des blueprints peut définir des modèles courants et développer des configurations réutilisables et rapides à déployer en fonction de modèles Resource Manager, de stratégies, d’exigences en matière de sécurité, etc. Dans ce tutoriel, vous allez découvrir comment utiliser Azure Blueprint pour effectuer des tâches courantes liées à la création, à la publication et à l’affectation d’un blueprint dans votre organisation, notamment :
 
 > [!div class="checklist"]
 > - Créer un blueprint et ajouter divers artefacts pris en charge
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 La première étape de la définition d’un modèle standard à des fins de conformité est de composer un blueprint à partir des ressources disponibles. Dans cet exemple, vous allez créer un blueprint nommé « MyBlueprint » pour configurer les attributions de rôle et de stratégie pour l’abonnement, ajouter un nouveau groupe de ressources, puis créer un modèle Resource Manager et une attribution de rôle sur le nouveau groupe de ressources.
 
-1. Lancez le service Azure Blueprint dans le portail Azure. Pour cela, cliquez sur **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, cliquez sur **Blueprints**.
+1. Cliquez sur **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, cliquez sur **Blueprints**.
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche, puis cliquez sur le bouton **+ Créer un blueprint** en haut de la page.
 
@@ -49,7 +49,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
 1. Vérifiez que les informations contenues dans les champs **Nom du blueprint** et **Emplacement de définition** sont correctes, car vous ne pourrez pas les changer plus tard. Cliquez ensuite sur **Suivant : Artefacts** en bas de la page ou sur l’onglet **Artefacts** en haut de la page.
 
-1. Ajoutez une attribution de rôle au niveau de l’abonnement. Pour cela, cliquez sur la ligne **+ Ajouter un artefact...** sous **Abonnement**. La fenêtre Ajouter un artefact s’ouvre sur le côté droit du navigateur. Sélectionnez « Attribution de rôle » comme _Type d’artefact_. Sous _Rôle_, sélectionnez « Contributeur ». Laissez le champ _Ajouter un utilisateur, un groupe ou une application_ avec la case cochée pour indiquer un **paramètre dynamique**. Cliquez sur **Ajouter** pour ajouter cet artefact au blueprint.
+1. Ajoutez une attribution de rôle au niveau de l’abonnement. Pour cela, cliquez sur la ligne **+ Ajouter un artefact...** sous **Abonnement**. La fenêtre « Ajouter un artefact » s’ouvre sur le côté droit du navigateur. Sélectionnez « Attribution de rôle » comme _Type d’artefact_. Sous _Rôle_, sélectionnez « Contributeur ». Laissez le champ _Ajouter un utilisateur, un groupe ou une application_ avec la case cochée pour indiquer un **paramètre dynamique**. Cliquez sur **Ajouter** pour ajouter cet artefact au blueprint.
 
    ![Artefact - Attribution de rôle](./media/create-blueprint-portal/add-role-assignment.png)
 
@@ -58,7 +58,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
 1. Ajoutez une affectation de stratégie au niveau de l’abonnement. Pour cela, cliquez sur la ligne **+ Ajouter un artefact...** directement sous **Abonnement**. Sélectionnez « Affectation de stratégie » comme _Type d’artefact_. Choisissez « Intégré » comme _Type_, puis entrez « tag » dans _Rechercher_. Cliquez en dehors de la fonction _Rechercher_ pour que le filtrage se produise. Sélectionnez « Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources » en cliquant dessus. Cliquez sur **Ajouter** pour ajouter cet artefact au blueprint.
 
-1. Cliquez sur la ligne d’affectation de stratégie « Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources ». La fenêtre permettant de paramétrer l’artefact dans le cadre de la définition du blueprint s’ouvre. Vous définissez ainsi des **paramètres statiques** pour toutes les affectations basées sur ce blueprint (les **paramètres dynamiques** étant définis durant l’affectation). Pour cet exemple, il est souhaitable d’utiliser des **paramètres dynamiques** durant l’affectation du blueprint. Veillez donc à conserver les valeurs par défaut et à cliquer sur **Annuler**.
+1. Cliquez sur la ligne d’affectation de stratégie « Appliquer l’étiquette et sa valeur par défaut aux groupes de ressources ». La fenêtre permettant de paramétrer l’artefact dans le cadre de la définition du blueprint s’ouvre. Vous définissez ainsi des **paramètres statiques** pour toutes les affectations basées sur ce blueprint (les **paramètres dynamiques** étant définis durant l’affectation). Cet exemple utilise des **paramètres dynamiques** durant l’affectation du blueprint. Veillez donc à conserver les valeurs par défaut et à cliquer sur **Annuler**.
 
 1. Ajoutez un groupe de ressources au niveau de l’abonnement. Pour cela, cliquez sur la ligne **+ Ajouter un artefact...** sous **Abonnement**. Sélectionnez « Groupe de ressources » comme _Type d’artefact_. Laissez les champs _Nom du groupe de ressources_ et _Emplacement_ vides, mais vérifiez que la case de chaque propriété est cochée pour créer des **paramètres dynamiques**. Cliquez sur **Ajouter** pour ajouter cet artefact au blueprint.
 
@@ -119,7 +119,7 @@ La première étape de la définition d’un modèle standard à des fins de con
 
 ## <a name="edit-a-blueprint"></a>Modifier un blueprint
 
-Dans [Créer un blueprint](#create-a-blueprint), aucune description n’a été fournie et aucune attribution de rôle n’a été ajoutée au nouveau groupe de ressources. Pour remédier à ces deux problèmes, effectuez les étapes suivantes :
+Dans [Créer un blueprint](#create-a-blueprint), aucune description n’a été fournie et aucune attribution de rôle n’a été ajoutée au nouveau groupe de ressources. Ces deux éléments peuvent être renseignés en suivant les étapes ci-après :
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche.
 
@@ -129,7 +129,7 @@ Dans [Créer un blueprint](#create-a-blueprint), aucune description n’a été 
 
 1. Cliquez sur **Suivant : Artefacts** en bas de la page ou sur l’onglet **Artefacts** en haut de la page.
 
-1. Ajoutez une attribution de rôle sous le groupe de ressources. Pour cela, cliquez sur la ligne **+ Ajouter un artefact...** directement sous l’entrée **ResourceGroup**. Sélectionnez « Attribution de rôle » comme _Type d’artefact_. Sous _Rôle_, sélectionnez « Propriétaire » et décochez la case sous le champ _Ajouter un utilisateur, un groupe ou une application_. Ensuite, recherchez et sélectionnez un utilisateur, un groupe ou une application à ajouter. Ce **paramètre statique** sera utilisé dans toutes les affectations de ce blueprint. Cliquez sur **Ajouter** pour ajouter cet artefact au blueprint.
+1. Ajoutez une attribution de rôle sous le groupe de ressources. Pour cela, cliquez sur la ligne **+ Ajouter un artefact...** directement sous l’entrée **ResourceGroup**. Sélectionnez « Attribution de rôle » comme _Type d’artefact_. Sous _Rôle_, sélectionnez « Propriétaire » et décochez la case sous le champ _Ajouter un utilisateur, un groupe ou une application_. Ensuite, recherchez et sélectionnez un utilisateur, un groupe ou une application à ajouter. Cet artefact utilise un **paramètre statique** qui sera défini de la même manière dans toutes les affectations de ce blueprint. Cliquez sur **Ajouter** pour ajouter cet artefact au blueprint.
 
    ![Artefact - Attribution de rôle n° 2](./media/create-blueprint-portal/add-role-assignment-2.png)
 
@@ -180,7 +180,7 @@ Une fois un blueprint publié, vous pouvez l’affecter à un abonnement. Affect
 1. Pour « ResourceGroup », entrez « StorageAccount » comme **Nom** et choisissez « USA Est 2 » comme **Emplacement** dans la liste déroulante.
 
    > [!NOTE]
-   > Chaque artefact ajouté sous le groupe de ressources durant la définition du blueprint est mis en retrait pour qu’il soit aligné avec le groupe de ressources ou l’objet avec lequel il sera déployé. Les artefacts qui ne prennent pas de paramètres ou qui n’ont pas de paramètres à définir au moment de l’affectation sont uniquement listés pour fournir des informations contextuelles.
+   > Chaque artefact ajouté sous le groupe de ressources durant la définition du blueprint est mis en retrait pour qu’il soit aligné avec le groupe de ressources ou l’objet avec lequel il sera déployé. Les artefacts qui ne prennent pas de paramètres ou qui n’ont pas de paramètres à définir au moment de l’affectation sont uniquement répertoriés pour fournir des informations contextuelles.
 
 1. Sur le modèle Azure Resource Manager « StorageAccount », sélectionnez « Standard_GRS » comme paramètre **storageAccountType**.
 
@@ -205,7 +205,7 @@ Une fois le blueprint affecté à un abonnement, vérifiez la progression du dé
 
 ## <a name="unassign-a-blueprint"></a>Annuler l’affectation d’un blueprint
 
-Vous pouvez supprimer des blueprints d’un abonnement s’ils ne sont plus nécessaires ou s’ils ont été remplacés par d’autres plus récents avec des modèles, des stratégies et des conceptions mis à jour. Quand un blueprint est supprimé, les artefacts affectés dans le cadre de ce blueprint sont abandonnés. Pour supprimer une affectation de blueprint, effectuez les étapes suivantes :
+Si vous n’en n’avez plus besoin, supprimez une affectation de blueprint d’un abonnement. Cela peut s’avérer nécessaire si, par exemple, le blueprint a été remplacé par un autre plus récent contenant des modèles, des stratégies et des conceptions mis à jour. Quand un blueprint est supprimé, les artefacts affectés dans le cadre de ce blueprint sont abandonnés. Pour supprimer une affectation de blueprint, effectuez les étapes suivantes :
 
 1. Sélectionnez **Blueprints affectés** dans la page de gauche.
 

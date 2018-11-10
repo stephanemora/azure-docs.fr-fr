@@ -4,20 +4,22 @@ description: Découvrez comment résoudre les problèmes rencontrés avec Update
 services: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 41883fd677d276f8f26721fdccc3ded020c3278b
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: f52767058ef69d29465f1274109b6d3ffe58296c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405223"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50092625"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>Résolution des problèmes rencontrés avec Update Management
 
 Cet article traite des solutions pour résoudre les problèmes que vous pouvez rencontrer lors de l’utilisation d’Update Management.
+
+Il existe un utilitaire de résolution des problèmes qui permet à l’agent Worker hybride de déterminer le problème sous-jacent. Pour en savoir plus sur l’utilitaire de résolution des problèmes, consultez [Résoudre les problèmes de l’agent de mise à jour](update-agent-issues.md). Pour tous les autres problèmes, reportez-vous aux informations détaillées ci-dessous concernant des problèmes éventuels.
 
 ## <a name="general"></a>Généralités
 
@@ -110,6 +112,20 @@ Le Runbook Worker hybride n’a pas pu générer de certificat auto-signé.
 #### <a name="resolution"></a>Résolution :
 
 Vérifiez que le compte système a accès en lecture au dossier **C:\ProgramData\Microsoft\Crypto\RSA**, puis réessayez.
+
+### <a name="nologs"></a>Scénario : Les données Update Management ne s’affichent pas dans Log Analytics pour une machine
+
+#### <a name="issue"></a>Problème
+
+Vous avez des machines avec la mention **Non évaluée** sous **Conformité**, par contre vous voyez les données de pulsation dans Log Analytics pour le Runbook Worker hybride, mais pas pour Update Management.
+
+#### <a name="cause"></a>Cause :
+
+Il est possible que le Runbook Worker hybride doive être réinscrit et réinstallé.
+
+#### <a name="resolution"></a>Résolution :
+
+Suivez les étapes dans [Déployer un Runbook Worker hybride Windows](../automation-windows-hrw-install.md) pour réinstaller le Worker hybride.
 
 ### <a name="hresult"></a>Scénario : le machine montre s’affiche comme non évaluée et présente une exception HResult
 

@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 08/22/2018
+ms.date: 10/19/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: ef670c2dc701f888be3c7bb9a546c8a8a46f993a
+ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45979548"
+ms.lasthandoff: 10/19/2018
+ms.locfileid: "49458840"
 ---
 | Ressource | Limite par défaut | Limite maximale |
 | --- | --- | --- |
@@ -24,8 +24,6 @@ ms.locfileid: "45979548"
 | [Comptes de stockage](../articles/storage/common/storage-quickstart-create-account.md) par région et par abonnement |200 |200<sup>2</sup> |
 | [Groupes de ressources](../articles/azure-resource-manager/resource-group-overview.md) par abonnement |980 |980 |
 | [Groupes à haute disponibilité](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) par abonnement |2 000 par région |2 000 par région |
-| Lectures API Resource Manager |15 000 par heure |15 000 par heure |
-| Écritures API Resource Manager |1 200 par heure |1 200 par heure |
 | Taille de la demande d’API Resource Manager |4 194 304 octets |4 194 304 octets |
 | Balises par abonnement<sup>3</sup> |illimitée |illimitée |
 | Calculs de balise unique par abonnement<sup>3</sup> | 10 000 | 10 000 |

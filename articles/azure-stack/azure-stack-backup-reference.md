@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 10/25/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 5347fd5ce0f2d2951c34df89bcffafffed6db5c5
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 35929d820ac6f72b83d6c3f25547255ca3423fc8
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41947931"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138444"
 ---
 # <a name="infrastructure-backup-service-reference"></a>Informations de référence sur le service Infrastructure Backup
 
@@ -89,7 +89,7 @@ Infrastructure Backup Controller sauvegarde les données à la demande. La recom
 
 | Échelle de l’environnement | Taille prévue de la sauvegarde | Quantité totale d’espace nécessaire |
 |-------------------|--------------------------|--------------------------------|
-| 4 à 12 nœuds        | 10 Go                     | 140 Go                          |
+| 4-16 nœuds        | 10 Go                     | 140 Go                          |
 
 ### <a name="network-requirements"></a>Configuration requise pour le réseau
 | Emplacement de stockage                                                                 | Détails                                                                                                                                                                                 |

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 297b3f4c9ef110f8adc9dcb5cd9eac9e30729a5d
-ms.sourcegitcommit: 5b8d9dc7c50a26d8f085a10c7281683ea2da9c10
+ms.openlocfilehash: f9cc3033c476afe389cb52d3468facb9168fb920
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47180123"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006530"
 ---
 # <a name="collect-azure-service-logs-and-metrics-for-use-in-log-analytics"></a>Collecte des journaux et des métriques des services Azure à utiliser dans Log Analytics
 
@@ -51,7 +51,7 @@ Il existe quatre façons différentes de collecter des journaux et des métrique
 | Coffres de récupération         | Microsoft.RecoveryServices/vaults       |             |             | [Azure Recovery Services Analytics (version préliminaire)](https://github.com/krnese/AzureDeploy/blob/master/OMS/MSOMS/Solutions/recoveryservices/)|
 | Services de recherche         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
 | Espace de noms Service Bus   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | [Service Bus Analytics (version préliminaire)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-servicebus-solution)|
-| Service Fabric          |                                         | Stockage     |             | [Service Fabric Analytics (version préliminaire)](log-analytics-service-fabric.md) |
+| Service Fabric          |                                         | Stockage     |             | [Service Fabric Analytics (version préliminaire)](../service-fabric/service-fabric-diagnostics-oms-setup.md) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | [Azure SQL Analytics (version préliminaire)](log-analytics-azure-sql.md) |
 | Stockage                 |                                         |             | Script      | [Azure Storage Analytics (version préliminaire)](https://github.com/Azure/azure-quickstart-templates/tree/master/oms-azure-storage-analytics-solution) |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
@@ -61,14 +61,14 @@ Il existe quatre façons différentes de collecter des journaux et des métrique
 
 
 > [!NOTE]
-> Pour l’analyse des machines virtuelles (Linux et Windows), nous vous recommandons d’installer l’[extension de machine virtuelle Log Analytics](log-analytics-azure-vm-extension.md). L’agent vous fournit les informations collectées à partir de vos machines virtuelles. Vous pouvez également utiliser l’extension pour les jeux de mise à l’échelle de machine virtuelle.
+> Pour l’analyse des machines virtuelles (Linux et Windows), nous vous recommandons d’installer l’[extension de machine virtuelle Log Analytics](log-analytics-quick-collect-azurevm.md). L’agent vous fournit les informations collectées à partir de vos machines virtuelles. Vous pouvez également utiliser l’extension pour les jeux de mise à l’échelle de machine virtuelle.
 >
 >
 
 ## <a name="azure-diagnostics-direct-to-log-analytics"></a>Diagnostics Azure directement dans Log Analytics
 De nombreuses ressources Azure sont en mesure d’écrire des journaux de diagnostic et métriques directement dans Log Analytics, et il s’agit du moyen recommandé de collecter les données à analyser. Lorsque vous utilisez les diagnostics Azure, les données sont écrites immédiatement dans Log Analytics, et il est inutile d’écrire les données dans le stockage avant.
 
-Mes ressources Azure qui prennent en charge [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) peuvent envoyer leurs journaux et métriques directement vers Log Analytics.
+Mes ressources Azure qui prennent en charge [Azure Monitor](../azure-monitor/overview.md) peuvent envoyer leurs journaux et métriques directement vers Log Analytics.
 
 > [!NOTE]
 > L’envoi à Log Analytics de métriques multidimensionnels au moyen des paramètres de diagnostic n’est pas pris en charge actuellement. Les métriques avec des dimensions sont exportés en tant que métriques dimensionnels uniques aplatis, et agrégés entre les valeurs de la dimension.
@@ -158,5 +158,5 @@ La galerie de modèles Azure propose des [exemples d’utilisation d’Azure Aut
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Utiliser un Stockage Blob pour IIS et un Stockage Table pour les événements](log-analytics-azure-storage-iis-table.md) afin de lire les journaux pour les services Azure qui écrivent des diagnostics dans Stockage Table ou les journaux IIS écrits dans le Stockage Blob.
-* [Activer les solutions](log-analytics-add-solutions.md) pour fournir des informations sur les données.
-* [Utiliser les requêtes de recherche](log-analytics-log-searches.md) pour analyser les données.
+* [Activer les solutions](../monitoring/monitoring-solutions.md) pour fournir des informations sur les données.
+* [Utiliser les requêtes de recherche](log-analytics-queries.md) pour analyser les données.

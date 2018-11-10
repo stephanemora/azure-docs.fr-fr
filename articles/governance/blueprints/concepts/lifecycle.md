@@ -4,21 +4,21 @@ description: Découvrez le cycle de vie que traverse un blueprint, ainsi que les
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: e0790168a8b9590aaa440a04cd99f26c2ece2818
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 882279019a5f321c6af9beab1f4d0f220781bc5c
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46991537"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094157"
 ---
 # <a name="understand-the-life-cycle-of-an-azure-blueprint"></a>Présentation du cycle de vie d’un blueprint Azure Blueprint
 
 Comme de nombreuses ressources dans Azure, les blueprints dans Azure Blueprint ont un cycle de vie normal et naturel. Ils sont créés, déployés puis supprimés quand ils ne sont plus nécessaires ou pertinents.
-Les blueprints prennent en charge des opérations de cycle de vie traditionnelles CRUD (création/lecture/mise à jour/suppression), mais les étendent également afin de fournir des niveaux supplémentaires d’état prenant en charge les pipelines d’intégration continue et de déploiement continu (CI/CD) utilisables par ceux qui gèrent leur infrastructure par le biais du code (un élément clé dans DevOps appelé Infrastructure en tant que code (IaC)).
+Les blueprints prennent en charge les opérations de cycle de vie standard. Ils s’appuient ensuite sur celles-ci pour fournir des niveaux supplémentaires d’état prenant en charge les pipelines d’intégration et de déploiement continus communs pour les organisations qui gèrent leur infrastructure en tant que code (élément clé dans DevOps).
 
 Pour bien comprendre ce qu’est un blueprint et quelles sont les étapes de son cycle de vie, nous allons décrire un cycle de vie standard :
 
@@ -32,42 +32,43 @@ Pour bien comprendre ce qu’est un blueprint et quelles sont les étapes de son
 
 ## <a name="creating-and-editing-a-blueprint"></a>Création et modification d’un blueprint
 
-Quand vous créez un blueprint, vous y ajoutez des artefacts, vous l’enregistrez dans un groupe d’administration, et vous spécifiez un nom unique et une version unique. À ce stade, le blueprint est en mode **Brouillon** et ne peut pas encore être affecté. En revanche, pendant qu’il est en mode **Brouillon**, il peut continuer à être mis à jour et modifié.
+Quand vous créez un blueprint, vous y ajoutez des artefacts, vous l’enregistrez dans un groupe d’administration, et vous spécifiez un nom unique et une version unique. Le blueprint est à présent en mode **Brouillon** et ne peut pas encore être affecté.
+Pendant qu’il est en mode **Brouillon**, il peut continuer d’être mis à jour et modifié.
 
-Un blueprint en mode **Brouillon** qui n’a jamais été publié est affecté dans la page **Définitions de blueprint** d’une icône différente de ceux qui ont été **publiés**. Le champ **Dernière version** indique également **Brouillon** pour les blueprints qui n’ont jamais été publiés.
+Un blueprint en mode **Brouillon** qui n’a jamais été publié affiche une icône dans la page **Définitions de blueprint** qui est différente de ceux qui ont été **publiés**. Le champ **Dernière version** indique également **Brouillon** pour les blueprints qui n’ont jamais été publiés.
 
 Vous créez et modifiez un blueprint avec le [portail Azure](../create-blueprint-portal.md#create-a-blueprint) ou l’[API REST](../create-blueprint-rest-api.md#create-a-blueprint).
 
 ## <a name="publishing-a-blueprint"></a>Publication d’un blueprint
 
-Une fois que tous les changements souhaités ont été apportés à un blueprint en mode **Brouillon**, vous pouvez le **publier** et l’affecter. La version **publiée** du blueprint ne peut pas être modifiée.
+Une fois que tous les changements planifiés ont été apportés à un blueprint en mode **Brouillon**, vous pouvez le **publier** et l’affecter. La version **publiée** du blueprint ne peut pas être modifiée.
 Une fois **publié**, le blueprint est affecté d’une icône différente des blueprints en mode **Brouillon**, et le numéro de version fourni est affiché dans la colonne **Dernière version**.
 
 Vous publiez un blueprint avec le [portail Azure](../create-blueprint-portal.md#publish-a-blueprint) ou l’[API REST](../create-blueprint-rest-api.md#publish-a-blueprint).
 
 ## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Création et modification d’une nouvelle version du blueprint
 
-Bien qu’une version **publiée** d’un blueprint ne puisse pas être modifiée, une nouvelle version du blueprint peut être ajoutée au blueprint existant et modifiée en fonction des besoins. Pour cela, vous devez apporter des changements à un blueprint existant. Si le blueprint a déjà été **publié**, quand ces changements sont enregistrés ils sont affichés comme **Changements non publiés** dans la liste des définitions de blueprint. Si vous enregistrez les changements, une version **Brouillon** du blueprint est enregistrée.
+Une version **publiée** d’un blueprint ne peut pas être modifiée. Toutefois, une nouvelle version du blueprint peut être ajoutée au blueprint existant et modifiée en fonction des besoins. Apportez des changements à un blueprint existant. Quand les nouveaux changements sont enregistrés, le blueprint affiche **Changements non publiés**. Ces changements correspondent à une nouvelle version **Brouillon** du blueprint.
 
 Vous modifiez un blueprint avec le [portail Azure](../create-blueprint-portal.md#edit-a-blueprint).
 
 ## <a name="publishing-a-new-version-of-the-blueprint"></a>Publication d’une nouvelle version du blueprint
 
-Tout comme la première version d’un blueprint a été **publiée** pour pouvoir être affectée, chaque version suivante de ce même blueprint doit être **publiée** avant de pouvoir être affectée. Quand des **Changements non publiés** ont été apportés à un blueprint mais n’ont pas encore été **publiés**, le bouton **Publier le blueprint** est disponible dans la page Modifier le blueprint. Si le bouton n’est pas visible, cela signifie que le blueprint a déjà été **publié**, mais qu’il ne comporte aucun **Changement non publié**.
+Chaque version modifiée d’un blueprint doit être **publiée** avant de pouvoir être affectée. Quand des **changements non publiés** ont été apportés à un blueprint, mais n’ont pas encore été **publiés**, le bouton **Publier le blueprint** est disponible dans la page Modifier le blueprint. Si le bouton n’est pas visible, cela signifie que le blueprint a déjà été **publié** et qu’il ne comporte aucun **changement non publié**.
 
 > [!NOTE]
 > Un même blueprint peut avoir plusieurs versions **publiées** pouvant chacune être affectées à des abonnements.
 
-Les étapes nécessaires pour publier un blueprint avec des **Changements non publiés** en tant que nouvelle version d’un blueprint existant sont identiques à celles nécessaires pour publier un nouveau blueprint.
+Pour publier un blueprint avec des **changements non publiés**, utilisez les mêmes étapes que pour la publication d’un nouveau blueprint.
 
 ## <a name="deleting-a-specific-version-of-the-blueprint"></a>Suppression d’une version spécifique du blueprint
 
-Chaque version d’un blueprint est un objet unique qui peut être **publié** individuellement. Cela signifie également que chaque version d’un blueprint peut être supprimée. La suppression d’une version d’un blueprint n’a aucun impact sur les autres versions de ce blueprint.
+Chaque version d’un blueprint est un objet unique qui peut être **publié** individuellement. Par conséquent, chaque version d’un blueprint peut aussi être supprimée. La suppression d’une version d’un blueprint n’a aucun impact sur les autres versions de ce blueprint.
 
 > [!NOTE]
 > Il n’est pas possible de supprimer un blueprint ayant des affectations actives. Supprimez d’abord les affectations, puis supprimez la version du blueprint.
 
-1. Lancez le service Azure Blueprint dans le portail Azure. Pour cela, cliquez sur **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, cliquez sur **Blueprints**.
+1. Cliquez sur **Tous les services**, puis recherchez et sélectionnez **Stratégie** dans le volet gauche. Dans la page **Stratégie**, cliquez sur **Blueprints**.
 
 1. Sélectionnez **Définitions de blueprint** dans la page de gauche et utilisez les options de filtre pour trouver le blueprint dont vous souhaitez supprimer une version. Cliquez dessus pour ouvrir la page de modification.
 
@@ -77,7 +78,7 @@ Chaque version d’un blueprint est un objet unique qui peut être **publié** i
 
 ## <a name="deleting-the-blueprint"></a>Suppression du blueprint
 
-Le blueprint de base peut également être supprimé. La suppression du blueprint de base entraîne la suppression de toutes les versions de ce blueprint, qu’elles soient à l’état **Brouillon** ou **Publié**. Comme avec la suppression d’une version d’un blueprint, la suppression du blueprint de base ne supprime pas les affectations existantes des versions de blueprint.
+Le blueprint de base peut également être supprimé. La suppression du blueprint de base entraîne la suppression de toutes les versions de ce blueprint, notamment celles dont l’état est **Brouillon** et **Publié**. Comme avec la suppression d’une version d’un blueprint, la suppression du blueprint de base ne supprime pas les affectations existantes des versions de blueprint.
 
 > [!NOTE]
 > Il n’est pas possible de supprimer un blueprint ayant des affectations actives. Supprimez d’abord les affectations, puis supprimez la version du blueprint.
@@ -86,8 +87,7 @@ Vous supprimez un blueprint avec le [portail Azure](../create-blueprint-portal.m
 
 ## <a name="assignments"></a>Affectations
 
-Il existe plusieurs points pendant le cycle de vie au cours desquels un blueprint peut être affecté à un abonnement.
-Chaque fois que le mode d’une version du blueprint est **Publié**, cette version peut être affectée à un abonnement. Même quand il existe une version **Brouillon** du blueprint, s’il y a une ou plusieurs versions de blueprint en mode **Publié**, alors chacune de ces versions **publiées** peut être affectée. Cela permet d’utiliser et d’affecter activement des versions d’un blueprint pendant qu’une version plus récente est en cours de développement.
+Il existe plusieurs points pendant le cycle de vie au cours desquels un blueprint peut être affecté à un abonnement. Quand le mode d’une version du blueprint est **Publié**, cette version peut être affectée à un abonnement. Ce cycle de vie permet d’utiliser et d’affecter activement des versions d’un blueprint pendant qu’une version plus récente est en cours de développement.
 
 Lors de l’affectation des versions de blueprints, il est important de comprendre où elles sont affectées et avec quels paramètres elles ont été affectées. Les paramètres peuvent être statiques ou dynamiques. Pour plus d’informations, consultez [Paramètres statiques et dynamiques](parameters.md).
 

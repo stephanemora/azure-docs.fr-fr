@@ -13,20 +13,34 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 10/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: bc7999d56da8398b4f54b0144a595ee7c2e2ea35
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 372bff911c0925e05297872da66279e727149010
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49115108"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086775"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifeste d’application Azure Active Directory
 
-Les applications qui s’intègrent à Azure Active Directory (Azure AD) doivent être enregistrées avec un locataire Azure AD. Vous pouvez configurer l’application dans le [portail Azure](https://portal.azure.com) en sélectionnant **Inscriptions des applications** sous **Azure Active Directory**, en choisissant l’application que vous souhaitez configurer, puis en sélectionnant **Manifeste**.
+Le manifeste d’application contient une définition de tous les attributs d’un objet d’application dans la plateforme d’identité Microsoft. Il sert également de mécanisme de mise à jour de l’objet d’application. Pour plus d’informations sur l’entité Application et son schéma, consultez la [documentation relative à l’entité Application de l’API Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#application-entity).
+
+Vous pouvez configurer les attributs d’une application via le portail Azure ou par programmation à l’aide de Microsoft Graph. Toutefois, il existe des scénarios dans lesquels vous devez modifier le manifeste de l’application pour configurer un attribut de l’application. Ces scénarios sont les suivants :
+
+* Si vous avez inscrit l’application en tant que comptes Microsoft personnels et Azure AD multi-locataires, vous ne pouvez pas modifier les comptes Microsoft pris en charge dans l’interface utilisateur. À la place, vous devez utiliser l’éditeur de manifeste d’application pour changer le type de compte pris en charge.
+* Si vous avez besoin de définir les autorisations et les rôles que votre application prend en charge, vous devez modifier le manifeste de l’application.
+
+## <a name="configure-the-app-manifest"></a>Configurer le manifeste de l’application
+
+Pour configurer le manifeste de l’application :
+
+1. Connectez-vous au [portail Azure](https://portal.azure.com).
+1. Sélectionnez le service **Azure Active Directory**, puis **Inscriptions d’applications** ou **Inscriptions d’applications (préversion)**.
+1. Sélectionnez l’application à configurer.
+1. sélectionner la section **Manifeste** sur la **page de présentation** de l’application. Un éditeur de manifeste web s’ouvre, vous permettant de modifier le manifeste depuis le portail. Si vous le souhaitez, vous pouvez sélectionner **Télécharger** pour modifier localement le manifeste, puis utiliser **Charger** afin de l’appliquer de nouveau à votre application.
 
 ## <a name="manifest-reference"></a>Référence du manifeste
 
@@ -43,7 +57,7 @@ Les applications qui s’intègrent à Azure Active Directory (Azure AD) doivent
 | `appId` | Chaîne d’identificateur | Spécifie l’identificateur unique de l’application qui est affectée à une application par Azure AD. | `"601790de-b632-4f57-9523-ee7cb6ceba95"` |
 | `appRoles` | Type de tableau | Spécifie la collection de rôles qu’une application peut déclarer. Ces rôles peuvent être assignés aux utilisateurs, groupes ou principaux du service. Pour découvrir des exemples et des informations supplémentaires, consultez l’article [Ajouter des rôles d’application dans votre application et les recevoir dans le jeton](howto-add-app-roles-in-azure-ad-apps.md). | <code>[<br>&nbsp;&nbsp;{<br>&nbsp;&nbsp;&nbsp;"allowedMemberTypes": [<br>&emsp;&nbsp;&nbsp;&nbsp;"User"<br>&nbsp;&nbsp;&nbsp;],<br>&nbsp;&nbsp;&nbsp;"description":"Read-only access to device information",<br>&nbsp;&nbsp;&nbsp;"displayName":"Read Only",<br>&nbsp;&nbsp;&nbsp;"id":guid,<br>&nbsp;&nbsp;&nbsp;"isEnabled":true,<br>&nbsp;&nbsp;&nbsp;"value":"ReadOnly"<br>&nbsp;&nbsp;}<br>]</code>  |
 | `groupMembershipClaims` | chaîne | Un masque de bits qui configure la revendication `groups` émise dans un utilisateur ou un jeton d’accès OAuth 2.0 attendu par l’application. Les valeurs du masque de bits sont les suivantes :<br>0 : Aucun<br>1 : groupes de sécurité et rôles Azure AD<br>2 : Réservé<br>4 : Réservé<br>Définir le masque de bits sur 7 permet d’obtenir tous les groupes de sécurité, les groupes de distribution et les rôles d’annuaire Azure AD dont l’utilisateur connecté est membre. | `1` |
-| `optionalClaims` | chaîne | Les revendications facultatives retournées dans le jeton par le service d’émission de jeton de sécurité pour cette application spécifique.<br>À ce stade, les applications qui prennent en charge des comptes personnels et Azure AD (inscrites par le biais du portail d’inscription des applications) ne peuvent pas utiliser de revendications facultatives. Toutefois, les applications inscrites uniquement pour Azure AD à l’aide du point de terminaison v2.0 peuvent obtenir les revendications facultatives qu’elles ont demandées dans le manifeste. Pour plus d’informations, consultez les [revendications facultatives](active-directory-optional-claims.md). | `null` |
+| `optionalClaims` | chaîne | Les revendications facultatives retournées dans le jeton par le service d’émission de jeton de sécurité pour cette application spécifique.<br>À ce stade, les applications qui prennent en charge des comptes personnels et Azure AD (inscrites par le biais du portail d’inscription des applications) ne peuvent pas utiliser de revendications facultatives. Cependant, les applications enregistrées uniquement pour Azure AD à l’aide du point de terminaison v2.0 peuvent obtenir les revendications facultatives requises dans le manifeste. Pour plus d’informations, consultez les [revendications facultatives](active-directory-optional-claims.md). | `null` |
 | `id` | Chaîne d’identificateur | Identificateur unique de l’application dans le répertoire. Cet ID n’est l’identificateur utilisé pour identifier l’application d’une transaction de protocole. Il est utilisé pour référencer l’objet dans les requêtes de répertoire. | `"f7f9acfc-ae0c-4d6c-b489-0a81dc1652dd"` |
 | `identifierUris` | Tableau de chaînes | Les URI définis par l’utilisateur qui identifient de manière unique une application web au sein de son locataire Azure AD ou au sein d’un domaine personnalisé vérifié si l’application est multi-locataires. | <code>[<br>&nbsp;&nbsp;"https://MyRegistererdApp"<br>]</code> |
 | `informationalUrls` | chaîne | Spécifie les liens vers les conditions d’utilisation et la déclaration de confidentialité de l’application. Les conditions d’utilisation et la déclaration de confidentialité sont présentées aux utilisateurs par le biais de l’expérience de consentement de l’utilisateur. Pour plus d’informations, consultez [Procédure : ajouter les conditions d’utilisation et la déclaration de confidentialité des applications Azure AD inscrites](howto-add-terms-of-service-privacy-statement.md). | <code>{<br>&nbsp;&nbsp;&nbsp;"marketing":"https://MyRegisteredApp/marketing",<br>&nbsp;&nbsp;&nbsp;"privacy":"https://MyRegisteredApp/privacystatement",<br>&nbsp;&nbsp;&nbsp;"support":"https://MyRegisteredApp/support",<br>&nbsp;&nbsp;&nbsp;"termsOfService":"https://MyRegisteredApp/termsofservice"<br>}</code> |

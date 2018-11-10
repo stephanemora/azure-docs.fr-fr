@@ -1,5 +1,5 @@
 ---
-title: Surveiller l’intégrité de la machine virtuelle avec Azure Monitor pour les machines virtuelles | Microsoft Docs
+title: Superviser l’intégrité des machines virtuelles avec Azure Monitor pour machines virtuelles | Microsoft Docs
 description: Cet article décrit comment comprendre l’intégrité de la machine virtuelle et le système d’exploitation sous-jacent grâce à Azure Monitor pour les machines virtuelles.
 services: azure-monitor
 documentationcenter: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/15/2018
+ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 84314f64d8a96e65f63cb5c6051f7f5e902cd682
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387819"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094225"
 ---
-# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms"></a>Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour les machines virtuelles
+# <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles (préversion)
 Azure comprend plusieurs services qui effectuent individuellement un rôle spécifique ou une tâche dans l’espace de supervision, mais en fournissant une perspective approfondie de l’intégrité du système d’exploitation hébergé sur les machines virtuelles Azure qui n’était pas disponible auparavant.  Bien que vous puissiez surveiller différentes conditions à l’aide de Log Analytics ou d’Azure Monitor, ils n’ont pas été conçus pour modéliser et représenter l’intégrité des composants de base ou l’intégrité globale de la machine virtuelle.  La fonctionnalité de contrôle d’intégrité Azure Monitor pour les machines virtuelles surveille proactivement la disponibilité et les performances du système d'exploitation invité Windows ou Linux avec un modèle qui représente les composants clés et leurs relations (critères spécifiant comment mesurer l’intégrité de ces composants) et vous avertit lorsqu’un problème d’intégrité est détecté.  
 
 L’affichage de l’état d’intégrité global de la machine virtuelle Azure et du système d’exploitation sous-jacente peut être observé sous deux perspectives avec Azure Monitor pour l’intégrité des machines virtuelles, directement à partir de la machine virtuelle ou sur toutes les machines virtuelles dans un groupe de ressources à partir d’Azure Monitor.
@@ -35,7 +35,7 @@ Cette section décrit les critères d’intégrité par défaut définis pour su
 
 ### <a name="windows-vms"></a>Machines virtuelles Windows
 
-- Mégaoctets de mémoire disponibles 
+- Mégaoctets de mémoire disponibles 
 - Moyenne disque en secondes par écriture (disque logique)
 - Moyenne disque en secondes par écriture (disque)
 - Moyenne disque logique en secondes par lecture

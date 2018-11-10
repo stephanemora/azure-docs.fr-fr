@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: include
-ms.date: 09/24/2018
+ms.date: 10/23/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b9c4cf6c90ef5507b318b4f13afb982aab151c79
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4a3581b3d61c5ad17352c2865fc059704c1eece1
+ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48874066"
+ms.lasthandoff: 10/24/2018
+ms.locfileid: "50035144"
 ---
 ### <a name="what-is-expressroute-global-reach"></a>Présentation d’ExpressRoute Global Reach
 
@@ -21,7 +21,7 @@ ExpressRoute Global Reach est un service Azure qui connecte vos réseaux locaux 
 
 ### <a name="how-do-i-enable-or-disable-expressroute-global-reach"></a>Comment faire pour activer ou désactiver ExpressRoute Global Reach ?
 
-Vous activez ExpressRoute Global Reach en connectant vos circuits ExpressRoute ensemble. Vous désactivez la fonctionnalité en déconnectant les circuits. Reportez-vous à la configuration.
+Vous activez ExpressRoute Global Reach en connectant vos circuits ExpressRoute ensemble. Vous désactivez la fonctionnalité en déconnectant les circuits. Reportez-vous à la [configuration](../articles/expressroute/expressroute-howto-set-global-reach.md).
 
 ### <a name="do-i-need-expressroute-premium-for-expressroute-global-reach"></a>ExpressRoute Premium est-il nécessaire pour ExpressRoute Global Reach ?
 
@@ -36,6 +36,7 @@ ExpressRoute permet d’établir une connectivité entre votre réseau local et 
 La fonctionnalité ExpressRoute Global Reach est prise en charge dans les pays suivants. Les circuits ExpressRoute doivent être créés sur les emplacements de peering dans ces pays.
 
 * Australie
+* France
 * Hong Kong (R.A.S.)
 * Irlande
 * Japon
@@ -58,3 +59,11 @@ Non. Pour activer la connectivité entre deux de vos réseaux locaux, vous devez
 ### <a name="what-is-the-network-throughput-i-can-expect-between-my-on-premises-networks-after-i-enable-expressroute-global-reach"></a>À quel débit réseau puis-je m’attendre entre mes réseaux locaux après avoir activé la fonctionnalité ExpressRoute Global Reach ?
 
 Le débit réseau entre vos réseaux locaux, activés par ExpressRoute Global Reach, est limité par le plus petit des deux circuits ExpressRoute.
+
+### <a name="with-expressroute-global-reach-what-are-the-limits-on-the-number-of-routes-i-can-advertise-and-the-number-of-routes-i-will-receive"></a>Avec ExpressRoute Global Reach, quelles sont les limites du nombre de routes que je peux publier et du nombre de routes que je recevrai ?
+
+Le nombre de routes que vous pouvez publier à Microsoft sur l’homologation privée Azure reste 4 000 sur un circuit Standard ou 10 000 sur un circuit Premium. Le nombre de routes que vous recevrez de Microsoft sur l’homologation privée Azure sera la somme des routes de vos réseaux virtuels Azure et des routes de vos autres réseaux locaux connectés par le biais d’ExpressRoute Global Reach. Veillez à définir une limite de préfixe maximale appropriée sur votre routeur local. 
+
+### <a name="what-is-the-sla-for-expressroute-global-reach"></a>Quel contrat SLA s’applique à ExpressRoute Global Reach ?
+
+ExpressRoute Global Reach fournit le même [contrat SLA de disponibilité](https://azure.microsoft.com/support/legal/sla/expressroute/v1_3/) que le service ExpressRoute standard.

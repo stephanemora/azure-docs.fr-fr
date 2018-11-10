@@ -13,12 +13,12 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 633717a9f5f74648f7418970dd8047079efe18b9
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 38839379f584b40cdbefad3e4cbb3bc47881c9a7
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649089"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094593"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Joindre un runtime d’intégration Azure-SSIS à un réseau virtuel
 Joignez le runtime d’intégration (IR) Azure-SSIS à un réseau virtuel Azure dans les scénarios suivants : 
@@ -28,6 +28,9 @@ Joignez le runtime d’intégration (IR) Azure-SSIS à un réseau virtuel Azure 
 - Vous hébergez la base de données du catalogue SSIS (SQL Server Integration Services) dans Azure SQL Database avec des points de terminaison de service de réseau virtuel/Managed Instance. 
 
  Azure Data Factory vous permet de joindre votre runtime d’intégration Azure-SSIS à un réseau virtuel créé via le modèle de déploiement classique ou via le modèle de déploiement Azure Resource Manager. 
+
+> [!IMPORTANT]
+> Le réseau virtuel classique est actuellement déconseillé. Par conséquent, utilisez plutôt le réseau virtuel Azure Resource Manager.  Si vous utilisez déjà le réseau virtuel classique, basculez dès que possible vers le réseau virtuel Azure Resource Manager.
 
 ## <a name="access-to-on-premises-data-stores"></a>Accéder aux magasins de données locaux
 Si les packages SSIS accèdent uniquement aux magasins de données cloud publics, vous n’avez pas besoin de joindre le runtime d’intégration Azure-SSIS à un réseau virtuel. Si les packages SSIS accèdent à des magasins de données locaux, vous devez joindre le runtime d’intégration Azure-SSIS à un réseau virtuel qui est connecté au réseau local. 
@@ -46,11 +49,13 @@ Voici quelques points importants à prendre en compte :
 Si le catalogue SSIS est hébergé dans Azure SQL Database avec des points de terminaison de service de réseau virtuel, ou Managed Instance, vous pouvez joindre votre runtime d’intégration Azure-SSIS : 
 
 - Au même réseau virtuel 
-- À un réseau virtuel différent qui dispose d’une connexion réseau-à-réseau à celui qui est utilisé pour Azure SQL Database avec des points de terminaison de service de réseau virtuel/Managed Instance 
+- À un réseau virtuel différent qui dispose d’une connexion réseau-à-réseau avec celui utilisé pour SQL Database Managed Instance 
 
-Si vous joignez votre runtime d’intégration Azure-SSIS au même réseau virtuel que Managed Instance, vérifiez que le runtime d’intégration Azure-SSIS est dans un sous-réseau différent de celui de Managed Instance. Si vous joignez le runtime d’intégration Azure-SSIS à un réseau virtuel différent de celui de Managed Instance, nous recommandons l’appairage de réseau virtuel (qui est limité à la même région) ou une connexion de réseau virtuel à réseau virtuel. Consultez [Connecter votre application à Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+Si vous hébergez votre catalogue SSIS dans Azure SQL Database avec des points de terminaison de service réseau virtuel, assurez-vous de joindre votre runtime d’intégration Azure-SSIS aux mêmes réseau virtuel et sous-réseau.
 
-Le réseau virtuel peut être déployé par le biais du modèle de déploiement classique ou du modèle de déploiement Azure Resource Manager.
+Si vous associez votre runtime d’intégration Azure-SSIS au même réseau virtuel que Managed Instance, vérifiez que le runtime d’intégration Azure-SSIS est dans un sous-réseau différent de celui de Managed Instance. Si vous associez votre runtime d’intégration Azure-SSIS à un réseau virtuel différent de celui de Managed Instance, nous recommandons l’appairage de réseau virtuel (qui est limité à la même région) ou une connexion de réseau virtuel à réseau virtuel. Consultez [Connecter votre application à Azure SQL Database Managed Instance](../sql-database/sql-database-managed-instance-connect-app.md).
+
+Dans tous les cas, le réseau virtuel peut être déployé uniquement par le biais du modèle de déploiement Azure Resource Manager.
 
 Pour plus d’informations, lisez les sections suivantes. 
 
@@ -73,13 +78,13 @@ Pour plus d’informations, lisez les sections suivantes.
 
 L’utilisateur qui crée le Azure-SSIS Integration Runtime doit disposer des autorisations suivantes :
 
-- Si vous associez le runtime d’intégration SSIS à un réseau virtuel Azure de la version actuelle, vous avez deux options :
+- Si vous associez votre runtime d’intégration SSIS à un réseau virtuel Azure Resource Manager, vous avez deux options :
 
-  - Utilisez le rôle intégré *Contributeur de réseaux*. Ce rôle requiert l’autorisation *Microsoft.Network/\** , mais dispose d’une plus grande étendue.
+  - Utilisez le rôle *Contributeur de réseaux* intégré. Ce rôle inclut l’autorisation *Microsoft.Network/\** , mais dispose d’une étendue plus large que nécessaire.
 
-  - Créez un rôle personnalisé qui inclut l’autorisation *Microsoft.Network/virtualNetworks/\*/join/action*. 
+  - Créez un rôle personnalisé qui inclut uniquement l’autorisation *Microsoft.Network/virtualNetworks/\*/join/action* nécessaire. 
 
-- Si vous associez le runtime d’intégration SSIS à un réseau virtuel Azure classique, nous vous recommandons d’utiliser le rôle intégré *Contributeur de machines virtuelles classiques*. Sinon, vous devez définir un rôle personnalisé qui inclut l’autorisation de rejoindre le réseau virtuel.
+- Si vous associez votre runtime d’intégration SSIS à un réseau virtuel classique, nous vous recommandons d’utiliser le rôle intégré *Contributeur de machines virtuelles classiques*. Sinon, vous devez définir un rôle personnalisé qui inclut l’autorisation de rejoindre le réseau virtuel.
 
 ### <a name="subnet"></a> Sélectionner le sous-réseau
 -   Ne sélectionnez pas le sous-réseau GatewaySubnet pour déployer un runtime d’intégration Azure-SSIS, car il est dédié aux passerelles de réseau virtuel. 

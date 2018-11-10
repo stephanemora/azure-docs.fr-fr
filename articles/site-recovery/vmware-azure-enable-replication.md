@@ -1,19 +1,8 @@
 ---
-title: Activer la réplication des machines virtuelles VMware vers Azure avec Azure Site Recovery | Microsoft Docs
-description: Cet article décrit comment configurer la réplication de machines virtuelles VMware dans Azure à l’aide d’Azure Site Recovery.
-services: site-recovery
-author: asgang
-ms.service: site-recovery
-ms.date: 07/06/2018
-ms.topic: conceptual
-ms.author: asgang
-ms.openlocfilehash: 9a868b196a287b7a5121803136d3c0119f64d9fe
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917021"
----
+title: Activer la réplication de machines virtuelles VMware pour la reprise d’activité de VMware sur Azure avec Azure Site Recovery | Microsoft Docs description: Cet article décrit comment activer la réplication de machines virtuelles VMware pour la reprise d’activité sur Azure avec Azure Site Recovery.
+author: asgang ms.service: site-recovery ms.date: 07/06/2018 ms.topic: conceptual ms.author: asgang
+
+
 # <a name="enable-replication-to-azure-for-vmware-vms"></a>Activer la réplication des machines virtuelles VMware dans Azure
 
 

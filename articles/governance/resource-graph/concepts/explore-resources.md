@@ -4,16 +4,16 @@ description: Apprenez à utiliser le langage de requête Resource Graph pour exp
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: conceptual
 ms.service: resource-graph
 manager: carmonm
-ms.openlocfilehash: f488dfad8a38bbfab3b5b74e5b504463af09c089
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: bcd25b95d1369ef98662384945123126ebbbd70f
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49645930"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086894"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Explorer vos ressources Azure avec Resource Graph
 
@@ -216,7 +216,7 @@ Search-AzureRmGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' an
 
 ### <a name="virtual-machines-connected-to-premium-managed-disks"></a>Machines virtuelles connectées à des disques managés Premium
 
-Si nous voulions obtenir les détails des disques managés Premium qui sont attachés à ces machines virtuelles **Standard_B2s**, nous pourrions étendre la requête de façon à obtenir l’ID de ressource de ces disques gérés.
+Si nous voulons obtenir les détails des disques managés Premium qui sont attachés à ces machines virtuelles **Standard_B2s**, nous pouvons étendre la requête de façon à obtenir l’ID de ressource de ces disques managés.
 
 ```Query
 where type =~ 'Microsoft.Compute/virtualmachines' and properties.hardwareProfile.vmSize == 'Standard_B2s'
@@ -240,7 +240,7 @@ Le résultat obtenu est une liste d’ID de disques.
 
 ### <a name="managed-disk-discovery"></a>Détection des disques managés
 
-À partir du premier enregistrement de la requête précédente, nous allons explorer les propriétés qui existent sur le disque managé qui a été attaché à la première machine virtuelle. La requête mise à jour utilise l’ID de disque et modifie le type.
+Avec le premier enregistrement de la requête précédente, nous allons explorer les propriétés qui existent sur le disque managé qui a été attaché à la première machine virtuelle. La requête mise à jour utilise l’ID de disque et modifie le type.
 
 Exemple de sortie de la requête précédente, par exemple :
 
@@ -314,7 +314,7 @@ Les résultats JSON sont structurés de façon similaire à l’exemple suivant�
 
 ## <a name="explore-virtual-machines-to-find-public-ip-addresses"></a>Explorer des machines virtuelles pour trouver des adresses IP publiques
 
-Cet ensemble de requêtes à plusieurs étape Azure CLI recherche et stocke d’abord toutes les ressources de carte réseau (NIC) connectées à des machines virtuelles, se sert de la liste des cartes réseau pour trouver chaque ressource d’adresse IP qui correspond à une adresse IP publique, stocke ces valeurs, puis fournit enfin une liste des adresses IP publiques réelles.
+Cet ensemble de requêtes Azure CLI recherche et stocke d’abord toutes les ressources de carte réseau (NIC) connectées à des machines virtuelles. Il se sert ensuite de la liste des cartes réseau pour trouver chaque ressource d’adresse IP qui correspond à une adresse IP publique et stocke ces valeurs. Il fournit enfin une liste des adresses IP publiques.
 
 ```azurecli-interactive
 # Use Resource Graph to get all NICs and store in the 'nic' variable
@@ -324,7 +324,7 @@ az graph query -q "where type =~ 'Microsoft.Compute/virtualMachines' | project n
 cat nics.txt
 ```
 
-Une fois en possession du fichier `nics.txt`, nous pouvons nous en servir dans la requête suivante pour obtenir les détails relatifs aux ressources d’interface réseau associées si une adresse IP est attachée à la carte réseau.
+Utilisez le fichier `nics.txt` dans la requête suivante pour obtenir les détails relatifs aux ressources d’interface réseau associées si une adresse IP publique est attachée à la carte réseau.
 
 ```azurecli-interactive
 # Use Resource Graph with the 'nics.txt' file to get all related public IP addresses and store in 'publicIp.txt' file

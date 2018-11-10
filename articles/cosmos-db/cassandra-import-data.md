@@ -9,14 +9,14 @@ ms.author: govindk
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.reviewer: sngun
-ms.openlocfilehash: f73a201a25bb2f975e8a261a6c21aa7b066c3a7c
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 56fc07c6d775ee8015ce244acb7782607bda802a
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48247848"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739785"
 ---
-# <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Migrer vos données vers un compte d’API Cassandra Azure Cosmos DB
+# <a name="tutorial-migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Tutoriel : Migrer vos données vers un compte d’API Cassandra Azure Cosmos DB
 
 Ce tutoriel fournit des instructions sur la migration de données Apache Cassandra dans l’API Cassandra d’Azure Cosmos DB. 
 
@@ -101,7 +101,7 @@ Effectuez les étapes suivantes pour migrer des données vers l’API Cassandra 
 
 - Déplacez les données vers le point de terminaison de l’API Cassandra de destination avec [une opération de copie de table](cassandra-spark-table-copy-ops.md) 
 
-La migration de données avec des travaux Spark est une option recommandée si vos données se trouvent dans un cluster existant dans des machines virtuelles Azure ou dans un autre cloud. Cela nécessite la configuration de Spark en tant qu’intermédiaire pour une ingestion ponctuelle ou régulière. Vous pouvez accélérer cette migration avec une connectivité ExpressRoute entre le système local et Azure. 
+La migration de données avec des travaux Spark est une option recommandée si vos données se trouvent dans un cluster existant dans des machines virtuelles Azure ou dans un autre cloud. Cette option nécessite la configuration de Spark en tant qu’intermédiaire pour une ingestion ponctuelle ou régulière. Vous pouvez accélérer cette migration avec une connectivité ExpressRoute entre le système local et Azure. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

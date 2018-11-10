@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 701d2c348e91efed17c8c7828ace920914093b5a
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6d473d8874208297e905a5d90a08ffd870ffa8a6
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426190"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091822"
 ---
 # <a name="create-an-azure-automation-account"></a>Créer un compte Azure Automation
 
@@ -35,6 +35,9 @@ Se connecter à Azure à https://portal.azure.com
 1. Saisissez les informations du compte. Pour **Créer un compte d’identification Azure**, choisissez **Oui** afin que les artefacts simplifiant l’authentification à Azure soient automatiquement activés. Il est important de noter que lorsque vous créez un compte Automation, le nom n’est pas modifiable une fois choisi. Un compte Automation peut gérer les ressources sur toutes les régions et abonnements pour un locataire donné. Lorsque vous avez terminé, cliquez sur **Créer** pour démarrer le déploiement du compte Automation.
 
     ![Saisir les informations relatives à votre compte Automation dans la page](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
+
+    > [!NOTE]
+    > Pour obtenir la liste des emplacements sur lesquels vous pouvez déployer un compte Automation, consultez la page [Disponibilité des produits par région](https://azure.microsoft.com/en-us/global-infrastructure/services/?products=automation&regions=all).
 
 1. Une fois le déploiement terminé, cliquez sur ** **Tous les Services**, sélectionnez **Comptes Automation** puis sélectionnez le compte Automation que vous avez créé.
 

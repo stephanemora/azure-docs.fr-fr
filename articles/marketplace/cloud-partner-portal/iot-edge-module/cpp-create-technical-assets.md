@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: d7f9dfee447cddc771e0e88ca5be04018b51dba2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: a4117b41700446770e10ef799967ae4a43db342d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432931"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51227754"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Préparer vos ressources techniques de module IoT Edge
 
@@ -45,7 +45,7 @@ Votre module IoT Edge doit prendre en charge une des options de plateforme suiva
 Prendre en charge toutes les plateformes de niveau 1 prises en charge par IoT Edge (tel qu’enregistré dans [Prise en charge par Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/support)). Nous recommandons cette option, car elle fournit une meilleure expérience client. Les modules correspondant à ce critère sont présentés. Un module utilisant cette option de plateforme doit :
 
 - Fournir une balise `latest` et une balise de version (par exemple, `1.0.1`), qui sont des balises manifeste générées avec [manifest-tool](https://github.com/estesp/manifest-tool) de GitHub.
-- Utiliser l’[onglet Place de marché](./cpp-marketplace-tab.md) pour ajouter un lien vers les [appareils certifiés compatibles IoT Edge](http://aka.ms/iot-edge-certified). Ce lien correspond à `http://aka.ms/iot-edge-certified`, un site web où les clients peuvent parcourir ou rechercher des appareils certifiés. Ce site web est également appelé le catalogue d’appareils [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/).
+- Utiliser l’[onglet Place de marché](./cpp-marketplace-tab.md) pour ajouter un lien vers les [appareils certifiés compatibles IoT Edge](https://aka.ms/iot-edge-certified). Ce lien correspond à `http://aka.ms/iot-edge-certified`, un site web où les clients peuvent parcourir ou rechercher des appareils certifiés. Ce site web est également appelé le catalogue d’appareils [Azure IoT Edge Certified](https://catalog.azureiotsolutions.com/).
 
 #### <a name="a-subset-of-tier-1-platforms-supported-by-iot-edge"></a>Un sous-ensemble de plateformes de niveau 1 prises en charge par IoT Edge
   
@@ -144,4 +144,4 @@ Pour charger votre module IoT Edge dans le portail Cloud Partner, vous devez tou
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- [Créer votre offre de module IoT Edge](./cpp-create-offer.md)
+- [Create your IoT Edge module offer](./cpp-create-offer.md) (Créer votre offre de module IoT Edge)

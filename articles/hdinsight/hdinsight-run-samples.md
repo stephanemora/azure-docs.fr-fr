@@ -2,29 +2,29 @@
 title: Exécuter des exemples Hadoop dans HDInsight - Azure
 description: Prise en main du service Azure HDInsight avec les exemples fournis. Utilisez des scripts PowerShell qui exécutent des programmes MapReduce sur des clusters de données.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 59e6fd0a05374329efb20201c8d904cbbdc72b1a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d1da4d10b6346d774c657b0263c9da6278116b61
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110997"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006411"
 ---
 # <a name="run-hadoop-mapreduce-samples-in-windows-based-hdinsight"></a>Exécution des exemples Hadoop MapReduce dans HDInsight basé sur Windows
 [!INCLUDE [samples-selector](../../includes/hdinsight-run-samples-selector.md)]
 
-Un ensemble d'exemples vous est fourni pour vous aider à prendre en main les tâches MapReduce sur les clusters Hadoop en utilisant Azure HDInsight. Ces exemples sont disponibles sur chacun des clusters gérés HDInsight que vous créez. Exécutez-les pour vous familiariser avec les applets de commande Azure PowerShell afin d’exécuter des tâches sur les clusters Hadoop.
+Un ensemble d’exemples est fourni pour vous aider à démarrer l’exécution de tâches MapReduce sur les clusters Hadoop avec Azure HDInsight. Ces exemples sont disponibles sur chacun des clusters gérés HDInsight que vous créez. Exécutez-les pour vous familiariser avec les applets de commande Azure PowerShell afin d’exécuter des tâches sur les clusters Hadoop.
 
 * [**Nombre de mots**][hdinsight-sample-wordcount] : nombre d'occurrences de mots dans un fichier texte.
 * [**Nombre de mots de diffusion en continu C#**][hdinsight-sample-csharp-streaming] : nombre d'occurrences de mots dans un fichier texte à l'aide de l'interface de diffusion Hadoop.
 * [**Estimateur de la valeur de Pi**][hdinsight-sample-pi-estimator] : utilise une méthode statistique (quasi-Monte-Carlo) pour estimer la valeur de Pi.
-* [**Graysort 10 Go**][hdinsight-sample-10gb-graysort] : exécute un programme GraySort généraliste sur un fichier de 10 Go à l’aide de HDInsight. Il faut exécuter trois tâches : Teragen pour générer les données, Terasort pour trier les données et Teravalidate pour confirmer que les données ont été correctement triées.
+* [**Graysort 10 Go**][hdinsight-sample-10gb-graysort] : exécute un programme GraySort universel sur un fichier de 10 Go à l’aide de HDInsight. Il faut exécuter trois tâches : Teragen pour générer les données, Terasort pour trier les données et Teravalidate pour confirmer que les données ont été correctement triées.
 
 > [!NOTE]
 > Vous trouverez le code source dans l'annexe.
@@ -167,7 +167,7 @@ Le script fourni pour cet exemple envoie une tâche Hadoop Java Archive (JAR) et
     ```
 
 ## <a name="hdinsight-sample-10gb-graysort"></a>GraySort 10 Go
-Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté relativement rapidement. Il utilise les applications MapReduce développées par Owen O’Malley et Arun Murthy qui ont remporté en 2009 le benchmark de tri de téraoctets (« daytona ») annuel universel avec un taux de 0,578 To/min (100 To en 173 minutes). Pour plus d'informations à ce sujet et sur d'autres benchmarks de tri, consultez le site [Sortbenchmark](http://sortbenchmark.org/) .
+Cet exemple utilise seulement 10 Go de données afin de pouvoir être exécuté relativement rapidement. Il utilise les applications MapReduce développées par Owen O’Malley et Arun Murthy qui ont remporté en 2009 le benchmark de tri de téraoctets (« daytona ») annuel universel avec un taux de 0,578 To/min (100 To en 173 minutes). Pour plus d'informations à ce sujet et sur d'autres benchmarks de tri, consultez le site [Sortbenchmark](http://sortbenchmark.org/) .
 
 Cet exemple utilise trois ensembles de programmes MapReduce :
 
@@ -211,7 +211,6 @@ Dans cet article et les articles liés à chacun des exemples, vous avez appris 
 * [Utilisation de Pig avec Hadoop sur HDInsight][hdinsight-use-pig]
 * [Utilisation de Hive avec Hadoop sur HDInsight][hdinsight-use-hive]
 * [Envoi de tâches Hadoop dans HDInsight][hdinsight-submit-jobs]
-* [Documentation du Kit de développement logiciel (SDK) Azure HDInsight][hdinsight-sdk-documentation]
 
 ## <a name="appendix-a---the-word-count-source-code"></a>Annexe A - Le code source du nombre de mots
 
@@ -977,8 +976,6 @@ public class TeraSort extends Configured implements Tool {
     }
 }
 ```
-
-[hdinsight-sdk-documentation]: https://msdn.microsoft.com/library/azure/dn479185.aspx
 
 [hdinsight-submit-jobs]: hadoop/submit-apache-hadoop-jobs-programmatically.md
 [hdinsight-introduction]:hadoop/apache-hadoop-introduction.md

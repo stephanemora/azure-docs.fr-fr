@@ -15,12 +15,12 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 49ee6b7fabe78c2328a2a772347c612ad38cfe7a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 8e4c97a710cc9e6d3af4ebdd7dc97bda9f8d02ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091720"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228434"
 ---
 # <a name="sending-push-notifications-with-azure-notification-hubs-and-nodejs"></a>Envoi de notifications Push avec Azure Notification Hubs et Node.js
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
@@ -43,7 +43,7 @@ Les scénarios traités incluent l’envoi de notifications Push à des applicat
 Pour plus d'informations sur les concentrateurs de notification, consultez la section [Étapes suivantes](#next) .
 
 ## <a name="what-are-notification-hubs"></a>Présentation de Notification Hubs
-Azure Notification Hubs offre une infrastructure multiplateforme extensible et conviviale pour l’envoi de notifications Push à des appareils mobiles. Pour plus d’informations sur l’infrastructure de service, voir la page [Azure Notification Hubs](http://msdn.microsoft.com/library/windowsazure/jj927170.aspx) .
+Azure Notification Hubs offre une infrastructure multiplateforme extensible et conviviale pour l’envoi de notifications Push à des appareils mobiles. Pour plus d’informations sur l’infrastructure de service, voir la page [Azure Notification Hubs](https://msdn.microsoft.com/library/windowsazure/jj927170.aspx) .
 
 ## <a name="create-a-nodejs-application"></a>Création d’une application Node.js
 La première étape de ce didacticiel consiste à créer une application Node.js vide. Pour des instructions sur la création d’une application Node.js, consultez [Création et déploiement d’une application Node.js dans un site web Azure][nodejswebsite], [Service cloud Node.js][Node.js Cloud Service] avec Windows PowerShell ou [Site web avec WebMatrix][webmatrix].
@@ -141,11 +141,11 @@ L’objet **MpnsService** fournit une méthode **d’envoi** permettant d’envo
 * **Tags** : identifiant de balise. Si aucune balise n’est fournie, la notification est envoyée à tous les clients.
 * **Payload** : charge utile XML du message.
 * **TargetName** - `toast` pour les notifications toast. `token` pour les notifications par vignette.
-* **NotificationClass** : priorité de la notification. Pour les valeurs valides, consultez la section **Éléments d’en-tête HTTP** de l’article [Notifications Push d’un serveur](http://msdn.microsoft.com/library/hh221551.aspx) .
+* **NotificationClass** : priorité de la notification. Pour les valeurs valides, consultez la section **Éléments d’en-tête HTTP** de l’article [Notifications Push d’un serveur](https://msdn.microsoft.com/library/hh221551.aspx) .
 * **Options** : en-têtes de demande facultatifs.
 * **Callback** : fonction de rappel.
 
-Pour la liste des options **TargetName**, **NotificationClass** et d’en-tête valides, consultez [Notifications Push](http://msdn.microsoft.com/library/hh221551.aspx).
+Pour la liste des options **TargetName**, **NotificationClass** et d’en-tête valides, consultez [Notifications Push](https://msdn.microsoft.com/library/hh221551.aspx).
 
 L’exemple de code suivant utilise l’instance **MpnsService** exposée par **NotificationHubService** pour envoyer une notification Push :
 
@@ -165,7 +165,7 @@ L’objet **WnsService** fournit une méthode **d’envoi** permettant d’envoy
 * **Options** : en-têtes de demande facultatifs.
 * **Callback** : fonction de rappel.
 
-Pour obtenir la liste des types et en-têtes de demande valides, consultez [En-têtes de demande et de réponse des services de notifications Push](http://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
+Pour obtenir la liste des types et en-têtes de demande valides, consultez [En-têtes de demande et de réponse des services de notifications Push](https://msdn.microsoft.com/library/windows/apps/hh465435.aspx).
 
 Le code suivant utilise l’instance **WnsService** exposée par **NotificationHubService** pour envoyer une notification Push toast à une application UWP :
 

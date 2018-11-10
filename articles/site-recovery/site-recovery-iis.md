@@ -1,21 +1,20 @@
 ---
-title: Répliquer une application web multiniveau basée sur IIS à l’aide d’Azure Site Recovery | Microsoft Docs
+title: Configurer la reprise d’activité pour une application web multiniveau basée sur IIS à l’aide d’Azure Site Recovery | Microsoft Docs
 description: Découvrez comment répliquer les machines virtuelles d’une batterie de serveurs web IIS avec Azure Site Recovery.
-services: site-recovery
 author: nsoneji
 manager: gauravd
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: nisoneji
-ms.openlocfilehash: 830ced767a34302a635b9e685a2aee60c95fc81f
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: bac995829e90fea35eebf5e5e57a0ffb85bbba0c
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920846"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211823"
 ---
-# <a name="replicate-a-multi-tier-iis-based-web-application"></a>Répliquer une application web multiniveau basée sur IIS
+# <a name="set-up-disaster-recovery-for-a-multi-tier-iis-based-web-application"></a>Configurer la reprise d’activité pour une application web multiniveau basée sur IIS
 
 Les logiciels d’application sont le moteur de la productivité dans une organisation. Des applications web diverses peuvent répondre aux différents besoins d’une organisation. Certaines applications, telles que les applications utilisées pour le traitement des paies, les applications financières et les sites Web destinés aux clients, peuvent être essentielles à une entreprise. Afin d’éviter une perte de productivité, il est fondamental pour l’entreprise que ces applications soient opérationnelles en permanence. Plus important encore, le maintien de la disponibilité de ces applications peut contribuer à préserver de toute nuisance l’image ou la marque de l’entreprise.
 
@@ -61,10 +60,10 @@ Pour les exemples de cet article, nous utilisons des machines virtuelles VMware 
 
 Scénario | Vers un site secondaire | Vers Azure
 --- | --- | ---
-Hyper-V | OUI | OUI
-VMware | OUI | OUI
-Serveur physique | Non  | OUI
-Azure|N/D|OUI
+Hyper-V | Oui | Oui
+VMware | Oui | Oui
+Serveur physique | Non  | Oui
+Azure|N/D|Oui
 
 ## <a name="replicate-virtual-machines"></a>Répliquer des machines virtuelles
 

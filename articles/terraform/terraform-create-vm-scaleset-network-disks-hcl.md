@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 10/26/2018
-ms.openlocfilehash: 5fe85d74b247e890790ec577d813d42f15290cde
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5bf3e6d8839c3ec08bae03772d9a7ab011c67857
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140906"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228400"
 ---
 # <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Utiliser Terraform pour créer un groupe de machines virtuelles identiques Azure
 
@@ -569,6 +569,6 @@ Le processus de suppression peut prendre plusieurs minutes.
 Dans cet article, vous avez découvert comment utiliser Terraform pour créer un groupe de machines virtuelles identiques Azure. Pour en savoir plus sur Terraform sur Azure, consultez les ressources supplémentaires suivantes : 
 
  [Hub Terraform sur Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Documentation Terraform Azure Provider](http://aka.ms/terraform)  
- [Source Terraform Azure Provider](http://aka.ms/tfgit)  
- [Modules Terraform Azure](http://aka.ms/tfmodules)
+ [Documentation Terraform Azure Provider](https://aka.ms/terraform)  
+ [Source Terraform Azure Provider](https://aka.ms/tfgit)  
+ [Modules Terraform Azure](https://aka.ms/tfmodules)

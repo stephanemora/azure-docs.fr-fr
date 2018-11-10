@@ -4,21 +4,21 @@ description: Utilisez Azure Resource Graph pour exécuter des requêtes avancée
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/22/2018
 ms.topic: quickstart
 ms.service: resource-graph
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 934dff93b9a7f5d6755f55ad1073e01e586b1ca7
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fbbdc4a67cd6f2e7d74031f7acc584bf0004bea4
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49647831"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50085374"
 ---
 # <a name="advanced-resource-graph-queries"></a>Requêtes Resource Graph avancées
 
-Pour comprendre comment fonctionnent les requêtes dans Azure Resource Graph, vous devez au préalable vous familiariser avec le [langage de requête](../concepts/query-language.md). Si vous ne connaissez pas bien [l’Explorateur de données Azure](../../../data-explorer/data-explorer-overview.md), nous vous recommandons de passer en revue les notions de base de ce langage pour apprendre à composer des requêtes pour les ressources qui vous intéressent.
+Pour comprendre comment fonctionnent les requêtes dans Azure Resource Graph, vous devez au préalable vous familiariser avec le [langage de requête](../concepts/query-language.md). Si vous ne connaissez pas bien l’[Explorateur de données Azure](../../../data-explorer/data-explorer-overview.md), nous vous recommandons de passer en revue les notions de base de ce langage pour apprendre à composer des requêtes pour les ressources qui vous intéressent.
 
 Nous allons vous guider tout au long des requêtes avancées suivantes :
 
@@ -33,9 +33,9 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Azure CLI (par le biais d’une extension) et Azure PowerShell (par le biais d’un module) prennent en charge Azure Resource Graph. Avant d’exécuter les requêtes suivantes, vérifiez que votre environnement est prêt. Consultez [Azure CLI](../first-query-azurecli.md#add-the-resource-graph-extension) et [Azure PowerShell](../first-query-powershell.md#add-the-resource-graph-module) pour savoir comment installer et valider l’environnement de votre interpréteur de commandes.
 
-## <a name="vmss-capacity"></a>Obtenir la taille et la capacité VMSS
+## <a name="vmss-capacity"></a>Obtenir une capacité et une taille de groupe de machines virtuelles identiques
 
-Cette requête recherche des ressources de groupe de machines virtuelles identiques (VMSS) et obtient divers détails, notamment la taille de machine virtuelle et la capacité du groupe identique. Ces informations utilisent la fonction `toint()` pour effectuer un cast de la capacité sur un nombre afin de pouvoir la trier. Cette opération renomme également les valeurs retournées dans les propriétés nommées personnalisées.
+Cette requête recherche des ressources de groupe de machines virtuelles identiques et obtient divers détails, notamment la taille de machine virtuelle et la capacité du groupe identique. Cette requête utilise la fonction `toint()` pour effectuer un cast de la capacité sur un nombre afin de pouvoir la trier. Enfin, les colonnes sont renommées dans les propriétés nommées personnalisées.
 
 ```Query
 where type=~ 'microsoft.compute/virtualmachinescalesets'
@@ -75,8 +75,8 @@ Cette requête recherche les machines virtuelles qui correspondent à une [expre
 La valeur **correspond à regex @** nous permet de définir l’expression régulière de correspondance, c’est-à-dire **^Contoso(.*)[0-9]+$**. Cette définition d’expression régulière est expliquée comme suit :
 
 - `^` : doit correspondance au début au commencement de la chaîne.
-- `Contoso` : la chaîne principale que nous mettons en correspondance (respecte la casse).
-- `(.*)` : une correspondance de sous-expression :
+- `Contoso` : chaîne sensible à la casse.
+- `(.*)` : correspondance de sous-expression :
   - `.` : correspond à n'importe quel caractère unique (sauf une nouvelle ligne).
   - `*` : correspond à l’élément précédent zéro fois ou plusieurs fois.
 - `[0-9]` : correspondance de groupe de caractères pour les nombres de 0 à 9.

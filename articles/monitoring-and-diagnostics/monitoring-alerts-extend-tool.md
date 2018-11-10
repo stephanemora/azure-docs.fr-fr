@@ -1,5 +1,5 @@
 ---
-title: Étendre des alertes à partir de Log Analytics vers Azure
+title: Étendre des alertes de Log Analytics à Azure
 description: Cet article décrit les outils et les API qui permettent d’étendre des alertes à partir de Log Analytics vers Azure Alerts.
 author: msvijayn
 services: azure-monitor
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: d70eecb6a5d6bafbfa6507dbe8b1bcb1cad67191
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990233"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957419"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Étendre des alertes à partir de Log Analytics vers Azure Alerts
 La fonctionnalité des alertes dans Azure Log Analytics est remplacée par Azure Alerts. Dans le cadre de cette transition, les alertes que vous avez configurées à l’origine dans Log Analytics vont être étendues à Azure. Si vous ne souhaitez pas attendre qu’elles soient déplacées automatiquement dans Azure, vous pouvez lancer le processus :
@@ -22,31 +22,31 @@ La fonctionnalité des alertes dans Azure Log Analytics est remplacée par Azure
 - Par programmation en utilisant l’API AlertsVersion  
 
 > [!NOTE]
-> Depuis le 14 mai 2018, Microsoft étend automatiquement à Azure Alerts les alertes créées dans des instances publiques de Log Analytics, selon une série répétée jusqu’à ce que la migration soit terminée. Si vous rencontrez des problèmes pour créer des [groupes d’actions](monitoring-action-groups.md), utilisez [ces étapes correctives](monitoring-alerts-extend-tool.md#troubleshooting) afin de créer automatiquement des groupes d’actions. Vous pouvez utiliser ces étapes jusqu’au 5 juillet 2018. *Non applicable aux utilisateurs cloud d’Azure Government et Sovereign de Log Analytics*. 
+> Depuis le 14 mai 2018, Microsoft étend automatiquement à Azure Alerts les alertes créées dans des instances publiques de Log Analytics, selon une série répétée jusqu’à ce que la migration soit terminée. Si vous rencontrez des problèmes pour créer des [groupes d’actions](monitoring-action-groups.md), utilisez [ces étapes correctives](monitoring-alerts-extend-tool.md#troubleshooting) afin de créer automatiquement des groupes d’actions. Vous pouvez utiliser ces étapes jusqu’au 5 juillet 2018. *Non applicable aux utilisateurs du cloud souverain et d’Azure Government de Log Analytics*. 
 
 ## <a name="option-1-initiate-from-the-operations-management-suite-portal"></a>Option 1 : Lancement à partir du portail Operations Management Suite
 Les étapes suivantes expliquent comment étendre les alertes pour l’espace de travail à partir du portail Operations Management Suite.  
 
 1. Dans le portail Azure, sélectionnez **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.
 2. Dans le volet des abonnements Log Analytics, sélectionnez un espace de travail, puis sélectionnez la vignette **Portail OMS**.
-![Capture d’écran du volet des abonnements Log Analytics, avec la vignette Portail OMS sélectionnée](./media/monitor-alerts-extend/azure-portal-01.png) 
+![Capture d’écran du volet des abonnements Log Analytics, avec la vignette Portail OMS sélectionnée](media/monitoring-alerts-extend-tool/azure-portal-01.png) 
 3. Après avoir été redirigé vers le portail Operations Management Suite, sélectionnez l’icône **Paramètres**.
-![Capture d’écran du portail Operations Management Suite, avec l’icône Paramètres sélectionnée](./media/monitor-alerts-extend/oms-portal-settings-option.png) 
+![Capture d’écran du portail Operations Management Suite, avec l’icône Paramètres sélectionnée](media/monitoring-alerts-extend-tool/oms-portal-settings-option.png) 
 4. Dans la page **Paramètres**, sélectionnez **Alertes**.  
 5. Sélectionnez **Étendre à Azure**.
-![Capture d’écran de la page des paramètres d’alerte du portail Operations Management Suite, avec l’option Étendre à Azure sélectionnée](./media/monitor-alerts-extend/ExtendInto.png)
+![Capture d’écran de la page des paramètres d’alerte du portail Operations Management Suite, avec l’option Étendre à Azure sélectionnée](media/monitoring-alerts-extend-tool/ExtendInto.png)
 6. Un Assistant en trois étapes s’affiche dans le volet **Alertes**. Lisez la présentation, puis sélectionnez **Suivant**.
-![Capture d’écran de l’étape 1 de l’Assistant](./media/monitor-alerts-extend/ExtendStep1.png)  
+![Capture d’écran de l’étape 1 de l’Assistant](media/monitoring-alerts-extend-tool/ExtendStep1.png)  
 7. Dans la deuxième étape, vous voyez un résumé des modifications proposées, qui répertorie les [groupes d’actions](monitoring-action-groups.md) appropriés pour les alertes. Si des actions similaires concernent plusieurs alertes, l’Assistant propose de toutes les associer dans un groupe d’action unique.  La convention de nommage est la suivante : *WorkspaceName_AG_ #Number*). Pour continuer, sélectionnez **Suivant**.
-![Capture d’écran de l’étape 2 de l’Assistant](./media/monitor-alerts-extend/ExtendStep2.png)  
+![Capture d’écran de l’étape 2 de l’Assistant](media/monitoring-alerts-extend-tool/ExtendStep2.png)  
 8. Dans la dernière étape de l’Assistant, sélectionnez **Terminer** et confirmez le lancement du processus lorsque vous y êtes invité. Si vous le souhaitez, vous pouvez fournir une adresse e-mail pour être tenu informé de la fin du processus et de la réussite du déplacement de toutes les alertes dans Azure Alerts.
-![Capture d’écran de l’étape 3 de l’Assistant](./media/monitor-alerts-extend/ExtendStep3.png)
+![Capture d’écran de l’étape 3 de l’Assistant](media/monitoring-alerts-extend-tool/ExtendStep3.png)
 
 Lorsque l’Assistant a terminé, l’option permettant d’étendre les alertes à Azure est supprimée dans la page **Paramètres d’alerte**. En arrière-plan, vos alertes sont déplacées vers Azure, ce qui peut prendre un certain temps. Pendant le déroulement de l’opération, vous ne pouvez apporter aucune modification aux alertes à partir du portail Operations Management Suite. Vous pouvez voir la progression de cette opération dans la bannière affichée en haut du portail. Si vous aviez fourni une adresse e-mail, vous êtes averti par un message de la fin du processus.  
 
 
 Le portail Operations Management Suite continue de lister les alertes, même après leur déplacement vers Azure.
-![Capture d’écran de la page des paramètres d’alerte dans le portail Operations Management Suite](./media/monitor-alerts-extend/PostExtendList.png)
+![Capture d’écran de la page des paramètres d’alerte dans le portail Operations Management Suite](media/monitoring-alerts-extend-tool/PostExtendList.png)
 
 
 ## <a name="option-2-use-the-alertsversion-api"></a>Option 2 : Utilisation de l’API AlertsVersion
@@ -460,7 +460,7 @@ Pendant le processus d’extension des alertes, des problèmes peuvent empêcher
 > Si les utilisateurs de Log Analytics basé sur le cloud public Azure n’effectuent pas les étapes de correction suivantes avant le 5 juillet 2018, les alertes s’exécuteront dans Azure, mais elles ne déclencheront aucune action ni notification. Pour obtenir des notifications d’alertes, vous devez modifier et ajouter manuellement des [groupes d’actions](monitoring-action-groups.md), ou utiliser le précédent [script PowerShell personnalisé](#option-3---using-custom-powershell-script).
 
 Voici les étapes de correction pour chaque erreur :
-- **Erreur : Scope Lock est présent au niveau de l’abonnements/du groupe de ressources pour les opérations d’écriture** :   ![Capture d’écran de la page des paramètres d’alerte du portail Operations Management Suite, avec le message d’erreur Scope Lock sélectionné](./media/monitor-alerts-extend/ErrorScopeLock.png)
+- **Erreur : Scope Lock est présent au niveau de l’abonnements/du groupe de ressources pour les opérations d’écriture** :   ![Capture d’écran de la page des paramètres d’alerte du portail Operations Management Suite, avec le message d’erreur Scope Lock sélectionné](media/monitoring-alerts-extend-tool/ErrorScopeLock.png)
 
     Lorsque la fonctionnalité Scope Lock est activée, elle limite toute nouvelle modification sur l’abonnement ou le groupe de ressources qui contient l’espace de travail Log Analytics (dans Operations Management Suite). Le système ne peut pas étendre les alertes à Azure et créer les groupes d’actions nécessaires.
     
@@ -468,9 +468,9 @@ Voici les étapes de correction pour chaque erreur :
     
     Lorsque vous corrigez cette erreur en procédant comme illustré dans l’article, Operations Management Suite étend vos alertes à Azure lors de l’exécution planifiée du jour suivant. Aucune autre action ou lancement de quoi que ce soit n’est nécessaire.
 
-- **Erreur : Policy est présent au niveau de l’abonnement/du groupe de ressources** :   ![Capture d’écran de la page des paramètres d’alerte du portail Operations Management Suite, avec le message d’erreur Policy sélectionné](./media/monitor-alerts-extend/ErrorPolicy.png)
+- **Erreur : Policy est présent au niveau de l’abonnement/du groupe de ressources** :   ![Capture d’écran de la page des paramètres d’alerte du portail Operations Management Suite, avec le message d’erreur Policy sélectionné](media/monitoring-alerts-extend-tool/ErrorPolicy.png)
 
-    Lorsque [Azure Policy](../azure-policy/azure-policy-introduction.md) est appliqué, il restreint toute nouvelle ressource dans un abonnement ou un groupe de ressources qui contient l’espace de travail Log Analytics (dans Operations Management Suite). Le système ne peut pas étendre les alertes à Azure et créer les groupes d’actions nécessaires.
+    Lorsque [Azure Policy](../governance/policy/overview.md) est appliqué, il restreint toute nouvelle ressource dans un abonnement ou un groupe de ressources qui contient l’espace de travail Log Analytics (dans Operations Management Suite). Le système ne peut pas étendre les alertes à Azure et créer les groupes d’actions nécessaires.
     
     Pour remédier à cela, modifiez la stratégie à l’origine de l’erreur *[RequestDisallowedByPolicy](../azure-resource-manager/resource-manager-policy-requestdisallowedbypolicy-error.md)*, qui empêche la création de nouvelles ressources sur votre abonnement ou groupe de ressources contenant l’espace de travail. Vous pouvez effectuer cette opération à l’aide du portail Azure, de PowerShell, d’Azure CLI ou de l’API. Vous pouvez auditer des actions pour trouver la stratégie en rapport, qui provoque l’échec. Pour plus d’informations, consultez [l’affichage des journaux d’activité pour auditer les actions](../azure-resource-manager/resource-group-audit.md). 
     

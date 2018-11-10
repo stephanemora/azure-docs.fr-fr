@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2018
+ms.date: 10/31/2018
 ms.topic: tutorial
 ms.service: cost-management
 ms.custom: ''
 manager: dougeby
-ms.openlocfilehash: 72eaa6f085581f34b696a946e2168eceaa21a849
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 56e6a26803ed5257f1cc303b293615a5ea85a866
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987711"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740040"
 ---
 <!-- Intent: As a cloud-consuming user, I need to view usage and costs for my cloud resources and services.
 -->
@@ -39,7 +39,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 ## <a name="prerequisites"></a>Prérequis
 
 - Vous devez disposer d’un compte Azure.
-- Vous devez disposer d’une inscription gratuite ou d’un abonnement payant pour Cloudyn.
+- Vous devez disposer d’une inscription à un essai gratuit ou d’un abonnement payant pour Cloudyn.
 
 ## <a name="open-the-cloudyn-portal"></a>Ouvrir le portail Cloudyn
 
@@ -57,11 +57,11 @@ Le rapport affiche toutes les dépenses au cours des 30 derniers jours. Pour aff
 
 ![services filtrés](./media/tutorial-review-usage/actual-cost02.png)
 
-Dans l’exemple précédent, la quantité d’argent dépensée a baissé à partir du 31/08/2017. Cette tendance de coût se poursuit pour les différents services pendant neuf jours environ. Les dépenses commencent ensuite à augmenter. Notez toutefois qu’un trop grand nombre de colonnes peut masquer une tendance évidente. Vous pouvez modifier l’affichage du rapport sous forme d’un graphique en courbes ou en aires pour visualiser les données affichées dans d’autres vues. L’illustration suivante montre plus clairement la tendance.
+Dans l’exemple précédent, la quantité d’argent dépensée a baissé à partir du 29/10/2018. Notez toutefois qu’un trop grand nombre de colonnes peut masquer une tendance évidente. Vous pouvez modifier l’affichage du rapport sous forme d’un graphique en courbes ou en aires pour visualiser les données affichées dans d’autres vues. L’illustration suivante montre plus clairement la tendance.
 
 ![tendance reflétée dans le rapport](./media/tutorial-review-usage/actual-cost03.png)
 
-Dans l’exemple, vous observez clairement que les coûts du stockage Azure ont baissé à partir du 31/08/2017 tandis que les dépenses pour d’autres services Azure se sont maintenus au même niveau. Pourquoi cette baisse des dépenses ? Dans cet exemple, certains employés étaient en vacances et n’ont donc pas utilisé le service de stockage.
+Toujours avec cet exemple, vous pouvez voir que le coût de la machine virtuelle Azure a baissé. Les coûts des autres services Azure a également commencé à baisser ce jour-là. Pourquoi cette baisse des dépenses ? Dans cet exemple, un projet de travail important a été effectué. La consommation de nombreux services Azure a également baissé.
 
 Pour visionner un tutoriel vidéo sur le suivi de l’utilisation et des tendances des coûts, consultez [Analyse des données de facturation cloud en fonction du temps avec Cloudyn](https://youtu.be/7LsVPHglM0g).
 
@@ -75,11 +75,11 @@ Le problème est que leur infrastructure existante a été déjà payée. Les ut
 
 Le rapport de recommandations de dimensionnement économique identifie les économies annuelles potentielles en comparant la capacité des types d’instance de machine virtuelle à leurs données d’historique d’utilisation de la mémoire et de l’UC.  
 
-Dans le menu en haut du portail, cliquez sur **Optimizer**(Optimiseur) > **Sizing Optimization**(Optimisation du dimensionnement) > **Cost Effective Sizing Recommendations**(Recommandations de dimensionnement économique). Filtrez le fournisseur sur Azure pour analyser uniquement des machines virtuelles Azure. Voici un exemple :
+Dans le menu en haut du portail, cliquez sur **Optimizer**(Optimiseur) > **Sizing Optimization**(Optimisation du dimensionnement) > **Cost Effective Sizing Recommendations**(Recommandations de dimensionnement économique). Si cela est utile, appliquez un filtre pour réduire les résultats. Voici un exemple :
 
 ![Machines virtuelles Azure](./media/tutorial-review-usage/sizing01.png)
 
-Dans cet exemple, l’organisation pourrait économiser 3 114 $ en suivant les recommandations pour modifier les types d’instance de machine virtuelle. Cliquez sur le signe plus (+) sous **Details (Détails)** pour la première recommandation. Voici les détails de la première recommandation.
+Dans cet exemple, l’organisation pourrait économiser 2 382 $ en suivant les recommandations pour modifier les types d’instance de machine virtuelle. Cliquez sur le signe plus (+) sous **Details (Détails)** pour la première recommandation. Voici les détails de la première recommandation.
 
 ![détails de la recommandation](./media/tutorial-review-usage/sizing02.png)
 
@@ -89,13 +89,15 @@ Pour afficher les ID d’instance de machine virtuelle, cliquez sur le signe plu
 
 Pour visionner un tutoriel vidéo sur la détection des inefficacités d’utilisation, consultez [Optimisation de la taille de machine virtuelle dans Cloudyn](https://youtu.be/1xaZBNmV704).
 
+Azure Cost Management fournit également des recommandations économiques pour les services Azure. Pour plus d’informations, consultez [Tutoriel : Optimiser les coûts à partir de recommandations](tutorial-acm-opt-recommendations.md).
+
 ## <a name="create-alerts-for-unusual-spending"></a>Créer des alertes pour dépenses inhabituelles
 
 Vous pouvez alerter automatiquement d’autres parties prenantes en cas d’anomalies de dépenses et de risques de dépenses excessives. Vous pouvez créer rapidement et facilement des alertes à l’aide de rapports prenant en charge les alertes basées sur des seuils budgétaires et des seuils de coût.
 
 Vous pouvez créer une alerte pour une dépense quelconque avec tout rapport de coût. Dans cet exemple, utilisez le rapport des coûts réels dans le temps pour vous avertir quand les dépenses de la machine virtuelle Azure s’approchent de votre budget total. Toutes les étapes suivantes sont nécessaires pour créer l’alerte. Dans le menu en haut du portail, cliquez sur **Coûts** > **Analyse des coûts** > **Actual Cost Over Time** (Rapport des coûts réels dans le temps). Définissez **Groups (Groupes)** sur **Service** et **filtrez le service** sur **Azure/VM**. Dans le coin supérieur droit du rapport, cliquez sur **Actions**, puis sélectionnez **Schedule report (Planifier le rapport)**.
 
-Dans la zone Enregistrer ou planifier ce rapport, utilisez l’onglet **Planification** pour recevoir un e-mail du rapport à la fréquence de votre choix. Veillez à sélectionner **Envoyer par e-mail**. Tous les regroupements, filtrages et balises que vous avez utilisés sont inclus dans le rapport envoyé par e-mail. Cliquez sur l’onglet **Threshold (Seuil)** et sélectionnez **Actual Cost vs. Threshold** (Coût réel vs seuil). Si vous avez un budget total de 500 000 $ et souhaitez recevoir une notification dès que les coûts s’approchent de la moitié environ, créez une **alerte rouge** sur 250 000 $ et une **alerte jaune** sur 240 000 $. N’incluez pas de virgules dans les valeurs que vous entrez. Sélectionnez ensuite le nombre d’alertes consécutives. Quand vous aurez reçu le nombre total d’alertes que vous avez spécifié, vous ne recevrez plus d’autres alertes. Enregistrez le rapport planifié.
+Dans la zone Enregistrer ou planifier ce rapport, utilisez l’onglet **Planification** pour recevoir un e-mail du rapport à la fréquence de votre choix. Veillez à sélectionner **Envoyer par e-mail**. Tous les regroupements, filtrages et balises que vous avez utilisés sont inclus dans le rapport envoyé par e-mail. Cliquez sur l’onglet **Threshold (Seuil)** et sélectionnez **Actual Cost vs. Threshold** (Coût réel vs seuil). Si vous avez un budget total de 20 000 $ et souhaitez recevoir une notification dès que les coûts s’approchent de la moitié environ, créez une **alerte rouge** sur 10 000 $ et une **alerte jaune** sur 9 000 $. N’incluez pas de virgules dans les valeurs que vous entrez. Sélectionnez ensuite le nombre d’alertes consécutives. Quand vous aurez reçu le nombre total d’alertes que vous avez spécifié, vous ne recevrez plus d’autres alertes. Enregistrez le rapport planifié.
 
 ![exemple de rapport](./media/tutorial-review-usage/schedule-alert01.png)
 

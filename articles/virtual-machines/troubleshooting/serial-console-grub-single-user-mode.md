@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 411c743421af79ea066df3a5fc07f71b8b6cb993
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 43f9d7d39cfcdd7b670aca6184533def0b6966f5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855865"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211381"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Utiliser la console série pour accéder au GRUB et au mode mono-utilisateur
 GRUB est l’acronyme du programme d’amorçage GRand Unified Bootloader. Un GRUB vous permet de modifier votre configuration d’amorçage, notamment pour démarrer en mode mono-utilisateur.
@@ -33,7 +33,7 @@ Pour passer en mode mono-utilisateur, vous devrez entrer un GRUB lors de du dém
 ## <a name="general-grub-access"></a>Accès général au GRUB
 Pour accéder au GRUB, vous devez redémarrer votre machine virtuelle en laissant ouvert le panneau de la console série. Certaines distributions nécessitent une entrée au clavier pour afficher le GRUB. D’autres l’affichent automatiquement pendant quelques secondes afin de permettre à l’utilisateur d’effectuer une entrée au clavier pour annuler le délai d’expiration. 
 
-Vous devez vous assurer que le GRUB est activé sur votre machine virtuelle afin de pouvoir accéder au mode mono-utilisateur. En fonction de votre distribution, vous devrez peut-être procéder à une configuration spécifique pour vous assurer que le GRUB est activé. Des informations spécifiques de la distribution sont disponibles ci-dessous.
+Vous devez vous assurer que le GRUB est activé sur votre machine virtuelle afin de pouvoir accéder au mode mono-utilisateur. En fonction de votre distribution, vous devrez peut-être procéder à une configuration spécifique pour vous assurer que le GRUB est activé. Des informations spécifiques sur la distribution sont disponibles ci-dessous et en suivant [ce lien](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/).
 
 ### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Redémarrer votre machine virtuelle pour accéder au GRUB dans la console série
 Vous pouvez redémarrer votre machine virtuelle avec le panneau de la console série ouvert à l’aide d’une commande SysRq `'b'` si [SysRq](./serial-console-nmi-sysrq.md) est activé, ou en cliquant sur le bouton Redémarrer dans le panneau Vue d’ensemble (ouvrir la machine virtuelle dans un nouvel onglet de navigateur pour redémarrer sans fermer le panneau de la console série). Pour voir ce que vous pouvez attendre du GRUB lorsque vous redémarrez, suivez les instructions spécifiques de la distribution ci-dessous.
@@ -186,6 +186,7 @@ Suivez les instructions pour RHEL ci-dessus afin d’activer le mode mono-utilis
 
 ## <a name="next-steps"></a>Étapes suivantes
 * La page principale de documentation de la console série Linux se trouve [ici](serial-console-linux.md).
+* En savoir plus sur l’utilisation de la console série pour [activer GRUB dans diverses distributions](https://blogs.msdn.microsoft.com/linuxonazure/2018/10/23/why-proactively-ensuring-you-have-access-to-grub-and-sysrq-in-your-linux-vm-could-save-you-lots-of-down-time/)
 * Utiliser la console série pour [les appels SysRq et NMI](serial-console-nmi-sysrq.md)
 * La console série est également disponible pour les machines virtuelles [Windows](serial-console-windows.md)
 * En savoir plus sur les [diagnostics de démarrage](boot-diagnostics.md)

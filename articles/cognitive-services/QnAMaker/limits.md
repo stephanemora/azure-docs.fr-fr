@@ -10,12 +10,12 @@ ms.component: qna-maker
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: tulasim
-ms.openlocfilehash: 76024266a8ae3eb03e910e140184a07ae363e881
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 53fadc0e3ea21b94ca656774baf077192c0394b4
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384941"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50137291"
 ---
 # <a name="qna-maker-limits"></a>Limites QnA Maker
 Liste complète des limites dans QnA Maker.
@@ -26,7 +26,7 @@ Liste complète des limites dans QnA Maker.
 
 |**Niveau de la Recherche Azure** | **Gratuit** | **De base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Nombre maximal de bases de connaissances publiées autorisées (index max -- 1 (réservé pour le test)|2|14|49|199|199|2999|
+|Nombre maximal de bases de connaissances publiées autorisées (index max -- 1 (réservé pour le test)|2|14|49|199|199|2 999|
 
 ## <a name="extraction-limits"></a>Limites d’extraction
 * Nombre maximal de fichiers qui peuvent être extraits et taille de fichier maximale : consultez [Tarification QnAMaker](https://azure.microsoft.com/pricing/details/cognitive-services/qna-maker/)
@@ -37,12 +37,12 @@ Liste complète des limites dans QnA Maker.
 
 |**Niveau de la Recherche Azure** | **Gratuit** | **De base** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
-|Nombre maximal de champs de métadonnées par service QnA Maker (pour tous les Kbits/s)|1 000|100*|1 000|1 000|1 000|1 000|
+|Nombre maximal de champs de métadonnées par service QnA Maker (pour tous les Kbits/s)|1 000|100*|1 000|1 000|1 000|1 000|
 
 ## <a name="knowledge-base-content-limits"></a>Limites de contenu de la base de connaissances
 Limites globales sur le contenu de la base de connaissances :
-* Longueur du texte de la réponse : 250 000
-* Longueur du texte de la question : 1 000
+* Longueur du texte de la réponse : 25 000
+* Longueur du texte de la question : 1 000
 * Longueur de la clé de métadonnée/du texte de valeur : 100
 * Caractères pris en charge pour le nom des métadonnées : lettres, chiffres et _  
 * Caractères pris en charge pour le nom des métadonnées : tout sauf : et | 

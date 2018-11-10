@@ -1,23 +1,22 @@
 ---
-title: Matrice de prise en charge pour la réplication de machines virtuelles VMware ou de serveurs physiques vers un site secondaire VMWare avec Azure Site Recovery | Microsoft Docs
-description: Résume la prise en charge pour la réplication de VMware/serveur physique vers un site secondaire à l’aide de Azure Site Recovery
-services: site-recovery
+title: Matrice de prise en charge pour la récupération d’urgence de machines virtuelles VMware ou de serveurs physiques vers un site secondaire VMware avec Azure Site Recovery | Microsoft Docs
+description: Résume la prise en charge de la récupération d’urgence de machines virtuelles ou de serveurs physiques VMware sur un site secondaire avec Azure Site Recovery.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8406cf2b31b87cdb4f6c9b6ba3d06559cf1d4d41
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021991"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50209800"
 ---
-# <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge pour la réplication de machines virtuelles VMware et de serveurs physiques vers un site secondaire
+# <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Matrice de prise en charge de la récupération d’urgence des machines virtuelles VMware et serveurs physiques sur un site secondaire
 
-Cet article résume ce qui est pris en charge lorsque vous utilisez le service [Azure Site Recovery](site-recovery-overview.md) pour répliquer des machines virtuelles VMware ou des serveurs physiques XWindows/Linux vers un site secondaire VMware.
+Cet article résume ce qui est pris en charge lorsque vous utilisez le service [Azure Site Recovery](site-recovery-overview.md) pour la récupération d’urgence de machines virtuelles VMware ou de serveurs physiques XWindows/Linux vers un site secondaire VMware.
 
 - Si vous souhaitez répliquer des machines virtuelles VMware ou des serveurs physiques vers Azure, passez en revue [cette matrice de prise en charge](vmware-physical-azure-support-matrix.md).
 - Si vous souhaitez répliquer des machines virtuelles Hyper-V vers un site secondaire, passez en revue [cette matrice de prise en charge](hyper-v-azure-support-matrix.md).

@@ -1,6 +1,6 @@
 ---
-title: Envoyer des métriques de système d’exploitation invité au service cloud classique de magasin de métriques Azure Monitor
-description: Envoyer des métriques de système d’exploitation invité au service cloud classique de magasin de métriques Azure Monitor
+title: Envoyer des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud classiques
+description: Envoyez des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud
 author: anirudhcavale
 services: azure-monitor
 ms.service: azure-monitor
@@ -8,36 +8,37 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: be27ff3f8dda3209a011c3ad79d1a7a1f1d259fe
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 30b08062aa360c4a43dc1bfe9f574447b58521f5
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46986912"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50095209"
 ---
-# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-service"></a>Envoyer des métriques de système d’exploitation invité au service cloud classique de magasin de métriques Azure Monitor
+# <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Envoyer des métriques de système d’exploitation invité au magasin de métriques Azure Monitor pour les services cloud classiques 
+Avec [l’extension Diagnostics](azure-diagnostics.md) d’Azure Monitor, vous pouvez collecter des métriques et des journaux à partir du système d’exploitation invité qui est exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Service Fabric. L’extension peut envoyer des données de télémétrie à de [nombreux emplacements différents](https://docs.microsoft.com/azure/monitoring/monitoring-data-collection?toc=/azure/azure-monitor/toc.json).
 
-[L’extension Windows Azure Diagnostics](azure-diagnostics.md) (WAD) d’Azure Monitor vous permet de collecter des métriques et des journaux à partir du système d’exploitation invité (SE invité) exécuté dans le cadre d’une machine virtuelle, d’un service cloud ou d’un cluster Service Fabric.  L’extension peut envoyer des données de télémétrie vers de nombreux emplacements différents répertoriés dans l’article précédemment lié.  
+Cet article décrit le processus permettant d’envoyer au magasin de métriques Azure Monitor les métriques de performances du système d’exploitation invité concernant les services cloud classiques Azure. À partir de la version 1.11 de l’extension Diagnostics, vous pouvez écrire des métriques directement dans le magasin de métriques Azure Monitor, où les métriques standard de la plateforme sont déjà collectées. 
 
-Cet article décrit le processus pour envoyer les métriques de performances du SE invité de services cloud classiques Azure au magasin de métriques Azure Monitor. À partir de WAD version 1.11, vous pouvez écrire des métriques directement dans le magasin de métriques d’Azure Monitor où les métriques standard de la plateforme sont déjà collectées. En les stockant dans cet emplacement, vous avez accès aux mêmes actions que celles disponibles pour les métriques de la plateforme.  Ces actions sont les suivantes : génération d’alertes en temps quasi réel, création de graphiques, routage, accès à partir de l’API REST et bien plus encore.  Avant, l’extension WAD écrivait dans Stockage Azure, mais pas dans le magasin de données d’Azure Monitor.  
+En les stockant dans cet emplacement, vous avez accès aux mêmes actions que celles disponibles pour les métriques de la plateforme. Ces actions incluent notamment la génération d’alertes en temps quasi réel, la création de graphiques, le routage, l’accès à partir d’une API REST, etc.  Avant, l’extension Diagnostics écrivait les données dans Stockage Azure, et non dans le magasin de données Azure Monitor.  
 
-Le processus décrit dans cet article fonctionne uniquement pour les compteurs de performances sur Microsoft Azure Cloud Services. Il ne fonctionne pas pour d’autres métriques personnalisées. 
+Le processus décrit dans cet article fonctionne uniquement pour les compteurs de performances des services cloud Azure. Il ne fonctionne pas pour les autres métriques personnalisées. 
    
 
-## <a name="pre-requisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-- Vous devez être [administrateur de services fédérés ou coadministrateur](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) sur votre abonnement Azure 
+- Vous devez être [administrateur ou coadministrateur de services fédérés](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator.md) dans votre abonnement Azure. 
 
-- Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) 
+- Votre abonnement doit être inscrit auprès de [Microsoft.Insights](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services#portal). 
 
-- Vous devez avoir installé [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1), ou vous pouvez utiliser [Azure CloudShell](https://docs.microsoft.com/azure/cloud-shell/overview.md) 
+- Vous devez avoir installé [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.8.1) ou [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 
-## <a name="provision-cloud-service-and-storage-account"></a>Approvisionner un service cloud et un compte de stockage 
+## <a name="provision-a-cloud-service-and-storage-account"></a>Provisionner un service cloud et un compte de stockage 
 
-1. Créez et déployez un service cloud classique (un exemple de déploiement et d’application de service cloud classique est disponible [ici](../cloud-services/cloud-services-dotnet-get-started.md)). 
+1. Créez et déployez un service cloud classique. Pour voir un exemple d’application de services cloud classiques avec son déploiement, consultez [Prise en main des services cloud Azure et d’ASP.NET](../cloud-services/cloud-services-dotnet-get-started.md). 
 
-2. Vous pouvez utiliser un compte de stockage existant ou en déployer un nouveau. Il est préférable que le compte de stockage se trouve dans la même région que le service cloud classique que vous venez de créer. Dans le Portail Azure, accédez au panneau de ressource de compte de stockage et choisissez les **clés**. Notez le nom et la clé de compte de stockage, car vous en avez besoin pour les étapes suivantes.
+2. Vous pouvez utiliser un compte de stockage existant ou en déployer un nouveau. Il est préférable que le compte de stockage se trouve dans la même région que le service cloud classique que vous avez créé. Dans le portail Azure, accédez au panneau de ressource **Comptes de stockage**, puis sélectionnez **Clés**. Notez le nom du compte de stockage et la clé du compte de stockage. Vous aurez besoin de ces informations pour les étapes ultérieures.
 
    ![Clés de compte de stockage](./media/metrics-store-custom-guestos-classic-cloud-service/storage-keys.png)
 
@@ -45,19 +46,20 @@ Le processus décrit dans cet article fonctionne uniquement pour les compteurs d
 
 ## <a name="create-a-service-principal"></a>Créer un principal du service 
 
-Créez un principal de service dans votre locataire Azure Active Directory en suivant les instructions indiquées à l’emplacement ../azure/azure-resource-manager/resource-group-create-service-principal-portal. Notez ce qui suit au cours de ce processus : 
+Créez un principal de service dans votre locataire Azure Active Directory à l’aide des instructions fournies dans [Utiliser le portail pour créer une application et un principal du service Azure Active Directory pouvant accéder aux ressources](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal). Notez ce qui suit au cours de ce processus : 
+
   - Vous pouvez indiquer n’importe quelle URL pour l’URL de connexion.  
-  - Créez une clé secrète client pour cette application.  
+  - Créez un secret client pour cette application.  
   - Enregistrez la clé et l’ID client pour une utilisation ultérieure.  
 
-Donnez à l’application créée dans le cadre de l’étape précédente des autorisations *Monitoring Metrics Publisher* (Éditeur de métriques de supervision) pour la ressource pour laquelle vous souhaitez émettre des métriques. Si vous envisagez d’utiliser l’application pour émettre des métriques personnalisées concernant de nombreuses ressources, vous pouvez accorder ces autorisations au niveau du groupe de ressources ou de l’abonnement.  
+Attribuez à l’application créée à l’étape précédente des autorisations *Surveillance de l’éditeur de métriques* afin qu’elle puisse accéder à la ressource à partir de laquelle vous souhaitez générer des métriques. Si vous envisagez d’utiliser l’application pour émettre des métriques personnalisées concernant de nombreuses ressources, vous pouvez accorder ces autorisations au niveau du groupe de ressources ou de l’abonnement.  
 
 > [!NOTE]
-> L’extension Diagnostics utilise le principal de service pour s’authentifier sur Azure Monitor et émettre des métriques pour votre service cloud. 
+> L’extension Diagnostics utilise le principal de service pour s’authentifier auprès d’Azure Monitor et pour générer des métriques concernant votre service cloud.
 
 ## <a name="author-diagnostics-extension-configuration"></a>Créer la configuration de l’extension Diagnostics 
 
-Préparez le fichier config de l’extension Diagnostics de WAD. Ce fichier détermine quels journaux et compteurs de performances doivent être collectés par l’extension Diagnostics pour votre service cloud. Vous trouverez ci-dessous un exemple de fichier config de diagnostics.  
+Préparez le fichier config de l’extension Diagnostics. Ce fichier détermine quels journaux et compteurs de performances doivent être collectés par l’extension Diagnostics pour votre service cloud. Vous trouverez ci-dessous un exemple de fichier config Diagnostics :  
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?> 
@@ -112,15 +114,16 @@ Dans la section « SinksConfig » de votre fichier de diagnostics, définissez u
   </SinksConfig> 
 ```
 
-Dans la section de votre fichier config où vous répertoriez les compteurs de performances à collecter, ajoutez le récepteur Azure Monitor. Cette entrée garantit que tous les compteurs de performances spécifiés sont acheminés vers Azure Monitor en tant que métriques. N’hésitez pas à ajouter/supprimer des compteurs de performances selon vos besoins. 
+Dans la section de votre fichier config où vous répertoriez les compteurs de performances à collecter, ajoutez le récepteur Azure Monitor. Cette entrée garantit que tous les compteurs de performances spécifiés sont acheminés vers Azure Monitor en tant que métriques. Vous pouvez ajouter ou supprimer des compteurs de performances selon vos besoins. 
 
-```XML
-<PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzMonSink"> 
- <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT15S" /> 
-  … 
-</PerformanceCounters> 
+```xml
+    <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="AzMonSink">
+        <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT15S" />
+    ...
+    </PerformanceCounters>
 ```
-Enfin, dans la configuration privée, ajoutez une section *Azure Monitor Account* (Compte Azure Monitor). Entrez l’ID de client du principal de service et le secret qui ont été créés lors de l’étape précédente. 
+
+Enfin, dans la configuration privée, ajoutez une section *Azure Monitor Account* (Compte Azure Monitor). Entrez l’ID de client du principal de service et le secret que vous avez créés précédemment. 
 
 ```XML
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
@@ -136,53 +139,53 @@ Enfin, dans la configuration privée, ajoutez une section *Azure Monitor Account
  
 Enregistrez ce fichier de diagnostics en local.  
 
-## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Déployer l’extension Diagnostics sur votre service cloud 
+## <a name="deploy-the-diagnostics-extension-to-your-cloud-service"></a>Déployer l’extension Diagnostics dans votre service cloud 
 
-Lancez PowerShell et connectez-vous à Azure 
+Lancez PowerShell et connectez-vous à Azure. 
 
 ```PowerShell
 Login-AzureRmAccount 
 ```
 
-Stockez dans des variables les informations sur le compte de stockage créé lors d’une étape précédente à l’aide des commandes suivantes. 
+Utilisez les commandes suivantes pour stocker les informations du compte de stockage que vous avez créé précédemment. 
 
 ```PowerShell
 $storage_account = <name of your storage account from step 3> 
 $storage_keys = <storage account key from step 3> 
 ```
  
-De la même façon, définissez le chemin d’accès du fichier de diagnostics sur une variable en utilisant la commande ci-dessous. 
+De la même façon, définissez le chemin du fichier de diagnostics sur une variable en utilisant la commande suivante :
 
 ```PowerShell
-$diagconfig = “<path of the diagnostics configuration file with the Azure Monitor sink configured>” 
+$diagconfig = “<path of the Diagnostics configuration file with the Azure Monitor sink configured>” 
 ```
  
-Déployez l’extension Diagnostics sur votre service cloud avec le fichier de diagnostics, avec le récepteur Azure Monitor configuré à l’aide de la commande suivante 
+Déployez l’extension Diagnostics dans votre service cloud à l’aide du fichier de diagnostics, avec le récepteur Azure Monitor configuré à l’aide de la commande suivante :  
 
 ```PowerShell
 Set-AzureServiceDiagnosticsExtension -ServiceName <classicCloudServiceName> -StorageAccountName $storage_account -StorageAccountKey $storage_keys -DiagnosticsConfigurationPath $diagconfig 
 ```
  
 > [!NOTE] 
-> Vous devez toujours fournir un compte de stockage dans le cadre de l’installation de l’extension Diagnostics. Les journaux et/ou les compteurs de performances spécifiés dans le fichier config de diagnostics sont écrits dans le compte de stockage spécifié.  
+> Vous devez toujours fournir un compte de stockage lors de l’installation de l’extension Diagnostics. Les journaux et les compteurs de performances spécifiés dans le fichier config de diagnostics sont écrits dans le compte de stockage spécifié.  
 
 ## <a name="plot-metrics-in-the-azure-portal"></a>Tracer des métriques dans le Portail Azure 
 
-Accédez au Portail Azure 
+1. Accédez au portail Azure. 
 
- ![Métriques dans le Portail Azure](./media/metrics-store-custom-guestos-classic-cloud-service/navigate-metrics.png)
+   ![Métriques dans le Portail Azure](./media/metrics-store-custom-guestos-classic-cloud-service/navigate-metrics.png)
 
-1. Dans le menu de gauche, cliquez sur Surveiller 
+2. Dans le menu de gauche, sélectionnez **Surveiller**.
 
-1. Dans le panneau Surveiller, cliquez sur l’onglet Metrics Preview (Aperçu des métriques) 
+3. Dans le panneau **Surveiller**, sélectionnez l’onglet **Métriques (préversion)**.
 
-1. Dans la liste déroulante des ressources, sélectionnez votre service cloud classique 
+4. Dans la liste déroulante des ressources, sélectionnez votre service cloud classique.
 
-1. Dans la liste déroulante des espaces de noms, sélectionnez **azure.vm.windows.guest** 
+5. Dans la liste déroulante d’espaces de noms, sélectionnez **azure.vm.windows.guest**. 
 
-1. Dans la liste déroulante des métriques, sélectionnez *Memory\Committed Bytes in Use* (Mémoire\Octets validés utilisés) 
+6. Dans la liste déroulante des métriques, sélectionnez **Mémoire\Octets validés en cours d’utilisation**. 
 
-Vous pouvez choisir d’afficher la mémoire totale utilisée par un rôle spécifique et chaque instance de rôle à l’aide des fonctionnalités de fractionnement et de filtrage des dimensions. 
+Vous pouvez utiliser les fonctionnalités de filtrage et de fractionnement des dimensions pour afficher la mémoire totale utilisée par un rôle ou une instance de rôle. 
 
  ![Métriques dans le Portail Azure](./media/metrics-store-custom-guestos-classic-cloud-service/metrics-graph.png)
 

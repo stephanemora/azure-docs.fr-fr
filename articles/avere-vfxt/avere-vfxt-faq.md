@@ -1,0 +1,280 @@
+---
+title: Questions fréquentes (FAQ) - Avere vFXT pour Azure
+description: Questions fréquentes (FAQ) sur Avere vFXT pour Azure
+author: ekpgh
+ms.service: avere-vfxt
+ms.topic: conceptual
+ms.date: 10/31/2018
+ms.author: v-erkell
+ms.openlocfilehash: 334b4c912c40949cbecab2173425927d46350d07
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50670006"
+---
+# <a name="avere-vfxt-for-azure-faq"></a>Questions fréquentes (FAQ) sur Avere vFXT pour Azure
+
+Cet article répond aux questions qui peuvent vous aider à décider si la solution Avere vFXT est adaptée à vos besoins. Il donne des informations de base sur les fonctionnalités d’Avere vFXT et explique comment elle fonctionne avec d’autres composants Azure et avec des produits de fournisseurs externes. 
+
+## <a name="general"></a>Généralités 
+
+### <a name="what-is-avere-vfxt-for-azure"></a>En quoi consiste Avere vFXT pour Azure ?
+
+Avere vFXT pour Azure est un système de fichiers hautes performances qui met en cache les données actives dans Azure Compute pour un traitement efficace des charges de travail critiques.
+
+### <a name="is-the-avere-vfxt-a-storage-solution"></a>Avere vFXT est-il une solution de stockage ?
+
+Non. Avere vFXT est un **cache** de système de fichiers qui est attaché à des environnements de stockage, comme votre console EMC, votre système NAS NetApp ou un conteneur d’objets blob. Le système vFXT facilite les requêtes de données émanant de clients et met en cache les données qu’il traite pour améliorer les performances à grande échelle et au fil du temps. Le système vFXT en soi ne stocke pas les données. Il ne dispose d’aucune information sur la quantité de données stockées derrière lui.
+
+### <a name="is-the-avere-vfxt-a-tiering-solution"></a>Avere vFXT est-il une solution de hiérarchisation ?
+
+Le système Avere vFXT ne hiérarchise pas automatiquement les données entre les niveaux chaud et froid.  
+
+### <a name="how-do-i-know-if-an-environment-is-right-for-the-avere-vfxt"></a>Comment savoir si un environnement est adapté pour le système Avere vFXT ?
+
+La meilleure façon de réfléchir à cette question consiste à se demander : « La charge de travail peut-elle être mise en cache ? » Autrement dit, la charge de travail a-t-elle un rapport lecture/écriture élevé ? Par exemple, 80/20 ou 70/30 lectures/écritures.
+
+Envisagez d’utiliser Avere vFXT pour Azure si vous disposez d’un pipeline d’analyse basé sur un fichier qui s’exécute sur un grand nombre de machines virtuelles Azure, et qu’il répond à une ou plusieurs des conditions suivantes :
+
+* Les performances globales sont faibles ou incohérentes en raison de longs temps d’accès au fichier (des dizaines de millisecondes ou des secondes, en fonction des besoins). Cette latence est inacceptable pour le client final.
+
+* Les données nécessaires pour le traitement se trouvent à l’extrémité d’un environnement de réseau étendu et il n’est pas pratique de déplacer définitivement ces données. Les données peuvent se trouver dans une autre région Azure ou dans un centre de données de client.
+
+* Un nombre important de clients demandent les données ; par exemple, dans un cluster HPC (High Performance Computing, calcul haute performance). Le grand nombre de demandes simultanées peut augmenter la latence.
+
+* Le client veut exécuter son pipeline actuel « en l’état » dans des machines virtuelles, et il a besoin d’une solution de stockage (ou de mise en cache) partagée POSIX solution à des fins de scalabilité. Si vous utilisez Avere vFXT pour Azure, il est inutile de remanier l’architecture du pipeline de travail pour effectuer des appels natifs au Stockage Blob Azure.
+
+* Votre application HPC est basée sur les clients NFSv3. (Dans certains cas, des clients SMB 2.1 peuvent être utilisés, mais les performances sont limitées.)
+
+   Le graphisme ci-dessous tente de simplifier la réponse à cette question. Plus votre flux de travail est proche de l’angle supérieur droit, plus il est probable que la solution de mise en cache Avere est adaptée à votre environnement.
+
+   ![diagramme montrant que les charges nécessitant beaucoup de lectures avec des milliers de clients sont mieux adaptées pour Avere vFXT](media/avere-vfxt-fit-assessment.png)
+
+### <a name="at-what-scale-of-clients-does-the-avere-vfxt-solution-make-the-most-sense"></a>À quel volume de clients la solution Avere vFXT est-elle la plus pertinente ?
+
+La solution de cache vFXT est conçue pour gérer des centaines, des milliers ou des dizaines de milliers de cœurs de calcul. Si vous avez plusieurs machines exécutant du travail léger, Avere vFXT n’est pas la solution appropriée.
+
+Les clients Avere vFXT classiques exécutent des charges de travail exigeantes commençant à environ 1 000 cœurs de processeur. Ces environnements peuvent comporter jusqu’à 50 000 cœurs, voire plus. Étant donné que le système vFXT est évolutif, vous pouvez ajouter des nœuds pour prendre en charge ces charges de travail à mesure qu’elles augmentent pour exiger davantage de débit ou d’E/S par seconde.
+
+### <a name="how-much-data-can-an-avere-vfxt-environment-store"></a>Quelle quantité de données un environnement Avere vFXT peut-il stocker ?
+
+AVERE vFXT est un cache. Il ne stocke pas spécifiquement des données. Il utilise une combinaison de RAM et de disques SSD pour stocker les données mises en cache. Les données sont définitivement stockées sur un système de stockage back-end (par exemple, un système NAS NetApp ou un conteneur d’objets blob). Le système Avere vFXT ne dispose d’aucune information sur la quantité de données stockées derrière lui. Il met uniquement en cache le sous-ensemble des données demandées par les clients.  
+
+### <a name="what-regions-are-supported"></a>Quelles sont les régions prises en charge ?
+
+À compter du 1er novembre 2018, Avere vFXT pour Azure est pris en charge dans toutes les régions à l’exception des régions souveraines (Chine, Allemagne) et des régions de gouvernement. Vérifiez que la région que vous voulez utiliser peut prendre en charge la grande quantité de cœurs de calcul, ainsi que les instances de machines virtuelles nécessaires pour créer le cluster Avere vFXT. Les régions souveraines et les clouds pour le secteur public ne sont pas encore pris en charge.
+
+### <a name="how-do-i-get-help-with-the-avere-vfxt"></a>Comment obtenir de l’aide avec le système Avere vFXT ?
+
+Un groupe de support spécialisé propose de l’aide sur le système Avere vFXT pour Azure. Suivez les instructions mentionnées dans [Obtenir de l’aide avec votre système](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt) pour ouvrir un ticket de support à partir du portail Azure. 
+
+### <a name="is-the-avere-vfxt-highly-available"></a>Le système Avere vFXT est-il hautement disponible ?
+
+Oui, le système Avere vFXT s’exécute exclusivement comme une solution à haute disponibilité.
+
+### <a name="does-avere-vfxt-for-azure-also-support-other-cloud-services"></a>Avere vFXT pour Azure prend-il également en charge d’autres services cloud ?
+
+Oui, les clients peuvent utiliser plusieurs fournisseurs de cloud avec le cluster Avere vFXT. Il prend en charge les compartiments standard AWS S3 et les compartiments standard des services Google Cloud, ainsi que les conteneurs d’objets blob Azure. 
+
+> [!NOTE] 
+> Des frais de logiciel s’appliquent si vous utilisez Avere vFXT dans AWS ou Google Cloud, mais pas avec Azure.
+
+## <a name="technical---compute"></a>Technique - Calcul
+
+### <a name="can-you-describe-what-an-avere-vfxt-environment-looks-like"></a>Pouvez-vous décrire ce à quoi « ressemble » un environnement Avere vFXT ?
+
+Le système Avere vFXT est une appliance en cluster constituée de plusieurs machines virtuelles Azure. Une bibliothèque Python gère la création, la suppression et la modification du cluster. Pour en savoir plus, lisez [En quoi consiste Avere vFXT pour Azure ?](avere-vfxt-overview.md). 
+
+### <a name="what-kind-of-azure-virtual-machines-does-the-avere-vfxt-run-on"></a>Sur quelles sortes de machines virtuelles Azure Avere vFXT s’exécute-t-il ?  
+
+Le cluster Avere vFXT pour Azure utilise des machines virtuelles Microsoft Azure E32s_v3 ou D16s_v3. 
+
+### <a name="can-i-mix-and-match-virtual-machine-types-for-my-cluster"></a>Puis-je combiner des types de machines virtuelles pour mon cluster ?
+
+Non, vous devez choisir un type de machine virtuelle ou l’autre.
+    
+### <a name="can-i-move-between-virtual-machine-types"></a>Puis-je passer d’un type de machine virtuelle à l’autre ?
+
+Oui, il existe un chemin de migration pour passer d’un type de machine virtuelle à l’autre. Pour en savoir plus, [ouvrez un ticket de support](avere-vfxt-open-ticket.md#open-a-support-ticket-for-your-avere-vfxt).
+
+### <a name="does-the-avere-vfxt-environment-scale"></a>L’environnement Avere vFXT se met-il à l’échelle ?
+
+La taille du cluster Avere vFXT peut aller de trois à 24 nœuds de machine virtuelle. Contactez le support technique Azure pour obtenir de l’aide pour la planification si vous pensez que vous avez besoin d’un cluster de plus de neuf nœuds. Plus les nœuds sont nombreux, plus l’architecture de déploiement doit être vaste.
+
+### <a name="does-the-avere-vfxt-environment-autoscale"></a>L’environnement Avere vFXT se met-il automatiquement à l’échelle ?
+
+Non. Vous pouvez augmenter ou réduire la taille du cluster, mais l’ajout ou la suppression de nœuds de cluster est une étape manuelle.
+
+### <a name="can-i-run-the-vfxt-cluster-as-a-virtual-machine-scale-set"></a>Puis-je exécuter le cluster vFXT comme un groupe de machines virtuelles identiques ?
+
+AVERE vFXT ne prend pas en charge le déploiement de groupes de machines virtuelles identiques (VMSS). Plusieurs mécanismes de prise en charge de la disponibilité intégrés sont conçus uniquement pour les machines virtuelles atomiques participant à un cluster.  
+
+### <a name="can-i-run-the-vfxt-cluster-on-low-priority-vms"></a>Puis-je exécuter le cluster vFXT sur des machines virtuelles de faible priorité ?
+
+Non, le système nécessite un ensemble stable sous-jacent de machines virtuelles.
+
+### <a name="can-i-run-the-vfxt-cluster-in-containers"></a>Puis-je exécuter le cluster vFXT dans des conteneurs ?
+
+Non, le système Avere vFXT doit être déployé en tant qu’une application indépendante.
+
+### <a name="do-the-avere-vfxt-vms-count-against-my-compute-quota"></a>Les machines virtuelles Avere vFXT comptent-elles dans mon quota de calcul ?
+
+Oui. Vérifiez que vous disposez d’un quota suffisant dans la région pour prendre en charge le cluster.  
+
+### <a name="can-i-run-the-avere-vfxt-cluster-machines-in-different-availability-zones"></a>Puis-je exécuter les machines du cluster Avere vFXT dans différentes zones de disponibilité ?
+
+Non. Le modèle de haute disponibilité utilisé dans Avere vFXT ne prend actuellement pas en charge des membres individuels du cluster vFXT se trouvant dans différentes zones de disponibilité.
+
+### <a name="can-i-clone-avere-vfxt-virtual-machines"></a>Puis-je cloner des machines virtuelles Avere vFXT ?
+
+Non, vous devez utiliser le script Python pris en charge pour ajouter ou supprimer des nœuds dans le cluster Avere vFXT. Pour plus d’informations, lisez [Gérer le cluster Avere vFXT](avere-vfxt-manage-cluster.md).  
+
+### <a name="is-there-a-vm-version-of-the-software-i-can-run-in-my-own-local-environment"></a>Existe-t-il une version « machine virtuelle » du logiciel que je peux exécuter dans mon propre environnement local ?
+
+Non, le système est proposé sous la forme d’une appliance en cluster et est testé sur des types de machines virtuelles spécifiques. Cette restriction permet aux clients d’éviter de créer un système qui ne prend pas en charge les exigences de hautes performances d’un flux de travail Avere vFXT classique. 
+
+## <a name="technical---disks"></a>Technique - Disques
+
+### <a name="what-type-of-disks-are-supported-for-the-azure-vms"></a>Quel type de disques sont pris en charge pour les machines virtuelles Azure ?
+
+Avere vFXT pour Azure peut utiliser des configurations de disque SSD Premium de 1 To ou de 4 To. La configuration de disque SSD Premium peut être déployée sous la forme de plusieurs disques managés.
+
+### <a name="does-the-cluster-support-unmanaged-disks"></a>Le cluster prend-il en charge les disques non managés ?
+
+Non, le cluster nécessite des disques managés.
+
+### <a name="does-the-system-support-local-attached-ssds"></a>Le système prend-il en charge les disques SSD locaux (attachés) ?
+
+Avere vFXT pour Azure ne prend actuellement pas en charge les disques SSD locaux. Les disques utilisés pour le système Avere vFXT doivent pouvoir s’arrêter et redémarrer, mais dans cette configuration, les disques SSD attachés locaux peuvent uniquement être arrêtés.
+
+### <a name="does-the-system-support-ultra-ssds"></a>Le système prend-il en charge les disques SSD Ultra ?
+
+Non, le système prend uniquement en charge les configurations de disque SSD Premium.
+
+### <a name="can-i-detach-my-premium-ssds-and-reattach-them-later-to-preserve-cache-contents-between-use"></a>Puis-je détacher mes disques SSD Premium et les rattacher ultérieurement pour conserver le contenu du cache entre deux utilisations ?
+
+Le détachement et le rattachement de disques SSD ne sont pas pris en charge. Les métadonnées ou le contenu de fichiers sur la source peuvent avoir changé entre deux utilisations, ce qui peut entraîner des problèmes d’intégrité des données.
+
+### <a name="does-the-system-encrypt-the-cache"></a>Le système chiffre-t-il le cache ?
+
+Les données sont réparties entre les disques, mais elles ne sont pas chiffrées. Toutefois, les disques proprement dit peuvent être chiffrés. Des informations supplémentaires sont disponibles [ici](https://docs.microsoft.com/azure/virtual-machines/linux/security-policy#encryption).
+
+## <a name="technical---networking"></a>Technique - Mise en réseau
+
+### <a name="what-network-is-recommended"></a>Quel réseau est recommandé ?
+
+Si vous utilisez le stockage local avec le système Avere vFXT, vous devez disposer d’une connexion réseau de 1 Gbit/s ou plus. Si vous avez une petite quantité de données et que vous voulez copier des données dans le cloud avant d’exécuter des travaux, la connectivité VPN peut être suffisante. 
+
+> [!TIP] 
+> La lenteur des lectures à froid initiales est proportionnelle à la lenteur de la liaison réseau. Les lectures lentes augmentent la latence du pipeline de travail. 
+
+### <a name="can-i-run-the-avere-vfxt-in-a-different-virtual-network-than-my-compute-cluster"></a>Puis-je exécuter le système Avere vFXT sur un réseau virtuel différent de celui de mon cluster de calcul ?
+
+Oui, vous pouvez créer votre système Avere vFXT sur un autre réseau virtuel. Pour plus d’informations, lisez [Planifier votre système Avere vFXT](avere-vfxt-deploy-plan.md).
+
+### <a name="does-the-avere-vfxt-require-its-own-subnet"></a>Le système Avere vFXT nécessite-t-il son propre sous-réseau ?
+
+Oui. Le système Avere vFXT s’exécute exactement comme un cluster haute disponibilité et nécessite plusieurs adresses IP pour fonctionner. Si le cluster est dans son propre sous-réseau, vous évitez tout risque de conflits d’adresses IP, lesquels peuvent entraîner des problèmes pour l’installation et le fonctionnement normal. Le sous-réseau du cluster peut être dans le réseau virtuel existant tant que les adresses IP ne se chevauchent.
+
+### <a name="can-i-run-the-avere-vfxt-on-infiniband"></a>Puis-je exécuter le système Avere vFXT sur Infiniband ?
+
+Non, le système Avere vFXT utilise uniquement Ethernet/IP.
+
+### <a name="how-do-i-access-my-on-premises-nas-environment-from-the-avere-vfxt"></a>Comment accéder à mon environnement NAS local à partir du système Avere vFXT ?
+
+L’environnement Avere vFXT n’est pas différent de toute autre machine virtuelle Azure par le fait qu’il exige un accès routé via une passerelle réseau ou un VPN vers le centre de données du client (et en provenance de celui-ci). Envisagez d’utiliser la connectivité Azure ExpressRoute si elle est disponible dans votre environnement.
+
+### <a name="what-are-the-bandwidth-requirements-for-the-avere-vfxt"></a>Quels sont les besoins de bande passante du système Avere vFXT ?
+
+L’ensemble des besoins de bande passante dépendent de deux facteurs : 
+
+* La quantité de données demandées à la source 
+* La tolérance à la latence du système client pendant le chargement initial des données  
+
+Pour les environnements sensibles à la latence, vous devez utiliser une solution de fibre optique avec une vitesse de liaison minimale de 1 Gbit/s. Utilisez ExpressRoute s’il est disponible.  
+
+### <a name="can-i-run-the-vfxt-with-public-ip-addresses"></a>Puis-je exécuter le vFXT avec des adresses IP publiques ?
+
+Non, le vFXT est destiné à être utilisé dans un environnement réseau sécurisé en respectant des bonnes pratiques.  
+
+## <a name="technical---backend-storage-core-filers"></a>Technique - Stockage back-end (système de stockage principal)
+
+### <a name="how-many-core-filers-does-a-single-avere-vfxt-environment-support"></a>Combien de systèmes de stockage principaux (core filers) un seul environnement Avere vFXT prend en charge ?
+
+Un cluster Avere vFXT prend en charge jusqu’à 20 systèmes de stockage principaux. 
+
+### <a name="how-does-the-avere-environment-store-data"></a>Comment l’environnement Avere stocke les données ?
+
+Le système Avere vFXT n’est pas un stockage. C’est un cache qui lit et écrit des données à partir de plusieurs cibles de stockage appelées systèmes de stockage principaux (ou core filers). Les données stockées sur les disques SSD Premium d’Avere vFXT sont temporaires et finissent par être vidées sur le stockage du système de stockage principal du back-end.
+
+### <a name="which-core-filers-does-avere-vfxt-support"></a>Quels systèmes de stockage principaux Avere vFXT prend en charge ?
+
+En général, Avere vFXT pour Azure prend en charge les systèmes suivants comme systèmes de stockage principaux : 
+
+* Dell EMC Isilon (OneFS 7.1, 7.2, 8.0 et 8.1) 
+* NetApp ONTAP (Cluster Mode 9.4, 9.3, 9.2, 9.1P1, 8.0 - 8.3) et (7-Mode 7.*, 8.0 - 8.3) 
+* Conteneurs d’objets blob Azure (LRS uniquement) 
+* Compartiments AWS S3 
+* Compartiments Google Cloud
+
+### <a name="why-doesnt-the-avere-vfxt-support-all-nfs-filers"></a>Pourquoi le système Avere vFXT ne prend pas en charge tous les systèmes de stockage NFS ?
+
+Même si toutes les plateformes NFS répondent aux mêmes normes IETF, dans la pratique, chaque implémentation a ses propres particularités. Ces détails affectent la façon dont le système Avere vFXT interagit avec le système de stockage. Les systèmes pris en charge sont les plateformes les plus couramment utilisées sur le marché.
+
+### <a name="does-avere-vfxt-support-private-object-storage-such-as-swiftstack"></a>Avere vFXT prend-il en charge le stockage d’objets privés (comme Swiftstack) ?
+
+AVERE vFXT ne prend pas en charge le stockage d’objets privés.
+
+### <a name="how-can-i-get-a-specific-storage-product-under-support"></a>Comment obtenir un produit de stockage spécifique avec support ?
+
+Le support est basé sur la quantité de demandes dans le domaine. Si le nombre de demandes basées sur les revenus est suffisant pour assurer le support d’une solution NAS donnée, il sera envisagé. Formulez vos demandes par le biais du support Azure.
+
+### <a name="can-i-use-azure-blob-storage-as-a-core-filer"></a>Puis-je utiliser le Stockage Blob Azure comme système de stockage principal ?
+
+Oui, Avere vFXT pour Azure peut utiliser un conteneur d’objets blob de blocs comme système de stockage principal cloud.  
+
+### <a name="what-are-the-storage-account-requirements-for-a-blob-core-filer"></a>Quelles sont les exigences en matière de compte de stockage pour un système de stockage principal d’objets blob ?
+
+Votre compte de stockage doit être un compte v2 (GPv2) universel et être configuré pour le stockage localement redondant (LRS) uniquement. Les stockages GRS et ZRS ne sont pas pris en charge.
+
+### <a name="can-i-use-archive-blob-storage"></a>Puis-je utiliser le stockage Blob d’archive ?
+
+Non. Le contrat de niveau de service (SLA) pour le stockage d’archive n’est pas compatible avec les besoins d’accès en temps réel aux fichiers et aux répertoires du système vFXT. 
+
+### <a name="can-i-use-cool-blob-storage"></a>Puis-je utiliser le Stockage Blob froid ?
+
+Vous pouvez utiliser le niveau froid, mais notez que le taux d’opérations sera beaucoup plus élevé. 
+
+### <a name="how-do-i-encrypt-the-blob-container"></a>Comment chiffrer le conteneur d’objets blob ?
+
+Vous pouvez configurer le chiffrement d’objets blob soit dans Azure (recommandé), soit au niveau du système de stockage principal vFXT.  
+
+### <a name="can-i-use-my-own-encryption-key-for-a-blob-core-filer"></a>Puis-je utiliser ma propre clé de chiffrement pour un système de stockage principal d’objets blob ?
+
+Par défaut, les données sont chiffrées à l’aide de clés gérées par Microsoft pour les objets blob, les tables, les fichiers et les files d’attente Azure. Vous pouvez apporter votre propre clé pour le chiffrement des fichiers et des objets blob Azure. Si vous choisissez d’utiliser le chiffrement vFXT, vous devez utiliser la clé générée par Avere et la stocker localement. 
+
+## <a name="purchasing"></a>Achat
+
+### <a name="how-do-i-get-avere-vfxt-for-azure-licensing"></a>Comment obtenir une licence Avere vFXT pour Azure ?
+
+Il est facile d’obtenir une licence Avere vFXT pour Azure dans la Place de marché Azure. Inscrivez-vous pour créer un compte Azure, puis suivez les instructions mentionnées dans [Déployer le cluster vFXT](avere-vfxt-deploy.md) pour créer un cluster Avere vFXT. 
+
+### <a name="how-much-does-the-avere-vfxt-cost"></a>Combien coûte le système Avere vFXT ?
+
+Dans Azure, aucuns frais de licence supplémentaires ne sont facturés pour l’utilisation de clusters Avere vFXT. Les frais de stockage et autres frais de consommation Azure incombent aux clients.
+
+### <a name="can-avere-vfxt-vms-be-run-as-low-priority"></a>Les machines virtuelles Avere vFXT peuvent-elles être exécutées en basse priorité ?
+
+Non, les clusters Avere vFXT exigent un service « toujours activé ». Les clusters peuvent être désactivés quand ils ne sont pas nécessaires. 
+
+## <a name="next-steps"></a>Étapes suivantes
+
+Pour bien démarrer avec Avere vFXT pour Azure, consultez les liens suivants pour apprendre à planifier et à déployer votre propre système :
+
+* [Planifier votre système Avere vFXT](avere-vfxt-deploy-plan.md)
+* [Vue d’ensemble du déploiement](avere-vfxt-deploy-overview.md)
+* [Se préparer à la création du système Avere vFXT](avere-vfxt-prereqs.md)
+* [Déployer le cluster vFXT](avere-vfxt-deploy.md)
+
+Pour en savoir plus sur les fonctionnalités et les cas d’utilisation d’Avere vFXT, visitez [Avere vFXT pour Azure (préversion)](https://azure.microsoft.com/services/storage/avere-vfxt/).

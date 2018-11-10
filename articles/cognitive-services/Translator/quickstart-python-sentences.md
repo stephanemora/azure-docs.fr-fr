@@ -1,110 +1,162 @@
 ---
 title: 'Démarrage rapide : Obtenir la longueur des phrases, Python - API de traduction de texte Translator Text'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous allez rechercher la longueur des phrases du texte à l’aide de l’API de traduction de texte Translator Text avec Python.
+description: Dans ce démarrage rapide, vous allez apprendre à déterminer les longueurs de phrase (en caractères) à l’aide de Python et de l’API REST de traduction de texte Translator Text.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: quickstart
-ms.date: 06/21/2018
+ms.date: 10/24/2018
 ms.author: erhopf
-ms.openlocfilehash: 73906c9b6f5164aff905c4f647d1b1b74a92587c
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 64831f13811029263a2b76f8030589d9329dd318
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648086"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086129"
 ---
-# <a name="quickstart-get-sentence-lengths-with-the-translator-text-rest-api-python"></a>Démarrage rapide : Obtenir la longueur des phrases avec l’API REST de traduction de texte Translator Text (Python)
+# <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length-using-python"></a>Démarrage rapide : Utiliser l’API de traduction de texte Translator Text et Python pour déterminer la longueur de phrase
 
-Dans ce démarrage rapide, vous allez rechercher les longueurs des phrases dans le texte à l’aide de l’API de traduction de texte Translator Text.
+Dans ce démarrage rapide, vous allez apprendre à déterminer les longueurs de phrase (en caractères) à l’aide de Python et de l’API REST de traduction de texte Translator Text.
+
+Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) avec une ressource Traduction de texte Translator Text. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://azure.microsoft.com/try/cognitive-services/) pour obtenir une clé d’abonnement.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour exécuter ce code, vous devez disposer de [Python 3.x](https://www.python.org/downloads/).
+Ce démarrage rapide nécessite :
 
-Pour utiliser l’API de traduction de texte Translator Text, vous avez également besoin d’une clé d’abonnement. Consultez [Comment s’inscrire à l’API de traduction de texte Translator Text](translator-text-how-to-signup.md).
+* Python 2.7.x ou 3.x
+* Une clé d’abonnement Azure pour Translator Text
 
-## <a name="breaksentence-request"></a>Requête BreakSentence
+## <a name="create-a-project-and-import-required-modules"></a>Créez un projet et importez les modules requis
 
-Le code suivant fractionne le texte source en phrases à l’aide de la méthode [BreakSentence](./reference/v3-0-break-sentence.md).
-
-1. Créez un nouveau projet Python dans votre éditeur de code favori.
-2. Ajoutez le code ci-dessous.
-3. Remplacez la valeur `subscriptionKey` par une clé d’accès valide pour votre abonnement.
-4. Exécutez le programme.
+Créez un projet Python dans votre IDE ou votre éditeur favori. Copiez cet extrait de code dans votre projet, dans un fichier nommé `sentence-length.py`.
 
 ```python
 # -*- coding: utf-8 -*-
-
-import http.client, urllib.parse, uuid, json
-
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the subscriptionKey string value with your valid subscription key.
-subscriptionKey = 'ENTER KEY HERE'
-
-host = 'api.cognitive.microsofttranslator.com'
-path = '/breaksentence?api-version=3.0'
-
-params = ''
-
-text = 'How are you? I am fine. What did you do today?'
-
-def breakSentences (content):
-
-    headers = {
-        'Ocp-Apim-Subscription-Key': subscriptionKey,
-        'Content-type': 'application/json',
-        'X-ClientTraceId': str(uuid.uuid4())
-    }
-
-    conn = http.client.HTTPSConnection(host)
-    conn.request ("POST", path + params, content, headers)
-    response = conn.getresponse ()
-    return response.read ()
-
-requestBody = [{
-    'Text' : text,
-}]
-content = json.dumps(requestBody, ensure_ascii=False).encode('utf-8')
-result = breakSentences (content)
-
-# Note: We convert result, which is JSON, to and from an object so we can pretty-print it.
-# We want to avoid escaping any Unicode characters that result contains. See:
-# https://stackoverflow.com/questions/18337407/saving-utf-8-texts-in-json-dumps-as-utf8-not-as-u-escape-sequence
-output = json.dumps(json.loads(result), indent=4, ensure_ascii=False)
-
-print (output)
+import os, requests, uuid, json
 ```
 
-## <a name="breaksentence-response"></a>Réponse BreakSentence
+> [!NOTE]
+> Si vous n’avez jamais utilisé ces modules auparavant, vous devrez les installer avant d’exécuter votre programme. Pour installer ces packages, exécuter `pip install requests uuid`.
 
-Une réponse correcte est renvoyée au format JSON, comme dans l’exemple suivant :
+Le premier commentaire ordonne à votre interpréteur Python d’utiliser l’encodage UTF-8. Puis, les modules requis sont importés pour lire votre clé d’abonnement depuis une variable d’environnement, élaborer la requête http, créer un identificateur unique et gérer la réponse JSON rendue par l’API Translator Text.
+
+## <a name="set-the-subscription-key-base-url-and-path"></a>Définissez la clé d’abonnement, une URL de base et un chemin d’accès
+
+Cet exemple tentera de lire votre clé d’abonnement Translator Text depuis la variable d’environnement `TRANSLATOR_TEXT_KEY`. Si vous n’êtes pas familiarisé avec les variables d’environnement, vous pouvez définir `subscriptionKey` en tant que chaîne et commentez l’instruction conditionnelle.
+
+Copiez ce code dans votre projet :
+
+```python
+# Checks to see if the Translator Text subscription key is available
+# as an environment variable. If you are setting your subscription key as a
+# string, then comment these lines out.
+if 'TRANSLATOR_TEXT_KEY' in os.environ:
+    subscriptionKey = os.environ['TRANSLATOR_TEXT_KEY']
+else:
+    print('Environment variable for TRANSLATOR_TEXT_KEY is not set.')
+    exit()
+# If you want to set your subscription key as a string, uncomment the line
+# below and add your subscription key.
+#subscriptionKey = 'put_your_key_here'
+```
+
+Il y existe actuellement un point de terminaison disponible pour Translator Text, et il est défini comme des `base_url`. `path` définit le chemin des `breaksentence` et reconnait que nous souhaitons atteindre la version 3 de l’API.
+
+Les `params` dans cet exemple sont utilisés pour définir la langue du texte fourni. `params` ne sont pas nécessaires pour l’itinéraire `breaksentence`. Si cela ne fait pas partie de la requête, l’API tente de détecter la langue du texte fourni, et donne cette information accompagnée d’un score de confiance dans la réponse.
+
+>[!NOTE]
+> Pour plus d’informations concernant les points de terminaison, les itinéraires et les paramètres de la requête, consultez [API Translator Text 3.0 : Langues](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence).
+
+```python
+base_url = 'https://api.cognitive.microsofttranslator.com'
+path = '/breaksentence?api-version=3.0'
+params = '&language=en'
+constructed_url = base_url + path + params
+```
+
+## <a name="add-headers"></a>Ajouter les en-têtes
+
+La manière la plus simple d’authentifier une requête consiste à transmettre votre clé d’abonnement comme `Ocp-Apim-Subscription-Key`en-tête. C’est ce que nous avons fait dans ce modèle. Vous pouvez aussi échanger votre clé d’abonnement pour un jeton d’accès et transmettre le jeton d’accès en tant qu’`Authorization`en-tête pour valider votre requête. Pour en savoir plus, consultez [Authentification](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication).
+
+Copiez cet extrait de code dans votre projet :
+
+```python
+headers = {
+    'Ocp-Apim-Subscription-Key': subscriptionKey,
+    'Content-type': 'application/json',
+    'X-ClientTraceId': str(uuid.uuid4())
+}
+```
+
+## <a name="create-a-request-to-determine-sentence-length"></a>Créer une requête pour déterminer la longueur de phrase
+
+Indiquez la phrase (ou les phrases) dont vous souhaitez déterminer la longueur :
+
+```python
+# You can pass more than one object in body.
+body = [{
+    'text': 'How are you? I am fine. What did you do today?'
+}]
+```
+
+Ensuite, nous allons créer une requête POST à l’aide du module `requests`. Il tient compte de trois arguments : l’URL concaténée, les en-têtes de requête et le corps de la demande :
+
+```python
+request = requests.post(constructed_url, headers=headers, json=body)
+response = request.json()
+```
+
+## <a name="print-the-response"></a>Imprimer la réponse
+
+La dernière étape consiste à imprimer les résultats. Cet extrait de code agrémente les résultats en triant les clés, en configurant la mise en retrait et en déclarant des séparateurs d’élément et de clés.
+
+```python
+print(json.dumps(response, sort_keys=True, indent=4, ensure_ascii=False, separators=(',', ': ')))
+```
+
+## <a name="put-it-all-together"></a>Assemblage
+
+Voilà, vous avez installé un programme simple qui appellera l’API de traduction de texte Translator Text et enverra une réponse JSON. Il est maintenant temps d’exécuter votre programme :
+
+```console
+python sentence-length.py
+```
+
+Si vous souhaitez comparer votre code avec le nôtre, l’exemple de code complet est disponible sur [GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python).
+
+## <a name="sample-response"></a>Exemple de réponse
 
 ```json
 [
-  {
-    "detectedLanguage": {
-      "language": "en",
-      "score": 1.0
-    },
-    "sentLen": [
-      13,
-      11,
-      22
-    ]
-  }
+    {
+        "sentLen": [
+            13,
+            11,
+            22
+        ]
+    }
 ]
 ```
 
+## <a name="clean-up-resources"></a>Supprimer des ressources
+
+Si vous avez codé en dur votre clé d’abonnement dans votre programme, veillez à supprimer la clé d’abonnement une fois ce démarrage rapide terminé.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez l’exemple de code pour ce démarrage rapide et d’autres, y compris la traduction et la translittération, ainsi que d’autres exemples de projets de l’API de traduction de texte Translator Text sur GitHub.
-
 > [!div class="nextstepaction"]
-> [Explorer des exemples Python sur GitHub](https://aka.ms/TranslatorGitHub?type=&language=python)
+> [Explorer des exemples Python sur GitHub](https://github.com/MicrosoftTranslator/Text-Translation-API-V3-Python)
+
+## <a name="see-also"></a>Voir aussi
+
+En plus de la translittération de texte, découvrez comment utiliser l’API de traduction de texte Translator Text pour :
+
+* [Traduire le texte](quickstart-python-translate.md)
+* [Translittérer du texte](quickstart-python-transliterate.md)
+* [Identifier la langue par entrée](quickstart-python-detect.md)
+* [Obtenir des traductions alternatives](quickstart-python-dictionary.md)
+* [Obtenir une liste des langues prises en charge](quickstart-python-languages.md)

@@ -1,6 +1,6 @@
 ---
 title: Approvisionner un appareil TPM simulé auprès du service Azure IoT Hub à l’aide de C# | Microsoft Docs
-description: 'Démarrage rapide d’Azure : Créer et approvisionner un appareil TPM simulé auprès du service Azure IoT Hub Device Provisioning à l’aide du C# Device SDK'
+description: 'Démarrage rapide Azure : Créer et approvisionner un appareil TPM simulé à l’aide du kit de développement logiciel (SDK) d’appareil C# auprès du service Azure IoT Hub Device Provisioning. Ce démarrage rapide utilise des inscriptions individuelles.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/2018
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: fd16defdcd3c3cb0c78994e9259b55f3d687163b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 812b707b9711d61d0a1326a86644e57ecbe84513
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47032646"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50157888"
 ---
 # <a name="create-and-provision-a-simulated-tpm-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil TPM simulé auprès du service IoT Hub Device Provisioning à l’aide du C# Device SDK
 
@@ -22,7 +22,13 @@ ms.locfileid: "47032646"
 
 Ces étapes indiquent comment générer un exemple d’appareil TPM simulé à l’aide de l’Azure IoT Hub C# SDK sur un ordinateur de développement sous Windows et comment connecter cet appareil simulé au service Device Provisioning et à votre hub IoT. Cet exemple de code utilise le simulateur de module de plateforme sécurisée Windows comme [module de sécurité matériel (HSM)](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) de l’appareil. 
 
-Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez à consulter également [Concepts de provisionnement automatique](concepts-auto-provisioning.md). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer. 
+Si vous ne connaissez pas le processus de provisionnement automatique, pensez également à consulter [Concepts de provisionnement automatique](concepts-auto-provisioning.md). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer. 
+
+Le service Azure IoT Device Provisioning prend en charge deux types d’inscription :
+- [Groupes d’inscription](concepts-service.md#enrollment-group) : utilisés pour inscrire plusieurs appareils connexes.
+- [Inscriptions individuelles](concepts-service.md#individual-enrollment) : utilisées pour inscrire un seul appareil.
+
+Cet article présente les inscriptions individuelles.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -42,7 +48,7 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
 ## <a name="provision-the-simulated-device"></a>Approvisionner l’appareil simulé
 
 
-1. Connectez-vous au portail Azure. Cliquez sur le bouton **Toutes les ressources** dans le menu de gauche, puis ouvrez votre service Device Provisioning. Depuis le panneau **Vue d’ensemble**, notez la valeur **ID Scope _(Étendue d’ID)_**.
+1. Connectez-vous au portail Azure. Cliquez sur le bouton **Toutes les ressources** dans le menu de gauche, puis ouvrez votre service Device Provisioning. À partir du panneau **Vue d’ensemble**, notez la valeur **_ID Scope_** (Étendue de l’ID).
 
     ![Comment copier l’étendue d’ID du service d’approvisionnement depuis le panneau du portail](./media/quick-create-simulated-device-tpm-csharp/copy-scope.png) 
 

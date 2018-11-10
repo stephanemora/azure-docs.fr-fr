@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 7f0e65b1de1df48603cab29148c7f4c6fb909714
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 348321592fc32f7dd77447c7217c7142f7ad9bd4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094995"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51226938"
 ---
 # <a name="troubleshoot-cloud-service-deployment-problems"></a>Résoudre les problèmes de déploiement de service cloud
 Lorsque vous déployez un package d’application de service cloud sur Azure, vous pouvez obtenir des informations concernant le déploiement dans le volet **Propriétés** du portail Azure. Vous pouvez utiliser les détails figurant dans ce volet pour faciliter la résolution des problèmes du service cloud, et vous pouvez fournir ces informations au support Azure lors de l’ouverture d’une nouvelle demande de support.
@@ -50,7 +50,7 @@ Une réparation de service se produit automatiquement lorsque Azure détecte des
 2. Dans le volet **Propriétés** du portail Azure, passez en revue les informations et déterminez si une réparation de service a eu lieu au moment où vous observiez le recyclage des rôles.
 
 Les rôles sont recyclés également environ une fois par mois pendant les mises à jour du système d’exploitation hôte et du système d’exploitation invité.  
-Pour plus d’informations, consultez le billet de blog [Redémarrages d’instances de rôles pour cause de mises à niveau du système d’exploitation](http://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
+Pour plus d’informations, consultez le billet de blog [Redémarrages d’instances de rôles pour cause de mises à niveau du système d’exploitation](https://blogs.msdn.com/b/kwill/archive/2012/09/19/role-instance-restarts-due-to-os-upgrades.aspx)
 
 ## <a name="problem-i-cannot-do-a-vip-swap-and-receive-an-error"></a>Problème : Impossible d’effectuer un échange d’adresses IP virtuelles, une erreur s’affiche
 Un échange d’adresses IP virtuelles n’est pas autorisé si une mise à jour de déploiement est en cours. Les mises à jour de déploiement peuvent se produire automatiquement dans les situations suivantes :
@@ -68,14 +68,14 @@ Pour savoir si une mise à jour automatique vous empêche d’effectuer un écha
 ## <a name="problem-a-role-instance-is-looping-between-started-initializing-busy-and-stopped"></a>Problème : Une instance de rôle est exécutée en boucle entre Démarrée, Initialisation, Occupée et Arrêtée
 Cette condition peut indiquer un problème lié à votre code d’application, package ou fichier de configuration. Dans ce cas, vous devez être en mesure de voir l’état changer à des intervalles de quelques minutes, et le portail Azure peut indiquer des états tels que **Recyclage**, **Occupé** ou **Initialisation**. Cela indique qu’il existe un problème au niveau de l’application qui empêche l’exécution de l’instance de rôle.
 
-Pour plus d’informations sur la résolution de ce problème, consultez les billets de blog [Données de diagnostic de calcul PaaS Azure](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) et [Problèmes courants provoquant le recyclage des rôles](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
+Pour plus d’informations sur la résolution de ce problème, consultez les billets de blog [Données de diagnostic de calcul PaaS Azure](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx) et [Problèmes courants provoquant le recyclage des rôles](cloud-services-troubleshoot-common-issues-which-cause-roles-recycle.md).
 
 ## <a name="problem-my-application-stopped-working"></a>Problème : Mon application a cessé de fonctionner
 1. Dans le portail Azure, cliquez sur l’instance de rôle.
 2. Dans le volet **Propriétés** du portail Azure, tenez compte des conditions suivantes pour résoudre votre problème :
    * Si l’instance de rôle a été récemment arrêtée (vous pouvez vérifier la valeur **Nombre d’abandons**), il est possible que le déploiement soit en cours de mise à jour. Attendez de voir si l’instance de rôle recommence à fonctionner par elle-même.
    * Si l’instance de rôle est **Occupée**, vérifiez votre code d’application pour voir si l’événement [StatusCheck](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.statuscheck) est géré. Vous devrez peut-être ajouter ou corriger le code qui gère cet événement.
-   * Passez en revue les données de diagnostic et les scénarios de résolution des problèmes dans le billet de blog [Données de diagnostic de calcul PaaS Azure](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+   * Passez en revue les données de diagnostic et les scénarios de résolution des problèmes dans le billet de blog [Données de diagnostic de calcul PaaS Azure](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
 
 > [!WARNING]
 > Si vous recyclez votre service cloud, vous réinitialisez les propriétés de déploiement, et effacez ainsi efficacement les informations du problème d’origine.
@@ -85,4 +85,4 @@ Pour plus d’informations sur la résolution de ce problème, consultez les bil
 ## <a name="next-steps"></a>Étapes suivantes
 Affichez plus d’ [articles de résolution des problèmes](https://docs.microsoft.com/azure/cloud-services/cloud-services-allocation-failures) liés aux services cloud.
 
-Pour découvrir comment résoudre les problèmes liés aux rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure, consultez la [série de blogs de Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Pour découvrir comment résoudre les problèmes liés aux rôles de service cloud à l’aide des données de diagnostic de calcul PaaS Azure, consultez la [série de blogs de Kevin Williamson](https://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

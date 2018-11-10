@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fb162c45b8bd53fd4d994e0eb83a38438873d627
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304286"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50094384"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps pour applications d’intelligence artificielle (IA) : création d’un pipeline d’intégration continue sur Azure à l’aide de Docker et Kubernetes
 Pour une application IA, il existe souvent deux flux de travail : des chercheurs de données générant des modèles de Machine Learning et des développeurs d’applications générant l’application et la présentant aux utilisateurs finaux pour qu’ils l’utilise. Dans cet article, nous allons montrer comment implémenter un pipeline d’intégration continue (CI)/de livraison continue (CD) pour une application IA. Une application IA est une combinaison de code d’application intégré avec un modèle de Machine Learning (ML) préformé. Pour cet article, nous extrayons un modèle préformé d’un compte de stockage d’objets blob Azure privé. Il peut également s’agir d’un compte AWS S3. Dans cet article, nous allons utiliser une application web Python Flask simple.
@@ -36,14 +36,14 @@ Vous pouvez télécharger le code source à partir de [GitHub](https://github.co
 ## <a name="pre-requisites"></a>Conditions préalables
 Les prérequis pour le pipeline CI/CD décrit ci-dessous sont les suivants :
 * [Organisation Azure DevOps](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
-* [interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+* [Interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Cluster Azure Container Service (ACS) exécutant Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 * [Compte Azure Container Registry (ACR)](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
 * [Installez Kubectl pour exécuter des commandes sur le cluster Kubernetes.](https://kubernetes.io/docs/tasks/tools/install-kubectl/) Nous en aurons besoin pour récupérer la configuration du cluster ACS. 
 * Dupliquez le référentiel sur votre compte GitHub.
 
 ## <a name="description-of-the-cicd-pipeline"></a>Description du pipeline CI/CD
-Le pipeline démarre pour chaque nouvelle validation, exécute la suite de tests et, si le test réussit, prend la dernière build et la place dans un conteneur Docker. Le conteneur est ensuite déployé à l’aide d’Azure Container Service (ACS) et les images sont stockées en toute sécurité dans Azure Container Registry (ACR). ACS exécute Kubernetes pour gérer le cluster de conteneur, mais vous pouvez choisir Docker Swarm ou Mesos.
+Le pipeline démarre pour chaque nouvelle validation, exécute la suite de tests et, si le test réussit, prend la dernière build et la place dans un conteneur Docker. Le conteneur est ensuite déployé à l’aide d’Azure Container Service (ACS) et les images sont stockées de manière sécurisée dans Azure Container Registry (ACR). ACS exécute Kubernetes pour gérer le cluster de conteneur, mais vous pouvez choisir Docker Swarm ou Mesos.
 
 L’application extrait en toute sécurité le dernier modèle d’un compte de stockage Azure et le place dans l’application. L’application déployée contient le code d’application et le modèle de ML dans un même conteneur. Ceci permet de séparer les développeurs d’applications et les chercheurs de données pour s’assurer que leur application de production exécute toujours le dernier code avec le dernier modèle de ML.
 
@@ -70,5 +70,5 @@ L’architecture du pipeline est indiquée ci-dessous.
 ## <a name="references"></a>Références
 * [TDSP (Team Data Science Process)](https://aka.ms/tdsp)
 * [Azure Machine Learning (AML)](https://docs.microsoft.com/azure/machine-learning/service/)
-* [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/vso/)
+* [Azure DevOps](https://www.visualstudio.com/vso/)
 * [Azure Kubernetes Services (AKS)](https://docs.microsoft.com/azure/aks/intro-kubernetes)

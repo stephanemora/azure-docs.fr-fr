@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/09/2018
+ms.date: 10/31/2018
 ms.author: babanisa
-ms.openlocfilehash: 2fd8712cbe5d34baed158a56e6f06b6235f5d4b2
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068182"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741519"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -37,7 +37,7 @@ Si vous utilisez un autre type de point de terminaison, comme une fonction Azure
 
 1. **Établissement de liaison ValidationCode** : au moment de la création de l’abonnement à l’événement, EventGrid envoie une requête POST d’« événement de validation d’abonnement » à votre point de terminaison. Le schéma de cet événement est semblable à n’importe quel autre EventGridEvent, et la partie données de cet événement inclut une propriété `validationCode`. Une fois que l’application a confirmé que la requête de validation concerne un abonnement d’événement attendu, votre code d’application doit répondre en renvoyant le code de validation à EventGrid. Ce mécanisme d’établissement de liaison est pris en charge dans toutes les versions d’EventGrid.
 
-2. **Établissement de liaison ValidationURL (établissement manuel)** : dans certains cas, vous ne contrôlez pas le code source du point de terminaison et ne pouvez donc pas implémenter l’établissement de liaison en fonction de ValidationCode. Par exemple, si vous utilisez un service tiers (comme [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), vous risquez de ne pas pouvoir renvoyer le code de validation par programmation. À compter de la version 2018-05-01-preview, EventGrid prend en charge un établissement de liaison de validation manuel. Si vous créez un abonnement aux événements à l’aide de kits de développement logiciel/outils qui utilisent cette nouvelle version d’API (2018-05-01-preview), EventGrid envoie une propriété `validationUrl` dans la partie des données de la validation d’abonnement aux événements. Pour terminer l’établissement de liaison, il vous suffit d’envoyer une requête GET sur cette URL, via un client REST ou à l’aide de votre navigateur web. L’URL de validation fournie est valide uniquement pendant 10 minutes environ. Pendant ce temps, l’état d’approvisionnement de l’abonnement aux événements est `AwaitingManualAction`. Si vous n’effectuez pas la validation manuelle dans les 10 minutes, l’état d’approvisionnement est défini sur `Failed`. Vous devez à nouveau créer l’abonnement aux événements avant de tenter la validation manuelle.
+2. **Établissement de liaison ValidationURL (établissement manuel)**  : dans certains cas, vous ne contrôlez pas le code source du point de terminaison pour implémenter l’établissement de liaison en fonction de ValidationCode. Par exemple, si vous utilisez un service tiers (comme [Zapier](https://zapier.com) ou [IFTTT](https://ifttt.com/)), vous ne pouvez pas renvoyer le code de validation par programmation. À compter de la version 2018-05-01-preview, EventGrid prend en charge un établissement de liaison de validation manuel. Si vous créez un abonnement aux événements à l’aide d’un SDK ou outil qui utilise la version d’API 2018-05-01-preview ou ultérieure, EventGrid envoie une propriété `validationUrl` dans la partie des données de la validation d’abonnement aux événements. Pour terminer l’établissement de liaison, il vous suffit d’envoyer une requête GET sur cette URL, via un client REST ou à l’aide de votre navigateur web. L’URL de validation fournie est valide uniquement pendant 10 minutes environ. Pendant ce temps, l’état d’approvisionnement de l’abonnement aux événements est `AwaitingManualAction`. Si vous n’effectuez pas la validation manuelle dans les 10 minutes, l’état d’approvisionnement est défini sur `Failed`. Vous devez recréer l’abonnement aux événements avant de commencer la validation manuelle.
 
 Le mécanisme de validation manuelle est en préversion. Pour l’utiliser, vous devez installer [l’extension Event Grid](/cli/azure/azure-cli-extensions-list) pour [Azure CLI](/cli/azure/install-azure-cli). Vous pouvez l’installer avec `az extension add --name eventgrid`. Si vous utilisez l’API REST, assurez-vous d’utiliser `api-version=2018-05-01-preview`.
 
@@ -93,7 +93,7 @@ Lors de la création de l’abonnement aux événements, si vous voyez un messag
 
 ### <a name="event-delivery-security"></a>Sécurité de la remise des événements
 
-Vous pouvez sécuriser votre point de terminaison Webhook en ajoutant des paramètres de requête à l’URL Webhook lorsque vous créez un abonnement à un événement. Configurez l’un de ces paramètres de requête comme un secret, par exemple, un [jeton d’accès](https://en.wikipedia.org/wiki/Access_token) que le Webhook peut utiliser pour identifier l’événement qui est envoyé par Event Grid avec des autorisations valides. Event Grid va inclure ces paramètres de requête dans chaque remise d’événement au Webhook.
+Vous pouvez sécuriser votre point de terminaison Webhook en ajoutant des paramètres de requête à l’URL Webhook lorsque vous créez un abonnement à un événement. Définissez un de ces paramètres de requête en tant que secret, par exemple un [jeton d’accès](https://en.wikipedia.org/wiki/Access_token). Le webhook peut l’utiliser pour établir que l’événement provient d’Event Grid avec des autorisations valides. Event Grid va inclure ces paramètres de requête dans chaque remise d’événement au Webhook.
 
 Lorsque vous modifiez l’abonnement aux événements, les paramètres de requête ne sont pas affichés ni retournés, sauf si le paramètre [--include-full-endpoint-url](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-show) est utilisé dans [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
@@ -178,7 +178,7 @@ Azure Event Grid vous permet de contrôler le niveau d’accès offert aux utili
 
 ### <a name="operation-types"></a>Types d’opération
 
-Azure Event Grid prend en charge les actions suivantes :
+Event Grid prend en charge les actions suivantes :
 
 * Microsoft.EventGrid/*/read
 * Microsoft.EventGrid/*/write
@@ -187,13 +187,17 @@ Azure Event Grid prend en charge les actions suivantes :
 * Microsoft.EventGrid/topics/listKeys/action
 * Microsoft.EventGrid/topics/regenerateKey/action
 
-Les trois dernières opérations retournent des informations potentiellement confidentielles qui sont filtrées lors d’opérations de lecture normales. Il est recommandé de restreindre l’accès à ces opérations. Il est possible de créer des rôles personnalisés à l’aide [d’Azure PowerShell](../role-based-access-control/role-assignments-powershell.md), de [l’interface CLI Azure](../role-based-access-control/role-assignments-cli.md) et de [l’API REST](../role-based-access-control/role-assignments-rest.md).
+Les trois dernières opérations retournent des informations potentiellement confidentielles qui sont filtrées lors d’opérations de lecture normales. Il est recommandé de restreindre l’accès à ces opérations. 
 
-### <a name="enforcing-role-based-access-check-rbac"></a>Application de la vérification d’accès par rôle (RBAC)
+### <a name="built-in-roles"></a>Rôles intégrés
 
-Pour appliquer la vérification d’accès par rôle, pour différents utilisateurs, procédez comme suit :
+Event Grid fournit deux rôles intégrés pour gérer les abonnements aux événements. Ces rôles sont `EventSubscription Contributor (Preview)` et `EventSubscription Reader (Preview)`. Ils sont importants durant l’implémentation des domaines d’événement. Pour plus d’informations sur les actions accordées, consultez [Événement de domaine : gestion de l’accès](event-domains.md#access-management).
 
-#### <a name="create-a-custom-role-definition-file-json"></a>Créer un fichier de définition de rôle personnalisé (.json)
+Vous pouvez [affecter ces rôles à un utilisateur ou groupe](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+### <a name="custom-roles"></a>Rôles personnalisés
+
+Si vous avez besoin de spécifier des autorisations autres que les rôles intégrés, vous pouvez créer des rôles personnalisés.
 
 Voici des exemples de définitions de rôle dans Event Grid permettant aux utilisateurs d’effectuer différentes actions.
 
@@ -201,18 +205,18 @@ Voici des exemples de définitions de rôle dans Event Grid permettant aux utili
 
 ```json
 {
-  "Name": "Event grid read only role",
-  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
-  "IsCustom": true,
-  "Description": "Event grid read only role",
-  "Actions": [
-    "Microsoft.EventGrid/*/read"
-  ],
-  "NotActions": [
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription Id>"
-  ]
+  "Name": "Event grid read only role",
+  "Id": "7C0B6B59-A278-4B62-BA19-411B70753856",
+  "IsCustom": true,
+  "Description": "Event grid read only role",
+  "Actions": [
+    "Microsoft.EventGrid/*/read"
+  ],
+  "NotActions": [
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription Id>"
+  ]
 }
 ```
 
@@ -220,22 +224,22 @@ Voici des exemples de définitions de rôle dans Event Grid permettant aux utili
 
 ```json
 {
-  "Name": "Event grid No Delete Listkeys role",
-  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
-  "IsCustom": true,
-  "Description": "Event grid No Delete Listkeys role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action"
-  ],
-  "NotActions": [
-    "Microsoft.EventGrid/*/delete"
-  ],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid No Delete Listkeys role",
+  "Id": "B9170838-5F9D-4103-A1DE-60496F7C9174",
+  "IsCustom": true,
+  "Description": "Event grid No Delete Listkeys role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action"
+  ],
+  "NotActions": [
+    "Microsoft.EventGrid/*/delete"
+  ],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
@@ -243,37 +247,25 @@ Voici des exemples de définitions de rôle dans Event Grid permettant aux utili
 
 ```json
 {
-  "Name": "Event grid contributor role",
-  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
-  "IsCustom": true,
-  "Description": "Event grid contributor role",
-  "Actions": [
-    "Microsoft.EventGrid/*/write",
-    "Microsoft.EventGrid/*/delete",
-    "Microsoft.EventGrid/topics/listkeys/action",
-    "Microsoft.EventGrid/topics/regenerateKey/action",
-    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
-  ],
-  "NotActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<Subscription id>"
-  ]
+  "Name": "Event grid contributor role",
+  "Id": "4BA6FB33-2955-491B-A74F-53C9126C9514",
+  "IsCustom": true,
+  "Description": "Event grid contributor role",
+  "Actions": [
+    "Microsoft.EventGrid/*/write",
+    "Microsoft.EventGrid/*/delete",
+    "Microsoft.EventGrid/topics/listkeys/action",
+    "Microsoft.EventGrid/topics/regenerateKey/action",
+    "Microsoft.EventGrid/eventSubscriptions/getFullUrl/action"
+  ],
+  "NotActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<Subscription id>"
+  ]
 }
 ```
 
-#### <a name="create-and-assign-custom-role-with-azure-cli"></a>Créer et affecter un rôle personnalisé avec l’interface de ligne de commande Azure
-
-Pour créer un rôle personnalisé, utilisez :
-
-```azurecli
-az role definition create --role-definition @<file path>
-```
-
-Pour affecter le rôle à un utilisateur, utilisez :
-
-```azurecli
-az role assignment create --assignee <user name> --role "<name of role>"
-```
+Vous pouvez créer des rôles personnalisés avec [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md) et [REST](../role-based-access-control/custom-roles-rest.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

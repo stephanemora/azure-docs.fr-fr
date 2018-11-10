@@ -2,18 +2,18 @@
 title: Récupération d’urgence régionale pour Azure Databricks
 description: Cet article décrit une approche de la récupération d’urgence dans Azure Databricks.
 services: azure-databricks
-author: jasonwhowell
-ms.author: jasonh
+author: mamccrea
+ms.author: mamccrea
 ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: 671e18346651a40d7f286e984117ce0c9ae62364
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: fa32aafa4f042351db7693ee684deafe9ed13fb0
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125967"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748321"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Récupération d’urgence régionale pour les clusters Azure Databricks
 
@@ -96,7 +96,7 @@ Pour créer votre propre topologie de récupération d’urgence régionale, res
    > [!NOTE]
    > Les bibliothèques ne sont pas copiées à cette étape, car l’API sous-jacente ne les prend pas en charge.
 
-   Copiez et enregistrez le script Python suivant dans un fichier et exécutez-le en ligne de commande Databricks. Par exemple : `python scriptname.py`.
+   Copiez et enregistrez le script Python suivant dans un fichier et exécutez-le en ligne de commande Databricks. Par exemple : `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output
@@ -139,7 +139,7 @@ Pour créer votre propre topologie de récupération d’urgence régionale, res
 
    Le script fourni ci-dessous imprime un mappage entre les anciens et les nouveaux ID de cluster, qui pourra être utilisé par la suite pour la migration de travaux (ceux qui sont configurés pour utiliser des clusters existants).
 
-   Copiez et enregistrez le script Python suivant dans un fichier et exécutez-le en ligne de commande Databricks. Par exemple : `python scriptname.py`.
+   Copiez et enregistrez le script Python suivant dans un fichier et exécutez-le en ligne de commande Databricks. Par exemple : `python scriptname.py`.
 
    ```python
    from subprocess import call, check_output import json

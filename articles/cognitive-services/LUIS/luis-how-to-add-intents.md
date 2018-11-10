@@ -7,140 +7,113 @@ author: diberry
 manager: cgronlun
 ms.component: language-understanding
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 10/24/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 9b7207a16a89e48ad64b2dbc48a5293d0cf8aa25
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 495b7e99319126b3ee9e655b2d9aa4af940e1d56
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036080"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139911"
 ---
-# <a name="manage-intents"></a>Gérer les intentions 
-Ajoutez des [intentions](luis-concept-intent.md) à votre application LUIS pour identifier des groupes de questions ou des commandes qui ont les mêmes intentions. 
+# <a name="add-intents"></a>Ajouter des intentions 
 
-La gestion des intentions s’effectue à partir de la section **Build (Générer)** dans la barre d’outils supérieure. Vous ajoutez et gérez vos intentions à partir de la page **Intents (Intentions)**, disponible dans le volet gauche. 
+Ajoutez des [intentions](luis-concept-intent.md) à votre application LUIS pour identifier des groupes de questions ou de commandes qui ont la même intention. 
 
-La procédure suivante montre comment ajouter l’intention « Bookflight » dans l’application TravelAgent.
+Les intentions sont gérées à partir du volet gauche **Intents**, accessible en cliquant sur la section **Build** de la barre de navigation supérieure. 
+
+## <a name="create-an-app"></a>Créer une application
+
+1. Connectez-vous au portail [LUIS](https://www.luis.ai).
+
+1. Sélectionnez **Create new app** (Créer une application). 
+
+1. Nommez la nouvelle application `MyHumanResourcesApp`. Sélectionnez la culture **English**. La description est facultative. 
+
+1. Sélectionnez **Done** (Terminé). 
 
 ## <a name="add-intent"></a>Ajouter une intention
 
-1. Ouvrez votre application (par exemple, TravelAgent) en cliquant sur son nom sur la page **Mes applications**, puis cliquez sur **Intentions** dans le panneau gauche. 
-2. Sur la page **Intentions**, sélectionnez **Create new intent** (Créer une intention).
+1. L’application s’ouvre et la liste **Intents** (Intentions) apparaît.
 
-3. Dans la boîte de dialogue **Create new intent** (Créer une intention), saisissez le nom de l’intention « BookFlight » et cliquez sur **Terminé**.
+1. Dans la page **Intents** (Intentions), sélectionnez **Create new intent** (Créer une intention).
+
+1. Dans la boîte de dialogue **Create new intent**, entrez le nom de l’intention, `GetEmployeeInformation`, puis cliquez sur **Done**.
 
     ![Ajouter une intention](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
 
-    Sur la page de détails de l’intention qui vient d’être ajoutée, [ajoutez des énoncés](#add-an-utterance-on-intent-page).
+## <a name="add-an-example-utterance"></a>Ajouter un exemple d’énoncé
 
-## <a name="rename-intent"></a>Renommer l’intention
+Les exemples d’énoncés sont des exemples de texte de questions ou de commandes des utilisateurs. Pour l’apprentissage de Language Understanding (LUIS), vous devez ajouter des exemples d’énoncé à une intention.
 
-1. Sur la page **Intent** (Intention), cliquez sur l’icône Renommer ![Rename Intent](./media/luis-how-to-add-intents/Rename-Intent-btn.png) (Renommer l’intention) en regard du nom de l’intention. 
-
-2. Sur la page **Intent** (Intention), le nom de l’intention actuelle est affiché dans une boîte de dialogue. Modifiez le nom de l’intention et appuyez sur Entrée. Le nouveau nom est enregistré et affiché sur la page de l’intention.
-
-    ![Modifier l’intention](./media/luis-how-to-add-intents/EditIntent-dialogbox.png)
-
-## <a name="delete-intent"></a>Supprimer l’intention
-Lorsque vous supprimez une intention autre que l’intention None, vous pouvez choisir d’ajouter tous les énoncés à l’intention None. Cela est utile si vous devez déplacer les énoncés au lieu de les supprimer.   
-
-1. Sur la page **Intent** (Intention), cliquez sur le bouton  **Delete Intent** (Supprimer l’intention) à droite du nom de l’intention. 
-
-    ![Bouton Delete Intent (Supprimer l’intention)](./media/luis-how-to-add-intents/DeleteIntent.png)
-
-2. Cliquez sur le bouton « OK » dans la boîte de dialogue de confirmation.
-
-<!--
-    TBD: waiting for confirmation about which delete dialog is going to be in //BUILD
-
-    ![Delete Intent Dialog](./media/luis-how-to-add-intents/DeleteIntent-Confirmation.png)
--->
-
-
-## <a name="add-an-utterance-on-intent-page"></a>Ajouter un énoncé sur la page de l’intention
-
-Sur la page de l’intention, entrez un énoncé pertinent que vous attendez de vos utilisateurs, tel que `book 2 adult business tickets to Paris tomorrow on Air France`, dans la zone de texte sous le nom d’intention, puis appuyez sur Entrée. 
+1. Dans la page de détails d’intention **GetEmployeeInformation**, entrez un énoncé pertinent que vous attendez de vos utilisateurs, tel que `Does John Smith work in Seattle?`, dans la zone de texte sous le nom d’intention, puis appuyez sur Entrée.
  
->[!NOTE]
->LUIS convertit tous les énoncés en minuscules.
+    ![Capture d’écran de la page de détails Intents (Intentions), avec l’énoncé en surbrillance](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
 
-![Capture d’écran de la page de détails Intents (Intentions), avec l’énoncé en surbrillance](./media/luis-how-to-add-intents/add-new-utterance-to-intent.png) 
+    LUIS convertit tous les énoncés en minuscules et ajoute des espaces autour des jetons tels que les traits d’union.
 
-Les énoncés sont ajoutés à la liste d’énoncés pour l’intention en cours. Lorsqu’un énoncé est ajouté, [étiquetez les entités](luis-how-to-add-example-utterances.md) dans les énoncés et [formez](luis-how-to-train.md) votre application. 
+## <a name="intent-prediction-discrepancy-errors"></a>Erreurs de différence de prédiction d’intention 
 
-## <a name="create-a-pattern-from-an-utterance"></a>Créer un modèle à partir d’un énoncé
-Voir [Ajouter un modèle à partir d’un énoncé existant sur une page d’intention ou d’entité](luis-how-to-model-intent-pattern.md#add-pattern-from-existing-utterance-on-intent-or-entity-page).
+Un énoncé dans une intention peut présenter une différence de prédiction d’intention entre l’intention sélectionnée et le score de prédiction. LUIS signale cette différence en entourant en rouge l’**intention étiquetée** sur la ligne de l’exemple d’énoncé. 
 
-## <a name="edit-an-utterance-on-intent-page"></a>Modifier un énoncé sur la page de l’intention
+![Capture d’écran de la page de détails Intents (Intentions), avec l’énoncé en surbrillance](./media/luis-how-to-add-intents/prediction-discrepancy-intent.png) 
 
-Pour modifier un énoncé, sélectionnez le bouton à points de suspension (***...***) à l’extrémité droite de la ligne de cet énoncé, puis sélectionnez **Modifier**. Modifiez le texte, puis appuyez sur la touche Entrée du clavier.
+Dans la barre de navigation supérieure, sélectionnez **Train** (Entraîner). La différence de prédiction a désormais disparu.
 
-![Capture d’écran de la page de détails Intents (Intentions), avec le bouton à points de suspension en surbrillance](./media/luis-how-to-add-intents/edit-utterance.png) 
+## <a name="add-a-custom-entity"></a>Ajouter une entité personnalisée
 
-## <a name="reassign-utterances-on-intent-page"></a>Réaffecter des énoncés sur la page de l’intention
-Vous pouvez modifier l’intention d’un ou plusieurs énoncés en les réaffectant à une autre intention. 
+Une fois qu’un énoncé a été ajouté à une intention, vous pouvez sélectionner du texte dans l’énoncé pour créer une entité personnalisée. Une entité personnalisée est un moyen de marquer du texte pour l’extraction, avec l’intention correcte. 
 
-Pour réaffecter un énoncé à une autre intention, à l’extrémité droite de la ligne de l’énoncé, sélectionnez le nom de l’intention appropriée dans la colonne **Labeled intent** (Intention étiquetée). L’énoncé est supprimé de la liste d’énoncés de l’intention actuelle. 
+1. Dans l’énoncé, sélectionnez le mot `Seattle`. Des crochets sont dessinés autour du texte et un menu déroulant s’affiche. 
 
-![Capture d’écran de la page de l’intention BookFlight avec une intention d’énoncé dans la colonne Labeled intent (Intention étiquetée) sélectionnée](./media/luis-how-to-add-intents/reassign-1-utterance.png)
+    ![Capture d’écran de la page de détails d’intention, avec création d’une entité personnalisée](./media/luis-how-to-add-intents/create-custom-entity.png) 
 
-Pour modifier l’intention de plusieurs énoncés, cochez les cases à gauche des énoncés, puis sélectionnez **Reassign intent** (Réaffecter l’intention). Sélectionnez l’intention appropriée dans la liste.
+    Cet exemple sélectionne un mot unique pour le marquer en tant qu’entité. Vous pouvez marquer des mots et des expressions en tant qu’entités.
 
-![Capture d’écran de la page de l’intention BookFlight avec un énoncé coché et le bouton Reassign intent (Réaffecter l’intention) mis en surbrillance](./media/luis-how-to-add-intents/delete-several-utterances.png) 
+1. Dans la zone de texte supérieure du menu de configuration, entrez `Location`, puis sélectionnez **Create new entity** (Créer une entité). 
 
-## <a name="delete-utterances-on-intent-page"></a>Supprimer des énoncés sur la page de l’intention
+    ![Capture d’écran de la page de détails d’intention, avec création de nom d’entité personnalisée](./media/luis-how-to-add-intents/create-custom-entity-name.png) 
 
-Pour supprimer un énoncé, sélectionnez le bouton à points de suspension (***...***) à l’extrémité droite de la ligne de cet énoncé, puis sélectionnez **Supprimer**. L’énoncé est supprimé de la liste et de l’application LUIS.
+1. Dans la fenêtre contextuelle **What type of entity do you want to create?** (Quel type d’entité voulez-vous créer ?) pour la création d’entité, vérifiez que le **nom de l’entité** est _Location_ et le **type de l’entité**  est _Simple_. Sélectionnez **Done**.
 
-![Capture d’écran de la page de détails Intents (Intentions), avec l’énoncé Supprimer en surbrillance](./media/luis-how-to-add-intents/delete-utterance-ddl.png)
+## <a name="entity-prediction-discrepancy-errors"></a>Erreurs de différence de prédiction d’entité 
 
-Pour supprimer plusieurs énoncés :
+L’entité est soulignée en rouge pour signaler une [différence de prédiction d’entité](luis-how-to-add-example-utterances.md#entity-status-predictions). Comme il s’agit de la première occurrence d’une entité, il n’existe pas suffisamment d’exemples pour que LUIS ait un haut degré de confiance que ce texte soit marqué avec l’entité correcte. Cette différence disparaît quand l’application est entraînée. 
 
-1. Cochez les cases à cocher à gauche des énoncés, puis sélectionnez **Delete utterances(s)** (Supprimer le(s) énoncé(s)). 
+![Capture d’écran de la page de détails d’intention, avec nom d’entité personnalisée mis en surbrillance en bleu](./media/luis-how-to-add-intents/create-custom-entity-name-blue-highlight.png) 
 
-    ![Capture d’écran de la page de détails Intents (Intentions), avec des énoncés cochés et le bouton Delete utterances(s) (Supprimer le(s) énoncé(s)) mis en surbrillance](./media/luis-how-to-add-intents/delete-several-utterances.png)
+Le texte est mis en surbrillance en bleu, ce qui indique qu’il s’agit d’une entité.  
 
-2. Sélectionnez **Terminé** dans la boîte de dialogue contextuelle **Delete utterances?** (Supprimer les énoncés ?).
+## <a name="add-a-prebuilt-entity"></a>Ajouter une entité prédéfinie
 
-## <a name="search-in-utterances-on-intent-page"></a>Rechercher des énoncés sur la page de l’intention
-Vous pouvez rechercher des énoncés qui contiennent du texte (mots ou expressions) dans la liste d’énoncés de l’intention. Par exemple, vous pouvez constater une erreur qui implique un mot particulier, et vous souhaitez rechercher tous les exemples qui contiennent ce mot particulier. 
+Pour plus d’informations, consultez [Entité prédéfinie](luis-how-to-add-entities.md#add-prebuilt-entity).
 
-1. Sélectionnez l’icône de la loupe dans la barre d’outils.
+## <a name="using-the-contextual-toolbar"></a>Utilisation de la barre d’outils contextuelle
 
-    ![Capture d’écran de la page Intents (Intentions), avec l’icône de recherche de la loupe mise en surbrillance](./media/luis-how-to-add-intents/magnifying-glass.png)
+Quand un ou plusieurs exemples d’énoncés sont sélectionnés dans la liste, en cochant la case à gauche de l’énoncé, la barre d’outils au-dessus de la liste d’énoncés vous permet d’effectuer les actions suivantes :
 
-2. Une zone de texte de recherche s’affiche. Saisissez le mot ou l’expression dans la zone de recherche dans le coin supérieur droit de la liste des énoncés. Les liste des énoncés est mise à jour pour n’afficher que les énoncés incluant votre texte de recherche. 
+* Réaffecter l’intention : déplacer des énoncés vers une autre intention
+* Supprimer des énoncés
+* Filtres d’entité : afficher uniquement les énoncés contenant des entités filtrées
+* Afficher tout/erreurs uniquement : afficher les énoncés présentant des erreurs de prédiction ou afficher tous les énoncés
+* Vue d’entités/jetons : afficher la vue des entités avec des noms d’entités ou afficher le texte brut d’énoncé
+* Loupe : rechercher des énoncés contenant un texte spécifique
 
-    ![Capture d’écran de la page Intents (Intentions), avec la zone de texte de recherche mise en surbrillance](./media/luis-how-to-add-intents/search-textbox.png)
+## <a name="working-with-an-individual-utterance"></a>Opérations sur un énoncé spécifique
 
-    Pour annuler la recherche et restaurer votre liste complète d’énoncés, supprimez le texte de recherche que vous avez saisi. Pour fermer la zone de texte de recherche, sélectionnez à nouveau l’icône de la loupe dans la barre d’outils.
+Vous pouvez effectuer les actions suivantes en cliquant sur les points de suspension situés à droite de l’énoncé :
 
-## <a name="prediction-discrepancy-errors-on-intent-page"></a>Erreurs de différence de prédiction sur la page d’une intention
-Un énoncé dans une intention peut présenter une différence entre l’intention sélectionnée et le score de prédiction. LUIS indique cette différence avec un encadré rouge autour du score. 
+* Modifier : changer le texte de l’énoncé
+* Supprimer : supprimer l’énoncé de l’intention. Si vous souhaitez conserver l’énoncé, une meilleure méthode consiste à le déplacer vers l’intention **None** 
+* Ajouter un modèle : un modèle vous permet de prendre un énoncé courant et de marquer le texte remplaçable et le texte pouvant être ignoré, ce qui réduit le besoin d’énoncés supplémentaires dans l’intention 
 
-![Capture d’écran de la page de l’intention BookFlight, avec le score de différence de prédiction mis en surbrillance](./media/luis-how-to-add-intents/score-discrepancy.png) 
+La colonne **Labeled intent** (Intention étiquetée) vous permet de changer l’intention de l’énoncé.
 
-## <a name="filter-by-intent-prediction-discrepancy-errors-on-intent-page"></a>Filtrer par erreurs de différence de prédiction sur la page de l’intention
-Pour filtrer la liste des énoncés sur les énoncés avec une différence de prédiction d’intention, basculez entre **Afficher tout** et **Errors only** (Erreurs uniquement) dans la barre d’outils. 
+## <a name="train-your-app-after-changing-model-with-intents"></a>Entraîner votre application après modification du modèle avec des intentions
 
-## <a name="filter-by-entity-type-on-intent-page"></a>Filtrer par type d’entité sur la page de l’intention
-Utilisez la liste déroulante **Entity filters** (Filtres d’entité) dans la barre d’outils pour filtrer les énoncés par entité. 
-
-![Capture d’écran de la page Intents (Intentions), avec filtre de type entité mis en surbrillance](./media/luis-how-to-add-intents/filter-by-entities.png) 
-
-Pour supprimer le filtre, sélectionnez la zone de filtre bleue avec ce mot ou cette expression sous la barre d’outils.  
-<!-- TBD: waiting for ux fix - bug in ux of prebuit entity number -- when filtering by it, it doesn't show the list -->
-
-## <a name="switch-to-token-view-on-intent-page"></a>Basculer vers la vue du jeton sur la page de l’intention
-Activez **Tokens View** (Vue des jetons) pour afficher les jetons au lieu des noms de type d’entité. Sur le clavier, vous pouvez également utiliser **Contrôle + E** pour activer la vue. 
-
-![Capture d’écran de l’intention BookFlight avec la vue du jeton mise en surbrillance](./media/luis-how-to-add-intents/toggle-tokens-view.png)
-
-## <a name="train-your-app-after-changing-model-with-intents"></a>Former votre application après modification du modèle avec des intentions
-Après avoir ajouté, modifié ou supprimé des intentions, [formez](luis-how-to-train.md) et [publiez](luis-how-to-publish-app.md) votre application pour que vos modifications affectent les requêtes de point de terminaison. 
+Après avoir ajouté, modifié ou supprimé des intentions, [entraînez](luis-how-to-train.md) et [publiez](luis-how-to-publish-app.md) votre application pour que vos modifications soient appliquées aux requêtes de point de terminaison. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Lorsque vous avez ajouté des intentions à votre application, la tâche suivante consiste à ajouter des [exemples d’énoncés](luis-how-to-add-example-utterances.md) pour les intentions que vous avez ajoutées. 
+Découvrez comment ajouter des [exemples d’énoncés](luis-how-to-add-example-utterances.md) avec des entités. 

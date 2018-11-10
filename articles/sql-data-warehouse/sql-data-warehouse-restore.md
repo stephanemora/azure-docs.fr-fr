@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6eba50fbe7c2a7a40b08e37a96adac66583b8251
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 112b9bac5d99556201b2038cf150293c9f2ed86d
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781858"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005799"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Restauration d’un entrepôt de données Azure SQL 
 Dans cet article, vous allez découvrir comment effectuer les opérations suivantes dans le portail Azure et PowerShell :
@@ -25,10 +25,6 @@ Dans cet article, vous allez découvrir comment effectuer les opérations suivan
 - Effectuer une restauration à partir d’une base de données supprimée
 - Effectuer une restauration à partir d’une sauvegarde
 - Créer une copie de votre entrepôt de données à partir d’un point de restauration défini par l’utilisateur
-
-> [!NOTE]
-> À compter du 27 août, la restauration entre serveurs a été désactivée en raison d’une régression connue. Nous travaillons activement sur un correctif, avec la priorité la plus élevée. Veuillez nous excuser pour ce désagrément. En attendant, vous pouvez tirer parti de votre [géosauvegarde](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region) pour la restauration entre serveurs.  
->
 
 ## <a name="before-you-begin"></a>Avant de commencer
 **Vérifiez votre capacité de DTU.** Chaque SQL Data Warehouse est hébergé par un serveur SQL (par exemple, myserver.database.windows.net) qui dispose d’un quota DTU par défaut.  Avant de pouvoir restaurer un entrepôt de données SQL, vérifiez que le quota DTU restant sur le serveur SQL est suffisant pour la base de données en cours de restauration. Pour savoir comment calculer la capacité DTU nécessaire ou pour demander davantage de capacité DTU, consultez la rubrique [Demander une modification du quota DTU][Request a DTU quota change].

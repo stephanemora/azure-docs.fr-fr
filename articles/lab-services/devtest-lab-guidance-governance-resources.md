@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 2edfa84530c147e1f716aef10c967ac36eadc922
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 2d17f4471383be623cb40276ec1e51257bf3fbce
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250762"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740372"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---resources"></a>Gouvernance de l’infrastructure Azure DevTest Labs – Ressources
 Cet article traite de l’alignement et de la gestion des ressources pour DevTest Labs au sein de votre organisation. 
@@ -67,7 +67,7 @@ Nous recommandons que les unités commerciales et les groupes de développement 
 
 Vous serez peut-être amené à prendre en compte des limites géographiques. Par exemple, les développeurs du nord-est des États-Unis (US) peuvent utiliser un laboratoire configuré dans USA Est2. Par ailleurs, les développeurs de Dallas (Texas) et Denver (Colorado) peuvent être redirigés afin d’utiliser une ressource de USA Centre Sud. S’il existe un travail collaboratif avec un tiers externe, les développeurs peuvent être affectés à un laboratoire qui n’est pas utilisé par les développeurs internes. 
 
-Vous pouvez également utiliser un laboratoire pour un projet spécifique au sein d’un projet d’équipe Visual Studio Team Services. Vous appliquez ensuite la sécurité via un groupe Azure Active Directory spécifié, qui autorise l’accès aux deux ensembles de ressources. Le réseau virtuel attribué au laboratoire peut constituer une autre limite permettant de consolider les utilisateurs.
+Vous pouvez également utiliser un labo pour un projet spécifique au sein d’Azure DevOps Projects. Vous appliquez ensuite la sécurité via un groupe Azure Active Directory spécifié, qui autorise l’accès aux deux ensembles de ressources. Le réseau virtuel attribué au laboratoire peut constituer une autre limite permettant de consolider les utilisateurs.
 
 ## <a name="deletion-of-resources"></a>Suppression des ressources
 

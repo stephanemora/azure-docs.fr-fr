@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 10/31/2018
 ms.author: jeffgilb
 ms.reviewer: adshar
-ms.openlocfilehash: 4f95fb5f2199e8c276b78a83391f3814303a9470
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 0720edeab7577f41ddbaa67e4643f1dfe57ebac0
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024613"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50740312"
 ---
 # <a name="run-a-validation-test-for-azure-stack"></a>Exécuter un test de validation pour Azure Stack
 
@@ -39,7 +39,7 @@ Lorsque vous rencontrez un problème, contactez les services de support techniqu
     3. Ouvrez PowerShell ISE en tant qu’administrateur.
     4. Exécuter : `Enter-PSSession -ComputerName <ERCS-VM-name> -ConfigurationName PrivilegedEndpoint`
     5. Exécuter : `Test-AzureStack`
-4. Si l’un des tests signale une erreur, exécutez : `Get-AzureStackLog -FilterByRole SeedRing -OutputPath <Log output path>` L’applet de commande collecte les journaux à partir de Test-AzureStack. Pour plus d’informations sur les journaux de diagnostic, voir [Outils de diagnostics Azure Stack](azure-stack-diagnostics.md). Vous ne devez pas collecter de journaux ni contacter les services de support technique Microsoft (CSS) si le rapport de tests retourne WARN.
+4. Si l’un des tests signale **ERREUR**, exécutez : `Get-AzureStackLog -FilterByRole SeedRing -OutputSharePath “<path>” -OutputShareCredential $cred` l’applet de commande collecte les journaux à partir de Test-AzureStack. Pour plus d’informations sur les journaux de diagnostic, voir [Outils de diagnostics Azure Stack](azure-stack-diagnostics.md). Vous ne devez pas collecter de journaux ni contacter les services de support technique Microsoft (CSS) si le rapport de tests retourne **WARN**.
 5. Envoyez les journaux **SeedRing** aux services de support technique Microsoft. Les services de support technique Microsoft résoudront ensuite le problème avec votre aide.
 
 ## <a name="reference-for-test-azurestack"></a>Informations de référence pour Test-AzureStack

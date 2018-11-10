@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: b6d05c5e9bc59df9df7ef8840b70ab027b6e2f74
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 09f827e8784fe2a97c587524d70baf76ae4458ba
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269494"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741859"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Utilisation du support de flux de modification dans Azure Cosmos DB
 
@@ -77,7 +77,7 @@ L’image suivante montre de quelle manière des pipelines lambda utilisés à l
 En outre, dans les applications web et mobiles [sans serveur](http://azure.com/serverless), vous pouvez suivre les événements tels que les modifications apportées au profil, aux préférences ou à l’emplacement de votre client pour déclencher certaines actions, comme l’envoi de notifications Push à leurs appareils avec [Azure Functions](#azure-functions). Si vous utilisez Azure Cosmos DB pour créer un jeu, vous pouvez, par exemple, utiliser le flux de modification pour implémenter des classements en temps réel basés sur des scores de jeux terminés.
 
 <a id="azure-functions"></a>
-## <a name="using-azure-functions"></a>Utilisation d’Azure Functions 
+## <a name="using-azure-functions"></a>Utilisation d’Azure Functions 
 
 Si vous utilisez Azure Functions, la façon la plus simple pour vous connecter à un flux de modification Azure Cosmos DB consiste à ajouter un déclencheur Azure Cosmos DB à votre application Azure Functions. Lorsque vous créez un déclencheur Azure Cosmos DB dans une application Azure Functions, vous sélectionnez la collection Azure Cosmos DB à laquelle vous souhaitez vous connecter, et la fonction se déclenche chaque fois qu’une modification est apportée à la collection sélectionnée. 
 
@@ -114,9 +114,9 @@ Cette section vous explique comment utiliser le SDK SQL pour exploiter les flux 
     ```csharp
     FeedResponse pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(
         collectionUri,
-        new FeedOptions
-            {RequestContinuation = pkRangesResponseContinuation });
-     
+        new FeedOptions
+            {RequestContinuation = pkRangesResponseContinuation });
+     
     partitionKeyRanges.AddRange(pkRangesResponse);
     pkRangesResponseContinuation = pkRangesResponse.ResponseContinuation;
     ```
@@ -125,29 +125,29 @@ Cette section vous explique comment utiliser le SDK SQL pour exploiter les flux 
 
     ```csharp
     foreach (PartitionKeyRange pkRange in partitionKeyRanges){
-        string continuation = null;
-        checkpoints.TryGetValue(pkRange.Id, out continuation);
-        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
-            collectionUri,
-            new ChangeFeedOptions
-            {
-                PartitionKeyRangeId = pkRange.Id,
-                StartFromBeginning = true,
-                RequestContinuation = continuation,
-                MaxItemCount = -1,
-                // Set reading time: only show change feed results modified since StartTime
-                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
-            });
-        while (query.HasMoreResults)
-            {
-                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
+        string continuation = null;
+        checkpoints.TryGetValue(pkRange.Id, out continuation);
+        IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
+            collectionUri,
+            new ChangeFeedOptions
+            {
+                PartitionKeyRangeId = pkRange.Id,
+                StartFromBeginning = true,
+                RequestContinuation = continuation,
+                MaxItemCount = -1,
+                // Set reading time: only show change feed results modified since StartTime
+                StartTime = DateTime.Now - TimeSpan.FromSeconds(30)
+            });
+        while (query.HasMoreResults)
+            {
+                FeedResponse<dynamic> readChangesResponse = query.ExecuteNextAsync<dynamic>().Result;
     
-                foreach (dynamic changedDocument in readChangesResponse)
-                    {
-                         Console.WriteLine("document: {0}", changedDocument);
-                    }
-                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
-            }
+                foreach (dynamic changedDocument in readChangesResponse)
+                    {
+                         Console.WriteLine("document: {0}", changedDocument);
+                    }
+                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
+            }
     }
     ```
 
@@ -165,13 +165,13 @@ Dans le code de l’étape 4 ci-dessus, la valeur **ResponseContinuation** de la
 Ainsi, votre tableau de points de contrôle conserve uniquement le numéro de séquence logique pour chaque partition. Toutefois, si vous ne souhaitez pas gérer les partitions, les points de contrôle, le numéro de séquence logique, l’heure de début, etc., l’option la plus simple consiste à utiliser la bibliothèque du processeur de flux de modification.
 
 <a id="change-feed-processor"></a>
-## <a name="using-the-change-feed-processor-library"></a>Utilisation de la bibliothèque du processeur de flux de modification 
+## <a name="using-the-change-feed-processor-library"></a>Utilisation de la bibliothèque du processeur de flux de modification 
 
 La [bibliothèque du processeur de flux de modification Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet-changefeed) vous permet de répartir facilement le traitement des événements sur plusieurs consommateurs. Cette bibliothèque simplifie la lecture des modifications sur plusieurs partitions et threads exécutés en parallèle.
 
 Le principal avantage de la bibliothèque du processeur de flux de modification est que vous n’êtes pas obligé de gérer chaque partition et jeton de liaison, et que vous n’avez pas à interroger chaque collection manuellement.
 
-La bibliothèque du processeur de flux de modification simplifie la lecture des modifications sur plusieurs partitions et threads exécutés en parallèle.  Elle gère automatiquement la lecture des modifications sur les différentes partitions à l’aide d’un mécanisme de bail. Comme vous pouvez le voir dans l’image suivante, si vous démarrez deux clients qui utilisent la bibliothèque du processeur de flux de modification, ces deux clients se partagent la charge de travail. Plus vous ajoutez de clients, plus la charge de travail est répartie entre ces clients.
+La bibliothèque du processeur de flux de modification simplifie la lecture des modifications sur plusieurs partitions et threads exécutés en parallèle.  Elle gère automatiquement la lecture des modifications sur les différentes partitions à l’aide d’un mécanisme de bail. Comme vous pouvez le voir dans l’image suivante, si vous démarrez deux clients qui utilisent la bibliothèque du processeur de flux de modification, ces deux clients se partagent la charge de travail. Plus vous ajoutez de clients, plus la charge de travail est répartie entre ces clients.
 
 ![Traitement distribué du flux de modification d’Azure Cosmos DB](./media/change-feed/change-feed-output.png)
 
@@ -433,7 +433,7 @@ Par conséquent, si vous créez plusieurs fonctions Azure pour lire le même flu
 
 ### <a name="my-document-is-updated-every-second-and-i-am-not-getting-all-the-changes-in-azure-functions-listening-to-change-feed"></a>Le document est mis à jour chaque seconde, et je ne reçois pas toutes les modifications dans l’instance Azure Functions qui écoute le flux de modification.
 
-Azure Functions interroge le flux de modification toutes les 5 secondes. Toute modification intervenant pendant ce laps de temps est donc perdue. Azure Cosmos DB enregistre une seule version toutes les 5 secondes. Vous obtiendrez donc la cinquième modification du document. Toutefois, si vous souhaitez réduire l’intervalle de 5 secondes et interroger le flux de modification toutes les secondes, vous pouvez configurer l’intervalle d’interrogation « feedPollTime » (voir [Liaisons Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration)). Cet intervalle est défini en millisecondes et configuré sur 5000 par défaut. Il est possible, mais déconseillé, de définir un intervalle inférieur à 1 seconde, car vous utiliserez le processeur de manière plus intensive.
+Azure Functions interroge le flux de modification toutes les 5 secondes. Toute modification intervenant pendant ce laps de temps est donc perdue. Azure Cosmos DB enregistre une seule version toutes les 5 secondes. Vous obtiendrez donc la cinquième modification du document. Toutefois, si vous souhaitez réduire l’intervalle de 5 secondes et interroger le flux de modification toutes les secondes, vous pouvez configurer l’intervalle d’interrogation « feedPollDelay » (voir [Liaisons Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb.md#trigger---configuration)). Cet intervalle est défini en millisecondes et configuré sur 5000 par défaut. Il est possible, mais déconseillé, de définir un intervalle inférieur à 1 seconde, car vous utiliserez le processeur de manière plus intensive.
 
 ### <a name="i-inserted-a-document-in-the-mongo-api-collection-but-when-i-get-the-document-in-change-feed-it-shows-a-different-id-value-what-is-wrong-here"></a>J’ai ajouté un document à la collection de l’API Mongo, mais lorsque j’obtiens le document dans le flux de modification, il affiche une valeur d’ID différente. D’où vient le problème ?
 

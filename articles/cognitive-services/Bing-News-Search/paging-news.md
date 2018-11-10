@@ -10,12 +10,12 @@ ms.component: bing-news-search
 ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: fff1da15df2e690cd0b37bb82654a4d30159325a
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 0507f2cfb1d75025d1b6aadccc442326a52ceebc
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48803390"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739802"
 ---
 # <a name="paging-news"></a>Pagination des actualités
 
@@ -58,3 +58,6 @@ Host: api.cognitive.microsoft.com
   
 > [!NOTE]
 > La pagination s’applique uniquement à la recherche d’actualités (/news/search), mais pas aux rubriques populaires (news/trendingtopics) ni aux catégories d’actualités (/news).
+
+> [!NOTE]
+> Le champ `TotalEstimatedAnswers` est une estimation du nombre total de résultats de recherche que vous pouvez obtenir pour la requête actuelle.  Lorsque vous définissez les paramètres `count` et `offset`, le nombre `TotalEstimatedAnswers` peut changer. 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5ddf510d50f38ed9aaf742bd06c330e53ffe1391
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 6f007ca3aacb338c14bf481ee58407596c8290ad
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46992794"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50091621"
 ---
 # <a name="alerts-on-activity-log"></a>Alertes sur le journal d’activité 
 
@@ -50,7 +50,7 @@ Les alertes de journal d’activité ont quelques options communes :
 - **Événement lancé par** : également appelé l’« appelant ». L’adresse e-mail ou l’identificateur Azure Active Directory de l’utilisateur qui a effectué l’opération.
 
 > [!NOTE]
-> Dans un abonnement allant jusqu’à 100 règles d’alerte pour l’activité d’étendue dans une seule ressource, dans toutes les ressources d’un groupe de ressources (ou) au niveau de l’abonnement tout entier.
+> Dans un abonnement, vous pouvez créer jusqu’à 100 règles d’alerte pour une activité d’étendue dans une seule ressource, dans toutes les ressources d’un groupe de ressources (ou) au niveau de l’abonnement tout entier.
 
 Lorsqu’une alerte du journal d’activité devient active, elle utilise un groupe d’actions pour générer des actions ou des notifications. Un groupe d’actions est un jeu réutilisable de destinataires de notifications, telles que des adresses de messagerie, des URL webhook ou des numéros de téléphone SMS. Les destinataires peuvent être référencés à partir de plusieurs alertes pour centraliser et regrouper vos canaux de notification. Lorsque vous définissez votre alerte de journal d’activité, vous avez deux options. Vous pouvez :
 

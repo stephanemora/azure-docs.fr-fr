@@ -4,16 +4,16 @@ description: Utiliser un module de plateforme sécurisée (TPM) simulé sur une 
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 9609aab6c70bc0c2755de142023bd26e7417987a
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 6d0d2adfb4a727ec93db6d44e6a3e8f923760b91
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37347702"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739666"
 ---
 # <a name="create-and-provision-an-edge-device-with-a-virtual-tpm-on-a-linux-virtual-machine"></a>Créer et provisionner un appareil Edge à l’aide d’un TPM virtuel sur une machine virtuelle Linux
 
@@ -63,7 +63,7 @@ Si vous constatez des erreurs lors de la création du commutateur virtuel, assur
 
    1. **Spécifier la génération** : sélectionnez **Génération 2**.
    2. **Configurer le réseau** : définissez la valeur de **Connexion** sur le commutateur virtuel que vous avez créé à la section précédente. 
-   3. **Options d’installation** : sélectionnez **Installer un système d’exploitation à partir d’un fichier image de démarrage** et accédez au fichier image de disque que vous avez enregistré localement.
+   3. **Options d’installation** : sélectionnez **Installer un système d’exploitation à partir d’un fichier image de démarrage** et accédez au fichier image de disque que vous avez enregistré localement.
 
 La création de la machine virtuelle peut prendre plusieurs minutes. 
 
@@ -180,7 +180,7 @@ Utilisez les étapes suivantes pour accorder l’accès du TPM. Une autre façon
    La sortie correcte ressemble à ceci :
 
    ```output
-   crw------- 1 root root 10, 224 Jun 28 22:34 /dev/tpm0
+   crw------- 1 root iotedge 10, 224 Jul 20 16:27 /dev/tpm0
    ```
 
 8. Ouvrez le fichier de substitution du runtime IoT Edge. 

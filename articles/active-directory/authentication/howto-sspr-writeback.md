@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 57446f068945d74351a77f21e16874d9e24ddcab
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: e8a09a9fc87bff692b5d5b4c54f87839f2591b63
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48801928"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086945"
 ---
 # <a name="how-to-configure-password-writeback"></a>Comment : configurer la réécriture du mot de passe
 
@@ -72,13 +72,14 @@ Afin de configurer les autorisations appropriées pour l’écriture différée 
 3. Dans le volet gauche, cliquez avec le bouton droit sur l’objet représentant la racine du domaine, puis sélectionnez **Propriétés** > **Sécurité** > **Avancée**.
 4. Dans l’onglet **Autorisations**, sélectionnez **Ajouter**.
 5. Sélectionnez le compte auquel les autorisations sont appliquées (à partir de la configuration Azure AD Connect).
-6. Dans la liste déroulante **S’applique à**, sélectionnez les objets de type **utilisateur descendant**.
+6. Dans la liste déroulante **S’applique à**, sélectionnez **Objets utilisateur descendants**.
 7. Sous **Autorisations**, cochez les cases correspondant aux options suivantes :
-    * **Réinitialiser le mot de passe**
     * **Modifier le mot de passe**
+    * **Réinitialiser le mot de passe**
+8. Sous **Propriétés**, cochez les cases correspondant aux options suivantes :
     * **Écrire lockoutTime**
     * **Écrire pwdLastSet**
-8. Cliquez sur **Appliquer/OK** pour appliquer les changements et fermer les boîtes de dialogue ouvertes.
+9. Cliquez sur **Appliquer/OK** pour appliquer les changements et fermer les boîtes de dialogue ouvertes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

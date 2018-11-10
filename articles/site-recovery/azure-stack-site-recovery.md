@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.topic: conceptual
 ms.service: site-recovery
-ms.date: 10/09/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 802c2223a72a89dbe2a97404aab4b0fc85c391ed
-ms.sourcegitcommit: 7824e973908fa2edd37d666026dd7c03dc0bafd0
+ms.openlocfilehash: 9da64ebe675f9d481c7474a81fec294d50e49ce7
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "48902822"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215206"
 ---
 # <a name="replicate-azure-stack-vms-to-azure"></a>Répliquer des machines virtuelles Azure Stack dans Azure
 
-Cet article explique comment configurer la reprise d’activité sur Azure de machines virtuelles Azure Stack en utilisant le [service Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
+Cet article explique comment configurer la reprise d’activité de machines virtuelles Azure Stack sur Azure en utilisant le [service Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview).
 
 Site Recovery participe de votre stratégie de continuité d’activité et reprise d’activité (BCDR). Le service veille à ce que vos charges de travail de machine virtuelle restent disponibles en cas d’interruption attendue ou inattendue.
 
@@ -189,7 +189,7 @@ Installez à présent le serveur de configuration :
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> Vous pouvez également installer le serveur de configuration à partir de la ligne de commande. [Plus d’informations](http://aka.ms/installconfigsrv)
+> Vous pouvez également installer le serveur de configuration à partir de la ligne de commande. [Plus d’informations](physical-manage-configuration-server.md#install-from-the-command-line)
 
 > L’affichage du nom de compte dans le portail peut prendre plus de 15 minutes. Pour procéder à une mise à jour immédiate, sélectionnez **Serveurs de configuration** > ***nom du serveur*** > **Actualiser le serveur**.
 

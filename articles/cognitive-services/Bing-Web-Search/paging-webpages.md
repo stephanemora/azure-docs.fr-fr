@@ -11,12 +11,12 @@ ms.component: bing-web-search
 ms.topic: conceptual
 ms.date: 08/20/2018
 ms.author: erhopf
-ms.openlocfilehash: 4aa3509fcdfc6fd1bccb4db95a8c916a42ce23d2
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e98407dface348dfdbc99a1146d50c46f3bb03a7
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46125270"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50739241"
 ---
 # <a name="how-to-page-through-results-from-the-bing-web-search-api"></a>Découvrez comment naviguer dans les résultats de la recherche à partir de l’API Recherche Web Bing.
 
@@ -61,4 +61,7 @@ Host: api.cognitive.microsoft.com
 
 L’API Recherche Web renvoie des résultats incluant des pages Web et éventuellement des actualités, des vidéos et des images. Lorsque vous paginez les résultats de recherche, vous paginez la réponse [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer), mais pas les autres réponses (par exemple, les images ou les actualités). Par exemple, si vous définissez `count` sur 50, vous obtenez 50 résultats qui correspondent à des pages Web, mais il se peut que la réponse comprenne également des résultats pour les autres réponses. Par exemple, la réponse peut inclure 15 images et 4 articles de presse. Il se peut également que les résultats comprennent des actualités sur la première page, mais pas sur la deuxième et vice-versa.   
 
-Si vous spécifiez le paramètre de requête `responseFilter`, mais que vous n’incluez pas les pages Web dans la liste des filtres, n’utilisez pas les paramètres `count` et `offset`.  
+Si vous spécifiez le paramètre de requête `responseFilter`, mais que vous n’incluez pas les pages Web dans la liste des filtres, n’utilisez pas les paramètres `count` et `offset`. 
+
+> [!NOTE]
+> Le champ `TotalEstimatedAnswers` est une estimation du nombre total de résultats de recherche que vous pouvez obtenir pour la requête actuelle.  Quand vous définissez les paramètres `count` et `offset`, le nombre `TotalEstimatedAnswers` peut changer. 

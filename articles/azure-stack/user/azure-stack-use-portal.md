@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 10/23/2018
 ms.author: mabrigg
 ms.reviewer: efemmano
-ms.openlocfilehash: 7ccf746cfd9645b63c2810bff83cfb0c4fa55d65
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4ec9affa78d1f244208a24bcf8a6603e867d4c08
+ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713732"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50086503"
 ---
 # <a name="use-the-azure-stack-portal"></a>Utiliser le portail Azure Stack
 
@@ -32,12 +32,13 @@ Votre opérateur Azure Stack (fournisseur de services ou administrateur au sein 
 
 - Pour un système intégré, l’URL varie en fonction de la région et du nom de domaine externe de votre opérateur, et son format est https://portal.&lt;*région*&gt;.&lt;*FQDN*&gt;.
 - Si vous utilisez le Kit de développement Azure Stack, l’adresse du portail est https://portal.local.azurestack.external.
-
-![Capture d’écran du portail utilisateur d’Azure Stack](media/azure-stack-use-portal/UserPortal.png)
+- Le fuseau horaire par défaut pour tous les déploiements Azure Stack est défini sur le Temps universel coordonné (UTC). Vous pouvez sélectionner un fuseau horaire lors de l’installation d’Azure Stack, mais il est automatiquement rétabli par défaut au format UTC lors de l’installation.
 
 ## <a name="customize-the-dashboard"></a>Personnaliser le tableau de bord
 
 Le tableau de bord contient un ensemble de vignettes par défaut. Vous pouvez sélectionner **Modifier le tableau de bord** pour modifier le tableau de bord par défaut, ou **Nouveau tableau de bord** pour créer un tableau de bord personnalisé. Vous pouvez facilement personnaliser un tableau de bord en ajoutant ou supprimant des vignettes. Par exemple, pour ajouter une vignette Compute, sélectionnez **+ Créer une ressource**. Cliquez avec le bouton droit sur **Compute**, puis sélectionnez **Épingler au tableau de bord**.
+
+![Capture d’écran du portail utilisateur d’Azure Stack](media/azure-stack-use-portal/userportal.png)
 
 ## <a name="create-subscription-and-browse-available-resources"></a>Créer un abonnement et parcourir les ressources disponibles
 

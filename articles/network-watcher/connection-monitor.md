@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/27/2018
+ms.date: 10/25/2018
 ms.author: jdial
 ms.custom: mvc
-ms.openlocfilehash: 9b13b8ae0b64dc84e476f5fc5da59ea30702fd8d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0c865b8bc129f4f2809f2dbb09a836efe4cee3d9
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639025"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093038"
 ---
 # <a name="tutorial-monitor-network-communication-between-two-virtual-machines-using-the-azure-portal"></a>Tutoriel : surveiller la communication réseau entre deux machines virtuelles à l’aide du portail Azure
 
@@ -30,6 +30,7 @@ Il peut être essentiel pour votre organisation que la communication soit effica
 > [!div class="checklist"]
 > * Créer deux machines virtuelles
 > * Surveiller la communication entre des machines virtuelles avec la fonctionnalité de surveillance de connexion de Network Watcher
+> * Générer des alertes pour les métriques de surveillance de connexion
 > * Diagnostiquer un problème de communication entre deux machines virtuelles et apprendre à le résoudre
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
@@ -55,7 +56,7 @@ Créez deux machines virtuelles.
     |Mot de passe| Entrez un mot de passe de votre choix. Le mot de passe doit contenir au moins 12 caractères et satisfaire aux [exigences de complexité définies](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Abonnement| Sélectionnez votre abonnement.|
     |Groupe de ressources| Sélectionnez **Créer** et entrez **myResourceGroup**.|
-    |Lieu| Sélectionnez **Est des États-Unis**.|
+    |Lieu| Sélectionnez **USA Est**.|
 
 4. Choisissez une taille de machine virtuelle, puis cliquez sur **Sélectionner**.
 5. Sous **Paramètres**, sélectionnez **Extensions**. Sélectionnez **Ajouter une extension**, puis **Agent Network Watcher pour Windows**, comme l’illustre l’image suivante :
@@ -120,6 +121,19 @@ Créez un moniteur de connexion pour surveiller la communication sur le port TCP
     | DURÉE MOY. DES BOUCLES          | Vous indique la durée des boucles pour établir la connexion, en millisecondes. Le moniteur de connexion sonde la connexion toutes les 60 secondes, pour que vous puissiez surveiller la latence au fil du temps.                                         |
     | Hops                     | Le moniteur de connexion vous indique les tronçons entre les deux points de terminaison. Dans cet exemple, la connexion est établie entre deux machines virtuelles du même réseau virtuel, donc il n’y a qu’un seul tronçon, à l’adresse IP 10.0.0.5. S’il existe un système ou des itinéraires personnalisés qui acheminent le trafic entre les machines virtuelles par le biais d’une passerelle VPN ou d’une appliance de réseau virtuel, par exemple, d’autres tronçons sont répertoriés.                                                                                                                         |
     | STATUT                   | Les coches vertes de chaque point de terminaison vous indiquent qu’il est sain.    ||
+
+## <a name="generate-alerts"></a>Générer des alertes
+
+Les alertes sont créées par des règles d’alerte dans Azure Monitor et peuvent exécuter automatiquement des requêtes enregistrées ou des recherches personnalisées dans les journaux à intervalles réguliers. Une alerte générée peut exécuter automatiquement une ou plusieurs actions, par exemple avertir un utilisateur ou démarrer un processus. Lorsque vous définissez une règle d’alerte, en fonction de la ressource que vous ciblez, vous disposez d’une liste de métriques disponibles pour générer des alertes.
+
+1. Dans le portail Azure, accédez au service **Surveiller**, puis sélectionnez **Alertes** > **Nouvelle règle d’alerte**.
+2. Cliquez sur **Sélectionner une cible**, puis sélectionnez les ressources que vous souhaitez cibler. Sélectionnez l’**abonnement** et définissez le **type de ressource** pour déterminer la surveillance de connexion que vous voulez utiliser.
+
+    ![écran d’alerte avec la cible sélectionnée](./media/connection-monitor/set-alert-rule.png)
+1. Une fois que vous avez sélectionné une ressource à cibler, sélectionnez **Ajouter des critères**. Network Watcher dispose de [métriques à partir desquelles vous pouvez créer des alertes](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts#metrics-and-dimensions-supported). Attribuez des **signaux disponibles** aux paramètres ProbesFailedPercent et AverageRoundtripMs des métriques :
+
+    ![page d’alerte avec les signaux sélectionnés](./media/connection-monitor/set-alert-signals.png)
+1. Renseignez les détails de l’alerte, comme le nom de règle d’alerte, la description et la gravité. Vous pouvez également ajouter un groupe d’actions à l’alerte afin d’automatiser et de personnaliser la réponse à l’alerte.
 
 ## <a name="view-a-problem"></a>Voir un problème
 
