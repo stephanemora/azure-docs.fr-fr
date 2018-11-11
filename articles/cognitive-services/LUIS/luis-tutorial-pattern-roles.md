@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: c7e7b100242d6ceb35172b872f2fb6ff7f4b402b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: dd73ca876385cf81059228088f7b027f533315eb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886158"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277834"
 ---
 # <a name="tutorial-4-extract-contextually-related-patterns"></a>Tutoriel 4 : Extraire des modèles relatifs au contexte
 
@@ -49,7 +49,7 @@ Si vous avez des difficultés avec la détection d’une entité simple car elle
 > * Créer une liste d’expressions de villes
 > * Obtenir les intentions et les entités à partir du point de terminaison
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="use-existing-app"></a>Utiliser l’application existante
 Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
@@ -64,7 +64,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
 ## <a name="create-new-entities"></a>Créer des entités
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Dans le menu de navigation de gauche, sélectionnez **Entités**. 
 
@@ -254,7 +254,7 @@ Tout comme les noms de personnes, les villes posent parfois problème car elles 
 
 ## <a name="get-intent-and-entities-from-endpoint"></a>Obtenir l’intention et les entités à partir du point de terminaison
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Accédez à la fin de l’URL dans la barre d’adresses, puis entrez `Move wayne berry from miami to mount vernon`. Le dernier paramètre de la chaîne de requête est `q`, l’énoncé est **query**. 
 
@@ -380,6 +380,8 @@ Dans ce tutoriel, l’application Ressources humaines détecte les énoncés sur
 |--|--|--|
 |[Hiérarchique (aucun rôle)](luis-quickstart-intent-and-hier-entity.md)|mv Jill Jones de **a-2349** à **b-1298**|a-2349, b-1298|
 |Ce tutoriel (avec des rôles)|Transférer Billy Patterson de **Yuma** vers **Denver**.|Yuma, Denver|
+
+Pour plus d’informations, consultez [Rôles et entités hiérarchiques](luis-concept-roles.md#roles-versus-hierarchical-entities).
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

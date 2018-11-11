@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/19/2016
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: f2a48756252f538adc7d813aafe6dbfbf3a270b5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 2b27b8605e23a4c4333f6f1a9c9dd12444fd43fb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50416680"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277118"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Envoyer des données de diagnostic de service cloud, de machine virtuelle ou de Service Fabric à Application Insights
 Les services cloud, les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric utilisent l’extension Azure Diagnostics pour collecter des données.  Les diagnostics Azure envoient les données dans des tables de stockage Azure.  Toutefois, vous pouvez également transmettre toutes les données ou un sous-ensemble de données vers d’autres emplacements à l’aide de l’extension Azure Diagnostics 1.5 ou version ultérieure.
@@ -217,4 +217,4 @@ Dans la configuration précédente, les lignes ci-dessous ont les significations
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez comment [visualiser vos informations de diagnostic Azure](https://docs.microsoft.com/azure/application-insights/app-insights-cloudservices#view-azure-diagnostic-events) dans Application Insights.
 * Utilisez [PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md) pour activer l’extension des diagnostics Azure pour votre application.
-* Utilisez [Visual Studio](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md) pour activer l'extension des diagnostics Azure pour votre application
+* Utilisez [Visual Studio](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines) pour activer l'extension des diagnostics Azure pour votre application

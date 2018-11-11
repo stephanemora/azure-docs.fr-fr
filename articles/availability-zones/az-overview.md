@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 08/31/2018
 ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: b536771ddf437de025599e2b9c6092c1655f0bd9
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: a98e2ef8cb1f1cd7ad06cc482f24590d59eea3e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321161"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248637"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Que sont les zones de disponibilité dans Azure ?
 Les Zones de disponibilité constituent une offre à haute disponibilité qui protège vos applications et données contre les pannes des centres de données. Les Zones de disponibilité sont des emplacements physiques uniques au sein d’une région Azure. Chaque zone de disponibilité est composée d’un ou de plusieurs centres de données équipés d’une alimentation, d’un système de refroidissement et d’un réseau indépendants. Pour garantir la résilience, il existe un minimum de trois zones distinctes dans toutes les régions activées. La séparation physique des Zones de disponibilité dans une région protège les applications et les données des défaillances dans le centre de données. Les services redondants interzone répliquent vos applications et données entre des Zones de disponibilité pour les protéger contre des points uniques de panne. Avec les Zones de disponibilité, Azure propose des contrats de niveau de service de durée de fonctionnement des machines virtuelles de pointe de 99,99 %. La version complète du [contrat SLA Azure](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explique la disponibilité garantie d’Azure dans son ensemble.
@@ -31,7 +31,7 @@ Une zone de disponibilité dans une région Azure est une combinaison d’un dom
 Générez la haute disponibilité dans votre architecture d’applications par la colocalisation de vos ressources de calcul, de stockage, de mise en réseau et de données dans une zone et une réplication dans d’autres zones. Les services Azure qui prennent en charge les Zones de disponibilité sont classés en deux catégories :
 
 - **Services zonaux** : vous épinglez la ressource à une zone spécifique (par exemple, des machines virtuelles, des disques managés, des adresses IP) ou
-- **Services redondants interzone** : la plateforme effectue automatiquement la réplication entre des zones (par exemple, stockage redondant dans une zone, SQL Database).
+- **Services redondants interzone** : la plateforme effectue automatiquement la réplication entre des zones (par exemple, stockage redondant interzone, SQL Database).
 
 Pour obtenir la continuité complète des activités sur Azure, générez votre architecture d’applications à l’aide de la combinaison des Zones de disponibilité et des paires de régions Azure. Vous pouvez effectuer une réplication synchrone de vos applications et données à l’aide des Zones de la disponibilité d’une région Azure pour répliquer en haute disponibilité et de façon asynchrone entre les régions Azure pour la protection de la récupération d’urgence.
  
@@ -77,7 +77,7 @@ Il n’existe aucun coût supplémentaire pour les machines virtuelles déployé
 - [Créer un groupe de machines virtuelles identiques redondant interzone](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 - [Machines virtuelles de l’équilibreur dans des zones à l’aide de Load Balancer Standard avec un serveur frontal redondant interzone](../load-balancer/load-balancer-standard-public-zone-redundant-cli.md)
 - [Machines virtuelles de l’équilibreur de charge dans une zone à l’aide de Load Balancer Standard avec un serveur frontal zonal](../load-balancer/load-balancer-standard-public-zonal-cli.md)
-- [Stockage redondant dans une zone](../storage/common/storage-redundancy-zrs.md)
+- [Stockage redondant interzone](../storage/common/storage-redundancy-zrs.md)
 - [Base de données SQL](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 - [Géo-reprise d’activité après sinistre Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
 - [Géo-reprise d’activité après sinistre Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
@@ -85,4 +85,4 @@ Il n’existe aucun coût supplémentaire pour les machines virtuelles déployé
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Modèles de démarrage rapide](http://aka.ms/azqs)
+- [Modèles de démarrage rapide](https://aka.ms/azqs)

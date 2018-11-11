@@ -9,18 +9,18 @@ ms.date: 02/08/2018
 ms.author: ancav
 ms.custom: mvc
 ms.component: alerts
-ms.openlocfilehash: 8f3be2b1eb9c12aab212fb198283dce9ee3d3912
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 965a35eb4cf33abe78ca802e8d59f13a649dec0a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982859"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279226"
 ---
 # <a name="receive-a-notification-when-a-metric-value-meets-a-condition"></a>Recevoir une notification quand une valeur de métrique remplit une condition
 
 Azure Monitor propose des métriques pour un grand nombre de ressources Azure. Ces métriques traduisent les performances et l’intégrité de ces ressources. Dans bon nombre de cas, les valeurs des métriques peuvent indiquer un problème au niveau d’une ressource. Vous pouvez créer des alertes de métriques pour détecter un comportement anormal et être notifié, le cas échéant. Ce guide de démarrage rapide vous explique de façon détaillée comment créer une application logique, comment créer un travail et comment visualiser les métriques de l’application logique. Il décrit ensuite les étapes permettant de créer une alerte et de recevoir une notification pour une métrique de la ressource d’application logique.
 
-Pour plus d’informations sur les métriques et les alertes de métriques, consultez [Vue d’ensemble des métriques Azure Monitor](./monitoring-overview-metrics.md) et [Vue d’ensemble des alertes Azure Monitor](./monitoring-overview-alerts.md). 
+Pour plus d’informations sur les métriques et les alertes de métriques, consultez [Vue d’ensemble des métriques Azure Monitor](../monitoring/monitoring-data-collection.md) et [Vue d’ensemble des alertes Azure Monitor](./monitoring-overview-alerts.md). 
 
 Si vous n’avez pas d’abonnement Azure, créez un compte [gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -96,7 +96,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 3. Peu de temps après, vous devez recevoir un e-mail intitulé « Alertes Microsoft Azure » vous informant que l’alerte a été « résolue ».
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Les autres guides de démarrage rapide de cette collection sont la prolongation du présent guide de démarrage rapide. Si vous envisagez d’utiliser ces autres guides de démarrage rapide ou les didacticiels, ne supprimez pas les ressources créées dans ce guide de démarrage rapide. Sinon, procédez comme suit pour supprimer toutes les ressources créées au cours de ce démarrage rapide dans le portail Azure.
 

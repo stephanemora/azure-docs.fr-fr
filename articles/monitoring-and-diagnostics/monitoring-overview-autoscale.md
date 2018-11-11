@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: autoscale
-ms.openlocfilehash: fe63ce931da9fbe94b47d00805820affddfb1bc1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8491f3f61746374b67e174ca5efff2fbf2fe5fbe
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46946984"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281895"
 ---
 # <a name="overview-of-autoscale-in-microsoft-azure-virtual-machines-cloud-services-and-web-apps"></a>Vue d’ensemble de la mise à l’échelle automatique sur les machines virtuelles Microsoft Azure, les services cloud et les applications web
 Cet article décrit la mise à l’échelle automatique Microsoft Azure ainsi que ses avantages, et comment commencer à l’utiliser.  
@@ -96,7 +96,7 @@ Pour plus d’informations, voir [Évolution verticale des machines virtuelles A
 ## <a name="methods-of-access"></a>Méthodes d’accès
 Vous pouvez configurer la mise à l’échelle automatique via
 
-* [Portail Azure](insights-how-to-scale.md)
+* [Portail Azure](monitoring-autoscale-get-started.md)
 * [PowerShell](insights-powershell-samples.md#create-and-manage-autoscale-settings)
 * [Interface de ligne de commande interplateforme (CLI)](insights-cli-samples.md#autoscale)
 * [API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931953.aspx)
@@ -104,11 +104,11 @@ Vous pouvez configurer la mise à l’échelle automatique via
 ## <a name="supported-services-for-autoscale"></a>Services pris en charge pour la mise à l’échelle automatique
 | de diffusion en continu | Schéma et documentation |
 | --- | --- |
-| Web Apps |[Mise à l’échelle des applications web](insights-how-to-scale.md) |
+| Web Apps |[Mise à l’échelle des applications web](monitoring-autoscale-get-started.md) |
 | Cloud Services |[Mise à l’échelle automatique d’un service cloud](../cloud-services/cloud-services-how-to-scale-portal.md) |
 | Machines virtuelles : classique |[Mise à l’échelle de groupes à haute disponibilité de machines virtuelles classiques](https://blogs.msdn.microsoft.com/kaevans/2015/02/20/autoscaling-azurevirtual-machines/) |
-| Machines virtuelles : jeux de mise à l’échelle Windows |[Mise à l’échelle des jeux de mise à l’échelle de machine virtuelle dans Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md) |
-| Machines virtuelles : jeux de mise à l’échelle Linux |[Mise à l’échelle des jeux de mise à l’échelle de machine virtuelle dans Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) |
+| Machines virtuelles : jeux de mise à l’échelle Windows |[Mise à l’échelle des jeux de mise à l’échelle de machine virtuelle dans Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md) |
+| Machines virtuelles : jeux de mise à l’échelle Linux |[Mise à l’échelle des jeux de mise à l’échelle de machine virtuelle dans Linux](../virtual-machine-scale-sets/tutorial-autoscale-cli.md) |
 | Machines virtuelles : exemple Windows |[Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour les groupes de machines virtuelles identiques](insights-advanced-autoscale-virtual-machine-scale-sets.md) |
 | Service Gestion des API|[Mettre à l’échelle automatiquement une instance du service Gestion des API Azure](https://docs.microsoft.com/azure/api-management/api-management-howto-autoscale)
 

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 9bbbb797cd7e7d1cea52f1d5b1b491998b595db7
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 8a92852a2721bd391ddf7c3cf3489b820c4a1400
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638073"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277613"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Les rôles d’entité dans les modèles sont des sous-types contextuels
 Les rôles sont des sous-types contextuels nommés d’une entité utilisée uniquement dans des [modèles](luis-concept-patterns.md).
@@ -42,13 +42,8 @@ Dans l’énoncé d’un gabarit de modèle, les rôles sont utilisés dans l’
 ## <a name="role-syntax-in-patterns"></a>Syntaxe du rôle dans les modèles
 L’entité et le rôle sont placés entre parenthèses, `{}`. L’entité et le rôle sont séparés par un signe deux-points. 
 
-## <a name="roles-versus-hierarchical-entities"></a>Rôles et entités hiérarchiques
-Les entités hiérarchiques fournissent les mêmes informations contextuelles que les rôles, mais uniquement pour les énoncés dans des **intentions**. De même, les rôles fournissent les mêmes informations contextuelles que les entités hiérarchiques, mais uniquement dans des **modèles**.
 
-|Apprentissage contextuel|Utilisé dans|
-|--|--|
-|entités hiérarchiques|intentions|
-|roles|modèles|
+[!INCLUDE[H2 Roles versus hierarchical entities](../../../includes/cognitive-services-luis-hier-roles.md)] 
 
 ## <a name="roles-with-prebuilt-entities"></a>Rôles avec des entités prédéfinies
 
@@ -60,4 +55,4 @@ L’entité prédéfinie datetimeV2 effectue un travail remarquable pour compren
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Découvrir comment ajouter des [rôles](luis-how-to-add-entities.md#add-role-to-pattern-based-entity)
+* Découvrir comment ajouter des [rôles](luis-how-to-add-entities.md#add-a-role-to-pattern-based-entity)

@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: ff5a47f977f34535c5ad1fde7e6cac5995e7f7dd
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 95d1c4ffe76cf4c652f347014a838f1250c0ca15
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47031456"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277475"
 ---
 # <a name="tutorial-9--extract-sentiment-of-overall-utterance"></a>Tutoriel 9 : Extraire le sentiment de l’énoncé global
 Dans ce tutoriel, vous allez créer une application montrant comment extraire le sentiment positif, négatif et neutre des énoncés. Le sentiment est déterminé à partir de l’énoncé entier.
@@ -55,12 +55,12 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
 2. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Gérer**, sous l’onglet **Versions**, clonez la version et nommez-la `sentiment`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
+3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `sentiment`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL.
 
 ## <a name="employeefeedback-intent"></a>Intention RetoursEmployés 
 Ajouter une nouvelle intention de recueillir des commentaires employés de la part des membres de la société. 
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sélectionnez **Créer une intention**.
 

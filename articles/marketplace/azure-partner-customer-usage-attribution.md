@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: yijenj
-ms.openlocfilehash: 604eb528ef33a95993aa5b6d3ff6eebb77936aa2
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 7937f3d0db414d7a9cc2adaefd4324d49d734fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157936"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280671"
 ---
 # <a name="azure-partner-customer-usage-attribution"></a>Attribution de l’utilisation de client partenaire Azure
 
@@ -66,7 +66,7 @@ Cette ressource doit être ajoutée uniquement dans le fichier **mainTemplate.js
 
 { // add this resource to the mainTemplate.json (do not add the entire file)
     "apiVersion": "2018-02-01",
-    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX" // use your generated GUID here
+    "name": "pid-XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX", // use your generated GUID here
     "type": "Microsoft.Resources/deployments",
     "properties": {
         "mode": "Incremental",
@@ -145,7 +145,7 @@ Toutes les inscriptions pour les GUID de modèle doivent être effectuées sur l
 
 Une fois que vous aurez ajouté le GUID à votre modèle ou dans l’agent utilisateur et enregistré le GUID dans le portail Cloud Partner, tous les déploiements feront l’objet d’un suivi. 
 
-1. Optez pour la [Place de marché Azure](http://aka.ms/listonazuremarketplace) afin d’accéder au portail Cloud Partner.
+1. Optez pour la [Place de marché Azure](https://aka.ms/listonazuremarketplace) afin d’accéder au portail Cloud Partner.
 
    * Les partenaires doivent [avoir un profil sur le portail Cloud Partner](https://docs.microsoft.com/azure/marketplace/become-publisher). Vous êtes invité à répertorier l’offre dans la Place de marché Azure ou AppSource.
    * Les partenaires peuvent inscrire plusieurs GUID.

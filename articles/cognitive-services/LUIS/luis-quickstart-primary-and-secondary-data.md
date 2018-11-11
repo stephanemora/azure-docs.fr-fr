@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: e0cdda629ddded121a424af61377c04ee8d958d3
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 4647e663f4a2734451835f90d2687bb6aaf91712
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867542"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277798"
 ---
 # <a name="tutorial-7-extract-names-with-simple-entity-and-phrase-list"></a>Tutoriel 7 : Extraire des noms avec une entité simple et une liste d’expressions
 
@@ -86,7 +86,7 @@ Cette application LUIS comporte des noms de poste dans plusieurs intentions. En 
 
 Une fois les entités marquées dans les exemples d’énoncés, il est important d’ajouter une liste d’expressions pour améliorer le signal de l’entité simple. Une liste d’expressions **n’étant pas** utilisée comme une correspondance exacte, elle n’est pas censée contenir chaque valeur possible attendue. 
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Dans la page **Intents** (Intentions), sélectionnez l’intention **ApplyForJob**. 
 

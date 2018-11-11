@@ -3,7 +3,7 @@ title: Azure AD Connect Health - Alerte indiquant que les données du Service de
 description: Ce document décrit la cause de l’alerte indiquant que les données du Service de contrôle d’intégrité ne sont pas mises à jour et explique comment y remédier.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: maheshu
 editor: ''
 ms.service: active-directory
@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/26/2018
 ms.author: zhiweiw
-ms.openlocfilehash: ca9f23703315424fcf08350ae3111a20dd94c160
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 93f0d31f5daa13d0598367e2a4ddab67ff3dbc66
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233223"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279700"
 ---
 # <a name="health-service-data-is-not-up-to-date-alert"></a>Les données du Service de contrôle d’intégrité ne sont pas mises à jour
 
@@ -39,7 +39,7 @@ ms.locfileid: "50233223"
 
 | Éléments de données | Étapes de dépannage |
 | --- | --- | 
-| PerfCounter | - [Connectivité sortante vers les points de terminaison de service Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [L’inspection SSL pour le trafic sortant est filtrée ou désactivée](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Ports du pare-feu sur le serveur qui exécute l’agent](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Autoriser les sites web désignés en cas d’activation de la sécurité renforcée d’IE](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) |
+| PerfCounter | - [Connectivité sortante vers les points de terminaison de service Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [L’inspection SSL pour le trafic sortant est filtrée ou désactivée](https://technet.microsoft.com/library/ee796230.aspx) <br /> - [Ports du pare-feu sur le serveur qui exécute l’agent](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Autoriser les sites web désignés en cas d’activation de la sécurité renforcée d’IE](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
 | AadSyncService-SynchronizationRules, <br /> AadSyncService-Connectors, <br /> AadSyncService-GlobalConfigurations, <br /> AadSyncService-RunProfileResults, <br /> AadSyncService-ServiceConfigurations, <br /> AadSyncService-ServiceStatus | - Connectivité sortante basée sur des adresses IP, reportez-vous à [Plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=41653) <br /> - [Connectivité sortante vers les points de terminaison de service Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> -  [Ports du pare-feu sur le serveur qui exécute l’agent](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) | 
 
 ### <a name="connect-health-for-adfs"></a>Connect Health pour ADFS
@@ -48,14 +48,14 @@ ms.locfileid: "50233223"
 
 | Éléments de données | Étapes de dépannage |
 | --- | --- | 
-| PerfCounter, TestResult | - [Connectivité sortante vers les points de terminaison de service Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [L’inspection SSL pour le trafic sortant est filtrée ou désactivée](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Ports du pare-feu sur le serveur qui exécute l’agent](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Autoriser les sites web désignés en cas d’activation de la sécurité renforcée d’IE](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) |
+| PerfCounter, TestResult | - [Connectivité sortante vers les points de terminaison de service Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br />- [L’inspection SSL pour le trafic sortant est filtrée ou désactivée](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Ports du pare-feu sur le serveur qui exécute l’agent](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Autoriser les sites web désignés en cas d’activation de la sécurité renforcée d’IE](https://technet.microsoft.com/windows/ms537180(v=vs.60)) |
 |  Adfs-UsageMetrics | Connectivité sortante basée sur des adresses IP, reportez-vous à [Plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=41653) | 
 
 ### <a name="connect-health-for-adds"></a>Connect Health pour ADDS
 
 | Éléments de données | Étapes de dépannage |
 | --- | --- | 
-| PerfCounter, Adds-TopologyInfo-Json, Common-TestData-Json | - [Connectivité sortante vers les points de terminaison de service Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [L’inspection SSL pour le trafic sortant est filtrée ou désactivée](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Ports du pare-feu sur le serveur qui exécute l’agent](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Autoriser les sites web désignés en cas d’activation de la sécurité renforcée d’IE](https://technet.microsoft.com/en-us/windows/ms537180(v=vs.60)) <br />  - Connectivité sortante basée sur des adresses IP, reportez-vous à [Plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=41653)  |
+| PerfCounter, Adds-TopologyInfo-Json, Common-TestData-Json | - [Connectivité sortante vers les points de terminaison de service Azure](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) <br /> - [L’inspection SSL pour le trafic sortant est filtrée ou désactivée](https://technet.microsoft.com/library/ee796230.aspx) <br />-  [Ports du pare-feu sur le serveur qui exécute l’agent](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) <br /> - [Autoriser les sites web désignés en cas d’activation de la sécurité renforcée d’IE](https://technet.microsoft.com/windows/ms537180(v=vs.60)) <br />  - Connectivité sortante basée sur des adresses IP, reportez-vous à [Plages d’adresses IP Azure](https://www.microsoft.com/download/details.aspx?id=41653)  |
 
 
 ## <a name="next-steps"></a>Étapes suivantes

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/15/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: fd183b5776f30b12d577a94be147eabef05d258f
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: f7122c6147af2ed1af1f3b5e08458fd73f9aef6d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419365"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279096"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Créer, afficher et gérer des alertes de journal à l’aide d’Azure Monitor  
 
@@ -57,7 +57,7 @@ Vous trouverez ci-après un guide pas à pas sur l’utilisation des alertes de 
 
    > [!NOTE]
 
-   > Les listes d’alertes peuvent importer une requête analytique en tant que type de signal : **Journal (requête enregistrée)**, comme indiqué dans l’illustration ci-dessus. Les utilisateurs peuvent donc perfectionner votre requête dans Analytics et l’enregistrer pour l’utiliser ultérieurement dans Alerts. Pour en savoir plus sur l’enregistrement de requêtes, consultez la section relative à [l’utilisation des recherches de journaux dans Log Analytics](../log-analytics/log-analytics-log-searches.md) ou aux [requêtes partagées dans Application Insights Analytics](../log-analytics/log-analytics-overview.md). 
+   > Les listes d’alertes peuvent importer une requête analytique en tant que type de signal : **Journal (requête enregistrée)**, comme indiqué dans l’illustration ci-dessus. Les utilisateurs peuvent donc perfectionner votre requête dans Analytics et l’enregistrer pour l’utiliser ultérieurement dans Alerts. Pour en savoir plus sur l’enregistrement de requêtes, consultez la section relative à [l’utilisation des recherches de journaux dans Log Analytics](../log-analytics/log-analytics-queries.md) ou aux [requêtes partagées dans Application Insights Analytics](../log-analytics/log-analytics-queries.md). 
 
 1.  *Alertes de journal* : une fois sélectionnée, la requête de génération d’alerte peut être indiquée dans le champ **Requête de recherche**. Si la syntaxe de la requête est incorrecte, le champ affiche le message d’erreur en rouge. Si la syntaxe de la requête est correcte, les données de la requête indiquée sont indiquées à titre de référence sous forme de graphique avec la possibilité d’ajuster la fenêtre de temps entre les six dernières heures et la semaine précédente.
 
@@ -132,7 +132,7 @@ La section ci-dessous fournit ainsi des détails sur l’utilisation du modèle 
 ### <a name="azure-resource-template-for-log-analytics"></a>Modèle de ressource Azure pour Log Analytics
 Les alertes de journal pour Log Analytics sont créées par le biais de règles d’alerte exécutant une recherche enregistrée à intervalles réguliers. Si les résultats de la requête correspondent aux critères spécifiés, un enregistrement d’alerte est créé et une ou plusieurs actions sont exécutées. 
 
-Les modèles de ressources pour la recherche Log Analytics enregistrée et les alertes Log Analytics sont disponibles dans la section Log Analytics de la documentation. Pour en savoir plus, consultez l’article [Ajout de recherches et d’alertes enregistrées Log Analytics](../operations-management-suite/operations-management-suite-solutions-resources-searches-alerts.md) qui contient des exemples illustratifs et des détails sur le schéma.
+Les modèles de ressources pour la recherche Log Analytics enregistrée et les alertes Log Analytics sont disponibles dans la section Log Analytics de la documentation. Pour en savoir plus, consultez l’article [Ajout de recherches et d’alertes enregistrées Log Analytics](../monitoring/monitoring-solutions-resources-searches-alerts.md) qui contient des exemples illustratifs et des détails sur le schéma.
 
 ### <a name="azure-resource-template-for-application-insights"></a>Modèle de ressource Azure pour Application Insights
 Les alertes de journal pour les ressources Application Insights ont le type `Microsoft.Insights/scheduledQueryRules/`. Pour plus d’informations sur ce type de ressource, consultez [Azure Monitor - Référence de l’API des règles de requêtes planifiées](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
@@ -246,5 +246,5 @@ Une fois l’opération réussie, le code 201 est retourné pour signaler la cr�
 * En savoir plus sur les [alertes de journal dans les alertes Azure ](monitor-alerts-unified-log.md)
 * Comprendre les [actions Webhook pour les alertes de journal](monitor-alerts-unified-log-webhook.md)
 * En savoir plus sur [Application Insights](../application-insights/app-insights-analytics.md)
-* En savoir plus sur [Log Analytics](../log-analytics/log-analytics-overview.md). 
+* En savoir plus sur [Log Analytics](../log-analytics/log-analytics-queries.md). 
 

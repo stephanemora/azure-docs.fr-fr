@@ -15,18 +15,18 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2018
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 46e6ea791752045b0f1afbf1e83e43f498415e54
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 21e280740d5d7f467ee70952febf858e0dc0b89d
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887459"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278206"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Création d’un fichier de solution de gestion dans Azure (préversion)
 > [!NOTE]
 > Il s’agit d’une documentation préliminaire pour la création de solutions de gestion dans Azure qui sont actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.  
 
-Les solutions de gestion dans Azure sont implémentées en tant que [modèles Resource Manager](../azure-resource-manager/resource-manager-template-walkthrough.md).  Avant de créer des solutions de gestion, apprenez à [créer un modèle](../azure-resource-manager/resource-group-authoring-templates.md).  Cet article fournit des détails uniques sur les modèles utilisés pour des solutions. Il indique également comment configurer des ressources de solution courantes.
+Les solutions de gestion dans Azure sont implémentées en tant que [modèles Resource Manager](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).  Avant de créer des solutions de gestion, apprenez à [créer un modèle](../azure-resource-manager/resource-group-authoring-templates.md).  Cet article fournit des détails uniques sur les modèles utilisés pour des solutions. Il indique également comment configurer des ressources de solution courantes.
 
 
 ## <a name="tools"></a>Outils
@@ -34,7 +34,7 @@ Les solutions de gestion dans Azure sont implémentées en tant que [modèles Re
 Vous pouvez utiliser n’importe quel éditeur de texte pour travailler avec les fichiers de solution, mais nous vous recommandons d’exploiter les fonctionnalités fournies par Visual Studio et Visual Studio Code, comme décrit dans les articles suivants.
 
 - [Création et déploiement de groupes de ressources Azure à l’aide de Visual Studio](../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md)
-- [Utiliser des modèles Azure Resource Manager dans Visual Studio Code](../azure-resource-manager/resource-manager-vs-code.md)
+- [Utiliser des modèles Azure Resource Manager dans Visual Studio Code](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md)
 
 
 

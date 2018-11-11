@@ -3,7 +3,7 @@ title: Utilisation d’Azure AD Connect Health avec AD FS | Microsoft Docs
 description: Ceci est la page d’Azure AD Connect Health spécifiant comment surveiller votre infrastructure AD FS locale.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 editor: curtand
 ms.assetid: dc0e53d8-403e-462a-9543-164eaa7dd8b3
@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 04/26/2018
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 66dd3edefb44a0394216eeff58c6cccb5828c98b
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 7d93207e6a5f0acabcf348981e799e801c39f48b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46302055"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278835"
 ---
 # <a name="monitor-ad-fs-using-azure-ad-connect-health"></a>Surveiller AD FS avec Azure AD Connect Health
 La documentation suivante est spécifique à la surveillance de votre infrastructure AD FS avec Azure AD Connect Health. Pour plus d’informations sur la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health pour la synchronisation](how-to-connect-health-sync.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-health-adds.md).
@@ -128,7 +128,7 @@ En outre, il est possible qu’une seule adresse IP tente de se connecter plusie
 
 > [!NOTE]
 > Pour utiliser ce rapport, vous devez vous assurer que l’audit AD FS est activé. Pour plus d’informations, consultez [Activer l’audit pour AD FS](how-to-connect-health-agent-install.md#enable-auditing-for-ad-fs). <br />
-> Pour accéder à l’aperçu, l’autorisation Administrateur général ou [Lecteur Sécurité](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) est nécessaire.  
+> Pour accéder à l’aperçu, l’autorisation Administrateur général ou [Lecteur Sécurité](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#security-reader) est nécessaire.  
 > 
 
 ### <a name="what-is-in-the-report"></a>Contenu du rapport

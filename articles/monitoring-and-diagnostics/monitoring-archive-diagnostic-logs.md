@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: ab7689cb18dcd11926abc2e9806885b1072e3886
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 6efcb7bccfdfab18a57e709d9fdfa8492b159b34
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960172"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278087"
 ---
 # <a name="archive-azure-diagnostic-logs"></a>Archivage des journaux de diagnostic Azure
 
@@ -26,7 +26,7 @@ Dans cet article, nous vous expliquons comment utiliser le portail Azure, les ap
 
 ## <a name="prerequisites"></a>Prérequis
 
-Avant de commencer, vous devez [créer un compte de stockage](../storage/common/storage-create-storage-account.md) sur lequel vous pouvez archiver vos journaux de diagnostic. Nous vous recommandons vivement de ne pas utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. En revanche, si vous archivez également votre journal d’activité et des métriques de diagnostic sur un compte de stockage, il peut être judicieux d’utiliser également ce compte pour vos journaux de diagnostic, afin de centraliser toutes vos données d’analyse.
+Avant de commencer, vous devez [créer un compte de stockage](../storage/common/storage-quickstart-create-account.md) sur lequel vous pouvez archiver vos journaux de diagnostic. Nous vous recommandons vivement de ne pas utiliser un compte de stockage existant sur lequel sont stockées d’autres données de non-analyse, afin de pouvoir mieux contrôler l’accès aux données d’analyse. En revanche, si vous archivez également votre journal d’activité et des métriques de diagnostic sur un compte de stockage, il peut être judicieux d’utiliser également ce compte pour vos journaux de diagnostic, afin de centraliser toutes vos données d’analyse.
 
 > [!NOTE]
 >  Actuellement, vous ne pouvez pas archiver les données vers un stockage situé derrière un réseau virtuel sécurisé.
@@ -161,7 +161,7 @@ Dans le fichier PT1H.json, chaque événement est stocké dans le tableau « enr
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Télécharger des objets blob pour analyse](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
+* [Télécharger des objets blob pour analyse](../storage/blobs/storage-quickstart-blobs-dotnet.md)
 * [Diffuser en continu les journaux de diagnostic sur un espace de noms Event Hubs](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Archive Azure Active Directory logs with Azure Monitor](../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) (Archivage des journaux Azure Active Directory avec Azure Monitor)
 * [En savoir plus sur les journaux de diagnostic](monitoring-overview-of-diagnostic-logs.md)

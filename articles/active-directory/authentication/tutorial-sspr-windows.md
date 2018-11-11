@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 79a6636043499cffb7eded409cdc27c56de98e33
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bec94e2017660e9804bbc232e0a3163afdaafcb6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430219"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277764"
 ---
 # <a name="tutorial-azure-ad-password-reset-from-the-login-screen"></a>Tutoriel : Réinitialisation du mot de passe Azure AD depuis l’écran de connexion
 
@@ -113,7 +113,7 @@ Lorsque vous testez cette fonctionnalité à l’aide du Bureau à distance, le 
 
 Si l’écran de verrouillage Windows est désactivé à l’aide d’une clé de registre ou d’une stratégie de groupe, **Réinitialiser le mot de passe** ne sera pas disponible.
 
-Si Ctrl + Alt + Suppr est requis par la stratégie, ou si les notifications de verrouillage d’écran sont désactivées, **Réinitialiser le mot de passe** ne fonctionnera pas. Windows 10 19H1 résoudra cette exigence.
+Si Ctrl + Alt + Suppr est requis par la stratégie, ou si les notifications de verrouillage d’écran sont désactivées, **Réinitialiser le mot de passe** ne fonctionnera pas.
 
 Le journal d’audit Azure AD inclut des informations sur l’adresse IP et le ClientType associés à la réinitialisation de mot de passe.
 

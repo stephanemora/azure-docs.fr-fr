@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/24/2018
+ms.date: 11/07/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: febdb2e3ae4432c36ca839f81ba7a1d333df1a2f
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 77f9e52da8ada9cdf56d4a710bba65492cc17f75
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46951999"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280739"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Tutoriel : Déployer des applications sur Azure et Azure Stack
 
@@ -240,7 +240,7 @@ Créez un jeton d’accès personnel pour accéder à Azure DevOps Services.
 
     ![Inscrire l’agent de build](media\azure-stack-solution-hybrid-pipeline\000_21.png)
 
-4. Une fois l’exécution de config.cmd terminée, le dossier de l’agent de build est mis à jour avec des fichiers supplémentaires. Le dossier avec le contenu extrait doit se présenter comme suit :
+4. Une fois l’exécutée de config.cmd terminée, le dossier de l’agent de build est mis à jour avec des fichiers supplémentaires. Le dossier avec le contenu extrait doit se présenter comme suit :
 
     ![Mise à jour du dossier de l’agent de build](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 
@@ -273,21 +273,57 @@ Grâce à la création de points de terminaison, une build de Visual Studio Onli
 10. Sélectionnez **Enregistrer les modifications**.
 
 Maintenant que les informations du point de terminaison existent, la connexion de Azure DevOps Services à Azure Stack est prête à être utilisée. Dans Azure Stack, l’agent de build reçoit des instructions d’Azure DevOps Services, puis il transmet les informations du point de terminaison pour la communication avec Azure Stack.
+
 ## <a name="create-an-azure-stack-endpoint"></a>Créer un point de terminaison Azure Stack
+
+### <a name="create-an-endpoint-for-azure-ad-deployments"></a>Créer un point de terminaison pour les déploiements Azure AD
 
 Pour créer une connexion au service avec un principal du service existant, suivez les instructions dans l’article [Créer une connexion au service Azure Resource Manager avec un principal du service existant](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) et utilisez le mappage suivant :
 
-- Environnement : AzureStack
-- URL de l’environnement : quelque chose comme `https://management.local.azurestack.external`
-- ID d’abonnement : ID d’abonnement de l’utilisateur d’Azure Stack
-- Nom d’abonnement : nom d’abonnement de l’utilisateur d’Azure Stack
-- ID client du principal du service : ID du principal de [cette](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) section dans cet article.
-- Clé du principal du service : clé du même article (ou le mot de passe si vous avez utilisé le script).
-- ID du locataire : ID du locataire récupérée en suivant les instructions dans [Obtenir l’ID du locataire](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+Vous pouvez créer une connexion de service en utilisant le mappage suivant :
 
-Maintenant que le point de terminaison est créé, la connexion de VSTS à Azure Stack est prête pour l’utilisation. L’agent de build dans Azure Stack obtient des instructions de VSTS, puis l’agent transmet les informations du point de terminaison pour la communication avec Azure Stack.
+| NOM | Exemples | Description |
+| --- | --- | --- |
+| Nom de connexion | Azure Stack Azure AD | Le nom de la connexion. |
+| Environnement | AzureStack | Le nom de votre environnement. |
+| URL d’environnement | `https://management.local.azurestack.external` | Votre point de terminaison de gestion. |
+| Niveau de portée | Abonnement | La portée de la connexion. |
+| Identifiant d’abonnement | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID d’abonnement de l’utilisateur d’Azure Stack |
+| Nom d’abonnement | name@contoso.com | Nom d’abonnement de l’utilisateur d’Azure Stack. |
+| ID client du principal du service | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | ID du principal de [cette](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) section dans cet article. |
+| Clé du principal du service | THESCRETGOESHERE = | La clé du même article (ou le mot de passe si vous avez utilisé le script). |
+| ID client | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | ID du locataire récupéré en suivant les instructions dans [Obtenir l’ID du locataire](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).  |
+| Connexion : | Non vérifié | Validez vos paramètres de connexion au principal du service. |
 
-![Agent de build](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+Maintenant que le point de terminaison est créé, la connexion de DevOps à Azure Stack est prête pour l’utilisation. L’agent de build dans Azure Stack obtient des instructions de DevOps, puis l’agent transmet les informations du point de terminaison pour la communication avec Azure Stack.
+
+![Agent de build Azure AD](media\azure-stack-solution-hybrid-pipeline\016_save_changes.png)
+
+### <a name="create-an-endpoint-for-ad-fs"></a>Créer un point de terminaison pour AD FS
+
+La dernière mise à jour d’Azure DevOps permet de créer une connexion de service en utilisant un principal du service muni d’un certificat pour l’authentification. Cela est nécessaire lorsque Azure Stack est déployé avec AD FS en tant que fournisseur d’identité. 
+
+![Agent de build AD FS](media\azure-stack-solution-hybrid-pipeline\image06.png)
+
+Vous pouvez créer une connexion de service en utilisant le mappage suivant :
+
+| NOM | Exemples | Description |
+| --- | --- | --- |
+| Nom de connexion | Azure Stack ADFS | Le nom de la connexion. |
+| Environnement | AzureStack | Le nom de votre environnement. |
+| URL d’environnement | `https://management.local.azurestack.external` | Votre point de terminaison de gestion. |
+| Niveau de portée | Abonnement | La portée de la connexion. |
+| Identifiant d’abonnement | 65710926-XXXX-4F2A-8FB2-64C63CD2FAE9 | ID d’abonnement de l’utilisateur d’Azure Stack |
+| Nom d’abonnement | name@contoso.com | Nom d’abonnement de l’utilisateur d’Azure Stack. |
+| ID client du principal du service | FF74AACF-XXXX-4776-93FC-C63E6E021D59 | L’ID client du principal du service que vous avez créé pour AD FS. |
+| Certificat | `<certificate>` |  Convertissez le fichier de certificat PFX en PEM. Collez le contenu du fichier de certificat PEM dans ce champ. <br> Conversion de PFX en PEM :<br>`openssl pkcs12 -in file.pfx -out file.pem -nodes -password pass:<password_here>` |
+| ID client | D073C21E-XXXX-4AD0-B77E-8364FCA78A94 | ID du locataire récupéré en suivant les instructions dans [Obtenir l’ID du locataire](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id). |
+| Connexion : | Non vérifié | Validez vos paramètres de connexion au principal du service. |
+
+Maintenant que le point de terminaison est créé, la connexion d’Azure DevOps à Azure Stack est prête pour l’utilisation. Dans Azure Stack, l’agent de build reçoit des instructions d’Azure DevOps, puis il transmet les informations du point de terminaison pour la communication avec Azure Stack.
+
+> [!Note]
+> Si votre point de terminaison ARM Azure Stack n’est pas exposé à Internet, la validation de la connexion échoue. Ce comportement est attendu. Pour valider votre connexion, vous pouvez créer un pipeline de mise en production avec une tâche simple. 
 
 ## <a name="develop-your-application-build"></a>Développer votre build d’application
 
@@ -427,7 +463,7 @@ La création d’un pipeline de mise en production est la dernière étape du pr
 
 21. Sous l’onglet **Pipeline**, sélectionnez l’icône **Déclencheur de déploiement continu** pour l’artefact NorthwindCloud Traders-Web et définissez le **Déclencheur de déploiement continu** sur **Activé**.  Procédez de la même manière pour l’artefact « NorthwindCloud Traders-Vessel ».
 
-    ![Définir le déclencheur de déploiement continu](media\azure-stack-solution-hybrid-pipeline\121.png)
+    ![Définir la déclencheur de déploiement continu](media\azure-stack-solution-hybrid-pipeline\121.png)
 
 22. Pour l’environnement Azure Stack, sélectionnez l’icône **Conditions préalables au déploiement** et définissez le déclencheur sur **Après la mise en production**.
 

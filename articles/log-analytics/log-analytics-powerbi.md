@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 7610fcfc144e4337f8556c8824dc7d104265bcc4
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 7cf4613f2fdceca3e869473ed3ec7f47fb417fcb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044550"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277646"
 ---
 # <a name="import-azure-log-analytics-data-into-power-bi"></a>Importation de données Azure Log Analytics dans Power BI
 
@@ -33,7 +33,7 @@ Pour importer les données d'un espace de travail Log Analytics dans Power BI, c
 ![Log Analytics vers Power BI](media/log-analytics-powerbi/overview.png)
 
 ## <a name="export-query"></a>Exporter une requête
-Commencez par créer une [recherche de journal](log-analytics-log-search-new.md) qui renvoie les données Log Analytics que vous voulez ajouter au jeu de données Power BI.  Vous exportez ensuite cette requête dans le [langage Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx) qui peut être utilisé par Power BI Desktop.
+Commencez par créer une [recherche de journal](log-analytics-queries.md) qui renvoie les données Log Analytics que vous voulez ajouter au jeu de données Power BI.  Vous exportez ensuite cette requête dans le [langage Power Query (M)](https://msdn.microsoft.com/library/mt807488.aspx) qui peut être utilisé par Power BI Desktop.
 
 1. Créez la recherche de journal Log Analytics pour extraire les informations de votre jeu de données.
 2. Si vous utilisez le portail de recherche de journal, cliquez sur **Power BI**.  Si vous utilisez le portail Analytics, sélectionnez **Exporter** > **Requête Power BI (M)**.  Ces deux options exportent la requête vers un fichier texte intitulé **PowerBIQuery.txt**. 
@@ -81,5 +81,5 @@ Le jeu de données créé dans Power BI contiendra les mêmes informations que c
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez comment les [recherches de journaux](log-analytics-log-searches.md) peuvent vous aider à générer des requêtes pouvant être exportées vers Power BI.
-* Découvrez comment utiliser [Power BI](http://powerbi.microsoft.com) pour créer des visualisations basées sur des exportations Log Analytics.
+* Découvrez comment les [recherches de journaux](log-analytics-queries.md) peuvent vous aider à générer des requêtes pouvant être exportées vers Power BI.
+* Découvrez comment utiliser [Power BI](https://powerbi.microsoft.com) pour créer des visualisations basées sur des exportations Log Analytics.

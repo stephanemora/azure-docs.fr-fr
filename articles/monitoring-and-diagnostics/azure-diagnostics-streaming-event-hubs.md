@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/13/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: c87a4acb8ca333af73643a38ae1338c9c8769d13
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: d21b6235c91a7d2f14b8b39c07891efe967ef572
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37341229"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278240"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Diffusion des données d’Azure Diagnostics dans le chemin réactif à l’aide d’Event Hubs
 Azure Diagnostics propose des moyens flexibles de collecter des mesures et des journaux à partir de machines virtuelles de services cloud et de transférer les résultats dans Azure Storage. Depuis mars 2016 (Kit de développement logiciel (SDK) 2.9), vous pouvez envoyer les données Diagnostics à des sources de données personnalisées et transférer des données de chemin réactif en quelques secondes à l’aide [d’Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/).
@@ -40,9 +40,9 @@ La réception par Event Hubs de données provenant d’Azure Diagnostics est pri
 * Extension Azure Diagnostics 1.6 (ciblée par défaut par le[Kit de développement logiciel (SDK) Azure pour .NET 2.9 ou ultérieur](https://azure.microsoft.com/downloads/) )
 * [Visual Studio 2013 ou une version ultérieure](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
 * Configurations existantes d’Azure Diagnostics dans une application à l’aide d’un fichier *.wadcfgx* et de l’une des méthodes suivantes :
-  * Visual Studio : [Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure](../vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines.md)
+  * Visual Studio : [Configuration de Diagnostics pour les services cloud et les machines virtuelles Azure](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
   * Windows PowerShell : [Activer les diagnostics dans Azure Cloud Services à l’aide de PowerShell](../cloud-services/cloud-services-diagnostics-powershell.md)
-* Espace de noms Event Hubs approvisionné tel que décrit dans l’article [Prise en main d’Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
+* Espace de noms Event Hubs approvisionné tel que décrit dans l’article [Prise en main d’Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 ## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Connexion d’Azure Diagnostics au récepteur Event Hubs
 Par défaut, Azure Diagnostics transmet toujours des journaux et des mesures à un compte Stockage Azure. Une application peut également envoyer des données vers Event Hubs en ajoutant une nouvelle section **Sinks** sous l’élément **PublicConfig** / **WadCfg** du fichier *.wadcfgx*. Dans Visual Studio, le fichier *.wadcfgx* est stocké dans le chemin suivant : **Projet de service cloud** > **Rôles** > **(RoleName)** > fichier **diagnostics.wadcfgx**.
@@ -70,7 +70,7 @@ Par défaut, Azure Diagnostics transmet toujours des journaux et des mesures à 
 
 Dans cet exemple, l’URL du hub d’événements est définie sur l’espace de noms complet du hub d’événements (espace de noms Event Hubs + « / » + nom du hub d’événements).  
 
-L’URL du hub d’événements s’affiche dans le [portail Azure](http://go.microsoft.com/fwlink/?LinkID=213885) dans le tableau de bord Event Hubs.  
+L’URL du hub d’événements s’affiche dans le [portail Azure](https://go.microsoft.com/fwlink/?LinkID=213885) dans le tableau de bord Event Hubs.  
 
 Le nom **Sink** peut être défini sur n’importe quelle chaîne valide tant que cette même valeur est utilisée de manière cohérente dans le fichier de configuration.
 
@@ -220,7 +220,7 @@ Dans l’illustration suivante, le tableau de bord Event Hubs indique un envoi i
 ## <a name="view-hot-path-data"></a>Affichage des données de chemin réactif
 Comme indiqué précédemment, il existe plusieurs scénarios d’utilisation pour écouter et traiter des données Event Hubs.
 
-Une approche simple consiste à créer une petite application console de test pour écouter le hub d’événements et imprimer le flux de sortie. Vous pouvez placer le code suivant (expliqué plus en détail dans l’article [Prise en main d’Event Hubs](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)) dans une application console.  
+Une approche simple consiste à créer une petite application console de test pour écouter le hub d’événements et imprimer le flux de sortie. Vous pouvez placer le code suivant (expliqué plus en détail dans l’article [Prise en main d’Event Hubs](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)) dans une application console.  
 
 Notez que l’application console doit inclure le [package Event Processor Host NuGet](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/).  
 
@@ -508,9 +508,9 @@ Paramètres protégés :
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez en apprendre plus sur Event Hubs en consultant les liens suivants :
 
-* [Vue d'ensemble d’Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md)
+* [Vue d’ensemble d’Event Hubs](../event-hubs/event-hubs-about.md)
 * [Créer un concentrateur d’événements](../event-hubs/event-hubs-create.md)
-* [FAQ sur les hubs d'événements](../event-hubs/event-hubs-faq.md)
+* [FAQ sur les hubs d’événements](../event-hubs/event-hubs-faq.md)
 
 <!-- Images. -->
 [0]: ../event-hubs/media/event-hubs-streaming-azure-diags-data/dashboard.png

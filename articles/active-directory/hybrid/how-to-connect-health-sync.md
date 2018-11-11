@@ -3,7 +3,7 @@ title: Utilisation d’Azure AD Connect Health avec la synchronisation | Micros
 description: Cette page dédiée à Azure AD Connect Health explique comment surveiller la synchronisation d’Azure AD Connect.
 services: active-directory
 documentationcenter: ''
-author: zhiweiw
+author: zhiweiwangmsft
 manager: mtillman
 ms.assetid: 1dfbeaba-bda2-4f68-ac89-1dbfaf5b4015
 ms.service: active-directory
@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 07/18/2017
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ca3c0524873e4c7a1326095eb1cc28f63f59a27
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: eebeb8d1f27631e7ecb40072f78d6a04b5152a8f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47431931"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277135"
 ---
 # <a name="monitor-azure-ad-connect-sync-with-azure-ad-connect-health"></a>Surveiller la synchronisation Azure AD Connect avec Azure AD Connect Health
 La documentation suivante s’applique à la surveillance de la synchronisation Azure AD Connect avec Azure AD Connect Health.  Pour plus d’informations sur la surveillance AD FS avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD FS](how-to-connect-health-adfs.md). En outre, pour plus d’informations sur la surveillance des services de domaine Active Directory avec Azure AD Connect Health, consultez [Utilisation d’Azure AD Connect Health avec AD DS](how-to-connect-health-adds.md).

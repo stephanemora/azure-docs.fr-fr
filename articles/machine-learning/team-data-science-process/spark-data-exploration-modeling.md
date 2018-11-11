@@ -15,17 +15,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/15/2017
 ms.author: deguhath
-ms.openlocfilehash: e6115abbb2cd122dfd35710b5232a308b48dfd71
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: f6f0393fa3c7a1c0851c18ebd4e48f2ef426f893
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394910"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248484"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Exploration et modélisation des données avec Spark
 [!INCLUDE [machine-learning-spark-modeling](../../../includes/machine-learning-spark-modeling.md)]
 
-Cette procédure utilise HDInsight Spark pour effectuer l’exploration des données ainsi que les tâches de classification binaire et de modélisation de la régression sur un échantillon du jeu de données NYC Taxi Trip and Fare 2013.  Elle vous guide tout au long des étapes du [processus de science des données](http://aka.ms/datascienceprocess), à l’aide d’un cluster HDInsight Spark pour le traitement et d’objets blob Azure pour stocker les données et les modèles. Le processus explore et visualise les données importées à partir d’un objet blob Azure Storage, puis prépare les données pour créer des modèles prédictifs. Ces modèles sont créés à l’aide de la boîte à outils Spark MLlib pour effectuer des tâches de classification binaire et de modélisation de régression.
+Cette procédure utilise HDInsight Spark pour effectuer l’exploration des données ainsi que les tâches de classification binaire et de modélisation de la régression sur un échantillon du jeu de données NYC Taxi Trip and Fare 2013.  Elle vous guide tout au long des étapes du [processus de science des données](https://aka.ms/datascienceprocess), à l’aide d’un cluster HDInsight Spark pour le traitement et d’objets blob Azure pour stocker les données et les modèles. Le processus explore et visualise les données importées à partir d’un objet blob Azure Storage, puis prépare les données pour créer des modèles prédictifs. Ces modèles sont créés à l’aide de la boîte à outils Spark MLlib pour effectuer des tâches de classification binaire et de modélisation de régression.
 
 * La **classification binaire** consiste à prédire si le trajet va faire l’objet d’un pourboire. 
 * La tâche de **régression** consiste à prédire le montant du pourboire en fonction d’autres critères. 
