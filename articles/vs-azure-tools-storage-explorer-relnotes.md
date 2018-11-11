@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 708b80787337d549ebc5e66bca21e734620616ac
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dde2983c57d0f3ec9c58537809f2d2d952b4a00e
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388289"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50741944"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Notes de publication de l’Explorateur Stockage Microsoft Azure
 
@@ -27,13 +27,110 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
 
 [L’Explorateur Stockage Microsoft Azure](./vs-azure-tools-storage-manage-with-storage-explorer.md) est une application autonome qui vous permet d’utiliser facilement les données du Stockage Azure sur Windows, maOS et Linux.
 
+## <a name="version-150"></a>Version 1.5.0
+29/10/2018
+
+### <a name="download-azure-storage-explorer-150"></a>Télécharger l’Explorateur Stockage Azure 1.5.0
+- [Explorateur Stockage Azure 1.5.0 pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
+- [Explorateur Stockage Azure 1.5.0 pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
+- [Explorateur Stockage Azure 1.5.0 pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
+
+### <a name="new"></a>Nouveau
+
+* Vous pouvez maintenant utiliser [AzCopy v10 (préversion)](https://github.com/Azure/azure-storage-azcopy) pour charger et télécharger des objets blob. Pour activer cette fonctionnalité, accédez au menu « Expérimental », puis cliquez sur « Utiliser AzCopy pour améliorer le chargement et le téléchargement des objets blob ». Quand cette option est activée, AzCopy sera utilisé dans les scénarios suivants :
+   * Chargement de dossiers et de fichiers vers des conteneurs d’objets blob, par le biais de la barre d’outils ou de l’opération glisser-déplacer.
+   * Téléchargement de dossiers et de fichiers, par le biais de la barre d’outils ou du menu contextuel.
+
+* De plus, lors de l’utilisation d’AzCopy :
+   * Vous pouvez copier la commande AzCopy utilisée pour exécuter le transfert vers le Presse-papiers. Cliquez simplement sur « Copier la commande AzCopy dans le Presse-papiers » dans le journal d’activité.
+   * Vous devrez actualiser l’éditeur d’objets blob manuellement après le chargement.
+   * Le chargement de fichiers pour ajouter des objets blob n’est pas pris en charge. Les fichiers .vhd seront chargés en tant qu’objets blob de pages et tous les autres fichiers seront chargés en tant qu’objets blob de blocs.
+   * Les erreurs et les conflits qui se produisent lors du chargement ou téléchargement ne seront visibles qu’une fois le chargement ou téléchargement terminé.
+
+Pour finir, la prise en charge de l’utilisation d’AzCopy avec Partages de fichiers sera disponible prochainement.
+* Explorateur Stockage utilise désormais Electron version 2.0.11.
+* La résiliation de bail peut désormais être effectuée sur un seul objet blob à la fois. De plus, vous devez entrer le nom de l’objet blob dont vous résiliez le bail. Cette modification a été apportée afin de réduire le risque de résiliation accidentelle de bail, en particulier dans le cas des fichiers .vhd pour les machines virtuelles. #394
+* Si vous rencontrez toujours des problèmes de connexion, vous pouvez maintenant essayer de réinitialiser l’authentification. Accédez au menu « Aide », puis cliquez sur « Réinitialiser » pour accéder à cette fonctionnalité. #419
+
+### <a name="fix"></a>Correctif
+
+* Suite à de nombreux commentaires des utilisateurs, le nœud d’émulateur par défaut a été réactivé. Vous pouvez toujours ajouter des connexions d’émulateur supplémentaires par le biais de la boîte de dialogue Se connecter, mais si votre émulateur est configuré pour utiliser les ports par défaut vous pouvez également utiliser le nœud « Émulateur * Ports par défaut » sous « Local & attaché/Comptes de stockage ». #669
+* Explorateur Stockage ne vous permet plus de définir des valeurs de métadonnées d’objets blob contenant des espaces blancs de début ou de fin. #760
+* Le bouton « Se connecter » était toujours activé sur les mêmes pages de la boîte de dialogue Se connecter. Il est désormais désactivé le cas échéant. #761
+* Accès rapide ne génère plus d’erreur dans la console quand aucun élément d’Accès rapide n’a été ajouté.
+
+### <a name="known-issues"></a>Problèmes connus
+
+* Le détachement d’une ressource associée par le biais de l’URI SAS, comme un conteneur d’objets blob, peut provoquer une erreur qui empêche les autres attachements de s’afficher correctement. Pour contourner ce problème, actualisez simplement le nœud du groupe. Voir #537 pour plus d’informations.
+* Si vous utilisez Visual Studio pour Mac et que vous avez créé une configuration AAD personnalisée, vous n’avez peut-être pas pu vous connecter. Pour contourner ce problème, supprimez le contenu de ~/.IdentityService/AadConfigurations. Si vous êtes toujours bloqué, veuillez apporter vos commentaires sur ce problème.
+* Azurite n’a pas encore totalement implémenté toutes les API de stockage. C’est pourquoi vous risquez de rencontrer des erreurs ou un comportement inattendus quand vous utilisez Azurite pour le stockage de développement.
+* Dans de rares cas, le focus de l’arborescence peut être bloqué sur un accès rapide. Pour débloquer le focus, vous pouvez tout actualiser.
+* Le chargement à partir de votre dossier OneDrive ne fonctionne pas en raison d’un bogue dans NodeJS. Le bogue a été résolu, mais pas encore intégré à Electron. Pour contourner ce problème lors du chargement ou du téléchargement à partir d’un conteneur d’objets blob, vous pouvez utiliser la fonctionnalité expérimentale AzCopy.
+* Lorsque vous ciblez Azure Stack, le chargement de certains fichiers en tant qu’objets blob ajoutés peut échouer.
+* L’annulation d’une tâche peut prendre un certain temps après avoir cliqué sur « Annuler ». Cela est dû au fait que nous utilisions la solution de contournement du filtre Annuler décrite ici.
+* Si vous choisissez un certificat de code PIN/carte à puce incorrect, vous devez redémarrer pour que l’explorateur de stockage oublie cette décision.
+* Les captures instantanées ne sont pas conservées lorsque les blobs sont renommés (individuellement ou dans un conteneur d’objets blob renommé). Lors d’un changement de nom, toutes les autres propriétés et métadonnées des objets blob, fichiers et entités sont conservées.
+* Azure Stack ne prend pas en charge les fonctionnalités suivantes. Toute tentative d’utilisation de ces fonctionnalités lors de l’utilisation de ressources Azure Stack peut provoquer des erreurs inattendues.
+   * Partages de fichiers
+   * Niveaux d’accès
+   * Suppression réversible
+* L’interpréteur de commandes Électron utilisé par l’explorateur de stockage rencontre des difficultés avec l’accélération matérielle de certains processeurs graphiques (GPU). Si la fenêtre principale de l’explorateur de stockage est vide, vous pouvez essayer de lancer l’explorateur de stockage à partir de la ligne de commande et de désactiver l’accélération GPU en ajoutant le commutateur `--disable-gpu` :
+
+    ```
+    ./StorageExplorer.exe --disable-gpu
+    ```
+
+* Les utilisateurs Linux doivent installer [.NET Core 2.0](https://docs.microsoft.com/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Pour les utilisateurs sur Ubuntu 14.04, vous devez vous assurer que GCC est à jour, ce qui peut être fait en exécutant les commandes suivantes et en redémarrant votre machine :
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Pour les utilisateurs sur Ubuntu 17.04, l’installation de GConf est nécessaire. Elle peut être effectuée en exécutant les commandes suivantes, puis en redémarrant votre ordinateur :
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
+
+## <a name="previous-releases"></a>Versions précédentes
+
+* [Version 1.4.4](#version-144)
+* [Version 1.4.3](#version-143)
+* [Version 1.4.2](#version-142)
+* [Version 1.4.1](#version-141)
+* [Version 1.3.0](#version-130)
+* [Version 1.2.0](#version-120)
+* [Version 1.1.0](#version-110)
+* [Version 1.0.0](#version-100)
+* [Version 0.9.6](#version-096)
+* [Version 0.9.5](#version-095)
+* [Versions 0.9.4 et 0.9.3](#version-094-and-093)
+* [Version 0.9.2](#version-092)
+* [Versions 0.9.1 et 0.9.0](#version-091-and-090)
+* [Version 0.8.16](#version-0816)
+* [Version 0.8.14](#version-0814)
+* [Version 0.8.13](#version-0813)
+* [Versions 0.8.12, 0.8.11 et 0.8.10](#version-0812-and-0811-and-0810)
+* [Versions 0.8.9 et 0.8.8](#version-089-and-088)
+* [Version 0.8.7](#version-087)
+* [Version 0.8.6](#version-086)
+* [Version 0.8.5](#version-085)
+* [Version 0.8.4](#version-084)
+* [Version 0.8.3](#version-083)
+* [Version 0.8.2](#version-082)
+* [Version 0.8.0](#version-080)
+* [Version 0.7.20160509.0](#version-07201605090)
+* [Version 0.7.20160325.0](#version-07201603250)
+* [Version 0.7.20160129.1](#version-07201601291)
+* [Version 0.7.20160105.0](#version-07201601050)
+* [Version 0.7.20151116.0](#version-07201511160)
+
 ## <a name="version-144"></a>Version 1.4.4
 15/10/2018
-
-### <a name="download-azure-storage-explorer-144"></a>Télécharger l’Explorateur Stockage Azure 1.4.4
-- [Explorateur Stockage Azure 1.4.4 pour Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
-- [Explorateur Stockage Azure 1.4.4 pour Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
-- [Explorateur Stockage Azure 1.4.4 pour Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
 ### <a name="hotfixes"></a>Correctifs logiciels
 * La version de l’API Gestion des ressources Azure a été rétrogradée pour débloquer les utilisateurs Azure US Government. [#696](https://github.com/Microsoft/AzureStorageExplorer/issues/696)
@@ -87,38 +184,6 @@ Cet article contient les notes de publication de l’Explorateur Stockage Azure 
     ```
     sudo apt-get install libgconf-2-4
     ```
-
-## <a name="previous-releases"></a>Versions précédentes
-
-* [Version 1.4.3](#version-143)
-* [Version 1.4.2](#version-142)
-* [Version 1.4.1](#version-141)
-* [Version 1.3.0](#version-130)
-* [Version 1.2.0](#version-120)
-* [Version 1.1.0](#version-110)
-* [Version 1.0.0](#version-100)
-* [Version 0.9.6](#version-096)
-* [Version 0.9.5](#version-095)
-* [Versions 0.9.4 et 0.9.3](#version-094-and-093)
-* [Version 0.9.2](#version-092)
-* [Versions 0.9.1 et 0.9.0](#version-091-and-090)
-* [Version 0.8.16](#version-0816)
-* [Version 0.8.14](#version-0814)
-* [Version 0.8.13](#version-0813)
-* [Versions 0.8.12, 0.8.11 et 0.8.10](#version-0812-and-0811-and-0810)
-* [Versions 0.8.9 et 0.8.8](#version-089-and-088)
-* [Version 0.8.7](#version-087)
-* [Version 0.8.6](#version-086)
-* [Version 0.8.5](#version-085)
-* [Version 0.8.4](#version-084)
-* [Version 0.8.3](#version-083)
-* [Version 0.8.2](#version-082)
-* [Version 0.8.0](#version-080)
-* [Version 0.7.20160509.0](#version-07201605090)
-* [Version 0.7.20160325.0](#version-07201603250)
-* [Version 0.7.20160129.1](#version-07201601291)
-* [Version 0.7.20160105.0](#version-07201601050)
-* [Version 0.7.20151116.0](#version-07201511160)
 
 ## <a name="version-143"></a>Version 1.4.3
 11/10/2018

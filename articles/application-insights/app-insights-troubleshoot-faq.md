@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4f063299a0bb454c8eaf3d38a0cb0a5fb20abcc8
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 60195f135b8b0e102a36c3573a341432f2e0c784
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094077"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959305"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights : questions fréquentes
 
@@ -27,7 +27,7 @@ ms.locfileid: "47094077"
 
 * [Application .NET](app-insights-asp-net-troubleshoot-no-data.md)
 * [Analyse d’une application déjà en cours d’exécution](app-insights-monitor-performance-live-website-now.md#troubleshooting-runtime-configuration-of-application-insights)
-* [Diagnostics Azure](app-insights-azure-diagnostics.md)
+* [Diagnostics Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Applications web Java](app-insights-java-troubleshoot.md)
 
 *Je ne reçois aucune donnée de mon serveur*
@@ -111,7 +111,7 @@ Une application de bureau que vous pouvez utiliser dans votre serveur web IIS po
 
 À partir des [ pages web client](app-insights-javascript.md) :
 
-* [Nombre de pages consultées](app-insights-web-track-usage.md)
+* [Nombre de pages consultées](app-insights-usage-overview.md)
 * [Appels AJAX](app-insights-asp-net-dependencies.md). Requêtes transmises à partir d’un script en cours d’exécution.
 * Données relatives au chargement de pages
 * Nombre de sessions et d’utilisateurs
@@ -119,7 +119,7 @@ Une application de bureau que vous pouvez utiliser dans votre serveur web IIS po
 
 À partir d’autres sources, si vous les configurez :
 
-* [Diagnostics Azure](app-insights-azure-diagnostics.md)
+* [Diagnostics Azure](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md)
 * [Conteneurs Docker](app-insights-docker.md)
 * [Importer des tables vers Analytics](app-insights-analytics-import.md)
 * [Log Analytics](https://azure.microsoft.com/blog/omssolutionforappinsightspublicpreview/)
