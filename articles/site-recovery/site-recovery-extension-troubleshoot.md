@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: ddbfdc9928122373b82d043fac0777576c5fe99e
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 3090dd9e0d9681dbf77f052e9d324f2add0a1910
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51227471"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215036"
 ---
 # <a name="troubleshoot-issues-with-the-azure-site-recovery-agent"></a>Résoudre les problèmes rencontrés avec les agents Azure Site Recovery
 
@@ -64,7 +64,7 @@ Il se peut que l’agent de machine virtuelle soit endommagé ou que le service 
 1. Regardez si le service d’agent invité Microsoft Azure s’exécute dans les services de machine virtuelle (services.msc). Essayez de redémarrer le service d’agent invité Microsoft Azure.    
 2. Si le service d’agent invité Microsoft Azure n’apparaît pas dans les services, accédez à **Programmes et fonctionnalités** dans le Panneau de configuration pour déterminer s’il est installé.
 4. Si le service d’agent invité Microsoft Azure figure sous **Programmes et fonctionnalités**, désinstallez-le.
-5. Téléchargez et installez la [dernière version du MSI de l’agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Des droits d’administrateur sont nécessaires pour effectuer l’installation.
+5. Téléchargez et installez la [dernière version du MSI de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Des droits d’administrateur sont nécessaires pour effectuer l’installation.
 6. Vérifiez que le service d’agent invité Microsoft Azure apparaît dans les services.
 7. Redémarrez le travail de protection.
 

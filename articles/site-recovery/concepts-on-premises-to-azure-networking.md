@@ -1,22 +1,21 @@
 ---
-title: Configurer l’adressage IP pour se connecter après le basculement vers Azure avec Azure Site Recovery | Microsoft Docs
-description: Décrit comment configurer l’adressage IP pour se connecter à des machines virtuelles Azure après le basculement depuis un site local avec Azure Site Recovery
+title: Configurer l’adressage IP pour se connecter après une reprise d’activité et un basculement vers Azure avec Azure Site Recovery | Microsoft Docs
+description: Décrit comment configurer l’adressage IP pour se connecter à des machines virtuelles Azure après une reprise d’activité et un basculement à partir d’un site local avec Azure Site Recovery
 services: site-recovery
-documentationcenter: ''
 author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: mayg
-ms.openlocfilehash: 9b7797ba58a44e64460f4dbc58d562b4c470c043
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: c05a97dc5a5fe9a0e8a6f1a8598ff82fcf488ab2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353085"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253276"
 ---
-# <a name="set-up-ip-addressing-to-connect-after-failover-to-azure"></a>Configurer l’adressage IP pour se connecter après le basculement vers Azure
+# <a name="set-up-ip-addressing-to-connect-to-azure-vms-after-failover"></a>Configurer l’adressage IP pour se connecter à des machines virtuelles Azure après un basculement
 
 Cet article explique la configuration réseau requise pour se connecter aux machines virtuelles Azure après avoir utilisé le service [Azure Site Recovery](site-recovery-overview.md) pour la réplication et le basculement vers Azure.
 
@@ -82,7 +81,7 @@ Outre la connexion de réseau virtuel à réseau virtuel, après le basculement,
 
 ## <a name="assigning-new-ip-addresses"></a>Affectation de nouvelles adresses IP
 
-Cet [article de blog](http://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explique comment configurer le service d’infrastructure réseau Azure lorsqu’il n’est pas nécessaire de conserver les adresses IP après le basculement. Il commence par une description de l’application, aborde la procédure de configuration des services de mise en réseau locaux et se conclut par des informations sur l’exécution des basculements.
+Cet [article de blog](https://azure.microsoft.com/blog/2014/09/04/networking-infrastructure-setup-for-microsoft-azure-as-a-disaster-recovery-site/) explique comment configurer le service d’infrastructure réseau Azure lorsqu’il n’est pas nécessaire de conserver les adresses IP après le basculement. Il commence par une description de l’application, aborde la procédure de configuration des services de mise en réseau locaux et se conclut par des informations sur l’exécution des basculements.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Exécuter un basculement](site-recovery-failover.md)

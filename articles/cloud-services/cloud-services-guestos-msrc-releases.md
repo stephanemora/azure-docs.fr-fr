@@ -11,17 +11,59 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/16/2018
+ms.date: 10/28/2018
 ms.author: raiye
-ms.openlocfilehash: 7540f12f888108ed7091cece575b6d25131ef47b
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 0430eefb55893420cf7ea603998f14465fb2cc60
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377512"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215512"
 ---
 # <a name="azure-guest-os"></a>Système d’exploitation invité d'Azure
 Les tableaux suivants indiquent les mises à jour de MSRC (Microsoft Security Response Center) appliquées au système d’exploitation invité d'Azure. Parcourez cet article pour déterminer si une mise à jour spécifique s'applique au système d’exploitation invité que vous utilisez. Les mises à jour vont toujours de l'avant pour la [famille][family-explain] spécifique avec laquelle elles ont été présentées.
+
+## <a name="october-2018-guest-os"></a>Système d’exploitation invité, octobre 2018
+>[!NOTE]
+>Le système d’exploitation invité octobre est actuellement déployé sur les machines virtuelles du service cloud configurées pour les mises à jour automatiques. Une fois le déploiement terminé, cette version sera disponible pour les mises à jour manuelles via le portail Azure et les fichiers de configuration. Les correctifs suivants sont inclus dans le système d’exploitation invité octobre. Cette liste est susceptible d’être modifiée.
+
+| Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |
+| --- | --- | --- | --- | --- |
+| Version 18/10 | [4462917] | Sécurité de Windows 10 | 5.24 | 9 octobre 2018 |
+| Version 18/10 | [4464330] | Sécurité de Windows 10 | 6.0 | 9 octobre 2018 |
+| Version 18/10 | [4462915] | Sécurité Windows | 2.79 | 9 octobre 2018 |
+| Version 18/10 | [4462931] | Sécurité Windows | 3.66 | 9 octobre 2018 |
+| Version 18/10 | [4462941] | Sécurité Windows | 4.59 | 9 octobre 2018 |
+| Version 18/10 | [4462930] | Clignote | 3.66, 4.59, 5.24, 6.0 | 9 octobre 2018 |
+| Version 18/10 | [4462949] | Internet Explorer | 2.79, 3.66, 4.59 | 9 octobre 2018 |
+| N/A | [4339284] | Mise à jour du fuseau horaire | 2.79, 3.66, 4.59 | 24 juillet 2018 |
+| N/A | [4457144] | Correctif cumulatif non relatif à la sécurité de septembre | 2.79 | 11 septembre 2018 |
+| N/A | [4457044] | Correctif cumulatif .NET 3.5 non relatif à la sécurité de septembre | 2.79 | 11 septembre 2018 |
+| N/A | [4457038] | Correctif cumulatif .NET 4.5.2 non relatif à la sécurité de septembre | 2.79 | 11 septembre 2018 |
+| N/A | [4457135] | Correctif cumulatif non relatif à la sécurité de septembre | 3.66 | 11 septembre 2018 |
+| N/A | [4457042] | Correctif cumulatif .NET 3.5 non relatif à la sécurité de septembre | 3.66 | 11 septembre 2018 |
+| N/A | [4457037] | Correctif cumulatif .NET 4.5.2 non relatif à la sécurité de septembre | 3.66 | 11 septembre 2018 |
+| N/A | [4457129] | Correctif cumulatif non relatif à la sécurité de septembre | 4.59 | 11 septembre 2018 |
+| N/A | [4457045] | Correctif cumulatif .NET 3.5 non relatif à la sécurité de septembre | 4.59 | 11 septembre 2018 |
+| N/A | [4457036] | Correctif cumulatif .NET 4.5.2 non relatif à la sécurité de septembre | 4.59 | 11 septembre 2018 |
+
+[4462917]: http://support.microsoft.com/kb/4462917
+[4464330]: http://support.microsoft.com/kb/4464330
+[4462915]: http://support.microsoft.com/kb/4462915
+[4462931]: http://support.microsoft.com/kb/4462931
+[4462941]: http://support.microsoft.com/kb/4462941
+[4462930]: http://support.microsoft.com/kb/4462930
+[4462949]: http://support.microsoft.com/kb/4462949
+[4339284]: http://support.microsoft.com/kb/4339284
+[4457144]: http://support.microsoft.com/kb/4457144
+[4457044]: http://support.microsoft.com/kb/4457044
+[4457038]: http://support.microsoft.com/kb/4457038
+[4457135]: http://support.microsoft.com/kb/4457135
+[4457042]: http://support.microsoft.com/kb/4457042
+[4457037]: http://support.microsoft.com/kb/4457037
+[4457129]: http://support.microsoft.com/kb/4457129
+[4457045]: http://support.microsoft.com/kb/4457045
+[4457036]: http://support.microsoft.com/kb/4457036
 
 ## <a name="september-2018-guest-os"></a>Système d’exploitation invité, septembre 2018
 | Catégorie de produit | Article de la base de connaissances parent | Description de la vulnérabilité | SE invité | Date de première présentation |

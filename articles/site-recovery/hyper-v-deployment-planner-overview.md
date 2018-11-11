@@ -1,22 +1,20 @@
 ---
-title: Planificateur de déploiement Azure Site Recovery pour de Hyper-V vers Azure| Microsoft Docs
-description: Il s’agit du guide de l’utilisateur du planificateur de déploiement Azure Site Recovery pour le scénario de Hyper-V vers Azure.
-services: site-recovery
+title: À propos du planificateur de déploiement Azure Site Recovery pour la récupération d’urgence de machines virtuelles Hyper-V vers Azure | Microsoft Docs
+description: En savoir plus sur le planificateur de déploiement Azure Site Recovery pour la récupération d’urgence de Hyper-V sur Azure.
 author: nsoneji
 manager: garavd
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 7a91217e35ae7a32714478171dcebc002e384fcb
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ae93611bfe5dd11bea8bc0327868c2865b36b713
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093590"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210667"
 ---
-# <a name="site-recovery-deployment-planner-for-hyper-v-to-azure"></a>Planificateur de déploiement Site Recovery de Hyper-V vers Azure
+# <a name="about-the-azure-site-recovery-deployment-planner-for-hyper-v-disaster-recovery-to-azure"></a>À propos du planificateur de déploiement Azure Site Recovery pour la récupération d’urgence de Hyper-V sur Azure
 
 Cet article est le guide de l’utilisateur du planificateur de déploiement Azure Site Recovery portant sur les déploiements de production de Hyper-V vers Azure.
 

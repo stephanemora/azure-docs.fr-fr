@@ -6,29 +6,29 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/08/2018
+ms.date: 10/26/2018
 ms.author: alinast
-ms.openlocfilehash: 61d05a7e9936a0edd17c5528ce4f55233b6e7e0e
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 7eddea7e0d57b89318232da6f086bbe2f649ee77
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323729"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211925"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Entrée de télémétrie et connectivité des appareils
 
 Les données de télémétrie envoyées par les appareils et les capteurs constituent l’armature de toute solution IoT. Ainsi, la représentation de ces ressources disparates et leur gestion dans le contexte d’un emplacement sont une préoccupation primordiale pendant le développement d’applications IoT. Azure Digital Twins simplifie le développement de solutions IoT en assemblant des appareils et des capteurs avec un graphe d’intelligence spatiale.
 
-Au départ, une ressource `IoTHub` doit être créée à la racine du graphe spatial, ce qui permet à tous les appareils sous l’espace racine d’envoyer des messages. Une fois que le hub IoT a été créé et que des appareils avec des capteurs ont été inscrits dans l’instance Digital Twins, les appareils peuvent commencer à envoyer des données à un service Digital Twins par le biais du [kit Azure IoT device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
+Au départ, une ressource IoT Hub doit être créée à la racine du graphe spatial, ce qui permet à tous les appareils sous l’espace racine d’envoyer des messages. Une fois que le hub IoT a été créé et que des appareils avec des capteurs ont été inscrits dans l’instance Digital Twins, les appareils peuvent commencer à envoyer des données à un service Digital Twins par le biais du [kit Azure IoT device SDK](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks).
 
-Vous trouverez un guide pas à pas sur l’intégration des appareils dans le [tutoriel indiquant comment déployer et configurer Azure Digital Twins](tutorial-facilities-setup.md). Voici un récapitulatif des étapes :
+Un guide pas à pas sur l’intégration des appareils est à votre disposition dans le [tutoriel montrant comment déployer et configurer Azure Digital Twins](tutorial-facilities-setup.md). Voici un récapitulatif des étapes :
 
 - Déployer une instance Azure Digital Twins à partir du [portail Azure](https://portal.azure.com)
 - Créer des espaces dans votre graphe
-- Créer une ressource `IoTHub` et l’affecter à un espace dans votre graphe
+- Créer une ressource IoT Hub et l’affecter à un espace dans votre graphe
 - Créer des appareils et des capteurs dans votre graphe, puis les affecter aux espaces créés au cours des étapes ci-dessus
 - Créer un matcher pour filtrer les messages de télémétrie en fonction de conditions
-- Créer une [**fonction définie par l’utilisateur**](concepts-user-defined-functions.md) et l’affecter à un espace dans le graphe en vue d’un traitement personnalisé de vos messages de télémétrie
+- Créer une [fonction définie par l’utilisateur](concepts-user-defined-functions.md) et l’affecter à un espace dans le graphe en vue d’un traitement personnalisé de vos messages de télémétrie
 - Attribuer un rôle pour autoriser la fonction définie par l’utilisateur à accéder aux données du graphe
 - Obtenir la chaîne de connexion d’appareil IoT Hub à partir des API de gestion Digital Twins
 - Configurer la chaîne de connexion d’appareil sur l’appareil avec le kit Azure IoT device SDK
@@ -49,11 +49,11 @@ https://yourManagementApiUrl/api/v1.0/devices?hardwareIds=yourDeviceHardwareId&i
 
 | Nom de l’attribut personnalisé | Remplacer par |
 | --- | --- |
-| `yourManagementApiUrl` | Chemin d’URL complet pour votre API de gestion |
-| `yourDeviceGuid` | ID de l’appareil |
-| `yourDeviceHardwareId` | ID matériel de l’appareil |
+| *yourManagementApiUrl* | Chemin d’URL complet pour votre API de gestion |
+| *yourDeviceGuid* | ID de l’appareil |
+| *yourDeviceHardwareId* | ID matériel de l’appareil |
 
-Dans la charge utile de la réponse, copiez la propriété `connectionString` de l’appareil, que vous utiliserez pour appeler le kit Azure IoT device SDK afin d’envoyer les données à Azure Digital Twins.
+Dans la charge utile de la réponse, copiez la propriété *connectionString* de l’appareil, que vous utilisez ensuite pour appeler le kit Azure IoT device SDK, afin d’envoyer les données à Azure Digital Twins.
 
 ## <a name="device-to-cloud-message"></a>Message appareil-à-cloud
 
@@ -61,14 +61,14 @@ Vous pouvez personnaliser le format et la charge utile du message de votre appar
 
 ### <a name="telemetry-properties"></a>Propriétés de données de télémétrie
 
-Alors que le contenu de la charge utile d’un `Message` peut être des données arbitraires dans la limite de 256 Ko, il existe quelques exigences pour les propriétés [Message.Properties](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) attendues. Les étapes décrites ci-dessous reflètent les propriétés obligatoires et facultatives prises en charge par le système :
+Alors que le contenu de la charge utile d’un **Message** peut être constitué de données arbitraires dans la limite de 256 Ko, il existe quelques exigences sur les [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) attendues. Les étapes décrites ci-dessous reflètent les propriétés obligatoires et facultatives prises en charge par le système :
 
 | Nom de la propriété | Valeur | Obligatoire | Description |
 |---|---|---|---|
-| DigitalTwins-Telemetry | 1.0 | Oui | Valeur constante qui identifie un message auprès du système |
-| DigitalTwins-SensorHardwareId | `string(72)` | Oui | Identificateur unique du capteur envoyant le `Message`. Cette valeur doit correspondre à la propriété `HardwareId` d’un objet pour que le système puisse la traiter. Par exemple, `00FF0643BE88-CO2` |
-| CreationTimeUtc | `string` | no | Chaîne de date au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui identifie l’heure d’échantillonnage de la charge utile. Par exemple, `2018-09-20T07:35:00.8587882-07:00` |
-| CorrelationId | `string` | no | `uuid` qui peut être utilisé pour tracer les événements sur le système. Par exemple, `cec16751-ab27-405d-8fe6-c68e1412ce1f`
+| *DigitalTwins-Telemetry* | 1.0 | Oui | Valeur constante qui identifie un message auprès du système |
+| *DigitalTwins-SensorHardwareId* | `string(72)` | Oui | Identificateur unique du capteur envoyant le **Message**. Cette valeur doit correspondre à la propriété **HardwareId** d’un objet pour que le système puisse la traiter. Par exemple, `00FF0643BE88-CO2` |
+| *CreationTimeUtc* | `string` | Non  | Chaîne de date au format [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) qui identifie l’heure d’échantillonnage de la charge utile. Par exemple, `2018-09-20T07:35:00.8587882-07:00` |
+| *CorrelationId* | `string` | Non  | UUID qui peut être utilisé pour tracer les événements sur le système. Par exemple, `cec16751-ab27-405d-8fe6-c68e1412ce1f`
 
 ### <a name="sending-your-message-to-digital-twins"></a>Envoyer votre message à Digital Twins
 

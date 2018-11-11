@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 823bea9bac8ff270d5b5c02e3b76a2f7236c9c99
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: fa58ecf4607efc1d212e40b98d199756d4b987f8
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48241012"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231795"
 ---
 # <a name="ethereum-proof-of-work-consortium-solution-template"></a>Modèle de solution de consortium de preuve de travail Ethereum
 
@@ -119,7 +119,7 @@ Cinquième région| Cinquième région dans laquelle déployer le réseau de con
 
 ### <a name="network-size-and-performance"></a>Taille et performances du réseau
 
-Ensuite, sous **Taille et performances du réseau**, spécifiez des valeurs pour la taille du réseau de consortium, telles que le nombre et taille des nœuds d’exploration de données et des nœuds de transaction.
+Ensuite, sous **Taille et performances du réseau**, spécifiez des valeurs pour la taille du réseau de consortium. Par exemple, le nombre et la taille des nœuds d’exploration de données et des nœuds de transaction.
 
 ![Taille et performances du réseau](./media/ethereum-deployment/network-size-performance.png)
 
@@ -261,10 +261,10 @@ Ensuite, importez le module :
 
 Enfin, exécutez la fonction avec l’entrée appropriée :
 
-- **MyGatewayResourceId** : chemin d’accès de ressource de votre passerelle. Il s’agit du paramètre de sortie de déploiement de modèle nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : chemin d’accès de ressource de la passerelle du nouveau membre. Il est fourni par le nouveau membre et il s’agit du paramètre de sortie de déploiement de modèle également nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : nom pour identifier cette connexion à la passerelle.
-- **Clé partagée** : clé secrète préétablie entre deux membres du réseau de consortium qui établissent une connexion.
+- **MyGatewayResourceId** : chemin de ressource de votre passerelle. Il s’agit du paramètre de sortie de déploiement de modèle nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId** : chemin de ressource de la passerelle du nouveau membre. Il est fourni par le nouveau membre et il s’agit du paramètre de sortie de déploiement de modèle également nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName** : nom vous permettant d’identifier cette connexion à la passerelle.
+- **Shared Key** : secret préétabli entre deux membres du réseau de consortium qui établissent une connexion.
 
 **CreateConnection** - MyGatewayResourceId <resource path of your Gateway> -OtherGatewayResourceId <chemin d’accès de ressource de la passerelle du nouveau membre> -ConnectionName myConnection -SharedKey "MySharedKeyAbc123"
 
@@ -274,11 +274,11 @@ Téléchargez le script d’interface CLI Azure et stockez-le localement. L’e
 
 Exécutez le script avec l’entrée appropriée :
 
-- **MyGatewayResourceId** : chemin d’accès de ressource de votre passerelle. Il s’agit du paramètre de sortie de déploiement de modèle nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **OtherGatewayResourceId** : chemin d’accès de ressource de la passerelle du nouveau membre. Il est fourni par le nouveau membre et il s’agit du paramètre de déploiement de modèle également nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
-- **ConnectionName** : nom pour identifier cette connexion à la passerelle.
-- **Clé partagée** : clé secrète préétablie entre deux membres du réseau de consortium qui établissent une connexion.
-- **Emplacement** : région Azure où la ressource de passerelle est déployée.
+- **MyGatewayResourceId** : chemin de ressource de votre passerelle. Il s’agit du paramètre de sortie de déploiement de modèle nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **OtherGatewayResourceId** : chemin de ressource de la passerelle du nouveau membre. Il est fourni par le nouveau membre et il s’agit du paramètre de déploiement de modèle également nommé **CONSORTIUM_MEMBER_GATEWAY_ID**.
+- **ConnectionName** : nom vous permettant d’identifier cette connexion à la passerelle.
+- **Shared Key** : secret préétabli entre deux membres du réseau de consortium qui établissent une connexion.
+- **Location** : région Azure où la ressource de passerelle est déployée.
 
 ``` powershell
 az network vpn-connection create --name $ConnectionName --resource-group
@@ -316,7 +316,7 @@ Pour installer l’extension dans Chrome, accédez à Personnaliser et contrôle
 
 ![Extension MetaMask](./media/ethereum-deployment/metamask-extension.png)
 
-Une fois l’extension installée, ouvrez MetaMask et créez un coffre. Par défaut, le coffre est connecté au réseau de test Morden. Vous devez modifier cela pour vous connecter au réseau de consortium privé déployé, en particulier à l’équilibreur de charge devant les nœuds de transaction. À partir de la sortie de modèle, récupérez le point de terminaison RPC Ethereum exposé sur le port 8545, nommé `ETHEREUM-RPC-ENDPOINT`, et entrez-le dans le RPC personnalisé comme indiqué ci-dessous.
+Une fois l’extension installée, ouvrez MetaMask et créez un coffre. Par défaut, le coffre est connecté au réseau de test Morden. Modifiez cela pour vous connecter au réseau de consortium privé déployé, en particulier à l’équilibreur de charge devant les nœuds de transaction. À partir de la sortie de modèle, récupérez le point de terminaison RPC Ethereum exposé sur le port 8545, nommé `ETHEREUM-RPC-ENDPOINT`, et entrez-le dans le RPC personnalisé comme indiqué ci-dessous.
 
 ![Paramètres MetaMask](./media/ethereum-deployment/metamask-settings.png)
 

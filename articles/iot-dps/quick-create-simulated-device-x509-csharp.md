@@ -1,6 +1,6 @@
 ---
 title: Approvisionner un appareil X.509 simulé auprès du service Azure IoT Hub à l’aide de C# | Microsoft Docs
-description: 'Démarrage rapide d’Azure : Créer et approvisionner un appareil X.509 simulé auprès du service Azure IoT Hub Device Provisioning à l’aide du C# Device SDK'
+description: 'Démarrage rapide d’Azure : Créer et approvisionner un appareil X.509 simulé auprès du service Azure IoT Hub Device Provisioning à l’aide du C# Device SDK. Ce démarrage rapide utilise des inscriptions individuelles.'
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/09/18
@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1d42280935c406a7af0e632434749b2b082ea8b8
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: ae5601cf35540b6f506521a851b4d90dfaf0a20a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039665"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156457"
 ---
 # <a name="create-and-provision-a-simulated-x509-device-using-c-device-sdk-for-iot-hub-device-provisioning-service"></a>Créer et approvisionner un appareil X.509 simulé auprès du service IoT Hub Device Provisioning à l’aide du C# Device SDK
 [!INCLUDE [iot-dps-selector-quick-create-simulated-device-x509](../../includes/iot-dps-selector-quick-create-simulated-device-x509.md)]
@@ -23,6 +23,12 @@ ms.locfileid: "47039665"
 Ces étapes indiquent comment générer un exemple d’appareil X.509 simulé à l’aide du [Azure IoT Hub C# SDK](https://github.com/Azure/azure-iot-sdk-csharp) sur un ordinateur de développement sous Windows, mais aussi comment connecter cet appareil simulé au service Device Provisioning et à votre hub IoT.
 
 Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez à consulter également [Concepts de provisionnement automatique](concepts-auto-provisioning.md). Vérifiez également que vous avez suivi la procédure décrite dans [Configurer le service d’approvisionnement d’appareil IoT Hub avec le portail Azure](./quick-setup-auto-provision.md) avant de continuer. 
+
+Le service Azure IoT Device Provisioning prend en charge deux types d’inscription :
+- [Groupes d’inscription](concepts-service.md#enrollment-group) : utilisés pour inscrire plusieurs appareils connexes.
+- [Inscriptions individuelles](concepts-service.md#individual-enrollment) : utilisées pour inscrire un seul appareil.
+
+Cet article présente les inscriptions individuelles.
 
 [!INCLUDE [IoT Device Provisioning Service basic](../../includes/iot-dps-basic.md)]
 
@@ -44,7 +50,7 @@ Si vous ne connaissez pas le processus d’approvisionnement automatique, pensez
 Dans cette section, vous allez utiliser un certificat X.509 auto-signé pour lequel il est important de garder à l’esprit les éléments suivants :
 
 * Les certificats auto-signés sont destinés aux tests uniquement et ne doivent pas être utilisés en production.
-* La date d’expiration par défaut d’un certificat auto-signé est de 1 an.
+* La date d’expiration par défaut d’un certificat auto-signé est d’un an.
 
 Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK) Azure IoT pour .NET](https://github.com/Azure/azure-iot-sdk-csharp.git) pour créer le certificat à utiliser avec l’entrée d’inscription individuelle de l’appareil simulé.
 
@@ -66,7 +72,7 @@ Vous allez utiliser l’exemple de code du [Kit de développement logiciel (SDK)
     ![ Saisir le mot de passe](./media/quick-create-simulated-device-x509-csharp/generate-certificate.png)  
 
 
-4. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre service d'approvisionnement.
+4. Connectez-vous au portail Azure, cliquez sur le bouton **Toutes les ressources** dans le menu de gauche et ouvrez votre service de provisionnement.
 
 5. Dans le panneau de résumé du service Device Provisioning, sélectionnez **Gérer les inscriptions**. Sélectionnez l’onglet **Inscriptions individuelles**, puis cliquez sur le bouton **Ajouter une inscription individuelle** dans la partie supérieure. 
 

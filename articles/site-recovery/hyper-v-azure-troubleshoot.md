@@ -1,6 +1,6 @@
 ---
-title: Résoudre les problèmes de réplication de Hyper-V sur Azure avec Azure Site Recovery | Microsoft Docs
-description: Décrit comment résoudre les problèmes de réplication de Hyper-V sur Azure à l’aide d’Azure Site Recovery
+title: Résoudre les problèmes de récupération d’urgence d’Hyper-V sur Azure avec Azure Site Recovery | Microsoft Docs
+description: Explique comment résoudre les problèmes de réplication d’urgence d’Hyper-V sur Azure avec Azure Site Recovery.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: ramamill
-ms.openlocfilehash: 027107cca1872ddd504567b74c798fc00e9af214
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 753f666c9ac0167f672353ff33e28d0f7e68b755
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067386"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212945"
 ---
 # <a name="troubleshoot-hyper-v-to-azure-replication-and-failover"></a>Résoudre les problèmes de réplication et de basculement de Hyper-V sur Azure
 

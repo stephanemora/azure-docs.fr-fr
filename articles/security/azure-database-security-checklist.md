@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: f6e8ed1725b7ba2a0cba8523ae03c0306337aba0
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: db976fb61c5659fbdcb7ba30aa4f619d52d441c4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49402505"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252392"
 ---
 # <a name="azure-database-security-checklist"></a>Liste de contrôle de la sécurité des bases de données Azure
 
@@ -47,7 +47,7 @@ Nous vous recommandons de lire l’article [Azure Database Security Best Practic
 | ------------ | -------- |
 |**Protection les données**||
 | <br> Chiffrement en mouvement/transit| <ul><li>[Transport Layer Security](https://docs.microsoft.com/windows-server/security/tls/transport-layer-security-protocol), pour le chiffrement des données lorsqu’elles se déplacent vers les réseaux.</li><li>Les bases de données requièrent une communication sécurisée depuis les clients, avec l’utilisation du protocole [TDS (Tabular Data Stream)](https://msdn.microsoft.com/library/dd357628.aspx) sur le protocole TLS (Transport Layer Security).</li></ul> |
-|<br>Chiffrement au repos| <ul><li>[Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242), lorsque les données inactives sont stockées physiquement dans un format numérique.</li></ul>|
+|<br>Chiffrement au repos| <ul><li>[Transparent Data Encryption](https://go.microsoft.com/fwlink/?LinkId=526242), lorsque les données inactives sont stockées physiquement dans un format numérique.</li></ul>|
 |**Contrôle des accès**||  
 |<br> Accès à la base de données | <ul><li>[Authentification](https://docs.microsoft.com/azure/sql-database/sql-database-control-access) AD (Azure Active Directory), qui utilise des identités gérées par Azure Active Directory.</li><li>[Autorisation](https://docs.microsoft.com/azure/sql-database/sql-database-control-access), pour accorder aux utilisateurs les privilèges minimum nécessaires.</li></ul> |
 |<br>Accès aux applications| <ul><li>[Sécurité au niveau des lignes](https://msdn.microsoft.com/library/dn765131) (avec une stratégie de sécurité, tout en limitant l’accès au niveau des lignes selon l’identité des utilisateurs, leur rôle ou le contexte d’exécution).</li><li>[Masquage des données dynamiques](https://docs.microsoft.com/azure/sql-database/sql-database-dynamic-data-masking-get-started) (avec autorisation et stratégie, limite l’exposition des données sensibles en les masquant pour les utilisateurs sans privilège).</li></ul>|

@@ -1,25 +1,26 @@
 ---
-title: Architecture de réplication VMware sur Azure avec Azure Site Recovery | Microsoft Docs
-description: Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de machines virtuelles VMware locales vers Azure, à l’aide d’Azure Site Recovery.
+title: Architecture de la reprise d’activité de VMware sur Azure dans Azure Site Recovery | Microsoft Docs
+description: Cet article offre une vue d’ensemble de l’architecture et des composants utilisés pour configurer la reprise d’activité de machines virtuelles VMware locales sur Azure avec Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
+ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: raynew
-ms.openlocfilehash: 498c41324bfc85f6f91acc8000df4c34856cf428
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 58129ece0fb1b7f446e5f8d738b5d1135aa0256e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715752"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212384"
 ---
-# <a name="vmware-to-azure-replication-architecture"></a>Architecture de la réplication VMware vers Azure
+# <a name="vmware-to-azure-disaster-recovery-architecture"></a>Architecture pour la reprise d’activité de VMware sur Azure
 
-Cet article décrit l’architecture et les processus utilisés quand vous répliquez, basculez et récupérez des machines virtuelles VMware entre un site VMware local et Azure, en utilisant [Azure Site Recovery](site-recovery-overview.md).
+Cet article décrit l’architecture et les processus utilisés quand vous déployez la réplication et le basculement pour la reprise d’activité de machines virtuelles VMware entre un site VMware local et Azure à l’aide du service [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Composants architecturaux
 
-Le tableau et le graphique suivants fournissent une vue d’ensemble des composants utilisés pour la réplication VMware vers Azure.
+Le tableau et le graphique suivants présentent une vue générale des composants utilisés pour la reprise d’activité de VMware sur Azure.
 
 **Composant** | **Prérequis** | **Détails**
 --- | --- | ---

@@ -1,21 +1,20 @@
 ---
-title: Configurer un serveur de processus dans Azure pour la restauration automatique d’une machine virtuelle VMware et d’un serveur physique avec Azure Site Recovery | Microsoft Docs
-description: Cet article explique comment configurer un serveur de processus dans Azure pour restaurer automatiquement des machines virtuelles Azure dans VMware.
-services: site-recovery
+title: Configurer un serveur de processus dans Azure pour la restauration automatique pendant la reprise d’activité de machines virtuelles VMware et serveurs physiques avec Azure Site Recovery | Microsoft Docs
+description: Cet article décrit comment configurer un serveur de processus dans Azure pour la restauration automatique sur une infrastructure locale à partir d’Azure, pendant la reprise d’activité de machines virtuelles VMware et serveurs physiques.
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: 641f671f23dde0bcc32ad1ef8343a5a84227c67f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 330f0197b8a7735043e93f00dc4baa5578f50228
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955375"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212231"
 ---
-# <a name="set-up-additional-process-servers-for-scalability"></a>Configurer des serveurs de processus supplémentaires pour l’évolutivité
+# <a name="scale-for-failback-with-additional-process-servers"></a>Ajouter des serveurs de processus supplémentaires pour augmenter la capacité de restauration automatique
 
 Par défaut, lorsque vous répliquez des machines virtuelles VMware ou des serveurs physiques sur Azure avec [Site Recovery](site-recovery-overview.md), un serveur de processus est installé sur le serveur de configuration et permet de coordonner le transfert des données entre Site Recovery et votre infrastructure locale. Pour augmenter la capacité et faire évoluer votre déploiement de réplication, vous pouvez ajouter des serveurs de processus autonomes supplémentaires. Cet article décrit ce processus de reprotection.
 

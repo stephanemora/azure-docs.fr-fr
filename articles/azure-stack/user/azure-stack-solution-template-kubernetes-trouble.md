@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2018
+ms.date: 10/29/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: fbb51d8dc3b1ea4c6b34120e8fe35474ae949cf2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 7071e22d703ab7ec3a51eff02d1694fc04cb3417
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116910"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231234"
 ---
 # <a name="troubleshoot-your-deployment-to-kubernetes-to-azure-stack"></a>Résoudre les problèmes de votre déploiement Kubernetes sur Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "49116910"
 > [!Note]  
 > Kubernetes sur Azure Stack est en préversion.
 
-L’article suivant traite de la résolution des problèmes rencontrés avec votre cluster Kubernetes. Vous pouvez consulter l’alerte de déploiement et examiner l’état de votre déploiement par le biais des éléments requis pour ce déploiement. Vous devrez peut-être collecter les journaux de déploiement à partir de votre système Azure Stack, ou des machines virtuelles Linux qui hébergent Kubernetes. Vous pouvez également être amené à travailler avec votre administrateur Azure Stack pour récupérer des journaux à partir d’un point de terminaison d’administration.
+L’article suivant traite de la résolution des problèmes rencontrés avec votre cluster Kubernetes. Vous pouvez consulter l’alerte de déploiement et examiner l’état de votre déploiement en consultant les éléments requis pour ce déploiement. Vous devrez peut-être collecter les journaux de déploiement à partir de votre système Azure Stack, ou des machines virtuelles Linux qui hébergent Kubernetes. Vous pouvez également être amené à travailler avec votre administrateur Azure Stack pour récupérer des journaux à partir d’un point de terminaison d’administration.
 
 ## <a name="overview-of-deployment"></a>Vue d’ensemble du déploiement
 
@@ -47,7 +47,7 @@ Le schéma suivant illustre le processus général de déploiement du cluster.
     Entrez les valeurs dont vous avez besoin pour configurer le cluster Kubernetes, y compris :
     -  **Nom d’utilisateur** Nom d’utilisateur des machines virtuelles Linux qui font partie du cluster Kubernetes et du déploiement de machines virtuelles (DVM).
     -  **Clé publique SSH** Clé utilisée pour l’autorisation sur toutes les machines Linux créées dans le cadre du cluster Kubernetes et du DVM.
-    -  **Principal du service** ID utilisé par le fournisseur cloud d’Azure Kubernetes. Il s’agit de l’ID client identifié en tant qu’ID d’application lorsque vous avez créé votre principal de service. 
+    -  **Principal du service** ID utilisé par le fournisseur cloud d’Azure Kubernetes. L’ID client a été identifié en tant qu’ID d’application lorsque vous avez créé votre principal de service. 
     -  **Secret client** Clé que vous avez créée au moment de la création de votre principal de service.
 
 2. Crée la machine virtuelle de déploiement et l’extension de script personnalisé.

@@ -8,16 +8,16 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a65eb029dbf10b194bd28bf7ad82f5aa839338a2
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46990618"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248393"
 ---
-# <a name="learn-how-to-use-deployment-manifests-to-deploy-modules-and-establish-routes"></a>Découvrez comment utiliser des manifestes de déploiement pour déployer des modules et établir des itinéraires.
+# <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Découvrez comment déployer des modules et établir des itinéraires dans IoT Edge.
 
-Chaque appareil IoT Edge exécute au moins deux modules : $edgeAgent et $edgeHub, qui constituent le runtime IoT Edge. En plus de ce standard (deux colonnes), n’importe quel appareil IoT Edge peut exécuter plusieurs modules pour effectuer n’importe quel processus. Quand vous déployez tous ces modules à la fois sur un appareil, vous avez besoin d’un moyen pour déclarer les modules inclus et le mode d’interaction entre eux. 
+Chaque appareil IoT Edge exécute au moins deux modules : $edgeAgent et $edgeHub, qui constituent le runtime IoT Edge. En outre, les appareils IoT Edge peuvent exécuter plusieurs modules pour effectuer autant de processus que nécessaire. Quand vous déployez tous ces modules à la fois sur un appareil, vous avez besoin d’un moyen pour déclarer les modules inclus et le mode d’interaction entre eux. 
 
 Le *manifeste de déploiement* est un document JSON qui décrit :
 
@@ -27,7 +27,7 @@ Le *manifeste de déploiement* est un document JSON qui décrit :
 
 Tous les appareils IoT Edge doivent être configurés avec un manifeste de déploiement. Un runtime IoT Edge nouvellement installé renvoie un code d’erreur tant qu’il n’est pas configuré avec un manifeste valide. 
 
-Dans les didacticiels Azure IoT Edge, vous générez un manifeste de déploiement via un Assistant dans le portail Azure IoT Edge. Vous pouvez également appliquer un manifeste de déploiement par programmation à l’aide du Kit de développement logiciel (SDK) REST ou IoT Hub Service. Pour plus d’informations, consultez [Comprendre les déploiements IoT Edge][lnk-deploy].
+Dans les didacticiels Azure IoT Edge, vous générez un manifeste de déploiement via un Assistant dans le portail Azure IoT Edge. Vous pouvez également appliquer un manifeste de déploiement par programmation à l’aide du Kit de développement logiciel (SDK) REST ou IoT Hub Service. Pour plus d’informations, consultez [Comprendre les déploiements IoT Edge](module-deployment-monitoring.md).
 
 ## <a name="create-a-deployment-manifest"></a>Créer un manifeste de déploiement
 
@@ -138,7 +138,7 @@ La source spécifie d'où proviennent les messages. Il peut s’agir de l’une 
 | `/messages/modules/{moduleId}/outputs/{output}` | Tout message appareil-à-cloud envoyé par {moduleId} à l’aide de {output} |
 
 ### <a name="condition"></a>Condition
-La condition est facultative dans une déclaration d’itinéraire. Si vous souhaitez transmettre tous les messages du récepteur à la source, il suffit d’omettre la clause **WHERE** entièrement. Ou vous pouvez utiliser le [langage de requête IoT Hub][lnk-iothub-query] pour filtrer certains messages ou types de messages qui répondent à la condition.
+La condition est facultative dans une déclaration d’itinéraire. Si vous souhaitez transmettre tous les messages du récepteur à la source, il suffit d’omettre la clause **WHERE** entièrement. Vous pouvez également utiliser le [langage de requête IoT Hub](../iot-hub/iot-hub-devguide-routing-query-syntax.md) pour filtrer certains messages ou types de messages qui répondent à la condition.
 
 Les messages qui transitent entre les modules dans IoT Edge sont mis en forme de la même manière que les messages qui passent entre les appareils et Azure IoT Hub. Tous les messages sont au format JSON et ont les paramètres **systemProperties**, **appProperties** et **corps**. 
 
@@ -262,10 +262,4 @@ Voici un exemple de document JSON de manifeste de déploiement.
 
 * Pour obtenir une liste complète des propriétés qui peuvent ou doivent être incluses dans $edgeAgent et $edgeHub, consultez [Propriétés de l’agent Edge et du concentrateur Edge](module-edgeagent-edgehub.md).
 
-* Maintenant que vous savez comment les modules IoT Edge sont utilisés, [Comprendre les exigences et les outils de développement de modules IoT Edge][lnk-module-dev].
-
-[lnk-deploy]: module-deployment-monitoring.md
-[lnk-iothub-query]: ../iot-hub/iot-hub-devguide-routing-query-syntax.md
-[lnk-docker-create-options]: https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate
-[lnk-docker-logging-options]: https://docs.docker.com/engine/admin/logging/overview/
-[lnk-module-dev]: module-development.md
+* Maintenant que vous savez comment les modules IoT Edge sont utilisés, vous pouvez lire [Comprendre les exigences et les outils de développement de modules IoT Edge](module-development.md).

@@ -1,19 +1,18 @@
 ---
-title: Exécuter un test de récupération d’urgence de machines virtuelles Hyper-V sur un site secondaire à l’aide d’Azure Site Recovery | Microsoft Docs
-description: Découvrez comment exécuter un test de récupération d’urgence pour les machines virtuelles Hyper-V de clouds VMM sur un centre de données secondaire à l’aide d’Azure Site Recovery.
-services: site-recovery
+title: Effectuer un test de reprise d’activité de machines virtuelles Hyper-V sur un site secondaire à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Découvrez comment effectuer un test de reprise d’activité de machines virtuelles Hyper-V de clouds VMM dans un centre de données secondaire local à l’aide d’Azure Site Recovery.
 author: ponatara
 manager: abhemraj
 ms.service: site-recovery
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 03533af27ac6fd406b4639c31c3add0015a76f45
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 3f7e534e9c698e31e1061c35aec713d20c7e570f
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918796"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211347"
 ---
 # <a name="run-a-dr-drill-for-hyper-v-vms-to-a-secondary-site"></a>Exécuter un test de récupération d’urgence de machines virtuelles Hyper-V sur un site secondaire
 

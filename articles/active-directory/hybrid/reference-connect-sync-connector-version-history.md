@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/22/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 95f2ffb1a51184f1194f87a4a5e9a54e682edf80
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: cbafe7fcdf2ccd515dfec5554c93bec9c7f3537a
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305958"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50243161"
 ---
 # <a name="connector-version-release-history"></a>Historique de publication des versions du connecteur
 Les connecteurs de Forefront Identity Manager (FIM) et Microsoft Identity Manager (MIM) sont fréquemment mis à jour.
@@ -98,7 +98,7 @@ Liens connexes :
 * Services web génériques :
   * L’outil Wsconfig n’a pas converti correctement le tableau Json à partir de « exemple de demande » pour la méthode de service REST. Ceci entraînait des problèmes lors de la sérialisation de ce tableau Json pour la demande REST.
   * L’outil de configuration du connecteur de service web ne prend pas en charge l’utilisation de symboles d’espace dans les noms d’attribut JSON 
-    * Un modèle de substitution peut être ajouté manuellement dans le fichier WSConfigTool.exe.config, par exemple ```<appSettings> <add key=”JSONSpaceNamePattern” value="__" /> </appSettings>```
+    * Un modèle de substitution peut être ajouté manuellement dans le fichier WSConfigTool.exe.config, par exemple ```<appSettings> <add key="JSONSpaceNamePattern" value="__" /> </appSettings>```
 > [!NOTE]
 > La clé JSONSpaceNamePattern est requise car pour l’exportation, vous recevrez l’erreur suivante : Message : le nom vide n’est pas légal. 
 
@@ -143,7 +143,7 @@ Publié : mars 2017
 ### <a name="enhancements"></a>Améliorations
 
 * SQL générique :</br>
-  **Symptômes du scénario :** Avec cette limitation connue du connecteur SQL, seule une référence à un type d’objet est autorisée et une référence croisée avec des membres est requise. </br>
+  **Symptômes du scénario :**  Avec cette limitation connue du connecteur SQL, seule une référence à un type d’objet est autorisée et une référence croisée avec des membres est requise. </br>
   **Description de la solution :** À l’étape de traitement des références pour lesquelles l’option « * » est sélectionnée, toutes les combinaisons de types d’objets sont renvoyées au moteur de synchronisation.
 
 >[!Important]

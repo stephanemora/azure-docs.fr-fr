@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: cherylmc
-ms.openlocfilehash: 6b4cce641556a290111db530c0089e4da0a351c8
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 3af2b2a1b35a290746007d7f486473162a055b99
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958418"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211364"
 ---
 # <a name="expressroute-faq"></a>Forum Aux Questions ExpressRoute
 
@@ -71,7 +71,6 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
 * La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br>
   Les services suivants ne sont PAS pris en charge :
     * CDN
-    * Test de charge d’Azure DevOps Services
     * Multi-Factor Authentication
     * Traffic Manager
 
@@ -81,10 +80,9 @@ ExpressRoute prend en charge [trois domaines de routage](expressroute-circuit-pe
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Test de charge d’Azure DevOps Services
+* [Azure DevOps](https://blogs.msdn.microsoft.com/devops/2018/10/23/expressroute-for-azure-devops/) (communauté Services globaux Azure)
 * La plupart des services Azure sont pris en charge. Vérifiez directement auprès du service que vous souhaitez utiliser s’il est pris en charge.<br>Les services suivants ne sont **pas pris en charge** :
     * CDN
-    * Test de charge d’Azure DevOps Services
     * Multi-Factor Authentication
     * Traffic Manager
 

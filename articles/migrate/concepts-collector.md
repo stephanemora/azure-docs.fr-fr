@@ -4,15 +4,15 @@ description: Fournit des informations sur l’appliance Collector dans Azure Mig
 author: snehaamicrosoft
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/24/2018
+ms.date: 10/30/2018
 ms.author: snehaa
 services: azure-migrate
-ms.openlocfilehash: 006a246323e9f82ea9c9a6a2940ed624d7e44e13
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 81e6731068db84f02073f02c49bea9a8fb7c7c70
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986778"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241189"
 ---
 # <a name="about-the-collector-appliance"></a>À propos de l’appliance Collector
 
@@ -20,6 +20,38 @@ ms.locfileid: "49986778"
 
 Azure Migrate Collector est une appliance légère qui peut être utilisée pour découvrir un environnement vCenter local dans le cadre d’une évaluation avec le service [Azure Migrate](migrate-overview.md), avant la migration vers Azure.  
 
+## <a name="discovery-methods"></a>Méthodes de découverte
+
+Il existe deux options pour l’appliance Collector : découverte unique ou découverte en continu.
+
+### <a name="one-time-discovery"></a>Détection unique
+
+L’appliance Collector communique une fois avec vCenter Server pour rassembler les métadonnées sur les machines virtuelles. À l’aide de cette méthode :
+
+- L’appliance n’est pas connectée en permanence au projet Azure Migrate.
+- Les modifications effectuées dans l’environnement local ne sont pas répercutées dans Azure Migrate au terme de la découverte. Pour répercuter ces modifications, vous devez redécouvrir le même environnement dans le même projet.
+- Quand elle collecte les données de performances relatives à une machine virtuelle, l’appliance s’appuie sur les données de performances historiques stockées dans vCenter Server. Elle collecte l’historique des performances du mois passé.
+- Pour la collecte de l’historique des données de performance, vous devez définir les paramètres de statistiques dans vCenter Server sur le niveau 3. Après avoir défini le niveau sur 3, vous devez attendre au moins un jour pour que vCenter collecte les compteurs de performances. Ainsi, nous vous recommandons d’attendre au moins un jour avant d’exécuter la découverte. Si vous souhaitez évaluer l’environnement en fonction des données de performances d’une semaine ou d’un mois, vous devez patienter en conséquence.
+- Dans cette méthode de découverte, Azure Migrate collecte des données de compteurs de moyenne pour chaque métrique (plutôt que des compteurs de pic), ce qui peut aboutir à un sous-dimensionnement. Nous vous recommandons d’utiliser l’option de découverte en continu pour obtenir des résultats de dimensionnement plus précis.
+
+### <a name="continuous-discovery"></a>Détection continue
+
+L’appliance Collecteur est connectée en permanence au projet Azure Migrate et elle collecte en continu les données de performance des machines virtuelles.
+
+- Le Collecteur profile en permanence l’environnement local pour collecter les données d’utilisation en temps réel toutes les 20 secondes.
+- L’appliance cumule les échantillons de 20 secondes et crée un point de données unique toutes les 15 minutes.
+- Pour créer le point de données, l’appliance sélectionne la valeur maximale dans les échantillons de 20 secondes et l’envoie à Azure.
+- Ce modèle ne dépend pas des paramètres de statistiques vCenter Server pour collecter les données de performances.
+- Vous pouvez arrêter à tout moment le profilage continu à partir du Collecteur.
+
+Notez que l’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
+
+- Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications dans le portail Azure, vous pouvez arrêter la détection de l’appliance et puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
+
+- Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
+
+> [!NOTE]
+> La fonctionnalité de découverte en continu est en préversion. Nous vous recommandons d’utiliser cette méthode, car elle collecte des données de performances granulaires pour un dimensionnement correct.
 
 ## <a name="deploying-the-collector"></a>Déployer le collecteur
 
@@ -163,43 +195,6 @@ Vous pouvez mettre à niveau le collecteur vers la version la plus récente sans
 3. Copiez le fichier zip sur la machine virtuelle du collecteur Azure Migrate (appliance collecteur).
 4. Cliquez avec le bouton droit sur le fichier zip et sélectionnez Tout extraire.
 5. Cliquez avec le bouton droit sur Setup.ps1 et sélectionnez Exécuter avec PowerShell et suivez les instructions à l’écran pour installer la mise à jour.
-
-
-## <a name="discovery-methods"></a>Méthodes de découverte
-
-L’appliance Collector peut utiliser deux méthodes de découverte : découverte unique ou découverte en continue.
-
-
-### <a name="one-time-discovery"></a>Découverte unique
-
-Le Collecteur communique une fois avec vCenter Server pour rassembler les métadonnées sur les machines virtuelles. À l’aide de cette méthode :
-
-- L’appliance n’est pas connectée en permanence au projet Azure Migrate.
-- Les modifications effectuées dans l’environnement local ne sont pas répercutées dans Azure Migrate au terme de la découverte. Pour répercuter ces modifications, vous devez redécouvrir le même environnement dans le même projet.
-- Pour cette méthode de découverte, vous devez définir les paramètres de statistiques dans vCenter Server sur le niveau 3.
-- Une fois que vous avez défini le niveau sur 3, la génération des compteurs de performances peut prendre un jour. Ainsi, nous vous recommandons d’attendre 24 heures avant d’exécuter la découverte.
-- Quand elle collecte les données de performances relatives à une machine virtuelle, l’appliance s’appuie sur les données de performances historiques stockées dans vCenter Server. Elle collecte l’historique des performances du mois passé.
-- Azure Migrate collecte des données de compteurs de moyenne (plutôt que des compteurs de pic) pour chaque mesure, ce qui peut aboutir à un sous-dimensionnement.
-
-### <a name="continuous-discovery"></a>Détection continue
-
-L’appliance Collecteur est connectée en permanence au projet Azure Migrate et elle collecte en continu les données de performance des machines virtuelles.
-
-- Le Collecteur profile en permanence l’environnement local pour collecter les données d’utilisation en temps réel toutes les 20 secondes.
-- Ce modèle ne dépend pas des paramètres de statistiques vCenter Server pour collecter les données de performances.
-- L’appliance cumule les échantillons de 20 secondes et crée un point de données unique toutes les 15 minutes.
-- Pour créer le point de données, l’appliance sélectionne la valeur maximale dans les échantillons de 20 secondes et l’envoie à Azure.
-- Vous pouvez arrêter à tout moment le profilage continu à partir du Collecteur.
-
-Notez que l’appliance collecte uniquement les données de performances en continu. Elle ne détecte pas les changements de configuration dans l’environnement local (par exemple, ajout ou suppression de machine virtuelle, ajout de disque etc.). En cas de modification de configuration de l’environnement local, vous pouvez procéder aux opérations suivantes pour refléter les modifications dans le portail :
-
-1. Ajout d’éléments (machines virtuelles, disques, cœurs, etc.) : pour refléter ces modifications dans le portail Azure, vous pouvez arrêter la détection de l’appliance et puis la redémarrer. Cela garantit que les modifications sont mises à jour dans le projet Azure Migrate.
-
-2. Suppression de machines virtuelles : en raison de la façon dont l’appliance est conçue, la suppression de machines virtuelles n’apparaît pas même si vous arrêtez et redémarrez la détection. Cela est dû au fait que les données de détections ultérieures sont ajoutées, et non pas remplacées, aux détections plus anciennes. Dans ce cas, vous pouvez simplement ignorer la machine virtuelle dans le portail en la supprimant de votre groupe et en recalculant l’évaluation.
-
-> [!NOTE]
-> La fonctionnalité de découverte en continu est en préversion. Nous vous recommandons d’utiliser cette méthode, car elle collecte des données de performances granulaires pour un dimensionnement correct.
-
 
 ## <a name="discovery-process"></a>Processus de découverte
 

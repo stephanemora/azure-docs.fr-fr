@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 84072c7e5f7aa37e89fc1b93c1585167dd6d9f4b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 8602f020481249282756a952a46b32bd9e768372
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41920053"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241317"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Inscrire l’appareil à un hub IoT avec le client du service IoT Hub Provisioning (.NET)
 
@@ -230,7 +230,7 @@ Démarrez l’appareil pour autoriser votre application cliente à démarrer l�
 
 ## <a name="verify-the-device-is-registered"></a>Vérifier que l’appareil est enregistré
 
-Une fois que votre appareil démarre, les actions suivantes doivent se produire. Pour plus d’informations, consultez l’exemple d’application de simulateur TPM [dps_client_sample](https://github.com/Azure/azure-iot-device-auth/blob/master/dps_client/samples/dps_client_sample/dps_client_sample.c). 
+Une fois que votre appareil démarre, les actions suivantes doivent se produire. Consultez l’article relatif à [l’approvisionnement d’un exemple d’appareil client](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device) pour plus d’informations. 
 
 1. L’appareil envoie une demande d’enregistrement à votre service Device Provisioning.
 2. Pour les appareils TPM, le service Device Provisioning envoie une demande d’enregistrement à laquelle répond votre appareil. 

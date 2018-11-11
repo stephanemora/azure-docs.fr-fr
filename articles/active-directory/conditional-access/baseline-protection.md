@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: e7e92c2f3564591133816baaaf758d72b083330b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 585a4968672c8bcab0efb988d556e447983dfc5a
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958548"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50158701"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Qu’est ce qu’une protection de base ?  
 
@@ -51,7 +51,7 @@ Les utilisateurs ayant accès à des comptes privilégiés ont accès sans restr
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-Cette stratégie de base vous offre la possibilité d’exclure des utilisateurs et des groupes. Vous pouvez vouloir exclure un *[compte d’administration de l’accès d’urgence](../users-groups-roles/directory-emergency-access.md)* pour garantir que votre accès au locataire n’est pas verrouillé.
+Cette stratégie de base vous offre la possibilité d’exclure des utilisateurs. Vous pouvez vouloir exclure un *[compte d’administration de l’accès d’urgence](../users-groups-roles/directory-emergency-access.md)* pour garantir que votre accès au locataire n’est pas verrouillé.
 
 
 ## <a name="enable-a-baseline-policy"></a>Activer une stratégie de base 

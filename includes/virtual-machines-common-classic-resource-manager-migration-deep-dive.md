@@ -1,3 +1,16 @@
+---
+author: cynthn
+ms.service: virtual-machines
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: cynthn
+ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50226908"
+---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>Migrer des ressources IaaS depuis le modèle de déploiement classique vers Azure Resource Manager
 Tout d’abord, il est important de comprendre la différence entre les opérations de plan de données et les opérations de plan de gestion sur les ressources IaaS (infrastructure as a service).
 
@@ -118,12 +131,12 @@ Après avoir terminé la validation, vous pouvez valider la migration. Les resso
 
 Cet organigramme montre comment procéder à la migration :
 
-![Capture d’écran illustrant les étapes de la migration](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
+![Screenshot that shows the migration steps](../articles/virtual-machines/windows/media/migration-classic-resource-manager/migration-flow.png)
 
 ## <a name="translation-of-the-classic-deployment-model-to-resource-manager-resources"></a>Traduction du modèle de déploiement classique vers les ressources Resource Manager
 Les représentations des ressources du modèle de déploiement classique et de Resource Manager sont décrites dans la table suivante. D’autres fonctionnalités et ressources ne sont pas prises en charge actuellement.
 
-| Représentation Classic | Représentation Resource Manager | Remarques |
+| Représentation Classic | Représentation Resource Manager | Notes |
 | --- | --- | --- |
 | Nom du service cloud |Nom DNS |Pendant la migration, un groupe de ressources est créé pour chaque service cloud correspondant au modèle de dénomination `<cloudservicename>-migrated`. Ce groupe de ressources contient toutes vos ressources. Le nom du service cloud devient un nom DNS associé à l’adresse IP publique. |
 | Machine virtuelle |Machine virtuelle |Les propriétés spécifiques à la machine virtuelle sont inchangées après la migration. Certaines informations osProfile, comme le nom de l’ordinateur, ne sont pas stockées dans le modèle de déploiement classique et restent vides après la migration. |

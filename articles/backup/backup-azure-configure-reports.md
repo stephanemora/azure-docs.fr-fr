@@ -6,22 +6,29 @@ author: adiganmsft
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 07/26/2018
+ms.date: 10/29/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0c1d7a404ffd9b4da4868f56a5e17300495b57db
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 493a8881975e6b7568a7823bfc86fc97b4389378
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269358"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50418277"
 ---
 # <a name="configure-azure-backup-reports"></a>Configurer les rapports de la Sauvegarde Azure
 Cet article explique les étapes à suivre pour configurer les rapports pour la Sauvegarde Azure à l’aide d’un coffre Recovery Services. Il montre également comment accéder aux rapports à l’aide de Power BI. Une fois que vous avez terminé ces étapes, vous pouvez accéder directement à Power BI pour afficher, personnaliser et créer des rapports.
 
+> [!IMPORTANT]
+> Depuis le 1er novembre 2018, certains clients peuvent remarquer des problèmes dans le chargement des données dans l’application de sauvegarde Azure dans Power BI, disant « Nous avons trouvé des caractères en trop à la fin de l’entrée JSON. L’exception a été déclenchée par l’interface IDataReader. »
+Cela est dû à une modification du format avec lequel les données sont chargées dans le compte de stockage.
+Téléchargez la dernière application (version 1.8) pour éviter ce problème.
+>
+>
+
 ## <a name="supported-scenarios"></a>Scénarios pris en charge
 - Les rapports de la Sauvegarde Azure sont pris en charge pour la sauvegarde de machines virtuelles Azure et de fichiers/dossiers dans le cloud à l’aide de l’agent Azure Recovery Services.
-- Les rapports pour la base de données SQL Azure, Data Protection Manager et le serveur de sauvegarde Azure ne sont pas pris en charge pour l’instant.
+- Les rapports pour la base de données SQL Azure, les partages de fichiers Azure, Data Protection Manager et le serveur de sauvegarde Azure ne sont pas pris en charge pour l’instant.
 - Vous pouvez afficher des rapports sur différents coffres et abonnements, à condition que le même compte de stockage soit configuré pour chacun des coffres. Le compte de stockage sélectionné doit se trouver dans la même région que le coffre Recovery Services.
 - La fréquence d’actualisation planifiée des rapports est de 24 heures dans Power BI. Vous pouvez également effectuer une actualisation ad hoc des rapports dans Power BI. Dans ce cas, les données les plus récentes dans le compte de stockage client sont utilisées pour restituer des rapports.
 
@@ -67,23 +74,24 @@ Suivez ces étapes afin de configurer le compte de stockage pour un coffre Recov
       ![Afficher le paramètre de diagnostic - Étape 9](./media/backup-azure-configure-reports/diagnostic-setting-row.png)
 
 > [!NOTE]
-> Une fois que vous configurez des rapports en enregistrant le compte de stockage, *attendez 24 heures* pour que le push de données initial se termine. Importez le pack de contenu Azure Backup dans Power BI uniquement après cette heure. Pour plus d’informations, visitez la [section FAQ](#frequently-asked-questions). 
+> Une fois que vous configurez des rapports en enregistrant le compte de stockage, *attendez 24 heures* pour que le push de données initial se termine. Importez l’application de sauvegarde Azure dans Power BI uniquement après cette heure. Pour plus d’informations, visitez la [section FAQ](#frequently-asked-questions). 
 >
 >
 
 ## <a name="view-reports-in-power-bi"></a>Afficher les rapports dans Power BI 
 Une fois que vous avez configuré un compte de stockage pour les rapports à l’aide du coffre Recovery Services, il faut environ 24 heures pour que les données de rapports commencent à arriver. Après 24 heures de configuration d’un compte de stockage, suivez ces étapes pour afficher les rapports dans Power BI.
-1. [Connectez-vous](https://powerbi.microsoft.com/landing/signin/) à Power BI.
-2. Sélectionnez **Obtenir des données**. Dans la **Bibliothèque de packs de contenu**, sous **Services**, sélectionnez **Obtenir**. Suivez les étapes de la [documentation Power BI pour accéder au pack de contenu](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+Pour personnaliser et partager le rapport, créez un espace de travail et procédez comme suit.
 
-     ![Importer un pack de contenu](./media/backup-azure-configure-reports/content-pack-import.png)
+1. [Connectez-vous](https://powerbi.microsoft.com/landing/signin/) à Power BI.
+2. Sélectionnez **Obtenir des données**. Dans la zone **Autres façons de créer votre propre contenu**, sélectionnez **Packs de contenu de service**. Suivez les étapes de la [documentation Power BI pour la connexion à un service](https://powerbi.microsoft.com/documentation/powerbi-content-packs-services/).
+
 3. Dans la barre de **recherche**, entrez **sauvegarde Azure** et sélectionnez **Obtenir maintenant**.
 
       ![Obtenir un pack de contenu](./media/backup-azure-configure-reports/content-pack-get.png)
 4. Entrez le nom du compte de stockage configuré à l’étape 5 précédente, puis sélectionnez **Suivant**.
 
     ![Entrer le nom du compte de stockage](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Entrez la clé de ce compte de stockage. Pour [afficher et copier les clés d’accès de stockage](../storage/common/storage-account-manage.md#access-keys), accédez à votre compte de stockage sur le Portail Azure. 
+5. À l’aide de la méthode d'authentification « Clé », entrez la clé de ce compte de stockage. Pour [afficher et copier les clés d’accès de stockage](../storage/common/storage-account-manage.md#access-keys), accédez à votre compte de stockage sur le Portail Azure. 
 
      ![Entrer le compte de stockage](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      
@@ -95,9 +103,7 @@ Une fois que vous avez configuré un compte de stockage pour les rapports à l�
     
     ![Importer le pack de contenu - Réussite](./media/backup-azure-configure-reports/content-pack-import-success.png) <br/>
     
-7. Une fois les données importées, le pack de contenu **Sauvegarde Azure** apparaît dans **Applications**, dans le volet de navigation. Sous **Tableaux de bord**, **Rapports** et **Jeux de données**, la liste affiche maintenant la Sauvegarde Azure avec une étoile jaune, qui indique les rapports nouvellement importés.
-
-     ![Pack de contenu de la Sauvegarde Azure](./media/backup-azure-configure-reports/content-pack-azure-backup.png) <br/>
+7. Une fois les données importées, le pack de contenu **Sauvegarde Azure** apparaît dans **Applications**, dans le volet de navigation. Sous **Tableaux de bord**, **Rapports** et **Jeux de données**, la liste affiche maintenant la sauvegarde Azure.
      
 8. Sous **Tableaux de bord**, sélectionnez **Sauvegarde Azure**, affichant un ensemble de rapports clés épinglés.
 

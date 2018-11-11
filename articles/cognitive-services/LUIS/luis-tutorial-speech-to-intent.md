@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: f98d640f032fed5f91df8e9d4fb55d3f20550339
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: c2581abc782558ca114cc3a5d4f6224d132bce5d
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883922"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139083"
 ---
 # <a name="integrate-speech-service"></a>Intégrer le service de reconnaissance vocale
 Le [service de reconnaissance vocale](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) vous permet d’utiliser une seule requête pour recevoir de l’audio et retourner les objets JSON de prédiction de LUIS. Dans cet article, vous téléchargez et utilisez un projet C# dans Visual Studio pour prononcer un énoncé dans un microphone et recevoir les informations de prédiction de LUIS. Le projet utilise le package [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) Speech, déjà inclus comme référence. 
@@ -39,7 +39,7 @@ Cette application dispose d’intentions, d’entités et d’énoncés associé
 
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Ajouter l’entité préconçue KeyPhrase
-Après avoir importé l’application, sélectionnez **Entités**, puis **Gérer des entités préconçues**. Ajoutez l’entité **KeyPhrase**. L’entité KeyPhrase extrait le sujet principal d’un énoncé.
+Après avoir importé l’application, sélectionnez **Entités**, puis **Ajouter une entité prédéfinie**. Ajoutez l’entité **KeyPhrase**. L’entité KeyPhrase extrait le sujet principal d’un énoncé.
 
 ## <a name="train-and-publish-the-app"></a>Former et publier l’application
 1. Dans la barre de navigation du coin supérieur droit, sélectionnez le bouton **Former** pour former l’application LUIS.

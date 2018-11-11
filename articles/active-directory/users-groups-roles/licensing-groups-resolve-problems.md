@@ -11,15 +11,15 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 06/05/2017
+ms.date: 10/29/2018
 ms.author: curtand
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5d64cf71ea3a44b7539835e3616150218e8b3635
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: ee441a8c9a0d8a70a2797f090a143189cdb6872a
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861090"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211534"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identification et résolution des problèmes d’affectation de licences pour un groupe dans Azure Active Directory
 
@@ -97,6 +97,19 @@ Pour résoudre ce problème, retirez du groupe sous licence les utilisateurs ass
 > [!NOTE]
 > Lorsqu’Azure AD attribue des licences de groupe, tous les utilisateurs sans emplacement d’utilisation spécifié héritent de l’emplacement du répertoire. Nous recommandons aux administrateurs de définir des valeurs d’emplacement d’utilisation correctes pour les utilisateurs avant d’utiliser la licence groupée afin de se conformer aux lois et réglementations locales.
 
+## <a name="duplicate-proxy-addresses"></a>Adresses proxy en double
+
+Si vous utilisez Exchange Online, certains comptes d’utilisateur de votre locataire risquent d’être configurés avec la même valeur d’adresse proxy, de manière incorrecte. Lorsque la fonction de licence basée sur un groupe tente d’affecter une licence à un tel utilisateur, l’opération échoue et le message « L'adresse proxy est déjà utilisée » s’affiche.
+
+> [!TIP]
+> Pour cela, exécutez la cmdlet PowerShell suivante par rapport à Exchange Online :
+```
+Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
+```
+> Pour en savoir plus sur ce problème, consultez le [message d’erreur indiquant que l’adresse de proxy est déjà utilisée dans Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L’article inclut également des informations sur [la connexion à Exchange Online à l’aide de PowerShell à distance](https://technet.microsoft.com/library/jj984289.aspx). Consultez cet article pour plus d’informations sur la [façon dont l’attribut proxyAddresses est rempli dans Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
+
+Une fois les problèmes d’adresse de proxy résolus pour les utilisateurs concernés, veillez à forcer le traitement des licences sur le groupe, pour vous assurer que les licences peuvent désormais être appliquées.
+
 ## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Que se passe-t-il lorsqu’un groupe est concerné par plusieurs licences produit ?
 
 Vous pouvez attribuer plusieurs licences produit à un même groupe. Par exemple, vous pouvez attribuer Office 365 Entreprise E3 et Enterprise Mobility + Security à un groupe afin de faciliter l’activation de tous les services inclus pour les utilisateurs.
@@ -134,19 +147,7 @@ Dorénavant, tout utilisateur ajouté à ce groupe utilise une licence de produi
 > [!TIP]
 > Vous pouvez créer plusieurs groupes pour chaque plan de service requis. Par exemple, si vous utilisez Office 365 Enterprise E1 et Office 365 Enterprise E3 pour vos utilisateurs, vous pouvez créer deux groupes pour accorder une licence Microsoft Workplace Analytics : un groupe demandant E1 comme condition préalable et un autre demandant E3. Cela vous permettra de distribuer le module complémentaire aux utilisateurs de E1 et de E3 sans consommer de licences supplémentaires.
 
-## <a name="license-assignment-fails-silently-for-a-user-due-to-duplicate-proxy-addresses-in-exchange-online"></a>L’attribution de licence échoue sans avertissement pour un utilisateur en raison de la présence d’adresses proxy en double dans Exchange Online
 
-Si vous utilisez Exchange Online, certains comptes d’utilisateur de votre locataire risquent d’être configurés avec la même valeur d’adresse proxy, de manière incorrecte. Lorsque la fonction de licence basée sur un groupe tente d’assigner une licence à l’un de ces comptes, l’opération échoue, sans qu’aucune erreur ne soit enregistrée. L’absence d’enregistrement d’une erreur dans ce cas représente une limitation liée à la préversion de cette fonction. Nous essaierons d’y remédier avant la date de *disponibilité générale*.
-
-> [!TIP]
-> Si vous remarquez que certains utilisateurs n’ont pas reçu de licence et qu’aucune erreur n’est enregistrée les concernant, commencez par vérifier s’ils ont une adresse proxy en double.
-> Pour cela, exécutez la cmdlet PowerShell suivante par rapport à Exchange Online :
-```
-Run Get-Recipient | where {$_.EmailAddresses -match "user@contoso.onmicrosoft.com"} | fL Name, RecipientType,emailaddresses
-```
-> Pour en savoir plus sur ce problème, consultez le [message d’erreur indiquant que l’adresse de proxy est déjà utilisée dans Exchange Online](https://support.microsoft.com/help/3042584/-proxy-address-address-is-already-being-used-error-message-in-exchange-online). L’article inclut également des informations sur [la connexion à Exchange Online à l’aide de PowerShell à distance](https://technet.microsoft.com/library/jj984289.aspx).
-
-Une fois les problèmes d’adresse de proxy résolus pour les utilisateurs concernés, veillez à forcer le traitement des licences sur le groupe, pour vous assurer que les licences peuvent désormais être appliquées.
 
 ## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Comment faire pour forcer le traitement des licences dans un groupe afin de résoudre les erreurs ?
 
@@ -154,11 +155,19 @@ Selon les actions entreprises pour résoudre les erreurs, il peut être nécessa
 
 Par exemple, si vous avez libéré des licences en supprimant leurs affectations directes à des utilisateurs, vous devez déclencher le traitement des groupes ayant échoué précédemment afin d’attribuer des licences complètes à tous les utilisateurs membres. Pour traiter à nouveau un groupe, accédez au volet correspondant, ouvrez **Licences**, puis sélectionnez le bouton **Retraiter** dans la barre d’outils.
 
+## <a name="how-do-you-force-license-processing-on-a-user-to-resolve-errors"></a>Comment forcer le traitement des licences sur un utilisateur afin de résoudre les erreurs ?
+
+Selon les mesures que vous avez prises pour résoudre les erreurs, il peut être nécessaire de déclencher manuellement le traitement d’un utilisateur pour mettre à jour l’état de l’utilisateur.
+
+Par exemple, après avoir résolu le problème d’adresse proxy en double pour un utilisateur affecté, vous devez déclencher le traitement de l’utilisateur. Pour retraiter un utilisateur , accédez au volet correspondant, ouvrez **Licences**, puis sélectionnez le bouton **Retraiter** dans la barre d’outils.
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 Pour plus d’informations sur d’autres scénarios de gestion des licences par le biais des groupes, consultez les articles suivants :
 
-* [Affectation de licences à un groupe dans Azure Active Directory](licensing-groups-assign.md)
 * [What is group-based licensing in Azure Active Directory? (Présentation des licences basées sur le groupe dans Azure Active Directory)](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Migration des utilisateurs individuels sous licence vers une licence basée sur le groupe dans Azure Active Directory](licensing-groups-migrate-users.md)
-* [Autres scénarios de licences basées sur les groupes Azure Active Directory](licensing-group-advanced.md)
+* [Affectation de licences à un groupe dans Azure Active Directory](licensing-groups-assign.md)
+* [Migration des utilisateurs individuels sous licence vers les licences basées sur les groupes dans Azure Active Directory](licensing-groups-migrate-users.md)
+* [Guide pratique pour migrer des utilisateurs entre des licences de produit à l’aide de la gestion de licences basée sur des groupes dans Azure Active Directory](licensing-groups-change-licenses.md)
+* [Azure Active Directory group-based licensing additional scenarios (Autres scénarios de licence basée sur le groupe Azure Active Directory)](licensing-group-advanced.md)
+* [Exemples PowerShell pour les licences basées sur les groupes dans Azure Active Directory](licensing-ps-examples.md)

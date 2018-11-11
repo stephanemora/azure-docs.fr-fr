@@ -6,27 +6,27 @@ manager: deshner
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/26/2018
 ms.author: dwalthermsft
-ms.openlocfilehash: aa5f6053bf1c98d2b84c02617da30f5d856ed3fc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f9a3d934de47630ac3fd2356001014d006c2a4eb
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323722"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212265"
 ---
 # <a name="public-preview-service-limits"></a>Limites de service de la préversion publique
 
-Dans la préversion publique, Azure Digital Twins présente des limites temporaires au niveau des abonnements, des instances et des taux, qui sont décrites ci-dessous.
+Dans la **préversion publique**, Azure Digital Twins présente des limites temporaires au niveau des abonnements, des instances et des taux ; celles-ci sont décrites ci-dessous.
 
 Ces limites ont pour but de simplifier l’apprentissage du nouveau service et de ses nombreuses fonctionnalités.
 
 > [!NOTE]
-> Ces limites seront réduites ou supprimées dans la version en disponibilité générale.
+> Ces limites sont réduites ou supprimées dans la **version en disponibilité générale** (**GA**).
 
 ## <a name="per-subscription-limits"></a>Limites par abonnement
 
-Dans la préversion publique, chaque abonnement Azure ne peut créer ou comprendre qu’une seule instance d’Azure Digital Twins.
+Dans la **préversion publique**, chaque abonnement Azure ne peut créer ou comprendre qu’une seule instance d’Azure Digital Twins.
 
 > [!TIP]
 > Pour créer une nouvelle instance, vous devez supprimer l’instance actuelle.
@@ -35,9 +35,9 @@ Dans la préversion publique, chaque abonnement Azure ne peut créer ou comprend
 
 Chaque instance d’Azure Digital Twins peut comprendre :
 
-- Une ressource `IoTHub`
-- Un point de terminaison `EventHub` pour le type d’événement DeviceMessage
-- Jusqu’à trois points de terminaison `EventHub`, `ServiceBus` ou `EventGrid` de type d’événement `SensorChange`, `SpaceChange`, `TopologyOperation` ou `UdfCustom`
+- Une ressource **IotHub**
+- Un point de terminaison **EventHub** pour le type d’événement **DeviceMessage**
+- Jusqu’à trois points de terminaison **EventHub**, **ServiceBus** ou **EventGrid** du type d’événement **SensorChange**, **SpaceChange** , **TopologyOperation** ou **UdfCustom**
 
 ## <a name="management-api-limits"></a>Limites de l’API de gestion
 
@@ -54,7 +54,7 @@ Les limites de taux de requêtes pour votre API de gestion sont les suivantes :
 Les limites suivantes définissent le nombre total d’appels de fonction définie par l’utilisateur qui peuvent être effectués vers votre instance d’Azure Digital Twins :
 
 - 400 appels de bibliothèque cliente par seconde
-- 100 appels SendNotification par seconde
+- 100 appels **SendNotification** par seconde
 
 > [!NOTE]
 > D’autres limites temporaires peuvent être appliquées aux actions suivantes :

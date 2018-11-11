@@ -14,30 +14,33 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 56a1ebcfbb6dda9bc96aa241bd2b8d753022181a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d1a6da5d599296a11678ee58cadc42d61296e8e7
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49385843"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230299"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
 
-Azure Key Vault aide à résoudre les problèmes suivants
+Azure Key Vault aide à résoudre les problèmes suivants :
 - **Gestion des secrets** : Azure Key Vault peut être utilisé pour stocker en toute sécurité les jetons, mots de passe, certificats, clés API et autres secrets, et pour en contrôler étroitement l’accès.
 - **Gestion des clés** : Azure Key Vault peut également servir de solution de gestion de clés. Azure Key Vault simplifie la création et le contrôle des clés de chiffrement utilisées pour chiffrer vos données. 
 - **Gestion des certificats** : Azure Key Vault est également un service qui vous permet de configurer, gérer et déployer facilement des certificats SSL/TLS publics et privés pour une utilisation avec Azure et vos ressources connectées internes. 
-- **Stockage de secrets protégés par des modules de sécurité matériels** : les secrets et les clés peuvent être protégés soit par logiciel soit par des modules de sécurité matériels valides FIPS 140-2 de niveau 2
+- **Stockage de secrets protégés par des modules de sécurité matériels** : les secrets et les clés peuvent être protégés soit par logiciel soit par des modules de sécurité matériels valides FIPS 140-2 de niveau 2.
 
 ## <a name="basic-concepts"></a>Concepts de base
 
 Azure Key Vault est un outil permettant de stocker les secrets et d’y accéder en toute sécurité. Un secret est un élément pour lequel vous voulez contrôler étroitement l’accès. Il peut s’agir de clés d’API, de mots de passe ou de certificats. Un **coffre** est un groupe logique de secrets. Pour effectuer des opérations avec un coffre de clés, vous devez vous authentifier auprès de celui-ci. 
 
-Il existe 3 façons de s’authentifier auprès d’un coffre de clés :
+Il existe 3 façons de s’authentifier auprès de Key Vault :
 
 1. **À l’aide d’[identités managées pour les ressources Azure](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)**  (**méthode recommandée/bonne pratique**) : lorsque vous déployez une application sur une machine virtuelle dans Azure, vous pouvez assigner une identité à votre machine virtuelle qui a accès au coffre de clés. Vous pouvez également assigner une identité aux autres ressources Azure qui sont répertoriées [ici](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). L’avantage de cette approche est que l’application/le service ne gère pas la rotation du premier secret. Azure fait alterner automatiquement l’identité. 
 2. **À l’aide d’un principal de service et d’un certificat :** la deuxième option consiste à utiliser un principal de service et un certificat associé qui a accès au coffre de clés. La rotation du certificat incombe alors au propriétaire de l’application ou au développeur et, par conséquent, cette option n’est pas recommandée.
 3. **À l’aide d’un principal de service et d’un secret :** la troisième option (non recommandée) consiste à utiliser un principal de service et un secret pour s’authentifier auprès du coffre de clés.
+
+> [!NOTE]
+> La 3ème option ci-dessus ne doit pas être utilisée, car il est difficile d’effectuer la rotation automatique du secret d’amorçage utilisé pour s’authentifier auprès de Key Vault.
 
 Vous trouverez ici quelques mots-clés :
 - **Locataire** : un locataire est l’organisation qui possède et gère une instance spécifique de services de cloud Microsoft. Il fait souvent référence à l’ensemble des services Azure et Office 365 pour une organisation.
@@ -45,7 +48,7 @@ Vous trouverez ici quelques mots-clés :
 - **Consommateur du coffre** : un consommateur du coffre peut effectuer des actions sur les ressources à l’intérieur du coffre de clés lorsque le propriétaire du coffre lui accorde l’accès de consommateur. Les actions disponibles varient selon les autorisations accordées.
 - **Ressource** : une ressource est un élément gérable disponible via Azure. Les ressources telles que les machines virtuelles, les comptes de stockage, les applications web, les bases de données et les réseaux virtuels sont courantes, mais il en existe beaucoup d’autres.
 - **groupe de ressources** : un groupe de ressources est un conteneur réunissant les ressources associées d’une solution Azure. Le groupe de ressources peut inclure toutes les ressources de la solution, ou uniquement celles que vous souhaitez gérer en tant que groupe. Pour déterminer comment allouer des ressources aux groupes de ressources, choisissez l’approche la plus pertinente pour votre organisation.
-- **Principal de service** : pour accéder aux ressources qui sont sécurisées par un locataire Azure AD, l’entité qui nécessite l’accès doit être représentée par un principal de sécurité. Ceci est valable aussi bien pour les utilisateurs (principal d’utilisateur) que pour les applications (principal de service). Le principal de sécurité définit la stratégie d’accès et les autorisations pour l’utilisateur ou l’application du locataire. Cela rend possibles les fonctionnalités de base, telles que l’authentification de l’application ou de l’utilisateur lors de la connexion, et l’autorisation lors de l’accès aux ressources.
+- **Principal du service** : un principal du service Azure est une identité de sécurité utilisée par les applications, les services et les outils d’automatisation créés par l’utilisateur pour accéder à des ressources Azure spécifiques. Il équivaut un peu à une identité d’utilisateur (nom d’utilisateur et mot de passe ou certificat) avec un rôle spécifique et des autorisations étroitement contrôlées. Un principal du service doit uniquement effectuer des opérations spécifiques, contrairement à une identité d’utilisateur générale. Il améliore la sécurité si vous lui octroyez seulement le niveau d’autorisation minimal nécessaire pour effectuer ses tâches de gestion.
 - **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: Azure AD est le service Active Directory pour un locataire. Chaque répertoire contient au moins un domaine personnalisé. Un répertoire peut avoir plusieurs abonnements associés, mais qu’un seul locataire. 
 - **ID de locataire Azure** : un ID de locataire est un moyen unique d’identification d’une instance Azure AD au sein d’un abonnement Azure.
 - **Identités managées pour les ressources Azure** : Azure Key Vault permet de stocker en toute sécurité des informations d’identification et autres clés et secrets, mais votre code doit s’authentifier auprès de Key Vault pour les récupérer. L’utilisation d’une identité mangée simplifie la résolution de ce problème en donnant aux services Azure une identité automatiquement managée dans Azure AD. Vous pouvez utiliser cette identité pour vous authentifier sur Key Vault ou n’importe quel service prenant en charge l’authentification Azure AD, sans avoir d’informations d’identification dans votre code. Pour plus d’informations, consultez le schéma ci-dessous et lisez la section de présentation des [identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md).

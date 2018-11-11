@@ -12,12 +12,12 @@ ms.author: aliceku
 ms.reviewer: vanto, carlrab, emlisa
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 9978497f8bd3ebb11247f3bffe319866128e9f1d
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 2a1d8a993f805c6ef814088af6fc4e3051519e37
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646505"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50248793"
 ---
 # <a name="an-overview-of-azure-sql-database-security-capabilities"></a>Une vue d’ensemble des fonctionnalités de sécurité d’Azure SQL Database
 
@@ -32,7 +32,7 @@ Pour obtenir une présentation complète des fonctionnalités de sécurité disp
 SQL Database protège vos données grâce au chiffrement : il utilise [Transport Layer Security](https://support.microsoft.com/kb/3135244) pour les données en mouvement, [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) pour les données au repos et [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) pour les données en cours d’utilisation.
 
 > [!IMPORTANT]
-> Azure SQL Database applique le chiffrement (SSL/TLS) à tout instant pour toutes les connexions, ce qui garantit que toutes les données sont chiffrées « en transit » entre la base de données et le client. Et ce, quel que soit le paramétrage de **Encrypt** ou **TrustServerCertificate** dans la chaîne de connexion.
+> Azure SQL Database applique le chiffrement (SSL/TLS) de façon permanente pour toutes les connexions, ce qui garantit que toutes les données sont chiffrées pendant leur transit entre la base de données et le client. Et ce, quel que soit le paramétrage de **Encrypt** ou **TrustServerCertificate** dans la chaîne de connexion.
 >
 > Dans la chaîne de connexion de votre application, veillez à spécifier une connexion chiffrée et ne *pas* faire confiance au certificat de serveur (pour le pilote ADO.NET, il s’agit de **Encrypt = True** et  **TrustServerCertificate = False**). Cela contribue à protéger votre application d’une attaque de l’intercepteur en forçant l’application à vérifier le serveur et appliquer le chiffrement. Si vous obtenez votre chaîne de connexion à partir du portail Azure, elle présentera les paramètres appropriés.
 >

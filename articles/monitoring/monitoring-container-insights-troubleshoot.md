@@ -1,5 +1,5 @@
 ---
-title: Dépannage d’Azure Monitor for containers | Microsoft Docs
+title: Guide pratique pour résoudre les problèmes relatifs à Azure Monitor pour conteneurs (préversion) | Microsoft Docs
 description: Cet article vous permet de dépanner Azure Monitor for containers et de résoudre certains problèmes.
 services: azure-monitor
 documentationcenter: ''
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: magoedte
-ms.openlocfilehash: 19d015947e5d2331c50cd64956e8a7650f96616d
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 69e5a61d5e66e5904df31456e9311a39058787b2
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638322"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50212350"
 ---
-# <a name="troubleshooting-azure-monitor-for-containers"></a>Dépannage d’Azure Monitor for containers
+# <a name="troubleshooting-azure-monitor-for-containers-preview"></a>Résolution des problèmes relatifs à Azure Monitor pour conteneurs (préversion)
 
 Lorsque vous configurez la surveillance de votre cluster Azure Kubernetes Service (AKS) avec Azure Monitor for containers, il se peut que vous rencontriez un problème empêchant la collecte de données ou la récupération de l’état. Cet article décrit en détail certains problèmes courants et indique la façon de les résoudre.
 

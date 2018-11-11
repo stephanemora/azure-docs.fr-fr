@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: bf86e769aff4a9b03d5df1b1aef702814c605fa4
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: c170f573a473d3fdfca5c916b4be594dc93d6b27
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46368084"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50156321"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Guide pratique pour utiliser une analytique permettant d’analyser les données de vos appareils
 
@@ -21,7 +21,7 @@ ms.locfileid: "46368084"
 *Cet article s’applique aux opérateurs, aux créateurs et aux administrateurs.*
 
 
-Microsoft Azure IoT Central offre des fonctionnalités d’analytique avancées pour rendre signifiantes les grandes quantités de données provenant de vos appareils. Pour commencer, accédez à**Analytique** dans le menu de navigation de gauche. 
+Azure IoT Central offre des fonctionnalités d’analytique avancées permettant d’obtenir des insights à partir de grandes quantités de données provenant de vos appareils. Pour commencer, accédez à**Analytique** dans le menu de navigation de gauche. 
 
   ![Accès à l’analytique dans IoT Central](media\howto-create-analytics\analytics-navigation.png)
 
@@ -60,12 +60,12 @@ to-do: confirm if 10 is the max number of measurements
 
 Vous pouvez affiner l’affichage des résultats des requêtes de différentes façons en fonction de vos besoins. Vous pouvez basculer entre un mode graphique et un mode grille, effectuer un zoom avant/arrière, actualiser votre jeu de données et modifier la façon dont les lignes sont affichées.
 
-* **Afficher la grille** : vos résultats sont disponibles sous forme de tableau afin que vous puissiez voir la valeur spécifique de chaque point de données. Cette vue répond également aux standards d’accessibilité. 
+* **Afficher la grille** : vos résultats sont disponibles sous forme de tableau afin que vous puissiez voir la valeur de chaque point de données. Cette vue répond également aux standards d’accessibilité. 
 * **Afficher le graphique** : vos résultats s’affichent sous forme de lignes afin de souligner les tendances à la hausse ou à la baisse et les anomalies. 
 
  ![Affichage du mode grille pour votre analytique](media\howto-create-analytics\analytics-showgrid.png)
 
-Le zoom vous permet d’explorer vos données. Si vous souhaitez vous concentrer sur une période au sein de votre jeu de résultats, utilisez votre curseur pour délimiter la zone sur laquelle vous souhaitez effectuer un zoom, puis utilisez les commandes disponibles pour exécuter l’une des actions suivantes :
+Le zoom vous permet d’explorer vos données. Si vous souhaitez vous concentrer sur une période de votre jeu de résultats, utilisez votre curseur pour délimiter la zone sur laquelle vous souhaitez effectuer un zoom, puis utilisez les commandes disponibles pour exécuter l’une des actions suivantes :
 * **Zoom avant** : une fois que vous avez sélectionné une période, le zoom avant est activé, et vous pouvez donc l’utiliser sur vos données.
 * **Zoom arrière** : cette commande vous permet d’effectuer un zoom arrière d’un niveau à partir de votre dernier zoom. Par exemple, si vous avez effectué un triple zoom avant sur vos données, vous devrez effectuer trois zooms arrière pour retrouver l’affichage initial.
 * **Réinitialisation du zoom** : une fois que vous avez effectué différents niveaux de zoom, vous pouvez utiliser la commande de réinitialisation du zoom pour revenir à votre jeu de résultats d’origine. 

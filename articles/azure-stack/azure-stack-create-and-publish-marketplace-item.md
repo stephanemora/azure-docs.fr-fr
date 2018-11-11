@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 10/03/2018
 ms.author: sethm
 ms.reviewer: avishwan
-ms.openlocfilehash: 40ecb474b4faa4031cb364dfc1151c6fe6f09dd6
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c07e1282a755962b6fe6bc980207a510bd3287a4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856444"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253769"
 ---
 # <a name="create-and-publish-a-marketplace-item"></a>Créer et publier un article de la Place de marché
 
 *S’applique à : systèmes intégrés Azure Stack et Kit de développement Azure Stack*
 
 ## <a name="create-a-marketplace-item"></a>Créer un élément de Marketplace
-1. [Téléchargez](http://www.aka.ms/azurestackmarketplaceitem) l’outil Azure Gallery Packager et l’échantillon de Marketplace Azure Stack.
+1. [Téléchargez](https://www.aka.ms/azurestackmarketplaceitem) l’outil Azure Gallery Packager et l’échantillon de Marketplace Azure Stack.
 2. Ouvrez l’échantillon de Marketplace et renommez le dossier **SimpleVMTemplate**. (Utilisez le même nom que votre article de Marketplace, par exemple, **Contoso.TodoList**.) Ce dossier contient les éléments suivants :
    
    ```shell

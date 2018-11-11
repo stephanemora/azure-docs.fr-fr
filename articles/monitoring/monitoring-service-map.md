@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/03/2018
+ms.date: 10/28/2018
 ms.author: magoedte
-ms.openlocfilehash: 49688b958d904450c50944725b18e0d518e27146
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 0f3bc7302bc28a9bef288e5e5e0b9b891a08b8dd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269256"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252919"
 ---
 # <a name="using-service-map-solution-in-azure"></a>Utilisation de la solution Service Map dans Azure
 La solution Service Map détecte automatiquement les composants d’application sur les systèmes Windows et Linux, et mappe la communication entre les services. Elle vous permet d’afficher vos serveurs comme vous les imaginez, en tant que systèmes interconnectés fournissant des services critiques. Elle affiche les connexions entre serveurs, les processus, la latence des connexions entrantes et sortantes, ainsi que les ports au sein de toute architecture TCP connectée, sans nécessiter de configuration autre que l’installation d’un agent.
@@ -72,11 +72,6 @@ Les ordinateurs peuvent être développés sur le mappage de manière à affiche
 
 Par défaut, les mappages Service Map affichent les 30 dernières minutes des informations de dépendance. Les contrôles de temps en haut à gauche permettent d’interroger des cartes pour obtenir des plages horaires historiques de jusqu’à une heure afin de voir l’aspect passé des dépendances (par exemple, pendant un incident ou avant une modification). Les données Service Map sont stockées pendant 30 jours dans les espaces de travail payants et pendant 7 jours dans les espaces de travail gratuits.
 
-
-
-
-
-
 ## <a name="status-badges-and-border-coloring"></a>Badges d’état et couleur de bordure
 En bas de chaque serveur dans le mappage, une liste de badges état affiche des informations sur l’état du serveur. Les badges indiquent qu’il existe des informations pertinentes concernant le serveur provenant d’une des intégrations de solutions. En cliquant sur un badge, vous accédez directement aux détails de l’état dans le volet droit. Les badges d’état actuellement disponibles sont Alertes, Service Desk, Modifications, Sécurité et Mises à jour.
 
@@ -104,7 +99,7 @@ Vous pouvez alors choisir **Créer un nouveau** et attribuer un nom au groupe.
 ![Nommer un groupe](media/monitoring-service-map/machine-groups-name.png)
 
 >[!NOTE]
->Les groupes de machines sont actuellement limités à 10 serveurs, mais nous prévoyons d’augmenter bientôt cette limite.
+>Les groupes de machines sont limités à 10 serveurs.
 
 ### <a name="viewing-a-group"></a>Affichage d’un groupe
 Une fois que vous avez créé des groupes, vous pouvez les afficher en cliquant sur l’onglet Groupes.
@@ -282,7 +277,7 @@ Le volet **Mises à jour de la machine** affiche les données de la solution Upd
 ![Volet Change Tracking d’une machine](media/monitoring-service-map/machine-updates.png)
 
 ## <a name="log-analytics-records"></a>Enregistrements Log Analytics
-Les données d’inventaire des ordinateurs et processus de la solution Service Map sont disponibles pour effectuer une [recherche](../log-analytics/log-analytics-log-searches.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
+Les données d’inventaire des ordinateurs et processus de la solution Carte de service sont disponibles pour effectuer une [recherche](../log-analytics/log-analytics-queries.md) dans Log Analytics. Vous pouvez appliquer ces données à divers scénarios tels que la planification de la migration, l’analyse de la capacité, la détection et la résolution de problèmes de performances à la demande.
 
 Un enregistrement par heure est généré pour chaque processus et ordinateur, en plus des enregistrements générés quand un processus ou ordinateur démarre ou est intégré à la solution Service Map. Les propriétés de ces enregistrements sont décrites dans les tableaux suivants. Les champs et les valeurs des événements ServiceMapComputer_CL sont mappés aux champs de la ressource Machine dans l’API Azure Resource Manager ServiceMap. Les champs et les valeurs des événements ServiceMapProcess_CL sont mappés aux champs de la ressource Processus dans l’API Azure Resource Manager ServiceMap. Le champ ResourceName_s correspond au champ de nom dans la ressource Azure Resource Manager correspondante. 
 
@@ -509,7 +504,7 @@ Pour plus d’informations sur l’utilisation et la collecte de données, voir 
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-En savoir plus sur les [recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) dans Log Analytics pour récupérer les données collectées par la solution Service Map.
+En savoir plus sur les [recherches dans les journaux](../log-analytics/log-analytics-queries.md) dans Log Analytics pour récupérer les données collectées par la solution Carte de service.
 
 
 ## <a name="troubleshooting"></a>Résolution de problèmes

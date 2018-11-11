@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 13820dd511d31217b79385e893edbb55a3a57693
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: e66dcac1d83c71174ad5d7c3fdcd2310143f8e01
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430016"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140804"
 ---
 # <a name="tune-hyperparameters-for-your-model"></a>Optimiser les hyperparamètres pour votre modèle
 
@@ -238,16 +238,18 @@ Dans cet exemple, la stratégie d’arrêt anticipé est appliquée à chaque in
 
 ### <a name="no-termination-policy"></a>Stratégie sans arrêt
 
-Si vous voulez que toutes les exécutions d’entraînement s’exécutent jusqu’à leur terme, utilisez la stratégie sans arrêt. Son effet est qu’aucune stratégie d’arrêt anticipé n’est appliquée.
+Si vous voulez que toutes les exécutions d’entraînement s’exécutent jusqu’à leur terme, définissez la stratégie sur None (Aucune). Son effet est qu’aucune stratégie d’arrêt anticipé n’est appliquée.
 
 ```Python
-from azureml.train.hyperdrive import NoTerminationPolicy
-early_termination_policy = NoTerminationPolicy()
+policy=None
 ```
 
 ### <a name="default-policy"></a>Stratégie par défaut
 
-Si aucune stratégie n’est spécifiée, le service d’optimisation des hyperparamètres utilise par défaut une stratégie d’arrêt médiane avec `evaluation_interval` égal à 1 et `delay_evaluation` égal à 5. Il s’agit de valeurs prudentes, qui peuvent fournir approximativement 25 à 35 % d’économies sans perte sur la métrique principale (d’après nos évaluations).
+Si aucune stratégie n’est spécifiée, le service d’optimisation des hyperparamètres permet à toutes les exécutions d’entraînement d’arriver à leur terme.
+
+>[!NOTE] 
+>Si vous cherchez une stratégie classique qui permet de réaliser des économies, sans arrêter les tâches prometteuses, vous pouvez utiliser une stratégie d’arrêt à la médiane avec un `evaluation_interval` de 1 et un `delay_evaluation` de 5. Il s’agit de valeurs prudentes, qui peuvent fournir approximativement 25 à 35 % d’économies sans perte sur la métrique principale (d’après nos évaluations).
 
 ## <a name="allocate-resources"></a>Allouer des ressources
 

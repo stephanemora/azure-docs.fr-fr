@@ -7,12 +7,12 @@ ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
 ms.date: 09/19/2018
-ms.openlocfilehash: 81a9f84a925fc424fc6371fcbe02a141d4ee8ec1
-ms.sourcegitcommit: 8b694bf803806b2f237494cd3b69f13751de9926
+ms.openlocfilehash: b0b67121e172bb29d1f95e56d3b31f509552bf2e
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/20/2018
-ms.locfileid: "46498349"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211228"
 ---
 # <a name="enable-azure-disk-encryption-for-linux-iaas-vms-previous-release"></a>Activer Azure Disk Encryption pour les machines virtuelles IaaS Linux (version précédente)
 
@@ -192,8 +192,11 @@ Ce paramètre fait que la commande parcourt toutes les partitions et les chiffre
 - Elle n’est pas une partition root/de système d’exploitation/de démarrage
 - Elle n’est pas déjà chiffrée
 - Elle n’est pas un volume BEK
+- Elle n’est pas un volume RAID
+- Elle n’est pas un volume LVM
 - Elle est montée
 
+Chiffrez les disques composant le volume RAID ou LVM au lieu de chiffrer le volume RAID ou LVM lui-même.
 
 ### <a name="bkmk_EFATemplate"> </a> Utiliser le paramètre EncryptFormatAll avec un modèle
 Pour utiliser l’option EncryptFormatAll, utilisez un modèle Azure Resource Manager préexistant qui chiffre une machine virtuelle Linux et modifiez le champ **EncryptionOperation** pour la ressource AzureDiskEncryption.

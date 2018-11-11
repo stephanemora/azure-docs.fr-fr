@@ -11,12 +11,12 @@ services: logic-apps
 ms.reviewer: klam, LADocs
 ms.suite: integration
 tags: connectors
-ms.openlocfilehash: 8e83a246c815a01b417f7658535906c396bf5996
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 78ac8f83bceef88e89edefa0eececb058e8efe2b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296017"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230231"
 ---
 # <a name="get-started-with-the-oracle-database-connector"></a>Prise en main du connecteur de base de données Oracle
 
@@ -36,9 +36,9 @@ Cet article décrit comment utiliser le connecteur de base de données Oracle da
 * Installez la passerelle de données locale. [Connexion à des données locales à partir d’applications logiques](../logic-apps/logic-apps-gateway-connection.md) répertorie les étapes à suivre. La passerelle vous permet de vous connecter à une base de données Oracle locale ou à une machine virtuelle Azure sur laquelle la base de données Oracle est installée. 
 
     > [!NOTE]
-    > La passerelle de données locale agit comme un pont et fournit un transfert de données sécurisé entre les données locales (qui ne sont pas sur le cloud) et vos applications logiques. La même passerelle peut être utilisée avec plusieurs services et plusieurs sources de données. Par conséquent, il vous suffira peut-être d’installer la passerelle une seule fois.
+    > La passerelle de données locale agit comme un pont et fournit un transfert de données sécurisé entre les données locales (qui ne sont pas sur le cloud) et vos applications logiques. La même passerelle peut être utilisée avec plusieurs services et plusieurs sources de données. Par conséquent, il vous suffira peut-être d’installer la passerelle une seule fois.
 
-* Installez le client Oracle sur l’ordinateur où vous avez installé la passerelle de données locale. Veillez à installer le fournisseur de données Oracle 64 bits pour .NET à partir d’Oracle :  
+* Installez le client Oracle sur l’ordinateur où vous avez installé la passerelle de données locale. Veillez à installer le fournisseur de données Oracle 64 bits pour .NET à partir d’Oracle :  
 
   [ODAC 12C version 4 (12.1.0.2.4) 64 bits pour Windows x64](http://www.oracle.com/technetwork/database/windows/downloads/index-090165.html)
 
@@ -97,25 +97,25 @@ Cet article décrit comment utiliser le connecteur de base de données Oracle da
 
 #### <a name="error-cannot-reach-the-gateway"></a>**Erreur** : La passerelle est injoignable
 
-**Cause** : la passerelle de données locale n’est pas en mesure de se connecter au cloud. 
+**Cause** : la passerelle de données locale n’est pas en mesure de se connecter au cloud. 
 
-**Atténuation** : assurez-vous que votre passerelle s’exécute sur l’ordinateur local où vous l’avez installée, et qu’elle peut se connecter à Internet.  Nous vous recommandons ne pas installer la passerelle sur un ordinateur susceptible d’être mis hors tension ou en veille. Vous pouvez également redémarrer le service de passerelle de données locale (PBIEgwService).
+**Atténuation** : assurez-vous que votre passerelle s’exécute sur l’ordinateur local où vous l’avez installée, et qu’elle peut se connecter à Internet.  Nous vous recommandons ne pas installer la passerelle sur un ordinateur susceptible d’être mis hors tension ou en veille. Vous pouvez également redémarrer le service de passerelle de données locale (PBIEgwService).
 
 #### <a name="error-the-provider-being-used-is-deprecated-systemdataoracleclient-requires-oracle-client-software-version-817-or-greater-see-httpsgomicrosoftcomfwlinkplinkid272376httpsgomicrosoftcomfwlinkplinkid272376-to-install-the-official-provider"></a>**Erreur**: Le fournisseur utilisé est déconseillé : System.Data.OracleClient requiert le logiciel client Oracle version 8.1.7 ou supérieure. Consultez [https://go.microsoft.com/fwlink/p/?LinkID=272376](https://go.microsoft.com/fwlink/p/?LinkID=272376) pour installer le fournisseur officiel.
 
-**Cause** : le kit de développement du client Oracle n’est pas installé sur l’ordinateur qui exécute la passerelle de données locale.  
+**Cause** : le kit de développement du client Oracle n’est pas installé sur l’ordinateur qui exécute la passerelle de données locale.  
 
 **Résolution** : téléchargez et installez le kit de développement logiciel du client Oracle sur le même ordinateur que la passerelle de données locale.
 
 #### <a name="error-table-tablename-does-not-define-any-key-columns"></a>**Erreur** : La table « [Tablename] » ne définit aucune colonne clé
 
-**Cause** : la table n’a pas de clé primaire.  
+**Cause** : la table n’a pas de clé primaire.  
 
 **Résolution** : le connecteur de la base de données Oracle requiert une table avec une colonne clé primaire.
 
 #### <a name="currently-not-supported"></a>Actuellement non pris en charge
 
-* Vues et procédures stockées 
+* Vues et procédures stockées 
 * Toute table avec des clés composites
 * Types d’objet imbriqués dans des tables
  
@@ -127,7 +127,7 @@ Consultez l’ensemble des déclencheurs et actions définis dans le swagger, ai
 
 Le [Forum Azure Logic Apps](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) est l’endroit idéal pour poser des questions, répondre aux questions posées et découvrir ce que font les autres utilisateurs de Logic Apps. 
 
-Vous pouvez améliorer Logic Apps et les connecteurs en votant et en soumettant vos idées sur [http://aka.ms/logicapps-wish](http://aka.ms/logicapps-wish). 
+Vous pouvez améliorer Logic Apps et les connecteurs en votant et en soumettant vos idées sur [https://aka.ms/logicapps-wish](https://aka.ms/logicapps-wish). 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

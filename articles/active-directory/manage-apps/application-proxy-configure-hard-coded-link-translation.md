@@ -15,12 +15,12 @@ ms.date: 05/04/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: it-pro
-ms.openlocfilehash: 0d139437a069406db2ae0f189480072f8063a327
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 73854cba151dfbebe53862a39fbe980502192c2d
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45982270"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230061"
 ---
 # <a name="redirect-hardcoded-links-for-apps-published-with-azure-ad-application-proxy"></a>Rediriger les liens codés en dur pour les applications publiées avec le Proxy d’application Azure AD
 
@@ -97,6 +97,7 @@ Pour améliorer les performances et la sécurité, certains liens ne sont pas tr
 
 - Les liens non inclus dans des balises de code. 
 - Liens dans un code autre que HTML ou CSS. 
+- Liens au format codé URL.
 - Liens internes ouverts à partir d’autres programmes. Les liens envoyés par e-mail ou message instantané ou inclus dans d’autres documents, ne sont pas traduits. Les utilisateurs doivent savoir comment accéder à l’URL externe.
 
 Si vous avez besoin de prendre en charge un de ces deux scénarios, vous pouvez utiliser les mêmes URL internes et externes, ce qui élimine le besoin de traduction de liens.  

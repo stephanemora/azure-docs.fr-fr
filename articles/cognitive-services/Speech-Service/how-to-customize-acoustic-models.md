@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: tutorial
 ms.date: 06/25/2018
 ms.author: panosper
-ms.openlocfilehash: 81449889ae9218f2b59ea48f10c676dcee9aa8b1
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 70fc9c34599f27eb5d67b79ef823f8037ae55ba9
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49466084"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50215240"
 ---
 # <a name="tutorial-create-a-custom-acoustic-model"></a>Tutoriel : Créer un modèle acoustique personnalisé
 
@@ -53,7 +53,7 @@ Un jeu de données acoustiques pour personnaliser le modèle acoustique se compo
 * Tous les fichiers audio du jeu de données doivent être stockés au format audio WAV (RIFF).
 * L’audio doit avoir un taux d’échantillonnage de 8 ou 16 kilohertz (kHz), et les valeurs échantillonnées doivent être stockées sous forme d’entiers (courts) de 16 bits de modulation d’impulsion codée (PCM) non compressés.
 * Seuls les fichiers audio avec un seul canal (mono) sont pris en charge.
-* La durée des fichiers audio doit être comprise entre 100 ms et 1 minute. Chaque fichier audio doit idéalement commencer et se terminer par un silence d’au moins 100 ms, un silence d’une durée comprise entre 500 ms et 1 seconde étant courant.
+* Les fichiers audio peuvent faire entre 100 microsecondes et 1 minute de long, mais doivent idéalement faire 10-12 secondes. Chaque fichier audio doit idéalement commencer et se terminer par un silence d’au moins 100 ms, un silence d’une durée comprise entre 500 ms et 1 seconde étant courant.
 * Si vous avez un bruit de fond dans vos données, nous vous recommandons d’avoir également dans vos données quelques exemples avec des segments de silence plus longs, par exemple quelques secondes, avant et/ou après le contenu vocal.
 * Chaque fichier audio doit être constitué d’un seul énoncé, par exemple une seule phrase prononcée, une seule requête ou une seule réplique d’un dialogue.
 * Chaque fichier audio du jeu de données doit avoir un nom de fichier unique et l’extension .wav.
@@ -69,7 +69,7 @@ Un jeu de données acoustiques pour personnaliser le modèle acoustique se compo
 | Taux d’échantillonnage | 8 000 Hertz (Hz) ou 16 000 Hz |
 | Canaux | 1 (mono) |
 | Format d’échantillonnage | PCM, entiers sur 16 bits |
-| Durée du fichier | 0,1 seconde < durée < 60 secondes |
+| Durée du fichier | 0,1 secondes < durée < 12 secondes | 
 | Silence de début/fin | > 0,1 seconde |
 | Format d’archive | .zip |
 | Taille d’archive maximale | 2 Go |

@@ -1,6 +1,6 @@
 ---
-title: Détails d’estimation de coût du planificateur de déploiement Azure Site Recovery pour le déploiement de Hyper-V vers Azure| Microsoft Docs
-description: Cet article décrit le détail de l’estimation du coût d’un rapport généré par le planificateur de déploiement Azure Site Recovery pour un scénario de déploiement de Hyper-V vers Azure.
+title: Examiner le rapport d’estimation des coûts du Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence de machines virtuelles Hyper-V sur Azure | Microsoft Docs
+description: Cet article explique comment examiner le rapport d’estimation des coûts généré par le Planificateur de déploiement Azure Site Recovery pour la récupération d’urgence d’Hyper-V sur Azure.
 services: site-recovery
 author: nsoneji
 manager: garavd
@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: nisoneji
-ms.openlocfilehash: 40a8e2e6d994608d4aa26f6d9b3723c0ee27d3db
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 0233446f817436632efc4110872e84b6b3105453
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387240"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50213183"
 ---
 # <a name="cost-estimation-report-by-azure-site-recovery-deployment-planner"></a>Rapport d’estimation de coût du planificateur de déploiement Azure Site Recovery 
 

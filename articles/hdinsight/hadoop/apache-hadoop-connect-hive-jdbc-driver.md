@@ -2,19 +2,19 @@
 title: Requête Hive par le biais du pilote JDBC - Azure HDInsight
 description: Utilisez le pilote JDBC depuis une application Java pour soumettre des requêtes Hive à Hadoop sur HDInsight. Se connecter à partir du client SQL SQuirrel et par programme.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/02/2018
-ms.author: jasonh
-ms.openlocfilehash: da2b3484f80f7116664cf5a25c7de99da723f202
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: d47d6abe3adaf76b67b88cffd53b0b46258931c8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041690"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014412"
 ---
 # <a name="query-hive-through-the-jdbc-driver-in-hdinsight"></a>Requête Hive via le pilote JDBC dans HDInsight
 
@@ -59,7 +59,7 @@ DriverManager.getConnection(connectionString,clusterAdmin,clusterPassword);
 
 SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêtes Hive avec votre cluster HDInsight. Les étapes suivantes supposent que vous avez déjà installé SQuirreL SQL.
 
-1. Créez un répertoire contenant les fichiers. Par exemple : `mkdir hivedriver`.
+1. Créez un répertoire contenant les fichiers. Par exemple : `mkdir hivedriver`.
 
 2. À partir d’une ligne de commande, utilisez les commandes suivantes pour copier les fichiers à partir du cluster HDInsight :
 
@@ -91,7 +91,7 @@ SQuirreL SQL est un client JDBC permettant d’exécuter à distance des requêt
     * **Nom** : Hive
     * **Exemple d’URL** : `jdbc:hive2://localhost:443/default;transportMode=http;ssl=true;httpPath=/hive2`
     * **Chemin d’accès à la classe supplémentaire** : utilisez le bouton Ajouter pour ajouter tous les fichiers jar téléchargés précédemment
-    * **Nom de la classe** : org.apache.hive.jdbc.HiveDriver
+    * **Nom de la classe**: org.apache.hive.jdbc.HiveDriver
 
    ![boîte de dialogue ajouter un pilote](./media/apache-hadoop-connect-hive-jdbc-driver/adddriver.png)
 

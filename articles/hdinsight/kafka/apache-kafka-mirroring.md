@@ -2,19 +2,19 @@
 title: Mettre en miroir les rubriques Apache Kafka - Azure HDInsight
 description: Découvrez comment utiliser la fonctionnalité de mise en miroir d’Apache Kafka afin de conserver un réplica Kafka sur un cluster HDInsight par la mise en miroir de rubriques sur un cluster secondaire.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/01/2018
-ms.openlocfilehash: 9f8204eb29566aaae9170c21b8dde33aa3178384
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 21fa41db2e205a7b17deae6d018308fe6e7ff213
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042701"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006768"
 ---
 # <a name="use-mirrormaker-to-replicate-apache-kafka-topics-with-kafka-on-hdinsight"></a>MirrorMaker permet de répliquer des rubriques Apache Kafka avec Kafka sur HDInsight
 
@@ -299,6 +299,6 @@ Dans ce document, vous avez appris à utiliser MirrorMaker pour créer un répli
 
 * [Documentation d’Apache Kafka MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) sur cwiki.apache.org.
 * [Prise en main d’Apache Kafka sur HDInsight](apache-kafka-get-started.md)
-* [Use Apache Spark with Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md) (Utilisation d’Apache Spark avec Kafka sur HDInsight)
-* [Use Apache Storm with Kafka on HDInsight](../hdinsight-apache-storm-with-kafka.md) (Utilisation d’Apache Storm avec Kafka sur HDInsight)
+* [Utilisation d’Apache Spark avec Kafka sur HDInsight](../hdinsight-apache-spark-with-kafka.md)
+* [Utilisation d’Apache Storm avec Kafka sur HDInsight](../hdinsight-apache-storm-with-kafka.md)
 * [Connect to Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md) (Se connecter à Kafka via un réseau virtuel Azure)

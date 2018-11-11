@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 5/21/2018
+ms.date: 10/29/2018
 ms.topic: article
 ms.service: azure-blockchain
-ms.reviewer: zeyadr
+ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: ee8057be98d18db5963a3e5f1ba1f8bd8d76fe05
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: c08557156848d4e7fcf0b1adbe6c8faa4ee00c82
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48240975"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50231370"
 ---
 # <a name="hyperledger-fabric-single-member-network"></a>Réseau à membre unique Hyperledger Fabric
 
@@ -28,7 +28,7 @@ Vous pouvez utiliser le modèle de solution Consortium de Fabric Hyperledger pou
 
 ## <a name="about-blockchain"></a>À propos de la technologie blockchain
 
-Si vous êtes un nouveau membre de la communauté blockchain, voici une opportunité exceptionnelle d’en savoir plus sur cette technologie de manière simple et configurable via Azure. Blockchain est la technologie sous-jacente derrière Bitcoin. Elle est toutefois bien plus qu’un simple activateur d’une monnaie virtuelle. Il s’agit d’un mélange de base de données, de système distribué et de technologies de chiffrement existants qui permet d’effectuer des calculs multipartites sécurisés offrant des garanties d’immuabilité, de vérifiabilité, d’auditabilité et de résilience en cas d’attaque. Différents protocoles utilisent différents mécanismes pour fournir ces attributs. [Hyperledger Fabric](https://github.com/hyperledger/fabric) est l’un de ces protocoles.
+Si vous êtes un nouveau membre de la communauté blockchain, ce modèle de solution est une opportunité exceptionnelle d’en savoir plus sur cette technologie de manière simple et configurable via Azure. Blockchain est la technologie sous-jacente derrière Bitcoin. Elle est toutefois bien plus qu’un simple activateur d’une monnaie virtuelle. Il s’agit d’un mélange de base de données, de système distribué et de technologies de chiffrement existants qui permet d’effectuer des calculs multipartites sécurisés offrant des garanties d’immuabilité, de vérifiabilité, d’auditabilité et de résilience en cas d’attaque. Différents protocoles utilisent différents mécanismes pour fournir ces attributs. [Hyperledger Fabric](https://github.com/hyperledger/fabric) est l’un de ces protocoles.
 
 ## <a name="consortium-architecture-on-azure"></a>Architecture Consortium sur Azure
 
@@ -36,7 +36,7 @@ Ce modèle déploie une topologie qui permet de tester et de simuler la producti
 
 Le réseau comprend trois types de nœuds :
 
-1. **Nœud de membres** : nœud exécutant le service d’appartenance à Fabric qui inscrit et gère les membres du réseau. Ce nœud peut éventuellement être en cluster dans un souci de scalabilité et de haute disponibilité. Toutefois, dans ce lab, un nœud à un seul membre est utilisé.
+1. **Nœud de membres** : nœud exécutant le service d’appartenance à Fabric qui inscrit et gère les membres du réseau. Ce nœud peut éventuellement être en cluster dans un souci d’extensibilité et de haute disponibilité. Toutefois, dans ce labo, un nœud à un seul membre est utilisé.
 2. **Nœuds des auteurs des commandes** : nœud exécutant le service de communication qui implémente une garantie de livraison, comme le nombre total de diffusions de commandes ou de transactions atomiques.
 3. **Nœuds homologues** : nœud validant les transactions et conservant l’état et une copie du registre distribué.
 
@@ -57,13 +57,13 @@ Une fois que vous avez un abonnement, accédez au [portail Azure](https://portal
 
 ## <a name="deployment"></a>Déploiement
 
-Pour commencer, sélectionnez **Blockchain à membre unique Hyperledger Fabric**, puis cliquez sur **Créer**. Le panneau **Bases** de l’Assistant s’ouvre.
+Pour commencer, sélectionnez **Blockchain à membre unique Hyperledger Fabric**, puis cliquez sur **Créer** pour ouvrir le panneau **Informations de base** dans l’assistant d’installation.
 
 Le déploiement de modèle vous guidera dans la configuration du réseau à plusieurs nœuds. Le flux de déploiement est divisé en trois étapes : Bases, Configuration du réseau et Configuration de Fabric.
 
 ### <a name="basics"></a>Concepts de base
 
-Sous le panneau **Bases**, spécifiez les valeurs des paramètres standard pour n’importe quel déploiement, comme l’abonnement, le groupe de ressources et les propriétés de base de la machine virtuelle.
+Dans le panneau **Informations de base**, spécifiez les valeurs des paramètres standard pour un déploiement. Par exemple, abonnement, groupe de ressources et propriétés de machine virtuelle de base.
 
 ![Concepts de base](./media/hyperledger-fabric-single-member-blockchain/basics.png)
 
@@ -72,17 +72,17 @@ Nom du paramètre| Description| Valeurs autorisées|Valeur par défaut
 **Préfixe de ressource**| Chaîne utilisée comme base pour nommer les ressources déployées.|6 caractères au maximum|N/D
 **Nom d’utilisateur de la machine virtuelle**| Nom d’utilisateur de l’administrateur pour chaque machine virtuelle déployée pour ce membre.|De 1 à 64 caractères|azureuser
 **Type d’authentification**| Méthode d’authentification auprès de la machine virtuelle.|Mot de passe ou clé publique SSH|Mot de passe
-**Mot de passe (Type d’authentification = Mot de passe)**|Mot de passe du compte administrateur pour chacune des machines virtuelles déployées. Le mot de passe doit contenir 3 des éléments suivants : une minuscule, une majuscule, un chiffre et un caractère spécial.<br /><br />Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement.|Entre 12 et 72 caractères|N/D
+**Mot de passe (Type d’authentification = Mot de passe)**|Mot de passe du compte administrateur pour chacune des machines virtuelles déployées. Le mot de passe doit contenir trois types de caractère parmi les suivants : une minuscule, une majuscule, un chiffre et un caractère spécial.<br /><br />Initialement, toutes les machines virtuelles ont le même mot de passe, que vous pouvez modifier après le provisionnement.|Entre 12 et 72 caractères|N/D
 **Clé SSH (Type d’authentification = Clé publique)**|Clé de shell sécurisée utilisée pour la session à distance.||N/D
 **Restreindre l’accès par adresse IP**|Paramètre permettant de déterminer si l’accès au point de terminaison client est limité ou non.|Oui/Non| Non 
 **Adresse IP ou sous-réseau autorisé (restreindre l’accès par adresse IP = Oui)**|Adresse IP ou l’ensemble d’adresses IP autorisées à accéder au point de terminaison client quand le contrôle d’accès est activé.||N/D
 **Abonnement** |Abonnement sur lequel effectuer le déploiement.
-**Groupe de ressources** |Groupe de ressources sur lequel déployez le réseau de consortium.||N/D
+**Groupe de ressources** |Groupe de ressources sur lequel déployer le réseau de consortium.||N/D
 **Lieu** |Région Azure dans laquelle déployer l’empreinte réseau du premier membre.
 
 ### <a name="network-size-and-performance"></a>Taille et performances du réseau
 
-Ensuite, sous **Taille et performances du réseau**, spécifiez des valeurs pour la taille du réseau de consortium, comme le nombre de nœuds d’appartenances, d’auteurs des commandes et homologues. Choisissez les options d’infrastructure et la taille de vos machines virtuelles.
+Ensuite, dans **Taille et performances du réseau**, spécifiez des valeurs pour la taille du réseau de consortium. Par exemple, le nombre de nœuds homologues, d’appartenance et d’auteur des commandes. Choisissez les options d’infrastructure et la taille de vos machines virtuelles.
 
 ![Taille et performances du réseau](./media/hyperledger-fabric-single-member-blockchain/network-size-performance.png)
 
@@ -135,7 +135,7 @@ L’écran de détails affiche un résumé du déploiement, suivi de trois param
 
 - Le paramètre _API-ENDPOINT_ peut être utilisé une fois que vous avez déployé une application sur le réseau.
 - Le paramètre _PREFIX_, également appelé _préfixe de déploiement_, identifie de façon unique vos ressources et votre déploiement. Il est utilisé quand vous utilisez les outils en ligne de commande.
-- Le paramètre _SSH-TO-FIRST-VM_ vous donne une commande SSH pré-assemblée avec tous les paramètres appropriés nécessaires pour se connecter à la première machine virtuelle de votre réseau. dans le cas de Fabric Hyperledger, ce sera le nœud de l’autorité de certification Fabric.
+- Le paramètre _SSH-TO-FIRST-VM_ vous donne une commande SSH pré-assemblée avec tous les paramètres appropriés nécessaires pour se connecter à la première machine virtuelle de votre réseau. Pour Hyperledger Fabric, ce sera le nœud de l’autorité de certification Fabric.
 
 Vous pouvez vous connecter à distance aux machines virtuelles de chaque nœud via le protocole SSH avec le nom d’utilisateur administrateur et le mot de passe/la clé SSH fournis. Étant donné que les machines virtuelles de nœud n’ont pas leurs propres adresses IP publiques, vous devez y accéder par le biais de l’équilibreur de charge et spécifier le numéro de port. La commande SSH permettant d’accéder au premier nœud de la transaction est la troisième sortie de modèle tiers, **SSH-TO-FIRST-VM (pour l’exemple de déploiement : `sh -p 3000 azureuser@hlf2racpt.northeurope.cloudapp.azure.com`). Pour obtenir des nœuds de transaction supplémentaires, incrémentez le numéro de port d’une unité (par exemple, le premier nœud de transaction est sur le port 3000, le deuxième est sur 3001, le troisième est sur 3002, etc.).
 

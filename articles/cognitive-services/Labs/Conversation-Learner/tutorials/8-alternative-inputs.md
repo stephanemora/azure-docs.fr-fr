@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 8d3b3f419ceacbb9a6fe2b19cf68ea6873de536f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 3b38cc265b4adfb301dc1165e02b17a8aa7c9589
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171015"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252545"
 ---
 # <a name="how-to-use-alternative-inputs"></a>Guide pratique pour utiliser les entrées de remplacement
 
@@ -23,7 +23,7 @@ Ce tutoriel montre comment utiliser le champ « Entrées de remplacement » de
 
 ## <a name="video"></a>Vidéo
 
-[![Aperçu du didacticiel 8](http://aka.ms/cl-tutorial-08-preview)](http://aka.ms/blis-tutorial-08)
+[![Aperçu du didacticiel 8](https://aka.ms/cl-tutorial-08-preview)](https://aka.ms/blis-tutorial-08)
 
 ## <a name="requirements"></a>Configuration requise
 Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.
@@ -51,7 +51,7 @@ Les « entrées de remplacement » sont des énoncés que l’utilisateur aura
 1. Cliquez sur Actions, puis sur Nouvelle action.
 2. Dans Réponse, tapez « Quelle ville souhaitez-vous ? ».
 3. Dans Entités disqualifiantes, entrez $city.
-3. Click Create
+3. Cliquez sur Create.
 
 Ensuite, créez la deuxième action :
 
@@ -66,7 +66,7 @@ Créez la troisième action :
 3. Dans Réponse, tapez « Essayez de demander la météo ».
     - Ce serait la réponse à une question de l’utilisateur du type « Que peut faire le système ? ».
 4. Dans Entités disqualifiantes, entrez $city.
-4. Click Create
+4. Cliquez sur Create.
 
 Vous avez maintenant trois actions.
 
@@ -100,7 +100,7 @@ Voyons ce qui se passe si le propos de l’utilisateur est similaire d’un poin
 
 1. Cliquez sur Nouvelle Action, puis sur Nouveau dialogue d’apprentissage.
 2. Tapez « Aide ».
-3. Cliquez sur Attribuer un score aux actions.
+3. Cliquez sur Score Actions (Actions de score).
     - Les scores des deux réponses potentielles sont très proches. ce qui indique que le modèle ne connaît pas la limite entre les deux actions.
 6. Cliquez sur Abandonner l’apprentissage et Confirmer.
 
@@ -148,7 +148,7 @@ Essayons les variantes :
 
 1. Cliquez sur Nouveau dialogue d’apprentissage.
 2. Tapez « Quelles sont vos fonctionnalités ? ».
-3. Cliquez sur Attribuer un score aux actions.
+3. Cliquez sur Score Actions (Actions de score).
     - Les scores sont maintenant plus déterminants pour l’action suivante, qui indique le degré de certitude du modèle.
 2. Sélectionnez « Essayez de demander la météo ».
 6. Cliquez sur Apprentissage terminé.

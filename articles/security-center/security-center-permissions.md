@@ -4,7 +4,7 @@ description: Cet article explique comment Azure Security Center utilise le contr
 services: security-center
 cloud: na
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 ms.assetid: ''
 ms.service: security-center
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/13/2017
-ms.author: terrylan
-ms.openlocfilehash: b93b57d50ccf5d5dfb092bdb71820da77f345878
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 42220a94eb0d0259b8b410e7343ffbfe09e8bfa5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295460"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007856"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorisations dans Azure Security Center
 
@@ -44,7 +44,7 @@ Le tableau suivant affiche les rôles et les actions autorisées dans Security C
 | Rôle | Modifier une stratégie de sécurité | Appliquer des recommandations de sécurité à une ressource | Ignorer les alertes et les recommandations | Afficher les alertes et les recommandations |
 |:--- |:---:|:---:|:---:|:---:|
 | Propriétaire de l’abonnement | X | X | X | X |
-| Collaborateur de l’abonnement | X | X | X | X |
+| Collaborateur de l’abonnement | -- | X | X | X |
 | Propriétaire du groupe de ressources | -- | X | -- | X |
 | Collaborateur du groupe de ressources | -- | X | -- | X |
 | Lecteur | -- | -- | -- | X |

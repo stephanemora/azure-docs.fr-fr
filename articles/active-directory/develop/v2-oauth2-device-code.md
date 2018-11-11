@@ -17,12 +17,12 @@ ms.date: 10/02/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 83c1deb7c767c29046e6c1af4452270e90b391df
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 29cbb96cc6dec4bac601e8795599f77c955c418a
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987730"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50230827"
 ---
 # <a name="azure-active-directory-v20-and-the-oauth-20-device-code-flow"></a>Azure Active Directory v2.0 et le flux de code d’appareil OAuth 2.0
 
@@ -113,7 +113,7 @@ device_code: GMMhmHCXhWEzkobqIHGG_EnNYYsAkukHspeYUk9E8
 | `expired_token`|  `expires_in` secondes minimum se sont écoulées, et l’authentification n’est plus possible avec ce `device_code`. | Arrêtez l’interrogation et revenez à un état non authentifié. |
 
 
-### <a name="succesful-authentication-response"></a>Réponse d’authentification réussie
+### <a name="successful-authentication-response"></a>Réponse d’authentification réussie
 
 Une réponse de jeton réussie se présente ainsi :
 
