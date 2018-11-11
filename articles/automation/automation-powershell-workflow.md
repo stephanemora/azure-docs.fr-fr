@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4b48400920176055e7eb166c7502c06e67b29185
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 00f6f84a2065a67e999149e4b0f9e28f18e5e297
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436359"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239421"
 ---
 # <a name="learning-key-windows-powershell-workflow-concepts-for-automation-runbooks"></a>Découvrir les principaux concepts de workflow Windows PowerShell pour les runbooks Automation
 
@@ -22,7 +22,7 @@ Les Runbooks d'Azure Automation sont implémentés en tant que workflows Windows
 
 Un workflow est une séquence d'étapes liées et programmées qui permet d'effectuer des tâches longues ou nécessitant la coordination de plusieurs phases entre plusieurs appareils ou nœuds gérés. Les avantages d'un workflow par rapport à un script normal incluent la possibilité d'exécuter simultanément une action sur plusieurs appareils et de récupérer automatiquement après une défaillance. Un workflow Windows PowerShell est un script Windows PowerShell qui utilise Windows Workflow Foundation. Le workflow est écrit avec la syntaxe Windows PowerShell et lancé par Windows PowerShell, mais il est traité par Windows Workflow Foundation.
 
-Plus d'informations sur les rubriques de cet article, consultez [Présentation du workflow Windows PowerShell](http://technet.microsoft.com/library/jj134242.aspx).
+Plus d'informations sur les rubriques de cet article, consultez [Présentation du workflow Windows PowerShell](https://technet.microsoft.com/library/jj134242.aspx).
 
 ## <a name="basic-structure-of-a-workflow"></a>Structure de base d'un workflow
 
@@ -45,9 +45,9 @@ Le code d'un workflow PowerShell est quasiment identique au code d'un script Pow
 
 ### <a name="activities"></a>Activités
 
-Une activité est une tâche spécifique dans un workflow. Tout comme un script se compose d'une ou de plusieurs commandes, un workflow se compose d'une ou de plusieurs activités exécutées en séquence. Le workflow Windows PowerShell convertit automatiquement la plupart des applets de commande Windows PowerShell en activités lors de son exécution. Lorsque vous spécifiez une de ces applets de commande dans votre Runbook, l’activité correspondante est exécutée par Windows Workflow Foundation. Pour ces applets de commande sans activité correspondante, le workflow Windows PowerShell exécute automatiquement l'applet de commande au sein d'une activité [InlineScript](#inlinescript) . Il existe un ensemble d'applets de commande qui sont exclues et ne peuvent pas être utilisées dans un workflow, à moins que vous ne les incluiez explicitement dans un bloc InlineScript. Pour plus d'informations sur ces concepts, consultez [Utilisation des activités dans les workflows de script](http://technet.microsoft.com/library/jj574194.aspx).
+Une activité est une tâche spécifique dans un workflow. Tout comme un script se compose d'une ou de plusieurs commandes, un workflow se compose d'une ou de plusieurs activités exécutées en séquence. Le workflow Windows PowerShell convertit automatiquement la plupart des applets de commande Windows PowerShell en activités lors de son exécution. Lorsque vous spécifiez une de ces applets de commande dans votre Runbook, l’activité correspondante est exécutée par Windows Workflow Foundation. Pour ces applets de commande sans activité correspondante, le workflow Windows PowerShell exécute automatiquement l'applet de commande au sein d'une activité [InlineScript](#inlinescript) . Il existe un ensemble d'applets de commande qui sont exclues et ne peuvent pas être utilisées dans un workflow, à moins que vous ne les incluiez explicitement dans un bloc InlineScript. Pour plus d'informations sur ces concepts, consultez [Utilisation des activités dans les workflows de script](https://technet.microsoft.com/library/jj574194.aspx).
 
-Les activités de workflow partagent un ensemble de paramètres communs pour configurer leur opération. Pour plus d’informations sur les paramètres communs de flux de travail, consultez [about_WorkflowCommonParameters](http://technet.microsoft.com/library/jj129719.aspx).
+Les activités de workflow partagent un ensemble de paramètres communs pour configurer leur opération. Pour plus d’informations sur les paramètres communs de flux de travail, consultez [about_WorkflowCommonParameters](https://technet.microsoft.com/library/jj129719.aspx).
 
 ### <a name="positional-parameters"></a>Paramètres positionnels
 
@@ -152,7 +152,7 @@ Même si les activités InlineScript peuvent être critiques dans certains workf
 * Vous ne pouvez pas effectuer [d’exécution en parallèle](#parallel-processing) à l’intérieur d’un bloc InlineScriptBlock.
 * InlineScript affecte l'extensibilité du workflow puisque l'activité maintient la session Windows PowerShell pendant toute la durée du bloc InlineScript.
 
-Pour plus d’informations sur l’utilisation d’InlineScript, consultez [Exécution des commandes Windows PowerShell dans un workflow](http://technet.microsoft.com/library/jj574197.aspx) et [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).
+Pour plus d’informations sur l’utilisation d’InlineScript, consultez [Exécution des commandes Windows PowerShell dans un workflow](https://technet.microsoft.com/library/jj574197.aspx) et [about_InlineScript](https://technet.microsoft.com/library/jj649082.aspx).
 
 ## <a name="parallel-processing"></a>Traitement en parallèle
 
@@ -291,8 +291,8 @@ workflow CreateTestVms
 
 Cette procédure n’est pas nécessaire si vous vous authentifiez à l’aide d’un compte d’identification configuré avec un service principal.
 
-Pour plus d'informations sur les points de contrôle, consultez [Ajout de points de contrôle à un workflow de script](http://technet.microsoft.com/library/jj574114.aspx).
+Pour plus d'informations sur les points de contrôle, consultez [Ajout de points de contrôle à un workflow de script](https://technet.microsoft.com/library/jj574114.aspx).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour une prise en main des runbooks de workflow PowerShell, consultez [Mon premier runbook PowerShell Workflow](automation-first-runbook-textual.md)
+* Pour une prise en main des Runbooks de workflow PowerShell, consultez [Mon premier Runbook PowerShell Workflow](automation-first-runbook-textual.md)

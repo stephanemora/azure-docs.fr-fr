@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: lbosq
-ms.openlocfilehash: bf91ec77f8d7248c6fa2047636f295c187f626c8
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 7e9de68866b5e5849d0e48ad5073fc7b89fbb1ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078220"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239302"
 ---
 # <a name="using-a-partitioned-graph-in-azure-cosmos-db"></a>Utilisation d’un graphique partitionné dans Azure Cosmos DB
 
-Une des fonctionnalités clés de l’API Gremlin dans Azure Cosmos DB est la capacité de gérer des graphes à grande échelle avec la scalabilité horizontale. Ce processus est possible grâce aux [fonctionnalités de partitionnement d’Azure Cosmos DB](partition-data.md#how-does-partitioning-work), qui utilisent des conteneurs, capables d’évoluer de manière indépendante en termes de débit et de stockage. Azure Cosmos DB prend en charge les types de conteneurs suivants sur toutes les API :
+Une des fonctionnalités clés de l’API Gremlin dans Azure Cosmos DB est la capacité de gérer des graphes à grande échelle avec la scalabilité horizontale. Ce processus est possible grâce aux [fonctionnalités de partitionnement d’Azure Cosmos DB](partition-data.md), qui utilisent des conteneurs, capables d’évoluer de manière indépendante en termes de débit et de stockage. Azure Cosmos DB prend en charge les types de conteneurs suivants sur toutes les API :
 
 - **Conteneur fixe** : ces conteneurs peuvent stocker une base de données de graphiques dont la taille peut atteindre 10 Go et lui allouer jusqu’à 10 000 unités de requête par seconde. Pour créer un conteneur fixe, il est inutile de spécifier une propriété de clé de partition dans les données.
 

@@ -8,19 +8,19 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: cherylmc
-ms.openlocfilehash: 10b623947b6e776c4f8f41e8424262d7f2a3e933
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 008d1dca14f6d1850d7fe13d2e21948c4cd5b4e2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343373"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245186"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-powershell-classic"></a>Connectez un réseau virtuel à un circuit ExpressRoute à l’aide de PowerShell (classique)
 > [!div class="op_single_selector"]
-> * [portail Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Portail Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
-> * [interface de ligne de commande Azure](howto-linkvnet-cli.md)
-> * [Vidéo - portail Azure](http://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [Interface de ligne de commande Azure](howto-linkvnet-cli.md)
+> * [Vidéo - portail Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
 > * [PowerShell (classique)](expressroute-howto-linkvnet-classic.md)
 >
 
@@ -52,7 +52,7 @@ Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\Azure\Azur
 Import-Module 'C:\Program Files\WindowsPowerShell\Modules\Azure\5.1.1\ExpressRoute\ExpressRoute.psd1'
 ```
 
-Si vous avez besoin d’informations sur Azure PowerShell, consultez [Prise en main des applets de commande Azure PowerShell](/powershell/azure/overview) pour obtenir les procédures pas à pas de configuration de votre ordinateur pour l’utilisation des modules Azure PowerShell.
+Pour plus d’informations sur Azure PowerShell, et notamment une aide détaillée pour configurer son ordinateur de façon à pouvoir utiliser les modules Azure PowerShell, voir [Bien démarrer avec les cmdlets Azure PowerShell](/powershell/azure/overview).
 
 ### <a name="sign-in"></a>Se connecter
 
@@ -123,7 +123,7 @@ Le propriétaire du circuit autorise les administrateurs d’autres abonnements 
 New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
 ```
 
-  Retour :
+  Renvoie :
 
   ```powershell
   Description         : Dev-Test Links
@@ -140,7 +140,7 @@ Le propriétaire du circuit peut vérifier toutes les autorisations émises sur 
 ```powershell
 Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
 ```
-  Retour :
+  Renvoie :
 
   ```powershell
   Description         : EngineeringTeam
@@ -170,7 +170,7 @@ Le propriétaire du circuit peut modifier les autorisations à l’aide de l’a
 Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
 ```
 
-  Retour :
+  Renvoie :
 
   ```powershell
   Description         : Dev-Test Links
@@ -198,7 +198,7 @@ L’utilisateur du circuit peut vérifier les autorisations à l’aide de l’a
 Get-AzureAuthorizedDedicatedCircuit
 ```
 
-  Retour :
+  Renvoie :
 
   ```powershell
   Bandwidth                        : 200
@@ -220,7 +220,7 @@ L’utilisateur du circuit peut exécuter l’applet de commande suivante pour �
 New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
 ```
 
-  Retour :
+  Renvoie :
 
   ```powershell
   State VnetName

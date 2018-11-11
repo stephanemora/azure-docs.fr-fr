@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: genemi
 manager: craigg
 ms.date: 06/20/2018
-ms.openlocfilehash: 58f902edcd417809d1bb47a231cb1c2ac2f579d1
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 707e10f77bf00ed12f09a23e490105f52ceed4ab
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47063589"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241597"
 ---
 # <a name="sql-database-application-development-overview"></a>Vue d’ensemble du développement de base de données SQL
 Cet article explique les aspects de base qu’un développeur doit prendre en compte lors de l’écriture de code permettant d’établir une connexion à la base de données SQL Azure.
@@ -61,7 +61,7 @@ Lorsqu’une erreur temporaire se produit au moment de la connexion à la base d
 
 ## <a name="managing-connections"></a>Gestion des connexions
 * Dans votre logique de connexion client, définissez le délai d’expiration sur 30 secondes.  La valeur par défaut de 15 secondes est trop courte pour les connexions qui reposent sur Internet.
-* Si vous utilisez un [pool de connexions](http://msdn.microsoft.com/library/8xx3tyca.aspx), veillez à fermer la connexion dès que votre programme ne l’utilise plus activement et qu’il ne se prépare pas à le réutiliser.
+* Si vous utilisez un [pool de connexions](https://msdn.microsoft.com/library/8xx3tyca.aspx), veillez à fermer la connexion dès que votre programme ne l’utilise plus activement et qu’il ne se prépare pas à le réutiliser.
 
 ## <a name="network-considerations"></a>Considérations relatives au réseau
 * Assurez-vous que le pare-feu de l’ordinateur qui héberge votre programme client autorise les communications TCP sortantes sur le port 1433.  Pour en savoir plus, consultez [Configurer un pare-feu Microsoft Azure SQL Database](sql-database-configure-firewall-settings.md).

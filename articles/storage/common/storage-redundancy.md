@@ -1,6 +1,6 @@
 ---
 title: Réplication de données dans le stockage Azure | Microsoft Docs
-description: Les données de votre compte Stockage Microsoft Azure sont répliquées à des fins de durabilité et de haute disponibilité. Les options de réplication incluent le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS), le stockage géo-redondant (GRS) et le stockage géo-redondant avec accès en lecture (RA-GRS).
+description: Les données de votre compte Stockage Microsoft Azure sont répliquées à des fins de durabilité et de haute disponibilité. Les options de réplication incluent le stockage localement redondant (LRS), le stockage redondant interzone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant avec accès en lecture (RA-GRS).
 services: storage
 author: tamram
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/08/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 618e1f5249f2e05c26e91231b4283d82546a880b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 7afbdaba46674b69aa601355e80160e7c72ff373
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954485"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240968"
 ---
 # <a name="azure-storage-replication"></a>Réplication Azure Storage
 
@@ -26,7 +26,7 @@ La réplication garantit que votre compte de stockage répond aux exigences du [
 Lorsque vous créez un compte de stockage, vous pouvez sélectionner une des options de réplication suivantes :
 
 * [Stockage localement redondant (LRS)](storage-redundancy-lrs.md)
-* [Stockage redondant dans une zone (ZRS)](storage-redundancy-zrs.md)
+* [Stockage redondant interzone (ZRS)](storage-redundancy-zrs.md)
 * [Stockage géo-redondant (GRS)](storage-redundancy-grs.md)
 * [Stockage géo-redondant avec accès en lecture (RA-GRS)](storage-redundancy-grs.md#read-access-geo-redundant-storage)
 
@@ -39,7 +39,7 @@ Le tableau suivant fournit une brève vue d’ensemble de l’étendue de la dur
 | Panne à l’échelle d’une région                                                                                     | Non                               | Non                                | OUI                                  | OUI                                  |
 | Accès en lecture aux données (dans une région distante, géorépliquée) en cas d’indisponibilité à l’échelle de la région | Non                               | Non                                | Non                                    | Oui                                  |
 | Conçu pour assurer une durabilité des objets \_\_ sur une année donnée                                          | Au moins 99,999999999 % (11 chiffres 9) | Au moins 99,9999999999 % (12 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) | Au moins 99,99999999999999 % (16 chiffres 9) |
-| Types de compte de stockage pris en charge                                                                   | GPv2, GPv1, Blob                | GPv2, GPv1 (par le biais de PowerShell, d’Azure CLI ou de l’API du fournisseur de ressources)                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
+| Types de compte de stockage pris en charge                                                                   | GPv2, GPv1, Blob                | GPv2                             | GPv2, GPv1, Blob                     | GPv2, GPv1, Blob                     |
 | Contrat SLA de disponibilité pour les requêtes de lecture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,99 % (99,9 % pour le niveau d’accès froid) |
 | Contrat SLA de disponibilité pour les requêtes d’écriture | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) | Au moins 99,9 % (99 % pour le niveau d’accès froid) |
 
@@ -54,7 +54,7 @@ Pour obtenir des informations sur les garanties de Stockage Azure en matière de
 Vous pouvez modifier la stratégie de réplication de votre compte de stockage à l’aide du [portail Azure](https://portal.azure.com/), [d’Azure PowerShell](storage-powershell-guide-full.md), [d’Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) ou de l’une des nombreuses [bibliothèques clientes Azure](https://docs.microsoft.com/azure/index?view=azure-dotnet#pivot=sdkstools). La modification du type de réplication de votre compte de stockage n’entraîne pas de temps d’arrêt.
 
    > [!NOTE]
-   > Actuellement, vous ne pouvez utiliser ni le portail ni une API pour convertir votre compte en stockage ZRS. Si vous souhaitez convertir la réplication de votre compte en ZRS, consultez [Stockage redondant dans une zone (ZRS)](storage-redundancy-zrs.md) pour plus d’informations.
+   > Actuellement, vous ne pouvez utiliser ni le portail ni une API pour convertir votre compte en stockage ZRS. Si vous souhaitez convertir la réplication de votre compte en stockage redondant interzone (ZRS), consultez [Stockage redondant interzone (ZRS)](storage-redundancy-zrs.md) pour plus d’informations.
     
 ### <a name="are-there-any-costs-to-changing-my-accounts-replication-strategy"></a>La modification de la stratégie de réplication de mon compte implique-t-elle des coûts ?
 Cela dépend de votre chemin de conversion. Voici le classement des offres de redondance de la moins coûteuse à la plus chère : LRS, ZRS, GRS et RA-GRS. Par exemple, une migration *à partir de* LRS implique des frais supplémentaires, car vous passez à un niveau de redondance plus sophistiqué. Une migration *vers* GRS ou RA-GRS entraîne des frais de sortie de la bande passante, car vos données (dans la région primaire) sont répliquées vers la région secondaire distante. Il s’agit de frais uniques dus lors de l’installation initiale. Une fois les données copiées, aucuns frais supplémentaires de conversion ne sont générés. Vous serez facturé uniquement pour répliquer des données nouvelles ou mises à jour vers des données existantes. Pour plus d’informations sur les coûts de bande passante, consultez la [page de tarification de Stockage Azure](https://azure.microsoft.com/pricing/details/storage/blobs/).
@@ -64,9 +64,9 @@ Si vous remplacez un stockage GRS par un stockage LRS, il n’existe aucun coût
 ## <a name="see-also"></a>Voir aussi
 
 - [Stockage localement redondant (LRS) : redondance des données à faible coût pour le stockage Azure](storage-redundancy-lrs.md)
-- [Stockage redondant dans une zone (ZRS) : applications de stockage Azure hautement disponibles](storage-redundancy-zrs.md)
+- [Stockage redondant interzone (ZRS) : applications de stockage Azure hautement disponibles](storage-redundancy-zrs.md)
 - [Stockage géoredondant (GRS) : réplication interrégion pour le stockage Azure](storage-redundancy-grs.md)
 - [Objectifs de performance et d’extensibilité du Stockage Azure](storage-scalability-targets.md)
 - [Conception d’applications hautement disponibles à l’aide du stockage RA-GRS](../storage-designing-ha-apps-with-ragrs.md)
-- [Options de redondance et stockage géo-redondant avec accès en lecture de Stockage Microsoft Azure ](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
-- [Document SOSP - Stockage Azure : service de stockage cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
+- [Options de redondance et stockage géo-redondant avec accès en lecture de Stockage Microsoft Azure ](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx)
+- [Document SOSP - Stockage Azure : service de stockage cloud à haute disponibilité et à cohérence forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)

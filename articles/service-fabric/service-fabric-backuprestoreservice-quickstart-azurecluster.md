@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion) | Microsoft Docs'
+title: Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion) | Microsoft Docs
 description: Utilisez la fonctionnalité de sauvegarde et de restauration périodiques de Service Fabric pour activer la sauvegarde périodique des données de votre application.
 services: service-fabric
 documentationcenter: .net
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/04/2018
 ms.author: hrushib
-ms.openlocfilehash: 50ee0d91b27805e4db785e5df211660900333e7f
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ef92212b84496802dc2464498a0b6789f79a729b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990297"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246699"
 ---
-# <a name="quickstart-periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Démarrage rapide : Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion)
+# <a name="periodic-backup-and-restore-in-azure-service-fabric-preview"></a>Sauvegarde et restauration périodiques dans Azure Service Fabric (préversion)
 > [!div class="op_single_selector"]
 > * [Clusters sur Azure](service-fabric-backuprestoreservice-quickstart-azurecluster.md) 
 > * [Clusters autonomes](service-fabric-backuprestoreservice-quickstart-standalonecluster.md)

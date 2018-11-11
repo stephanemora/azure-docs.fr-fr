@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: d2e09c837597dfd15e6258cbd0100762b098eedf
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b9a98cea8ee19846afc30b322c3fdacb21f2bf44
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523483"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242447"
 ---
 # <a name="how-to-deploy-azure-files"></a>Comment déployer Azure Files
 [Azure Files](storage-files-introduction.md) offre des partages de fichiers entièrement gérés dans le cloud, accessibles via le protocole SMB standard. Cet article explique comment déployer pratiquement Azure Files au sein de votre organisation.
@@ -108,7 +108,7 @@ Robocopy est un outil de copie bien connu fourni avec Windows et Windows Server.
 ### <a name="azcopy"></a>AzCopy
 AzCopy est un utilitaire de ligne de commande conçu pour copier des données à destination et à partir d’Azure Files, ou d’un stockage blob Azure, en utilisant des commandes simples avec des performances optimales. L’utilisation d’AzCopy est simple :
 
-1. Téléchargez la [dernière version d’AzCopy sur Windows](http://aka.ms/downloadazcopy) ou [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
+1. Téléchargez la [dernière version d’AzCopy sur Windows](https://aka.ms/downloadazcopy) ou [Linux](../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#download-and-install-azcopy).
 2. Utilisez `azcopy` dans la ligne de commande pour déplacer les données vers le partage de fichiers Azure. La syntaxe sous Windows est la suivante : 
 
     ```

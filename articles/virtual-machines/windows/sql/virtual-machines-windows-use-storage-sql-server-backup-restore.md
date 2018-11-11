@@ -14,18 +14,18 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 39d4f452143454a345bd91f550e44c93651ff933
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 0fdf768008161fbb72e48dae937a4172222dbb63
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29399047"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239744"
 ---
 # <a name="use-azure-storage-for-sql-server-backup-and-restore"></a>Utilisation du stockage Azure pour la sauvegarde et la restauration de SQL Server
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 À partir de SQL Server 2012 SP1 CU2, vous pouvez écrire des sauvegardes SQL Server directement dans le service de stockage d’objets blob Azure. Vous pouvez utiliser cette fonctionnalité pour les opérations de sauvegarde et de restauration à partir du service d’objets blob Azure avec une base de données SQL Server locale ou une base de données SQL Server sur une machine virtuelle Azure. La sauvegarde dans le cloud offre les avantages de la disponibilité, du stockage hors site géo-répliqué sans limite et de la facilité de migration des données vers et depuis le cloud. Vous pouvez émettre des instructions BACKUP ou RESTORE en utilisant Transact-SQL ou SMO.
 
-SQL Server 2016 introduit de nouvelles fonctionnalités ; Vous pouvez utiliser la [sauvegarde instantanée de fichier](http://msdn.microsoft.com/library/mt169363.aspx) pour effectuer des sauvegardes quasi instantanées et des restaurations extrêmement rapides.
+SQL Server 2016 introduit de nouvelles fonctionnalités ; Vous pouvez utiliser la [sauvegarde instantanée de fichier](https://msdn.microsoft.com/library/mt169363.aspx) pour effectuer des sauvegardes quasi instantanées et des restaurations extrêmement rapides.
 
 Cette rubrique explique pourquoi vous pourriez préférer utiliser le stockage Azure pour les sauvegardes SQL, puis décrit les composants impliqués. Vous pouvez utiliser les ressources fournies à la fin de l’article pour accéder aux procédures pas à pas et à des informations supplémentaires pour utiliser ce service avec vos sauvegardes SQL Server.
 
@@ -37,10 +37,10 @@ La sauvegarde de SQL Server pose diverses difficultés. Ces défis comprennent l
 * **Matériel géré**: il n’y a aucun frais de gestion du matériel avec les services Azure. Ces derniers gèrent le matériel et fournissent une géo-réplication à des fins de redondance et de protection contre les défaillances matérielles.
 * **Stockage illimité**: en activant une sauvegarde directe dans les objets blob Azure, vous avez accès à un stockage quasi illimité. De façon alternative, la sauvegarde sur un disque de machine virtuelle Azure présente des limites basées sur la taille de la machine. Le nombre de disques que vous pouvez attacher à une machine virtuelle Azure est limité pour les sauvegardes. Cette limite est de 16 disques pour une instance très volumineuse et un nombre inférieur pour les instances plus petites.
 * **Disponibilité des sauvegardes**: Les sauvegardes stockées dans des objets blob Azure sont disponibles depuis n’importe où et à tout moment et facilement accessibles pour les restaurations sur un serveur SQL Server local ou un autre serveur SQL en cours d’exécution sur une machine virtuelle Azure, sans avoir besoin d’attacher/détacher la base de données ni télécharger et attacher le disque dur virtuel.
-* **Coût**: ne payez que pour le service utilisé. Peut être économique comme option d'archivage hors site et de sauvegarde. Pour plus d’informations, consultez les pages [Calcul des coûts Azure](http://go.microsoft.com/fwlink/?LinkId=277060 "Calcul des coûts") et [Article sur les tarifs Azure](http://go.microsoft.com/fwlink/?LinkId=277059 "Article sur les tarifs").
-* **Instantanés de stockage**: quand les fichiers de base de données sont stockés dans un objet blob Azure et que vous utilisez SQL Server 2016, vous pouvez utiliser la [sauvegarde instantanée de fichiers](http://msdn.microsoft.com/library/mt169363.aspx) pour effectuer des sauvegardes quasi instantanées et des restaurations extrêmement rapides.
+* **Coût**: ne payez que pour le service utilisé. Peut être économique comme option d'archivage hors site et de sauvegarde. Pour plus d’informations, consultez les pages [Calcul des coûts Azure](https://go.microsoft.com/fwlink/?LinkId=277060 "Calcul des coûts") et [Article sur les tarifs Azure](https://go.microsoft.com/fwlink/?LinkId=277059 "Article sur les tarifs").
+* **Instantanés de stockage**: quand les fichiers de base de données sont stockés dans un objet blob Azure et que vous utilisez SQL Server 2016, vous pouvez utiliser la [sauvegarde instantanée de fichiers](https://msdn.microsoft.com/library/mt169363.aspx) pour effectuer des sauvegardes quasi instantanées et des restaurations extrêmement rapides.
 
-Pour plus d'informations, consultez la page [Sauvegarde et restauration SQL Server avec le service de stockage d'objets blob Azure](http://go.microsoft.com/fwlink/?LinkId=271617).
+Pour plus d'informations, consultez la page [Sauvegarde et restauration SQL Server avec le service de stockage d'objets blob Azure](https://go.microsoft.com/fwlink/?LinkId=271617).
 
 Les deux sections suivantes présentent le service de stockage d’objets blob Azure, notamment les composants SQL Server requis. Il est important de comprendre les composants et leur interaction pour réaliser une sauvegarde ou une restauration depuis le service de stockage d’objets blob Azure.
 
@@ -51,7 +51,7 @@ Les composants Azure suivants sont utilisés pour les sauvegardes sur le service
 | --- | --- |
 | **Compte de stockage** |le compte de stockage est le point de départ de tous les services de stockage. Pour accéder au service BLOB Azure, commencez par créer un compte de stockage Azure. Pour plus d'informations sur le service BLOB Azure, consultez la page [Utilisation du service BLOB Azure](https://azure.microsoft.com/develop/net/how-to-guides/blob-storage/) |
 | **Conteneur** |Un conteneur fournit un regroupement contenant un nombre illimité d’objets blob. Pour écrire une sauvegarde SQL Server sur un service BLOB Azure, au moins un conteneur racine doit être créé. |
-| **Objet blob** |fichier de n'importe quel type et de n'importe quelle taille. Les objets blob sont adressables à l’aide du format d’URL suivant : **https:\\[compte stockage].blob.core.windows.net/[conteneur]/[blob]**. Pour plus d’informations sur les blobs, consultez [Présentation des objets blob de blocs et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx) |
+| **Objet blob** |fichier de n'importe quel type et de n'importe quelle taille. Les objets blob sont adressables à l’aide du format d’URL suivant : **https:\\[compte stockage].blob.core.windows.net/[conteneur]/[blob]**. Pour plus d’informations sur les blobs, consultez [Présentation des objets blob de blocs et des objets blob de pages](https://msdn.microsoft.com/library/azure/ee691964.aspx) |
 
 ## <a name="sql-server-components"></a>Composants SQL Server
 Les composants SQL Server suivants sont utilisés pour les sauvegardes sur le service de stockage d’objets blob Azure.
@@ -66,7 +66,7 @@ Les composants SQL Server suivants sont utilisés pour les sauvegardes sur le se
 > 
 > 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 1. Création d’un compte Azure si vous n’en avez pas encore. Si vous évaluez Azure, envisagez l’ [essai gratuit](https://azure.microsoft.com/free/).
 2. Consultez ensuite un des didacticiels suivants pour créer un compte de stockage et effectuez une restauration.
    

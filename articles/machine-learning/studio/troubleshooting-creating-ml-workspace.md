@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2017
-ms.openlocfilehash: 262c9af4e0f3ee34dc89986affacb6c0d8a0d801
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1d53e13798f24fa6225b0a587dde71b4f34f48fc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835720"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243383"
 ---
 # <a name="troubleshooting-guide-create-and-connect-to-an-machine-learning-workspace"></a>Guide de résolution des problèmes : création d'un espace de travail Machine Learning et connexion à celui-ci
 Ce guide propose des solutions pour quelques-uns des défis qui se posent souvent quand vous configurez des espaces de travail Azure Machine Learning.
@@ -64,7 +64,7 @@ Une fois les cookies supprimés, redémarrez le navigateur, puis accédez à la 
 
 ## <a name="comments"></a>Commentaires
 
-Notre objectif est de vous offrir une expérience de Machine Learning qui soit aussi transparente que possible. Publiez tous vos commentaires et problèmes sur le [forum Azure Machine Learning](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) pour nous permettre de vous aider au mieux.
+Notre objectif est de vous offrir une expérience de Machine Learning qui soit aussi transparente que possible. Publiez tous vos commentaires et problèmes sur le [forum Azure Machine Learning](https://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning) pour nous permettre de vous aider au mieux.
 
 [screen1]:media/troubleshooting-creating-ml-workspace/screen1.png
 [screen2]:media/troubleshooting-creating-ml-workspace/screen2.png

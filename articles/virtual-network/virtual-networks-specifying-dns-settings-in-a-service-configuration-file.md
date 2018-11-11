@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2016
 ms.author: genli
-ms.openlocfilehash: 009206f1e0ba848538ed2c666032a63051d062e4
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 0ac488a67d8b9debf6539d199395997cf44cf1e4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31790744"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247175"
 ---
 # <a name="specifying-dns-settings-in-a-service-configuration-file"></a>Définition des paramètres DNS dans un fichier de configuration de service
 ## <a name="dns-elements"></a>Éléments DNS
@@ -41,9 +41,9 @@ Un fichier de configuration de service peut contenir un élément DnsServers av
 ## <a name="see-also"></a>Voir aussi
 [Schéma de configuration de service Azure (.cscfg)](https://msdn.microsoft.com/library/windowsazure/ee758710)
 
-[Schéma de configuration du réseau virtuel Azure](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Schéma de configuration du réseau virtuel Azure](https://go.microsoft.com/fwlink/?LinkId=248093)
 
-[Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](http://go.microsoft.com/fwlink/?LinkId=248094)
+[Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](https://go.microsoft.com/fwlink/?LinkId=248094)
 
-[À propos des paramètres de réseau virtuel dans le Portail de gestion](http://go.microsoft.com/fwlink/?LinkId=248092)
+[À propos des paramètres de réseau virtuel dans le Portail de gestion](https://go.microsoft.com/fwlink/?LinkId=248092)
 

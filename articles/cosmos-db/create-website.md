@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: dca9d7900ce229b1cddbef8d0dee44bc0061dc42
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 29a2335a3a4077866b71e4303c240ad8352371ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34611304"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243775"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Déployer Azure Cosmos DB et Azure App Service Web Apps avec un modèle Azure Resource Manager
-Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour déployer et intégrer [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), une application web [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) et un exemple d’application web.
+Ce didacticiel vous montre comment utiliser un modèle Azure Resource Manager pour déployer et intégrer [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), une application web [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) et un exemple d’application web.
 
 À l’aide de modèles Azure Resource Manager, vous pouvez facilement automatiser le déploiement et la configuration de vos ressources Azure.  Ce didacticiel montre comment déployer une application web et configurer automatiquement les informations de connexion du compte Azure Cosmos DB.
 
@@ -114,22 +114,22 @@ Nous allons maintenant déployer notre deuxième modèle.  Ce modèle vous montr
 9. Remarquez l’existence de paramètres d’application pour le point de terminaison Azure Cosmos DB et chacune des clés principales Azure Cosmos DB.
 
     ![Capture d’écran des paramètres de l’application](./media/create-website/TemplateDeployment10.png)  
-10. N’hésitez pas à continuer à explorer le portail Azure ou à suivre l’un de nos [exemples](http://go.microsoft.com/fwlink/?LinkID=402386) Azure Cosmos DB pour créer votre propre application Azure Cosmos DB.
+10. N’hésitez pas à continuer à explorer le portail Azure ou à suivre l’un de nos [exemples](https://go.microsoft.com/fwlink/?LinkID=402386) Azure Cosmos DB pour créer votre propre application Azure Cosmos DB.
 
 <a name="NextSteps"></a>
 
 ## <a name="next-steps"></a>Étapes suivantes
-Félicitations ! Vous avez déployé Azure Cosmos DB, une application web App Service et un exemple d’application web avec les modèles Azure Resource Manager.
+Félicitations ! Vous avez déployé Azure Cosmos DB, une application web App Service et un exemple d’application web avec les modèles Azure Resource Manager.
 
 * Pour en savoir plus sur Azure Cosmos DB, cliquez [ici](http://azure.com/docdb).
-* Pour en savoir plus sur les applications web Azure App Service, cliquez [ici](http://go.microsoft.com/fwlink/?LinkId=325362).
+* Pour en savoir plus sur les applications web Azure App Service, cliquez [ici](https://go.microsoft.com/fwlink/?LinkId=325362).
 * Pour en savoir plus sur les modèles Azure Resource Manager, cliquez [ici](https://msdn.microsoft.com/library/azure/dn790549.aspx).
 
 ## <a name="whats-changed"></a>Changements apportés
-* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](http://go.microsoft.com/fwlink/?LinkId=529714)
+* Pour obtenir un guide présentant les modifications apportées dans le cadre de la transition entre Sites Web et App Service, consultez la page [Azure App Service et les services Azure existants](https://go.microsoft.com/fwlink/?LinkId=529714)
 
 > [!NOTE]
-> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](http://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
+> Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://go.microsoft.com/fwlink/?LinkId=523751), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.
 > 
 > 
 

@@ -15,15 +15,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: 234e9233e69877c9afe79a5a053a4310d013a9ab
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: fbe3aeac3918142388edfa8cd053badd362d7fd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646108"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241920"
 ---
 # <a name="deep-learning-and-ai-frameworks"></a>Frameworks d’apprentissage profond et d’intelligence artificielle
-La machine virtuelle [DSVM](http://aka.ms/dsvm) (Data Science Virtual Machine) et la machine virtuelle [DLVM](http://aka.ms/dsvm/deeplearning) (Deep Learning Virtual Machine) prennent en charge plusieurs frameworks d’apprentissage profond pour créer des applications d’intelligence artificielle (IA) avec des fonctionnalités cognitives et d’analytique prédictive comme la compréhension d’image et de langue. 
+La machine virtuelle [DSVM](https://aka.ms/dsvm) (Data Science Virtual Machine) et la machine virtuelle [DLVM](https://aka.ms/dsvm/deeplearning) (Deep Learning Virtual Machine) prennent en charge plusieurs frameworks d’apprentissage profond pour créer des applications d’intelligence artificielle (IA) avec des fonctionnalités cognitives et d’analytique prédictive comme la compréhension d’image et de langue. 
 
 Voici les détails de tous les frameworks d’apprentissage profond disponibles sur la machine virtuelle DSVM.
 

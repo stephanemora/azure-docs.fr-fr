@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: 51e96065f726fadd528323157609034b5bb3f151
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 8cf5f262a758efe08ad73e2d8066ad4b736e76d1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387886"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247719"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Renouvellement des certificats d’appareil X.509
 
 Pendant le cycle de vie de votre solution IoT, vous devrez renouveler des certificats. Deux des principales raisons pour lesquelles il convient de renouveler les certificats sont les violations de la sécurité et l’expiration des certificats. 
 
-Le renouvellement des certificats est une bonne pratique en matière de sécurité qui contribue à sécuriser votre système en cas de violation. Dans le cadre de la [méthodologie consistant à envisager les failles](http://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft préconise de mettre en place des processus de sécurité réactifs en même temps que des mesures préventives. Vous devez inclure le renouvellement de vos certificats d’appareil dans ces processus de sécurité. La fréquence à laquelle vous renouvelez vos certificats dépend des exigences de sécurité de votre solution. Les clients qui disposent de solutions impliquant des données extrêmement sensibles renouvellent leurs certificats quotidiennement, tandis que les autres clients ne renouvellent leurs certificats que tous les deux ans.
+Le renouvellement des certificats est une bonne pratique en matière de sécurité qui contribue à sécuriser votre système en cas de violation. Dans le cadre de la [méthodologie consistant à envisager les failles](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft préconise de mettre en place des processus de sécurité réactifs en même temps que des mesures préventives. Vous devez inclure le renouvellement de vos certificats d’appareil dans ces processus de sécurité. La fréquence à laquelle vous renouvelez vos certificats dépend des exigences de sécurité de votre solution. Les clients qui disposent de solutions impliquant des données extrêmement sensibles renouvellent leurs certificats quotidiennement, tandis que les autres clients ne renouvellent leurs certificats que tous les deux ans.
 
 Le renouvellement des certificats d’appareil implique la mise à jour du certificat stocké sur l’appareil et dans IoT Hub. Par la suite, l’appareil peut se reprovisionner lui-même dans le IoT Hub à l’aide du processus normal de [provisionnement automatique](concepts-auto-provisioning.md) avec le service Device Provisioning.
 

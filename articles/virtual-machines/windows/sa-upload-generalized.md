@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/18/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: be2ec6df33f5756dc080195bfad32e0c9079453c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 199343fce4774ea643bc22c879efc6717aa0a510
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603198"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244727"
 ---
 # <a name="upload-a-generalized-vhd-to-azure-to-create-a-new-vm"></a>Charger un disque dur virtuel généralisé sur Azure pour créer une machine virtuelle
 
@@ -37,11 +37,11 @@ Cette rubrique décrit l’utilisation de comptes de stockage, mais nous recomma
 
 Toutes les informations de votre compte personnel sont supprimées d’un disque dur virtuel généralisé à l’aide de Sysprep. Si vous prévoyez d’utiliser le disque dur virtuel en tant qu’image pour créer des machines virtuelles, vous devez :
   
-  * [Préparer un disque dur virtuel Windows à charger sur Azure](prepare-for-upload-vhd-image.md). 
+  * [Préparez un disque dur virtuel Windows à charger sur Azure](prepare-for-upload-vhd-image.md). 
   * Généraliser la machine virtuelle à l’aide de Sysprep
 
 ### <a name="generalize-a-windows-virtual-machine-using-sysprep"></a>Généraliser une machine virtuelle Windows avec Sysprep
-Cette section vous montre comment généraliser votre machine virtuelle Windows de façon à l’utiliser comme image. Sysprep supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image. Pour plus d’informations sur Sysprep, voir [Introduction à l’utilisation de Sysprep](http://technet.microsoft.com/library/bb457073.aspx).
+Cette section vous montre comment généraliser votre machine virtuelle Windows de façon à l’utiliser comme image. Sysprep supprime toutes les informations personnelles de votre compte, entre autres, et prépare la machine de façon à pouvoir l’utiliser comme image. Pour plus d’informations sur Sysprep, voir [Introduction à l’utilisation de Sysprep](https://technet.microsoft.com/library/bb457073.aspx).
 
 Vérifiez que les rôles serveur exécutés sur la machine sont pris en charge par Sysprep. Pour plus d’informations, consultez [Prise en charge de Sysprep pour les rôles serveur](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles)
 
@@ -107,7 +107,7 @@ Si vous devez créer un compte de stockage, procédez comme suit :
     Get-AzureRmResourceGroup
     ```
 
-    Pour créer un groupe de ressources nommé **MyResourceGroup** dans la région **Ouest des États-Unis**, tapez :
+    Pour créer un groupe de ressources nommé **MyResourceGroup** dans la région **USA Ouest**, tapez :
 
     ```powershell
     New-AzureRmResourceGroup -Name myResourceGroup -Location "West US"
@@ -172,7 +172,7 @@ Créez le réseau virtuel et le sous-réseau du [réseau virtuel](../../virtual-
     $subnetName = "mySubnet"
     $singleSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24
     ```
-2. Création du réseau virtuel. L’exemple suivant crée un réseau virtuel nommé **myVnet** à l’emplacement **Ouest des États-Unis** avec le préfixe d’adresse **10.0.0.0/16**.  
+2. Création du réseau virtuel. L’exemple suivant crée un réseau virtuel nommé **myVnet** à l’emplacement **USA Ouest** avec le préfixe d’adresse **10.0.0.0/16**.  
    
     ```powershell
     $location = "West US"

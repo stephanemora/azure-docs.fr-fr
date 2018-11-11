@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 73e5e54e40223f7cd972e2bd2752add9ca82ff2b
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 0c19d32f6c6f491a91ba6c2219be9fd016b5ec34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452341"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243877"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Présentation et utilisation de l’agent Linux Azure
 
@@ -73,7 +73,7 @@ Le flux d'informations de la plateforme à l'agent se produit via deux canaux :
 Les systèmes suivants ont été testés et fonctionnent avec l’agent Linux Azure :
 
 > [!NOTE]
-> Notez que cette liste peut être différente de la liste officielle des systèmes pris en charge sur la plateforme Microsoft Azure, disponible ici : [http://support.microsoft.com/kb/2805216](http://support.microsoft.com/kb/2805216)
+> Notez que cette liste peut être différente de la liste officielle des systèmes pris en charge sur la plateforme Microsoft Azure, disponible ici : [http://support.microsoft.com/kb/2805216](https://support.microsoft.com/kb/2805216)
 > 
 > 
 
@@ -344,6 +344,6 @@ Les images cloud Ubuntu utilisent [cloud-init](https://launchpad.net/ubuntu/+sou
 
 * Pour plus d’informations, consultez les ressources suivantes pour configurer le point de montage du disque de ressources et l’espace d’échange sur les images cloud Ubuntu durant le provisionnement :
   
-  * [Wiki Ubuntu : Configurer les partitions d’échange](http://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
+  * [Wiki Ubuntu : Configurer les partitions d’échange](https://go.microsoft.com/fwlink/?LinkID=532955&clcid=0x409)
   * [Injection de données personnalisées dans une machine virtuelle Azure](../windows/classic/inject-custom-data.md)
 

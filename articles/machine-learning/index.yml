@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f40835256ca75fa6fb2e53723b165a73e84b170b
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 7dec034812647a883fa8ead05f1a7ed6675b4821
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739637"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282745"
 documentType: LandingData
 title: Documentation Azure Machine Learning
 metadata:
@@ -111,7 +111,7 @@ sections:
         src: /azure/machine-learning/media/index/tdsp.png
       title: TDSP (Team Data Science Process)
     - href: /azure/machine-learning/data-science-virtual-machine/
-      html: <p>Expérimentez sans vous soucier d’installer ni de configurer un logiciel avec ces machines virtuelles DSVM (science des données) et DLVM (apprentissage profond). Les outils populaires d’analyse des données, d’apprentissage automatique et d’IA sont préinstallés.</p>
+      html: <p>Expérimentez sans avoir à installer ou configurer un logiciel avec les machines virtuelles DSVM (science des données) et DLVM (apprentissage profond). Les outils populaires d’analyse des données, d’apprentissage automatique et d’IA sont préinstallés.</p>
       image:
         src: /azure/machine-learning/media/index/virtualmachine.svg
       title: Machine virtuelle de science des données

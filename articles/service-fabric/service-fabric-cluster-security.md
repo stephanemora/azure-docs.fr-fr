@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: aa0d209cf3da65bb3d50a6458ecc33cfcd85eecb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541902"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240594"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Scénarios de sécurité d’un cluster Service Fabric
 Un cluster Azure Service Fabric est une ressource que vous possédez. Il vous incombe la responsabilité de sécuriser vos clusters pour empêcher les utilisateurs non autorisés de s’y connecter. La sécurisation des clusters est particulièrement importante lorsque vous exécutez des charges de travail de production sur le cluster. Même s’il est possible d’en créer, les clusters non sécurisés permettent aux utilisateurs anonymes de s’y connecter si les points de terminaison de gestion sont exposés sur l’Internet public. Les clusters non sécurisés ne sont pas gérés pour les charges de travail de production. 
@@ -85,7 +85,7 @@ Les utilisateurs qui reçoivent le rôle Administrateur ont un accès complet au
 Configurez les rôles clients Administrateur et Utilisateur lorsque vous créez le cluster. Attribuez des rôles en fournissant des identités distinctes (par exemple, en utilisant des certificats ou Azure AD) pour chaque type de rôle. Pour plus d’informations sur les paramètres de contrôle d’accès par défaut et sur la modification des paramètres par défaut, consultez [Contrôle d’accès en fonction du rôle pour les clients de Service Fabric](service-fabric-cluster-security-roles.md).
 
 ## <a name="x509-certificates-and-service-fabric"></a>Certificats X.509 et Service Fabric
-Les certificats numériques X.509 sont couramment utilisés pour authentifier les clients et les serveurs. Ils sont également utilisés pour chiffrer et signer numériquement les messages. Service Fabric utilise des certificats X.509 pour sécuriser un cluster et fournir des fonctionnalités de sécurité d’applications. Pour plus d’informations sur les certificats numériques X.509, consultez [Utilisation des certificats](http://msdn.microsoft.com/library/ms731899.aspx). [Key Vault](../key-vault/key-vault-get-started.md) sert à gérer des certificats pour des clusters Service Fabric dans Azure.
+Les certificats numériques X.509 sont couramment utilisés pour authentifier les clients et les serveurs. Ils sont également utilisés pour chiffrer et signer numériquement les messages. Service Fabric utilise des certificats X.509 pour sécuriser un cluster et fournir des fonctionnalités de sécurité d’applications. Pour plus d’informations sur les certificats numériques X.509, consultez [Utilisation des certificats](https://msdn.microsoft.com/library/ms731899.aspx). [Key Vault](../key-vault/key-vault-get-started.md) sert à gérer des certificats pour des clusters Service Fabric dans Azure.
 
 Quelques éléments importants à prendre en compte :
 
@@ -109,7 +109,7 @@ Voici quelques autres points importants à prendre en compte :
 
 * Le champ **Objet** peut avoir plusieurs valeurs. Chaque valeur est préfixée par une initialisation pour indiquer le type valeur. En règle générale, l’initialisation est **CN** (pour *common name* (nom commun)), par exemple, **CN = www.contoso.com**. 
 * Le champ **Objet** peut être vide. 
-* Si le champ facultatif **Autre nom de l’objet** est renseigné, il doit contenir à la fois le nom commun du certificat et une entrée par autre nom d’objet. Ces noms sont entrés sous forme de valeurs de **Nom DNS**. Pour savoir comment générer des certificats ayant des noms SAN, consultez [Comment ajouter un autre nom d’objet à un certificat LDAP sécurisé](http://support.microsoft.com/kb/931351).
+* Si le champ facultatif **Autre nom de l’objet** est renseigné, il doit contenir à la fois le nom commun du certificat et une entrée par autre nom d’objet. Ces noms sont entrés sous forme de valeurs de **Nom DNS**. Pour savoir comment générer des certificats ayant des noms SAN, consultez [Comment ajouter un autre nom d’objet à un certificat LDAP sécurisé](https://support.microsoft.com/kb/931351).
 * La valeur du champ **Rôles prévus** du certificat doit inclure une valeur appropriée, comme **Authentification serveur** ou **Authentification client**.
 
 ### <a name="application-certificates-optional"></a>Certificats d’application (facultatif)

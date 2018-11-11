@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: byvinyal
-ms.openlocfilehash: fdc4329806d416811352d0d4dbc8dd3bce25aa0b
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
+ms.openlocfilehash: 9c58e5c64ea3689634d7afb4c5fef08c9b21798c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/27/2018
-ms.locfileid: "29573801"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244370"
 ---
 # <a name="how-to-monitor-apps-in-azure-app-service"></a>Surveillance des applications dans Azure App Service
-[App Service](http://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de surveillance intégrées dans le [portail Azure](https://portal.azure.com).
+[App Service](https://go.microsoft.com/fwlink/?LinkId=529714) fournit des fonctionnalités de surveillance intégrées dans le [portail Azure](https://portal.azure.com).
 Le portail Azure comprend la possibilité d’examiner les **quotas** et les **métriques** d’une application et du plan App Service, la configuration **d’alertes**, et même une **mise à l’échelle** automatique en fonction de ces métriques.
 
 [!INCLUDE [app-service-web-to-api-and-mobile](../../includes/app-service-web-to-api-and-mobile.md)]

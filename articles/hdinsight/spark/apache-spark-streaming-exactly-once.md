@@ -3,17 +3,17 @@ title: Créer des travaux Spark Streaming avec traitement unique des événement
 description: Comment configurer Spark Streaming pour traiter un événement une seule fois.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 01/26/2018
-ms.openlocfilehash: ae170e90cede26bd6a43fcc10b93fcd7490d838f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.date: 11/06/2018
+ms.openlocfilehash: 6c39eb02e9610e0020ab2abe8a192dabf0b768d9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618819"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241311"
 ---
 # <a name="create-spark-streaming-jobs-with-exactly-once-event-processing"></a>Créer des travaux Spark Streaming avec traitement unique des événements
 
@@ -61,13 +61,21 @@ Vous activez les points de contrôle dans Spark Streaming en deux étapes.
 
 1. Dans l’objet StreamingContext, configurez le chemin du stockage des points de contrôle :
 
-    val ssc = new StreamingContext(spark, Seconds(1)) ssc.checkpoint("chemin_des_points_de_contrôle")
+    ```Scala
+    val ssc = new StreamingContext(spark, Seconds(1))
+    ssc.checkpoint("/path/to/checkpoints")
+    ```
 
     Dans HDInsight, ces points de contrôle doivent être enregistrés dans le stockage par défaut associé à votre cluster (Stockage Azure ou Azure Data Lake Store).
 
 2. Ensuite, spécifiez un intervalle de point de contrôle (en secondes) sur le flux discrétisé. À chaque intervalle, les données d’état dérivées de l’événement d’entrée sont rendues persistantes dans le stockage. Les données d’état persistantes peuvent réduire le calcul nécessaire à la regénération de l’état à partir de l’événement source.
 
-    val lines = ssc.socketTextStream("nom_hôte", 9999) lines.checkpoint(30) ssc.start() ssc.awaitTermination()
+    ```Scala
+    val lines = ssc.socketTextStream("hostname", 9999)
+    lines.checkpoint(30)
+    ssc.start()
+    ssc.awaitTermination()
+    ```
 
 ### <a name="use-idempotent-sinks"></a>Utiliser des récepteurs idempotents
 

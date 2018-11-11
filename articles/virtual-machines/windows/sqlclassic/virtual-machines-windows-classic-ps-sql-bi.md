@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/30/2017
 ms.author: maghan
-ms.openlocfilehash: a41dcd5f2c93e5c1279e1c7511e10e6d72574b3b
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2b2f5a441209b76f4c90c1a4682215d388b2d53a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098744"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242889"
 ---
 # <a name="sql-server-business-intelligence-in-azure-virtual-machines"></a>Business Intelligence de SQL Server dans les machines virtuelles Azure
 > [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 La galerie de machines virtuelles Microsoft Azure inclut des images qui contiennent des installations de SQL Server. Les éditions de SQL Server prises en charge dans les images de la galerie sont les mêmes fichiers d’installation que vous pouvez installer sur les ordinateurs locaux et sur les machines virtuelles. Cette rubrique résume les fonctionnalités de SQL Server Business Intelligence (BI) installées sur les images, et les étapes de configuration nécessaires après l’approvisionnement d’une machine virtuelle. Elle décrit également les topologies de déploiement prises en charge pour les fonctionnalités et les bonnes pratiques en matière de Business Intelligence (BI).
 
@@ -78,9 +78,9 @@ Le tableau suivant récapitule les fonctionnalités Business Intelligence instal
 
 | Fonctionnalité BI de SQL Server | Installé sur l’image de la galerie | Notes |
 | --- | --- | --- |
-| **Mode natif de Reporting Services** |OUI |Installé, mais nécessite une configuration, notamment de l’URL du Gestionnaire de rapports. Consultez la section [Configurer Reporting Services](#configure-reporting-services). |
+| **Mode natif de Reporting Services** |Oui |Installé, mais nécessite une configuration, notamment de l’URL du Gestionnaire de rapports. Consultez la section [Configurer Reporting Services](#configure-reporting-services). |
 | **Mode SharePoint de Reporting Services** |Non  |L’image de la galerie de machines virtuelles Microsoft Azure ne comprend pas les fichiers SharePoint ou d’installation SharePoint. <sup>1</sup> |
-| **Mode multidimensionnel et d’exploration de données Analysis Services (OLAP)** |OUI |Installé et configuré comme instance par défaut de Analysis Services |
+| **Mode multidimensionnel et d’exploration de données Analysis Services (OLAP)** |Oui |Installé et configuré comme instance par défaut de Analysis Services |
 | **Mode tabulaire Analysis Services** |Non  |Pris en charge dans les images SQL Server 2012, 2014 et 2016, mais pas installé par défaut. Installez une autre instance d’Analysis Services. Consultez la section Installation d’autres services et fonctionnalités SQL Server dans cette rubrique. |
 | **Analysis Services Power Pivot pour SharePoint** |Non  |L’image de la galerie de machines virtuelles Microsoft Azure ne comprend pas les fichiers SharePoint ou d’installation SharePoint. <sup>1</sup> |
 
@@ -336,7 +336,7 @@ Le schéma suivant montre les ports à ouvrir dans le pare-feu de la machine vir
 ![ports à ouvrir pour des applications BI dans des machines virtuelles Azure](./media/virtual-machines-windows-classic-ps-sql-bi/IC654385.gif)
 
 ## <a name="resources"></a>Ressources
-* Consultez la stratégie de prise en charge des logiciels serveurs Microsoft utilisée dans l’environnement de la machine virtuelle Azure. La rubrique suivante résume la prise en charge de fonctionnalités telles que BitLocker, le clustering de basculement et l’équilibrage de la charge réseau. [Prise en charge des logiciels serveur Microsoft pour Azure Virtual Machines](http://support.microsoft.com/kb/2721672).
+* Consultez la stratégie de prise en charge des logiciels serveurs Microsoft utilisée dans l’environnement de la machine virtuelle Azure. La rubrique suivante résume la prise en charge de fonctionnalités telles que BitLocker, le clustering de basculement et l’équilibrage de la charge réseau. [Prise en charge des logiciels serveur Microsoft pour Azure Virtual Machines](https://support.microsoft.com/kb/2721672).
 * [Vue d’ensemble de SQL Server sur les machines virtuelles Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md)
 * [Machines virtuelles](https://azure.microsoft.com/documentation/services/virtual-machines/)
 * [Configuration d'une machine virtuelle SQL Server sur Azure](../sql/virtual-machines-windows-portal-sql-server-provision.md)

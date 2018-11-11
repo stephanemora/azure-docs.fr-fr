@@ -9,19 +9,19 @@ ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 5d25aed196dd6b4ce92ae1cf18e556d1c32295d3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 4f9a30bf25cea1e80f53596be9eea6ae57a79889
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43051965"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246461"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Analyser les journaux des sites web à l’aide d’Azure Data Lake Analytics
 Découvrez comment analyser les journaux des sites web à l'aide de Data Lake Analytics, en particulier pour découvrir quels points d'accès ont rencontré des erreurs lorsqu'ils ont essayé de visiter le site web.
 
 ## <a name="prerequisites"></a>Prérequis
 * **Visual Studio 2015 ou Visual Studio 2013**.
-* **[Data Lake Tools pour Visual Studio](http://aka.ms/adltoolsvs)**.
+* **[Data Lake Tools pour Visual Studio](https://aka.ms/adltoolsvs)**.
 
     Une fois Data Lake Tools pour Visual Studio installé, un élément **Data Lake** figure dans le menu **Outils** de Visual Studio :
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako
-ms.openlocfilehash: 6695e17ec3dd9bf9ebeeb44b34e9688d3e5a1625
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: c02d3483a98c358e53964d3932944b5d2dad9c53
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249745"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240271"
 ---
 # <a name="overview-and-comparison-of-azure-on-demand-media-encoders"></a>Vue d’ensemble et comparaison d’encodeurs multimédia à la demande Azure
 ## <a name="encoding-overview"></a>Vue d’ensemble de l’encodage
@@ -51,7 +51,7 @@ Cet article donne un bref aperçu des encodeurs multimédia à la demande et fou
 [Formats et codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="presets"></a>Présélections
-Media Encoder Standard est configuré à l’aide d’une des présélections d’encodeur décrites [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard est configuré à l’aide d’une des présélections d’encodeur décrites [ici](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Métadonnées d’entrée et de sortie
 Les métadonnées d’entrée des encodeurs sont décrites [ici](media-services-input-metadata-schema.md).

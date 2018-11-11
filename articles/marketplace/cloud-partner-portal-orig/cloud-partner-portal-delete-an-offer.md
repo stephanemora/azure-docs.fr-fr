@@ -14,19 +14,19 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pbutlerm
-ms.openlocfilehash: cc172e35e8964fad3b1a1410d1f1f3240c423ab3
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 3370767947399b167f4f1c81b57d8f92edfa0c4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806205"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242685"
 ---
 <a name="delete-an-offer-or-sku-from-azure-marketplace"></a>Supprimer une offre ou référence SKU de la Place de marché Azure
 ==========================================
 
 Vous pouvez décider de supprimer votre offre de la Place de marché pour diverses raisons. La suppression de l’offre permet de faire en sorte que les nouveaux clients ne puissent plus acheter ou déployer votre offre, mais elle n’a aucun impact sur les clients existants.
-L’arrêt de l’offre est le processus d’arrêt de l’accord de service et/ou de licence entre vos clients actuels et vous. Les instructions et les règles relatives au retrait et à la résiliation de l’offre sont régies par le [Contrat d’éditeur de la Place de marché Microsoft](http://go.microsoft.com/fwlink/?LinkID=699560) (voir Section
-7) et les [stratégies de participation](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (voir la Section 6.2). Cet article traite des différents scénarios de suppression pris en charge et des étapes à suivre correspondantes.
+L’arrêt de l’offre est le processus d’arrêt de l’accord de service et/ou de licence entre vos clients actuels et vous. Les instructions et les règles relatives au retrait et à la résiliation de l’offre sont régies par le [Contrat d’éditeur de la Place de marché Microsoft](https://go.microsoft.com/fwlink/?LinkID=699560) (voir la Section
+7) et les [Politiques concernant la participation](https://azure.microsoft.com/support/legal/marketplace/participation-policies/) (voir la Section 6.2). Cet article traite des différents scénarios de suppression pris en charge et des étapes à suivre correspondantes.
 
 <a name="delete-a-live-sku-from-azure-marketplace"></a>Supprimer une référence SKU en ligne de la Place de marché Azure
 ----------------------------------------

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/08/2017
 ms.author: kumud
-ms.openlocfilehash: 35c3027f2b592f6b24075005829ae9376a7fca82
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 28ea626adf87ad9f115b5acc5452dfc91ad833c5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987033"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245002"
 ---
 # <a name="add-disable-enable-or-delete-endpoints"></a>Ajouter, désactiver, activer ou supprimer des points de terminaison
 
@@ -80,5 +80,5 @@ Vous pouvez également désactiver des points de terminaison individuels qui fon
 * [Configurer des méthodes de routage](traffic-manager-configure-routing-method.md)
 * [Résolution des problèmes liés à l’état Détérioré de Traffic Manager](traffic-manager-troubleshooting-degraded.md)
 * [Considérations sur les performances de Traffic Manager](traffic-manager-performance-considerations.md)
-* [Opérations sur Traffic Manager (Référence sur l’API REST)](http://go.microsoft.com/fwlink/p/?LinkID=313584)
+* [Opérations sur Traffic Manager (Référence sur l’API REST)](https://go.microsoft.com/fwlink/p/?LinkID=313584)
 

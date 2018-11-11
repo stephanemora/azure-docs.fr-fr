@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/23/2017
-ms.openlocfilehash: 9d2cfeb780687e1bf0e61173b3550e26f4019115
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: a107907dd01b15015c644f835239f6f90b948296
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394146"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245832"
 ---
 # <a name="walkthrough-develop-a-predictive-analytics-solution-for-credit-risk-assessment-in-azure-machine-learning"></a>Guide pas à pas : développer une solution d'analyse prédictive pour l'évaluation des risques de crédit dans Azure Machine Learning
 
@@ -57,4 +57,4 @@ Pour créer cette solution d'évaluation des risques de crédit, nous suivons ce
 > [!TIP] 
 > Vous pouvez obtenir une copie de travail de l’expérience que nous développons lors de cette procédure pas à pas dans la [galerie Azure AI](https://gallery.cortanaintelligence.com). Accédez à **[Procédure pas à pas - Prédiction du risque de crédit](https://gallery.cortanaintelligence.com/Experiment/Walkthrough-Credit-risk-prediction-1)** et cliquez sur **Ouvrir dans Studio** pour télécharger une copie de l’expérience dans votre espace de travail Machine Learning Studio.
 > 
-> Cette procédure pas à pas est basée sur une version simplifiée de l’exemple d’expérience [Classification binaire : prédiction du risque de crédit](http://go.microsoft.com/fwlink/?LinkID=525270) également disponible dans la [Galerie](http://gallery.cortanaintelligence.com/).
+> Cette procédure pas à pas est basée sur une version simplifiée de l’exemple d’expérience [Classification binaire : prédiction du risque de crédit](https://go.microsoft.com/fwlink/?LinkID=525270) également disponible dans la [Galerie](http://gallery.cortanaintelligence.com/).

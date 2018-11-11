@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: bobbytreed
 ms.author: robreed
-ms.date: 08/08/2018
+ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 62d201e608864949c86e52d8ac8fbf9ce8538f11
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: aa543ad119716b25b7f3ab00d49efb9fe6fb6c3f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631461"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244234"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-log-analytics"></a>Transférer des données de rapport Azure Automation State Configuration à Log Analytics
 
@@ -44,14 +44,14 @@ Pour commencer l’importation des données à partir d’Azure Automation DSC d
 
   ```powershell
   # Find the ResourceId for the Automation Account
-  Find-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
+  Get-AzureRmResource -ResourceType 'Microsoft.Automation/automationAccounts'
   ```
 
 1. Obtenez le _ResourceId_ de votre espace de travail Log Analytics en exécutant la commande PowerShell suivante : (si vous avez plusieurs espaces de travail, choisissez le _ResourceID_ de l’espace de travail que vous souhaitez configurer).
 
   ```powershell
   # Find the ResourceId for the Log Analytics workspace
-  Find-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
+  Get-AzureRmResource -ResourceType 'Microsoft.OperationalInsights/workspaces'
   ```
 
 1. Exécutez la commande PowerShell suivante, en remplaçant `<AutomationResourceId>` et `<WorkspaceResourceId>` par les valeurs _ResourceId_ de chacune des étapes précédentes :

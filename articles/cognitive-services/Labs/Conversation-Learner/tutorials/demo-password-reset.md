@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f633dd375d690a1c3e66a2a6e02ae69665dbe960
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: bd0bcd79bb21dc3973b34086f6dad21b47a95c2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170631"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240866"
 ---
 # <a name="demo-password-reset"></a>Démonstration : réinitialisation de mot de passe
 Cette démonstration illustre un robot de support technique simple qui peut aider à effectuer des réinitialisations de mot de passe. 
@@ -24,7 +24,7 @@ Il montre comment Apprenant de conversation peut apprendre des flux de dialogue 
 
 ## <a name="video"></a>Vidéo
 
-[![Aperçu de démonstration Mot de passe](http://aka.ms/cl-demo-password-preview)](http://aka.ms/blis-demo-password)
+[![Aperçu de démonstration Mot de passe](https://aka.ms/cl-demo-password-preview)](https://aka.ms/blis-demo-password)
 
 ## <a name="requirements"></a>Configuration requise
 Ce didacticiel requiert l’exécution du robot de réinitialisation de mot de passe.

@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 751175e46e13d6046cd6f459e1405a876fdce39a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: aff3ce4bc290f6e4ad2fb11a586372862d0c1462
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42146364"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240730"
 ---
 # <a name="runbook-output-and-messages-in-azure-automation"></a>Sortie et messages de Runbook dans Azure Automation
 La plupart des Runbooks Azure Automation présentent une certaine forme de sortie. Il peut s’agir, par exemple, d’un message d’erreur à l’attention de l’utilisateur, ou encore d’un objet complexe destiné à être consommé par un autre flux de travail. Windows PowerShell fournit [plusieurs flux](http://blogs.technet.com/heyscriptingguy/archive/2014/03/30/understanding-streams-redirection-and-write-host-in-powershell.aspx) pour l’envoi d’une sortie à partir d’un script ou d’un flux de travail. Azure Automation fonctionne différemment avec chacun de ces flux. Lorsque vous créez un Runbook, vous devez suivre les meilleures pratiques relatives à l’utilisation de chaque flux.
@@ -33,7 +33,7 @@ Le tableau suivant fournit une brève description de chacun des flux et de leur 
 ## <a name="output-stream"></a>Flux de sortie
 Le flux de sortie est destiné à la sortie des objets créés par un script ou un flux de travail lorsqu’il s’exécute correctement. Dans Azure Automation, ce flux est principalement utilisé pour les objets destinés à être consommés par les [Runbooks parents qui appellent le Runbook actuel](automation-child-runbooks.md). Lorsque vous [appelez un Runbook en ligne](automation-child-runbooks.md#invoking-a-child-runbook-using-inline-execution) à partir d’un Runbook parent, il retourne les données au parent à partir du flux de sortie. Vous devez utiliser le flux de sortie uniquement pour retourner des informations générales à l’utilisateur si vous savez que le Runbook n’est jamais appelé par un autre Runbook. Cependant, nous vous recommandons d’utiliser le [flux des commentaires](#verbose-stream) pour communiquer des informations générales à l’utilisateur.
 
-Vous pouvez écrire des données dans le flux de sortie à l’aide de [Write-Output](http://technet.microsoft.com/library/hh849921.aspx) ou en plaçant l’objet sur sa propre ligne dans le Runbook.
+Vous pouvez écrire des données dans le flux de sortie à l’aide de [Write-Output](https://technet.microsoft.com/library/hh849921.aspx) ou en plaçant l’objet sur sa propre ligne dans le Runbook.
 
 ```PowerShell
 #The following lines both write an object to the output stream.
@@ -75,7 +75,7 @@ Le flux des commentaires pour la tâche du Runbook serait :
 Une fois que vous avez publié le Runbook et avant de démarrer, vous devez activer la journalisation détaillée dans les paramètres du Runbook, afin d’obtenir la sortie de flux détaillé.
 
 ### <a name="declaring-output-data-type"></a>Déclaration du type de données de sortie
-Un flux de travail peut spécifier le type de données de sa sortie à l’aide de l’ [attribut OutputType](http://technet.microsoft.com/library/hh847785.aspx). Cet attribut n’a aucun effet lors de l’exécution, mais il fournit une indication à l’auteur du Runbook sur la sortie attendue du Runbook au moment de la conception. Alors que l’ensemble d’outils dédiés aux Runbooks continue d’évoluer, la déclaration des types de données de sortie au moment de la conception gagne en importance. Par conséquent, il est recommandé d’inclure cette déclaration dans tous les Runbooks que vous créez.
+Un flux de travail peut spécifier le type de données de sa sortie à l’aide de l’ [attribut OutputType](https://technet.microsoft.com/library/hh847785.aspx). Cet attribut n’a aucun effet lors de l’exécution, mais il fournit une indication à l’auteur du Runbook sur la sortie attendue du Runbook au moment de la conception. Alors que l’ensemble d’outils dédiés aux Runbooks continue d’évoluer, la déclaration des types de données de sortie au moment de la conception gagne en importance. Par conséquent, il est recommandé d’inclure cette déclaration dans tous les Runbooks que vous créez.
 
 Voici une liste d’exemples de types de sortie :
 
@@ -120,7 +120,7 @@ Contrairement au flux de sortie, les flux de messages sont destinés à la commu
 ### <a name="warning-and-error-streams"></a>Flux d’erreurs et d’avertissements
 Les flux d’erreurs et d’avertissements sont conçus pour l’enregistrement des problèmes qui se produisent dans un Runbook. Ils sont consignés dans l’historique des tâches quand un Runbook est exécuté et sont inclus dans le volet de sortie du test dans le portail Azure quand un Runbook est testé. Par défaut, l’exécution du Runbook se poursuit après un avertissement ou une erreur. Vous pouvez spécifier l’interruption du Runbook en cas d’avertissement ou d’erreur en définissant une [variable de préférence](#preference-variables) dans le Runbook avant de créer le message. Par exemple, pour déclencher l’interruption du Runbook en cas d’erreur, comme dans le cas d’une exception, affectez la valeur Stop à **$ErrorActionPreference** .
 
-Créez un message d’avertissement ou un message d’erreur à l’aide de l’applet de commande [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](http://technet.microsoft.com/library/hh849962.aspx). Les activités peuvent également écrire dans ces flux.
+Créez un message d’avertissement ou un message d’erreur à l’aide de l’applet de commande [Write-Warning](https://technet.microsoft.com/library/hh849931.aspx) ou [Write-Error](https://technet.microsoft.com/library/hh849962.aspx). Les activités peuvent également écrire dans ces flux.
 
 ```PowerShell
 #The following lines create a warning message and then an error message that will suspend the runbook.
@@ -135,7 +135,7 @@ Ce flux est utilisé pour les informations générales sur le fonctionnement du 
 
 Lors du [test d’un Runbook](automation-testing-runbook.md), les messages documentés ne s’affichent pas, même si le Runbook est configuré pour enregistrer les informations de commentaires. Pour afficher les messages documentés lors du [test d’un Runbook](automation-testing-runbook.md), vous devez affecter la valeur Continue à la variable $VerbosePreference. Dans ce cas, les messages documentés sont affichés dans le volet de sortie du test dans le portail Azure.
 
-Créez un message documenté à l’aide de l’applet de commande [Write-Verbose](http://technet.microsoft.com/library/hh849951.aspx) .
+Créez un message documenté à l’aide de l’applet de commande [Write-Verbose](https://technet.microsoft.com/library/hh849951.aspx) .
 
 ```PowerShell
 #The following line creates a verbose message.
@@ -149,10 +149,10 @@ Le flux de débogage est destiné à être utilisé avec un utilisateur interact
 ## <a name="progress-records"></a>Informations de progression
 Si vous configurez un runbook pour enregistrer les informations de progression (sous l’onglet de configuration du runbook, dans le Portail Azure), un enregistrement est consigné dans l’historique des tâches avant et après l’exécution de chaque activité. Afin d’optimiser les performances, il est généralement recommandé de conserver le paramètre par défaut (les informations de progression ne sont pas enregistrées pour le Runbook). Activez cette option uniquement pour résoudre les problèmes liés à un Runbook ou déboguer un Runbook. Lors du test d’un Runbook, les messages de progression ne s’affichent pas, même si le Runbook est configuré pour enregistrer les informations de progression.
 
-L’applet de commande [Write-Progress](http://technet.microsoft.com/library/hh849902.aspx) n’est pas valide dans un Runbook, dans la mesure où les messages sont destinés à un utilisateur interactif.
+L’applet de commande [Write-Progress](https://technet.microsoft.com/library/hh849902.aspx) n’est pas valide dans un Runbook, dans la mesure où les messages sont destinés à un utilisateur interactif.
 
 ## <a name="preference-variables"></a>Variables de préférence
-Windows PowerShell utilise des [variables de préférence](http://technet.microsoft.com/library/hh847796.aspx) pour déterminer comment répondre aux données envoyées aux différents flux de sortie. Vous pouvez définir ces variables dans un Runbook pour contrôler comment il répond aux données envoyées dans différents flux.
+Windows PowerShell utilise des [variables de préférence](https://technet.microsoft.com/library/hh847796.aspx) pour déterminer comment répondre aux données envoyées aux différents flux de sortie. Vous pouvez définir ces variables dans un Runbook pour contrôler comment il répond aux données envoyées dans différents flux.
 
 Le tableau suivant répertorie les variables de préférence qui peuvent être utilisées dans des Runbooks, ainsi que leurs valeurs valides et valeurs par défaut. Ce tableau inclut uniquement les valeurs valides dans un Runbook. D’autres valeurs sont valides pour les variables de préférence lorsqu’elles sont utilisées dans Windows PowerShell en dehors d’Azure Automation.
 

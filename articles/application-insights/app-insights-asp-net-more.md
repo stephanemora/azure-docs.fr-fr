@@ -13,20 +13,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: 2f03083367de4e818bdc953ab76c28ff687f0a48
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: a1244076efe1c920a23f29de9d25ab6845747fe4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294334"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245849"
 ---
 # <a name="more-telemetry-from-application-insights"></a>Plus de télémétrie dans Application Insights
 Une fois que vous avez [ajouté Application Insights à votre code ASP.NET](app-insights-asp-net.md), vous pouvez encore suivre quelques étapes supplémentaires pour obtenir davantage de données de télémétrie. 
 
 | Action | Ce que vous obtenez|
 |---|---|
-|(serveurs IIS) [Installer Status Monitor](http://go.microsoft.com/fwlink/?LinkId=506648) sur chaque ordinateur serveur.<br/>(Applications web Azure) Dans le panneau de configuration Azure de l’application web, ouvrez le panneau Application Insights.| [**Compteurs de performance**](app-insights-performance-counters.md)<br/>[**Exceptions**](app-insights-asp-net-exceptions.md) - arborescences détaillées des appels de procédure<br/>[**Dépendances**](app-insights-asp-net-dependencies.md)|
-|[Ajouter l’extrait de code JavaScript à vos pages web](app-insights-javascript.md)|[Performances des pages](app-insights-web-track-usage.md), exceptions du navigateur, performances AJAX. Télémétrie côté client personnalisée.|
+|(serveurs IIS) [Installer Status Monitor](https://go.microsoft.com/fwlink/?LinkId=506648) sur chaque ordinateur serveur.<br/>(Applications web Azure) Dans le panneau de configuration Azure de l’application web, ouvrez le panneau Application Insights.| [**Compteurs de performance**](app-insights-performance-counters.md)<br/>[**Exceptions**](app-insights-asp-net-exceptions.md) - arborescences détaillées des appels de procédure<br/>[**Dépendances**](app-insights-asp-net-dependencies.md)|
+|[Ajouter l’extrait de code JavaScript à vos pages web](app-insights-javascript.md)|[Performances des pages](app-insights-usage-overview.md), exceptions du navigateur, performances AJAX. Télémétrie côté client personnalisée.|
 |[Créer des tests web de disponibilité](app-insights-monitor-web-app-availability.md)|Recevoir des alertes si votre site est indisponible|
 |[Vérifier que buildinfo.config](https://msdn.microsoft.com/library/dn449058.aspx) est généré par MSBuild|[Créer des annotations dans les graphiques de mesures](https://blogs.msdn.microsoft.com/visualstudioalm/2013/11/14/implementing-deployment-markers-in-application-insights/)
 |[Écrire des mesures et des événements personnalisés](app-insights-api-custom-events-metrics.md)|Compter des mesures et des événements commerciaux, suivre l’utilisation détaillée et plus encore.|

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 06169ff8e084882eb9a2dbe71c89c3b2a40b384b
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4dac0ed85500e4339f6389f05113dfd68b72c5ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50214084"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244336"
 ---
 # <a name="remove-servers-and-disable-protection"></a>Supprimer des serveurs et désactiver la protection
 
@@ -34,7 +34,7 @@ Si vous répliquez des machines virtuelles VMware ou des serveurs physiques Wind
 3. Notez l’ID du serveur VMM.
 4. Dissociez les stratégies de réplication des clouds sur le serveur VMM que vous souhaitez supprimer.  Dans **Infrastructure Site Recovery** > **For System Center VMM (Pour System Center VMM)** >  **Stratégies de réplication**, double-cliquez sur la stratégie associée. Cliquez avec le bouton droit sur le cloud et sélectionnez **Dissocier**.
 5. Supprimez le serveur VMM ou le nœud actif. Dans **Infrastructure Site Recovery** > **For System Center VMM (Pour System Center VMM)** > **Serveurs VMM**, cliquez avec le bouton droit sur le serveur et sélectionnez **Supprimer**.
-6. Si votre serveur VMM était dans un état déconnecté, téléchargez et exécutez le [script de nettoyage](http://aka.ms/asr-cleanup-script-vmm) sur le serveur VMM. Ouvrez PowerShell avec l’option **Exécuter en tant qu’administrateur** pour modifier la stratégie d’exécution associée à l’étendue par défaut (LocalMachine). Dans le script, spécifiez l’ID du serveur VMM que vous souhaitez supprimer. Le script supprime du serveur l’inscription et les informations de pairage de cloud.
+6. Si votre serveur VMM était dans un état déconnecté, téléchargez et exécutez le [script de nettoyage](https://aka.ms/asr-cleanup-script-vmm) sur le serveur VMM. Ouvrez PowerShell avec l’option **Exécuter en tant qu’administrateur** pour modifier la stratégie d’exécution associée à l’étendue par défaut (LocalMachine). Dans le script, spécifiez l’ID du serveur VMM que vous souhaitez supprimer. Le script supprime du serveur l’inscription et les informations de pairage de cloud.
 5. Exécutez le script de nettoyage sur tous les serveurs VMM secondaires.
 6. Exécutez le script de nettoyage sur les autres nœuds de cluster VMM passifs sur lesquels le fournisseur est installé.
 7. Désinstallez le fournisseur manuellement sur le serveur VMM. Si vous avez un cluster, supprimez-le de tous les nœuds.

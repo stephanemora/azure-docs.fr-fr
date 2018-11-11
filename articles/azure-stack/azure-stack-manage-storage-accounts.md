@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: 35c15613192ac12a7d4c64cbe28f62200724d311
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: af7500d6bf12ef34e6919aa255185a87525310b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452273"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240713"
 ---
 # <a name="manage-storage-accounts-in-azure-stack"></a>Gérer les comptes de stockage dans Azure Stack
 Découvrez comment gérer les comptes de stockage dans Azure Stack pour rechercher, restaurer et récupérer de la capacité de stockage en fonction des besoins de l’entreprise.
@@ -136,8 +136,8 @@ Vous pouvez aussi utiliser PowerShell pour remplacer explicitement la période d
 **Pour récupérer de la capacité en utilisant PowerShell :**   
 
 1. Vérifiez qu’Azure PowerShell est installé et configuré. Dans le cas contraire, suivez ces instructions : 
-   * Pour installer la dernière version d’Azure PowerShell et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure PowerShell](http://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-   Pour plus d’informations sur les applets de commande Azure Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkId=394767).
+   * Pour installer la dernière version d’Azure PowerShell et l’associer à votre abonnement Azure, consultez [Installer et configurer Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+   Pour plus d’informations sur les applets de commande Azure Resource Manager, consultez [Utilisation d’Azure PowerShell avec Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkId=394767).
 2. Exécutez les applets de commande suivantes :
 
 > [!NOTE]  

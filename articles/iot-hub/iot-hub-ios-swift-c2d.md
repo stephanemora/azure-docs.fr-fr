@@ -7,18 +7,18 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: kgremban
-ms.openlocfilehash: 550c3d7a2294158120ddd42ba56715d1321de04c
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: cccffb2f63fe0c929f88d172070ede1c12bcec5b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49339863"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239455"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-ios"></a>Envoi de messages cloud à appareil avec IoT Hub (iOS)
 
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
-Azure IoT Hub est un service entièrement géré qui permet d’autoriser des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. L’article [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-ios.md) explique comment créer un hub IoT, y provisionner une identité d’appareil et coder une application d’appareil simulé qui envoie des messages appareil-à-cloud.
+Azure IoT Hub est un service entièrement géré qui permet d’autoriser des communications bidirectionnelles fiables et sécurisées entre des millions d’appareils et un serveur principal de solution. L’article [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-ios.md) explique comment créer un IoT Hub, y approvisionner une identité d’appareil et coder une application d’appareil simulé qui envoie des messages d’appareil-à-cloud.
 
 Cet article vous montre comment procéder.
 
@@ -32,18 +32,18 @@ Vous trouverez des informations supplémentaires sur les messages cloud-à-appar
 
 À la fin de cet article, vous exécutez deux projets iOS Swift :
 
-* **sample-device**, la même application créée dans [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-ios.md), qui se connecte à votre hub IoT et reçoit des messages cloud-à-appareil.
+* **sample-device**, la même application créée dans [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-ios.md), qui se connecte à votre IoT Hub et reçoit des messages cloud-à-appareil.
 
 * **sample-service**, qui envoie un message cloud-à-appareil à l’application d’appareil simulé par le biais d’IoT Hub, puis reçoit son accusé de réception.
 
 > [!NOTE]
-> IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (notamment C, Java et Javascript) par le biais des kits Azure IoT device SDK. Pour obtenir des instructions détaillées sur la façon de connecter votre appareil au code de ce didacticiel, et à Azure IoT Hub de manière générale, consultez le [Centre de développement Azure IoT](http://www.azure.com/develop/iot).
+> IoT Hub offre la prise en charge de plusieurs plateformes d’appareils et plusieurs langages (notamment C, Java et Javascript) par le biais des Kits de développement logiciel (SDK) d’appareils Azure IoT. Pour obtenir des instructions détaillées sur la façon de connecter votre appareil au code de ce didacticiel, et à Azure IoT Hub de manière générale, consultez le [Centre de développement Azure IoT](http://www.azure.com/develop/iot).
 
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
-- Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
+- Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
-- Un hub IoT actif dans Azure. 
+- Un IoT Hub actif dans Azure. 
 
 - L’exemple de code dans les [exemples Azure](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip).
 
@@ -53,9 +53,9 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 ## <a name="simulate-an-iot-device"></a>Simuler un appareil IoT
 
-Dans cette section, vous simulez un appareil iOS exécutant une application Swift pour recevoir des messages cloud-à-appareil provenant du hub IoT. 
+Dans cette section, vous simulez un appareil iOS exécutant une application Swift pour recevoir des messages cloud-à-appareil provenant de l’Iot Hub. 
 
-Il s’agit de l’exemple d’appareil que vous créez dans l’article [Envoyer des données de télémétrie d’un appareil à un hub IoT](quickstart-send-telemetry-ios.md). Si vous avez déjà cet appareil, vous pouvez ignorer cette section.
+Il s’agit de l’exemple d’appareil que vous créez dans l’article [Send telemetry from a device to an IoT hub (Envoyer des données de télémétrie d’un appareil à un IoT Hub)](quickstart-send-telemetry-ios.md). Si vous avez déjà cet appareil, vous pouvez ignorer cette section.
 
 ### <a name="install-cocoapods"></a>Installer les CocoaPods
 
@@ -103,7 +103,7 @@ Outre l’installation des pods nécessaires à votre projet, la commande d’in
 
 ## <a name="simulate-a-service-device"></a>Simuler un appareil de service
 
-Dans cette section, vous simulez un deuxième appareil iOS avec une application Swift qui envoie des messages cloud-à-appareil via le hub IoT. Cette configuration est utile pour les scénarios IoT dans lequel un iPhone ou un iPad fonctionne comme un contrôleur pour les autres appareils iOS connectés à un hub IoT. 
+Dans cette section, vous simulez un deuxième appareil iOS avec une application Swift qui envoie des messages cloud-à-appareil via l’IoT Hub. Cette configuration est utile pour les scénarios d’IoT dans lequel un iPhone ou un iPad fonctionne comme un contrôleur pour les autres appareils iOS connectés à un IoT Hub. 
 
 ### <a name="install-cocoapods"></a>Installer les CocoaPods
 
@@ -125,7 +125,7 @@ Outre l’installation des pods nécessaires à votre projet, la commande d’in
 
 ### <a name="run-the-sample-service-application"></a>Exécuter l’exemple d’application de service
 
-1. Récupérez la chaîne de connexion de service de votre hub IoT. Vous pouvez copier cette chaîne depuis le [portail Azure](https://portal.azure.com), à partir de la stratégie **iothubowner** dans le panneau **Stratégies d’accès partagé**, ou la récupérer avec la commande CLI suivante :  
+1. Récupérez la chaîne de connexion de service de votre IoT Hub. Vous pouvez copier cette chaîne depuis le [portail Azure](https://portal.azure.com), à partir de la stratégie **iothubowner** dans le panneau **Stratégies d’accès partagé**, ou la récupérer avec la commande CLI suivante :  
 
     ```azurecli-interactive
     az iot hub show-connection-string --hub-name {YourIoTHubName} --output table
@@ -145,7 +145,7 @@ Outre l’installation des pods nécessaires à votre projet, la commande d’in
 
 6. Enregistrez vos modifications. 
 
-7. Dans Xcode, remplacez les paramètres d’émulateur par un appareil iOS autre que celui utilisé pour exécuter l’appareil IoT. XCode ne peut pas exécuter plusieurs émulateurs du même type. 
+7. Dans Xcode, remplacez les paramètres d’émulateur par un appareil iOS autre que celui utilisé pour exécuter le périphérique IoT. XCode ne peut pas exécuter plusieurs émulateurs du même type. 
 
    ![Changer l’émulateur d’appareil](media/iot-hub-ios-swift-c2d/change-device.png)
 
@@ -165,7 +165,7 @@ Vous êtes maintenant prêt à utiliser les deux applications pour envoyer et re
 
 3. Écrivez un message en texte brut, puis cliquez sur **Envoyer**. 
 
-    Plusieurs actions s’exécutent lorsque vous cliquez sur Envoyer. L’exemple de service envoie le message à votre hub IoT, auquel l’application a accès, selon la chaîne de connexion de service que vous avez fournie. Votre hub IoT vérifie l’ID d’appareil, envoie le message à l’appareil de destination et envoie un accusé de réception à l’appareil source. L’application exécutée sur votre appareil IoT simulé recherche les messages provenant du hub IoT et affiche le texte du message le plus récent.
+    Plusieurs actions s’exécutent lorsque vous cliquez sur Envoyer. L’exemple de service envoie le message à votre IoT Hub, auquel l’application a accès, selon la chaîne de connexion de service que vous avez fournie. Votre IoT Hub vérifie l’ID d’appareil, envoie le message à l’appareil de destination et envoie un accusé de réception à l’appareil source. L’application exécutée sur votre appareil IoT simulé recherche les messages provenant de l’IoT Hub et affiche le texte du message le plus récent.
 
     Votre sortie doit ressembler à l’exemple suivant :
 

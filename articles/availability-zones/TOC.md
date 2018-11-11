@@ -1,6 +1,6 @@
 
 # Résilience Azure
-## [Page de fonctionnalité de résilience Azure](http://azure.microsoft.com/features/resiliency)
+## [Page de fonctionnalité de résilience Azure](https://azure.microsoft.com/features/resiliency)
 ## [Conception d’applications résilientes pour Azure](https://docs.microsoft.com/azure/architecture/resiliency/)
 
 # Haute disponibilité
@@ -22,7 +22,7 @@
 ### Groupes identiques de machines virtuelles 
 #### [Créer un groupe identique dans une zone de disponibilité](../virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones.md)
 
-### Équilibreur de charge
+### Load Balancer
 #### [Qu’est-ce que l’équilibrage de charge ?](../load-balancer/load-balancer-standard-overview.md)
 #### [Standard d’équilibrage de charge et zones de disponibilité](../load-balancer/load-balancer-standard-availability-zones.md)
 
@@ -41,7 +41,7 @@
 #### [Zones de disponibilité avec SQL Database](../sql-database/sql-database-high-availability.md#zone-redundant-configuration)
 
 ### Stockage
-#### [Stockage redondant dans une zone](../storage/common/storage-redundancy-zrs.md)
+#### [Stockage redondant interzone](../storage/common/storage-redundancy-zrs.md)
 
 ### Event Hubs
 #### [Géo-reprise d’activité après sinistre Event Hubs](../event-hubs/event-hubs-geo-dr.md#availability-zones-preview)
@@ -50,10 +50,10 @@
 #### [Géo-reprise d’activité après sinistre Service Bus](../service-bus-messaging/service-bus-geo-dr.md#availability-zones-preview)
 
 ### Passerelle VPN
-#### [Créer une passerelle de réseau virtuel redondant dans une zone](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+#### [Créer une passerelle de réseau virtuel redondante interzone](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 ### ExpressRoute
-#### [Créer une passerelle de réseau virtuel redondant dans une zone](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
+#### [Créer une passerelle de réseau virtuel redondante interzone](../vpn-gateway/create-zone-redundant-vnet-gateway.md)
 
 # Récupération d’urgence
 ## [Utiliser Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/)

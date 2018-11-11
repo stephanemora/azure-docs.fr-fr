@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/17/2018
-ms.openlocfilehash: 31f61a1d6dee19ada60a1024a235f6329d7d5ca0
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 661fd36b4451238f488bff1db60a901a8dabd5aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377812"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242155"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Questions fréquentes (FAQ) sur les bases de données SQL Azure Hyperscale
 
@@ -253,7 +253,7 @@ Oui. L’utilisation de données provenant d’autres sources de données que SQ
 
 ### <a name="what-slas-are-provided-for-a-hyperscale-database"></a>Quels sont les contrats SLA fournis pour une base de données Hyperscale ?
 
-En règle générale, un contrat SLA n’est pas fourni pendant une préversion publique. Cependant Hyperscale fournit le même niveau de haute disponibilité que les offres actuelles de SQL Database. Consultez [Contrat SLA](http://azure.microsoft.com/support/legal/sla/).
+En règle générale, un contrat SLA n’est pas fourni pendant une préversion publique. Cependant Hyperscale fournit le même niveau de haute disponibilité que les offres actuelles de SQL Database. Consultez [Contrat SLA](https://azure.microsoft.com/support/legal/sla/).
 
 ### <a name="are-the-database-backups-managed-for-me-by-the-azure-sql-database-service"></a>Les sauvegardes de base de données sont-elles gérées pour moi par le service Azure SQL Database ?
 

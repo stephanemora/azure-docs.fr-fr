@@ -14,19 +14,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: fe20cf9c9137dc1ca41d3b8e2445bac079fb33fc
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: a7ced71f2d0a8c5d956bbdbcd8fcae485aee3fc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42145111"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241568"
 ---
 # <a name="how-to-use-notification-hubs-from-java"></a>Utilisation de Notification Hubs à partir de Java
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
 Cette rubrique décrit les principales fonctionnalités du nouveau kit de développement logiciel (SDK) Java officiel pour Azure Notification Hub, entièrement pris en charge. Il s’agit d’un projet open source et vous pouvez afficher tout le code du Kit de développement logiciel (SDK) sur [Kit de développement logiciel (SDK) Java]. 
 
-Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d’un serveur principal Java/PHP/Python/Ruby en utilisant l’interface REST de Notification Hub, comme décrit dans la rubrique MSDN [API REST de Notification Hub](http://msdn.microsoft.com/library/dn223264.aspx). Ce kit de développement logiciel Java fournit un wrapper fin par rapport aux interfaces REST dans Java. 
+Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d’un serveur principal Java/PHP/Python/Ruby en utilisant l’interface REST de Notification Hub, comme décrit dans la rubrique MSDN [API REST de Notification Hub](https://msdn.microsoft.com/library/dn223264.aspx). Ce kit de développement logiciel Java fournit un wrapper fin par rapport aux interfaces REST dans Java. 
 
 Le kit de développement logiciel (SDK) prend actuellement en charge :
 

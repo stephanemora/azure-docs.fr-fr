@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 1caf69ee822ec11e8797ca23c9c163d36344edc7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: d0d07e235c33877ede7f47a6095482b2acec18d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719985"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239835"
 ---
 # <a name="what-is-the-myapps-portal"></a>Qu’est-ce que le portail MyApps ?
 
@@ -137,7 +137,7 @@ Si vous êtes un administrateur Azure connecté au portail Azure à l’aide d�
 Pour tester dans un *autre* compte d’utilisateur, procédez comme suit :
 
 1. En haut à droite du portail Azure ou du portail MyApps, sélectionnez **Déconnexion**. 
-2. Accédez au [portail MyApps](http://myapps.microsoft.com).
+2. Accédez au [portail MyApps](https://myapps.microsoft.com).
 3. Dans la page de connexion, tapez le nom d’utilisateur et le mot de passe du compte dans l’annuaire que vous souhaitez tester.
 
 

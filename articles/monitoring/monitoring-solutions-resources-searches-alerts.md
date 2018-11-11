@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/18/2018
-ms.author: bwren, vinagara
+ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8ec5f1cef3f9ca82953093d2086b615087db1a7f
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 427ac67b812da449333e4868e54ca36d2c6f54af
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024759"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282325"
 ---
 # <a name="adding-log-analytics-saved-searches-and-alerts-to-management-solution-preview"></a>Ajout de recherches et d’alertes enregistrées Log Analytics à une solution de gestion (préversion)
 
@@ -27,13 +27,13 @@ ms.locfileid: "50024759"
 > Il s’agit d’une documentation préliminaire pour la création de solutions de gestion actuellement en préversion. Tout schéma décrit ci-dessous est susceptible d’être modifié.   
 
 
-Les [solutions de gestion](monitoring-solutions.md) incluent généralement des [recherches enregistrées](../log-analytics/log-analytics-log-searches.md) dans Log Analytics afin d’analyser les données collectées par la solution.  Elles peuvent également définir des [alertes](../log-analytics/log-analytics-alerts.md) pour avertir l’utilisateur ou appliquer automatiquement une action en réponse à un problème critique.  Cet article décrit comment définir les alertes et recherches enregistrées de Log Analytics dans un [modèle Resource Manager](../resource-manager-template-walkthrough.md), de sorte qu’elles puissent être incluses dans des [solutions de gestion](monitoring-solutions-creating.md).
+Les [solutions de gestion](monitoring-solutions.md) incluent généralement des [recherches enregistrées](../log-analytics/log-analytics-queries.md) dans Log Analytics afin d’analyser les données collectées par la solution.  Elles peuvent également définir des [alertes](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) pour avertir l’utilisateur ou appliquer automatiquement une action en réponse à un problème critique.  Cet article décrit comment définir les alertes et recherches enregistrées de Log Analytics dans un [modèle Resource Manager](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md), de sorte qu’elles puissent être incluses dans des [solutions de gestion](monitoring-solutions-creating.md).
 
 > [!NOTE]
 > Les exemples dans cet article utilisent des paramètres et des variables obligatoires ou communs aux solutions de gestion. Ils sont décrits dans la rubrique [Conception et génération d’une solution de gestion dans Azure](monitoring-solutions-creating.md)  
 
 ## <a name="prerequisites"></a>Prérequis
-Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](monitoring-solutions-creating.md) et la structure d’un [modèle Resource Manager](../resource-group-authoring-templates.md) et d’un fichier solution.
+Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](monitoring-solutions-creating.md) et la structure d’un [modèle Resource Manager](../azure-resource-manager/resource-group-authoring-templates.md) et d’un fichier solution.
 
 
 ## <a name="log-analytics-workspace"></a>Espace de travail Log Analytics
@@ -54,9 +54,9 @@ Le tableau suivant répertorie la version d’API pour les ressources utilisées
 
 
 ## <a name="saved-searches"></a>Recherches enregistrées
-Ajoutez des [recherches enregistrées](../log-analytics/log-analytics-log-searches.md) à une solution pour permettre aux utilisateurs d’interroger les données collectées par votre solution.  Les recherches enregistrées apparaissent sous **Recherches enregistrées** dans le portail Azure.  Une recherche enregistrée est également requise pour chaque alerte.   
+Ajoutez des [recherches enregistrées](../log-analytics/log-analytics-queries.md) à une solution pour permettre aux utilisateurs d’interroger les données collectées par votre solution.  Les recherches enregistrées apparaissent sous **Recherches enregistrées** dans le portail Azure.  Une recherche enregistrée est également requise pour chaque alerte.   
 
-Les ressources de [recherche enregistrée Log Analytics](../log-analytics/log-analytics-log-searches.md) ont le type `Microsoft.OperationalInsights/workspaces/savedSearches` et présentent la structure suivante.  Cela inclut des variables et des paramètres courants, vous pouvez donc copier et coller cet extrait de code dans votre fichier de solution et modifier les noms des paramètres. 
+Les ressources de [recherche enregistrée Log Analytics](../log-analytics/log-analytics-queries.md) ont le type `Microsoft.OperationalInsights/workspaces/savedSearches` et présentent la structure suivante.  Cela inclut des variables et des paramètres courants, vous pouvez donc copier et coller cet extrait de code dans votre fichier de solution et modifier les noms des paramètres. 
 
     {
         "name": "[concat(parameters('workspaceName'), '/', variables('SavedSearch').Name)]",

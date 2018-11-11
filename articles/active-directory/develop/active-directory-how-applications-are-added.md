@@ -17,12 +17,12 @@ ms.date: 04/18/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: elisol, lenalepa
-ms.openlocfilehash: fb2bfc89322d81833b1961bfb866a773c5d1d475
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 8e806fc334faf85864ea9158d4f2ed6d107327ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577228"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241495"
 ---
 # <a name="how-and-why-applications-are-added-to-azure-ad"></a>Comment et pourquoi les applications sont ajoutées à Azure AD
 
@@ -69,7 +69,7 @@ Le principal de service peut inclure :
 
 * Lorsque les utilisateurs se connectent à une application tierce intégrée à Azure AD
   * Lors de la connexion, les utilisateurs sont invités à autoriser l’application à accéder à leur profil et à effectuer d’autres actions. Dès que la première personne donne son consentement, le principal de service représentant l’application est ajouté à l’annuaire.
-* Lorsque les utilisateurs se connectent aux services en ligne de Microsoft comme [Office 365](http://products.office.com/)
+* Lorsque les utilisateurs se connectent aux services en ligne de Microsoft comme [Office 365](https://products.office.com/)
   * Lorsque vous vous abonnez à Office 365 ou commencez une version d’évaluation, un ou plusieurs principaux de service sont créés dans l’annuaire représentant les différents services qui sont utilisés pour transmettre toutes les fonctionnalités associées à Office 365.
   * Certains services d’Office 365 tels que SharePoint créent des principaux de service sur une base continue, afin de sécuriser les communications entre les composants, y compris les flux de travail.
 * Lorsqu’un administrateur ajoute une application à partir de la galerie d’applications (cette opération crée également un objet d’application sous-jacent)

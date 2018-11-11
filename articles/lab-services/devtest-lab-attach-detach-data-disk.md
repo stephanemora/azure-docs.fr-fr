@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 193b66cf8bdaaefed5f073bec3ecb9050d076f19
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 2e168867ed342fb0b0545b5fdc330ba790f78de0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299072"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243553"
 ---
 # <a name="attach-or-detach-a-data-disk-to-a-virtual-machine-in-azure-devtest-labs"></a>Attacher ou détacher un disque de données sur une machine virtuelle dans Azure DevTest Labs
 [Les disques managés Azure](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) gèrent les comptes de stockage associés aux disques de données des machines virtuelles. Un utilisateur attache un nouveau disque de données à une machine virtuelle et spécifie le type et la taille du disque voulu, puis Azure crée et gère le disque automatiquement. Le disque de données peut ensuite être détaché de la machine virtuelle, soit pour être rattaché ultérieurement à la même machine virtuelle, soit pour être attaché à une autre machine virtuelle qui appartient au même utilisateur.
@@ -35,7 +35,7 @@ Avant d’attacher un disque de données, lisez les conseils suivants :
 ### <a name="attach-a-new-disk"></a>Attacher un nouveau disque
 Suivez ces étapes pour créer et attacher un disque de données managé à une machine virtuelle dans Azure DevTest Labs.
 
-1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires. 
 1. Dans la liste de **Mes machines virtuelles**, sélectionnez-en une en cours d’exécution.

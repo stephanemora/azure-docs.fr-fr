@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: powerbi
 ms.date: 09/25/2017
 ms.author: maghan
-ms.openlocfilehash: cd7da8d2bbd684df29432bb924bdae3cd9ac7e64
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: a2e1604a51b8343d926dda3b258d38b19266deeb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044435"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246682"
 ---
 # <a name="get-started-with-power-bi-workspace-collections-sample"></a>Exemple de prise en main des collections d’espaces de travail Power BI
 
@@ -26,9 +26,9 @@ Les **collections d’espaces de travail Microsoft Power BI** vous permettent d�
 
 Avant d’aller plus loin, vous devez enregistrer les ressources ci-après, qui vous aideront lors de l’intégration de rapports Power BI dans l’exemple d’application, ainsi que dans vos propres applications.
 
-* [Exemple d’application web d’espace de travail](http://go.microsoft.com/fwlink/?LinkId=761493)
+* [Exemple d’application web d’espace de travail](https://go.microsoft.com/fwlink/?LinkId=761493)
 * [Informations de référence sur les API des collections d’espaces de travail Power BI](https://msdn.microsoft.com/library/azure/mt711507.aspx)
-* [Kit de développement logiciel (SDK) .NET Power BI](http://go.microsoft.com/fwlink/?LinkId=746472) (disponible par le biais de NuGet)
+* [Kit de développement logiciel (SDK) .NET Power BI](https://go.microsoft.com/fwlink/?LinkId=746472) (disponible par le biais de NuGet)
 * [Exemple de rapport JavaScript intégré](https://microsoft.github.io/PowerBI-JavaScript/demo)
 
 > [!NOTE]
@@ -38,7 +38,7 @@ Avant d’aller plus loin, vous devez enregistrer les ressources ci-après, qui 
 
 Passons à la configuration de votre environnement de développement Visual Studio pour accéder aux composants nécessaires à l’exécution de l’exemple d’application.
 
-1. Téléchargez et décompressez l’exemple [Power BI Workspace Collections - Integrate a report into a web app](http://go.microsoft.com/fwlink/?LinkId=761493) (Collections d’espaces de travail Power BI - Intégrer un rapport dans une application web) sur GitHub.
+1. Téléchargez et décompressez l’exemple [Power BI Workspace Collections - Integrate a report into a web app](https://go.microsoft.com/fwlink/?LinkId=761493) (Collections d’espaces de travail Power BI - Intégrer un rapport dans une application web) sur GitHub.
 2. Ouvrez **PowerBI-embedded.sln** dans Visual Studio. Vous devrez peut-être exécuter la commande **Update-Package** dans la console du gestionnaire de package NuGet pour mettre à jour les packages utilisés dans cette solution.
 3. Générez la solution.
 4. Exécutez l’application de console **ProvisionSample** . Dans l’exemple d’application console, vous allez approvisionner un espace de travail et importer un fichier PBIX.
@@ -51,7 +51,7 @@ Passons à la configuration de votre environnement de développement Visual Stud
 8. Copiez et enregistrez **l’ID d’espace de travail** qui vient d’être créé et qui sera utilisé ultérieurement dans cet article. Une fois **l’ID d’espace de travail** créé, ce dernier est disponible dans le **portail Azure**.
 
     ![ID d’espace de travail dans le portail Azure](media/get-started-sample/workspace-id.png)
-9. Pour importer un fichier PBIX dans votre **espace de travail**, sélectionnez l’option **6. Importez le fichier PBIX Desktop dans un espace de travail existant**. Si vous n’avez pas de fichier PBIX sous la main, téléchargez [l’exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547).
+9. Pour importer un fichier PBIX dans votre **espace de travail**, sélectionnez l’option **6. Importez le fichier PBIX Desktop dans un espace de travail existant**. Si vous n’avez pas de fichier PBIX sous la main, téléchargez [l’exemple PBIX Analyse des données de vente](https://go.microsoft.com/fwlink/?LinkID=780547).
 10. Si vous y êtes invité, entrez un nom convivial pour votre **jeu de données**.
 
 La réponse doit ressembler à ceci :
@@ -83,7 +83,7 @@ L’exemple d’application web est un exemple d’application qui restitue les 
     ```
 3. Exécutez l’application web **EmbedSample**.
 
-Une fois que vous avez exécuté l’application web **EmbedSample**, le volet de navigation gauche doit contenir un menu **Rapports**. Pour afficher le rapport que vous avez importé, développez **Rapports**, puis cliquez sur un rapport. Si vous avez importé l’[exemple PBIX Analyse des données de vente](http://go.microsoft.com/fwlink/?LinkID=780547), l’exemple d’application web a l’aspect suivant :
+Une fois que vous avez exécuté l’application web **EmbedSample**, le volet de navigation gauche doit contenir un menu **Rapports**. Pour afficher le rapport que vous avez importé, développez **Rapports**, puis cliquez sur un rapport. Si vous avez importé l’[exemple PBIX Analyse des données de vente](https://go.microsoft.com/fwlink/?LinkID=780547), l’exemple d’application web a l’aspect suivant :
 
 ![Exemple de barre de navigation de gauche dans l’exemple d’application](media/get-started-sample/sample-left-nav.png)
 

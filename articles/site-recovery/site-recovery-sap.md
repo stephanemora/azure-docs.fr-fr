@@ -1,27 +1,23 @@
 ---
-title: Protéger un déploiement d’applications SAP NetWeaver multiniveau à l’aide d’Azure Site Recovery | Microsoft Docs
-description: Cet article indique comment protéger les déploiements d’applications SAP NetWeaver à l’aide du service Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Configurer la reprise d’activité pour les déploiements d’applications SAP NetWeaver multiniveau avec Azure Site Recovery | Microsoft Docs
+description: Cet article décrit comment configurer la reprise d’activité pour les déploiements d’applications SAP NetWeaver avec Azure Site Recovery.
 author: asgang
 manager: rochakm
-editor: ''
-ms.assetid: ''
 ms.service: site-recovery
 ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: asgang
-ms.openlocfilehash: a498ac9f973bbcf87bec104f18b542cc7e8b5800
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1f38cd62a1394d45716e7224cc03a059fcaf9e13
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318688"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247741"
 ---
-# <a name="protect-a-multi-tier-sap-netweaver-application-deployment-by-using-site-recovery"></a>Protéger un déploiement d’applications SAP NetWeaver multiniveau à l’aide de Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multi-tier-sap-netweaver-app-deployment"></a>Configurer la reprise d’activité pour un déploiement d’application SAP NetWeaver multiniveau
 
 La plupart des déploiements SAP, de moyenne et grande taille, utilisent une forme de solution de reprise d’activité après sinistre. Disposer de solutions de reprise d’activité fiables et testables est de plus en plus important, d’autant qu’un nombre croissant de processus métier essentiels sont déplacés vers des applications telles que SAP. Azure Site Recovery a été testé et intégré aux applications SAP. Site Recovery dépasse les capacités de la plupart des solutions de reprise d’activité après sinistre sur site, et à un coût total de possession (TCO) moins élevé que les solutions concurrentes.
 
@@ -62,7 +58,7 @@ Nous vous recommandons de mettre en place cette infrastructure avant de déploye
 
 Cette architecture de référence présente une application SAP NetWeaver en cours d’exécution dans un environnement Windows sur Azure avec une haute disponibilité.  Cette architecture est déployée avec des tailles de machine virtuelle spécifiques qui peuvent être modifiées en fonction des besoins de votre organisation.
 
-![Schéma d’un modèle de déploiement SAP classique](./media/site-recovery-sap/reference_sap.png)
+![Schéma d’un modèle de déploiement SAP classique](./media/site-recovery-sap/sap-netweaver_latest.png)
 
 ## <a name="disaster-recovery-considerations"></a>Considérations relatives à la récupération d’urgence
 
@@ -171,5 +167,5 @@ Pour plus d’informations, consultez [Tester le basculement vers Azure dans Sit
 Pour plus d’informations, consultez [Basculement dans Site Recovery](site-recovery-failover.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Pour en savoir plus sur la création d’une solution de reprise d’activité après sinistre pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver : Création d’une solution de reprise d’activité après sinistre avec Azure Site Recovery](http://aka.ms/asr-sap). Ce livre blanc, qui présente les recommandations émises pour les diverses architectures SAP, répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de reprise d’activité après sinistre.
+* Pour en savoir plus sur la création d’une solution de reprise d’activité après sinistre pour les déploiements SAP NetWeaver à l’aide de Site Recovery, consultez le livre blanc téléchargeable [SAP NetWeaver : Création d’une solution de reprise d’activité après sinistre avec Azure Site Recovery](https://aka.ms/asr-sap). Ce livre blanc, qui présente les recommandations émises pour les diverses architectures SAP, répertorie les applications et les types de machines virtuelles pris en charge pour SAP sur Azure, et décrit les options de plan de test pour votre solution de reprise d’activité après sinistre.
 * Approfondissez vos connaissances sur la [réplication d’autres charges de travail](site-recovery-workload.md) à l’aide de Site Recovery.

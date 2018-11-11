@@ -16,12 +16,12 @@ ms.date: 05/30/2018
 ms.component: hybrid
 ms.author: billmath
 ms.custom: seohack1
-ms.openlocfilehash: 8a40acda189507c1589373a48166ed1668e30650
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: a92d3237300fcd29fecf49d78b2866f8bd7e6a6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46308328"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247702"
 ---
 # <a name="determine-access-control-requirements-for-your-hybrid-identity-solution"></a>Déterminer les besoins de contrôle d'accès pour votre solution d'identité hybride
 Lorsqu’une organisation conçoit sa solution d’identité hybride, elle peut également profiter de cette opportunité pour passer en revue les exigences d’accès pour les ressources qu’elle envisage de mettre à la disposition des utilisateurs. L'accès aux données couvre les quatre piliers suivants de l'identité :
@@ -34,7 +34,7 @@ Lorsqu’une organisation conçoit sa solution d’identité hybride, elle peut 
 Les sections suivantes couvrent l’authentification et l’autorisation de manière plus détaillée ; l’administration et l’audit font partie du cycle de vie de l’identité hybride. Lire [Déterminer les tâches de gestion des identités hybrides](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md) pour plus d'informations sur ces fonctionnalités.
 
 > [!NOTE]
-> Lire [Les quatre piliers de l'identité - Gestion des identités à l'ère de l'informatique hybride](http://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) pour plus d'informations sur chacun de ces piliers.
+> Lire [Les quatre piliers de l'identité - Gestion des identités à l'ère de l'informatique hybride](https://social.technet.microsoft.com/wiki/contents/articles/15530.the-four-pillars-of-identity-identity-management-in-the-age-of-hybrid-it.aspx) pour plus d'informations sur chacun de ces piliers.
 > 
 > 
 

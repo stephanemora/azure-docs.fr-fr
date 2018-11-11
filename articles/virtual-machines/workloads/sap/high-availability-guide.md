@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 12/07/2016
 ms.author: goraco
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b2f6df1e5688bf9bc47056c7b05cf6ac16026c6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: c6dddbdbc781869ef6a3c1a0a707eeb83941b92a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634861"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239319"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms"></a>Haute disponibilité pour SAP NetWeaver sur des machines virtuelles Azure
 
@@ -504,7 +504,7 @@ Dans Azure Resource Manager, aucun groupe de ressources Azure n’est nécessair
 
 Dans Azure Resource Manager, vous pouvez installer plusieurs instances d’identificateur système SAP (SID) ASCS/SCS dans un cluster. Il est possible d’utiliser des instances multi-SID en raison de la prise en charge de plusieurs adresses IP pour chaque équilibreur de charge interne Azure.
 
-Pour utiliser le modèle de déploiement Azure Classic, vous devez suivre la procédure décrite dans le document [SAP NetWeaver in Azure: Clustering SAP ASCS/SCS instances by using Windows Server Failover Clustering in Azure with SIOS DataKeeper](http://go.microsoft.com/fwlink/?LinkId=613056) (SAP NetWeaver sur Azure - Clustering d’instances SAP ASCS/SCS à l’aide du clustering de basculement Windows Server sur Azure avec SIOS DataKeeper).
+Pour utiliser le modèle de déploiement Azure Classic, vous devez suivre la procédure décrite dans le document [SAP NetWeaver in Azure: Clustering SAP ASCS/SCS instances by using Windows Server Failover Clustering in Azure with SIOS DataKeeper](https://go.microsoft.com/fwlink/?LinkId=613056) (SAP NetWeaver sur Azure - Clustering d’instances SAP ASCS/SCS à l’aide du clustering de basculement Windows Server sur Azure avec SIOS DataKeeper).
 
 > [!IMPORTANT]
 > Nous vous recommandons vivement d’utiliser le modèle de déploiement Azure Resource Manager pour vos installations SAP. Celui-ci offre de nombreux avantages par rapport au modèle de déploiement Classic. En savoir plus sur les [modèles de déploiement][virtual-machines-azure-resource-manager-architecture-benefits-arm] Azure.   

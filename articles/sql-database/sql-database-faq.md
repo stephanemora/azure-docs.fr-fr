@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 88bea87c752563e1c19332121eb568b0bd329d03
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: c9b343bba59776ca735fa5c2cbddf03ec5c92b47
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954141"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242821"
 ---
 # <a name="sql-database-frequently-asked-questions-faq"></a>Forum aux questions sur SQL Database
 
@@ -27,7 +27,7 @@ La version actuelle de la base de données SQL est la version 12. La version 11 
 
 ## <a name="what-is-the-sla-for-sql-database"></a>Quel est le contrat SLA pour SQL Database ?
 
-Nous garantissons qu’au moins 99,99 % du temps, vous disposerez d’une connectivité entre Microsoft Azure SQL Database et notre passerelle Internet, quel que soit votre niveau de service. 0,01 % est réservé pour les correctifs, les mises à niveau et les basculements. Pour plus d’informations, consultez [Contrat de niveau de service](http://azure.microsoft.com/support/legal/sla/). Pour plus d’informations sur l’architecture de disponibilité d’Azure SQL Database, voir [Haute disponibilité et Azure SQL Database](sql-database-high-availability.md).
+Nous garantissons qu’au moins 99,99 % du temps, vous disposerez d’une connectivité entre Microsoft Azure SQL Database et notre passerelle Internet, quel que soit votre niveau de service. 0,01 % est réservé pour les correctifs, les mises à niveau et les basculements. Pour plus d’informations, consultez [Contrat de niveau de service](https://azure.microsoft.com/support/legal/sla/). Pour plus d’informations sur l’architecture de disponibilité d’Azure SQL Database, voir [Haute disponibilité et Azure SQL Database](sql-database-high-availability.md).
 
 ## <a name="can-i-control-when-patching-downtime-occurs"></a>Puis-je contrôler le moment ou se produit le temps d’arrêt pour une mise à jour corrective ?
 

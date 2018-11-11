@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: fa7d0f98f8119ad34e0764423e99af4564f20387
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 8d351e41eac3c820b9295b3b5cf314428bebc746
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305848"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242991"
 ---
 # <a name="azure-ad-connect-sync-service-features"></a>Fonctionnalités de service de synchronisation d’Azure AD Connect
 La fonctionnalité de synchronisation d’Azure AD Connect comprend deux composants :
@@ -30,7 +30,7 @@ La fonctionnalité de synchronisation d’Azure AD Connect comprend deux composa
 
 Cette rubrique explique comment les fonctionnalités suivantes du **service de synchronisation Azure AD Connect** opèrent et comment les configurer à l’aide de Windows PowerShell.
 
-Ces paramètres sont configurés à partir du [module Azure Active Directory pour Windows PowerShell](https://aka.ms/aadposh). Téléchargez et installez-le séparément à partir d’Azure AD Connect. Les applets de commande documentées dans cette rubrique ont été introduites dans la [version de mars 2016 (build 9031.1)](http://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Si vous n’avez pas les applets de commande documentées dans cette rubrique, ou que vous n’obtenez pas le même résultat, vérifiez que vous exécutez la version la plus récente.
+Ces paramètres sont configurés à partir du [module Azure Active Directory pour Windows PowerShell](https://aka.ms/aadposh). Téléchargez et installez-le séparément à partir d’Azure AD Connect. Les applets de commande documentées dans cette rubrique ont été introduites dans la [version de mars 2016 (build 9031.1)](https://social.technet.microsoft.com/wiki/contents/articles/28552.microsoft-azure-active-directory-powershell-module-version-release-history.aspx#Version_9031_1). Si vous n’avez pas les applets de commande documentées dans cette rubrique, ou que vous n’obtenez pas le même résultat, vérifiez que vous exécutez la version la plus récente.
 
 Pour afficher la configuration de votre répertoire Azure AD, exécutez `Get-MsolDirSyncFeatures`.  
 ![Résultat de Get-MsolDirSyncFeatures](./media/how-to-connect-syncservice-features/getmsoldirsyncfeatures.png)
@@ -58,7 +58,7 @@ Les paramètres suivants sont configurés par Azure AD Connect et ne peuvent pas
 | DeviceWriteback |[Azure AD Connect : Activation de l’écriture différée des appareils](how-to-connect-device-writeback.md) |
 | DirectoryExtensions |[Azure AD Connect Sync : extensions d’annuaire](how-to-connect-sync-feature-directory-extensions.md) |
 | [DuplicateProxyAddressResiliency<br/>DuplicateUPNResiliency](#duplicate-attribute-resiliency) |Permet à un attribut d’être mis en quarantaine lorsqu’il est un doublon d’un autre objet, plutôt que mettre en échec l’objet entier lors de l’exportation. |
-| Synchronisation de hachage de mot de passe |[Implémenter la synchronisation de hachage de mot de passe avec Azure AD Connect Sync](how-to-connect-password-hash-synchronization.md) |
+| Synchronisation de hachage de mot de passe |[Implémenter la synchronisation du hachage de mot de passe avec Azure AD Connect Sync](how-to-connect-password-hash-synchronization.md) |
 |Authentification directe|[Connexion de l’utilisateur avec l’authentification directe Azure Active Directory](how-to-connect-pta.md)|
 | UnifiedGroupWriteback |[Version préliminaire : Écriture différée de groupe](how-to-connect-preview.md#group-writeback) |
 | UserWriteback |Non pris en charge pour le moment. |

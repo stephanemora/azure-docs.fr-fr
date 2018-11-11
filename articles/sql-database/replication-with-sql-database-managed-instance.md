@@ -12,12 +12,12 @@ ms.author: xiwu
 ms.reviewer: mathoma
 manager: craigg
 ms.date: 09/25/2018
-ms.openlocfilehash: 25d13ba53eb5a8b411a557b5eaf05d278faa3733
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 3b979a9a7e93992ba593697fa9465fdadc1e58b9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48869310"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240390"
 ---
 # <a name="replication-with-sql-database-managed-instance"></a>Réplication avec SQL Database Managed Instance
 
@@ -77,7 +77,7 @@ Prend en charge :
 ## <a name="configure-publishing-and-distribution-example"></a>Exemple de configuration d’un serveur de publication et d’un serveur de distribution
 
 1. [Créez une instance Azure SQL Database Managed Instance](sql-database-managed-instance-create-tutorial-portal.md) dans le portail.
-2. [Créez un compte de stockage Azure](http://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) pour le répertoire de travail.
+2. [Créez un compte de stockage Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) pour le répertoire de travail.
 
    Veillez à copier les clés de stockage. Consultez [Afficher et copier les clés d’accès de stockage](../storage/common/storage-account-manage.md#access-keys
 ).
@@ -85,11 +85,11 @@ Prend en charge :
 
    Dans les exemples de scripts ci-dessous, remplacez `<Publishing_DB>` par le nom de cette base de données.
 
-4. Créez un utilisateur de base de données avec l’authentification SQL pour le serveur de distribution. Consultez [Création d’utilisateurs de base de données](http://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Utilisez un mot de passe sécurisé.
+4. Créez un utilisateur de base de données avec l’authentification SQL pour le serveur de distribution. Consultez [Création d’utilisateurs de base de données](https://docs.microsoft.com/azure/sql-database/sql-database-security-tutorial#creating-database-users). Utilisez un mot de passe sécurisé.
 
    Dans les exemples de scripts ci-dessous, utilisez `<SQL_USER>` et `<PASSWORD>` avec l’utilisateur de base de données et le mot de passe du compte SQL Server.
 
-5. [Connectez-vous à SQL Database Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
+5. [Connectez-vous à SQL Database Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-connect-query-ssms).
 
 6. Exécutez la requête suivante pour ajouter le serveur de distribution et la base de données de distribution.
 
@@ -197,4 +197,4 @@ Les fonctionnalités suivantes ne sont pas prises en charge :
 
 ## <a name="see-also"></a>Voir aussi
 
-- [Présentation de Managed Instance](http://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)
+- [Présentation de Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance)

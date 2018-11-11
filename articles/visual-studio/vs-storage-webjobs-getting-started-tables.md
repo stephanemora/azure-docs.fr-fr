@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: a10d354cf819ebaa7e2199d9de0566b3e6bfd1bf
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: c708c396911badb7c7ce5df2497aaba47cb7defe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42142877"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243758"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Prise en main d’Azure Storage (projets de tâche web Azure)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -145,5 +145,5 @@ Pour en savoir plus sur l’utilisation de l’objet **CloudTable** , consultez 
 Pour en savoir plus sur la gestion du traitement de tables déclenché par un message en file d’attente, ou pour consulter des scénarios relatifs au Kit de développement logiciel (SDK) WebJobs non spécifiques du traitement des tables, consultez la section [Prise en main d’Azure Queue Storage et des services connectés Visual Studio (projets WebJobs)](../storage/vs-storage-webjobs-getting-started-queues.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
-Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des tables Azure. Pour plus d’informations sur l’utilisation d’Azure WebJobs et du Kit de développement logiciel (SDK) WebJobs, consultez la section [Ressources de documentation Azure WebJobs](http://go.microsoft.com/fwlink/?linkid=390226).
+Cet article a fourni des exemples de code qui montrent comment gérer des scénarios courants pour l’utilisation des tables Azure. Pour plus d’informations sur l’utilisation d’Azure WebJobs et du Kit de développement logiciel (SDK) WebJobs, consultez la section [Ressources de documentation Azure WebJobs](https://go.microsoft.com/fwlink/?linkid=390226).
 

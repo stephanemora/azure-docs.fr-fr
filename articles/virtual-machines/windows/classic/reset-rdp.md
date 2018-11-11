@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2017
 ms.author: cynthn
-ms.openlocfilehash: bbe8059b3a239570c2c9b25586dae9adbe25312d
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e91f75299dddf0ac173499a531ea959292082a9f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37931376"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246546"
 ---
 # <a name="how-to-reset-the-remote-desktop-service-or-its-login-password-in-a-windows-vm-created-using-the-classic-deployment-model"></a>Comment réinitialiser le service Bureau à distance ou son mot de passe de connexion dans une machine virtuelle Windows créée avec le modèle de déploiement Classic
 > [!IMPORTANT]
@@ -59,7 +59,7 @@ $vm = Get-AzureVM -ServiceName "myCloudService" -Name "myVM"
 write-host $vm.VM.ProvisionGuestAgent
 ```
 
-Si la commande **write-host** affiche la valeur **True**, cela signifie que l’agent de machine virtuelle est installé. Si la commande présente la valeur **False**, accédez aux instructions et au lien de téléchargement dans le billet de blog Azure [Agent de machine virtuelle et extensions - 2e partie](http://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) (en anglais).
+Si la commande **write-host** affiche la valeur **True**, cela signifie que l’agent de machine virtuelle est installé. Si la commande présente la valeur **False**, accédez aux instructions et au lien de téléchargement dans le billet de blog Azure [Agent de machine virtuelle et extensions - 2e partie](https://go.microsoft.com/fwlink/p/?linkid=403947&clcid=0x409) (en anglais).
 
 Si vous avez créé la machine virtuelle à l’aide du portail, vérifiez que `$vm.GetInstance().ProvisionGuestAgent` retourne **True**. Si ce n’est pas le cas, définissez cette valeur à l’aide de cette commande :
 
@@ -108,7 +108,7 @@ Si l’extension d’accès aux machines virtuelles Azure ne répond pas et que 
 
 [Extensions et fonctionnalités des machines virtuelles Azure](../extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-[Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx)
+[Connexion à une machine virtuelle Microsoft Azure avec RDP ou SSH](https://msdn.microsoft.com/library/azure/dn535788.aspx)
 
 [Résolution des problèmes de connexion Bureau à distance avec une machine virtuelle Azure Windows](../troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

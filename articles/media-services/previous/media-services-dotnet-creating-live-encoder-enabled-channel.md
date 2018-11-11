@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 12/09/2017
 ms.author: juliako;anilmur
-ms.openlocfilehash: 946de42c499182f8785866f362677779b105760d
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: aaf9fba7b3a2667577c26ade9cd88bcc87c60f61
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33940821"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243843"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Comment effectuer une diffusion dynamique en continu à l’aide d’Azure Media Services pour créer des flux à vitesses de transmission multiples avec .NET
 > [!div class="op_single_selector"]
-> * [Portail](media-services-portal-creating-live-encoder-enabled-channel.md)
+> * [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
 > * [API REST](https://docs.microsoft.com/rest/api/media/operations/channel)
 > 
 > [!NOTE]
-> Pour suivre ce didacticiel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
+> Pour suivre ce tutoriel, vous avez besoin d’un compte Azure. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 > 
 > 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce didacticiel vous guide tout au long des étapes de création d’un **canal** qui reçoit un flux continu à débit binaire unique et qui l’encode en flux à débit binaire multiple.
 
 Pour obtenir des informations conceptuelles sur les canaux prenant en charge l’encodage dynamique, consultez [Utilisation de canaux activés pour effectuer un encodage en temps réel avec Azure Media Services](media-services-manage-live-encoder-enabled-channels.md).
@@ -45,7 +45,7 @@ Les étapes suivantes décrivent les tâches impliquées dans la création d’a
 > 
 > 
 
-1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur local en direct qui peut générer un flux à vitesse binaire unique dans l’un des protocoles suivants : RTMP ou Smooth Streaming. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connectez une caméra vidéo à un ordinateur. Lancez et configurez un encodeur local en direct qui peut générer un flux à vitesse binaire unique dans l’un des protocoles suivants : RTMP ou Smooth Streaming. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs dynamiques dans Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     Cette étape peut également être effectuée après la création du canal.
 
@@ -89,7 +89,6 @@ L’article montre comment effectuer les opérations suivantes :
 8. Nettoyer votre canal et toutes les ressources associées.
 
 ## <a name="prerequisites"></a>Prérequis
-
 Les éléments suivants sont requis pour suivre le didacticiel.
 
 * Un compte Azure. Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). Vous obtenez des crédits que vous pouvez utiliser pour essayer des services Azure payants. Une fois que les crédits sont épuisés, vous pouvez quand même conserver le compte et utiliser les services et fonctionnalités Azure gratuits, comme la fonction Web Apps dans Azure App Service.
@@ -496,8 +495,7 @@ namespace EncodeLiveStreamWithAmsClear
 }
 ```
 
-## <a name="next-step"></a>Étapes suivantes
-
+## <a name="next-step"></a>Étape suivante
 Consultez les parcours d’apprentissage de Media Services.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

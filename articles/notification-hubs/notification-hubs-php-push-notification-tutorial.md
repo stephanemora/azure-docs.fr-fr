@@ -14,17 +14,17 @@ ms.devlang: php
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: b812d60363ffebf1f4374b6fd44dff5e67497e08
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: cf7dd8b111683a3b5b2f0a9f371c08ffb788fe58
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42141074"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241070"
 ---
 # <a name="how-to-use-notification-hubs-from-php"></a>Utilisation de Notification Hubs à partir de PHP
 [!INCLUDE [notification-hubs-backend-how-to-selector](../../includes/notification-hubs-backend-how-to-selector.md)]
 
-Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d'un serveur principal Java/PHP/Ruby en utilisant l'interface REST des hubs de notifications, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](http://msdn.microsoft.com/library/dn223264.aspx).
+Vous pouvez accéder à toutes les fonctionnalités de Notification Hubs à partir d'un serveur principal Java/PHP/Ruby en utilisant l'interface REST des hubs de notifications, comme décrit dans la rubrique MSDN [API REST de Notification Hubs](https://msdn.microsoft.com/library/dn223264.aspx).
 
 Dans cette rubrique, nous vous montrons comment :
 
@@ -32,7 +32,7 @@ Dans cette rubrique, nous vous montrons comment :
 * suivre le [didacticiel de prise en main](notification-hubs-ios-apple-push-notification-apns-get-started.md) pour la plateforme mobile de votre choix, en implémentant la partie concernant le serveur principal en PHP.
 
 ## <a name="client-interface"></a>Interface client
-L’interface client principale peut fournir les mêmes méthodes que le [Kit de développement logiciel (SDK) .NET Notification Hubs](http://msdn.microsoft.com/library/jj933431.aspx), ce qui permet de traduire directement l’ensemble des tutoriels et des exemples actuellement disponibles sur ce site, enrichis par les contributions de la communauté Internet.
+L’interface client principale peut fournir les mêmes méthodes que le [Kit de développement logiciel (SDK) .NET Notification Hubs](https://msdn.microsoft.com/library/jj933431.aspx), ce qui permet de traduire directement l’ensemble des tutoriels et des exemples actuellement disponibles sur ce site, enrichis par les contributions de la communauté Internet.
 
 Tout le code est disponible dans l' [exemple de wrapper REST PHP].
 
@@ -46,10 +46,10 @@ Pour envoyer une notification iOS native :
     $hub->sendNotification($notification, null);
 
 ## <a name="implementation"></a>Implémentation
-Si ce n’est déjà fait, suivez le [tutoriel de prise en main] jusqu’à la dernière section, dans laquelle vous devrez implémenter le serveur principal.
-En outre, si vous le souhaitez, vous pouvez utiliser le code de [exemple de wrapper REST PHP] et accéder directement à la section du didacticiel [Suivi du didacticiel](#complete-tutorial).
+Si ce n’est déjà fait, suivez le [didacticiel de prise en main] jusqu’à la dernière section, dans laquelle vous devrez implémenter le serveur principal.
+En outre, si vous le souhaitez, vous pouvez utiliser le code de l’[exemple de wrapper REST PHP] et accéder directement à la section du didacticiel [Suivi du didacticiel](#complete-tutorial).
 
-Tous les détails de l'implémentation d'un wrapper REST complet se trouvent sur [MSDN](http://msdn.microsoft.com/library/dn530746.aspx). Dans cette section, nous allons décrire l’implémentation PHP des principales étapes requises pour accéder aux points de terminaison REST de Notification Hubs :
+Tous les détails de l'implémentation d'un wrapper REST complet se trouvent sur [MSDN](https://msdn.microsoft.com/library/dn530746.aspx). Dans cette section, nous allons décrire l’implémentation PHP des principales étapes requises pour accéder aux points de terminaison REST de Notification Hubs :
 
 1. Analyse de la chaîne de connexion
 2. Génération du jeton d'autorisation
@@ -92,7 +92,7 @@ Voici la classe principale implémentant le client, dont le constructeur analyse
 
 
 ### <a name="create-security-token"></a>Création du jeton de sécurité
-Les détails concernant la création d'un jeton de sécurité sont disponibles [ici](http://msdn.microsoft.com/library/dn495627.aspx).
+Les détails concernant la création d'un jeton de sécurité sont disponibles [ici](https://msdn.microsoft.com/library/dn495627.aspx).
 La méthode suivante doit être ajoutée à la classe **NotificationHub** pour créer le jeton à partir de l'URI de la demande actuelle et des informations d'identification extraites de la chaîne de connexion.
 
     private function generateSasToken($uri) {
@@ -135,7 +135,7 @@ Commençons par définir une classe représentant une notification.
 
 Cette classe est un conteneur pour un corps de notification natif, ou un ensemble de propriétés dans le cas d’un modèle de notification, et un ensemble d’en-têtes contenant le format (plateforme native ou modèle) et des propriétés propres à la plateforme (notamment la propriété d’expiration d’Apple et les en-têtes WNS).
 
-Pour connaître toutes les options disponibles, consultez la [documentation sur les API REST de Notification Hubs](http://msdn.microsoft.com/library/dn495827.aspx) et les formats spécifiques des plateformes de notification.
+Pour connaître toutes les options disponibles, consultez la [documentation sur les API REST de Notification Hubs](https://msdn.microsoft.com/library/dn495827.aspx) et les formats spécifiques des plateformes de notification.
 
 Munis de cette classe, nous pouvons à présent écrire les méthodes d'envoi des notifications à l'intérieur de la classe **NotificationHub** .
 
@@ -201,7 +201,7 @@ Les méthodes ci-dessus envoient une demande POST HTTP au point de terminaison /
 ## <a name="complete-tutorial"></a>Suivi du didacticiel
 Vous pouvez à présent suivre le didacticiel de prise en main en envoyant la notification à partir d’un serveur principal PHP.
 
-Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du concentrateur comme indiqué dans le [tutoriel de prise en main]) :
+Initialisez votre client Notification Hubs (remplacez la chaîne de connexion et le nom du concentrateur comme indiqué dans le [didacticiel de prise en main]) :
 
     $hub = new NotificationHub("connection string", "hubname");    
 
@@ -253,5 +253,5 @@ Dans cette rubrique, nous vous avons montré comment créer un client REST Java 
 Pour plus d’informations, consultez également le [Centre pour développeurs PHP](https://azure.microsoft.com/develop/php/).
 
 [exemple de wrapper REST PHP]: https://github.com/Azure/azure-notificationhubs-samples/tree/master/notificationhubs-rest-php
-[tutoriel de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
+[didacticiel de prise en main]: http://azure.microsoft.com/documentation/articles/notification-hubs-ios-get-started/
 

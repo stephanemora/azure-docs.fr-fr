@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 718b57a801a9ba62a0154ae42da2ac0c0741f203
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 8e25f98f1189f71943ece4a7877a86e29698689a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22706646"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240509"
 ---
 # <a name="biztalk-services-editions-chart"></a>Tableau comparatif des éditions de BizTalk Services
 
@@ -57,13 +57,13 @@ Le tableau suivant répertorie les différences.
         <th>Gratuite (Évaluation)</th>
         <th>Développeur</th>
         <th>De base</th>
-        <th>Standard</th>
+        <th>standard</th>
         <th>Premium</th>
 </tr>
 
 <tr>
 <td><strong>Prix de départ</strong></td>
-<td colspan="5"><a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Tarification Azure BizTalk Services</a> <br/><br/> <a HREF="http://azure.microsoft.com/pricing/calculator/?scenario=full"> Calculatrice de prix Azure</a></td>
+<td colspan="5"><a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011"> Tarification Azure BizTalk Services</a> <br/><br/> <a HREF="https://azure.microsoft.com/pricing/calculator/?scenario=full"> Calculatrice de prix Azure</a></td>
 </tr>
 <tr>
 <td><strong>Configuration minimale par défaut</strong></td>
@@ -109,16 +109,16 @@ Inclut les contrats TPM</td>
 </tr>
 <tr>
 <td><strong>Connexions hybrides par unité</strong></td>
-<td>5</td>
-<td>5</td>
+<td>5.</td>
+<td>5.</td>
 <td>10</td>
 <td>50</td>
 <td>100</td>
 </tr>
 <tr>
 <td><strong>Transfert de données des connexions hybrides (Go) par unité</strong></td>
-<td>5</td>
-<td>5</td>
+<td>5.</td>
+<td>5.</td>
 <td>50</td>
 <td>250</td>
 <td>500</td>
@@ -134,7 +134,7 @@ Inclut les contrats TPM</td>
 <tr>
 <td align="left"><strong>Protocoles/systèmes pris en charge :</strong>
 <ul>
-<li>http</li>
+<li>HTTP</li>
 <li>HTTPS</li>
 <li>FTP</li>
 <li>SFTP</li>
@@ -153,7 +153,7 @@ Inclut les contrats TPM</td>
 <tr>
 <td><strong>Haute disponibilité</strong>
 <br/><br/>
-Pour le contrat de niveau de service (SLA), consultez <a HREF="http://go.microsoft.com/fwlink/p/?LinkID=304011"> Tarification Azure BizTalk Services</a>.
+Pour le contrat de niveau de service (SLA), consultez <a HREF="https://go.microsoft.com/fwlink/p/?LinkID=304011"> Tarification Azure BizTalk Services</a>.
 </td>
 <td>Non inclus</td>
 <td>Non inclus</td>
@@ -242,10 +242,10 @@ L’édition gratuite ne peut pas être migrée ou « mise à l’échelle » 
 Pour les autres éditions, utilisez la fonction de sauvegarde et restauration pour migrer vos artefacts d’un niveau à l’autre. Par exemple, sauvegardez vos artefacts de niveau Standard avant de les restaurer au niveau Premium. [Sauvegarde et restauration de BizTalk Services](biztalk-backup-restore.md) décrit les chemins de migration pris en charge et dresse la liste des artefacts sauvegardés. Notez que les connexions hybrides ne sont pas sauvegardées. Après la sauvegarde et la restauration vers un nouveau niveau, vous devez recréer les connexions hybrides.  
 
 #### <a name="is-the-biztalk-adapter-service-included-in-the-service-how-do-i-receive-the-software"></a>Un service d'adaptateur BizTalk est-il inclus dans le service ? Comment recevoir le logiciel ?
-Oui, le service d'adaptateur BizTalk livré avec le Pack adaptateurs BizTalk vous est fourni lorsque vous [téléchargez](http://www.microsoft.com/download/details.aspx?id=39087)le Kit de développement logiciel (SDK) Azure BizTalk Services.
+Oui, le service d'adaptateur BizTalk livré avec le Pack adaptateurs BizTalk vous est fourni lorsque vous [téléchargez](https://www.microsoft.com/download/details.aspx?id=39087)le Kit de développement logiciel (SDK) Azure BizTalk Services.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Pour créer Azure BizTalk Services dans le portail Azure, accédez à [Approvisionnement de BizTalk Services avec le portail Azure](biztalk-provision-services.md). Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=235197).
+Pour créer Azure BizTalk Services dans le portail Azure, accédez à [Approvisionnement de BizTalk Services avec le portail Azure](biztalk-provision-services.md). Pour commencer à créer des applications, consultez la page [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=235197).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Approvisionnement de BizTalk Services avec le portail Azure](biztalk-provision-services.md)<br/>
@@ -254,5 +254,5 @@ Pour créer Azure BizTalk Services dans le portail Azure, accédez à [Approvisi
 * [BizTalk Services: Backup and restore](biztalk-backup-restore.md)<br/>
 * [Limitation dans BizTalk Services](biztalk-throttling-thresholds.md)<br/>
 * [Nom et clé de l'émetteur dans BizTalk Services](biztalk-issuer-name-issuer-key.md)<br/>
-* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
 

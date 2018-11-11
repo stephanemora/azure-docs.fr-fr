@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/05/2018
 ms.author: gokuma
-ms.openlocfilehash: 93dfe6594aeaf45a6905fe8cb55c98dd37cc9599
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: bdcf2662f2a81b145868cff92ecb7a2cb4d53046
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408606"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239795"
 ---
 # <a name="provision-a-geo-artificial-intelligence-virtual-machine-on-azure"></a>Configuration d’une machine virtuelle Geo Artificial Intelligence sur Azure 
 
-La machine virtuelle de science des données Geo AI (Geo-DSVM) est une extension de la célèbre [machine virtuelle de science des données Azure](http://aka.ms/dsvm), spécialement configurée spécialement pour associer intelligence artificielle et analyse géospatiale. L’analyse géospatiale de la machine virtuelle est alimentée par [ArcGIS Pro](https://www.arcgis.com/features/index.html). La machine virtuelle de science des données permet d’effectuer un apprentissage rapide des modèles de Machine Learning, et même des modèles de Deep Learning, à partir de données enrichie par des informations géographiques. Elle est prise en charge uniquement sous Windows 2016 DSVM. 
+La machine virtuelle de science des données Geo AI (Geo-DSVM) est une extension de la célèbre [machine virtuelle de science des données Azure](https://aka.ms/dsvm), spécialement configurée spécialement pour associer intelligence artificielle et analyse géospatiale. L’analyse géospatiale de la machine virtuelle est alimentée par [ArcGIS Pro](https://www.arcgis.com/features/index.html). La machine virtuelle de science des données permet d’effectuer un apprentissage rapide des modèles de Machine Learning, et même des modèles de Deep Learning, à partir de données enrichie par des informations géographiques. Elle est prise en charge uniquement sous Windows 2016 DSVM. 
 
 La Geo-DSVM contient plusieurs outils dédiés à l’IA, notamment :
 
@@ -58,7 +58,7 @@ Voici la procédure permettant de créer une instance de la machine virtuelle de
 
       5. **Groupe de ressources** : vous pouvez en créer un nouveau ou utiliser un groupe de ressources Azure **vide** existant dans votre abonnement.
 
-      6. **Location**(Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau Si vous souhaitez effectuer un Deep Learning sur un GPU, vous devez choisir un emplacement dans Azure qui contient des instances de machines virtuelles GPU de la série NC. Les régions qui comprennent des machines virtuelles GPU sont les suivantes : **Est des États-Unis, Nord du centre des États-Unis, Sud-Centre des États-Unis, États-Unis de l'Ouest 2, Europe du Nord, Europe de l’Ouest**. Pour obtenir la dernière liste en date, accédez à la [page Disponibilité des produits par région](https://azure.microsoft.com/regions/services/), puis recherchez **NC-Series** sous **Compute**. 
+      6. **Location**(Emplacement) : sélectionnez le centre de données qui convient le mieux. Généralement, il s’agit du centre de données qui héberge la plupart de vos données ou du centre de données le plus proche de votre emplacement physique afin d’accélérer l’accès au réseau Si vous souhaitez effectuer un Deep Learning sur un GPU, vous devez choisir un emplacement dans Azure qui contient des instances de machines virtuelles GPU de la série NC. Les régions qui comprennent des machines virtuelles GPU sont les suivantes : **USA Est, USA Centre Nord, USA Centre Sud, USA Ouest 2, Europe Nord, Europe Ouest**. Pour obtenir la dernière liste en date, accédez à la [page Disponibilité des produits par région](https://azure.microsoft.com/regions/services/), puis recherchez **NC-Series** sous **Compute**. 
 
 
    - **Paramètres** : sélectionnez l’une des tailles de machine virtuelle GPU série NC si vous projetez d’exécuter un Deep Learning sur un GPU de votre Geo-DSVM. Sinon, vous pouvez choisir une instance basée sur une UC.  Créez un compte de stockage pour votre machine virtuelle. 

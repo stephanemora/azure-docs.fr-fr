@@ -7,24 +7,24 @@ ms.subservice: scenario
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: tmullaney
-ms.author: thmullan
+author: VanMSFT
+ms.author: vanto
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 94430d3b72bb5b8e8bde0e9e2e9fb2eb2b0c3632
-ms.sourcegitcommit: 715813af8cde40407bd3332dd922a918de46a91a
+ms.openlocfilehash: 6d701878886cb1d5cc20a57614a474537f06a728
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47056282"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242906"
 ---
 # <a name="multi-tenant-applications-with-elastic-database-tools-and-row-level-security"></a>Applications multi-locataires avec des outils de base de données élastique et la sécurité au niveau des lignes
 
 Les [outils de base de données élastique](sql-database-elastic-scale-get-started.md) et la fonction de [sécurité au niveau des lignes (SNL)][rls] coopèrent pour permettre d’étendre la couche Données d’une application mutualisée au moyen d’Azure SQL Database. Ensemble, ces technologies vous aident à générer une application possédant une couche Données hautement évolutive. La couche Données prend en charge les partitions mutualisées et utilise **ADO.NET SqlClient** ou **Entity Framework**. Pour plus d’informations, consultez [Modèles de conception pour les applications SaaS mutualisées avec Microsoft Azure SQL Database](saas-tenancy-app-design-patterns.md).
 
 - Les **outils de base de données élastique** permettent aux développeurs de monter en charge la couche Données avec des pratiques de partitionnement standard à l’aide de bibliothèques .NET et de modèles de service Microsoft Azure. En gérant les partitions via la [bibliothèque cliente de base de données élastique][s-d-elastic-database-client-library], vous rationalisez et automatisez de nombreuses tâches de l’infrastructure portant généralement sur le partitionnement.
-- La **sécurité au niveau des lignes** permet aux développeurs de stocker en toute sécurité des données pour plusieurs locataires dans la même base de données. Les stratégies de sécurité SNL filtrent les lignes qui n’appartiennent pas au locataire exécutant une requête. La centralisation de la logique de filtre à l’intérieur de la base de données simplifie la maintenance et réduit le risque d’une erreur de sécurité. L’alternative qui consiste à s’appuyer sur la totalité du code client pour appliquer la sécurité est risquée.
+- La **sécurité au niveau des lignes** permet aux développeurs de stocker en toute sécurité des données pour plusieurs locataires dans la même base de données. Les stratégies de sécurité SNL filtrent les lignes qui n’appartiennent pas au locataire exécutant une requête. La centralisation de la logique de filtre à l’intérieur de la base de données simplifie la maintenance et réduit le risque d’une erreur de sécurité. L’alternative consistant à s’appuyer sur la totalité du code client pour appliquer la sécurité est risquée.
 
 Grâce à l’utilisation conjointe de ces fonctionnalités, une application peut stocker les données de plusieurs locataires au sein de la base de données d’une seule et même partition. Le coût par locataire est inférieur lorsque les locataires partagent une base de données. Cependant, la même application peut également offrir à ses locataires premium une option de paiement pour leur propre partition locataire unique dédiée. L’un des avantages de l’isolation du locataire unique est la meilleure garantie de performances. Dans une base de données à locataire unique, il n’existe aucun autre locataire en concurrence pour les ressources.
 
@@ -39,9 +39,9 @@ L’objectif est d’utiliser les API de [routage dépendant des données](sql-d
 
 ### <a name="prerequisites"></a>Prérequis
 
-- Exécuter Visual Studio version 2012 ou plus 
-- Créer trois bases de données SQL Azure 
-- Télécharger un exemple de projet : [Outils de base de données pour base de données SQL Microsoft Azure - Partitions multi-locataires](http://go.microsoft.com/?linkid=9888163)
+- Exécuter Visual Studio version 2012 ou plus
+- Créer trois bases de données SQL Azure
+- Télécharger un exemple de projet : [Outils de base de données pour base de données SQL Microsoft Azure - Partitions multi-locataires](https://go.microsoft.com/?linkid=9888163)
   - Saisissez les informations sur vos bases de données au début du fichier **Program.cs** 
 
 Ce projet étend celui que décrit la section [Outils de base de données pour base de données SQL Microsoft Azure - Intégration d’Entity Framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md) , en ajoutant la prise en charge des bases de données de partition multi-locataires. Le projet crée une application de console simple pour la création de blogs et de publications. Le projet inclut quatre locataires, ainsi que deux bases de données de partition mutualisée. Cette configuration est illustrée dans le précédent diagramme. 
@@ -254,7 +254,7 @@ GO
 ```
 
 > [!TIP]
-> Dans un projet complexe, vous devrez peut-être ajouter le prédicat sur des centaines de tables, ce qui peut s’avérer fastidieux. Il existe une procédure stockée d’assistance qui génère automatiquement une stratégie de sécurité et ajoute un prédicat sur toutes les tables d’un schéma. Pour plus d’informations, consultez le billet de blog [Apply Row-Level Security to all tables - helper script (Appliquer la sécurité au niveau des lignes à toutes les tables - Script d’assistance)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
+> Dans un projet complexe, vous devrez peut-être ajouter le prédicat sur des centaines de tables, ce qui peut s’avérer fastidieux. Il existe une procédure stockée d’assistance qui génère automatiquement une stratégie de sécurité et ajoute un prédicat sur toutes les tables d’un schéma. Pour plus d’informations, consultez le billet de blog [Apply Row-Level Security to all tables - helper script (Appliquer la sécurité au niveau des lignes à toutes les tables - Script d’assistance)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/03/31/apply-row-level-security-to-all-tables-helper-script).
 
 À présent, si vous exécutez l’exemple d’application une nouvelle fois, les locataires ne sont en mesure de voir que les lignes qui leur appartiennent. Par ailleurs, l’application ne peut pas insérer des lignes qui appartiennent à un locataire autre que celui qui est actuellement connecté à la base de données de partition. De plus, l’application ne peut mettre à jour le TenantId sur aucune ligne trouvée. Si elle tente d’effectuer l’une ou l’autre de ces opérations, une exception DbUpdateException est déclenchée.
 
@@ -342,7 +342,7 @@ GO
 ### <a name="maintenance"></a>Maintenance 
 
 - **Ajout de nouvelles partitions** : exécutez le script T-SQL pour activer la sécurité au niveau des lignes sur les nouvelles partitions. Dans le cas contraire, les requêtes portant sur ces partitions ne sont pas filtrées.
-- **Ajout de nouvelles tables** : ajoutez un prédicat FILTER et BLOCK à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne sont pas filtrées. Vous pouvez automatiser cet ajout par le biais d’un déclencheur DDL, comme décrit dans l’article [Apply Row-Level Security automatically to newly created tables (Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables) (blog)](http://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
+- **Ajout de nouvelles tables** : ajoutez un prédicat FILTER et BLOCK à la stratégie de sécurité sur toutes les partitions chaque fois qu’une table est créée. Dans le cas contraire, les requêtes portant sur la nouvelle table ne sont pas filtrées. Vous pouvez automatiser cet ajout par le biais d’un déclencheur DDL, comme décrit dans l’article [Apply Row-Level Security automatically to newly created tables (Appliquer automatiquement la sécurité au niveau des lignes aux nouvelles tables) (blog)](https://blogs.msdn.com/b/sqlsecurity/archive/2015/05/22/apply-row-level-security-automatically-to-newly-created-tables.aspx).
 
 ## <a name="summary"></a>Résumé
 
@@ -358,7 +358,7 @@ Les outils de base de données élastique et la fonction de sécurité au niveau
 
 ## <a name="questions-and-feature-requests"></a>Questions et demandes de fonctionnalités
 
-Pour toute question, contactez-nous sur le [forum de Base de données SQL](http://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Ajoutez également des demandes de fonctionnalités dans le [forum de commentaires de Base de données SQL](https://feedback.azure.com/forums/217321-sql-database/).
+Pour toute question, contactez-nous sur le [forum de Base de données SQL](https://social.msdn.microsoft.com/forums/azure/home?forum=ssdsgetstarted). Ajoutez également des demandes de fonctionnalités dans le [forum de commentaires de Base de données SQL](https://feedback.azure.com/forums/217321-sql-database/).
 
 
 <!--Image references-->

@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: 4f00268fcf3797697812f3aa8b221817a2794691
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 4dd54a4a4985a33bc14022d7f722bdf83224c4aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092539"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240849"
 ---
 # <a name="api-management-access-restriction-policies"></a>Stratégies de restriction des accès de la Gestion des API
-Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).  
+Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).  
   
 ##  <a name="AccessRestrictionPolicies"></a> Stratégies de restriction des accès  
   
@@ -71,7 +71,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |ignore-case|Peut avoir la valeur True ou False. S’il a la valeur True, la casse est ignorée lors de la comparaison de la valeur de l’en-tête à l’ensemble des valeurs acceptables.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound, outbound  
   
@@ -126,7 +126,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |renewal-period|Période en secondes après laquelle le quota se réinitialise.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound  
   
@@ -181,7 +181,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |renewal-period|Période en secondes après laquelle le quota se réinitialise.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound  
   
@@ -224,7 +224,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |ip-filter action="allow &#124; forbid"|Spécifie si les appels doivent être autorisés ou non pour les adresses IP et plages spécifiées.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound  
 -   **Étendues de la stratégie :** global, product, API, operation  
@@ -279,7 +279,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |renewal-period|Période en secondes après laquelle le quota se réinitialise.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound  
 -   **Étendues de la stratégie :** product  
@@ -336,7 +336,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |renewal-period|Période en secondes après laquelle le quota se réinitialise.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound  
 -   **Étendues de la stratégie :** global, product, API, operation  
@@ -506,7 +506,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |url|URL du point de terminaison de configuration Open ID à partir de laquelle les métadonnées de configuration Open ID peuvent être récupérées. La réponse devrait correspondre aux spécifications définies dans l’URL :`https://openid.net/specs/openid-connect-discovery-1_0.html#ProviderMetadata`.  Pour Azure Active Directory, utilisez l’URL suivante : `https://login.microsoftonline.com/{tenant-name}/.well-known/openid-configuration`, en remplaçant par le nom de votre client d’annuaire, par exemple, `contoso.onmicrosoft.com`.|Oui|N/A|  
   
 ### <a name="usage"></a>Usage  
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.  
   
 -   **Sections de la stratégie :** inbound  
 -   **Étendues de la stratégie :** global, product, API, operation  

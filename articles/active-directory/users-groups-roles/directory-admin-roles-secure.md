@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: 55ce6398d89e56f92874d0ec135377d2a08cf075
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f42e7c2e564f660df1e88c63c00a9f04db7c8116
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297807"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240101"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Sécurisation de l’accès privilégié pour les déploiements hybrides et cloud dans Azure AD
 
@@ -388,7 +388,7 @@ Déterminez si vous devez [transférer la propriété d’un abonnement Azure à
 
 8. Veillez à effectuer des sauvegardes des journaux concernés en vue d’un éventuel examen légal et plus approfondi.
 
-Pour plus d’informations sur la façon dont Microsoft Office 365 gère les incidents de sécurité, consultez [Security Incident Management in Microsoft Office 365](http://aka.ms/Office365SIM) (Gestion des incidents de sécurité dans Microsoft Office 365).
+Pour plus d’informations sur la façon dont Microsoft Office 365 gère les incidents de sécurité, consultez [Security Incident Management in Microsoft Office 365](https://aka.ms/Office365SIM) (Gestion des incidents de sécurité dans Microsoft Office 365).
 
 ## <a name="faq-common-questions-we-receive-regarding-securing-privileged-access"></a>FAQ : questions fréquentes que nous recevons sur la protection de l’accès privilégié  
 

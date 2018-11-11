@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 69818fdb8124b9afa176ccd4dfd74cf0f2f4b346
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: ad711fe998a3c250775c5d4f4d76305ffb7cf860
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50233801"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244591"
 ---
 # <a name="azure-network-security-overview"></a>Vue d’ensemble de la sécurité du réseau Azure
 
@@ -144,7 +144,7 @@ En savoir plus :
 
 ## <a name="secure-remote-access-and-cross-premises-connectivity"></a>Accès à distance sécurisé et connectivité intersite
 
-Imaginons que vous deviez installer, configurer et gérer vos ressources Azure à distance. Vous pouvez également déployer des solutions [informatiques hybrides](http://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) avec des composants hébergés localement et dans le cloud public Azure. Ces scénarios nécessitent un accès à distance sécurisé.
+Imaginons que vous deviez installer, configurer et gérer vos ressources Azure à distance. Vous pouvez également déployer des solutions [informatiques hybrides](https://social.technet.microsoft.com/wiki/contents/articles/18120.hybrid-cloud-infrastructure-design-considerations.aspx) avec des composants hébergés localement et dans le cloud public Azure. Ces scénarios nécessitent un accès à distance sécurisé.
 
 La mise en réseau Azure prend en charge les scénarios d’accès à distance sécurisé suivants :
 

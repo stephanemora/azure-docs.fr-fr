@@ -52,6 +52,10 @@ items:
       href: concepts-business-continuity.md
     - name: Sauvegarde et restauration
       href: concepts-backup.md
+  - name: Développement
+    items:
+    - name: Résilience de connexion
+      href: concepts-connectivity.md
   - name: Réplication
     items:
     - name: Réplication de données entrantes
@@ -90,6 +94,12 @@ items:
     items:
     - name: Configurer la réplication de données entrantes
       href: howto-data-in-replication.md
+  - name: Résolution des problèmes
+    items:
+    - name: Résoudre les erreurs de connexion
+      href: howto-troubleshoot-common-connection-issues.md
+    - name: Dépannage de la performance des requêtes
+      href: howto-troubleshoot-query-performance.md
 - name: Informations de référence
   items:
   - name: API REST
@@ -109,14 +119,14 @@ items:
   - name: Dépassement de capacité de la pile
     href: https://stackoverflow.com/questions/tagged/azure-database-mariadb
   - name: Demander une fonctionnalité
-    href: https://feedback.azure.com/forums/597982-azure-database-for-mysql
+    href: https://feedback.azure.com/forums/915439-azure-database-for-mariadb
   - name: Disponibilité des régions
     href: https://azure.microsoft.com/regions/services/
   - name: Options de support
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: 2ba86afb2bb0aeff5ab83cfb9e3ee1b27ce3b3f5
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: aca88da087f0d51b0c6759e4cecd91889210b614
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986339"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344350"

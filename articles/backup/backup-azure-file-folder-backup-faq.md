@@ -9,19 +9,19 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/6/2018
 ms.author: saurse;trinadhk
-ms.openlocfilehash: 177e44bce7d8f159892d78c7003945ba55ef4b84
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: cf27848b6ca63f06c7d452ac67908cb85dbafd47
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577879"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239834"
 ---
 # <a name="questions-about-the-azure-backup-agent"></a>Questions sur le service de sauvegarde Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de l’agent de sauvegarde Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
 
 ## <a name="configure-backup"></a>Configurer une sauvegarde
 ### <a name="where-can-i-download-the-latest-azure-backup-agent-br"></a>Où puis-je télécharger le dernier agent Azure Backup ? <br/>
-Vous pouvez télécharger le dernier agent de sauvegarde de Windows Server, de System Center DPM ou du client Windows, en cliquant [ici](http://aka.ms/azurebackup_agent). Si vous souhaitez sauvegarder une machine virtuelle, utilisez l’Agent de machine virtuelle (qui installe automatiquement l’extension appropriée). L’agent de machine virtuelle est déjà présent dans les machines virtuelles créées à partir de la galerie Azure.
+Vous pouvez télécharger le dernier agent de sauvegarde de Windows Server, de System Center DPM ou du client Windows, en cliquant [ici](https://aka.ms/azurebackup_agent). Si vous souhaitez sauvegarder une machine virtuelle, utilisez l’Agent de machine virtuelle (qui installe automatiquement l’extension appropriée). L’agent de machine virtuelle est déjà présent dans les machines virtuelles créées à partir de la galerie Azure.
 
 ### <a name="when-configuring-the-azure-backup-agent-i-am-prompted-to-enter-the-vault-credentials-do-vault-credentials-expire"></a>Pendant la configuration de l’agent Azure Backup, je suis invité à entrer des informations d’identification de coffre. Les informations d’identification de coffre expirent-elles ?
 Oui, les informations d’identification de coffre expirent au bout de 48 heures. Si le fichier expire, connectez-vous au portail Azure et téléchargez les fichiers d’informations d’identification de votre coffre.

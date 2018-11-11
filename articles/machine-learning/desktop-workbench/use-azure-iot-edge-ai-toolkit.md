@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 2/1/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 9b2f4dbf1e87aa5aa035bfd9071fed7be74a9c07
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 023674f05dda6c2da8edddb843277dd07a513162
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978985"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244625"
 ---
 # <a name="use-the-ai-toolkit-for-azure-iot-edge"></a>Utiliser AI Toolkit pour Azure IoT Edge
 
@@ -27,4 +27,4 @@ Amenez la puissance de l’intelligence artificielle, du Machine Learning et de 
 
 AI Toolkit pour Azure IoT Edge constitue une collection de scripts, de codes et de conteneurs pouvant être déployés. La maintenance prédictive, la classification d’images et le traitement vocal, ainsi que le déploiement de modèle personnalisé via Azure Machine Learning et Azure IoT Hub en sont des exemples. Les modèles inclus dans la boîte à outils peuvent être utilisés tels quels, mais l’ensemble du code source et des données est à la disposition des développeurs pour pouvoir être personnalisé en fonction de leurs besoins.
 
-Le référentiel GitHub public d’AI Toolkit pour Azure IoT Edge est disponible dans [aka.ms/AI-toolkit](http://aka.ms/AI-toolkit).
+Le référentiel GitHub public d’AI Toolkit pour Azure IoT Edge est disponible dans [aka.ms/AI-toolkit](https://aka.ms/AI-toolkit).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: dfcd248be48109203e91c93231d89d1d650a4b96
-ms.sourcegitcommit: 62eaa376437687de4ef2e325ac3d7e195d158f9f
+ms.openlocfilehash: 21f5aba3acfebdcd2e93825ea34226adee5455d2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/22/2017
-ms.locfileid: "25540046"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248076"
 ---
 # <a name="azure-security-courses-from-microsoft-virtual-academy"></a>Cours de sécurité Azure avec Microsoft Virtual Academy
 Microsoft Virtual Academy offre des formations en ligne gratuites pour aider les développeurs, les professionnels de l’informatique et des données et les étudiants à découvrir les dernières technologies, à enrichir leurs compétences et à développer leur carrière.
@@ -48,7 +48,7 @@ Dans cette session, découvrez comment Azure Active Directory et Microsoft Advan
 
 [Security in a Cloud-Enabled World (Quelle est la place de la sécurité dans le cloud ?)](https://mva.microsoft.com/en-us/training-courses/security-in-a-cloudenabled-world-12725?l=CfLHobAcB_3904300474)
 
-Des experts vous guident tout au long de la feuille de route de responsabilité des clients en se référant au document [Sécurité Microsoft Cloud pour les architectes d’entreprise](http://www.microsoft.com/download/48121) . Ils fournissent également des recommandations pour la modernisation de chaque aspect du comportement de votre organisation en matière de sécurité, y compris la gouvernance, les stratégies d’imbrication, les opérations de sécurité, la protection des ressources à forte valeur, la protection des informations et la sécurité des utilisateurs et des appareils, en mettant l’accent sur la protection du contrôle administratif. Vous découvrirez l’infrastructure utilisée par l’équipe de cybersécurité de Microsoft pour évaluer la sécurité des clients dans le cloud et développer une feuille de route de sécurité à leur attention.
+Des experts vous guident tout au long de la feuille de route de responsabilité des clients en se référant au document [Sécurité Microsoft Cloud pour les architectes d’entreprise](https://www.microsoft.com/download/48121) . Ils fournissent également des recommandations pour la modernisation de chaque aspect du comportement de votre organisation en matière de sécurité, y compris la gouvernance, les stratégies d’imbrication, les opérations de sécurité, la protection des ressources à forte valeur, la protection des informations et la sécurité des utilisateurs et des appareils, en mettant l’accent sur la protection du contrôle administratif. Vous découvrirez l’infrastructure utilisée par l’équipe de cybersécurité de Microsoft pour évaluer la sécurité des clients dans le cloud et développer une feuille de route de sécurité à leur attention.
 
 [Microsoft Azure IaaS Deep Dive (Immersion dans l’environnement Microsoft Azure IaaS)](https://mva.microsoft.com/en-us/training-courses/microsoft-azure-iaas-deep-dive-14339?l=PtppYVQgB_8300115888)
 

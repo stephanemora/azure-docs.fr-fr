@@ -10,12 +10,12 @@ ms.component: core
 ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 9/24/2018
-ms.openlocfilehash: f221d160685dd12fb18a611432911baa60ebc6f7
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 4d25e147044053aa76afe2da482b71c24efc2325
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48888069"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242872"
 ---
 # <a name="development-environment-for-azure-machine-learning"></a>Environnements de développement pour Azure Machine Learning 
 
@@ -59,7 +59,7 @@ Nous vous recommandons d’utiliser [Visual Studio Code](https://code.visualstud
 
 ## <a name="data-science-virtual-machine"></a>Machine virtuelle de science des données
 
-Data Science Virtual Machine (DSVM) est une combinaison des environnements précédents. Il s’agit d’une machine virtuelle présente sur la plateforme Azure, sur laquelle ont été préinstallés Jupyter Notebooks, Visual Studio Code et le SDK Azure Machine Learning. La création de la machine virtuelle est plus complexe que l’utilisation d’Azure Notebooks, mais moins complexe que d’avoir à configurer une machine à partir de zéro. Étant donné que les logiciels nécessaires sont préinstallés dans l’image de machine virtuelle, vous pouvez commencer à expérimenter avec Azure Machine Learning rapidement une fois la machine virtuelle créée.
+Data Science Virtual Machine (DSVM) est une combinaison des environnements précédents. Il s’agit d’une machine virtuelle présente sur la plateforme Azure, sur laquelle ont été préinstallés Jupyter Notebooks, Visual Studio Code et le SDK Azure Machine Learning. Étant donné que les logiciels nécessaires sont préinstallés dans l’image de machine virtuelle, vous pouvez commencer à expérimenter avec Azure Machine Learning rapidement une fois la machine virtuelle créée.
 
 DSVM vous permet de sélectionner les ressources de calcul dont vous avez besoin, telles que le processeur, le GPU et la mémoire. D’autres éditeurs y sont également préinstallés, tels que PyCharm, ainsi que d’autres logiciels de machine learning, tels que TensorFlow, Keras et PyTorch. Si le logiciel dont vous avez besoin n’est pas installé, vous pouvez l’installer vous-même.
 

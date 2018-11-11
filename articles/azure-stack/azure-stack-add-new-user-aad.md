@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.author: jeffgilb
 ms.reviewer: unknown
-ms.openlocfilehash: 9a4d7200a2bc2445fcdfefc0332d67a045b5a2e1
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: fa8c8da34a687edd1bd92c1d516183ee5d3e1bd0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47038015"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240118"
 ---
 # <a name="add-a-new-azure-stack-tenant-account-in-azure-active-directory"></a>Ajouter un nouveau compte de locataire Azure Stack dans Azure Active Directory
 
@@ -41,7 +41,7 @@ Pour utiliser le portail Azure, vous devez disposer d’un abonnement Azure.
     ![Ajouter un nouvel utilisateur, page Utilisateur avec les informations sur l’utilisateur](media/azure-stack-add-new-user-aad/new-user-user.png)
 
     - **Nom (obligatoire).** Prénom et nom du nouvel utilisateur. Par exemple, Mary Parker.
-    - **Nom d’utilisateur (obligatoire).** Nom d’utilisateur du nouvel utilisateur. Par exemple : mary@contoso.com.
+    - **Nom d’utilisateur (obligatoire).** Nom d’utilisateur du nouvel utilisateur. Par exemple : mary@contoso.com.
         Le domaine dans le nom d’utilisateur doit correspondre au nom de domaine par défaut initial, <_votrenomdedomaine_>.onmicrosoft.com, ou à un nom de domaine personnalisé, comme contoso.com. Pour plus d’informations sur la création d’un nom de domaine personnalisé, consultez [Ajouter un nom de domaine personnalisé dans Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
     - **Profil.** Si vous le souhaitez, ajoutez des informations supplémentaires sur l’utilisateur. Vous pouvez également ajouter ces informations ultérieurement. Pour plus d’informations sur l’ajout d’informations sur l’utilisateur, consultez [Ajouter ou modifier des informations de profil utilisateur](../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
     - **Rôle d’annuaire.**  Choisissez **Utilisateur**.
@@ -65,7 +65,7 @@ Si vous n’avez pas d’abonnement Azure, vous ne pouvez pas utiliser le portai
 > 
 
 1. Installez [l’Assistant de connexion Microsoft Online Services pour les professionnels de l’informatique RTW](https://www.microsoft.com/en-us/download/details.aspx?id=41950).
-2. Installez le [module Azure Active Directory pour Windows PowerShell (version 64 bits)](http://go.microsoft.com/fwlink/p/?linkid=236297) et ouvrez-le.
+2. Installez le [module Azure Active Directory pour Windows PowerShell (version 64 bits)](https://go.microsoft.com/fwlink/p/?linkid=236297) et ouvrez-le.
 3. Exécutez les applets de commande suivantes :
 
     ```powershell

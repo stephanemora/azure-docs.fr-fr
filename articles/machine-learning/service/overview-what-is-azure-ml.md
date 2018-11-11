@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 author: garyericson
 ms.author: garye
 ms.date: 09/24/2018
-ms.openlocfilehash: 4a867692d3ce509443e5aa94536075fdcd4bab84
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 1dac11b8ad71a936b33742b52c95ac998176baf7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945958"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244937"
 ---
 # <a name="what-is-azure-machine-learning-service-preview"></a>Qu’est-ce que le service Azure Machine Learning (préversion) ?
 
@@ -48,7 +48,7 @@ Vous pouvez gérer les modèles déployés et suivre plusieurs exécutions penda
 Le service Azure Machine Learning peut générer automatiquement un modèle et le régler automatiquement pour vous.
 Par consulter un exemple, voir [Tutoriel : entraîner automatiquement un modèle de classification avec le machine learning automatisé dans Azure Machine Learning](tutorial-auto-train-models.md).
 
-Ou, à l’aide du <a href="http://aka.ms/aml-sdk" target="_blank">Kit de développement logiciel (SDK)</a> Azure Machine Learning pour Python et des packages Python open source, vous pouvez créer et entraîner vous-même des modèles Machine Learning extrêmement précis et des modèles d’apprentissage profond dans un espace de travail de service Azure Machine Learning.
+Ou, à l’aide du <a href="https://aka.ms/aml-sdk" target="_blank">Kit de développement logiciel (SDK)</a> Azure Machine Learning pour Python et des packages Python open source, vous pouvez créer et entraîner vous-même des modèles Machine Learning extrêmement précis et des modèles d’apprentissage profond dans un espace de travail de service Azure Machine Learning.
 Vous pouvez choisir parmi les nombreux composants de machine learning disponibles dans les packages Python open source, comme les suivants :
 
 - <a href="http://scikit-learn.org/stable/" target="_blank">Scikit-learn</a>
@@ -59,7 +59,7 @@ Vous pouvez choisir parmi les nombreux composants de machine learning disponible
 
 Une fois que vous disposez d’un modèle, vous l’utilisez pour créer un conteneur (par exemple, Docker) qui peut être déployé localement à des fins de test, puis en tant que service web de production dans [Azure Container Instances](how-to-deploy-to-aci.md) ou [Azure Kubernetes Service](how-to-deploy-to-aks.md).
 
-Vous pouvez ensuite gérer vos modèles déployés à l’aide du [portail Azure](https://portal.azure.com/) ou de l’[extension CLI Azure Machine Learning](https://review.docs.microsoft.com/azure/machine-learning/service/reference-azure-machine-learning-cli).
+Vous pouvez ensuite gérer vos modèles déployés à l’aide du [portail Azure](https://portal.azure.com/) ou de l’[extension CLI Azure Machine Learning](reference-azure-machine-learning-cli.md).
 Vous pouvez évaluer les métriques du modèle, réentraîner et redéployer de nouvelles versions du modèle, tout en suivant les expériences du modèle.
 
 Pour commencer à utiliser le service Azure Machine Learning, consultez [Étapes suivantes](#next-steps).
@@ -85,6 +85,8 @@ Si vous n’êtes pas abonné, vous pouvez [ouvrir gratuitement un compte Azure]
 - Suivez dans son intégralité le tutoriel [Entraîner un modèle de classification d’images avec Azure Machine Learning](tutorial-train-models-with-aml.md), pour apprendre à entraîner et déployer des modèles à l’aide du service Azure Machine Learning.
 
 - Pour plus d’informations sur le fait d’autoriser Azure Machine Learning à générer et régler automatiquement votre modèle, consultez [Tutoriel : entraîner automatiquement un modèle de classification avec le machine learning automatisé dans Azure Machine Learning](tutorial-auto-train-models.md).
+
+- Découvrez les [pipelines de machine learning](/azure/machine-learning/service/concept-ml-pipelines) pour générer, optimiser et gérer vos scénarios d’apprentissage.
 
 - Pour un examen technique détaillé du service, consultez [Architecture et concepts du service Azure Machine Learning](concept-azure-machine-learning-architecture.md).
 

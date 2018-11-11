@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: dobett
-ms.openlocfilehash: bca25f5e7a6fd7685d20236033a5a225c5183a2d
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: fd26fb9e45f8790342472fa0bae92f74bea2fc70
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225342"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242454"
 ---
 # <a name="get-started-with-device-management-netnet"></a>Bien démarrer avec la gestion des appareils (.NET/.NET)
 
@@ -38,7 +38,7 @@ Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Visual Studio 2017.
 
-* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
+* Un compte Azure actif. (Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes seulement.)
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -74,7 +74,7 @@ Dans cette section, vous créez une application console .NET (à l’aide de C#)
    static string targetDevice = "myDeviceId";
    ```
 
-6. Ajoutez la méthode suivante à la classe **Program**.  Ce code obtient le jumeau d’appareil pour le redémarrage de l’appareil et renvoie les propriétés signalées.
+6. Ajoutez la méthode suivante à la classe **Program**.  Ce code obtient la représentation d’appareil pour le redémarrage de l’appareil et renvoie les propriétés signalées.
    
    ```csharp
    public static async Task QueryTwinRebootReported()
@@ -115,7 +115,7 @@ Dans cette section, vous créez une application console .NET (à l’aide de C#)
 > [!NOTE]
 > Ce didacticiel n'effectue qu’une seule requête pour les propriétés indiquées de l’appareil. Dans le code de production, nous recommandons d’effectuer une interrogation pour détecter les modifications apportées aux propriétés indiquées.
 
-## <a name="create-a-simulated-device-app"></a>Créer une application d’appareil simulé
+## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
 
 Dans cette section, vous effectuerez les tâches suivantes :
 

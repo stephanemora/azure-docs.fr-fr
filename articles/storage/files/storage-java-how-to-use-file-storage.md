@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 09/19/2017
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: aa63a31f7f84502a29aad6b38f454ea1080127e0
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8a5a71fada190939abf638cd1b681adff7e80970
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529465"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244540"
 ---
 # <a name="develop-for-azure-files-with-java"></a>Développer pour Azure Files avec Java
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
@@ -227,10 +227,10 @@ if ( file.deleteIfExists() ) {
 Pour en savoir plus sur les autres API de stockage Azure, suivez ces liens.
 
 * [Azure pour les développeurs Java](/java/azure)/)
-* [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
+* [Kit de développement logiciel (SDK) Azure Storage pour Java](https://github.com/azure/azure-storage-java)
 * [Kit de développement logiciel (SDK) Azure Storage pour Android](https://github.com/azure/azure-storage-android)
-* [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
+* [Référence du Kit de développement logiciel (SDK) du client Azure Storage](http://dl.windowsazure.com/storage/javadoc/)
 * [API REST des services d’Azure Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx)
-* [Blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
+* [Blog de l'équipe Azure Storage](https://blogs.msdn.com/b/windowsazurestorage/)
 * [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../common/storage-use-azcopy.md)
 * [Résolution des problèmes liés à Azure Files - Windows](storage-troubleshoot-windows-file-connection-problems.md)

@@ -10,12 +10,12 @@ ms.component: academic-knowledge
 ms.topic: overview
 ms.date: 10/30/2018
 ms.author: darrine
-ms.openlocfilehash: aa945eb8f0b79a6b0760650bd34dba55d80ef3a4
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 02675b8cdc8c509764b20893bde54b50bec74a50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240356"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51242141"
 ---
 # <a name="academic-knowledge-api"></a>API Connaissances universitaires
 
@@ -23,7 +23,7 @@ Bienvenue dans l’API Connaissances universitaires. Ce service permet d’inter
 
 Les données MAG sont extraites de l’index web de Bing ainsi que d’une base de connaissances interne à Bing. Compte tenu de l’indexation permanente de Bing, cette API contient des informations actualisées issues du web, qui suivent les découvertes et le référencement par Bing. En fonction de ce jeu de données, les API Connaissances universitaires permettent un dialogue interactif, axé sur la connaissance, qui combine de manière fluide la recherche réactive avec des expériences de suggestion proactive, des documents sur des travaux fouillés, des résultats de recherche de graphe et des répartitions d’histogrammes de valeurs d’attribut pour un ensemble de documents et d’entités associées.
 
-Pour plus d’informations sur Microsoft Academic Graph, consultez [http://aka.ms/academicgraph](http://aka.ms/academicgraph).
+Pour plus d’informations sur Microsoft Academic Graph, consultez [http://aka.ms/academicgraph](https://aka.ms/academicgraph).
 
 L’API Connaissances universitaires a été déplacée de Cognitive Services Preview dans Cognitive Services Labs. La nouvelle page d’accueil du projet est : [https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge](https://labs.cognitive.microsoft.com/en-us/project-academic-knowledge). Votre clé API existante continue de fonctionner jusqu’au 24 mai 2018. Après cette date, veuillez générer une nouvelle clé API. Notez que la préversion payante n’est plus disponible après l’expiration de votre clé existante. Si le niveau gratuit de l’API n’est pas suffisant pour vos besoins, contactez notre équipe. 
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: acb3297b8d7af1a91563fb2f519e06bc49c65695
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: ae6964b36f837931f2278ceef0b330f9badb1d71
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46309698"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282711"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Authentification directe Azure Active Directory : limitations actuelles
 
@@ -54,7 +54,7 @@ L’activation de la synchronisation de hachage du mot de passe vous donne la po
 
 ## <a name="next-steps"></a>Étapes suivantes
 - [Démarrage rapide](how-to-connect-pta-quick-start.md) : soyez opérationnel avec l’authentification directe Azure AD.
-- [Migrer à partir d’AD FS vers l’authentification directe](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Pass-through%20Authentication.docx) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
+- [Migrer à partir d’AD FS vers l’authentification directe](https://aka.ms/ADFSTOPTADPDownload) : guide détaillé de la migration d’AD FS (ou d’autres technologies de fédération) vers l’authentification directe.
 - [Verrouillage intelligent](../authentication/howto-password-smart-lockout.md) : guide pratique pour configurer la fonctionnalité Verrouillage intelligent sur votre locataire pour protéger les comptes d’utilisateur.
 - [Présentation technique approfondie](how-to-connect-pta-how-it-works.md) : découvrez comment fonctionne l'authentification directe.
 - [Forum aux questions](how-to-connect-pta-faq.md) : trouvez des réponses aux questions fréquemment posées sur la fonctionnalité Authentification directe.

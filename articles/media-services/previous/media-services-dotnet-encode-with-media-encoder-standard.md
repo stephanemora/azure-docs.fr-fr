@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: 7b0de5e149b8b64252f90a01f66642c15fb25ddc
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 426ebb90a0d7716b14664f874db259a0cca2aa7e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50247790"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241087"
 ---
 # <a name="encode-an-asset-with-media-encoder-standard-using-net"></a>Encoder un élément multimédia avec Media Encoder Standard à l’aide de .NET 
 Les tâches d’encodage sont une des opérations de traitement les plus courantes dans Media Services. Vous créez des tâches d’encodage pour convertir des fichiers multimédias d’un encodage à un autre. Lorsque vous les encodez, vous pouvez utiliser l’encodeur multimédia intégré de Media Services. Vous pouvez également utiliser un encodeur fourni par un partenaire Media Services. Ces encodeurs tiers sont disponibles via Place de marché Azure. 
 
-Cette article montre comment utiliser .NET pour encoder vos éléments multimédias avec Media Encoder Standard (MES). Media Encoder Standard se configure à l’aide d’une des présélections d’encodeur décrites [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Cette article montre comment utiliser .NET pour encoder vos éléments multimédias avec Media Encoder Standard (MES). Media Encoder Standard se configure à l’aide d’une des présélections d’encodeur décrites [ici](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 Nous vous recommandons de toujours encoder vos fichiers sources sous forme de jeu de fichiers MP4 à débit adaptatif, puis de convertir ce jeu au format souhaité au moyen de l’ [empaquetage dynamique](media-services-dynamic-packaging-overview.md). 
 
@@ -39,7 +39,7 @@ Si votre ressource de sortie est stockée sous forme chiffrée, vous devez confi
 [Formats et codecs](media-services-media-encoder-standard-formats.md)
 
 ### <a name="mes-presets"></a>Présélections MES
-Media Encoder Standard se configure à l’aide d’une des présélections d’encodeur décrites [ici](http://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
+Media Encoder Standard se configure à l’aide d’une des présélections d’encodeur décrites [ici](https://go.microsoft.com/fwlink/?linkid=618336&clcid=0x409).
 
 ### <a name="input-and-output-metadata"></a>Métadonnées d’entrée et de sortie
 Quand vous encodez un ou plusieurs éléments multimédias d’entrée à l’aide de MES, vous obtenez un élément multimédia de sortie une fois cette tâche d’encodage terminée. L’élément multimédia de sortie contient la vidéo, l’audio, les miniatures, le manifeste, et ainsi de suite, en fonction des paramètres d’encodage prédéfinis.

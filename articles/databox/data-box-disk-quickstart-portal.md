@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/07/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: ca0fb177c8b6a16cf624fd4533c9c9040e6d9dee
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: f84eda2269df0bbe7186a2f1a9abb9c594b75455
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365232"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245067"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Démarrage rapide : Déployer le disque Azure Data Box via le portail Azure (préversion)
 
@@ -31,11 +31,11 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Avant de commencer :
 
-- Assurez-vous que votre abonnement est activé pour le service Azure Data Box. Pour activer votre abonnement pour ce service, [inscrivez-vous pour le service](http://aka.ms/azuredataboxfromdiskdocs).
+- Assurez-vous que votre abonnement est activé pour le service Azure Data Box. Pour activer votre abonnement pour ce service, [inscrivez-vous pour le service](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous au portail Azure sur [http://aka.ms/azuredataboxfromdiskdocs](http://aka.ms/azuredataboxfromdiskdocs).
+Connectez-vous au portail Azure sur [http://aka.ms/azuredataboxfromdiskdocs](https://aka.ms/azuredataboxfromdiskdocs).
 
 ## <a name="order"></a>Ordre
 
@@ -70,11 +70,11 @@ Cette étape prend environ 5 minutes.
     3. Exécutez l’outil de déverrouillage Data Box Disk et indiquez la clé d'accès. Pour toute réinsertion de disque, réexécutez l’outil de déverrouillage et fournissez la clé d’accès. **N’utilisez pas la boîte de dialogue BitLocker ni la clé BitLocker pour déverrouiller le disque.** Pour plus d’informations sur le déverrouillage de disques, voir [Déverrouiller des disques sur un client Windows]() ou [Déverrouiller des disques sur un client Linux]().
     4. La lettre de lecteur affectée au disque est affichée par l’outil. Notez la lettre de lecteur du disque. Elle est utilisée dans les étapes suivantes.
 
-## <a name="copy-data-and-verify"></a>Copier des données et vérifier
+## <a name="copy-data-and-validate"></a>Copier les données et valider
 
 Le temps nécessaire à cette opération dépend de la taille de vos données. 
 
-1. Le lecteur contient les dossiers *PageBlob*, *BlockBlob* et *AzureImportExport*. Effectuez un glisser-déplacer pour copier les données qui doivent être importées en tant qu’objets blob de blocs dans le dossier *BlockBlob*. De même, glissez-déplacez des données telles que VHD/VHDX vers le dossier *PageBlob*.
+1. Le lecteur contient les dossiers *PageBlob*, *BlockBlob* et *DataBoxDiskImport*. Effectuez un glisser-déplacer pour copier les données qui doivent être importées en tant qu’objets blob de blocs dans le dossier *BlockBlob*. De même, glissez-déplacez des données telles que VHD/VHDX vers le dossier *PageBlob*.
 
     Un conteneur est créé dans le compte de stockage Azure de chaque sous-dossier sous les dossiers *BlockBlob* et *PageBlob*. Tous les fichiers sous les dossiers *BlockBlob* et *PageBlob* sont copiés dans un conteneur par défaut `$root` dans le compte de stockage Azure.
 
@@ -82,7 +82,7 @@ Le temps nécessaire à cette opération dépend de la taille de vos données.
     > - Tous les conteneurs et objets blob doivent être conformes aux [conventions d’affectation de noms Azure](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Si ces règles ne sont pas respectées, le chargement des données vers Azure échoue.
     > - Les fichiers ne doivent pas dépasser ~4,75 Tio pour les objets blob de blocs ou ~ 8 Tio pour les objets blob de pages.
 
-2. (Facultatif) Une fois la copie terminée, nous vous recommandons d’exécuter `DataBoxDiskValidation.cmd` fourni dans le dossier *AzureImportExport* pour générer des sommes de contrôle pour la validation. Selon la taille des données, cette étape peut prendre un certain temps. 
+2. (Facultatif) Une fois la copie terminée, nous vous recommandons d’exécuter `DataBoxDiskValidation.cmd` fourni dans le dossier *DataBoxDiskImport* pour générer des sommes de contrôle pour la validation. Selon la taille des données, cette étape peut prendre un certain temps. 
 3. Débranchez le lecteur. 
 
 
