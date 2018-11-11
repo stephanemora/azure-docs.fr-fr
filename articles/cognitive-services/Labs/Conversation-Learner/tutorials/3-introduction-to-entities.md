@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: f851d43d69999a848dea01c9457a379adb63353b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 4b1c2d9390890618a9aa61eb425fbd132917f414
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172379"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229046"
 ---
 # <a name="introduction-to-entities"></a>Présentation des entités
 
@@ -23,7 +23,7 @@ Ce didacticiel présente les entités et montre comment utiliser les champs « e
 
 ## <a name="video"></a>Vidéo
 
-[![Aperçu du didacticiel 3](http://aka.ms/cl-tutorial-03-preview)](http://aka.ms/blis-tutorial-03)
+[![Aperçu du didacticiel 3](https://aka.ms/cl-tutorial-03-preview)](https://aka.ms/blis-tutorial-03)
 
 ## <a name="requirements"></a>Configuration requise
 
@@ -50,7 +50,7 @@ D’autres didacticiels couvrent des aspects annexes des entités : entités pr�
 
 1. Cliquez sur Entités, puis sur Nouvelle entité.
 2. Dans la partie correspondant au nom de l’entité, entrez la ville.
-3. Click Create
+3. Cliquez sur Create.
 
 > [!NOTE]
 > Le type d’entité « personnalisé », c’est-à-dire que l’entité peut être formée.  Il existe également des entités prédéfinies, ce qui signifie que leur comportement ne peut pas être ajusté. Nous les aborderons dans un autre didacticiel.

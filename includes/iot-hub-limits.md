@@ -1,3 +1,16 @@
+---
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 10/26/2018
+ms.author: dobett
+ms.openlocfilehash: 1807dc67d09b521e66314fb98535fb2c1225d34f
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50964549"
+---
 Le tableau suivant répertorie les limites associées aux différents niveaux de service (S1, S2, S3 et F1). Pour plus d'informations sur le coût de chaque *unité* dans chaque couche, consultez [la tarification du IoT Hub](https://azure.microsoft.com/pricing/details/iot-hub/).
 
 | Ressource | S1 Standard | S2 Standard | S3 Standard | F1 Gratuit |
