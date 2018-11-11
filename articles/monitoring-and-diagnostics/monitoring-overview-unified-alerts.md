@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: mamit
 ms.component: alerts
-ms.openlocfilehash: c4c8279a1d4638a1c5d889b53e2d9e89e458cc37
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 30b2d60868702c6113612668b8e4cf9975aa2c40
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117169"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962195"
 ---
 # <a name="unified-alerts-in-azure-monitor"></a>Alertes unifiées dans Azure Monitor
 
@@ -82,9 +82,9 @@ Vous créez une nouvelle règle d’alerte à l’aide des trois étapes suivant
  
 Ce processus de création simplifié ne nécessite plus que vous connaissiez la source de la surveillance ou les signaux pris en charge avant de sélectionner une ressource Azure. La liste des signaux disponibles est automatiquement filtrée en fonction de la ressource cible sélectionnée, et vous guide dans la définition de la logique de la règle d’alerte.
 
-Pour plus d’informations sur la création de règles d’alerte, voir [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](monitor-alerts-unified-usage.md).
+Pour plus d’informations sur la création de règles d’alerte, voir [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](alert-metric.md).
 
-Les alertes sont disponibles dans plusieurs services de surveillance Azure. Pour plus d’informations sur la façon d’utiliser chacun de ces services et le moment opportun pour le faire, voir [Surveillance des applications et des ressources Azure](./monitoring-overview.md). Le tableau suivant fournit la liste des types de règles d’alerte disponibles dans Azure. Il répertorie également ce que l’expérience de d’alerte unifiée prend actuellement en charge.
+Les alertes sont disponibles dans plusieurs services de surveillance Azure. Pour plus d’informations sur la façon d’utiliser chacun de ces services et le moment opportun pour le faire, voir [Surveillance des applications et des ressources Azure](../azure-monitor/overview.md). Le tableau suivant fournit la liste des types de règles d’alerte disponibles dans Azure. Il répertorie également ce que l’expérience de d’alerte unifiée prend actuellement en charge.
 
 | **Source de la surveillance** | **Type de signal**  | **Description** | 
 |-------------|----------------|-------------|
@@ -186,7 +186,7 @@ Vous pouvez filtrer l’affichage en sélectionnant les valeurs suivantes dans l
 | Abonnement | Sélectionnez jusqu’à cinq abonnements Azure. Seules les alertes dans les abonnements sélectionnés sont incluses dans la vue. |
 | Groupe de ressources | Sélectionnez un seul groupe de ressources. Seules les alertes avec des cibles dans le groupe de ressources sélectionné sont incluses dans la vue. |
 | Type de ressource | Sélectionnez un ou plusieurs types de ressources. Seules les alertes avec des cibles du type sélectionné sont incluses dans la vue. Cette colonne n’est disponible qu’après qu’un groupe de ressources a été spécifié. |
-| Resource | Sélectionnez une ressource. Seules les alertes ayant ces ressources pour cible sont incluses dans l’affichage. Cette colonne n’est disponible qu’après qu’un type de ressource a été spécifié. |
+| Ressource | Sélectionnez une ressource. Seules les alertes ayant ces ressources pour cible sont incluses dans l’affichage. Cette colonne n’est disponible qu’après qu’un type de ressource a été spécifié. |
 | Severity | Sélectionnez un niveau de gravité d’alerte ou *Tous* pour inclure les alertes de tous les niveaux de gravité. |
 | Condition de surveillance | Sélectionnez une condition de surveillance ou *Tous* pour inclure les alertes de conditions. |
 | État d’alerte | Sélectionnez un état d’alerte ou *Tous* pour inclure les alertes d’états. |
@@ -224,7 +224,7 @@ La page Détails du groupe intelligent comprend les sections suivantes.
 | Historique | Répertorie chaque action effectuée par le groupe intelligent, et toutes les modifications qui y sont apportées. Il se limite actuellement aux changements d’état et aux changements d’appartenance d’alerte. |
 
 ## <a name="next-steps"></a>Étapes suivantes
-- [Découvrez comment utiliser la nouvelle expérience Alertes pour créer, afficher et gérer des alertes](monitor-alerts-unified-usage.md)
+- [Découvrez comment utiliser la nouvelle expérience Alertes pour créer, afficher et gérer des alertes](alert-metric.md)
 - [Découvrez les alertes Journal dans l’expérience Alertes](monitor-alerts-unified-log.md)
 - [Découvrez les alertes Métrique dans l’expérience Alertes](monitoring-near-real-time-metric-alerts.md)
-- [Découvrez les alertes Journal d’activité dans l’expérience Alertes](monitoring-activity-log-alerts-new-experience.md)
+- [Découvrez les alertes Journal d’activité dans l’expérience Alertes](alert-activity-log.md)

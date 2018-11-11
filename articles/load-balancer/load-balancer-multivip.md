@@ -4,8 +4,6 @@ description: Vue d’ensemble de multiVIP et définition de plusieurs adresses I
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: timlt
-ms.assetid: 85f6d26a-3df5-4b8e-96a1-92b2793b5284
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: kumud
-ms.openlocfilehash: b6b7b0b2d7a7f33facaf72bbd2d7937364770673
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 03ecb44f3d561ff720939d0605d342b299194ef2
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23020844"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218795"
 ---
 # <a name="configure-multiple-vips-for-a-cloud-service"></a>Configuration de plusieurs adresses IP virtuelles pour un service cloud
 
@@ -42,7 +40,7 @@ Les adresses IP virtuelles sont dynamiques par défaut, ce qui signifie que l’
 
 Vous pouvez utiliser PowerShell pour vérifier les adresses IP virtuelles utilisées par vos services cloud, ainsi qu’ajouter et supprimer des adresses IP virtuelles, associer une adresse IP virtuelle à un point de terminaison et configurer l’équilibrage de charge sur une adresse IP virtuelle spécifique.
 
-## <a name="limitations"></a>Limitations
+## <a name="limitations"></a>Limites
 
 À ce stade, la fonctionnalité d'adresses IP virtuelles multiples est limitée aux scénarios suivants :
 

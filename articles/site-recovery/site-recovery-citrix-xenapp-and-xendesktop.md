@@ -1,29 +1,22 @@
 ---
-title: Répliquer un déploiement Citrix XenDesktop et XenApp multiniveau à l’aide d’Azure Site Recovery | Microsoft Docs
-description: Cet article décrit comment protéger et récupérer des déploiements Citrix XenDesktop et XenApp à l’aide d’Azure Site Recovery.
-services: site-recovery
-documentationcenter: ''
+title: Configurer la récupération d’urgence pour un déploiement Citrix XenDesktop et XenApp multiniveau à l’aide d’Azure Site Recovery | Microsoft Docs
+description: Cet article décrit comment configurer la récupération d’urgence des déploiements Citrix XenDesktop et XenApp à l’aide d’Azure Site Recovery.
 author: ponatara
 manager: abhemraj
-editor: ''
-ms.assetid: 9126f5e8-e9ed-4c31-b6b4-bf969c12c184
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 45d366842416ddfa7b0153a1d075ee6de58e45a1
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 0b8d9765766191533745da4c653f1a91ce635c24
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213631"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210310"
 ---
-# <a name="replicate-a-multi-tier-citrix-xenapp-and-xendesktop-deployment-using-azure-site-recovery"></a>Répliquer un déploiement Citrix XenApp et XenDesktop multiniveau à l’aide d’Azure Site Recovery
+# <a name="set-up-disaster-recovery-for-a-multi-tier-citrix-xenapp-and-xendesktop-deployment"></a>Configurer la récupération d’urgence d’un déploiement Citrix XenApp et XenDesktop multiniveau
 
-## <a name="overview"></a>Vue d’ensemble
+
 
 Citrix XenDesktop est une solution de virtualisation de bureau qui fournit des postes de travail et des applications sous la forme d’un service à la demande à n’importe quel utilisateur, n’importe où. Avec la technologie de remise FlexCast, XenDesktop peut fournir rapidement et en toute sécurité des applications et des postes de travail aux utilisateurs.
 Aujourd’hui, Citrix XenApp ne fournit aucune fonctionnalité de récupération d’urgence.
@@ -46,7 +39,7 @@ Avant de commencer, veillez à bien comprendre ce qui suit :
 
 ## <a name="deployment-patterns"></a>Modèles de déploiement
 
-Une batterie de serveurs Citrix XenApp et XenDesktop présente généralement le modèle de déploiement suivant :
+Une batterie de serveurs Citrix XenApp et XenDesktop présente généralement le modèle de déploiement suivant :
 
 **Modèle de déploiement**
 
@@ -75,7 +68,7 @@ XenApp 7.7 ou ultérieur étant pris en charge dans Azure, seuls les déploieme
 
 1. La protection et la récupération des déploiements locaux à l’aide de machines de système d’exploitation de serveur pour délivrer des applications XenApp publiées et des postes de travail XenApp publiés sont prises en charge.
 
-2. La protection et la récupération des déploiements locaux à l’aide de machines de système d’exploitation de bureau pour fournir une infrastructure VDI (Virtual Desktop Infrastructure) pour des postes de travail virtuels clients, notamment Windows 10, ne sont pas prises en charge. En effet, la récupération automatique du système ne prend pas en charge la récupération des ordinateurs où s’exécutent des systèmes d’exploitation de bureau.  De plus, certains systèmes d’exploitation de bureau virtuels clients (par exemple Windows 7) ne sont pas encore prises en charge pour la gestion des licences dans Azure. [Apprenez-en plus](https://azure.microsoft.com/pricing/licensing-faq/) sur les licences pour les bureaux client/serveur dans Azure.
+2. La protection et la récupération des déploiements locaux à l’aide de machines de système d’exploitation de bureau pour fournir une infrastructure VDI (Virtual Desktop Infrastructure) pour des postes de travail virtuels clients, notamment Windows 10, ne sont pas prises en charge. En effet, Site Recovery ne prend pas en charge la récupération des ordinateurs exécutant des systèmes d’exploitation de bureau.  De plus, certains systèmes d’exploitation de bureau virtuels clients (par exemple Windows 7) ne sont pas encore prises en charge pour la gestion des licences dans Azure. [Apprenez-en plus](https://azure.microsoft.com/pricing/licensing-faq/) sur les licences pour les bureaux client/serveur dans Azure.
 
 3.  Azure Site Recovery ne peut pas répliquer et protéger les clones MCS ou PVS locaux existants.
 Vous devez recréer ces clones à l’aide de l’approvisionnement Azure ARM à partir du Delivery Controller.
@@ -163,20 +156,20 @@ Le plan de récupération personnalisé ressemble à ceci :
    >[!NOTE]     
    >Les étapes 4, 6 et 7 contenant des actions de script ou manuelles s’appliquent uniquement à un environnement XenApp local avec des catalogues MCS/PVS.
 
-4. Action manuelle ou de script de Groupe 3 : Arrêter la machine virtuelle VDA maîtresse. La machine virtuelle VDA maîtresse sera en cours d’exécution en cas de basculement vers Azure. Pour créer des catalogues MCS à l’aide de l’hébergement Azure ARM, il faut que la machine virtuelle VDA maîtresse soit à l’état Arrêtée (désallouée). Arrêtez la machine virtuelle à partir du portail Azure.
+4. Action manuelle ou de script de Groupe 3 : Arrêter la machine virtuelle VDA maîtresse. La machine virtuelle VDA maîtresse sera en cours d’exécution en cas de basculement vers Azure. Pour créer des catalogues MCS à l’aide de l’hébergement Azure, la machine virtuelle VDA maîtresse doit être à l’état Arrêtée (désallouée). Arrêtez la machine virtuelle à partir du Portail Azure.
 
 5. Groupe de basculement 4 : Delivery Controller et machines virtuelles de serveur StoreFront
 6. Action manuelle ou de script 1 de Groupe 3 :
 
     ***Ajouter une connexion hôte Azure ARM***
 
-    Créez une connexion hôte Azure ARM sur l’ordinateur Delivery Controller pour approvisionner de nouveaux catalogues MCS dans Azure. Suivez les étapes décrites dans [cet article](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
+    Créez une connexion hôte Azure sur l’ordinateur Delivery Controller pour approvisionner de nouveaux catalogues MCS dans Azure. Suivez les étapes décrites dans [cet article](https://www.citrix.com/blogs/2016/07/21/connecting-to-azure-resource-manager-in-xenapp-xendesktop/).
 
 7. Action manuelle ou de script 2 de Groupe 3 :
 
     ***Recréer les catalogues MCS dans Azure***
 
-    Les clones MCS ou PVS existants sur le site principal ne seront pas répliqués vers Azure. Vous devez recréer ces clones à l’aide de l’agent VDA maître répliqué et de l’approvisionnement ARM Azure à partir de Delivery Controller. Suivez les étapes décrites dans [cet article](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) pour créer des catalogues MCS dans Azure.
+    Les clones MCS ou PVS existants sur le site principal ne seront pas répliqués vers Azure. Vous devez recréer ces clones à l’aide de la VDA maîtresse répliquée et de l’approvisionnement Azure à partir du Delivery Controller. Suivez les étapes de cet [article](https://www.citrix.com/blogs/2016/09/12/using-xenapp-xendesktop-in-azure-resource-manager/) pour créer des catalogues MCS dans Azure.
 
 ![Plan de récupération pour les composants XenApp](./media/site-recovery-citrix-xenapp-and-xendesktop/citrix-recoveryplan.png)
 

@@ -1,5 +1,5 @@
 ---
-title: Traitement de base de données serverless - Azure Functions et Azure Cosmos DB | Microsoft Docs
+title: Traitement de base de données sans serveur - Azure Functions et Azure Cosmos DB | Microsoft Docs
 description: Découvrez comment Azure Cosmos DB et Azure Functions peuvent être utilisés ensemble pour créer des applications informatiques sans serveur basées sur les événements.
 services: cosmos-db
 author: SnehaGunda
@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: c183bbe2c20bdc1772160cbbd8260dece0b6eb54
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
+ms.openlocfilehash: 7348f76ab0d5a1057e9fd929e8a55dd0a9e99eb6
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309499"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50140974"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Traitement de base de données serverless à l’aide d’Azure Cosmos DB et d’Azure Functions
 
@@ -31,7 +31,8 @@ Azure Cosmos DB et Azure Functions permettent d’intégrer vos bases de donnée
 * Liez une fonction à un conteneur Azure Cosmos DB à l’aide d’une **liaison de sortie**. Les liaisons de sortie écrivent des données dans un conteneur après l’exécution d’une fonction.
 
 > [!NOTE]
-> À l’heure actuelle, le déclencheur Azure Cosmos DB, les liaisons d’entrée et les liaisons de sortie fonctionnent uniquement avec les comptes d’API SQL et d’API Gremlin.
+> Actuellement, les liaisons d’entrée, les liaisons de sortie et le déclencheur Azure Cosmos DB sont uniquement pris en charge pour une utilisation avec l’API SQL. Pour toutes les autres API Azure Cosmos DB, vous devez accéder à la base de données depuis votre fonction en utilisant le client statique pour votre API, y compris l’API MongoDB, l’API Cassandra, l’API Gremlin et l’API Table.
+
 
 Le diagramme suivant illustre chacune de ces trois intégrations : 
 

@@ -9,16 +9,16 @@ ms.reviewer: sgilley
 author: rastala
 ms.author: roastala
 ms.date: 09/24/2018
-ms.openlocfilehash: b81e40298eae0f0b44f37e7f8f16beaddad999a5
-ms.sourcegitcommit: 668b486f3d07562b614de91451e50296be3c2e1f
+ms.openlocfilehash: 624564d61a7031cee910ab98e1b327b6f0205e28
+ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49456811"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50159007"
 ---
 # <a name="quickstart-use-the-azure-portal-to-get-started-with-azure-machine-learning"></a>Démarrage rapide : Utiliser le Portail Azure pour bien démarrer avec Azure Machine Learning
 
-Dans ce démarrage rapide, vous utilisez le Portail Azure pour créer un espace de travail Azure Machine Learning. Dans le cloud, cet espace de travail est le socle que vous utilisez pour expérimenter, effectuer l’apprentissage et déployer des modèles Machine Learning avec Machine Learning. 
+Dans ce démarrage rapide, vous utilisez le Portail Azure pour créer un espace de travail Azure Machine Learning. Dans le cloud, cet espace de travail est le socle que vous utilisez pour expérimenter, effectuer l’apprentissage et déployer des modèles Machine Learning avec Machine Learning. Ce démarrage rapide utilise des ressources cloud et ne requiert aucune installation. Pour configurer votre propre serveur de notebook Jupyter, consultez la rubrique [Démarrage rapide : utilisation de Python pour démarrer avec Azure Machine Learning](quickstart-create-workspace-with-python.md).
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2F9Ad]
 
@@ -78,32 +78,9 @@ En plus des deux blocs-notes, vous voyez un fichier `config.json`. Ce fichier co
 
 Sélectionnez `01.run-experiment.ipynb` pour ouvrir le bloc-notes.
 
-Pour exécuter les cellules une par une, utilisez `Shift`+`Enter`. Ou sélectionnez `Cells` > `Run All` pour exécuter tout le bloc-notes. Lorsque vous voyez un astérisque [*] en regard d’une cellule, cela signifie qu’elle est en cours d’exécution. À la fin de l’exécution du code de cette cellule, un numéro s’affiche.
+Pour exécuter les cellules une par une, utilisez `Shift`+`Enter`. Ou sélectionnez `Cells` > `Run All` pour exécuter tout le bloc-notes. Lorsque vous voyez un astérisque [*] en regard d’une cellule, cela signifie qu’elle est en cours d’exécution. À la fin de l’exécution du code de cette cellule, un numéro s’affiche. 
 
-Vous pouvez être invité à vous connecter. Copiez le code dans le message. Sélectionnez ensuite le lien, puis collez le code dans la nouvelle fenêtre. Veillez à ne pas copier un espace avant ou après le code. Connectez-vous avec le même compte que celui que vous avez utilisé sur le Portail Azure.
-
- ![Se connecter](./media/quickstart-get-started/login.png)
-
-Dans le bloc-notes, la deuxième cellule lit le contenu de `config.json` afin de vous connecter à votre espace de travail.
-```
-ws = Workspace.from_config()
-```
-
-La troisième cellule de code démarre une expérience nommée « my-first-experience ». Utilisez ce nom pour rechercher des informations sur l’exécution une fois revenu dans votre espace de travail.
-
-```
-experiment = Experiment(workspace_object=ws, name = "my-first-experiment")
-```
-
-Dans la dernière cellule du bloc-notes, notez les valeurs qui sont écrites dans un fichier journal.
-
-```
-# Log final results
-run.log("Final estimate: ",pi_estimate)
-run.log("Final error: ",math.pi-pi_estimate)
-```
-
-Une fois le code exécuté, vous pouvez afficher ces valeurs dans votre espace de travail.
+Une fois que vous avez exécuté toutes les cellules dans le notebook, vous pouvez afficher les valeurs enregistrées dans votre espace de travail.
 
 ## <a name="view-logged-values"></a>Afficher les valeurs journalisées
 
@@ -121,11 +98,11 @@ Consultez des informations sur l’exécution que vous venez de réaliser. Faite
 
  ![Lien Historique des exécutions](./media/quickstart-get-started/report.png)
 
-Vous voyez les tracés qui ont été créés automatiquement à partir des valeurs journalisées.  
+Vous voyez les tracés qui ont été créés automatiquement à partir des valeurs journalisées. Chaque fois que vous consignez plusieurs valeurs avec le même paramètre de nom, un tracé est généré automatiquement pour vous.
 
    ![Afficher l’historique](./media/quickstart-get-started/plots.png)
 
-Étant donné que le code pour se rapprocher de pi utilise des valeurs aléatoires, vos tracés affichent des valeurs différentes.
+Étant donné que le code pour se rapprocher de pi utilise des valeurs aléatoires, vos tracés affichent des valeurs différentes.  
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources 
 

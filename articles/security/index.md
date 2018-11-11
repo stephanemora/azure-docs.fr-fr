@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: landing-page
 ms.date: 03/30/2018
 ms.author: angrobe
-ms.openlocfilehash: 64bf734543825284db29790fc3c1f7c9ef89ff59
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 98cb089baa759b6569d1e1e06c90022eb75f5355
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737115"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228111"
 ---
 # <a name="azure-security-documentation"></a>Documentation sur la sécurité Azure
 
@@ -57,7 +57,7 @@ La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages 
         </a>
     </li>
     <li style="list-style: none;">
-        <a href="http://aka.ms/sharedresponsibility">
+        <a href="https://aka.ms/sharedresponsibility">
             <div class="cardSize">
                 <div class="cardPadding">
                     <div class="card" style="min-height: 0;padding-bottom: 24px; text-align: center;">
@@ -172,7 +172,7 @@ La sécurité fait partie intégrante d’Azure. Azure vous offre des avantages 
                         <h3>Livres blancs</h3>
                         <ul class="noBullet">
                             <li style="list-style: none;">
-                                <a class="barLink" href="http://aka.ms/SecurityResponsepaper">Réponse d’Azure en matière de sécurité dans le cloud</a>
+                                <a class="barLink" href="https://aka.ms/SecurityResponsepaper">Réponse d’Azure en matière de sécurité dans le cloud</a>
                             </li>
                             <li style="list-style: none;">
                                 <a class="barLink" href="/azure/security/azure-threat-detection">Détection avancée des menaces Azure</a>

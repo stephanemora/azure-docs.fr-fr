@@ -3,7 +3,7 @@ title: Créer des rapports interactifs avec les classeurs Azure Monitor | Micros
 description: Créer des rapports complexes en toute simplicité grâce à des classeurs paramétrables prédéfinis et personnalisés
 services: application-insights
 documentationcenter: ''
-author: mrbullwinkle
+author: NumberByColors
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
@@ -11,15 +11,15 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/19/2018
-ms.reviewer: daviste
+ms.reviewer: mbullwin
 ms.pm_owner: daviste;NumberByColors
-ms.author: mbullwin
-ms.openlocfilehash: 2a9ee67d2763eb1d88ab09520c69dd46ead3e93f
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.author: daviste
+ms.openlocfilehash: c04af7fcf996c9b86c472383eac5658e5504b27e
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465928"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139820"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Créer des rapports interactifs avec les classeurs Azure Monitor
 
@@ -27,12 +27,12 @@ Les classeurs regroupent du texte, [des requêtes Analytics](https://docs.micr
 
 Les classeurs sont utiles pour :
 
-* Explorer l’utilisation de votre application lorsque vous ne connaissez pas les mesures d’intérêt à l’avance : nombre d’utilisateurs, taux de rétention, taux de conversion, etc. Contrairement à d’autres outils d’analyse de l’utilisation, les classeurs vous permettent de combiner plusieurs types de visualisations et d’analyses, ce qui les rend très utile pour ce type d’exploration sous forme libre.
+* Explorer l’utilisation de votre application lorsque vous ne connaissez pas les mesures d’intérêt à l’avance : nombre d’utilisateurs, taux de rétention, taux de conversion, etc. Contrairement à d’autres outils d’analyse de l’utilisation, les classeurs vous permettent de combiner plusieurs types de visualisations et d’analyses, ce qui les rend très utiles pour ce type d’exploration sous forme libre.
 * Expliquer à votre équipe le fonctionnement d’une toute nouvelle fonctionnalité, en montrant le nombre d’interactions clés et d’autres mesures de l’utilisateur.
 * Partager les résultats d’une expérimentation A/B dans votre application avec d’autres membres de votre équipe. Vous pouvez expliquer les objectifs de l’expérimentation avec le texte, puis montrer chaque mesure d’utilisation et requête Analytics utilisée pour évaluer l’expérimentation, en vous aidant de légendes claires indiquant si chaque mesure se situe au-dessus ou en dessous de la cible.
 * Créer des rapports relatifs à l’impact d’une panne sur l’utilisation de votre application, en combinant des données, une explication du texte et une présentation des étapes suivantes pour éviter à l’avenir d’éventuelles interruptions.
 
-## <a name="starting-with-a-template-or-saved-workbook"></a>Utiliser un modèle ou un classeur enregistré
+## <a name="starting-with-a-template-or-saved-workbook"></a>Commencer avec un classeur enregistré ou un modèle
 
 Un classeur est composé de sections comprenant des graphiques, des tableaux, du texte et des commandes de saisie modifiables de manière indépendante. Pour mieux comprendre comment fonctionne un classeur, nous allons en ouvrir un. 
 
@@ -50,7 +50,7 @@ Nous allons commencer par le **modèle par défaut** qui se trouve sous le titre
 
 ## <a name="editing-rearranging-cloning-and-deleting-workbook-sections"></a>Modifier, réorganiser, cloner et supprimer des sections de classeur
 
-Les classeurs présentent deux modes : le **mode d’édition** et le **mode lecture**. Lorsque vous le sélectionnez pour la première fois, le classeur par défaut s’ouvre en **mode d’édition**. Tout le contenu du classeur s’affiche, y compris les étapes et les paramètres qui sont généralement masqués. Le **mode lecture** présente une vue de rapport simplifiée. Vous pouvez ainsi masquer les éléments complexes de création du rapport, tout en pouvant accéder en quelques clics aux paramètres et mécanismes sous-jacents si vous avez besoin de les modifier.
+Les classeurs présentent deux modes : le **mode d’édition** et le **mode lecture**. Lorsque vous le sélectionnez pour la première fois, le classeur par défaut s’ouvre en **mode d’édition**. Tout le contenu du classeur s’affiche, y compris les étapes et les paramètres qui sont généralement masqués. Le **mode lecture** présente une vue de rapport simplifiée. Vous pouvez ainsi masquer les éléments complexes de création du rapport, tout en accédant en quelques clics aux paramètres et mécanismes sous-jacents si vous avez besoin de les modifier.
 
 ![Commandes d’édition de la section Workbooks d’Application Insights](./media/app-insights-usage-workbooks/editing-controls-new.png)
 
@@ -68,9 +68,9 @@ Le fait d’ajouter des en-têtes, des explications et des commentaires à vos c
 
 Pour ajouter une section de textes à votre classeur, utilisez le bouton **Ajouter du texte** situé en bas du classeur, ou de chaque section.
 
-## <a name="adding-query-sections"></a>Ajouter des sections de requête
+## <a name="adding-query-sections"></a>Ajout de sections de requête
 
-![Section Requête d’un classeur](./media/app-insights-usage-workbooks/analytics-section-new.png)
+![Section de requête d’un classeur](./media/app-insights-usage-workbooks/analytics-section-new.png)
 
 Pour ajouter une section de requête à votre classeur, utilisez le bouton **Ajouter une requête** situé en bas du classeur ou en bas de chaque section.
 
@@ -105,7 +105,7 @@ Chaque section a ses propres paramètres avancés, accessibles via l’icône de
    | ---------------- |:-----|
    | **Largeur personnalisée**    | Définissez cette option pour personnaliser la taille d’un élément et faire tenir un grand nombre d’éléments sur une seule ligne. Vous pouvez ainsi mieux organiser vos tableaux et graphiques pour créer des rapports interactifs pertinents.  |
    | **Visible sous conditions** | Utilisez cette option pour masquer les étapes en fonction d’une valeur de paramètre en mode lecture. |
-   | **Exporter un paramètre**| Ainsi, en sélectionnant une ligne dans le tableau ou le graphique, vous pouvez faire en sorte que des valeurs soient modifiées ou deviennent visibles.  |
+   | **Exporter un paramètre**| Cela vous permet de sélectionner une ligne dans le tableau ou le graphique pour faire en sorte que des valeurs soient modifiées ou deviennent visibles.  |
    | **Afficher la requête en mode lecture** | Cette option affiche la requête au-dessus du graphique ou du tableau même en mode lecture.
    | **Afficher le bouton Ouvrir dans Analytics en mode lecture** | Cela ajoute l’icône bleue Analytics à droite du graphique pour vous permettre d’y accéder en un seul clic.|
 
@@ -113,11 +113,11 @@ La plupart de ces paramètres sont relativement intuitifs, mais pour comprendre 
 
 L’un des classeurs prédéfinis fournit des informations sur les utilisateurs actifs.
 
-La première section du classeur est basée sur les données de la requête Analytics :
+La première section du classeur est basée sur les données de requête Analytics :
 
 ![Commandes d’édition de la section Workbooks d’Application Insights](./media/app-insights-usage-workbooks/003-active-users.png)
 
-La deuxième section est également basée sur les données de la requête Analytics, mais en sélectionnant une ligne dans le premier tableau, le contenu du graphique sera automatiquement mis à jour :
+La deuxième section est également basée sur les données de requête analytique, mais la sélection d’une ligne dans le premier tableau met à jour de façon interactive le contenu du graphique :
 
 ![Commandes d’édition de la section Workbooks d’Application Insights](./media/app-insights-usage-workbooks/004-active-users-trend.png)
 
@@ -125,7 +125,7 @@ La deuxième section est également basée sur les données de la requête Analy
 
 ![Commandes d’édition de la section Workbooks d’Application Insights](./media/app-insights-usage-workbooks/007-settings-export.png)
 
-La deuxième requête Analytics utilise alors les valeurs exportées lorsqu’une ligne est sélectionnée. Si aucune ligne n’est sélectionnée, la ligne représentant les valeurs globales est utilisée par défaut. 
+La deuxième requête analytique utilise alors les valeurs exportées lorsqu’une ligne est sélectionnée. Si aucune ligne n’est sélectionnée, la ligne représentant les valeurs globales est utilisée par défaut. 
 
 ```
 let start = startofday(ago({TimeRange} + {Metric}));
@@ -140,21 +140,21 @@ union customEvents, pageViews
 | render timechart 
 ```
 
-## <a name="adding-metrics-sections"></a>Ajouter des sections de métriques
+## <a name="adding-metrics-sections"></a>Ajout de sections de métriques
 
-Grâce aux sections de métriques, vous disposez d’un accès complet pour intégrer des données de métriques Azure Monitor dans vos rapports interactifs. La plupart des classeurs prédéfinis contiennent à la fois des données de requête analytique et des données de métriques afin que vous puissiez combiner les avantages des deux fonctionnalités. Vous avez également la possibilité d’extraire des données de métriques à partir des ressources de l’ensemble des abonnements auxquels vous avez accès.
+Les sections de métriques vous offrent un accès complet pour intégrer des données de métriques Azure Monitor dans vos rapports interactifs. La plupart des classeurs prédéfinis contiennent à la fois des données de requête analytique et des données de métriques, ce qui vous permet de combiner les avantages des deux fonctionnalités. Vous avez également la possibilité d’extraire des données de métriques à partir des ressources de l’ensemble des abonnements auxquels vous avez accès.
 
-Voici un exemple de données de machine virtuelle qui sont intégrées dans un classeur en vue d’afficher les performances du processeur sous forme de tableau :
+Voici un exemple de données de machine virtuelle insérées dans un classeur en vue d’afficher les performances du processeur sous forme de tableau :
 
 ![Commandes d’édition de la section Workbooks d’Application Insights](./media/app-insights-usage-workbooks/008-metrics-grid.png)
 
-## <a name="adding-parameter-sections"></a>Ajouter des sections de paramètres
+## <a name="adding-parameter-sections"></a>Ajout de sections de paramètres
 
-Les paramètres de classeur vous permettent de modifier les valeurs dans le classeur sans avoir à modifier manuellement les sections de requête ou de texte.  Davantage de personnes peuvent ainsi utiliser ce type de rapports basés sur des classeurs car il n’est pas nécessaire de comprendre le langage de requête analytique sous-jacent.
+Les paramètres de classeur vous permettent de modifier les valeurs dans le classeur sans avoir à modifier manuellement les sections de requête ou de texte.  Davantage de personnes peuvent ainsi utiliser ce type de rapports basés sur des classeurs, car il n’est pas nécessaire de comprendre le langage de requête analytique sous-jacent.
 
-Pour remplacer les valeurs des paramètres dans les sections de requête, de texte ou d’autres sections de paramètre, le nom du paramètre doit être saisi entre accolades, par exemple ``{parameterName}``.  Les noms de paramètre doivent respecter des règles similaires à celles des identificateurs JavaScript, à savoir des caractères alphabétiques ou des traits de soulignement, suivis par des caractères alphanumériques ou des traits de soulignement. Par exemple, **a1** est autorisé, mais pas **1a**.
+Pour remplacer la valeur d’un paramètre dans les sections de requête, de texte ou de paramètre, le nom du paramètre doit être saisi entre accolades, par exemple ``{parameterName}``.  Les noms de paramètre doivent respecter des règles similaires à celles des identificateurs JavaScript, à savoir des caractères alphabétiques ou des traits de soulignement, suivis par des caractères alphanumériques ou des traits de soulignement. Par exemple, **a1** est autorisé, mais pas **1a**.
 
-Les paramètres sont linéaires et sont appliqués aux différentes étapes du classeur, en partant du haut.  Les paramètres déclarés plus loin dans un classeur peuvent remplacer ceux qui ont été déclarés plus haut.  Cela permet également aux paramètres qui utilisent des requêtes d’accéder aux valeurs de paramètres définis plus haut.  Au sein d’une étape de paramètre, les paramètres sont également linéaires et appliqués de gauche à droite, les paramètres de droite pouvant dépendre d’un paramètre déclaré plus haut au sein de cette même étape.
+Les paramètres sont linéaires et appliqués aux différentes étapes du classeur, en partant du haut.  Des paramètres déclarés ultérieurement dans un classeur peuvent remplacer ceux déclarés plus haut.  Cela permet également aux paramètres qui utilisent des requêtes d’accéder aux valeurs de paramètres définis plus haut.  Au sein d’une étape de paramètre, les paramètres sont également linéaires et appliqués de gauche à droite, les paramètres de droite pouvant dépendre d’un paramètre déclaré antérieurement au sein de cette même étape.
  
 Quatre types de paramètres sont actuellement pris en charge :
 
@@ -165,25 +165,25 @@ Quatre types de paramètres sont actuellement pris en charge :
    | **Sélecteur d’intervalle de temps**| L’utilisateur choisit parmi un ensemble prédéfini de valeurs d’intervalle de temps, ou sélectionne un élément à partir d’un intervalle de temps personnalisé.|
    | **Sélecteur de ressource** | L’utilisateur choisit parmi les ressources sélectionnées pour le classeur.|
 
-### <a name="using-a-text-parameter"></a>Utiliser un paramètre de texte
+### <a name="using-a-text-parameter"></a>Utilisation d’un paramètre de texte
 
-La valeur qu’un utilisateur saisit dans la zone de texte est directement remplacée dans la requête, sans espace ni guillemets. Si la valeur dont vous avez besoin est une chaîne, le paramètre doit être saisi entre guillemets dans la requête (par exemple **’{paramètre}’**).
+La valeur qu’un utilisateur saisit dans la zone de texte est directement remplacée dans la requête, sans espace ni guillemets. Si la valeur dont vous avez besoin est une chaîne, le paramètre doit être saisi entre guillemets dans la requête (par exemple **‘{paramètre}’**).
 
 Ainsi, la valeur saisie dans une zone de texte peut être utilisée n’importe où. Cela peut être un nom de tableau, un nom de colonne, un nom de fonction, un opérateur, etc.
 
-Le type de paramètre de texte dispose d’un paramètre **Obtenir la valeur par défaut à partir de la requête Analytics** qui permet au créateur du classeur d’utiliser une requête pour renseigner la valeur par défaut de cette zone de texte.
+Le type de paramètre de texte dispose d’un paramètre **Obtenir la valeur par défaut à partir d’une requête analytique** qui permet au créateur du classeur d’utiliser une requête pour renseigner la valeur par défaut de cette zone de texte.
 
-Lorsque vous utilisez la valeur par défaut obtenue à partir d’une requête Analytics, seule la première valeur de la première ligne (ligne 0, colonne 0) est utilisée comme valeur par défaut. Par conséquent, il est recommandé de limiter votre requête afin qu’elle ne renvoie qu’une seule ligne et qu’une seule colonne. Toutes les autres données retournées par la requête sont ignorées. 
+Lorsque vous utilisez la valeur par défaut obtenue à partir d’une requête analytique, seule la première valeur de la première ligne (ligne 0, colonne 0) est utilisée comme valeur par défaut. Par conséquent, il est recommandé de limiter votre requête afin qu’elle renvoie une seule ligne et une seule colonne. Toutes les autres données retournées par la requête sont ignorées. 
 
-La valeur renvoyée par la requête sera remplacée directement sans espace ni guillemets. Si la requête ne renvoie aucune ligne, le résultat du paramètre sera une chaîne vide (si le paramètre n’est pas obligatoire) ou une chaîne non définie (si le paramètre est requis).
+La valeur retournée par la requête est remplacée directement sans espace ni guillemets. Si la requête ne retourne aucune ligne, le résultat du paramètre est une chaîne vide (si le paramètre n’est pas obligatoire) ou une chaîne non définie (si le paramètre est obligatoire).
 
-### <a name="using-a-dropdown"></a>Utiliser une liste déroulante
+### <a name="using-a-dropdown"></a>Utilisation d’une liste déroulante
 
-Le type de paramètre de liste déroulante vous permet de créer une commande de liste déroulante pour pouvoir sélectionner une ou plusieurs valeurs.
+Le type de paramètre liste déroulante vous permet de créer une commande de liste déroulante pour pouvoir sélectionner une ou plusieurs valeurs.
 
-La liste déroulante est remplie par une requête Analytics. Si la requête renvoie une colonne, les valeurs de cette colonne correspondent à la fois à la **valeur** et au **libellé** dans la commande de liste déroulante. Si la requête renvoie deux colonnes, la première colonne correspond à la **valeur**, et la deuxième colonne correspond au **libellé** dans la liste déroulante.  Si la requête renvoie trois colonnes, la troisième colonne est utilisée pour indiquer la sélection par défaut dans cette liste déroulante.  Cette colonne peut être de n’importe quel type, mais le plus simple est d’utiliser des valeurs booléennes ou numériques, où 0 est false et 1 est true.
+La liste déroulante est remplie par une requête analytique. Si la requête retourne une colonne, les valeurs de cette colonne correspondent à la fois à la **valeur** et au **libellé** dans la commande de liste déroulante. Si la requête retourne deux colonnes, la première colonne correspond à la **valeur**, et la deuxième colonne au **libellé** dans la liste déroulante.  Si la requête retourne trois colonnes, la troisième colonne est utilisée pour indiquer la sélection par défaut dans cette liste déroulante.  Cette colonne peut être de n’importe quel type, mais le plus simple est d’utiliser des valeurs booléennes ou numériques, où 0 correspond à false et 1 à true.
 
- Si la colonne est de type chaîne, la chaîne null/vide est considérée comme fausse (false), et toute autre valeur est considérée comme vraie (true). Pour les listes déroulantes à sélection unique, la première valeur avec une valeur true est utilisée comme sélection par défaut.  Pour les listes déroulantes à sélection multiple, toutes les valeurs ayant une valeur true forment le jeu de valeurs sélectionné par défaut. Les éléments de la liste déroulante s’affichent dans l’ordre dans lequel la requête a renvoyé les lignes. 
+ Si la colonne est de type chaîne, la chaîne null/vide est considérée comme fausse (false), et toute autre valeur est considérée comme vraie (true). Pour les listes déroulantes à sélection unique, la première valeur avec une valeur true est utilisée comme sélection par défaut.  Pour les listes déroulantes à sélection multiple, toutes les valeurs ayant une valeur true forment le jeu de valeurs sélectionné par défaut. Les éléments de la liste déroulante s’affichent dans l’ordre où la requête a retourné les lignes. 
 
 Examinons les paramètres présents dans le rapport sur les utilisateurs actifs. Cliquez sur le symbole de modification en regard de **TimeRange**.
 
@@ -193,7 +193,7 @@ Cette action lance l’élément de menu Modifier le paramètre :
 
 ![Commandes d’édition de la section Workbooks d’Application Insights](./media/app-insights-usage-workbooks/010-time-range-edit.png)
 
-La requête utilise une fonctionnalité du langage de requête analytique appelée **datatable** qui vous permet de créer un tableau arbitraire riche en contenu à partir de rien. Par exemple, la requête analytique suivante :
+La requête utilise une fonctionnalité du langage de requête analytique, appelée **datatable**, qui vous permet de créer un tableau arbitraire riche en contenu à partir de rien. Par exemple, la requête analytique suivante :
 
 ```
 datatable( column1:string, column2:string )
@@ -203,7 +203,7 @@ datatable( column1:string, column2:string )
 ]
 ```
 
-Génère le résultat suivant :
+Génère le résultat :
 
 ![Commandes d’édition de la section Workbooks d’Application Insights](./media/app-insights-usage-workbooks/011-data-table.png)
 
@@ -220,21 +220,21 @@ customEvents
 
 La requête affiche les résultats comme suit :
 
-![Liste déroulante de pays](./media/app-insights-usage-workbooks/012-country-dropdown.png)
+![Liste déroulante des pays](./media/app-insights-usage-workbooks/012-country-dropdown.png)
 
 Les listes déroulantes sont des outils incroyablement efficaces pour créer et personnaliser des rapports interactifs.
 
 ### <a name="time-range-parameters"></a>Paramètres d’intervalle de temps
 
-Bien que vous puissiez définir votre propre paramètre d’intervalle de temps personnalisé via le type de paramètre de liste déroulante, vous pouvez également utiliser le type de paramètre d’intervalle de temps prêt à l’emploi si vous n’avez pas besoin du même niveau de flexibilité. 
+Bien que vous puissiez définir votre propre paramètre d’intervalle de temps personnalisé via le type de paramètre liste déroulante, vous pouvez également utiliser le type de paramètre intervalle de temps prêt à l’emploi si vous n’avez pas besoin du même niveau de flexibilité. 
 
-Les types de paramètre d’intervalle de temps ont 15 plages par défaut qui vont de cinq minutes aux 90 derniers jours. Il est également possible de sélectionner un intervalle de temps personnalisé, ce qui permet au créateur du rapport de sélectionner des valeurs de début et de fin spécifiques pour l’intervalle de temps.
+Les types de paramètre intervalle de temps ont 15 plages par défaut qui vont de cinq minutes aux 90 derniers jours. Il est également possible de sélectionner un intervalle de temps personnalisé, ce qui permet au créateur du rapport de sélectionner des valeurs de début et de fin spécifiques pour l’intervalle de temps.
 
 ### <a name="resource-picker"></a>Sélecteur de ressource
 
 Le type de paramètre de sélecteur de ressource vous donne la possibilité de limiter ou d’étendre votre rapport à certains types de ressources. Le classeur **Informations sur les échecs** est un exemple de classeur prédéfini qui utilise le type de sélecteur de ressource.
 
-![Liste déroulante de pays](./media/app-insights-usage-workbooks/013-resource-picker.png)
+![Liste déroulante des pays](./media/app-insights-usage-workbooks/013-resource-picker.png)
 
 ## <a name="saving-and-sharing-workbooks-with-your-team"></a>Enregistrer et partager des classeurs avec votre équipe
 
@@ -254,9 +254,9 @@ Pour épingler un lien à un classeur dans un tableau de bord Azure :
 2. Cliquez sur le bouton «... » en regard du classeur que vous souhaitez épingler.
 3. Cliquez sur **Épingler au tableau de bord**.
 
-## <a name="contributing-workbook-templates"></a>Partager des modèles de classeur
+## <a name="contributing-workbook-templates"></a>Partage de modèles de classeur
 
-Vous avez créé un modèle de classeur intéressant et souhaitez le partager avec la communauté ? Pour en savoir plus, rendez-vous sur notre page dédiée au [référentiel GitHub](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md).
+Vous avez créé un modèle de classeur intéressant et souhaitez le partager avec la communauté ? Pour en savoir plus, rendez-vous sur notre page dédiée au [dépôt GitHub](https://github.com/Microsoft/Application-Insights-Workbooks/blob/master/README.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Pour activer les expériences d’utilisation, commencez à envoyer des [événements personnalisés](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) ou des [affichages de page](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: bb1c59fa7df9cf466ce1fd7f32f08d255fe656bd
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: 2af93d149948071f78d0c684b812e84fa68db341
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37097061"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50251122"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de table Azure Storage : conception de tables évolutives et performantes
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -138,7 +138,7 @@ Pour plus d’informations sur les détails internes du service de Table et nota
 ### <a name="entity-group-transactions"></a>Transactions de groupe d’entités
 Dans le service de Table, les transactions de groupe d'entités (EGT) constituent l'unique mécanisme intégré pour effectuer des mises à jour atomiques entre plusieurs entités. Les transactions EGT sont également appelées *transactions par lots* dans certaines documentations. Les transactions EGT peuvent uniquement utiliser des entités stockées dans la même partition (partage de la même clé de partition dans une table donnée). Par conséquent, quand vous avez besoin d'un comportement transactionnel atomique entre plusieurs entités, vous devez vérifier que ces entités sont dans la même partition. Ceci justifie souvent la conservation de plusieurs types d'entité dans la même table (et partition) au lieu de l'utilisation de plusieurs tables pour différents types d'entité. Une seule EGT peut traiter jusqu'à 100 entités.  Si vous envoyez plusieurs EGT simultanées pour traitement, il est important de s’assurer que ces EGT n’utilisent pas des entités communes aux différentes EGT. Sinon, le traitement risque d’être retardé.
 
-Les EGT entraînent également un compromis potentiel à évaluer dans votre conception : l'utilisation de plusieurs partitions augmente l'extensibilité de votre application, car Azure dispose de davantage d'opportunités pour les demandes d'équilibrage entre les nœuds, mais cela peut limiter la capacité de votre application à effectuer des transactions atomiques et à maintenir une forte cohérence de vos données. En outre, certains objectifs d’extensibilité spécifiques au niveau d’une partition peuvent limiter le débit des transactions que vous pouvez attendre pour un même nœud : pour plus d’informations sur les objectifs d’extensibilité pour les comptes de stockage Azure et le service de Table, consultez [Objectifs d’extensibilité et de performances d’Azure Storage](../storage/common/storage-scalability-targets.md). Les sections ultérieures de ce guide présenteront différentes stratégies de conception pour vous aider à gérer les compromis tels que celui-ci et décrivent les meilleures méthodes pour choisir votre clé de partition en fonction des exigences spécifiques de votre application cliente.  
+Les EGT entraînent également un compromis potentiel à évaluer dans votre conception : l'utilisation de plusieurs partitions augmente l'extensibilité de votre application, car Azure dispose de davantage d'opportunités pour les requêtes d'équilibrage entre les nœuds, mais cela peut limiter la capacité de votre application à effectuer des transactions atomiques et à maintenir une forte cohérence de vos données. En outre, certains objectifs d’extensibilité spécifiques au niveau d’une partition peuvent limiter le débit des transactions que vous pouvez attendre pour un même nœud : pour plus d’informations sur les objectifs d’extensibilité pour les comptes de stockage Azure et le service de Table, consultez [Objectifs d’extensibilité et de performances d’Azure Storage](../storage/common/storage-scalability-targets.md). Les sections ultérieures de ce guide présenteront différentes stratégies de conception pour vous aider à gérer les compromis tels que celui-ci et décrivent les meilleures méthodes pour choisir votre clé de partition en fonction des exigences spécifiques de votre application cliente.  
 
 ### <a name="capacity-considerations"></a>Considérations relatives à la capacité
 Le tableau suivant présente certaines des valeurs de clés à connaître lorsque vous concevez une solution de service de Table :  
@@ -312,7 +312,7 @@ Les relations un-à-plusieurs entre des objets de domaine d’entreprise se prod
 
 Prenons l'exemple d'une grande entreprise multinationale ayant des dizaines de milliers d'entités relatives aux services (department) et aux employés (employee) où chaque service a de nombreux employés et chaque employé est associé à un service spécifique. Une approche consiste à stocker séparément les entités relatives aux services (department) et aux employés (employee), comme ceci :  
 
-![][1]
+![Entité de service et d’employé][1]
 
 Cet exemple montre une relation un-à-plusieurs implicite entre les types selon la valeur de **PartitionKey** . Chaque service peut avoir de nombreux employés.  
 
@@ -413,12 +413,12 @@ Dans les sections précédentes, vous avez consulté des explications détaillé
 Le plan des modèles ci-dessus met en évidence les relations entre les modèles (bleus) et les anti-modèles (orange) qui sont décrits dans ce guide. Il existe bien sûr bien d'autres modèles qui méritent votre attention. Par exemple, l’un des principaux scénarios pour un service de Table consiste à utiliser des [modèles d’affichages matérialisés](https://msdn.microsoft.com/library/azure/dn589782.aspx) à partir du modèle [Répartition de la responsabilité de requête de commande](https://msdn.microsoft.com/library/azure/jj554200.aspx) (CQRS).  
 
 ### <a name="intra-partition-secondary-index-pattern"></a>Modèle d’index secondaire intra-partition
-Stockez plusieurs copies de chaque entité en utilisant différentes valeurs de **RowKey** (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**. La cohérence des mises à jour entre les copies peut être assurée à l’aide d’une EGT.  
+Stockez plusieurs copies de chaque entité en utilisant différentes valeurs de **RowKey** (dans la même partition) pour pouvoir mener des recherches rapides et efficaces et alterner des commandes de tri à l’aide de différentes valeurs de **RowKey**. La cohérence des mises à jour entre les copies peut être assurée à l’aide d’EGT.  
 
 #### <a name="context-and-problem"></a>Contexte et problème
 Le service de Table indexe automatiquement les entités en utilisant les valeurs de **PartitionKey** et de **RowKey**. Ainsi, une application cliente peut récupérer une entité efficacement à l'aide de ces valeurs. Par exemple, en utilisant la structure de table ci-dessous, une application cliente peut utiliser une requête de pointage pour récupérer une entité d’employé individuel en utilisant le nom de son service et son ID d’employé (les valeurs de **PartitionKey** et de **RowKey**). Un client peut également récupérer des entités, triées par ID d'employé au sein de chaque service.
 
-![][6]
+![Entité d’employé][6]
 
 Si vous voulez également pouvoir trouver une entité d'employé en fonction de la valeur d'une autre propriété, comme l'adresse de messagerie, vous devez utiliser une analyse de partition moins efficace pour rechercher une correspondance. En effet, le service de Table ne fournit pas d'index secondaires. De plus, vous ne pouvez pas demander une liste des employés triés dans un ordre différent de celui de **RowKey** .  
 
@@ -437,7 +437,7 @@ Si vous interrogez un ensemble d’entités d’employés, vous pouvez spécifie
 * Pour rechercher tous les employés du service des ventes ayant un ID d’employé situé dans la plage de 000100 à 000199, utilisez : $filter=(PartitionKey eq ’Sales’) and (RowKey ge ’empid_000100’) and (RowKey le ’empid_000199’)  
 * Pour rechercher tous les employés du service des ventes dont l’adresse de messagerie commence par la lettre « a », utilisez : $filter=(PartitionKey eq ’Sales’) and (RowKey ge ’email_a’) and (RowKey lt ’email_b’)  
   
-  Notez que la syntaxe de filtre utilisée dans les exemples ci-dessus provient de l’API REST Service de Table. Pour en savoir plus, consultez [Interrogation d’entités](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  La syntaxe de filtre utilisée dans les exemples ci-dessus provient de l’API REST Service de Table. Pour en savoir plus, consultez [Interrogation d’entités](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
@@ -754,16 +754,16 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Activez la suppression d'un volume élevé d'entités en stockant toutes les entités pour les supprimer simultanément dans leur propre table distincte ; vous supprimez les entités en supprimant la table.  
 
 #### <a name="context-and-problem"></a>Contexte et problème
-De nombreuses applications suppriment les anciennes données qui n’ont plus besoin d’être disponibles pour une application cliente ou archivées par l’application sur un autre support de stockage. Vous identifiez généralement ces données à une date : par exemple, vous devez supprimer les enregistrements de toutes les demandes de connexion datant de plus de 60 jours.  
+De nombreuses applications suppriment les anciennes données qui n’ont plus besoin d’être disponibles pour une application cliente ou archivées par l’application sur un autre support de stockage. Vous identifiez généralement ces données à une date : par exemple, vous devez supprimer les enregistrements de toutes les requêtes de connexion datant de plus de 60 jours.  
 
-Une conception possible consiste à utiliser la date et l’heure de la demande de connexion dans la **RowKey**:  
+Une conception possible consiste à utiliser la date et l’heure de la requête de connexion dans **RowKey** :  
 
 ![][21]
 
 Cette approche évite les zones sensibles de partition, car l’application peut insérer et supprimer des entités de connexion pour chaque utilisateur dans une partition séparée. Toutefois, cette approche peut être coûteuse et fastidieuse si vous avez beaucoup d'entités, car vous devez d'abord analyser la table pour identifier toutes les entités à supprimer, avant de supprimer chaque ancienne entité. Vous pouvez réduire le nombre d’allers-retours vers le serveur requis pour supprimer les anciennes entités en traitant par lots plusieurs demandes de suppression dans les TGE.  
 
 #### <a name="solution"></a>Solution
-Utilisez une table distincte pour chaque jour de tentative de connexion. Vous pouvez utiliser la conception de l’entité ci-dessus afin d’éviter les zones sensibles lorsque vous insérez des entités et la suppression des anciennes entités consiste désormais à simplement supprimer une table tous les jours (une seule opération de stockage) au lieu de rechercher et de supprimer des centaines de milliers d’entités de connexion individuelle chaque jour.  
+Utilisez une table distincte pour chaque jour de tentative de connexion. Vous pouvez utiliser la conception de l’entité ci-dessus afin d’éviter les zones sensibles lorsque vous insérez des entités, et la suppression des anciennes entités consiste désormais à simplement supprimer une table tous les jours (une seule opération de stockage) au lieu de rechercher et de supprimer des centaines de milliers d’entités de connexion individuelle chaque jour.  
 
 #### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
@@ -874,7 +874,7 @@ Les modèles et les conseils suivants peuvent également être pertinents lors d
 Augmentez l'évolutivité lorsque vous avez un volume élevé d'insertions en répartissant les insertions sur plusieurs partitions.  
 
 #### <a name="context-and-problem"></a>Contexte et problème
-L'ajout d'entité ou de suffixe d'entité à vos entités stockées pousse généralement l'application à ajouter de nouvelles entités à la première ou à la dernière partition d'une séquence. Dans ce cas, toutes les insertions à tout moment ont lieu dans la même partition, créant une zone sensible qui empêche le service de Table d'équilibrer la charge sur plusieurs nœuds et éventuellement de pousser votre application à atteindre les objectifs d'évolutivité pour la partition. Par exemple, si vous avez une application qui journalise l’accès au réseau et aux ressources des employés, une structure d’entité semblable à celle affichée ci-dessous peut transformer la partition de l’heure actuelle en zone sensible si le volume des transactions atteint l’objectif d’évolutivité pour une partition individuelle :  
+L'ajout d'entité ou de suffixe d'entité à vos entités stockées pousse généralement l'application à ajouter de nouvelles entités à la première ou à la dernière partition d'une séquence. Dans ce cas, toutes les insertions à tout moment ont lieu dans la même partition, créant une zone sensible qui empêche le service de Table d'équilibrer la charge sur plusieurs nœuds et éventuellement de pousser votre application à atteindre les objectifs d'extensibilité pour la partition. Par exemple, si vous avez une application qui journalise l’accès au réseau et aux ressources des employés, une structure d’entité semblable à celle affichée ci-dessous peut transformer la partition de l’heure actuelle en zone sensible si le volume des transactions atteint l’objectif d’évolutivité pour une partition individuelle :  
 
 ![][26]
 

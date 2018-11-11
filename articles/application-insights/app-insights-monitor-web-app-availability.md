@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: cf5f85d4f7e9dbe1278e9dc4290967d781b398f3
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 3869b47c4e435443bb569ae7b90df7fba9687ba7
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632821"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50421252"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
@@ -47,7 +47,7 @@ Cliquez sur **Toutes les ressources** pour ouvrir le panneau Vue d’ensemble de
 ## <a name="setup"></a>Créer un test Ping d’URL
 Ouvrez le panneau de disponibilité et ajoutez un test.
 
-![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/13-availability.png)
+![Fill at least the URL of your website](./media/app-insights-monitor-web-app-availability/001-create-test.png)
 
 * **L’URL** peut être n’importe quelle page web que vous souhaitez tester, mais elle doit être visible à partir de l’Internet public. L’URL peut contenir une chaîne de requête. Vous pouvez donc, par exemple, tester un peu votre base de données. Si l’URL correspond à une redirection, nous allons la suivre, jusqu’à 10 redirections.
 * **Analyser les demandes dépendantes** : si cette option est activée, le test demande des images, des scripts, des fichiers de style et d’autres fichiers qui font partie de la page web de test. Le temps de réponse enregistré inclut le temps qui a été nécessaire pour obtenir ces fichiers. Le test échoue si toutes ces ressources ne peuvent pas être téléchargées avec succès dans le délai imparti pour l’ensemble du test. Si l’option n’est pas cochée, le test ne demande que le fichier à l’URL spécifiée.
@@ -56,10 +56,10 @@ Ouvrez le panneau de disponibilité et ajoutez un test.
 
 * **Fréquence de test**: définit la fréquence selon laquelle le test est exécuté à partir de chaque emplacement de test. Avec, par défaut, une fréquence de cinq minutes et cinq emplacements de test, votre site sera testé en moyenne une fois par minute.
 
-* **emplacements de test** sont les lieux d’où nos serveurs envoient des requêtes web à votre URL. Choisissez-en plusieurs de façon à distinguer les problèmes de votre site web des problèmes de réseau. Vous pouvez sélectionner jusqu’à 16 emplacements.
+* **emplacements de test** sont les lieux d’où nos serveurs envoient des requêtes web à votre URL. Nous recommandons un nombre d’emplacements de test minimum de cinq afin de s’assurer que vous pouvez distinguer les problèmes dans votre site web de vos problèmes de réseau. Vous pouvez sélectionner jusqu’à 16 emplacements.
 
-> [!NOTE] 
-> * Nous vous recommandons vivement de tester à partir de plusieurs emplacements afin d’éviter les fausses alarmes causées par des problèmes temporaires rencontrés avec un emplacement spécifique.
+> [!NOTE]
+> * Nous vous recommandons vivement de tester à partir de plusieurs emplacements avec un minimum de cinq emplacements. Cela vise à éviter les fausses alarmes qui peuvent provenir de problèmes temporaires rencontrés avec un emplacement spécifique. En outre, nous avons découvert que la configuration optimale consiste à disposer d’un nombre d’emplacements de test égal au seuil d’emplacement de l’alerte, + 2. 
 > * L’activation de l’option « Analyser les requêtes dépendantes » entraîne une vérification plus stricte. Le test peut échouer pour les cas difficiles à remarquer en parcourant le site manuellement.
 
 * **Critères de réussite**:
@@ -70,10 +70,12 @@ Ouvrez le panneau de disponibilité et ajoutez un test.
 
     **Correspondance de contenu**: une chaîne telle que « Bienvenue ! Nous vérifions qu’une correspondance exacte respectant la casse est présente dans chaque réponse. Il doit s'agir d'une chaîne standard sans caractère générique. N'oubliez pas que si votre contenu change, vous devrez peut-être l'actualiser.
 
+* **Seuil de l’emplacement de l’alerte**: nous recommandons un minimum de 3 à 5 emplacements. La relation optimale entre le seuil d’emplacement de l’alerte et le nombre d’emplacements de test est **seuil d’emplacement de l’alerte** = **nombre d’emplacements de test** - 2, avec un minimum de cinq emplacements de test.
+
 ## <a name="multi-step-web-tests"></a>Tests web à plusieurs étapes
 Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple, si vous analysez un site Web commercial, vous pouvez vérifier que l’ajout d’articles au panier d’achat fonctionne correctement.
 
-> [!NOTE] 
+> [!NOTE]
 > Les tests web à plusieurs étapes ont un coût. [Mécanisme de tarification](http://azure.microsoft.com/pricing/details/application-insights/).
 > 
 

@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/01/2018
 ms.author: panosper
-ms.openlocfilehash: 656a5df21d1f7dd2e7662dc3a0415581eae02b00
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 7cb8c992b4c131b7f28eca6c2f35ee9facdf8d4e
+ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471235"
+ms.lasthandoff: 10/31/2018
+ms.locfileid: "50416101"
 ---
 # <a name="migrate-from-the-custom-speech-service-to-the-speech-service"></a>Migrer de Custom Speech Service vers le service Speech
 
@@ -25,7 +25,7 @@ Le service Custom Speech fait désormais partie du service Speech. Basculez vers
  
 ## <a name="migration-for-new-customers"></a>Migration pour les nouveaux clients
 
-Le modèle tarifaire est plus simple, car il passe à un modèle basé sur un tarif horaire pour le service Speech.   
+Le modèle tarifaire est plus simple, car il utilise un modèle basé sur un tarif horaire pour le service Speech.   
 
 1. Créez une ressource Azure dans chaque région où votre application est disponible. Le nom de la ressource Azure est **Speech**. Vous pouvez utiliser une seule ressource Azure pour les services suivants dans la même région, au lieu de créer des ressources distinctes :
 
@@ -41,14 +41,14 @@ Le modèle tarifaire est plus simple, car il passe à un modèle basé sur un ta
 4. Mettez à jour l’application cliente pour utiliser les API et le service Speech. 
 
 > [!NOTE]
-> * LUIS : si vous avez activé la reconnaissance vocale dans LUIS (Language Understanding Intelligent Service), une seule ressource LUIS dans la même région fonctionne pour LUIS, ainsi que pour tous les services de reconnaissance vocale. Consultez la documentation [Reconnaître les intentions vocales](how-to-recognize-intents-from-speech-csharp.md).
-> * La traduction de texte en texte ne fait pas partie du service Speech. Elle nécessite son propre abonnement de ressources Azure.
+> * Si vous avez activé la reconnaissance vocale dans LUIS (Language Understanding Intelligent Service), une seule ressource LUIS dans la même région fonctionne pour LUIS, ainsi que pour tous les services de reconnaissance vocale. Pour plus d’informations, consultez la documentation [Reconnaître les intentions vocales](how-to-recognize-intents-from-speech-csharp.md).
+> * La traduction de texte en texte ne fait pas partie du service Speech. Cette fonctionnalité nécessite son propre abonnement de ressources Azure.
   
 
 
 ## <a name="migration-for-existing-customers"></a>Migration pour les clients actuels
 
-Les clients actuels sont obligés de migrer leurs clés de ressources existantes vers le service Speech sur le portail du service Speech. Procédez comme suit : 
+Migrez vos clés de ressources existantes vers le service Speech sur le portail du service Speech. Procédez comme suit : 
 
 > [!NOTE] 
 > Les ressources clés peuvent être migrées uniquement dans la même région. 
@@ -61,10 +61,10 @@ Les clients actuels sont obligés de migrer leurs clés de ressources existantes
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Essayer gratuitement le service Speech](get-started.md)
-* En savoir plus sur les concepts de [reconnaissance vocale](./speech-to-text.md)
+* [Essayer gratuitement le Service Speech](get-started.md).
+* En savoir plus sur les concepts de [reconnaissance vocale](./speech-to-text.md).
 
 ## <a name="see-also"></a>Voir aussi
 
-* [Qu’est-ce que le service Speech ?](overview.md)
-* [Documentation sur le SDK et le service Speech](speech-sdk.md#get-the-sdk)
+* [Qu’est-ce que le Service Speech](overview.md)
+* [Documentation sur le Service Speech et le Kit de développement logiciel (SDK)](speech-sdk.md#get-the-sdk)

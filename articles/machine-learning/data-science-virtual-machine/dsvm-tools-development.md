@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2017
 ms.author: gokuma
-ms.openlocfilehash: b8b0b8934b51080c3583281673183c1498c26417
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 2f642a91bd656cb74cdce2a98c44372a64f23cb9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31408307"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50237875"
 ---
 # <a name="development-tools-on-the-data-science-virtual-machine"></a>Outils de développement sur la machine virtuelle DSVM
 
@@ -77,7 +77,7 @@ La machine virtuelle DSVM fournit un environnement de développement productif e
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | IDE client pour le langage Python    |
 | Versions DSVM prises en charge      | Linux      |
-| Utilisations classiques      |  Développement R     |
+| Utilisations classiques      |  Développement Python     |
 | Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`/usr/bin/pycharm`) dans Linux      |
 | Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2017, Visual Studio Code, RStudio      |
 

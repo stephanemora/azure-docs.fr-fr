@@ -7,14 +7,14 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 07/12/2018
+ms.date: 10/26/2018
 ms.author: dobett
-ms.openlocfilehash: 649ce7bcd2d2e4ceb2fc397643f4dd0d3ef89c1e
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 8cb604aee39f651770cb708f8dd92b6fbc0921f5
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144511"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138994"
 ---
 # <a name="quickstart-try-a-cloud-based-solution-to-manage-my-industrial-iot-devices"></a>Démarrage rapide : Essayer une solution informatique pour gérer mes appareils IoT industriels
 
@@ -32,13 +32,13 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 
 Quand vous déployez l’accélérateur de solution dans votre abonnement Azure, vous devez définir des options de configuration.
 
-Connectez-vous à [azureiotsolutions.com](https://www.azureiotsolutions.com/Accelerators) avec les informations d’identification de votre compte Azure.
+Accédez à [Accélérateurs de solution Microsoft Azure IoT](https://www.azureiotsolutions.com), puis connectez-vous en utilisant les informations d’identification de votre compte Azure.
 
-Cliquez sur **Essayer maintenant** sur la vignette **Usine connectée**.
+Cliquez sur la vignette **Fabrique connectée**. Sur la page **Fabrique connectée**, cliquez sur **Essayer dès maintenant** :
 
-![Choisir Usine connectée](./media/quickstart-connected-factory-deploy/connectedfactory.png)
+![Essayer dès maintenant](./media/quickstart-connected-factory-deploy/connectedfactory.png)
 
-Dans la page **Créer une solution Usine connectée**, entrez un **Nom de solution** unique pour votre accélérateur de solution Usine connectée. Il s’agit du nom du groupe de ressources Azure qui contient toutes les ressources de l’accélérateur de solution. Pour ce démarrage rapide, nous appelons le nôtre **MyDemoConnectedFactory**.
+Dans la page **Créer une solution Usine connectée**, entrez un **Nom de solution** unique pour votre accélérateur de solution Usine connectée. Il s’agit du nom du groupe de ressources Azure qui contient toutes les ressources de l’accélérateur de solution. Ce démarrage rapide utilise le nom **MyDemoConnectedFactory**.
 
 Sélectionnez l’**Abonnement** et la **Région** à utiliser pour déployer l’accélérateur de solution. En général, vous choisissez la région la plus proche. Pour ce démarrage rapide, nous allons utiliser **Visual Studio Enterprise** et **USA Est**. Vous devez être [administrateur général ou utilisateur](iot-accelerators-permissions.md) dans l’abonnement.
 
@@ -66,7 +66,7 @@ Il s’ouvre par défaut sur le *tableau de bord*. Utilisez le menu sur le côt�
 
 [![Tableau de bord des solutions](./media/quickstart-connected-factory-deploy/dashboard-inline.png)](./media/quickstart-connected-factory-deploy/dashboard-expanded.png#lightbox)
 
-Le tableau de bord vous permet de gérer vos appareils IoT industriels. Usine connectée utilise une hiérarchie pour afficher une configuration d’usine globale. Au niveau supérieur de la hiérarchie figure l’entreprise qui contient une ou plusieurs usines, chacune d’elles contenant des lignes de production, qui sont elles-mêmes constituées de postes. À chaque niveau, vous pouvez afficher le TRG et les KPI, publier de nouveaux nœuds pour la télémétrie et réagir aux alarmes.
+Le tableau de bord vous permet de gérer vos appareils IoT industriels. Usine connectée utilise une hiérarchie pour afficher une configuration d’usine globale. Au niveau supérieur de la hiérarchie figure l’entreprise qui contient un ou plusieurs fabriques. Chaque fabrique contient des chaînes de production et chaque chaîne de production est constituée de postes. À chaque niveau, vous pouvez afficher le TRG et les KPI, publier de nouveaux nœuds pour la télémétrie et réagir aux alarmes.
 
 Sur le tableau de bord, vous pouvez observer :
 
@@ -122,7 +122,7 @@ Si votre abonnement a accès à [l’API Bing Cartes](iot-accelerators-faq-cf.md
 
 ### <a name="alarms"></a>Alarmes
 
-Le panneau **Alarmes** présente les alarmes générées lorsqu’une valeur rapportée ou une valeur TRG/KPI calculée dépasse un seuil configuré. Ce panneau affiche des alarmes à chaque niveau de la hiérarchie, du niveau du poste à l’entreprise. Chaque alarme contient une description, la date, l’heure, l’emplacement et le nombre d’occurrences :
+Le panneau **Alarmes** présente les alarmes générées lorsqu’une valeur rapportée ou une valeur TRG/KPI calculée excède un seuil. Ce panneau affiche des alarmes à chaque niveau de la hiérarchie, du niveau du poste à l’entreprise. Chaque alarme contient une description, la date, l’heure, l’emplacement et le nombre d’occurrences :
 
 [![Alarmes](./media/quickstart-connected-factory-deploy/alarms-inline.png)](./media/quickstart-connected-factory-deploy/alarms-expanded.png#lightbox)
 
@@ -137,9 +137,9 @@ Cliquez sur l’une des alarmes ; dans la liste déroulante **Choisir une action
 
 Pour approfondir l’analyse des données d’alarme, cliquez sur le graphique dans le panneau des alarmes.
 
-Ces alarmes sont générées par des règles qui sont spécifiées dans un fichier de configuration de l’accélérateur de solution. Ces règles peuvent générer des alarmes lorsque les données de TRG ou KPI ou les valeurs de nœud OPC UA dépassent leur seuil configuré.
+Ces alarmes sont générées par des règles qui sont spécifiées dans un fichier de configuration de l’accélérateur de solution. Ces règles peuvent générer des alarmes lorsque les données de TRG ou KPI ou les valeurs de nœud OPC UA dépassent un seuil. Vous pouvez définir la valeur de ce seuil.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous envisagez d’explorer davantage, laissez l’accélérateur de solution Usine connectée déployé.
 

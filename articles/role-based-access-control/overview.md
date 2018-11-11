@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/24/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 37498394bc163852d397337cf5728b4941ae45a7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: d264160fb3f1c14db3379a314e60efdadb6905b5
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46956504"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50210412"
 ---
 # <a name="what-is-role-based-access-control-rbac"></a>Qu’est-ce que le contrôle d’accès en fonction du rôle (RBAC) ?
 
@@ -54,7 +54,7 @@ Un *principal de sécurité* est un objet qui représente un utilisateur, un gro
 
 ![Principe de sécurité d’une attribution de rôle](./media/overview/rbac-security-principal.png)
 
-- Utilisateur : personne disposant d’un profil dans Azure Active Directory. Vous pouvez également attribuer des rôles aux utilisateurs dans les autres locataires. Pour plus d’informations sur les utilisateurs des autres organisations, consultez [Azure Active Directory B2B](/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b).
+- Utilisateur : personne disposant d’un profil dans Azure Active Directory. Vous pouvez également attribuer des rôles aux utilisateurs dans les autres locataires. Pour plus d’informations sur les utilisateurs des autres organisations, consultez [Azure Active Directory B2B](../active-directory/b2b/what-is-b2b.md).
 - Groupe : ensemble d’utilisateurs créés dans Azure Active Directory. Lorsque vous attribuez un rôle à un groupe, vous l’attribuez également à tous les utilisateurs de ce groupe. 
 - Principal de service : identité de sécurité utilisée par des applications ou des services permettant d’accéder aux ressources Azure spécifiques. Vous pouvez la considérer comme une *identité utilisateur* (nom d’utilisateur, mot de passe ou certificat) pour une application.
 
@@ -128,5 +128,6 @@ Voici les principales étapes suivies par RBAC pour déterminer si vous avez acc
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Démarrage rapide : accorder l’accès à un utilisateur avec RBAC et le Portail Azure](quickstart-assign-role-user-portal.md)
-- [Gérer les accès à l’aide de RBAC et du portail Azure](role-assignments-portal.md)
+- [Manage access using RBAC and the Azure portal](role-assignments-portal.md) (Gérer les accès à l’aide du contrôle d’accès en fonction du rôle et du Portail Azure)
 - [Comprendre les différents rôles dans Azure](rbac-and-directory-admin-roles.md)
+- [Adoption du cloud d’entreprise : Gestion de l’accès aux ressources dans Azure](/azure/architecture/cloud-adoption/getting-started/azure-resource-access)

@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/3/2018
 ms.author: trinadhk
-ms.openlocfilehash: 9152733e189aec25a5c024de7f9a3582c29218a3
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 20c1606d4d6a1ddd43426731e5498d1bee47f2e3
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406532"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962532"
 ---
 # <a name="upgrade-to-azure-vm-backup-stack-v2"></a>Mise à niveau vers la pile de sauvegarde de machine virtuelle Azure V2
 
@@ -28,8 +28,8 @@ Le modèle de déploiement Resource Manager pour la mise à niveau de la pile de
 
 * Possibilité d’utiliser les comptes de stockage d’origine d’une machine virtuelle non gérée lors de la restauration. Cette possibilité existe même quand la machine virtuelle a des disques répartis entre des comptes de stockage. Ceci accélère les opérations de restauration pour une grande variété de configurations de machine virtuelle.
     > [!NOTE]
-    > Cette capacité n’est pas la même que celle qui consiste à remplacer les disques de la machine virtuelle par les données du point de récupération. 
-    
+    > Cette capacité n’est pas la même que celle qui consiste à remplacer les disques de la machine virtuelle par les données du point de récupération.
+
 
 ## <a name="whats-changing-in-the-new-stack"></a>Changements de la nouvelle pile
 Aujourd’hui, la tâche de sauvegarde consiste en deux phases :
@@ -55,7 +55,7 @@ Par défaut, les instantanés sont conservés pendant sept jours. Cette fonction
 * Dans le cas des comptes de stockage Premium, les instantanés pris pour les points de récupération instantanée comptent pour la limite de 10 To d’espace alloué.
 
 > [!NOTE]
-> Effectuez une mise à niveau vers la pile de sauvegarde de machine virtuelle Azure V2 pour bénéficier du support de sauvegarde Azure pour les [disques managés SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/) et les machines virtuelles comptant jusqu’à 32 disques de données.
+> Effectuez une mise à niveau vers la pile de sauvegarde de machine virtuelle Azure V2 pour bénéficier du support de sauvegarde Azure pour les [disques managés SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).
 
 ## <a name="upgrade"></a>Mise à niveau
 ### <a name="the-azure-portal"></a>Le portail Azure
@@ -119,4 +119,4 @@ Chaque jour, un nouvel instantané est pris. Il existe sept instantanés individ
 Des instantanés incrémentiels sont utilisés pour les disques non managés. Pour les disques managés, la collection de points de restauration créée par la sauvegarde Azure utilise des instantanés d’objets blob, et sont donc incrémentiels.
 
 ### <a name="how-to-get-standard-ssd-managed-disk-support-for-a-virtual-machine"></a>Comment obtenir la prise en charge des disques managés SSD standard sur une machine virtuelle ?
-Effectuez une mise à niveau vers la pile de sauvegarde de machine virtuelle Azure V2 pour bénéficier du support de sauvegarde Azure pour les [disques managés SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/). Après la mise à niveau, vous pouvez également sauvegarder les machines virtuelles comptant jusqu’à 32 disques de données.
+Effectuez une mise à niveau vers la pile de sauvegarde de machine virtuelle Azure V2 pour bénéficier du support de sauvegarde Azure pour les [disques managés SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/).

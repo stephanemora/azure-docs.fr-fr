@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 5e34aae62f871cba2a27a292242cff8e90c67934
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301481"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228978"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Comment gérer une Function App dans le portail Azure 
 
@@ -50,7 +50,7 @@ Il peut parfois être difficile de trouver vos ressources dans le [Portail Azure
 
 Dans l’onglet **Paramètres**, vous pouvez mettre à jour la version du runtime Functions utilisée par votre Function App. C’est également ici que vous gérez les clés de l’hôte utilisées pour restreindre l’accès HTTP à toutes les fonctions hébergées par la Function App.
 
-Functions prend en charge les plans d’hébergement App Service et Consommation. Pour plus d’informations, consultez [Choisir le plan de service approprié pour Azure Functions](functions-scale.md). Pour une meilleure prévisibilité dans le plan Consommation, Functions vous permet de limiter l’utilisation de la plate-forme en définissant un quota d’utilisation quotidienne, en gigaoctets-secondes. Une fois ce quota d’utilisation quotidienne atteint, la Function App s’arrête. Une Function App arrêtée parce qu’elle a atteint le quota d’utilisation peut être réactivée dans le même contexte en établissant un nouveau quota d’utilisation quotidienne. Consultez la [page Tarification de Functions](http://azure.microsoft.com/pricing/details/functions/) pour plus d’informations sur la tarification.   
+Functions prend en charge les plans d’hébergement App Service et Consommation. Pour plus d’informations, consultez [Choisir le plan de service approprié pour Azure Functions](functions-scale.md). Pour une meilleure prévisibilité dans le plan Consommation, Functions vous permet de limiter l’utilisation de la plate-forme en définissant un quota d’utilisation quotidienne, en gigaoctets-secondes. Une fois ce quota d’utilisation quotidienne atteint, la Function App s’arrête. Une Function App arrêtée parce qu’elle a atteint le quota d’utilisation peut être réactivée dans le même contexte en établissant un nouveau quota d’utilisation quotidienne. Consultez la [page Tarification de Functions](https://azure.microsoft.com/pricing/details/functions/) pour plus d’informations sur la tarification.   
 
 ## <a name="platform-features-tab"></a>Onglet Fonctionnalités de la plate-forme
 

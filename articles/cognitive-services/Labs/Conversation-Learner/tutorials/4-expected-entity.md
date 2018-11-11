@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d0ad7093249bea761e0a36c6fffab8cdd151a662
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 9e685d2281330457e83abde0a8ac26e086da7479
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48268019"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229643"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Comment utiliser la propriété « Entité attendue » des actions
 
@@ -23,7 +23,7 @@ Ce didacticiel explique l’utilisation du champ « Entité attendue » des acti
 
 ## <a name="video"></a>Vidéo
 
-[![Aperçu du tutoriel 4](http://aka.ms/cl-tutorial-04-preview)](http://aka.ms/blis-tutorial-04)
+[![Aperçu du tutoriel 4](https://aka.ms/cl-tutorial-04-preview)](https://aka.ms/blis-tutorial-04)
 
 ## <a name="requirements"></a>Configuration requise
 Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.

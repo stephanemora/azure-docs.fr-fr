@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/19/2018
+ms.date: 10/30/2018
 ms.author: rolyon
-ms.openlocfilehash: be00f6fb41572c0a9599f7005f2cdd1d6587f15a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 87b08ce138cde5cc70c5a80cc414c68dd7aea743
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944139"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50249798"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main les conditions d’utilisation.
@@ -46,6 +46,7 @@ Cette fonctionnalité vous permet d’effectuer les opérations suivantes :
 - Aider à faire face à la réglementation sur la confidentialité.
 - Répertorier qui a accepté ou refusé vos conditions d’utilisation.
 - Consulter le journal des conditions d’utilisation pour en vérifier la conformité et procéder à un audit.
+- Créer et gérer des conditions d’utilisation avec des [API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (actuellement préversion).
 
 ## <a name="prerequisites"></a>Prérequis
 Pour utiliser et configurer les conditions d’utilisation d’Azure AD, vous devez disposer des éléments suivants :

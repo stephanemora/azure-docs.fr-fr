@@ -11,25 +11,25 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
 ms.author: kumud
-ms.openlocfilehash: eb43b59a26bc9c1b514921a7b6dfa4b920a8fe5f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 57ae9f3a747ef3fde1a21de8a56ec4059becf392
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955216"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50139332"
 ---
 # <a name="traffic-manager-routing-methods"></a>Méthodes de routage de Traffic Manager
 
 Azure Traffic Manager prend en charge six méthodes de routage du trafic pour déterminer comment acheminer le trafic réseau vers les différents points de terminaison de service. Pour tout profil, Traffic Manager applique à chaque requête DNS qu’il reçoit la méthode de routage du trafic associée au profil. La méthode de routage du trafic détermine le point de terminaison retourné dans la réponse DNS.
 
-Quatre méthodes de routage du trafic sont disponibles dans Traffic Manager :
+Les méthodes de routage du trafic suivantes sont disponibles dans Traffic Manager :
 
 * **[Priorité ](#priority):** sélectionnez **Priority** (Priorité) si vous souhaitez utiliser un point de terminaison de service principal pour tout le trafic et disposer de sauvegardes au cas où les points de terminaison principaux ou de sauvegarde ne sont pas disponibles.
 * **[Pondération ](#weighted):** sélectionnez **Weighted** (Pondéré) si vous souhaitez distribuer le trafic entrant sur un ensemble de points de terminaison, soit uniformément, soit en fonction du poids que vous définissez.
 * **[Performances ](#performance):** sélectionnez **Performance** quand vos points de terminaison se trouvent sur des emplacements géographiques différents et que vous souhaitez que les utilisateurs finaux utilisent le point de terminaison « le plus proche » en termes de latence réseau la plus faible.
 * **[Géographique ](#geographic):** sélectionnez **Geographic** (Géographique) pour diriger les utilisateurs vers des points de terminaison spécifiques (Azure, externes ou imbriqués) selon l’emplacement géographique dont leur requête DNS provient. Cette option permet aux clients Traffic Manager de mettre en œuvre des scénarios où il est important de connaître la région géographique des utilisateurs et de router leur trafic en fonction de celle-ci. Exemples : respect des obligations en matière de souveraineté des données, localisation de contenu et d’expérience utilisateur, mesure du trafic en provenance de différentes régions.
 * **[Valeurs multiples](#multivalue) :** sélectionnez **Valeurs multiples** pour les profils Traffic Manager qui ne peuvent avoir que des adresses IPv4/IPv6 en tant que points de terminaison. Quand une demande est reçue pour ce profil, tous les points de terminaison intègres sont retournés.
-* **[Sous-réseau](#subnet) :** sélectionnez la méthode de routage du trafic **Sous-réseau** pour mapper des ensembles de plages d’adresses IP d’utilisateur final à un point de terminaison spécifique au sein d’un profil Traffic Manager. Quand une demande est reçue, le point de terminaison retourné est celui qui est mappé pour l’adresse IP source de cette demande. 
+* **[Sous-réseau](#subnet) :** sélectionnez la méthode de routage du trafic **Sous-réseau** pour mapper des ensembles de plages d’adresses IP d’utilisateur final à un point de terminaison spécifique au sein d’un profil Traffic Manager. Quand une demande est reçue, le point de terminaison retourné est celui qui est mappé pour l’adresse IP source de cette demande. 
 
 
 Tous les profils Traffic Manager incluent une surveillance de l’intégrité des points de terminaison et un basculement de point de terminaison automatique. (pour plus d’informations, voir la rubrique relative à la [surveillance des points de terminaison avec Traffic Manager](traffic-manager-monitoring.md)) ; Un profil Traffic Manager donné ne peut utiliser qu’une seule méthode de routage du trafic. Vous pouvez sélectionner une méthode de routage du trafic différente pour votre profil à tout moment. Les modifications sont appliquées dans la minute, sans aucun temps d’arrêt. Les méthodes de routage du trafic peuvent être combinées dans des profils Traffic Manager imbriqués. Une imbrication permet de créer des configurations de routage du trafic sophistiquées et flexibles répondant aux besoins d’applications complexes plus importantes. Pour plus d’informations, consultez [Profils Traffic Manager imbriqués](traffic-manager-nested-profiles.md).

@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/02/2018
+ms.date: 10/26/2018
 ms.author: genli
-ms.openlocfilehash: d16f106fa1776b0d11a97f71ffe16cf89fb9584a
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 2a0f6b75c540f319848805e8a9bda7b166d5d709
+ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42146633"
+ms.lasthandoff: 10/26/2018
+ms.locfileid: "50138654"
 ---
 #  <a name="network-virtual-appliance-issues-in-azure"></a>Problèmes d’appliance virtuelle réseau dans Azure
 
@@ -77,14 +77,14 @@ Utiliser PowerShell
 **Vérifier si le trafic peut être routé vers l’appliance virtuelle réseau**
 
 1. Sur [le portail Azure](https://portal.azure.com), ouvrez **Network Watcher**, puis sélectionnez **Tronçon suivant**.
-2. Spécifiez la machine virtuelle qui doit être l’appliance virtuelle réseau pour le tronçon suivant, et l’adresse IP de destination à laquelle afficher le tronçon suivant. 
+2. Spécifiez une machine virtuelle qui est configurée pour rediriger le trafic vers l’appliance virtuelle réseau, et une adresse IP de destination à laquelle afficher le tronçon suivant. 
 3. Si l’appliance virtuelle réseau n’est pas répertoriée comme le **tronçon suivant**, vérifiez et mettez à jour les tables de routage Azure.
 
 **Vérifier si le trafic peut atteindre l’appliance virtuelle réseau**
 
 1.  Dans le [portail Azure](https://portal.azure.com), ouvrez **Network Watcher**, puis sélectionnez **Vérification du flux IP**. 
-2.  Spécifiez une machine virtuelle et l’adresse IP de l’appliance virtuelle réseau, puis vérifiez si le trafic est bloqué par des groupes de sécurité réseau (NSG).
-3.  S’il existe une règle de groupe de sécurité réseau qui bloque le trafic, localisez le groupe de sécurité réseau dans les règles de **sécurité efficace**, puis mettez-le à jour pour autoriser le passage du trafic. Réexécutez ensuite la **Vérification du flux IP** et effectuez une **vérification de la connectivité** pour tester les communications TCP entre la machine virtuelle et votre adresse IP interne ou externe.
+2.  Spécifiez la machine virtuelle et l’adresse IP de l’appliance virtuelle réseau, puis vérifiez si le trafic est bloqué par des groupes de sécurité réseau (NSG).
+3.  S’il existe une règle de groupe de sécurité réseau qui bloque le trafic, localisez le groupe de sécurité réseau dans les règles de **sécurité efficace**, puis mettez-le à jour pour autoriser le passage du trafic. Réexécutez ensuite la **Vérification du flux IP** et utilisez la **Résolution des problèmes de connexion** pour tester les communications TCP entre la machine virtuelle et votre adresse IP interne ou externe.
 
 **Vérifier si l’appliance virtuelle réseau et les machines virtuelles écoutent le trafic attendu**
 

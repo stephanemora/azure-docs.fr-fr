@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 75faceb641382df29a93c44803af48dcfed142d4
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421167"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50964150"
 ---
 # <a name="manage-workspaces"></a>Gestion des espaces de travail
 
@@ -52,7 +52,7 @@ Du point de vue de la consommation, nous vous recommandons de créer aussi peu d
 * Vous êtes un fournisseur de services gérés et vous devez isoler les données Log Analytics des autres données de vos clients.
 * Vous gérez plusieurs clients et vous souhaitez que chaque client/département/groupe métier voie uniquement ses propres données, pas celles des autres.
 
-Lorsque vous utilisez des agents Windows pour collecter des données, vous pouvez [configurer chacun d’entre eux pour qu’il fournisse des rapports à un ou plusieurs espaces de travail](log-analytics-windows-agents.md).
+Lorsque vous utilisez des agents Windows pour collecter des données, vous pouvez [configurer chacun d’entre eux pour qu’il fournisse des rapports à un ou plusieurs espaces de travail](log-analytics-agent-windows.md).
 
 Si vous utilisez System Center Operations Manager, chaque groupe d’administration Operations Manager ne peut être connecté qu’à un seul espace de travail. Vous pouvez installer Microsoft Monitoring Agent sur les ordinateurs gérés par Operations Manager et configurer l’agent pour qu’il fournisse des rapports à Operations Manager et à un espace de travail Log Analytics différent.
 
@@ -73,7 +73,7 @@ Vous pouvez afficher des détails sur votre espace de travail dans le portail Az
     ![Détails de l’espace de travail](./media/log-analytics-manage-access/workspace-overview-page.png)  
 
 ## <a name="manage-accounts-and-users"></a>Gérer les comptes et les utilisateurs
-Chaque espace de travail peut être associé à plusieurs comptes et chaque compte peut également avoir accès à plusieurs espaces de travail. L’accès est géré via des [accès reposant sur un rôle Azure](../active-directory/role-based-access-control-configure.md). Ces droits d’accès s’appliquent à la fois sur le portail Azure et sur l’accès à l’API.
+Chaque espace de travail peut être associé à plusieurs comptes et chaque compte peut également avoir accès à plusieurs espaces de travail. L’accès est géré via des [accès reposant sur un rôle Azure](../role-based-access-control/role-assignments-portal.md). Ces droits d’accès s’appliquent à la fois sur le portail Azure et sur l’accès à l’API.
 
 
 Les activités suivantes nécessitent également des autorisations Azure :
@@ -87,7 +87,7 @@ Les activités suivantes nécessitent également des autorisations Azure :
 
 
 ### <a name="managing-access-to-log-analytics-using-azure-permissions"></a>Gestion de l’accès à Log Analytics à l’aide des autorisations Azure
-Pour accorder l’accès à l’espace de travail Log Analytics à l’aide des autorisations Azure, suivez les étapes de la page [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../active-directory/role-based-access-control-configure.md).
+Pour accorder l’accès à l’espace de travail Log Analytics à l’aide des autorisations Azure, suivez les étapes de la page [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md).
 
 Azure intègre deux rôles utilisateur pour Log Analytics :
 - Lecteur Log Analytics
@@ -146,7 +146,7 @@ Utilisez ces rôles pour accorder aux utilisateurs l’accès à différentes é
 - Groupe de ressources : accès à tous les espaces de travail du groupe de ressources
 - Ressource : accès uniquement à l’espace de travail spécifié
 
-Nous vous recommandons d’effectuer des affectations au niveau de la ressource (espace de travail) afin d’assurer un contrôle d’accès précis.  Pour créer des rôles avec les autorisations spécifiques nécessaires, utilisez des [rôles personnalisés](../active-directory/role-based-access-control-custom-roles.md).
+Nous vous recommandons d’effectuer des affectations au niveau de la ressource (espace de travail) afin d’assurer un contrôle d’accès précis.  Pour créer des rôles avec les autorisations spécifiques nécessaires, utilisez des [rôles personnalisés](../role-based-access-control/custom-roles.md).
 
 ## <a name="link-an-existing-workspace-to-an-azure-subscription"></a>Liaison d’un espace de travail existant à un abonnement Azure
 Tous les espaces de travail créés après le 26 septembre 2016 doivent être liés à un abonnement Azure lors de la création. Vous devez lier les espaces de travail créés avant cette date lorsque vous vous connectez. Lorsque vous créez l’espace de travail à partir du portail Azure ou que vous liez votre espace de travail à un abonnement Azure, votre répertoire Azure Active Directory est lié en tant que compte d’organisation.
@@ -241,5 +241,5 @@ Votre nouveau forfait de données s’affiche dans le ruban du portail OMS, en 
 ## <a name="next-steps"></a>Étapes suivantes
 * Consultez [Collecter des données d’ordinateurs dans un environnement avec Log Analytics](log-analytics-concept-hybrid.md) pour rassembler des données d’ordinateurs de votre centre de données ou d’un autre environnement cloud.
 * Consultez [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md) pour configurer la collecte de données à partir de machines virtuelles Azure.  
-* [Ajoutez des solutions Log Analytics à partir de la galerie de solutions](log-analytics-add-solutions.md) pour ajouter des fonctionnalités et collecter des données.
+* [Ajoutez des solutions Log Analytics à partir de la galerie de solutions](../monitoring/monitoring-solutions.md) pour ajouter des fonctionnalités et collecter des données.
 

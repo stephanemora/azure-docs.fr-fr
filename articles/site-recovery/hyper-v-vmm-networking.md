@@ -1,19 +1,19 @@
 ---
 title: Configurer l’adressage IP pour se connecter à un site local secondaire après un basculement avec Azure Site Recovery | Microsoft Docs
-description: Décrit comment configurer l’adressage IP pour se connecter à des machines virtuelles dans un site local secondaire après un basculement Azure Site Recovery.
+description: Décrit comment configurer l’adressage IP pour se connecter à des machines virtuelles dans un site local secondaire après une reprise d’activité et un basculement avec Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: rayne
-ms.openlocfilehash: dc28611f4b27d263e19f76ce4313f8d531a8cba2
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1a9a89138dc71f7a0255b8ab4084182848d6e994
+ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076999"
+ms.lasthandoff: 10/29/2018
+ms.locfileid: "50211738"
 ---
 # <a name="set-up-ip-addressing-to-connect-to-a-secondary-on-premises-site-after-failover"></a>Configurer l’adressage IP pour se connecter à un site local secondaire après un basculement
 

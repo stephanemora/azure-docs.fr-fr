@@ -4,17 +4,17 @@ description: Les évaluations et les effets d’Azure Policy déterminent la con
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 3fa185e741f1b14bf3f2e7413945b70b1ea1baaa
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f88e68150aa2708557775df2719409228166520b
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46970853"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50233410"
 ---
 # <a name="getting-compliance-data"></a>Obtention de données de conformité
 
@@ -40,6 +40,44 @@ Différents événements permettent d’évaluer les stratégies et initiatives 
 - Mise à jour d’une stratégie ou initiative déjà assignée à une étendue. Dans ce scénario, le cycle et le temps d’évaluation sont les mêmes que pour le cas d’une nouvelle affectation à une étendue.
 - Déploiement d’une ressource dans une étendue avec une assignation via le Gestionnaire des ressources, REST, Azure CLI ou Azure PowerShell. Dans ce scénario, l’événement d’effet (ajout, audit, refus, déploiement) et l’état de conformité deviennent disponibles dans le portail et les Kits de développement logiciel (SDK) environ 15 minutes plus tard. Cet événement n’entraîne pas une évaluation des autres ressources.
 - Cycle d’évaluation de conformité standard. Les affectations sont automatiquement réévaluées une fois par tranche de 24 heures. L’évaluation d’une stratégie ou d’une initiative volumineuse sur une grande étendue de ressources peut prendre un temps, ce qui signifie qu’il est impossible de déterminer à l’avance à quel moment s’achèvera le cycle d’évaluation. Une fois le cycle terminé, les résultats de conformité à jour sont disponibles dans le portail et dans les kits de développement logiciel.
+- Analyse à la demande
+
+### <a name="on-demand-evaluation-scan"></a>Analyse d’évaluation à la demande
+
+Une analyse d’évaluation d’un abonnement ou d’un groupe de ressources peut être démarrée avec un appel à l’API REST. Il s’agit d’un processus asynchrone. Par conséquent, le point de terminaison REST pour démarrer l’analyse n’attend pas la fin de l’analyse pour répondre. Au lieu de cela, il fournit un URI pour interroger l’état de l’évaluation demandée.
+
+Dans chaque URI d’API REST, vous devez remplacer les variables utilisées par vos propres valeurs :
+
+- `{YourRG}` - À remplacer par le nom de votre groupe de ressources
+- Remplacer `{subscriptionId}` par votre ID d’abonnement
+
+L’analyse prend en charge l’évaluation des ressources dans un abonnement ou dans un groupe de ressources. Lancez une analyse pour l’étendue de votre choix avec une commande **POST** d’API REST en utilisant les structures d’URI suivantes :
+
+- Abonnement
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+- Groupe de ressources
+
+  ```http
+  POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{YourRG}/providers/Microsoft.PolicyInsights/policyStates/latest/triggerEvaluation?api-version=2018-07-01-preview
+  ```
+
+L’appel retourne un état **202 Accepté**. Une propriété **Emplacement** est incluse dans l’en-tête de la réponse avec le format suivant :
+
+```http
+https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/asyncOperationResults/{ResourceContainerGUID}?api-version=2018-07-01-preview
+```
+
+`{ResourceContainerGUID}` est généré de manière statique pour l’étendue demandée. Si une étendue effectue déjà une analyse à la demande, aucune nouvelle analyse n’est démarrée. Au lieu de cela, le même URI `{ResourceContainerGUID}`**d’emplacement** pour l’état est fourni à la nouvelle requête. Une commande **GET** d’API REST à l’URI **d’emplacement** retourne un **202 Accepté** tandis que l’évaluation est en cours. Une fois l’analyse de l’évaluation terminée, elle retourne un état **200 OK**. Le corps d’une analyse terminée est une réponse JSON avec l’état :
+
+```json
+{
+    "status": "Succeeded"
+}
+```
 
 ## <a name="how-compliance-works"></a>Principe de fonctionnement de la conformité
 
@@ -370,4 +408,4 @@ Si vous avez un espace de travail [Log Analytics](../../../log-analytics/log-ana
 - Consulter la page [Compréhension des effets d’Azure Policy](../concepts/effects.md)
 - Savoir comment [créer des stratégies par programmation](programmatically-create.md)
 - Découvrir comment [remédier à la non conformité des ressources](remediate-resources.md)
-- Comprendre ce qu’est un groupe d’administration en consultant la page [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md)
+- Pour en savoir plus sur les groupes d’administration, consultez [Organiser vos ressources avec des groupes d’administration Azure](../../management-groups/overview.md).
