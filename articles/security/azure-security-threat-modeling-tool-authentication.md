@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 23e219fa49146158c97f392427eee7c42c347a7a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: b4b6e91f9b20166f63a4710f42726bf1d4090022
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307418"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251557"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastructure de sécurité : Authentification | Mesures de correction 
 | Produit/Service | Article |
@@ -156,7 +156,7 @@ ms.locfileid: "43307418"
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Local, SQL Azure |
 | **Attributs**              | Version SQL - MSSQL2012, Version SQL - V12 |
-| **Informations de référence**              | [Meilleures pratiques de sécurité recommandées avec les bases de données autonomes](http://msdn.microsoft.com/library/ff929055.aspx) |
+| **Informations de référence**              | [Meilleures pratiques de sécurité recommandées avec les bases de données autonomes](https://msdn.microsoft.com/library/ff929055.aspx) |
 | **Étapes** | L’absence d’une stratégie de mot de passe appliquée peut augmenter la probabilité d’une information d’identification faible établie dans une base de données autonome. Utilisez l’authentification Windows. |
 
 ## <a id="authn-sas-tokens"></a>Utiliser les informations d’authentification par appareil à l’aide des jetons SAP

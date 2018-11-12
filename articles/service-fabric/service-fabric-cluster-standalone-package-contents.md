@@ -13,15 +13,15 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/10/2017
 ms.author: maburlik
-ms.openlocfilehash: dccdd6518dd97299150892a5629809ea7f708838
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: afb6c8345cd71e7d39b7f3a0b2307c99cf31b449
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34209353"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253332"
 ---
 # <a name="contents-of-service-fabric-standalone-package-for-windows-server"></a>Contenu du package autonome Service Fabric pour Windows Server
-Dans le package autonome Service Fabric [téléchargé](http://go.microsoft.com/fwlink/?LinkId=730690), vous trouverez les fichiers suivants :
+Dans le package autonome Service Fabric [téléchargé](https://go.microsoft.com/fwlink/?LinkId=730690), vous trouverez les fichiers suivants :
 
 | **Nom de fichier** | **Brève description** |
 | --- | --- |
@@ -33,7 +33,7 @@ Dans le package autonome Service Fabric [téléchargé](http://go.microsoft.com/
 | TestConfiguration.ps1 |Un script PowerShell pour l’analyse de l’infrastructure comme spécifié dans Cluster.json. |
 | DownloadServiceFabricRuntimePackage.ps1 |Un script PowerShell utilisé pour télécharger le dernier package de runtime hors bande, pour les scénarios où l’ordinateur de déploiement n’est pas connecté à internet. |
 | DeploymentComponentsAutoextractor.exe |Archive auto-extractible qui contient les composants de déploiement utilisés par les scripts du package autonome. |
-| EULA_ENU.txt |Les termes du contrat de licence pour l’utilisation du package Windows Server autonome Microsoft Azure Service Fabric. Vous pouvez [télécharger une copie du CLUF](http://go.microsoft.com/fwlink/?LinkID=733084) maintenant. |
+| EULA_ENU.txt |Les termes du contrat de licence pour l’utilisation du package Windows Server autonome Microsoft Azure Service Fabric. Vous pouvez [télécharger une copie du CLUF](https://go.microsoft.com/fwlink/?LinkID=733084) maintenant. |
 | Readme.txt |Un lien vers les notes de publication et des instructions d’installation de base. Il s’agit d’une partie des instructions figurant dans ce document. |
 | ThirdPartyNotice.rtf |Informations sur le logiciel tiers du package. |
 | Tools\Microsoft.Azure.ServiceFabric.WindowsServer.SupportPackage.zip |StandaloneLogCollector.exe, qui est exécuté à la demande pour collecter et envoyer les journaux de suivi à Microsoft à des fins de support. |

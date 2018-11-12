@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: willzhan, dwgeo
-ms.openlocfilehash: dc38772097dddb7c7135d55598373d7ab544f9ea
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 7d4094abacb46c5e2b525766d61cb0ede7fc20ba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785888"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251830"
 ---
 # <a name="offline-fairplay-streaming-for-ios"></a>FairPlay Streaming hors connexion pour iOS 
  Azure Media Services fournit un ensemble bien conçu de [services de protection de contenu](https://azure.microsoft.com/services/media-services/content-protection/), couvrant :
@@ -43,8 +43,7 @@ Cet article couvre la prise en charge du mode hors connexion FairPlay Streaming 
 ## <a name="preliminary-steps"></a>Étapes préliminaires
 Avant de mettre en œuvre DRM hors connexion pour FairPlay sur un appareil iOS 10+, vous devez :
 
-* Vous familiariser avec la protection du contenu en ligne pour Fairplay.
- Pour plus d’informations, consultez les articles et exemples suivants :
+* Vous familiariser avec la protection du contenu en ligne pour Fairplay. Pour plus d’informations, consultez les articles et exemples suivants :
 
     - [Apple FairPlay Streaming pour Azure Media Services est généralement disponible](https://azure.microsoft.com/blog/apple-FairPlay-streaming-for-azure-media-services-generally-available/)
     - [Protéger votre contenu HLS avec Apple FairPlay ou Microsoft PlayReady](https://docs.microsoft.com/azure/media-services/media-services-protect-hls-with-FairPlay)
@@ -191,7 +190,7 @@ Trois exemples de tests dans Media Services couvrent les trois scénarios suivan
 * FPS protégé, avec vidéo et audio, mais pas d’autre piste audio ;
 * FPS protégé, avec vidéo seulement et pas d’audio.
 
-Vous trouverez ces exemples sur ce [site de démo](http://aka.ms/poc#22), avec le certificat d’application correspondant hébergé dans une application Web Azure.
+Vous trouverez ces exemples sur ce [site de démo](https://aka.ms/poc#22), avec le certificat d’application correspondant hébergé dans une application Web Azure.
 Avec la version 3 ou la version 4 de l’exemple du Kit SDK du serveur FPS, si une liste de lectures principale contient une autre audio, en mode hors connexion, elle ne lit que l’audio. Vous devez donc supprimer l’autre audio. En d’autres termes, les deuxième et troisième exemples mentionnés précédemment fonctionnent en mode en ligne et hors connexion. Le premier exemple ne lit l’audio qu’en mode hors connexion tandis que la diffusion en continu en ligne fonctionne correctement.
 
 ## <a name="faq"></a>Forum Aux Questions

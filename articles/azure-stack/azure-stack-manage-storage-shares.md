@@ -14,12 +14,12 @@ ms.topic: get-started-article
 ms.date: 09/28/2018
 ms.author: mabrigg
 ms.reviewer: xiaofmao
-ms.openlocfilehash: d979692ba32c596058d28c88f32e7e5872ab7ef9
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 00fa1a78155e1add547b8b165f52cf3c1fba2dfe
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452324"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249895"
 ---
 # <a name="manage-storage-capacity-for-azure-stack"></a>Gérer la capacité de stockage pour Azure Stack 
 
@@ -138,7 +138,7 @@ La migration consolide tous les objets blob d’un conteneur du nouveau partage.
 > La migration des objets blob d’un conteneur est une opération hors connexion qui requiert l’utilisation de PowerShell. Tant que la migration n’est pas terminée, tous les objets blob du conteneur que vous migrez restent hors connexion et ne peuvent pas être utilisés. Il est aussi conseillé d’éviter la mise à niveau d’Azure Stack tant que toutes les migrations en cours ne sont pas terminées.
 
 #### <a name="to-migrate-containers-using-powershell"></a>Pour migrer des conteneurs en utilisant PowerShell
-1. Vérifiez qu’[Azure PowerShell est installé et configuré](http://azure.microsoft.com/documentation/articles/powershell-install-configure/). Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](http://go.microsoft.com/fwlink/?LinkId=394767).
+1. Vérifiez qu’[Azure PowerShell est installé et configuré](https://azure.microsoft.com/documentation/articles/powershell-install-configure/). Pour plus d'informations, consultez [Utilisation d'Azure PowerShell avec le Gestionnaire de ressources Azure](https://go.microsoft.com/fwlink/?LinkId=394767).
 2.  Examinez le conteneur pour connaître les données du partage que vous envisagez de migrer. Pour identifier les meilleurs conteneurs candidats pour la migration d’un volume, utilisez la cmdlet **Get-AzsStorageContainer** :
 
     ````PowerShell  

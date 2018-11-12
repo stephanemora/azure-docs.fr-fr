@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 07a86345e49081320663d7706310a71a40ace134
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: fe6251f70ae62440bbbefc8c3aa5d92d934d8ba0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302105"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249351"
 ---
 # <a name="security-frame-configuration-management--mitigations"></a>Infrastructure de sécurité : gestion des configurations | Mesures de prévention 
 | Produit/Service | Article |
@@ -210,7 +210,7 @@ Notez que la fonctionnalité de validation des demandes n’est pas prise en cha
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [IE8 Security Part V: Comprehensive Protection (Sécurité IE8 Partie V - Protection complète)](http://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME type (Type MIME)](http://en.wikipedia.org/wiki/Mime_type) |
+| **Informations de référence**              | [IE8 Security Part V: Comprehensive Protection (Sécurité IE8 Partie V - Protection complète)](https://blogs.msdn.com/ie/archive/2008/07/02/ie8-security-part-v-comprehensive-protection.aspx), [MIME type (Type MIME)](http://en.wikipedia.org/wiki/Mime_type) |
 | **Étapes** | L’en-tête X-Content-Type-Options est un en-tête HTTP permettant aux développeurs de spécifier que leur contenu ne doit pas être détecté par MIME. Cet en-tête est conçu pour limiter les attaques par détection MIME. Pour chaque page susceptible de comporter du contenu contrôlable par l’utilisateur, vous devez utiliser l’en-tête HTTP X-Content-Type-Options:nosniff. Pour activer l’en-tête requis sur toutes les pages de l’application, vous pouvez effectuer l’une des opérations suivantes :|
 
 ### <a name="example"></a>Exemples
