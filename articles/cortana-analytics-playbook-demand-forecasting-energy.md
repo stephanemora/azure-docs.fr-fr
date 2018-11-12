@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/24/2016
 ms.author: garye
-ms.openlocfilehash: 43a75c31c0f094bdcb7008a39140226815bda163
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 3f45f062cabaf31a10f24b01583575f5066bdaaf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390293"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231520"
 ---
 # <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Manuel du modèle de solution Microsoft Cortana Intelligence de prévision de la demande d’énergie
 ## <a name="executive-summary"></a>Résumé
@@ -43,7 +43,7 @@ La troisième partie du document traite de l’aspect **Implémentation techniqu
 
 En outre, le document contient des informations de référence que vous pouvez utiliser pour mieux connaître le domaine et la technologie.
 
-Il est important de noter que nous ne voulons pas aborder dans ce document le traitement scientifique approfondi des données et ses aspects mathématiques et techniques. Vous trouverez ces détails dans la [documentation](http://azure.microsoft.com/services/machine-learning/) et les [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/) Azure ML.
+Il est important de noter que nous ne voulons pas aborder dans ce document le traitement scientifique approfondi des données et ses aspects mathématiques et techniques. Vous trouverez ces détails dans la [documentation](https://azure.microsoft.com/services/machine-learning/) et les [blogs](https://blogs.microsoft.com/blog/tag/azure-machine-learning/) Azure ML.
 
 ### <a name="target-audience"></a>Public cible
 Ce document est destiné aux employés des services commerciaux et techniques d’une entreprise souhaitant acquérir des connaissances et une bonne compréhension des solutions Machine Learning et de la façon dont elles sont utilisées spécifiquement dans le domaine de la prévision des besoins en énergie.
@@ -176,7 +176,7 @@ La formule de base pour le calcul de l’avantage financier de la solution de pr
 
 Cortana Intelligence Suite fournit un modèle de tarification par répartition, et il est donc inutile d’engager un composant de coût fixe pour cette formule. Cette formule peut être calculée sur une base quotidienne, mensuelle ou annuelle.
 
-Vous trouverez les tarifs de Cortana Intelligence Suite et Azure ML [ici](http://azure.microsoft.com/pricing/details/machine-learning/).
+Vous trouverez les tarifs de Cortana Intelligence Suite et Azure ML [ici](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ### <a name="solution-development-process"></a>Processus de développement de solution
 Le cycle de développement d’une solution de prévision de demande de l’énergie implique généralement 4 phases, dans l’ensemble desquelles nous utilisons les technologies et le service du cloud dans le cadre de Cortana Intelligence Suite.
@@ -187,7 +187,7 @@ C’est ce qu’indique le diagramme suivant :
 
 Le paragraphe suivant décrit ce processus en 4 étapes :
 
-1. **Collecte des données** : toute solution d’analyse avancée repose sur des données (voir **Présentation des données**). Plus précisément, lorsqu’il s’agit d’analyse prédictive et de prévisions, nous nous basons sur flux de données continu et dynamique. Dans le cas de prévisions de demande d’énergie, ces données peuvent être issues directement de capteurs intelligents, ou être déjà agrégées sur une base de données en local. Nous utilisons également d’autres sources de données externes, notamment pour la météo et la température. Ce flux de données continu doit être orchestré, planifié et stocké. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) est le principal moteur pour accomplir cette tâche.
+1. **Collecte des données** : toute solution d’analyse avancée repose sur des données (voir **Présentation des données**). Plus précisément, lorsqu’il s’agit d’analyse prédictive et de prévisions, nous nous basons sur flux de données continu et dynamique. Dans le cas de prévisions de demande d’énergie, ces données peuvent être issues directement de capteurs intelligents, ou être déjà agrégées sur une base de données en local. Nous utilisons également d’autres sources de données externes, notamment pour la météo et la température. Ce flux de données continu doit être orchestré, planifié et stocké. [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) (ADF) est le principal moteur pour accomplir cette tâche.
 2. **Modélisation** : pour obtenir des prévisions d’énergie précises et fiables, il convient de développer (former) et de gérer un excellent modèle utilisant les données d’historique et extraire les schémas de données significatifs et prédictifs. Le domaine de Machine Learning (ML) a rapidement augmenté grâce à des algorithmes plus avancés qui sont développés constamment. Azure ML Studio offre une expérience utilisateur satisfaisante, qui permet d’utiliser les algorithmes ML plus avancés dans un workflow complet. Ce workflow figure dans un diagramme de flux intuitif et inclut la préparation des données, l’extraction des fonctionnalités, la modélisation et l’évaluation du modèle. L’utilisateur peut extraire les centaines de modèles différents inclus dans cet environnement. À la fin de cette phase, un spécialiste des données dispose d’un modèle opérationnel parfaitement évalué et prêt au déploiement.
    
    Le diagramme qui suit représente un workflow classique :
@@ -387,7 +387,7 @@ Voici les opérations qui ont lieu dans le cadre du cycle de prévision de la de
 7. Les données prévues sont stockées dans une base de données accessible par le client final.
 8. Le client de la consommation récupère les prévisions, les applique au réseau et les utilise conformément à l’étude de cas requise.
 
-Il est important de noter que l’ensemble de cycle est totalement automatisé et exécute un plan. L’intégralité de l’orchestration de ce cycle de données peut être effectuée à l’aide d’outils tels qu’ [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
+Il est important de noter que l’ensemble de cycle est totalement automatisé et exécute un plan. L’intégralité de l’orchestration de ce cycle de données peut être effectuée à l’aide d’outils tels qu’ [Azure Data Factory](https://azure.microsoft.com/services/data-factory/).
 
 ### <a name="end-to-end-deployment-architecture"></a>Architecture de déploiement de bout en bout
 Pour déployer une solution de prévision de demande d’énergie sur Cortana Intelligence, nous devons vous assurer que les composants requis sont définis et configurés correctement.

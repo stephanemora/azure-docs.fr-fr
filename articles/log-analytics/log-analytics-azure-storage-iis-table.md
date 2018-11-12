@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 04/12/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 9f4aae578606e14711deaac87e232bad0158bfe9
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 83c7862e8a9e3ce069765f81607bfbbeee272be2
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041479"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278648"
 ---
 # <a name="use-azure-blob-storage-for-iis-and-azure-table-storage-for-events-with-log-analytics"></a>Utilisation d’un Stockage Blob Azure pour IIS et d’un Stockage Table Azure pour les événements avec Log Analytics
 
@@ -53,7 +53,7 @@ Pour que Log Analytics collecte ces journaux de diagnostics Azure, ceux-ci doive
 >
 >
 
-Pour les machines virtuelles, vous pouvez installer [l’agent Log Analytics](log-analytics-azure-vm-extension.md) sur votre machine virtuelle pour activer des informations supplémentaires. Cela vous permet d’analyser les journaux IIS et les journaux des événements, mais également d'effectuer des analyses supplémentaires, notamment le suivi des modifications de configuration, l’évaluation SQL et l’évaluation de la mise à jour.
+Pour les machines virtuelles, vous pouvez installer [l’agent Log Analytics](log-analytics-quick-collect-azurevm.md) sur votre machine virtuelle pour activer des informations supplémentaires. Cela vous permet d’analyser les journaux IIS et les journaux des événements, mais également d'effectuer des analyses supplémentaires, notamment le suivi des modifications de configuration, l’évaluation SQL et l’évaluation de la mise à jour.
 
 ## <a name="enable-azure-diagnostics-in-a-virtual-machine-for-event-log-and-iis-log-collection"></a>Activation des diagnostics Azure dans une machine virtuelle pour la collecte des journaux IIS et des journaux des événements
 Utilisez la procédure suivante pour activer les diagnostics Azure dans une machine virtuelle pour la collecte de journaux IIS et de journaux des événements à l’aide du portail Microsoft Azure.
@@ -151,7 +151,7 @@ Après environ 30 minutes, vous pourrez voir les données du compte de stockage
 Utilisez les étapes de [Configuration de Log Analytics pour indexer les diagnostics Azure](log-analytics-powershell-workspace-configuration.md#configuring-log-analytics-to-index-azure-diagnostics) pour utiliser PowerShell afin de lire à partir des diagnostics Azure écrits dans le stockage de table.
 
 Vous pouvez spécifier les événements écrits dans Azure Storage plus précisément à l’aide d’Azure PowerShell.
-Pour plus d'informations, consultez la page [Activation des diagnostics dans les machines virtuelles Azure](../virtual-machines-dotnet-diagnostics.md).
+Pour plus d'informations, consultez la page [Activation des diagnostics dans les machines virtuelles Azure](/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines).
 
 Vous pouvez activer et mettre à jour les diagnostics Azure en utilisant le script PowerShell suivant.
 Vous pouvez également utiliser ce script avec une configuration de journalisation personnalisée.
@@ -194,5 +194,5 @@ Examinez l’exemple de script suivant, copiez-le et modifiez-le si nécessaire,
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Collecter les journaux et les indicateurs de performance des services Azure](log-analytics-azure-storage.md) pour les services pris en charge par Azure.
-* [Activer les solutions](log-analytics-add-solutions.md) pour fournir des informations sur les données.
-* [Utiliser les requêtes de recherche](log-analytics-log-searches.md) pour analyser les données.
+* [Activer les solutions](../monitoring/monitoring-solutions.md) pour fournir des informations sur les données.
+* [Utiliser les requêtes de recherche](log-analytics-queries.md) pour analyser les données.

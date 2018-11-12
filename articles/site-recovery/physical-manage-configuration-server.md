@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: ramamill
-ms.openlocfilehash: 4bf9277598c3e56c0429dddcb2204cb1338a33be
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 0e8dbf47c40339c90a0e28c3ef497a8da963e481
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50213240"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230988"
 ---
 # <a name="manage-the-configuration-server-for-physical-server-disaster-recovery"></a>Gérer le serveur de configuration pour la reprise après sinistre d’un serveur physique
 
@@ -22,7 +22,7 @@ Vous configurez un serveur de configuration local quand vous utilisez le service
 
 Le tableau répertorie les prérequis du déploiement d’une machine de serveur de configuration locale.
 
-| **Composant** | **Prérequis** |
+| **Composant** | **Exigence** |
 | --- |---|
 | Cœurs d’unité centrale| 8 |
 | RAM | 16 Go|
@@ -42,7 +42,7 @@ Le tableau répertorie les prérequis du déploiement d’une machine de serveur
 
 ## <a name="download-the-latest-installation-file"></a>Télécharger le fichier d’installation le plus récent
 
-La dernière version du fichier d’installation du serveur configuration est disponible dans le portail Site Recovery. De plus, elle peut être téléchargée directement sur le [Centre de téléchargement Microsoft](http://aka.ms/unifiedsetup).
+La dernière version du fichier d’installation du serveur configuration est disponible dans le portail Site Recovery. De plus, elle peut être téléchargée directement sur le [Centre de téléchargement Microsoft](https://aka.ms/unifiedsetup).
 
 1. Connectez-vous au portail Azure et accédez à votre coffre Recovery Services.
 2. Sélectionnez **Infrastructure Site Recovery** > **Serveurs de configuration** (sous For VMware & Physical Machines [Pour VMware et machines physiques]).

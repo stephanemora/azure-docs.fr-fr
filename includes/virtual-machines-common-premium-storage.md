@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: ramankum
 ms.custom: include file
-ms.openlocfilehash: 97e4e670d5db646cea28cb30e9ca95633cea2a8a
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 7fa7e6126c415a0a33b77b78975e8f4a533c4675
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49437151"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263285"
 ---
 # <a name="high-performance-premium-storage-and-managed-disks-for-vms"></a>Stockage Premium hautes performances et disques gérés pour machines virtuelles
 
@@ -97,7 +97,7 @@ Voici quelques exemples de fonctionnalités prises en charge sur les machines vi
     Vous pouvez utiliser des disques Standard et Premium dans la même machine virtuelle de stockage Premium. Avec le stockage Premium, vous pouvez configurer une machine virtuelle et associer plusieurs disques de données persistants sur la machine virtuelle. Si nécessaire, pour augmenter la capacité et les performances du volume, vous pouvez répartir les données sur les disques.
 
     > [!NOTE]
-    > Si vous équilibrez les disques de données de stockage Premium à l’aide des [espaces de stockage](http://technet.microsoft.com/library/hh831739.aspx), configurez les espaces de stockage avec 1 colonne pour chaque disque utilisé. Dans le cas contraire, les performances globales du volume agrégé par bandes peuvent être limitées, en raison d’une distribution inégale du trafic sur les disques. Par défaut, dans le Gestionnaire de serveur, vous pouvez définir des colonnes pour 8 disques maximum. Au-delà de 8 disques, utilisez PowerShell pour créer le volume. Spécifiez le nombre de colonnes manuellement. Dans le cas contraire, l’IU du Gestionnaire de serveur continue d’utiliser 8 colonnes, même si vous disposez de plusieurs disques. Par exemple, si vous disposez de 32 disques dans un agrégat unique, spécifiez 32 colonnes. Pour spécifier le nombre de colonnes utilisées par le disque virtuel, dans l’applet de commande PowerShell [New-VirtualDisk](http://technet.microsoft.com/library/hh848643.aspx), utilisez le paramètre *NumberOfColumns*. Pour plus d’informations, consultez [Vue d’ensemble des espaces de stockage](http://technet.microsoft.com/library/hh831739.aspx) et [FAQ sur les espaces de stockage](http://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
+    > Si vous équilibrez les disques de données de stockage Premium à l’aide des [espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx), configurez les espaces de stockage avec 1 colonne pour chaque disque utilisé. Dans le cas contraire, les performances globales du volume agrégé par bandes peuvent être limitées, en raison d’une distribution inégale du trafic sur les disques. Par défaut, dans le Gestionnaire de serveur, vous pouvez définir des colonnes pour 8 disques maximum. Au-delà de 8 disques, utilisez PowerShell pour créer le volume. Spécifiez le nombre de colonnes manuellement. Dans le cas contraire, l’IU du Gestionnaire de serveur continue d’utiliser 8 colonnes, même si vous disposez de plusieurs disques. Par exemple, si vous disposez de 32 disques dans un agrégat unique, spécifiez 32 colonnes. Pour spécifier le nombre de colonnes utilisées par le disque virtuel, dans l’applet de commande PowerShell [New-VirtualDisk](https://technet.microsoft.com/library/hh848643.aspx), utilisez le paramètre *NumberOfColumns*. Pour plus d’informations, consultez [Vue d’ensemble des espaces de stockage](https://technet.microsoft.com/library/hh831739.aspx) et [FAQ sur les espaces de stockage](https://social.technet.microsoft.com/wiki/contents/articles/11382.storage-spaces-frequently-asked-questions-faq.aspx).
     >
     > 
 
@@ -151,7 +151,9 @@ Si vous utilisez des comptes de stockage Premium pour des disques non gérés et
 ### <a name="premium-storage-disk-limits"></a>Limites des disques de stockage Premium
 Lorsque vous configurez un disque de stockage Premium, la taille du disque détermine la valeur maximale d’E/S par seconde et le débit (bande passante). Azure propose huit types GA de disques de stockage premium : P4 (Managed Disks uniquement), P6 (Managed Disks uniquement), P10, P15 (Managed Disks uniquement), P20, P30, P40 et P50. Plus trois tailles de disque en préversion : P60, P70 et P80. Chaque type de disque de stockage Premium a des limites d’E/S par seconde et de débit spécifiques. Les limites pour ces types de disques sont décrites dans le tableau suivant :
 
-| Type de disque Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60             | P70                | P80                |
+Les tailles signalées par un astérisque sont actuellement en préversion.
+
+| Type de disque Premium  | P4    | P6    | P10    | P15    | P20    | P30              | P40             | P50             | P60 *            | P70 *               | P80 *               |
 |---------------------|-------|-------|--------|--------|--------|------------------|-----------------|-----------------|-----------------|--------------------|--------------------|
 | Taille du disque           | 32 Gio| 64 Gio| 128 Go| 256 Gio| 512 Go| 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio)| 4 095 Gio (4 Tio)| 8192 Gio (8 Tio)| 16 384 Gio (16 Tio)| 32 767 Gio (32 Tio)|
 | IOPS par disque       | 120   | 240   | 500    | 1100   | 2 300   | 5 000             | 7500            | 7500            | 12 500          | 15 000             | 20 000             |
@@ -237,7 +239,7 @@ Les limites suivantes s’appliquent aux captures instantanées d’objets blob 
 
 Pour conserver des copies géo-redondantes de vos captures instantanées, vous pouvez copier des captures instantanées d'un compte de stockage Premium vers un compte de stockage Standard géo-redondant à l'aide des opérations AzCopy ou Copy Blob. Pour plus d’informations, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](../articles/storage/common/storage-use-azcopy.md) et [Copie d’un objet blob](/rest/api/storageservices/Copy-Blob).
 
-Pour plus d’informations sur l’exécution d’opérations REST sur les objets blob de pages dans les comptes de stockage Premium, consultez [Opérations de service blob avec le stockage Premium Azure ](http://go.microsoft.com/fwlink/?LinkId=521969).
+Pour plus d’informations sur l’exécution d’opérations REST sur les objets blob de pages dans les comptes de stockage Premium, consultez [Opérations de service blob avec le stockage Premium Azure ](https://go.microsoft.com/fwlink/?LinkId=521969).
 
 ### <a name="managed-disks"></a>Disques gérés
 
@@ -267,12 +269,12 @@ Les distributions Linux suivantes ont été validées pour le stockage Premium A
 | SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
 | SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
 | CoreOS | 584.0.0+| 3.18.4+ | CoreOS 584.0.0 |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 requis](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consultez la remarque dans la section suivante* |
-| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recommandé](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consultez la remarque dans la section suivante* |
+| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 requis](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consultez la remarque dans la section suivante* |
+| CentOS | 7.1+ | 3.10.0-229.1.2.el7+ | [LIS4 recommandé](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Consultez la remarque dans la section suivante* |
 | Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
 | Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 ou RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 ou RHCK avec [LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 ou RHCK avec [LIS 4.1+](http://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 7.0-7.1 | &nbsp; | UEK4 ou RHCK avec [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6.7 | &nbsp; | UEK4 ou RHCK avec [LIS 4.1+](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>Pilotes LIS pour Openlogic CentOS

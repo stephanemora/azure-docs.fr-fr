@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/31/2017
 ms.author: cwatson
-ms.openlocfilehash: a037f4837be65eb7eac76977a3728c7357e09463
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 83891e1abdb58b4fdae65cee3689195b8f35df12
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394427"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230459"
 ---
 # <a name="understand-terms-on-your-microsoft-azure-detailed-usage-charges"></a>Comprendre les termes figurant sur le fichier détaillant les frais d’utilisation Microsoft Azure 
 
@@ -77,7 +77,7 @@ La section Utilisation quotidienne du fichier CSV montre les détails d’utilis
 |Service consommé |Service de plateforme Azure que vous avez utilisé |
 |Groupe de ressources |Groupe de ressources dans lequel le compteur déployé est en cours d’exécution. <br/><br/>Pour plus d’informations, consultez [Présentation d’Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview). |
 |ID de l’instance | Identificateur du compteur. <br/><br/> L’identificateur contient le nom que vous avez spécifié pour le compteur lors de sa création. Nom de la ressource ou ID de ressource complet. Pour plus d’informations, consultez la page [API Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). |
-|Balises | Balise que vous affectez au compteur. Utilisez des balises pour regrouper les enregistrements de facturation.<br/><br/>Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département qui utilise le compteur. Les services qui prennent en charge l’émission de balises sont les services de machine virtuelle, de stockage et de réseau approvisionnés à l’aide de [l’API Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
+|Balises | Balise que vous affectez au compteur. Utilisez des balises pour regrouper les enregistrements de facturation.<br/><br/>Par exemple, vous pouvez utiliser des balises pour répartir les coûts par département qui utilise le compteur. Les services qui prennent en charge l’émission de balises sont les services de machine virtuelle, de stockage et de réseau approvisionnés à l’aide de [l’API Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/resources). Pour plus d’informations, voir [Organisation des ressources Azure à l’aide de balises](https://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
 |Informations supplémentaires |Métadonnées relatives au service. Par exemple, le type d’image d’une machine virtuelle. |
 |Informations sur le service 1 |Nom du projet auquel le service appartient sur votre abonnement. |
 |Informations sur le service 2 |Champ hérité capturant les métadonnées facultatives propres au service |

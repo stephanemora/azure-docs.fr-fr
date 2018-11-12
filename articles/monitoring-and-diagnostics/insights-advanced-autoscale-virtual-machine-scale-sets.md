@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/22/2016
 ms.author: ancav
 ms.component: autoscale
-ms.openlocfilehash: 49012c69a6dacaf76c95ea4c760e5951ecb6a9fb
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2570e779f258e702f04166dffc3087195d01a983
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958838"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283631"
 ---
 # <a name="advanced-autoscale-configuration-using-resource-manager-templates-for-vm-scale-sets"></a>Configuration avancée de la mise à l’échelle automatique à l’aide des modèles Resource Manager pour VM Scale Sets
 Vous pouvez diminuer ou augmenter la taille des instances dans VM Scale Sets en fonction de certains seuils de métriques de performances, selon une planification périodique ou à une date donnée. Vous pouvez également configurer des e-mails et des webhooks de notification pour les actions de mise à l’échelle. Cette procédure pas à pas présente un exemple de configuration de ces objets à l’aide d’un modèle Resource Manager sur un groupe de machines virtuelles identiques (VM Scale Set).
 
 > [!NOTE]
-> Bien que cette procédure pas à pas explique les étapes pour les Virtual Machine Scale Sets, les mêmes informations s’appliquent pour la mise à l’échelle des [services cloud](https://azure.microsoft.com/services/cloud-services/), [d’App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et des [services Gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Pour paramétrer de façon simple une diminution ou augmentation de la taille des instances d’un élément VM Scale Set basé sur une métrique de performances simple, reportez-vous aux documents [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-linux-autoscale.md) et [Windows](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-powershell.md)
+> Bien que cette procédure pas à pas explique les étapes pour les Virtual Machine Scale Sets, les mêmes informations s’appliquent pour la mise à l’échelle des [services cloud](https://azure.microsoft.com/services/cloud-services/), [d’App Service - Web Apps](https://azure.microsoft.com/services/app-service/web/) et des [services Gestion des API](https://docs.microsoft.com/azure/api-management/api-management-key-concepts) Pour paramétrer de façon simple une diminution ou augmentation de la taille des instances d’un élément VM Scale Set basé sur une métrique de performances simple, reportez-vous aux documents [Linux](../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-cli.md) et [Windows](../virtual-machine-scale-sets/tutorial-autoscale-powershell.md)
 >
 >
 

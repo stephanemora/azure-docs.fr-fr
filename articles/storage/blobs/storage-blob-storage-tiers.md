@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: 3aad10c398aa4f009ab29f4684cc500b6fb428e7
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 3a980abc7b9611cfd6a3933a54505b0208b67f50
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427584"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253718"
 ---
 # <a name="azure-blob-storage-premium-preview-hot-cool-and-archive-storage-tiers"></a>Stockage Blob Azure : niveaux de stockage Premium (préversion), chaud, froid et archive
 
@@ -65,7 +65,7 @@ Durant la période de préversion, le niveau d’accès Premium :
 - Est uniquement disponible dans les régions USA Est 2, USA Centre et USA Ouest
 - Ne prend pas en charge la hiérarchisation automatique ni la gestion du cycle de vie des données
 
-Pour savoir comment s’inscrire à la préversion du niveau d’accès Premium, consultez [Présentation du service Stockage Blob Premium Azure](http://aka.ms/premiumblob).
+Pour savoir comment s’inscrire à la préversion du niveau d’accès Premium, consultez [Présentation du service Stockage Blob Premium Azure](https://aka.ms/premiumblob).
 
 ## <a name="hot-access-tier"></a>Niveau d’accès chaud
 

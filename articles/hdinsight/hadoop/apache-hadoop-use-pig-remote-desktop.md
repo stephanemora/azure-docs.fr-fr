@@ -2,19 +2,19 @@
 title: Utiliser Hadoop Pig et le Bureau à distance dans HDInsight - Azure
 description: Apprenez à utiliser la commande Pig pour exécuter les instructions Pig Latin à partir d'une connexion Bureau à distance vers un cluster Windows Hadoop sur HDInsight.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/17/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 224722c61a653eae55bc1351e91e6288bc793fb6
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 3a7dff2c44b7cc8ccd921d2371666cb19acffbb8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049861"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007227"
 ---
 # <a name="run-pig-jobs-from-a-remote-desktop-connection"></a>Exécution de tâches Pig depuis une connexion Bureau à distance
 [!INCLUDE [pig-selector](../../../includes/hdinsight-selector-use-pig.md)]

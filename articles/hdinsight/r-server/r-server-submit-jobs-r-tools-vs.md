@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: 65a0d8074b8dcf89d8fc713cb4b2272c6576e8fb
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 400cb16e4f4440283a783116c4ee843bc0a7344c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043952"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248569"
 ---
 # <a name="submit-jobs-from-r-tools-for-visual-studio"></a>Soumettre des travaux à partir d’outils R pour Visual Studio
 
-[Outils R pour Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) est une extension gratuite et open source pour les éditions Community (gratuite), Professional et Enterprise de [Visual Studio 2017](https://www.visualstudio.com/downloads/) et [Visual Studio 2015 Update 3](http://go.microsoft.com/fwlink/?LinkId=691129) ou version ultérieure.
+[Outils R pour Visual Studio](https://www.visualstudio.com/vs/rtvs/) (RTVS) est une extension gratuite et open source pour les éditions Community (gratuite), Professional et Enterprise de [Visual Studio 2017](https://www.visualstudio.com/downloads/) et [Visual Studio 2015 Update 3](https://go.microsoft.com/fwlink/?LinkId=691129) ou version ultérieure.
 
 RTVS améliore votre flux de travail R en offrant des outils tels que la [fenêtre interactive R](https://docs.microsoft.com/visualstudio/rtvs/interactive-repl) (REPL), intellisense (saisie semi-automatique du code), [la visualisation de tracé](https://docs.microsoft.com/visualstudio/rtvs/visualizing-data) par le biais de bibliothèques R telles que ggplot2 et ggviz, [le débogage du code R](https://docs.microsoft.com/visualstudio/rtvs/debugging), et bien plus encore.
 

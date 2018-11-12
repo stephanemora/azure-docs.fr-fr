@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2fd00d53755e44e3a3d86782c40aa6a53ff4d378
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: df6499410da3ae67715ade29dbc3cc4146fc2265
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171399"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231989"
 ---
 # <a name="how-to-use-negatable-entities-with-a-conversation-learner-model"></a>Utiliser des entités qui peuvent être niées avec un modèle d’Apprenant de conversation
 
@@ -23,7 +23,7 @@ Ce didacticiel illustre la propriété « negatable » des entités.
 
 ## <a name="video"></a>Vidéo
 
-[![Aperçu du didacticiel 5](http://aka.ms/cl-tutorial-05-preview)](http://aka.ms/blis-tutorial-05)
+[![Aperçu du didacticiel 5](https://aka.ms/cl-tutorial-05-preview)](https://aka.ms/blis-tutorial-05)
 
 ## <a name="requirements"></a>Configuration requise
 Ce tutoriel nécessite que le bot tutoriel général soit en cours d’exécution.
@@ -61,13 +61,13 @@ Concrètement, si la propriété « negatable » d’une entité est définie :
 1. Cliquez sur Actions, puis sur Nouvelle action
 2. Dans Réponse, tapez « Je ne connais pas votre nom ».
 3. Dans Disqualifying Entities (Entités disqualifiantes), entrez un nom.
-3. Click Create
+3. Cliquez sur Create.
 
 Ensuite, créez la deuxième action.
 
 1. Cliquez sur Actions, puis sur Nouvelle Action pour en créer une deuxième.
 3. Dans Réponse, tapez « Je connais votre nom. Il s’agit de $name ».
-4. Click Create
+4. Cliquez sur Create.
 
 Vous avez maintenant deux actions.
 
@@ -115,7 +115,7 @@ Essayez maintenant de remplacer le nom entré.
     - Notez que le système a étiqueté cela comme une instance négative.
 2. Cliquez sur Attribuer un score aux actions.
 3. Sélectionnez « Je ne connais pas votre nom », qui est la seule action.
-7. Cliquez sur Apprentissage terminé.
+7. Cliquez sur Done Teaching (Apprentissage terminé).
 
 ![](../media/tutorial5_dialogs.PNG)
 

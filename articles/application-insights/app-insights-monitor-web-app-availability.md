@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/30/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 3869b47c4e435443bb569ae7b90df7fba9687ba7
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: e8d07922334855a8133cd6271ee98bcfac2243d5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50421252"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282609"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>Analyse de la disponibilité et de la réactivité d'un site Web
 Après avoir déployé votre application web ou votre site web sur un serveur, vous pouvez configurer des tests pour surveiller sa disponibilité et sa réactivité. [Azure Application Insights](app-insights-overview.md) envoie des requêtes web à votre application à intervalles réguliers à partir de différents points du monde, et vous alerte si votre application réagit lentement ou pas du tout.
@@ -76,7 +76,7 @@ Ouvrez le panneau de disponibilité et ajoutez un test.
 Vous pouvez analyser un scénario qui implique une séquence d'URL. Par exemple, si vous analysez un site Web commercial, vous pouvez vérifier que l’ajout d’articles au panier d’achat fonctionne correctement.
 
 > [!NOTE]
-> Les tests web à plusieurs étapes ont un coût. [Mécanisme de tarification](http://azure.microsoft.com/pricing/details/application-insights/).
+> Les tests web à plusieurs étapes ont un coût. [Mécanisme de tarification](https://azure.microsoft.com/pricing/details/application-insights/).
 > 
 
 Pour créer un test à plusieurs étapes, vous enregistrez le scénario à l’aide de Visual Studio Enterprise et téléchargez ensuite l’enregistrement dans Application Insights. Application Insights relit le scénario à intervalles réguliers et vérifie les réponses.
@@ -214,6 +214,7 @@ La règle d’alerte pour les emplacements de X en dehors de Y est activée par 
 > [!NOTE]
 > * Configurez les groupes d’actions pour recevoir des notifications lorsque l’alerte se déclenche en suivant les étapes ci-dessus. Sans cette étape, vous recevrez les notifications dans le portail uniquement lorsque la règle se déclenche.
 >
+
 ### <a name="alert-on-availability-metrics"></a>Créer une alerte sur les mesures de disponibilité
 À l’aide des [nouvelles alertes unifiées](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), vous pouvez créer une alerte sur les mesures de disponibilité des agrégats segmentés et sur la durée des tests :
 

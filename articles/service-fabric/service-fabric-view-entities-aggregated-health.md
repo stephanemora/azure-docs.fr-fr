@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 2/28/2018
 ms.author: oanapl
-ms.openlocfilehash: 2e5d1045edbbc3c71cb0ccff34d2ba327a98a409
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b6f6653381b5fcf80b9647c64334dfed1a2230bb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211855"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230850"
 ---
 # <a name="view-service-fabric-health-reports"></a>Affichage rapports d’intégrité de Service Fabric
 Azure Service Fabric propose un [modèle d’intégrité](service-fabric-health-introduction.md) avec des entités d’intégrité sur lesquelles les composants système et les agents de surveillance peuvent signaler les conditions locales qu’ils surveillent. Le [magasin d’intégrité](service-fabric-health-introduction.md#health-store) agrège toutes les données d’intégrité pour déterminer si les entités sont saines.
@@ -32,7 +32,7 @@ Service Fabric offre de multiples moyens d’obtenir les données d’intégrit
 * Requêtes d’intégrité (via PowerShell, API ou REST)
 * Requêtes générales retournant une liste d’entités qui présentent l’intégrité comme l’une de leurs propriétés (via PowerShell, API ou REST).
 
-Pour illustrer ces options, utilisons un cluster local doté de cinq nœuds et de l’[application fabric:/WordCount](http://aka.ms/servicefabric-wordcountapp). L’application **fabric:/WordCount** contient deux services par défaut, un service avec état de type `WordCountServiceType` et un service sans état du type `WordCountWebServiceType`. J’ai modifié le fichier `ApplicationManifest.xml` pour exiger sept réplicas cibles pour le service avec état et une partition. Comme il n’existe que cinq nœuds dans le cluster, les composants système signalent un avertissement sur la partition du service, car le nombre cible est supérieur.
+Pour illustrer ces options, utilisons un cluster local doté de cinq nœuds et de l’[application fabric:/WordCount](https://aka.ms/servicefabric-wordcountapp). L’application **fabric:/WordCount** contient deux services par défaut, un service avec état de type `WordCountServiceType` et un service sans état du type `WordCountWebServiceType`. J’ai modifié le fichier `ApplicationManifest.xml` pour exiger sept réplicas cibles pour le service avec état et une partition. Comme il n’existe que cinq nœuds dans le cluster, les composants système signalent un avertissement sur la partition du service, car le nombre cible est supérieur.
 
 ```xml
 <Service Name="WordCountService">

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 10/05/2018
 ms.author: robreed
-ms.openlocfilehash: e24353013110bfa95f23b75bbd81fd6d1048b95a
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.openlocfilehash: d55f6097e3e1eed508580676edcf008b0739034c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48830839"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230976"
 ---
 # <a name="desired-state-configuration-extension-with-azure-resource-manager-templates"></a>Extension de configuration d’état souhaité avec des modèles Azure Resource Manager
 
@@ -167,7 +167,7 @@ Pour obtenir la liste des arguments disponibles pour le script de configuration 
 | settings.configurationArguments |Collection |Définit les paramètres à transmettre à votre configuration DSC. Cette propriété n’est pas chiffrée. |
 | settings.configurationData.url |chaîne |Spécifie l’URL de téléchargement de votre fichier de données de configuration (.psd1) à utiliser comme entrée pour votre configuration DSC. Si l’accès à l’URL fournie nécessite un jeton SAP, définissez la propriété **protectedSettings.configurationDataUrlSasToken** sur la valeur de votre jeton SAP. |
 | settings.privacy.dataCollection |chaîne |Active ou désactive la collecte télémétrique. Les seules valeurs possibles pour cette propriété sont **Enable**, **Disable**, **''** ou **$null**. Le fait de laisser cette propriété vide ou de la définir sur $null active la télémétrie. La valeur par défaut est **''**. Pour plus d’informations, consultez la page [Azure DSC Extension Data Collection](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) (Collection de données d’extension Azure DSC). |
-| settings.advancedOptions.downloadMappings |Collection |Définit d’autres emplacements de téléchargement de WMF. Pour plus d’informations, consultez la page [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) (Extension Azure DSC 2.8 et comment mapper des téléchargements des dépendances de l’extension sur votre propre emplacement). |
+| settings.advancedOptions.downloadMappings |Collection |Définit d’autres emplacements de téléchargement de WMF. Pour plus d’informations, consultez la page [Azure DSC extension 2.8 and how to map downloads of the extension dependencies to your own location](https://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) (Extension Azure DSC 2.8 et comment mapper des téléchargements des dépendances de l’extension sur votre propre emplacement). |
 | protectedSettings.configurationArguments |Collection |Définit les paramètres à transmettre à votre configuration DSC. Cette propriété est chiffrée. |
 | protectedSettings.configurationUrlSasToken |chaîne |Spécifie le jeton SAP à utiliser pour accéder à l’URL définie par **settings.configuration.url**. Cette propriété est chiffrée. |
 | protectedSettings.configurationDataUrlSasToken |chaîne |Spécifie le jeton SAP à utiliser pour accéder à l’URL définie par **settings.configurationData.url**. Cette propriété est chiffrée. |

@@ -2,19 +2,19 @@
 title: Créer des clusters HBase dans un réseau virtuel - Azure
 description: Prise en main de HBase dans Azure HDInsight Découvrez comment créer des clusters HDInsight HBase sur Azure Virtual Network.
 services: hdinsight,virtual-network
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/22/2018
-ms.author: jasonh
-ms.openlocfilehash: a3686e99f9bab754cdc9cfc801961ea47560a111
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.openlocfilehash: 183f8fd47ea5239e31f03f3aecf420cfb5842098
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043233"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009825"
 ---
 # <a name="create-hbase-clusters-on-hdinsight-in-azure-virtual-network"></a>Création de clusters HBase sur HDInsight dans un réseau virtuel Microsoft Azure
 Découvrez comment créer des clusters Azure HDInsight sur [Azure Virtual Network][1].
@@ -242,7 +242,7 @@ Dans ce didacticiel, vous avez appris à créer un cluster HBase. Pour plus d'in
 
 * [Prise en main de HDInsight](../hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Utiliser des nœuds de périphérie vides dans HDInsight](../hdinsight-apps-use-edge-node.md)
-* [Configuration de la géo-réplication HBase dans HDInsigtht](apache-hbase-replication.md)
+* [Configuration de la réplication HBase dans HDInsigtht](apache-hbase-replication.md)
 * [Créer des clusters Hadoop dans HDInsight](../hdinsight-hadoop-provision-linux-clusters.md)
 * [Prise en main de HBase avec Hadoop dans HDInsight](./apache-hbase-tutorial-get-started-linux.md)
 * [Présentation du réseau virtuel.](../../virtual-network/virtual-networks-overview.md)

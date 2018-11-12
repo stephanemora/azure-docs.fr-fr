@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: fc9ed37ef24e776336124bf097def2f6a00ee83e
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 442371ffc63e32906d9faafc3b803bb5e6386905
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50419790"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283442"
 ---
 # <a name="common-questions-for-transition-from-oms-portal-to-azure-portal-for-log-analytics-users"></a>Questions courantes pour la transition depuis le portail OMS vers le portail Azure pour les utilisateurs de Log Analytics
 Log Analytics utilisait initialement son propre portail appelé portail OMS pour gérer sa configuration et analyser les données collectées.  Toutes les fonctionnalités accessibles depuis ce portail ont été déplacées vers le portail Azure où elles continueront d’être développées.
@@ -35,7 +35,7 @@ Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https:
 ![Espace de travail Log Analytics](media/log-analytics-oms-portal-faq/log-analytics.png)
 
 ## <a name="how-do-i-manage-permissions"></a>Comment gérer les autorisations ?
-Si vous n’avez pas accès à votre espace de travail Log Analytics dans le portail Azure, vous devez configurer vos autorisations à l’aide de [l’accès en fonction du rôle Azure](../active-directory/role-based-access-control-configure.md). Pour plus d’informations sur la gestion des autorisations de l’espace de travail, consultez [Gérer les espaces de travail](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Pour plus d’informations sur la gestion des autorisations pour les alertes, consultez [Prise en main des rôles, autorisations et de la sécurité avec Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
+Si vous n’avez pas accès à votre espace de travail Log Analytics dans le portail Azure, vous devez configurer vos autorisations à l’aide de [l’accès en fonction du rôle Azure](../role-based-access-control/role-assignments-portal.md). Pour plus d’informations sur la gestion des autorisations de l’espace de travail, consultez [Gérer les espaces de travail](../log-analytics/log-analytics-manage-access.md#manage-accounts-and-users). Pour plus d’informations sur la gestion des autorisations pour les alertes, consultez [Prise en main des rôles, autorisations et de la sécurité avec Azure Monitor](../monitoring-and-diagnostics/monitoring-roles-permissions-security.md).
 
 ## <a name="how-do-i-create-a-new-workspace"></a>Comment créer un nouvel espace de travail ? 
 Dans la liste des espaces de travail au sein du portail Azure, cliquez sur **Ajouter** dans la liste des espaces de travail.  Pour plus de détails, consultez [Créer un espace de travail Log Analytics dans le portail Azure](../log-analytics/log-analytics-quick-create-workspace.md).
@@ -82,7 +82,7 @@ Gérez la plupart des paramètres de source connectée dans le menu **Paramètre
 | Serveurs Linux   | Menu **Paramètres avancés** de l’espace de travail. |
 | Stockage Azure     | Menu **Paramètres avancés** de l’espace de travail. |
 | System Center     | Menu **Paramètres avancés** de l’espace de travail. |
-| Office 365        | Consultez la [documentation pour la solution de gestion Office 365](../operations-management-suite/oms-solution-office-365.md) pour plus d’informations de configuration. |
+| Office 365        | Consultez la [documentation pour la solution de gestion Office 365](../monitoring/monitoring-solution-office-365.md) pour plus d’informations de configuration. |
 | Télémétrie Windows | Menu Paramètres de la solution. Consultez [Analytique de Windows dans le Portail Azure](/windows/deployment/update/windows-analytics-azure-portal) pour plus d’informations sur la configuration. |
 | Connecteur ITSM    | Consultez [Connecter des produits/services ITSM à IT Service Management Connector](../log-analytics/log-analytics-itsmc-connections.md) pour obtenir des instructions sur la connexion de votre service ITSM avec Log Analytics. |
 
@@ -110,7 +110,7 @@ Gérer les solutions dans le menu **Solutions** de l’espace de travail.
 Dans le portail OMS, vous installez des solutions de gestion à partir de la galerie de solutions et vous les supprimez des **Paramètres**. Dans le portail Azure, [installez des solutions de gestion](../monitoring/monitoring-solutions.md#install-a-management-solution) à partir de la Place de marché Microsoft Azure. [Supprimer des solutions](../monitoring/monitoring-solutions.md#remove-a-management-solution) de la liste des solutions installées.
 
 ## <a name="how-do-i-create-and-manage-alerts"></a>Comment créer et gérer les alertes ?
-Les règles d’alerte basées sur des requêtes Log Analytics sont désormais gérées dans [l’expérience d’alerte unifiée](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md). Consultez [Comment étendre des alertes à partir de Log Analytics dans Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) pour plus d’informations sur la configuration et l’utilisation d’alertes dans le portail Azure.
+Les règles d’alerte basées sur des requêtes Log Analytics sont désormais gérées dans [l’expérience d’alerte unifiée](../monitoring-and-diagnostics/alert-metric.md). Consultez [Comment étendre des alertes à partir de Log Analytics dans Azure Alerts](../monitoring-and-diagnostics/monitoring-alerts-extend-tool.md) pour plus d’informations sur la configuration et l’utilisation d’alertes dans le portail Azure.
 
 ## <a name="how-do-i-access-my-dashboards"></a>Comment accéder à mes tableaux de bord ?
 La fonctionnalité [Mon tableau de bord](../log-analytics/log-analytics-dashboards.md) de Log Analytics est déconseillée. Cette fonctionnalité vous permettait d’avoir une collection privée de composants du Concepteur de vues. Elle a été remplacée par la fonctionnalité de tableau de bord Azure intégrée. Vous pouvez continuer à visualiser les données dans Log Analytics à l’aide du [Concepteur de vues](../log-analytics/log-analytics-view-designer.md) pour les vues partagées. Vous pouvez également épingler des visualisations à partir de ces vues, ou pour les [requêtes individuelles](../log-analytics/log-analytics-tutorial-dashboards.md), dans les tableaux de bord Azure.

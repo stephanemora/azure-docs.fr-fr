@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b229dbc90f3f6ecc226c88ee393114f233bcf1a2
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cc631f139e7f11d82f2caac83770754060353d07
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035401"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277713"
 ---
 # <a name="tutorial-1-build-custom-app-to-determine-user-intentions"></a>Tutoriel 1 : Générer une application personnalisée pour déterminer les intentions de l’utilisateur
 
@@ -25,7 +25,7 @@ L’objet de l’application consiste à déterminer l’intention véhiculée p
 
 Une fois que LUIS a retourné la réponse JSON, il en a fini avec cette demande. LUIS ne fournit pas de réponses aux énoncés de l’utilisateur ; il identifie uniquement le type d’informations demandé dans un langage naturel. 
 
-**Ce tutoriel vous montre comment effectuer les opérations suivantes :**
+**Dans ce tutoriel, vous allez découvrir comment :**
 
 > [!div class="checklist"]
 > * Créer une application 
@@ -71,7 +71,7 @@ Une fois que LUIS a retourné la réponse JSON, il en a fini avec cette demande.
 
     [![](media/luis-quickstart-intents-only/utterance-getstoreinfo.png "Capture d’écran d’une saisie de nouveaux énoncés pour une intention MyStore")](media/luis-quickstart-intents-only/utterance-getstoreinfo.png#lightbox)
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]    
 
 
 ## <a name="none-intent"></a>Intention None 
@@ -156,11 +156,11 @@ Revenez au site web LUIS et créez une intention pour déterminer si l’énonc�
 
 ## <a name="train-again"></a>Réentraîner
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-again"></a>Republier
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="get-intent-again"></a>Reconnaître l’intention de nouveau
 

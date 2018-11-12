@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 32881f815a714e355adf05c07a3cf114933f3fe9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f865768e6ebfd9e01de1bd7e69c1224b66f2ea5e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39529698"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231786"
 ---
 # <a name="microsoft-azure-storage-performance-and-scalability-checklist"></a>Liste de contrôle des performances et de l’extensibilité de Microsoft Azure Storage
 ## <a name="overview"></a>Vue d’ensemble
@@ -90,7 +90,7 @@ Chaque service Azure Storage présente des objectifs d’extensibilité en term
 * [Messages de file d’attente par seconde](#subheading39)  
 
 #### <a name="sub1bandwidth"></a>Cible d’extensibilité de bande passante pour tous les services
-Au moment de la rédaction du présent document, les objectifs de bande passante, aux États-Unis, d’un compte de stockage géo-redondant (GRS) étaient de 10 Gbits/s (gigabits par seconde) en entrée (données envoyées vers le compte de stockage) et de 20 Gbits/s en sortie (données envoyées à partir du compte de stockage). Ces limites sont plus élevées dans le cas d’un compte de stockage redondant local (LRS), à savoir : 20 Gbits/s en entrée et 30 Gbits/s en sortie.  Les limites de bande passante internationales peuvent être inférieures. Pour les consulter, rendez-vous sur la [page traitant des objectifs d’extensibilité](http://msdn.microsoft.com/library/azure/dn249410.aspx).  Pour plus d’informations sur les options de redondance du stockage, voir les liens de la section [Ressources utiles](#sub1useful) ci-dessous.  
+Au moment de la rédaction du présent document, les objectifs de bande passante, aux États-Unis, d’un compte de stockage géo-redondant (GRS) étaient de 10 Gbits/s (gigabits par seconde) en entrée (données envoyées vers le compte de stockage) et de 20 Gbits/s en sortie (données envoyées à partir du compte de stockage). Ces limites sont plus élevées dans le cas d’un compte de stockage redondant local (LRS), à savoir : 20 Gbits/s en entrée et 30 Gbits/s en sortie.  Les limites de bande passante internationales peuvent être inférieures. Pour les consulter, rendez-vous sur la [page traitant des objectifs d’extensibilité](https://msdn.microsoft.com/library/azure/dn249410.aspx).  Pour plus d’informations sur les options de redondance du stockage, voir les liens de la section [Ressources utiles](#sub1useful) ci-dessous.  
 
 #### <a name="what-to-do-when-approaching-a-scalability-target"></a>Que faire lorsque l’on s’approche d’un objectif d’extensibilité ?
 Si votre application s’approche des objectifs d’extensibilité d’un seul compte de stockage, pensez à appliquer l’une des méthodes suivantes :  
@@ -104,7 +104,7 @@ Si votre application s’approche des objectifs d’extensibilité d’un seul c
 Suivez les liens ci-dessous pour obtenir des informations détaillées sur les objectifs d'évolutivité :
 
 * Pour plus d’informations sur les objectifs d’extensibilité, consultez [Objectifs de performance et évolutivité d’Azure Storage](storage-scalability-targets.md) .
-* Consultez la [réplication Azure Storage](storage-redundancy.md) et le billet de blog [Options de redondance de Microsoft Azure Storage et stockage géo-redondant avec accès en lecture](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) pour plus d’informations sur les options de redondance de stockage.
+* Consultez la [réplication Azure Storage](storage-redundancy.md) et le billet de blog [Options de redondance de Microsoft Azure Storage et stockage géo-redondant avec accès en lecture](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/11/introducing-read-access-geo-replicated-storage-ra-grs-for-windows-azure-storage.aspx) pour plus d’informations sur les options de redondance de stockage.
 * Pour obtenir des informations à jour sur la tarification des services Azure, consultez la page [Tarification Azure](https://azure.microsoft.com/pricing/overview/).  
 
 ### <a name="subheading47"></a>Conventions d’affectation de noms aux partitions
@@ -149,7 +149,7 @@ Ces deux technologies vous aident à éviter toute charge inutile (ainsi que les
 #### <a name="useful-resources"></a>Ressources utiles
 Pour plus d’informations sur SAP, voir la page [Signatures d’accès partagé, partie 1 : présentation du modèle SAP](../storage-dotnet-shared-access-signature-part-1.md)  
 
-Pour plus d’informations sur CORS, consultez [Prise en charge du service Partage des ressources cross-origin (CORS) pour les services Azure Storage](http://msdn.microsoft.com/library/azure/dn535601.aspx).  
+Pour plus d’informations sur CORS, consultez [Prise en charge du service Partage des ressources cross-origin (CORS) pour les services Azure Storage](https://msdn.microsoft.com/library/azure/dn535601.aspx).  
 
 ### <a name="caching"></a>Mise en cache
 #### <a name="subheading7"></a>Récupération de données
@@ -159,7 +159,7 @@ Dans certains cas, vous pouvez déterminer que votre application part du princip
 
 Les données de configuration, de recherche et d’autres données toujours utilisées par l’application constituent de parfaits candidats pour la mise en cache.  
 
-Pour savoir comment faire en sorte que les propriétés d’un objet blob détectent la date de la dernière modification à l’aide de .NET, consultez [Configuration et récupération des propriétés et des métadonnées](../blobs/storage-properties-metadata.md). Pour plus d’informations sur les téléchargements conditionnels, consultez [Spécification d’en-têtes conditionnels pour les opérations de Service Blob](http://msdn.microsoft.com/library/azure/dd179371.aspx).  
+Pour savoir comment faire en sorte que les propriétés d’un objet blob détectent la date de la dernière modification à l’aide de .NET, consultez [Configuration et récupération des propriétés et des métadonnées](../blobs/storage-properties-metadata.md). Pour plus d’informations sur les téléchargements conditionnels, consultez [Spécification d’en-têtes conditionnels pour les opérations de Service Blob](https://msdn.microsoft.com/library/azure/dd179371.aspx).  
 
 #### <a name="subheading8"></a>Téléchargement de données par lots
 Dans certains scénarios d’application, vous pouvez agréger des données en local, puis les télécharger périodiquement dans un lot au lieu de les télécharger immédiatement une à une. Par exemple, une application web peut conserver un fichier journal des activités : l’application peut soit télécharger, sous la forme d’une entité de table, les détails de chaque activité lorsqu’elle se produit (ce qui implique de nombreuses opérations de stockage), soit enregistrer les détails de l’activité dans un fichier journal local, puis les télécharger régulièrement vers un objet blob sous la forme d’un fichier délimité. Si chaque entrée du journal a une taille de 1 Ko, vous pouvez en télécharger des milliers au cours d’une seule transaction « Put Blob » (vous pouvez télécharger un objet d’une taille maximale de 64 Mo au cours d’une seule transaction). Bien sûr, si l’ordinateur local tombe en panne avant le téléchargement, vous pouvez perdre des données de journal : le développeur de l’application doit penser à la possibilité de défaillances de périphérique client ou de téléchargement.  Si les données d’activité doivent être téléchargées pour un intervalle de temps (et pas seulement pour une seule activité), il est préférable d’utiliser des objets blob plutôt que des tables.
@@ -178,7 +178,7 @@ Vous devez définir la limite de connexions avant d’ouvrir une connexion.
 
 Pour les autres langages de programmation, voir la documentation correspondante pour savoir comment définir la limite de connexions.  
 
-Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](http://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
+Pour plus d’informations, consultez le billet de blog [Services web : connexions simultanées](https://blogs.msdn.com/b/darrenj/archive/2005/03/07/386655.aspx).  
 
 #### <a name="subheading10"></a>Augmentation du nombre minimum de threads du pool de threads en cas d’utilisation de code synchrone avec Async Tasks
 Ce code augmente le nombre minimum de threads du pool de threads :  
@@ -187,12 +187,12 @@ Ce code augmente le nombre minimum de threads du pool de threads :
 ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
 ```
 
-Pour plus d’informations, consultez [Méthode ThreadPool.SetMinThreads](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
+Pour plus d’informations, consultez [Méthode ThreadPool.SetMinThreads](https://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
 
 #### <a name="subheading11"></a>Utilisation du nettoyage de la mémoire de .NET 4.5
 Utilisez .NET 4.5 ou version ultérieure pour que l’application cliente tire parti des améliorations de la fonctionnalité de nettoyage de la mémoire du serveur sur le plan des performances.
 
-Pour plus d'informations, consultez l'article [Présentation des améliorations des performances de .NET 4.5](http://msdn.microsoft.com/magazine/hh882452.aspx).  
+Pour plus d'informations, consultez l'article [Présentation des améliorations des performances de .NET 4.5](https://msdn.microsoft.com/magazine/hh882452.aspx).  
 
 ### <a name="subheading12"></a>Parallélisme illimité
 Le parallélisme peut améliorer sensiblement les performances. Soyez toutefois prudent lorsque vous utilisez le parallélisme illimité (nombre de threads et/ou de demandes parallèles illimité) pour charger ou télécharger des données, ou lors de l’utilisation de plusieurs rôles de travail pour accéder à plusieurs partitions (conteneurs, files d’attente ou partitions de table) dans le même compte de stockage ou à plusieurs éléments d’une même partition. Si vous optez pour un parallélisme illimité, votre application peut dépasser les capacités de l’appareil client ou les objectifs d’extensibilité du compte de stockage, ce qui se traduit par des temps de latence plus importants et par une limitation.  
@@ -210,7 +210,7 @@ Les erreurs de connectivité ne sont pas dues à une limitation et sont généra
 Les bibliothèques clientes peuvent faire la distinction entre les erreurs renouvelables et celles qui ne le sont pas. Cependant, si vous écrivez votre propre code par rapport à l’API REST de stockage, n’oubliez pas certaines erreurs non renouvelables : par exemple, une réponse 400 (Bad Request) indique que l’application cliente a envoyé une demande qui n’a pas pu être traitée car elle n’était pas au format attendu. Renvoyer cette demande générera à chaque fois la même réponse. La renouveler ne sert donc à rien ! Si vous écrivez votre propre code pour l’API REST de stockage, vous devez connaître la signification des codes d’erreur et, le cas échéant, la méthode de renouvellement à appliquer pour chacun d’eux.  
 
 #### <a name="useful-resources"></a>Ressources utiles
-Pour plus d’informations sur les codes d’erreur de stockage, voir la page [Codes d’état et codes d’erreur](http://msdn.microsoft.com/library/azure/dd179382.aspx) sur le site web Microsoft Azure.  
+Pour plus d’informations sur les codes d’erreur de stockage, voir la page [Codes d’état et codes d’erreur](https://msdn.microsoft.com/library/azure/dd179382.aspx) sur le site web Microsoft Azure.  
 
 ## <a name="blobs"></a>Objets blob
 Outre les pratiques éprouvées pour [Tous les services](#allservices) décrites précédemment, les pratiques ci-dessous s'appliquent spécifiquement au service BLOB.  
@@ -236,7 +236,7 @@ Il convient cependant de tenir compte du fait que lorsque vous effectuez une cop
 
 Nous attirons votre attention sur le fait que les copies effectuées au sein d’un même compte de stockage sont généralement plus rapides.  
 
-Pour plus d’informations, consultez [Copie d’un objet blob](http://msdn.microsoft.com/library/azure/dd894037.aspx).  
+Pour plus d’informations, consultez [Copie d’un objet blob](https://msdn.microsoft.com/library/azure/dd894037.aspx).  
 
 #### <a name="subheading18"></a>Utilisation d’AzCopy
 L’équipe Stockage Azure a développé un outil en ligne de commande baptisé « AzCopy », destiné à faciliter le transfert en bloc de nombreux objets blob entre des comptes de stockage.  Cet outil est optimisé pour ce scénario et peut générer des taux de transfert élevés.  Il est vivement conseillé de l’utiliser pour les opérations de chargement, de téléchargement et de copie en bloc. Pour plus d’informations et pour accéder au téléchargement, consultez [Transfert de données avec l’utilitaire de ligne de commande AzCopy](storage-use-azcopy.md).  
@@ -266,7 +266,7 @@ Pour télécharger rapidement de nombreux objets blob, effectuez cette opératio
 ### <a name="subheading23"></a>Choix du type d’objet blob approprié
 Azure Storage prend en charge deux types d’objet blob : *de pages* et *de blocs*. Pour un scénario d’utilisation donné, le type d’objet blob choisi affecte les performances et l’extensibilité de la solution. Les objets blob de blocs sont utiles si vous souhaitez télécharger efficacement de grandes quantités de données : par exemple, une application cliente a besoin de télécharger des photos ou vidéos sur le stockage d’objets blob. Les objets blob de pages sont appropriées si l’application doit effectuer des écritures aléatoires sur les données : par exemple, les disques durs virtuels d’Azure sont stockés en tant qu’objets blob de pages.  
 
-Pour plus d’informations, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](http://msdn.microsoft.com/library/azure/ee691964.aspx).  
+Pour plus d’informations, consultez [Présentation des objets blob de blocs, des objets blob d’ajout et des objets blob de pages](https://msdn.microsoft.com/library/azure/ee691964.aspx).  
 
 ## <a name="tables"></a>Tables
 Outre les pratiques éprouvées pour [Tous les services](#allservices) décrites précédemment, les pratiques ci-dessous s'appliquent spécifiquement au service de Table.  
@@ -286,12 +286,12 @@ Cette section décrit les paramètres de configuration rapide que vous pouvez ut
 #### <a name="subheading25"></a>Utilisation de JSON
 Depuis la version 2013-08-15 du service de stockage, le service de Table prend en charge l’utilisation de JSON plutôt que le format AtomPub XML pour transférer des données de table. Cela permet de réduire la taille de la charge utile de quelque 75 % et d’améliorer sensiblement les performances de votre application.
 
-Pour plus d’informations, consultez [Tables Microsoft Azure : présentation de JSON](http://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) et [Format de charge utile pour les opérations du service de Table](http://msdn.microsoft.com/library/azure/dn535600.aspx).
+Pour plus d’informations, consultez [Tables Microsoft Azure : présentation de JSON](https://blogs.msdn.com/b/windowsazurestorage/archive/2013/12/05/windows-azure-tables-introducing-json.aspx) et [Format de charge utile pour les opérations du service de Table](https://msdn.microsoft.com/library/azure/dn535600.aspx).
 
 #### <a name="subheading26"></a>Désactivation de Nagle
 L’algorithme de Nagle est utilisé à grande échelle sur les réseaux TCP/IP en vue d’améliorer les performances du réseau. Cependant, il n’est pas idéal dans toutes les situations (c’est le cas, par exemple, dans les environnements très interactifs). Pour le stockage Azure, l’algorithme de Nagle a un impact négatif sur les performances des demandes adressées aux services de table et de file d’attente. Vous devez donc le désactiver si cela s’avère possible.  
 
-Pour plus d’informations, voir le billet de blog [Algorithme Nagle et petites demandes : des rapports peu amicaux](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) qui explique les problèmes d’interaction entre l’algorithme de Nagle et les demandes de table et de file d’attente. Vous y apprendrez également comment le désactiver dans votre application cliente.  
+Pour plus d’informations, voir le billet de blog [Algorithme Nagle et petites demandes : des rapports peu amicaux](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/06/25/nagle-s-algorithm-is-not-friendly-towards-small-requests.aspx) qui explique les problèmes d’interaction entre l’algorithme de Nagle et les demandes de table et de file d’attente. Vous y apprendrez également comment le désactiver dans votre application cliente.  
 
 ### <a name="schema"></a>Schéma
 Le mode de représentation et d’interrogation de vos données constitue le principal facteur ayant une incidence sur les performances du service de Table. Bien que chaque application soit différente, cette section énumère quelques pratiques générales concernant les points suivants :  

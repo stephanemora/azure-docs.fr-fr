@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/03/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c0045af02b307bff686d47dd8fc4aabb290711a4
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: dadff0dc501c20ef525fdfb7578cb391f29b3302
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49400420"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263943"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Forum aux questions sur les disques de machines virtuelles et les disques Premium gérés et non gérés Azure IaaS
 
@@ -105,7 +105,7 @@ Oui, les disques managés et non managés sont pris en charge. Nous vous recomma
 
 Oui.
 
-**Puis-je créer des disques gérés disposant du stockage localement redondant, géoredondant ou redondant dans une zone ?**
+**Puis-je créer des disques gérés disposant du stockage localement redondant, géoredondant ou redondant interzone ?**
 
 Actuellement, Azure Managed Disks prend uniquement en charge les disques gérés disposant du stockage localement redondant.
 
@@ -292,7 +292,7 @@ Il n’existe aucun inconvénient à l’utilisation de TRIM sur des disques Azu
 
 **Quelle est la plus grande taille de disque managé prise en charge pour les disques de système d’exploitation et de données ?**
 
-Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 Tio. La plus grande taille prise en charge par Azure pour un disque de système d’exploitation est de 2 Tio. Azure prend en charge jusqu’à 32 Tio pour les disques de données managés. Les tailles de disque managé supérieures à 4 Tio sont en préversion. Pour plus d’informations, [lisez notre billet de blog](http://aka.ms/azure-large-disk-32TB-preview-blog).
+Le type de partition pris en charge par Azure pour un disque de système d’exploitation est l’enregistrement de démarrage principal (MBR). Le format MBR prend en charge un disque dont la taille peut atteindre 2 Tio. La plus grande taille prise en charge par Azure pour un disque de système d’exploitation est de 2 Tio. Azure prend en charge jusqu’à 32 Tio pour les disques de données managés. Les tailles de disque managé supérieures à 4 Tio sont en préversion. Pour plus d’informations, [lisez notre billet de blog](https://aka.ms/azure-large-disk-32TB-preview-blog).
 
 **Quelle est la plus grande taille de disque non managé prise en charge pour les disques de système d’exploitation et de données ?**
 
@@ -309,7 +309,7 @@ Vous n’avez pas besoin de mettre à niveau votre version des outils Azure pour
 |Outils Azure      | Versions prises en charge                                |
 |-----------------|---------------------------------------------------|
 |Azure PowerShell | Numéro de version 4.1.0 : version de juin 2017 ou version ultérieure|
-|Azure CLI v1     | Numéro de version 0.10.13 : version de mai 2017 ou version ultérieure|
+|Azure CLI v1     | Numéro de version 0.10.13 : version de mai 2017 ou version ultérieure|
 |Azure CLI v2     | Numéro de version 2.0.12 : version de juillet 2017 ou version ultérieure|
 |AzCopy           | Numéro de version 6.1.0 : version de juin 2017 ou version ultérieure|
 

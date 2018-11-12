@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 99e0b22b663f6edab9646111b390186a6f89a90f
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 1521bba188fcd7d8bade88196fe687929f414f93
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47035179"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283510"
 ---
 # <a name="tutorial-6-group-and-extract-related-data"></a>Tutoriel 6 : Regrouper et extraire des données associées
 Dans ce tutoriel, vous allez ajouter une entité composite pour regrouper les données extraites dans une seule entité contenante. Grâce au regroupement des données, l’application cliente peut extraire facilement les données associées dans différents types de données.
@@ -32,11 +32,11 @@ Elle est adaptée à ce type de données, car les données :
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Utiliser l’application de tutoriel existante.
-> * Ajouter une entité composite. 
-> * Entraîner.
-> * Publier.
-> * Obtenir les intentions et les entités à partir du point de terminaison.
+> * Utiliser l’application de tutoriel existante
+> * Ajouter une entité composite 
+> * Former
+> * Publish
+> * Obtenir les intentions et les entités à partir du point de terminaison
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
@@ -97,7 +97,7 @@ Les données extraites du point de terminaison doivent contenir ces informations
 ]
 ```
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Dans la page **Intentions**, sélectionnez l’intention **MoveEmployee**. 
 
@@ -145,11 +145,11 @@ Les données extraites du point de terminaison doivent contenir ces informations
 
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Capture d’écran de LUIS sur « MoveEmployee » avec tous les énoncés étiquetés")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
-## <a name="train"></a>Entraîner
+## <a name="train"></a>Former
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish"></a>Publier
+## <a name="publish"></a>Publish
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 

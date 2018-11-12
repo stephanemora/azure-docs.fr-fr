@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 7dbbfb2d97b7015118edca3db3ae050ad07c51ee
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 42a4ea1e4dc352e56fbd65f69c9ed71e3b0c1038
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667445"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238073"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configurer manuellement des groupes de disponibilité AlwaysOn dans une machine virtuelle Azure
 
@@ -33,13 +33,13 @@ Ce schéma illustre ce que vous allez créer dans ce didacticiel.
 
 ![Groupe de disponibilité](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-## <a name="prerequisites"></a>Conditions préalables
+## <a name="prerequisites"></a>Prérequis
 
-Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Pour plus d’informations, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](http://msdn.microsoft.com/library/ff877884.aspx).
+Ce didacticiel suppose que vous avez des notions de base sur les groupes de disponibilité AlwaysOn SQL Server. Pour plus d’informations, consultez [Vue d’ensemble des groupes de disponibilité AlwaysOn (SQL Server)](https://msdn.microsoft.com/library/ff877884.aspx).
 
 Le tableau suivant répertorie les conditions requises que vous devez remplir avant de commencer ce didacticiel :
 
-|  |Conditions préalables |Description |
+|  |Prérequis |Description |
 |----- |----- |----- |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png) | Deux serveurs SQL Server | - Dans un groupe à haute disponibilité Azure <br/> - Dans un domaine <br/> - Avec la fonctionnalité de Clustering de basculement installée |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | Partage de fichiers pour le témoin de cluster |  
@@ -119,7 +119,7 @@ Ajoutez l’autre serveur SQL Server au cluster.
 
 ### <a name="add-a-cluster-quorum-file-share"></a>Ajouter un partage de fichiers de quorum de cluster
 
-Dans cet exemple, le cluster Windows utilise un partage de fichiers pour créer un quorum de cluster. Ce didacticiel utilise un quorum Nœud et partage de fichiers majoritaires. Pour plus d’informations, consultez [Présentation des configurations de quorum dans un cluster de basculement](http://technet.microsoft.com/library/cc731739.aspx).
+Dans cet exemple, le cluster Windows utilise un partage de fichiers pour créer un quorum de cluster. Ce didacticiel utilise un quorum Nœud et partage de fichiers majoritaires. Pour plus d’informations, consultez [Présentation des configurations de quorum dans un cluster de basculement](https://technet.microsoft.com/library/cc731739.aspx).
 
 1. Connectez-vous au serveur de membre de témoin de partage de fichiers avec une session Bureau à distance.
 
@@ -168,7 +168,7 @@ Ensuite, configurez le quorum du cluster.
 1. Dans **Sélectionner le témoin de quorum**, cliquez sur **Configurer un témoin de partage de fichiers**.
 
    >[!TIP]
-   >Windows Server 2016 prend en charge un témoin cloud. Si vous choisissez ce type de témoin, un témoin de partage de fichiers est inutile. Pour plus d’informations, consultez [Déployer un témoin cloud pour un cluster de basculement](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Ce didacticiel utilise un témoin de partage de fichiers, que les systèmes d’exploitation antérieurs prennent en charge.
+   >Windows Server 2016 prend en charge un témoin cloud. Si vous choisissez ce type de témoin, un témoin de partage de fichiers est inutile. Pour plus d’informations, consultez [Déployer un témoin cloud pour un cluster de basculement](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness). Ce didacticiel utilise un témoin de partage de fichiers, que les systèmes d’exploitation antérieurs prennent en charge.
 
 1. Dans **Configurer le témoin de partage de fichiers**, tapez le chemin d’accès du partage que vous avez créé. Cliquez sur **Suivant**.
 
@@ -355,7 +355,7 @@ Un équilibreur de charge Azure peut être Standard ou De base. Une équilibreur
 
    | Paramètre | Champ |
    | --- | --- |
-   | **Name** |Utilisez un nom pour l’équilibrage de charge, par exemple **sqlLB**. |
+   | **Nom** |Utilisez un nom pour l’équilibrage de charge, par exemple **sqlLB**. |
    | **Type** |Interne |
    | **Réseau virtuel** |Utilisez le nom de votre réseau virtuel Azure. |
    | **Sous-réseau** |Utilisez le nom du sous-réseau auquel appartient la machine virtuelle.  |
@@ -399,7 +399,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 
    | Paramètre | Description | Exemples
    | --- | --- |---
-   | **Name** | Texte | SQLAlwaysOnEndPointProbe |
+   | **Nom** | Texte | SQLAlwaysOnEndPointProbe |
    | **Protocole** | Choisissez TCP. | TCP |
    | **Port** | Tout port inutilisé. | 59999 |
    | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5. |
@@ -414,7 +414,7 @@ Pour configurer l’équilibrage de charge, vous devez créer un pool principal 
 1. Configurez les règles d’équilibrage de charge de l’écouteur comme suit.
    | Paramètre | Description | Exemples
    | --- | --- |---
-   | **Name** | Texte | SQLAlwaysOnEndPointListener |
+   | **Nom** | Texte | SQLAlwaysOnEndPointListener |
    | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée lorsque vous avez créé l’équilibrage de charge. |
    | **Protocole** | Choisissez TCP. |TCP |
    | **Port** | Utiliser le port pour l'écouteur de groupe de disponibilité | 1433 |
@@ -441,7 +441,7 @@ L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur d
 
    | Paramètre | Description | Exemples
    | --- | --- |---
-   | **Name** | Texte | WSFCEndPointProbe |
+   | **Nom** | Texte | WSFCEndPointProbe |
    | **Protocole** | Choisissez TCP. | TCP |
    | **Port** | Tout port inutilisé. | 58888 |
    | **Intervalle**  | Durée entre les tentatives de la sonde, en secondes. |5. |
@@ -454,7 +454,7 @@ L’adresse IP du cluster WSFC doit également se trouver sur l’équilibreur d
 1. Définissez les règles d’équilibrage de charge de l’adresse IP du cluster principal comme suit.
    | Paramètre | Description | Exemples
    | --- | --- |---
-   | **Name** | Texte | WSFCEndPoint |
+   | **Nom** | Texte | WSFCEndPoint |
    | **Frontend IP address (Adresse IP frontale)** | Choisissez une adresse. |Utilisez l’adresse que vous avez créée quand vous avez configuré l’adresse IP du cluster WSFC. Celle-ci diffère de l’adresse IP de l’écouteur |
    | **Protocole** | Choisissez TCP. |TCP |
    | **Port** | Utilisez le port de l’adresse IP du cluster. Il s’agit d’un port disponible qui n’est pas utilisé pour le port de la sonde de l’écouteur. | 58888 |
@@ -515,7 +515,7 @@ Pour tester la connexion :
 La connexion SQLCMD se connecte automatiquement à l’instance SQL Server hébergeant le réplica principal.
 
 > [!TIP]
-> Vérifiez que le port spécifié est ouvert sur le pare-feu des deux serveurs SQL. Les deux serveurs requièrent une règle de trafic entrant sur le port TCP utilisé. Pour plus d’informations, consultez [Ajouter ou modifier une règle de pare-feu](http://technet.microsoft.com/library/cc753558.aspx).
+> Vérifiez que le port spécifié est ouvert sur le pare-feu des deux serveurs SQL. Les deux serveurs requièrent une règle de trafic entrant sur le port TCP utilisé. Pour plus d’informations, consultez [Ajouter ou modifier une règle de pare-feu](https://technet.microsoft.com/library/cc753558.aspx).
 
 ## <a name="next-steps"></a>Étapes suivantes
 
