@@ -2,19 +2,19 @@
 title: Utiliser Hive avec Hadoop pour l’analyse des journaux de site web - Azure HDInsight
 description: Découvrez comment utiliser Hive avec HDInsight pour analyser les journaux de site web. Vous allez utiliser un fichier journal en tant qu'entrée dans une table HDInsight, puis faire appel à HiveQL pour interroger les données.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/17/2016
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 47175ed4bc01a43d1f21cbfc84b8a788f11b7338
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c0a15bacd3aaf97a3caa54ee8bf70a9c4cf54663
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048022"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233590"
 ---
 # <a name="use-hive-with-windows-based-hdinsight-to-analyze-logs-from-websites"></a>Utiliser Hive avec HDInsight Windows pour analyser les journaux de site web
 Découvrez comment utiliser HiveQL avec HDInsight pour analyser les journaux d'un site web. L’analyse des journaux de site web permet de segmenter votre public en fonction d’activités similaires, de classer les visiteurs d’un site sur la base de données démographiques, d’identifier le contenu qu’ils affichent, les sites web qu’ils ont visités avant, etc.
@@ -34,7 +34,7 @@ Dans cet exemple, vous utilisez un cluster HDInsight pour analyser des fichiers 
 ## <a name="prerequisites"></a>Prérequis
 * Vous devez avoir approvisionné un cluster Hadoop sur Azure HDInsight. Pour plus d’informations, consultez la rubrique [Provisionner des clusters HDInsight](../hdinsight-hadoop-provision-linux-clusters.md).
 * Microsoft Excel 2013 ou Microsoft Excel 2010 doivent être installés.
-* Vous devez disposer d'un [pilote ODBC Microsoft Hive](http://www.microsoft.com/download/details.aspx?id=40886) pour importer des données à partir de Hive dans Excel.
+* Vous devez disposer d'un [pilote ODBC Microsoft Hive](https://www.microsoft.com/download/details.aspx?id=40886) pour importer des données à partir de Hive dans Excel.
 
 ## <a name="to-run-the-sample"></a>Exécution de l'exemple
 1. Dans le [portail Azure](https://portal.azure.com/), depuis le tableau d’accueil (si vous y avez épinglé le cluster), cliquez sur la vignette du cluster sur lequel vous souhaitez exécuter l’exemple.

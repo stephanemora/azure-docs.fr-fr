@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 03/03/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: a99375ae961e9239e5e8ea86db8b1b9b002b10c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0f237b4d742c0c7de1e836e2b9d83502cfe1a30d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526961"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230985"
 ---
 # <a name="storage-analytics"></a>Storage Analytics
 
@@ -169,7 +169,7 @@ Les actions suivantes effectuées par Storage Analytics sont facturables :
 Si vous avez configuré une stratégie de rétention des données, vous n'êtes pas facturé pour les transactions de suppression lorsque Storage Analytics supprime les anciennes données de journalisation et de métriques. Toutefois, les transactions de suppression d'un client sont facturables. Pour plus d'informations sur les stratégies de rétention, consultez [Définition d'une stratégie de rétention des données Storage Analytics](https://msdn.microsoft.com/library/azure/hh343263.aspx).
 
 ### <a name="understanding-billable-requests"></a>Présentation des demandes facturables
-Chaque demande adressée à un service de stockage d’un compte est facturable ou non. Storage Analytics enregistre chaque demande effectuée à un service, avec un message d'état qui indique comment la demande a été traitée. De même, Storage Analytics stocke des métriques pour un service et pour les opérations de l'API de ce service, y compris les pourcentages et le décompte de certains messages d'état. Conjointement, ces fonctionnalités peuvent vous aider à analyser vos demandes facturables, à améliorer votre application et à diagnostiquer les problèmes liés aux demandes à vos services. Pour plus d'informations sur la facturation, consultez [Présentation de la facturation d’Azure Storage - bande passante, transactions et capacité](http://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
+Chaque demande adressée à un service de stockage d’un compte est facturable ou non. Storage Analytics enregistre chaque demande effectuée à un service, avec un message d'état qui indique comment la demande a été traitée. De même, Storage Analytics stocke des métriques pour un service et pour les opérations de l'API de ce service, y compris les pourcentages et le décompte de certains messages d'état. Conjointement, ces fonctionnalités peuvent vous aider à analyser vos demandes facturables, à améliorer votre application et à diagnostiquer les problèmes liés aux demandes à vos services. Pour plus d'informations sur la facturation, consultez [Présentation de la facturation d’Azure Storage - bande passante, transactions et capacité](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx).
 
 Lorsque vous consultez des données Storage Analytics, vous pouvez utiliser les tables de la rubrique [Opérations et messages d'état enregistrés Storage Analytics](https://msdn.microsoft.com/library/azure/hh343260.aspx) pour identifier les demandes facturables. Vous pouvez ensuite comparer vos données de journaux et de métriques aux messages d'état pour déterminer si vous avez été facturé pour une demande spécifique. Vous pouvez également utiliser les tables de la rubrique précédente pour examiner la disponibilité d'un service de stockage ou d'une opération individuelle de l'API.
 

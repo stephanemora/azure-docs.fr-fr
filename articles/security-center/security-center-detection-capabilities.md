@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.openlocfilehash: a0a218fc18c1c9ede71de590179b0c93221eb80c
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 5f0f6a6d2c3e919c59f030e3cf47fc208f14caea
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161031"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51233420"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Fonctionnalités de détection d’Azure Security Center
 Ce document aborde les fonctionnalités avancées de détection d’Azure Security Center, qui permet d’identifier les menaces actives ciblant vos ressources Microsoft Azure et fournit les informations nécessaires pour y répondre rapidement.
@@ -89,5 +89,5 @@ Dans ce document, vous avez découvert les fonctionnalités de détection d’Az
 * [Surveillance de l’intégrité de la sécurité dans Azure Security Center](security-center-monitoring.md) : découvrez comment surveiller l’intégrité de vos ressources Azure.
 * [Surveillance des solutions de partenaire avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions de partenaire.
 * [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service.
-* [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
+* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure.
 

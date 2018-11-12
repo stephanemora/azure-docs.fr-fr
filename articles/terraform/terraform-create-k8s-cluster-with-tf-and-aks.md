@@ -9,12 +9,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 09/08/2018
-ms.openlocfilehash: f261c59193349d55d407e6079002b75884273e84
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fb4eabb247e6a4fe5550b2b23d34862c789bfaa1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46960241"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232322"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Créer un cluster Kubernetes avec Azure Kubernetes Service et Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) gère votre environnement Kubernetes hébergé, ce qui vous permet de déployer et de gérer de manière simple et rapide des applications en conteneur sans avoir à maîtriser l’orchestration de conteneurs. Il élimine également la charge des opérations en cours et la maintenance par configuration, la mise à niveau et la mise à l’échelle des ressources à la demande, sans déconnecter vos applications.
@@ -43,7 +43,7 @@ La première étape consiste à créer le répertoire qui contient vos fichiers 
 
     ![Invite Cloud Shell](./media/terraform-create-k8s-cluster-with-tf-and-aks/azure-portal-cloud-shell-button-min.png)
 
-1. Déplacez-vous dans le répertoire `clouddrive`.
+1. Remplacez le répertoire par le répertoire `clouddrive`.
 
     ```bash
     cd clouddrive
@@ -372,6 +372,6 @@ Les outils Kubernetes peuvent être utilisés pour vérifier le cluster nouvelle
 Dans cet article, vous avez appris à utiliser Terraform et AKS pour créer un cluster Kubernetes. Pour en savoir plus sur Terraform sur Azure, consultez les ressources supplémentaires suivantes : 
 
  [Hub Terraform sur Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Documentation Terraform Azure Provider](http://aka.ms/terraform)  
- [Source Terraform Azure Provider](http://aka.ms/tfgit)  
- [Modules Terraform Azure](http://aka.ms/tfmodules)
+ [Documentation Terraform Azure Provider](https://aka.ms/terraform)  
+ [Source Terraform Azure Provider](https://aka.ms/tfgit)  
+ [Modules Terraform Azure](https://aka.ms/tfmodules)

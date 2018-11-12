@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: b05e20b5c99c6f1b5b1bf93ca781ec97284fba79
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: bb812699795f112023b579352ac3a52bef311d40
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39004913"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232645"
 ---
 # <a name="connecting-azure-cloud-services-roles-to-a-custom-ad-domain-controller-hosted-in-azure"></a>Connexion des rôles de services cloud Azure à un contrôleur de domaine Active Directory personnalisé hébergé dans Azure
 Nous allons tout d’abord définir un réseau virtuel (VNet) dans Azure. Nous allons ensuite ajouter un contrôleur de domaine Active Directory (hébergé sur une machine virtuelle Azure) sur le réseau virtuel. Ensuite, nous ajouterons des rôles de service cloud existants sur le réseau virtuel créé au préalable, puis les connecterons au contrôleur de domaine.
@@ -95,7 +95,7 @@ Pour vous connecter à la machine virtuelle, vous pouvez obtenir le fichier RDP 
 Get-AzureRemoteDesktopFile -ServiceName $vmsvc1 -Name $vm1 -LocalPath <rdp-file-path>
 ```
 
-Une fois connecté à la machine virtuelle, configurez votre machine virtuelle comme un contrôleur de domaine Active Directory en suivant le guide pas à pas de la rubrique [Configuration de votre contrôleur de domaine Active Directory de client](http://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
+Une fois connecté à la machine virtuelle, configurez votre machine virtuelle comme un contrôleur de domaine Active Directory en suivant le guide pas à pas de la rubrique [Configuration de votre contrôleur de domaine Active Directory de client](https://social.technet.microsoft.com/wiki/contents/articles/12370.windows-server-2012-set-up-your-first-domain-controller-step-by-step.aspx).
 
 ## <a name="add-your-cloud-service-to-the-virtual-network"></a>Ajout de votre service cloud au réseau virtuel
 Ensuite, vous devez ajouter le déploiement de votre service cloud sur le nouveau réseau virtuel. Pour ce faire, modifiez votre cscfg de service cloud en ajoutant les sections pertinentes à votre cscfg à l'aide de Visual Studio ou de l'éditeur de votre choix.

@@ -7,32 +7,24 @@ items:
     href: iot-introduction.md
   - name: Services et technologies Azure IoT
     href: iot-services-and-technologies.md
-- name: solutions
-  items:
-  - name: Accélérateurs de solution IoT
-    href: /azure/iot-suite
-  - name: IoT Central
-    href: https://docs.microsoft.com/microsoft-iot-central/
-- name: Services de plateforme
+- name: Services
   items:
   - name: IoT Hub
     href: /azure/iot-hub
   - name: Service IoT Hub Device Provisioning
     href: /azure/iot-dps
+  - name: Accélérateurs de solution IoT
+    href: /azure/iot-suite
+  - name: IoT Central
+    href: /azure/iot-central
+  - name: IoT Edge
+    href: /azure/iot-edge
   - name: Azure Digital Twins
     href: /azure/digital-twins
   - name: Azure Maps
     href: /azure/azure-maps
   - name: Time Series Insights
     href: /azure/time-series-insights
-  - name: Kits de développement logiciel (SDK) IoT Service
-    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
-- name: Edge
-  items:
-  - name: IoT Edge
-    href: /azure/iot-edge
-  - name: Kits de développement logiciel (SDK) IoT Device
-    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
 - name: Sécurité
   items:
   - name: Architecture de la sécurité
@@ -43,9 +35,15 @@ items:
     href: iot-security-deployment.md
   - name: Tout savoir sur la sécurité
     href: iot-security-ground-up.md
-ms.openlocfilehash: df43416b0d1e72e152a2917846ba0407c861421b
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+- name: Kits de développement logiciel (SDK)
+  items:
+  - name: Kits de développement logiciel (SDK) IoT Service
+    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks
+  - name: Kits de développement logiciel (SDK) IoT Device
+    href: /azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks
+ms.openlocfilehash: 82b04e5f6db3142180b1a10264342862793740eb
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321358"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51287164"

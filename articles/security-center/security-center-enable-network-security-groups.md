@@ -3,7 +3,7 @@ title: Activation de groupes de sécurité réseau dans Azure Security Center | 
 description: Ce document vous montre comment implémenter la recommandation d’Azure Security Center **Activer des groupes de sécurité réseau**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: f53ed853-ffaf-4530-a019-1906ba6f341b
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 6430be5cce24091f62a7c17d881af98f9c94da95
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: f70faff478da9840a6c40b2f1360aec2cf3aecda
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299540"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235647"
 ---
 # <a name="enable-network-security-groups-in-azure-security-center"></a>Activation de groupes de sécurité réseau dans Azure Security Center
 Azure Security Center vous recommande d’activer un groupe de sécurité réseau si aucun n’est encore activé. Les groupes de sécurité réseau contiennent des règles de liste de contrôle d’accès qui autorisent ou rejettent le trafic réseau vers vos instances de machine virtuelle dans un réseau virtuel. Des groupes de sécurité réseau peuvent être associés à des sous-réseaux ou à des instances de machine virtuelle au sein de ce sous-réseau. Lorsqu’un groupe de sécurité réseau est associé à un sous-réseau, les règles ACL s’appliquent à toutes les instances de machine virtuelle présentes dans ce sous-réseau. En outre, le trafic vers un ordinateur virtuel individuel peut être limité par l’association d’un groupe de sécurité réseau directement à la machine virtuelle. Pour en savoir plus, consultez l’article [Présentation du groupe de sécurité réseau](../virtual-network/security-overview.md)
@@ -59,7 +59,7 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [Surveillance des solutions partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
 * [FAQ sur Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
-* [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
+* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-nsg/enable-nsg.png

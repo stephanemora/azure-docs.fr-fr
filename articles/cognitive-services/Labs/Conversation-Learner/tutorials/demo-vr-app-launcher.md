@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 896ec007c03e30e5c20a5344430be040271bc00b
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 31efcb2b2f05bd7a49701be708a89db8f2ef26f7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171144"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229695"
 ---
 # <a name="demo-virtual-reality-app-launcher"></a>Démonstration : Lanceur d’application de réalité virtuelle
 
@@ -23,7 +23,7 @@ Cette démonstration illustre un lanceur d’applications de réalité virtuelle
 
 ## <a name="video"></a>Vidéo
 
-[![Aperçu de démonstration Application de réalité virtuelle](http://aka.ms/cl-demo-vrapp-preview)](http://aka.ms/blis-demo-vrapp)
+[![Aperçu de démonstration Application de réalité virtuelle](https://aka.ms/cl-demo-vrapp-preview)](https://aka.ms/blis-demo-vrapp)
 
 ## <a name="requirements"></a>Configuration requise
 
@@ -65,7 +65,7 @@ Par exemple, nous allons tester une session d’apprentissage.
 3. Cliquez pour sélectionner « quelle application voulez-vous démarrer ? »
 4. Entrez « outlook ».
     - LUIS le reconnaît comme étant une entité.
-5. Cliquez sur Attribuer un score aux actions.
+5. Cliquez sur Score Actions (Actions de score).
 3. Cliquez pour sélectionner « où voulez-vous la placer ? »
 4. Entrez « sur le mur ».
     - LUIS le reconnaît comme étant un PlacementLocation.
@@ -85,10 +85,10 @@ Ouvrons une autre session d’apprentissage pour la gestion des entités inconnu
     - Le modèle reconnaît OneNote comme étant un nom d’application. La fonction `EntityDetectionCallback` définie dans le code traduit le nom entré par l’utilisateur en un nom d’application par correspondance avec la liste d’applications définie dans le code. Cela retourne ensuite l’ensemble de toutes les applications correspondantes. 
     - Si la liste des correspondances est de zéro, cela signifie que l’application n’est pas installée. Elle est placée dans unknownAppName.
     - Si elle trouve plusieurs applications, elle les copie dans `DisambigAppNames` et efface l’entité AppName.
-2. Cliquez sur Attribuer un score aux actions.
+2. Cliquez sur Score Action (Action de score).
 3. Cliquez pour sélectionner « Désolé, je ne connais pas l’application $UknownAppName. »
 4. Entrez « lancer Amazon ». Nous allons essayer l’autre chemin d’accès.
-5. Cliquez sur Attribuer un score aux actions.
+5. Cliquez sur Score Actions (Actions de score).
     - Amazon Video et Amazon Music se trouvent maintenant dans la mémoire `DisambigAppNames`, et OneNote a été effacé.
 3. Cliquez pour sélectionner « Il existe quelques applications qui ressemblent à ... »
     - Le score n’est pas très élevé, car nous n’avons à ce stade défini que quelques dialogues d’apprentissage. S’il y en avait d’autres, le modèle serait plus catégorique.

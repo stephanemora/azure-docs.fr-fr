@@ -12,12 +12,12 @@ ms.author: sstein
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: ca93d97c3e0ddab0377ef437a04e7e3e31197b97
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 6967805044bb11e9aed3fe66d580df059f7a461a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47166360"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231395"
 ---
 # <a name="split-merge-security-configuration"></a>Configuration de la sécurité du fractionnement et de la fusion
 Pour utiliser le service de fusion et de fractionnement, vous devez configurer correctement la sécurité. Ce service fait partie de la fonctionnalité d’infrastructure élastique de la base de données SQL Microsoft Azure. Pour plus d’informations, consultez le [didacticiel sur le service de fusion et de fractionnement de l’infrastructure élastique](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -29,21 +29,21 @@ Les certificats sont configurés de deux manières.
 2. [Pour configurer des certificats clients](#to-configure-client-certificates) 
 
 ## <a name="to-obtain-certificates"></a>Pour obtenir des certificats
-Les certificats peuvent être obtenus à partir d’autorités de certification publiques ou du [Service de certificats Windows](http://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Il s’agit des méthodes préférées pour obtenir des certificats.
+Les certificats peuvent être obtenus à partir d’autorités de certification publiques ou du [Service de certificats Windows](https://msdn.microsoft.com/library/windows/desktop/aa376539.aspx). Il s’agit des méthodes préférées pour obtenir des certificats.
 
 Si ces options ne sont pas disponibles, vous pouvez générer des **certificats auto-signés**.
 
 ## <a name="tools-to-generate-certificates"></a>Outils de génération de certificats
-* [makecert.exe](http://msdn.microsoft.com/library/bfsktky3.aspx)
-* [pvk2pfx.exe](http://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
+* [makecert.exe](https://msdn.microsoft.com/library/bfsktky3.aspx)
+* [pvk2pfx.exe](https://msdn.microsoft.com/library/windows/hardware/ff550672.aspx)
 
 ### <a name="to-run-the-tools"></a>Pour exécuter les outils
-* Depuis une invite de commandes développeur pour Visual Studio, consultez la rubrique [Invite de commandes Visual Studio](http://msdn.microsoft.com/library/ms229859.aspx) 
+* Depuis une invite de commandes développeur pour Visual Studio, consultez la rubrique [Invite de commandes Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) 
   
     Si installée, accédez à :
   
         %ProgramFiles(x86)%\Windows Kits\x.y\bin\x86 
-* Obtenez le kit WDK de [Windows 8.1 : téléchargement des kits et outils](http://msdn.microsoft.com/windows/hardware/gg454513#drivers)
+* Obtenez le kit WDK de [Windows 8.1 : téléchargement des kits et outils](https://msdn.microsoft.com/windows/hardware/gg454513#drivers)
 
 ## <a name="to-configure-the-ssl-certificate"></a>Pour configurer le certificat SSL
 Un certificat SSL est nécessaire pour chiffrer les communications et authentifier le serveur. Choisissez le plus approprié des trois scénarios ci-dessous et exécutez toutes les étapes associées :

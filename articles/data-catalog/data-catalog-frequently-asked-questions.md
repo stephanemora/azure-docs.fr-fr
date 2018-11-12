@@ -8,12 +8,12 @@ ms.assetid: 5c7e209a-458c-4bb4-96bb-7ed178f9528a
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 9aaba38b7dc0cd2bf659c9d91c9d7660bd17a6dd
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: f08825c17c1ba61fc09edc1d8f2c226af8d4266f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47409182"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231462"
 ---
 # <a name="azure-data-catalog-frequently-asked-questions"></a>Forum Aux Questions Azure Data Catalog
 Cet article fournit des réponses aux questions fréquemment posées sur le service Azure Data Catalog.
@@ -99,7 +99,7 @@ Vous pouvez supprimer un objet de Data Catalog en sélectionnant l’objet dans
 Un expert est une personne qui a un point de vue éclairé sur un objet de données. Un objet peut avoir plusieurs experts. Il n’est pas nécessaire que l’expert soit le « propriétaire » d’un objet ; il s’agit simplement d’une personne qui sait comment les données peuvent et doivent être utilisées.
 
 ## <a name="how-do-i-share-information-with-the-data-catalog-team-if-i-encounter-problems"></a>Comment partager des informations avec l’équipe Data Catalog si je rencontre des problèmes ?
-Pour signaler des problèmes, partager des informations et poser des questions, rendez-vous dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
+Pour signaler des problèmes, partager des informations et poser des questions, rendez-vous dans le [forum Azure Data Catalog](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409).
 
 ## <a name="does-the-catalog-work-with-another-data-source-that-im-interested-in"></a>Le catalogue fonctionne-t-il avec une autre source de données qui m’intéresse ?
 Nous travaillons activement à l’ajout de sources de données supplémentaires à Data Catalog. Si vous souhaitez qu’une source de données spécifique soit prise en charge, suggérez-la (ou faites part de votre accord si elle a déjà été suggérée) en vous rendant dans la section [Data Catalog sur les forums de commentaires Azure](https://feedback.azure.com/forums/906052-data-catalog).
@@ -127,4 +127,4 @@ Sélectionnez les ressources de données dans Data Catalog, puis cliquez sur le
 Pour mettre à jour les métadonnées pour les ressources de données qui sont déjà inscrites dans le catalogue, réinscrivez simplement la source de données qui contient les ressources. Les modifications apportées à la source de données, telles que l’ajout ou la suppression de colonnes de tables ou de vues, sont actualisées dans le catalogue, mais les annotations fournies par les utilisateurs sont conservées.
 
 ## <a name="my-question-isnt-answered-here-where-can-i-go-for-answers"></a>Il n’y a pas de réponse à ma question ici. Où puis-je en trouver une ?
-Rendez-vous dans le [forum Azure Data Catalog](http://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.
+Rendez-vous dans le [forum Azure Data Catalog](https://go.microsoft.com/fwlink/?LinkID=616424&clcid=0x409). Les questions qui y sont posées se retrouveront ici.

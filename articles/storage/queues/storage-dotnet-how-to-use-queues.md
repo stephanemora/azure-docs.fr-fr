@@ -9,12 +9,12 @@ ms.topic: hero-article
 ms.date: 06/13/2018
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 11b43037a16072bcb2056b70305eeef9d3b5d4ce
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e0a38a8494e0a0ae9288aab5c3d491946dc629f8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729009"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231547"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Prise en main du stockage de files d’attente Azure à l’aide de .NET
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -277,8 +277,8 @@ queue.Delete();
 Maintenant que vous connaissez les bases du stockage des files d'attente, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
 * Pour plus d'informations sur les API disponibles, consultez la documentation de référence des services de files d'attente :
-  * [Référence de la bibliothèque cliente de stockage pour .NET](http://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
-  * [Référence d’API REST](http://msdn.microsoft.com/library/azure/dd179355)
+  * [Référence de la bibliothèque cliente de stockage pour .NET](https://go.microsoft.com/fwlink/?LinkID=390731&clcid=0x409)
+  * [Référence d’API REST](https://msdn.microsoft.com/library/azure/dd179355)
 * Découvrez comment simplifier le code que vous écrivez avec Azure Storage, à l’aide du [Kit de développement logiciel (SDK) Azure WebJobs](https://github.com/Azure/azure-webjobs-sdk/wiki).
 * Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités.
   * [Prise en main du stockage de tables Azure à l’aide de .NET](../../cosmos-db/table-storage-how-to-use-dotnet.md) pour le stockage de données structurées.

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: ae6539900e201f0559d998ad2d9be24c39d42e3b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 608525a1f06a396c7df7d764f236f33af77dccc6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44713491"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235341"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Comptes de stockage dans Azure Stack
 Les comptes de stockage incluent les services d’objets Blob et de Table, ainsi que l’espace de noms unique pour vos objets de données de stockage. Par défaut, les données de votre compte sont uniquement accessibles par vous, le propriétaire du compte de stockage.
@@ -38,4 +38,4 @@ Les comptes de stockage incluent les services d’objets Blob et de Table, ainsi
 
 [Découvrir les comptes de stockage Azure](../storage/common/storage-create-storage-account.md)
 
-[Télécharger le guide de validation du stockage ACS (Azure-Consistent Storage) d’Azure Stack](http://aka.ms/azurestacktp1doc)
+[Télécharger le guide de validation du stockage ACS (Azure-Consistent Storage) d’Azure Stack](https://aka.ms/azurestacktp1doc)

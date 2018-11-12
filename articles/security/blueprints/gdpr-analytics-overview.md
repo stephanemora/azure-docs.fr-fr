@@ -8,19 +8,19 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: f744a1126e12766980727e31d5c50ce4aa17934c
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 3d15e747c129d2591f4cc70030d1cf858bcee49e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408776"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237652"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Azure Blueprint Sécurité et conformité : analytique pour le RGPD
 
 ## <a name="overview"></a>Vue d’ensemble
 Le Règlement général sur la protection des données (RGPD) contient de nombreuses prescriptions concernant la collecte, le stockage et l’utilisation des informations personnelles, notamment la façon dont les organisations identifient et sécurisent les données personnelles, respectent les exigences de transparence, détectent et signalent les violations de données personnelles, et forment leur personnel, en particulier celui chargé de veiller sur la confidentialité des données. Le RGPD offre aux individus un plus grand contrôle sur leurs données personnelles, et impose de nombreuses obligations nouvelles aux organisations qui collectent, traitent ou analysent ces données. Le RGPD impose de nouvelles règles aux organisations qui proposent des biens et des services aux citoyens de l’Union européenne (UE), ou qui recueillent et analysent des données les concernant. Le RGPD s’applique, quel que soit l’endroit où se trouvent les organisations.
 
-Microsoft a conçu Azure en y intégrant des mesures de sécurité et des politiques de confidentialité de pointe pour protéger les données dans le cloud, notamment les catégories de données personnelles visées par le RGPD. Les [clauses contractuelles](http://aka.ms/Online-Services-Terms) de Microsoft contraignent l’entreprise à respecter certaines exigences applicables aux responsables du traitement.
+Microsoft a conçu Azure en y intégrant des mesures de sécurité et des politiques de confidentialité de pointe pour protéger les données dans le cloud, notamment les catégories de données personnelles visées par le RGPD. Les [clauses contractuelles](https://aka.ms/Online-Services-Terms) de Microsoft contraignent l’entreprise à respecter certaines exigences applicables aux responsables du traitement.
 
 Ce document Azure Blueprint Sécurité et conformité fournit des conseils en matière de déploiement d’une architecture d’analytique des données dans Azure qui contribuent au respect des exigences du RGPD. Cette solution indique aux clients comment respecter les différentes exigences de sécurité et de conformité, et leur sert de base pour créer et configurer leurs propres solutions d’analytique des données dans Azure. Les clients peuvent utiliser cette architecture de référence et suivre le [processus en quatre étapes](https://aka.ms/gdprebook) préconisé par Microsoft pour leur parcours vers la mise en conformité avec le RGPD :
 1. Découvrir : identifier les données personnelles existantes, ainsi que l’emplacement où elles résident.
@@ -43,7 +43,7 @@ Une fois les données chargées dans Azure SQL Database et assimilées par Azure
 
 L’ensemble de la solution repose sur le service Stockage Azure que les clients configurent à partir du Portail Azure. Le service Stockage Azure chiffre toutes les données à l’aide de la fonctionnalité Storage Service Encryption pour garantir la confidentialité des données au repos. Le stockage géoredondant (GRS) garantit qu’un événement indésirable survenu dans le centre de données principal du client n’occasionnera aucune perte de données, grâce au stockage d’une seconde copie des données à un autre emplacement distant de plusieurs centaines de kilomètres.
 
-Pour renforcer la sécurité, cette architecture gère les ressources à l’aide d’Azure Active Directory et d’Azure Key Vault. L’intégrité du système est surveillée via Log Analytics et Azure Monitor. Les clients configurent ces deux services de surveillance pour la capture de journaux et la centralisation des informations concernant l’intégrité du système dans un tableau de bord facilement consultable.
+Pour renforcer la sécurité, cette architecture gère les ressources à l’aide d’Azure Active Directory et d’Azure Key Vault. L’intégrité du système est supervisée par le biais de Log Analytics et d’Azure Monitor. Les clients configurent ces deux services de surveillance pour la capture de journaux et la centralisation des informations concernant l’intégrité du système dans un tableau de bord facilement consultable.
 
 Le service Azure SQL Database est généralement géré par le biais de la suite d’outils SQL Server Management Studio (SSMS), qui s’exécute à partir d’une machine locale configurée pour accéder à Azure SQL Database par l’intermédiaire d’une connexion VPN ou ExpressRoute sécurisée. **Azure recommande de configurer une connexion VPN ou ExpressRoute pour la gestion et l’importation de données dans le groupe de ressources de l’architecture de référence.**
 
@@ -143,7 +143,7 @@ Les technologies suivantes fournissent des fonctionnalités pour gérer l’acc�
 - **Journaux de diagnostic** : les [journaux de diagnostic](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs) comprennent tous les journaux émis par chacune des ressources. Ces journaux incluent les journaux des événements système Windows, ainsi que les journaux du service Stockage Blob Azure, des tables et des files d’attente.
 - **Archivage des journaux** : tous les journaux de diagnostic sont enregistrés dans un compte de stockage Azure centralisé et chiffré à des fins d’archivage, avec une période de rétention définie de 2 jours. Ces journaux se connectent à Azure Log Analytics à des fins de traitement, de stockage et de génération de rapports de tableau de bord.
 
-Les solutions de surveillance suivantes sont également incluses dans cette architecture :
+En outre, cette architecture intègre également les solutions de supervision suivantes :
 -   [Active Directory Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-ad-assessment) : la solution Active Directory Health Check évalue les risques et l’intégrité des environnements de serveur à intervalles réguliers, et fournit une liste hiérarchisée de recommandations spécifiques pour l’infrastructure de serveur déployée.
 -   [Antimalware Assessment](https://docs.microsoft.com/azure/log-analytics/log-analytics-malware) : cette solution signale les programmes malveillants, les menaces et l’état de protection.
 -   [Azure Automation](https://docs.microsoft.com/azure/automation/automation-hybrid-runbook-worker) : cette solution stocke, exécute et gère les runbooks.

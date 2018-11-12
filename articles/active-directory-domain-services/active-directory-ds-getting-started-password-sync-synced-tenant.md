@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/15/2017
 ms.author: ergreenl
-ms.openlocfilehash: 751c9df8dc3826b54baab6166cd63a0dd8cff4f5
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 813d1d17f2d9b80c2e96f771fc346e553c59e95b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50155947"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51234202"
 ---
 # <a name="enable-password-synchronization-to-azure-active-directory-domain-services"></a>Activer la synchronisation du mot de passe pour Azure Active Directory Domain Services
 Dans les tâches précédentes, vous avez activé Azure Active Directory Domain Services pour votre locataire Azure Active Directory (Azure AD). Dans la tâche suivante, vous allez activer la synchronisation des hachages d’informations d’identification requis pour l’authentification NT LAN Manager (NTLM) et Kerberos avec Services de domaine Azure AD. Une fois la synchronisation des informations d’identification configurée, les utilisateurs peuvent se connecter au domaine managé à l’aide de leurs informations d’identification d’entreprise.
@@ -50,7 +50,7 @@ Un client Azure AD connecté est défini pour se synchroniser avec le répertoir
 ### <a name="install-or-update-azure-ad-connect"></a>Installer ou mettre à jour Azure AD Connect
 Installer la dernière version recommandée d’Azure AD Connect sur un ordinateur joint à un domaine. Si une instance d’Azure AD Connect est déjà configurée, vous devez la mettre à jour pour utiliser la dernière version d’Azure AD Connect. Utilisez toujours la dernière version d’Azure AD Connect afin d’éviter les problèmes/bogues connus déjà corrigés.
 
-**[Télécharger Azure AD Connect](http://www.microsoft.com/download/details.aspx?id=47594)**
+**[Télécharger Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)**
 
 Version recommandée : **1.1.614.0**, publiée le 5 septembre 2017.
 

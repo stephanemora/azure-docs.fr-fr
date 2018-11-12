@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 6b37f4bac4bfcc6001171ed27899b71cdac7a312
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: f0c631c765ba95602fb2ac3ab1fd72732793a199
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50164645"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264361"
 ---
 <!--author=alkohli last changed: 01/23/18-->
 
@@ -17,7 +17,7 @@ ms.locfileid: "50164645"
 
 Procédez comme suit pour télécharger la mise à jour logicielle à partir du Catalogue Microsoft Update.
 
-1. Lancez Internet Explorer et accédez à [http://catalog.update.microsoft.com](http://catalog.update.microsoft.com).
+1. Lancez Internet Explorer et accédez à [http://catalog.update.microsoft.com](https://catalog.update.microsoft.com).
 2. Si vous utilisez le catalogue Microsoft Update pour la première fois sur cet ordinateur, cliquez sur **Installer** lorsque vous êtes invité à installer le module complémentaire Catalogue Microsoft Update.
 
     ![Installer le catalogue](./media/storsimple-install-update2-hotfix/HCS_InstallCatalog-include.png)

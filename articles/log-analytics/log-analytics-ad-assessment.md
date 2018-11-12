@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: c56a0239209f5c71130c9dd8173eed48f60a3b0a
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: d40759a53842ca3c39e67850eb727897019a25ec
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042068"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012052"
 ---
 # <a name="optimize-your-active-directory-environment-with-the-active-directory-health-check-solution-in-log-analytics"></a>Optimisez votre environnement Active Directory avec la solution Active Directory Health Check dans Log Analytics
 
@@ -53,7 +53,7 @@ Une fois la solution ajoutée et le contrôle terminé, le résumé des informat
 
 Pour que vous puissiez contrôler l’intégrité des contrôleurs de domaine qui sont membres du domaine à évaluer, ces derniers ont besoin d’un agent et d’une connectivité à Log Analytics faisant appel à l’une des méthodes prises en charge suivantes :
 
-1. Installez [Microsoft Monitoring Agent (MMA)](log-analytics-windows-agent.md) si le contrôleur de domaine n’est pas déjà surveillé par System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
+1. Installez [Microsoft Monitoring Agent (MMA)](log-analytics-agent-windows.md) si le contrôleur de domaine n’est pas déjà surveillé par System Center 2016 - Operations Manager ou Operations Manager 2012 R2.
 2. S’il est surveillé avec System Center 2016 - Operations Manager ou Operations Manager 2012 R2 et que le groupe d’administration n’est pas intégré au service Log Analytics, le contrôleur de domaine peut être hébergé de manière multiple avec Log Analytics pour collecter des données et les transférer au service, et toujours être surveillé par Operations Manager.  
 3. Sinon, si votre groupe d’administration Operations Manager est intégré au service, vous devez ajouter des contrôleurs de domaine pour la collecte de données par le service en suivant la procédure décrite dans [Ajout d’ordinateurs gérés par des agents](log-analytics-om-agents.md#connecting-operations-manager-to-log-analytics) après avoir activé la solution dans votre espace de travail.  
 
@@ -186,4 +186,4 @@ Une fois le prochain contrôle d’intégrité planifié exécuté, par défaut 
 * Oui, consultez la section [Ignorer les recommandations](#ignore-recommendations) ci-dessus.
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez [Recherches dans les journaux dans Log Analytics](log-analytics-log-searches.md) pour savoir comment analyser les données et recommandations détaillées d’AD Health Check.
+* Utilisez [Recherches dans les journaux dans Log Analytics](log-analytics-queries.md) pour savoir comment analyser les données et recommandations détaillées d’AD Health Check.

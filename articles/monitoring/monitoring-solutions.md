@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/22/2018
 ms.author: bwren
-ms.openlocfilehash: 3377a0b4e6440d83962d103b3e1770ccf43bd785
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: 53020eeb96927143b2fb7394aee64f9b7ea55df9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36752919"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248960"
 ---
 # <a name="management-solutions-in-azure"></a>Solutions de gestion dans Azure
 Les solutions de gestion tirent profit des services disponibles dans Azure pour offrir des informations supplémentaires sur le fonctionnement d’une application ou d’un service spécifiques. Cet article fournit un bref aperçu des solutions de gestion dans Azure et détaille l’utilisation et l’installation de ces dernières.
@@ -31,7 +31,7 @@ Vous pouvez ajouter des solutions de gestion à votre abonnement Azure pour les 
 ## <a name="using-management-solutions"></a>Utilisation des solutions de gestion
 La page **Vue d’ensemble** de chaque espace de travail Log Analytics affiche une vignette pour chacune des solutions installées dans l’espace de travail. Cliquez sur la vignette d’une solution pour ouvrir la vue correspondante incluant une analyse plus détaillée des données collectées par la solution.
 
-![Vue d'ensemble](media/monitoring-solutions/overview.png)
+![Vue d’ensemble](media/monitoring-solutions/overview.png)
 
 Les solutions de gestion peuvent contenir plusieurs types de ressources Azure, que vous pouvez visualiser comme n’importe quelle autre ressource. Par exemple, toutes les recherches dans les journaux qui sont incluses dans la solution figurent dans **Recherches enregistrées** dans l’espace de travail. Vous pouvez utiliser ces recherches lorsque vous effectuez une analyse ad hoc dans Log Analytics.
 
@@ -81,7 +81,7 @@ Toutes les solutions de gestion requièrent un [espace de travail Log Analytics]
 
 * Chaque installation d’une solution ne peut utiliser qu’un seul espace de travail Log Analytics et un seul compte Automation. Vous pouvez installer la solution séparément dans plusieurs espaces de travail.
 * Si une solution nécessite un compte Automation, l’espace de travail Log Analytics et le compte Automation doivent être liés l’un à l’autre. Un espace de travail Log Analytics ne peut être lié qu’à un seul compte Automation, et un compte Automation ne peut être lié qu’à un seul espace de travail Log Analytics.
-* Pour être liés, l’espace de travail Log Analytics et le compte Automation doivent se trouver dans le même groupe de ressources et la même région. La configuration suivante fait figure d’exception : un espace de travail Log Analytics dans la région États-Unis de l’Est et un compte Automation dans États-Unis de l’Est 2.
+* Pour être liés, l’espace de travail Log Analytics et le compte Automation doivent se trouver dans le même groupe de ressources et la même région. La configuration suivante fait figure d’exception : un espace de travail Log Analytics dans la région USA Est et un compte Automation dans USA Est 2.
 
 ### <a name="creating-a-link-between-a-log-analytics-workspace-and-automation-account"></a>Création d’un lien entre un espace de travail Log Analytics et un compte Automation
 Le mode de spécification de l’espace de travail Log Analytics et du compte Automation dépend de la méthode d’installation de votre solution.
@@ -104,5 +104,5 @@ Pour supprimer une solution installée, recherchez cette dernière dans la [list
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Obtenez la [liste des solutions de gestion proposées par Microsoft](monitoring-solutions-inventory.md).
-* Découvrez comment [créer des requêtes](../log-analytics/log-analytics-log-searches.md) pour analyser les données collectées par les solutions de gestion.
+* Découvrez comment [créer des requêtes](../log-analytics/log-analytics-queries.md) pour analyser les données collectées par les solutions de gestion.
 

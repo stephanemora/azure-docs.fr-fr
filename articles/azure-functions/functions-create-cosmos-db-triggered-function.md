@@ -12,12 +12,12 @@ ms.topic: quickstart
 ms.date: 10/02/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: eb909384805c96ce656cacf86adceedc55613c0f
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 4fc1c0b87aa5312be0ccac50681e952dc7f1c4ed
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113656"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251727"
 ---
 # <a name="create-a-function-triggered-by-azure-cosmos-db"></a>Créer une fonction déclenchée par Azure Cosmos DB
 
@@ -70,7 +70,7 @@ Créez ensuite une fonction dans la nouvelle Function App.
 
     | Paramètre      | Valeur suggérée  | Description                                |
     | ------------ | ---------------- | ------------------------------------------ |
-    | **Name** | Default | Utilisez le nom de fonction par défaut suggéré par le modèle.|
+    | **Nom** | Default | Utilisez le nom de fonction par défaut suggéré par le modèle.|
     | **Connexion de compte Azure Cosmos DB** | Nouveau paramètre | Sélectionnez **Nouveau**, puis choisissez votre **Abonnement**, le **Compte de base de données** que vous avez créé précédemment, puis **Sélectionner**. Cette opération crée un paramètre d’application pour votre connexion de compte. Ce paramètre est utilisé par la liaison pour se connecter à la base de données. |
     | **Nom de la collection** | Éléments | Nom de la collection à surveiller. |
     | **Créer la collection de baux si elle n’existe pas** | Activé | La collection n’existe pas, vous devez la créer. |
@@ -108,7 +108,7 @@ Ensuite, vous vous connectez à votre compte Azure Cosmos DB et créez la collec
     | **ID de la collection** | Éléments | Nom de la nouvelle collection. Ce nom doit correspondre au nom défini dans votre liaison de fonction.  |
     | **Capacité de stockage** | Fixe (10 Go)|Utilisez la valeur par défaut. Cette valeur correspond à la capacité de stockage de la base de données. |
     | **Débit** |400 RU| Utilisez la valeur par défaut. Si vous souhaitez réduire la latence, vous pourrez augmenter le débit par la suite. |
-    | **[Clé de partition](../cosmos-db/partition-data.md#best-practices-when-choosing-a-partition-key)** | /category|Clé de partition qui distribue les données uniformément à chaque partition. Il est important de sélectionner la clé de partition correcte pour obtenir une collection performante. | 
+    | **[Clé de partition](../cosmos-db/partition-data.md)** | /category|Clé de partition qui distribue les données uniformément à chaque partition. Il est important de sélectionner la clé de partition correcte pour obtenir une collection performante. | 
 
 1. Cliquez sur **OK** pour créer la collection d’éléments. La création de la collection peut prendre un peu de temps.
 
