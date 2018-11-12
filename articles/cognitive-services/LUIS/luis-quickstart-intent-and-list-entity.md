@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: b4fdf094653a4b16dead6397fe8e1a9f1a0258b9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 2ce6e7c796faf0c7377a33dabe1e8c05e81fde2f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162081"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280695"
 ---
 # <a name="tutorial-4-extract-exact-text-matches"></a>Tutoriel 4 : Extraire des correspondances de texte exactes
 Ce tutoriel explique comment obtenir des données correspondant à une liste de termes prédéfinie. Chaque élément de la liste peut inclure une liste de synonymes. Pour l’application de ressources humaines, un employé peut être identifié avec plusieurs éléments d’information essentiels tels que le nom, l’adresse e-mail, le numéro de téléphone et le numéro d’identification du contribuable (USA). 
@@ -39,11 +39,11 @@ Une entité de type liste est un choix approprié pour ce type de données lorsq
 > * Ajouter une entité de liste 
 > * Former 
 > * Publish
-> * Reconnaître les intentions et les entités à partir du point de terminaison
+> * Obtenir les intentions et les entités à partir du point de terminaison
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="use-existing-app"></a>Utiliser une clé existante
+## <a name="use-existing-app"></a>Utiliser l’application existante
 Continuez avec l’application créée dans le dernier tutoriel, nommée **HumanResources**. 
 
 Si vous n’avez pas l’application HumanResources du tutoriel précédent, effectuez les étapes suivantes :
@@ -52,12 +52,12 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
 2. Importez le code JSON dans une nouvelle application.
 
-3. À partir de la section **Gérer**, sous l’onglet **Versions**, clonez la version et nommez-la `list`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
+3. À partir de la section **Manage (Gérer)**, sous l’onglet **Versions**, clonez la version et nommez-la `list`. Le clonage est un excellent moyen de manipuler diverses fonctionnalités de LUIS sans affecter la version d’origine. Étant donné que le nom de la version est utilisé dans le cadre de la route d’URL, il ne peut pas contenir de caractères qui ne sont pas valides dans une URL. 
 
 
 ## <a name="moveemployee-intent"></a>Intention MoveEmployee
 
-1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
+1. [!INCLUDE[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Sélectionnez **Créer une intention**. 
 
@@ -84,7 +84,7 @@ Si vous n’avez pas l’application HumanResources du tutoriel précédent, eff
 
     N’oubliez pas que number et datetimeV2 ont été ajoutés dans le tutoriel précédent et sont automatiquement étiquetés quand ils sont trouvés dans des exemples d’énoncés.
 
-    [!include[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
+    [!INCLUDE[Do not use too few utterances](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]  
 
 ## <a name="employee-list-entity"></a>Entité de liste d’employés
 Maintenant que l’intention **MoveEmployee** dispose d’exemples d’énoncés, LUIS doit comprendre ce qu’est un employé. 
@@ -144,7 +144,7 @@ Le nom _canonique_ principal pour chaque élément est le numéro d’employé. 
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="get-intent-and-entities-from-endpoint"></a>Reconnaître l’intention et les entités à partir du point de terminaison
+## <a name="get-intent-and-entities-from-endpoint"></a>Obtenir l’intention et les entités à partir du point de terminaison
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 

@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 12/08/2016
 ms.author: tamram
 ms.component: queues
-ms.openlocfilehash: 907175ac341632d2ba0048ab486392b949f83626
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 67a5dc0eddb6deb51ec69c68c48d5edf308cf43e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42140460"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231564"
 ---
 # <a name="how-to-use-queue-storage-from-ruby"></a>Utilisation du stockage de files d'attente à partir de Ruby
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
@@ -153,7 +153,7 @@ azure_queue_service.delete_queue("test-queue")
 ## <a name="next-steps"></a>Étapes suivantes
 Maintenant que vous connaissez les bases du stockage des files d'attente, consultez les liens suivants pour apprendre à exécuter les tâches de stockage plus complexes.
 
-* Consultez le [blog de l'équipe Azure Storage](http://blogs.msdn.com/b/windowsazurestorage/)
+* Consultez le [blog de l'équipe Azure Storage](https://blogs.msdn.com/b/windowsazurestorage/)
 * Accédez au référentiel du [Kit de développement logiciel (SDK) Azure pour Ruby](https://github.com/WindowsAzure/azure-sdk-for-ruby) sur GitHub.
 
 Pour obtenir une comparaison entre le service de File d’attente Azure abordé dans cette rubrique et les files d’attente Azure Service Bus abordées dans la rubrique [Utilisation des files d’attente Service Bus](https://azure.microsoft.com/develop/ruby/how-to-guides/service-bus-queues/), consultez la page [Files d’attente Azure et files d’attente Service Bus : comparaison et différences](../../service-bus-messaging/service-bus-azure-and-service-bus-queues-compared-contrasted.md).

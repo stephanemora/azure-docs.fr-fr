@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: gokuma
-ms.openlocfilehash: faabdb4c2d2e434863a6bed0b2cd85a05c94eab1
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: df9edfee9d8a6a0736a040924bac736cfcb3633c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395727"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250915"
 ---
 # <a name="ten-things-you-can-do-on-the-windows-data-science-virtual-machine"></a>Dix choses que vous pouvez effectuer sur la machine virtuelle Science des données de Windows
 
@@ -64,9 +64,9 @@ Voici à quoi ressemble la configuration de l'environnement personnalisé dans V
 
 ![Installation PTVS](./media/vm-do-ten-things/PTVSSetup.png)
 
-Consultez la page [Documentation de PTVS](http://aka.ms/ptvsdocs) pour plus d’informations sur la création d’environnements Python.
+Consultez la page [Documentation de PTVS](https://aka.ms/ptvsdocs) pour plus d’informations sur la création d’environnements Python.
 
-Vous êtes maintenant prêt à créer un nouveau projet Python. Accédez à **Fichier** -> **Nouveau** -> **Projet** -> **Python** et sélectionnez le type d’application Python que vous créez. Vous pouvez définir l’environnement Python pour le projet actuel sur la version souhaitée (Python 2.7 ou 3.6) en cliquant avec le bouton droit sur l’**Environnements Python**, puis en sélectionnant **Ajouter/supprimer des environnements Python** et en choisissant l’environnement souhaité. Vous trouverez plus d’informations sur l’utilisation de PTVS dans la [documentation](http://aka.ms/ptvsdocs) produit.
+Vous êtes maintenant prêt à créer un nouveau projet Python. Accédez à **Fichier** -> **Nouveau** -> **Projet** -> **Python** et sélectionnez le type d’application Python que vous créez. Vous pouvez définir l’environnement Python pour le projet actuel sur la version souhaitée (Python 2.7 ou 3.6) en cliquant avec le bouton droit sur l’**Environnements Python**, puis en sélectionnant **Ajouter/supprimer des environnements Python** et en choisissant l’environnement souhaité. Vous trouverez plus d’informations sur l’utilisation de PTVS dans la [documentation](https://aka.ms/ptvsdocs) produit.
 
 ## <a name="2-using-a-jupyter-notebook-to-explore-and-model-your-data-with-python-or-r"></a>2. Utiliser un Notebook Jupyter pour explorer et modéliser vos données avec Python ou R
 Le Notebook Jupyter est un environnement puissant qui fournit un « IDE » de modélisation et d'exploration de données sur navigateur. Vous pouvez utiliser Python 2, Python 3 ou R (Open Source et Microsoft R Server) dans le notebook Jupyter.
@@ -806,7 +806,7 @@ Voici les étapes préalables pour accéder à Azure Cosmos DB à partir de la
 
 1. Le Kit de développement logiciel Azure Cosmos DB Python est déjà installé sur la DSVM (exécuter ```pip install pydocumentdb --upgrade``` à partir de l’invite de commandes pour mettre à jour)
 2. Créez un compte Azure Cosmos DB et une base de données à partir du [portail Azure](https://portal.azure.com)
-3. Téléchargez [ici](http://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) « l’outil de migration Azure Cosmos DB » et extrayez-le dans le répertoire de votre choix
+3. Téléchargez [ici](https://www.microsoft.com/downloads/details.aspx?FamilyID=cda7703a-2774-4c07-adcc-ad02ddc1a44d) « l’outil de migration Azure Cosmos DB » et extrayez-le dans le répertoire de votre choix
 4. Importez les données JSON (données sur le volcan) stockées sur un [objet blob public](https://cahandson.blob.core.windows.net/samples/volcano.json) dans Cosmos DB avec les paramètres de commande suivants pour l’outil de migration (dtui.exe à partir du répertoire où vous avez installé l’outil de migration Cosmos DB). Entrez les paramètres d'emplacement source et cible suivant :
    
     `/s:JsonFile /s.Files:https://cahandson.blob.core.windows.net/samples/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`

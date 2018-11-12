@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/23/2018
 ms.author: sngun
 ms.component: tables
-ms.openlocfilehash: 783522997a752c4eac575316983bc6ef853c3f43
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5b18bce9d0cf78569d0c2fa02ad14c96ad09bd1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526910"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237772"
 ---
 # <a name="design-scalable-and-performant-tables"></a>Conception de tables extensibles et performantes
 
@@ -121,7 +121,7 @@ L'exemple suivant présente la conception d'une table simple pour stocker des en
 </table>
 
 
-Jusqu’ici, ces données ressemblent à une table de base de données relationnelle, les principales différences étant les colonnes obligatoires et la possibilité de stocker plusieurs types d’entité dans la même table. Par ailleurs, chacune des propriétés définies par l’utilisateur, comme **FirstName** ou **Age**, est caractérisée par un type de données, par exemple, un nombre entier ou une chaîne, tout comme une colonne dans une base de données relationnelle. Bien que, contrairement à une base de données relationnelle, la nature sans schéma du service de Table signifie qu'une propriété n'a pas nécessairement besoin d'avoir les mêmes types de données pour chaque entité. Pour stocker des types de données complexes dans une seule propriété, vous devez utiliser un format sérialisé comme JSON ou XML. Pour plus d’informations sur les plages de dates et les types de données pris en charge, les règles d’affectation de noms et les contraintes de taille, consultez l’article [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Jusqu’ici, ces données ressemblent à une table de base de données relationnelle, les principales différences étant les colonnes obligatoires et la possibilité de stocker plusieurs types d’entité dans la même table. Par ailleurs, chacune des propriétés définies par l’utilisateur, comme **FirstName** ou **Age**, est caractérisée par un type de données, par exemple, un nombre entier ou une chaîne, tout comme une colonne dans une base de données relationnelle. Bien que, contrairement à une base de données relationnelle, la nature sans schéma du service de Table signifie qu'une propriété n'a pas nécessairement besoin d'avoir les mêmes types de données pour chaque entité. Pour stocker des types de données complexes dans une seule propriété, vous devez utiliser un format sérialisé comme JSON ou XML. Pour plus d’informations sur les plages de dates et les types de données pris en charge, les règles d’affectation de noms et les contraintes de taille, consultez l’article [Présentation du modèle de données du service de Table](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Le choix de la valeur de **PartitionKey** et de **RowKey** est fondamental pour une bonne conception de table. Toutes les entités stockées dans une table doivent avoir une combinaison unique de **PartitionKey** et **RowKey**. Comme avec les clés dans une table de base de données relationnelle, les valeurs de **PartitionKey** et **RowKey** sont indexées pour créer un index cluster afin de permettre des recherches rapides. Toutefois, le service de Table ne crée pas d’index secondaire, **PartitionKey** et **RowKey** sont par conséquent les seules propriétés indexées. Certains des modèles décrits dans [Modèles de conception de table](table-storage-design-patterns.md) illustrent comment contourner cette limitation apparente.  
 
@@ -132,7 +132,7 @@ Le nom du compte, le nom de la table et la valeur de **PartitionKey** identifien
 
 Dans le service de Table, un nœud individuel traite une ou plusieurs partitions complètes et le service se met à l’échelle en équilibrant la charge des partitions de manière dynamique sur les nœuds. Si un nœud est en sous-charge, le service de Table peut *fractionner* la plage de partitions traitées par ce nœud en différents nœuds. En cas de réduction du trafic, le service peut *fusionner* les plages de partitions à partir des nœuds silencieux en un nœud unique.  
 
-Pour plus d’informations sur les détails internes du service de Table et notamment la façon dont le service gère les partitions, consultez la documentation [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Pour plus d’informations sur les détails internes du service de Table et notamment la façon dont le service gère les partitions, consultez la documentation [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ## <a name="entity-group-transactions"></a>Transactions de groupe d’entités
 Dans le service de Table, les transactions de groupe d'entités (EGT) constituent l'unique mécanisme intégré pour effectuer des mises à jour atomiques entre plusieurs entités. Les EGT sont également parfois appelées *transactions par lots*. Les EGT peuvent uniquement fonctionner sur des entités stockées dans la même partition (autrement dit, elles partagent la même clé de partition dans une table donnée). Par conséquent, chaque fois que vous avez besoin d’un comportement transactionnel atomique sur plusieurs entités, vous devez vérifier que ces entités sont dans la même partition. Ceci justifie souvent la conservation de plusieurs types d'entité dans la même table (et partition) au lieu de l'utilisation de plusieurs tables pour différents types d'entité. Une seule EGT peut traiter jusqu'à 100 entités.  Si vous envoyez plusieurs EGT simultanées pour traitement, vérifiez bien que ces EGT ne fonctionnent pas sur des entités communes aux différentes EGT. Sinon, le traitement risque d’être retardé.
@@ -152,7 +152,7 @@ Le tableau suivant décrit certaines valeurs clés à connaître quand vous conc
 | Taille de la **RowKey** |Chaîne jusqu'à 1 Ko |
 | Taille d'une transaction ETG |Une transaction peut inclure au plus 100 entités et la charge utile doit être inférieure à 4 Mo. Une transaction EGT ne peut mettre à jour une entité qu'une seule fois. |
 
-Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
 
 ## <a name="cost-considerations"></a>Considérations relatives au coût
 Le stockage Table est relativement peu coûteux, mais vous devez ajouter les estimations de coût de l’utilisation de capacité et de la quantité de transactions quand vous envisagez une solution qui utilise le service de Table. Toutefois, dans de nombreux scénarios, le stockage de données dénormalisées ou dupliquées pour améliorer les performances ou la scalabilité de votre solution est une approche appropriée. Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  

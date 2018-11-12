@@ -72,7 +72,7 @@
 ## [Créer des modèles](/azure/azure-resource-manager/resource-group-authoring-templates?toc=%2fazure%2fnetworking%2ftoc.json)
 ## [Feuille de route Azure](https://azure.microsoft.com/roadmap/?category=networking)
 ## [Modèles fournis par la communauté](https://azure.microsoft.com/resources/templates/)
-## [Blog sur la mise en réseau](http://azure.microsoft.com/blog/topics/networking)
+## [Blog sur la mise en réseau](https://azure.microsoft.com/blog/topics/networking)
 ## [Tarification](https://azure.microsoft.com/pricing)
 ## [Calculatrice de prix](https://azure.microsoft.com/pricing/calculator/)
 ## [Disponibilité régionale](https://azure.microsoft.com/regions/services/)

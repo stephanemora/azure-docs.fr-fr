@@ -26,7 +26,7 @@
 
 Depuis le 1er avril 2017, les enregistrements de travaux de votre compte qui ont plus de 90 jours sont automatiquement supprimés, ainsi que leurs enregistrements de tâches associés, même si le nombre total d’enregistrements est inférieur au quota maximal. Si vous devez archiver les informations sur le travail/la tâche, vous pouvez utiliser le code décrit [ici](../articles/media-services/previous/media-services-dotnet-manage-entities.md).
 
-<sup>3</sup> Lors d’une requête visant à lister les entités de travail, un maximum de 1 000 travaux sont retournés par requête. Si vous souhaitez effectuer le suivi de l’ensemble des travaux soumis, vous pouvez utiliser top/skip comme décrit dans [Options de requête du système OData](http://msdn.microsoft.com/library/gg309461.aspx).
+<sup>3</sup> Lors d’une requête visant à lister les entités de travail, un maximum de 1 000 travaux sont retournés par requête. Si vous souhaitez effectuer le suivi de l’ensemble des travaux soumis, vous pouvez utiliser top/skip comme décrit dans [Options de requête du système OData](https://msdn.microsoft.com/library/gg309461.aspx).
 
 <sup>4</sup> Les localisateurs ne sont pas conçus pour gérer le contrôle d’accès par utilisateur. Pour accorder différents droits d’accès aux utilisateurs, utilisez les solutions de gestion des droits numériques (DRM). Pour plus d’informations, consultez [cette](../articles/media-services/previous/media-services-content-protection-overview.md) section.
 

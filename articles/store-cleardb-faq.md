@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: cce6555c71829110781a6dd13757078b105dbb41
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665720"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230629"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>FAQ sur les bases de données MySQL ClearDB avec Azure App Service
 Ce FAQ répond aux questions courantes sur l’utilisation et l’achat de bases de données MySQL ClearDB pour Azure Web Apps.
@@ -106,7 +106,7 @@ Les clients titulaires d’un Contrat Entreprise Indirect peuvent consulter leur
 L’accès à Azure Marketplace pour les services tiers peut être géré par les administrateurs de votre inscription Azure au Contrat Entreprise. Ils peuvent désactiver ou réactiver l’accès aux achats tiers depuis le Store dans Gérer les comptes et les abonnements sous la section Comptes dans Enterprise Portal.
 
 ## <a name="who-do-i-contact-for-questions-about-my-bill-for-cleardb-services-in-my-ea-subscription"></a>Qui dois-je contacter pour toute question sur ma facture des services ClearDB dans mon abonnement Contrat Entreprise ?
-Contactez le [support technique](http://aka.ms/AzureEntSupport) pour toute question sur la facturation liée à votre inscription Contrat Entreprise. L’équipe du support du portail Contrat Entreprise peut répondre à votre question ou trouver une solution à votre problème.
+Contactez le [support technique](https://aka.ms/AzureEntSupport) pour toute question sur la facturation liée à votre inscription Contrat Entreprise. L’équipe du support du portail Contrat Entreprise peut répondre à votre question ou trouver une solution à votre problème.
 
 ## <a name="more-information"></a>Plus d’informations
 [FAQ de Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)

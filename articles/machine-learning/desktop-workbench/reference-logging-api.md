@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7084251102984445e7c2341b78b44f85811ebea7
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: f7dac645ef0b732b7f3087a06c74385871d5b1c9
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46958218"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50238334"
 ---
 # <a name="logging-api-reference"></a>Informations de référence sur l’API de journalisation
 
@@ -89,5 +89,5 @@ $ az ml history info -r <runid> -a <artifact/path>
 $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to create>
 ```
 ## <a name="next-steps"></a>Étapes suivantes
-- Parcourez le [didacticiel Classifying Iris, part 2](tutorial-classifying-iris-part-2.md) (Classification d’Iris, partie 2) pour voir les API de journalisation à l’œuvre.
+- Parcourez le [didacticiel Classifying Iris, part 2](tutorial-classifying-iris-part-2.md) (Classification d’Iris, partie 2) pour voir les API de journalisation à l’œuvre.
 - Lisez [How to Use Run History and Model Metrics in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) (Comment utiliser les métriques de l’historique d’exécution et des modèles dans Azure Machine Learning Workbench) pour comprendre plus exactement l’utilisation des API de journalisation dans l’historique d’exécution.

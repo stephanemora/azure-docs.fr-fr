@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/29/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: 88c152872ef8b571b8bc3e3f06ce486943e724b1
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: c6ff386913ed66cf4f74cb577bb8ca58e6932ada
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443526"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228876"
 ---
 # <a name="azure-media-services-fragmented-mp4-live-ingest-specification"></a>Spécification d’ingestion en direct au format MP4 fragmenté Azure Media Services
 Cette spécification décrit le protocole et le format requis pour l’ingestion de streaming en direct basée sur le format MP4 fragmenté pour Microsoft Azure Media Services. Media Services fournit le service de streaming en direct que les clients peuvent utiliser pour diffuser en continu des événements en direct et diffuser du contenu en temps réel en utilisant Azure en tant que plateforme cloud. Ce document explique également les pratiques recommandées pour créer des mécanismes d’ingestion en direct extrêmement redondants et robustes.
@@ -38,7 +38,7 @@ Le diagramme suivant illustre l’architecture générale du service de streamin
 ![Flux d’ingestion][image1]
 
 ## <a name="3-bitstream-format--iso-14496-12-fragmented-mp4"></a>3. Format de flux binaire – MP4 fragmenté ISO 14496-12
-Le format câble utilisé pour l’ingestion du streaming en direct décrite dans ce document repose sur la norme [ISO 14496-12]. Pour obtenir une explication détaillée du format MP4 fragmenté et des extensions de fichiers vidéo à la demande et d’ingestion de streaming en direct, consultez [[MS-SSTR]](http://msdn.microsoft.com/library/ff469518.aspx).
+Le format câble utilisé pour l’ingestion du streaming en direct décrite dans ce document repose sur la norme [ISO 14496-12]. Pour obtenir une explication détaillée du format MP4 fragmenté et des extensions de fichiers vidéo à la demande et d’ingestion de streaming en direct, consultez [[MS-SSTR]](https://msdn.microsoft.com/library/ff469518.aspx).
 
 ### <a name="live-ingest-format-definitions"></a>Définitions de format de réception en temps réel
 La liste suivante décrit des définitions de formats spéciaux qui s’appliquent à l’ingestion en direct dans Azure Media Services :

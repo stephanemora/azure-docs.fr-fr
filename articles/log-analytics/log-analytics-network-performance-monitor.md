@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 02/20/2018
 ms.author: abshamsft
 ms.component: ''
-ms.openlocfilehash: fc5ab802b39597d72f01f756c9bdb16597862e3c
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: a38532d7a411080feb637549288bdad036a11153
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638194"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011049"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Solution Network Performance Monitor dans Azure
 
@@ -103,7 +103,7 @@ Network Performance Monitor utilise des transactions synthétiques pour analyser
 
 ### <a name="configure-the-solution"></a>Configuration de la solution 
 
-1. Ajoutez la solution Network Performance Monitor à votre espace de travail à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Vous pouvez également procéder de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la Galerie de solutions](log-analytics-add-solutions.md). 
+1. Ajoutez la solution Network Performance Monitor à votre espace de travail à partir de la [Place de marché Azure](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.NetworkMonitoringOMS?tab=Overview). Vous pouvez également procéder de la manière décrite dans [Ajouter des solutions Log Analytics à partir de la Galerie de solutions](../monitoring/monitoring-solutions.md). 
 2. Ouvrez votre espace de travail Log Analytics et cliquez sur la mosaïque **Vue d’ensemble**. 
 3. Sélectionnez la mosaïque **Network Performance Monitor**  avec le message  *La solution nécessite une configuration supplémentaire*.
 
@@ -251,7 +251,7 @@ La topologie affichée sur la carte est celle du calque 3 et elle ne contient p
 
 ## <a name="log-analytics-search"></a>Recherche Log Analytics 
 
-Toutes les données présentées sous forme graphique via le tableau de bord Network Performance Monitor et les pages d’exploration sont également disponibles en mode natif dans une [recherche Log Analytics](log-analytics-log-search-new.md). Vous pouvez effectuer une analyse interactive des données dans le référentiel et mettre en corrélation les données de différentes sources. Vous pouvez également créer des affichages et des alertes personnalisées et exporter les données vers Excel, Power BI ou un lien partageable. La zone  **Requêtes courantes** du tableau de bord comprend des requêtes utiles qui peuvent vous servir de point de départ pour créer vos propres requêtes et rapports. 
+Toutes les données présentées sous forme graphique via le tableau de bord Network Performance Monitor et les pages d’exploration sont également disponibles en mode natif dans une [recherche Log Analytics](log-analytics-queries.md). Vous pouvez effectuer une analyse interactive des données dans le référentiel et mettre en corrélation les données de différentes sources. Vous pouvez également créer des affichages et des alertes personnalisées et exporter les données vers Excel, Power BI ou un lien partageable. La zone  **Requêtes courantes** du tableau de bord comprend des requêtes utiles qui peuvent vous servir de point de départ pour créer vos propres requêtes et rapports. 
 
 ## <a name="alerts"></a>Alertes
 

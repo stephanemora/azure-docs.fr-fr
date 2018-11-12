@@ -1,19 +1,19 @@
 ---
 title: Fichier Include
 description: Fichier Include
-services: azure-digital-twins
+services: digital-twins
 author: alinamstanciu
-ms.service: azure-digital-twins
+ms.service: digital-twins
 ms.topic: include
 ms.date: 09/19/2018
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: d08b7a1256a26d1d7d39481ba15a8637339063ea
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1887efd741f4779a5186707d60b27ca66fc3c06f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322779"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283973"
 ---
 1. Dans le [Portail Azure](https://portal.azure.com), ouvrez **Azure Active Directory** dans le panneau de navigation sur le côté gauche, puis ouvrez le volet **Propriétés**. Copiez l’**ID de répertoire** dans un fichier temporaire. Cette valeur vous permettra de configurer un exemple d’application dans la section suivante.
 

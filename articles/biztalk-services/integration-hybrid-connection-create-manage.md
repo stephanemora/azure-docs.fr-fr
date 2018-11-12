@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
 ms.author: ccompy
-ms.openlocfilehash: 1751d33b5f6f6a506654daedd15bbd75ae271483
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: 1c05a50f82f5c235c76ff234efe183172e0863bf
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26628843"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232978"
 ---
 # <a name="create-and-manage-hybrid-connections"></a>Création et gestion des connexions hybrides
 
@@ -105,7 +105,7 @@ You can also download the Hybrid Connection Manager MSI file and copy the file t
 [Connexions hybrides d’Azure App Service](../app-service/app-service-hybrid-connections.md) est également une bonne ressource.
 
 #### <a name="use-group-policy-to-control-the-on-premises-resources-used-by-a-hybrid-connection"></a>Utilisation d’une stratégie de groupe pour contrôler les ressources locales utilisées par une connexion hybride
-1. Téléchargez les [modèles d’administration du Gestionnaire de connexion hybride](http://www.microsoft.com/download/details.aspx?id=42963).
+1. Téléchargez les [modèles d’administration du Gestionnaire de connexion hybride](https://www.microsoft.com/download/details.aspx?id=42963).
 2. Procédez à l’extraction des fichiers.
 3. Sur l'ordinateur qui modifie la stratégie de groupe, procédez comme suit :  
    
@@ -118,7 +118,7 @@ Une fois les fichiers copiés, vous pouvez utiliser l'Éditeur de stratégie de 
 [Aperçu des connexions hybrides](integration-hybrid-connection-overview.md)
 
 ## <a name="see-also"></a>Voir aussi
-[API REST pour gérer BizTalk Services sur Microsoft Azure](http://msdn.microsoft.com/library/azure/dn232347.aspx)  
+[API REST pour gérer BizTalk Services sur Microsoft Azure](https://msdn.microsoft.com/library/azure/dn232347.aspx)  
 [Tableau comparatif des éditions de BizTalk Services](biztalk-editions-feature-chart.md)  
 [Créer un service BizTalk](biztalk-provision-services.md)  
 [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](biztalk-dashboard-monitor-scale-tabs.md)

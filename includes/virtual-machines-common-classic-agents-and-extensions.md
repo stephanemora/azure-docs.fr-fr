@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: b83e1ef752fede446b41153e3d486a872c2707f3
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 9158e6bfe07fc5d06b0685d77eff26644b594a8b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226996"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263981"
 ---
 Les extensions de machine virtuelle peuvent vous aider à :
 
@@ -42,10 +42,10 @@ L'agent de machine virtuelle est activé dans les situations suivantes :
       $vm.VM.ProvisionGuestAgent = $TRUE
       Update-AzureVM –Name $name –VM $vm.VM –ServiceName $svc
 
-* Lorsque vous créez une image de machine virtuelle qui inclut un agent de machine virtuelle installé. Une fois que l’image avec l’agent de machine virtuelle existe, vous pouvez la télécharger sur Azure. Pour une machine virtuelle Windows, téléchargez le [fichier Windows VM Agent .msi](http://go.microsoft.com/fwlink/?LinkID=394789) et installez l’agent de machine virtuelle. Pour une machine virtuelle Linux, installez-le à partir du référentiel GitHub accessible à l’adresse <https://github.com/Azure/WALinuxAgent>. Pour plus d’informations sur la procédure d’installation de l’agent de machine virtuelle sur Linux, consultez le [Guide d’utilisateur de l’agent Linux Azure](../articles/virtual-machines/extensions/agent-linux.md).
+* Lorsque vous créez une image de machine virtuelle qui inclut un agent de machine virtuelle installé. Une fois que l’image avec l’agent de machine virtuelle existe, vous pouvez la télécharger sur Azure. Pour une machine virtuelle Windows, téléchargez le [fichier Windows VM Agent .msi](https://go.microsoft.com/fwlink/?LinkID=394789) et installez l’agent de machine virtuelle. Pour une machine virtuelle Linux, installez-le à partir du référentiel GitHub accessible à l’adresse <https://github.com/Azure/WALinuxAgent>. Pour plus d’informations sur la procédure d’installation de l’agent de machine virtuelle sur Linux, consultez le [Guide d’utilisateur de l’agent Linux Azure](../articles/virtual-machines/extensions/agent-linux.md).
 
 > [!NOTE]
-> Dans PaaS, l’agent de machine virtuelle est appelé **WindowsAzureGuestAgent**. (Pour plus d’informations, consultez le billet de blog [Azure Role Architecture](http://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) (Architecture de rôle Azure).) L'agent de machine virtuelle pour les machines virtuelles de rôle peut maintenant ajouter des extensions aux machines virtuelles de service cloud de la même manière que pour les machines virtuelles persistantes. La différence majeure entre les extensions de machine virtuelle sur les machines virtuelles de rôle et les machines virtuelles persistantes se trouve lors de l’ajout des extensions de machine virtuelle. Avec les machines virtuelles de rôle, les extensions sont d’abord ajoutées au service cloud, puis aux déploiements au sein de ce service cloud.
+> Dans PaaS, l’agent de machine virtuelle est appelé **WindowsAzureGuestAgent**. (Pour plus d’informations, consultez le billet de blog [Azure Role Architecture](https://blogs.msdn.com/b/kwill/archive/2011/05/05/windows-azure-role-architecture.aspx) (Architecture de rôle Azure).) L'agent de machine virtuelle pour les machines virtuelles de rôle peut maintenant ajouter des extensions aux machines virtuelles de service cloud de la même manière que pour les machines virtuelles persistantes. La différence majeure entre les extensions de machine virtuelle sur les machines virtuelles de rôle et les machines virtuelles persistantes se trouve lors de l’ajout des extensions de machine virtuelle. Avec les machines virtuelles de rôle, les extensions sont d’abord ajoutées au service cloud, puis aux déploiements au sein de ce service cloud.
 >
 > Utilisez l’applet de commande [Get-AzureServiceAvailableExtension](https://msdn.microsoft.com/library/azure/dn722498.aspx) pour répertorier toutes les extensions de machine virtuelle de rôle disponibles.
 >

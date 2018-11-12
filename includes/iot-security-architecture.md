@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/07/2018
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 64c7525be9bd44b0d33fdcd8da717e9fe893e057
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 7407bed746f863a5daecfc98d2df89175ff35b5f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49070183"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264137"
 ---
 # <a name="internet-of-things-security-architecture"></a>Architecture de sécurité de l’Internet des objets
 
@@ -252,7 +252,7 @@ Chaque passerelle de périphérique et de champ dispose d’une certaine forme d
 
 Une passerelle cloud est un système qui permet une communication distante entre les périphériques ou les passerelles de champ à partir de plusieurs sites via l’espace réseau public, généralement vers un système d’analyse de données et de contrôle basé sur le cloud, une fédération de ces systèmes. Dans certains cas, une passerelle cloud peut faciliter l’accès immédiat aux appareils à usage spécifique à partir de terminaux comme les tablettes ou les téléphones. Dans le contexte présenté ici, le « cloud » désigne un système de traitement des données dédié qui n’est pas lié au même site que les périphériques connectés ou les passerelles de champ, et dans lequel des mesures opérationnelles empêchent l’accès physique ciblé. Il ne s’agit pas nécessairement de « cloud public ». Une passerelle cloud peut potentiellement être mappée à une superposition de virtualisation de réseau pour isoler la passerelle cloud et tous ses périphériques connectés ou passerelles de champ de tout autre trafic réseau. La passerelle cloud proprement dite n’est pas un système de contrôle d’appareil ni une fonction de traitement ou de stockage des données d’appareil. Ces fonctions servent d’interface avec la passerelle cloud. La zone de passerelle cloud inclut la passerelle cloud proprement dite ainsi que l’ensemble des passerelles de champ et des périphériques directement ou indirectement connectés à elle.
 
-Une passerelle cloud est essentiellement un élément logiciel personnalisé qui s’exécute en tant que service comportant des points de terminaison exposés, auxquels se connectent les périphériques et la passerelle de champ. Par conséquent, il convient de la concevoir dans une optique de sécurité. Suivez le processus [Security Development Lifecycle (SDL)](http://www.microsoft.com/sdl) pour concevoir et créer ce service.
+Une passerelle cloud est essentiellement un élément logiciel personnalisé qui s’exécute en tant que service comportant des points de terminaison exposés, auxquels se connectent les périphériques et la passerelle de champ. Par conséquent, il convient de la concevoir dans une optique de sécurité. Suivez le processus [Security Development Lifecycle (SDL)](https://www.microsoft.com/sdl) pour concevoir et créer ce service.
 
 #### <a name="services-zone"></a>Zone des services
 

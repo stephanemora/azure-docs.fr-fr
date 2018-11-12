@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 5cd56abd02c55dbf72c92ed070f9988fae2b6762
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 7ab12c86e01a34e4ba2a9673364c0e1104f6cdba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365252"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231617"
 ---
 # <a name="enable-diagnostics-logging-for-web-apps-in-azure-app-service"></a>Activer la journalisation des diagnostics pour les applications web dans Azure App Service
 ## <a name="overview"></a>Vue d’ensemble
-Azure fournit des diagnostics intégrés pour aider au débogage d'une [application Web App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
+Azure fournit des diagnostics intégrés pour aider au débogage d'une [application Web App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Cet article vous explique comment activer la journalisation de diagnostic et ajouter la fonctionnalité d’instrumentation à votre application, et comment accéder aux informations enregistrées par Azure.
 
 Cet article utilise le [portail Azure](https://portal.azure.com), Azure PowerShell et l’interface de ligne de commande Azure pour l’exploitation des journaux de diagnostic. Pour plus d’informations sur l’utilisation de journaux de diagnostic avec Visual Studio, consultez [Résolution des problèmes Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md).
 
@@ -37,10 +37,10 @@ Vous pouvez activer ou désactiver les types de journaux suivants :
 
 * **Messages d’erreur détaillés** : informations d’erreur détaillées pour les codes d’état HTTP qui indiquent un échec (code d’état 400 ou supérieur). Il peut s’agir d’informations permettant de déterminer la raison pour laquelle le serveur a renvoyé le code d’erreur.
 * **Suivi des demandes ayant échoué** : informations détaillées sur les demandes qui ont échoué, y compris une trace des composants IIS utilisés pour traiter la demande et la durée dans chaque composant. Ces informations peuvent se révéler utiles si vous essayez d’améliorer les performances du site ou d’isoler la cause d’une erreur HTTP spécifique.
-* **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ces informations peuvent se révéler utiles pour déterminer les métriques globales d’un site, comme le nombre de demandes traitées ou le nombre de demandes émanant d’une adresse IP spécifique.
+* **Journalisation du serveur Web** : informations sur les transactions HTTP à l’aide du [format de fichier journal étendu W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ces informations peuvent se révéler utiles pour déterminer les métriques globales d’un site, comme le nombre de demandes traitées ou le nombre de demandes émanant d’une adresse IP spécifique.
 
 ### <a name="application-diagnostics"></a>Diagnostic d'application
-Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](http://msdn.microsoft.com/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple : 
+Le diagnostic d'application vous permet de capturer des informations générées par une application Web. Les applications ASP.NET peuvent utiliser la classe [System.Diagnostics.Trace](https://msdn.microsoft.com/library/36hhw2t6.aspx) pour enregistrer des informations dans le journal de diagnostic d'application. Par exemple : 
 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
 
@@ -97,7 +97,7 @@ La structure de répertoires dans laquelle les journaux sont stockés est la sui
 * **Journaux d'application** : /LogFiles/Application/. Ce dossier contient un ou plusieurs fichiers texte contenant des informations générées dans le cadre de la journalisation des applications.
 * **Suivi des demandes ayant échoué** : /LogFiles/W3SVC#########/. Ce dossier contient un fichier XSL et un ou plusieurs fichiers XML. Assurez-vous de télécharger le fichier XSL dans le même répertoire que le(s) fichier(s) XML, car le fichier XSL possède des attributs permettant de formater et de filtrer le contenu de fichiers XML lorsqu'ils sont affichés dans Internet Explorer.
 * **Journaux d'erreurs détaillés** : /LogFiles/DetailedErrors/. Ce dossier contient un ou plusieurs fichiers .htm fournissant des informations détaillées sur toute erreur HTTP qui s'est produite.
-* **Journaux des serveurs Web** : /LogFiles/http/RawLogs. Ce dossier contient un ou plusieurs fichiers texte au format [de fichier journal étendu W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
+* **Journaux des serveurs Web** : /LogFiles/http/RawLogs. Ce dossier contient un ou plusieurs fichiers texte au format [de fichier journal étendu W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx).
 * **Journaux de déploiement** : /LogFiles/Git. Ce dossier contient les journaux générés par les processus de déploiement internes utilisés par les applications web Azure, ainsi que les journaux des déploiements Git. Vous trouverez également les journaux de déploiement sous D:\home\site\deployments.
 
 ### <a name="ftp"></a>FTP
@@ -171,7 +171,7 @@ Pour filtrer des types de journaux spécifiques, tels que HTTP, utilisez le para
 Pour afficher la liste des chemins disponibles, utilisez le paramètre -ListPath.
 
 > [!NOTE]
-> Si vous n’avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure PowerShell](http://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Si vous n’avez pas installé ou configuré Azure PowerShell de manière à utiliser votre abonnement Azure, consultez la page [Utilisation d’Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -222,7 +222,7 @@ Lorsque vous consignez des informations dans le stockage de tables, des proprié
 | Timestamp |Date et heure auxquelles l'événement s'est produit |
 | EventTickCount |Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue) |
 | ApplicationName |Nom de l’application web |
-| Level |Niveau d’événement (par exemple, erreur, avertissement ou information) |
+| Niveau |Niveau d’événement (par exemple, erreur, avertissement ou information) |
 | EventId |ID de cet événement<p><p>Il est, par défaut, défini sur 0 |
 | InstanceId |Instance de l’application web sur laquelle l’événement s’est produit |
 | Pid |ID du processus |
@@ -236,7 +236,7 @@ Lorsque vous consignez des données dans un stockage d'objets blob, elles sont s
 | Nom de la propriété | Valeur/format |
 | --- | --- |
 | Date |Date et heure auxquelles l'événement s'est produit |
-| Level |Niveau d’événement (par exemple, erreur, avertissement ou information) |
+| Niveau |Niveau d’événement (par exemple, erreur, avertissement ou information) |
 | ApplicationName |Nom de l’application web |
 | InstanceId |Instance d’application web sur laquelle l’événement s’est produit |
 | EventTickCount |Date et heure auxquelles l'événement s'est produit, au format Tick (précision accrue) |
@@ -264,7 +264,7 @@ Le suivi des demandes ayant échoué est stocké dans des fichiers XML nommés *
 Les journaux d'erreurs détaillés sont des documents HTML qui fournissent des informations plus détaillées sur les erreurs HTTP qui se sont produites. Puisqu'il s'agit simplement de documents HTML, ils peuvent être consultés à l'aide d'un navigateur Web.
 
 ### <a name="web-server-logs"></a>Journaux des serveurs Web
-Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C](http://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ces informations peuvent être lues à l'aide d'un éditeur de texte ou analysées à l'aide d'utilitaires tels que [Log Parser](http://go.microsoft.com/fwlink/?LinkId=246619).
+Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C](https://msdn.microsoft.com/library/windows/desktop/aa814385.aspx). Ces informations peuvent être lues à l'aide d'un éditeur de texte ou analysées à l'aide d'utilitaires tels que [Log Parser](https://go.microsoft.com/fwlink/?LinkId=246619).
 
 > [!NOTE]
 > Les journaux générés par les applications web Azure ne prennent pas en charge les champs **s-computername**, **s-ip** ou **cs-version**.
@@ -274,7 +274,7 @@ Les journaux de serveur Web utilisent le [format de fichier journal étendu W3C]
 ## <a name="nextsteps"></a> Étapes suivantes
 * [Surveillance d’applications Web](web-sites-monitor.md)
 * [Résolution des problèmes des applications web Azure dans Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
-* [Analyse des journaux d’application Web dans HDInsight (en anglais)](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Analyse des journaux d’application Web dans HDInsight (en anglais)](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 
 > [!NOTE]
 > Si vous voulez vous familiariser avec Azure App Service avant d’ouvrir un compte Azure, accédez à la page [Essayer App Service](https://azure.microsoft.com/try/app-service/), où vous pourrez créer immédiatement une application web temporaire dans App Service. Aucune carte de crédit n’est requise ; vous ne prenez aucun engagement.

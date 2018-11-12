@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/06/2017
 ms.author: spelluru
-ms.openlocfilehash: d4ecbb7101e7b1f0f3dd6978ae7d35bb5066126d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: a0f2cc0d76ef3c857bb7c13f46f1397f05b60977
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48854930"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232441"
 ---
 # <a name="azure-wcf-relay-rest-tutorial"></a>Didacticiel Azure WCF Relay REST
 
@@ -65,7 +65,7 @@ La principale différence entre un contrat WCF et un contrat de type REST est l�
     {
         ...
     ```
-8. Directement après l’accolade d’ouverture de la déclaration d’espace de noms, définissez une nouvelle interface nommée **IImageContract** et appliquez l’attribut **ServiceContractAttribute** à l’interface avec une valeur de `http://samples.microsoft.com/ServiceModel/Relay/`. La valeur de l'espace de noms diffère de l'espace de noms que vous utilisez dans l’ensemble de votre code. La valeur de l'espace de noms est utilisée comme identificateur unique pour ce contrat et doit contenir des informations de version. Pour plus d’informations, consultez la rubrique [Contrôle de version du service](http://go.microsoft.com/fwlink/?LinkID=180498). Spécifier explicitement l'espace de noms empêche l'ajout au nom du contrat de la valeur d'espace de noms par défaut.
+8. Directement après l’accolade d’ouverture de la déclaration d’espace de noms, définissez une nouvelle interface nommée **IImageContract** et appliquez l’attribut **ServiceContractAttribute** à l’interface avec une valeur de `http://samples.microsoft.com/ServiceModel/Relay/`. La valeur de l'espace de noms diffère de l'espace de noms que vous utilisez dans l’ensemble de votre code. La valeur de l'espace de noms est utilisée comme identificateur unique pour ce contrat et doit contenir des informations de version. Pour plus d’informations, consultez la rubrique [Contrôle de version du service](https://go.microsoft.com/fwlink/?LinkID=180498). Spécifier explicitement l'espace de noms empêche l'ajout au nom du contrat de la valeur d'espace de noms par défaut.
    
     ```csharp
     [ServiceContract(Name = "ImageContract", Namespace = "http://samples.microsoft.com/ServiceModel/Relay/RESTTutorial1")]

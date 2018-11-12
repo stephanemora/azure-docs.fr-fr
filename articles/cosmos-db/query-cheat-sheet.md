@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: sngun
-ms.openlocfilehash: 432f61adaf736180a720aa23a7275e96fed4c733
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 22f8384105ed31ac2b11e0c6094b01549a270144
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696929"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230867"
 ---
 # <a name="azure-cosmos-db-query-cheat-sheets"></a>Aide-mémoires pour les requêtes Azure Cosmos DB
 
@@ -25,7 +25,7 @@ Choisissez à partir d’un téléchargement au format A4 ou A3.
 
 ## <a name="letter-sized-cheat-sheets"></a>Aide-mémoires au format A4
 
-Téléchargez les[aide-mémoires pour les requêtes au format A4 Azure Cosmos DB](http://go.microsoft.com/fwlink/?LinkId=623215) si vous souhaitez imprimer au format A4 (8,5 x 11 pouces).
+Téléchargez les[aide-mémoires pour les requêtes au format A4 Azure Cosmos DB](https://go.microsoft.com/fwlink/?LinkId=623215) si vous souhaitez imprimer au format A4 (8,5 x 11 pouces).
 
 ![Aide-mémoires pour les requêtes Azure Cosmos DB : format A4, avec les fonctions et requêtes JavaScript et des API SQL, MongoDB, Gremlin et Table](./media/query-cheat-sheet/azure-cosmos-db-cheat-sheet-letter.png)
 

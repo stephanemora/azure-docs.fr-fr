@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: 2172acfd61188c09693b9c7dacf37ff7a638d7f4
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 9d64ad70ea49f7fbffd8bd6a5a77177fe490b832
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32169939"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229660"
 ---
 # <a name="provision-a-deep-learning-virtual-machine-on-azure"></a>Provisionner une machine virtuelle DLVM dans Azure 
 
-La machine virtuelle DLVM (Deep Learning Virtual Machine) est une variante de la célèbre machine virtuelle [DSVM (Data Science Virtual Machine)](http://aka.ms/dsvm). Elle a été spécialement configurée pour faciliter l'utilisation des instances de machine virtuelle basées sur GPU visant à former rapidement des modèles d’apprentissage profond. Elle est prise en charge avec DSVM Windows 2016 ou Ubuntu comme base. La machine virtuelle DLVM partage les mêmes images de machines virtuelles principales, ce qui explique la richesse des outils qui sont disponibles avec la machine virtuelle DSVM. 
+La machine virtuelle DLVM (Deep Learning Virtual Machine) est une variante de la célèbre machine virtuelle [DSVM (Data Science Virtual Machine)](https://aka.ms/dsvm). Elle a été spécialement configurée pour faciliter l'utilisation des instances de machine virtuelle basées sur GPU visant à former rapidement des modèles d’apprentissage profond. Elle est prise en charge avec DSVM Windows 2016 ou Ubuntu comme base. La machine virtuelle DLVM partage les mêmes images de machines virtuelles principales, ce qui explique la richesse des outils qui sont disponibles avec la machine virtuelle DSVM. 
 
 La machine virtuelle DLVM contient plusieurs outils d’intelligence artificielle, notamment les éditions GPU des frameworks d’apprentissage profond courants tels que Microsoft Cognitive Toolkit, TensorFlow, Keras, Caffe2 ou Chainer. Elle contient également des outils permettant d’acquérir et de prétraiter des images et des données textuelles, des outils pour la modélisation et le développement de science des données, tels que Microsoft R Server Developer Edition, Anaconda Python, les bloc-notes Jupyter pour Python et R, les IDE pour Python et R et les bases de données SQL, ainsi que de nombreux autres outils d’apprentissage automatique et de science des données. 
 

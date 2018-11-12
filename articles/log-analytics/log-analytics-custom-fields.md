@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/23/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: e86b79cb57b9d4a590d69a98eca591679ee10334
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: fdac7d1fd7fbcea28d6ce8e614e4968f168566ba
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042935"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010585"
 ---
 # <a name="custom-fields-in-log-analytics"></a>Champs personnalisés dans Log Analytics
 La fonction **Champs personnalisés** de Log Analytics vous permet de compléter les enregistrements existants dans Log Analytics en leur ajoutant vos propres champs de recherche.  Les champs personnalisés sont renseignés automatiquement à partir des données extraites d’autres propriétés du même enregistrement.
@@ -46,9 +46,9 @@ Les sections suivantes décrivent la procédure de création d’un champ person
 > 
 
 ### <a name="step-1--identify-records-that-will-have-the-custom-field"></a>Étape 1 : identifier les enregistrements qui contiendront le champ personnalisé
-La première étape consiste à identifier les enregistrements qui recevront le champ personnalisé.  Commencez par une [recherche de journal standard](log-analytics-log-searches.md) , puis sélectionnez l’enregistrement qui va servir de modèle à Log Analytics.  Lorsque vous indiquez que vous allez extraire des données pour les placer dans un champ personnalisé, l’ **Assistant Extraction de champs** s’ouvre et vous permet d’affiner et de valider les critères.
+La première étape consiste à identifier les enregistrements qui recevront le champ personnalisé.  Commencez par une [recherche de journal standard](log-analytics-queries.md) , puis sélectionnez l’enregistrement qui va servir de modèle à Log Analytics.  Lorsque vous indiquez que vous allez extraire des données pour les placer dans un champ personnalisé, l’ **Assistant Extraction de champs** s’ouvre et vous permet d’affiner et de valider les critères.
 
-1. Accédez à **Recherche de journal** et utilisez une [requête pour récupérer les enregistrements](log-analytics-log-searches.md) qui contiendront le champ personnalisé.
+1. Accédez à **Recherche de journal** et utilisez une [requête pour récupérer les enregistrements](log-analytics-queries.md) qui contiendront le champ personnalisé.
 2. Sélectionnez l’enregistrement que Log Analytics utilisera comme modèle pour extraire les données à afficher dans le champ personnalisé.  Vous allez identifier les données à extraire de cet enregistrement, données que Log Analytics va utiliser pour déterminer la logique permettant de renseigner le champ personnalisé de tous les enregistrements similaires.
 3. Cliquez sur le bouton à gauche d’une propriété textuelle de l’enregistrement, puis sélectionnez **Extraire les champs de**.
 4. L’**Assistant Extraction de champs s’ouvre** et l’enregistrement que vous avez sélectionné s’affiche dans la colonne **Exemple principal**.  Le champ personnalisé sera défini pour les enregistrements ayant les mêmes valeurs dans les propriétés sélectionnées.  
@@ -140,6 +140,6 @@ Nous pouvons maintenant utiliser le champ personnalisé comme n’importe quelle
 ![Regrouper par requête](media/log-analytics-custom-fields/query-group.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* En savoir plus sur les [recherches de journaux](log-analytics-log-searches.md) pour générer des requêtes utilisant des champs personnalisés comme critères.
+* En savoir plus sur les [recherches de journaux](log-analytics-queries.md) pour générer des requêtes utilisant des champs personnalisés comme critères.
 * Surveillez les [fichiers journaux personnalisés](log-analytics-data-sources-custom-logs.md) que vous analysez à l’aide de champs personnalisés.
 

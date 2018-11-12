@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 7aa5b00d1497e384377ba4423431eac57c1aa4c9
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 8cc47fc7ec60027851525b98cdf95e7d534ea556
+ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630401"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50241852"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>FAQ sur la configuration et la gestion de Web Apps dans Azure
 
@@ -99,7 +99,7 @@ Les certificats App Service sont considérés comme des ressources Azure. Ils ne
 
 ## <a name="can-i-export-my-app-service-certificate-to-use-with-other-azure-cloud-services"></a>Puis-je exporter mon certificat App Service afin de l’utiliser avec d’autres services cloud Azure ?
 
-Le portail fournit une expérience de première classe pour le déploiement d’un certificat App Service vers des applications App Service via Azure Key Vault. Toutefois, nous avons reçu des demandes de clients désireux d’utiliser ces certificats en dehors de la plateforme App Service, par exemple, avec des machines virtuelles Azure. Pour savoir comment créer une copie PFX locale de votre certificat App Service afin de pouvoir utiliser le certificat avec d’autres ressources Azure, voir [Créer une copie PFX locale d’un certificat App Service](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
+Le portail fournit une expérience de première classe pour le déploiement d’un certificat App Service vers des applications App Service via Azure Key Vault. Toutefois, nous avons reçu des demandes de clients désireux d’utiliser ces certificats en dehors de la plateforme App Service, par exemple, avec des machines virtuelles Azure. Pour savoir comment créer une copie PFX locale de votre certificat App Service afin de pouvoir utiliser le certificat avec d’autres ressources Azure, consultez [Créer une copie PFX locale d’un certificat App Service](https://blogs.msdn.microsoft.com/appserviceteam/2017/02/24/creating-a-local-pfx-copy-of-app-service-certificate/).
 
 Pour plus d’informations, voir [FAQ sur les certificats App Service et les domaines personnalisés](https://social.msdn.microsoft.com/Forums/azure/f3e6faeb-5ed4-435a-adaa-987d5db43b80/faq-on-app-service-certificates-and-custom-domains?forum=windowsazurewebsitespreview).
 
@@ -279,7 +279,7 @@ Invoke-AzureRmResourceAction -ResourceGroupName "<App Service Certificate Resour
 
 ## <a name="how-do-authentication-and-authorization-work-in-app-service"></a>Comment fonctionnent l’authentification et l’autorisation dans Azure App Service
 
-Pour obtenir des informations détaillée concernant l’authentification et l’autorisation dans App Service, consultez la documentation relative aux connexions avec les différents fournisseurs d’identité :
+Pour obtenir des informations détaillées concernant l’authentification et l’autorisation dans App Service, consultez la documentation relative aux connexions avec les différents fournisseurs d’identité :
 * [Azure Active Directory](app-service-mobile-how-to-configure-active-directory-authentication.md)
 * [Facebook](app-service-mobile-how-to-configure-facebook-authentication.md)
 * [Google](app-service-mobile-how-to-configure-google-authentication.md)
@@ -300,7 +300,7 @@ Si la fonction de mise à l’échelle automatique Azure n’a pas modifié l’
 
 ## <a name="why-does-autoscale-sometimes-scale-only-partially"></a>Pourquoi la mise à l’échelle automatique n’opère-t-elle parfois que partiellement ?
 
-Une mise à l’échelle est déclenchée quand des métriques dépassent les limites préconfigurées. Il se peut que vous observiez parfois que la capacité n’est que partiellement complétée par rapport à ce que vous attendiez. Cela peut se produire lorsque le nombre d’instances que vous souhaitez n’est pas disponible. Dans ce scénario, la mise à l’échelle automatique complète partiellement le nombre disponibles d’instances. La mise à l’échelle automatique exécute ensuite la logique de rééquilibrage pour obtenir davantage de capacité. Elle alloue les instances restantes. Notez que cela peut prendre quelques minutes.
+Une mise à l’échelle est déclenchée quand des métriques dépassent les limites préconfigurées. Il se peut que vous observiez parfois que la capacité n’est que partiellement complétée par rapport à ce que vous attendiez. Cela peut se produire lorsque le nombre d’instances que vous souhaitez n’est pas disponible. Dans ce scénario, la mise à l’échelle automatique complète partiellement le nombre disponible d’instances. La mise à l’échelle automatique exécute ensuite la logique de rééquilibrage pour obtenir davantage de capacité. Elle alloue les instances restantes. Notez que cela peut prendre quelques minutes.
 
 Si vous ne voyez pas le nombre attendu d’instances après quelques minutes, ce peut être parce que le rechargement partiel était suffisant pour ramener les mesures dans les limites. Ou bien, il se peut que la mise à l’échelle ait opéré une descente en puissance après avoir atteint la limite inférieure des métriques.
 
@@ -308,7 +308,7 @@ Si aucune de ces conditions ne s’applique et que le problème persiste, envoye
 
 ## <a name="how-do-i-turn-on-http-compression-for-my-content"></a>Comment activer sur la compression HTTP pour mon contenu ?
 
-Pour activer la compression des contenu statiques et dynamiques, ajoutez le code suivant au fichier web.config de niveau application :
+Pour activer la compression des contenus statiques et dynamiques, ajoutez le code suivant au fichier web.config de niveau application :
 
 ```
 <system.webServer>

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: ''
 ms.author: haroldw
-ms.openlocfilehash: 7b129eea513b7856ca99b02842b3b9c33c6ec19b
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: 8436b530ac01f03e071604e5023b50f8de6989fd
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50084983"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034805"
 ---
 # <a name="post-deployment-tasks"></a>Tâches de post-déploiement
 
@@ -186,7 +186,7 @@ Il y a trois façons d’ajouter l’agent Log Analytics dans OpenShift.
 - Activer l’extension de machine virtuelle Log Analytics sur chaque nœud OpenShift
 - Installer l’agent Log Analytics comme un daemon-set OpenShift
 
-Les instructions complètes se trouvent ici : https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
+Les instructions complètes se trouvent ici : https://docs.microsoft.com/azure/log-analytics/log-analytics-containers#configure-a-log-analytics-agent-for-red-hat-openshift.
 
 ## <a name="configure-metrics-and-logging"></a>Configurer les métriques et la journalisation
 

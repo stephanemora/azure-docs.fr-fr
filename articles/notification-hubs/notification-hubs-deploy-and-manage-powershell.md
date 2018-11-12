@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: 8312841b5f8e4b9979de8abf32ce1009b4243f06
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 7107c4ebd3f7df5966dd4c66aa8f453bd4f3d1d6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388150"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228349"
 ---
 # <a name="deploy-and-manage-notification-hubs-using-powershell"></a>Déploiement et gestion des concentrateurs de notification à l'aide de PowerShell
 ## <a name="overview"></a>Vue d’ensemble
@@ -34,7 +34,7 @@ La gestion des concentrateurs de notification n’est pas directement prise en c
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur l'obtention d'un abonnement, consultez les pages [Options d’achat], [Offres spéciales membres] ou [Évaluation gratuite].
+* Un abonnement Azure. Azure est une plateforme disponible par abonnement. Pour plus d'informations sur l'obtention d'un abonnement, consultez les pages [Modes d’achat d’Azure], [Offres spéciales membres] ou [Version d'évaluation gratuite].
 * Un ordinateur sur lequel est installé Azure PowerShell. Pour obtenir des instructions, consultez la rubrique [Installation et configuration d'Azure PowerShell].
 * Des connaissances générales sur les scripts PowerShell, les packages NuGet et .NET Framework.
 
@@ -147,16 +147,16 @@ else
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Gérer Service Bus avec PowerShell](../service-bus-messaging/service-bus-powershell-how-to-provision.md)
-* [Comment créer des files d'attente, des rubriques et des abonnements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Comment créer un espace de noms et un concentrateur d'événements Service Bus à l'aide d'un script PowerShell](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Comment créer des files d'attente, des rubriques et des abonnements Service Bus à l'aide d'un script PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Comment créer un espace de noms Service Bus et un Event Hub à l’aide d’un script PowerShell](https://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 
 Vous pouvez également télécharger des scripts prêts à l’emploi :
 
 * [Scripts PowerShell pour Service Bus](https://code.msdn.microsoft.com/windowsazure/Service-Bus-PowerShell-a46b7059)
 
-[Options d’achat]: http://azure.microsoft.com/pricing/purchase-options/
+[Modes d’achat d’Azure]: http://azure.microsoft.com/pricing/purchase-options/
 [Offres spéciales membres]: http://azure.microsoft.com/pricing/member-offers/
-[Évaluation gratuite]: http://azure.microsoft.com/pricing/free-trial/
+[Version d'évaluation gratuite]: http://azure.microsoft.com/pricing/free-trial/
 [Installation et configuration d'Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [API .NET pour Notification Hubs]: https://docs.microsoft.com/dotnet/api/overview/azure/notification-hubs?view=azure-dotnet
 [Get-AzureSBNamespace]: https://docs.microsoft.com/powershell/module/servicemanagement/azure/get-azuresbnamespace

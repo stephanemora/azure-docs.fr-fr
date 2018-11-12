@@ -6,19 +6,19 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 10/17/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2b1a6e2921fdaf9ede1184cfc02c3f61f63c60ac
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: bb6236203a1165361505c8699ba94bff54e41c2a
+ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393760"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50247348"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Exécution d'un Runbook dans Azure Automation
 
-Lorsque vous démarrez un Runbook dans Azure Automation, une tâche est créée. Une tâche est une instance d'exécution unique d'un Runbook. Un travail Azure Automation est assigné pour exécuter chaque tâche. Même si les travaux sont partagés par de nombreux comptes Azure, les tâches des différents comptes Automation sont isolées les unes des autres. Vous n’avez pas le contrôle du travail qui traite la requête de votre tâche. Un même runbook peut avoir beaucoup de tâches qui s’exécutent simultanément. L’environnement d’exécution pour les travaux du même compte Automation peut être réutilisé. Lorsque vous affichez la liste des Runbooks du portail Azure, vous voyez l'état de toutes les tâches démarrées pour chaque Runbook. Vous pouvez afficher la liste des tâches de chaque runbook pour en assurer le suivi de l’état. Pour obtenir une description des différents états des tâches, consultez [États des tâches](#job-statuses).
+Lorsque vous démarrez un Runbook dans Azure Automation, une tâche est créée. Une tâche est une instance d'exécution unique d'un Runbook. Un travail Azure Automation est assigné pour exécuter chaque tâche. Même si les travaux sont partagés par de nombreux comptes Azure, les tâches des différents comptes Automation sont isolées les unes des autres. Vous n’avez pas le contrôle du travail qui traite la requête de votre tâche. Un même runbook peut avoir beaucoup de tâches qui s’exécutent simultanément. L’environnement d’exécution pour les travaux du même compte Automation peut être réutilisé. Plus vous exécutez de travaux simultanément, plus ils peuvent être répartis vers le même bac à sable. Les travaux qui sont exécutés dans le même processus de bac à sable peuvent s’influencer mutuellement, par exemple avec le cmdlet `Disconnect-AzureRMAccount`. Lorsque ce cmdlet est exécuté, chaque travail de runbook est déconnecté dans le processus de bac à sable partagé. Lorsque vous affichez la liste des Runbooks du portail Azure, vous voyez l'état de toutes les tâches démarrées pour chaque Runbook. Vous pouvez afficher la liste des tâches de chaque runbook pour en assurer le suivi de l’état. Les journaux de travail sont stockés pendant 30 jours au maximum. Pour obtenir une description des différents états des tâches, consultez [États des tâches](#job-statuses).
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
 

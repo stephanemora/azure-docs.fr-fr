@@ -12,14 +12,15 @@ ms.workload: naS
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: fdcc4f51f49e8eb133deeeecd070c55511cda464
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.reviewer: hectorl
+ms.openlocfilehash: d7d47b61c926c6704a06dacc55f00d77a1266988
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985794"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038363"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Activer la sauvegarde d’Azure Stack à partir du portail d’administration
 Activez le service de sauvegarde d’infrastructure via le portail d’administration afin qu’Azure Stack puisse générer des sauvegardes. Vous pouvez utiliser ces sauvegardes pour restaurer votre environnement avec la récupération cloud en cas [d’erreur irrécupérable](.\azure-stack-backup-recover-data.md). L’objectif d’une récupération cloud est de s’assurer que les opérateurs et utilisateurs peuvent se reconnecter au portail une fois la récupération terminée. Les utilisateurs ont leurs abonnements restaurés, avec notamment les autorisations d’accès en fonction du rôle et les rôles, les plans d’origine, les offres, le calcul défini précédemment, le stockage et les quotas réseau.
@@ -42,7 +43,7 @@ Les administrateurs et utilisateurs sont responsables de la sauvegarde et de la 
     > [!Note]  
     > Si votre environnement prend en charge la résolution de noms à partir du réseau d’infrastructure Azure Stack vers votre environnement d’entreprise, vous pouvez utiliser un nom de domaine qualifié complet plutôt que l’adresse IP.
     
-4. Saisissez le **Nom d’utilisateur** à l’aide du domaine et du nom d’utilisateur avec un accès suffisant pour lire et écrire des fichiers. Par exemple : `Contoso\backupshareuser`.
+4. Saisissez le **Nom d’utilisateur** à l’aide du domaine et du nom d’utilisateur avec un accès suffisant pour lire et écrire des fichiers. Par exemple : `Contoso\backupshareuser`.
 5. Saisissez le **mot de passe** de l’utilisateur.
 6. Saisissez une nouvelle fois le mot de passe pour le **confirmer**.
 7. La **fréquence en heures** détermine la fréquence à laquelle les sauvegardes sont créées. La valeur par défaut est 12. Scheduler prend en charge un maximum de 12 heures et un minimum de 4 heures. 

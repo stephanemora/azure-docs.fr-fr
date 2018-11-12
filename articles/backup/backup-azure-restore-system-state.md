@@ -8,16 +8,16 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/18/2017
 ms.author: saurse
-ms.openlocfilehash: f8011fb3e7e1c5267f259a43f06d605690ffd281
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 31784c44d7561c690278aa4764e98992fbca73ae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606152"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230782"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Restaurer l’état du système sur Windows Server
 
-Cet article explique comment restaurer des sauvegardes de l’état du système Windows Server à partir d’un coffre Azure Recovery Services. Pour restaurer l’état du système, vous devez disposer d’une sauvegarde de l’état du système (créée en suivant les instructions fournies dans [Sauvegarder l’état du système](backup-azure-system-state.md#back-up-windows-server-system-state) et vérifier que vous avez installé la [version la plus récente de l’agent Microsoft Azure Recovery Services (MARS)](http://aka.ms/azurebackup_agent). La récupération des données d’état du système Windows Server à partir d’un coffre Azure Recovery Services est un processus en deux étapes :
+Cet article explique comment restaurer des sauvegardes de l’état du système Windows Server à partir d’un coffre Azure Recovery Services. Pour restaurer l’état du système, vous devez disposer d’une sauvegarde de l’état du système (créée en suivant les instructions fournies dans [Sauvegarder l’état du système](backup-azure-system-state.md#back-up-windows-server-system-state) et vérifier que vous avez installé la [version la plus récente de l’agent Microsoft Azure Recovery Services (MARS)](https://aka.ms/azurebackup_agent). La récupération des données d’état du système Windows Server à partir d’un coffre Azure Recovery Services est un processus en deux étapes :
 
 1. Restaurer l’état du système sous forme de fichiers à partir de Sauvegarde Azure. Lors de la restauration de l’état du système sous forme de fichiers à partir de Sauvegarde Azure, vous pouvez :
   * Restaurer l’état du système sur le même serveur que celui où les sauvegardes ont été effectuées, ou

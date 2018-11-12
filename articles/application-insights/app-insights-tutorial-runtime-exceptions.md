@@ -10,12 +10,12 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: f45cb6a47756fae7b75d8c3df80a0bc754742063
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 48e338a08330e0674cc4410adf135ec546a5e1c3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298998"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230595"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Rechercher et diagnostiquer des exceptions runtime avec Azure Application Insights
 
@@ -37,7 +37,7 @@ Pour suivre ce didacticiel :
 - Installez [Visual Studio 2017](https://www.visualstudio.com/downloads/) avec les charges de travail suivantes :
     - Développement web et ASP.NET
     - Développement Azure
-- Téléchargez et installez le [débogueur d'instantané de Visual Studio](http://aka.ms/snapshotdebugger).
+- Téléchargez et installez le [débogueur d'instantané de Visual Studio](https://aka.ms/snapshotdebugger).
 - Activez le [débogueur de capture instantanée de Visual Studio](https://docs.microsoft.com/azure/application-insights/app-insights-snapshot-debugger).
 - Déployez une application .NET pour Azure et [activez le Kit SDK Application Insights](app-insights-asp-net.md). 
 - Le didacticiel effectuant le suivi de l’identification d’une exception dans votre application, modifiez le code dans votre environnement de développement ou de test afin de générer une exception. 

@@ -4,12 +4,12 @@ ms.service: virtual-machines-sql
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: jroth
-ms.openlocfilehash: c9df9e0812d5c4b5a581d4b7da677623f45f8053
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 8b919608dfc562d8db77619d5215a6828a53a4aa
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226799"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264245"
 ---
 1. Une fois connecté à la machine virtuelle avec le Bureau à distance, recherchez **Configuration Manager** :
 
@@ -27,4 +27,4 @@ ms.locfileid: "50226799"
 
 1. Fermez le Gestionnaire de configuration de SQL Server.
 
-Pour plus d'informations sur l'activation des protocoles pour le moteur de base de données SQL Server, consultez la page [Activer ou désactiver un protocole réseau de serveur](http://msdn.microsoft.com/library/ms191294.aspx).
+Pour plus d'informations sur l'activation des protocoles pour le moteur de base de données SQL Server, consultez la page [Activer ou désactiver un protocole réseau de serveur](https://msdn.microsoft.com/library/ms191294.aspx).

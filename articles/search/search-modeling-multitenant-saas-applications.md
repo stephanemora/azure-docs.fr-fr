@@ -9,18 +9,18 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 54646a7d4962c5dfe255d28bdb91d272062530dd
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: b7befb46da8674e0bec7d3f73ad33a12529ffc3a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364272"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232373"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-search"></a>Modèles de conception pour les applications SaaS mutualisées et Recherche Azure
 Une application mutualisée est une application qui fournit les mêmes services et fonctionnalités à plusieurs clients qui ne peuvent pas voir ni partager les données d’un autre client. Ce document aborde les stratégies d’isolation de client pour les applications mutualisées conçues avec Recherche Azure.
 
 ## <a name="azure-search-concepts"></a>Concepts de Recherche Azure
-En tant que solution SaaS (search-as-a-service), Recherche Azure permet aux développeurs d’ajouter des expériences de recherche enrichies dans les applications sans avoir à gérer d’infrastructure, ni devenir un expert en matière de récupération d’informations. Les données sont téléchargées vers le service, puis stockées dans le cloud. À l’aide de requêtes simples dans l’API Recherche Azure, les données peuvent ensuite être modifiées et faire l’objet de recherches. [Cet article](http://aka.ms/whatisazsearch)présente une vue d’ensemble du service. Avant d’aborder les modèles de conception, il est important de comprendre certains concepts de Recherche Azure.
+En tant que solution SaaS (search-as-a-service), Recherche Azure permet aux développeurs d’ajouter des expériences de recherche enrichies dans les applications sans avoir à gérer d’infrastructure, ni devenir un expert en matière de récupération d’informations. Les données sont téléchargées vers le service, puis stockées dans le cloud. À l’aide de requêtes simples dans l’API Recherche Azure, les données peuvent ensuite être modifiées et faire l’objet de recherches. [Cet article](https://aka.ms/whatisazsearch)présente une vue d’ensemble du service. Avant d’aborder les modèles de conception, il est important de comprendre certains concepts de Recherche Azure.
 
 ### <a name="search-services-indexes-fields-and-documents"></a>Rechercher des services, des index, des champs et des documents
 Lorsque vous utilisez Recherche Azure, vous vous abonnez à un *service de recherche*. Lorsque les données sont téléchargées vers Recherche Azure, elles sont stockées dans un *index* au sein du service de recherche. Un seul service peut contenir plusieurs index. Pour utiliser les concepts familiers des bases de données, le service de recherche peut être comparé à une base de données, tandis que les index au sein d’un service peuvent être comparés aux tables dans une base de données.
@@ -126,7 +126,7 @@ Cette méthode peut être utilisée pour obtenir une fonctionnalité de comptes 
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-Recherche Azure est un outil de premier choix pour de nombreuses applications, [en savoir plus sur les fonctionnalités puissantes du service](http://aka.ms/whatisazsearch). Lorsque vous évaluez les différents modèles de conception pour les applications mutualisées, consultez les [différents niveaux tarifaires](https://azure.microsoft.com/pricing/details/search/) et les [limites de service](search-limits-quotas-capacity.md) respectives pour mieux adapter la Recherche Azure aux architectures et aux charges de travail de toutes tailles.
+Recherche Azure est un outil de premier choix pour de nombreuses applications, [en savoir plus sur les fonctionnalités puissantes du service](https://aka.ms/whatisazsearch). Lorsque vous évaluez les différents modèles de conception pour les applications mutualisées, consultez les [différents niveaux tarifaires](https://azure.microsoft.com/pricing/details/search/) et les [limites de service](search-limits-quotas-capacity.md) respectives pour mieux adapter la Recherche Azure aux architectures et aux charges de travail de toutes tailles.
 
 Toutes questions relatives à Recherche Azure et les scénarios partagés au sein d’une architecture mutualisée peuvent être envoyés vers azuresearch_contact@microsoft.com.
 

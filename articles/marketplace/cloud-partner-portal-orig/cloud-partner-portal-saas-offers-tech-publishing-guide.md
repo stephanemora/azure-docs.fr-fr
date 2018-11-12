@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 9d73040f11549741643d96913c42df49594b8d41
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 7430e57ceaec8a280c17f1276d503919a9703182
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806070"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228893"
 ---
 <a name="saas-application-technical-publishing-guide"></a>Guide de publication technique des applications SaaS
 ===========================================
@@ -34,7 +34,7 @@ Pour obtenir une vue d’ensemble de toutes les autres offres de la Place de mar
 
 Le portail de publication fournit un accès basé sur le rôle qui permet à plusieurs personnes de collaborer à la publication d’une offre. Pour plus d’informations, consultez la rubrique [Gérer les utilisateurs](./cloud-partner-portal-manage-users.md). 
 
-Pour publier une offre au nom d’un compte de publication, une personne dotée du rôle de *Propriétaire* doit accepter les [Conditions d’utilisation](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [Déclaration de confidentialité Microsoft](http://www.microsoft.com/privacystatement/default.aspx) et l'[Accord du programme Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Pour publier une offre au nom d’un compte de publication, une personne dotée du rôle de *Propriétaire* doit accepter les [Conditions d’utilisation](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [Déclaration de confidentialité Microsoft](https://www.microsoft.com/privacystatement/default.aspx) et l'[Accord du programme Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 
 <a name="creating-an-offer"></a>Création d'une offre
@@ -70,7 +70,7 @@ Le tableau suivant décrit les champs de l'offre :
 
 | **Champs de l’offre** | **Description**                                                                                            |
 |------------------|----------------------------------------------------------------------------------------------------------- |
-| ID de l’offre         | Identificateur unique de l’offre au sein d’un profil d’éditeur. Cet ID est visible dans les URL des produits et sur les états de facturation. Il ne peut comprendre que des caractères alphanumériques en minuscules ou des tirets (-). Il ne peut pas se terminer par un tiret et ne peut pas comprendre plus de 50 caractères. Notez que ce champ est verrouillé une fois l’offre publiée. Par exemple, si l’éditeur Contoso publie une offre avec l’ID d’offre sample-vm, celle-ci apparaît sur la Place de marché Microsoft Azure sous la forme suivante : [https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview](https://azuremarketplace.microsoft.com/) |
+| ID de l’offre         | Identificateur unique de l’offre au sein du profil d’éditeur. Cet ID est visible dans les URL des produits et sur les états de facturation. Il ne peut comprendre que des caractères alphanumériques en minuscules ou des tirets (-). Il ne peut pas se terminer par un tiret et ne peut pas comprendre plus de 50 caractères. Notez que ce champ est verrouillé une fois l’offre publiée. Par exemple, si l’éditeur Contoso publie une offre avec l’ID d’offre sample-vm, celle-ci apparaît sur la Place de marché Microsoft Azure sous la forme suivante : [https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sample-vm?tab=Overview](https://azuremarketplace.microsoft.com/) |
 | ID de l’éditeur     | L'ID d'éditeur est votre identificateur unique sur la Place de marché. Votre ID d'éditeur doit être associé à toutes vos offres. Une fois l’offre enregistrée, l'ID d'éditeur n'est pas modifiable.                                                                                       |
 | NOM             | Ceci est le nom d’affichage de votre offre. Il s'agit du nom qui apparaît sur la Place de marché Microsoft Azure et sur le portail Azure. Il ne peut pas comprendre plus de 50 caractères. Il est conseillé ici d’inclure un nom de marque reconnaissable pour votre produit. N'incluez pas ici le nom de votre entreprise, sauf s'il s'agit du nom sous lequel l'offre est commercialisée. Si vous commercialisez cette offre sur votre propre site web, assurez-vous que le nom présente rigoureusement le même aspect que sur votre site.             |
 |  |  |
@@ -135,7 +135,7 @@ Le tableau suivant décrit les détails de la vitrine de l'offre :
 
 | **Champs de l’offre**        | **Description**                                                                                          |
 |-------------------------| ---------------------------------------------------------------------------------------------------------|
-| Résumé de l’offre           | Résumé de la proposition de valeur de votre offre. Celui-ci apparaîtra sur la page de recherche de votre offre. Il ne peut pas comprendre plus de 100 caractères.   |
+| Résumé de l’offre           | Résumé de la proposition de valeur de votre offre. Celui-ci apparaîtra sur la page de recherche de votre offre. Elle ne doit pas dépasser 100 caractères.   |
 | Description de l’offre       | Description qui apparaîtra sur la page des détails de votre application. Celle-ci ne doit pas dépasser les 1 300 caractères. *Remarque :* pour un contenu plus présentable, ce champ accepte les contenus HTML avec des balises telles que &ltp\>, &lth1\>, &lth2\>, &ltli\>, etc. L'équipe du portail de publication ajoutera prochainement une fonctionnalité qui permettra à l'utilisateur d'afficher un aperçu des détails de sa vitrine de manière itérative, pour un contenu plus présentable. En attendant, vous pouvez utiliser un outil HTML en ligne et en temps réel tel que http://htmledit.squarefree.com pour afficher un aperçu de votre description. |
 | Secteurs d’activité              | Sélectionnez les secteurs d'activité le mieux adaptés à votre offre. Si votre application convient à plusieurs secteurs d’activité, vous pouvez en sélectionner deux. |
 | Catégories suggérées    | Sélectionnez les catégories les mieux adaptées à votre offre. Vous pouvez en sélectionner trois.     |

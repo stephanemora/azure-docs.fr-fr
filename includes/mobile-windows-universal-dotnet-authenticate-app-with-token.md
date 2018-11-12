@@ -75,7 +75,7 @@
     Dans cette version d’**AuthenticateAsync**, l’application essaie d’utiliser les informations d’identification stockées dans le **coffre de mots de passe** pour accéder au service. Une connexion normale est également effectuée quand il n'y a pas d'informations d'identification stockées.
    
    > [!NOTE]
-   > Un jeton en cache peut avoir expiré et l'expiration des jetons peut également survenir après l'authentification, alors que l'application est en cours d'utilisation. Pour savoir comment déterminer si un jeton est arrivé à expiration, consultez [Rechercher les jetons d'authentification expirés](http://aka.ms/jww5vp). Pour une solution permettant de gérer les erreurs d'autorisation liées à des jetons expirés, consultez le post [Mise en cache et gestion des jetons expirés dans le Kit de développement logiciel (SDK) managé d'Azure Mobile Services](http://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
+   > Un jeton en cache peut avoir expiré et l'expiration des jetons peut également survenir après l'authentification, alors que l'application est en cours d'utilisation. Pour savoir comment déterminer si un jeton est arrivé à expiration, consultez [Rechercher les jetons d'authentification expirés](https://aka.ms/jww5vp). Pour une solution permettant de gérer les erreurs d'autorisation liées à des jetons expirés, consultez le post [Mise en cache et gestion des jetons expirés dans le Kit de développement logiciel (SDK) managé d'Azure Mobile Services](https://blogs.msdn.com/b/carlosfigueira/archive/2014/03/13/caching-and-handling-expired-tokens-in-azure-mobile-services-managed-sdk.aspx). 
    > 
    > 
 3. Redémarrez l'application deux fois.

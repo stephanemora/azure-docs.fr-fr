@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 2d289dee6770b0fc70edb0ed5fecf8a39402c6fa
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 3579a17ab28bd39ddad5008e1d0f8f7834237807
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305938"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281997"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Implémenter la synchronisation de hachage de mot de passe avec la synchronisation Azure AD Connect
 Cet article vous fournit les informations nécessaires pour synchroniser vos mots de passe utilisateur à partir d’une instance Active Directory (AD) locale vers une instance Azure Active Directory (Azure AD) dans le cloud.
@@ -136,7 +136,7 @@ La synchronisation d’un mot de passe n’a aucun impact sur l’utilisateur Az
 ## <a name="enable-password-hash-synchronization"></a>Activer la synchronisation de hachage de mot de passe
 
 >[!IMPORTANT]
->Si vous procédez à une migration depuis AD FS (ou d’autres technologies de fédération) vers la synchronisation de hachage du mot de passe, nous vous recommandons vivement de vous référer à notre guide de déploiement détaillé, publié [ici](https://github.com/Identity-Deployment-Guides/Identity-Deployment-Guides/blob/master/Authentication/Migrating%20from%20Federated%20Authentication%20to%20Password%20Hash%20Synchronization.docx).
+>Si vous procédez à une migration depuis AD FS (ou d’autres technologies de fédération) vers la synchronisation de hachage du mot de passe, nous vous recommandons vivement de vous référer à notre guide de déploiement détaillé, publié [ici](https://aka.ms/adfstophsdpdownload).
 
 La synchronisation de hachage de mot de passe est activée automatiquement si vous installez Azure AD Connect avec la **configuration rapide**. Pour plus d’informations, voir [Prise en main d’Azure AD Connect avec la configuration rapide](how-to-connect-install-express.md).
 

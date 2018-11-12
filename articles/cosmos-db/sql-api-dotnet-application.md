@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: 110f787866296ec08b9937d56461d37574270a43
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 22856b6e9b543504db66bce074d32d9ad70f5238
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46980921"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247668"
 ---
 # <a name="_Toc395809351"></a>Didacticiel ASP.NET MVC : développement d’applications web avec Azure Cosmos DB
 
@@ -488,7 +488,7 @@ La dernière chose à faire est d'ajouter la possibilité de modifier des **él�
             return View(item);
         }
    
-    La première méthode traite l’opération HTTP GET qui se produit lorsque l’utilisateur clique sur le lien **Edit** de la vue **Index**. Elle extrait un [**document**](http://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) à partir d’Azure Cosmos DB et le transmet à la vue **Modifier**.
+    La première méthode traite l’opération HTTP GET qui se produit lorsque l’utilisateur clique sur le lien **Edit** de la vue **Index**. Elle extrait un [**document**](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.document.aspx) à partir d’Azure Cosmos DB et le transmet à la vue **Modifier**.
    
     La vue **Edit** renvoie ensuite une opération HTTP POST au **IndexController**. 
    

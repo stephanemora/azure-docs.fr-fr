@@ -14,15 +14,15 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: dimazaid
-ms.openlocfilehash: 21ed7dd1120958576651703283a0732e3843546d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f2fa2b8b43a4840d8c6956efb7704327cca78d7c
+ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33777455"
+ms.lasthandoff: 10/30/2018
+ms.locfileid: "50232510"
 ---
 # <a name="azure-notification-hubs-rich-push"></a>Notifications Push enrichies avec Azure Notification Hubs
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Pour attirer les utilisateurs avec des contenus riches instantanés, une application peut souhaiter envoyer des notifications Push plus sophistiquées que du texte brut. Ces notifications promeuvent les interactions entre utilisateurs et présentent du contenu tel que des URL, des sons, des images/coupons et bien plus encore. Ce didacticiel se base sur la rubrique [Envoi de notifications aux utilisateurs](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) et montre comment envoyer des notifications Push qui incorporent des charges utiles (par exemple, une image).
 
 Ce didacticiel est compatible avec iOS 7 et 8.
@@ -136,7 +136,7 @@ Maintenant que vous avez modifié votre serveur principal d'application pour qu'
 2. Cliquez sur **Capacités**, activez **Modes d’arrière-plan** et cochez la case **Notifications à distance**.
    
     ![][IOS3]
-3. Accédez à **Main.storyboard**et assurez-vous que vous disposez d’un contrôleur d’affichage (dénommé Contrôle d’affichage d’accueil dans ce didacticiel) provenant du didacticiel [Envoi de notifications aux utilisateurs](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) .
+3. Accédez à **Main.storyboard** et assurez-vous que vous disposez d’un contrôleur d’affichage (dénommé Contrôle d’affichage d’accueil dans ce tutoriel) provenant du tutoriel [Envoi de notifications aux utilisateurs](notification-hubs-aspnet-backend-ios-apple-apns-notification.md).
 4. Ajoutez un **Contrôleur de navigation** à votre table de montage séquentiel et faites-le glisser vers le contrôleur d’affichage d’accueil pour en faire **l’affichage racine** de la navigation. Vérifiez que **Est contrôleur d’affichage initial** dans l’inspecteur d’attributs est sélectionné pour le contrôleur de navigation uniquement.
 5. Ajoutez un **contrôleur d’affichage** à la table de montage séquentiel et ajoutez un **affichage d’image**. Il s’agit de la page que les utilisateurs verront une fois qu’ils souhaiteront en savoir plus en cliquant sur la notification. Votre storyboard doit ressembler à ce qui suit :
    

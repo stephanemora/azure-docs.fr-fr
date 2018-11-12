@@ -16,15 +16,15 @@ ms.date: 08/02/2018
 ms.author: magoedte
 ms.custom: mvc
 ms.component: ''
-ms.openlocfilehash: 01ada4e0bcd266d99071988532221611711e2f1b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c6e090fe7e79de7b08e77fe7bb08d5f2bf53c9d5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50418379"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282762"
 ---
 # <a name="configure-log-analytics-agent-for-linux-computers-in-a-hybrid-environment"></a>Configurer l’agent Log Analytics pour les ordinateurs Linux dans un environnement hybride
-[Azure Log Analytics](log-analytics-overview.md) est capable de collecter des données directement à partir de votre ordinateur Linux physique ou virtuel lequel se situe dans votre centre de données ou un autre environnement cloud, puis de les enregistrer dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Linux en quelques étapes simples.  Pour les machines virtuelles Linux Azure, voir la rubrique [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md).  
+[Azure Log Analytics](log-analytics-agent-windows.md) est capable de collecter des données directement à partir de votre ordinateur Linux physique ou virtuel lequel se situe dans votre centre de données ou un autre environnement cloud, puis de les enregistrer dans un référentiel unique pour ensuite procéder à une analyse et à une mise en corrélation détaillées.  Ce guide de démarrage rapide montre comment configurer et collecter des données à partir de votre ordinateur Linux en quelques étapes simples.  Pour les machines virtuelles Linux Azure, voir la rubrique [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md).  
 
 Pour comprendre la configuration prise en charge, consultez la page [Prise en charge des systèmes d’exploitation Linux](log-analytics-concept-hybrid.md#supported-linux-operating-systems) et [Configuration du pare-feu réseau](log-analytics-concept-hybrid.md#network-firewall-requirements).
 
@@ -37,7 +37,7 @@ Connectez-vous au portail Azure à l’adresse [https://portal.azure.com](https:
 1. Dans le portail Azure, cliquez sur **Tous les services**. Dans la liste de ressources, saisissez **Log Analytics**. Au fur et à mesure de la saisie, la liste est filtrée. Sélectionnez **Log Analytics**.<br><br> ![Portail Azure](media/log-analytics-quick-collect-linux-computer/azure-portal-01.png)<br><br>  
 2. Cliquez sur **Créer**, puis sélectionnez des options pour les éléments suivants :
 
-  * Attribuez un nom au nouvel **Espace de travail Log Analytics** comme *DefaultLAWorkspace*. Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics.   
+  * Attribuez un nom au nouvel **Espace de travail Log Analytics** comme *DefaultLAWorkspace*. Les espaces de travail OMS sont désormais appelés « espaces de travail Log Analytics ».   
   * Dans la liste déroulante **Abonnement**, sélectionnez un abonnement à lier si la valeur par défaut sélectionnée n’est pas appropriée.
   * Pour **Groupe de ressources**, sélectionnez un groupe de ressources existant qui contient une ou plusieurs machines virtuelles Azure.  
   * Sélectionnez l’**Emplacement** dans lequel vos machines virtuelles sont déployées.  Pour en savoir plus, découvrez dans quelles [régions Log Analytics est disponible](https://azure.microsoft.com/regions/services/).  

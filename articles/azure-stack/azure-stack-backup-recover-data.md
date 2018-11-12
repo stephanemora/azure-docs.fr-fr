@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: ed89468d65f35d0a8cda90da365e8625f46e3f92
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: bd72abd4f8f23414ea1003c74d2f90cde3b51d34
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41946393"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034335"
 ---
 # <a name="recover-from-catastrophic-data-loss"></a>Récupérer des données suite à une perte catastrophique
 
@@ -73,4 +73,4 @@ Aucune ressource Infrastructure as a Service (IaaS) ou Platform as a Service (Pa
 
 ## <a name="next-steps"></a>Étapes suivantes
 
- - En savoir plus sur les meilleures pratiques relatives à l’[utilisation du service de sauvegarde d’infrastructure](azure-stack-backup-best-practices.md).
+En savoir plus sur les meilleures pratiques relatives à l’[utilisation du service de sauvegarde d’infrastructure](azure-stack-backup-best-practices.md).

@@ -3,7 +3,7 @@ items:
   href: index.yml
 - name: Service SQL Database
   items:
-  - name: À propos de SQL Database
+  - name: Définition de la base de données SQL
     href: sql-database-technical-overview.md
   - name: Choisir une version d’Azure SQL
     href: sql-database-paas-vs-sql-server-iaas.md
@@ -58,6 +58,8 @@ items:
       href: sql-database-connect-query-python.md
     - name: Ruby
       href: sql-database-connect-query-ruby.md
+    - name: R
+      href: sql-database-connect-query-r.md
   expanded: true
 - name: Didacticiels
   items:
@@ -342,7 +344,7 @@ items:
       - name: Surveillance avancée
         items:
         - name: Surveillance d’Azure SQL Analytics
-          href: https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-azure-sql
+          href: https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql
         - name: Journalisation de télémétrie de diagnostic
           href: sql-database-metrics-diag-logging.md
       - name: Résolution de problèmes automatisée
@@ -475,6 +477,8 @@ items:
       items:
       - name: SQL Data Sync
         href: sql-database-sync-data.md
+      - name: Agent Data Sync
+        href: sql-database-data-sync-agent.md
       - name: Répliquer les modifications de schéma
         href: sql-database-update-sync-schema.md
       - name: Surveiller avec OMS
@@ -638,9 +642,9 @@ items:
     href: /azure/architecture/
   - name: Témoignages client
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 691918eab050f99353e2a1061b9bfdd17e33ef52
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: 4b68124c28a6854bfcdb5a4c5cd9cad557e7d1c4
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50240118"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289034"

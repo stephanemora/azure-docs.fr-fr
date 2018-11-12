@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.workload: tbd
 ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 46c05c7c6568a967aae8e50a5da9ae70779a6060
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 2b43e3487493f8568903ee0799fdd3d86e9a6542
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50959016"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279668"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights pour Services cloud Azure
 [Les applications de service cloud Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) peuvent être surveillées par [Application Insights][start] pour la disponibilité, les performances, les défaillances et l’utilisation en combinant les données des kits de développement logiciel (SDK) d’Application Insights avec les données [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) de vos services cloud. Avec les retours que vous obtenez sur les performances et l’efficacité de votre application dans la nature, vous pouvez prendre des décisions avisées sur la direction de la conception de chaque cycle de développement.
@@ -238,7 +238,7 @@ Avez-vous effectué une génération pour .NET 4.6 ? 4.6 n’est pas automatiq
 
 [api]: app-insights-api-custom-events-metrics.md
 [availability]: app-insights-monitor-web-app-availability.md
-[azure]: app-insights-azure.md
+[azure]: app-insights-overview.md
 [client]: app-insights-javascript.md
 [diagnostic]: app-insights-diagnostic-search.md
 [netlogs]: app-insights-asp-net-trace-logs.md

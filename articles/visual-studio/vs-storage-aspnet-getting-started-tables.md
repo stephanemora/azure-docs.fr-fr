@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/21/2016
 ms.author: ghogen
-ms.openlocfilehash: c9d9cd9616b263ca002e6fe7ad6c875cce10289b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 518e14b991aa110a6ed55f984a66cd386a618f0f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246551"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228961"
 ---
 # <a name="get-started-with-azure-table-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du Stockage Table Azure et des services connectés de Visual Studio (ASP.NET)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -173,7 +173,7 @@ Les étapes suivantes montrent comment créer une table :
   
     ![Créer une table](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-    Comme mentionné précédemment, la méthode **CloudTable.CreateIfNotExists** renvoie **true** uniquement lorsque la table n’existe pas et est créée. Par conséquent, si vous exécutez l’application alors que la table existe, la méthode renverra **false**. Pour exécuter l’application plusieurs fois, vous devez supprimer la table avant d’exécuter à nouveau l’application. La suppression de la table peut être effectuée via la méthode **CloudTable.Delete**. Vous pouvez également le faire à partir du [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) ou de l’[Explorateur de stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Comme mentionné précédemment, la méthode **CloudTable.CreateIfNotExists** renvoie **true** uniquement lorsque la table n’existe pas et est créée. Par conséquent, si vous exécutez l’application alors que la table existe, la méthode renverra **false**. Pour exécuter l’application plusieurs fois, vous devez supprimer la table avant d’exécuter à nouveau l’application. La suppression de la table peut être effectuée via la méthode **CloudTable.Delete**. Vous pouvez également le faire à partir du [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040) ou de l’[Explorateur de stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-an-entity-to-a-table"></a>Ajout d'une entité à une table
 
@@ -711,4 +711,4 @@ Cette section montre comment supprimer une entité d'une table.
 Pour plus d’informations sur les autres options de stockage de données dans Azure, consultez d’autres guides de fonctionnalités.
 
   * [Prise en main du stockage d’objets blob Azure et des services connectés de Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-blobs.md)
-  * [Prise en main du stockage de files d’attente Azure et des services connectés de Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)
+  * [Prise en main du stockage de files d’attente Azure et des services connectés Visual Studio (ASP.NET)](../storage/vs-storage-aspnet-getting-started-queues.md)
