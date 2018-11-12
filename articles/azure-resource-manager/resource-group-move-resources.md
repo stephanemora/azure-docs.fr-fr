@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: tomfitz
-ms.openlocfilehash: e2d1ccbc6532da3600c952236c3904c9e55294c8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: e99d5d36fa46e9972e706d580e4dfb1d5f9e8bbc
+ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279413"
+ms.lasthandoff: 10/25/2018
+ms.locfileid: "50093821"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -112,7 +112,7 @@ Contactez le [support technique](https://portal.azure.com/#blade/Microsoft_Azure
 
 ## <a name="validate-move"></a>Valider le déplacement
 
-[L’opération de validation du déplacement](/rest/api/resources/resources/validatemoveresources) vous permet de tester votre scénario de déplacement sans réellement déplacer les ressources. Utilisez cette opération pour déterminer si le déplacement sera effectué. Pour exécuter cette opération, vous avez besoin des éléments suivants :
+[L’opération de validation du déplacement](/rest/api/resources/resources/resources_validatemoveresources) vous permet de tester votre scénario de déplacement sans réellement déplacer les ressources. Utilisez cette opération pour déterminer si le déplacement sera effectué. Pour exécuter cette opération, vous avez besoin des éléments suivants :
 
 * Nom du groupe de ressources source
 * ID de ressource du groupe de ressources cible
