@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: jejiang
-ms.openlocfilehash: b45328425cff978377d5e05de487d42e786c063b
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 1e18db960b9e07ae412d0c41c4544ef6bb35977c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37345105"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261147"
 ---
 # <a name="manage-azure-cosmos-db-in-azure-storage-explorer"></a>Gérer Azure Cosmos DB dans l’Explorateur Stockage Azure
 
@@ -130,7 +130,7 @@ En cliquant avec le bouton droit sur un abonnement dans le volet Explorateur, vo
 
 2. Sélectionnez **Illimité** pour être en mesure de spécifier la clé de partition, puis cliquez sur **OK** pour terminer.
 
-    Si une clé de partition est utilisée pendant la création d’une collection, une fois la création terminée, la valeur de la clé de partition ne peut pas être changée sur la collection. Pour plus d’informations sur les paramètres de clé de partition, consultez [Conception axée sur le partitionnement](partition-data.md#designing-for-partitioning).
+    Si une clé de partition est utilisée pendant la création d’une collection, une fois la création terminée, la valeur de la clé de partition ne peut pas être changée sur la collection.
 
     ![Clé de partition](./media/storage-explorer/partitionkey.png)
 

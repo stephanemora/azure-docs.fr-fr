@@ -10,16 +10,16 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: wolfma
-ms.openlocfilehash: fb80a3462caa59af423ef4f2f80e43f5d75e89e2
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 0eae4cd9919e555453bfc6d44e2ddee51f30e809
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470895"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257354"
 ---
 # <a name="speech-sdk-api-reference"></a>Informations de référence sur l’API du SDK Speech
 
-Le SDK Speech permet à vos applications d’accéder aux fonctions du service Speech, facilitant le développement de logiciels de reconnaissance vocale. Actuellement, les SDK fournissent un accès à **Reconnaissance vocale**, **Traduction vocale** et **Reconnaissance de l'intention**. Une vue d’ensemble des fonctionnalités et plateformes prises en charge est disponible sur la [page d’accès](http://aka.ms/csspeech) de la documentation.
+Le SDK Speech permet à vos applications d’accéder aux fonctions du service Speech, facilitant le développement de logiciels de reconnaissance vocale. Actuellement, les SDK fournissent un accès à **Reconnaissance vocale**, **Traduction vocale** et **Reconnaissance de l'intention**. Une vue d’ensemble des fonctionnalités et plateformes prises en charge est disponible sur la [page d’accès](https://aka.ms/csspeech) de la documentation.
 
 [!INCLUDE [Speech SDK Platforms](../../../includes/cognitive-services-speech-service-speech-sdk-platforms.md)]
 

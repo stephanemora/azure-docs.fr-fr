@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/21/2018
 ms.author: terrylan
-ms.openlocfilehash: 35650eec65fa9181d035c52e6b466985b483500c
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 98eee29dc6810d35ee1792c601e6d2f147602cae
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47036505"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262180"
 ---
 # <a name="securing-paas-deployments"></a>Sécurisation des déploiements PaaS
 
@@ -130,7 +130,7 @@ Voici les bonnes pratiques relatives à l’utilisation d’App Service.
 **Détail** : La restriction de l’accès est indispensable pour les organisations qui veulent appliquer des stratégies de sécurité portant sur l’accès aux données. Vous pouvez utiliser la fonction de contrôle d’accès en fonction du rôle (RBAC) pour affecter des autorisations aux utilisateurs, groupes et applications à une certaine étendue. Pour en savoir plus sur l’octroi aux utilisateurs du droit d’accès aux applications, consultez [Prise en main de la gestion des accès](../role-based-access-control/overview.md).
 
 **Bonne pratique** : Protégez vos clés.   
-**Détail** : Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Avec Key Vault, vous pouvez chiffrer les clés et les secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour une meilleure garantie, vous pouvez importer ou générer des clés HSM. Pour en savoir plus, consultez [Azure Key Vault](../key-vault/key-vault-whatis.md). Vous pouvez également utiliser Key Vault pour gérer vos certificats TLS avec renouvellement automatique.
+**Détail** : Azure Key Vault permet de protéger les clés de chiffrement et les secrets utilisés par les services et les applications cloud. Avec Key Vault, vous pouvez chiffrer les clés et les secrets (tels que les clés d’authentification, les clés de compte de stockage, les clés de chiffrement de données, les fichiers .PFX et les mots de passe) à l’aide de clés protégées par des modules de sécurité matériels (HSM). Pour une meilleure garantie, vous pouvez importer ou générer des clés HSM. Pour en savoir plus, consultez [Azure Key Vault](../key-vault/key-vault-whatis.md). Vous pouvez également utiliser Key Vault pour gérer vos certificats TLS avec renouvellement automatique.
 
 **Bonne pratique** : Limitez les adresses IP source entrantes.   
 **Détail** : L’[environnement App Service](../app-service/environment/intro.md) propose une fonctionnalité d’intégration de réseau virtuel qui vous permet de limiter les adresses IP sources entrantes par le biais de groupes de sécurité réseau. Les réseaux virtuels vous permettent de placer des ressources Azure dans un réseau routable non-Internet auquel vous contrôlez l’accès. Pour en savoir plus, consultez [Intégrer une application à un réseau virtuel Azure](../app-service/web-sites-integrate-with-vnet.md).
@@ -151,7 +151,7 @@ Le [pare-feu d’application Web (WAF, Web Application Firewall)](../application
 ## <a name="monitor-the-performance-of-your-applications"></a>Surveiller les performances de vos applications
 La surveillance consiste à collecter et analyser des données afin de déterminer les performances, l’intégrité et la disponibilité de votre application. Une stratégie de surveillance efficace permet d’identifier le fonctionnement détaillé des composants de votre application. Elle vous permet d’augmenter votre temps d’activité en vous avertissant des problèmes critiques afin que vous puissiez les résoudre avant qu’ils ne deviennent effectifs. Elle vous aide également à détecter les anomalies susceptibles d’être liées à la sécurité.
 
-Utilisez [Azure Application Insights](http://azure.microsoft.com/documentation/services/application-insights) pour surveiller la disponibilité, les performances et l’utilisation de votre application, qu’elle soit hébergée dans le cloud ou localement. En utilisant Application Insights, vous pouvez rapidement identifier et diagnostiquer les erreurs dans votre application sans attendre qu’un utilisateur ne les signale. Grâce aux informations recueillies, vous pouvez prendre des décisions avisées quant à la maintenance et à l’amélioration de votre application.
+Utilisez [Azure Application Insights](https://azure.microsoft.com/documentation/services/application-insights) pour surveiller la disponibilité, les performances et l’utilisation de votre application, qu’elle soit hébergée dans le cloud ou localement. En utilisant Application Insights, vous pouvez rapidement identifier et diagnostiquer les erreurs dans votre application sans attendre qu’un utilisateur ne les signale. Grâce aux informations recueillies, vous pouvez prendre des décisions avisées quant à la maintenance et à l’amélioration de votre application.
 
 Application Insights dispose d’outils complets pour interagir avec les données qu’il collecte. Application Insights stocke ses données dans un référentiel commun. Il peut tirer parti des fonctionnalités partagées telles que les alertes, les tableaux de bord et une analyse approfondie grâce au langage de requête du service Log Analytics.
 
@@ -167,11 +167,11 @@ Dans cet article, nous avons vu les avantages d’un déploiement PaaS Azure et 
 - Azure Service Bus
 - Pare-feu d’applications web
 
-Consultez [Meilleures pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres bonnes pratiques de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.
+Consultez l’article [Bonnes pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres bonnes pratiques en matière de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.
 
-Les ressources suivantes fournissent des informations générales sur les solutions de sécurité Azure et les services Microsoft associés :
-* [Blog de l’équipe de sécurité Azure](https://blogs.msdn.microsoft.com/azuresecurity/) : accédez aux dernières actualités sur la sécurité Azure
-* [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx) : les vulnérabilités de sécurité Microsoft, y compris les problèmes avec Azure, peuvent être rapportées ou signalées par courrier électronique à l’adresse secure@microsoft.com
+Les ressources suivantes fournissent des informations générales sur la sécurité Azure et les services Microsoft associés :
+* [Blog de l’équipe de sécurité Azure](https://blogs.msdn.microsoft.com/azuresecurity/) : pour obtenir des informations à jour sur les dernières actualités sur la sécurité Azure
+* [Centre de réponse aux problèmes de sécurité Microsoft](https://technet.microsoft.com/library/dn440717.aspx) : emplacement où les vulnérabilités de sécurité Microsoft, dont les problèmes rencontrés avec Azure, peuvent être rapportées ou signalées par e-mail à l’adresse secure@microsoft.com
 
 <!--Image references-->
 [1]: ./media/security-paas-deployments/advantages-of-cloud.png

@@ -3,7 +3,7 @@ title: Activation de Transparent Data Encryption dans Azure Security Center | Mi
 description: Ce document vous explique comment implémenter la recommandation de l’Azure Security Center **Activer le chiffrement transparent des données**.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: e4be8a0e-2118-4ee9-a266-69e52d9f7f8e
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/02/2017
-ms.author: terrylan
-ms.openlocfilehash: 13e47de8ff25451f7d4185927477d524d519ce2a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 10/28/2018
+ms.author: rkarlin
+ms.openlocfilehash: 1f49930449c5ca342159f2a4eca3d7167dfed925
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299557"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244642"
 ---
 # <a name="enable-transparent-data-encryption-in-azure-security-center"></a>Activation de Transparent Data Encryption dans Azure Security Center
 Azure Security Center vous recommande d’activer TDE (Transparent Data Encryption) sur les bases de données SQL si ce n’est déjà fait. TDE protège vos données et vous aide à répondre aux exigences de conformité en chiffrant votre base de données, les sauvegardes associées et les journaux des transactions au repos, sans modifier votre application. Pour en savoir plus, consultez [Transparent Data Encryption avec Azure SQL Database](https://msdn.microsoft.com/library/dn948096).
@@ -57,7 +57,7 @@ Pour plus d’informations sur le Centre de sécurité, consultez les rubriques 
 * [Gestion et résolution des alertes de sécurité dans Azure Security Center](security-center-managing-and-responding-alerts.md) : découvrez comment gérer et résoudre les alertes de sécurité.
 * [Surveillance des solutions partenaires avec Azure Security Center](security-center-partner-solutions.md) : découvrez comment surveiller l’état d’intégrité de vos solutions partenaires.
 * [FAQ sur Azure Security Center](security-center-faq.md) : forum aux questions concernant l’utilisation de ce service.
-* [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
+* [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : découvrez les dernières nouvelles et informations sur la sécurité Azure.
 
 <!--Image references-->
 [1]: ./media/security-center-enable-tde-on-sql-databases/enable-tde.png

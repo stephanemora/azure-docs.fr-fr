@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: f12a15a0d739ae6e98be3871fa8bb4104f49565c
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 74cde720af012b3355b813cf6da2b2bdf10b9b8e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806735"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257205"
 ---
 # <a name="publish-a-cortana-intelligence-offer-using-the-cloud-partner-portal"></a>Publier une offre Cortana Intelligence à l’aide du portail Cloud Partner
 
@@ -29,7 +29,7 @@ Cet article décrit comment publier une offre Cortana Intelligence à l’aide d
 
 Le portail Cloud Partner prend en charge l’accès au portail en fonction des rôles, ce qui permet aux contributeurs de travailler ensemble à la publication d’une offre. Pour plus d’informations, consultez [Gérer les utilisateurs du portail Cloud](./cloud-partner-portal-manage-users.md).
 
-Avant de pouvoir publier une offre pour le compte d’un compte de publication, une des personnes disposant du rôle \"propriétaire\" doit s’engager à respecter les [conditions d’utilisation](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [déclaration de confidentialité de Microsoft](http://www.microsoft.com/privacystatement/default.aspx) et le [contrat du programme Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+Avant de pouvoir publier une offre pour le compte d’un compte de publication, une des personnes disposant du rôle \"propriétaire\" doit s’engager à respecter les [conditions d’utilisation](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [déclaration de confidentialité de Microsoft](https://www.microsoft.com/privacystatement/default.aspx) et le [contrat du programme Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="to-start-creating-a-cortana-inteligence-offer"></a>Pour commencer à créer une offre Cortana Inteligence
 
@@ -55,7 +55,7 @@ Les paramètres de l’offre contiennent les informations de base sur l’offre,
 Il s’agit d’un identificateur unique pour l’offre au sein d’un profil d’éditeur.
 Cet ID est visible dans les URL de produit. Il ne peut comprendre que des caractères alphanumériques en minuscules ou des tirets (-). L’ID ne peut pas se terminer par un tiret et ne peut pas comporter plus de 50 caractères. 
 >[!Note]
->Ce champ est verrouillé une fois l’offre publiée.
+>Ce champ est verrouillé une fois que l’offre est en ligne.
 
 **Exemple :**
 
@@ -66,7 +66,7 @@ Si le serveur de publication **contoso** crée une offre avec l’ID *Exemple-Co
 Liste déroulante du profil d’éditeur. Utilisez cette liste déroulante pour choisir le profil d’éditeur sous lequel vous voulez publier cette offre.
 
 >[!Note]
->Ce champ est verrouillé une fois l’offre publiée.
+>Ce champ est verrouillé une fois que l’offre est en ligne.
 
 ### <a name="name"></a>NOM
 
@@ -183,11 +183,11 @@ Pour la description, nous suggérons de décomposer le texte en sous-sections en
 
 ### <a name="industries"></a>Secteurs d’activité
 
-Sélectionnez le secteur d’activité le plus adapté à votre offre. Si votre application est liée à plusieurs secteurs d’activité, laissez ce champ vide.
+Sélectionnez le secteur d’activité auquel s’adresse essentiellement votre application. Si votre application est liée à plusieurs secteurs d’activité, laissez ce champ vide.
 
 ### <a name="categories"></a>Catégories
 
-Sélectionnez les catégories qui s’appliquent à votre application. Sélectionnez un maximum de deux catégories.
+Sélectionnez les catégories qui se rapportent à votre application. Sélectionnez un maximum de deux catégories.
 
 ### <a name="app-type"></a>Type d’application
 
@@ -216,7 +216,7 @@ Les partenaires peuvent proposer deux types d’évaluation sur AppSource.
 
         - [Optimisation des stocks de Neal Analytics](https://appsource.microsoft.com/product/web-apps/neal_analytics.8066ad01-1e61-40cd-bd33-9b86c65fa73a?tab=Overview&tag=CISHome)
 
-- L’option **Demande de version d’évaluation** (**évaluation menée par le partenaire**) nécessite que les clients remplissent un formulaire d’informations de contact pour le suivi. Le partenaire suit le contact et propose une démonstration ou une version d’évaluation de l’application. Pour plus d’informations, regardez la vidéo présentant la [procédure pas-à-pas d’expérience d’évaluation d’AppSource](http://aka.ms/trialexperienceforwebapps).
+- L’option **Demande de version d’évaluation** (**évaluation menée par le partenaire**) nécessite que les clients remplissent un formulaire d’informations de contact pour le suivi. Le partenaire suit le contact et propose une démonstration ou une version d’évaluation de l’application. Pour plus d’informations, regardez la vidéo présentant la [procédure pas-à-pas d’expérience d’évaluation d’AppSource](https://aka.ms/trialexperienceforwebapps).
 
 >[!Note]
 >Les données indiquent que les **essais par les clients** présentent un meilleur potentiel de génération de prospects par rapport aux **versions d’évaluation menées par le partenaire**.

@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 43f4a37ce0425503337cffa58570f3468fca6b29
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: f685b584b701d2772ec5b3915facb97f0d15658a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634247"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259171"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Exemple d’utilisation : déploiement continu sur des machines virtuelles à l’aide d’Automation State Configuration et Chocolatey
 
@@ -87,7 +87,7 @@ Il existe aussi une approche manuelle. La structure de dossier d’un module d�
 Cette différence nécessite une légère modification de votre part. Mais il n’y a là rien de compliqué, et vous n’avez à effectuer cette opération qu’une seule fois par ressource (sauf si vous souhaitez effectuer une mise à niveau ultérieurement). Pour plus d’informations sur la création de modules d’intégration PowerShell, consultez cet article : [Création de modules d’intégration pour Azure Automation](https://azure.microsoft.com/blog/authoring-integration-modules-for-azure-automation/)
 
 - Installez le module dont vous avez besoin sur votre station de travail, comme suit :
-  - Installez [Windows Management Framework v5](http://aka.ms/wmf5latest) (inutile pour Windows 10)
+  - Installez [Windows Management Framework v5](https://aka.ms/wmf5latest) (inutile pour Windows 10)
   - `Install-Module –Name MODULE-NAME` &lt; — récupère le module à partir de la PowerShell Gallery
 - Copiez le dossier de module situé dans le répertoire `c:\Program Files\WindowsPowerShell\Modules\MODULE-NAME` dans un dossier temporaire
 - Supprimez les modèles et la documentation dans le dossier principal

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 12dd93edce365509488631e4ca27462256abfca8
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 43e2101f413985974b964f2261d852692bcac61d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47452664"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251438"
 ---
 # <a name="reference---iot-hub-endpoints"></a>Référence - Points de terminaison IoT Hub
 
@@ -33,11 +33,11 @@ Azure IoT Hub est un service multilocataire qui propose ses fonctionnalités �
 
 La liste ci-dessous décrit les points de terminaison :
 
-* **Fournisseur de ressources**. Le fournisseur de ressources IoT Hub expose une interface [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Cette interface permet aux propriétaires d’abonnement Azure de créer et de supprimer des hubs IoT et de mettre à jour les propriétés des hubs IoT. Les propriétés des hubs IoT régissent les [stratégies de sécurité au niveau du hub](iot-hub-devguide-security.md#access-control-and-permissions), par opposition au contrôle d’accès au niveau de l’appareil, et les options fonctionnelles pour les messages cloud-à-appareil et appareil-à-cloud. Le fournisseur de ressources IoT Hub vous permet également [d’exporter les identités des appareils](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
+* **Fournisseur de ressources**. Le fournisseur de ressources IoT Hub expose une interface [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md). Cette interface permet aux propriétaires d’abonnement Azure de créer et de supprimer des IoT Hubs et de mettre à jour les propriétés IoT Hub. Les propriétés des hubs IoT régissent les [stratégies de sécurité au niveau du hub](iot-hub-devguide-security.md#access-control-and-permissions), par opposition au contrôle d’accès au niveau de l’appareil, et les options fonctionnelles pour les messages cloud-à-appareil et appareil-à-cloud. Le fournisseur de ressources IoT Hub vous permet également [d’exporter les identités des appareils](iot-hub-devguide-identity-registry.md#import-and-export-device-identities).
 
-* **Gestion des identités des appareils**. Chaque hub IoT expose un ensemble de points de terminaison HTTPS REST afin de gérer les identités des appareils (par exemple pour les opérations de création, de récupération, de mise à jour et de suppression). Les [identités des appareils](iot-hub-devguide-identity-registry.md) sont utilisées pour l’authentification et le contrôle d’accès des appareils.
+* **Gestion d’identité de l’appareil**. Chaque IoT Hub expose un ensemble de points de terminaison HTTPS REST afin de gérer les identités des appareils (par exemple pour les opérations de création, de récupération, de mise à jour et de suppression). Les [identités des appareils](iot-hub-devguide-identity-registry.md) sont utilisées pour l’authentification et le contrôle d’accès des appareils.
 
-* **Gestion des jumeaux d’appareils**. Chaque hub IoT expose un ensemble de points de terminaison REST HTTPS orientés service pour interroger et mettre à jour les [jumeaux d’appareil](iot-hub-devguide-device-twins.md) (mise à jour des étiquettes et des propriétés).
+* **Gestion des représentations d’appareils**. Chaque hub IoT expose un ensemble de points de terminaison REST HTTPS orientés service pour interroger et mettre à jour les [jumeaux d’appareil](iot-hub-devguide-device-twins.md) (mise à jour des étiquettes et des propriétés).
 
 * **Gestion des travaux**. Chaque hub IoT Hub expose un ensemble de points de terminaison REST HTTPS orientés service pour interroger et gérer les [travaux](iot-hub-devguide-jobs.md).
 
@@ -47,9 +47,9 @@ La liste ci-dessous décrit les points de terminaison :
 
   * *Recevoir des messages cloud-à-appareil*. Un appareil utilise ce point de terminaison pour recevoir les [messages cloud-à-appareil](iot-hub-devguide-messages-c2d.md) qui lui sont adressés.
 
-  * *Lancer des chargements de fichiers*. Un appareil utilise ce point de terminaison pour recevoir un URI SAP du Stockage Azure provenant d’IoT Hub pour [charger un fichier](iot-hub-devguide-file-upload.md).
+  * *Initier des téléchargements de fichiers*. Un appareil utilise ce point de terminaison pour recevoir un URI SAP du Stockage Azure provenant d’IoT Hub pour [charger un fichier](iot-hub-devguide-file-upload.md).
 
-  * *Récupérer et mettre à jour les propriétés d’un jumeau d’appareil*. Un appareil utilise ce point de terminaison pour accéder aux propriétés de son [jumeau d’appareil](iot-hub-devguide-device-twins.md).
+  * *Récupérer et mettre à jour les propriétés d’une représentation d’appareil*. Un appareil utilise ce point de terminaison pour accéder aux propriétés de son [jumeau d’appareil](iot-hub-devguide-device-twins.md).
 
   * *Recevoir des requêtes de méthodes directes*. Un appareil utilise ce point de terminaison pour écouter les requêtes des [méthodes directes](iot-hub-devguide-direct-methods.md).
 
@@ -57,15 +57,15 @@ La liste ci-dessous décrit les points de terminaison :
 
 * **Points de terminaison de service**. Chaque IoT Hub expose un ensemble de points de terminaison pour que votre système principal de solution puisse communiquer avec vos appareils. À une exception près, ces points de terminaison sont uniquement exposés avec le protocole [AMQP](https://www.amqp.org/). Le point de terminaison d’appel de méthode est exposé via le protocole HTTPS.
   
-  * *Recevoir des messages appareil-à-cloud*. Ce point de terminaison est compatible avec [Azure Event Hubs](http://azure.microsoft.com/documentation/services/event-hubs/). Il peut être utilisé par un backend pour lire les [messages appareil-à-cloud](iot-hub-devguide-messages-d2c.md) envoyés par vos appareils. Vous pouvez créer des points de terminaison sur votre hub IoT en plus de ce point de terminaison prédéfini.
+  * *Recevoir des messages Appareil vers cloud*. Ce point de terminaison est compatible avec [Azure Event Hubs](https://azure.microsoft.com/documentation/services/event-hubs/). Il peut être utilisé par un backend pour lire les [messages appareil-à-cloud](iot-hub-devguide-messages-d2c.md) envoyés par vos appareils. Vous pouvez créer des points de terminaison sur votre IoT Hub en plus de ce point de terminaison prédéfini.
   
-  * *Envoyer des messages cloud-à-appareil et recevoir des accusés de réception*. Ces points de terminaison autorisent le backend de votre solution à envoyer des [messages cloud-à-appareil](iot-hub-devguide-messages-c2d.md) fiables et à recevoir les accusés de réception ou d’expiration correspondants.
+  * *Envoyer des messages Cloud vers appareil et recevoir des accusés de remise*. Ces points de terminaison autorisent le backend de votre solution à envoyer des [messages cloud-à-appareil](iot-hub-devguide-messages-c2d.md) fiables et à recevoir les accusés de réception ou d’expiration correspondants.
   
   * *Recevoir les notifications de fichier*. Ce point de terminaison de messagerie vous permet de recevoir des notifications lorsqu’un fichier est correctement téléchargé sur votre appareil. 
   
   * *Invocation de méthode directe*. Ce point de terminaison permet à un service backend d’appeler une [méthode directe](iot-hub-devguide-direct-methods.md) sur un appareil.
   
-  * *Recevoir les événements de surveillance des opérations*. Ce point de terminaison vous permet de recevoir les événements de surveillance des opérations si votre hub IoT a été configuré pour les émettre. Pour plus d’informations, consultez [Surveillance des opérations IoT Hub](iot-hub-operations-monitoring.md).
+  * *Recevoir les événements de surveillance des opérations*. Ce point de terminaison vous permet de recevoir les événements de surveillance des opérations si votre IoT hub a été configuré pour les émettre. Pour plus d’informations, consultez [Surveillance des opérations IoT Hub](iot-hub-operations-monitoring.md).
 
 L’article [Kits Azure IoT SDK](iot-hub-devguide-sdks.md) décrit les différentes méthodes permettant d’accéder à ces points de terminaison.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 5710ebc1c52737e27aafa88eef5e9ae402f8e53f
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a56d595ca88541779f5213c6b0ec88fc87913b6a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579838"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239047"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Isolation dans le cloud public Azure
 ##  <a name="introduction"></a>Introduction
@@ -111,7 +111,7 @@ Certaines autres fonctionnalités pour Azure Active Directory incluent :
 - Pour les applications accessibles aux consommateurs, [Azure Active Directory B2C](https://azure.microsoft.com/services/active-directory-b2c/) fournit un service de gestion des identités global et hautement disponible, qui s’adapte à des centaines de millions d’identités. Le service peut être intégré sur l’ensemble des plateformes web et mobiles. Vos consommateurs peuvent se connecter à toutes vos applications par le biais d’expériences personnalisables en utilisant leurs comptes de réseaux sociaux existants ou en créant des informations d’identification.
 
 ### <a name="isolation-from-microsoft-administrators--data-deletion"></a>Isolation des administrateurs Microsoft et suppression des données
-Microsoft prend des mesures de sécurité importantes pour protéger vos données de tout accès indésirable ou de toute utilisation par des personnes non autorisées. Ces contrôles et processus opérationnels sont soutenus par les [conditions de Microsoft Online Services](http://aka.ms/Online-Services-Terms), qui proposent des engagements contractuels régissant l’accès à vos données.
+Microsoft prend des mesures de sécurité importantes pour protéger vos données de tout accès indésirable ou de toute utilisation par des personnes non autorisées. Ces contrôles et processus opérationnels sont soutenus par les [conditions de Microsoft Online Services](https://aka.ms/Online-Services-Terms), qui proposent des engagements contractuels régissant l’accès à vos données.
 
 -   Les ingénieurs de Microsoft ne bénéficient pas d’un accès par défaut à vos données dans le cloud. Cet accès leur est accordé, sous la supervision de la direction, uniquement lorsque cela est nécessaire. Ce dernier est attentivement contrôlé et consigné, et révoqué dès qu’il n’est plus nécessaire.
 
@@ -119,7 +119,7 @@ Microsoft prend des mesures de sécurité importantes pour protéger vos donnée
 
 Les services professionnels avec des certifications vérifiées telles que ISO/IEC 27001 sont régulièrement contrôlés par Microsoft et des entreprises d’audit agréées, qui effectuent des vérifications par échantillonnage pour attester que cet accès est réalisé uniquement à des fins professionnelles légitimes. Vous pouvez accéder à vos données client à tout moment et pour quelque raison que ce soit.
 
-Si vous supprimez des données, Microsoft Azure supprime les données, y compris les copies mises en cache ou de sauvegarde. Pour les services dans l’étendue, cette suppression aura lieu dans les 90 jours suivant la fin de la période de rétention. (Les services dans l’étendue sont définis dans la section Data Processing Terms (Conditions relatives au traitement des données) de nos [conditions Microsoft Online Services](http://aka.ms/Online-Services-Terms).)
+Si vous supprimez des données, Microsoft Azure supprime les données, y compris les copies mises en cache ou de sauvegarde. Pour les services dans l’étendue, cette suppression aura lieu dans les 90 jours suivant la fin de la période de rétention. (Les services dans l’étendue sont définis dans la section Data Processing Terms (Conditions relatives au traitement des données) de nos [conditions Microsoft Online Services](https://aka.ms/Online-Services-Terms).)
 
 Si un lecteur de disque utilisé pour le stockage rencontre une défaillance matérielle, il est [effacé ou détruit](https://microsoft.com/en-us/trustcenter/privacy/you-own-your-data) de façon sûre avant que Microsoft ne le renvoie au fabricant pour effectuer un remplacement ou une réparation. Les données sur le lecteur sont remplacées pour vous assurer qu’elles ne puissent pas être récupérées par quelque moyen que ce soit.
 

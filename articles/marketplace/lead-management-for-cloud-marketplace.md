@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 10/05/2018
 ms.author: yijenj
-ms.openlocfilehash: 9d2745f1211aa6f818f89d9597867e1b3b2de03f
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 4e89664bf980717dbfd7994d6469fc4a412307a0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362651"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258542"
 ---
 # <a name="lead-management-for-cloud-marketplace"></a>Gestion des prospects pour la Place de marché cloud
 
@@ -93,11 +93,11 @@ Une fois les paramètres techniques configurés, vous devez incorporer ces prosp
 
 > Solution : connectez-vous au portail Cloud Partner puis, dans Détails de la vitrine >> Destination des prospects >> URL, vérifiez s’il s’agit d’une instance Dynamics CRM valide
 
-## <a name="frequently-asked-questions"></a>Forum Aux Questions (FAQ)
+## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 
 **Que sont les prospects et en quoi sont-ils importants pour moi qui suis éditeur sur la Place de marché ?** 
 
-Les prospects sont des clients qui déploient vos produits à partir de la Place de marché. Que votre produit soit publié sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/en-us) ou sur [AppSource](http://appsource.microsoft.com/), vous pouvez recevoir des prospects intéressés par votre produit si vous avez configuré la destination des prospects dans votre offre.  
+Les prospects sont des clients qui déploient vos produits à partir de la Place de marché. Que votre produit soit publié sur la [Place de marché Azure](https://azuremarketplace.microsoft.com/en-us) ou sur [AppSource](https://appsource.microsoft.com/), vous pouvez recevoir des prospects intéressés par votre produit si vous avez configuré la destination des prospects dans votre offre.  
 
 
 **Où puis-je obtenir de l’aide pour configurer la destination des prospects ?** 

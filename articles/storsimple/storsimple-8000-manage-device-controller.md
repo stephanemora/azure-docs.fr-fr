@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/19/2017
 ms.author: alkohli
-ms.openlocfilehash: 75c1bdb570967b6d1902697597f0b5bf3f4ffb7c
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 5e461f340e1c58f64c6d645a1e47cfd811bc4de5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23108677"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261704"
 ---
 # <a name="manage-your-storsimple-device-controllers"></a>Gestion de vos contrôleurs d’appareil StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 Ce didacticiel décrit les différentes opérations qui peuvent être effectuées sur vos contrôleurs d’appareil StorSimple. Les contrôleurs de votre appareil StorSimple sont des contrôleurs redondants (homologues) en mode actif/passif. À un moment donné, un seul contrôleur est actif et procède au traitement de toutes les opérations de disque et du réseau. L’autre contrôleur est en mode passif. Si le contrôleur actif est défaillant, le contrôleur passif devient automatiquement actif.
 
@@ -117,7 +117,7 @@ Pour rétablir les paramètres d’usine de votre appareil Microsoft Azure Sto
    
     `Reset-HcsFactoryDefault`
    
-    Pour réinitialiser un seul contrôleur, utilisez l’applet de commande [Reset-HcsFactoryDefault](http://technet.microsoft.com/library/dn688132.aspx) avec le paramètre `-scope`.)
+    Pour réinitialiser un seul contrôleur, utilisez l’applet de commande [Reset-HcsFactoryDefault](https://technet.microsoft.com/library/dn688132.aspx) avec le paramètre `-scope`.)
    
     Le système redémarrera plusieurs fois. Un message s’affichera une fois la réinitialisation terminée. Selon le modèle du système, l’opération peut prendre 45 à 60 minutes pour un appareil 8 100 et 60 à 90 minutes pour un appareil 8 600.
    
@@ -148,7 +148,7 @@ Dans cette section, vous trouverez des réponses à certaines questions fréquem
 
 **Q.** Comment pouvez-vous déterminer si un contrôleur a été redémarré ou arrêté ?
 
-**A.** Vous pouvez vérifier l’état du contrôleur dans le panneau Contrôleur. L’état du contrôleur indique si un contrôleur est en cours de redémarrage ou d’arrêt. De plus, le panneau **Alertes** contient une alerte d’information vous indiquant si le contrôleur est redémarré ou arrêté. Les opérations de redémarrage et d’arrêt du contrôleur sont également enregistrées dans les journaux d’activité. Pour plus d’informations sur les journaux d’activité, accédez à [Afficher les journaux d’activité](storsimple-8000-service-dashboard.md#view-the-activity-logs).
+**A.** Vous pouvez vérifier l’état du contrôleur dans le panneau Contrôleur. L’état du contrôleur indique si un contrôleur est en cours de redémarrage ou d’arrêt. De plus, le panneau **Alertes** contient une alerte d’information vous indiquant si le contrôleur est redémarré ou arrêté. Les opérations de redémarrage et d’arrêt du contrôleur sont également enregistrées dans les journaux d’activité. Pour plus d’informations sur les journaux d’activité, consultez [Afficher les journaux d’activité](storsimple-8000-service-dashboard.md#view-the-activity-logs).
 
 **Q.** Le basculement du contrôleur a-t-il un impact sur les E/S ?
 

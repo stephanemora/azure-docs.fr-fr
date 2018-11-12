@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/17/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 81c88c90ff24cb5e0ab143237fb08678067ea993
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: f830a27e9caf032443c2b27bdd2f95fa8069bcf2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46305538"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247277"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Intégrer une forêt AD unique avec la synchronisation de hachage de mot de passe (PHS, password hash sync)
 
@@ -31,7 +31,7 @@ Voici les conditions préalables requises pour suivre ce didacticiel.
 - Un ordinateur où [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview) est installé.  Il est recommandé d’utiliser [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) ou [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
 - Une [carte réseau externe](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) pour autoriser la machine virtuelle à communiquer avec Internet.
 - Un [abonnement Azure](https://azure.microsoft.com/free)
-- Une copie de Windows Server 2016
+- Une copie de Windows Server 2016
 
 > [!NOTE]
 > Ce didacticiel utilise des scripts PowerShell pour vous permettre de créer l’environnement le plus vite possible.  Chacun des scripts utilise les variables déclarées au début des scripts.  Vous pouvez et devez modifier les variables pour qu’elles reflètent votre environnement.
@@ -41,7 +41,7 @@ Voici les conditions préalables requises pour suivre ce didacticiel.
 > Des copies des scripts PowerShell utilisés dans ce didacticiel sont disponibles sur Github, [ici](https://github.com/billmath/tutorial-phs).
 
 ## <a name="create-a-virtual-machine"></a>Création d'une machine virtuelle
-Tout d’abord, pour obtenir un environnement d’identité hybride fonctionnel, il faut créer une machine virtuelle qui sera utilisée en tant que serveur Active Directory local.  Effectuez les actions suivantes :
+Tout d’abord, pour obtenir un environnement d’identité hybride fonctionnel, il faut créer une machine virtuelle qui sera utilisée en tant que serveur Active Directory local.  Effectuez les actions suivantes :
 
 1. Ouvrez PowerShell ISE en tant qu’administrateur.
 2. Exécutez le script suivant.
@@ -121,7 +121,7 @@ Get-WindowsFeature | Where installed >>$featureLogPath
 Restart-Computer
 ```
 
-## <a name="create-a-windows-server-ad-environment"></a>Créer un environnement Windows Server AD
+## <a name="create-a-windows-server-ad-environment"></a>Créer un environnement Windows Server AD
 Maintenant que la machine virtuelle a été créée et renommée, et qu’elle dispose d’une adresse IP statique, nous pouvons installer et configurer Active Directory Domain Services.  Effectuez les actions suivantes :
 
 1. Ouvrez PowerShell ISE en tant qu’administrateur.
@@ -200,7 +200,7 @@ Maintenant que nous avons un locataire Azure AD, nous allons créer un compte d
 ## <a name="download-and-install-azure-ad-connect"></a>Télécharger et installer Azure AD Connect
 Il est maintenant temps de télécharger et d’installer Azure AD Connect.  Une fois l’installation terminée, nous aborderons l’installation rapide.  Effectuez les actions suivantes :
 
-1. Téléchargez [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
+1. Télécharger [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594)
 2. Accédez à **AzureADConnect.msi**et double-cliquez sur ce fichier.
 3. Sur l'écran d’accueil, sélectionnez la case pour accepter les termes du contrat de licence et cliquez sur **Continuer**.  
 4. Sur l'écran Paramètres Express, cliquez sur **Utiliser les paramètres Express**.</br>  
@@ -209,7 +209,7 @@ Il est maintenant temps de télécharger et d’installer Azure AD Connect.  U
 6. Sur l’écran Connexion à AD DS, entrez le nom d’utilisateur et le mot de passe d’un compte d’administrateur d’entreprise. Cliquez sur **Suivant**.  
 7. Sur l’écran Prêt à configurer, cliquez sur **Installer**.
 8. Une fois l’installation terminée, cliquez sur **Quitter**.
-9. Une fois l’installation terminée, déconnectez-vous, puis reconnectez-vous à Windows avant d’utiliser le gestionnaire Synchronization Service Manager ou l’éditeur de règles de synchronisation.
+9. Une fois l’installation terminée, déconnectez-vous puis reconnectez-vous avant d’utiliser le gestionnaire Synchronization Service Manager ou l’éditeur de règles de synchronisation.
 
 
 ## <a name="verify-users-are-created-and-synchronization-is-occurring"></a>Vérifier les utilisateurs créés et l’exécution de la synchronisation
@@ -217,16 +217,16 @@ Nous allons maintenant vérifier que les utilisateurs de l’annuaire local ont 
 
 
 1. Accédez au [portail Azure](https://portal.azure.com) et connectez-vous avec un compte qui dispose d’un abonnement Azure.
-2. À gauche, sélectionnez **Azure Active Directory**.
+2. À gauche, sélectionnez **Azure Active Directory**
 3. Sous **Gérer**, sélectionnez **Utilisateurs**.
 4. Vérifiez que les nouveaux utilisateurs apparaissent dans le client.</br>
 ![Synchronisation](media/tutorial-password-hash-sync/synch1.png)</br>
 
 ## <a name="test-signing-in-with-one-of-our-users"></a>Tester la connexion avec un des utilisateurs
 
-1.  Accédez à [http://myapps.microsoft.com](http://myapps.microsoft.com).
+1.  Accédez à [http://myapps.microsoft.com](https://myapps.microsoft.com).
 2. Connectez-vous avec un compte d’utilisateur créé dans le nouveau locataire.  Vous devez vous connecter en utilisant le format suivant : (user@domain.onmicrosoft.com). Saisissez le même mot de passe que celui utilisé par l’utilisateur pour se connecter en local.</br>
-![Verify](media/tutorial-password-hash-sync/verify1.png)</br>
+![Vérifier](media/tutorial-password-hash-sync/verify1.png)</br>
 
 Vous avez maintenant configuré un environnement d’identité hybride que vous pouvez utiliser à des fins de test et pour vous familiariser avec les fonctionnalités d’Azure.
 

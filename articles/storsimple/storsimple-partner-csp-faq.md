@@ -14,17 +14,17 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4dc5ae7d3feae769a8366f68f412f3b79fa8eb00
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 76b89c15a12810f98e6324ca93cf581f9b852c88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109057"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259936"
 ---
 # <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>Programme StorSimple pour les fournisseurs de solutions cloud : Forum aux questions
 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous trouverez ci-dessous une suite de questions-réponses sur les problématiques que vous pouvez rencontrer en tant que partenaire StorSimple, lorsque vous déployez ou gérez une instance StorSimple Virtual Array dans le portail Azure.
 
 Les questions/réponses sont organisées en plusieurs catégories :
@@ -72,7 +72,7 @@ Pour plus d’informations sur les primes, accédez à la [page descriptive des 
 Vous pouvez ajouter des abonnements StorSimple Virtual Array aux comptes de vos clients, via l’Espace Partenaires. Par ailleurs, vous pouvez utiliser le portail Azure pour ajouter des utilisateurs aux abonnements.
 
 ### <a name="is-the-azure-portal-approach-the-same-as-other-services-for-csp"></a>Le portail Azure respecte-t-il la même approche que d’autres services pour le programme des fournisseurs de solutions cloud ? 
-Oui. Avec StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud, le meilleur moyen pour les partenaires d’accéder au portail Azure est de transiter par l’[Espace Partenaires](http://partnercenter.microsoft.com/), à partir duquel ils peuvent gérer les clients et les abonnements. Pour gérer les abonnements StorSimple, le partenaire ou le client (en fonction des autorisations accordées) doit se connecter sur le portail Azure. 
+Oui. Avec StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud, le meilleur moyen pour les partenaires d’accéder au portail Azure est de transiter par l’[Espace Partenaires](https://partnercenter.microsoft.com/), à partir duquel ils peuvent gérer les clients et les abonnements. Pour gérer les abonnements StorSimple, le partenaire ou le client (en fonction des autorisations accordées) doit se connecter sur le portail Azure. 
 
 ### <a name="is-microsoft-shipping-a-new-portal-for-storsimple-for-csp"></a>La société Microsoft propose-t-elle un nouveau portail pour StorSimple pour le programme des fournisseurs de solutions cloud ? 
 Non. Vous pourrez gérer StorSimple Virtual Array dans le programme des fournisseurs de solutions cloud via le portail Azure.
@@ -94,7 +94,7 @@ Le modèle de support dédié à StorSimple pour le programme de fournisseurs de
 Pour plus d’informations sur StorSimple pour le programme de fournisseurs de solutions cloud, consultez les ressources suivantes :
 
 - [Programme des fournisseurs de solutions Cloud Microsoft](https://partner.microsoft.com/Membership)
-- [Espace partenaires](http://partnercenter.microsoft.com/) 
+- [Espace partenaires](https://partnercenter.microsoft.com/) 
 
 
 ## <a name="next-steps"></a>Étapes suivantes

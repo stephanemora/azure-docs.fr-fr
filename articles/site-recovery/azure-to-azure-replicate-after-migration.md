@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: ponatara
-ms.openlocfilehash: 3e26e40c26a27fdab1ec565dd4112b40acdd17d2
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: ae212bebf5a34e9a80f49a750735137d7a8814be
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213365"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232662"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-after-migration-to-azure"></a>Configurer la récupération d’urgence pour des machines virtuelles Azure après la migration vers Azure 
 
@@ -32,7 +32,7 @@ Avant de configurer la récupération d’urgence, assurez-vous que la migration
 Vous devez installer [l’agent de machine virtuelle](../virtual-machines/extensions/agent-windows.md) Azure sur la machine virtuelle pour permettre au service Site Recovery de la répliquer.
 
 
-1. Pour installer l’agent de machine virtuelle sur des machines virtuelles Windows, téléchargez et exécutez le [programme d’installation de l’agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous devez avoir des privilèges Administrateur sur les machines virtuelles pour effectuer l’installation.
+1. Pour installer l’agent de machine virtuelle sur des machines virtuelles Windows, téléchargez et exécutez le [programme d’installation de l’agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Vous devez avoir des privilèges Administrateur sur les machines virtuelles pour effectuer l’installation.
 2. Pour installer l’agent de machine virtuelle sur des machines virtuelles Linux, installez la dernière version de [l’agent Linux](../virtual-machines/extensions/agent-linux.md). Vous avez besoin de privilèges d’administrateur pour terminer l’installation. Nous vous recommandons de procéder à l’installation à partir de votre dépôt de distribution. Nous vous déconseillons d’installer l’agent de machine virtuelle Linux directement à partir de GitHub. 
 
 

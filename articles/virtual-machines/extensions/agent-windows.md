@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
-ms.openlocfilehash: d93fc81241053418ea2ff0576d50cbaefa0df9fb
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: bba03d8e62c481e9eb5cce8468a6a84f5e492d2f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49428553"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253990"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Vue d’ensemble d’agent de machine virtuelle Azure
 L’agent de machine virtuelle Microsoft Azure est un processus léger et sécurisé qui gère l’interaction des machines virtuelles avec le contrôleur de structure Azure. L’agent de machine virtuelle a un rôle essentiel dans l’activation et l’exécution des extensions de machine virtuelle. Les extensions de machine virtuelle permettent la configuration post-déploiement de machines virtuelles, par exemple l’installation et la configuration de logiciels. Les extensions de machine virtuelle permettent également d’utiliser des fonctionnalités de récupération, telles que la réinitialisation du mot de passe d’administration d’une machine virtuelle. Sans l’agent de machine virtuelle Azure, vous ne pouvez pas exécuter d’extensions de machine virtuelle.
@@ -60,7 +60,7 @@ Pour démarrer une machine virtuelle, vous devez installer l’agent de provisio
 Si les agents ne sont pas installés, vous ne pouvez pas utiliser certains services Azure, tels que la Sauvegarde Azure ou Azure Security. Ces services nécessitent l’installation d’une extension. Si vous avez déployé une machine virtuelle sans l’agent invité de Windows, vous pouvez installer la dernière version de cet agent ultérieurement.
 
 ### <a name="manual-installation"></a>Installation manuelle
-L’agent de machine virtuelle Windows peut être installé manuellement avec un package Windows Installer. L’installation manuelle peut s’avérer nécessaire lorsque vous créez une image de machine virtuelle personnalisée qui est déployée sur Azure. Pour installer manuellement l’agent de machine virtuelle Windows, [téléchargez le programme d’installation de l’agent de machine virtuelle](http://go.microsoft.com/fwlink/?LinkID=394789).
+L’agent de machine virtuelle Windows peut être installé manuellement avec un package Windows Installer. L’installation manuelle peut s’avérer nécessaire lorsque vous créez une image de machine virtuelle personnalisée qui est déployée sur Azure. Pour installer manuellement l’agent de machine virtuelle Windows, [téléchargez le programme d’installation de l’agent de machine virtuelle](https://go.microsoft.com/fwlink/?LinkID=394789).
 
 Vous pouvez installer l’agent de machine virtuelle en double-cliquant sur le fichier Windows Installer. Pour une installation automatisée ou sans assistance de l’agent de machine virtuelle, exécutez la commande suivante :
 

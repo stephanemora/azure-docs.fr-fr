@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: f50be01d067032b1143a80e56ccb5d49d899d4d6
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: c1f48e3273ac0a237c72565acf25049b763dba8a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50415965"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246665"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Comprendre un redémarrage du système pour Azure
 
@@ -108,7 +108,7 @@ La durée de l’arrêt peut être de cinq minutes ou beaucoup plus longue. Voic
 
 **Dépassement des limites d’E/S**
 
-Il se peut que les machines virtuelles soient temporairement arrêtées lorsque les demandes d’E/S sont constamment limitées en raison d’un volume d’opérations d’E/S par seconde dépassant les limites d’E/S du disque. (Stockage de disque standard limité à 500 E/S par seconde.) Pour atténuer ce problème, utilisez l’entrelacement de disques ou configurez l’espace de stockage au sein de la machine virtuelle invitée en fonction de la charge de travail. Pour en savoir plus, consultez [Configuration de machines virtuelles Azure pour des performances de stockage optimales](http://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
+Il se peut que les machines virtuelles soient temporairement arrêtées lorsque les demandes d’E/S sont constamment limitées en raison d’un volume d’opérations d’E/S par seconde dépassant les limites d’E/S du disque. (Stockage de disque standard limité à 500 E/S par seconde.) Pour atténuer ce problème, utilisez l’entrelacement de disques ou configurez l’espace de stockage au sein de la machine virtuelle invitée en fonction de la charge de travail. Pour en savoir plus, consultez [Configuration de machines virtuelles Azure pour des performances de stockage optimales](https://blogs.msdn.com/b/mast/archive/2014/10/14/configuring-azure-virtual-machines-for-optimal-storage-performance.aspx).
 
 Des limites d’E/S par seconde plus élevées sont disponibles via le stockage Premium Azure avec jusqu’à 80 000 E/S par seconde. Pour plus d’informations, consultez [Stockage Premium hautes performances](../windows/premium-storage.md).
 

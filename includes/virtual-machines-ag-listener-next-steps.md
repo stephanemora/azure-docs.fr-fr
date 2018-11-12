@@ -4,17 +4,17 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 60707a8fbba4eb5ff7dbcf784fe29f9eb6b7d7d3
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 27b09ea9cc7ce3cf2559304a26d0c04f3ea30b54
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226447"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262914"
 ---
-Outre la connexion automatique des clients au réplica principal, un écouteur peut servir à rediriger des charges de travail en lecture seule vers des réplicas secondaires. Cette utilisation peut améliorer les performances et l’évolutivité de votre solution globale. Pour plus d’informations, voir [Use ReadIntent Routing with Azure Always On availability group listener (Utiliser le routage ReadIntent avec l’écouteur de groupe de disponibilité Azure AlwaysOn)](http://go.microsoft.com/fwlink/?LinkId=522515).
+Outre la connexion automatique des clients au réplica principal, un écouteur peut servir à rediriger des charges de travail en lecture seule vers des réplicas secondaires. Cette utilisation peut améliorer les performances et l’évolutivité de votre solution globale. Pour plus d’informations, voir [Use ReadIntent Routing with Azure Always On availability group listener (Utiliser le routage ReadIntent avec l’écouteur de groupe de disponibilité Azure AlwaysOn)](https://go.microsoft.com/fwlink/?LinkId=522515).
 
 > [!NOTE]
-> Pour obtenir des conseils de dépannage sur les écouteurs Azure, voir [Troubleshooting availability group listener in Azure (Dépannage de l’écouteur de groupe de disponibilité dans Azure)](https://blogs.msdn.microsoft.com/alwaysonpro/2017/02/22/troubleshooting-internal-load-balancer-listener-connectivity-in-azure) dans le [blog](http://blogs.msdn.com/b/alwaysonpro/) de l’équipe de support AlwaysOn.
+> Pour obtenir des conseils de dépannage sur les écouteurs Azure, voir [Troubleshooting availability group listener in Azure (Dépannage de l’écouteur de groupe de disponibilité dans Azure)](https://blogs.msdn.microsoft.com/alwaysonpro/2017/02/22/troubleshooting-internal-load-balancer-listener-connectivity-in-azure) dans le [blog](https://blogs.msdn.com/b/alwaysonpro/) de l’équipe de support AlwaysOn.
 > 
 > 
 

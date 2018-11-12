@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: 2cd77ee6df52940a800733209b7e384d72d98103
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: ddc04d32f76515cb93d2cde3fe4eccaab7e4c291
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46962128"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245356"
 ---
 # <a name="quickstart-remove-an-application-from-azure-active-directory"></a>Guide de démarrage rapide : supprimer une application d’Azure Active Directory
 
@@ -69,7 +69,7 @@ Un sous-ensemble des applications qui s’affichent sous le filtre **Toutes les 
 
 En termes techniques, ces applications multilocataires proviennent d’un autre locataire et ont été enregistrées dans votre locataire au cours du processus de consentement. Ces applications sont représentées dans votre locataire par un objet principal du service, sans objet d’application correspondant. Pour plus d’informations sur les différences entre les objets de principal du service et d’application, consultez [Objets application et principal du service dans Azure AD](app-objects-and-service-principals.md).
 
-Pour supprimer l’accès d’une application multilocataire à votre répertoire (après avoir donné son consentement), l’administrateur de l’entreprise doit supprimer son principal du service. L’administrateur doit avoir un accès d’administrateur général et peut supprimer ou utiliser les [applets de commande PowerShell Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151).
+Pour supprimer l’accès d’une application multilocataire à votre répertoire (après avoir donné son consentement), l’administrateur de l’entreprise doit supprimer son principal du service. L’administrateur doit avoir un accès d’administrateur général et peut supprimer ou utiliser les [applets de commande PowerShell Azure AD](https://go.microsoft.com/fwlink/?LinkId=294151).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

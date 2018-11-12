@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: f0a9ac1700d635365ebea0c5966489ed3d2d797b
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 1f74538deab38db536bfcdc6d0f703d455039d51
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50420239"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235902"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect : historique de publication des versions
 L’équipe Azure Active Directory (Azure AD) met régulièrement à jour Azure AD Connect avec de nouvelles fonctions et fonctionnalités. Tous les ajouts ne sont pas applicables à toutes les configurations.
@@ -35,7 +35,7 @@ Rubrique |  Détails
 Étapes de mise à niveau à partir d’Azure AD Connect | Différentes méthodes pour [effectuer une mise à niveau à partir d’une version précédente vers la dernière](how-to-upgrade-previous-version.md) version Azure AD Connect.
 Autorisations requises | Pour plus d’informations sur les autorisations requises afin d’appliquer une mise à jour, consultez [Comptes et autorisations](reference-connect-accounts-permissions.md#upgrade).
 
-Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771).
+Télécharger| [Télécharger Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=615771).
 
 ## <a name="12650"></a>1.2.65.0 
 
@@ -48,7 +48,6 @@ Télécharger| [Télécharger Azure AD Connect](http://go.microsoft.com/fwlink/?
 
 
 - La fonctionnalité de réécriture d’attribut a été modifiée pour garantir le bon fonctionnement de la messagerie vocale hébergée.  Dans certains scénarios, Azure AD remplaçait l’attribut msExchUcVoicemailSettings pendant la réécriture par une valeur null.  Désormais, Azure AD n’efface plus la valeur locale de cet attribut si la valeur cloud n’est pas définie.
-- La gestion des règles par défaut modifiées a été améliorée. Vous êtes désormais averti si vous avez apporté des modifications aux règles par défaut, et des options de réparation des règles par défaut vous sont proposées. 
 - Des diagnostics ont été ajoutés dans l’Assistant Azure AD Connect pour examiner et identifier les problèmes de connectivité à Azure AD. Ces mêmes diagnostics peuvent également être exécutés directement via Powershell à l’aide de l’applet de commande Test- AdSyncAzureServiceConnectivity. 
 - Des diagnostics ont été ajoutés dans l’Assistant Azure AD Connect pour examiner et identifier les problèmes de connectivité à AD. Ces mêmes diagnostics peuvent également être exécutés directement via Powershell à l’aide de la fonction Start-ConnectivityValidation dans le module Powershell ADConnectivityTools.  Pour plus d’informations, consultez [Qu’est-ce que le module PowerShell ADConnectivityTool ?](how-to-connect-adconnectivitytools.md)
 - Une vérification préalable de la version de schéma AD a été ajoutée pour la réécriture d’appareil et la jointure hybride Azure Active Directory. 
@@ -1050,7 +1049,7 @@ Changement de nom d’Azure AD Sync en Azure AD Connect.
 
 **Nouvelles fonctionnalités :**
 
-* [configuration rapide](how-to-connect-install-express.md)
+* Installation à l’aide de la [configuration rapide](how-to-connect-install-express.md)
 * [Configuration d’AD FS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs)
 * [Mise à niveau à partir de DirSync](how-to-dirsync-upgrade-get-started.md)
 * [prévention des suppressions accidentelles](how-to-connect-sync-feature-prevent-accidental-deletes.md)

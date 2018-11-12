@@ -14,19 +14,19 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 04/12/2017
 ms.author: cenkd;juliako
-ms.openlocfilehash: d08ac9f2cbdf98493b3132fa9dd3a3e973576451
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: e2d65c107d57d50bc15d5a1cd1698491bb607e25
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37098815"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262231"
 ---
 # <a name="live-streaming-with-on-premises-encoders-that-create-multi-bitrate-streams"></a>Streaming en direct avec des encodeurs locaux qui créent des flux multidébits
 
 > [!NOTE]
 > À partir du 12 mai 2018, les canaux en direct ne prendront plus en charge le protocole de réception du flux de transport RTP/MPEG-2. Effectuez la migration à partir de RTP/MPEG-2 vers le protocole de réception RTMP ou MP4 fragmenté (Smooth Streaming).
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Dans Azure Media Services, un *canal* représente un pipeline de traitement du contenu vidéo en flux continu. Un canal reçoit des flux d’entrée live de l’une des deux manières suivantes :
 
 * Un encodeur live local envoie au canal un paquet RTMP ou Smooth Streaming (MP4 fragmenté) multidébit qui n’est pas activé pour effectuer un encodage live avec Media Services. Les flux reçus transitent par les canaux sans traitement supplémentaire. Cette méthode est appelée *pass-through*. Un encodeur live peut également envoyer un flux à débit binaire unique vers un canal qui n’est pas activé pour l’encodage en temps réel, mais ce n’est pas recommandé. Media Services fournit le flux aux clients qui le demandent.
@@ -54,7 +54,7 @@ Le diagramme suivant décrit un workflow de streaming en direct utilisant un enc
 ## <a id="scenario"></a>Scénario courant de streaming en direct
 Les étapes suivantes décrivent les tâches impliquées dans la création d’applications courantes de streaming en direct.
 
-1. Connectez une caméra vidéo à un ordinateur. Démarrez et configurez un encodeur live local qui produit un flux multidébit au format MP4 fragmenté (Smooth Streaming) ou RTMP en sortie. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs live dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
+1. Connectez une caméra vidéo à un ordinateur. Démarrez et configurez un encodeur live local qui produit un flux multidébit au format MP4 fragmenté (Smooth Streaming) ou RTMP en sortie. Pour plus d’informations, voir [Prise en charge RTMP et encodeurs live dans Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824).
 
     Vous pouvez également effectuer cette étape après la création du canal.
 2. Créez et démarrez un canal.
@@ -105,7 +105,7 @@ Utilisez l’URL secondaire si vous désirez améliorer la durabilité et la tol
 
     Dans ce scénario, les deux encodeurs envoient des données aux URL principales et secondaires. Cela améliore la fiabilité et la tolérance de panne, ainsi que la redondance des données. Ce scénario peut tolérer une panne des deux encodeurs, ainsi que des déconnexions, même si l’un des encodeurs cesse de fonctionner. Il part du principe que les encodeurs sont synchronisés et envoient exactement les mêmes données.  
 
-Pour plus d’informations sur les encodeurs live RTMP, consultez la page [Prise en charge RTMP et encodeurs live dans Azure Media Services](http://go.microsoft.com/fwlink/?LinkId=532824).
+Pour plus d’informations sur les encodeurs live RTMP, consultez la page [Prise en charge RTMP et encodeurs live dans Azure Media Services](https://go.microsoft.com/fwlink/?LinkId=532824).
 
 #### <a name="ingest-urls-endpoints"></a>URL (points de terminaison) de réception
 Un canal fournit un point de terminaison d’entrée (URL de réception) que vous spécifiez dans l’encodeur live pour que ce dernier puisse transmettre les flux à vos canaux.   
@@ -187,7 +187,7 @@ Le tableau suivant montre comment les états du canal sont mappés au mode de fa
 | État du canal | Indicateurs de l’interface utilisateur du portail | Facturation ? |
 | --- | --- | --- | --- |
 | **Démarrage en cours** |**Démarrage en cours** |Aucun (état transitoire) |
-| **Exécution** |**Prêt** (aucun programme en cours d’exécution)<p><p>or<p>**Diffusion en continu** (au moins un programme en cours d’exécution) |OUI |
+| **Exécution** |**Prêt** (aucun programme en cours d’exécution)<p><p>or<p>**Diffusion en continu** (au moins un programme en cours d’exécution) |Oui |
 | **En cours d’arrêt** |**En cours d’arrêt** |Aucun (état transitoire) |
 | **Arrêté** |**Arrêté** |Non  |
 

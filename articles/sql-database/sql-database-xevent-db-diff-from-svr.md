@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 8852fc75658298a2c6887d8fef154d5a0b59affd
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 482faaea7089e095da13a2bae5f5937e20d50616
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159905"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246750"
 ---
 # <a name="extended-events-in-sql-database"></a>Événement étendus dans la base de données SQL
 [!INCLUDE [sql-database-xevents-selectors-1-include](../../includes/sql-database-xevents-selectors-1-include.md)]
@@ -32,15 +32,15 @@ Cette rubrique explique les quelques différences entre l’implémentation d’
 
 Des informations complémentaires sur les événements étendus, pour Base de données SQL Azure et Microsoft SQL Server, sont disponibles dans :
 
-- [Démarrage rapide : Événements étendus dans SQL Server](http://msdn.microsoft.com/library/mt733217.aspx)
-- [Événements étendus](http://msdn.microsoft.com/library/bb630282.aspx)
+- [Démarrage rapide : Événements étendus dans SQL Server](https://msdn.microsoft.com/library/mt733217.aspx)
+- [Événements étendus](https://msdn.microsoft.com/library/bb630282.aspx)
 
 ## <a name="prerequisites"></a>Prérequis
 
 Cette rubrique part du principe que vous connaissez déjà les éléments suivants :
 
 - [Service Base de données SQL Azure](https://azure.microsoft.com/services/sql-database/)
-- [Événements étendus](http://msdn.microsoft.com/library/bb630282.aspx) dans Microsoft SQL Server.
+- [Événements étendus](https://msdn.microsoft.com/library/bb630282.aspx) dans Microsoft SQL Server.
 
 - La majeure partie de notre documentation sur les événements étendus s’applique à SQL Server et au service Base de données SQL.
 
@@ -69,10 +69,10 @@ Des rubriques connexes fournissent deux exemples de code :
 ## <a name="transact-sql-differences"></a>Différences Transact-SQL
 
 
-- Lorsque vous exécutez la commande [CREATE EVENT SESSION](http://msdn.microsoft.com/library/bb677289.aspx) sur SQL Server, vous pouvez utiliser la clause **ON SERVER** . Mais sur la base de données SQL vous utilisez la clause **ON DATABASE** à la place.
+- Lorsque vous exécutez la commande [CREATE EVENT SESSION](https://msdn.microsoft.com/library/bb677289.aspx) sur SQL Server, vous pouvez utiliser la clause **ON SERVER** . Mais sur la base de données SQL vous utilisez la clause **ON DATABASE** à la place.
 
 
-- La clause **ON DATABASE** s’applique également aux commandes Transact-SQL [ALTER EVENT SESSION](http://msdn.microsoft.com/library/bb630368.aspx) et [DROP EVENT SESSION](http://msdn.microsoft.com/library/bb630257.aspx).
+- La clause **ON DATABASE** s’applique également aux commandes Transact-SQL [ALTER EVENT SESSION](https://msdn.microsoft.com/library/bb630368.aspx) et [DROP EVENT SESSION](https://msdn.microsoft.com/library/bb630257.aspx).
 
 
 - Il est recommandé d’inclure l’option de session d’événement de **STARTUP_STATE = ON** dans vos instructions **CREATE EVENT SESSION** ou **ALTER EVENT SESSION**.
@@ -80,7 +80,7 @@ Des rubriques connexes fournissent deux exemples de code :
 
 ## <a name="new-catalog-views"></a>Nouvelles vues catalogue
 
-La fonctionnalité des événements étendus est prise en charge par plusieurs [vues catalogue](http://msdn.microsoft.com/library/ms174365.aspx). Les vues catalogue vous indiquent les *métadonnées ou définitions* des sessions d’événements créées par l’utilisateur dans la base de données actuelle. Les affichages ne renvoient pas d’informations sur les instances des sessions d’événements actives.
+La fonctionnalité des événements étendus est prise en charge par plusieurs [vues catalogue](https://msdn.microsoft.com/library/ms174365.aspx). Les vues catalogue vous indiquent les *métadonnées ou définitions* des sessions d’événements créées par l’utilisateur dans la base de données actuelle. Les affichages ne renvoient pas d’informations sur les instances des sessions d’événements actives.
 
 | Nom de<br/>la vue catalogue | Description |
 |:--- |:--- |
@@ -92,9 +92,9 @@ La fonctionnalité des événements étendus est prise en charge par plusieurs [
 
 Dans Microsoft SQL Server, les noms des vues catalogue similaires contiennent *.server\_* au lieu de *.database\_*. Les noms suivent le modèle **sys.server_event_%**.
 
-## <a name="new-dynamic-management-views-dmvshttpmsdnmicrosoftcomlibraryms188754aspx"></a>Nouvelles vues de gestion dynamique [(DMV)](http://msdn.microsoft.com/library/ms188754.aspx)
+## <a name="new-dynamic-management-views-dmvshttpsmsdnmicrosoftcomlibraryms188754aspx"></a>Nouvelles vues de gestion dynamique [(DMV)](https://msdn.microsoft.com/library/ms188754.aspx)
 
-La base de données SQL Azure comporte des [vues de gestion dynamique (DMV)](http://msdn.microsoft.com/library/bb677293.aspx) qui prennent en charge les événements étendus. Les vues de gestion dynamique vous renseignent sur les sessions d’événements *actives* .
+La base de données SQL Azure comporte des [vues de gestion dynamique (DMV)](https://msdn.microsoft.com/library/bb677293.aspx) qui prennent en charge les événements étendus. Les vues de gestion dynamique vous renseignent sur les sessions d’événements *actives* .
 
 | Nom de la vue de gestion dynamique | Description |
 |:--- |:--- |
@@ -149,11 +149,11 @@ SELECT
 
 Voici les cibles capables de capturer des résultats à partir de vos sessions d’événements sur la base de données SQL :
 
-- [Cible de mémoire tampon en anneau](http://msdn.microsoft.com/library/ff878182.aspx) -Maintient brièvement les données d’événements en mémoire.
-- [Cible de compteur d’événements](http://msdn.microsoft.com/library/ff878025.aspx) - Compte tous les événements qui se produisent pendant une session d’événements étendus.
-- [Cible du fichier d’événements](http://msdn.microsoft.com/library/ff878115.aspx) - Écrit les mémoires tampons complètes dans un conteneur Azure Storage.
+- [Cible de mémoire tampon en anneau](https://msdn.microsoft.com/library/ff878182.aspx) -Maintient brièvement les données d’événements en mémoire.
+- [Cible de compteur d’événements](https://msdn.microsoft.com/library/ff878025.aspx) - Compte tous les événements qui se produisent pendant une session d’événements étendus.
+- [Cible du fichier d’événements](https://msdn.microsoft.com/library/ff878115.aspx) - Écrit les mémoires tampons complètes dans un conteneur Azure Storage.
 
-L’API [Suivi d’événements pour Windows](http://msdn.microsoft.com/library/ms751538.aspx) n’est pas disponible pour les événements étendus sur la base de données SQL.
+L’API [Suivi d’événements pour Windows](https://msdn.microsoft.com/library/ms751538.aspx) n’est pas disponible pour les événements étendus sur la base de données SQL.
 
 ## <a name="restrictions"></a>Restrictions
 
@@ -195,8 +195,8 @@ La cible **Fichier d’événement** peut rencontrer une latence ou des problèm
 - [Applets de commande Azure Storage](https://docs.microsoft.com/powershell/module/Azure.Storage)
 - [Utilisation d’Azure PowerShell avec Azure Storage](../storage/common/storage-powershell-guide-full.md) - Cette rubrique fournit des informations complètes sur PowerShell et le service Azure Storage.
 - [Utilisation du stockage d’objets blob à partir de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-- [CREATE CREDENTIAL (Transact-SQL)](http://msdn.microsoft.com/library/ms189522.aspx)
-- [CREATE EVENT SESSION (Transact-SQL)](http://msdn.microsoft.com/library/bb677289.aspx)
+- [CREATE CREDENTIAL (Transact-SQL)](https://msdn.microsoft.com/library/ms189522.aspx)
+- [CREATE EVENT SESSION (Transact-SQL)](https://msdn.microsoft.com/library/bb677289.aspx)
 - [Billets de blog de Jonathan Kehayias sur les événements étendus dans Microsoft SQL Server](http://www.sqlskills.com/blogs/jonathan/category/extended-events/)
 
 
@@ -209,6 +209,6 @@ Vous trouverez d’autres rubriques d’exemples de code pour les événements �
 <!--
 ('lock_acquired' event.)
 
-- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](http://msdn.microsoft.com/library/bb677357.aspx)
-- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](http://msdn.microsoft.com/library/bb630355.aspx)
+- Code sample for SQL Server: [Determine Which Queries Are Holding Locks](https://msdn.microsoft.com/library/bb677357.aspx)
+- Code sample for SQL Server: [Find the Objects That Have the Most Locks Taken on Them](https://msdn.microsoft.com/library/bb630355.aspx)
 -->

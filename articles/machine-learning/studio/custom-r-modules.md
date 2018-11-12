@@ -15,12 +15,12 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 11/29/2017
-ms.openlocfilehash: 555672df5b0b86858d460ff7606bc6ca23f4f103
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 1a578e8cc05b42d05a8dfb31c0baeefb4822e3e5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834353"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261107"
 ---
 # <a name="author-custom-r-modules-in-azure-machine-learning"></a>Création de modules R personnalisés dans Azure Machine Learning
 Cette rubrique explique comment créer et déployer un module R personnalisé dans Azure Machine Learning. Elle explique ce qu’est un module R personnalisé, en détaillant les fichiers utilisés pour le définir. Par ailleurs, elle illustre la construction de ces fichiers et l’inscription du module à des fins de déploiement dans un espace de travail Machine Learning. Les éléments et attributs utilisés dans la définition du module personnalisé sont ensuite décrits plus en détail. Par ailleurs, nous allons découvrir comment utiliser les fichiers et la fonctionnalité auxiliaires, ainsi que les sorties multiples. 
@@ -41,7 +41,7 @@ Un module R personnalisé est défini par un fichier .zip contenant au moins de
 Des fichiers auxiliaires supplémentaires peuvent également être inclus dans le fichier .zip, qui fournit des fonctionnalités accessibles à partir du module personnalisé. Cette option est décrite dans la partie **Arguments** de la section de référence **Éléments dans le fichier de définition XML** suivant l’exemple de démarrage rapide.
 
 ## <a name="quickstart-example-define-package-and-register-a-custom-r-module"></a>Exemple de démarrage rapide : définir, mettre en package et enregistrer un module R personnalisé
-Cet exemple explique comment créer les fichiers requis par un module R personnalisé, les empaqueter dans un fichier .zip, puis enregistrer le module dans l’espace de travail Machine Learning. Les exemples de fichiers et de package zip sont disponibles en téléchargement depuis le [fichier CustomAddRows.zip](http://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
+Cet exemple explique comment créer les fichiers requis par un module R personnalisé, les empaqueter dans un fichier .zip, puis enregistrer le module dans l’espace de travail Machine Learning. Les exemples de fichiers et de package zip sont disponibles en téléchargement depuis le [fichier CustomAddRows.zip](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 ## <a name="the-source-file"></a>Le fichier source
 Prenons l’exemple d’un module **Custom Add Rows**, qui modifie l’implémentation standard du module **Add Rows** utilisé pour concaténer des lignes (observations) à partir de deux jeux de données (trames de données). Le module **Add Rows** standard ajoute les lignes du deuxième jeu de données d’entrée à la fin du premier, au moyen de l’algorithme `rbind`. De la même manière, la fonction `CustomAddRows` personnalisée accepte deux jeux de données, mais également un paramètre d’échange booléen en entrée supplémentaire. Si le paramètre d’échange a la valeur **FALSE**, il renvoie le même jeu de données que l’implémentation standard. Par contre, s’il a la valeur **TRUE**, la fonction ajoute des lignes du premier jeu de données d’entrée à la fin du deuxième jeu de données. Le fichier CustomAddRows.R qui contient l’implémentation de la fonction R `CustomAddRows` exposée par le module **Custom Add Rows** contient le code R suivant.

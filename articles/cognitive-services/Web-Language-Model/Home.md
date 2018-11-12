@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 08/12/2016
 ms.author: pibehre
 ROBOTS: NOINDEX
-ms.openlocfilehash: 79b126fc33175b7cd6df96ab07cd7b726d6065a7
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 39995ca44573fe50bf0c2a2510c2c19fb227ff1d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389936"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241121"
 ---
 # <a name="what-is-the-web-language-model-api-preview"></a>Qu’est-ce que l’API Modèle de langage web ? (Préversion)
 
@@ -50,6 +50,6 @@ L’API Web Language Model prend en charge quatre opérations de recherche :
 
 Le document suivant fournit des détails sur le développement de ces modèles de langage ; il doit être cité dans les publications de recherche qui utilisent ce service :
 
-- [Une vue d’ensemble des corpus de N-gramme web de Microsoft et leurs applications](http://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL-HLT 2010
+- [Une vue d’ensemble des corpus de N-gramme web de Microsoft et leurs applications](https://research.microsoft.com/apps/pubs/default.aspx?id=130762), NAACL-HLT 2010
 
 Cliquez [ici](https://academic.microsoft.com/#/search?iq=And%28Ty%3D'0'%2CRId%3D2145833060%29&q=papers%20citing%20an%20overview%20of%20microsoft%20web%20n%20gram%20corpus%20and%20applications&filters=&from=0&sort=0) pour obtenir la liste actuelle des publications citant ces travaux.

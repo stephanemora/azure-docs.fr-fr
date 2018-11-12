@@ -10,12 +10,12 @@ ms.component: bing-video-search
 ms.topic: overview
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: cf37db9bffa8b2a54a6327c29ec806e0eefc8c91
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: e48a0a056628e0c863330de792f8edfaa48aae34
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47225410"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261857"
 ---
 # <a name="what-is-bing-video-search"></a>Qu’est-ce que la Recherche de vidéos Bing ?
 
@@ -47,7 +47,7 @@ Toutes les demandes doivent provenir d’un serveur.
 
 Si vous appelez l’une des API Bing pour la première fois, n’incluez pas l’en-tête ID client. Indiquez uniquement l’ID client si vous avez précédemment appelé une API Bing et si Bing a renvoyé un ID client pour la combinaison utilisateur/appareil.
 
-Pour obtenir des vidéos à partir d’un domaine spécifique, utilisez l’opérateur de requête [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Pour obtenir des vidéos à partir d’un domaine spécifique, utilisez l’opérateur de requête [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -131,7 +131,7 @@ Par défaut, l’API Recherche de vidéos retourne toutes les vidéos ayant un r
 - [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videolength)&mdash;Filtre les vidéos par durée de vidéo (par exemple, celles dont la durée est inférieure à cinq minutes)
 - [freshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#freshness)&mdash;Filtre les vidéos selon leur ancienneté (par exemple, celles découvertes par Bing la semaine dernière)
 
-Pour obtenir des vidéos à partir d’un domaine spécifique, ajoutez l’opérateur de requête [site:](http://msdn.microsoft.com/library/ff795613.aspx) dans la chaîne de requête.
+Pour obtenir des vidéos à partir d’un domaine spécifique, ajoutez l’opérateur de requête [site:](https://msdn.microsoft.com/library/ff795613.aspx) dans la chaîne de requête.
 
 > [!NOTE]
 > En fonction de la requête, si vous utilisez l’opérateur de requête `site:`, il est possible que la réponse présente du contenu pour adultes, et ce quel que soit le paramètre [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#safesearch) défini. Utilisez `site:` uniquement si vous connaissez le contenu du site et si votre scénario prend en charge le contenu pour adultes.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 12902fef0a27aa0af5995d2fd6ab87d951413d1d
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 9c76e535fe0585ec6ff08a0c9dcab700d8eb5424
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48857973"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262010"
 ---
 # <a name="azure-wcf-relay-tutorial"></a>Didacticiel Azure WCF Relay
 
@@ -35,7 +35,7 @@ Les trois dernières étapes expliquent comment créer une application cliente, 
 
 Pour réaliser ce didacticiel, vous aurez besoin des éléments suivants :
 
-* [Microsoft Visual Studio 2015 ou une version ultérieure](http://visualstudio.com). Ce didacticiel utilise Visual Studio 2017.
+* [Microsoft Visual Studio 2015 ou une version ultérieure](https://visualstudio.com). Ce didacticiel utilise Visual Studio 2017.
 * Un compte Azure actif. Si vous n’en avez pas, vous pouvez créer un compte gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/free/).
 
 ## <a name="create-a-service-namespace"></a>Création d'un espace de noms de service
@@ -81,7 +81,7 @@ Le contrat de service spécifie les opérations (terminologie du service web pou
     ```
 
    > [!NOTE]
-   > En règle générale, l’espace de noms de contrat de service contient un schéma d’affectation de noms qui inclut des informations de version. L’inclusion des informations de version dans l’espace de noms de contrat de service permet aux services d’isoler les modifications majeures en définissant un contrat de service avec un nouvel espace de noms et en l’exposant sur un point de terminaison. De cette manière, les clients peuvent continuer à utiliser l’ancien contrat de service sans avoir à procéder à la mise à jour. Les informations de version peuvent se composer d’une date ou un numéro de version. Pour plus d’informations, consultez la rubrique [Contrôle de version des services](http://go.microsoft.com/fwlink/?LinkID=180498). Dans le cadre de ce didacticiel, le schéma d’affectation de noms de l’espace de noms de contrat de service ne contient pas les informations de version.
+   > En règle générale, l’espace de noms de contrat de service contient un schéma d’affectation de noms qui inclut des informations de version. L’inclusion des informations de version dans l’espace de noms de contrat de service permet aux services d’isoler les modifications majeures en définissant un contrat de service avec un nouvel espace de noms et en l’exposant sur un point de terminaison. De cette manière, les clients peuvent continuer à utiliser l’ancien contrat de service sans avoir à procéder à la mise à jour. Les informations de version peuvent se composer d’une date ou un numéro de version. Pour plus d’informations, consultez la rubrique [Contrôle de version des services](https://go.microsoft.com/fwlink/?LinkID=180498). Dans le cadre de ce didacticiel, le schéma d’affectation de noms de l’espace de noms de contrat de service ne contient pas les informations de version.
    >
    >
 8. Dans l’interface `IEchoContract`, déclarez une méthode pour l’unique opération exposée par le contrat `IEchoContract` dans l’interface, puis appliquez l’attribut `OperationContractAttribute` à la méthode que vous souhaitez exposer dans le cadre du contrat WCF Relay public, de la façon suivante :

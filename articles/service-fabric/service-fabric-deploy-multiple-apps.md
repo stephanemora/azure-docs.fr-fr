@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 9a7ab3881cd1058a60ff7d5f6e50c296f042e76e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea2f27069ca445a4d74ddc634f5c396ab13564a1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206077"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248994"
 ---
 # <a name="deploy-multiple-guest-executables"></a>Déploiement de plusieurs exécutables invités
 Cet article montre comment empaqueter et déployer plusieurs exécutables sur Azure Service Fabric. Pour créer et déployer un package Service Fabric, lisez l’article [Déploiement d’un exécutable invité dans Service Fabric](service-fabric-deploy-existing-app.md).
@@ -33,7 +33,7 @@ Vous pouvez utiliser Visual Studio pour générer le package d’application qui
 * [Exemple de deux exécutables invités (C# et nodejs) communiquant via le service d’attribution de noms à l’aide de REST](https://github.com/Azure-Samples/service-fabric-containers)
 
 ## <a name="manually-package-the-multiple-guest-executable-application"></a>Empaqueter manuellement l’application exécutable invitée multiple
-Vous pouvez également empaqueter manuellement l’exécutable invité. Pour l’empaquetage manuel, cet article utilise l’outil d’empaquetage Service Fabric, disponible à l’adresse [http://aka.ms/servicefabricpacktool](http://aka.ms/servicefabricpacktool).
+Vous pouvez également empaqueter manuellement l’exécutable invité. Pour l’empaquetage manuel, cet article utilise l’outil d’empaquetage Service Fabric, disponible à l’adresse [http://aka.ms/servicefabricpacktool](https://aka.ms/servicefabricpacktool).
 
 ### <a name="packaging-the-nodejs-application"></a>Empaquetage de l'application Node.js
 Cet article part du principe que Node.js n’est pas installé sur les nœuds du cluster Service Fabric. Par conséquent, vous devez ajouter Node.exe dans le répertoire racine de votre application de nœud avant l’empaquetage. La structure de répertoires de l’application Node.js (avec la structure web Express et le moteur de création de modèles Jade) doit ressembler à ce qui suit :

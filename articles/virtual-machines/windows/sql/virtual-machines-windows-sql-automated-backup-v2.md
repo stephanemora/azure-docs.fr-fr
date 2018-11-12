@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: 4619c26e34c90f58702ad286f76a999f83f49cc4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 664a0036b8aa753de9636688d22afff0163f031f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894507"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246818"
 ---
 # <a name="automated-backup-v2-for-azure-virtual-machines-resource-manager"></a>Sauvegarde automatisée version 2 pour les machines virtuelles Azure (Resource Manager)
 
@@ -32,7 +32,6 @@ La sauvegarde automatisée version 2 configure automatiquement une [sauvegarde m
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour utiliser la sauvegarde automatisée version 2, passez en revue les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -152,7 +151,7 @@ Si vous activez la sauvegarde automatisée pour la première fois, Azure configu
 
 Vous pouvez utiliser PowerShell pour configurer une sauvegarde automatisée version 2. Avant de commencer, vous devez :
 
-- [Télécharger et installer la version la plus récente d’Azure PowerShell](http://aka.ms/webpi-azps).
+- [Télécharger et installer la version la plus récente d’Azure PowerShell](https://aka.ms/webpi-azps).
 - Ouvrez Windows PowerShell et associez-le à votre compte avec la commande **Connect-AzureRmAccount**.
 
 ### <a name="install-the-sql-iaas-extension"></a>Installer l’extension IaaS SQL

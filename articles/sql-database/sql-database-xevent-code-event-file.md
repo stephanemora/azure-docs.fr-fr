@@ -12,12 +12,12 @@ ms.author: genemi
 ms.reviewer: ''
 manager: craigg
 ms.date: 04/01/2018
-ms.openlocfilehash: 302607df2292fe7a67a8b6860dab19eef7f391a9
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 8577b6a1d0f57820cbdd4096b0e8412096ff3af3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47160364"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232074"
 ---
 # <a name="event-file-target-code-for-extended-events-in-sql-database"></a>Code cible du fichier d’événements pour les événements étendus dans SQL Database
 
@@ -25,7 +25,7 @@ ms.locfileid: "47160364"
 
 Vous pouvez utiliser un exemple de code complet pour capturer et signaler les informations liées à un événement étendu.
 
-Dans Microsoft SQL Server, la [cible du fichier d’événements](http://msdn.microsoft.com/library/ff878115.aspx) est utilisée pour stocker les sorties d’événement dans un fichier sur un disque dur local. Mais ce type de fichier n’est pas disponible dans Azure SQL Database. À la place, nous utilisons le service Azure Storage pour prendre en charge la cible du fichier d’événements.
+Dans Microsoft SQL Server, la [cible du fichier d’événements](https://msdn.microsoft.com/library/ff878115.aspx) est utilisée pour stocker les sorties d’événement dans un fichier sur un disque dur local. Mais ce type de fichier n’est pas disponible dans Azure SQL Database. À la place, nous utilisons le service Azure Storage pour prendre en charge la cible du fichier d’événements.
 
 Cette rubrique présente un exemple de code en deux phases :
 
@@ -44,9 +44,9 @@ Cette rubrique présente un exemple de code en deux phases :
 * SQL Server Management Studio (ssms.exe), dans l’idéal, la version de sa dernière mise à jour mensuelle. 
   Vous pouvez télécharger la dernière version de ssms.exe :
   
-  * À partir de la rubrique [Télécharger SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
-  * [En utilisant un lien direct vers le téléchargement.](http://go.microsoft.com/fwlink/?linkid=616025)
-* Les [modules Azure PowerShell](http://go.microsoft.com/?linkid=9811175) doivent être installés.
+  * À partir de la rubrique [Télécharger SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
+  * [En utilisant un lien direct vers le téléchargement.](https://go.microsoft.com/fwlink/?linkid=616025)
+* Les [modules Azure PowerShell](https://go.microsoft.com/?linkid=9811175) doivent être installés.
   
   * Ces modules fournissent des commandes, telles que **New-AzureStorageAccount**.
 
@@ -506,11 +506,11 @@ SELECT 'AFTER__Updates', EmployeeKudosCount, * FROM gmTabEmployee;
 
 Le script Transact-SQL précédent a utilisé la fonction système suivante pour lire le fichier d’événement :
 
-* [sys.fn_xe_file_target_read_file (Transact-SQL)](http://msdn.microsoft.com/library/cc280743.aspx)
+* [sys.fn_xe_file_target_read_file (Transact-SQL)](https://msdn.microsoft.com/library/cc280743.aspx)
 
 Une explication des options avancées de l’affichage des données d’événements étendus est disponible dans :
 
-* [Affichage avancée des données cibles à partir d’événements étendus](http://msdn.microsoft.com/library/mt752502.aspx)
+* [Affichage avancée des données cibles à partir d’événements étendus](https://msdn.microsoft.com/library/mt752502.aspx)
 
 
 ## <a name="converting-the-code-sample-to-run-on-sql-server"></a>Conversion de l’exemple de code pour l’exécuter sur SQL Server
@@ -528,10 +528,10 @@ Vous voulez maintenant exécuter l’exemple de code Transact-SQL précédent su
 Pour plus d’informations sur les comptes et les conteneurs du service Azure Storage, consultez :
 
 * [Utilisation du stockage d’objets blob à partir de .NET](../storage/blobs/storage-dotnet-how-to-use-blobs.md)
-* [Désignation et référencement des conteneurs, des objets BLOB et des métadonnées](http://msdn.microsoft.com/library/azure/dd135715.aspx)
-* [Utilisation du conteneur racine](http://msdn.microsoft.com/library/azure/ee395424.aspx)
-* [Leçon 1 : Créer une stratégie d’accès stockée et une signature d’accès partagé sur un conteneur Azure](http://msdn.microsoft.com/library/dn466430.aspx)
-  * [Leçon 2 : Créer des informations d’identification SQL Server à l’aide d’une signature d’accès partagé](http://msdn.microsoft.com/library/dn466435.aspx)
+* [Désignation et référencement des conteneurs, des objets BLOB et des métadonnées](https://msdn.microsoft.com/library/azure/dd135715.aspx)
+* [Utilisation du conteneur racine](https://msdn.microsoft.com/library/azure/ee395424.aspx)
+* [Leçon 1 : Créer une stratégie d’accès stockée et une signature d’accès partagé sur un conteneur Azure](https://msdn.microsoft.com/library/dn466430.aspx)
+  * [Leçon 2 : Créer des informations d’identification SQL Server à l’aide d’une signature d’accès partagé](https://msdn.microsoft.com/library/dn466435.aspx)
 * [Événements étendus pour Microsoft SQL Server](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events)
 
 <!--

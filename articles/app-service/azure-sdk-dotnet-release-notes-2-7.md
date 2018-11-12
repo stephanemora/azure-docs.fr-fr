@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 02/24/2017
 ms.author: juliako
-ms.openlocfilehash: 9a69253129cdedc4f5d7e736d5bd8d6a68f95a1e
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 01a02296354ebe3d60f0e1fda6a6da8554a265fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "22986574"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51239064"
 ---
 # <a name="azure-sdk-for-net-27-and-net-271-release-notes"></a>Notes de publication du Kit de développement logiciel (SDK) Azure pour .NET 2.7 et .NET 2.7.1
 ## <a name="overview"></a>Vue d’ensemble
@@ -28,7 +28,7 @@ Ce document contient également les notes de publication du Kit de développemen
 
 Le SDK Azure 2.7 est uniquement pris en charge dans Visual Studio 2015 et Visual Studio 2013. [Kit de développement logiciel (SDK) Azure 2.6](https://azure.microsoft.com/downloads/) est le dernier Kit de développement logiciel (SDK) pris en charge pour Visual Studio 2012.
 
-Pour plus d’informations sur cette version, consultez le [billet d’annonce du Kit de développement logiciel (SDK) Azure 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) et le [billet d’annonce du Kit de développement logiciel (SDK) Azure 2.7.1](http://go.microsoft.com/fwlink/?LinkId=623850).
+Pour plus d’informations sur cette version, consultez le [billet d’annonce du Kit de développement logiciel (SDK) Azure 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) et le [billet d’annonce du Kit de développement logiciel (SDK) Azure 2.7.1](https://go.microsoft.com/fwlink/?LinkId=623850).
 
 ## <a name="azure-sdk-for-net-27"></a>Kit de développement logiciel (SDK) Azure pour .NET 2.7
 ### <a name="sign-in-improvements-for-visual-studio-2015"></a>Améliorations en matière de connexion pour Visual Studio 2015
@@ -43,7 +43,7 @@ Les modèles **Mobile Apps** ont été mis à jour afin de refléter le dernier 
 Résolutions de bogue et améliorations générales. Pour plus d’informations sur les mises à jour et sur les fonctionnalités, voir les notes de publication du dernier [package NuGet Service Bus](http://www.nuget.org/packages/WindowsAzure.ServiceBus/).
 
 ### <a name="hdinsight-tools"></a>Outils HDInsight
-Cette version intègre les mises à jour ci-dessous. Ces mises à jour sont disponibles en version préliminaire. Pour plus d’informations, voir [ce blog](http://go.microsoft.com/fwlink/?LinkId=619108).
+Cette version intègre les mises à jour ci-dessous. Ces mises à jour sont disponibles en version préliminaire. Pour plus d’informations, consultez [ce blog](https://go.microsoft.com/fwlink/?LinkId=619108).
 
 * Graphiques Hive pour les travaux Hive sur Tez
 * Prise en charge complète de la fonctionnalité IntelliSense pour les instructions DML Hive
@@ -51,8 +51,8 @@ Cette version intègre les mises à jour ci-dessous. Ces mises à jour sont disp
 * Modèles Storm pour les services Azure
 
 #### <a name="breaking-changes"></a>Dernières modifications
-* En cas d’utilisation de cette version des outils, l’ancien projet **Storm** doit être mis à niveau. Pour plus d’informations, voir [ce blog](http://go.microsoft.com/fwlink/?LinkId=619108).
-* Visual Studio Web Express n’est plus pris en charge. Pour plus d’informations, voir [ce blog](http://go.microsoft.com/fwlink/?LinkId=619108).
+* En cas d’utilisation de cette version des outils, l’ancien projet **Storm** doit être mis à niveau. Pour plus d’informations, voir [ce blog](https://go.microsoft.com/fwlink/?LinkId=619108).
+* Visual Studio Web Express n’est plus pris en charge. Pour plus d’informations, voir [ce blog](https://go.microsoft.com/fwlink/?LinkId=619108).
 
 ### <a name="azure-app-service-tools"></a>Outils Azure App Service
 Dans cette version, les mises à jour ci-après ont été apportées à Web Tools Extensions. Pour plus d’informations, consultez [ce](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/) blog. 
@@ -84,11 +84,11 @@ Les outils d’Azure Resource Manager ont été mis à jour de façon à fonctio
 Si vous utilisez un projet de groupe de ressources Azure issu d’une version précédente du Kit de développement logiciel (SDK) avec le SDK 2.7, un nouveau script de déploiement est nécessaire pour effectuer le déploiement à l’aide d’un nouveau compte de stockage au lieu du stockage classique.  Le système vous demandera confirmation avant de modifier votre projet pour y ajouter le nouveau script.  L’ancien script sera renommé et vous devrez modifier le nouveau script manuellement.
 
 ### <a name="storage-explorer-tools"></a>Outils de l’Explorateur de stockage
-* Prise en charge de l’affichage des types d’objet blob « Append Blob ». Plus d’informations dans [ce billet de blog](http://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/13/introducing-azure-storage-append-blob.aspx). 
+* Prise en charge de l’affichage des types d’objet blob « Append Blob ». Plus d’informations dans [ce billet de blog](https://blogs.msdn.com/b/windowsazurestorage/archive/2015/04/13/introducing-azure-storage-append-blob.aspx). 
 * Prise en charge de l’affichage des comptes de stockage Premium par le biais de l’Explorateur de serveurs. Pour les comptes de stockage Premium, l’Explorateur de serveurs affiche uniquement les objets blob de pages, car il s’agit du seul type pris en charge pour ces comptes.
 
 ### <a name="azure-data-factory-tools-for-visual-studio"></a>Outils d’Azure Data Factory pour Visual Studio
-Introduction des **outils d’Azure Data Factory** pour Visual Studio. La liste ci-dessous répertorie les fonctionnalités activées. Pour plus d’informations, consultez [ce blog](http://go.microsoft.com/fwlink/?LinkId=617530) .
+Introduction des **outils d’Azure Data Factory** pour Visual Studio. La liste ci-dessous répertorie les fonctionnalités activées. Pour plus d’informations, consultez [ce blog](https://go.microsoft.com/fwlink/?LinkId=617530) .
 
 * **Création basée sur un modèle**: sélectionnez des modèles reposant sur des cas d’utilisation, des modèles de déplacement des données ou des modèles de traitement des données pour déployer une solution d’intégration de données de bout en bout et commencer à utiliser rapidement Data Factory. 
 * **Intégration à l’Explorateur de solutions pour la création et le déploiement d’entités Data Factory** : créez et déployez des pipelines et des entités associées sous la forme de projets Visual Studio. 
@@ -102,7 +102,7 @@ Introduction des **outils d’Azure Data Factory** pour Visual Studio. La liste
 La section suivante contient des mises à jour qui ont été présentées avec le Kit de développement logiciel (SDK) pour la version 2.7.1. de .NET.
 
 ### <a name="hdinsight-tools"></a>Outils HDInsight
-Pour plus d'explications sur les mises à jour des outils HDInsight, consultez [ce blog](http://go.microsoft.com/fwlink/?LinkId=623831).
+Pour plus d'explications sur les mises à jour des outils HDInsight, consultez [ce blog](https://go.microsoft.com/fwlink/?LinkId=623831).
 
 * Affichage d’opérateur de tâche de Hive (nouvelle fonctionnalité)
   
@@ -120,7 +120,7 @@ Pour plus d'explications sur les mises à jour des outils HDInsight, consultez [
   
     Nous avons amélioré IntelliSense en ajoutant plus de suggestions conviviales. Par exemple, les alias de table peuvent maintenant être proposés dans IntelliSense pour vous permettre d'écrire plus facilement votre requête. Par ailleurs, nous avons amélioré le chargement des métadonnées Hive de sorte qu’il ne faut que quelques secondes pour répertorier toutes les bases de données, les tables et les colonnes de votre metastore Hive.
 
-Pour plus d'explications sur les mises à jour des outils HDInsight, consultez [ce blog](http://go.microsoft.com/fwlink/?LinkId=623831).
+Pour plus d'explications sur les mises à jour des outils HDInsight, consultez [ce blog](https://go.microsoft.com/fwlink/?LinkId=623831).
 
 ### <a name="improvements-in-visual-studio-2013"></a>Améliorations dans Visual Studio 2013
 * Le Kit de développement logiciel (SDK) Azure 2.7.1 permet à Visual Studio 2013 d’accéder aux comptes et aux abonnements via le contrôle d'accès basé sur le rôle, les fournisseurs de solutions de cloud et DreamSpark.
@@ -132,7 +132,7 @@ L’installation du Kit de développement logiciel Azure 2.6 ou 2.7.1 pour Vis
 Les projets LightSwitch ne sont pas compatibles avec cette version. Ce problème sera résolu avec la prochaine version du Kit de développement logiciel (SDK).
 
 ## <a name="also-see"></a>Voir aussi
-[Billet d’annonce du Kit de développement logiciel (SDK) Azure 2.7.1](http://go.microsoft.com/fwlink/?LinkId=623850)
+[Billet d’annonce du Kit de développement logiciel (SDK) Azure 2.7.1](https://go.microsoft.com/fwlink/?LinkId=623850)
 
 [Billet d’annonce du Kit de développement logiciel (SDK) Azure 2.7](https://azure.microsoft.com/blog/2015/07/20/announcing-the-azure-sdk-2-7-for-net/)
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: sachins
-ms.openlocfilehash: ef2b5fe6c9b70eaea5ab4db2d4a0ca59ff82dbb9
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 2c7e624344605b24e78962ac2b6d23278c06c0cc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391893"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255146"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen1"></a>Bonnes pratiques d’utilisation d’Azure Data Lake Storage Gen1
 
@@ -27,7 +27,7 @@ Dans cet article, vous allez découvrir les meilleures pratiques et considérati
 
 Azure Data Lake Storage Gen1 offre des contrôles d’accès POSIX et une fonction d’audit détaillée pour les utilisateurs, les groupes et les principaux de service Azure Active Directory (Azure AD). Ces contrôles d’accès peuvent être définis pour des fichiers et dossiers existants. Ils peuvent aussi être utilisés pour créer des valeurs par défauts pouvant être appliquées à des nouveaux fichiers ou dossiers. Lorsque les autorisations sont définies pour des objets enfant et des dossiers existants, elles doivent être propagées de façon récursive sur chaque objet. Si le nombre de fichiers est important, la propagation des autorisations peut prendre du temps. Le temps nécessaire est de 30 à 50 objets traités par seconde. Prévoyez donc la structure du dossier et les groupes d’utilisateurs en conséquence. Sinon, vous pourriez rencontrer des délais et problèmes imprévus lorsque vous utilisez vos données. 
 
-Supposons que vous disposez d’un dossier qui contient 100 000 objets enfant. En admettant que la vitesse de propagation soit minimale, donc de 30 objets par seconde, la mise à jour de l’autorisation pour l’ensemble du dossier prendrait une heure. Pour plus d’informations sur la liste des contrôles d’accès de Azure Data Lake Storage Gen1, voir [Contrôle d’accès dans Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Pour améliorer les performances pour assigner des listes de contrôles d’accès de façon récursive, vous pouvez utiliser l’outil en ligne de commande Azure Data Lake. Cet outil crée plusieurs threads et une logique de navigation récursive pour appliquer rapidement des listes de contrôles d’accès à des millions de fichiers. L’outil est disponible pour Linux et Windows, et toute la [documentation](https://github.com/Azure/data-lake-adlstool) et les [téléchargements](http://aka.ms/adlstool-download) pour cet outil se trouvent sur GitHub. Vous pouvez bénéficier des mêmes améliorations de performances grâce à vos propres outils écrits à l’aide des Kits de développement logiciel (SDK) Azure Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) et [Java](data-lake-store-get-started-java-sdk.md).
+Supposons que vous disposez d’un dossier qui contient 100 000 objets enfant. En admettant que la vitesse de propagation soit minimale, donc de 30 objets par seconde, la mise à jour de l’autorisation pour l’ensemble du dossier prendrait une heure. Pour plus d’informations sur la liste des contrôles d’accès de Azure Data Lake Storage Gen1, voir [Contrôle d’accès dans Azure Data Lake Storage Gen1](data-lake-store-access-control.md). Pour améliorer les performances pour assigner des listes de contrôles d’accès de façon récursive, vous pouvez utiliser l’outil en ligne de commande Azure Data Lake. Cet outil crée plusieurs threads et une logique de navigation récursive pour appliquer rapidement des listes de contrôles d’accès à des millions de fichiers. L’outil est disponible pour Linux et Windows, et toute la [documentation](https://github.com/Azure/data-lake-adlstool) et les [téléchargements](https://aka.ms/adlstool-download) pour cet outil se trouvent sur GitHub. Vous pouvez bénéficier des mêmes améliorations de performances grâce à vos propres outils écrits à l’aide des Kits de développement logiciel (SDK) Azure Data Lake Storage Gen1 [.NET](data-lake-store-data-operations-net-sdk.md) et [Java](data-lake-store-get-started-java-sdk.md).
 
 ### <a name="use-security-groups-versus-individual-users"></a>Utilisation de groupes de sécurité et utilisation d’utilisateurs individuels 
 

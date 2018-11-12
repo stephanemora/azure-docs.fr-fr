@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 3f23464776036a8c91b180d46341782fddb9d5e8
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 2720ecece86133bf551ab42c415b2e9a87420e93
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50140957"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237823"
 ---
 # <a name="how-to-troubleshoot-issues-with-the-log-analytics-agent-for-linux"></a>Guide pratique pour résoudre les problèmes liés à l’agent Log Analytics pour Linux 
 
@@ -32,7 +32,7 @@ Si aucune de ces étapes ne fonctionne, les canaux de support suivants sont éga
 * Les clients titulaires d’un contrat de support Azure peuvent ouvrir une demande de support [sur le portail Azure](https://manage.windowsazure.com/?getsupport=true).
 * Diagnostiquez les problèmes liés à OMI avec le [Guide de dépannage pour OMI](https://github.com/Microsoft/omi/blob/master/Unix/doc/diagnose-omi-problems.md).
 * Déposez un [problème GitHub](https://github.com/Microsoft/OMS-Agent-for-Linux/issues).
-* Visitez la page de commentaires de Log Analytics pour consulter les idées et bogues soumis sur [http://aka.ms/opinsightsfeedback](http://aka.ms/opinsightsfeedback) ou en partager de nouveaux.  
+* Visitez la page de commentaires de Log Analytics pour consulter les idées et bogues soumis sur [http://aka.ms/opinsightsfeedback](https://aka.ms/opinsightsfeedback) ou en partager de nouveaux.  
 
 ## <a name="important-log-locations-and-log-collector-tool"></a>Emplacement de journaux importants et outil collecteur de journaux
 

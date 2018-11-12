@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 41d27b9a173cc019549f1dea0c66ffcaa51fbb10
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9cffbeae3e73682f5e76523de7ee607285c9fc75
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719441"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238624"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Considérations liées à la planification du déploiement d’Azure Stack
 Avant de déployer le kit de développement Azure Stack (ASDK), vérifiez que l’ordinateur hôte du kit de développement répond à la configuration requise décrite dans cet article.
@@ -82,7 +82,7 @@ Si vous effectuez le déploiement avec l’option AD FS, vous devez redéployer
 ### <a name="azure-active-directory-accounts"></a>Comptes Azure Active Directory
 Pour déployer Azure Stack en utilisant un compte Azure AD, vous devez préparer ce compte avant d’exécuter le script de déploiement PowerShell. Ce compte devient administrateur général pour le locataire Azure AD. Il est utilisé pour provisionner et déléguer des applications et des principaux de service pour tous les services Azure Stack qui interagissent avec Azure Active Directory et l’API Graph. Il est également propriétaire de l’abonnement du fournisseur par défaut (vous pouvez changer ce paramètre ultérieurement). Vous pouvez utiliser ce compte pour vous connecter au portail de l’administrateur de votre système Azure Stack.
 
-1. Créez un compte Azure AD qui est administrateur d’au moins un annuaire Azure AD. Si vous en avez déjà un, vous pouvez l’utiliser. Sinon, vous pouvez en créer un gratuitement à l’adresse [https://azure.microsoft.com/free/](http://azure.microsoft.com/pricing/free/) (pour la Chine, rendez-vous sur le site <http://go.microsoft.com/fwlink/?LinkID=717821>). Si vous prévoyez [d’inscrire Azure Stack auprès d’Azure](asdk-register.md) ultérieurement, vous devez également avoir un abonnement avec ce nouveau compte.
+1. Créez un compte Azure AD qui est administrateur d’au moins un annuaire Azure AD. Si vous en avez déjà un, vous pouvez l’utiliser. Sinon, vous pouvez en créer un gratuitement à l’adresse [https://azure.microsoft.com/free/](https://azure.microsoft.com/pricing/free/) (pour la Chine, rendez-vous sur le site <http://go.microsoft.com/fwlink/?LinkID=717821>). Si vous prévoyez [d’inscrire Azure Stack auprès d’Azure](asdk-register.md) ultérieurement, vous devez également avoir un abonnement avec ce nouveau compte.
    
     Enregistrez ces informations d’identification afin de les utiliser en tant qu’administrateur du service. Vous pouvez utiliser ce compte pour configurer et gérer les clouds de ressources, les comptes d’utilisateur, les plans de locataire, les quotas et les tarifs. Dans le portail, il peut créer des clouds de sites web, des clouds privés de machine virtuelle, des plans et gérer les abonnements des utilisateurs.
 1. Créez au moins un compte d’utilisateur de test dans Azure AD avec lequel vous pouvez vous connecter au kit de développement en tant que locataire.
@@ -94,7 +94,7 @@ Pour déployer Azure Stack en utilisant un compte Azure AD, vous devez prépare
    | Compte professionnel ou scolaire avec un abonnement Azure en Chine valide |Oui |
    | Compte professionnel ou scolaire avec un abonnement Azure pour le gouvernement américain valide |Oui |
 
-Après le déploiement, l’autorisation d’administrateur général Azure Active Directory n’est pas nécessaire. Toutefois, certaines opérations peuvent demander des informations d’identification d’administrateur général. Par exemple, un script d’installation d’un fournisseur de ressources ou une nouvelle fonctionnalité peut avoir besoin d’une autorisation spécifique. Vous pouvez temporairement réactiver les autorisations d’administrateur général du compte ou utiliser un compte d’administrateur général distinct qui est propriétaire de *l’abonnement fournisseur par défaut*.
+Après le déploiement, l’autorisation d’administrateur général Azure Active Directory n’est pas nécessaire. Toutefois, certaines opérations peuvent demander des informations d’identification d’administrateur général. Par exemple, un script d’installation d’un fournisseur de ressources ou une nouvelle fonctionnalité peut avoir besoin d’une autorisation spécifique. Vous pouvez temporairement réactiver les autorisations d’administrateur général du compte ou utiliser un compte d’administrateur général distinct qui est propriétaire de l’*abonnement fournisseur par défaut*.
 
 ## <a name="network"></a>Réseau
 ### <a name="switch"></a>Switch

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: juliako;anilmur
-ms.openlocfilehash: ef74ebfab9450d0aa22b5a2f3287491d96573cff
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 9c6e26b082fb52f7d23bb1a827af30483f7fbd4f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249167"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255708"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Codecs et formats standard de l’encodeur multimédia
 Ce document contient la liste des formats de fichier d’importation et d’exportation les plus courants que vous pouvez utiliser avec l’encodeur multimédia.
@@ -87,7 +87,7 @@ Le mappage de canaux explicite/fourni par l’utilisateur sera pris en charge da
 | Windows Media Audio |Oui |
 | WAV/PCM |Oui |
 | [FLAC](https://en.wikipedia.org/wiki/FLAC)</a> |Oui |
-| [Opus](http://go.microsoft.com/fwlink/?LinkId=822667) |Oui |
+| [Opus](https://go.microsoft.com/fwlink/?LinkId=822667) |Oui |
 | [Vorbis](https://en.wikipedia.org/wiki/Vorbis)</a> |Oui |
 | AMR (adaptive multi-rate) |Oui |
 | AES (SMPTE 331M et 302M, AES3-2003) |Non  |

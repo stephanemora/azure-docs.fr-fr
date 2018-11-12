@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/09/2017
 ms.author: deguhath
-ms.openlocfilehash: f87bc1d8140bea9ebb09e45d42b27e201b474026
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: dfb36cfba312d54d469b371f02820fd01da6dc7f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214340"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243418"
 ---
 # <a name="parallel-bulk-data-import-using-sql-partition-tables"></a>Importer des données en parallèle et en bloc à l’aide de tables de partition SQL
 Ce document décrit comment créer une ou plusieurs tables partitionnées pour importer des données rapidement, en parallèle et en bloc dans une base de données SQL Server. Dans le cas d’un chargement ou d’un transfert volumineux dans une base de données SQL, les *vues et tables partitionnées*permettent d’améliorer l’importation des données et le traitement des requêtes. 
@@ -102,7 +102,7 @@ Pour plus d’informations, consultez l’article [Créer des tables partitionn�
 * [Modifiez la base de données](https://msdn.microsoft.com/library/bb522682.aspx) en remplaçant le schéma de journalisation des transactions par BULK_LOGGED pour minimiser le temps de traitement de la journalisation, par exemple :
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* Pour accélérer le chargement des données, lancez plusieurs importations en bloc en parallèle. Pour obtenir des conseils sur l’accélération de l’importation en bloc de volumes importants dans des bases de données SQL Server, consultez l’article [Charger 1 To en moins d’une heure](http://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
+* Pour accélérer le chargement des données, lancez plusieurs importations en bloc en parallèle. Pour obtenir des conseils sur l’accélération de l’importation en bloc de volumes importants dans des bases de données SQL Server, consultez l’article [Charger 1 To en moins d’une heure](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx).
 
 Le script PowerShell suivant est un exemple de chargement de données en parallèle avec BCP.
 

@@ -16,12 +16,12 @@ ms.date: 10/25/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: c10aa28dc83d96a99da40b7d95d8e7051108d4c0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 916d34a0af1490404cb9f7851b3117f1967c54d0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988752"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240900"
 ---
 # <a name="quickstart-remove-an-application-registered-with-the-microsoft-identity-platform-preview"></a>Démarrage rapide : Supprimer une application inscrite à l’aide de la plateforme d’identités Microsoft (préversion)
 
@@ -58,7 +58,7 @@ Les applications que vous ou votre organisation avez enregistrées sont représe
 
 Si les **Inscriptions d’applications** s’affichent dans le contexte d’un locataire, un sous-ensemble des applications qui s’affichent sous l’onglet **Toutes les applications** provient d’un autre locataire et a été inscrit dans votre locataire lors du processus de consentement. Ces applications sont représentées dans votre locataire par un objet principal du service, sans objet d’application correspondant. Pour plus d’informations sur les différences entre les objets de principal du service et d’application, consultez [Objets application et principal du service dans Azure AD](active-directory-application-objects.md).
 
-Afin de pouvoir supprimer l’accès d’une application à votre répertoire (après avoir donné son consentement), l’administrateur de l’entreprise doit supprimer son principal du service. L’administrateur doit avoir un accès d’administrateur général et peut supprimer l’application ou utiliser les [cmdlets PowerShell Azure AD](http://go.microsoft.com/fwlink/?LinkId=294151) au sein du portail Azure pour supprimer l’accès.
+Afin de pouvoir supprimer l’accès d’une application à votre répertoire (après avoir donné son consentement), l’administrateur de l’entreprise doit supprimer son principal du service. L’administrateur doit avoir un accès d’administrateur général et peut supprimer l’application ou utiliser les [cmdlets PowerShell Azure AD](https://go.microsoft.com/fwlink/?LinkId=294151) au sein du portail Azure pour supprimer l’accès.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

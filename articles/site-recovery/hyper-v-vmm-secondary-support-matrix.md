@@ -1,21 +1,21 @@
 ---
-title: Matrice de prise en charge pour la réplication des machines virtuelles Hyper-V dans des clouds VMM vers un site secondaire avec Azure Site Recovery | Microsoft Docs
+title: Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V dans des clouds VMM vers un site secondaire avec Azure Site Recovery | Microsoft Docs
 description: Résume la prise en charge de la réplication des machines virtuelles Hyper-V dans des clouds VMM vers un site secondaire avec Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
-ms.openlocfilehash: e1a0ee2a9ad958a5938569927a489785edd8ee1f
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 905f9ee07a28954c38666193daf9e3bf6d323c10
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078832"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246427"
 ---
-# <a name="support-matrix-for-replication-of-hyper-v-vms-to-a-secondary-site"></a>Matrice de prise en charge pour la réplication des machines virtuelles Hyper-V vers un site secondaire
+# <a name="support-matrix-for-disaster-recovery-of-hyper-v-vms-to-a-secondary-site"></a>Matrice de prise en charge pour la récupération d’urgence de machines virtuelles Hyper-V vers un site secondaire
 
 Cet article résume ce qui est pris en charge lorsque vous utilisez le service [Azure Site Recovery](site-recovery-overview.md) pour répliquer des machines virtuelles Hyper-V gérées dans des clouds System Center Virtual Machine Manager (VMM) vers un site secondaire. Si vous souhaitez répliquer des machines virtuelles Hyper-V vers Azure, passez en revue [cette matrice de prise en charge](hyper-v-azure-support-matrix.md).
 
@@ -110,7 +110,7 @@ Le fournisseur coordonne les communications entre les serveurs VMM.
 
 **La plus récente** | **Mises à jour**
 --- | --- | --- | --- | ---
-5.1.19 ([disponible sur le portail](http://aka.ms/downloaddra)) | [Fonctionnalités et correctifs récents](https://support.microsoft.com/kb/3155002)
+5.1.19 ([disponible sur le portail](https://aka.ms/downloaddra)) | [Fonctionnalités et correctifs récents](https://support.microsoft.com/kb/3155002)
 
 
 

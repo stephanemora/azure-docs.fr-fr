@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2017
 ms.author: wesmc
-ms.openlocfilehash: 885258379e71ea945e41c4b43c34b35b16dd4a7a
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 91a2b112000e970b73420abaa26efc7de1caa626
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42141487"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261451"
 ---
 # <a name="how-to-scale-azure-redis-cache"></a>Mise à l’échelle du cache Azure Redis
 Le Cache Redis Azure offre différents types de cache, permettant de choisir parmi plusieurs tailles et fonctionnalités de cache en toute flexibilité. Après la création d’un cache, vous pouvez mettre à l’échelle la taille et le niveau de tarification du cache si les exigences de votre application changent. Cet article montre comment mettre à l’échelle votre cache à l’aide du portail Azure et d’outils tels qu’Azure PowerShell et Azure CLI.
@@ -81,7 +81,7 @@ Pour mettre à l’échelle vos instances de Cache Redis Azure à l’aide de l�
 Pour plus d’informations sur la mise à l’échelle avec l’interface de ligne de commande Azure, consultez [Modification des paramètres d’un Cache Redis existant](cache-manage-cli.md#scale).
 
 ### <a name="scale-using-maml"></a>Mise à l’échelle à l’aide de MAML
-Pour mettre à l’échelle vos instances du Cache Redis Azure à l’aide des [Bibliothèques de gestion Microsoft Azure (MAML)](http://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), appelez la méthode `IRedisOperations.CreateOrUpdate` et transmettez la nouvelle taille de `RedisProperties.SKU.Capacity`.
+Pour mettre à l’échelle vos instances du Cache Redis Azure à l’aide des [Bibliothèques de gestion Microsoft Azure (MAML)](https://azure.microsoft.com/updates/management-libraries-for-net-release-announcement/), appelez la méthode `IRedisOperations.CreateOrUpdate` et transmettez la nouvelle taille de `RedisProperties.SKU.Capacity`.
 
     static void Main(string[] args)
     {

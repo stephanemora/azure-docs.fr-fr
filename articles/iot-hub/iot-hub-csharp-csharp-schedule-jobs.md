@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/06/2018
 ms.author: dobett
-ms.openlocfilehash: 0e0c398311c5826f8b6c72bf0f39ad2bfde306b2
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: d97fe45d728b156d72e22a5b255d149f7a02c7f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47223043"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261040"
 ---
 # <a name="schedule-and-broadcast-jobs-netnet"></a>Planifier et diffuser des travaux (.NET/.NET)
 
@@ -50,13 +50,13 @@ Ce didacticiel vous explique les procédures suivantes :
 Pour réaliser ce didacticiel, vous avez besoin des éléments suivants :
 
 * Visual Studio 2017.
-* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
+* Un compte Azure actif. Si vous ne possédez pas de compte, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/) en quelques minutes.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
 [!INCLUDE [iot-hub-get-started-create-device-identity-portal](../../includes/iot-hub-get-started-create-device-identity-portal.md)]
 
-## <a name="create-a-simulated-device-app"></a>Création d’une application d’appareil simulé
+## <a name="create-a-simulated-device-app"></a>Création d’une application de périphérique simulé
 
 Dans cette section, vous allez créer une application console .NET qui répond à une méthode directe appelée par le serveur principal de la solution.
 
@@ -281,7 +281,7 @@ Vous êtes maintenant prêt à exécuter les applications.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés du jumeau d’appareil.
+Dans ce didacticiel, vous avez utilisé un travail pour planifier une méthode directe sur un appareil et la mise à jour des propriétés de représentation de l’appareil.
 
 Pour poursuivre votre découverte d’IoT Hub et des modèles de gestion d’appareils, comme la mise à jour du microprogramme à distance, consultez le [Tutoriel : Mettre à jour un microprogramme](tutorial-firmware-update.md).
 

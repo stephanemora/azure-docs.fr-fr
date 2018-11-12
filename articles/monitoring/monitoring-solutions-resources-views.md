@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/16/2018
 ms.author: bwren
-ms.openlocfilehash: b4f54358f4bc1db973d6fe7163411e3a313c3cf4
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: a0d543ebe435b616306690bfb5e3de63ecc1ff6c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33887429"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259120"
 ---
 # <a name="views-in-management-solutions-preview"></a>Affichages dans des solutions de gestion (préversion)
 > [!NOTE]
@@ -34,10 +34,9 @@ Les [solutions de gestion](monitoring-solutions.md) comprennent généralement u
 >
 
 ## <a name="prerequisites"></a>Prérequis
-
 Cet article suppose que vous êtes déjà familiarisé avec la [création d’une solution de gestion](monitoring-solutions-creating.md) et la structure d’un fichier solution.
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Pour inclure une vue dans une solution de gestion, vous créez une **ressource** lui correspondant dans le [fichier solution](monitoring-solutions-creating.md).  Cependant, le fichier JSON qui décrit la configuration détaillée de la vue est généralement complexe. Un auteur de solution classique ne serait pas en mesure de le créer manuellement.  La méthode la plus courante consiste à créer la vue en utilisant le [Concepteur de vues](../log-analytics/log-analytics-view-designer.md), à l’exporter, puis à ajouter ensuite sa configuration détaillée à la solution.
 
 Voici les étapes de base pour ajouter une vue à une solution.  Chaque étape est décrite en détail dans les sections ci-dessous.
@@ -91,7 +90,7 @@ Notez que vous pouvez copier la ressource de vue entière depuis votre fichier d
 * Les variables doivent être définies dans la solution et utilisées dans les propriétés appropriées.
 
 ### <a name="log-analytics-api-version"></a>Version de l’API Log Analytics
-Toutes les ressources Log Analytics définies dans un modèle Resource Manager ont une propriété **apiVersion** qui définit la version de l’API que la ressource doit utiliser.  Cette version varie selon que les affichages avec des requêtes utilisent [le langage de requête hérité ou mis à niveau](../log-analytics/log-analytics-log-search-upgrade.md).  
+Toutes les ressources Log Analytics définies dans un modèle Resource Manager ont une propriété **apiVersion** qui définit la version de l’API que la ressource doit utiliser.  Cette version varie selon que les affichages avec des requêtes utilisent [le langage de requête hérité ou mis à niveau](../log-analytics/log-analytics-queries.md).  
 
  Le tableau suivant indique les versions de l’API Log Analytics pour les affichages dans des espaces de travail hérités et mis à niveau : 
 

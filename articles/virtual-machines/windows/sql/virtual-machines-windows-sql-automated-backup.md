@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: jroth
-ms.openlocfilehash: 43ce94653197933a13830003dd07e5b21be2a585
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 0a1ad6d50c624115bab7ad09ff0e30a36e7df500
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894998"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256610"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>Sauvegarde automatisée pour les machines virtuelles SQL Server 2014 (Resource Manager)
 
@@ -32,7 +32,6 @@ La sauvegarde automatisée configure automatiquement une [sauvegarde managée su
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
 ## <a name="prerequisites"></a>Prérequis
-
 Pour utiliser la sauvegarde automatisée, prenez en compte les conditions préalables suivantes :
 
 **Système d’exploitation**:
@@ -91,7 +90,7 @@ Dans le volet **Configuration de SQL Server**, cliquez sur le bouton **Modifier*
 
 ![Configurer la sauvegarde automatisée SQL pour les machines virtuelles existantes](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-configuration.png)
 
-Une fois terminé, cliquez sur le bouton **OK** en bas des paramètres de **Configuration de SQL Server** pour enregistrer vos changements.
+Quand vous avez terminé, cliquez sur le bouton **OK** en bas des paramètres de **Configuration de SQL Server** pour enregistrer vos changements.
 
 Si vous activez la sauvegarde automatisée pour la première fois, Azure configure l’agent IaaS de SQL Server en arrière-plan. Pendant ce temps, le portail Azure n’indiquera peut-être pas que la sauvegarde automatisée est configurée. Patientez quelques minutes jusqu’à ce que l’agent soit installé et configuré. Le portail Azure reflète alors les nouveaux paramètres.
 
@@ -102,7 +101,7 @@ Si vous activez la sauvegarde automatisée pour la première fois, Azure configu
 
 Vous pouvez utiliser PowerShell pour configurer une sauvegarde automatisée. Avant de commencer, vous devez :
 
-- [Télécharger et installer la version la plus récente d’Azure PowerShell](http://aka.ms/webpi-azps).
+- [Télécharger et installer la version la plus récente d’Azure PowerShell](https://aka.ms/webpi-azps).
 - Ouvrez Windows PowerShell et associez-le à votre compte avec la commande **Connect-AzureRmAccount**.
 
 ### <a name="install-the-sql-iaas-extension"></a>Installer l’extension IaaS SQL

@@ -14,18 +14,18 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: de892afee57b9a39b841f6cfc93f8470d831c2a6
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: afee3254ebdd325d756bfc5027cca531442c5689
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37045930"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257355"
 ---
 # <a name="create-monitor-and-manage-azure-data-factories-using-azure-data-factory-net-sdk"></a>Créer, surveiller et gérer des fabriques de données Azure à l’aide du Kit de développement logiciel (SDK) Azure Data Factory .NET
 > [!NOTE]
 > Cet article s’applique à la version 1 de Data Factory. Si vous utilisez la version actuelle du service Data Factory, consultez le [tutoriel sur l’activité de copie](../quickstart-create-data-factory-dot-net.md). 
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Vous pouvez créer, surveiller et gérer des fabriques de données Azure par programmation à l'aide du Kit SDK Data Factory .NET. Cet article contient une procédure pas à pas que vous pouvez suivre pour créer un exemple d'application console .NET qui crée et surveille une fabrique de données. 
 
 > [!NOTE]
@@ -33,7 +33,7 @@ Vous pouvez créer, surveiller et gérer des fabriques de données Azure par pro
 
 ## <a name="prerequisites"></a>Prérequis
 * Visual Studio 2012, 2013 ou 2015
-* Téléchargez et installez le [Kit SDK Azure .NET](http://azure.microsoft.com/downloads/).
+* Téléchargez et installez le [Kit SDK Azure .NET](https://azure.microsoft.com/downloads/).
 * Azure PowerShell. Suivez les instructions de l’article [Installation et configuration d’Azure PowerShell](/powershell/azure/overview) pour installer Azure PowerShell sur votre ordinateur. Vous utilisez Azure PowerShell pour créer une application Azure Active Directory.
 
 ### <a name="create-an-application-in-azure-active-directory"></a>Créer une application dans Azure Active Directory

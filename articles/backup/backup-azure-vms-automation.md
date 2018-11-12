@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c29a91a40df34ecd9270d5805209d361cf990754
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 855a046425f051739f61c74b551d4ffea7b9120a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638033"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252358"
 ---
 # <a name="use-powershell-to-back-up-and-restore-virtual-machines"></a>Utilisation de PowerShell pour sauvegarder et restaurer des machines virtuelles
 
@@ -62,7 +62,7 @@ Pour commencer :
     Select-AzureRmSubscription -SubscriptionName $SubscriptionName
     ```
 
-5. Si vous utilisez Sauvegarde Azure pour la première fois, vous devez utiliser l’applet de commande **[Register-AzureRMResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** pour inscrire le fournisseur Azure Recovery Service auprès de votre abonnement.
+5. Si vous utilisez Sauvegarde Azure pour la première fois, vous devez utiliser l’applet de commande **[Register-AzureRMResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)** pour inscrire le fournisseur Azure Recovery Service auprès de votre abonnement.
 
     ```powershell
     Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
@@ -72,7 +72,7 @@ Pour commencer :
     ```powershell
     Get-AzureRmResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ``` 
-    Dans la sortie de commande, **RegistrationState** doit prendre la valeur **Inscrit**. Dans le cas contraire, réexécutez la cmdlet **[Register-AzureRmResourceProvider](http://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**.
+    Dans la sortie de commande, **RegistrationState** doit prendre la valeur **Inscrit**. Dans le cas contraire, réexécutez la cmdlet **[Register-AzureRmResourceProvider](https://docs.microsoft.com/powershell/module/azurerm.resources/register-azurermresourceprovider)**.
 
 Les tâches ci-après peuvent être automatisées avec PowerShell :
 

@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/16/2018
 ms.author: shvija
-ms.openlocfilehash: 63cc8a698c9e383c4b5908286d28b51d89842bdc
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: 236103861ce8a296c77f708dbb4a7cc7e03f10f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47585694"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258950"
 ---
 # <a name="azure-event-hubs-event-processor-host-overview"></a>Présentation de l’hôte de processeur d’événements Azure Event Hubs
 
 Azure Event Hubs est un puissant service d’ingestion de télémétrie qui permet de diffuser des millions d’événements à moindre coût. Cet article décrit comment consommer les événements ingérés à l’aide de l’*hôte de processeur d’événements* (EPH) ; un agent consommateur intelligent qui simplifie la gestion des points de contrôle, de la location et des lecteurs d’événements parallèles.  
 
-La clé de la mise à l’échelle des instances Event Hubs réside dans la notion de consommateurs partitionnés. Contrairement au modèle de [consommateurs concurrents](http://msdn.microsoft.com/library/dn568101.aspx), le modèle de consommateurs partitionnés permet de travailler à grande échelle en supprimant le goulot d’étranglement de contention et en facilitant le parallélisme de bout en bout.
+La clé de la mise à l’échelle des instances Event Hubs réside dans la notion de consommateurs partitionnés. Contrairement au modèle de [consommateurs concurrents](https://msdn.microsoft.com/library/dn568101.aspx), le modèle de consommateurs partitionnés permet de travailler à grande échelle en supprimant le goulot d’étranglement de contention et en facilitant le parallélisme de bout en bout.
 
 ## <a name="home-security-scenario"></a>Scénario de sécurité pour domicile
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: 2ae2ea14bc712563867f32b83eddbd9d4129ac1d
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c7d8ab8beced055d10cebcecf36d957b155c63b7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49409490"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256219"
 ---
 # <a name="azure-operational-security"></a>Azure Operational Security
 ## <a name="introduction"></a>Introduction
@@ -74,7 +74,7 @@ Les fonctionnalités fondamentales de Log Analytics sont fournies par un ensembl
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) assure des services de surveillance en collectant les données de ressources gérées et en les regroupant dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) assure des services de surveillance en collectant les données de ressources gérées et en les regroupant dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
 
 
 Cette méthode vous permet de consolider les données issues de différentes sources et de combiner ainsi des données de vos services Azure avec votre environnement local existant. En outre, cette approche dissocie clairement la collecte des données de l’exécution d’actions sur ces dernières, de sorte que toutes les actions sont disponibles sur tous les types de données.
@@ -92,7 +92,7 @@ Le service Log Analytics gère vos données basées sur le cloud en toute sécur
 
 ### <a name="azure-backup"></a>Sauvegarde Azure
 
-Le composant [Sauvegarde Azure](http://azure.microsoft.com/documentation/services/backup) fournit des services de sauvegarde et de restauration des données et fait partie de la suite Log Analytics de produits et services.
+Le composant [Sauvegarde Azure](https://azure.microsoft.com/documentation/services/backup) fournit des services de sauvegarde et de restauration des données et fait partie de la suite Log Analytics de produits et services.
 Il protège les données de vos applications et les conserve des années durant, sans nécessiter aucun investissement en capital et moyennant des frais d’exploitation minimes. Cette solution permet de sauvegarder des données à partir de serveurs Windows physiques et virtuels, en plus des charges de travail des applications telles que SQL Server et SharePoint. Elle peut également être utilisée par [System Center Data Protection Manager (DPM)](https://en.wikipedia.org/wiki/System_Center_Data_Protection_Manager) afin de répliquer les données protégées vers Azure pour la redondance et le stockage à long terme.
 
 

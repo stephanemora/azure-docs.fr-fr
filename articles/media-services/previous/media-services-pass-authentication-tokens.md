@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: dwgeo
-ms.openlocfilehash: b6aca2928465b73e35ac15f01bb776b1f69add0b
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 204a2122f38306f2c883436fb13397b45fd91980
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783118"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254619"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Découvrez comment les clients passent des jetons au service de remise de clés d’Azure Media Services
 Les clients s’interrogent souvent sur la manière dont lecteur peut transmettre des jetons au service de remise de clés d’Azure Media Services à des fins de vérification afin que le lecteur puisse obtenir la clé. Media Services prend en charge les formats SWT (Simple Web Tokens) et JWT (JSON Web Token). L’authentification par jeton est appliquée à tout type de clé, que vous utilisiez un chiffrement commun ou un chiffrement d’enveloppe AES (Advanced Encryption Standard) dans le système.
@@ -52,7 +52,7 @@ Cette option est utilisée uniquement pour l’acquisition de licence PlayReady,
     ```
     Placez votre jeton d’authentification dans l’élément Token.
 
-- Via une autre liste de lecture HTTP Live Streaming (HLS). Si vous devez configurer l’authentification par jeton pour la liste de lecture AES + HLS sur iOS/Safari, il n’y a aucun moyen d’envoyer directement le jeton. Veuillez consulter ce [billet de blog](http://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) pour savoir comment remplacer la liste de lecture pour activer ce scénario.
+- Via une autre liste de lecture HTTP Live Streaming (HLS). Si vous devez configurer l’authentification par jeton pour la liste de lecture AES + HLS sur iOS/Safari, il n’y a aucun moyen d’envoyer directement le jeton. Veuillez consulter ce [billet de blog](https://azure.microsoft.com/blog/2015/03/06/how-to-make-token-authorized-aes-encrypted-hls-stream-working-in-safari/) pour savoir comment remplacer la liste de lecture pour activer ce scénario.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

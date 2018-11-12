@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/26/2018
 ms.author: jroth
-ms.openlocfilehash: 0119c6642d68db6a90af07395882e620b1af08c6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 395994e2ac017bcdadaca4defad4ec0f910cea17
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394947"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258127"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Recommandations de performances pour SQL Server dans les machines virtuelles Azure
 
@@ -166,7 +166,7 @@ Pour les machines virtuelles qui prennent en charge le stockage Premium (de sér
     ![Journal des données et fichiers de sauvegarde SQL](./media/virtual-machines-windows-sql-performance/sql_server_default_data_log_backup_locations.png)
 * Activez les pages verrouillées pour réduire les activités d’E/S et de pagination. Pour plus d’informations, consultez [Activer l’option Lock Pages in Memory (Windows)](https://msdn.microsoft.com/library/ms190730.aspx).
 
-* Si vous exécutez SQL Server 2012, installez la mise à jour cumulative 10 Service Pack 1. Elle contient le correctif qui permet de résoudre les problèmes de performances d’E/S lorsque vous exécutez une sélection dans l’instruction de table temporaire dans SQL Server 2012. Pour plus d’informations, consultez cet [article de la Base de connaissances](http://support.microsoft.com/kb/2958012).
+* Si vous exécutez SQL Server 2012, installez la mise à jour cumulative 10 Service Pack 1. Elle contient le correctif qui permet de résoudre les problèmes de performances d’E/S lorsque vous exécutez une sélection dans l’instruction de table temporaire dans SQL Server 2012. Pour plus d’informations, consultez cet [article de la Base de connaissances](https://support.microsoft.com/kb/2958012).
 
 * Envisagez de compresser tous les fichiers de données lors des transferts vers et depuis Azure.
 

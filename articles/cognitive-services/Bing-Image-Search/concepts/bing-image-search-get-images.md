@@ -11,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: c21741ebb8f68797b31a2ba1de4bb6f0f8d32cb7
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 621c2844b6952e5ea1f6b9f7c8bc2ed170fee310
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46297125"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246784"
 ---
 # <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Obtenez des images à partir du web avec l’API Recherche d’images Bing
 
@@ -38,7 +38,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="get-images-from-a-specific-web-domain"></a>Obtenir des images à partir d’un domaine web spécifique
 
-Pour obtenir des images à partir d’un domaine spécifique, utilisez l’opérateur de requête [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Pour obtenir des images à partir d’un domaine spécifique, utilisez l’opérateur de requête [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
@@ -71,7 +71,7 @@ Host: api.cognitive.microsoft.com
 * [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license) : filtre les images selon le type de contrat de licence associé au site.
 * [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size) : filtre les images selon leur taille (par exemple, petites images jusqu’à 200 x 200 pixels).
 
-Pour obtenir des images à partir d’un domaine spécifique, utilisez l’opérateur de requête [site:](http://msdn.microsoft.com/library/ff795613.aspx).
+Pour obtenir des images à partir d’un domaine spécifique, utilisez l’opérateur de requête [site:](https://msdn.microsoft.com/library/ff795613.aspx).
 
  > [!NOTE]
  > Les réponses aux requêtes utilisant l’opérateur `site:` peuvent inclure du contenu pour adultes, quel que soit le paramètre [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch). N’utilisez `site:` que si vous connaissez le contenu du domaine.

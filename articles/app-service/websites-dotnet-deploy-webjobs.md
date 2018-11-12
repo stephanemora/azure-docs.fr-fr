@@ -15,18 +15,18 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 09/12/2017
 ms.author: glenga;david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: 64fdb6dceb1ca10e68411f95c310fdd9a2e25202
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 08cbff7bc58f5925dee9b77ff195d362af4379d8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444129"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245725"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio---azure-app-service"></a>Développer et déployer des tâches web à l’aide de Visual Studio - Azure App Service
 
 ## <a name="overview"></a>Vue d’ensemble
 
-Cette rubrique explique comme utiliser Visual Studio pour déployer un projet d’application console sur une application web dans [App Service](app-service-web-overview.md) en tant que [tâche web Azure](http://go.microsoft.com/fwlink/?LinkId=390226). Pour plus d’informations sur le déploiement de tâches web à l’aide du [portail Azure](https://portal.azure.com), consultez la section [Exécuter des tâches en arrière-plan avec les tâches web](web-sites-create-web-jobs.md).
+Cette rubrique explique comme utiliser Visual Studio pour déployer un projet d’application console sur une application web dans [App Service](app-service-web-overview.md) en tant que [tâche web Azure](https://go.microsoft.com/fwlink/?LinkId=390226). Pour plus d’informations sur le déploiement de tâches web à l’aide du [portail Azure](https://portal.azure.com), consultez la section [Exécuter des tâches en arrière-plan avec les tâches web](web-sites-create-web-jobs.md).
 
 Lorsque Visual Studio déploie un projet d'application console compatible avec des tâches web, il exécute deux tâches :
 

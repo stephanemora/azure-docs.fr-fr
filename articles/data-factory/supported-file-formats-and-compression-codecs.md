@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 844440d22bc0a524e9e61bde457ee9f43fd367b2
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6cab6559cb38b7d6d1dc2105b694acbcac85108c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444610"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262044"
 ---
 # <a name="supported-file-formats-and-compression-codecs-in-azure-data-factory"></a>Formats de fichier et codecs de compression pris en charge dans Azure Data Factory
 
@@ -434,7 +434,7 @@ Si vous souhaitez analyser des fichiers ORC ou écrire des données au format 
 ```
 
 > [!IMPORTANT]
-> Dans le cas de copies permises par Integration Runtime (auto-hébergé), par exemple, entre des magasins de données locaux et cloud, si vous ne copiez pas les fichiers ORC **tels quels**, vous devrez installer JRE 8 (Java Runtime Environment) sur votre machine de runtime d’intégration. Un runtime d’intégration de 64 bits requiert la version 64 bits de JRE. Ces deux versions sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=808605).
+> Dans le cas de copies permises par Integration Runtime (auto-hébergé), par exemple, entre des magasins de données locaux et cloud, si vous ne copiez pas les fichiers ORC **tels quels**, vous devrez installer JRE 8 (Java Runtime Environment) sur votre machine de runtime d’intégration. Un runtime d’intégration de 64 bits requiert la version 64 bits de JRE. Ces deux versions sont disponibles [ici](https://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Notez les points suivants :
@@ -478,7 +478,7 @@ Si vous souhaitez analyser des fichiers Parquet ou écrire des données au form
 ```
 
 > [!IMPORTANT]
-> Dans le cas de copies permises par Integration Runtime (auto-hébergé), par exemple, entre des magasins de données locaux et cloud, si vous ne copiez pas les fichiers Parquet **tels quels**, vous devrez installer JRE 8 (Java Runtime Environment) sur votre machine de runtime d’intégration. Un runtime d’intégration de 64 bits requiert la version 64 bits de JRE. Ces deux versions sont disponibles [ici](http://go.microsoft.com/fwlink/?LinkId=808605).
+> Dans le cas de copies permises par Integration Runtime (auto-hébergé), par exemple, entre des magasins de données locaux et cloud, si vous ne copiez pas les fichiers Parquet **tels quels**, vous devrez installer JRE 8 (Java Runtime Environment) sur votre machine de runtime d’intégration. Un runtime d’intégration de 64 bits requiert la version 64 bits de JRE. Ces deux versions sont disponibles [ici](https://go.microsoft.com/fwlink/?LinkId=808605).
 >
 
 Notez les points suivants :

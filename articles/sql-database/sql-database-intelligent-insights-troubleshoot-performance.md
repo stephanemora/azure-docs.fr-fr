@@ -12,12 +12,12 @@ ms.author: v-daljep
 ms.reviewer: carlrab
 manager: craigg
 ms.date: 09/20/2018
-ms.openlocfilehash: 1cbb46f5238c2019225ab724abaf49e878d19598
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 6dff1b2fe40acdef1fde95444d70f0bcfc120a64
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353864"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230034"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Résoudre les problèmes de performances liés à Azure SQL Database avec Intelligence Insights
 
@@ -73,7 +73,7 @@ Le journal de diagnostic génère les codes de hachage des requêtes qui ont aff
 
 Si vous avez atteint les limites de sessions disponibles, vous pouvez optimiser vos applications en réduisant le nombre de connexions à la base de données. Si vous ne parvenez pas à réduire le nombre de connexions de vos applications à la base de données, augmentez éventuellement le niveau tarifaire de votre base de données. Vous pouvez également fractionner et déplacer votre base de données vers plusieurs bases de données pour obtenir une distribution plus équilibrée de la charge de travail.
 
-Pour plus de suggestions sur la résolution des problèmes liés aux limites de sessions, consultez [Guide pratique pour traiter les limites de connexions maximales de SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez [Vue d’ensemble des limites de ressources sur un serveur logique](sql-database-resource-limits-logical-server.md).
+Pour plus de suggestions sur la résolution des problèmes liés aux limites de sessions, consultez [Guide pratique pour traiter les limites de connexions maximales de SQL Database](https://blogs.technet.microsoft.com/latam/2015/06/01/how-to-deal-with-the-limits-of-azure-sql-database-maximum-logins/). Pour plus d’informations sur les limites au niveau du serveur et de l’abonnement, consultez l’article de [vue d’ensemble des limites de ressources sur un serveur logique](sql-database-resource-limits-logical-server.md).
 
 ## <a name="workload-increase"></a>Augmentation de la charge de travail
 
@@ -167,7 +167,7 @@ Comme un verrou de page est un mécanisme de contrôle interne de SQL Database, 
 
 Vous pouvez gérer la contention de verrous en remplaçant une clé d’index séquentielle par une clé non séquentielle pour distribuer uniformément les insertions dans une plage d’index. En règle générale, une colonne de début dans l’index permet de distribuer la charge de travail proportionnellement. Une autre méthode à prendre en compte est le partitionnement de tables. La création d’un schéma de partitionnement de hachage avec une colonne calculée sur une table partitionnée constitue une approche courante pour atténuer une contention de verrous excessive. En cas de contention d’E/S de verrous de page, l’introduction d’index permet d’atténuer ce problème de performances. 
 
-Pour plus d’informations, consultez [Diagnostiquer et résoudre une contention de verrous sur SQL Server](http://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (téléchargement PDF).
+Pour plus d’informations, consultez [Diagnostiquer et résoudre une contention de verrous sur SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (téléchargement PDF).
 
 ## <a name="missing-index"></a>Index manquant
 

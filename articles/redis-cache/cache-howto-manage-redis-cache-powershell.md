@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/13/2017
 ms.author: wesmc
-ms.openlocfilehash: 11b399bdbbbe92d1e1544f4cbae0824140ce52c1
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: dabf3c7f98957a4b8ef0c59bdd80ca773f403912
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49364504"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255981"
 ---
 # <a name="manage-azure-redis-cache-with-azure-powershell"></a>Gestion du Cache Redis Azure avec Azure PowerShell
 > [!div class="op_single_selector"]
@@ -56,7 +56,7 @@ Pour spécifier l’abonnement, exécutez la commande suivante. Dans l’exemple
 
 Avant de pouvoir utiliser Windows PowerShell avec Azure Resource Manager, vous devez disposer des composants suivants :
 
-* Windows PowerShell, version 3.0 ou 4.0. Pour trouver la version de Windows PowerShell, tapez : `$PSVersionTable` et vérifiez que la valeur de `PSVersion` est 3.0 ou 4.0. Pour installer une version compatible, voir la section [Windows Management Framework 3.0](http://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](http://www.microsoft.com/download/details.aspx?id=40855).
+* Windows PowerShell, version 3.0 ou 4.0. Pour trouver la version de Windows PowerShell, tapez : `$PSVersionTable` et vérifiez que la valeur de `PSVersion` est 3.0 ou 4.0. Pour installer une version compatible, voir la section [Windows Management Framework 3.0](https://www.microsoft.com/download/details.aspx?id=34595) ou [Windows Management Framework 4.0](https://www.microsoft.com/download/details.aspx?id=40855).
 
 Pour accéder à l’aide détaillée d’un applet de commande présenté dans ce didacticiel, utilisez l’applet de commande Get-Help.
 
@@ -781,9 +781,9 @@ La commande suivante redémarre les deux nœuds du cache spécifié.
 Pour en savoir plus sur l’utilisation de Windows PowerShell avec Azure, reportez-vous aux ressources suivantes :
 
 * [Documentation relative à l’applet de commande Cache Redis Azure sur MSDN](https://docs.microsoft.com/powershell/module/azurerm.rediscache/?view=azurermps-6.6.0)
-* [Applets de commande Azure Resource Manager](http://go.microsoft.com/fwlink/?LinkID=394765) : découvrez comment utiliser les applets de commande dans le module Azure Resource Manager.
+* [Applets de commande Azure Resource Manager](https://go.microsoft.com/fwlink/?LinkID=394765) : découvrez comment utiliser les applets de commande dans le module Azure Resource Manager.
 * [Utilisation de groupes de ressources pour gérer vos ressources Azure](../azure-resource-manager/resource-group-template-deploy-portal.md): découvrez comment créer et gérer des groupes de ressources dans le portail Azure.
 * [Blog Azure](https://azure.microsoft.com/blog/): découvrez les nouvelles fonctionnalités d'Azure.
-* [Blog Windows PowerShell](http://blogs.msdn.com/powershell): découvrez les nouvelles fonctionnalités de Windows PowerShell.
+* [Blog Windows PowerShell](https://blogs.msdn.com/powershell): découvrez les nouvelles fonctionnalités de Windows PowerShell.
 * [Blog « Hey, Scripting Guy! »](http://blogs.technet.com/b/heyscriptingguy/) : bénéficiez des conseils et astuces de la communauté Windows PowerShell.
 

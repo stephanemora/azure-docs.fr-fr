@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 16b5aed4d034d989bf34b92975b2a743b82903b0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: f3b91e73cbfe9972969f5a061768a2c2bbfa7d1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954333"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256446"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Gérer Key Vault à l’aide de l’interface de ligne de commande Azure 
 
@@ -50,7 +50,7 @@ Pour utiliser les commandes Azure CLI de cet article, vous devez disposer des é
 
 * Un abonnement à Microsoft Azure. Si vous n’en avez pas, vous pouvez vous inscrire pour bénéficier d’un [essai gratuit](https://azure.microsoft.com/pricing/free-trial).
 * Interface de ligne de commande Azure, version 2.0 ou ultérieure. Pour installer la dernière version, consultez [Installer l’interface de ligne de commande Azure](/cli/azure/install-azure-cli).
-* Une application configurée pour utiliser la clé ou le mot de passe que vous créez dans cet article. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](http://www.microsoft.com/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier Lisez-moi inclus.
+* Une application configurée pour utiliser la clé ou le mot de passe que vous créez dans cet article. Un exemple d’application est disponible dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=45343). Pour obtenir des instructions, consultez le fichier Lisez-moi inclus.
 
 ### <a name="getting-help-with-azure-cross-platform-command-line-interface"></a>Obtention d’aide avec l’interface de ligne de commande interplateforme Azure
 

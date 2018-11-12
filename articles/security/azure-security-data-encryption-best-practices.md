@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/19/2018
 ms.author: barclayn
-ms.openlocfilehash: 263c04fd15240f365f2325c69d5cb25aa1a539f0
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 86724ca49884f1072297ffcf4fc6498db5ae8ac3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46465875"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51254636"
 ---
 # <a name="azure-data-security-and-encryption-best-practices"></a>Meilleures pratiques en matière de chiffrement et de sécurité des données - Azure
 Pour assurer la protection des données dans le cloud, vous devez tenir compte des états que les données peuvent présenter, mais aussi des contrôles disponibles pour ces états. Les bonnes pratiques pour la sécurité et le chiffrement des données Azure s’apparentent aux états des données suivants :
@@ -132,7 +132,7 @@ Nous vous recommandons :
 - D’appliquer des étiquettes qui reflètent les besoins de votre entreprise. Par exemple : appliquer une étiquette nommée « strictement confidentiel » à tous vos documents et courriers contenant des données ultrasecrètes, afin de classifier et protéger ces données. Ensuite, seuls les utilisateurs autorisés peuvent accéder à ces données, avec les restrictions que vous spécifiez.
 - Configurez [la journalisation de l’utilisation d’Azure RMS](https://docs.microsoft.com/azure/information-protection/log-analyze-usage) afin de surveiller l’utilisation du service de protection par votre organisation.
 
-Les organisations bénéficiant d’une [classification](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) et d’une protection insuffisantes des données sont plus vulnérables aux fuites ou aux utilisations malveillantes des données. Avec une protection de fichier adaptée, vous pouvez analyser les flux de données pour obtenir des informations sur votre entreprise, détecter des comportements à risque et prendre les mesures correctives adéquates, suivre l’accès aux documents, etc.
+Les organisations bénéficiant d’une [classification](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) et d’une protection insuffisantes des données sont plus vulnérables aux fuites ou aux utilisations malveillantes des données. Avec une protection de fichier adaptée, vous pouvez analyser les flux de données pour obtenir des informations sur votre entreprise, détecter des comportements à risque et prendre les mesures correctives adéquates, suivre l’accès aux documents, etc.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Consultez l’article [Bonnes pratiques et tendances Azure relatives à la sécurité](security-best-practices-and-patterns.md) pour découvrir d’autres bonnes pratiques en matière de sécurité à appliquer dans le cadre de la conception, du déploiement et de la gestion de vos solutions cloud avec Azure.

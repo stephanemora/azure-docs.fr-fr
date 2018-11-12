@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: sngun
-ms.openlocfilehash: 2af93d149948071f78d0c684b812e84fa68db341
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 6ac0895ac31a815f00ca6c5fa1dfd325be2e3963
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251122"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245815"
 ---
 # <a name="azure-storage-table-design-guide-designing-scalable-and-performant-tables"></a>Guide de conception de table Azure Storage : conception de tables évolutives et performantes
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
@@ -122,7 +122,7 @@ L'exemple suivant présente la conception d'une table simple pour stocker des en
 </table>
 
 
-Jusqu’ici, cette conception ressemble à une table de base de données relationnelle, les principales différences étant les colonnes obligatoires et la possibilité de stocker plusieurs types d’entité dans la même table. En outre, chacune des propriétés définies par l’utilisateur, telles que **FirstName** ou **Age**, est caractérisée par un type de données, par exemple un nombre entier ou une chaîne, tout comme une colonne dans une base de données relationnelle. Bien que, contrairement à une base de données relationnelle, la nature sans schéma du service de Table signifie qu'une propriété n'a pas nécessairement besoin d'avoir les mêmes types de données pour chaque entité. Pour stocker des types de données complexes dans une seule propriété, vous devez utiliser un format sérialisé comme JSON ou XML. Pour plus d’informations sur les plages de dates et les types de données pris en charge, les règles d’affectation de noms et les contraintes de taille, consultez l’article [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).
+Jusqu’ici, cette conception ressemble à une table de base de données relationnelle, les principales différences étant les colonnes obligatoires et la possibilité de stocker plusieurs types d’entité dans la même table. En outre, chacune des propriétés définies par l’utilisateur, telles que **FirstName** ou **Age**, est caractérisée par un type de données, par exemple un nombre entier ou une chaîne, tout comme une colonne dans une base de données relationnelle. Bien que, contrairement à une base de données relationnelle, la nature sans schéma du service de Table signifie qu'une propriété n'a pas nécessairement besoin d'avoir les mêmes types de données pour chaque entité. Pour stocker des types de données complexes dans une seule propriété, vous devez utiliser un format sérialisé comme JSON ou XML. Pour plus d’informations sur les plages de dates et les types de données pris en charge, les règles d’affectation de noms et les contraintes de taille, consultez l’article [Présentation du modèle de données du service de Table](https://msdn.microsoft.com/library/azure/dd179338.aspx).
 
 Comme vous le verrez, le choix d’une valeur de **PartitionKey** et de **RowKey** est important pour une bonne conception de table. Toutes les entités stockées dans une table doivent avoir une combinaison unique de **PartitionKey** et **RowKey**. Comme avec les clés d’une table de base de données relationnelle, les valeurs de **PartitionKey** et de **RowKey** sont indexées pour créer un index ordonné en clusters qui permet la recherche rapide. Toutefois, le service de Table ne crée pas d’index secondaires : ces deux propriétés sont donc les seules indexées (certains des modèles décrits plus loin montrent comment vous pouvez contourner cette limitation).  
 
@@ -133,7 +133,7 @@ Le nom du compte, le nom de la table et la valeur de **PartitionKey** identifien
 
 Dans le service de Table, un nœud individuel traite une ou plusieurs partitions complètes et le service se met à l'échelle en procédant à l'équilibrage de charge dynamique des partitions sur les nœuds. Si un nœud est en sous-charge, le service de Table peut *fractionner* la plage de partitions traitées par ce nœud en différents nœuds. En cas de réduction du trafic, le service peut *fusionner* les plages de partitions à partir des nœuds silencieux en un nœud unique.  
 
-Pour plus d’informations sur les détails internes du service de Table et notamment la façon dont le service gère les partitions, consultez la documentation [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](http://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
+Pour plus d’informations sur les détails internes du service de Table et notamment la façon dont le service gère les partitions, consultez la documentation [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).  
 
 ### <a name="entity-group-transactions"></a>Transactions de groupe d’entités
 Dans le service de Table, les transactions de groupe d'entités (EGT) constituent l'unique mécanisme intégré pour effectuer des mises à jour atomiques entre plusieurs entités. Les transactions EGT sont également appelées *transactions par lots* dans certaines documentations. Les transactions EGT peuvent uniquement utiliser des entités stockées dans la même partition (partage de la même clé de partition dans une table donnée). Par conséquent, quand vous avez besoin d'un comportement transactionnel atomique entre plusieurs entités, vous devez vérifier que ces entités sont dans la même partition. Ceci justifie souvent la conservation de plusieurs types d'entité dans la même table (et partition) au lieu de l'utilisation de plusieurs tables pour différents types d'entité. Une seule EGT peut traiter jusqu'à 100 entités.  Si vous envoyez plusieurs EGT simultanées pour traitement, il est important de s’assurer que ces EGT n’utilisent pas des entités communes aux différentes EGT. Sinon, le traitement risque d’être retardé.
@@ -153,7 +153,7 @@ Le tableau suivant présente certaines des valeurs de clés à connaître lorsqu
 | Taille de la **RowKey** |Chaîne jusqu'à 1 Ko |
 | Taille d'une transaction ETG |Une transaction peut inclure au plus 100 entités et la charge utile doit être inférieure à 4 Mo. Une transaction EGT ne peut mettre à jour une entité qu'une seule fois. |
 
-Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](http://msdn.microsoft.com/library/azure/dd179338.aspx).  
+Pour plus d'informations, consultez la rubrique [Présentation du modèle de données du service de Table](https://msdn.microsoft.com/library/azure/dd179338.aspx).  
 
 ### <a name="cost-considerations"></a>Considérations relatives au coût
 Le stockage de table est relativement peu coûteux, mais vous devez y inclure les estimations de coût pour l'utilisation des capacités et la quantité de transactions dans le cadre de l'évaluation d'une solution qui utilise le service de Table. Toutefois, dans de nombreux scénarios, le stockage de données dénormalisées ou dupliquées afin d'améliorer les performances ou l'extensibilité de votre solution est une approche appropriée. Pour plus d’informations sur la tarification, consultez la page [Tarification Azure Storage](https://azure.microsoft.com/pricing/details/storage/).  
@@ -208,7 +208,7 @@ Les exemples suivants supposent que le service de Table stocke les entités rela
 | **Age** |Entier  |
 | **EmailAddress** |Chaîne |
 
-La section précédente [Présentation du service de Table Azure](#overview) décrit quelques-unes des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. La syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+La section précédente [Présentation du service de Table Azure](#overview) décrit quelques-unes des principales fonctionnalités du service de Table Azure qui ont un impact direct sur la conception des requêtes. Il en résulte les conseils suivants, qui vous aideront à concevoir des requêtes de service de Table. La syntaxe de filtre utilisée dans les exemples ci-dessous provient de l’API REST du service de Table. Pour en savoir plus, consultez la rubrique [Interrogation d’entités](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 * Une ***requête de pointage*** constitue la méthode de recherche la plus efficace. Elle est recommandée pour les recherches sur de gros volumes ou des recherches nécessitant la latence la plus faible. Une telle requête peut utiliser les index pour localiser une entité individuelle efficacement en spécifiant les valeurs de **PartitionKey** et de **RowKey**. Par exemple : $filter=(PartitionKey eq ’Sales’) and (RowKey eq ’2’)  
 * La deuxième méthode conseillée consiste à utiliser une ***requête de plage*** de données qui utilise la valeur de **PartitionKey** et des filtres sur une plage de valeurs de **RowKey** pour retourner plusieurs entités. La valeur de **PartitionKey** identifie une partition spécifique, tandis que la valeur de **RowKey** identifie un sous-ensemble des entités de cette partition. Par exemple : $filter=PartitionKey eq ’Sales’ and RowKey ge ’S’ and RowKey lt ’T’  
@@ -437,7 +437,7 @@ Si vous interrogez un ensemble d’entités d’employés, vous pouvez spécifie
 * Pour rechercher tous les employés du service des ventes ayant un ID d’employé situé dans la plage de 000100 à 000199, utilisez : $filter=(PartitionKey eq ’Sales’) and (RowKey ge ’empid_000100’) and (RowKey le ’empid_000199’)  
 * Pour rechercher tous les employés du service des ventes dont l’adresse de messagerie commence par la lettre « a », utilisez : $filter=(PartitionKey eq ’Sales’) and (RowKey ge ’email_a’) and (RowKey lt ’email_b’)  
   
-  La syntaxe de filtre utilisée dans les exemples ci-dessus provient de l’API REST Service de Table. Pour en savoir plus, consultez [Interrogation d’entités](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+  La syntaxe de filtre utilisée dans les exemples ci-dessus provient de l’API REST Service de Table. Pour en savoir plus, consultez [Interrogation d’entités](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
@@ -491,7 +491,7 @@ Si vous interrogez un ensemble d’entités d’employés, vous pouvez spécifie
 * Pour rechercher tous les employés du service des ventes ayant un ID d’employé situé dans la plage de **000100** à **000199**, utilisez : $filter=(PartitionKey eq ’empid_Sales’) et (RowKey ge ’000100’) et (RowKey le ’000199’)  
 * Pour rechercher tous les employés du service des ventes ayant une adresse de messagerie qui commence par « a » triés dans l’ordre des adresses de messagerie, utilisez : $filter=(PartitionKey eq ’email_Sales’) and (RowKey ge ’a’) and (RowKey lt ’b’)  
 
-Notez que la syntaxe de filtre utilisée dans les exemples ci-dessus provient de l’API REST Service de Table. Pour en savoir plus, consultez [Interrogation d’entités](http://msdn.microsoft.com/library/azure/dd179421.aspx).  
+Notez que la syntaxe de filtre utilisée dans les exemples ci-dessus provient de l’API REST Service de Table. Pour en savoir plus, consultez [Interrogation d’entités](https://msdn.microsoft.com/library/azure/dd179421.aspx).  
 
 #### <a name="issues-and-considerations"></a>Problèmes et considérations
 Prenez en compte les points suivants lorsque vous choisissez comment implémenter ce modèle :  
@@ -1002,7 +1002,7 @@ Une requête optimale renvoie une entité individuelle basée sur une valeur de 
 
 Vous devez toujours tester entièrement les performances de votre application dans de tels scénarios.  
 
-Une requête sur le service de Table peut renvoyer un maximum de 1 000 entités à la fois et peut s'exécuter pendant un maximum de 5 secondes. Si l'ensemble des résultats contient plus de 1 000 entités, si la requête ne s'est pas terminée dans les 5 secondes ou si la requête dépasse la limite de la partition, le service de Table renvoie un jeton de liaison pour permettre à l'application cliente de demander l'ensemble d'entités suivant. Pour plus d’informations sur la façon dont fonctionnent les jetons de continuation, consultez [Délai de requête et pagination](http://msdn.microsoft.com/library/azure/dd135718.aspx).  
+Une requête sur le service de Table peut renvoyer un maximum de 1 000 entités à la fois et peut s'exécuter pendant un maximum de 5 secondes. Si l'ensemble des résultats contient plus de 1 000 entités, si la requête ne s'est pas terminée dans les 5 secondes ou si la requête dépasse la limite de la partition, le service de Table renvoie un jeton de liaison pour permettre à l'application cliente de demander l'ensemble d'entités suivant. Pour plus d’informations sur la façon dont fonctionnent les jetons de continuation, consultez [Délai de requête et pagination](https://msdn.microsoft.com/library/azure/dd135718.aspx).  
 
 Si vous utilisez la bibliothèque cliente de stockage, celle-ci peut gérer automatiquement les jetons de continuation pour vous en renvoyant des entités à partir du service de Table. L'exemple de code C# suivant utilise la bibliothèque cliente de stockage pour gérer automatiquement les jetons de continuation si le service de Table les renvoie dans une réponse :  
 

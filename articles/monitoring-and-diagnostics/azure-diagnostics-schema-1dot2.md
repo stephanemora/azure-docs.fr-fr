@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 05/15/2017
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: 8c3980231404e5c8068dbd011d20759f207d7fff
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 322cd75fe9198bae459e7c22bed794f583d13363
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937952"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260293"
 ---
 # <a name="azure-diagnostics-12-configuration-schema"></a>Schéma de configuration Azure Diagnostics 1.2
 > [!NOTE]
@@ -32,7 +32,7 @@ Ce schéma définit les valeurs pouvant être utilisées pour initialiser les pa
 (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File –Encoding utf8 -FilePath 'C:\temp\WadConfig.xsd'  
 ```  
 
- Pour plus d’informations sur les diagnostics Azure, consultez la page [Activation de Diagnostics dans Azure Cloud Service](http://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/).  
+ Pour plus d’informations sur les diagnostics Azure, consultez la page [Activation de Diagnostics dans Azure Cloud Service](https://azure.microsoft.com/documentation/articles/cloud-services-dotnet-diagnostics/).  
 
 ## <a name="example-of-the-diagnostics-configuration-file"></a>Exemple du fichier de configuration des diagnostics  
  L’exemple suivant montre un fichier de configuration de diagnostic standard :  
@@ -154,11 +154,11 @@ Définit les paramètres de configuration pour les données de télémétrie à 
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  
-|**EtwEventSourceProviderConfiguration**|Configure la collection d’événements générés à partir de la [classe EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Attribut requis :<br /><br /> **provider** - Nom de classe de l’événement EventSource.<br /><br /> Les attributs facultatifs sont les suivants :<br /><br /> -                     **scheduledTransferLogLevelFilter** - Niveau de gravité minimal à transférer vers votre compte de stockage.<br /><br /> -                     **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [Type de données de durée XML](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
+|**EtwEventSourceProviderConfiguration**|Configure la collection d’événements générés à partir de la [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Attribut requis :<br /><br /> **provider** - Nom de classe de l’événement EventSource.<br /><br /> Les attributs facultatifs sont les suivants :<br /><br /> -                     **scheduledTransferLogLevelFilter** - Niveau de gravité minimal à transférer vers votre compte de stockage.<br /><br /> -                     **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [Type de données de durée XML](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 |**EtwManifestProviderConfiguration**|Attribut requis :<br /><br /> **provider** -GUID du fournisseur d’événements<br /><br /> Les attributs facultatifs sont les suivants :<br /><br /> - **scheduledTransferLogLevelFilter** - Niveau de gravité minimal à transférer vers votre compte de stockage.<br /><br /> -                     **scheduledTransferPeriod** - Intervalle entre les transferts planifiés vers le stockage Azure, arrondi à la minute la plus proche. La valeur est un [Type de données de durée XML](http://www.w3schools.com/xml/schema_dtypes_date.asp).|  
 
 ## <a name="etweventsourceproviderconfiguration-element"></a>EtwEventSourceProviderConfiguration Element  
- Configure la collection d’événements générés à partir de la [classe EventSource](http://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Le tableau suivant décrit les éléments enfants :  
+ Configure la collection d’événements générés à partir de la [classe EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource\(v=vs.110\).aspx). Le tableau suivant décrit les éléments enfants :  
 
 |Nom de l’élément|Description|  
 |------------------|-----------------|  

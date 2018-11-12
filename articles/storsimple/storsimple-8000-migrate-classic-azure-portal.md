@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/08/2018
 ms.author: alkohli
-ms.openlocfilehash: 5a0da47b854e625f2f4a2fcf4c95ec566ba63093
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 3a76063b05327e0dcb3ce5c8c9a46113a4c63ef8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095676"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255129"
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>Migrer les abonnements et les comptes de stockage associés au service StorSimple Device Manager
 
@@ -29,8 +29,8 @@ Vous devrez peut-être déplacer votre service StorSimple vers une nouvelle insc
 
 | Pouvez-vous déplacer...| Pris en charge| Temps d’arrêt| Processus de support Azure| Approche|
 |-----|-----|-----|-----|-----|
-| un abonnement entier (comprenant le service et les comptes de stockage StorSimple) vers une autre inscription ? | Oui       | Non        | **Transfert d’inscription**<br>Utilisation :<li>Quand vous achetez un nouvel engagement Azure dans le cadre d’un nouveau contrat.</li><li>Vous voulez migrer tous les comptes et abonnements depuis l’ancienne inscription vers la nouvelle. Sont inclus tous les services Azure de l’ancien abonnement.</li> | **Étape 1 : ouvrez un ticket de support d’opération Azure Enterprise.**<li>Accédez à [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport).</li><li> Sélectionnez **Administration des inscriptions**, puis **Transférer d’une inscription vers une nouvelle inscription**.<br>**Étape 2 : indiquez les informations demandées.**<br>Incluez :<li>Numéro d’inscription source</li><li> Numéro d’inscription de destination</li><li>Date d’effet du transfert|
-| le service StorSimple depuis un compte existant vers une nouvelle inscription ?    | Oui       | Non        | **Transfert de compte**<br>Utilisez :<li>Quand vous ne voulez pas un transfert d’inscription complet.</li><li>Vous voulez uniquement déplacer des comptes spécifiques vers une nouvelle inscription.</li>| **Étape 1 : ouvrez un ticket de support d’opération Azure Enterprise.**<li>Accédez à [http://aka.ms/AzureEntSupport](http://aka.ms/AzureEntSupport).</li><li>Sélectionnez **Administration des inscriptions**, puis **Transférer un compte EA vers une nouvelle inscription**.<br>**Étape 2 : indiquez les informations demandées.**<br>Incluez :<li>Numéro d’inscription source</li><li> Numéro d’inscription de destination</li><li>Date d’effet du transfert|
+| un abonnement entier (comprenant le service et les comptes de stockage StorSimple) vers une autre inscription ? | Oui       | Non        | **Transfert d’inscription**<br>Utilisation :<li>Quand vous achetez un nouvel engagement Azure dans le cadre d’un nouveau contrat.</li><li>Vous voulez migrer tous les comptes et abonnements depuis l’ancienne inscription vers la nouvelle. Sont inclus tous les services Azure de l’ancien abonnement.</li> | **Étape 1 : ouvrez un ticket de support d’opération Azure Enterprise.**<li>Accédez à [http://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).</li><li> Sélectionnez **Administration des inscriptions**, puis **Transférer d’une inscription vers une nouvelle inscription**.<br>**Étape 2 : indiquez les informations demandées.**<br>Incluez :<li>Numéro d’inscription source</li><li> Numéro d’inscription de destination</li><li>Date d’effet du transfert|
+| le service StorSimple depuis un compte existant vers une nouvelle inscription ?    | Oui       | Non        | **Transfert de compte**<br>Utilisez :<li>Quand vous ne voulez pas un transfert d’inscription complet.</li><li>Vous voulez uniquement déplacer des comptes spécifiques vers une nouvelle inscription.</li>| **Étape 1 : ouvrez un ticket de support d’opération Azure Enterprise.**<li>Accédez à [http://aka.ms/AzureEntSupport](https://aka.ms/AzureEntSupport).</li><li>Sélectionnez **Administration des inscriptions**, puis **Transférer un compte EA vers une nouvelle inscription**.<br>**Étape 2 : indiquez les informations demandées.**<br>Incluez :<li>Numéro d’inscription source</li><li> Numéro d’inscription de destination</li><li>Date d’effet du transfert|
 | le service StorSimple depuis un abonnement vers un autre abonnement ?      | Non         |    Oui         | Aucun, processus manuel|<li>Migrez les données en dehors de l’appareil StorSimple.</li><li>Effectuez une réinitialisation aux paramètres d’usine de l’appareil, pour supprimer toutes les données locales sur celui-ci.</li><li>Inscrivez l’appareil dans le nouvel abonnement à un service StorSimple Device Manager.</li><li>Refaites migrer les données sur l’appareil.|
   |Puis-je transférer la propriété d’un abonnement Azure à un autre annuaire ? | Oui       | Non        | Associer un abonnement existant à un annuaire Azure AD | Voir [Pour associer un abonnement existant à un annuaire Azure AD](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md). 10 minutes peuvent être nécessaire pour tout afficher correctement.|
 | un appareil StorSimple depuis un service StorSimple Device Manager vers un autre service dans une région différente ?      | Non         | Oui            | Aucun, processus manuel |Identique à ce qui précède.|

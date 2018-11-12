@@ -14,12 +14,12 @@ ms.tgt_pltfrm: mobile-baidu
 ms.workload: mobile
 ms.date: 04/14/2018
 ms.author: dimazaid
-ms.openlocfilehash: c680de254c55adaad8cedde6cf4748efd0c2c858
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d8ece15e7e8fa3b74fbefc78aea65683229712ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38700898"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246767"
 ---
 # <a name="get-started-with-notification-hubs-using-baidu"></a>Prendre en main Notification Hubs à l’aide de Baidu
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -31,7 +31,7 @@ Comme Google Play et FCM (messagerie Cloud Firebase) ne sont pas disponibles en 
 ## <a name="prerequisites"></a>Prérequis
 Ce didacticiel requiert les éléments suivants :
 
-* Kit de développement logiciel Android SDK (nous supposons que vous utilisez Android Studio), que vous pouvez télécharger à partir du <a href="http://go.microsoft.com/fwlink/?LinkId=389797">site Android</a>
+* Kit de développement logiciel Android SDK (nous supposons que vous utilisez Android Studio), que vous pouvez télécharger à partir du <a href="https://go.microsoft.com/fwlink/?LinkId=389797">site Android</a>
 * [Kit de développement logiciel (SDK) Android pour transmissions Push Baidu]
 
 > [!NOTE]
@@ -475,7 +475,7 @@ Les notifications Push sont normalement envoyées dans un service principal tel 
 Par souci de simplicité, ce didacticiel utilise une application console pour la démonstration de l’envoi d’une notification avec le kit de développement .NET. Toutefois, nous vous recommandons de consulter le didacticiel [Utiliser Notification Hubs pour envoyer des notifications Push aux utilisateurs](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) comme prochaine étape pour envoyer des notifications à partir d’un serveur principal ASP.NET. 
 
 Voici les différentes approches d’envoi de notifications :
-* **Interface REST** : vous pouvez prendre en charge les notifications sur n’importe quel serveur principal à l’aide de [l’interface REST](http://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
+* **Interface REST** : vous pouvez prendre en charge les notifications sur n’importe quel serveur principal à l’aide de [l’interface REST](https://msdn.microsoft.com/library/windowsazure/dn223264.aspx).
 * **SDK .NET Microsoft Azure Notification Hubs**: dans le Gestionnaire de package Nuget pour Visual Studio, exécutez [Install-Package Microsoft.Azure.NotificationHubs](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs/).
 * **Node.js** : [Utilisation de Notification Hubs à partir de Node.js](notification-hubs-nodejs-push-notification-tutorial.md).
 * **Applications mobiles Azure** : pour découvrir un exemple de la procédure d’envoi de notifications à partir d’une application mobile Azure intégrée à Notification Hubs, consultez l’article [Ajout de notifications push à votre application mobile](../app-service-mobile/app-service-mobile-windows-store-dotnet-get-started-push.md).

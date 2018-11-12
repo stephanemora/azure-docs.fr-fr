@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: c8cb51093142146fc7d43b51a62d949f6cc38988
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109577"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238928"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>Déployer StorSimple Virtual Array pour le programme des fournisseurs de solutions cloud
 
@@ -29,18 +29,18 @@ StorSimple Virtual Array peut être déployé par les partenaires Fournisseurs d
 
 Cet article décrit comment un partenaire CSP peut ajouter un client ou un nouvel abonnement à un client existant, puis créer un service pour déployer StorSimple Virtual Array dans CSP.
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 
 Avant de commencer, assurez-vous de satisfaire les exigences suivantes :
 
 - Vous êtes inscrit dans le cadre du programme CSP.
-- Vous avez des informations d’identification valides pour [l’Espace Partenaires](http://partnercenter.microsoft.com/). Les informations d’identification vous permettent de vous connecter au portail Partenaire pour ajouter de nouveaux clients, rechercher des clients ou accéder à un compte client à partir du tableau de bord Partenaire. Le CSP peut fonctionner en tant qu’administrateur StorSimple au nom du client dans le portail Azure.
+- Vous avez des informations d’identification valides pour [l’Espace Partenaires](https://partnercenter.microsoft.com/). Les informations d’identification vous permettent de vous connecter au portail Partenaire pour ajouter de nouveaux clients, rechercher des clients ou accéder à un compte client à partir du tableau de bord Partenaire. Le CSP peut fonctionner en tant qu’administrateur StorSimple au nom du client dans le portail Azure.
                              
 ## <a name="add-a-customer"></a>Ajouter un client
 
 Si vous ajoutez un client, un abonnement est automatiquement créé. Pour ajouter un client (et créer automatiquement un abonnement), effectuez les opérations suivantes dans le portail Partenaire.
 
-1. Accédez à [l’Espace Partenaires](http://partnercenter.microsoft.com/) et connectez-vous en utilisant vos informations d’identification CSP. Cliquez sur **Dashboard**.
+1. Accédez à [l’Espace Partenaires](https://partnercenter.microsoft.com/) et connectez-vous en utilisant vos informations d’identification CSP. Cliquez sur **Dashboard**.
 
      ![Tableau de bord dans l’Espace Partenaires](./media/storsimple-partner-csp-deploy/image1.png)
                               
@@ -77,7 +77,7 @@ Si vous ajoutez un client, un abonnement est automatiquement créé. Pour ajoute
 
 Dans certains cas, vous avez peut-être un client existant et vous devez ajouter un abonnement. Pour ajouter un abonnement à un client existant, effectuez les opérations suivantes dans le portail Partenaire.
 
-1. Accédez à [l’Espace Partenaires](http://partnercenter.microsoft.com/) et connectez-vous en utilisant vos informations d’identification CSP. Cliquez sur **Dashboard**.
+1. Accédez à [l’Espace Partenaires](https://partnercenter.microsoft.com/) et connectez-vous en utilisant vos informations d’identification CSP. Cliquez sur **Dashboard**.
 
      ![Tableau de bord dans l’Espace Partenaires](./media/storsimple-partner-csp-deploy/image1.png)
                               

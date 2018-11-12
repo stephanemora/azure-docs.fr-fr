@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: b8a9973738ac28a686488a816da0f7da5fe2ac3e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737411"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238520"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Traiter des jeux de données volumineux à l’aide de Data Factory et de Batch
 > [!NOTE]
@@ -61,9 +61,9 @@ Vous pouvez également créer des activités .NET personnalisées pour déplacer
 ## <a name="architecture-of-a-sample-solution"></a>Architecture d’une solution exemple
   L’architecture décrite dans cet article est celle d’une solution simple. Elle convient également à des scénarios complexes, tels que la modélisation du risque par les services financiers, le traitement et le rendu d’images, ou l’analyse génomique.
 
-Le diagramme illustre comment Azure Data Factory orchestre le traitement et le déplacement des données. Il montre également comment Azure Batch traite les données en parallèle. Téléchargez et imprimez le diagramme pour le consulter facilement (11 x 17 pouces ou format A3). Pour accéder au diagramme et l’imprimer facilement, consultez [HPC and data orchestration by using Batch and Data Factory (Orchestration de HPC et des données à l’aide d’Azure Batch et d’Azure Data Factory)](http://go.microsoft.com/fwlink/?LinkId=717686).
+Le diagramme illustre comment Azure Data Factory orchestre le traitement et le déplacement des données. Il montre également comment Azure Batch traite les données en parallèle. Téléchargez et imprimez le diagramme pour le consulter facilement (11 x 17 pouces ou format A3). Pour accéder au diagramme et l’imprimer facilement, consultez [HPC and data orchestration by using Batch and Data Factory (Orchestration de HPC et des données à l’aide d’Azure Batch et d’Azure Data Factory)](https://go.microsoft.com/fwlink/?LinkId=717686).
 
-[![Diagramme de traitement des données à grande échelle](./media/data-factory-data-processing-using-batch/image1.png)](http://go.microsoft.com/fwlink/?LinkId=717686)
+[![Diagramme de traitement des données à grande échelle](./media/data-factory-data-processing-using-batch/image1.png)](https://go.microsoft.com/fwlink/?LinkId=717686)
 
 La liste suivante fournit les étapes de base du processus. La solution inclut du code et des explications relatives à la génération de la solution de bout en bout.
 
@@ -965,7 +965,7 @@ Après avoir traité des données, vous pouvez les consommer avec des outils en 
 * [Azure et Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)
 
 ## <a name="references"></a>Références
-* [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
+* [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/)
 
   * [Introduction to the Data Factory service (Présentation du service Azure Data Factory)](data-factory-introduction.md)
   * [Get started with Data Factory (Prise en main de Data Factory)](data-factory-build-your-first-pipeline.md)

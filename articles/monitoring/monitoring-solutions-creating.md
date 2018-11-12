@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/20/2017
 ms.author: bwren
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a07a17105b4d84b51689e9636cfacc7a3b5428ad
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 09dd046f9dc7d6b73207ab1ab739e913a8ed5b92
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528025"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282048"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Concevoir et générer une solution de gestion dans Azure (préversion)
 > [!NOTE]
@@ -30,7 +30,7 @@ Les [solutions de gestion]( monitoring-solutions.md) fournissent des scénarios 
 
 ## <a name="what-is-a-management-solution"></a>Qu’est-ce qu’une solution de gestion ?
 
-Les solutions de gestion contiennent des ressources Azure qui fonctionnent ensemble pour réaliser un scénario de gestion spécifique.  Elles sont implémentées en tant que [modèles de gestion des ressources](../azure-resource-manager/resource-manager-template-walkthrough.md) qui contiennent des détails sur la procédure d’installation et de configuration des ressources qu’elles contiennent une fois la solution installée.
+Les solutions de gestion contiennent des ressources Azure qui fonctionnent ensemble pour réaliser un scénario de gestion spécifique.  Elles sont implémentées en tant que [modèles de gestion des ressources](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md) qui contiennent des détails sur la procédure d’installation et de configuration des ressources qu’elles contiennent une fois la solution installée.
 
 La stratégie de base consiste à démarrer votre solution de gestion en créant les composants individuels dans votre environnement Azure.  Une fois que la fonctionnalité fonctionne correctement, vous pouvez commencer à les empaqueter dans un [fichier de solution de gestion]( monitoring-solutions-solution-file.md). 
 
@@ -49,16 +49,16 @@ Il existe plusieurs façons de collecter des sources de données dans le référ
 Si vous avez besoin de données qui ne sont accessibles via aucune des sources de données disponibles, vous pouvez utiliser [l’API du collecteur de données HTTP](../log-analytics/log-analytics-data-collector-api.md) qui vous permet d’écrire des données dans le référentiel Log Analytics à partir de n’importe quel client pouvant appeler une API REST.  L’approche la plus courante de la collecte de données personnalisées dans une solution de gestion consiste à créer un [runbook dans Azure Automation](../automation/automation-runbook-types.md) qui collecte les données requises à partir des ressources Azure ou externes et utilise l’API du collecteur de données afin d’écrire dans le référentiel.  
 
 ### <a name="log-searches"></a>Recherches dans les journaux
-Les [recherches dans les journaux](../log-analytics/log-analytics-log-searches.md) sont utilisées pour extraire et analyser des données dans le référentiel Log Analytics.  Elles sont utilisées par les affichages et les alertes et permettent à l’utilisateur d’effectuer une analyse ad hoc des données dans le référentiel.  
+Les [recherches dans les journaux](../log-analytics/log-analytics-queries.md) sont utilisées pour extraire et analyser des données dans le référentiel Log Analytics.  Elles sont utilisées par les affichages et les alertes et permettent à l’utilisateur d’effectuer une analyse ad hoc des données dans le référentiel.  
 
 Définissez les requêtes qui peuvent être utiles à l’utilisateur même si elles ne sont pas utilisées par des vues ou des alertes.  Elles seront disponibles dans le portail en tant que recherches enregistrées, et vous pouvez également les inclure dans une [Liste de requêtes de composants de visualisation](../log-analytics/log-analytics-view-designer-parts.md#list-of-queries-part) dans votre vue personnalisée.
 
 ### <a name="alerts"></a>Alertes
-[Les alertes dans Log Analytics](../log-analytics/log-analytics-alerts.md) identifient les problèmes via des [recherches dans les journaux](#log-searches) sur les données dans le référentiel.  Elles informent l’utilisateur ou exécutent automatiquement une action en réponse. Vous devez identifier différentes conditions d’alerte pour votre application et inclure des règles d’alerte correspondantes dans votre fichier solution.
+[Les alertes dans Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identifient les problèmes via des [recherches dans les journaux](#log-searches) sur les données dans le référentiel.  Elles informent l’utilisateur ou exécutent automatiquement une action en réponse. Vous devez identifier différentes conditions d’alerte pour votre application et inclure des règles d’alerte correspondantes dans votre fichier solution.
 
 Si le problème peut potentiellement être corrigé avec un processus automatisé, vous devrez généralement créer un runbook dans Azure Automation pour effectuer cette correction.  La plupart des services Azure peuvent être gérés avec des [cmdlets](/powershell/azure/overview) que le runbook peut exploiter pour exécuter ce type de fonctionnalité.
 
-Si votre solution nécessite une fonctionnalité externe en réponse à une alerte, alors vous pouvez utiliser une [réponse webhook](../log-analytics/log-analytics-alerts-actions.md).  Cela vous permet d’appeler un service web externe envoyant des informations à partir de l’alerte.
+Si votre solution nécessite une fonctionnalité externe en réponse à une alerte, alors vous pouvez utiliser une [réponse webhook](../monitoring-and-diagnostics/alert-metric.md).  Cela vous permet d’appeler un service web externe envoyant des informations à partir de l’alerte.
 
 ### <a name="views"></a>Views
 Les vues dans Log Analytics permettent de visualiser les données à partir du référentiel de Log Analytics.  Chaque solution contient en général une vue unique avec une [mosaïque](../log-analytics/log-analytics-view-designer-tiles.md) qui s’affiche sur le tableau de bord principal de l’utilisateur.  La vue peut contenir n’importe quel nombre de [composants de visualisation](../log-analytics/log-analytics-view-designer-parts.md) pour fournir différentes visualisations des données collectées à l’utilisateur.

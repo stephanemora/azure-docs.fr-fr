@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/27/2017
 ms.author: mikeray
-ms.openlocfilehash: e9b4ca959b93e097bb52a841cec02cc476ef5f48
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 463ef5f4a655617074915078fb4ced9e596f8957
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401257"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257712"
 ---
 # <a name="high-availability-and-disaster-recovery-for-sql-server-in-azure-virtual-machines"></a>Haute disponibilité et récupération d’urgence pour SQL Server dans Azure Virtual Machines
 
@@ -93,7 +93,7 @@ Examinez le scénario où un cluster à deux nœuds est créé et mis en ligne 
 5. Quand NODE2 tente d’établir la connexion avec NODE1, les paquets dirigés vers NODE1 ne quittent jamais NODE2, car il résout l’adresse IP de NODE1 en lui-même. NODE2 ne peut pas établir la connexion avec NODE1, puis perd le quorum et arrête le cluster.
 6. Dans le même temps, NODE1 peut envoyer des paquets à NODE2, mais NODE2 ne peut pas répondre. NODE1 perd le quorum et arrête le cluster.
 
-Ce scénario peut être évité en affectant une adresse IP statique inutilisée, telle qu’une adresse IP de lien local comme 169.254.1.1, au nom du réseau de clusters afin de mettre le nom du réseau de clusters en ligne. Pour simplifier ce processus, consultez la section [Configuration d’un cluster de basculement Windows dans Azure pour les groupes de disponibilité](http://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
+Ce scénario peut être évité en affectant une adresse IP statique inutilisée, telle qu’une adresse IP de lien local comme 169.254.1.1, au nom du réseau de clusters afin de mettre le nom du réseau de clusters en ligne. Pour simplifier ce processus, consultez la section [Configuration d’un cluster de basculement Windows dans Azure pour les groupes de disponibilité](https://social.technet.microsoft.com/wiki/contents/articles/14776.configuring-windows-failover-cluster-in-windows-azure-for-alwayson-availability-groups.aspx).
 
 Pour plus d’informations, consultez la section [Configurer des groupes de disponibilité dans Azure (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups.md).
 
@@ -120,7 +120,7 @@ Pour plus d’informations sur la connectivité client, consultez :
 
 * [Utilisation de mots clés de chaîne de connexion avec SQL Server Native Client](https://msdn.microsoft.com/library/ms130822.aspx)
 * [Connecter des clients à une session de mise en miroir de bases de données (SQL Server)](https://technet.microsoft.com/library/ms175484.aspx)
-* [Connexion à l’écouteur du groupe de disponibilité dans un environnement hybride](http://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
+* [Connexion à l’écouteur du groupe de disponibilité dans un environnement hybride](https://blogs.msdn.com/b/sqlalwayson/archive/2013/02/14/connecting-to-availability-group-listener-in-hybrid-it.aspx)
 * [Écouteurs de groupe de disponibilité, connectivité client et basculement d’application (SQL Server)](https://technet.microsoft.com/library/hh213417.aspx)
 * [Utilisation de chaînes de connexion de mise en miroir de bases de données avec des groupes de disponibilité](https://technet.microsoft.com/library/hh213417.aspx)
 
@@ -130,7 +130,7 @@ Vous devez déployer votre solution HADR en partant du principe qu’il peut y a
 ### <a name="geo-replication-support"></a>Prise en charge de la géo-réplication
 La géo-réplication dans les disques Azure ne prend pas en charge le fichier de données et le fichier journal de la même base de données à stocker sur des disques distincts. GRS réplique les modifications sur chaque disque indépendamment et de manière asynchrone. Ce mécanisme garantit l’ordre d’écriture dans un seul disque sur la copie géo-répliquée, mais pas entre les copies géo-répliquées de plusieurs disques. Si vous configurez une base de données pour stocker le fichier de données et le fichier journal sur les disques distincts, les disques récupérés après sinistre peuvent contenir une copie plus à jour du fichier de données que le fichier journal, ce qui interrompt l’écriture préalable du journal dans SQL Server et des propriétés ACID des transactions. Si vous n’avez pas l’option de désactiver la géo-réplication sur le compte de stockage, vous devez conserver tous les fichiers de données et fichiers journaux pour une base de données spécifique sur le même disque. Si vous devez utiliser plusieurs disques en raison de la taille de la base de données, vous devez déployer une des solutions de récupération d’urgence répertoriées ci-dessus pour assurer la redondance des données.
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Si vous devez créer une machine virtuelle Azure avec SQL Server, voir [Approvisionnement d’une machine virtuelle SQL Server dans Azure](virtual-machines-windows-portal-sql-server-provision.md).
 
 Pour obtenir des performances optimales de SQL Server dans Azure, voir les indications de [Meilleures pratiques relatives aux performances de SQL Server sur les machines virtuelles Azure](virtual-machines-windows-sql-performance.md).
@@ -139,5 +139,5 @@ Pour d’autres rubriques relatives à l’utilisation de SQL Server sur des ma
 
 ### <a name="other-resources"></a>Autres ressources
 * [Installation d’une nouvelle forêt Active Directory dans Azure](../../../active-directory/active-directory-new-forest-virtual-machine.md)
-* [Créer un cluster de basculement pour les groupes de disponibilité dans une machine virtuelle Azure](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
+* [Créer un cluster de basculement pour les groupes de disponibilité dans une machine virtuelle Azure](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a)
 

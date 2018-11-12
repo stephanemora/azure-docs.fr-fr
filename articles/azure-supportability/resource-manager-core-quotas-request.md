@@ -7,18 +7,18 @@ ms.date: 6/13/2018
 ms.topic: article
 ms.service: microsoft-docs
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 7456785815dbefb2436713814965d90ba0e789ee
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: 1be05ac7216a65922927b94d1cc4ba2a893433b2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39037233"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250983"
 ---
 # <a name="resource-manager-vcpu-quota-increase-requests"></a>Demandes d’augmentation des quotas de processeurs virtuels pour Resource Manager
 
 Les quotas de processeurs virtuels pour Resource Manager sont appliqués au niveau de la région et de la famille de références (SKU).
-Pour en savoir plus sur la façon dont les quotas sont appliqués, consultez la page [Abonnement Azure et limites, quotas et contraintes de service](http://aka.ms/quotalimits).
-Pour en savoir plus sur les familles de références, vous pouvez comparer le coût et les performances sur la page [Tarification des machines virtuelles](http://aka.ms/pricingcompute).
+Pour en savoir plus sur la façon dont les quotas sont appliqués, consultez la page [Abonnement Azure et limites, quotas et contraintes de service](https://aka.ms/quotalimits).
+Pour en savoir plus sur les familles de références, vous pouvez comparer le coût et les performances sur la page [Tarification des machines virtuelles](https://aka.ms/pricingcompute).
 
 Pour demander une augmentation, suivez les instructions ci-dessous pour créer une demande de support via le panneau « Utilisation + quotas » d’Azure disponible dans le portail Azure. 
 

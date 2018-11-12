@@ -12,12 +12,12 @@ ms.author: moslake
 ms.reviewer: ninarn, carlrab
 manager: craigg
 ms.date: 10/15/2018
-ms.openlocfilehash: 6721b260960cd38b68173a5d973a5716b99a26c0
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: a6e2be02f9954a036fdcb67a15c73cc82670834b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50241206"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283561"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Les pools élastiques vous aident à gérer et à mettre à l’échelle plusieurs bases de données Microsoft Azure SQL
 
@@ -113,10 +113,10 @@ Dans les cas où vous ne pouvez pas utiliser les outils, la procédure pas à pa
 
 1. Pour estimer le nombre d’eDTU ou de vCore nécessaires pour le pool, procédez de la manière suivante :
 
-   Pour le modèle d’achat DTU : MAX(<*nombre total de bases de données* X *utilisation DTU moyenne par base de données* >,<br>
-   <*Nombre de bases de données connaissant un pic simultané* X *utilisation DTU maximale par base de données*)
+   Pour le modèle d’achat DTU : MAX(<*nombre total de bases de données* X *utilisation DTU moyenne par base de données* >,<br>  
+   < *Nombre de bases de données connaissant un pic simultané* X *utilisation DTU maximale par base de données* )
 
-   Pour le modèle d’achat vCore : MAX(<*nombre total de bases de données* X *utilisation vCore moyenne par base de données* >,<br>
+   Pour le modèle d’achat vCore : MAX(<*nombre total de bases de données* X *utilisation vCore moyenne par base de données* >,<br>  
    <*Nombre de bases de données connaissant un pic simultané* X *utilisation vCore maximale par base de données*)
 
 2. Estimez l’espace de stockage nécessaire pour le pool en ajoutant le nombre d’octets nécessaires pour toutes les bases de données du pool. Déterminez ensuite la taille du pool d’eDTU qui fournit cette quantité de stockage.

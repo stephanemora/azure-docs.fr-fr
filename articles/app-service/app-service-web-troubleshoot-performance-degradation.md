@@ -16,15 +16,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 3ec67488b238118067e771baf3dd5124308a84cf
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b1ae61b5372fa1061448c02e7b5c589a167888c9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296191"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237211"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Résoudre les problèmes de baisse de performances d’une application web dans Azure App Service
-Cet article vous aide à résoudre les problèmes de baisse de performances d’une application web dans [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
+Cet article vous aide à résoudre les problèmes de baisse de performances d’une application web dans [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714).
 
 Si vous avez besoin d'aide supplémentaire concernant n'importe quel point de cet article, contactez les experts Azure sur les [forums MSDN Azure et Stack Overflow](https://azure.microsoft.com/support/forums/). Vous pouvez également signaler un incident au support Azure. Accédez au [site de support Azure](https://azure.microsoft.com/support/options/) , puis cliquez sur **Obtenir un support**.
 
@@ -70,7 +70,7 @@ Parmi les mesures que vous pouvez surveiller pour votre application web, se trou
 Pour plus d'informations, consultez les pages suivantes :
 
 * [Surveiller les applications web dans Microsoft Azure App Service](web-sites-monitor.md)
-* [Réception de notifications d'alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Réception de notifications d’alerte](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 #### <a name="monitor-web-endpoint-status"></a>Surveillance de l'état d'un point de terminaison Web
 Si vous exécutez votre application web sur le niveau de tarification **Standard**, Web Apps vous permet de surveiller les deux points de terminaison à partir de trois régions géographiques.

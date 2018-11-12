@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
 ms.author: juliako
-ms.openlocfilehash: 6a4ae0697e59eb00e216fc29b154408e4d7a99b8
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1664dc16e93fa825962690ec3ed5681478005d59
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33785918"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229626"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Utilisation du plug-in Microsoft Smooth Streaming pour Adobe Open Source Media Framework
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Le plug-in Microsoft Smooth Streaming pour Open Source Media Framework 2.0 (SS pour OSMF) étend les capacités par défaut d'OSMF et ajoute la lecture de contenu Microsoft Smooth Streaming aux lecteurs OSMF, qu'ils soient nouveaux ou existants. Il ajoute également la fonction de lecture Smooth Streaming à Strobe Media Playback (SMP).
 
 SS pour OSMF comprend deux versions du plug-in :
@@ -47,7 +47,7 @@ Le plug-in prend en charge le chargement et la lecture de contenu Smooth Streami
 * Cette version ne prend en charge qu'OSMF 2.0.
 
 ## <a name="supported-features-and-known-issues"></a>Fonctionnalités prises en charge et problèmes connus
-Pour obtenir une liste complète des fonctionnalités prises en charge, des fonctionnalités non prises en charge et des problèmes connus, consultez [ce document](http://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
+Pour obtenir une liste complète des fonctionnalités prises en charge, des fonctionnalités non prises en charge et des problèmes connus, consultez [ce document](https://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf).
 
 ## <a name="loading-the-plugin"></a>Chargement du plug-in
 Les plug-ins OSMF peuvent être chargés de façon statique (à la compilation) ou dynamique (à l'exécution). Le téléchargement du plug-in Smooth Streaming pour OSMF comprend les deux versions, statique et dynamique.

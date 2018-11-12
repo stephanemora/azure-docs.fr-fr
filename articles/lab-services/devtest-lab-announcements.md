@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: ecfaf24d1122b711a93e1335b79acbbc4235bdae
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: eedab085098c34cdac3c49a3892f7cb0d5824f1b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049947"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259919"
 ---
 # <a name="post-an-announcement-to-a-lab-in-azure-devtest-labs"></a>Publier une annonce dans un lab avec Azure DevTest Labs
 
@@ -35,7 +35,7 @@ La fonctionnalité d’annonce est destinée à être utilisée pour les notific
 
 ## <a name="steps-to-post-an-announcement-in-an-existing-lab"></a>Étapes de la publication d’une annonce dans un lab existant
 
-1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Si nécessaire, sélectionnez **Autres services**, puis **DevTest Labs** dans la liste. (Votre lab peut déjà être affiché dans le Tableau de bord sous **Toutes les ressources**).
 1. Dans la liste des labs, sélectionnez le lab dans lequel vous souhaitez publier une annonce.  
 1. Dans la zone **Vue d’ensemble** du laboratoire, sélectionnez **Configuration et stratégies**.  
@@ -70,7 +70,7 @@ Quand vous ne souhaitez plus afficher cette annonce pour les utilisateurs du lab
 
 ## <a name="steps-for-users-to-view-an-announcement"></a>Étapes de l’affichage d’une annonce pour la consultation par les utilisateurs
 
-1. À partir du [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040), sélectionnez un lab.
+1. À partir du [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040), sélectionnez un lab.
 
 1. Si une annonce est publiée pour ce lab, un avis s’affiche en haut de la page Vue d’ensemble du lab. Cet avis est le titre de l’annonce qui a été spécifié lors de la création de l’annonce.
 
@@ -160,9 +160,9 @@ Vous pouvez spécifier une annonce dans le cadre d’un modèle Azure Resource M
 
 Vous pouvez déployer un modèle Azure Resource Manager à l’aide d’une des méthodes suivantes :
 
-- [portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
+- [Portail Azure](../azure-resource-manager/resource-group-template-deploy-portal.md)
 - [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md)
-- [interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
+- [Interface de ligne de commande Azure](../azure-resource-manager/resource-group-template-deploy-cli.md)
 - [API REST](../azure-resource-manager/resource-group-template-deploy-rest.md)
 
 ## <a name="next-steps"></a>Étapes suivantes

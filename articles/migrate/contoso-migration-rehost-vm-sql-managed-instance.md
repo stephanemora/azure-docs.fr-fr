@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/11/2018
 ms.author: raynew
-ms.openlocfilehash: 0e4576ad4f7eece543ef572073919bcf3ca3a4e9
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: ae719e6daa3c07ffe298cfefcc5a0a2846a49032
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116140"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231819"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migration de Contoso : réhéberger une application locale sur une machine virtuelle Azure et SQL Database Managed Instance
 
@@ -92,7 +92,7 @@ Après avoir défini précisément les objectifs et exigences, Contoso conçoit 
 Dans ce scénario, Contoso veut migrer son application de voyage locale à deux niveaux de la façon suivante :
 
 - Migrer la base de données de l’application (**SmartHotelDB**) vers une instance Azure SQL Managed Instance.
-- Migrer la machine **WebVM** frontend vers une machine virtuelle Azure.
+- Migrer la machine **WebVM** front-end vers une machine virtuelle Azure.
 - Les machines virtuelles locales dans le centre de données Contoso seront désaffectées une fois la migration terminée.
 
 ![Architecture du scénario](media/contoso-migration-rehost-vm-sql-managed-instance/architecture.png) 
@@ -112,12 +112,12 @@ Dans le cadre de la conception de la solution, Contoso a fait une comparaison de
 
 ### <a name="solution-review"></a>Examen de la solution
 
-Contoso évalue la conception proposée en dressant la liste des avantages et des inconvénients.
+Contoso évalue la conception proposée en dressant une liste des avantages et des inconvénients.
 
 **Considération** | **Détails**
 --- | ---
 **Avantages** |  WEBVM est déplacé vers Azure sans changement, ce qui simplifie la migration.<br/><br/> SQL Managed Instance prend en charge les spécifications techniques et les objectifs de Contoso.<br/><br/> Managed Instance offre une compatibilité de 100 % avec le déploiement actuel, tout en permettant à Contoso de ne plus utiliser SQL Server 2008 R2.<br/><br/>  L’entreprise peut tirer parti de son investissement dans Software Assurance en utilisant Azure Hybrid Benefit tant pour SQL Server que pour Windows Server.<br/><br/> Elle peut réutiliser Database Migration Service pour les migrations futures.<br/><br/> SQL Managed Instance intègre une tolérance de panne que Contoso n’a pas besoin de configurer. Cela signifie que la couche Données n’est plus un point de basculement unique.
-**Inconvénients** | La machine WEBVM exécute Windows Server 2008 R2.  Bien que ce système d’exploitation soit pris en charge par Azure, cette plateforme n’est plus prise en charge. [Plus d’informations](https://support.microsoft.com/en-us/help/956893)<br/><br/> La couche web reste un point unique de basculement et seule la machine WEBVM fournit les services.<br/><br/> Contoso devra continuer à prendre en charge la couche web de l’application comme une machine virtuelle au lieu d’opter pour un service managé, comme Azure App Service.<br/><br/> Pour la couche données, Managed Instance n’est peut-être pas la meilleure solution si Contoso veut personnaliser le système d’exploitation ou le serveur de base de données, ou si l’entreprise veut exécuter des applications tierces avec SQL Server. L’exécution de SQL Server sur une machine virtuelle IaaS peut apporter cette flexibilité. 
+**Inconvénients** | La machine WEBVM exécute Windows Server 2008 R2.  Bien que ce système d’exploitation soit pris en charge par Azure, cette plateforme n’est plus prise en charge. [Plus d’informations](https://support.microsoft.com/en-us/help/956893)<br/><br/> La couche web reste un point unique de basculement et seule la machine WEBVM fournit les services.<br/><br/> Contoso devra continuer à prendre en charge la couche web de l’application comme machine virtuelle au lieu d’opter pour un service managé, comme Azure App Service.<br/><br/> Pour la couche données, Managed Instance n’est peut-être pas la meilleure solution si Contoso veut personnaliser le système d’exploitation ou le serveur de base de données, ou si l’entreprise veut exécuter des applications tierces avec SQL Server. L’exécution de SQL Server sur une machine virtuelle IaaS peut apporter cette flexibilité. 
 
 ### <a name="migration-process"></a>Processus de migration
 
@@ -366,7 +366,7 @@ Après le basculement vers Azure, Contoso souhaite pouvoir se connecter aux mach
 Les administrateurs de Contoso doivent également vérifier ces éléments quand ils exécutent un basculement :
 
 - Aucune mise à jour de Windows ne doit être en attente sur la machine virtuelle quand un basculement est déclenché. Si des mises à jour de Windows sont en attente, les utilisateurs de Contoso ne peuvent pas se connecter à la machine virtuelle tant que la mise à jour n’est pas terminée.
-- Après le basculement, les administrateurs doivent examiner les **diagnostics de démarrage** pour voir une capture d’écran de la machine virtuelle. S’ils ne peuvent pas voir les diagnostics de démarrage, ils doivent vérifier que la machine virtuelle est en cours d’exécution, puis passer en revue les [conseils de dépannage](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Après le basculement, les administrateurs doivent examiner les **diagnostics de démarrage** pour voir une capture d’écran de la machine virtuelle. S’ils ne peuvent pas voir les diagnostics de démarrage, ils doivent vérifier que la machine virtuelle est en cours d’exécution, puis passer en revue les [conseils de dépannage](https://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
 ## <a name="step-5-replicate-the-on-premises-vms-to-azure"></a>Étape 5 : Répliquer les machines virtuelles locales sur Azure
 
@@ -529,7 +529,7 @@ Les administrateurs de Contoso doivent créer un projet Database Migration Servi
 
 ## <a name="step-7-migrate-the-vm"></a>Étape 7 : Migrer la machine virtuelle
 
-Les administrateurs de Contoso exécutent un rapide test de basculement, puis migrent la machine virtuelle.
+Les administrateurs de Contoso exécutent un rapide basculement de test, puis migrent la machine virtuelle.
 
 ### <a name="run-a-test-failover"></a>Exécuter un test de basculement
 

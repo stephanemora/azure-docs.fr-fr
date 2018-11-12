@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/11/2017
 ms.author: maghan
-ms.openlocfilehash: af8a4a9c25005925bed3ddb78ced618e669f7f09
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 514e85fc61240834d8db152ece65a4f9cce9023e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31424616"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250405"
 ---
 # <a name="use-reportviewer-in-a-web-site-hosted-in-azure"></a>Utilisation de ReportViewer sur un site web hébergé dans Azure
 > [!IMPORTANT] 
-> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [le déploiement Resource Manager et le déploiement classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite du modèle de déploiement classique. Pour la plupart des nouveaux déploiements, Microsoft recommande d’utiliser le modèle Resource Manager.
 
 Vous pouvez créer un site web Microsoft Azure à l’aide du contrôle Visual Studio ReportViewer qui affiche un rapport stocké sur une machine virtuelle Microsoft Azure. Le contrôle ReportViewer se trouve dans une application web que vous créez à l’aide du modèle d’application web ASP.NET.
 
@@ -38,7 +38,6 @@ Pour incorporer ReportViewer dans votre site web Microsoft Azure, vous devez eff
 * **Publication** de l’application web ASP.NET sur Azure
 
 ## <a name="prerequisites"></a>Prérequis
-
 Consultez la section « Instructions générales et meilleures pratiques » dans [Business Intelligence de SQL Server dans les machines virtuelles Azure](../classic/ps-sql-bi.md).
 
 > [!NOTE]
@@ -63,7 +62,7 @@ En mode de traitement à distance, le contrôle ReportViewer utilise les assembl
 3. Répétez les étapes 1 et 2 pour Microsoft.ReportViewer.WebForms.
 
 ### <a name="to-get-reportviewer-language-pack"></a>Pour obtenir le module linguistique ReportViewer
-1. Installez le package redistribuable Microsoft Report Viewer 2012 Runtime approprié à partir du [Centre de téléchargement Microsoft](http://go.microsoft.com/fwlink/?LinkId=317386).
+1. Installez le package redistribuable Microsoft Report Viewer 2012 Runtime approprié à partir du [Centre de téléchargement Microsoft](https://go.microsoft.com/fwlink/?LinkId=317386).
 2. Sélectionnez la langue dans la liste déroulante afin que la page soit redirigée vers la page du Centre de téléchargement correspondante.
 3. Cliquez sur **Télécharger** pour commencer le téléchargement du fichier ReportViewerLP.exe.
 4. Après avoir téléchargé ReportViewerLP.exe, cliquez sur **Exécuter** pour une installation immédiate, ou cliquez sur **Enregistrer** pour enregistrer le fichier sur votre ordinateur. Si vous cliquez sur **Enregistrer**, n’oubliez pas le nom du dossier dans lequel vous enregistrez le fichier.
@@ -73,7 +72,7 @@ En mode de traitement à distance, le contrôle ReportViewer utilise les assembl
 ### <a name="to-configure-for-localized-reportviewer-control"></a>Pour configurer le contrôle ReportViewer localisé
 1. Téléchargez et installez le package redistribuable Microsoft Report Viewer 2012 Runtime en suivant les instructions ci-dessus.
 2. Créez le dossier <language> dans le projet, puis copiez les fichiers d’assembly de ressources associés dans celui-ci. Les fichiers d’assembly de ressources à copier sont les suivants : **Microsoft.ReportViewer.Webforms.Resources.dll** et **Microsoft.ReportViewer.Common.Resources.dll**. Sélectionnez les fichiers d’assembly de ressources, puis, dans le volet Propriétés, affectez la valeur **Toujours copier** à **Copier dans le répertoire de sortie**.
-3. Définissez la culture et la culture de l’interface utilisateur pour le projet web. Pour plus d’informations sur la définition de la culture et de la culture d’interface utilisateur pour une page web ASP.NET, voir [Définition de la culture et de la culture d’interface utilisateur pour la globalisation de page web ASP.NET](http://go.microsoft.com/fwlink/?LinkId=237461).
+3. Définissez la culture et la culture de l’interface utilisateur pour le projet web. Pour plus d’informations sur la définition de la culture et de la culture d’interface utilisateur pour une page web ASP.NET, voir [Définition de la culture et de la culture d’interface utilisateur pour la globalisation de page web ASP.NET](https://go.microsoft.com/fwlink/?LinkId=237461).
 
 ## <a name="configuring-authentication-and-authorization"></a>Configuration de l’authentification et de l’autorisation
 ReportViewer doit utiliser les informations d’identification appropriées pour s’authentifier auprès du serveur de rapports, et ces informations d’identification doivent être autorisées par le serveur de rapports pour accéder aux rapports souhaités. Pour plus d’informations sur l’authentification, lisez le livre blanc [Contrôle de visionneuse de rapports Reporting Services et serveurs de rapports basés sur une machine virtuelle Microsoft Azure](https://msdn.microsoft.com/library/azure/dn753698.aspx).
@@ -89,7 +88,7 @@ Pour obtenir des instructions sur la publication d’une application web ASP.NET
 > 
 
 ## <a name="resources"></a>Ressources
-[Rapports Microsoft](http://go.microsoft.com/fwlink/?LinkId=205399)
+[Rapports Microsoft](https://go.microsoft.com/fwlink/?LinkId=205399)
 
 [Business Intelligence de SQL Server dans les machines virtuelles Azure](../classic/ps-sql-bi.md)
 

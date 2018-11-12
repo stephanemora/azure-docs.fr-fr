@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
 ms.date: 05/14/2018
 ms.author: danlep
-ms.openlocfilehash: f2cf26bc9f980729e74c4a4e0b4e3f4b311fd754
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ce8e2457c1d575e890174de3b9cf7faf6e16a7cb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421132"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258814"
 ---
 # <a name="submit-hpc-jobs-from-an-on-premises-computer-to-an-hpc-pack-cluster-deployed-in-azure"></a>Envoyer des travaux HPC à partir d'un ordinateur local vers un cluster HPC Pack déployé dans Azure
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-both-include.md)]
@@ -30,7 +30,6 @@ Configurez un ordinateur client local pour envoyer des travaux vers un cluster [
 ![Envoyer un travail vers un cluster dans Azure][jobsubmit]
 
 ## <a name="prerequisites"></a>Prérequis
-
 * **Nœud principal HPC Pack déployé dans une machine virtuelle Azure** : nous vous recommandons d’utiliser des outils automatisés, tels qu’un [modèle de démarrage rapide Azure](https://azure.microsoft.com/documentation/templates/) pour déployer le nœud principal et le cluster. Vous avez besoin du nom DNS du nœud principal et des informations d’identification d’un administrateur de cluster pour effectuer les étapes décrites dans cet article.
 * **Ordinateur client** : vous avez besoin d’un ordinateur client Windows ou Windows Server qui peut exécuter des utilitaires clients HPC Pack (voir [Configuration requise](https://technet.microsoft.com/library/dn535781.aspx)). Si vous souhaitez uniquement utiliser le portail web de HPC Pack ou l’API REST pour envoyer des travaux, vous pouvez utiliser l’ordinateur client de votre choix.
 * **Support d’installation du HPC Pack** : pour installer les utilitaires du client HPC Pack, le package d’installation gratuit de la dernière version du HPC Pack est disponible dans le [Centre de téléchargement Microsoft](https://www.microsoft.com/download/details.aspx?id=56360). Veillez à télécharger la même version du HPC Pack qui est installée sur la machine virtuelle du nœud principal.
@@ -38,7 +37,7 @@ Configurez un ordinateur client local pour envoyer des travaux vers un cluster [
 ## <a name="step-1-install-and-configure-the-web-components-on-the-head-node"></a>Étape 1 : Installer et configurer les composants web sur le nœud principal
 Pour activer une interface REST afin d’envoyer des travaux au cluster via HTTPS, assurez-vous que les composants web HPC Pack sont configurés sur le nœud principal HPC Pack. Si ce n’est pas encore fait, installez les composants web en exécutant le fichier d’installation HpcWebComponents.msi. Ensuite, configurez les composants en exécutant le script HPC PowerShell **Set-hpcwebcomponents.ps1**.
 
-Pour obtenir des procédures détaillées, consultez [Installer les composants web de Microsoft HPC Pack](http://technet.microsoft.com/library/hh314627.aspx).
+Pour obtenir des procédures détaillées, consultez [Installer les composants web de Microsoft HPC Pack](https://technet.microsoft.com/library/hh314627.aspx).
 
 > [!TIP]
 > Certains modèles de démarrage rapide Azure pour clusters HPC Pack installent et configurent automatiquement les composants web.
@@ -170,7 +169,7 @@ Pour vérifier votre configuration, essayez d’exécuter des travaux sur le clu
 1. Pour afficher les résultats du travail que vous avez envoyé, cliquez sur l’ID du travail, puis sur **Afficher les tâches** pour afficher la sortie de commande (sous **Sortie**).
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Vous pouvez également envoyer des travaux au cluster Azure avec l’ [API REST du HPC Pack](http://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
+* Vous pouvez également envoyer des travaux au cluster Azure avec l’ [API REST du HPC Pack](https://social.technet.microsoft.com/wiki/contents/articles/7737.creating-and-submitting-jobs-by-using-the-rest-api-in-microsoft-hpc-pack-windows-hpc-server.aspx).
 * Si vous voulez envoyer des travaux de cluster à partir d’un client Linux, consultez l’exemple Python dans le [Kit de développement logiciel (SDK) et l’exemple de code HPC Pack 2012 R2](https://www.microsoft.com/download/details.aspx?id=41633).
 
 <!--Image references-->

@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 07/07/2016
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 3b1fb14fbb21876d0b3f7d98327353d54bb1cfb2
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 56d5f3b480ddb000f9118fbcc36e39817cb0bce8
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42023882"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238503"
 ---
 # <a name="azure-app-service-virtual-machines-service-fabric-and-cloud-services-comparison"></a>Comparaison entre Azure App Service, Virtual Machines, Service Fabric et Cloud Services
 
@@ -47,7 +47,7 @@ Le tableau suivant compare les fonctionnalités d’Azure App Service, Azure Clo
 | Prise en charge de WebMatrix |X | |X | | |
 | Accès aux services tels que Service Bus, Storage et Base de données SQL |X |X |X |X | |
 | Hébergement des services Web ou niveaux d'une architecture multiniveau |X |X |X |X | |
-| Hébergement du niveau intermédiaire d'une architecture multiniveau |X |X |X |X |Les applications web App Service peuvent facilement héberger un niveau intermédiaire d’API REST et la fonctionnalité [WebJobs](http://go.microsoft.com/fwlink/?linkid=390226) peut héberger des tâches de traitement en arrière-plan. Vous pouvez exécuter WebJobs sur un site web dédié pour obtenir une flexibilité indépendante pour cette couche. |
+| Hébergement du niveau intermédiaire d'une architecture multiniveau |X |X |X |X |Les applications web App Service peuvent facilement héberger un niveau intermédiaire d’API REST et la fonctionnalité [WebJobs](https://go.microsoft.com/fwlink/?linkid=390226) peut héberger des tâches de traitement en arrière-plan. Vous pouvez exécuter WebJobs sur un site web dédié pour obtenir une flexibilité indépendante pour cette couche. |
 | Prise en charge intégrée de MySQL-as-a-service |X |X | | | |
 | Prise en charge d'ASP.NET, d'ASP, de Node.js, de PHP et de Python |X |X |X |X |Service Fabric prend en charge la création d’un serveur web frontal à l’aide [d’ASP.NET 5](../service-fabric/service-fabric-reliable-services-communication-aspnetcore.md), ou vous pouvez déployer n’importe quel type d’application (Node.js, Java, etc.) en tant que [fichier exécutable invité](../service-fabric/service-fabric-guest-executables-introduction.md). |
 | Montée en charge vers plusieurs instances sans redéploiement |X |X |X |X |Bien que les machines virtuelles puissent évoluer vers plusieurs instances, les services exécutés sur celles-ci doivent être écrits de manière à prendre en charge cette montée en charge. Vous devez configurer un équilibreur de charge pour acheminer les demandes entre les machines, et vous assurer que vous avez plusieurs instances de machine virtuelle dans le [groupe à haute disponibilité](../virtual-machines/windows/manage-availability.md). |

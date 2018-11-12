@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 1/10/2017
 ms.author: saurse
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff30dd0e4c7cadabddbeddc38c28a773db68d8ff
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 59236774f98af927082c78f4b75a1f5880a7cac4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34606492"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51259597"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Déplacement de votre stockage à long terme de la bande vers le cloud Azure
 Les clients Azure Backup et System Center Data Protection Manager peuvent effectuer les actions suivantes :
@@ -23,7 +23,7 @@ Les clients Azure Backup et System Center Data Protection Manager peuvent effect
 * conserver les données sauvegardées pendant plus longtemps ;
 * intégrer Azure à leurs besoins de rétention à long terme (à la place d’une bande).
 
-Cet article explique comment les clients peuvent mettre en place des stratégies de sauvegarde et de rétention. Les clients qui utilisent des bandes pour répondre à leurs besoins de rétention à long terme disposent désormais d’une alternative puissante et viable grâce à cette fonctionnalité. La fonctionnalité est activée dans la dernière version d’Azure Backup (disponible [ici](http://aka.ms/azurebackup_agent)). Les clients System Center DPM doivent passer, au minimum, à DPM 2012 R2 UR5 avant d’utiliser DPM avec le service de Sauvegarde Azure.
+Cet article explique comment les clients peuvent mettre en place des stratégies de sauvegarde et de rétention. Les clients qui utilisent des bandes pour répondre à leurs besoins de rétention à long terme disposent désormais d’une alternative puissante et viable grâce à cette fonctionnalité. La fonctionnalité est activée dans la dernière version d’Azure Backup (disponible [ici](https://aka.ms/azurebackup_agent)). Les clients System Center DPM doivent passer, au minimum, à DPM 2012 R2 UR5 avant d’utiliser DPM avec le service de Sauvegarde Azure.
 
 ## <a name="what-is-the-backup-schedule"></a>Qu’est-ce que la planification de sauvegarde ?
 La planification de sauvegarde indique la fréquence de l'opération de sauvegarde. Par exemple, les paramètres dans l’écran suivant indiquent que les sauvegardes sont effectuées tous les jours à 18 h 00 et à minuit.

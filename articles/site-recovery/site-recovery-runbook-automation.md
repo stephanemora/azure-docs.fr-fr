@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: ruturajd@microsoft.com
-ms.openlocfilehash: 5da623d07c34114d82c2b818a7c06420ffb9c886
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1853d8d23aeb96cda3148c6c9e7668b9c2c28924
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50211109"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244013"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Ajouter des runbooks Azure Automation à des plans de récupération
 Cet article décrit comment Azure Site Recovery s’intègre avec Azure Automation pour vous aider à étendre vos plans de récupération. Des plans de récupération peuvent orchestrer la récupération de machines virtuelles protégées par Site Recovery. Les plans de récupération fonctionnent aussi bien pour la réplication sur un cloud secondaire que pour la réplication sur Azure. Ils aident également à rendre la récupération **toujours précise**, **répétable** et **automatisée**. Si vous basculez de vos machines virtuelles vers Azure, l’intégration avec Azure Automation étend vos plans de récupération. Vous pouvez l’utiliser pour exécuter des runbooks qui offrent des tâches d’automatisation puissantes.
@@ -252,8 +252,8 @@ Pour un autre exemple, regardez la vidéo suivante. Elle montre comment récupé
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 * [Documentation Automation](../automation/automation-create-runas-account.md)
-* [Vue d’ensemble d’Azure Automation](http://msdn.microsoft.com/library/azure/dn643629.aspx "Vue d’ensemble d’Azure Automation")
-* [Ressources de script pour les professionnels de l'informatique](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Ressources de script pour les professionnels de l'informatique")
+* [Vue d’ensemble d’Azure Automation](https://msdn.microsoft.com/library/azure/dn643629.aspx "Vue d’ensemble d’Azure Automation")
+* [Ressources de script pour les professionnels de l'informatique](https://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Ressources de script pour les professionnels de l'informatique")
 
 ## <a name="next-steps"></a>Étapes suivantes
 [En savoir plus](site-recovery-failover.md) sur l’exécution des basculements.

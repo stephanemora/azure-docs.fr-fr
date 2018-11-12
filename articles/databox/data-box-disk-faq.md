@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/28/2018
+ms.date: 10/30/2018
 ms.author: alkohli
-ms.openlocfilehash: 8acb808e4b60926fbe6b3faa3fa6a7174a190884
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: 5e4461a910f13c5047c4a2aadd7326c4e12c533f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49094239"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238129"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Qu’est-ce qu’Azure Data Box Disk ? (Préversion)
 
@@ -44,10 +44,10 @@ Les disques sont chiffrés à l’aide du chiffrement de lecteur BitLocker et vo
 R. Si vous souhaitez transférer vers Azure 40 To de données (maximum), les disques Data Box pourront vous être utiles.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>Q. Combien coûtent les disques Data Box ?
-R. Pendant la période de préversion, les disques Data Box sont disponibles gratuitement. L’expédition est également gratuite, toutefois, les frais de stockage Azure s’appliquent.
+R. Pour plus d’informations sur les tarifs des disques Data Box, consultez la [page de tarification de la préversion](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ### <a name="q-how-do-i-get-data-box-disks"></a>Q. Comment faire pour obtenir des disques Data Box ? 
-R.  Pour obtenir des disques Azure Data Box, commencez par vous inscrire à la [préversion de Data Box Disk](http://aka.ms/AzureDataBox). Ensuite, connectez-vous au portail Azure et créez une commande de disques Data Box. Indiquez vos coordonnées et vos paramètres de notification. Une fois que vous avez passé une commande, les disques sont expédiés dans les 10 jours, en fonction de leur disponibilité.   
+R.  Pour obtenir des disques Azure Data Box, commencez par vous inscrire à la [préversion de Data Box Disk](https://aka.ms/AzureDataBox). Ensuite, connectez-vous au portail Azure et créez une commande de disques Data Box. Indiquez vos coordonnées et vos paramètres de notification. Une fois que vous avez passé une commande, les disques sont expédiés dans les 10 jours, en fonction de leur disponibilité.   
 
 ### <a name="q-what-is-the-maximum-amount-of-data-i-can-transfer-with-data-box-disks-in-one-instance"></a>Q. Quelle est la quantité maximale de données que je peux transférer avec les disques Data Box dans une seule instance ?
 R. Pour 5 disques de 8 To chacun (7 To de capacité utilisable), la capacité utilisable maximale est de 35 To. Par conséquent, vous pouvez transférer 35 To de données dans une seule instance.  Pour transférer davantage de données, vous devez commander davantage de disques.

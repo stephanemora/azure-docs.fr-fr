@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: bcd2b2199628a7f717a7ce1d8eba032f5778379b
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 7f1bb400650a223a9f0b4249c33f7c480a1bc009
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301459"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262367"
 ---
 # <a name="security-frame-sensitive-data--mitigations"></a>Infrastructure de sécurité : Données sensibles | Mesures de correction 
 | Produit/Service | Article |
@@ -141,7 +141,7 @@ public override void OnActionExecuting(ActionExecutingContext filterContext)
 | **Phase SDL**               | Créer |  
 | **Technologies applicables** | Générique |
 | **Attributs**              | N/A  |
-| **Informations de référence**              | [MSDN: autocomplete attribute (MSDN : attribut autocomplete)](http://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Using AutoComplete in HTML (Utilisation de la saisie semi-automatique dans HTML)](http://msdn.microsoft.com/library/ms533032.aspx), [Vulnérabilité liée au nettoyage HTML](http://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete.,again?! (Encore la saisie semi-automatique ?)](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
+| **Informations de référence**              | [MSDN: autocomplete attribute (MSDN : attribut autocomplete)](https://msdn.microsoft.com/library/ms533486(VS.85).aspx), [Using AutoComplete in HTML (Utilisation de la saisie semi-automatique dans HTML)](https://msdn.microsoft.com/library/ms533032.aspx), [Vulnérabilité liée au nettoyage HTML](https://technet.microsoft.com/security/bulletin/MS10-071), [Autocomplete.,again?! (Encore la saisie semi-automatique ?)](http://blog.mindedsecurity.com/2011/10/autocompleteagain.html) |
 | **Étapes** | L’attribut autocomplete spécifie si la saisie semi-automatique doit être activée ou non sur un formulaire. Lorsque la saisie semi-automatique est activée, le navigateur complète automatiquement les valeurs en fonction des valeurs que l’utilisateur a déjà entrées. Par exemple, lorsqu’un nouveau nom et un nouveau mot de passe sont entrés dans un formulaire et que le formulaire est envoyé, le navigateur vous demande si le mot de passe doit être enregistré. Par la suite, lorsque le formulaire est affiché, le nom et le mot de passe sont automatiquement renseignés ou ils sont complétés au moment de la saisie du nom. Une personne malveillante disposant d’un accès local peut obtenir le mot de passe en texte clair à partir du cache du navigateur. La saisie semi-automatique est activée par défaut et elle doit être explicitement désactivée. |
 
 ### <a name="example"></a>Exemples

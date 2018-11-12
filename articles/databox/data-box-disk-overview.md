@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: overview
-ms.date: 09/04/2018
+ms.date: 10/30/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: 322c398bd6384821697e2b672825cc0805eb43ad
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: f965d455b3ada48caabb80458d44e841329cf787
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49092896"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51229609"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Qu’est-ce qu’Azure Data Box Disk ? (Préversion)
 
@@ -25,7 +25,7 @@ Vous pouvez facilement configurer, connecter et déverrouiller les disques via l
 
 > [!IMPORTANT]
 > - Data Box Disk est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de déployer cette solution. 
-> - Vous devez vous inscrire pour ce service. Pour ce faire, connectez-vous au [portail en préversion](http://aka.ms/azuredataboxfromdiskdocs).
+> - Vous devez vous inscrire pour ce service. Pour ce faire, connectez-vous au [portail en préversion](https://aka.ms/azuredataboxfromdiskdocs).
 > - Pendant la période de préversion, Data Box Disk peut être envoyé vers les clients des États-Unis et de l’Union européenne. Pour plus d’informations, consultez [Disponibilité des régions](#region-availability).
 
 ## <a name="use-cases"></a>Cas d'utilisation
@@ -112,7 +112,7 @@ Pendant la période de préversion, Data Box Disk peut transférer des données 
 
 ## <a name="pricing"></a>Tarifs
 
-Pendant la période de préversion, Data Box Disk est disponible gratuitement. Cela ne sera plus le cas lorsque disque Data Box Disk sera disponible au public.
+Pour plus d’informations sur la tarification, accédez à la [page de tarification de la préversion](https://azure.microsoft.com/pricing/details/storage/databox/disk/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -12,12 +12,12 @@ ms.service: machine-learning
 ms.component: studio
 ms.topic: article
 ms.date: 12/18/2017
-ms.openlocfilehash: 92db2a86f5f698945cd2252476e951d658dc75ac
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: c3aa1bfe2cc1513d636452031de62da814af6cd7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46959204"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262299"
 ---
 # <a name="how-to-choose-algorithms-for-azure-machine-learning-studio"></a>Guide pratique pour choisir des algorithmes pour Azure Machine Learning Studio
 
@@ -121,7 +121,7 @@ Certains algorithmes d'apprentissage effectuent des hypothèses particulières s
 | [forêt de décision](https://msdn.microsoft.com/library/azure/dn906008.aspx) |● |○ | |6. | |
 | [jungle de décision](https://msdn.microsoft.com/library/azure/dn905976.aspx) |● |○ | |6. |Faible encombrement de mémoire |
 | [arbre de décision optimisé](https://msdn.microsoft.com/library/azure/dn906025.aspx) |● |○ | |6. |Encombrement de mémoire important |
-| [réseau neuronal](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [réseau neuronal](https://msdn.microsoft.com/library/azure/dn905947.aspx) |● | | |9 |[Personnalisation supplémentaire possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [perceptron moyenné](https://msdn.microsoft.com/library/azure/dn906036.aspx) |○ |○ |● |4 | |
 | [machines à vecteurs de support](https://msdn.microsoft.com/library/azure/dn905835.aspx) | |○ |● |5. |Idéal pour les ensembles de fonctionnalités de grande taille |
 | [Machine à vecteurs de support localement profonde](https://msdn.microsoft.com/library/azure/dn913070.aspx) |○ | | |8 |Idéal pour les ensembles de fonctionnalités de grande taille |
@@ -130,7 +130,7 @@ Certains algorithmes d'apprentissage effectuent des hypothèses particulières s
 | [régression logique](https://msdn.microsoft.com/library/azure/dn905853.aspx) | |● |● |5. | |
 | [forêt de décision](https://msdn.microsoft.com/library/azure/dn906015.aspx) |● |○ | |6. | |
 | [jungle de décision ](https://msdn.microsoft.com/library/azure/dn905963.aspx) |● |○ | |6. |Faible encombrement de mémoire |
-| [réseau neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [réseau neuronal](https://msdn.microsoft.com/library/azure/dn906030.aspx) |● | | |9 |[Personnalisation supplémentaire possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [un contre tous](https://msdn.microsoft.com/library/azure/dn905887.aspx) |- |- |- |- |Consultez les propriétés de la méthode à deux classes sélectionnée |
 | **Régression** | | | | | |
 | [linéaire](https://msdn.microsoft.com/library/azure/dn905978.aspx) | |● |● |4 | |
@@ -138,7 +138,7 @@ Certains algorithmes d'apprentissage effectuent des hypothèses particulières s
 | [forêt de décision](https://msdn.microsoft.com/library/azure/dn905862.aspx) |● |○ | |6. | |
 | [arbre de décision optimisé](https://msdn.microsoft.com/library/azure/dn905801.aspx) |● |○ | |5. |Encombrement de mémoire important |
 | [quantile de forêt rapide](https://msdn.microsoft.com/library/azure/dn913093.aspx) |● |○ | |9 |Distributions plutôt que prédictions de points |
-| [réseau neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Personnalisation supplémentaire possible](http://go.microsoft.com/fwlink/?LinkId=402867) |
+| [réseau neuronal](https://msdn.microsoft.com/library/azure/dn905924.aspx) |● | | |9 |[Personnalisation supplémentaire possible](https://go.microsoft.com/fwlink/?LinkId=402867) |
 | [Poisson](https://msdn.microsoft.com/library/azure/dn905988.aspx) | | |● |5. |Techniquement journal linéaire. Pour les décomptes prévisionnels |
 | [ordinal](https://msdn.microsoft.com/library/azure/dn906029.aspx) | | | |0 |Pour la prédiction de rang |
 | **Détection des anomalies** | | | | | |
@@ -190,7 +190,7 @@ Les arbres de décision améliorée évitent le surajustement en limitant le nom
 Les réseaux neuronaux sont des algorithmes d’apprentissage inspirés du cerveau couvrant les problèmes [de classes multiples](https://msdn.microsoft.com/library/azure/dn906030.aspx), [à deux classes](https://msdn.microsoft.com/library/azure/dn905947.aspx) et de [régression](https://msdn.microsoft.com/library/azure/dn905924.aspx). Il existe de nombreux réseaux neuronaux d’apprentissage, mais ceux d’Azure Machine Learning sont tous des graphiques acycliques dirigés. Cela signifie que les fonctionnalités d'entrée sont transmises vers l'avant (jamais vers l'arrière) via une séquence de couches, avant d'être transformées en sorties. Dans chaque couche, les entrées sont pondérées dans diverses combinaisons, additionnées et transmises à la couche suivante. Cette combinaison de calculs simples permet d'apprendre les tendances de données et les limites de classe sophistiquées, en toute simplicité. Les réseaux à plusieurs couches de ce type effectuent « l’apprentissage approfondi » qui alimente tant d’articles technologiques et de science-fiction.
 
 Ces performances élevées ont toutefois un prix. L’apprentissage des réseaux neuronaux peut prendre beaucoup de temps, en particulier pour les grands jeux de données avec un grand nombre de fonctionnalités. Ils ont également plus de paramètres que la plupart des algorithmes, ce qui signifie que le balayage de paramètres allonge grandement la durée d’apprentissage.
-Et pour les perfectionnistes qui souhaitent [spécifier leur propre structure de réseau](http://go.microsoft.com/fwlink/?LinkId=402867), les possibilités sont infinies.
+Et pour les perfectionnistes qui souhaitent [spécifier leur propre structure de réseau](https://go.microsoft.com/fwlink/?LinkId=402867), les possibilités sont infinies.
 
 ![Limites apprises par les réseaux neuronaux][6]
 ***Les limites apprises par les réseaux neuronaux peuvent être complexes et irrégulières***

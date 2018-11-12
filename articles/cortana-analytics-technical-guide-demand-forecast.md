@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/16/2016
 ms.author: garye
-ms.openlocfilehash: 8ff5c52b324c95bb48de0f9bbb1011ede737efb0
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: e18e1fb3e97dd9f846ee71be4f0fbb66aeca3d88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387660"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238860"
 ---
 # <a name="technical-guide-to-the-cortana-intelligence-solution-template-for-demand-forecast-in-energy"></a>Guide technique de l’utilisation du modèle de solution Cortana Intelligence pour prévoir la demande énergétique
 ## <a name="overview"></a>**Vue d’ensemble**
@@ -47,7 +47,7 @@ Le service [Azure Event Hub](https://azure.microsoft.com/services/event-hubs/) e
 Le service [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) sert à fournir des analyses en temps quasi-réel sur le flux d’entrée du service [Azure Event Hub](#azure-event-hub) et à publier les résultats dans un tableau de bord [Power BI](https://powerbi.microsoft.com). Il permet également d’archiver, dans le service [Azure Storage](https://azure.microsoft.com/services/storage/), tous les événements bruts entrants qui seront ensuite traités par le service [Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/).
 
 ### <a name="hdinsight-custom-aggregation"></a>Agrégation personnalisée HDInsight
-Le service Azure HDInsight est utilisé pour exécuter des scripts [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) (orchestrés par Azure Data Factory) pour agréger les événements bruts ayant été archivés à l’aide du service Azure Stream Analytics.
+Le service Azure HDInsight est utilisé pour exécuter des scripts [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) (orchestrés par Azure Data Factory) pour agréger les événements bruts ayant été archivés à l’aide du service Azure Stream Analytics.
 
 ### <a name="azure-machine-learning"></a>Azure Machine Learning
 Le service [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) est utilisé (et orchestré par Azure Data Factory) pour prédire la consommation électrique future d’une région particulière compte tenu des entrées reçues.
@@ -102,14 +102,14 @@ Cette section décrit les [pipelines](data-factory/concepts-pipelines-activities
 
 ![](media/cortana-analytics-technical-guide-demand-forecast/ADF2.png)
 
-Cinq des pipelines de cette fabrique contiennent des scripts [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) utilisés pour partitionner et agréger les données. Quand ils sont référencés, les scripts apparaissent dans le compte [Stockage Azure](https://azure.microsoft.com/services/storage/) créé pendant l’installation, à l’emplacement suivant : demandforecasting\\\\script\\\\hive\\\\ (ou https://[nom de votre solution].blob.core.windows.net/demandforecasting).
+Cinq des pipelines de cette fabrique contiennent des scripts [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) utilisés pour partitionner et agréger les données. Quand ils sont référencés, les scripts apparaissent dans le compte [Stockage Azure](https://azure.microsoft.com/services/storage/) créé pendant l’installation, à l’emplacement suivant : demandforecasting\\\\script\\\\hive\\\\ (ou https://[nom de votre solution].blob.core.windows.net/demandforecasting).
 
-De la même manière que les requêtes [Azure Stream Analytics](#azure-stream-analytics-1), les scripts [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) ont une connaissance implicite du format des données entrantes. Vous devez donc modifier ces requêtes en fonction de votre format de données et des exigences [d’ingénierie des caractéristiques](machine-learning/team-data-science-process/create-features.md).
+De la même manière que les requêtes [Azure Stream Analytics](#azure-stream-analytics-1), les scripts [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) ont une connaissance implicite du format des données entrantes. Vous devez donc modifier ces requêtes en fonction de votre format de données et des exigences [d’ingénierie des caractéristiques](machine-learning/team-data-science-process/create-features.md).
 
 #### <a name="aggregatedemanddatato1hrpipeline"></a>*AggregateDemandDataTo1HrPipeline*
-Ce [pipeline](data-factory/concepts-pipelines-activities.md) contient une seule activité, [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md). Cette activité utilise un [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) qui exécute un script [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) pour agréger les données à la demande diffusées en streaming toutes les 10 secondes au niveau de la sous-station en données horaires au niveau de la région et les placer dans [Stockage Azure](https://azure.microsoft.com/services/storage/) par le biais du travail Azure Stream Analytics.
+Ce [pipeline](data-factory/concepts-pipelines-activities.md) contient une seule activité, [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md). Cette activité utilise un [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) qui exécute un script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) pour agréger les données à la demande diffusées en streaming toutes les 10 secondes au niveau de la sous-station en données horaires au niveau de la région et les placer dans [Stockage Azure](https://azure.microsoft.com/services/storage/) par le biais du travail Azure Stream Analytics.
 
-Le script [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) utilisé pour cette tâche de partitionnement est ***AggregateDemandRegion1Hr.hql***
+Le script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) utilisé pour cette tâche de partitionnement est ***AggregateDemandRegion1Hr.hql***
 
 #### <a name="loadhistorydemanddatapipeline"></a>*LoadHistoryDemandDataPipeline*
 Ce [pipeline](data-factory/concepts-pipelines-activities.md) contient deux activités :
@@ -117,7 +117,7 @@ Ce [pipeline](data-factory/concepts-pipelines-activities.md) contient deux activ
 * [HDInsightHive](data-factory/transform-data-using-hadoop-hive.md), qui utilise un [HDInsightLinkedService](https://msdn.microsoft.com/library/azure/dn893526.aspx) exécutant un script Hive pour agréger les données de demande d’historique horaire au niveau de la sous-station en données horaires au niveau de la région et les placer dans Azure Storage pendant le travail Azure Stream Analytics
 * [Copy](https://msdn.microsoft.com/library/azure/dn835035.aspx) , qui déplace les données agrégées de l’objet blob Azure Storage vers la base de données SQL Microsoft Azure approvisionnée dans le cadre de l’installation du modèle de solution.
 
-Le script [Hive](http://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) pour cette tâche est ***AggregateDemandHistoryRegion.hql***.
+Le script [Hive](https://blogs.msdn.com/b/bigdatasupport/archive/2013/11/11/get-started-with-hive-on-hdinsight.aspx) pour cette tâche est ***AggregateDemandHistoryRegion.hql***.
 
 #### <a name="mlscoringregionxpipeline"></a>*MLScoringRegionXPipeline*
 Ces [pipelines](data-factory/concepts-pipelines-activities.md) comprennent plusieurs activités dont le résultat final contient les prédictions notées à partir de l’expérience Azure Machine Learning associée à ce modèle de solution. Ils sont quasiment identiques : ce qui les différencie, c’est qu’ils gèrent chacun une région différente. Pour cela, un RegionID différent est passé dans le pipeline ADF et le script Hive pour chaque région.  
@@ -231,7 +231,7 @@ Veillez à arrêter le générateur de données quand vous n’utilisez pas la s
 Les deux outils suivants peuvent vous aider à mieux comprendre les coûts impliqués dans l’exécution du modèle de solution de prévision de la demande énergétique dans votre abonnement :
 
 * [Microsoft Azure Cost Estimator Tool (en ligne)](https://azure.microsoft.com/pricing/calculator/)
-* [Microsoft Azure Cost Estimator Tool (de bureau)](http://www.microsoft.com/download/details.aspx?id=43376)
+* [Microsoft Azure Cost Estimator Tool (de bureau)](https://www.microsoft.com/download/details.aspx?id=43376)
 
 ## <a name="acknowledgements"></a>**Remerciements**
 Cet article a été créé par le scientifique de données Yijing Chen et l’ingénieur logiciel Min Qiu de Microsoft.

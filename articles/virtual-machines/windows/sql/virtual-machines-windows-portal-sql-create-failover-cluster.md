@@ -16,16 +16,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 8e107c1721d5623239a694eba39b32e8a2a6089d
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 382027782044a5a1011976560b7460047544f521
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42143379"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237962"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Configurer une instance de cluster de basculement SQL Server sur des machines virtuelles Azure
 
-Cet article explique comment créer une instance de cluster de basculement (FCI) SQL Server sur des machines virtuelles Azure dans le modèle Resource Manager. Cette solution utilise [l’édition Espaces de stockage direct \(S2D\) de Windows Server 2016 Datacenter](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) en tant que réseau SAN virtuel basé sur logiciel qui synchronise le stockage (disques de données) entre les nœuds (machines virtuelles Azure) dans un cluster Windows. La technologie Espaces de stockage direct (S2D) est une nouveauté dans Windows Server 2016.
+Cet article explique comment créer une instance de cluster de basculement (FCI) SQL Server sur des machines virtuelles Azure dans le modèle Resource Manager. Cette solution utilise [l’édition Espaces de stockage direct \(S2D\) de Windows Server 2016 Datacenter](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) en tant que réseau SAN virtuel basé sur logiciel qui synchronise le stockage (disques de données) entre les nœuds (machines virtuelles Azure) dans un cluster Windows. La technologie Espaces de stockage direct (S2D) est une nouveauté dans Windows Server 2016.
 
 Le schéma suivant illustre la solution complète sur les machines virtuelles Azure :
 
@@ -44,7 +44,7 @@ Le schéma précédent illustre :
    >[!NOTE]
    >Toutes les ressources Azure dans le schéma se trouvent dans le même groupe de ressources.
 
-Pour plus d’informations sur la technologie S2D, consultez [l’édition Espaces de stockage direct \(S2D\) de Windows Server 2016 Datacenter](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
+Pour plus d’informations sur la technologie S2D, consultez [l’édition Espaces de stockage direct \(S2D\) de Windows Server 2016 Datacenter](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 La technologie S2D prend en charge deux types d’architectures : convergée et hyper-convergée. L’architecture dans ce document est hyper-convergée. Une infrastructure hyper-convergée place le stockage sur les mêmes serveurs que ceux qui hébergent l’application en cluster. Dans cette architecture, le stockage se trouve sur chaque nœud de l’instance de cluster de basculement SQL Server.
 
@@ -52,13 +52,13 @@ La technologie S2D prend en charge deux types d’architectures : convergée et 
 
 Sur les machines virtuelles Azure, vous pouvez acquérir une licence SQL Server à l’aide des images de machines virtuelles avec paiement à l’utilisation (PAYG) ou BYOL (apportez votre propre licence). Le type d’image que vous choisissez affecte la façon dont vous êtes facturé.
 
-Avec la licence PAYG, une instance de cluster de basculement (FCI) de SQL Server sur des machines virtuelles Azure entraîne des frais pour tous les nœuds de FCI, y compris les nœuds passifs. Pour plus d’informations, consultez [Tarification des machines virtuelles SQL Server Entreprise](http://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
+Avec la licence PAYG, une instance de cluster de basculement (FCI) de SQL Server sur des machines virtuelles Azure entraîne des frais pour tous les nœuds de FCI, y compris les nœuds passifs. Pour plus d’informations, consultez [Tarification des machines virtuelles SQL Server Entreprise](https://azure.microsoft.com/pricing/details/virtual-machines/sql-server-enterprise/). 
 
-Les clients avec un Contrat Entreprise et la Software Assurance ont le droit d’utiliser un nœud FCI passif gratuit pour chaque nœud actif. Pour tirer parti de cet avantage dans Azure, utilisez des images de machines virtuelles BYOL, puis utilisez la même licence sur les nœuds actifs et passifs de l’instance FCI. Pour plus d’informations, consultez [Accord Entreprise](http://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
+Les clients avec un Contrat Entreprise et la Software Assurance ont le droit d’utiliser un nœud FCI passif gratuit pour chaque nœud actif. Pour tirer parti de cet avantage dans Azure, utilisez des images de machines virtuelles BYOL, puis utilisez la même licence sur les nœuds actifs et passifs de l’instance FCI. Pour plus d’informations, consultez [Accord Entreprise](https://www.microsoft.com/en-us/Licensing/licensing-programs/enterprise.aspx).
 
 Pour comparer les licences PAYG et BYOL pour SQL Server sur des machines virtuelles Azure, consultez [Bien démarrer avec des machines virtuelles SQL](virtual-machines-windows-sql-server-iaas-overview.md#get-started-with-sql-vms).
 
-Pour plus d’informations sur les licences SQL Server, consultez [Tarification](http://www.microsoft.com/sql-server/sql-server-2017-pricing).
+Pour plus d’informations sur les licences SQL Server, consultez [Tarification](https://www.microsoft.com/sql-server/sql-server-2017-pricing).
 
 ### <a name="example-azure-template"></a>Exemple de modèle Azure
 
@@ -71,12 +71,12 @@ Il existe quelques éléments que vous devez connaître et deux choses que vous 
 ### <a name="what-to-know"></a>Éléments à connaître
 Vous devez avoir une compréhension opérationnelle des technologies suivantes :
 
-- [Technologies de cluster Windows](http://technet.microsoft.com/library/hh831579.aspx)
-- [Instances de cluster de basculement SQL Server](http://msdn.microsoft.com/library/ms189134.aspx).
+- [Technologies de cluster Windows](https://technet.microsoft.com/library/hh831579.aspx)
+- [Instances de cluster de basculement SQL Server](https://msdn.microsoft.com/library/ms189134.aspx).
 
 Vous devez également avoir une compréhension générale des technologies suivantes :
 
-- [Solution hyper-convergée utilisant les Espaces de stockage direct dans Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
+- [Solution hyper-convergée utilisant les Espaces de stockage direct dans Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct)
 - [Groupes de ressources Azure](../../../azure-resource-manager/resource-group-portal.md)
 
 > [!IMPORTANT]
@@ -225,11 +225,11 @@ L’étape suivante consiste à configurer le cluster de basculement avec la tec
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-À titre de référence, les étapes suivantes respectent les instructions de l’Étape 3 sous [Solution hyper-convergée utilisant les Espaces de stockage direct dans Windows Server 2016](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+À titre de référence, les étapes suivantes respectent les instructions de l’Étape 3 sous [Solution hyper-convergée utilisant les Espaces de stockage direct dans Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 ### <a name="validate-the-cluster"></a>Valider le cluster
 
-Ce guide fait référence aux instructions sous [Valider le cluster](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
+Ce guide fait référence aux instructions sous [Valider le cluster](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-31-run-cluster-validation).
 
 Validez le cluster dans l’interface utilisateur ou avec PowerShell.
 
@@ -259,7 +259,7 @@ Après avoir validé le cluster, créez le cluster de basculement.
 
 ### <a name="create-the-failover-cluster"></a>Créer le cluster de basculement
 
-Ce guide fait référence à la section [Créer le cluster de basculement](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
+Ce guide fait référence à la section [Créer le cluster de basculement](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-32-create-a-cluster).
 
 Pour créer le cluster de basculement, vous avez besoin des éléments suivants :
 - Les noms des machines virtuelles qui deviennent les nœuds du cluster.
@@ -276,19 +276,19 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 Un témoin cloud est un nouveau type de témoin de quorum de cluster stocké dans un Azure Storage Blob. Cela supprime la nécessité de disposer d’une machine virtuelle distincte qui héberge un partage de fichiers du témoin.
 
-1. [Créez un témoin cloud pour le cluster de basculement](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
+1. [Créez un témoin cloud pour le cluster de basculement](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
 1. Créez un conteneur d’objets blob.
 
 1. Enregistrez les clés d’accès et l’URL du conteneur.
 
-1. Configurez le témoin de quorum du cluster de basculement. Consultez la section [Configurer le témoin de quorum dans l’interface utilisateur](http://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) dans l’interface utilisateur.
+1. Configurez le témoin de quorum du cluster de basculement. Consultez la section [Configurer le témoin de quorum dans l’interface utilisateur](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) dans l’interface utilisateur.
 
 ### <a name="add-storage"></a>Ajouter du stockage
 
-Les disques pour la technologie S2D doivent être vides et sans partitions ou autres données. Pour nettoyer les disques, suivez [les étapes décrites dans ce guide](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
+Les disques pour la technologie S2D doivent être vides et sans partitions ou autres données. Pour nettoyer les disques, suivez [les étapes décrites dans ce guide](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
 
-1. [Activez les Espaces de stockage direct \(S2D\)](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Activez les Espaces de stockage direct \(S2D\)](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    Le script PowerShell suivant active les espaces de stockage direct.  
 
@@ -298,7 +298,7 @@ Les disques pour la technologie S2D doivent être vides et sans partitions ou au
 
    Dans le **Gestionnaire du cluster de basculement**, vous pouvez maintenant voir le pool de stockage.
 
-1. [Créez un volume](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [Créez un volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
    L’une des fonctionnalités de la technologie S2D est qu’elle crée automatiquement un pool de stockage lorsque vous l’activez. Vous êtes maintenant prêt à créer un volume. L’applet de commande PowerShell `New-Volume` automatise le processus de création de volume, notamment la mise en forme, l’ajout au cluster et la création d’un volume partagé de cluster (CSV). L’exemple suivant crée un volume partagé de cluster de 800 gigaoctets.
 
@@ -343,7 +343,7 @@ Après avoir configuré le cluster de basculement et tous les composants du clus
 1. Cliquez sur **Ajouter un nœud à un cluster de basculement SQL Server**. Suivez les instructions de l’Assistant pour installer SQL Server et ajouter ce serveur à l’instance de cluster de basculement.
 
    >[!NOTE]
-   >Si vous avez utilisé une image de la galerie Azure Marketplace avec SQL Server, les outils SQL Server ont été inclus avec l’image. Si vous n’avez pas utilisé cette image, installez les outils SQL Server séparément. Consultez [Télécharger SQL Server Management Studio (SSMS)](http://msdn.microsoft.com/library/mt238290.aspx).
+   >Si vous avez utilisé une image de la galerie Azure Marketplace avec SQL Server, les outils SQL Server ont été inclus avec l’image. Si vous n’avez pas utilisé cette image, installez les outils SQL Server séparément. Consultez [Télécharger SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="step-5-create-azure-load-balancer"></a>Étape 5 : Créer un équilibrage de charge Azure
 
@@ -478,7 +478,7 @@ Le **Gestionnaire du cluster de basculement** présente le rôle et ses ressourc
 Pour tester la connectivité, connectez-vous à une autre machine virtuelle sur le même réseau virtuel. Ouvrez **SQL Server Management Studio** et connectez-vous au nom FCI SQL Server.
 
 >[!NOTE]
->Si nécessaire, vous pouvez [télécharger SQL Server Management Studio](http://msdn.microsoft.com/library/mt238290.aspx).
+>Si nécessaire, vous pouvez [télécharger SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## <a name="limitations"></a>Limites
 
@@ -491,10 +491,10 @@ Concernant les machines virtuelles Azure, MSDTC n’est pas pris en charge sur W
 
 ## <a name="see-also"></a>Voir aussi
 
-[Configurer S2D avec le Bureau à distance (Azure)](http://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
+[Configurer S2D avec le Bureau à distance (Azure)](https://technet.microsoft.com/windows-server-docs/compute/remote-desktop-services/rds-storage-spaces-direct-deployment)
 
-[Solution hyper-convergée avec Espaces de stockage direct](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
+[Solution hyper-convergée avec Espaces de stockage direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct).
 
-[Vue d’ensemble de l’espace de stockage direct](http://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
+[Vue d’ensemble de l’espace de stockage direct](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview)
 
 [Prise en charge de SQL Server pour S2D](https://blogs.technet.microsoft.com/dataplatforminsider/2016/09/27/sql-server-2016-now-supports-windows-server-2016-storage-spaces-direct/)

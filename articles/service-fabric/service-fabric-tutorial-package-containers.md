@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 09/12/2017
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 952550225f2bdd8559d72a9d283993451ae7f60b
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 7d622b834cef31552cac60b359cdd8404592eda9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616341"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255555"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Tutoriel : empaqueter et déployer des conteneurs sous forme d’application Service Fabric à l’aide de Yeoman
 
@@ -229,7 +229,7 @@ r = redis.StrictRedis(host=redis_server, port=6379, db=0)
 
 Pour déployer l’application sur un cluster dans Azure, créez votre propre cluster.
 
-Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le temps et hébergés sur Azure. Ils sont gérés par l’équipe Service Fabric, au sein de laquelle chacun peut déployer des applications et en savoir plus sur la plateforme. Pour obtenir l’accès à un cluster tiers, [suivez ces instructions](http://aka.ms/tryservicefabric).
+Les clusters tiers sont des clusters Service Fabric gratuits, limités dans le temps et hébergés sur Azure. Ils sont gérés par l’équipe Service Fabric, au sein de laquelle chacun peut déployer des applications et en savoir plus sur la plateforme. Pour obtenir l’accès à un cluster tiers, [suivez ces instructions](https://aka.ms/tryservicefabric).
 
 Pour effectuer des opérations de gestion sur le cluster tiers sécurisé, vous pouvez utiliser Service Fabric Explorer, CLI ou Powershell. Pour utiliser Service Fabric Explorer, vous devez télécharger le fichier PFX sur le site du cluster tiers et importer le certificat dans votre magasin de certificats (Windows ou Mac) ou dans le navigateur lui-même (Ubuntu). Il n’existe aucun mot de passe pour les certificats auto-signés venant cluster tiers.
 
@@ -332,7 +332,7 @@ Utilisez le script de désinstallation fourni dans le modèle pour supprimer l�
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables>
-      </EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
 
   <Resources>
@@ -367,7 +367,7 @@ Utilisez le script de désinstallation fourni dans le modèle pour supprimer l�
          </ContainerHost>
       </EntryPoint>
       <EnvironmentVariables>
-      </EnvironmentVariables>
+      </EnvironmentVariables>
    </CodePackage>
      <Resources>
     <Endpoints>

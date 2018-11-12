@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 03/17/2017
 ms.author: mikeray
-ms.openlocfilehash: fe7384baa6740d316fb5a8ec7b1894f337d88080
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: 584fca3df4fee24a4f1c7b93d5371c48be059f7b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29401281"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51257933"
 ---
 # <a name="configure-the-always-on-availability-group-on-an-azure-vm-with-powershell"></a>Configurer le groupe de disponibilité Always On sur une machine virtuelle Azure avec PowerShell
 > [!div class="op_single_selector"]
@@ -482,7 +482,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Vous utiliserez l
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Stopped,$timeout)
         $svc2.Start();
         $svc2.WaitForStatus([System.ServiceProcess.ServiceControllerStatus]::Running,$timeout)
-7. Téléchargez **CreateAzureFailoverCluster.ps1** depuis la page [Create Failover Cluster for Always On Availability Groups in Azure VM](http://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Créer le cluster de basculement pour les groupes de disponibilité Always On dans une machine virtuelle Azure) dans le répertoire de travail local. Vous utiliserez ce script pour vous aider à créer un cluster de basculement fonctionnel. Pour obtenir des informations importantes sur la façon dont le clustering de basculement Windows interagit avec le réseau Azure, consultez [Haute disponibilité et récupération d’urgence pour SQL Server dans les machines virtuelles Azure](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
+7. Téléchargez **CreateAzureFailoverCluster.ps1** depuis la page [Create Failover Cluster for Always On Availability Groups in Azure VM](https://gallery.technet.microsoft.com/scriptcenter/Create-WSFC-Cluster-for-7c207d3a) (Créer le cluster de basculement pour les groupes de disponibilité Always On dans une machine virtuelle Azure) dans le répertoire de travail local. Vous utiliserez ce script pour vous aider à créer un cluster de basculement fonctionnel. Pour obtenir des informations importantes sur la façon dont le clustering de basculement Windows interagit avec le réseau Azure, consultez [Haute disponibilité et récupération d’urgence pour SQL Server dans les machines virtuelles Azure](../sql/virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fsqlclassic%2ftoc.json).
 8. Passez à votre répertoire de travail et créez le cluster de basculement avec le script téléchargé.
 
         Set-ExecutionPolicy Unrestricted -Force
@@ -565,7 +565,7 @@ Vous pouvez maintenant configurer le groupe de disponibilité. Vous utiliserez l
              -Path "SQLSERVER:\SQL\$server2\Default\AvailabilityGroups\$ag" `
              -Database $db
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 Vous avez correctement implémenté SQL Server Always On en créant un groupe de disponibilité dans Azure. Pour configurer un écouteur pour ce groupe de disponibilité, consultez [Configurer un écouteur à équilibrage de charge interne pour des groupes de disponibilité Always On dans Azure](../classic/ps-sql-int-listener.md).
 
 Pour en savoir plus sur l’utilisation de SQL Server dans Azure, consultez [Présentation de SQL Server sur les machines virtuelles Azure](../sql/virtual-machines-windows-sql-server-iaas-overview.md).

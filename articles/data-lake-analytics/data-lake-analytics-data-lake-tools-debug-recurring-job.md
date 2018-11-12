@@ -9,16 +9,16 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 05/20/2018
-ms.openlocfilehash: 33c3b91e7bf9fa64e3ba3f98a9396045753d0c2a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5a2935d559a967151c5bdc01c4b0806fe52179b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045692"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260038"
 ---
 # <a name="troubleshoot-an-abnormal-recurring-job"></a>Résoudre des problèmes liés à une tâche périodique anormale
 
-Cet article explique comment utiliser [Azure Data Lake Tools pour Visual Studio](http://aka.ms/adltoolsvs) afin de résoudre les problèmes liés à des tâches périodiques. Pour en savoir plus sur le pipeline et les tâches périodiques, consultez le [blog Azure Data Lake et Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
+Cet article explique comment utiliser [Azure Data Lake Tools pour Visual Studio](https://aka.ms/adltoolsvs) afin de résoudre les problèmes liés à des tâches périodiques. Pour en savoir plus sur le pipeline et les tâches périodiques, consultez le [blog Azure Data Lake et Azure HDInsight](https://blogs.msdn.microsoft.com/azuredatalake/2017/09/19/managing-pipeline-recurring-jobs-in-azure-data-lake-analytics-made-easy/).
 
 Les tâches périodiques partagent généralement la même logique de requête et des données d’entrée similaires. Supposons, par exemple, qu’une tâche périodique s’exécute chaque lundi matin à 8 h 00 pour compter les utilisateurs actifs de la semaine précédente. Les scripts de ces tâches partagent un modèle qui contient la logique de requête. Les entrées de ces tâches sont les données d’utilisation de la semaine précédente. Dans la mesure où ces tâches partagent la même logique de requête et une entrée similaire, leurs performances sont en général équivalentes et stables. Si l’une de vos tâches périodiques se met à avoir un comportement anormal, échoue ou ralentit beaucoup, vous pouvez :
 
@@ -39,7 +39,7 @@ Dans **Outils** > **Data Lake** > **Affichage Tâches**, vous pouvez coller l’
  
 ### <a name="case-2-you-have-the-pipeline-for-the-recurring-job-but-not-the-url"></a>Cas n°2 : Vous disposez du pipeline pour la tâche périodique, mais pas de l’URL
 
-Dans Visual Studio, vous pouvez ouvrir le navigateur de pipeline dans Explorateur de serveurs > votre compte Azure Data Lake Analytics > **Pipelines**. (Si vous ne trouvez pas ce nœud dans l’Explorateur de serveurs, [téléchargez la dernière version du plug-in](http://aka.ms/adltoolsvs).) 
+Dans Visual Studio, vous pouvez ouvrir le navigateur de pipeline dans Explorateur de serveurs > votre compte Azure Data Lake Analytics > **Pipelines**. (Si vous ne trouvez pas ce nœud dans l’Explorateur de serveurs, [téléchargez la dernière version du plug-in](https://aka.ms/adltoolsvs).) 
 
 ![Sélectionner le nœud Pipelines](./media/data-lake-analytics-data-lake-tools-debug-recurring-job/pipeline-browser.png)
 

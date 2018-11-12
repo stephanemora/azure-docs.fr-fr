@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 1a0d8106c6a48494a938ee7a9da6f43f467516f6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 2fe57480f7d8e22cfffafec6845372718587958e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394015"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258423"
 ---
 # <a name="move-data-to-or-from-azure-blob-storage-using-ssis-connectors"></a>Déplacer des données vers ou depuis Stockage Blob Azure à l’aide de connecteurs SSIS
 Le [Feature Pack SQL Server Integration Services pour Azure](https://msdn.microsoft.com/library/mt146770.aspx) fournit des composants permettant de se connecter à Azure, de transférer des données entre des sources de données Azure et des sources de données sur site et de traiter les données stockées dans Azure.
@@ -31,7 +31,7 @@ Une fois que les clients ont déplacé les données locales dans le cloud, ils p
 
 Il s’agit généralement de la première étape pour les procédures pas à pas [SQL](sql-walkthrough.md) et [HDInsight](hive-walkthrough.md).
 
-Pour une présentation de scénarios canoniques utilisant SSIS pour répondre aux besoins de l’entreprise communs dans les scénarios d’intégration hybrides, reportez-vous à la section [En faire plus avec le Feature Pack SQL Server Integration Services pour Azure](http://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) .
+Pour une présentation de scénarios canoniques utilisant SSIS pour répondre aux besoins de l’entreprise communs dans les scénarios d’intégration hybrides, reportez-vous à la section [En faire plus avec le Feature Pack SQL Server Integration Services pour Azure](https://blogs.msdn.com/b/ssis/archive/2015/06/25/doing-more-with-sql-server-integration-services-feature-pack-for-azure.aspx) .
 
 > [!NOTE]
 > Pour une présentation complète du stockage d’objets blob Azure, consultez les articles [Fonctionnalités de base des objets blob Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) et [Service Blob Azure](https://msdn.microsoft.com/library/azure/dd179376.aspx).
@@ -47,10 +47,10 @@ Pour exécuter les tâches décrites dans cet article, vous devez disposer d’u
 Pour utiliser les **connecteurs SSIS**vous devez télécharger :
 
 * **SQL Server 2014 ou 2016 Standard (ou version ultérieure)**: l’installation inclut SQL Server Integration Services.
-* **Microsoft SQL Server 2014 ou 2016 Integration Services Feature Pack for Azure** peuvent être téléchargés respectivement depuis les pages [SQL Server 2014 Integration Services](http://www.microsoft.com/download/details.aspx?id=47366) et [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
+* **Microsoft SQL Server 2014 ou 2016 Integration Services Feature Pack for Azure** peuvent être téléchargés respectivement depuis les pages [SQL Server 2014 Integration Services](https://www.microsoft.com/download/details.aspx?id=47366) et [SQL Server 2016 Integration Services](https://www.microsoft.com/download/details.aspx?id=49492).
 
 > [!NOTE]
-> SSIS est installé avec SQL Server, mais n’est pas inclus dans la version Express. Pour plus d'informations sur les applications incluses dans les différentes éditions de SQL Server, consultez [Éditions de SQL Server](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
+> SSIS est installé avec SQL Server, mais n’est pas inclus dans la version Express. Pour plus d'informations sur les applications incluses dans les différentes éditions de SQL Server, consultez [Éditions de SQL Server](https://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/)
 > 
 > 
 

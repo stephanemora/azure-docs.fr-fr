@@ -12,17 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/01/2016
+ms.date: 10/30/2018
 ms.author: cephalin
-ms.openlocfilehash: 00b5f9c78000fbb9bf86e8c1d8b06e3645795a12
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 7cf7078353de27c35a607fa8ef1921d6ed4b54b4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850152"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247345"
 ---
 # <a name="operating-system-functionality-on-azure-app-service"></a>Fonctionnalités de système d’exploitation sur Azure App Service
-Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications exécutées sur [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l'accès aux fichiers, l'accès réseau et l'accès au registre, ainsi que les journaux et événements de diagnostic. 
+Cet article décrit les fonctionnalités de système d’exploitation communes de base accessibles à toutes les applications Windows exécutées sur [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Ces fonctionnalités englobent notamment l'accès aux fichiers, l'accès réseau et l'accès au registre, ainsi que les journaux et événements de diagnostic. 
+
+> [!NOTE] 
+> Les [applications Linux](containers/app-service-linux-intro.md) dans App Service s’exécutent dans leurs propres conteneurs. Aucun accès au système d’exploitation hôte n’est autorisé, car vous n’avez pas d’accès racine au conteneur. De même, pour les [applications qui s’exécutent dans des conteneurs Windows](app-service-web-get-started-windows-container.md), vous disposez d’un accès administratif au conteneur mais pas d’un accès au système d’exploitation hôte. 
+>
 
 <a id="tiers"></a>
 

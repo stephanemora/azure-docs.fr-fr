@@ -7,12 +7,12 @@ author: ash2017
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: asrastog
-ms.openlocfilehash: 02fc47200157b813da4d0031effa39633719855d
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: df680469541885ab6413800ee3b9806975e34dba
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340203"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258661"
 ---
 # <a name="order-device-connection-events-from-azure-iot-hub-using-azure-cosmos-db"></a>Commander des événements de connexion d’appareils depuis Azure IoT Hub à l’aide d’Azure Cosmos DB
 
@@ -22,7 +22,7 @@ Le numéro de séquence est la représentation d’un nombre hexadécimal sous l
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Un compte Azure actif. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](http://azure.microsoft.com/pricing/free-trial/).
+* Un compte Azure actif. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/pricing/free-trial/).
 
 * Un compte d’API SQL Azure Cosmos DB actif. Si vous n’en avez pas encore créé un, consultez [Créer un compte de base de données](https://docs.microsoft.com/azure/cosmos-db/create-sql-api-dotnet#create-a-database-account) pour obtenir une procédure pas à pas.
 
@@ -265,7 +265,7 @@ Dans cette section, vous configurez votre hub IoT pour publier des événements 
 
 Maintenant que votre abonnement aux événements est configuré, nous allons le tester en vous connectant à un appareil.
 
-### <a name="register-a-device-in-iot-hub"></a>Inscrire un appareil dans un hub IoT
+### <a name="register-a-device-in-iot-hub"></a>Inscrire un appareil dans un IoT Hub
 
 1. À partir de votre hub IoT, sélectionnez **Appareils IoT**. 
 

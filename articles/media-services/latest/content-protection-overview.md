@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2018
 ms.author: juliako
-ms.openlocfilehash: f8ef92a335dd6faee076356dbffc873b08afbdc0
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 1c7454aead07c728d55ff2c309cca83a792aac88
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394258"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238347"
 ---
 # <a name="content-protection-overview"></a>Présentation de la protection du contenu
 
@@ -59,7 +59,7 @@ Pour mener à bien votre conception de système/d’application de « protectio
 
     Pour tester du contenu chiffré par AES ou CENC (Widevine et/ou PlayReady), vous pouvez utiliser le [lecteur multimédia Azure](https://ampdemo.azureedge.net/azuremediaplayer.html). Veillez à cliquer sur Options avancées et vérifiez vos options de chiffrement.
 
-    Si vous souhaitez tester le contenu chiffré de FairPlay, utilisez [ce lecteur test](http://aka.ms/amtest). Le lecteur prend en charge les DRM Widevine, PlayReady et FairPlay, ainsi que le chiffrement de clé en clair AES-128. Vous devez choisir le bon navigateur pour tester les différents DRM : Chrome/Opera/Firefox pour Widevine, MS Edge/IE11 pour PlayReady, Safari sur macOS pour FairPlay.
+    Si vous souhaitez tester le contenu chiffré de FairPlay, utilisez [ce lecteur test](https://aka.ms/amtest). Le lecteur prend en charge les DRM Widevine, PlayReady et FairPlay, ainsi que le chiffrement de clé en clair AES-128. Vous devez choisir le bon navigateur pour tester les différents DRM : Chrome/Opera/Firefox pour Widevine, MS Edge/IE11 pour PlayReady, Safari sur macOS pour FairPlay.
 
 3. Secure Token Service (STS), qui émet le jeton JSON Web Token (JWT) en tant que jeton d’accès pour accéder aux ressources principales. Vous pouvez utiliser les services de distribution de licence AMS en tant que ressource principale. Un service STS doit définir les éléments suivants :
 
@@ -168,8 +168,8 @@ Comment et où obtenir un jeton JWT avant de l’utiliser pour demander une lice
 1. Pour un environnement de production, vous devez disposer d’un service d’émission de jeton de sécurité (STS) (service web) qui émet un jeton JWT en réponse à une requête HTTPS. Dans le cas d’un environnement de test, vous pouvez utiliser le code figurant dans la méthode **GetTokenAsync** définie dans [Program.cs](https://github.com/Azure-Samples/media-services-v3-dotnet-tutorials/blob/master/AMSV3Tutorials/EncryptWithDRM/Program.cs).
 2. Après l’authentification d’un utilisateur, le lecteur doit adresser une requête au service STS afin d’obtenir ce jeton et l’attribuer comme valeur de jeton. Vous pouvez utiliser [l’API Lecteur multimédia Azure](https://amp.azure.net/libs/amp/latest/docs/).
 
-* Pour obtenir un exemple d’exécution de service STS, avec une clé symétrique ou asymétrique, accédez à l’adresse [http://aka.ms/jwt](http://aka.ms/jwt). 
-* Pour découvrir un exemple de lecteur basé sur le Lecteur multimédia Azure utilisant ce type de jeton JWT, accédez à l’adresse [http://aka.ms/amtest](http://aka.ms/amtest) (développez le lien « player_settings » pour voir l’entrée de jeton).
+* Pour obtenir un exemple d’exécution de service STS, avec une clé symétrique ou asymétrique, accédez à l’adresse [http://aka.ms/jwt](https://aka.ms/jwt). 
+* Pour découvrir un exemple de lecteur basé sur le Lecteur multimédia Azure utilisant ce type de jeton JWT, accédez à l’adresse [http://aka.ms/amtest](https://aka.ms/amtest) (développez le lien « player_settings » pour voir l’entrée de jeton).
 
 ### <a name="question"></a>Question
 

@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 06/15/2017
 ms.author: lizross
 ms.reviewer: richagi
-ms.openlocfilehash: f084433efa2476a75714da6eaef674911006bb76
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 297184a2623a6a7cfa3894a51f5de0e3bd3db622
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344764"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232774"
 ---
 # <a name="what-does-azure-multi-factor-authentication-mean-for-me"></a>Présentation concrète de Multi-Factor Authentication Azure
 Vous avez reçu un e-mail d'une personne du service informatique ou peut-être même de votre patron, qui vous indique qu’une vérification de sécurité supplémentaire a été ajoutée à votre compte.  Qu’est-ce que cela signifie ?
@@ -44,4 +44,4 @@ Sélectionnez l’une de ces rubriques pour commencer.
 | [Expérience de connexion](multi-factor-authentication-end-user-signin.md) |Présente la connexion à l'aide de différentes méthodes comme le téléphone ou l'application. |
 | [Modification des paramètres](multi-factor-authentication-end-user-manage-settings.md) |Montre comment modifier vos paramètres, comme le numéro de téléphone ou la méthode d'inscription par défaut. |
 | [Aide relative aux mots de passe d'application](multi-factor-authentication-end-user-app-passwords.md) |Trouvez des informations sur la création et l'utilisation de mots de passe d'application. |
-| [Utilisation de l'application mobile](microsoft-authenticator-app-how-to.md) |L’application Microsoft Authenticator est disponible pour [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) et [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071). |
+| [Utilisation de l'application mobile](microsoft-authenticator-app-how-to.md) |L’application Microsoft Authenticator est disponible pour [Android](https://go.microsoft.com/fwlink/?linkid=866594), [iOS](https://go.microsoft.com/fwlink/?linkid=866594) et [Windows Phone](https://go.microsoft.com/fwlink/?Linkid=825071). |

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: deguhath
-ms.openlocfilehash: e6601093577eb9e3dfba4ed27e1e0510cad17de7
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b703cb4d3ddd8b62895c9c40c7fa2fba728e884e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421047"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262271"
 ---
 # <a name="vehicle-telemetry-analytics-solution-template-power-bi-dashboard-setup-instructions"></a>Instructions de configuration du tableau de bord Power BI pour le modèle de la solution Vehicle Telemetry Analytics
 Ce menu contient des liens vers les chapitres de ce manuel : 
@@ -30,7 +30,7 @@ La solution Analytics des données de télémétrie du véhicule présente comme
 
 ## <a name="prerequisites"></a>Prérequis
 * Déployez la solution [Vehicle Telemetry Analytics](https://gallery.cortanaintelligence.com/Solution/5bdb23f3abb448268b7402ab8907cc90). 
-* [Installez Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+* [Installez Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
 * Obtenez un [abonnement Azure](https://azure.microsoft.com/pricing/free-trial/). Si vous n’avez pas d’abonnement Azure, commencez par un abonnement Azure gratuit.
 * Ouvrez un compte Power BI.
 
@@ -348,7 +348,7 @@ Vous avez correctement créé le tableau de bord en temps réel. À mesure que v
 
 ### <a name="configure-power-bi-reports"></a>Configurer les rapports Power BI
 
-1. Ouvrez le fichier de concepteur **ConnectedCarsPbiReport.pbix** à l’aide de Power BI Desktop. Si ce n’est déjà fait, installez Power BI Desktop à partir du site web [Installation de Power BI Desktop](http://www.microsoft.com/download/details.aspx?id=45331).
+1. Ouvrez le fichier de concepteur **ConnectedCarsPbiReport.pbix** à l’aide de Power BI Desktop. Si ce n’est déjà fait, installez Power BI Desktop à partir du site web [Installation de Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=45331).
 
 1. Sélectionnez **Modifier les requêtes**.
 
