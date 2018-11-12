@@ -22,6 +22,8 @@ items:
     items:
     - name: Portail Azure
       href: tutorial-design-database-using-portal.md
+    - name: Azure CLI
+      href: tutorial-design-database-cli.md
 - name: Concepts
   items:
   - name: Base de données et serveurs
@@ -30,8 +32,6 @@ items:
       href: concepts-servers.md
     - name: Versions prises en charge
       href: concepts-supported-versions.md
-    - name: Journaux des serveurs
-      href: concepts-server-logs.md
     - name: Haute disponibilité
       href: concepts-high-availability.md
   - name: Ressources
@@ -52,6 +52,12 @@ items:
       href: concepts-business-continuity.md
     - name: Sauvegarde et restauration
       href: concepts-backup.md
+  - name: Surveiller
+    items:
+    - name: Surveiller
+      href: concepts-monitoring.md
+    - name: Journaux des serveurs
+      href: concepts-server-logs.md
   - name: Développement
     items:
     - name: Résilience de connexion
@@ -66,10 +72,14 @@ items:
     items:
     - name: Portail Azure
       href: howto-manage-firewall-portal.md
+    - name: Azure CLI
+      href: howto-manage-firewall-cli.md
   - name: Restaurer un serveur
     items:
     - name: Portail Azure
       href: howto-restore-server-portal.md
+    - name: Azure CLI
+      href: howto-restore-server-cli.md
   - name: Migrer une base de données
     items:
     - name: Vider et restaurer
@@ -86,10 +96,14 @@ items:
     items:
     - name: Portail Azure
       href: howto-server-parameters.md
+    - name: Azure CLI
+      href: howto-configure-server-parameters-cli.md
   - name: Accéder aux journaux du serveur
     items:
     - name: Portail Azure
       href: howto-configure-server-logs-portal.md
+    - name: Azure CLI
+      href: howto-configure-server-logs-cli.md
   - name: Réplication
     items:
     - name: Configurer la réplication de données entrantes
@@ -124,9 +138,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: Options de support
     href: https://azure.microsoft.com/support/options/
-ms.openlocfilehash: aca88da087f0d51b0c6759e4cecd91889210b614
-ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
+ms.openlocfilehash: 3fc6bf5571f3ddcfe6d1a6acd7fc4a298f996e63
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/09/2018
-ms.locfileid: "51344350"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515418"
