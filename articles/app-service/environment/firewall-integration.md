@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/24/2018
 ms.author: ccompy
-ms.openlocfilehash: 5f2dd31488ae61bec061a81986a208bd328bf39b
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: ce0123528b3fb2454d8b83d59b5916363ae0e944
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49093616"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251574"
 ---
 # <a name="locking-down-an-app-service-environment"></a>Verrouiller un environnement App Service
 
@@ -28,7 +28,7 @@ Un environnement ASE présente des dépendances entrantes. Le trafic de gestion 
 
 Les dépendances sortantes de l’environnement ASE sont presque entièrement définies avec des noms FQDN, qui n’ont pas d’adresses statiques derrière eux. L’absence d’adresses statiques signifie que les groupes de sécurité réseau (NSG) ne peuvent pas être utilisés pour verrouiller le trafic sortant d’un environnement ASE. Les adresses changent assez souvent et il n’est donc pas possible de définir des règles basées sur la résolution actuelle et de les utiliser pour créer des groupes NSG. 
 
-La solution pour sécuriser les adresses sortantes réside dans l’utilisation d’un dispositif de pare-feu pouvant contrôler le trafic sortant en fonction des noms de domaine. L’équipe des réseaux Azure a placé une nouvelle appliance réseau dans la préversion, appelée pare-feu Azure. Le pare-feu Azure est capable de limiter le trafic HTTP et HTTPS sortant en fonction du nom DNS de la destination.  
+La solution pour sécuriser les adresses sortantes réside dans l’utilisation d’un dispositif de pare-feu pouvant contrôler le trafic sortant en fonction des noms de domaine. Le Pare-feu Azure peut restreindre le trafic HTTP et HTTPS sortant en fonction du nom de domaine complet de la destination.  
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>Configuration du pare-feu Azure avec votre environnement ASE 
 
@@ -36,11 +36,11 @@ Les étapes pour verrouiller les sorties de votre environnement ASE avec le pare
 
 1. Créez un pare-feu Azure dans le réseau virtuel où est ou sera votre environnement ASE. [Documentation du pare-feu Azure](https://docs.microsoft.com/azure/firewall/)
 2. Dans l’interface utilisateur du pare-feu Azure, sélectionnez l’étiquette App Service Environment FQDN.
-3. Créez une table de routage avec les adresses de gestion provenant des [adresses de gestion App Service Environment]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) avec un tronçon suivant Internet. Les entrées de la table de routage sont nécessaires pour éviter des problèmes de routage asymétrique. 
-4. Ajoutez des routes pour les dépendances d’adresse IP indiquées ci-dessous dans les dépendances d’adresse IP avec un tronçon suivant Internet. 
-5. Ajoutez une route à votre table de routage pour 0.0.0.0/0 avec comme tronçon suivant l’appliance réseau de votre pare-feu Azure.
+3. Créez une table de routage avec les adresses de gestion provenant des [adresses de gestion App Service Environment]( https://docs.microsoft.com/azure/app-service/environment/management-addresses) avec un tronçon suivant Internet. Les entrées de la table de routage sont nécessaires pour éviter des problèmes de routage asymétrique.
+4. Ajoutez des routes pour les dépendances d’adresse IP indiquées ci-dessous dans les dépendances d’adresse IP avec un tronçon suivant Internet.
+5. Ajoutez une route à votre table de routage pour 0.0.0.0/0 avec comme tronçon suivant de votre pare-feu Azure.
 6. Créez des points de terminaison de service pour votre sous-réseau ASE vers Azure SQL et Stockage Azure.
-7. Affectez la table de routage que vous avez créée à votre sous-réseau ASE.  
+7. Affectez la table de routage que vous avez créée à votre sous-réseau ASE.
 
 ## <a name="application-traffic"></a>Trafic des applications 
 

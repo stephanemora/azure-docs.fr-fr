@@ -9,18 +9,18 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: article
 ms.date: 03/02/2018
-ms.openlocfilehash: 96e2f30a59c5b0e366e46363f52e320cc85a245f
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 458ac634cee1a64da67e6560900c82c2f2743c0f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45732122"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034317"
 ---
 # <a name="version-release-history"></a>Historique de publication des versions
 L’équipe Microsoft Genomics met régulièrement à jour le client Python Microsoft Genomics à l’aide de correctifs et de nouvelles fonctionnalités. 
 
 ## <a name="latest-release"></a>Dernière version
-Le client Python actuel correspond à la version 0.7.4. Elle a été publiée le 5 mars 2018 et utilise GATK 3.3. 
+Le client Python actuel correspond à la version 0.7.4. Elle a été publiée le 5 mars 2018 et prend en charge des flux de travail en cours d’exécution avec GATK 3.5 et GATK4.
 
 
 ## <a name="release-history"></a>Historique de publication 

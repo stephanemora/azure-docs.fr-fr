@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 6ad38d2dc1c5c41dc10685d680f70c59e7983cd2
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 8eca04478fd5aba292fcc47abac37b740b552dff
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035210"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51209584"
 ---
-La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images de machine virtuelle personnalisées. La galerie d’images partagées fournit trois propositions de valeur principales
+La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images de machine virtuelle personnalisées. La galerie d’images partagées fournit trois propositions de valeur principales :
 - Gestion simple
-- Mise à l’échelle de vos images de client
+- Mise à l’échelle de vos images personnalisées
 - Partage de vos images : partagez vos images avec différents utilisateurs, principaux de service ou groupes AD au sein de votre organisation, et dans différentes régions à l’aide de la réplication multirégion
 
-Une image managée est une copie d’une machine virtuelle complète (y compris tous les disques de données attachés) ou simplement du disque de système d’exploitation, selon la façon dont vous créez l’image. Quand vous créez une machine virtuelle à partir de l’image, la copie des disques durs virtuels dans l’image est utilisée pour créer les disques de la nouvelle machine virtuelle. L’image managée reste dans le stockage et peut servir à créer des machines virtuelles à l’infini.
+Une image managée est une copie d’une machine virtuelle complète (y compris tous les disques de données attachés) ou simplement du disque de système d’exploitation, selon la façon dont vous créez l’image. Quand vous créez une machine virtuelle à partir de l’image, une copie des disques durs virtuels dans l’image est utilisée pour créer les disques de la nouvelle machine virtuelle. L’image managée reste dans le stockage et peut servir à créer des machines virtuelles à l’infini.
 
 Si vous avez un grand nombre d’images managées à gérer et que vous voulez qu’elles soient disponibles pour toute l’entreprise, vous pouvez utiliser une galerie d’images partagées comme un dépôt qui facilite la mise à jour et le partage de vos images. Les frais d’utilisation d’une galerie d’images partagées correspondent simplement aux coûts de stockage des images, plus les coûts de sortie de réseau pour la réplication des images de la région source vers les régions publiées.
 
@@ -40,7 +40,7 @@ La fonctionnalité Galerie d’images partagées a plusieurs types de ressources
 
 ### <a name="regional-support"></a>Prise en charge régionale
 
-La prise en charge régionale pour les galeries d’images partagées est limitée, mais elle doit se développer au fil du temps. Pour la préversion, voici les listes des régions dans lesquelles vous pouvez créer des galeries et celles où vous pouvez répliquer une galerie : 
+La prise en charge régionale pour les galeries d’images partagées est en préversion, mais elle doit se développer au fil du temps. Pour la préversion limitée, voici la liste des régions dans lesquelles vous pouvez créer des galeries et la liste des régions dans lesquelles vous pouvez répliquer n’importe quelle image de galerie : 
 
 | Créer la galerie dans  | Répliquer la version vers |
 |--------------------|----------------------|
@@ -61,19 +61,19 @@ La prise en charge régionale pour les galeries d’images partagées est limit�
 
 
 ## <a name="scaling"></a>Mise à l'échelle
-La galerie d’images partagées vous permet de spécifier le nombre de réplicas qu’Azure doit conserver pour les images. De cette façon, dans les scénarios de déploiement multimachines virtuelles, les déploiements de machines virtuelles peuvent être répartis sur différents réplicas pour réduire le risque de limitation du processus de création d’instances liée à la surcharge d’un seul réplica.
+La galerie d’images partagées vous permet de spécifier le nombre de réplicas qu’Azure doit conserver pour les images. De cette façon, dans les scénarios de déploiement multimachines virtuelles, les déploiements de machines virtuelles peuvent être répartis sur différents réplicas pour réduire le risque de limitation du traitement de création d’instances liée à la surcharge d’un seul réplica.
 
 ![Graphique montrant comment mettre à l’échelle des images](./media/shared-image-galleries/scaling.png)
 
 
 ## <a name="replication"></a>Réplication
-La galerie d’images partagées vous permet aussi de répliquer vos images sur d’autres régions Azure automatiquement. Chaque version de l’image partagée peut être répliquée sur différentes régions en fonction des besoins de votre organisation. Par exemple, vous pouvez répliquer la dernière image dans plusieurs régions tout en gardant les versions plus anciennes disponibles dans une seule région. De cette façon vous économisez sur les coûts de stockage des versions d’image partagée. Les régions sur lesquelles est répliquée une version d’image partagée peuvent être mises à jour après la création. La durée de réplication sur différentes régions dépend de la quantité de données copiées et du nombre de régions concernées. La réplication peut prendre plusieurs heures dans certains cas. Pendant le processus, vous pouvez voir l’état de la réplication par région. Une fois la réplication de l’image effectuée dans une région, vous pouvez ensuite déployer une machine virtuelle ou un groupe de machines virtuelles identiques à partir de cette version dans la région.
+La galerie d’images partagées vous permet aussi de répliquer vos images sur d’autres régions Azure automatiquement. Chaque version de l’image partagée peut être répliquée sur différentes régions en fonction des besoins de votre organisation. Par exemple, vous pouvez répliquer la dernière image dans plusieurs régions tout en gardant les versions plus anciennes disponibles dans une seule région. De cette façon vous économisez sur les coûts de stockage des versions d’image partagée. Les régions sur lesquelles est répliquée une version d’image partagée peuvent être mises à jour après la création. La durée de réplication sur différentes régions dépend de la quantité de données copiées et du nombre de régions concernées. La réplication peut prendre plusieurs heures dans certains cas. Pendant le processus, vous pouvez voir l’état de la réplication par région. Une fois la réplication de l’image effectuée dans une région, vous pouvez ensuite déployer une machine virtuelle ou un groupe de machines virtuelles identiques à partir de cette version d’image dans la région.
 
 ![Graphique montrant comment répliquer des images](./media/shared-image-galleries/replication.png)
 
 
 ## <a name="access"></a>Access
-Tout comme la galerie d’images partagées, l’image partagée et la version d’image partagée sont des ressources qui peuvent être partagées à l’aide des contrôles RBAC d’Azure natifs intégrés. RBAC vous permet de partager ces ressources avec d’autres utilisateurs, principaux de service et groupes dans votre organisation. L’étendue de partage de ces ressources est limitée au même locataire AD. Dès qu’un utilisateur a accès à la version d’image partagée, il peut déployer une machine virtuelle ou un groupe de machines virtuelles identiques dans un des abonnements auxquels il a accès, dans le même locataire AD que celui de la version d’image partagée.  La matrice de partage suivante vous aide à comprendre les éléments auxquels l’utilisateur a accès :
+Tout comme la Galerie d’images partagées, l’Image partagée et la version d’Image partagée sont des ressources qui peuvent être partagées à l’aide des contrôles RBAC d’Azure natifs intégrés. RBAC vous permet de partager ces ressources avec d’autres utilisateurs, principaux de service et groupes dans votre organisation. L’étendue de partage de ces ressources est limitée au même locataire Azure AD. Dès qu’un utilisateur a accès à la version d’image partagée, il peut déployer une machine virtuelle ou un groupe de machines virtuelles identiques dans un des abonnements auxquels il a accès, dans le même locataire Azure AD que celui de la version d’image partagée.  La matrice de partage suivante vous aide à comprendre les éléments auxquels l’utilisateur a accès :
 
 | Partagé avec l’utilisateur     | Galerie d’images partagées | Image partagée | Version d’image partagée |
 |----------------------|----------------------|--------------|----------------------|
@@ -85,7 +85,7 @@ Tout comme la galerie d’images partagées, l’image partagée et la version d
 
 ## <a name="billing"></a>Facturation
 L’utilisation du service Galerie d’images partagées n’engendre aucuns frais supplémentaires. Vous êtes facturé pour les ressources suivantes :
-- Coûts de stockage des versions d’image partagée. Ils dépendent du nombre de réplicas de la version et du nombre de régions sur lesquelles la version est répliquée.
+- Coûts de stockage des versions d’Image partagée. Ils dépendent du nombre de réplicas de la version et du nombre de régions sur lesquelles la version est répliquée.
 - Coûts de sortie de réseau pour la réplication de la version de la région source vers les régions répliquées.
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ) 
@@ -98,7 +98,7 @@ L’utilisation du service Galerie d’images partagées n’engendre aucuns fra
 
 ```bash 
 az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -n Microsoft.Compute
+az provider register -name Microsoft.Compute
 ```
 
 **PowerShell** : 
@@ -161,7 +161,7 @@ Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Compute
 Galerie d’images partagées :
 - Description
 
-Définition d’image :
+Définition d’image :
 - Processeurs virtuels recommandés
 - Mémoire
 - Description
@@ -186,9 +186,9 @@ Version d’image :
 
  R. Non, vous pouvez répliquer les versions d’image entre régions dans un abonnement et les utiliser dans d’autres abonnements au moyen de RBAC.
 
-**Q.** Puis-je partager des versions d’image entre locataires AD ? 
+**Q.** Puis-je partager des versions d’image entre locataires Azure AD ? 
 
- R. Non, la galerie d’images partagées ne prend pas en charge pour l’instant le partage de versions d’image entre locataires AD. Toutefois, vous pouvez utiliser la fonctionnalité Offres privées sur la Place de marché Azure pour le faire.
+ R. Non, la galerie d’images partagées ne prend pas en charge pour l’instant le partage de versions d’image entre locataires Azure AD. Toutefois, vous pouvez utiliser la fonctionnalité Offres privées sur la Place de marché Azure pour le faire.
 
 
 **Q.** Combien de temps faut-il pour répliquer des versions d’image sur les régions cibles ?
@@ -198,7 +198,7 @@ Version d’image :
 
 **Q.** Combien de galeries d’images partagées puis-je créer dans un abonnement ?
 
- R. Le quota par défaut est 
+ R. Le quota par défaut est le suivant : 
 - 10 galeries d’images partagées par abonnement, par région
 - 200 définitions d’image par abonnement, par région
 - 2 000 versions d’image par abonnement, par région

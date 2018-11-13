@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/20/2018
+ms.date: 11/07/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: e8f0077bf5a1a2911b3aec032fadacf31ad75463
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: c2e50362de48991c818017b59632be3b0e74cb0b
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48855270"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282065"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Règles d’appartenance de groupe dynamique dans Azure Active Directory
 
@@ -316,7 +316,7 @@ La règle « Tous les utilisateurs » est construite à l’aide d’une expre
 device.objectid -ne null
 ```
 
-### <a name="extension-properties-and-custom-extension-properties"></a>Attributs d’extension et propriétés d’extension personnalisée
+## <a name="extension-properties-and-custom-extension-properties"></a>Attributs d’extension et propriétés d’extension personnalisée
 
 Les attributs d’extension et les propriétés d’extension personnalisée sont pris en charge en tant que propriétés de chaîne dans les règles d’appartenance dynamique. Les attributs d’extension sont synchronisés à partir de Windows Server AD local et prennent le format « ExtensionAttributeX », lorsque X est égal à 1-15. Voici en exemple de règle utilisant un attribut d’extension en tant que propriété :
 
@@ -335,11 +335,13 @@ Voici un exemple de règle utilisant une propriété d’extension personnalisé
 user.extension_c272a57b722d4eb29bfe327874ae79cb__OfficeNumber -eq "123"
 ```
 
-Vous pouvez accéder au nom de la propriété personnalisée dans le répertoire en lançant une requête sur une propriété d’utilisateur à l’aide d’Afficheur Graph, et en recherchant le nom de propriété.
+Vous pouvez accéder au nom de la propriété personnalisée dans le répertoire en lançant une requête sur une propriété d’utilisateur à l’aide d’Afficheur Graph, et en recherchant le nom de propriété. De plus, vous pouvez désormais sélectionner le lien **Obtenir des propriétés d’extension personnalisées** dans le générateur de règles de groupe d’utilisateurs dynamiques pour entrer un ID d’application unique et recevoir la liste complète des propriétés d’extension personnalisées à utiliser lors de la création d’une règle d’appartenance dynamique. Vous pouvez également actualiser cette liste afin d’obtenir les nouvelles propriétés d’extension personnalisées pour cette application.
 
 ## <a name="rules-for-devices"></a>Règles pour les appareils
 
-Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Vous ne pouvez pas avoir à la fois des utilisateurs et des appareils en tant que membres du groupe. Les attributs d’appareil suivants peuvent être utilisés.
+Vous pouvez également créer une règle qui sélectionne des objets d’appareil pour l’appartenance à un groupe. Vous ne pouvez pas avoir à la fois des utilisateurs et des appareils en tant que membres du groupe. L’attribut **organizationalUnit** n’est plus répertorié et ne doit pas être utilisé. Cette chaîne est définie par Intune dans des cas spécifiques mais n’est pas reconnue par Azure AD, donc aucun périphérique n’est ajouté aux groupes en fonction de cet attribut.
+
+Les attributs d’appareil suivants peuvent être utilisés.
 
  Attribut d’appareil  | Valeurs | Exemples
  ----- | ----- | ----------------
@@ -355,9 +357,9 @@ Vous pouvez également créer une règle qui sélectionne des objets d’apparei
  enrollmentProfileName | Nom du profil d’inscription des appareils Apple ou du profil AutoPilot Windows | (device.enrollmentProfileName -eq "DEP iPhones")
  isRooted | true false | (device.isRooted -eq true)
  managementType | Gestion des périphériques mobiles (pour les appareils mobiles).<br>PC (pour les ordinateurs gérés par l’agent PC Intune) | (device.managementType -eq "MDM")
- organizationalUnit | Toute valeur de chaîne correspondant au nom de l’unité d’organisation définie par un Active Directory local. | (device.organizationalUnit -eq "US PCs")
  deviceId | Un ID d’appareil Azure AD valide. | (device.deviceId -eq "d4fe7726-5966-431c-b3b8-cddc8fdb717d")
  objectId | Un ID d’objet Azure AD valide. |  (device.objectId -eq 76ad43c9-32c5-45e8-a272-7b58b58f596d")
+ systemLabels | n’importe quelle chaîne correspondant à la propriété d’appareil Intune pour baliser les appareils Modern Workplace | (device.systemLabels-contient « M365Managed »)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

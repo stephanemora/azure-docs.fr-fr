@@ -7,22 +7,22 @@ author: basilhariri
 manager: timlt
 ms.service: event-hubs
 ms.topic: article
-ms.date: 08/16/2018
+ms.date: 11/07/2018
 ms.author: bahariri
-ms.openlocfilehash: b1a046fdb62926d32c05bab5a1616b250911865b
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 7f452fe9797e688dc05b644c003117461b4f8bb9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49352571"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277492"
 ---
-# <a name="azure-event-hubs-for-apache-kafka-preview"></a>Azure Event Hubs pour Apache Kafka (préversion)
+# <a name="azure-event-hubs-for-apache-kafka"></a>Azure Event Hubs pour Apache Kafka 
 
 Event Hubs fournit un point de terminaison Kafka qui peut être utilisé par vos applications Kafka pour éviter d’exécuter votre propre cluster Kafka. Event Hubs prend en charge [Apache Kafka protocole 1.0 et ultérieurs](https://kafka.apache.org/documentation/), et fonctionne avec vos applications Kafka, notamment MirrorMaker. 
 
 ## <a name="what-does-event-hubs-for-kafka-provide"></a>Qu’apporte Event Hubs à Kafka ?
 
-La fonctionnalité Event Hubs pour Kafka fournit une tête de protocole sur Azure Event Hubs qui est compatible d’un point de vue binaire avec Kafka versions 1.0 et ultérieures pour lire et écrire dans des rubriques Kafka. Vous pouvez démarrer à l’aide du point de terminaison Kafka à partir de vos applications avec une modification de configuration minimale, mais aucune modification de code. Vous mettez à jour la chaîne de connexion dans les configurations pour pointer vers le point de terminaison Kafka exposé par votre hub d’événements au lieu de pointer vers votre cluster Kafka. Vous pouvez ensuite commencer à diffuser des événements en continu à partir de vos applications qui utilisent le protocole Kafka dans Event Hubs. 
+La fonctionnalité Event Hubs pour Kafka fournit une tête de protocole sur Azure Event Hubs qui est compatible d’un point de vue binaire avec Kafka versions 1.0 et ultérieures pour lire et écrire dans des rubriques Kafka. Vous pouvez démarrer à l’aide du point de terminaison Kafka à partir de vos applications avec une modification de configuration minimale, mais aucune modification de code. Vous mettez à jour la chaîne de connexion dans les configurations pour pointer vers le point de terminaison Kafka exposé par votre hub d’événements au lieu de pointer vers votre cluster Kafka. Vous pouvez ensuite commencer à diffuser des événements en continu à partir de vos applications qui utilisent le protocole Kafka dans Event Hubs. Cette intégration prend également en charge les infrastructures telles que [Kafka Connect](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect), qui est actuellement en préversion. 
 
 Sur le plan conceptuel, Kafka et Event Hubs sont presque identiques : ce sont tous les deux des journaux partitionnés générés pour le streaming de données. Le tableau suivant mappe les concepts entre Kafka et Event Hubs.
 
@@ -50,9 +50,9 @@ Azure Event Hubs nécessite SSL ou TLS pour toutes les communications et utilise
 
 La fonctionnalité Event Hubs pour Kafka vous permet d’écrire avec un protocole et de lire avec un autre afin que vos producteurs Kafka actuels puissent continuer la publication via Kafka, et vous pouvez ajouter des lecteurs avec Event Hubs comme Azure Stream Analytics ou Azure Functions. De plus, les fonctionnalités Event Hubs telles que la [capture](event-hubs-capture-overview.md) et la [géoreprise d’activité après sinistre](event-hubs-geo-dr.md) fonctionnent également avec la fonctionnalité Event Hubs pour Kafka.
 
-## <a name="features-that-are-not-supported-in-the-preview"></a>Fonctionnalités qui ne sont pas prises en charge dans la préversion
+## <a name="features-that-are-not-yet-supported"></a>Fonctionnalités qui ne sont pas encore prises en charge 
 
-Pour la préversion publique de l’intégration d’Event Hubs pour Kafka, les fonctionnalités Kafka suivantes ne sont pas prises en charge :
+Voici la liste des fonctionnalités de Kafka qui ne sont pas prises en charge :
 
 *   Producteur idempotent
 *   Transaction
@@ -61,18 +61,20 @@ Pour la préversion publique de l’intégration d’Event Hubs pour Kafka, les 
 *   Compactage de journal
 *   Ajout de partitions à une rubrique existante
 *   Prise en charge de l’API Kafka HTTP
-*   Kafka Connect
 *   Kafka Streams
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Cet article a présenté une introduction à Event Hubs pour Kafka. Pour en savoir plus, consultez les liens suivants :
 
-* [Créer un espace de noms Event Hubs prenant en charge Kafka](event-hubs-create-kafka-enabled.md)
-* [Diffuser dans Event Hubs à partir de vos applications Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
-* [Explorer d’autres exemples sur GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-* Prise en main avec un [didacticiel des concentrateurs d’événements](event-hubs-dotnet-standard-getstarted-send.md)
-* [FAQ sur les hubs d’événements](event-hubs-faq.md)
+- [Créer un espace de noms Event Hubs prenant en charge Kafka](event-hubs-create-kafka-enabled.md)
+- [Diffuser dans Event Hubs à partir de vos applications Kafka](event-hubs-quickstart-kafka-enabled-event-hubs.md)
+- [Mettre en miroir un répartiteur Kafka dans un Event Hub prenant en charge Kafka](event-hubs-kafka-mirror-maker-tutorial.md)
+- [Connecter Apache Spark à un Event Hub prenant en charge Kafka](event-hubs-kafka-spark-tutorial.md)
+- [Connecter Apache Flink à un Event Hub prenant en charge Kafka](event-hubs-kafka-flink-tutorial.md)
+- [Intégrer Kafka Connect à un Event Hub prenant en charge Kafka](event-hubs-kafka-connect-tutorial.md)
+- [Connecter Akka Streams à un Event Hub prenant en charge Kafka](event-hubs-kafka-akka-streams-tutorial.md)
+- [Explorer des exemples sur GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
 
  
  

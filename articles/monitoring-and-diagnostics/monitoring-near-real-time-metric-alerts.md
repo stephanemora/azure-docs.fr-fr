@@ -8,28 +8,21 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 47dee26c84d96ebf5b0a421c2f10d18892d6d933
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: 15ecbcafd3397b425b669a48f19bee6073b71149
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227246"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279787"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ressources prises en charge pour les alertes de métrique dans Azure Monitor
 
-Azure Monitor prend désormais en charge un [nouveau type d’alerte de métrique](monitoring-overview-unified-alerts.md) qui présente d’importants avantages par rapport aux anciennes [alertes de métrique classiques](insights-alerts-portal.md). Des métriques sont disponibles pour une [longue liste de services Azure](monitoring-supported-metrics.md). Les alertes plus récentes prennent en charge un sous-ensemble (croissant) des types de ressource. Cet article répertorie ce sous-ensemble.
+Azure Monitor prend désormais en charge un nouveau type d’alerte de métrique qui présente d’importants avantages par rapport aux anciennes [alertes de métrique classiques](alert-metric-classic.md). Des métriques sont disponibles pour une [longue liste de services Azure](monitoring-supported-metrics.md). Les alertes plus récentes prennent en charge un sous-ensemble (croissant) des types de ressource. Cet article répertorie ce sous-ensemble.
 
-Vous pouvez également utiliser des alertes métriques plus récentes sur des journaux Log Analytics populaires extraits en tant que métriques dans le cadre des métriques de journaux. 
-- [Les compteurs de performance](../log-analytics/log-analytics-data-sources-performance-counters.md) pour les machines Windows et Linux
-- [Enregistrements de pulsations pour Agent Health](../operations-management-suite/oms-solution-agenthealth.md)
-- Enregistrements de la [gestion des mises à jour](../operations-management-suite/oms-solution-update-management.md)
-- Journaux sur les [données d’événement](../log-analytics/log-analytics-data-sources-windows-events.md)
- 
-> [!NOTE]
-> La métrique et/ou la dimension spécifique ne s’affichera que si des données correspondantes existent pour la période choisie. Ces métriques sont disponibles pour les clients qui ont des espaces de travail Log Analytics dans les régions USA Est, USA Centre-Ouest et Europe Ouest. Les métriques Log Analytics sont actuellement en préversion et susceptibles d’être modifiées.
+Vous pouvez également utiliser des alertes métriques plus récentes sur des journaux Log Analytics populaires extraits en tant que métriques. Pour plus d’informations, consultez [Alertes de métrique pour les journaux](monitoring-metric-alerts-logs.md).
 
 ## <a name="portal-powershell-cli-rest-support"></a>Portail, PowerShell, CLI, prise en charge de REST
-À l’heure actuelle, il n’est possible de créer des alertes métriques plus récentes que sur le Portail Azure, [l’API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/createorupdate) ou les [modèles Resource Manager](monitoring-create-metric-alerts-with-templates.md). La prise en charge de la configuration d’alertes plus récentes en utilisant PowerShell et Azure CLI versions 2.0 et supérieures sera bientôt disponible.
+À l’heure actuelle, il n’est possible de créer des alertes métriques plus récentes que sur le Portail Azure, [l’API REST](https://docs.microsoft.com/rest/api/monitor/metricalerts/) ou les [modèles Resource Manager](monitoring-create-metric-alerts-with-templates.md). La prise en charge de la configuration d’alertes plus récentes en utilisant PowerShell et Azure CLI versions 2.0 et supérieures sera bientôt disponible.
 
 ## <a name="metrics-and-dimensions-supported"></a>Métriques et dimensions prises en charge
 Les alertes métriques plus récentes prennent en charge la génération d’alertes pour les métriques qui utilisent des dimensions. Vous pouvez utiliser les dimensions pour filtrer votre métrique au niveau approprié. Tous les métriques pris en charge, ainsi que les dimensions applicables, peuvent être examinés et visualisés à partir [d’Azure Monitor - Metrics Explorer](monitoring-metric-charts.md).
@@ -44,14 +37,14 @@ Voici la liste complète des sources de métrique d’Azure Monitor prises en ch
 |Microsoft.Cache/Redis     |    N/A     |[Cache Redis](monitoring-supported-metrics.md#microsoftcacheredis)|
 |Microsoft.CognitiveServices/accounts     |    N/A     | [Cognitive Services](monitoring-supported-metrics.md#microsoftcognitiveservicesaccounts)|
 |Microsoft.Compute/virtualMachines     |    N/A     | [Machines virtuelles](monitoring-supported-metrics.md#microsoftcomputevirtualmachines)|
-|Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[Groupe de machines virtuelles identiques](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
+|Microsoft.Compute/virtualMachineScaleSets     |   N/A      |[Groupes de machines virtuelles identiques](monitoring-supported-metrics.md#microsoftcomputevirtualmachinescalesets)|
 |Microsoft.ContainerInstance/containerGroups | Oui| [Groupes de conteneur](monitoring-supported-metrics.md#microsoftcontainerinstancecontainergroups)|
 |Microsoft.ContainerService/managedClusters | Oui | [Clusters managés](monitoring-supported-metrics.md#microsoftcontainerservicemanagedclusters)|
 |Microsoft.DataFactory/datafactories| Oui| [Fabriques de données V1](monitoring-supported-metrics.md#microsoftdatafactorydatafactories)|
 |Microsoft.DataFactory/factories     |   Oui     |[Fabriques de données V2](monitoring-supported-metrics.md#microsoftdatafactoryfactories)|
 |Microsoft.DBforMySQL/servers     |   N/A      |[Base de données pour MySQL](monitoring-supported-metrics.md#microsoftdbformysqlservers)|
 |Microsoft.DBforPostgreSQL/servers     |    N/A     | [Base de données pour PostgreSQL](monitoring-supported-metrics.md#microsoftdbforpostgresqlservers)|
-|Microsoft.EventHub/namespaces     |  Oui      |[Concentrateurs d'événements](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
+|Microsoft.EventHub/namespaces     |  Oui      |[Hubs d'événements](monitoring-supported-metrics.md#microsofteventhubnamespaces)|
 |Microsoft.KeyVault/vaults| Non  | [Coffres](monitoring-supported-metrics.md#microsoftkeyvaultvaults)|
 |Microsoft.Logic/workflows     |     N/A    |[Logic Apps](monitoring-supported-metrics.md#microsoftlogicworkflows) |
 |Microsoft.Network/applicationGateways     |    N/A     | [Application Gateways](monitoring-supported-metrics.md#microsoftnetworkapplicationgateways) |

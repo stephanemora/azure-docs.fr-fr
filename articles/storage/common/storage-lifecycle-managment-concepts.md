@@ -5,32 +5,32 @@ services: storage
 author: yzheng-msft
 ms.service: storage
 ms.topic: article
-ms.date: 04/30/2018
+ms.date: 11/01/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: 05e7a7e3c2824a9b47ff723e91103611871d7ed2
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: c6647ff97b078ca5afa5c66833a1617f6b3ec0f1
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429556"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978806"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Gérer le cycle de vie du stockage d'objets blob Azure (préversion)
 
-Les jeux de données ont des cycles de vie différents. Certaines données sont souvent utilisées principalement en début de cycle et le besoin de pouvoir y accéder diminue considérablement avec le temps. Certaines données restent inactives dans le cloud et sont rarement utilisées une fois stockées. Certaines expirent plusieurs jours ou mois après leur création, tandis que d’autres jeux de données sont lus et modifiés de manière active tout au long de leur vie. La gestion de cycle de vie du stockage d’objets blob Azure (préversion) offre une stratégie riche basée sur des règles que vous pouvez utiliser pour faire passer vos données au niveau d’accès le plus adapté et faire expirer les données à la fin de leur cycle de vie.
+Les jeux de données ont des cycles de vie différents. Certaines données sont souvent utilisées principalement en début de cycle et le besoin de pouvoir y accéder diminue considérablement avec le temps. Certaines données restent inactives dans le cloud et sont rarement utilisées une fois stockées. Certaines expirent plusieurs jours ou mois après leur création, tandis que d’autres jeux de données sont lus et modifiés de manière active tout au long de leur vie. La gestion de cycle de vie du stockage d’objets blob Azure (préversion) offre une stratégie riche basée sur des règles que vous pouvez utiliser sur les comptes GPv2 et Stockage Blob pour faire passer vos données aux niveaux d’accès appropriés et les faire expirer à la fin de leur cycle de vie.
 
 La stratégie de gestion du cycle de vie vous aide à :
 
 - Faire passer les objets blob à un niveau de stockage plus froid (de Chaud à Froid, de Chaud à Archive ou de Froid à Archive) pour optimiser les performances et le coût
 - Supprimer les objets blob à la fin de leur cycle de vie
-- Définir des règles à exécuter une fois par jour au niveau du compte de stockage (il prend à la fois en charge les comptes de stockage GPv2 et Blob)
+- Définir des règles à exécuter une fois par jour au niveau du compte de stockage
 - Appliquer des règles aux conteneurs ou à un sous-ensemble d’objets blob (en utilisant des préfixes comme filtres)
 
-Imaginons un ensemble de données fréquemment utilisé au début de son cycle de vie, utilisé de manière occasionnelle au bout de deux semaines et rarement utilisé au-delà d’un mois. Dans ce scénario, le stockage chaud est préférable au cours des premiers jours, le stockage froid est plus adapté à un accès occasionnel et l’archivage est la meilleure option pour les données datant de plus d’un mois. En ajustant les niveaux de stockage en fonction de l’ancienneté des données, vous pouvez concevoir les options de stockage les moins coûteuses par rapport à vos besoins. Pour effectuer cette transition, les stratégies de gestion du cycle de vie permettent de déplacer les données vieillissantes vers des niveaux plus froids.
+Imaginons un ensemble de données fréquemment utilisé au début de son cycle de vie, utilisé de manière occasionnelle au bout de deux semaines et rarement utilisé au-delà d’un mois. Dans ce scénario, le stockage chaud est préférable au cours des premiers jours, le stockage froid est plus adapté à un accès occasionnel et l’archivage est la meilleure option pour les données datant de plus d’un mois. En ajustant les niveaux de stockage en fonction de l’ancienneté des données, vous pouvez concevoir les options de stockage les moins coûteuses par rapport à vos besoins. Pour effectuer cette transition, les règles de stratégie de gestion du cycle de vie permettent de déplacer les données vieillissantes vers des niveaux plus froids.
 
 ## <a name="storage-account-support"></a>Prise en charge du compte de stockage
 
-La stratégie de gestion du cycle de vie est disponible avec le compte à usage général v2 (GPv2) et le compte de stockage d’objets blob. Vous pouvez convertir un compte à usage général (GPv1) existant en un compte GPv2 d’un simple clic dans le portail Azure. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).  
+La stratégie de gestion du cycle de vie est disponible avec le compte à usage général v2 (GPv2) et le compte de stockage d’objets blob. Vous pouvez mettre à niveau un compte à usage général (GPv1) existant en un compte GPv2 d’un simple clic dans le portail Azure sans temps d’arrêt. Pour plus d’informations sur les comptes de stockage, consultez [Vue d’ensemble des comptes de stockage Azure](../common/storage-account-overview.md).  
 
 ## <a name="pricing"></a>Tarifs 
 
@@ -67,9 +67,9 @@ az feature show --namespace Microsoft.Storage --name DLM
 Si la fonctionnalité est approuvée et correctement inscrite, vous devriez recevoir l’état « Inscrit ». 
 
 
-## <a name="add-or-remove-policies"></a>Ajouter ou supprimer des stratégies 
+## <a name="add-or-remove-a-policy"></a>Ajouter ou supprimer une stratégie 
 
-Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du Portail Azure, de [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), des [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/managementpolicies_createorupdate) ou des outils clients dans les langages suivants : [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](   https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
+Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du Portail Azure, de [PowerShell](https://www.powershellgallery.com/packages/AzureRM.Storage/5.0.3-preview), des [API REST](https://docs.microsoft.com/rest/api/storagerp/managementpolicies/createorupdate) ou des outils clients dans les langages suivants : [.NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/8.0.0-preview), [Python](https://pypi.org/project/azure-mgmt-storage/2.0.0rc3/), [Node.js]( https://www.npmjs.com/package/azure-arm-storage/v/5.0.0), [Ruby](  https://rubygems.org/gems/azure_mgmt_storage/versions/0.16.2). 
 
 ### <a name="azure-portal"></a>Portail Azure
 
@@ -77,7 +77,7 @@ Vous pouvez ajouter, modifier ou supprimer une stratégie à l’aide du Portail
 
 2. Pour accéder à votre compte de stockage, sélectionnez Toutes les ressources, puis sélectionnez votre compte de stockage.
 
-3. Dans le panneau Paramètres, cliquez sur **Gestion du cycle de vie** regroupé sous le service blob pour afficher et/ou modifier des stratégies.
+3. Dans le panneau Paramètres, cliquez sur **Gestion du cycle de vie** regroupé sous le service blob pour afficher et/ou modifier votre stratégie.
 
 ### <a name="powershell"></a>PowerShell
 
@@ -92,7 +92,7 @@ Get-AzureRmStorageAccountManagementPolicy -ResourceGroupName [resourceGroupName]
 > [!NOTE]
 Si vous activez les règles de pare-feu de votre compte de stockage, les requêtes de gestion du cycle de vie peuvent être bloquées. Vous pouvez débloquer le système en indiquant des exceptions. Pour plus d’informations, consultez la section Exceptions dans [Configurer des pare-feu et des réseaux virtuels](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions).
 
-## <a name="policies"></a>Stratégies
+## <a name="policy"></a>Stratégie
 
 Une stratégie de gestion du cycle de vie est un ensemble de règles dans un document JSON :
 
@@ -122,7 +122,7 @@ Dans une stratégie, deux paramètres sont requis :
 | version        | Une chaîne exprimée sous la forme `x.x` | Le numéro de la version préliminaire est 0,5. |
 | règles          | Un ensemble d’objets de règle | Au moins une règle est requise dans chaque stratégie. Lors de la version préliminaire, vous pouvez spécifier jusqu’à 4 règles stratégie. |
 
-Les paramètres nécessaires au sein d’une règle sont :
+Dans chaque règle, trois paramètres sont requis :
 
 | Nom du paramètre | Type de paramètre | Notes |
 |----------------|----------------|-------|
@@ -132,10 +132,13 @@ Les paramètres nécessaires au sein d’une règle sont :
 
 ## <a name="rules"></a>Règles
 
-Chaque définition de règle se compose d’un jeu de filtres et d’un jeu d’actions. L’exemple de règle suivant modifie le niveau des objets blob de bloc de base avec le préfixe `container1/foo`. Dans la stratégie, ces règles sont définies en tant que :
+Chaque définition de règle se compose d’un jeu de filtres et d’un jeu d’actions. Le [jeu de filtres](#rule-filters) est utilisé pour limiter les actions de règle à un certain ensemble d'objets dans un conteneur ou des noms d'objets. L’[ensemble d’actions](#rule-actions) applique les actions de niveau ou de suppression à l’ensemble d’objets filtré.
 
-- Niveau objet blob sur stockage froid 30 jours après la dernière modification
-- Niveau objet blob sur stockage archive 90 jours après la dernière modification
+### <a name="sample-rule"></a>Exemple de règle
+L’exemple de règle suivante filtre le compte pour exécuter les actions uniquement sur `container1/foo`. Pour tous les objets qui existent à l’intérieur de `container1` **ET** commencent par `foo`, les actions suivantes sont exécutées : 
+
+- Niveau objet blob sur accès froid 30 jours après la dernière modification
+- Niveau objet blob sur accès archive 90 jours après la dernière modification
 - Supprimer l’objet blob 2 555 jours (7 ans) après la dernière modification
 - Supprimer les instantanés d’objet blob 90 jours après la création des instantanés
 
@@ -177,7 +180,7 @@ Lors de la version d’évaluation, les filtres valides sont les suivants :
 | Nom du filtre | Type de filtre | Notes | Est obligatoire |
 |-------------|-------------|-------|-------------|
 | blobTypes   | Un ensemble de valeurs enum prédéfinies. | Pour la version préliminaire, seul `blockBlob` est pris en charge. | Oui |
-| prefixMatch | Un ensemble de chaînes servant à faire correspondre les préfixes. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si une règle doit s’appliquer à tous les blobs figurant sous « https://myaccount.blob.core.windows.net/mycontainer/mydir/... », le préfixe est « mycontainer/mydir ». | Si elle n’a pas été définie, cette règle s’applique à tous les objets blob dans le compte. | Non  |
+| prefixMatch | Un ensemble de chaînes servant à faire correspondre les préfixes. Une chaîne de préfixe doit commencer par un nom de conteneur. Par exemple, si une règle doit s’appliquer à tous les blobs figurant sous « https://myaccount.blob.core.windows.net/container1/foo/... », le prefixMatch est « container1/foo ». | Si prefixMatch n’est pas défini, les règles s’appliquent à tous les objets blob dans le compte. | Non  |
 
 ### <a name="rule-actions"></a>Actions de règle
 
