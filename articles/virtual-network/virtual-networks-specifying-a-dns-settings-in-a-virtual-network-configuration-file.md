@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/23/2016
 ms.author: genli
-ms.openlocfilehash: ed7f02d3e389db3bc772c4fcb00a7b3877d60173
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 36f7ed9b02b66718327c1a05a6cf29eedf39e7a5
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794522"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248383"
 ---
 # <a name="specifying-dns-settings-in-a-virtual-network-configuration-file"></a>Définition des paramètres DNS dans un fichier de configuration de réseau virtuel
 Un fichier de configuration réseau contient deux éléments dont vous pouvez vous servir pour définir les paramètres DNS (Domain Name System) : **DnsServers** et **DnsServerRef**. Vous pouvez ajouter une liste de serveurs DNS en définissant leur adresse IP et leur nom de référence sur l’élément **DnsServers** . Ensuite, utilisez un élément **DnsServerRef** afin de spécifier les entrées du serveur DNS de l’élément DnsServers qui sont utilisées pour différents sites au sein de votre réseau virtuel.
@@ -36,7 +36,7 @@ Le fichier de configuration réseau peut contenir les éléments suivants. Le ti
 > 
 > 
 
-[Élément Dns](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Élément Dns](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <Dns>
       <DnsServers>
@@ -51,7 +51,7 @@ Le fichier de configuration réseau peut contenir les éléments suivants. Le ti
 > 
 > 
 
-[Élément de sites de réseau virtuel](http://go.microsoft.com/fwlink/?LinkId=248093)
+[Élément de sites de réseau virtuel](https://go.microsoft.com/fwlink/?LinkId=248093)
 
     <DnsServersRef>
       <DnsServerRef name="ID1" />
@@ -65,7 +65,7 @@ Le fichier de configuration réseau peut contenir les éléments suivants. Le ti
 > 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Découvrez le [schéma de configuration du réseau virtuel Azure](http://go.microsoft.com/fwlink/?LinkId=248093).
+* Découvrez le [schéma de configuration du réseau virtuel Azure](https://go.microsoft.com/fwlink/?LinkId=248093).
 * Découvrez le [schéma de configuration du service Azure](https://msdn.microsoft.com/library/windowsazure/ee758710).
 * [Configuration d’un réseau virtuel à l’aide d’un fichier de configuration réseau](virtual-networks-using-network-configuration-file.md)
 

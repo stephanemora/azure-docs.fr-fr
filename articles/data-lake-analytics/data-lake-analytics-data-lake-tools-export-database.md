@@ -9,16 +9,16 @@ ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 11/27/2017
-ms.openlocfilehash: e4eea3cb4b16460c7e17bb6575c4e6cf8dda5a0a
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7a4aae87cd704cf94c89c308c0c056ae5b9a8b4d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047252"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51251000"
 ---
 # <a name="export-a-u-sql-database"></a>Exporter une base de données U-SQL
 
-Dans cet article, découvrez comment utiliser [Azure Data Lake Tools pour Visual Studio](http://aka.ms/adltoolsvs) pour exporter une base de données U-SQL sous la forme d’un seul script U-SQL et de ressources téléchargées. Vous pouvez importer la base de données exportée dans un compte local dans le même processus.
+Dans cet article, découvrez comment utiliser [Azure Data Lake Tools pour Visual Studio](https://aka.ms/adltoolsvs) pour exporter une base de données U-SQL sous la forme d’un seul script U-SQL et de ressources téléchargées. Vous pouvez importer la base de données exportée dans un compte local dans le même processus.
 
 Les clients gèrent généralement plusieurs environnements de développement, de test et de production. Ces environnements sont hébergés à la fois sur un compte local sur l’ordinateur local des développeurs et sur un compte Azure Data Lake Analytics dans Azure. 
 
@@ -35,7 +35,7 @@ Tous les comptes Data Lake Analytics auxquels vous avez accès sont répertorié
    
     ![Explorateur de serveurs - Exporter une base de données](./media/data-lake-analytics-data-lake-tools-export-database/export-database.png)
 
-     Si l'option de menu **Exporter** n'est pas disponible, vous devez [mettre à jour l'outil avec la dernière version](http://aka.ms/adltoolsvs).
+     Si l'option de menu **Exporter** n'est pas disponible, vous devez [mettre à jour l'outil avec la dernière version](https://aka.ms/adltoolsvs).
 
 ### <a name="step-2-configure-the-objects-that-you-want-to-export"></a>Étape 2 : Configurer les objets à exporter
 

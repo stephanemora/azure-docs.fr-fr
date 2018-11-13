@@ -1,20 +1,20 @@
 ---
-title: Migrer des machines virtuelles depuis AWS vers Azure avec Azure Site Recovery | Microsoft Docs
-description: Cet article décrit comment migrer des machines virtuelles Windows s’exécutant dans Amazon Web Services (AWS) vers Azure à l’aide d’Azure Site Recovery.
+title: Effectuer une migration des machines virtuelles AWS vers Azure avec le service Azure Site Recovery | Microsoft Docs
+description: Cet article décrit comment migrer des machines virtuelles Windows s’exécutant dans Amazon Web Services (AWS) vers Azure en utilisant Azure Site Recovery.
 services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 04e7506562d29e37abb65b7a760fbc9bd707e2c6
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49078934"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252137"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -119,7 +119,7 @@ Dans la page **Préparer la source**, sélectionnez **+ Serveur de configuration
 
 1. Utilisez une instance EC2 exécutant Windows Server 2012 R2 pour créer un serveur de configuration et l’inscrire auprès de votre coffre de récupération.
 2. Configurez le proxy sur la machine virtuelle de l’instance EC2 que vous utilisez comme serveur de configuration, afin qu’il puisse accéder aux [URL de service](site-recovery-support-matrix-to-azure.md).
-3. Téléchargez [Installation unifiée de Microsoft Azure Site Recovery](http://aka.ms/unifiedinstaller_wus). Vous pouvez le télécharger sur votre machine locale, puis le copier sur la machine virtuelle que vous utilisez comme serveur de configuration.
+3. Téléchargez [Installation unifiée de Microsoft Azure Site Recovery](https://aka.ms/unifiedinstaller_wus). Vous pouvez le télécharger sur votre machine locale, puis le copier sur la machine virtuelle que vous utilisez comme serveur de configuration.
 4. Sélectionnez le bouton **Télécharger** pour télécharger la clé d’inscription du coffre. Copiez le fichier téléchargé sur la machine virtuelle que vous utilisez comme serveur de configuration.
 5. Sur la machine virtuelle, cliquez avec le bouton droit sur le programme d’installation que vous avez téléchargé pour l’installation unifiée de Microsoft Azure Site Recovery, et sélectionnez **Exécuter en tant qu’administrateur**.
 

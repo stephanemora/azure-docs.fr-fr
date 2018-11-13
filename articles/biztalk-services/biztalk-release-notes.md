@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
 ms.author: deonhe
-ms.openlocfilehash: db79ee85c19e5f3cdced9b894aca48de4d7d1c42
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: f990aa086997d51e59df4285aabeccd31dcce822
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576468"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51253429"
 ---
 # <a name="release-notes-for-azure-biztalk-services"></a>Notes de publication pour Azure BizTalk Services
 
@@ -188,7 +188,7 @@ Envisagez un scénario dans lequel vous utilisez des procédures basées sur le 
 
 ### <a name="bridges-continue-to-process-messages-even-when-the-sql-database-is-offline"></a>Les ponts continuent de traiter les messages même lorsque la base de données SQL est hors connexion
 Les ponts BizTalk Services continuent de traiter les messages pendant un certain temps, même si Azure SQL Database Microsoft (qui stocke les informations en cours d’exécution telles que les artefacts déployés et les pipelines), est hors connexion, et ce, parce que les Services BizTalk utilisent les artefacts mis en cache et la configuration du pont.
-Si vous ne souhaitez pas que les ponts traitent les messages lorsque la base de données SQL est hors connexion, vous pouvez utiliser les applets de commande PowerShell BizTalk Services pour arrêter ou suspendre le service BizTalk. Consultez [Azure BizTalk Service Management Sample (Exemple de gestion des services Azure BizTalk)](http://go.microsoft.com/fwlink/p/?LinkID=329019) pour que les applets de commande Windows PowerShell gèrent les opérations.  
+Si vous ne souhaitez pas que les ponts traitent les messages lorsque la base de données SQL est hors connexion, vous pouvez utiliser les applets de commande PowerShell BizTalk Services pour arrêter ou suspendre le service BizTalk. Consultez [Azure BizTalk Service Management Sample (Exemple de gestion des services Azure BizTalk)](https://go.microsoft.com/fwlink/p/?LinkID=329019) pour que les applets de commande Windows PowerShell gèrent les opérations.  
 
 ### <a name="reading-the-xml-message-within-a-bridges-custom-code-component-includes-an-extra-bom-character"></a>La lecture d’un message XML au sein d’un composant de code personnalisé d’un pont inclut un caractère BOM supplémentaire
 Imaginez un scénario dans lequel vous souhaitez lire un message XML dans le code personnalisé d’un pont. Si vous utilisez l’API .NET System.Text.Encoding.UTF8.GetString(bytes) un caractère BOM supplémentaire est inclus dans la sortie au début du message. Par conséquent, si vous ne souhaitez pas que la sortie inclue le caractère BOM supplémentaire, vous devez utiliser ```System.IO.StreamReader().ReadToEnd()```.

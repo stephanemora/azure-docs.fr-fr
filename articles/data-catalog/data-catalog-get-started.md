@@ -8,12 +8,12 @@ ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
 ms.topic: conceptual
 ms.date: 01/18/2018
-ms.openlocfilehash: 4386f87b6986e6ab1742a8d3c14a100fea112182
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: dd3cb108844cd009d74de42630511073021d94b1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47406309"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238486"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Prise en main d’Azure Data Catalog
 Azure Data Catalog est un service cloud entièrement géré qui sert de système d’inscription et de découverte des ressources de données d’entreprise. Pour une présentation détaillée, consultez l’article [Qu’est-ce qu’Azure Data Catalog ?](data-catalog-what-is-data-catalog.md).
@@ -96,7 +96,7 @@ La base de données Adventure Works prend en charge les scénarios de traitement
 Pour installer l’exemple de base de données Adventure Works :
 
 1. Téléchargez [Adventure Works 2014 Full Database Backup.zip](https://msftdbprodsamples.codeplex.com/downloads/get/880661) sur CodePlex.
-2. Pour restaurer la base de données sur votre ordinateur, suivez les instructions de l’article [Restaurer une sauvegarde de base de données (SQL Server Management Studio)](http://msdn.microsoft.com/library/ms177429.aspx)ou suivez les étapes suivantes :
+2. Pour restaurer la base de données sur votre ordinateur, suivez les instructions de l’article [Restaurer une sauvegarde de base de données (SQL Server Management Studio)](https://msdn.microsoft.com/library/ms177429.aspx)ou suivez les étapes suivantes :
    1. Ouvrez SQL Server Management Studio et connectez-vous au moteur de base de données SQL Server.
    2. Cliquez avec le bouton droit sur **Bases de données**, puis cliquez sur **Restaurer la base de données**.
    3. Sous **Restaurer la base de données**, sélectionnez l’option **Appareil** comme **Source** et cliquez sur **Parcourir**.

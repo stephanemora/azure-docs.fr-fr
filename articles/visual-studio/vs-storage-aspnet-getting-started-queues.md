@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/23/2016
 ms.author: ghogen
-ms.openlocfilehash: a114833b40fe834aa0108d1a2f3821f0b7cbddbc
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 5234f5c82e98fcb402cadf9a8a469a15bbb7ac6d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321850"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51250813"
 ---
 # <a name="get-started-with-azure-queue-storage-and-visual-studio-connected-services-aspnet"></a>Prise en main du Stockage File d’attente Azure et des services connectés de Visual Studio (ASP.NET)
 
@@ -141,7 +141,7 @@ Les étapes suivantes montrent comment créer une file d'attente :
   
     ![Créer la file d’attente](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
-    Comme mentionné précédemment, la méthode **CloudQueue.CreateIfNotExists** renvoie **true** uniquement lorsque la file d'attente n’existe pas et est créée. Par conséquent, si vous exécutez l’application alors que la file d'attente existe, la méthode renverra **false**. Pour exécuter l’application plusieurs fois, vous devez supprimer la file d'attente avant d’exécuter à nouveau l’application. La suppression de la file d’attente peut être effectuée via la méthode **CloudQueue.Delete**. Vous pouvez également le faire à partir du [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040) ou de l’[Explorateur de stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+    Comme mentionné précédemment, la méthode **CloudQueue.CreateIfNotExists** renvoie **true** uniquement lorsque la file d'attente n’existe pas et est créée. Par conséquent, si vous exécutez l’application alors que la file d'attente existe, la méthode renverra **false**. Pour exécuter l’application plusieurs fois, vous devez supprimer la file d'attente avant d’exécuter à nouveau l’application. La suppression de la file d’attente peut être effectuée via la méthode **CloudQueue.Delete**. Vous pouvez également le faire à partir du [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040) ou de l’[Explorateur de stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## <a name="add-a-message-to-a-queue"></a>Ajout d'un message à une file d'attente
 

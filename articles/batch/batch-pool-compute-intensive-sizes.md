@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: danlep
-ms.openlocfilehash: 5a73e926b5979e573ccb0402ff2d23eae2463232
-ms.sourcegitcommit: 0b02e180f02ca3acbfb2f91ca3e36989df0f2d9c
+ms.openlocfilehash: 6969f0c6a05ebf5b34fb746d2a83b884687ad710
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/05/2018
-ms.locfileid: "29762439"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51258253"
 ---
 # <a name="use-rdma-capable-or-gpu-enabled-instances-in-batch-pools"></a>Utiliser des instances compatibles RDMA ou GPU dans les pools Batch
 
@@ -105,7 +105,7 @@ Pour configurer une taille de machine virtuelle spécialisée pour votre pool Ba
 
 Pour exécuter des applications MPI Windows sur un pool de nœuds Azure A8, vous devez installer une implémentation MPI prise en charge. Voici des exemples d’étapes permettant d’installer [Microsoft MPI](https://msdn.microsoft.com/library/bb524831(v=vs.85).aspx) sur un pool Windows à l’aide d’un package d’application Batch.
 
-1. Téléchargez le [package d’installation](http://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) pour obtenir la dernière version de Microsoft MPI.
+1. Téléchargez le [package d’installation](https://go.microsoft.com/FWLink/p/?LinkID=389556) (MSMpiSetup.exe) pour obtenir la dernière version de Microsoft MPI.
 2. Créez un fichier zip du package.
 3. Chargez le package sur votre compte Batch. Pour connaître les étapes nécessaires, consultez les instructions relatives aux [packages d’applications](batch-application-packages.md). Spécifiez un ID d’application (par exemple *MSMPI*) et une version (par exemple *8.1*). 
 4. À l’aide des API Batch ou du portail Azure, créez un pool dans la configuration de services cloud avec le nombre de nœuds et l’échelle souhaités. Le tableau suivant contient des exemples de paramètres pour configurer MPI en mode sans assistance à l’aide d’une tâche de démarrage :
@@ -124,7 +124,7 @@ Pour exécuter des applications MPI Windows sur un pool de nœuds Azure A8, vous
 
 Pour exécuter des applications CUDA sur un pool de nœuds Linux NC, vous devez installer CUDA Toolkit 9.0 sur les nœuds. La boîte à outils installe les pilotes NVIDIA Tesla GPU nécessaires. Voici des exemples d’étapes permettant de déployer une image personnalisée d’Ubuntu 16.04 LTS avec les pilotes GPU :
 
-1. Déployez une machine virtuelle de série NC Azure exécutant Ubuntu 16.04 LTS. Par exemple, créez la machine virtuelle dans la région Sud-Centre des États-Unis. Assurez-vous que vous créez la machine virtuelle avec un disque géré.
+1. Déployez une machine virtuelle de série NC Azure exécutant Ubuntu 16.04 LTS. Par exemple, créez la machine virtuelle dans la région USA Centre Sud. Assurez-vous que vous créez la machine virtuelle avec un disque géré.
 2. Suivez les étapes pour vous connecter à la machine virtuelle et [installer les pilotes CUDA](../virtual-machines/linux/n-series-driver-setup.md).
 3. Déprovisionnez l’agent Linux, puis [capturez l’image de machine virtuelle Linux](../virtual-machines/linux/capture-image.md).
 4. Créez un compte Batch dans une région qui prend en charge des machines virtuelles NC.
@@ -139,7 +139,7 @@ Pour exécuter des applications CUDA sur un pool de nœuds Linux NC, vous devez 
 
 
 
-## <a name="next-steps"></a>étapes suivantes
+## <a name="next-steps"></a>Étapes suivantes
 
 * Pour exécuter des travaux MPI sur un pool Azure Batch, consultez les exemples [Windows](batch-mpi.md) ou [Linux](https://blogs.technet.microsoft.com/windowshpc/2016/07/20/introducing-mpi-support-for-linux-on-azure-batch/).
 

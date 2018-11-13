@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 78796b5dc62cb573f149c24d90205d26fb139cf7
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: eb5b4b3741b064a934833b3094c69db85e9ccabb
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628645"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238707"
 ---
 # <a name="biztalk-services-issuer-name-and-issuer-key"></a>Nom et clé de l'émetteur dans BizTalk Services
 
@@ -84,17 +84,17 @@ Le nom et la clé de l'émetteur Service Bus sont utilisés par BizTalk Adapter 
 ## <a name="next"></a>Suivant
 Autres rubriques Azure BizTalk Services :
 
-* [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Didacticiels : Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [Didacticiels : Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Voir aussi
-* [Utilisation du service de gestion ACS pour configurer des identités de service](http://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
-* [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [BizTalk Services : Provisionnement](http://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
-* [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Limitation dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Utilisation du service de gestion ACS pour configurer des identités de service](https://go.microsoft.com/fwlink/p/?LinkID=303942)<br/>
+* [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [BizTalk Services : Provisionnement](https://go.microsoft.com/fwlink/p/?LinkID=302280)<br/>
+* [Tableau comparatif des états d'approvisionnement BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [Sauvegarde et restauration de BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Limitation dans BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
 

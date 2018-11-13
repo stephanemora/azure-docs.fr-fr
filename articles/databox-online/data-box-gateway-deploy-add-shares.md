@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 09/24/2018
 ms.author: alkohli
-ms.openlocfilehash: 6220a794c10f43d562155adbad910694a233ec88
-ms.sourcegitcommit: c282021dbc3815aac9f46b6b89c7131659461e49
+ms.openlocfilehash: fa31397e0ecffbd245557a824bdd770724bbc91c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/12/2018
-ms.locfileid: "49166015"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249878"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway-preview"></a>Didacticiel : Transférer des données avec Azure Data Box Gateway (préversion)
 
@@ -146,6 +146,6 @@ Dans ce didacticiel, vous avez approfondi vos connaissances sur Data Box Gateway
 Passez au didacticiel suivant pour découvrir comment administrer votre appareil Data Box Gateway.
 
 > [!div class="nextstepaction"]
-> [Utiliser l’interface utilisateur web locale pour administrer un appareil Data Box Gateway](http://aka.ms/dbg-docs)
+> [Utiliser l’interface utilisateur web locale pour administrer un appareil Data Box Gateway](https://aka.ms/dbg-docs)
 
 
