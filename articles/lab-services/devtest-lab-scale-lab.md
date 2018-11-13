@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 5a179c0c6b777ee6b2afdd0f2e9267d247665d8d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 00f64deaa5e02f9bb74baaf86bfdf71690a3345d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38675963"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248246"
 ---
 # <a name="scale-quotas-and-limits-in-devtest-labs"></a>Limites et quotas de mise à l’échelle dans votre laboratoire Azure DevTest Labs
 Lorsque vous travaillez dans DevTest Labs, vous pouvez remarquer un certain nombre de limites par défaut qui s’appliquent à certaines ressources Azure, ce qui peut affecter le service DevTest Labs. Ces limites sont appelées **quotas**.
@@ -35,7 +35,7 @@ La page [Abonnement Azure et limites de service](https://docs.microsoft.com/azur
 ## <a name="view-your-usage-and-quotas"></a>Voir votre utilisation et les quotas
 Ces étapes vous montrent comment afficher les quotas actuels de votre abonnement pour des ressources Azure spécifiques, ainsi que le pourcentage utilisé pour chaque quota.
 
-1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Sélectionnez **Autres services**, puis **Facturation** dans la liste.
 1. Dans le panneau Facturation, sélectionnez un abonnement.
 4. Sélectionnez **Utilisation + quotas**.
@@ -49,7 +49,7 @@ Ces étapes vous montrent comment afficher les quotas actuels de votre abonnemen
 ## <a name="requesting-more-resources-in-your-subscription"></a>Demander plus de ressources dans votre abonnement
 Si vous atteignez le plafond d’un quota, la limite par défaut d’une ressource dans un abonnement peut être augmentée jusqu’à une limite maximale, comme décrit dans [Abonnement Azure et limites de service](https://docs.microsoft.com/azure/azure-subscription-service-limits).
 
-Ces étapes vous montrent comment demander une augmentation du quota au moyen du [portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+Ces étapes vous montrent comment demander une augmentation du quota au moyen du [portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Sélectionnez **Autres services**, **Facturation**, puis **Utilisation + quotas**.
 1. Dans le panneau Utilisation + quotas, sélectionnez le bouton **Demander une augmentation**.

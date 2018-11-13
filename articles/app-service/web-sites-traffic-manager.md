@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/25/2016
 ms.author: cephalin
-ms.openlocfilehash: 92ab7bf64445ff772f33a18e7f7946a7e0be333a
-ms.sourcegitcommit: 3017211a7d51efd6cd87e8210ee13d57585c7e3b
+ms.openlocfilehash: 5e4dfec4bdc9deaf1a57413c1cba4ceefa5195d6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/06/2018
-ms.locfileid: "34824038"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246342"
 ---
 # <a name="controlling-azure-app-service-traffic-with-azure-traffic-manager"></a>Contrôle du trafic Azure App Service avec Azure Traffic Manager
 > [!NOTE]
@@ -57,5 +57,5 @@ Lorsque vous utilisez Azure Traffic Manager avec Azure, tenez compte des points 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour une vue d'ensemble conceptuelle et technique d'Azure Traffic Manager, consultez la rubrique [Vue d'ensemble de Traffic Manager](../traffic-manager/traffic-manager-overview.md).
 
-Pour plus d’informations sur l’utilisation de Traffic Manager avec App Service, consultez les billets de blog [Utilisation de Microsoft Azure Traffic Manager avec WAWS](http://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) et [Azure Traffic Manager peut désormais s’intégrer dans les sites web Azure](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
+Pour plus d’informations sur l’utilisation de Traffic Manager avec App Service, consultez les billets de blog [Utilisation de Microsoft Azure Traffic Manager avec WAWS](https://blogs.msdn.com/b/waws/archive/2014/03/18/using-windows-azure-traffic-manager-with-waws.aspx) et [Azure Traffic Manager peut désormais s’intégrer dans les sites web Azure](https://azure.microsoft.com/blog/2014/03/27/azure-traffic-manager-can-now-integrate-with-azure-web-sites/).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 862143aec0ac54abb3c62677c5a1ab1c15007edb
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b58d6315c4399a7bb23514eb90ab5a94acda2592
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405563"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249028"
 ---
 # <a name="azure-security-technical-capabilities"></a>Fonctionnalités techniques de la sécurité Azure
 
@@ -238,7 +238,7 @@ Actuellement, Azure Disk Encryption n’est pas pris en charge sur PaaS v1. Par
 
 La plupart des services devraient tenter de tirer parti du chiffrement d’un fournisseur de ressources de stockage. Certains services doivent procéder à un chiffrement explicite, par exemple, le matériel de clé persistante (certificats, clé racine / principale) doit être stocké dans Key Vault.
 
-Si vous prenez en charge le chiffrement côté service avec des clés gérées par le client, celui-ci doit trouver le moyen de nous faire parvenir la clé. Le moyen recommandé et pris en charge pour ce faire est l’intégration à Azure Key Vault. Dans ce cas, les clients peuvent ajouter et gérer leurs clés dans Azure Key Vault. Un client peut apprendre à utiliser Azure Key Vault en consultant [Bien démarrer avec Key Vault](http://go.microsoft.com/fwlink/?linkid=521402).
+Si vous prenez en charge le chiffrement côté service avec des clés gérées par le client, celui-ci doit trouver le moyen de nous faire parvenir la clé. Le moyen recommandé et pris en charge pour ce faire est l’intégration à Azure Key Vault. Dans ce cas, les clients peuvent ajouter et gérer leurs clés dans Azure Key Vault. Un client peut apprendre à utiliser Azure Key Vault en consultant [Bien démarrer avec Key Vault](https://go.microsoft.com/fwlink/?linkid=521402).
 
 Pour l’intégration à Azure Key Vault, vous devez ajouter du code pour demander une clé à Azure Key Vault lorsqu’elle est nécessaire pour le déchiffrement.
 
@@ -283,7 +283,7 @@ Si vous planifiez l’adoption d’Azure RMS, nous vous recommandons de suivre l
 
 - Créez des [modèles personnalisés](https://technet.microsoft.com/library/dn642472.aspx) qui reflètent les besoins de votre entreprise (exemple : un modèle portant sur des données ultra-secrètes, qui doit être appliqué à tous les e-mails ultra-secrets).
 
-Les organisations bénéficiant d’une [classification](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) et d’une protection insuffisantes des données sont plus vulnérables aux fuites de données. Si la protection des fichiers n’est pas appropriée, les organisations ne pourront pas optimiser leur visibilité, ni surveiller les abus ou empêcher tout accès malveillant aux fichiers.
+Les organisations bénéficiant d’une [classification](https://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) et d’une protection insuffisantes des données sont plus vulnérables aux fuites de données. Si la protection des fichiers n’est pas appropriée, les organisations ne pourront pas optimiser leur visibilité, ni surveiller les abus ou empêcher tout accès malveillant aux fichiers.
 
 > [!Note]
 > Vous pouvez en savoir plus sur Azure RMS en lisant l’article [Prise en main d’Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
@@ -408,7 +408,7 @@ Avec Log Analytics, vous pouvez gérer n’importe quelle instance dans n’impo
 
 ### <a name="log-analytics"></a>Log Analytics
 
-[Log Analytics](http://azure.microsoft.com/documentation/services/log-analytics) assure des services de surveillance en collectant les données de ressources gérées et en les regroupant dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
+[Log Analytics](https://azure.microsoft.com/documentation/services/log-analytics) assure des services de surveillance en collectant les données de ressources gérées et en les regroupant dans un référentiel central. Ces données peuvent comprendre des événements, des données de performances ou des données personnalisées fournies par le biais de l’API. Une fois collectées, les données sont disponibles pour les fonctions de génération d’alertes, d’analyse et d’exportation.
 
 ![Log Analytics](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig9.png)
 
