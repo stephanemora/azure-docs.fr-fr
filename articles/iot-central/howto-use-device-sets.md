@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: a5dd018197ff78ff0563349fd941308c3684a456
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731972"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004117"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Utiliser des ensembles d’appareils dans votre application Azure IoT Central
 
-Cet article décrit comment, en tant qu’opérateur, utiliser des ensembles d’appareils dans votre application Microsoft Azure IoT Central.
+Cet article décrit comment, en tant qu’opérateur, utiliser des ensembles d’appareils dans votre application Azure IoT Central.
 
 Un ensemble d’appareils est une liste d’appareils qui sont regroupés, car ils correspondent à certains critères spécifiés. Les ensembles d’appareils vous permettent de gérer, de visualiser et d’analyser des appareils à grande échelle en regroupant les appareils dans des groupes logiques plus petits. Par exemple, vous créez une liste de tous les appareils de climatisation à Seattle pour permettre à la technicienne de Seattle de rechercher tous les appareils dont elle est responsable. Cet article vous explique comment créer et configurer des ensembles d’appareils.
 
@@ -73,7 +73,7 @@ Après avoir créé votre ensemble d’appareils, vous pouvez configurer ses **t
         ![Choisir une grille](media/howto-use-device-sets/image8.png)
 
     1. Donnez un **Titre** à votre grille.
-    1. Sélectionnez les colonnes à afficher en cliquant sur le bouton Paramètres. Dans le panneau qui s’affiche, choisissez la colonne à afficher et cliquez sur la flèche droite pour la sélectionner.
+    1. Sélectionnez les colonnes à afficher en cliquant sur **Ajouter/Supprimer**. Dans le panneau qui s’affiche, choisissez la colonne à afficher et cliquez sur la flèche droite pour la sélectionner.
     1. Choisissez **OK**.
     1. Choisissez **Enregistrer**.
 
@@ -103,7 +103,8 @@ Pour ajouter une carte des emplacements à votre tableau de bord d’ensembles d
 3. Enregistrez pour afficher la mosaïque de la carte indiquant l’emplacement de vos appareils dans l’ensemble d’appareils.
 4. À présent, lorsqu’un opérateur affiche le tableau de bord des ensembles d’appareils, il peut voir toutes les mosaïques que vous avez configurées, y compris la carte des emplacements, et visualiser ainsi en un clin d’œil l’emplacement de tous les appareils. 
     
-[!NOTE] Vous pouvez redimensionner la carte à la taille désirée. Un clic sur une épingle sur la carte affiche les informations sur l’appareil, ainsi que son nom et son emplacement. Vous pouvez cliquer sur le menu contextuel pour accéder à la page de propriétés de l’appareil.  
+> [!NOTE] 
+> Vous pouvez redimensionner la carte à la taille désirée. Un clic sur une épingle sur la carte affiche les informations sur l’appareil, ainsi que son nom et son emplacement. Vous pouvez cliquer sur le menu contextuel pour accéder à la page de propriétés de l’appareil.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>Configurer la liste pour votre ensemble d’appareils

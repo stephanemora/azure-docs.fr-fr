@@ -8,14 +8,14 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: qna-maker
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 11/06/2018
 ms.author: tulasim
-ms.openlocfilehash: f927e5b7ff65b82aef9d4224d22296e0fa48ad59
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: adcefe8fed927aca2533ea811bac56f0b92288de
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451882"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279707"
 ---
 # <a name="edit-a-knowledge-base"></a>Modifier une base de connaissances
 
@@ -89,6 +89,12 @@ Ajouter des paires de métadonnées en sélectionnant l’icône de filtre
 3. La **pagination** vous permet de gérer de grandes bases de connaissances
 
     ![Rechercher, paginer, regrouper](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
+
+## <a name="delete-knowledge-bases"></a>Supprimer les bases de connaissances
+
+La suppression d’une base de connaissances (KB) est une opération définitive. Elle ne peut pas être annulée. Avant de supprimer une base de connaissances, exportez-la à partir de la page **Paramètres** page du portail QnA Maker. 
+
+Si vous partagez votre base de connaissances avec d’autres [collaborateurs](collaborate-knowledge-base.md) puis que vous la supprimez, tous les utilisateurs perdent l’accès à cette base de connaissances. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

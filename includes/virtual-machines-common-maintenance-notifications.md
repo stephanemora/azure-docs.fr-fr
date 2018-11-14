@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/02/2018
 ms.author: shants
 ms.custom: include file
-ms.openlocfilehash: b3f71c4710bd9711a3209dd55f8e680f63627c1b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: b8d759c7b55608be780389991e6bb393f4f3fe9f
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50035381"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981442"
 ---
 ## <a name="view-vms-scheduled-for-maintenance-in-the-portal"></a>Afficher les machines virtuelles sur lesquelles une maintenance est planifiée dans le portail
 
@@ -49,17 +49,9 @@ Vous pouvez utiliser le portail Azure et rechercher les machines virtuelles sur 
 
 ## <a name="notification-and-alerts-in-the-portal"></a>Notification et alertes dans le portail
 
-Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité Azure. Pour en savoir plus, consultez [Surveiller l’activité d’abonnement avec le journal d’activité Azure](../articles/monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Azure communique une planification de maintenance planifiée en envoyant un e-mail au propriétaire et au groupe de copropriétaires de l’abonnement. Vous pouvez ajouter des destinataires et des chaînes à cette communication en créant des alertes de journal d’activité Azure. Pour plus d’informations, consultez [Créer des alertes de journal d’activité sur les notifications de service](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts-on-service-notifications.md).
 
-1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Dans le menu de gauche, sélectionnez **Surveiller**. 
-3. Dans le volet **Surveiller - Alertes (classique)**, cliquez sur **+ Ajouter une alerte de journal d’activité**.
-5. Renseignez les informations dans la page **Ajouter une alerte de journal d’activité** et vérifiez que vous définissez les éléments suivants dans **Critères** :
-   - **Catégorie d’événement** : Service Health
-   - **Services** : Virtual Machine Scale Sets et Virtual Machines
-   - **Type** : maintenance planifiée 
-    
-Pour découvrir plus en détail comment configurer des alertes de journal d’activité, consultez [Créer des alertes de journal d’activité](../articles/monitoring-and-diagnostics/monitoring-activity-log-alerts.md).
+Veillez à définir le **type d’événement** comme **maintenance planifiée** et les **services** comme **groupes de machines virtuelles identiques** et/ou **machines virtuelles**
     
     
 ## <a name="start-maintenance-on-your-vm-from-the-portal"></a>Démarrer la maintenance sur votre machine virtuelle à partir du portail

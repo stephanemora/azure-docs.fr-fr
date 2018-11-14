@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: yuemlu
 ms.custom: include file
-ms.openlocfilehash: f1fe45283ef2886a50bf6a36e50e7ffe42055ee2
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: e266b239a44907e8e38e60cfc217aa21e46ab17e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49312382"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51263929"
 ---
 # <a name="cost-effective-standard-storage-and-unmanaged-and-managed-azure-vm-disks"></a>Stockage Standard économique et disques de machine virtuelle Azure gérés et non gérés
 
@@ -50,7 +50,7 @@ Examinons certaines des fonctionnalités du stockage Standard. Pour plus d’inf
 
 **Objet blob de pages Standard** : les objets blob de pages Standard sont utilisés pour stocker les disques persistants des machines virtuelles et sont également accessibles directement via REST comme d’autres types d’objets blob Azure. Les [objets blob de pages](/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs) sont une collection de pages de 512 octets optimisées pour les opérations de lecture et d’écriture aléatoires. 
 
-**Réplication du stockage :** dans la plupart des régions, les données d’un compte de stockage Standard peuvent être répliquées localement ou géorépliquées entre plusieurs centres de données. Les quatre types de réplication disponibles sont le stockage localement redondant (LRS), le stockage redondant dans une zone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant avec accès en lecture (RA-GRS). Actuellement, les disques gérés dans le stockage Standard prennent seulement en charge le stockage localement redondant (LRS). Pour plus d'informations, consultez [Réplication Azure Storage](../articles/storage/common/storage-redundancy.md).
+**Réplication du stockage :** dans la plupart des régions, les données d’un compte de stockage Standard peuvent être répliquées localement ou géorépliquées entre plusieurs centres de données. Les quatre types de réplication disponibles sont le stockage localement redondant (LRS), le stockage redondant interzone (ZRS), le stockage géoredondant (GRS) et le stockage géoredondant avec accès en lecture (RA-GRS). Actuellement, les disques gérés dans le stockage Standard prennent seulement en charge le stockage localement redondant (LRS). Pour plus d'informations, consultez [Réplication Azure Storage](../articles/storage/common/storage-redundancy.md).
 
 ## <a name="scalability-and-performance-targets"></a>Cibles de performance et d’évolutivité
 
@@ -61,10 +61,10 @@ Dans cette section, nous allons décrire les objectifs de performances et d’ex
 | **Ressource** | **Limite par défaut** |
 |--------------|-------------------|
 | To par compte de stockage  | 500 To |
-| Entrée max.<sup>1</sup> par compte de stockage (régions des États-Unis) | 10 Gbit/s si GRS/ZRS est activé, 20 Gbit/s pour LRS |
-| Sortie max.<sup>1</sup> par compte de stockage (régions des États-Unis) | 20 Gbit/s si RA-GRS/GRS/ZRS est activé, 30 Gbit/s pour LRS |
-| Entrée max.<sup>1</sup> par compte de stockage (régions d’Europe et d’Asie) | 5 Gbit/s si GRS/ZRS est activé, 10 Gbit/s pour LRS |
-| Sortie max.<sup>1</sup> par compte de stockage (régions d'Europe et d'Asie) | 10 Gbit/s si RA-GRS/GRS/ZRS est activé, 15 Gbit/s pour LRS |
+| Entrée max.<sup>1</sup>  par compte de stockage (régions des États-Unis) | 10 Gbit/s si GRS/ZRS est activé, 20 Gbit/s pour LRS |
+| Sortie max.<sup>1</sup>  par compte de stockage (régions des États-Unis) | 20 Gbit/s si RA-GRS/GRS/ZRS est activé, 30 Gbit/s pour LRS |
+| Entrée max.<sup>1</sup>  par compte de stockage (régions d’Europe et d’Asie) | 5 Gbit/s si GRS/ZRS est activé, 10 Gbit/s pour LRS |
+| Sortie max.<sup>1</sup>  par compte de stockage (régions d’Europe et d’Asie) | 10 Gbit/s si RA-GRS/GRS/ZRS est activé, 15 Gbit/s pour LRS |
 | Taux de demandes total (objets de 1 Ko) par compte de stockage | Jusqu’à 20 000 opérations E/S, entités par seconde ou messages par seconde |
 
 <sup>1</sup>Entrée désigne toutes les données (requêtes) envoyées à un compte de stockage. Sortie désigne toutes les données (réponses) reçues d’un compte de stockage.
@@ -111,7 +111,7 @@ Si un disque géré est associé à une machine virtuelle, certaines opérations
 
 Les considérations de facturation suivantes s’appliquent à l’utilisation du stockage Standard :
 
-* Taille des données/disques non gérés du stockage standard 
+* Taille des données/disques non gérés du stockage standard
 * Disques gérés Standard
 * Captures instantanées du stockage Standard
 * Transferts de données sortantes
@@ -121,14 +121,16 @@ Les considérations de facturation suivantes s’appliquent à l’utilisation d
 
 **Disques managés** : la facturation des disques managés standard dépend du provisionnement de leur taille. Azure mappe la taille configurée des disques (arrondie à la valeur supérieure) sur l’option Managed Disks la plus proche, tel qu’indiqué dans les tableaux ci-dessous. Chaque disque managé mappe sur l’une des tailles configurées prises en charge et est facturé en conséquence. Par exemple, si vous créez un disque managé standard et définissez une taille provisionnée de 200 Gio, vous êtes facturé le prix du type de disque S15.
 
-| **Type de disque managé<br> HDD Standard** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60** | **S70** | **S80** |
+Les tailles signalées par un astérisque sont actuellement en préversion.
+
+| **Type de disque managé<br> HDD Standard** | **S4** | **S6** | **S10** | **S15** | **S20** | **S30** | **S40** | **S50** | **S60*** | **S70*** | **S80*** |
 |------------------|---------|---------|--------|--------|--------|----------------|----------------|----------------|----------------|----------------|----------------|
 | Taille du disque        | 32 Gio  | 64 Gio  | 128 Go | 256 Gio | 512 Go | 1 024 Gio (1 Tio) | 2 048 Gio (2 Tio) | 4 095 Gio (4 Tio) | 8 192 Gio (8 Tio) | 16 385 Gio (16 Tio) | 32 767 Gio (32 Tio) |
 
 
 **Captures instantanées** : les captures instantanées des disques Standard sont facturées en fonction de la capacité supplémentaire utilisée par les captures instantanées. Pour plus d'informations sur les captures instantanées, consultez [Création d'un instantané d'objet blob](/rest/api/storageservices/Creating-a-Snapshot-of-a-Blob).
 
-**Transferts de données sortantes**: les [transferts de données sortantes](https://azure.microsoft.com/pricing/details/data-transfers/) (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
+**Transferts de données sortantes** : [les transferts de données sortantes](https://azure.microsoft.com/pricing/details/data-transfers/)  (données sortant des centres de données Azure) sont facturés en fonction de la bande passante utilisée.
 
 **Transaction** : Azure facture 0,0036 $ par tranche de 100 000 transactions de stockage standard. Les transactions comprennent les opérations de lecture et d’écriture pour le stockage.
 

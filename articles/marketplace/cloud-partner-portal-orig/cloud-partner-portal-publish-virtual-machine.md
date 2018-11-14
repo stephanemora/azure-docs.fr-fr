@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 3b046022990e95e65ed02880bd3fefbd78bcad28
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: d77dad52e75253de02fd079d791861356c4c5e1f
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387352"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51247073"
 ---
 # <a name="publish-a-virtual-machine-to-azure-marketplace"></a>Publier une machine virtuelle sur la Place de marché Microsoft Azure
 
@@ -37,7 +37,7 @@ Les prérequis techniques et non techniques suivants s’appliquent à la public
 
 -   [Créer et tester une machine virtuelle Linux à partir d’une image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Créer et charger un disque dur virtuel (VHD) Windows](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Créer et charger un disque dur virtuel (VHD) Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Créer et tester une machine virtuelle Windows à partir d’une image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -60,15 +60,15 @@ Les prérequis techniques et non techniques suivants s’appliquent à la public
 
 -   Vous acceptez les termes de la Stratégie de participation et du Contrat d’éditeur de la Place de marché Azure.
 
--   Vous vous engagez à respecter les [Conditions d’utilisation](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [Déclaration de confidentialité Microsoft](http://www.microsoft.com/privacystatement/default.aspx) et le [Contrat relatif au programme Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
+-   Vous vous engagez à respecter les [Conditions d’utilisation](https://azure.microsoft.com/support/legal/website-terms-of-use/), la [Déclaration de confidentialité Microsoft](https://www.microsoft.com/privacystatement/default.aspx) et le [Contrat relatif au programme Microsoft Azure Certified](https://azure.microsoft.com/support/legal/marketplace/certified-program-agreement/).
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
 Une fois que vous avez réuni tous les prérequis, vous pouvez commencer à créer votre offre de modèle de solution. Avant de commencer, examinez les informations ci-dessous concernant l’offre et la référence SKU.
 
-**Offre**
+**Offer**
 
-Une offre Azure Application correspond à une classe d’offre de produit d’un éditeur. Si vous voulez mettre à disposition un nouveau type de solution/application sur la Place de marché Azure, le meilleur moyen est de créer une nouvelle offre. Une offre est une collection de références (SKU). Toutes les offres apparaissent en tant qu’entités distinctes sur la Place de marché Microsoft Azure.
+Une offre Azure Application correspond à une classe d’offre de produit d’un éditeur. Si vous voulez mettre à disposition un nouveau type de solution/d’application sur la Place de marché Microsoft Azure, la meilleure approche consiste à créer une nouvelle offre. Une offre est une collection de références (SKU). Toutes les offres apparaissent en tant qu’entités distinctes sur la Place de marché Microsoft Azure.
 
 **Référence (SKU)**
 
@@ -78,7 +78,7 @@ Ajoutez plusieurs références SKU dans les scénarios suivants :
 - Vous pouvez prendre en charge différents modèles de facturation, tels que BYOL (apportez votre propre licence) ou PAYG (payez au fur et à mesure).
 - Chaque référence SKU prend en charge un ensemble différent de fonctionnalités et chaque ensemble de fonctionnalités n’affiche pas le même tarif.
 
-Une référence SKU apparaît sous l’offre parente sur la Place de marché Azure, tandis qu’elle se présente comme une entité achetable en tant que telle sur le portail Azure.
+Une référence SKU apparaît sous l’offre parente sur la Place de marché Microsoft Azure, tandis qu’elle apparaît en tant qu’entité achetable en tant que telle sur le portail Azure.
 
 ## <a name="to-create-a-new-offer"></a>Pour créer une offre
 
@@ -116,7 +116,7 @@ Une référence SKU apparaît sous l’offre parente sur la Place de marché Azu
 
     **Nom**
 
-    Nom d’affichage de votre offre. Ce nom apparaît sur la Place de marché Azure et sur le portail Azure. Il ne peut pas comporter plus de 50 caractères. Suivez les conseils ci-dessous pour le nom de l’offre :
+    Nom d’affichage de votre offre. Ce nom apparaît sur la Place de marché Microsoft Azure et sur le portail Azure. Il ne peut pas comprendre plus de 50 caractères. Suivez les conseils ci-dessous pour le nom de l’offre :
     -  Incluez un nom de marque reconnaissable pour votre produit. 
     - N’incluez pas ici le nom de votre entreprise, sauf si l’offre est commercialisée de cette façon.
     - Si vous commercialisez cette offre sur votre propre site web, veillez à ce que le nom soit identique à celui qui apparaît sur votre site web.
@@ -128,10 +128,10 @@ Une référence SKU apparaît sous l’offre parente sur la Place de marché Azu
 1. Sélectionnez **Références**. 
 2. Sélectionnez **Ajouter une référence** pour entrer un ID de référence SKU. L’ID de référence SKU correspond à l’identificateur unique d’une référence SKU au sein d’une offre. Cet ID est visible dans les URL de produits, les modèles Azure Resource Manager et les rapports de facturation. L’ID de référence SKU :
     - Ne peut pas comporter plus de 50 caractères.
-    - Ne peut être constitué que de caractères alphanumériques en minuscules ou de tirets (-).
+    - Ne peut être constitué que de caractères alphanumériques en minuscules ou de tirets (-).
     - L’ID ne peut pas se terminer par un tiret.
 
-    ![Ajouter une référence SKU](./media/cloud-partner-portal-publish-virtual-machine/publishvm4.png)
+    ![Ajoutez une référence (SKU)](./media/cloud-partner-portal-publish-virtual-machine/publishvm4.png)
 
 
 ## <a name="configure-sku-details"></a>Configurer les détails d’une référence SKU
@@ -163,7 +163,7 @@ Ce champ identifie les régions dans lesquelles votre référence SKU sera dispo
 
 -   Dans les pays « Microsoft Tax Remitted Country », Microsoft collecte des taxes auprès des clients et les reverse à l’État.
 
--   Dans les autres pays, les partenaires sont chargés de collecter les taxes et de les reverser à leur État. Si vous choisissez de vendre dans ces pays, vous devez avoir la capacité de calculer ces taxes et de les y reverser.
+-   Dans les autres pays, les partenaires sont chargés de collecter les taxes et de les reverser à leur État. Si vous choisissez de vendre dans ces pays, vous devez avoir la capacité de calculer ces taxes et de les y verser.
 
 ![Sélectionner la disponibilité par pays/région](./media/cloud-partner-portal-publish-virtual-machine/publishvm5.png)
 
@@ -211,7 +211,7 @@ Dans cette tarification Excel, les prix pour les différentes régions sont indi
 
 >[!IMPORTANT]
 >-   Les prix ne peuvent plus être modifiés une fois que l’offre est en ligne. Cependant, vous pouvez toujours ajouter ou supprimer des régions desservies.
->-   Ce prix est facturé à l’utilisateur et s’ajoute au [tarif des machines virtuelles Azure\'](http://aka.ms/vmpricingdetails).
+>-   Ce prix est facturé à l\'utilisateur et s’ajoute au  [tarif des machines virtuelles Azure](https://aka.ms/vmpricingdetails).
 >-   Les prix sont définis pour toutes les régions en devise locale en utilisant les taux de change disponibles au moment de leur établissement.
 >-   Pour définir ou afficher individuellement le prix d’une région déterminée, exportez la feuille de calcul des tarifs, puis importez-la avec les tarifs personnalisés.
 
@@ -225,7 +225,7 @@ La section suivante est celles consacrée aux Images de machine virtuelle. Avant
 
 -   [Créer et tester une machine virtuelle Linux à partir d’une image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-linux-upload-vhd)
 
--   [Création et chargement d’un disque dur virtuel Windows](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
+-   [Création et chargement d’un disque dur virtuel Windows ](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-prepare-for-upload-vhd-image?toc=/azure/virtual-machines/windows/toc.json)
 
 -   [Créer et tester une machine virtuelle Windows à partir d’une image](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-create-vm-generalized-managed?toc=/azure/virtual-machines/windows/toc.json)
 
@@ -273,20 +273,20 @@ Attribuez un numéro à ce LUN. Ce numéro est réservé à ce disque de donnée
 >[!Note]
 >Une fois que vous avez publié une référence SKU avec une version de machine virtuelle spécifique et des disques de données, ces éléments sont verrouillés et ne peuvent plus être modifiés. Pour les versions de machine virtuelle supplémentaires éventuellement ajoutées à la référence SKU, le nombre de disques de données à prendre en charge ne peut pas changer.
 
-#### <a name="common-sas-url-issues--fixes"></a>Problèmes communs avec les URL SAP et résolution
+#### <a name="common-sas-url-issues--fixes"></a>Problèmes communs avec les URL SAS et résolution
 
 | Problème                                                                 | Message                                                                           | Correctif                                                           |  Lien vers la documentation                                                                                |
 |---------------------------------------------------------------------  |-------------------------------------------------------------------------------    |-----------------------------------------------------------    |---------------------------------------------------------------------------------------------------    |
-| Échec lors de la copie d’images : « ? » est introuvable dans l’URL SAP                | Échec : copie d’images. Impossible de télécharger l’objet blob avec l’URI SAP fournie.       | Mettez à jour l’URL SAP avec les outils recommandés                    | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| Échec lors de la copie d’images : les paramètres « st » et « se » ne sont pas présents dans l’URL SAP   | Échec : copie d’images. Impossible de télécharger l’objet blob avec l’URI SAP fournie.        | Mettez à jour l’URL SAS en ajoutant les dates de début et de fin             | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| Échec lors de la copie d’images : « sp=rl » n’est pas présent dans l’URL SAS                    | Échec : copie d’images. Impossible de télécharger l’objet blob avec l’URI SAP fournie         | Mettez à jour l’URL SAP avec les autorisations définies sur « Lecture » et « Liste »     | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| Échec lors de la copie d’images : l’URL SAP contient des espaces blancs dans le nom du disque dur virtuel     | Échec : copie d’images. Impossible de télécharger l’objet blob avec l’URI SAP fournie.        | Mettez à jour l’URL SAS sans espaces blancs                       | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
-| Échec lors de la copie d’images : erreur d’autorisation d’URL SAP               | Échec : copie d’images. Impossible de télécharger l’objet blob en raison d’une erreur d’autorisation     | Générez à nouveau l’URL SAP                                        | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Échec lors de la copie d’images : « ? » est introuvable dans l’URL SAP                | Échec : copie d’images. Impossible de télécharger l’objet blob avec l’URI SAP fournie.       | Mettez à jour l’URL SAS avec les outils recommandés                    | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Échec lors de la copie d’images : les paramètres « st » et « se » ne sont pas présents dans l’URL SAS   | Échec : copie d’images. Impossible de télécharger l’objet blob avec l’URI SAS fournie.        | Mettez à jour l’URL SAS en ajoutant les dates de début et de fin             | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Échec lors de la copie d’images : « sp=rl » n’est pas présent dans l’URL SAS                    | Échec : copie d’images. Impossible de télécharger l’objet blob avec l’URI SAS fournie         | Mettez à jour l’URL SAS avec les autorisations définies sur « Lecture » et « Liste »     | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Échec lors de la copie d’images : l’URL SAS contient des espaces blancs dans le nom du disque dur virtuel     | Échec : copie d’images. Impossible de télécharger l’objet blob avec l’URI SAS fournie.        | Mettez à jour l’URL SAS sans espaces blancs                       | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
+| Échec lors de la copie d’images : erreur d’autorisation d’URL SAS               | Échec : copie d’images. Impossible de télécharger l’objet blob en raison d’une erreur d’autorisation     | Générez à nouveau l’URL SAS                                        | https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/     |
 
 
 ## <a name="to-configure-the-marketplace"></a>Pour configurer la Place de marché
 
-Utilisez la vue Place de marché pour configurer les champs qui s’affichent pour l’offre sur la [Place de marché Azure](https://azuremarketplace.microsoft.com) et le [portail Azure](https://portal.azure.com/).
+Utilisez la vue Place de marché pour configurer les champs qui s’affichent pour l’offre sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et le [portail Azure](https://portal.azure.com/).
 
 ### <a name="preview-subscription-ids"></a>ID d’abonnement pour version préliminaire
 
@@ -296,9 +296,9 @@ Il s’agit de la liste des ID d’abonnement Azure dont vous voulez qu’ils ai
 
 Sélectionnez dans la liste fournie jusqu’à 5 catégories auxquelles votre offre peut être associée au mieux. Les catégories sélectionnées servent à mapper votre offre aux catégories de produits disponibles sur la [Place de marché Microsoft Azure](https://azuremarketplace.microsoft.com) et le [portail Azure](https://portal.azure.com/).
 
-Les exemples suivants présentent les informations de place de marché qui s’affichent sur la Place de marché Azure et le portail Azure.
+Les exemples suivants présentent les informations de place de marché qui s’affichent sur la Place de marché Microsoft Azure et le portail Azure.
 
-**Place de marché Azure**
+**Azure Marketplace**
 
 
 ![publishvm10](./media/cloud-partner-portal-publish-virtual-machine/publishvm10.png)
@@ -326,7 +326,7 @@ Suivez ces instructions pour les logos chargés sur le portail Cloud Partner :
 
 -   Le design Azure a une palette de couleurs simple. Limitez le nombre de couleurs primaires et secondaires sur votre logo.
 
--   Les couleurs de thème du portail Azure sont le blanc et le noir. Évitez d’utiliser ces couleurs comme couleur d’arrière-plan de vos logos. Utilisez des couleurs qui mettent vos logos en vue sur le portail Azure. Nous vous recommandons d’utiliser des couleurs primaires simples.
+-   Les couleurs de thème du portail Azure sont le blanc et le noir. Évitez d’utiliser ces couleurs comme couleur d’arrière-plan de vos logos. Utilisez des couleurs qui mettent en valeur vos logos sur le portail Azure. Nous vous recommandons d’utiliser des couleurs primaires simples.
 
     >[!Note] 
     >Si vous utilisez un arrière-plan transparent, assurez-vous que le logo/texte n’est pas blanc, noir ou bleu.
@@ -339,7 +339,7 @@ Suivez ces instructions pour les logos chargés sur le portail Cloud Partner :
 
 #### <a name="hero-logo"></a>Bannière
 
-La bannière est facultative. L’éditeur peut choisir de ne pas charger de bannière. En revanche, une fois que le logo est chargé, il ne peut plus être supprimé. Le partenaire doit suivre les instructions de la Place de marché Azure pour les icônes Bannière.
+La bannière est facultative. L’éditeur peut choisir de ne pas télécharger de bannière. En revanche, une fois que le logo est chargé, il ne peut plus être supprimé. Le partenaire doit suivre les instructions de la Place de marché Microsoft Azure pour les icônes Bannière.
 
 #### <a name="guidelines-for-the-hero-logo-icon"></a>Recommandations concernant l’icône Bannière
 
@@ -358,7 +358,7 @@ Pour configurer les paramètres de gestion des prospects de l’offre, suivez [c
 Utilisez la vue Support pour fournir les informations suivantes :
 
 - Coordonnées du support de votre entreprise, par exemple le service ingénierie.
-- Coordonnées du services clientèle.
+- Coordonnées du service clientèle.
 
 ## <a name="to-publish-the-offer"></a>Pour publier l’offre
 

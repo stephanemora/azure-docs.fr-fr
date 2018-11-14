@@ -1,25 +1,25 @@
 ---
-title: Déboguer et analyser les services Hadoop avec des dumps de tas - Azure
-description: Collectez automatiquement les dumps de tas de services Hadoop et placez-les dans le compte de stockage Azure Blob à des fins de débogage et d’analyse.
+title: Déboguer et analyser les services Apache Hadoop avec des dumps de tas – Azure
+description: Collectez automatiquement les dumps de tas des services Apache Hadoop et placez-les dans le compte de stockage Blob Azure à des fins de débogage et d’analyse.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
-ms.author: jasonh
+ms.author: hrasheed
 ROBOTS: NOINDEX
-ms.openlocfilehash: 35f7843ebf49e79d9045c72493bb38b218234288
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2a399899c93addf966d3f2ec0e36d4b1c76b686f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43099765"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038305"
 ---
-# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-hadoop-services"></a>Collecter les dumps de tas dans le stockage Blob pour les services de débogage et d'analyse Hadoop
+# <a name="collect-heap-dumps-in-blob-storage-to-debug-and-analyze-apache-hadoop-services"></a>Collecter les dumps de tas dans le Stockage Blob pour déboguer et analyser les services Apache Hadoop
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
-Les dumps de tas contiennent un instantané de la mémoire de l’application, y compris des valeurs des variables au moment de la création du dump. Ils sont donc utiles pour diagnostiquer les problèmes qui se produisent au moment de l’exécution. Il est possible de collecter automatiquement les dumps de tas de services Hadoop et de les placer dans le compte de stockage d’objets blob Azure d’un utilisateur sous HDInsightHeapDumps/.
+Les dumps de tas contiennent un instantané de la mémoire de l’application, y compris des valeurs des variables au moment de la création du dump. Ils sont donc utiles pour diagnostiquer les problèmes qui se produisent au moment de l’exécution. Il est possible de collecter automatiquement les dumps de tas des services Apache Hadoop et de les placer dans le compte de stockage Blob Azure d’un utilisateur sous HDInsightHeapDumps/.
 
 La collection des dumps de tas pour différents services doit être activée pour les services sur des clusters individuels. Par défaut, cette fonctionnalité est désactivée pour un cluster. Les dumps de tas pouvant être volumineux, nous vous recommandons de surveiller le compte de stockage d’objets blob dans lequel ils sont enregistrés une fois la collection activée.
 
@@ -30,11 +30,11 @@ La collection des dumps de tas pour différents services doit être activée pou
 ## <a name="eligible-services-for-heap-dumps"></a>Services éligibles pour le vidage de tas
 Vous pouvez activer des dumps de tas pour les services suivants :
 
-* **hcatalog** - tempelton
-* **hive** - hiveserver2, metastore, derbyserver
+* **Apache hcatalog** – tempelton
+* **Apache hive** – hiveserver2, metastore, derbyserver
 * **mapreduce** - jobhistoryserver
-* **yarn** - resourcemanager, nodemanager, timelineserver
-* **hdfs** - datanode, secondarynamenode, namenode
+* **Apache yarn** – resourcemanager, nodemanager, timelineserver
+* **Apache hdfs** – datanode, secondarynamenode, namenode
 
 ## <a name="configuration-elements-that-enable-heap-dumps"></a>Éléments de configuration permettant d’activer le vidage de tas
 Pour activer des dumps de tas sur un service, vous devez définir les éléments de configuration appropriés dans la section de ce service, qui est spécifié par **service_name**.

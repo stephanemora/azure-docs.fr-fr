@@ -3,17 +3,17 @@ title: Créer et gérer des règles de télémétrie dans votre application Azur
 description: Les règles de télémétrie d’Azure IoT Central vous permettent de surveiller vos appareils quasi en temps réel et d’appeler automatiquement des actions, comme l’envoi d’un e-mail, quand la règle se déclenche.
 author: ankitgupta
 ms.author: ankitgup
-ms.date: 08/14/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1b82ac3bf67370a2c39e85bf5691da38539edb74
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d085777e347e1e892c3a49f4f37aa1d8130ef18c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729307"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005731"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Créer une règle de télémétrie et configurer des notifications dans votre application Azure IoT Central
 
@@ -87,7 +87,7 @@ Cette section vous indique comment configurer les actions à effectuer lorsque l
 
    ![Configurer une action](media\howto-create-telemetry-rules\Configure_Action.png)
 
-1. Pour enregistrer la règle, choisissez **Enregistrer**. La règle est active au bout de quelques minutes et commence à surveiller la télémétrie envoyée à votre application. Quand la condition spécifiée dans la règle est remplie, la règle déclenche l’action d’envoi d’e-mail configurée.
+1. Pour enregistrer la règle, choisissez **Enregistrer**. La règle est active au bout de quelques minutes et commence à surveiller la télémétrie envoyée à votre application. Quand la condition spécifiée dans la règle est remplie, cette dernière déclenche l’action d’envoi d’e-mail configurée.
 
 1. Choisissez **Terminé** pour quitter le mode **Modifier le modèle**.
 

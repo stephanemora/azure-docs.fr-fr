@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: 7cd7f0f37f0d351d1d50d4c15e7132f072b5125d
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: fde8892f7a32d7b5405eef6661bbf29098325178
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46982203"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958676"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Monter le stockage de fichiers Azure sur les machines virtuelles Linux à l’aide de SMB
 
@@ -100,6 +100,7 @@ Montez le partage de fichiers Azure dans le répertoire local.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
+La commande ci-dessus utilise la commande [mount](https://linux.die.net/man/8/mount) pour monter le partage de fichiers Azure et les options spécifiques à [cifs](https://linux.die.net/man/8/mount.cifs). Plus précisément, les options file_mode et dir_mode définissent les fichiers et répertoires pour l’autorisation `0777`. L’autorisation `0777` octroie à tous les utilisateurs des droits de lecture, écriture et exécution. Vous pouvez modifier ces autorisations en remplaçant les valeurs par d’autres [autorisations chmod](https://en.wikipedia.org/wiki/Chmod). Vous pouvez également utiliser d’autres options [cifs](https://linux.die.net/man/8/mount.cifs) telles que gid ou uid. 
 
 
 ## <a name="persist-the-mount"></a>Rendre le montage permanent

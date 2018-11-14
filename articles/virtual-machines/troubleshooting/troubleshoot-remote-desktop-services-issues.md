@@ -1,6 +1,6 @@
 ---
 title: Les Services Bureau à distance ne démarrent pas sur une machine virtuelle Azure | Microsoft Docs
-description: Découvrez comment résoudre les problèmes concernant les Services Bureau à distance lors de la connexion à une Machine virtuelle | Microsoft Docs
+description: Découvrez comment résoudre les problèmes des Services Bureau à distance en cas de connexion à une machine virtuelle | Microsoft Docs
 services: virtual-machines-windows
 documentationCenter: ''
 author: genlin
@@ -13,115 +13,214 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 39b793e2722766f3f28829b4dc48534054abd97e
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 904387def0fd8842f196e80cfcf72d9dd1639458
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988978"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957691"
 ---
-# <a name="remote-desktop-services-is-not-starting-on-an-azure-vm"></a>Les Services Bureau à distance ne démarrent pas sur une machine virtuelle Azure
+# <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Les Services Bureau à distance ne démarrent pas sur une machine virtuelle Azure
 
-Cet article décrit comment résoudre les problèmes de connexion à une Machine virtuelle (VM) Azure lorsque les Services Bureau à distance (TermService) ne démarrent pas ou ne parviennent pas à démarrer.
+Cet article explique comment résoudre les problèmes de connexion à une machine virtuelle Azure quand les Services Bureau à distance, ou TermService, ne démarrent pas ou échouent au démarrage.
 
->[!NOTE]
->Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Resource Manager et classique](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements au lieu du modèle de déploiement classique.
+> [!NOTE]  
+> Azure dispose de deux modèles de déploiement différents pour créer et utiliser des ressources : [Azure Resource Manager et Classic](../../azure-resource-manager/resource-manager-deployment-model.md). Cet article traite de l’utilisation du modèle de déploiement de Resource Manager. Nous vous recommandons d’utiliser ce modèle pour les nouveaux déploiements, plutôt que le modèle de déploiement Classic.
 
 ## <a name="symptoms"></a>Symptômes
 
 Lorsque vous essayez de vous connecter à une machine virtuelle, vous rencontrez les situations suivantes :
 
 - La capture d’écran de la VM montre que le système d’exploitation est entièrement chargé et attend des informations d’identification.
-- Toutes les applications sur la VM fonctionnent comme prévu et sont accessibles.
-- La VM répond à la connectivité TCP sur le port du protocole RDP (Remote Desktop) Microsoft (par défaut, 3389).
-- Vous n’êtes pas invité à entrer les informations d’identification lorsque vous essayez d’établir une connexion RDP.
+
+    ![Capture d’écran de l’état de la machine virtuelle](./media/troubleshoot-remote-desktop-services-issues/login-page.png)
+
+- Vous consultez à distance les journaux des événements dans la machine virtuelle avec l’observateur d’événements. Il apparaît que les Services Bureau à distance, TermService, ne démarrent pas ou échouent au démarrage. Voici un exemple de journal :
+
+    **Nom du journal** :      Système </br>
+    **Source** :        Gestionnaire de contrôle des services </br>
+    **Date** :          16/12/2017 11:19:36</br>
+    **ID d’événement** :      7022</br>
+    **Catégorie de tâche** : Aucune</br>
+    **Niveau** :         Erreur</br>
+    **Mots clés** :     Classique</br>
+    **Utilisateur** :          N/A</br>
+    **Ordinateur** :      vm.contoso.com</br>
+    **Description** : Le service Services Bureau à distance s’est bloqué au démarrage. 
+
+    Vous pouvez aussi utiliser la fonctionnalité Console d’accès série pour rechercher ces erreurs en exécutant la requête suivante : 
+
+        wevtutil qe system /c:1 /f:text /q:"Event[System[Provider[@Name='Service Control Manager'] and EventID=7022 and TimeCreated[timediff(@SystemTime) <= 86400000]]]" | more 
 
 ## <a name="cause"></a>Cause :
+ 
+Ce problème se produit, car les Services Bureau à distance ne s’exécutent pas sur la machine virtuelle. La cause peut varier selon les scénarios suivants : 
 
-Ce problème se produit car les Services Bureau à distance ne s’exécutent pas sur la machine virtuelle. La cause peut varier selon les scénarios suivants :
-
-- Le service TermService a été défini sur **désactivé**.
-- Le service TermService est en incident ou suspendu.
+- Le service TermService est défini sur **Désactivé**. 
+- Le service TermService est en incident ou suspendu. 
+- TermService ne démarre pas raison d’une configuration incorrecte.
 
 ## <a name="solution"></a>Solution
 
-Pour résoudre ce problème, utilisez l’une des solutions suivantes ou essayez les solutions une par une :
+Pour résoudre ce problème, utilisez la Console série. Vous pouvez également [réparer la machine virtuelle en mode hors connexion](#repair-the-vm-offline) en attachant le disque de système d’exploitation de la machine virtuelle à une machine virtuelle de récupération.
 
-### <a name="solution-1-using-the-serial-console"></a>Solution 1 : Utiliser la console série
+### <a name="use-serial-console"></a>Utiliser la console série
 
-1. Accédez à la [Console série](serial-console-windows.md) en sélectionnant **Support & Troubleshooting (Support et dépannage)** > **Console série (préversion)**. Si la fonctionnalité est activée sur la machine virtuelle, vous pouvez connecter la machine.
+1. Accédez à la [console série](serial-console-windows.md) en sélectionnant **Support et dépannage** > **Console série**. Si la fonctionnalité est activée sur la machine virtuelle, vous pouvez connecter la machine.
 
-2. Créez un canal pour une instance CMD. Tapez **CMD** pour démarrer le canal et en obtenir le nom.
+2. Créez un canal pour une instance CMD. Entrez **CMD** pour démarrer le canal et en obtenir le nom.
 
-3. Basculez vers le canal qui exécute l’instance CMD, en l’occurrence le canal 1.
+3. Basculez vers le canal qui exécute l’instance CMD. Dans ce cas, il devrait s’agir du canal 1 :
 
    ```
    ch -si 1
    ```
 
-4. Appuyez sur **Entrée** à nouveau et tapez un nom d’utilisateur et un mot de passe valides (ID local ou de domaine) pour la machine virtuelle.
+4. Sélectionnez de nouveau **Entrée** et entrez un nom d’utilisateur et un mot de passe valides ainsi qu’un ID local ou de domaine pour la machine virtuelle.
 
-5. Interrogez l’état du service TermService.
+5. Interrogez l’état du service TermService :
 
    ```
    sc query TermService
    ```
 
-6. Si l’état du service indique **Arrêté**, essayez de démarrer le service.
+6. Si l’état du service indique **Arrêté**, essayez de le démarrer :
+
+    ```
+    sc start TermService
+     ``` 
+
+7. Interrogez à nouveau le service pour vérifier qu’il a réussi à démarrer :
+
+   ```
+   sc query TermService
+   ```
+8. Si le service échoue au démarrage, suivez la solution qui correspond à l’erreur que vous avez reçue :
+
+    |  Error |  Suggestion |
+    |---|---|
+    |5- ACCÈS REFUSÉ |Voir [Le service TermService est arrêté en raison d’une erreur d’accès refusé](#termService-service-is-stopped-because-of-an-access-denied-problem). |   |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Voir [Le service TermService est désactivé](#termService-service-is-disabled).  |  
+    |1058 - ERROR_SERVICE_DISABLED  |Voir [Le service TermService se bloque](#termService-service-crashes-or-hangs).  |
+    |1059 - ERROR_CIRCULAR_DEPENDENCY |[Contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.|
+    |1067 - ERROR_PROCESS_ABORTED  |Voir [Le service TermService se bloque](#termService-service-crashes-or-hangs).  |
+    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.|
+    |1069 - ERROR_SERVICE_LOGON_FAILED  |Voir [Le service TermService échoue en raison d’un échec d’ouverture de session](#termService-service-fails-because-of-logon-failure). |
+    |1070 - ERROR_SERVICE_START_HANG   | Voir [Le service TermService se bloque](#termService-service-crashes-or-hangs). |
+    |1077 - ERROR_SERVICE_NEVER_STARTED   | Voir [Le service TermService est désactivé](#termService-service-is-disabled).  |
+    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème. |
+    |1753   |[Contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre rapidement votre problème.   |   |5- ACCÈS REFUSÉ |Voir [Le service TermService est arrêté en raison d’une erreur d’accès refusé](#termService-service-is-stopped-because-of-an-access-denied-error). |
+    
+#### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>Le service TermService est arrêté en raison d’un problème d’accès refusé
+
+1. Connectez-vous à la [console série](serial-console-windows.md#) et ouvrez une instance PowerShell.
+2. Téléchargez l’outil Process Monitor en exécutant le script suivant :
+
+   ```
+   remove-module psreadline  
+   $source = "https://download.sysinternals.com/files/ProcessMonitor.zip" 
+   $destination = "c:\temp\ProcessMonitor.zip" 
+   $wc = New-Object System.Net.WebClient 
+   $wc.DownloadFile($source,$destination) 
+   ```
+
+3. Maintenant, lancez une trace **procmon** :
+
+   ```
+   procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
+   ```
+
+4. Reproduisez le problème en démarrant le service qui indique **Accès refusé** : 
+
+   ```
+   sc start TermService 
+   ```
+
+   Quand il échoue, mettez fin à la trace de Process Monitor :
+
+   ```   
+   procmon /Terminate 
+   ```
+
+5. Récupérez le fichier  **C:\temp\ProcMonTrace.PML** :
+
+    1. [Attachez un disque de données à la machine virtuelle](../windows/attach-managed-disk-portal.md
+).
+    2. Utilisez la Console série pour copier le fichier sur le nouveau disque. Par exemple : `copy C:\temp\ProcMonTrace.PML F:\`. Dans cette commande, F est la lettre de lecteur du disque de données attaché.
+    3. Détachez le lecteur de données et attachez-le à une machine virtuelle fonctionnelle sur laquelle Process Monitor ubstakke est installé.
+
+6. Ouvrez **ProcMonTrace.PML** en utilisant Process Monitor sur la machine virtuelle. Ensuite, filtrez sur  **Résultat est ACCÈS REFUSÉ**, comme dans la capture d’écran suivante :
+
+    ![Filtrer par résultat dans Process Monitor](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
+
+ 
+6. Corrigez les clés de Registre, les dossiers ou les fichiers qui se trouvent dans la sortie. En règle générale, ce problème est lié au fait que le compte de connexion utilisé dans le service ne dispose pas de l’autorisation d’ACL nécessaire pour accéder à ces objets. Pour connaître l’autorisation d’ACL adaptée au compte de connexion, vérifiez sur une machine virtuelle saine. 
+
+#### <a name="termservice-service-is-disabled"></a>Le service TermService est désactivé
+
+1. Rétablissez la valeur de démarrage par défaut du service :
+
+   ```
+   sc config TermService start= demand 
+   ```
+
+2. Démarrez le service :
 
    ```
    sc start TermService
    ```
 
-7. Interrogez à nouveau le service pour vous assurer qu’il a réussi à démarrer.
+3. Interrogez de nouveau l’état du service pour vérifier qu’il est en cours d’exécution :
 
    ```
-   sc query TermService
+   sc query TermService 
    ```
 
-### <a name="solution-2-using-a-recovery-vm-to-enable-the-service"></a>Solution 2 : utiliser une machine virtuelle de récupération pour activer le service
+4. Essayez de vous connecter à la machine virtuelle à l’aide du Bureau à distance.
 
-[Sauvegardez le disque du système d’exploitation](../windows/snapshot-copy-managed-disk.md) et [attachez le disque du système d’exploitation à une machine virtuelle de secours](../windows/troubleshoot-recovery-disks-portal.md). Ensuite, ouvrez une instance CMD avec élévation de privilèges et exécutez les scripts suivants sur la machine virtuelle de secours :
+#### <a name="termservice-service-fails-because-of-logon-failure"></a>Le service TermService échoue en raison d’un échec d’ouverture de session
 
->[!NOTE]
->Nous partons du principe que la lettre de lecteur qui est affectée au disque du système d’exploitation attaché est F. Remplacez-la par la valeur appropriée dans votre machine virtuelle. Une fois cette opération effectuée, détachez le disque de la machine virtuelle de récupération et [recréez votre machine virtuelle](../windows/create-vm-specialized.md). Pour un dépannage plus poussé, vous pouvez utiliser la **Solution 1** car la Console série aura été activée.
+1. Ce problème se produit lorsque le compte de démarrage de ce service a été modifié. Rétablissez sa configuration par défaut : 
 
-```
-reg load HKLM\BROKENSYSTEM f:\windows\system32\config\SYSTEM
+        sc config TermService obj= 'NT Authority\NetworkService'
+2. Démarrez le service :
 
-REM Enable Serial Console
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} displaybootmenu yes
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} timeout 10
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /set {bootmgr} bootems yes
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /ems {<Boot Loader Identifier>} ON
-bcdedit /store <Volume Letter Where The BCD Folder Is>:\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200
+        sc start TermService
+3. Essayez de vous connecter à la machine virtuelle à l’aide du Bureau à distance.
 
-REM Get the current ControlSet from where the OS is booting
-for /f "tokens=3" %x in ('REG QUERY HKLM\BROKENSYSTEM\Select /v Current') do set ControlSet=%x
-set ControlSet=%ControlSet:~2,1%
+#### <a name="termservice-service-crashes-or-hangs"></a>Le service TermService se bloque
+1. Si l’état du service est bloqué sur **Démarrage** ou sur **Arrêt**, essayez de l’arrêter : 
 
-REM Suggested configuration to enable OS Dump
-set key=HKLM\BROKENSYSTEM\ControlSet00%ControlSet%\Control\CrashControl
-REG ADD %key% /v CrashDumpEnabled /t REG_DWORD /d 2 /f
-REG ADD %key% /v DumpFile /t REG_EXPAND_SZ /d "%SystemRoot%\MEMORY.DMP" /f
-REG ADD %key% /v NMICrashDump /t REG_DWORD /d 1 /f
+        sc stop TermService
+2. Isolez le service sur son propre conteneur « svchost » :
 
-REM Set default values back on the broken service
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v start /t REG_DWORD /d <Startup Type> /f
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v ImagePath /t REG_EXPAND_SZ /d "<Image Path>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v ObjectName /t REG_SZ /d "<Startup Account>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Process Name>" /v type /t REG_DWORD /d 16 /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v start /t REG_DWORD /d <Startup Type> /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v ImagePath /t REG_EXPAND_SZ /d "<Startup Account>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v ObjectName /t REG_SZ /d "<Startup Account>" /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Process Name>" /v type /t REG_DWORD /d 16 /f
+        sc config TermService type= own
+3. Démarrez le service :
 
-REM Enable default dependencies from the broken service
-reg add "HKLM\BROKENSYSTEM\ControlSet001\services\<Driver/Service Name>" /v start /t REG_DWORD /d <Startup Type> /f
-reg add "HKLM\BROKENSYSTEM\ControlSet002\services\<Driver/Service Name>" /v start /t REG_DWORD /d <Startup Type> /f
-reg unload HKLM\BROKENSYSTEM
-```
+        sc start TermService
+4. Si le service échoue toujours au démarrage, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+### <a name="repair-the-vm-offline"></a>Réparer la machine virtuelle en mode hors connexion
+
+#### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Attachez le disque du système d’exploitation à une machine virtuelle de récupération
+
+1. [Attachez le disque du système d’exploitation à une machine virtuelle de récupération](../windows/troubleshoot-recovery-disks-portal.md).
+2. Établissez une connexion Bureau à distance à la machine virtuelle de récupération. Vérifiez que le disque attaché est marqué comme étant **En ligne** dans la console Gestion des disques. Notez la lettre de lecteur affectée au disque de système d’exploitation attaché.
+3.  Ouvrez une instance d’invite de commande avec élévation de privilèges (**Exécuter en tant qu’administrateur**). Ensuite, exécutez le script suivant. Supposons que la lettre de lecteur affectée au disque de système d’exploitation attaché est **F**. Remplacez-la par la valeur correspondant à votre machine virtuelle. 
+
+   ```
+   reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
+        
+   REM Set default values back on the broken service 
+   reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v start /t REG_DWORD /d 3 /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService“ /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet001\services\TermService" /v type /t REG_DWORD /d 16 /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v start /t REG_DWORD /d 3 /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v ObjectName /t REG_SZ /d "NT Authority\NetworkService" /f
+   reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
+   ```
+
+4. [Détachez le disque de système d’exploitation et recréez la machine virtuelle](../windows/troubleshoot-recovery-disks-portal.md). Ensuite, vérifiez que le problème est résolu.
 
 ## <a name="need-help-contact-support"></a>Vous avez besoin d’aide ? Contacter le support technique
 
-Si vous avez besoin d’aide, [contactez le support technique](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour obtenir une prise en charge rapide de votre problème.
+Si vous avez toujours besoin d’aide, [contactez le support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) pour résoudre votre problème.

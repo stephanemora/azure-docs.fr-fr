@@ -4,8 +4,6 @@ description: Utiliser des règles de trafic sortant pour définir la traduction 
 services: load-balancer
 documentationcenter: na
 author: KumudD
-manager: jpconnock
-tags: azure-resource-manager
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -13,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/19/2018
 ms.author: kumud
-ms.openlocfilehash: 0ba7ed902c6ecb7a328aa6db3d3855b88bed2813
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: ab09eb939d760a0f06be758fdf83591565aaf7d0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49637560"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219373"
 ---
 # <a name="load-balancer-outbound-rules"></a>Règles de trafic sortant dans Load Balancer
 
@@ -67,11 +65,11 @@ Dans l’API version « 2018-07-01 », une définition de règle de trafic sorta
 
 ### <a name="scale"></a> Mettre à l’échelle la NAT de trafic sortant avec plusieurs adresses IP
 
-Une règle de trafic sortant peut être utilisée avec une seule adresse IP publique, mais les règles de trafic sortant facilitent la configuration de la mise à l’échelle de la NAT de trafic sortant. Vous pouvez utiliser plusieurs adresses IP pour vos scénarios à grande échelle et utiliser des règles de trafic sortant afin de limiter les risques [d’épuisement de ports SNAT](load-balancer-outbound-connections.md#snatexhaust).  
+Une règle de trafic sortant peut être utilisée avec une seule adresse IP publique, mais les règles de trafic sortant facilitent la configuration de la mise à l’échelle de la NAT de trafic sortant. Vous pouvez utiliser plusieurs adresses IP pour vos scénarios à grande échelle et utiliser des règles de trafic sortant afin de limiter les risques [d’épuisement de ports SNAT](load-balancer-outbound-connections.md#snatexhaust).  
 
-Chaque adresse IP supplémentaire fournie par un frontend met à disposition 64 000 ports éphémères que Load Balancer peut utiliser en tant que ports SNAT. Alors que les règles d’équilibrage de charge ou les règles NAT de trafic entrant ont un seul frontend, la règle de trafic sortant étend la notion de frontend et permet l’utilisation de plusieurs frontends par règle.  Avec plusieurs frontends par règle, le nombre de ports SNAT disponibles est multiplié avec chaque adresse IP publique, ce qui rend possible la prise en charge de scénarios à très grande échelle.
+Chaque adresse IP supplémentaire fournie par un frontend met à disposition 64 000 ports éphémères que Load Balancer peut utiliser en tant que ports SNAT. Alors que les règles d’équilibrage de charge ou les règles NAT de trafic entrant ont un seul frontend, la règle de trafic sortant étend la notion de frontend et permet l’utilisation de plusieurs frontends par règle.  Avec plusieurs frontends par règle, le nombre de ports SNAT disponibles est multiplié avec chaque adresse IP publique, ce qui rend possible la prise en charge de scénarios à grande échelle.
 
-De plus, vous pouvez utiliser un [préfixe d’adresse IP publique](https://aka.ms/lbpublicipprefix) directement avec une règle de trafic sortant.  Cela simplifie la mise à l’échelle et la mise sur liste verte des flux provenant de votre déploiement Azure. Vous pouvez configurer une configuration IP frontend au sein de la ressource Load Balancer pour référencer directement un préfixe d’adresse IP publique.  De cette manière, Load Balancer conserve un contrôle exclusif sur le préfixe d’adresse IP publique, et la règle de trafic sortant utilise automatiquement toutes les adresses IP publiques contenues dans le préfixe d’adresse IP publique pour les connexions sortantes.  Chacune des adresses IP dans la plage du préfixe d’adresse IP publique fournit 64 000 ports éphémères que Load Balancer peut utiliser en tant que ports SNAT.   
+De plus, vous pouvez utiliser un [préfixe d’adresse IP publique](https://aka.ms/lbpublicipprefix) directement avec une règle de trafic sortant.  L’utilisation d’un préfixe d’adresse IP publique simplifie la mise à l’échelle et la mise sur liste verte des flux provenant de votre déploiement Azure. Vous pouvez configurer une configuration IP frontend au sein de la ressource Load Balancer pour référencer directement un préfixe d’adresse IP publique.  De cette manière, Load Balancer conserve un contrôle exclusif sur le préfixe d’adresse IP publique, et la règle de trafic sortant utilise automatiquement toutes les adresses IP publiques contenues dans le préfixe d’adresse IP publique pour les connexions sortantes.  Chacune des adresses IP dans la plage du préfixe d’adresse IP publique fournit 64 000 ports éphémères que Load Balancer peut utiliser en tant que ports SNAT.   
 
 Avec cette option, vous ne pouvez pas créer des ressources d’adresse IP publique de manière individuelle à partir du préfixe d’adresse IP publique, car la règle de trafic sortant doit avoir un contrôle total sur le préfixe d’adresse IP publique.  Si vous souhaitez un contrôle plus précis, créez une ressource d’adresse IP publique individuelle à partir du préfixe d’adresse IP publique et assignez plusieurs adresses IP publiques individuellement au frontend d’une règle de trafic sortant.
 

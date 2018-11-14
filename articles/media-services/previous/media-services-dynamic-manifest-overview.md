@@ -4,7 +4,7 @@ description: Cette rubrique décrit comment créer des filtres pour que votre cl
 services: media-services
 documentationcenter: ''
 author: cenkdin
-manager: cfowler
+manager: femila
 editor: ''
 ms.assetid: ff102765-8cee-4c08-a6da-b603db9e2054
 ms.service: media-services
@@ -12,22 +12,22 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 01/22/2018
+ms.date: 11/06/2018
 ms.author: cenkd;juliako
-ms.openlocfilehash: 982af37a866f73292192b0c889e9eeb1e1291030
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 6060f294820281df3124fb2fc702ece59a006af1
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33783718"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282405"
 ---
 # <a name="filters-and-dynamic-manifests"></a>Filtres et manifestes dynamiques
-À partir de la version 2.17, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d'effectuer des opérations comme les suivantes : lecture d'une section d'une vidéo uniquement (au lieu de la vidéo entière), spécification d'un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l'appareil de votre client (au lieu de tous les rendus associés à l'élément multimédia). Ce filtrage de vos ressources est obtenu via des **manifestes dynamiques**créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
+À partir de la version 2.17, Media Services vous permet de définir des filtres pour vos éléments multimédias. Ces filtres sont des règles côté serveur qui permettent à vos clients de choisir d’effectuer des opérations comme les suivantes : lecture d’une section d’une vidéo uniquement (au lieu de la vidéo entière), spécification d’un seul sous-ensemble de rendus audio et vidéo pouvant être gérés par l’appareil de votre client (au lieu de tous les rendus associés à l’élément multimédia). Ce filtrage de vos éléments multimédias est obtenu via des **manifestes dynamiques**créés à la demande de votre client pour diffuser une vidéo selon des filtres spécifiés.
 
 Cette rubrique décrit les scénarios courants dans lesquels l’utilisation de filtres s’avère très utile pour vos clients et établit des liens vers d’autres rubriques qui montrent comment créer par programme de tels filtres.
 
-## <a name="overview"></a>Vue d'ensemble
-Quand vous distribuez votre contenu aux clients (diffusion en continu d'événements en direct ou vidéo à la demande), votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. Pour atteindre cet objectif, procédez comme suit :
+## <a name="overview"></a>Vue d’ensemble
+Quand vous distribuez votre contenu aux clients (diffusion en continu d’événements en direct ou vidéo à la demande), votre objectif est de distribuer une vidéo de haute qualité à divers appareils dans des conditions de réseau différentes. Pour atteindre cet objectif, procédez comme suit :
 
 * encodez votre flux dans un flux vidéo à débit binaire multiple ([débit binaire adaptatif](http://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)) (les conditions de qualité et de réseau sont ainsi prises en charge) ; 
 * utilisez l' [empaquetage dynamique](media-services-dynamic-packaging-overview.md) pour empaqueter de nouveau votre flux dans différents protocoles dynamiquement (la diffusion en continu sur différents appareils est ainsi prise en charge). Media Services prend en charge la distribution des technologies de streaming à débit adaptatif suivantes : HTTP Live Streaming (HLS), Smooth Streaming et MPEG DASH. 
@@ -70,7 +70,7 @@ Voici un exemple de fichier manifeste :
 ### <a name="dynamic-manifests"></a>Manifestes dynamiques
 Il existe des [scénarios](media-services-dynamic-manifest-overview.md#scenarios) dans lesquels votre client a besoin de davantage de flexibilité que celle décrite dans le fichier manifeste de l'élément multimédia par défaut. Par exemple : 
 
-* Particularité de l'appareil : distribuez uniquement les rendus spécifiés et/ou les pistes de langue spécifiées qui sont prises en charge par l'appareil utilisé pour lire le contenu (« filtrage de rendu »). 
+* Particularité de l’appareil : distribuez uniquement les rendus spécifiés et/ou les pistes de langue spécifiées qui sont prises en charge par l’appareil utilisé pour lire le contenu (« filtrage de rendu »). 
 * Réduisez le manifeste pour afficher un sous-clip d'un événement en direct (« filtrage de sous-clip »).
 * Découpez le début d'une vidéo (« découpage d'une vidéo »).
 * Ajustez la fenêtre de présentation (DVR) afin de fournir une longueur limitée de la fenêtre du DVR dans le lecteur (« ajustement de la fenêtre de présentation »).
@@ -115,7 +115,7 @@ Avec un manifeste dynamique, vous pouvez créer des profils d'appareil mobile, d
 
 ![Exemple de filtrage de rendu][renditions2]
 
-Dans l’exemple suivant, un encodeur a été utilisé pour encoder un élément multimédia mezzanine en sept rendus vidéo ISO MP4s (de 180 p à 1 080 p). L’élément multimédia encodé peut être empaqueté de manière dynamique dans l’un des protocoles de diffusion en continu suivants : HLS, Smooth et MPEG DASH.  En haut du diagramme, le manifeste HLS de l'élément multimédia sans aucun filtre apparaît (il contient les sept rendus).  Dans la partie inférieure gauche apparaît le manifeste HLS auquel un filtre nommé « ott » a été appliqué. Le filtre « ott » indique de supprimer tous les débits binaires inférieurs à 1 Mbit/s, ce qui entraîne la suppression des deux niveaux de qualité les plus bas dans la réponse.  Dans la partie inférieure droite apparaît le manifeste HLS auquel un filtre nommé « mobile » a été appliqué. Le filtre « mobile » indique de supprimer les rendus pour lesquels la résolution est supérieure à 720 p, ce qui entraîne la suppression des deux rendus à 1 080 p.
+Dans l’exemple suivant, un encodeur a été utilisé pour encoder un élément multimédia mezzanine en sept rendus vidéo ISO MP4s (de 180 p à 1 080 p). L’élément multimédia encodé peut être empaqueté de manière dynamique dans l’un des protocoles de diffusion en continu suivants : HLS, Smooth et MPEG DASH.  En haut du diagramme, le manifeste HLS de l'élément multimédia sans aucun filtre apparaît (il contient les sept rendus).  Dans la partie inférieure gauche apparaît le manifeste HLS auquel un filtre nommé « ott » a été appliqué. Le filtre « ott » indique de supprimer tous les débits binaires inférieurs à 1 Mbit/s, ce qui entraîne la suppression des deux niveaux de qualité les plus bas dans la réponse. Dans la partie inférieure droite apparaît le manifeste HLS auquel un filtre nommé « mobile » a été appliqué. Le filtre « mobile » indique de supprimer les rendus pour lesquels la résolution est supérieure à 720 p, ce qui entraîne la suppression des deux rendus à 1 080 p.
 
 ![Filtrage de rendu][renditions1]
 
@@ -181,8 +181,8 @@ Pour plus d’informations, consultez [ce](https://azure.microsoft.com/blog/azur
 
 ## <a name="know-issues-and-limitations"></a>Problèmes connus et limitations
 * Le manifeste dynamique fonctionne dans les limites d'un groupe d'images (GOP) (images clés), par conséquent, le découpage est précis au niveau du GOP. 
-* Vous pouvez utiliser le même nom de filtre pour les filtres locaux et globaux. Notez que le filtre local a une priorité plus élevée et remplace les filtres globaux.
-* Si vous mettez à jour un filtre, il peut falloir jusqu'à 2 minutes pour que le point de terminaison de diffusion en continu actualise les règles. Si le contenu a été servi à l'aide de filtres (puis mis en cache dans des proxys et des caches CDN), la mise à jour de ces filtres peut entraîner des défaillances du lecteur. Il est recommandé d'effacer le cache après la mise à jour du filtre. Si cette option n'est pas possible, envisagez d'utiliser un filtre différent.
+* Vous pouvez utiliser le même nom de filtre pour les filtres locaux et globaux. Les filtres locaux ont une priorité plus élevée et remplacent les filtres globaux.
+* Si vous mettez à jour un filtre, il peut falloir jusqu'à 2 minutes pour que le point de terminaison de diffusion en continu actualise les règles. Si le contenu a été servi à l'aide de filtres (puis mis en cache dans des proxys et des caches CDN), la mise à jour de ces filtres peut entraîner des défaillances du lecteur. Il est recommandé d’effacer le cache après la mise à jour du filtre. Si cette option n'est pas possible, envisagez d'utiliser un filtre différent.
 
 ## <a name="media-services-learning-paths"></a>Parcours d’apprentissage de Media Services
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

@@ -10,12 +10,12 @@ ms.component: bing-custom-search
 ms.topic: conceptual
 ms.date: 09/28/2017
 ms.author: v-brapel
-ms.openlocfilehash: a74e6a6a90a242d4d1b2fd71a5fc6cf949ea55cb
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: 5e168608202f81f698221b52315de83e9713feab
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48815254"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282918"
 ---
 # <a name="configure-your-custom-search-experience"></a>Configurer votre expérience de recherche personnalisée
 
@@ -64,7 +64,7 @@ De même, vous pouvez ajouter des sections à la liste des éléments bloqués (
 
 ## <a name="pinned-list"></a>Liste des éléments épinglés
 
-Le portail vous permet également d’épingler une page Web particulière en haut des résultats de recherche si l’utilisateur entre un terme de recherche spécifique. L’onglet **Pinned** (Éléments épinglés) contient une liste de paires, constituées de termes de requête associés à des pages Web, qui spécifient la page Web devant s’afficher en tant que meilleur résultat pour une requête particulière. Pour plus d’informations sur l’épinglage de résultats, consultez [Classer par ordre de priorité](#adjustrank).
+Le portail vous permet également d’épingler une page Web particulière en haut des résultats de recherche si l’utilisateur entre un terme de recherche spécifique. L’onglet **Pinned** (Éléments épinglés) contient une liste de paires, constituées de termes de requête associés à des pages Web, qui spécifient la page Web devant s’afficher en tant que meilleur résultat pour une requête particulière. En outre, seules les pages web indexées apparaîtront dans les recherches. Pour plus d’informations sur l’épinglage de résultats, consultez [Classer par ordre de priorité](#adjustrank). 
 
 L’épinglage de résultats n’est pas disponible pour la recherche d’images et la recherche de vidéos.
 

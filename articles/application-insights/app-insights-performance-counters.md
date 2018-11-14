@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/11/2016
 ms.author: mbullwin
-ms.openlocfilehash: bb1b1e2934de052479f39d40bfe143345e91bc26
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: e5915f18799386ae92019073fb50dac96da107ea
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47094081"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960104"
 ---
 # <a name="system-performance-counters-in-application-insights"></a>Compteurs de performances système dans Application Insights
 Windows offre un large éventail de [compteurs de performance](http://www.codeproject.com/Articles/8590/An-Introduction-To-Performance-Counters) tels que le niveau d’occupation du processeur, la mémoire, le disque et l’utilisation du réseau. Vous pouvez également définir les vôtres. [Application Insights](app-insights-overview.md) peut afficher ces compteurs de performance si votre application est exécutée sous IIS sur un hôte ou une machine virtuelle local sur lequel vous disposez d’un accès administratif. Les graphiques indiquent les ressources disponibles pour votre application active, et peuvent vous aider à identifier l’équilibrage de charge entre les instances de serveur.
@@ -27,7 +27,7 @@ Les compteurs de performance s’affichent dans le panneau Serveurs, qui inclut 
 
 ![Compteurs de performances signalés dans Application Insights](./media/app-insights-performance-counters/counters-by-server-instance.png)
 
-(Les compteurs de performance ne sont pas disponibles pour les applications web Azure. Vous pouvez toutefois [envoyer des diagnostics Azure vers Application Insights](app-insights-azure-diagnostics.md).)
+(Les compteurs de performance ne sont pas disponibles pour les applications web Azure. Vous pouvez toutefois [envoyer des diagnostics Azure vers Application Insights](../monitoring-and-diagnostics/azure-diagnostics-configure-application-insights.md).)
 
 ## <a name="view-counters"></a>Afficher des compteurs
 Le panneau Serveurs affiche un ensemble de compteurs de performances par défaut. 
@@ -96,7 +96,7 @@ Ou vous pouvez effectuer la même opération avec les mesures personnalisées qu
 ## <a name="performance-counters-in-analytics"></a>Compteurs de performances dans Analytics
 Vous pouvez rechercher et afficher des rapports de compteur de performances dans [Analytics](app-insights-analytics.md).
 
-Le schéma **compteur de performances** expose les noms `category`, `counter` et `instance` nom de chaque compteur de performance.  Dans les données de télémétrie pour chaque application, vous ne verrez que les compteurs pour cette application. Par exemple, pour voir les compteurs disponibles : 
+Le schéma **compteur de performances** expose les noms `category`, `counter` et `instance` nom de chaque compteur de performance.  Les données de télémétrie d’une application ne font apparaître que les compteurs de cette application. Par exemple, pour voir les compteurs disponibles : 
 
 ![Compteurs de performances dans Application Insights Analytics](./media/app-insights-performance-counters/analytics-performance-counters.png)
 

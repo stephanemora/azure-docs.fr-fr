@@ -1,6 +1,6 @@
 ---
 title: Comprendre comment utiliser Azure Digital Twins Swagger | Microsoft Docs
-description: Guide pratique pour utiliser Azure Digital Twins Swagger
+description: Utiliser Azure Digital Twins Swagger
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
@@ -8,36 +8,36 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: adgera
-ms.openlocfilehash: 3bc365c204ab75a2f136c3e26c4b598b25f66114
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 69b8f64574427a6b3d3d2cf0312eac88d86e5907
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50093487"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960194"
 ---
-# <a name="how-to-use-azure-digital-twins-swagger"></a>Guide pratique pour utiliser Azure Digital Twins Swagger
+# <a name="use-azure-digital-twins-swagger"></a>Utiliser Azure Digital Twins Swagger
 
 Chaque instance Azure Digital Twins provisionnée inclut sa propre documentation de référence sur Swagger générée automatiquement.
 
-[Swagger](https://swagger.io/) (ou [OpenAPI](https://www.openapis.org/)) regroupe des informations sur les API complexes dans une ressource de référence interactive et indépendante du langage. Plus précisément, Swagger fournit des documents de référence essentiels sur les charges utiles JSON, les méthodes HTTP et les points de terminaison spécifiques à utiliser pour effectuer des opérations sur une API.
+[Swagger](https://swagger.io/), ou [OpenAPI](https://www.openapis.org/), regroupe des informations complexes sur les API au sein d’une ressource de référence interactive et indépendante du langage. Swagger fournit des documents de référence essentiels sur les charges utiles JSON, les méthodes HTTP et les points de terminaison à utiliser pour effectuer des opérations sur une API.
 
 ## <a name="swagger-summary"></a>Résumé de Swagger
 
-Swagger fournit un résumé interactif de votre API, notamment :
+Swagger propose un résumé interactif de votre API, qui comporte les éléments suivants :
 
 * Informations sur l’API et le modèle objet.
-* Points de terminaison d’API REST spécifiant les méthodes HTTP, les en-têtes, les paramètres, les chemins du contexte et les charges utiles de demande nécessaires.
+* Points de terminaison d’API REST spécifiant les méthodes HTTP, les chemins contextuels, les paramètres, les en-têtes et les charges utiles de demande nécessaires.
 * Test des fonctionnalités de l’API.
-* Exemple d’informations de réponse pour la validation et la confirmation des réponses HTTP.
+* Exemple d’informations de réponse utilisées pour valider et confirmer les réponses HTTP.
 * Informations sur les codes d’erreur.
 
-Swagger est donc un outil pratique pour faciliter le développement et le test des appels passés à l’API de gestion.
+Swagger est un outil pratique qui facilite le développement et le test des appels passés à l’API Gestion.
 
 > [!TIP]
-> Pour référence, vous pouvez obtenir un premier aperçu de Swagger qui illustre le jeu de fonctionnalités de l’API.
+> Vous pouvez obtenir un premier aperçu de Swagger qui illustre le jeu de fonctionnalités de l’API.
 > Pour ce faire, rendez-vous à l’adresse [docs.westcentralus.azuresmartspaces.net/management/swagger](https://docs.westcentralus.azuresmartspaces.net/management/swagger).
 
-Vous pouvez accéder à votre propre documentation Swagger pour l’API de Gestion générée à l’adresse suivante :
+Vous pouvez accéder à votre propre documentation Swagger générée pour l’API Gestion à l’adresse suivante :
 
 ```plaintext
 https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
@@ -52,51 +52,51 @@ https://yourInstanceName.yourLocation.azuresmartspaces.net/management/swagger
 
 Les documents de référence générés automatiquement expliquent les principaux concepts et modèles objet.
 
-Un bref résumé décrit l’API :
+Un bref résumé décrit l’API.
 
 ![Début de Swagger][1]
 
-Les principaux modèles objet de l’API sont également listés :
+Les principaux modèles objet de l’API sont également listés.
 
 ![Modèles Swagger][2]
 
-Vous pouvez cliquer sur chaque modèle objet listé pour obtenir un résumé plus détaillé des principaux attributs :
+Vous pouvez sélectionner chacun des modèles objet listés pour obtenir un résumé plus détaillé des principaux attributs.
 
 ![Modèle Swagger][3]
 
-Les modèles objet Swagger générés sont pratiques pour voir la totalité des [objets et API](./concepts-objectmodel-spatialgraph.md) Azure Digital Twins disponibles. Il s’agit d’une excellente ressource pour les développeurs souhaitant créer des solutions sur Azure Digital Twins.
+Les modèles objet Swagger générés sont pratiques pour voir la totalité des [objets et API](./concepts-objectmodel-spatialgraph.md) Azure Digital Twins disponibles. Les développeurs peuvent se servir de cette ressource lorsqu’ils créent des solutions sur Azure Digital Twins.
 
 ## <a name="endpoint-summary"></a>Résumé des points de terminaison
 
 Swagger fournit également une vue d’ensemble détaillée de tous les points de terminaison qui composent l’API.
 
-Chaque point de terminaison listé inclut également les informations de demande nécessaires telles que les suivantes :
+Chaque point de terminaison listé inclut également les informations obligatoires de la demande, et notamment les suivantes :
 
 * Paramètres obligatoires.
 * Types de données de paramètre obligatoires.
-* Méthode HTTP pour accéder à la ressource.
+* Méthode HTTP permettant d’accéder à la ressource.
 
 ![Points de terminaison Swagger][4]
 
-Vous pouvez cliquer sur chaque ressource pour voir une présentation plus détaillée.
+Sélectionnez une ressource pour en voir une présentation plus détaillée.
 
-## <a name="using-swagger-to-test-endpoints"></a>Utilisation de Swagger pour tester les points de terminaison
+## <a name="use-swagger-to-test-endpoints"></a>Utiliser Swagger pour tester des points de terminaison
 
-Une des fonctionnalités puissantes que fournit Swagger est la possibilité d’**essayer** ou de tester un point de terminaison de l’API directement par le biais de l’interface utilisateur de la documentation.
+L’une des fonctionnalités les plus puissantes de Swagger est la possibilité de tester directement un point de terminaison d’API sur l’interface utilisateur de la documentation.
 
-Quand vous cliquez sur un point de terminaison spécifique, un bouton **Try it out** (Essayez-le) apparaît :
+Lorsqu’un point de terminaison spécifique est sélectionné, le bouton **Essayer** apparaît.
 
 ![Essayer Swagger][5]
 
-Quand vous développez cette section, des champs d’entrée pour chaque paramètre requis et facultatif apparaissent. Entrez les valeurs appropriées et cliquez sur **Execute** :
+Développez cette section pour faire apparaître les champs d’entrée de chaque paramètre obligatoire et de chaque paramètre facultatif. Entrez les valeurs correspondantes, puis sélectionnez **Exécuter**.
 
 ![Swagger essayé][6]
 
-Après avoir exécuté le test, vous pouvez valider les données de la réponse.
+Après avoir exécuté le test, vous pouvez valider les données de réponse.
 
 ## <a name="swagger-response-data"></a>Données de la réponse de Swagger
 
-Chaque point de terminaison listé inclut également des données de corps de réponse pour la validation de votre développement et de vos tests. Ces exemples incluent les codes d’état et JSON souhaités pour les requêtes HTTP réussies.
+Chaque point de terminaison listé inclut également des données de corps de réponse pour la validation de votre développement et de vos tests. Ces exemples comportent les codes d’état et le code JSON correspondant à des requêtes HTTP réussies.
 
 ![Réponse de Swagger][7]
 
@@ -108,9 +108,9 @@ Pour tester de façon interactive les demandes sur des ressources de l’API pro
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour plus d’informations sur les modèles objet Azure Digital Twins et le graphe d’intelligence spatiale, consultez [cet article](./concepts-objectmodel-spatialgraph.md).
+Pour plus d’informations sur les modèles objet Azure Digital Twins et le graphe d’intelligence spatiale, voir [Comprendre les modèles objet Azure Digital Twins](./concepts-objectmodel-spatialgraph.md).
 
-Pour savoir comment vous authentifier auprès de votre API de gestion, consultez [Authentification auprès des API](./security-authenticating-apis.md).
+Pour savoir comment s’authentifier auprès d’une API Gestion, voir [S’authentifier auprès des API](./security-authenticating-apis.md).
 
 <!-- Images -->
 [1]: media/how-to-use-swagger/swagger_management_top.PNG

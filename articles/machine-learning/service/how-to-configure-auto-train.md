@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 1aeb1315cfafbcdf3507a6e49d71e1f1e69b537c
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 5a539aebc9b1ccb5f52f89d511fc992ee6a24c81
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430185"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008944"
 ---
 # <a name="configure-your-automated-machine-learning-experiment"></a>Configurer votre expérience de machine learning automatisé
 
@@ -192,7 +192,7 @@ Propriété |  Description | Valeur par défaut
 `max_time_sec` |    Limite la quantité de temps (en secondes) d’une itération particulière. Si une itération dépasse la quantité spécifiée, cette itération est annulée. Si ce paramètre n’est pas défini, l’itération continue de s’exécuter jusqu’à ce qu’elle se termine. |   Aucun
 `n_cross_validations`   |Nombre de divisions pour la validation croisée.| Aucun
 `validation_size`   |Taille du jeu de validation définie en pourcentage de tous les échantillons de l’entraînement.|  Aucun
-`preprocess` | True/False <br/>True permet à l’expérience d’effectuer un prétraitement sur l’entrée. Voici un sous-ensemble de prétraitement<li>Données manquantes : Attribue des valeurs aux données manquantes - la moyenne pour les données numériques, la chaîne ayant le plus d’occurrences pour le texte </li><li>Valeurs des catégories : Si le type de données est numérique et que le nombre de valeurs uniques est inférieur à 5 pour cent, convertit en un encodage one-hot </li><li>Pour obtenir la liste complète, consultez [le dépôt GitHub](https://aka.ms/aml-notebooks)</li><br/>Remarque : Si les données sont éparses, vous ne pouvez pas utiliser preprocess = true |  False | 
+`preprocess` | True/False <br/>True permet à l’expérience d’effectuer un prétraitement sur l’entrée. Voici un sous-ensemble de prétraitement<li>Données manquantes : Attribue des valeurs aux données manquantes – la moyenne pour les données numériques, la chaîne ayant le plus d’occurrences pour le texte </li><li>Valeurs des catégories : Si le type de données est numérique et que le nombre de valeurs uniques est inférieur à 5 pour cent, convertit en un encodage one-hot </li><li>Pour obtenir la liste complète, consultez [le dépôt GitHub](https://aka.ms/aml-notebooks)</li><br/>Remarque : Si les données sont éparses, vous ne pouvez pas utiliser preprocess = true | False | 
 `blacklist_algos`   | L’expérience de machine learning automatisé fait des essais avec de nombreux algorithmes différents. Configurez le machine learning automatisé pour exclure certains algorithmes de l’expérience. Pratique si vous savez qu’un ou plusieurs algorithmes spécifiques ne fonctionnent pas bien pour votre jeu de données. Exclure des algorithmes peut économiser des ressources de calcul et du temps d’entraînement.<br/>Valeurs autorisées pour la classification<br/><li>Régression logique</li><li>Classifieur SGD</li><li>MultinomialNB</li><li>BernoulliNB</li><li>SVM</li><li>LinearSVM</li><li>kNN</li><li>DT</li><li>RF</li><li>Arborescences supplémentaires</li><li>Boosting de gradient</li><li>lgbm_classifier</li><br/>Valeurs autorisées pour la régression<br/><li>Réseau élastique</li><li>Régresseur de boosting de gradient</li><li>Régresseur DT</li><li>Régresseur kNN</li><li>LARS LASSO</li><li>Régresseur SGD</li><li>Régresseur RF</li><li>Régresseur de hiérarchies supplémentaires</li>|   Aucun
 `verbosity` |Contrôle le niveau de journalisation, INFO étant le plus détaillé, CRITICAL étant le moins détaillé.<br/>Les valeurs autorisées sont les suivantes :<br/><li>logging.INFO</li><li>logging.WARNING</li><li>logging.ERROR</li><li>logging.CRITICAL</li>  | logging.INFO</li> 
 `X` | Toutes les caractéristiques pour l’entraînement |  Aucun

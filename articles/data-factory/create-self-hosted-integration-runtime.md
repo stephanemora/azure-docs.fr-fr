@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/15/2018
+ms.date: 10/31/2018
 ms.author: abnarain
-ms.openlocfilehash: 251d1a187c2a6742c361349274fd1e0bb1e41525
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cae81bd2b856ae0fb4a648c03cbec1f87f222902
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817143"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038466"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Créer et configurer un runtime d’intégration auto-hébergé
 Le runtime d’intégration (IR) représente l’infrastructure de calcul utilisée par Azure Data Factory pour fournir des capacités d’intégration de données entre différents environnements réseau. Pour plus d’informations sur le runtime d’intégration (IR), consultez [Runtime d’intégration dans Azure Data Factory](concepts-integration-runtime.md).
@@ -146,6 +146,12 @@ Voici la configuration requise pour le certificat TLS/SSL utilisé pour sécuris
 ## <a name="sharing-the-self-hosted-integration-runtime-with-multiple-data-factories"></a>Partage du runtime d’intégration auto-hébergé avec plusieurs fabriques de données
 
 Vous pouvez réutiliser une infrastructure existante de runtime d’intégration auto-hébergé que vous avez déjà configurée dans une fabrique de données. Cela vous permet de créer un *runtime d’intégration auto-hébergé lié* dans une fabrique de données différente en référençant un runtime d’intégration auto-hébergé (partagé) existant.
+
+Pour partager un runtime d’intégration auto-hébergé à l’aide de PowerShell, consultez [Créer un runtime d’intégration auto-hébergé partagé dans Azure Data Factory avec PowerShell](create-shared-self-hosted-integration-runtime-powershell.md).
+
+La vidéo suivante est une présentation et une démonstration de 12 minutes de cette fonctionnalité :
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Hybrid-data-movement-across-multiple-Azure-Data-Factories/player]
 
 ### <a name="terminology"></a>Terminologie
 

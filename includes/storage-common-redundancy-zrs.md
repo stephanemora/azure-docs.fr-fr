@@ -5,20 +5,20 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: include
-ms.date: 07/11/2018
+ms.date: 11/04/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 4a43966180850645584043690b1be9d6ae232f6e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 037996385f34c5037e0386686e3bdf8dc1b7a37a
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027445"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219832"
 ---
-Le stockage redondant interzone (ZRS) réplique vos données de façon synchrone sur trois clusters de stockage dans une seule région. Chaque cluster de stockage est physiquement séparé des autres et se trouve dans sa propre zone de disponibilité. Chaque zone de disponibilité, et le cluster ZRS qu’elle contient, est autonome, avec des utilitaires et fonctionnalités de mise en réseau séparés.
+Le stockage redondant interzone (ZRS) réplique vos données de façon synchrone sur trois clusters de stockage dans une seule région. Chaque cluster de stockage est séparé physiquement des autres et se trouve dans sa propre zone de disponibilité. Chaque zone de disponibilité &mdash;et le cluster ZRS qu’elle contient&mdash; est autonome et inclut des utilitaires et fonctionnalités de mise en réseau séparés.
 
-Le stockage de vos données dans un compte ZRS vous permet d’accéder et de gérer vos données au cas où une zone n’est plus disponible. Le stockage redondant dans une zone (ZRS) offre d’excellentes performances et une latence faible. Le stockage ZRS offre les mêmes [objectifs d’évolutivité](../articles/storage/common/storage-scalability-targets.md) que le [stockage localement redondant (LRS)](../articles/storage/common/storage-redundancy-lrs.md).
+Lorsque vous stockez vos données dans un compte de stockage à l’aide d’une réplication ZRS, vous pouvez continuer à accéder à vos données et à gérer celles-ci si une zone de disponibilité devient indisponible. Le stockage redondant dans une zone (ZRS) offre d’excellentes performances et une latence faible. Un stockage ZRS poursuit les mêmes [objectifs d’extensibilité](../articles/storage/common/storage-scalability-targets.md) qu’un [stockage localement redondant (LRS)](../articles/storage/common/storage-redundancy-lrs.md).
 
-Envisagez le stockage ZRS pour des scénarios qui requièrent une cohérence forte, une durabilité élevée et une haute disponibilité, même si une panne ou une catastrophe naturelle rend un centre de données zonal indisponible. Le stockage ZRS offre une durabilité des objets de stockage d’au moins 99,9999999999 % (12 neuf) sur une année donnée.
+Envisagez un stockage ZRS pour des scénarios qui requièrent une cohérence, une durabilité et une haute disponibilité. Même si une panne ou une catastrophe naturelle révèle l’existence d’une zone de disponibilité indisponible, le stockage ZRS assure une durabilité d’objet de stockage d’au moins 99,9999999999 % (12 9) sur une année donnée.
 
 Pour plus d’informations sur les zones de disponibilité, consultez [Vue d’ensemble des zones de disponibilité](https://docs.microsoft.com/azure/availability-zones/az-overview).

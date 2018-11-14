@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/03/2018
 ms.author: spelluru
-ms.openlocfilehash: 8653056c5c4b0e5b6831d3cc2b0006e89ac01bdd
-ms.sourcegitcommit: 609c85e433150e7c27abd3b373d56ee9cf95179a
+ms.openlocfilehash: 8a661c94ecc660e0ebd0e9818acef81b8a7b819b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48250778"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978613"
 ---
 # <a name="governance-of-azure-devtest-labs-infrastructure---application-migration-and-integration"></a>Gouvernance de l’infrastructure d’Azure DevTest Labs - Migration et intégration d’applications
-Une vois votre environnement de développement/test en place, posez-vous les questions suivantes : 
+Une vois votre environnement de développement/test en place, posez-vous les questions suivantes :
 
-- Comment utilisez-vous l’environnement dans votre équipe de projet ? 
+- Comment utilisez-vous l’environnement dans votre équipe de projet ?
 - Que faites-vous pour respecter les stratégies organisationnelles requises et préserver l’agilité pour valoriser votre application ?
 
 ## <a name="azure-marketplace-images-vs-custom-images"></a>Images Place de marché Microsoft Azure ou images personnalisées
@@ -60,10 +60,10 @@ Comment puis-je créer un processus facilement répétable pour intégrer mes im
 ### <a name="answer"></a>Réponse
 Regardez [cette vidéo sur le modèle Immage Factory](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/). Ce scénario est avancé et les scripts fournis le sont à titre d’exemple. Si des modifications s’imposent, vous devez gérer et actualiser les scripts utilisés dans votre environnement.
 
-Utilisation d’Azure DevTest Labs pour créer un pipeline d’images personnalisée dans Visual Studio Team Services (VSTS) :
+Utilisation d’Azure DevTest Labs pour créer un pipeline d’images personnalisées dans Azure Pipelines :
 
 - [Introduction: Get VMs ready in minutes by setting up an image factory in Azure DevTest Labs (Introduction : Rendre les machines virtuelles opérationnelles en quelques minutes en configuration une fabrique d’images dans Azure DevTest Labs)](https://blogs.msdn.microsoft.com/devtestlab/2016/09/14/introduction-get-vms-ready-in-minutes-by-setting-up-image-factory-in-azure-devtest-labs/)
-- [Image Factory – Part 2! Setup VSTS and Factory Lab to Create VMs (Fabrique d’images – Partie 2 : Configurer VSTS et Factory Lab pour créer des machines virtuelles)](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
+- [Image Factory – Part 2! Setup Azure Pipelines and Factory Lab to Create VMs (Fabrique d’images – Partie 2 : Configurer VSTS et Factory Lab pour créer des machines virtuelles)](https://blogs.msdn.microsoft.com/devtestlab/2017/10/25/image-factory-part-2-setup-vsts-to-create-vms-based-on-devtest-labs/)
 - [Image Factory – Part 3: Save Custom Images and Distribute to Multiple Labs (Fabrique d’images – Partie 3 : Enregistrer les images personnalisées et les distribuer à plusieurs laboratoires)](https://blogs.msdn.microsoft.com/devtestlab/2018/01/10/image-factory-part-3-save-custom-images-and-distribute-to-multiple-labs/)
 - [Video: Custom Image Factory with Azure DevTest Labs (Vidéo : Fabrique d’images personnalisées avec Azure DevTest Labs)](https://blogs.msdn.microsoft.com/devtestlab/2017/04/17/video-custom-image-factory-with-azure-devtest-labs/)
 
@@ -79,7 +79,7 @@ Oui. Deux aspects sont à prendre en compte : le trafic entrant et le trafic sor
 
 **Trafic sortant** – Pour éviter que les machines virtuelles accèdent directement à l’Internet public et forcer le trafic à passer par un pare-feu d’entreprise, vous pouvez acheminer le trafic localement via ExpressRoute ou un VPN, en utilisant le routage forcé.
 
-> [!NOTE] 
+> [!NOTE]
 > Si vous avez un serveur proxy qui bloque le trafic sans paramètres proxy, n’oubliez pas d’ajouter des exceptions dans le compte de stockage d’artefacts du labo.
 
 Vous pouvez également utiliser des groupes de sécurité réseau pour les machines virtuelles ou les sous-réseaux. Cette étape ajoute un niveau supplémentaire de protection pour autoriser ou bloquer le trafic.
@@ -100,9 +100,9 @@ Sinon, chaque environnement DevTest Labs pourrait avoir son propre réseau virtu
 Quand dois-je utiliser une adresse IP partagée, une adresse IP publique ou une adresse IP privée ?
 
 ### <a name="answer"></a>Réponse
-Si vous utilisez un VPN de site à site ou Express Route, privilégiez les adresses IP privées pour que vos machines soient accessibles via votre réseau interne et inaccessibles par l’Internet publiques. 
+Si vous utilisez un VPN de site à site ou Express Route, privilégiez les adresses IP privées pour que vos machines soient accessibles via votre réseau interne et inaccessibles par l’Internet publiques.
 
-> [!NOTE] 
+> [!NOTE]
 > Les propriétaires de labo peuvent modifier cette stratégie de sous-réseau pour que personne ne crée accidentellement d’adresses IP publiques pour ses machines virtuelles. Le propriétaire de l’abonnement doit créer une stratégie d’abonnement empêchant la création d’adresses IP publiques.
 
 Si vous utilisez des adresses IP publiques partagées, les machines virtuelles d’un labo partagent une adresse IP publique. Cette approche peut être utile pour éviter de dépasser les nombres limites d’adresses IP publiques pour un abonnement donné.
@@ -125,7 +125,7 @@ Pour évaluer le nombre de machines virtuelles par utilisateur ou par labo, troi
 Comment puis-utiliser des modèles Resource Manager dans mon environnement DevTest Labs ?
 
 ### <a name="answer"></a>Réponse
-Vous déployez vos modèles Resource Manager dans un environnement DevTest Labs en suivant les étapes décrites dans l’article [Utiliser Azure DevTest Labs pour les environnements de test de machine virtuelle et PaaS](devtest-lab-test-env.md). Globalement, vous intégrez vos modèles Resource Manager dans un référentiel Git (Visual Studio Team Services ou GitHub), et vous ajoutez un [référentiel privé pour vos modèles](devtest-lab-test-env.md) dans le labo.
+Vous déployez vos modèles Resource Manager dans un environnement DevTest Labs en suivant les étapes décrites dans l’article [Utiliser Azure DevTest Labs pour les environnements de test de machine virtuelle et PaaS](devtest-lab-test-env.md). Globalement, vous intégrez vos modèles Resource Manager dans un référentiel Git (Azure Repos ou GitHub), et ajoutez un [référentiel privé pour vos modèles](devtest-lab-test-env.md) au labo.
 
 Ce scénario peut ne pas répondre à vos besoins si vous hébergez des machines de développement dans DevTest Labs, mais il peut être utile si vous créez un environnement intermédiaire représentatif de l’environnement de production.
 

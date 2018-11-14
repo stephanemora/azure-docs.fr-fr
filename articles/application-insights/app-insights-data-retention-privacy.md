@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: mbullwin
-ms.openlocfilehash: 5ea026de228f3c93eed04770ad931d072387aa95
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 1994c714f691177b526b44e277fea705d18b4335
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079070"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51245696"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Collecte, rétention et stockage des données dans Application Insights
 
@@ -108,9 +108,9 @@ Microsoft n’utilise les données que pour vous fournir le service.
 * Non. Votre application peut s’exécuter n’importe où, sur vos propres hôtes locaux ou dans le cloud.
 
 ## <a name="how-secure-is-my-data"></a>Mes données sont-elles sécurisées ?
-Application Insights est un service Azure. Les stratégies de sécurité sont décrites dans le [livre blanc sur la sécurité, la confidentialité et la conformité Azure](http://go.microsoft.com/fwlink/?linkid=392408).
+Application Insights est un service Azure. Les stratégies de sécurité sont décrites dans le [livre blanc sur la sécurité, la confidentialité et la conformité Azure](https://go.microsoft.com/fwlink/?linkid=392408).
 
-Les données sont stockées sur des serveurs Microsoft Azure. Pour les comptes du portail Azure, les restrictions sont décrites dans le [document relatif à la sécurité, la confidentialité et la conformité Azure](http://go.microsoft.com/fwlink/?linkid=392408).
+Les données sont stockées sur des serveurs Microsoft Azure. Pour les comptes du portail Azure, les restrictions sont décrites dans le [document relatif à la sécurité, la confidentialité et la conformité Azure](https://go.microsoft.com/fwlink/?linkid=392408).
 
 L'accès à vos données par le personnel Microsoft est limité. Nous n'accédons à vos données qu'avec votre autorisation, et seulement pour vous aider à utiliser Application Insights. 
 
@@ -137,7 +137,7 @@ Oui, certains canaux de télémétrie conservent les données localement si un p
 Les canaux de télémétrie qui utilisent le stockage local créent des fichiers temporaires dans les répertoires TEMP ou APPDATA qui sont limités au compte exécutant votre application. Cela se produit lorsqu’un point de terminaison a été temporairement indisponible ou lorsque vous avez atteint la limite de bande passante. Une fois ce problème résolu, le canal de télémétrie reprend l’envoi de toutes les données nouvelles et conservées.
 
 
-Ces données conservées ne sont **pas chiffrées** et il est vivement recommandé de modifier votre stratégie en désactivant la collecte de données privées. (Pour plus d’informations, consultez [Comment exporter et supprimer des données privées](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
+Ces données conservées n’étant **pas chiffrées**, il est vivement recommandé de modifier votre stratégie en désactivant la collecte de données privées. (Pour plus d’informations, consultez [Comment exporter et supprimer des données privées](https://docs.microsoft.com/azure/application-insights/app-insights-customer-data#how-to-export-and-delete-private-data).)
 
 
 Si un client a besoin configurer ce répertoire avec des exigences de sécurité spécifiques, il peut être configuré conformément au framework. Vérifiez que le processus exécutant votre application a accès en écriture à ce répertoire, mais veillez également à que ce répertoire soit protégé pour éviter la lecture des données de télémétrie par des utilisateurs non autorisés.
@@ -173,7 +173,7 @@ TelemetryConfiguration.Active.TelemetryChannel = channel;
 
 Par défaut, `ServerTelemetryChannel` utilise le dossier de données d’application local `%localAppData%\Microsoft\ApplicationInsights` ou le dossier temp `%TMP%` de l’utilisateur actuel. (Consultez l’[implémentation](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) ici.) Dans un environnement Linux, le stockage local sera désactivé sauf si un dossier de stockage est spécifié.
 
-L’extrait de code suivant montre comment définir `ServerTelemetryChannel.StorageFolder` dans la méthode `ConfigureServices()` de votre classe `Startup.cs` :
+L’extrait de code suivant montre comment définir `ServerTelemetryChannel.StorageFolder` dans la `ConfigureServices()` méthode de votre classe  `Startup.cs`  :
 
 ```
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -232,7 +232,7 @@ openssl s_client -connect bing.com:443 -tls1_2
 
 ## <a name="personal-data-stored-in-application-insights"></a>Données personnelles stockées dans Application Insights
 
-Notre [article Données personnelles Application Insights](app-insights-customer-data.md) traite de ce problème en profondeur.
+Notre [article Données personnelles Application Insights](../log-analytics/log-analytics-personal-data-mgmt.md) traite de ce problème en profondeur.
 
 #### <a name="can-my-users-turn-off-application-insights"></a>Mes utilisateurs peuvent-ils désactiver Application Insights ?
 Pas directement. Il n’existe pas de commutateur que vos utilisateurs peuvent utiliser pour désactiver Application Insights.

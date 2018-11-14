@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/07/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 6743d03b623084675f5043a7e158fa99e8aa39d2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ea29d9052c2389b0c7d145223d3660364cbf2c74
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054003"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016316"
 ---
 # <a name="archive-the-azure-activity-log"></a>Archiver le journal d’activité Azure
 Dans cet article, nous vous expliquons comment vous pouvez utiliser le portail Azure, les applets de commande PowerShell ou l’interface de ligne de commande multiplateforme pour archiver votre [**journal d’activité Azure dans un compte de stockage**](monitoring-overview-activity-logs.md). Cette option est utile si vous souhaitez conserver votre journal d’activité pendant une période supérieure à 90 jours (en disposant d’un contrôle total sur la stratégie de rétention) à des fins d’audit, d’analyse statique ou de sauvegarde. Si vous devez conserver vos événements pendant 90 jours ou moins, il est inutile de configurer l’archivage sur un compte de stockage, puisque les événements du journal d’activité sont conservés dans la plateforme Azure pendant 90 jours sans que l’archivage ne soit activé.
@@ -35,10 +35,10 @@ Pour archiver le journal d’activité à l’aide de l’une des méthodes ci-d
 ## <a name="archive-the-activity-log-using-the-portal"></a>Archiver le journal d’activité à l’aide du portail
 1. Dans le portail, cliquez sur le lien **Journal d’activité** dans le volet de navigation de gauche. Si vous ne voyez pas de lien pour le journal d’activité, cliquez d’abord sur le lien **Tous les services**.
    
-    ![Accéder au panneau Journal d’activité](media/monitoring-archive-activity-log/act-log-portal-navigate.png)
-2. En haut du panneau, cliquez sur **Exporter**.
+    ![Accéder au panneau Journal d’activité](media/monitoring-archive-activity-log/activity-logs-portal-navigate-v2.png)
+2. En haut du panneau, cliquez sur **Exporter vers Event Hub**.
    
-    ![Cliquer sur le bouton Exporter](media/monitoring-archive-activity-log/act-log-portal-export-button.png)
+    ![Cliquer sur le bouton Exporter](media/monitoring-archive-activity-log/activity-logs-portal-export-v2.png)
 3. Dans le panneau qui s’affiche, cochez la case pour **exporter vers un compte de stockage** et sélectionnez un compte de stockage.
    
     ![Créer un compte de stockage](media/monitoring-archive-activity-log/act-log-portal-export-blade.png)
@@ -65,9 +65,9 @@ Pour archiver le journal d’activité à l’aide de l’une des méthodes ci-d
 | Propriété | Obligatoire | Description |
 | --- | --- | --- |
 | StorageAccountId |Oui |ID de ressource du compte de stockage dans lequel les journaux d’activité doivent être enregistrés. |
-| Lieu |Oui |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez voir une liste de toutes les régions pour votre abonnement à l’aide de `(Get-AzureRmLocation).Location`. |
+| Emplacements |Oui |Liste séparée par des virgules des régions pour lesquelles vous souhaitez collecter les événements du journal d’activité. Vous pouvez voir une liste de toutes les régions pour votre abonnement à l’aide de `(Get-AzureRmLocation).Location`. |
 | RetentionInDays |Non  |Nombre de jours pendant lesquels les événements doivent être conservés, compris entre 1 et 2147483647. Une valeur de zéro signifie que les journaux seront stockés pour une durée indéfinie (pour toujours). |
-| Catégorie |Non  |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action.  Si elles ne sont pas fournies, toutes les valeurs possibles sont supposées. |
+| Catégories |Non  |Liste séparée par des virgules des catégories d’événements qui doivent être collectées. Les valeurs possibles sont Write, Delete et Action.  Si elles ne sont pas fournies, toutes les valeurs possibles sont supposées. |
 
 ## <a name="archive-the-activity-log-via-cli"></a>Archiver le journal d’activité avec l’interface de ligne de commande
 

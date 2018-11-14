@@ -1,6 +1,6 @@
 ---
-title: Présentation de la connectivité et de l’authentification des appareils Azure Digital Twins | Microsoft Docs
-description: Utilisation d’Azure Digital Twins pour connecter et authentifier les appareils
+title: Comprendre la connectivité et l’authentification des appareils Azure Digital Twins | Microsoft Docs
+description: Utilisez Azure Digital Twins pour connecter et authentifier des appareils.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: lyrana
-ms.openlocfilehash: adfb4c369ea1b324da8562a5b0b245ebdecff602
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49323725"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012460"
 ---
 # <a name="create-and-manage-role-assignments"></a>Créer et gérer des attributions de rôle
 
@@ -21,15 +21,15 @@ Azure Digital Twins utilise le contrôle d’accès en fonction du rôle ([RBAC]
 
 Chaque attribution de rôle comprend :
 
-* Un **identificateur d’objet** (ID Azure Active Directory, ID d’objet de principal de service ou nom de domaine)
-* Un **type d’identificateur d’objet**
-* Un **ID de définition de rôle**
-* Un **chemin d’espace**
-* (dans la plupart des cas) Un **ID de locataire** Azure Active Directory
+* un **identificateur d’objet** : ID Azure Active Directory, ID objet de principal de service ou nom de domaine ;
+* un **type d’identificateur d’objet** ;
+* un **ID de définition de rôle** ;
+* un **chemin d’espace** ;
+* un **ID de locataire** : ID de locataire Azure Active Directory dans la plupart des cas.
 
 ## <a name="role-definition-identifiers"></a>Identificateurs de définition de rôle
 
-Le tableau ci-dessous montre ce qui peut être obtenu en interrogeant l’API Système/Rôles :
+Le tableau suivant indique ce que peuvent donner des requêtes à l’API système/rôles.
 
 | **Rôle** | **Identificateur** |
 | --- | --- |
@@ -41,11 +41,11 @@ Le tableau ci-dessous montre ce qui peut être obtenu en interrogeant l’API Sy
 | Utilisateur | b1ffdb77-c635-4e7e-ad25-948237d85b30 |
 | Spécialiste du support | 6e46958b-dc62-4e7c-990c-c3da2e030969 |
 | Installateur des appareils | b16dd9fe-4efe-467b-8c8c-720e2ff8817c |
-| GatewayDevice | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
+| Appareil de passerelle | d4c69766-e9bd-4e61-bfc1-d8b6e686c7a8 |
 
 ## <a name="supported-objectidtypes"></a>ObjectIdTypes pris en charge
 
-Les `ObjectIdTypes` pris en charge sont :
+`ObjectIdTypes` pris en charge :
 
 * `UserId`
 * `DeviceId`
@@ -62,15 +62,15 @@ HTTP POST /api/v1.0/roleassignments
 
 | **Nom** | **Obligatoire** | **Type** | **Description** |
 | --- | --- | --- | --- |
-| roleId| Oui |chaîne | Identificateur de la définition de rôle. Pour connaître les définitions de rôles et leurs identificateurs, vous pouvez interroger l’API Système. |
-| objectId | Oui |chaîne | ID d’objet pour l’attribution de rôle qui doit être mis en forme en fonction du type qui lui est associé. Pour l’ObjectIdType `DomainName`, ObjectId doit commencer par le caractère `“@”`. |
-| objectIdType | Oui |chaîne | Type de l’attribution de rôle. Doit être l’une des lignes suivantes de la table. |
-| tenantId | Varie | chaîne |Identificateur du locataire. Interdit pour les ObjectIdTypes `DeviceId` et `TenantId`. Obligatoire pour les ObjectIdTypes `UserId` et `ServicePrincipalId`. Facultatif pour l’ObjectIdType DomainName. |
-| path* | Oui | chaîne |Chemin complet de l’objet `Space`. Exemple : `/{Guid}/{Guid}` Si un identificateur a besoin de l’attribution de rôle pour l’intégralité du graphe, spécifiez `"/"` (qui désigne la racine). Toutefois, une telle utilisation est déconseillée, et **vous devez toujours suivre le principe des privilèges minimum**. |
+| roleId| Oui |Chaîne | Identificateur de la définition de rôle. Pour connaître les définitions de rôles et leurs identificateurs, interrogez l’API système. |
+| objectId | Oui |Chaîne | ID d’objet pour l’attribution de rôle qui doit être mis en forme en fonction du type qui lui est associé. Pour l’ObjectIdType `DomainName`, ObjectId doit commencer par le caractère `“@”`. |
+| objectIdType | Oui |Chaîne | Type de l’attribution de rôle. Doit être l’une des lignes suivantes de la table. |
+| tenantId | Varie | Chaîne |Identificateur du locataire. Interdit pour les ObjectIdTypes `DeviceId` et `TenantId`. Obligatoire pour les ObjectIdTypes `UserId` et `ServicePrincipalId`. Facultatif pour l’ObjectIdType DomainName. |
+| path* | Oui | Chaîne |Chemin complet de l’objet `Space`. Par exemple `/{Guid}/{Guid}`. Si l’identificateur a besoin de l’attribution de rôle pour l’intégralité du graphe, spécifiez `"/"`. Ce caractère désigne la racine. Cependant, il est déconseillé de l’utiliser. Suivez toujours le principe des privilèges minimum. |
 
 ## <a name="sample-configuration"></a>Exemple de configuration
 
-Un utilisateur a besoin d’un accès administratif à un étage d’un espace de locataire :
+Dans cet exemple, l’utilisateur a besoin d’un accès administratif à l’un des étages d’un espace de locataire.
 
   ```JSON
     {
@@ -82,7 +82,7 @@ Un utilisateur a besoin d’un accès administratif à un étage d’un espace d
     }
   ```
 
-Une application qui exécute des scénarios de test simulant des capteurs et des appareils :
+Dans cet exemple, une application exécute des scénarios de test simulant des appareils et des capteurs.
 
   ```JSON
     {
@@ -94,7 +94,7 @@ Une application qui exécute des scénarios de test simulant des capteurs et des
     }
   ```
 
-Tous les utilisateurs membres d’un domaine reçoivent un accès en lecture pour les espaces, les capteurs et les utilisateurs, ainsi que pour leurs objets connexes :
+Tous les utilisateurs qui font partie d’un domaine obtiennent un accès en lecture aux espaces, aux capteurs et aux utilisateurs. Cet accès inclut les objets connexes correspondants.
 
   ```JSON
     {
@@ -105,7 +105,7 @@ Tous les utilisateurs membres d’un domaine reçoivent un accès en lecture pou
     }
   ```
 
-Pour obtenir une attribution de rôle :
+Utilisez GET pour obtenir une attribution de rôle.
 
 ```plaintext
 HTTP GET /api/v1/roleassignments?path={path}
@@ -115,7 +115,7 @@ HTTP GET /api/v1/roleassignments?path={path}
 | --- | --- | --- | --- | --- |
 | path | path | True | Chaîne | Chemin complet de l’espace |
 
-Pour supprimer une attribution de rôle :
+Utilisez DELETE pour supprimer une attribution de rôle.
 
 ```plaintext
 HTTP DELETE /api/v1/roleassignments/{id}

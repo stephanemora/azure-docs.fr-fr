@@ -1,23 +1,22 @@
 ---
-title: Questions courantes sur la réplication de VMware vers Azure avec Azure Site Recovery | Microsoft Docs
-description: Cet article résume les questions courantes quand vous répliquez des machines virtuelles VMware en local vers Azure à l’aide d’Azure Site Recovery
-services: site-recovery
+title: Questions courantes sur la reprise d’activité de VMware sur Azure avec Azure Site Recovery | Microsoft Docs
+description: Cet article récapitule les questions courantes sur la configuration de la reprise d’activité de machines virtuelles VMware locales sur Azure avec Azure Site Recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 07/19/2018
+ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 487e0c763ca4b247f1818b2beaf3282734fc4e27
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388440"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012103"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
-Cet article fournit des réponses aux questions courantes qui se posent lors de la réplication de machines virtuelles VMware en local vers Azure. Si, après avoir lu cet article, vous avez des questions, posez-les sur le [forum Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
+Cet article fournit des réponses aux questions courantes qui se posent lors du déploiement de la reprise d’activité de machines virtuelles VMware locales sur Azure. Si, après avoir lu cet article, vous avez des questions, posez-les sur le [forum Azure Recovery Services](https://social.msdn.microsoft.com/Forums/azure/home?forum=hypervrecovmgr).
 
 
 ## <a name="general"></a>Généralités
@@ -60,6 +59,8 @@ Pour découvrir la prise en main du déploiement du serveur de configuration sur
 ### <a name="where-do-on-premises-vms-replicate-to"></a>Quelle est la destination de réplication des machines virtuelles en local ?
 Les données sont répliquées vers le stockage Azure. Quand vous exécutez un basculement, Site Recovery crée automatiquement des machines virtuelles Azure à partir du compte de stockage.
 
+## <a name="replication"></a>Réplication
+
 ### <a name="what-apps-can-i-replicate"></a>Quelles applications puis-je répliquer ?
 Vous pouvez répliquer toute application ou charge de travail en cours d’exécution sur une machine virtuelle VMware qui est conforme aux [conditions requises de réplication](vmware-physical-azure-support-matrix.md##replicated-machines). Site Recovery assure la prise en charge de la réplication compatible avec les applications afin qu’elles puissent faire l’objet d’un basculement et être restaurées dans un état intelligent. Site Recovery s’intègre aux applications Microsoft, notamment à SharePoint, Exchange, Dynamics, SQL Server et Active Directory, et fonctionne en étroite collaboration avec les principaux fournisseurs, notamment Oracle, SAP, IBM et Red Hat. [En savoir plus](site-recovery-workload.md) sur la protection des charges de travail.
 
@@ -75,18 +76,17 @@ Oui, vous pouvez utiliser ExpressRoute pour répliquer des machines virtuelles v
 Quand vous répliquez vers Azure, le trafic de réplication atteint les points de terminaison publics d’un compte de stockage Azure. Par conséquent, vous pouvez répliquer uniquement via Internet public avec ExpressRoute (appairage public) et VPN ne fonctionne pas.
 
 
-
-## <a name="what-are-the-replicated-vm-requirements"></a>Quelle est la configuration requise d’une machine virtuelle répliquée ?
+### <a name="what-are-the-replicated-vm-requirements"></a>Quelle est la configuration requise d’une machine virtuelle répliquée ?
 
 Pour la réplication, une machine virtuelle VMware doit exécuter un système d’exploitation pris en charge. En outre, la machine virtuelle doit respecter la configuration requise pour les machines virtuelles Azure. [Découvrez-en plus](vmware-physical-azure-support-matrix.md##replicated-machines) dans la matrice de prise en charge.
 
-## <a name="how-often-can-i-replicate-to-azure"></a>À quelle fréquence puis-je répliquer vers Azure ?
+### <a name="how-often-can-i-replicate-to-azure"></a>À quelle fréquence puis-je répliquer vers Azure ?
 La réplication est continue quand il s’agit de la réplication des machines virtuelles VMware vers Azure.
 
-## <a name="can-i-extend-replication"></a>Puis-je étendre la réplication ?
+### <a name="can-i-extend-replication"></a>Puis-je étendre la réplication ?
 La réplication étendue ou chaînée n’est pas prise en charge. Demandez cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959-support-for-exisiting-extended-replication).
 
-## <a name="can-i-do-an-offline-initial-replication"></a>Puis-je effectuer une réplication initiale hors connexion ?
+### <a name="can-i-do-an-offline-initial-replication"></a>Puis-je effectuer une réplication initiale hors connexion ?
 Ceci n’est pas pris en charge. Demandez cette fonctionnalité dans le [forum de commentaires](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Puis-je exclure des disques ?
@@ -142,7 +142,7 @@ Nous vous recommandons d’effectuer des sauvegardes planifiées régulières du
 Les programmes d’installation sont conservés dans le dossier **%ProgramData%\ASR\home\svsystems\pushinstallsvc\repository** sur le serveur de configuration.
 
 ## <a name="how-do-i-install-the-mobility-service"></a>Comment installer le service Mobilité ?
-Vous l’installez sur chaque machine virtuelle que vous voulez répliquer avec une [installation Push](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery), via une installation manuelle à partir de [l’interface utilisateur](vmware-azure-install-mobility-service.md#install-mobility-service-manually-by-using-the-gui) ou [avec PowerShell](vmware-azure-install-mobility-service.md#install-mobility-service-manually-at-a-command-prompt). Vous pouvez également effectuer le déploiement à l’aide d’un outil de déploiement comme [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md) ou [Azure Automation et DSC](vmware-azure-mobility-deploy-automation-dsc.md).
+Vous l’installez sur chaque machine virtuelle que vous voulez répliquer par une [installation Push](vmware-azure-install-mobility-service.md) ou une [installation manuelle](vmware-physical-mobility-service-install-manual.md) sur l’interface utilisateur ou sur PowerShell. Vous pouvez également le déployer avec un outil de déploiement comme [System Center Configuration Manager](vmware-azure-mobility-install-configuration-mgr.md).
 
 
 

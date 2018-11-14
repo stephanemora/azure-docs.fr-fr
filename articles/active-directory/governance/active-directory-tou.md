@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: compliance
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: rolyon
-ms.openlocfilehash: 87b08ce138cde5cc70c5a80cc414c68dd7aea743
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8fddcdbb8aa523cf3a98a8f2b203440ceedbdf06
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50249798"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015201"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Fonctionnalité Conditions d’utilisation d’Azure Active Directory
 La fonctionnalité Conditions d’utilisation d’Azure AD offre aux organisations une méthode simple pour présenter des informations aux utilisateurs finaux. Cette présentation permet de garantir que les utilisateurs voient les clauses d’exclusion de responsabilité nécessaires au respect des conditions légales ou de conformité. Cet article vous indique comment prendre en main les conditions d’utilisation.
@@ -218,7 +218,7 @@ Les stratégies d’accès conditionnel prennent effet immédiatement. Dans ce c
 
 **Q : Comment déterminer si un utilisateur a accepté les conditions d’utilisation et quand ?**</br>
 R : Dans le panneau Conditions d’utilisation, cliquez sur le numéro sous **Accepté**. Vous pouvez également afficher ou rechercher l’activité d’acceptation dans les journaux d’audit Azure AD. Pour plus d’informations, consultez [Afficher le rapport des utilisateurs ayant accepté et refusé les conditions d’utilisation](#view-who-has-accepted-and-declined) et [Afficher les journaux d’audit Azure AD](#view-azure-ad-audit-logs).
- 
+
 **Q : Combien de temps sont stockées les informations ?**</br>
 R : Le nombre d’utilisateurs ayant accepté et refusé les conditions d’utilisation est stocké pour la durée de vie des conditions d’utilisation. Les journaux d’audit Azure AD sont stockés pendant 30 jours.
 
@@ -245,12 +245,15 @@ R : Vous pouvez créer une stratégie d’accès conditionnel sur les applicati
 
 **Q : Puis-je ajouter plusieurs conditions d’utilisation à une application ou un utilisateur donné ?**</br>
 R : Oui. Pour cela, créez plusieurs stratégies d’accès conditionnel ciblant ces groupes ou applications. Si un utilisateur est concerné par plusieurs conditions d’utilisation, il accepte ces différentes conditions d’utilisation une par une.
- 
+
 **Q : Que se passe-t-il si un utilisateur refuse les conditions d’utilisation ?**</br>
 R : L’utilisateur n’a pas accès à l’application. Il doit se reconnecter et accepter les conditions pour se voir octroyer des droits d’accès.
- 
+
 **Q : Est-il possible de refuser les conditions d’utilisation après les avoir acceptées ?**</br>
 R : Vous pouvez [consulter les conditions d’utilisation précédemment acceptées](#how-users-can-review-their-terms-of-use), mais vous ne pouvez pas les refuser après les avoir acceptées.
+
+**Q : Que se passe-t-il si j’utilise également les conditions générales d’Intune ?**</br>
+R : Si vous avez configuré tant les conditions d’utilisation d’AD Azure que les [conditions d’utilisation d’Intune](/intune/terms-and-conditions-create), l’utilisateur doit tout accepter. Pour plus d’informations, voir le [billet de blog sur le choix des conditions appropriées pour votre organisation](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

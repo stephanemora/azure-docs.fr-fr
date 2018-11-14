@@ -7,13 +7,13 @@ ms.author: raagyema
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/04/2018
-ms.openlocfilehash: 0794c1573c2eaa951b805573cf33f05923da83b4
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.date: 11/05/2018
+ms.openlocfilehash: 8ad7369bc940f682bb7c11c3ed4e3444f1bb056a
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48867780"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035082"
 ---
 # <a name="monitor-and-tune"></a>Surveiller et régler
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour PostgreSQL propose différentes options de surveillance pour vous informer sur le comportement de votre serveur.
@@ -39,6 +39,7 @@ Les métriques suivantes sont disponibles pour Azure Database pour PostgreSQL :
 |connections_failed|Connexions ayant échoué|Count|Nombre de connexions au serveur ayant échoué.|
 |network_bytes_egress|Network Out|Octets|Sortie réseau entre connexions actives.|
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
+|backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée.|
 
 ## <a name="server-logs"></a>Journaux des serveurs
 Vous pouvez activer la journalisation sur votre serveur. Ces journaux sont également disponibles via les journaux de diagnostic Azure dans [Log Analytics](../log-analytics/log-analytics-queries.md), Event Hubs et dans le compte de stockage. Pour en savoir plus sur la journalisation, consultez la page [journaux serveur](concepts-server-logs.md).
@@ -55,3 +56,4 @@ La fonctionnalité [Recommandations sur les performances](concepts-performance-r
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez le [guide pratique pour configurer des alertes](howto-alert-on-metric.md) pour savoir comment créer une alerte sur une métrique.
 - Pour plus d’informations sur la façon d’accéder aux métriques et de les exporter à l’aide du portail Azure, de l’API REST ou de CLI, consultez [Vue d’ensemble des métriques Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Lisez notre blog sur les [meilleures pratiques de surveillance de votre serveur](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-postgresql-monitoring/).

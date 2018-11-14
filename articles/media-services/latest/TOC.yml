@@ -100,24 +100,28 @@ items:
       href: protect-with-drm.md
   - name: Configurer Postman
     href: media-rest-apis-with-postman.md
+  - name: Mettre à l’échelle les unités réservées Multimédia - CLI
+    href: media-reserved-units-cli-how-to.md
 - name: Informations de référence
   items:
   - name: Spécification OpenAPI (Swagger)
     href: https://aka.ms/ams-v3-rest-sdk
-  - name: REST
-    href: https://aka.ms/ams-v3-rest-ref
-  - name: Azure CLI
-    href: https://aka.ms/ams-v3-cli-ref
-  - name: .NET
-    href: https://aka.ms/ams-v3-dotnet-ref
-  - name: Java
-    href: https://aka.ms/ams-v3-java-ref
-  - name: Python
-    href: https://aka.ms/ams-v3-python-ref
-  - name: Nœud .js
-    href: https://aka.ms/ams-v3-nodejs-ref
-  - name: Go
-    href: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/preview/mediaservices/mgmt/2018-06-01-preview/media
+  - name: Kits de développement logiciel/outils
+    items:
+    - name: REST
+      href: https://aka.ms/ams-v3-rest-ref
+    - name: Azure CLI
+      href: https://aka.ms/ams-v3-cli-ref
+    - name: .NET
+      href: https://aka.ms/ams-v3-dotnet-ref
+    - name: Java
+      href: https://aka.ms/ams-v3-java-ref
+    - name: Python
+      href: https://aka.ms/ams-v3-python-ref
+    - name: Node.js
+      href: https://aka.ms/ams-v3-nodejs-ref
+    - name: Go
+      href: https://aka.ms/ams-v3-go-ref
   - name: Schémas d’événement
     href: media-services-event-schemas.md
   - name: Licences DRM
@@ -130,8 +134,6 @@ items:
       href: fairplay-license-overview.md
 - name: Ressources
   items:
-  - name: Spécification OpenAPI (Swagger)
-    href: https://aka.ms/ams-v3-rest-sdk
   - name: Feuille de route Azure
     href: https://azure.microsoft.com/roadmap/?category=web-mobile
   - name: Tarifs
@@ -140,7 +142,9 @@ items:
     href: https://azure.microsoft.com/regions/services/
   - name: vidéos
     href: https://azure.microsoft.com/resources/videos/index/?services=media-services
-  - name: Kits de développement logiciel (SDK)
+  - name: Spécification OpenAPI (Swagger)
+    href: https://aka.ms/ams-v3-rest-sdk
+  - name: Kits de développement logiciel/outils
     items:
     - name: Azure CLI
       href: https://aka.ms/ams-v3-cli
@@ -150,7 +154,7 @@ items:
       href: https://aka.ms/ams-v3-java-sdk
     - name: Python
       href: https://aka.ms/ams-v3-python-sdk
-    - name: Nœud .js
+    - name: Node.js
       href: https://aka.ms/ams-v3-nodejs-sdk
     - name: Ruby
       href: https://aka.ms/ams-v3-ruby-sdk
@@ -160,9 +164,9 @@ items:
     href: limits-quotas-constraints.md
   - name: Forum Aux Questions
     href: frequently-asked-questions.md
-ms.openlocfilehash: 7fad62bb8fda764b854d8ee928f38aeb82c5895c
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 4353173387d5062ac30229d2f2b5ff3e52b38cc4
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50209936"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614240"

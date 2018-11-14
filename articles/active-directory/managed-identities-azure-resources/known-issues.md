@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 2a759aea4288af2e90335b47244408d6a537e24b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: fa872c184429e69eb46fb4da112c08ee9432f1c4
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295579"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913986"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>FAQ et problèmes connus en lien avec les identités managées pour ressources Azure
 
@@ -60,7 +60,7 @@ Pour plus d’informations sur Azure Instance Metadata Service, voir la [documen
 
 Toutes les distributions Linux prises en charge par Azure IaaS peuvent être utilisées avec des identités managées pour ressources Azure via le point de terminaison IMDS. 
 
-Remarque : l’extension de machine virtuelle des identités managées pour ressources Azure (dont l’abandon est prévu en janvier 2019) ne prend en charge que les distributions Linux suivantes :
+L’extension de machine virtuelle des identités managées pour ressources Azure (dont l’abandon est prévu en janvier 2019) ne prend en charge que les distributions Linux suivantes :
 - CoreOS Stable
 - CentOS 7.1
 - Red Hat 7.2
@@ -124,16 +124,23 @@ Une fois que la machine virtuelle est démarrée, la balise peut être supprimé
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
 
-## <a name="known-issues-with-user-assigned-identities"></a>Problèmes connus en lien avec les identités managées affectées par l’utilisateur
+### <a name="vm-extension-provisioning-fails"></a>Échec de l’approvisionnement d’une extension de machine virtuelle
 
-- Les attributions d’identités managées affectées par l’utilisateur sont disponibles uniquement pour les machines virtuelles et les groupes de machines virtuelles identiques (VMSS). IMPORTANT : les attributions d’identités managées affectées par l’utilisateur seront modifiées dans les prochains mois.
-- La duplication d’identités managées affectées par l’utilisateur sur une même machine virtuelle ou un même groupe de machines virtuelles identiques entraînera une défaillance de ceux-ci. Cela inclut les identités qui sont ajoutées avec une casse différente. par ex. MyUserAssignedIdentity et myuserassignedidentity. 
-- L’approvisionnement de l’extension de machine virtuelle (dont l’abandon est prévu en janvier 2019) sur une machine virtuelle peut échouer en raison d’échecs de recherche DNS. Redémarrez la machine virtuelle, puis réessayez. 
-- L’ajout d’une identité affectée par l’utilisateur « inexistante » entraînera une défaillance de la machine virtuelle. 
-- La création d’une identité affectée par l’utilisateur avec des caractères spéciaux (par exemple, traits de soulignement) dans le nom n’est pas prise en charge.
-- Les noms d’identités managées affectées par l’utilisateur sont limités à 24 caractères pour le scénario de bout en bout. Les identités managées affectées par l’utilisateur dont le nom comptera plus de 24 caractères ne pourront pas être attribuées.
+L’approvisionnement de l’extension de machine virtuelle peut échouer en raison d’échecs de recherche DNS. Redémarrez la machine virtuelle, puis réessayez.
+ 
+> [!NOTE]
+> L’extension de machine virtuelle doit être abandonnée d’ici à janvier 2019. Nous vous recommandons d’effectuer la transition à l’aide du point de terminaison IMDS.
+
+### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Transfert d’un abonnement entre des répertoires Azure AD
+
+Les identités managées ne sont pas mises à jour lorsqu’un abonnement est déplacé/transféré vers un autre répertoire. Par conséquent, toutes les identités managées inexistantes attribuées par le système ou un utilisateur seront rompues. 
+
+Pour résoudre ce problème une fois que l’abonnement a été déplacé, vous pouvez désactiver les identités managées affectées par le système puis les réactiver. De même, vous pouvez supprimer et recréer toutes les identités managées affectées par l’utilisateur. 
+
+## <a name="known-issues-with-user-assigned-managed-identities"></a>Problèmes connus en lien avec les identités managées affectées par l’utilisateur
+
+- La création d’une identité managée et affectée par l’utilisateur avec des caractères spéciaux (par exemple, traits de soulignement) dans le nom n’est pas prise en charge.
+- Les noms d’identités managées affectées par l’utilisateur sont limités à 24 caractères. Si le nom est supérieur à 24 caractères, l’identité ne pourra pas être affectée à une ressource (par exemple, une machine virtuelle.)
 - Si vous utilisez l’extension de machine virtuelle d’identité managée (dont l’abandon est prévu en janvier 2019), la limite prise en charge est de 32 identités managées affectées par l’utilisateur. Sans l’extension de machine virtuelle d’identité managée, la prise en charge est limitée à 512 identités managées.  
-- Lors de l’ajout d’une deuxième identité affectée par l’utilisateur, il se peut que l’ID de client ne soit pas disponible pour des jetons de demandes pour l’extension de machine virtuelle. Pour résoudre ce problème, redémarrez l’extension de machine virtuelle des identités managées pour ressources Azure avec les deux commandes bash suivantes :
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
- - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`
-- Quand une machine virtuelle dispose d’une identité affectée par l’utilisateur, mais d’aucune identité affectée par le système, l’interface utilisateur du portail indique que les identités managées pour ressources Azure sont désactivées. Pour activer l’identité affectée par le système, utilisez un modèle Azure Resource Manager, une interface de ligne de commande Azure ou un Kit de développement logiciel (SDK).
+- Le déplacement d’une identité managée affectée par l’utilisateur à un autre groupe de ressources entraînera l’arrêt de l’identité. Par conséquent, vous ne pourrez plus demander des jetons pour cette identité. 
+- Le transfert d’un abonnement vers un autre répertoire arrêtera toutes les identités managées par l’utilisateur existantes. 

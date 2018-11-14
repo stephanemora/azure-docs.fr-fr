@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6a61fdeaf1a751ab4001257335abdcbd6fac9cbf
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 92c8de0961f64eea8eef830ad99c7baa268099d9
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50739462"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007584"
 ---
 # <a name="preview-azure-ad-password-protection-operational-procedures"></a>Préversion : procédures opérationnelles de la protection par mot de passe Azure AD
 
@@ -45,7 +45,7 @@ Suivez les instructions dans l’article [Configurer la liste des mots de passe 
 Le mode Audit est conçu comme un moyen d’exécuter le logiciel dans un mode de « simulation ». Chaque service d’agent DC évalue un mot de passe entrant en fonction de la stratégie active. Si la stratégie actuelle est configurée pour être en mode Audit, les « mauvais » mots de passe entraînent l’apparition de messages dans le journal des événements, mais sont acceptés. C’est la seule différence entre le mode d’Audit et le mode Appliquer ; toutes les autres opérations s’exécuteront de la même manière.
 
 > [!NOTE]
-> Microsoft recommande que les déploiements et test initiaux soient toujours démarrés en mode Audit. Les événements dans le journal des événements doivent ensuite être surveillés pour tenter d’anticiper si un processus opérationnel existant serait dérangé une fois que le mode Appliquer est activé.
+> Microsoft recommande que les déploiement et test initiaux soient toujours démarrés en mode Audit. Les événements dans le journal des événements doivent ensuite être surveillés pour tenter d’anticiper si un processus opérationnel existant serait dérangé une fois que le mode Appliquer est activé.
 
 ## <a name="enforce-mode"></a>Mode Appliquer
 
@@ -67,7 +67,7 @@ Ce paramètre doit normalement être laissé à son état par défaut (Oui). La 
 
 La cmdlet `Get-AzureADPasswordProtectionSummaryReport` peut être utilisée pour produire un résumé de l’activité. Voici un exemple de sortie de cette cmdlet :
 
-```
+```PowerShell
 Get-AzureADPasswordProtectionSummaryReport -DomainController bplrootdc2
 DomainController                : bplrootdc2
 PasswordChangesValidated        : 6677
@@ -83,10 +83,26 @@ PasswordSetErrors               : 1
 L’étendue du rapport de la cmdlet peut être influencée à l’aide d’un des paramètres –Forest, -Domain ou –DomainController. Ne pas spécifier un paramètre équivaut à –Forest.
 
 > [!NOTE]
-> Cette cmdlet fonctionne en ouvrant une session Powershell sur chaque contrôleur de domaine. Pour réussir, le support de la session à distance Powershell doit être activé sur chaque contrôleur de domaine et le client doit disposer de privilèges suffisants. Pour plus d’informations sur les exigences de session à distance Powershell, exécutez « Get-Help about_Remote_Troubleshooting» dans une fenêtre Powershell.
+> Cette cmdlet fonctionne en ouvrant une session PowerShell sur chaque contrôleur de domaine. Pour réussir, le support de la session à distance PowerShell doit être activé sur chaque contrôleur de domaine et le client doit disposer de privilèges suffisants. Pour plus d’informations sur les exigences de session à distance PowerShell, exécutez « Get-Help about_Remote_Troubleshooting» dans une fenêtre PowerShell.
 
 > [!NOTE]
 > Cette cmdlet fonctionne en interrogeant à distance le journal des événements administrateur de chaque agent de service DC. Si les journaux des événements contiennent un grand nombre d’événements, la cmdlet peut prendre beaucoup de temps à se faire. En outre, les requêtes de réseau en bloc de grands jeux de données peuvent affecter les performances du contrôleur de domaine. Par conséquent, cette cmdlet doit être utilisée avec précaution dans les environnements de production.
+
+## <a name="dc-agent-discovery"></a>Détection d’agent DC
+
+La cmdlet `Get-AzureADPasswordProtectionDCAgent` peut être utilisée pour afficher des informations de base sur les divers agents DC en cours d’exécution dans un domaine ou une forêt. Ces informations sont extraites des objets serviceConnectionPoint inscrits par les services d’agent DC en cours d’exécution. Voici un exemple de sortie de cette cmdlet :
+
+```PowerShell
+Get-AzureADPasswordProtectionDCAgent
+ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
+Domain                : bplchild.bplRootDomain.com
+Forest                : bplRootDomain.com
+Heartbeat             : 2/16/2018 8:35:01 AM
+```
+
+Les différentes propriétés sont mises à jour par chaque service de l’agent DC environ toutes les heures. Les données sont toujours soumises à la latence de la réplication Active Directory.
+
+La portée de la requête de la cmdlet peut être influencée à l’aide des paramètres –Forest ou –Domain.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

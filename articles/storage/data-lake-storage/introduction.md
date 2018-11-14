@@ -8,24 +8,24 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 072573b16fbeebac1ec942b0be508cf901b5cd27
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: c86609ae5b993328beced468b74c7f2a1b65def4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42139832"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283612"
 ---
 # <a name="introduction-to-azure-data-lake-storage-gen2-preview"></a>Présentation d’Azure Data Lake Storage Gen2 (préversion)
 
-Azure Data Lake Storage Gen2 (préversion) est un ensemble de fonctionnalités dédié à l’analytique du Big Data, qui repose sur le [Stockage Blob Azure](../blobs/storage-blobs-introduction.md). Il vous permet d’interagir avec vos données selon les deux paradigmes que sont le système de fichiers et le stockage d’objets. Data Lake Storage Gen2 est donc le seul service de stockage multimodal dans le cloud qui vous permet d’extraire de précieuses données analytiques de toutes vos données.
+Azure Data Lake Storage Gen2 (préversion) est un ensemble de fonctionnalités dédié à l’analytique du Big Data, et intégré au [stockage Blob Azure](../blobs/storage-blobs-introduction.md). Il vous permet d’interagir avec vos données selon les deux paradigmes que sont le système de fichiers et le stockage d’objets. L'ajout de Data Lake Storage Gen2 fait du stockage Azure la seule plateforme multimodale cloud qui vous permet d’extraire de précieuses données d’analytique de toutes vos données.
 
-Data Lake Storage Gen2 présente toutes les qualités nécessaires pour le cycle de vie complet des données analytiques. Il rassemble donc les fonctionnalités de nos deux services de stockage existants. Les fonctionnalités [d’Azure Data Lake Storage Gen1](../../data-lake-store/index.md), comme la sémantique des systèmes de fichiers, la sécurité au niveau du fichier et la mise à l'échelle, sont combinées à celles du [Stockage Blob Azure](../blobs/storage-blobs-introduction.md), comme le stockage hiérarchisé économique, la haute disponibilité/reprise après sinistre et le grand écosystème de SDK/d’outils. Dans Data Lake Storage Gen2, toutes les qualités du stockage d’objets sont conservées, avec en plus les avantages d’une interface de système de fichiers optimisée pour les charges de travail analytiques.
+Data Lake Storage Gen2 apporte au stockage Azure toutes les qualités nécessaires pour le cycle de vie complet des données analytiques. Il rassemble les fonctionnalités de nos deux services de stockage existants : Stockage Blob Azure et Azure Data Lake Storage Gen1. Les fonctionnalités [d’Azure Data Lake Storage Gen1](../../data-lake-store/index.md), comme la sémantique des systèmes de fichiers, la sécurité au niveau du fichier et la mise à l'échelle, sont combinées à celles du [stockage Blob Azure](../blobs/storage-blobs-introduction.md), comme le stockage hiérarchisé économique et la haute disponibilité/reprise après sinistre.
 
 ## <a name="designed-for-enterprise-big-data-analytics"></a>Conçu pour l’analytique du Big Data d’entreprise
 
-Data Lake Storage Gen2 est le service de stockage de base pour créer des dépôts Data Lake d’entreprise sur Azure. Conçu dès le départ pour traiter plusieurs téraoctets d’informations tout en assurant des centaines de gigaoctets de débit, Data Lake Storage Gen2 est un moyen facile de gérer les gros volumes de données.
+Data Lake Storage Gen2 fait du stockage Azure la base pour créer des dépôts Data Lake d’entreprise sur Azure. Conçu dès le départ pour traiter plusieurs téraoctets d’informations tout en assurant des centaines de gigaoctets de débit, Data Lake Storage Gen2 vous permet de facilement gérer d'importants volumes de données.
 
-Une fonctionnalité fondamentale de Data Lake Storage Gen 2 est l’ajout d’un [espace de noms hiérarchique](./namespace.md) au service de stockage Blob qui organise les objets et les fichiers en une hiérarchie de répertoires pour optimiser l’accès aux données. L’espace de noms hiérarchique permet également à Data Lake Storage Gen2 de prendre en charge les deux paradigmes que sont les magasins d’objets et les systèmes de fichiers. Par exemple, une convention de nommage de magasin d’objets commune utilise des barres obliques dans le nom pour reproduire une structure hiérarchique de dossiers. Cette structure devient réelle avec Data Lake Storage Gen2. Des opérations comme le renommage ou la suppression d’un répertoire deviennent des opérations atomiques uniques de métadonnées sur le répertoire au lieu d’énumérer et de traiter tous les objets qui partagent le préfixe du nom de répertoire.
+Un élément fondamental de Data Lake Storage Gen 2 est l’ajout d’un [espace de noms hiérarchique](./namespace.md) au service de stockage Blob qui organise les objets et les fichiers en une hiérarchie de répertoires pour un accès efficace aux données. L’espace de noms hiérarchique permet également à Data Lake Storage Gen2 de prendre en charge les deux paradigmes que sont les magasins d’objets et les systèmes de fichiers. Par exemple, une convention de nommage de magasin d’objets commune utilise des barres obliques dans le nom pour reproduire une structure hiérarchique de dossiers. Cette structure devient réelle avec Data Lake Storage Gen2. Des opérations comme le renommage ou la suppression d’un répertoire deviennent des opérations atomiques uniques de métadonnées sur le répertoire au lieu d’énumérer et de traiter tous les objets qui partagent le préfixe du nom de répertoire.
 
 Dans le passé, l’analytique cloud devait trouver le meilleur compromis entre les performances, la gestion et la sécurité. Data Lake Storage Gen2 traite chacun de ces aspects de plusieurs manières :
 
@@ -45,9 +45,9 @@ Dans le passé, l’analytique cloud devait trouver le meilleur compromis entre 
 
 - **Accès compatible Hadoop** : Data Lake Storage Gen2 vous permet de gérer les données et d’y accéder comme avec un [système de fichiers DFS Hadoop (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Le nouveau [pilote ABFS](./abfs-driver.md) est disponible dans tous les environnements Apache Hadoop, y compris [Azure HDInsight](../../hdinsight/index.yml) et [Azure Databricks](../../azure-databricks/index.yml) pour accéder aux données stockées dans Data Lake Storage Gen2.
 
-- **Un surensemble d’autorisations POSIX** : le modèle de sécurité pour Data Lake Gen2 prend entièrement en charge les autorisations ACL et POSIX, ainsi que certaines granularités supplémentaires spécifiques à Data Lake Storage Gen2. Les paramètres peuvent être configurés via les outils d’administration ou des infrastructures telles que Hive et Spark.
+- **Un surensemble d’autorisations POSIX** : le modèle de sécurité pour Data Lake Gen2 prend en charge les autorisations ACL et POSIX, ainsi que certaines granularités supplémentaires spécifiques à Data Lake Storage Gen2. Les paramètres peuvent être configurés via les outils d’administration ou des infrastructures telles que Hive et Spark.
 
-- **Économique** : Data Lake Storage Gen2 intègre une capacité de stockage et des transactions économiques. Tout au long du cycle de vie des données, les taux de facturation changent pour maintenir les coûts au minimum par le biais de fonctionnalités intégrées comme le [cycle de vie du Stockage Blob Azure](../common/storage-lifecycle-managment-concepts.md).
+- **Économique** : Data Lake Storage Gen2 offre une capacité de stockage et des transactions économiques. Tout au long du cycle de vie des données, les taux de facturation changent pour maintenir les coûts au minimum par le biais de fonctionnalités intégrées comme le [cycle de vie du Stockage Blob Azure](../common/storage-lifecycle-managment-concepts.md).
 
 - **Fonctionne avec les outils, les frameworks et les applications de stockage Blob** : Data Lake Storage Gen2 continue de fonctionner avec une large gamme d’outils, de frameworks et d’applications qui existent actuellement pour le stockage Blob.
 
@@ -70,4 +70,4 @@ Les articles suivants décrivent certains des principaux concepts de Data Lake S
 * [Espace de noms hiérarchique](./namespace.md)
 * [Créez un compte de stockage](./quickstart-create-account.md)
 * [Créer un cluster HDInsight avec Azure Data Lake Storage Gen2](./quickstart-create-connect-hdi-cluster.md)
-* [Utiliser un compte Azure Data Lake Storage Gen2 dans Azure Databricks](./quickstart-create-databricks-account.md) 
+* [Utiliser un compte Azure Data Lake Storage Gen2 dans Azure Databricks](./quickstart-create-databricks-account.md)

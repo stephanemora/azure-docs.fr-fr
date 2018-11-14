@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: fea3455b31ff2ea7119fa4146aa84f855a3b6e35
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cd3b5f49788282b535f07c6f84bf7e4002132ab9
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054670"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51237585"
 ---
 # <a name="how-does-azure-cosmos-db-index-data"></a>Comment Azure Cosmos DB indexe-t-il les données ?
 
@@ -147,11 +147,11 @@ Voici les modèles courants de spécification des chemins d'index :
 | path                | Description/cas d'utilisation                                                                                                                                                                                                                                                                                         |
 | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | /                   | Chemin par défaut de la collection. Récursif et s’applique à toute l’arborescence du document.                                                                                                                                                                                                                                   |
-| /prop/?             | Chemin d’index requis pour traiter les requêtes comme les suivantes (avec, respectivement, les types hachage ou plage) :<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
-| /prop/*             | Chemin d'index pour tous les chemins d'accès sous l'étiquette spécifiée. Fonctionne avec les requêtes suivantes<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
+| /prop/?             | Chemin d’index requis pour traiter les requêtes comme les suivantes (avec, respectivement, les types hachage ou plage) :<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                       |
+| /prop/*             | Chemin d'index pour tous les chemins d'accès sous l'étiquette spécifiée. Fonctionne avec les requêtes suivantes<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5<br><br>SELECT FROM collection c WHERE c.prop.subprop.nextprop = "value"<br><br>SELECT FROM collection c ORDER BY c.prop         |
 | /props/[]/?         | Chemin d’accès de l’index requis pour traiter l’itération et les requêtes JOIN dans les tableaux de scalaires comme ["a", "b", "c"] :<br><br>SELECT tag FROM tag IN collection.props WHERE tag = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag > 5                                                                         |
 | /props/[] /subprop/? | Chemin d’accès de l’index requis pour traiter l’itération et les requêtes JOIN dans les tableaux d’objets comme [{subprop: "a"}, {subprop: "b"}] :<br><br>SELECT tag FROM tag IN collection.props WHERE tag.subprop = "value"<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag.subprop = "value"                                  |
-| /prop/subprop/?     | Chemin d’index requis pour traiter les requêtes (avec, respectivement, les types hachage ou plage) :<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
+| /prop/subprop/?     | Chemin d’index requis pour traiter les requêtes (avec, respectivement, les types hachage ou plage) :<br><br>SELECT FROM collection c WHERE c.prop.subprop = "value"<br><br>SELECT FROM collection c WHERE c.prop.subprop > 5                                                                                                                    |
 
 > [!NOTE]
 > Quand vous définissez des chemins d’index personnalisé, vous devez spécifier la règle d’indexation par défaut pour la totalité de l’arborescence du document, désignée par le chemin spécial « /* ». 
@@ -276,9 +276,9 @@ Voici les types d'index pris en charge et les exemples de requêtes qui peuvent 
 
 | Type d’index | Description/cas d'utilisation                                                                                                                                                                                                                                                                                                                                                                                                              |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Hachage       | Le hachage disposant de l’élément /prop? (ou /) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Le hachage disposant de l’élément /props/[]/? (ou / ou /props/) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
-| Plage      | La plage disposant de l’élément /prop/? (ou /) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
-| spatial     | La plage disposant de l’élément /prop/? (ou /) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --avec indexation sur les points activée<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --avec indexation sur les polygones activée              |
+| Hachage       | Le hachage disposant de l’élément /prop? (ou /) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>Le hachage disposant de l’élément /props/[]/? (ou / ou /props/) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT tag FROM collection c JOIN tag IN c.props WHERE tag = 5                                                                                                                       |
+| Plage      | La plage disposant de l’élément /prop/? (ou /) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT FROM collection c WHERE c.prop = "value"<br><br>SELECT FROM collection c WHERE c.prop > 5<br><br>SELECT FROM collection c ORDER BY c.prop                                                                                                                                                                                                              |
+| spatial     | La plage disposant de l’élément /prop/? (ou /) peut être utilisé pour traiter efficacement les requêtes suivantes :<br><br>SELECT FROM collection c<br><br>WHERE ST_DISTANCE(c.prop, {"type": "Point", "coordinates": [0.0, 10.0]}) < 40<br><br>SELECT FROM collection c WHERE ST_WITHIN(c.prop, {"type": "Polygon", ... }) --avec indexation sur les points activée<br><br>SELECT FROM collection c WHERE ST_WITHIN({"type": "Point", ... }, c.prop) --avec indexation sur les polygones activée              |
 
 Par défaut, une erreur est retournée pour les requêtes avec des opérateurs de plage tels que >= s’il n’existe aucun index de plage (de n’importe quelle précision) pour signaler qu’une analyse peut être requise pour traiter la requête. Les requêtes peuvent être effectuées sans index de plage à l’aide de l’en-tête**x-ms-documentdb-enable-scan** dans l’API REST ou l’option de requête **EnableScanInQuery** à l’aide du SDK .NET. Si d’autres filtres de la requête peuvent être utilisés par Azure Cosmos DB sur l’index, aucune erreur n’est retournée.
 
@@ -323,7 +323,7 @@ Vous pouvez choisir si vous souhaitez que la collection indexe automatiquement t
 
 Si l'indexation automatique est désactivée, vous ne pouvez continuer à ajouter des documents spécifiques à l'index que de façon sélective. À l’inverse, vous pouvez laisser l’indexation automatique activée et choisir d’exclure de façon sélective des documents spécifiques. Les configurations d’indexation activée/désactivée sont utiles quand vous n’avez qu’un sous-ensemble de documents à interroger.
 
-L’exemple suivant montre comment inclure un document explicitement à l’aide du [SDK .NET de l’API SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) et de la propriété [RequestOptions.IndexingDirective](http://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
+L’exemple suivant montre comment inclure un document explicitement à l’aide du [SDK .NET de l’API SQL](https://docs.microsoft.com/azure/cosmos-db/sql-api-sdk-dotnet) et de la propriété [RequestOptions.IndexingDirective](https://msdn.microsoft.com/library/microsoft.azure.documents.client.requestoptions.indexingdirective.aspx).
 
     // If you want to override the default collection behavior to either
     // exclude (or include) a document in indexing,
@@ -413,7 +413,7 @@ Quand pouvez-vous modifier la stratégie d’indexation dans vos collections Azu
 ## <a name="performance-tuning"></a>Réglage des performances
 Les API SQL fournissent des informations sur les mesures des performances, telles que le stockage d’index utilisé et le coût du débit (unités de requête) pour chaque opération. Vous pouvez utiliser ces informations pour comparer différentes stratégies d’indexation et ajuster les performances.
 
-Pour vérifier le quota de stockage et l’utilisation d’une collection, exécutez une requête **HEAD** ou **GET** sur la ressource de collection. Ensuite, examinez les en-têtes **x-ms-request-quota** et **x-ms-request-usage**. Dans le Kit de développement logiciel (SDK) .NET, les propriétés [DocumentSizeQuota](http://msdn.microsoft.com/library/dn850325.aspx) et [DocumentSizeUsage](http://msdn.microsoft.com/library/azure/dn850324.aspx) de [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) contiennent ces valeurs correspondantes.
+Pour vérifier le quota de stockage et l’utilisation d’une collection, exécutez une requête **HEAD** ou **GET** sur la ressource de collection. Ensuite, examinez les en-têtes **x-ms-request-quota** et **x-ms-request-usage**. Dans le Kit de développement logiciel (SDK) .NET, les propriétés [DocumentSizeQuota](https://msdn.microsoft.com/library/dn850325.aspx) et [DocumentSizeUsage](https://msdn.microsoft.com/library/azure/dn850324.aspx) de [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx) contiennent ces valeurs correspondantes.
 
      // Measure the document size usage (which includes the index size) against   
      // different policies.
@@ -421,7 +421,7 @@ Pour vérifier le quota de stockage et l’utilisation d’une collection, exéc
      Console.WriteLine("Document size quota: {0}, usage: {1}", collectionInfo.DocumentQuota, collectionInfo.DocumentUsage);
 
 
-Pour mesurer la surcharge de l’indexation sur chaque opération d’écriture (création, mise à jour ou suppression), inspectez l’en-tête **x-ms-request-charge** (ou la propriété [RequestCharge](http://msdn.microsoft.com/library/dn799099.aspx) équivalente dans [ResourceResponse<T\>](http://msdn.microsoft.com/library/dn799209.aspx) dans le SDK .NET) qui permet de mesurer le nombre d’unités de requête consommées par ces opérations.
+Pour mesurer la surcharge de l’indexation sur chaque opération d’écriture (création, mise à jour ou suppression), inspectez l’en-tête **x-ms-request-charge** (ou la propriété [RequestCharge](https://msdn.microsoft.com/library/dn799099.aspx) équivalente dans [ResourceResponse<T\>](https://msdn.microsoft.com/library/dn799209.aspx) dans le SDK .NET) qui permet de mesurer le nombre d’unités de requête consommées par ces opérations.
 
      // Measure the performance (request units) of writes.     
      ResourceResponse<Document> response = await client.CreateDocumentAsync(UriFactory.CreateDocumentCollectionUri("db", "coll"), myDocument);              

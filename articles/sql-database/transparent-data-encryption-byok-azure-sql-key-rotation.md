@@ -1,24 +1,7 @@
 ---
-title: PowerShell - Faire pivoter le protecteur TDE - Azure SQL Database | Microsoft Docs
-description: Découvrez comment faire pivoter le protecteur Chiffrement transparent des données (TDE) pour un serveur SQL Azure.
-services: sql-database
-ms.service: sql-database
-ms.subservice: security
-ms.custom: ''
-ms.devlang: ''
-ms.topic: conceptual
-author: aliceku
-ms.author: aliceku
-ms.reviewer: vanto
-manager: jhubbard
-ms.date: 08/07/2017
-ms.openlocfilehash: fc8660b6fa6d9778a4eac9ce939181aa24d5097d
-ms.sourcegitcommit: 3a02e0e8759ab3835d7c58479a05d7907a719d9c
-ms.translationtype: HT
-ms.contentlocale: fr-FR
-ms.lasthandoff: 10/13/2018
-ms.locfileid: "49309636"
----
+titre : « PowerShell - Faire pivoter le protecteur TDE - Azure SQL Database | Microsoft Docs » description : Découvrez comment faire pivoter le protecteur TDE (Transparent Data Encryption) pour un serveur SQL Azure.
+services : sql-database ms.service : sql-database ms.subservice : security ms.custom : ms.devlang: ms.topic : conceptual author : aliceku ms.author : aliceku ms.reviewer : vanto manager : jhubbard ms.date : 07/08/2017
+--- 
 # <a name="rotate-the-transparent-data-encryption-tde-protector-using-powershell"></a>Faire pivoter le protecteur Chiffrement transparent des données (TDE) à l’aide de PowerShell 
 
 Cet article décrit la rotation des clés pour un serveur SQL Azure à l’aide d’un protecteur TDE d’Azure Key Vault. La rotation du protecteur TDE d’un serveur SQL Azure implique le basculement vers une nouvelle clé asymétrique qui protège les bases de données sur le serveur. La rotation des clés est une opération en ligne et ne doit prendre que quelques secondes, car elle ne déchiffre et rechiffre que la clé de chiffrement des données de la base de données, et non la base de données entière.

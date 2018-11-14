@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2018
+ms.date: 11/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 1ca305ab88e30c911bbded1e5ff97162e12f7652
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 0b40b8018715e6b680f42676dfaead0ac6e5bf7a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49429063"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279141"
 ---
 # <a name="azure-stack-1808-update"></a>Mise à jour 1808 d’Azure Stack
 
@@ -64,7 +64,7 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack.
 - **Élément Kubernetes de la Place de marché**. Vous pouvez désormais déployer des clusters Kubernetes avec [l’élément Kubernetes de la Place de marché](azure-stack-solution-template-kubernetes-cluster-add.md). Pour déployer un cluster Kubernetes sur Azure Stack, les utilisateurs n’ont qu’à sélectionner l’élément Kubernetes et renseigner quelques paramètres. L’objectif des modèles est de permettre aux utilisateurs de configurer des déploiements Kubernetes de développement et de test facilement, en quelques étapes seulement.
 
 <!-- | IS ASDK--> 
-- **Modèles Blockchain**. Vous pouvez maintenant exécuter des [déploiements de consortium Ethereum](azure-stack-ethereum.md) sur Azure Stack. Les [modèles de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) proposent trois nouveaux modèles. Avec ces nouveaux modèles, les utilisateurs peuvent déployer et configurer un réseau Ethereum pour former un consortium de membres, sans avoir besoin de connaissances avancées sur Azure et Ethereum. L’objectif des modèles est de permettre aux utilisateurs de configurer des déploiements Blockchain de développement et de test facilement, en quelques étapes seulement.
+- **Modèles Blockchain**. Vous pouvez maintenant exécuter des [déploiements de consortium Ethereum](user/azure-stack-ethereum.md) sur Azure Stack. Les [modèles de démarrage rapide Azure Stack](https://github.com/Azure/AzureStack-QuickStart-Templates) proposent trois nouveaux modèles. Avec ces nouveaux modèles, les utilisateurs peuvent déployer et configurer un réseau Ethereum pour former un consortium de membres, sans avoir besoin de connaissances avancées sur Azure et Ethereum. L’objectif des modèles est de permettre aux utilisateurs de configurer des déploiements Blockchain de développement et de test facilement, en quelques étapes seulement.
 
 <!-- | IS ASDK--> 
 - **Le profil de version d’API 2017-03-09-profile a été mis à jour vers 2018-03-01-hybrid**. Les profils d’API précisent le fournisseur de ressources Azure ainsi que la version d’API des points de terminaison Azure REST. Pour plus d’informations sur les profils, consultez [Gérer les profils de version des API dans Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
@@ -157,6 +157,10 @@ Cette mise à jour contient également l’atténuation de la vulnérabilité du
 - Dans certaines circonstances quand une mise à jour nécessite une attention particulière, l’alerte correspondante peut ne pas être générée. L’état précis apparaît quand même dans le portail et n’est pas affecté.
 
 ### <a name="post-update-steps"></a>Étapes après la mise à jour
+
+> [!Important]  
+> Préparez votre déploiement Azure Stack pour l'hôte d’extension. Préparez votre système en utilisant les instructions suivantes, [Préparer l’hôte d’extension pour Azure Stack](azure-stack-extension-host-prepare.md).
+
 Après l’installation de cette mise à jour, installez les correctifs logiciels applicables. Pour plus d’informations, consultez les articles suivants de la base de connaissances, ainsi que notre [stratégie de maintenance](azure-stack-servicing-policy.md). 
 - [KB 4468920 – Correctif logiciel Azure Stack 1.1808.5.110](https://support.microsoft.com/help/4468920/)
 
@@ -249,8 +253,11 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 
 ### <a name="compute"></a>Calcul
 
+<!-- TBD – IS, ASDK -->
+- Le rattachement d’un disque détaché à la même machine virtuelle (VM) avec les mêmes nom et numéro d’unité logique échoue et affiche une erreur de type **Impossible d’attacher le disque de données « datadisk » à la machine virtuelle « vm1 »**. Cette erreur est due au fait que le disque est en cours de détachement ou que la dernière opération de détachement a échoué. Veuillez attendre que le disque soit complètement détaché, puis réessayez ou supprimez/détachez explicitement le disque une nouvelle fois. La solution de contournement consiste à le rattacher en utilisant un nom ou un numéro d'unité logique différent. 
+
 <!-- 3099544 – IS, ASDK --> 
-- Quand vous créez une machine virtuelle à l’aide du portail Azure Stack et sélectionnez la taille de machine virtuelle, la colonne EUR/mois s’affiche avec le message **Indisponible**. Cette colonne ne devrait pas s’afficher, car l’affichage de la colonne des prix des machines virtuelles n’est pas pris en charge dans Azure Stack.
+- Lorsque vous créez une machine virtuelle à l’aide du portail Azure Stack et sélectionnez la taille de machine virtuelle, la colonne EUR/mois s’affiche avec le message **Indisponible**. Cette colonne ne devrait pas s’afficher, car l’affichage de la colonne des prix des machines virtuelles n’est pas pris en charge dans Azure Stack.
 
 <!-- 3090289 – IS, ASDK --> 
 - Après avoir appliqué la mise à jour 1808, vous rencontrerez peut-être les problèmes suivants lors du déploiement de machines virtuelles avec le service Managed Disks :

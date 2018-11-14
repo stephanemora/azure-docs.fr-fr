@@ -1,22 +1,22 @@
 ---
-title: Gérer les clusters Hadoop dans HDInsight avec le SDK .NET - Azure
-description: Découvrez comment effectuer des tâches d’administration pour les clusters Hadoop dans HDInsight au moyen du Kit de développement logiciel (SDK) .NET HDInsight.
+title: Gérer les clusters Apache Hadoop dans HDInsight avec le SDK .NET - Azure
+description: Découvrez comment effectuer des tâches d’administration pour les clusters Apache Hadoop dans HDInsight au moyen du Kit de développement logiciel (SDK) .NET HDInsight.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: 0d8238d5f1dca15aaba0f8f5a6580df97164006a
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: a7c06d53e3823bd81707608f566f581fa44638fc
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110797"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037754"
 ---
-# <a name="manage-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gestion des clusters Hadoop dans HDInsight au moyen du Kit de développement logiciel (SDK) .NET
+# <a name="manage-apache-hadoop-clusters-in-hdinsight-by-using-net-sdk"></a>Gérer les clusters Apache Hadoop dans HDInsight avec le SDK .NET
 [!INCLUDE [selector](../../includes/hdinsight-portal-management-selector.md)]
 
 Apprenez à gérer des clusters HDInsight à l’aide du [Kit de développement logiciel (SDK) HDInsight.NET](https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight)
@@ -142,12 +142,12 @@ La fonctionnalité de mise à l’échelle d’un cluster vous permet de modifie
 
 Impact de la modification du nombre de nœuds de données pour chaque type de cluster pris en charge par HDInsight :
 
-* Hadoop
+* Apache Hadoop
   
     Vous pouvez augmenter de façon continue le nombre de nœuds de travail dans un cluster Hadoop exécuté sans affecter aucune tâche en attente ou en cours. De nouvelles tâches peuvent également être soumises lorsque l'opération est en cours. Les défaillances dans l'opération de mise à l'échelle sont correctement gérées de sorte que le cluster reste toujours fonctionnel.
   
     Lorsqu’un cluster Hadoop est diminué par la réduction du nombre de nœuds de données, certains services du cluster sont redémarrés. Pour cette raison, toutes les tâches en cours ou en attente échouent lors de la réalisation de l'opération de mise à l'échelle. Toutefois, vous pouvez soumettre à nouveau les tâches une fois l'opération terminée.
-* hbase
+* Apache HBase
   
     Vous pouvez ajouter ou supprimer des nœuds en continu dans votre cluster HBase lorsque celui-ci s’exécute. Les serveurs régionaux sont équilibrés automatiquement quelques minutes après la fin de l’opération de mise à l’échelle. Cependant, vous pouvez équilibrer manuellement des serveurs régionaux en vous connectant au nœud principal du cluster et en exécutant les commandes suivantes à partir d’une fenêtre d’invite de commandes :
   
@@ -156,7 +156,7 @@ Impact de la modification du nombre de nœuds de données pour chaque type de cl
     >hbase shell
     >balancer
     ```
-* Storm
+* Apache Storm
   
     Vous pouvez ajouter ou supprimer des nœuds de données en continu dans votre cluster Storm lorsque celui-ci s'exécute. Mais une fois l’opération de mise à l’échelle terminée avec succès, vous devrez rééquilibrer la topologie.
   
@@ -192,9 +192,9 @@ Les clusters HDInsight disposent des services web HTTP suivants (tous ces servic
 
 * ODBC
 * JDBC
-* Ambari
-* Oozie
-* Templeton
+* Apache Ambari
+* Apache Oozie
+* Apache Templeton
 
 Par défaut, l'accès à ces services est octroyé. Vous avez la possibilité de supprimer/octroyer l'accès. Pour révoquer :
 
@@ -246,19 +246,19 @@ foreach (var key in results.Configuration.Keys)
 
 Consultez [Exécution des exemples Hadoop MapReduce dans HDInsight](hadoop/apache-hadoop-run-samples-linux.md).
 
-**Pour envoyer des tâches Hive** 
+**Pour envoyer des travaux Apache Hive** 
 
 Consultez [Exécution de requêtes Hive avec le Kit de développement logiciel (SDK) .NET](hadoop/apache-hadoop-use-hive-dotnet-sdk.md).
 
-**Pour envoyer des tâches Pig**
+**Pour envoyer des travaux Apache Pig**
 
 Consultez [Exécution de tâches Pig avec le Kit de développement logiciel (SDK) .NET](hadoop/apache-hadoop-use-pig-dotnet-sdk.md).
 
-**Pour envoyer des tâches Sqoop**
+**Pour envoyer des travaux Apache Sqoop**
 
 Consultez l'article [Utilisation de Sqoop avec HDInsight](hadoop/apache-hadoop-use-sqoop-dotnet-sdk.md).
 
-**Pour envoyer des tâches Oozie**
+**Pour envoyer des travaux Apache Oozie**
 
 Consultez [Utilisation d’Oozie avec Hadoop pour définir et exécuter un workflow dans HDInsight](hdinsight-use-oozie-linux-mac.md).
 

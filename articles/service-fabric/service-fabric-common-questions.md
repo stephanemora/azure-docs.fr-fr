@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
 ms.author: chackdan
-ms.openlocfilehash: 70372f30ffaea1fafda3f76d4754489ae89a0a7c
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: cc86a18b0db67bf968006c42f5791e1ad7a093f0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49390174"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016691"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Questions fréquentes sur Service Fabric
 
@@ -48,13 +48,9 @@ Voici quelques points importants à prendre en compte :
 
 ### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Les nœuds Service Fabric reçoivent-ils automatiquement les mises à jour du système d’exploitation ?
 
-Pas encore, mais il s’agit d’une demande courante que nous prévoyons de mettre en œuvre.
+Vous pouvez utiliser la fonctionnalité [Mise à jour automatique de l’image de système d’exploitation d’un groupe de machines virtuelles identiques](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade), actuellement en disponibilité générale.
 
-En attendant, nous avons [fourni une application](service-fabric-patch-orchestration-application.md) permettant aux systèmes d’exploitation situés sous vos nœuds Service Fabric de rester à jour et d’obtenir les derniers correctifs.
-
-Avec les mises à jour du système d’exploitation, le défi réside dans le fait qu’elles nécessitent généralement un redémarrage de l’ordinateur, ce qui entraîne une indisponibilité temporaire. En soi, ce n’est pas un problème, car Service Fabric redirige automatiquement le trafic de ces services vers d’autres nœuds. Toutefois, si les mises à jour du système d’exploitation ne sont pas coordonnées dans le cluster, plusieurs nœuds risquent d’être indisponibles en même temps. Ces redémarrages simultanés peuvent entraîner l’indisponibilité complète d’un service ou, au moins, d’une partition spécifique (pour un service avec état).
-
-À l’avenir, nous prévoyons de prendre en charge une stratégie de mise à jour du système d’exploitation totalement automatisée et coordonnée entre les domaines de mise à jour, ce qui garantit une disponibilité continue malgré les redémarrages et autres défaillances inattendues.
+Pour les clusters qui ne s’exécutent PAS sur Azure, nous [proposons une application](service-fabric-patch-orchestration-application.md) permettant de corriger les systèmes d’exploitation qui se trouvent sous les nœuds Service Fabric.
 
 ### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Puis-je utiliser de grands groupes de machines virtuelles identiques dans mon cluster Service Fabric ? 
 

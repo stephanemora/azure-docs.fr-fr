@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: ffb355b4471bd8455f67e657d9557c3f372c3f4e
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49470318"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281769"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -59,6 +59,9 @@ Si vous êtes dans une boucle de réauthentification ou avez changé le nom UPN 
 1. Supprimez tous les comptes, puis fermez l’Explorateur Stockage.
 2. Supprimez le dossier .IdentityService de votre ordinateur. Sur Windows, le dossier se situe dans `C:\users\<username>\AppData\Local`. Pour Mac et Linux, vous pouvez trouver le dossier à la racine de votre répertoire utilisateur.
 3. Si vous utilisez Mac ou Linux, vous devez également supprimer l’entrée Microsoft.Developer.IdentityService du magasin de clés de votre système d’exploitation. Sur Mac, le magasin de clés est l’application « Gnome Keychain ». Pour Linux, l’application est généralement appelée « Keyring », mais le nom peut être différent en fonction de votre distribution.
+
+### <a name="conditional-access"></a>Accès conditionnel
+L’accès conditionnel n’est pas pris en charge lorsque de l’Explorateur Stockage est utilisé sur Windows 10, Linux ou macOS. Ceci est dû à une limitation de la bibliothèque de AAD utilisée par l’Explorateur Stockage.
 
 ## <a name="mac-keychain-errors"></a>Erreurs de trousseau Mac
 Il peut arriver que le trousseau macOS soit dans un état qui provoque des problèmes dans la bibliothèque d’authentification de l’Explorateur Stockage. Pour modifier l’état du trousseau, suivez ces étapes :
@@ -143,6 +146,12 @@ Si vos paramètres de proxy sont corrects, vous devrez peut-être contacter l’
 ## <a name="unable-to-retrieve-children-error-message"></a>Message d’erreur indiquant qu’il est impossible de récupérer les enfants
 
 Si vous êtes connecté à Azure par le biais d’un proxy, vérifiez que vos paramètres de proxy sont corrects. Si le propriétaire de l’abonnement ou du compte vous a accordé l’accès à une ressource, vérifiez que vous êtes habilité à lire ou à répertorier cette ressource.
+
+## <a name="connection-string-does-not-have-complete-configuration-settings"></a>La chaîne de connexion n’a pas de paramètres de configuration complets
+
+Si vous voyez ce message d’erreur, il est possible que vous n’avez pas les autorisations nécessaires pour obtenir les clés de votre compte de stockage. Pour vérifier si c’est le cas, accédez au portail et recherchez votre compte de stockage. Vous pouvez le faire rapidement en cliquant avec le bouton droit sur le nœud de votre compte de stockage et en cliquant sur Ouvrir dans le portail. Une fois que vous le faites, accédez au panneau Clés d’accès. Si vous ne disposez pas des autorisations permettant d’afficher les clés, vous verrez une page avec le message Vous n’avez pas d’accès. Pour contourner ce problème, vous pouvez soit obtenir la clé du compte auprès de quelqu’un d’autre et de joindre le nom et la clé, ou vous pouvez demander à quelqu’un pour une signature d’accès partagé pour le compte de stockage et l’utiliser pour joindre le compte de stockage.
+
+Si vous ne voyez pas les clés du compte, puis soumettez un problème sur GitHub afin que nous puissions vous aider à résoudre le problème.
 
 ## <a name="issues-with-sas-url"></a>Problèmes liés à l’URL SAP
 Si vous vous connectez à un service à l’aide d’une URL SAP et que vous rencontrez cette erreur :

@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/09/2017
 ms.reviewer: yossiy
 ms.author: mbullwin
-ms.openlocfilehash: b566b204ca9cf13b412d750740836db8bf8930a5
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 8394584b2b4f8cbc47a6fdaadd754e8649c3f794
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47093983"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960920"
 ---
 # <a name="smart-detection---failure-anomalies"></a>Détection intelligente des anomalies de type échec
 [Application Insights](app-insights-overview.md) vous avertit automatiquement en temps quasi-réel si une augmentation anormale du taux des requêtes en échec est détectée dans votre application web. Il détecte une augmentation inhabituelle du nombre de demandes HTTP ou d’appels de dépendance signalés comme défaillants. Les demandes ayant échoué sont généralement celles dont le code de réponse est supérieur ou égal à 400. Pour vous aider à prioriser et à diagnostiquer le problème, la notification s’accompagne d’une analyse des caractéristiques des requêtes ayant échoué et de la télémétrie connexe. Elle fournit également des liens vers le portail Application Insights pour un diagnostic plus poussé. La fonctionnalité ne requiert ni installation ni configuration, puisqu’elle utilise des algorithmes d’apprentissage automatique pour prédire le taux d’échec normal.
@@ -41,7 +41,7 @@ Notez qu’il vous indique :
 
 * le taux d’échec par rapport au comportement normal de l’application ;
 * combien d’utilisateurs sont affectés : afin de savoir dans quelle mesure vous devez vous inquiéter ;
-* un modèle caractéristique associé aux échecs. Cet exemple contient un code de réponse, un nom de demande (opération) et une version de l’application spécifiques. Ces informations vous indiquent immédiatement où commencer la recherche dans votre code. Les autres possibilités peuvent être un type de navigateur ou un système d’exploitation client spécifique ;
+* un modèle caractéristique associé aux échecs. Cet exemple contient un code de réponse, un nom de demande (opération) et une version d’application spécifiques. Ces informations vous indiquent immédiatement où commencer la recherche dans votre code. Les autres possibilités peuvent être un type de navigateur ou un système d’exploitation client spécifique ;
 * l’exception, le suivi des journaux et l’échec de dépendance (bases de données ou autres composants externes) qui semblent associés à des défaillances identifiées ;
 * les liens directs aux recherches pertinentes sur la télémétrie dans Application Insights.
 
@@ -147,7 +147,7 @@ Ces outils de diagnostic vous aident à inspecter les données de télémétrie 
 
 * [Metrics Explorer](app-insights-metrics-explorer.md)
 * [Navigateur de recherche](app-insights-diagnostic-search.md)
-* [Analytics : un puissant langage de requête](app-insights-analytics-tour.md)
+* [Analytics : un puissant langage de requête](../log-analytics/query-language/get-started-analytics-portal.md)
 
 Les détections intelligentes sont entièrement automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 

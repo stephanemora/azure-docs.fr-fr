@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 05/31/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 85df34445622a13488df590f5cb53bedb7b6ea93
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ce06c72c9974b4887cc441344fd755bfd156a1ca
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145100"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914717"
 ---
 # <a name="sign-in-activity-report-error-codes-in-the-azure-active-directory-portal"></a>Codes d’erreur des rapports d’activité des connexions dans le portail Azure Active Directory
 
@@ -117,10 +117,10 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |50135|La modification du mot de passe est nécessaire en raison du risque du compte.|
 |50136|Redirection de session MSA vers une application ; une seule session MSA détectée. |
 |50140|Cette erreur s’est produite suite à l’interruption de la fonction « Maintenir la connexion » lors de la connexion de l’utilisateur. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails. |
-|50143|Incompatibilité de session. La session n’est pas valide, car le locataire de l’utilisateur ne correspond pas à l’indicateur de domaine en raison d’une ressource différente. [Ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) avec l’ID de corrélation, l’ID de requête et le code d’erreur pour obtenir plus de détails.|
+|50143|Incompatibilité de session : la session n’est pas valide, car le client de l’utilisateur ne correspond pas à l’indication de domaine en raison d’une différence entre les ressources. Pour plus d’informations,  [ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) en précisant l’ID de corrélation, l’ID de demande et le code d’erreur.|
 |50144|Le mot de passe Active Directory de l’utilisateur est arrivé à expiration. Générez un nouveau mot de passe pour l’utilisateur ou demandez à l’utilisateur final d’utiliser l’outil de réinitialisation en libre service.|
 |50146|Cette application doit être configurée avec une clé de signature spécifique. Elle n’est configuré avec aucune clé, ou la clé a expiré ou n’est pas encore valide. Contactez le propriétaire de l’application.|
-|50148|L’élément code_verifier ne correspond pas à l’élément code_challenge fourni dans la requête d’autorisation pour PKCE. Contactez le développeur de l’application. |
+|50148|L’élément code_verifier ne correspond pas à l’élément code_challenge fourni dans la requête d’autorisation pour PKCE. Contactez le développeur de l’application. |
 |50155|L’authentification de l’appareil a échoué pour cet utilisateur.|
 |50158|La vérification de sécurité externe n’a pas abouti.|
 |50161|Les revendications envoyées par un fournisseur externe ne sont pas suffisantes, ou il manque une revendication demandée à un fournisseur externe.|
@@ -128,7 +128,7 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |50169|Le domaine n’est pas un domaine configuré de l’espace de noms de service actuel.|
 |50172|Le fournisseur de revendications externe n’est pas approuvé. Contactez l’administrateur du locataire.|
 |50173|Un jeton d’authentification récent est nécessaire. Demandez à l’utilisateur de se connecter à nouveau à l’aide de nouvelles informations d’identification.|
-|50177|La vérification externe n’est pas prise en charge pour les utilisateurs de PassThrough.|
+|50177|La vérification externe n’est pas prise en charge pour les utilisateurs passthrough.|
 |50178|Le contrôle de session n’est pas pris en charge pour les utilisateurs de PassThrough.|
 |50180|L’authentification Windows intégrée est nécessaire. Activez le locataire pour l’authentification unique transparente.|
 |51001|L’indicateur de domaine n’est pas présent avec identificateur de sécurité local - UPN local.|
@@ -152,7 +152,7 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |70007|L’application a renvoyé une valeur non prise en charge pour « response_mode » lors de la demande d’un jeton. Contactez le propriétaire de l’application.|
 |70008|Le code d’autorisation ou le jeton d’actualisation fourni a expiré et a été révoqué. Demandez à l’utilisateur de réessayer de se connecter.|
 |70011|La portée demandée par l’application n’est pas valide. Contactez le propriétaire de l’application.|
-|70012|Une erreur de serveur s’est produite lors de l’authentification d’un utilisateur de compte de service administré (consommateur). Veuillez réessayer. Si le problème persiste, [ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md). |
+|70012|Une erreur de serveur s’est produite lors de l’authentification d’un utilisateur de compte de service administré (consommateur). Veuillez réessayer. Si le problème persiste, [ouvrez un ticket de support](../fundamentals/active-directory-troubleshooting-support-howto.md) .|
 |70018|Le code de vérification n’est pas valide, car l’utilisateur a saisi un code utilisateur incorrect pour le flux de code d’appareil. L’autorisation n’est pas approuvée.|
 |70019|Le code de vérification a expiré. Demandez à l’utilisateur de réessayer de se connecter.|
 |70037|La réponse donnée à la question de vérification est incorrecte. La session d’authentification à distance a été refusée.|
@@ -180,6 +180,7 @@ La section suivante vous fournit une vue d’ensemble complète de toutes les er
 |90014| Un champ obligatoire du message de protocole n’a pas été renseigné. Contactez le propriétaire de l’application. Si vous êtes le propriétaire de l’application, vérifiez que vous disposez de tous les paramètres nécessaires pour la requête de connexion. |
 |90072| Le compte doit d’abord être ajouté comme utilisateur externe dans le locataire. Déconnectez-vous, puis connectez-vous avec un autre compte Azure AD.|
 |90094| L’accès nécessite des autorisations d’administrateur. Demandez à l’administrateur de votre locataire de donner son consentement pour cette application.|
+|500133| L’intervalle de temps de l’assertion n’est pas valide. Vérifiez que le jeton d’accès n’est pas arrivé à expiration avant de l’utiliser pour l’assertion de l’utilisateur, ou demandez-en un nouveau.|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

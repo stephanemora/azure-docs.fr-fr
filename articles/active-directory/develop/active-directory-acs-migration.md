@@ -16,14 +16,14 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: celested
 ms.reviewer: jlu, annaba, hirsin
-ms.openlocfilehash: 4fd7617bf45608cdae15919a40920ea0d214acb8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: da114cc343d04165d5a6a2137aeb2b675258230a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49407469"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015330"
 ---
-# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Comment : Effectuer une migration à partir d’Azure Access Control Service
+# <a name="how-to-migrate-from-the-azure-access-control-service"></a>Guide pratique : Effectuer une migration à partir d’Azure Access Control Service
 
 Microsoft Azure Access Control Service (ACS), un service d’Azure Active Directory (Azure AD), sera mis hors-service le 7 novembre 2018. Les applications et services qui utilisent actuellement Access Control Service doivent être entièrement migrés vers un autre mécanisme d’authentification d’ici-là. Cet article fournit des recommandations aux clients actuels qui prévoient de ne plus utiliser Access Control Service. Si vous n’utilisez pas Access Control Service, aucune action n’est requise de votre part.
 

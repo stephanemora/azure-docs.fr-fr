@@ -1,5 +1,5 @@
 ---
-title: Gérer les alertes émanant d’autres services de supervision
+title: Gérer les alertes émanant d’autres services de supervision dans Azure Monitor
 description: Gérer les alertes Nagios, Zabbix et SCOM dans Azure Monitor
 author: anantr
 services: monitoring
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: anantr
 ms.component: alerts
-ms.openlocfilehash: d9d0cb326fb063e0a6bbfaab6a85961ab2b35416
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: bc597d42fe89c0e03c4af1db3a935031b9043a98
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389370"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748270"
 ---
 # <a name="manage-alerts-from-other-monitoring-services"></a>Gérer les alertes émanant d’autres services de supervision
 

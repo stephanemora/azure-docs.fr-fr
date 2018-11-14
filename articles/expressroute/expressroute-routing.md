@@ -5,14 +5,14 @@ services: expressroute
 author: ganesr
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 11/05/2018
 ms.author: ganesr
-ms.openlocfilehash: 35644912da2b75009ba2b16f4a188011ba1f813e
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: cb48a9470a39cbe152f821333050e3dd5a28e1ca
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49650126"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230941"
 ---
 # <a name="expressroute-routing-requirements"></a>Configuration requise pour le routage ExpressRoute
 Pour vous connecter aux services de cloud Microsoft à l’aide d’ExpressRoute, vous devez configurer et gérer le routage. Certains fournisseurs de connectivité proposent la configuration et la gestion du routage comme un service géré. Vérifiez auprès de votre fournisseur de connectivité s’il offre ce service. Si ce n’est pas le cas, vous devez respecter les conditions suivantes :
@@ -100,7 +100,7 @@ Si vos préfixes et le numéro ASN ne vous sont pas affectés dans les registres
 Un numéro ASN privé est autorisé avec l’homologation Microsoft, mais nécessite également une validation manuelle. Nous supprimons également les numéros AS privés dans le chemin AS PATH pour les préfixes reçus. En conséquence, vous ne pouvez pas ajouter de numéros AS privés au chemin AS PATH pour [influencer le routage pour l’homologation Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Les adresses IP publiques proposées à Microsoft via ExpressRoute ne doivent pas être publiées sur Internet. Cela pourrait interrompre la connectivité avec d’autres services Microsoft. Toutefois, les adresses IP publiques utilisées par les serveurs de votre réseau qui communiquent avec les points de terminaison O365 au sein de Microsoft peuvent être publiées via ExpressRoute. 
+> Ne publiez pas le même itinéraire d’adresse IP publique sur l’Internet public et sur ExpressRoute. Nous vous recommandons vivement de publier un itinéraire plus spécifique sur ExpressRoute et un itinéraire plus général sur Internet pour [NAT](expressroute-nat.md). En plus de l’itinéraire public pour NAT, vous pouvez publier sur ExpressRoute les adresses IP publiques utilisées par les serveurs de votre réseau local, qui communiquent avec des points de terminaison Office 365 dans Microsoft. 
 > 
 > 
 
@@ -138,7 +138,7 @@ Les routages par défaut sont autorisés uniquement sur les sessions d’homolog
 * Vous utilisez le routage défini par l’utilisateur pour permettre la connectivité Internet pour chaque sous-réseau nécessitant une connectivité Internet définie par l’utilisateur.
 
 > [!NOTE]
-> La publication des routages par défaut arrête Windows et toute autre activation de licence de machine virtuelle. Suivez les instructions [ici](http://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) pour contourner ce problème.
+> La publication des routages par défaut arrête Windows et toute autre activation de licence de machine virtuelle. Suivez les instructions [ici](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) pour contourner ce problème.
 > 
 > 
 
@@ -227,12 +227,12 @@ Par ailleurs, Microsoft marquera également des préfixes basés sur le service 
 | **Région Azure pour les clouds nationaux**| **Valeur de communauté BGP** |
 | --- | --- |
 | **Gouvernement américain** |  |
-| US Gov Arizona | 12076:51106 |
+| Gouvernement des États-Unis – Arizona | 12076:51106 |
 | US Gov Iowa | 12076:51109 |
-| US Gov Virginie | 12076:51105 |
-| US Gov Texas | 12076:51108 |
-| USA Centre DoD | 12076:51209 |
-| USA Est DoD | 12076:51205 |
+| Gouvernement américain - Virginie | 12076:51105 |
+| Gouvernement des États-Unis – Texas | 12076:51108 |
+| Centre des États-Unis – US DoD | 12076:51209 |
+| Est des États-Unis – US DoD | 12076:51205 |
 
 
 | **Service dans les clouds nationaux** | **Valeur de communauté BGP** |

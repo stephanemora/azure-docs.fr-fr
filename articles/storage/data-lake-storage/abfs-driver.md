@@ -9,20 +9,20 @@ ms.author: jamesbak
 ms.date: 06/27/2018
 ms.service: storage
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: f618b925839d6f501635748734327293a2073b64
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1eacaa33fd5d0c70e8a1d3547fa40bf9d0d616c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384853"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282592"
 ---
 # <a name="the-azure-blob-filesystem-driver-abfs-a-dedicated-azure-storage-driver-for-hadoop"></a>Pilote ABFS (Azure Blob File System) : pilote de stockage Azure dédié pour Hadoop
 
-[Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html) constitue l’une des principales méthodes d’accès aux données dans Azure Data Lake Storage Gen2 Preview. Azure Data Lake Storage Gen2 propose un pilote associé, le pilote `ABFS` (Azure Blob File System). ABFS fait partie d’Apache Hadoop et est inclus dans la plupart des distributions commerciales de Hadoop. Grâce à ce pilote, de nombreuses applications et infrastructures peuvent accéder aux données dans Data Lake Storage Gen2 sans nécessiter de code faisant explicitement référence au service Data Lake Storage Gen2.
+[Hadoop FileSystem](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/index.html) constitue l’une des principales méthodes d’accès aux données dans Azure Data Lake Storage Gen2 Preview. Data Lake Storage Gen2 permet aux utilisateurs du stockage Blob Azure d'accéder à un nouveau pilote, le pilote Azure Blob File System ou `ABFS`. ABFS fait partie d’Apache Hadoop et est inclus dans la plupart des distributions commerciales de Hadoop. Grâce à ce pilote, de nombreuses applications et infrastructures peuvent accéder aux données du stockage Blob Azure, sans nécessiter de code faisant explicitement référence à Data Lake Storage Gen2.
 
 ## <a name="prior-capability-the-windows-azure-storage-blob-driver"></a>Fonctionnalité préalable : pilote Windows Azure Storage Blob
 
-Au départ, c’est le [pilote WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) (Windows Azure Storage Blob) qui prenait en charge Azure Storage Blob. Il avait pour tâche complexe de mapper la sémantique du système de fichiers (conformément à l’interface Hadoop FileSystem) à celle de l’interface de style « magasin d’objets » exposée par Stockage Blob Azure. Ce pilote continue à prendre en charge ce modèle et fournit un accès très performant aux données stockées dans les objets blob. Il est toutefois difficile de le tenir à jour, car la quantité de code nécessaire au mappage est très importante. Par ailleurs, quand certaines opérations comme [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) et [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) sont appliquées à des répertoires, le pilote doit effectuer un grand nombre d’opérations (les magasins d’objet ne prenant pas en charge les répertoires), ce qui aboutit souvent à une dégradation des performances. Le nouveau service Azure Data Lake Storage a été conçu pour surmonter les lacunes inhérentes à WASB.
+Au départ, c’est le [pilote WASB](https://hadoop.apache.org/docs/current/hadoop-azure/index.html) (Windows Azure Storage Blob) qui prenait en charge le stockage Blob Azure. Il avait pour tâche complexe de mapper la sémantique du système de fichiers (conformément à l’interface Hadoop FileSystem) à celle de l’interface de style « magasin d’objets » exposée par Stockage Blob Azure. Ce pilote continue à prendre en charge ce modèle et fournit un accès très performant aux données stockées dans les objets blob. Il est toutefois difficile de le tenir à jour, car la quantité de code nécessaire au mappage est très importante. Par ailleurs, quand certaines opérations comme [FileSystem.rename()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_renamePath_src_Path_d) et [FileSystem.delete()](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/filesystem/filesystem.html#boolean_deletePath_p_boolean_recursive) sont appliquées à des répertoires, le pilote doit effectuer un grand nombre d’opérations (les magasins d’objet ne prenant pas en charge les répertoires), ce qui aboutit souvent à une dégradation des performances. Le pilote ABFS a été conçu pour combler les lacunes inhérentes à WASB.
 
 ## <a name="the-azure-blob-file-system-driver"></a>Pilote Azure Blob File System
 

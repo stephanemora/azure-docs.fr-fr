@@ -3,7 +3,7 @@ title: Comment définir ou modifier des stratégies dans Gestion des API Azure |
 description: Cette rubrique montre comment définir ou modifier des stratégies dans Gestion des API Azure.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cflower
 editor: ''
 ms.service: api-management
@@ -11,14 +11,14 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/27/2017
+ms.date: 11/01/2018
 ms.author: apimpm
-ms.openlocfilehash: aaf86a440328e27c8c47b809536951eeaf2104b9
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 3d1847b6001ef8e32f00a4e1cd9728d5ca0662f8
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33936695"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51008264"
 ---
 # <a name="how-to-set-or-edit-azure-api-management-policies"></a>Comment définir ou modifier des stratégies dans Gestion des API Azure
 
@@ -33,15 +33,14 @@ Pour définir ou modifier une stratégie, procédez comme suit :
 1. Connectez-vous au portail Azure sur [https://portal.azure.com](https://portal.azure.com).
 2. Accédez à votre instance APIM.
 3. Cliquez sur l’onglet **API**.
+
+    ![Modifier la stratégie](./media/set-edit-policies/code-editor.png)
+
 4. Sélectionnez l’une des API que vous avez importées précédemment.
 5. Sélectionnez l’onglet **Conception**.
 6. Sélectionnez une opération à laquelle vous souhaitez appliquer la stratégie. Si vous souhaitez appliquer la stratégie à toutes les opérations, sélectionnez **Toutes les opérations**.
-7. Cliquez sur le triangle en regard des crayons **entrant** ou **sortant**.
-8. Sélectionnez l’élément **Éditeur de code**.
-
-    ![Modifier la stratégie](./media/set-edit-policies/set-edit-policies01.png)
-
-9. Collez le code de la stratégie de votre choix dans l’une des zones appropriées.
+7. Sélectionnez l’icône **</>** (éditeur de code) dans la section **Traitement entrant** ou **Traitement sortant**.
+8. Collez le code de la stratégie de votre choix dans l’une des zones appropriées.
          
         <policies>
              <inbound>

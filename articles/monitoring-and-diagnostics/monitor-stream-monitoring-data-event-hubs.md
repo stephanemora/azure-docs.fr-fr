@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/21/2018
+ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 18c0f8176a85eef79000fff8ed717ad7e57f20d8
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 0c85b65e9b6eabcb5c74e1d178c0f26235cdf624
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954838"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961821"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Diffuser des données de surveillance Azure vers un hub d’événements pour les utiliser dans un outil externe
 
@@ -27,8 +27,8 @@ Au sein de votre environnement Azure, il existe plusieurs « couches » de donn�
 
 - **Données de surveillance de l’application :** données concernant les performances et la fonctionnalité du code que vous avez écrit et qui est exécuté dans Azure. Il peut s’agir, par exemple, de traces de performances, de journaux d’applications ou de télémétrie utilisateur. Les données de surveillance de l’application sont généralement regroupées de l’une des manières suivantes :
   - En instrumentant votre code avec un SDK tel que le [SDK Application Insights](../application-insights/app-insights-overview.md)
-  - En exécutant un agent de surveillance qui écoute les nouveaux journaux d’application sur la machine qui exécute votre application, tel que [l’agent de diagnostic Azure pour Windows](./azure-diagnostics.md) ou [l’agent de diagnostic Azure pour Linux](../virtual-machines/linux/diagnostic-extension.md)
-- **Données de surveillance du système d’exploitation invité :** données concernant le système d’exploitation sur lequel votre application est exécutée. Il peut s’agir, par exemple, de journaux système Linux ou d’événements système Windows. Pour collecter ce type de données, vous devez installer un agent tel que [l’agent de diagnostic Azure pour Windows](./azure-diagnostics.md) ou [l’agent de diagnostic Azure pour Linux](../virtual-machines/linux/diagnostic-extension.md).
+  - En exécutant un agent de surveillance qui écoute les nouveaux journaux d’application sur la machine qui exécute votre application, tel que [l’agent de diagnostic Azure pour Windows](./azure-diagnostics.md) ou [l’agent de diagnostic Azure pour Linux](../virtual-machines/extensions/diagnostics-linux.md)
+- **Données de surveillance du système d’exploitation invité :** données concernant le système d’exploitation sur lequel votre application est exécutée. Il peut s’agir, par exemple, de journaux système Linux ou d’événements système Windows. Pour collecter ce type de données, vous devez installer un agent tel que [l’agent de diagnostic Azure pour Windows](./azure-diagnostics.md) ou [l’agent de diagnostic Azure pour Linux](../virtual-machines/extensions/diagnostics-linux.md).
 - **Données de surveillance des ressources Azure :** données concernant le fonctionnement d’une ressource Azure. Pour certains types de ressources Azure, telles que les machines virtuelles, il existe un système d’exploitation invité et des applications qui permettent de surveiller ce qui se passe dans le service Azure. Pour d’autres ressources Azure, telles que les groupes de sécurité réseau, les données de surveillance des ressources constituent la couche de données la plus élevée (dans la mesure où aucun système d’exploitation invité ni aucune application ne sont exécutés sur ces ressources). Ces données peuvent être collectées à l’aide des [paramètres de diagnostic des ressources](./monitoring-overview-of-diagnostic-logs.md#diagnostic-settings).
 - **Données de surveillance d’abonnement Azure :** données concernant le fonctionnement et la gestion d’un abonnement Azure, mais aussi données concernant l’intégrité et le fonctionnement d’Azure. Le [journal d’activité](./monitoring-overview-activity-logs.md) contient la plupart des données de surveillance d’abonnement, telles que les incidents d’intégrité de service et les audits d’Azure Resource Manager. Vous pouvez collecter ces données à l’aide d’un profil de journal.
 - **Données de surveillance de locataire Azure :** données concernant le fonctionnement des services Azure au niveau du locataire, tels qu’Azure Active Directory. Les connexions et les audits d’Azure Active Directory sont des exemples de données de surveillance de locataire. Ces données peuvent être collectées à l’aide d’un paramètre de diagnostic de locataire.
@@ -54,7 +54,7 @@ Les données de surveillance des locataires Azure ne sont actuellement disponibl
 
 ### <a name="azure-active-directory-data"></a>Données Azure Active Directory
 
-Pour envoyer des données à partir du journal Azure Active Directory dans un espace de noms Event Hubs, vous configurer un paramètre de diagnostic de locataire sur votre locataire AAD. [Suivez ce guide](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) pour configurer un paramètre de diagnostic de locataire.
+Pour envoyer des données à partir du journal Azure Active Directory dans un espace de noms Event Hubs, vous configurer un paramètre de diagnostic de locataire sur votre locataire AAD. [Suivez ce guide](../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) pour configurer un paramètre de diagnostic de locataire.
 
 ## <a name="azure-subscription-monitoring-data"></a>Données de surveillance de l’abonnement Azure
 
@@ -71,7 +71,7 @@ Pour envoyer les données du journal d’activité Azure vers un espace de noms 
 
 Les ressources Azure émettent deux types de données de surveillance :
 1. [Journaux de diagnostic des ressources](./monitoring-overview-of-diagnostic-logs.md)
-2. [Métriques](monitoring-overview-metrics.md)
+2. [Métriques](../monitoring/monitoring-data-collection.md)
 
 Ces deux types de données sont envoyés à un hub d’événements à l’aide d’un paramètre de diagnostic des ressources. [Suivez ce guide](./monitoring-stream-diagnostic-logs-to-event-hubs.md) pour définir un paramètre de diagnostic dans une ressource particulière. Définissez un paramètre de diagnostic des ressources pour chacune des ressources dont vous voulez collecter les journaux.
 
@@ -113,10 +113,11 @@ Le routage de vos données de surveillance vers un hub d’événements avec Azu
     1. [Le module complémentaire Azure Monitor pour Splunk](https://splunkbase.splunk.com/app/3534/) est un projet open source disponible dans Splunkbase. [La documentation est disponible ici](https://github.com/Microsoft/AzureMonitorAddonForSplunk/wiki/Azure-Monitor-Addon-For-Splunk).
     2. Si vous ne pouvez pas installer de module complémentaire dans votre instance Splunk (par exemple, si vous utilisez un proxy ou exécutez sur un cloud Splunk), vous pouvez transférer ces événements au collecteur d’événements HTTP Splunk en utilisant [cette fonction qui est déclenchée par les nouveaux messages dans le hub d’événements](https://github.com/Microsoft/AzureFunctionforSplunkVS).
 * **SumoLogic** : les instructions pour configurer SumoLogic de manière à utiliser les données d’un hub d’événements sont [disponibles ici](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure-Audit/02Collect-Logs-for-Azure-Audit-from-Event-Hub)
+* **ArcSight** : le connecteur intelligent ArcSight Azure Event Hub est disponible dans la [collection de connecteurs intelligents ArcSight ici](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852).
 * **Serveur Syslog** : Si vous souhaitez transmettre en continu les données d’Azure Monitor directement à un serveur syslog, vous pouvez consulter [ce référentiel github](https://github.com/miguelangelopereira/azuremonitor2syslog/).
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Archiver le journal d’activité dans un compte de stockage](monitoring-archive-activity-log.md)
 * [Lire la présentation du journal d’activité Azure](monitoring-overview-activity-logs.md)
-* [Définir une alerte basée sur un événement de journal d’activité](insights-auditlog-to-webhook-email.md)
+* [Définir une alerte basée sur un événement de journal d’activité](monitor-alerts-unified-log-webhook.md)
 

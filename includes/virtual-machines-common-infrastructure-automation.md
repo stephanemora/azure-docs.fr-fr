@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: bc273b8979b29057163e02dc9605e631aef173f1
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 28c943b2588270af823c0712d4e510a4f018da3e
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50226460"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50981443"
 ---
 # <a name="use-infrastructure-automation-tools-with-virtual-machines-in-azure"></a>Utiliser les outils d’automatisation d’infrastructure avec les machines virtuelles dans Azure
 Pour créer et gérer des machines virtuelles de façon cohérente à grande échelle, une forme d’automatisation est généralement souhaitée. De nombreux outils et solutions permettent d’automatiser le déploiement et la gestion du cycle de vie de toute l’infrastructure Azure. Cet article présente certains des outils d’automatisation d’infrastructure utilisables dans Azure. Ces outils s’intègrent généralement dans l’une des approches suivantes :
@@ -129,9 +129,9 @@ Découvrez comment :
 ## <a name="azure-devops-services"></a>Azure DevOps Services
 [Azure DevOps Services](https://www.visualstudio.com/team-services/) est une suite d’outils qui permet de partager et de suivre le code, d’utiliser des builds automatisées et de créer un pipeline d’intégration continue/de développement continu. Azure DevOps s’intègre avec Visual Studio et d’autres éditeurs pour simplifier son utilisation. Azure DevOps peut également créer et configurer des machines virtuelles Azure, puis déployer le code vers celles-ci.
 
-Découvrez comment :
+Pour en savoir plus :
 
-- [Créer un pipeline d’intégration continue avec Azure DevOps Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Azure DevOps Services](https://docs.microsoft.com/azure/devops/user-guide/index?view=vsts).
 
 
 ## <a name="jenkins"></a>Jenkins

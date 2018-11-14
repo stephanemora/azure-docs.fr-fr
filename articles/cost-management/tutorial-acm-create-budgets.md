@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/01/2018
+ms.date: 11/02/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 50bd22559c3695ac4161932652eb191084e2b46e
-ms.sourcegitcommit: 7bc4a872c170e3416052c87287391bc7adbf84ff
+ms.openlocfilehash: 338035014cb8e34caa7aea688028a96d039b028c
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48017352"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50977666"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Tutoriel : Créer et gérer des budgets Azure
 
@@ -33,9 +33,9 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
-Les budgets sont disponibles pour tous les clients Azure EA. Vous devez disposer d’un accès en lecture à un abonnement Azure EA pour créer et gérer des budgets. Les comptes de facturation EA ne sont pas pris en charge par les budgets.
+Les budgets sont disponibles pour tous les clients Azure EA. Vous devez disposer d’un accès en lecture à un abonnement Azure EA pour créer et gérer des budgets. Vous pouvez créer des budgets individuels pour les abonnements EA et les groupes de ressources. En revanche, il n’est pas possible d’en créer pour les comptes de facturation EA.
 
-Les budgets sont créés individuellement au niveau des abonnements ou des groupes de ressources. Les autorisations Azure suivantes sont prises en charge par abonnement aux budgets par utilisateur et par groupe :
+Les autorisations Azure suivantes sont prises en charge par abonnement aux budgets par utilisateur et par groupe :
 
 - Propriétaire : peut créer, modifier ou supprimer des budgets pour un abonnement.
 - Contributeur : peut créer, modifier ou supprimer ses propres budgets. Peut modifier le montant des budgets créés par d’autres utilisateurs.

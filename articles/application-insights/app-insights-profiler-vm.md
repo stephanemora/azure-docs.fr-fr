@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 10cd05bd40262815e3b27c861982debc18e5b4f3
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 152632c55fc21d2b49f6dfd8ae734833ea870898
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142709"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978364"
 ---
 # <a name="profile-web-apps-running-on-an-azure-virtual-machine-or-virtual-machine-scale-set-with-application-insights-profiler"></a>Profiler des applications web s’exécutant sur une machine virtuelle Azure ou un groupe de machines virtuelles identiques avec Application Insights Profiler
 Vous pouvez également déployer Application Insights Profiler sur ces services :
@@ -63,11 +63,8 @@ Cette page décrit les étapes nécessaires pour exécuter Application Insights 
 
 1. Déployez votre application.
 
-## <a name="enable-profiler-on-on-premises-servers"></a>Activer Profiler sur des serveurs locaux
-
-L’activation de Profiler sur un serveur local correspond à l’exécution d’Application Insights Profiler en mode autonome. Il n’est pas lié aux modifications de l’extension Azure Diagnostics.
-
-Nous ne prévoyons pas une prise en charge officielle de Profiler pour les serveurs locaux. Si vous souhaitez tester ce scénario, vous pouvez [télécharger le code de prise en charge](https://github.com/ramach-msft/AIProfiler-Standalone). Nous *ne sommes pas* responsables de la mise à jour de ce code, et nous ne répondons pas aux demandes de fonctionnalités ni aux questions relatives à des problèmes liés au code.
+## <a name="can-profiler-run-on-on-premises-servers"></a>Le profileur peut-il être exécuté sur des serveurs locaux ?
+Nous n’envisageons pas de prendre en charge Application Insights Profiler pour les serveurs locaux. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

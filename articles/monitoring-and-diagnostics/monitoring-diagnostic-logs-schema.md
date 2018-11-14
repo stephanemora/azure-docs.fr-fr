@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 10/11/2018
 ms.author: johnkem
 ms.component: logs
-ms.openlocfilehash: 3b665ed0539a41ffeca87511154f3607a57cff4a
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 035b12c85720817501da9f4ad580aa8e7da8fdc4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116191"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51280510"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-diagnostic-logs"></a>Services, schémas et catégories pris en charge pour les journaux de diagnostic Azure
 
@@ -45,9 +45,9 @@ Une combinaison du type de ressource (disponible dans la propriété `resourceId
 ## <a name="service-specific-schemas-for-resource-diagnostic-logs"></a>Schémas spécifiques du service pour les journaux de diagnostic des ressources
 Le schéma des journaux de diagnostic des ressources varie en fonction de la ressource et de la catégorie de journal. Cette liste répertorie tous les services qui mettent des journaux de diagnostics et des liens à disposition du service et un schéma spécifique de la catégorie lorsqu’il est disponible.
 
-| Service | Schéma et documentation |
+| de diffusion en continu | Schéma et documentation |
 | --- | --- |
-| Azure Active Directory | [Vue d’ensemble](../active-directory/reports-monitoring/overview-activity-logs-in-azure-monitor.md), [Schéma des journaux d’audit](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) et [Schéma des connexions](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
+| Azure Active Directory | [Vue d’ensemble](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), [Schéma des journaux d’audit](../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) et [Schéma des connexions](../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
 | Analysis Services | https://azure.microsoft.com/blog/azure-analysis-services-integration-with-azure-diagnostic-logs/ |
 | API Management | [Journaux de diagnostic Gestion des API](../api-management/api-management-howto-use-azure-monitor.md#diagnostic-logs) |
 | Passerelles d’application |[Journalisation des diagnostics pour Application Gateway](../application-gateway/application-gateway-diagnostics.md) |
@@ -84,7 +84,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Type de ressource|Catégorie|Nom d’affichage de la catégorie|
 |---|---|---|
 |Microsoft.AnalysisServices/servers|Engine (Moteur)|Engine (Moteur)|
-|Microsoft.AnalysisServices/servers|Service|Service|
+|Microsoft.AnalysisServices/servers|de diffusion en continu|de diffusion en continu|
 |Microsoft.ApiManagement/service|GatewayLogs|Journaux relatifs à la passerelle ApiManagement|
 |Microsoft.Automation/automationAccounts|JobLogs|Journaux de travail|
 |Microsoft.Automation/automationAccounts|JobStreams|Flux de travail|
@@ -92,9 +92,11 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Batch/batchAccounts|ServiceLog|Journaux de service|
 |Microsoft.Cdn/profiles/endpoints|CoreAnalytics|Obtient les métriques du point de terminaison, par exemple, la bande passante, la sortie, etc.|
 |Microsoft.ClassicNetwork/networksecuritygroups|Événement de flux de règle de groupe de sécurité réseau|Événement de flux de règle de groupe de sécurité réseau|
-|Microsoft.CognitiveServices/accounts|Audit|Audit|
+|Microsoft.CognitiveServices/accounts|Audit|Journaux d’audit|
+|Microsoft.CognitiveServices/accounts|RequestResponse|Journaux des requêtes et des réponses|
 |Microsoft.ContainerService/managedClusters|kube-apiserver|Serveur d’API Kubernetes|
 |Microsoft.ContainerService/managedClusters|kube-controller-manager|Gestionnaire de contrôleur Kubernetes|
+|Microsoft.ContainerService/managedClusters|cluster-autoscaler|Autoscaler de cluster Kubernetes|
 |Microsoft.ContainerService/managedClusters|kube-scheduler|Planificateur Kubernetes|
 |Microsoft.ContainerService/managedClusters|guard|Webhook d’authentification|
 |Microsoft.CustomerInsights/hubs|AuditEvents|AuditEvents|
@@ -105,7 +107,7 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.DataLakeAnalytics/accounts|Requêtes|Journaux de requête|
 |Microsoft.DataLakeStore/accounts|Audit|Journaux d’audit|
 |Microsoft.DataLakeStore/accounts|Demandes|Journaux de requête|
-|Microsoft.DBforMySQL/servers|MySqlSlowLogs|Journaux des requêtes lentes MySQL|
+|Microsoft.DBforMySQL/servers|MySqlSlowLogs|Journaux MySQL Server|
 |Microsoft.DBforPostgreSQL/servers|PostgreSQLLogs|Journaux de serveur PostgreSQL|
 |Microsoft.Devices/IotHubs|connexions|connexions|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|Télémétrie d’appareil|
@@ -128,6 +130,14 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.EventHub/namespaces|ArchiveLogs|Journaux d’archivage|
 |Microsoft.EventHub/namespaces|OperationalLogs|Journaux des opérations|
 |Microsoft.EventHub/namespaces|AutoScaleLogs|Journaux de mise à l’échelle automatique|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleEvaluations|Évaluations de mise à l’échelle automatique|
+|Microsoft.Insights/AutoscaleSettings|AutoscaleScaleActions|Actions de mise à l’échelle automatique|
+|Microsoft.IoTSpaces/Graph|Trace|Trace|
+|Microsoft.IoTSpaces/Graph|En fonctionnement|En fonctionnement|
+|Microsoft.IoTSpaces/Graph|Audit|Audit|
+|Microsoft.IoTSpaces/Graph|UserDefinedFunction|UserDefinedFunction|
+|Microsoft.IoTSpaces/Graph|Entrée|Entrée|
+|Microsoft.IoTSpaces/Graph|Sortie|Sortie|
 |Microsoft.KeyVault/vaults|AuditEvent|Journaux d’audit|
 |Microsoft.Logic/workflows|WorkflowRuntime|Événements de diagnostic de runtime de workflow|
 |Microsoft.Logic/integrationAccounts|IntegrationAccountTrackingEvents|Suivi des événements de compte d’intégration|
@@ -136,6 +146,8 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Network/loadBalancers|LoadBalancerAlertEvent|Événements d’alerte d’équilibreur de charge|
 |Microsoft.Network/loadBalancers|LoadBalancerProbeHealthStatus|État d’intégrité de la sonde d’équilibreur de charge|
 |Microsoft.Network/publicIPAddresses|DDoSProtectionNotifications|Notifications de protection DDoS|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationFlowLogs|Journaux des flux des décisions d’atténuation DDoS|
+|Microsoft.Network/publicIPAddresses|DDoSMitigationReports|Rapports des mesures d’atténuation DDoS|
 |Microsoft.Network/virtualNetworks|VMProtectionAlerts|Alertes de protection de machine virtuelle|
 |Microsoft.Network/applicationGateways|ApplicationGatewayAccessLog|Journal d’accès à la passerelle d’application|
 |Microsoft.Network/applicationGateways|ApplicationGatewayPerformanceLog|Journal de performance de la passerelle d’application|
@@ -151,6 +163,8 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Network/virtualNetworkGateways|P2SDiagnosticLog|Journaux de diagnostics PS2|
 |Microsoft.Network/trafficManagerProfiles|ProbeHealthStatusEvents|Événement de résultats d’intégrité de sondage Traffic Manager|
 |Microsoft.Network/expressRouteCircuits|PeeringRouteLog|Journaux de table de routage de Peering|
+|Microsoft.Network/frontdoors|FrontdoorAccessLog|Journal des accès Frontdoor|
+|Microsoft.Network/frontdoors|FrontdoorWebApplicationFirewallLog|Journal de pare-feu d’applications web Frontdoor|
 |Microsoft.PowerBIDedicated/capacities|Engine (Moteur)|Engine (Moteur)|
 |Microsoft.RecoveryServices/Vaults|AzureBackupReport|Données de rapport de sauvegarde Azure|
 |Microsoft.RecoveryServices/Vaults|AzureSiteRecoveryJobs|Travaux Azure Site Recovery|
@@ -173,10 +187,21 @@ Le schéma des journaux de diagnostic des ressources varie en fonction de la res
 |Microsoft.Sql/servers/databases|Blocages|Blocages|
 |Microsoft.Sql/servers/databases|Audit|Journaux d’audit|
 |Microsoft.Sql/servers/databases|SQLSecurityAuditEvents|Événement d’audit de sécurité SQL|
-|Microsoft.Sql/servers/databases|SqlDw_Requests|Requêtes SQL DW|
-|Microsoft.Sql/servers/databases|SqlDw_RequestSteps|Étapes de requête SQL DW|
+|Microsoft.Sql/servers/databases|DmsWorkers|Rôles de travail Dms|
+|Microsoft.Sql/servers/databases|ExecRequests|Requêtes d’exécution|
+|Microsoft.Sql/servers/databases|RequestSteps|Étapes de la requête|
+|Microsoft.Sql/servers/databases|SqlRequests|Requêtes SQL|
+|Microsoft.Sql/servers/databases|Waits|Attend|
+|Microsoft.Sql/managedInstances|ResourceUsageStats|Statistiques d’utilisation des ressources|
+|Microsoft.Sql/managedInstances|SQLSecurityAuditEvents|Événement d’audit de sécurité SQL|
+|Microsoft.Sql/managedInstances/databases|SQLInsights|SQL Insights|
+|Microsoft.Sql/managedInstances/databases|QueryStoreRuntimeStatistics|Statistiques d’exécution du magasin de données des requêtes|
+|Microsoft.Sql/managedInstances/databases|QueryStoreWaitStatistics|Statistiques d’attente du magasin de requêtes|
+|Microsoft.Sql/managedInstances/databases|Errors|Errors|
 |Microsoft.StreamAnalytics/streamingjobs|Exécution|Exécution|
 |Microsoft.StreamAnalytics/streamingjobs|Création|Création|
+|microsoft.web/sites|FunctionExecutionLogs|Journaux d’exécution de la fonction|
+|microsoft.web/sites/slots|FunctionExecutionLogs|Journaux d’exécution de la fonction|
 
 ## <a name="next-steps"></a>Étapes suivantes
 

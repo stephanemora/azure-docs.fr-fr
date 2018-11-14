@@ -12,21 +12,20 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/08/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 17fd9907a5e3e3f4485b35c8e74d6e46fecb7fda
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 01c8f864d25a35d42abcd624e31728f4fee0d80c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44303504"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012069"
 ---
 # <a name="monitor-identity-and-access-in-azure-security-center-preview"></a>Surveiller l’identité et l’accès dans Azure Security Center (Préversion)
 Cet article vous aide à utiliser Azure Security Center pour surveiller l’identité et l’activité d’accès d’un utilisateur.
 
 > [!NOTE]
 > La surveillance de l’identité et de l’accès est uniquement disponible en préversion, au niveau Standard du Security Center. Consultez [Tarification](security-center-pricing.md) pour en savoir plus sur les niveaux tarifaires de Security Center.
->
 >
 
 L’identité doit être le plan de contrôle de votre entreprise. La protection de votre identité doit être votre priorité absolue. Le périmètre de sécurité a évolué d’un périmètre de réseau vers un périmètre d’identité. La sécurité se résume moins à la protection de votre réseau et plus à la défense de vos données, ainsi qu'à la gestion de la sécurité de vos applications et de vos utilisateurs. Désormais, comme de plus en plus d’applications et de données sont déplacées vers le cloud, l’identité devient le nouveau périmètre.
@@ -107,18 +106,25 @@ Sous **Abonnements**, se trouve une liste d’abonnements. La première colonne 
 ## <a name="recommendations"></a>Recommandations
 Utilisez le tableau ci-dessous pour mieux comprendre les recommandations Identité et accès disponibles, et leurs effets.
 
-| Recommandation | Description |
-| --- | --- |
-| Désigner plusieurs propriétaires de votre abonnement | Recommande de désigner plusieurs propriétaires d’abonnement pour disposer d’une redondance de l’accès administrateur. |
-| Désigner jusqu’à 3 propriétaires de votre abonnement | Recommande de désigner moins de 3 propriétaires d’abonnement afin de réduire le risque potentiel de violation par un propriétaire compromis. |
-| Activer MFA pour les comptes disposant d’autorisations de type propriétaire sur votre abonnement | Recommande d’activer Multi-Factor Authentication (MFA) pour tous les comptes d’abonnement avec des privilèges d’administrateur pour éviter toute violation de comptes ou de ressources. |
-| Activer MFA pour les comptes disposant d’autorisations d’écriture sur votre abonnement | Recommande d’activer Multi-Factor Authentication (MFA) pour tous les comptes d’abonnement avec des privilèges d’écriture pour éviter toute violation de comptes ou de ressources. |
-| Activer MFA pour les comptes disposant d’autorisations de lecture sur votre abonnement | Recommande d’activer Multi-Factor Authentication (MFA) pour tous les comptes d’abonnement avec des privilèges de lecture pour éviter toute violation de comptes ou de ressources. |
-| Supprimer les comptes externes avec des autorisations de lecture de votre abonnement | Recommande de supprimer les comptes externes avec des privilèges de lecture de votre abonnement afin d’empêcher tout accès non contrôlé. |
-| Supprimer les comptes externes disposant d’autorisations d’écriture de votre abonnement | Recommande de supprimer les comptes externes avec des privilèges d’écriture de votre abonnement afin d’empêcher tout accès non contrôlé. |
-| Supprimer les comptes externes disposant d’autorisations de type propriétaire de votre abonnement | Recommande de supprimer les comptes externes avec des autorisations de propriétaire de votre abonnement afin d’empêcher tout accès non contrôlé. |
-| Supprimer les comptes déconseillés de votre abonnement | Recommande de supprimer les comptes déconseillés de vos abonnements. |
-| Supprimer les comptes déconseillés disposant d’autorisations de type propriétaire de votre abonnement | Recommande de supprimer les comptes déconseillés avec des autorisations de type propriétaire de vos abonnements. |
+|Type de ressource|Degré de sécurisation|Recommandation|Description|
+|----|----|----|----|
+|Abonnement|50|Activer l’authentification MFA pour les comptes Azure Management App disposant d’autorisations de type propriétaire sur votre abonnement|Activez Multi-Factor Authentication (MFA) pour tous les comptes de l’abonnement disposant de privilèges Administrateur, afin d’éviter toute violation de comptes ou de ressources.|
+|Abonnement|50|Activer Security Center sur vos abonnements |Activez Security Center sur tous vos abonnements pour bénéficier de la détection avancée des menaces, de fonctionnalités juste-à-temps, de la liste verte d’applications et de recommandations avancées. |
+|Abonnement|50|Activer Security Center Standard Tier sur vos abonnements |Activez Security Center Standard Tier sur tous vos abonnements pour bénéficier de la détection avancée des menaces, de fonctionnalités juste-à-temps, de la liste verte d’applications et de recommandations avancées.|
+|Abonnement|40|Activer l’authentification MFA pour les comptes Azure Management App disposant d’autorisations d’accès en écriture sur votre abonnement|Activez Multi-Factor Authentication (MFA) pour tous les comptes de l’abonnement disposant de privilèges d’accès en écriture, afin d’éviter toute violation de comptes ou de ressources.|
+|Abonnement|30|Supprimer les comptes externes disposant d’autorisations de type propriétaire de votre abonnement|Supprimez de votre abonnement les comptes externes disposant d’autorisations de type propriétaire afin d’empêcher tout accès non contrôlé. |
+|Abonnement|30|Activer l’authentification MFA pour les comptes Azure Management App disposant d’autorisations d’accès en lecture sur votre abonnement|Activez Multi-Factor Authentication (MFA) pour tous les comptes de l’abonnement disposant de privilèges d’accès en lecture, afin d’éviter toute violation de comptes ou de ressources.|
+|Abonnement|25|Supprimer les comptes externes disposant d’autorisations d’écriture de votre abonnement|Supprimez de votre abonnement les comptes externes disposant d’autorisations d’accès en écriture afin d’empêcher tout accès non contrôlé. |
+|Abonnement|20|Supprimer de votre abonnement les comptes déconseillés disposant d’autorisations de type propriétaire|Supprimez de vos abonnements les comptes déconseillés disposant d’autorisations de type propriétaire.|
+|Abonnement|5.|Supprimer de votre abonnement les comptes déconseillés|Supprimez de vos abonnements les comptes déconseillés afin de restreindre l’accès aux utilisateurs actuels. |
+|Abonnement|5.|Désigner plusieurs propriétaires de votre abonnement|Désignez plusieurs propriétaires d’abonnement pour assurer une redondance de l’accès administrateur.|
+|Abonnement|5.|Désigner jusqu’à 3 propriétaires de votre abonnement|Désignez moins de trois propriétaires d’abonnement afin de réduire le risque de violation par un propriétaire compromis.|
+|Coffre de clés|5.|Activer les journaux de diagnostic dans Key Vault|Activez les journaux et conservez-les un an maximum. Permet de recréer les pistes d’activité à des fins d’investigation en cas d’incident de sécurité ou de compromission du réseau. |
+|Abonnement|15|Supprimer les comptes externes avec des autorisations de lecture de votre abonnement|Supprimez de votre abonnement les comptes externes disposant de privilèges d’accès en lecture afin d’empêcher tout accès non contrôlé.|
+|Abonnement|1|Fournir des informations de contact de sécurité|Indiquez des informations de contact de sécurité pour chacun de vos abonnements. Les informations de contact correspondent à une adresse électronique et à un numéro de téléphone. Elles sont utilisées pour vous contacter si notre équipe de sécurité détecte que vos ressources sont compromises.|
+
+> ![REMARQUE] Si vous avez créé une stratégie d’accès conditionnel impliquant l’authentification MFA mais comportant des exclusions, l’évaluation faite par la recommandation MFA de Security Center considère la stratégie comme non conforme, car elle permet à certains utilisateurs de se connecter à Azure sans authentification MFA.
+>
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :

@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/02/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6832f6f9d09cbbfea6ccaa69160ad93209c7ac8c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 1e5782ce3421cc5f0d2e0e51484d4bbe6b9eb6ab
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741179"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978636"
 ---
 # <a name="preview-azure-ad-password-protection-monitoring-reporting-and-troubleshooting"></a>Préversion : surveillance, rapports et résolution des problèmes dans la protection de mot de passe Azure AD
 
@@ -28,9 +28,11 @@ Après le déploiement de la protection de mot de passe Azure AD, la surveillan
 
 ## <a name="on-premises-logs-and-events"></a>Journaux et événements locaux
 
-### <a name="dc-agent-service"></a>Service d’agent DC
+### <a name="dc-agent-admin-log"></a>Journal d’administration de l’agent de contrôleur de domaine
 
-Sur chaque contrôleur de domaine, le logiciel de service d’agent DC écrit les résultats des validations de mot de passe (et un autre état) dans un journal d’événements local : \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin
+Sur chaque contrôleur de domaine, le logiciel de service d’agent DC écrit les résultats des validations de mot de passe (et un autre état) dans un journal d’événements local :
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Admin`
 
 Les événements sont enregistrés par les différents composants d’agent DC à l’aide des plages suivantes :
 
@@ -64,103 +66,155 @@ Les principaux événements relatifs à la validation de mot de passe sont les s
 
 #### <a name="sample-event-log-message-for-event-id-10014-successful-password-set"></a>Exemple de message de journal des événements pour l’ID d’événement 10014 (mot de passe défini)
 
-Le mot de passe modifié pour l’utilisateur spécifié a été validé comme étant conforme à la stratégie de mot de passe Azure en vigueur.
+```
+The changed password for the specified user was validated as compliant with the current Azure password policy.
 
- UserName: BPL_02885102771 FullName:
+ UserName: BPL_02885102771
+ FullName:
+```
 
 #### <a name="sample-event-log-message-for-event-id-10017-and-30003-failed-password-set"></a>Exemple de message de journal des événements pour les ID d’événement 10017 et 30003 (mot de passe non défini)
 
 10017 :
 
-La réinitialisation du mot de passe pour l’utilisateur spécifié a été rejetée, car il n’était pas conforme à la stratégie de mot de passe Azure en vigueur. Consultez le message associé dans le journal des événements pour plus d’informations.
+```
+The reset password for the specified user was rejected because it did not comply with the current Azure password policy. Please see the correlated event log message for more details.
 
- UserName: BPL_03283841185 FullName:
+ UserName: BPL_03283841185
+ FullName:
+```
 
 30003 :
 
-La réinitialisation du mot de passe pour l’utilisateur spécifié a été rejetée, car il correspondait au moins à un des jetons présents dans la liste de mots de passe interdits par le locataire de la stratégie de mot de passe Azure en vigueur.
+```
+The reset password for the specified user was rejected because it matched at least one of the tokens present in the per-tenant banned password list of the current Azure password policy.
 
- UserName: BPL_03283841185 FullName:
+ UserName: BPL_03283841185
+ FullName:
+```
 
-Voici d’autres messages clés de journal des événements à connaître :
+#### <a name="sample-event-log-message-for-event-id-30001-password-accepted-due-to-no-policy-available"></a>Exemple de message de journal des événements pour l’ID d’événement 30001 (mot de passe accepté, aucune stratégie disponible)
 
-#### <a name="sample-event-log-message-for-event-id-30001"></a>Exemple de message de journal des événements pour l’ID d’événement 30001
+```
+The password for the specified user was accepted because an Azure password policy is not available yet
 
-Le mot de passe pour l’utilisateur spécifié a été accepté, car aucune stratégie de mot de passe Azure n’est pas encore disponible.
+UserName: SomeUser
+FullName: Some User
 
-UserName : SomeUser FullName : Certains utilisateurs
+This condition may be caused by one or more of the following reasons:%n
 
-Cela peut être dû à une ou plusieurs des raisons suivantes : %n
+1. The forest has not yet been registered with Azure.
 
-1. La forêt n’a pas encore été inscrite avec Azure.
+   Resolution steps: an administrator must register the forest using the Register-AzureADPasswordProtectionForest cmdlet.
 
-   Étapes de résolution : un administrateur doit inscrire la forêt à l’aide de la cmdlet Register-AzureADPasswordProtectionForest.
+2. An Azure AD password protection Proxy is not yet available on at least one machine in the current forest.
 
-2. Aucun proxy de protection de mot de passe Azure AD n’est encore disponible sur au moins un ordinateur de la forêt actuelle.
+   Resolution steps: an administrator must install and register a proxy using the Register-AzureADPasswordProtectionProxy cmdlet.
 
-   Étapes de résolution : un administrateur doit installer et inscrire un proxy à l’aide de la cmdlet Register-AzureADPasswordProtectionProxy.
+3. This DC does not have network connectivity to any Azure AD password protection Proxy instances.
 
-3. Ce contrôleur de domaine n’a pas de connectivité réseau pour les instances de proxy de protection de mot de passe Azure AD.
+   Resolution steps: ensure network connectivity exists to at least one Azure AD password protection Proxy instance.
 
-   Étapes de résolution : vérifiez la connectivité réseau à au moins une instance de proxy de protection mot de passe Azure AD.
+4. This DC does not have connectivity to other domain controllers in the domain.
 
-4. Ce contrôleur de domaine n’a pas de connectivité à d’autres contrôleurs de domaine dans le domaine.
+   Resolution steps: ensure network connectivity exists to the domain.
+```
 
-   Étapes de résolution : vérifiez la connectivité de réseau pour le domaine.
+#### <a name="sample-event-log-message-for-event-id-30006-new-policy-being-enforced"></a>Exemple de message de journal des événements pour l’ID d’événement 30006 (nouvelle stratégie appliquée)
 
-#### <a name="sample-event-log-message-for-event-id-30006"></a>Exemple de message de journal des événements pour l’ID d’événement 30006
+```
+The service is now enforcing the following Azure password policy.
 
-Le service applique maintenant la stratégie de mot de passe Azure suivante.
+ Enabled: 1
+ AuditOnly: 1
+ Global policy date: ‎2018‎-‎05‎-‎15T00:00:00.000000000Z
+ Tenant policy date: ‎2018‎-‎06‎-‎10T20:15:24.432457600Z
+ Enforce tenant policy: 1
+```
 
- AuditOnly : 1
+#### <a name="dc-agent-operational-log"></a>Journal des opérations de l’agent DC
 
- Date de la stratégie globale : 2018-05-15T00:00:00.000000000Z
+Le service d’agent DC enregistre également les événements opérationnels dans le journal suivant :
 
- Date de la stratégie de locataire : 2018-06-10T20:15:24.432457600Z
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational`
 
- Appliquer la stratégie de locataire : 1
+#### <a name="dc-agent-trace-log"></a>Journal de suivi de l’agent DC
 
-#### <a name="dc-agent-log-locations"></a>Emplacements des journaux d’agent DC
+Le service d’agent DC peut également enregistrer les événements de suivi au niveau du débogage détaillé dans le journal suivant :
 
-Le service d’agent DC enregistre également les événements opérationnels dans le journal suivant : \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Operational
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace`
 
-Le service d’agent DC peut enregistrer les événements de trace de débogage en mode verbose dans le journal suivant : \Applications and Services Logs\Microsoft\AzureADPasswordProtection\DCAgent\Trace
+Le journal de trace est désactivé par défaut.
 
 > [!WARNING]
-> Le journal de trace est désactivé par défaut. Lorsqu’il est activé, ce journal reçoit un volume élevé d’événements et peut influer sur les performances du contrôleur de domaine. Par conséquent, ce journal amélioré doit uniquement être activé lorsqu’un problème nécessite un examen plus approfondi, puis seulement pendant une courte période.
+>  Lorsqu’il est activé, le journal de suivi reçoit un volume élevé d’événements et peut influer sur les performances du contrôleur de domaine. Par conséquent, ce journal amélioré doit uniquement être activé lorsqu’un problème nécessite un examen plus approfondi, puis seulement pendant une courte période.
+
+#### <a name="dc-agent-text-logging"></a>Journalisation de texte de l’agent DC
+
+Le service d’agent DC peut être configuré pour écrire dans un journal de texte en définissant la valeur de Registre suivante :
+
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionDCAgent\Parameters!EnableTextLogging = 1 (REG_DWORD value)
+
+Le journal texte est désactivé par défaut. Un redémarrage du service d’agent DC est nécessaire pour que les modifications de cette valeur entrent en vigueur. Lorsqu’il est activé, le service d’agent DC, il écrit dans un fichier journal situé dans :
+
+`%ProgramFiles%\Azure AD Password Protection DC Agent\Logs`
+
+> [!TIP]
+> Le journal texte reçoit les mêmes entrées de niveau débogage que celles qui peuvent être consignées dans le journal de trace, mais sont format est généralement plus facile à consulter et à analyser.
+
+> [!WARNING]
+> Lorsqu’il est activé, ce journal reçoit un volume élevé d’événements et peut influer sur les performances du contrôleur de domaine. Par conséquent, ce journal amélioré doit uniquement être activé lorsqu’un problème nécessite un examen plus approfondi, puis seulement pendant une courte période.
 
 ### <a name="azure-ad-password-protection-proxy-service"></a>Service de proxy de protection de mot de passe Azure AD
 
-Le service de proxy de protection de mot de passe émet un ensemble minimal d’événements dans le journal suivant : \Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational
+#### <a name="proxy-service-event-logs"></a>Journaux des événements du service Proxy
 
-Le service de proxy de protection de mot de passe peut également enregistrer des événements de trace de débogage en mode verbose dans le journal suivant : \Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace
+Le service Proxy émet un jeu minimal d’événements pour les journaux d’événements suivants :
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Admin`
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Operational`
+
+Le service Proxy peut également enregistrer les événements de suivi au niveau du débogage détaillé dans le journal suivant :
+
+`\Applications and Services Logs\Microsoft\AzureADPasswordProtection\ProxyService\Trace`
+
+Le journal de trace est désactivé par défaut.
 
 > [!WARNING]
-> Le journal de trace est désactivé par défaut. Lorsqu’il est activé, ce journal reçoit un volume élevé d’événements et peut influer sur les performances de l’hôte proxy. Par conséquent, ce journal doit uniquement être activé lorsqu’un problème nécessite un examen plus approfondi, puis seulement pendant une courte période.
+> Lorsqu’il est activé, ce journal de suivi reçoit un volume élevé d’événements et peut influer sur les performances de l’hôte proxy. Par conséquent, ce journal doit uniquement être activé lorsqu’un problème nécessite un examen plus approfondi, puis seulement pendant une courte période.
 
-### <a name="dc-agent-discovery"></a>Détection d’agent DC
+#### <a name="proxy-service-text-logging"></a>Journalisation de type texte du service Proxy
 
-La cmdlet `Get-AzureADPasswordProtectionDCAgent` peut être utilisée pour afficher des informations de base sur les divers agents DC en cours d’exécution dans un domaine ou une forêt. Ces informations sont extraites des objets serviceConnectionPoint inscrits par les services d’agent DC en cours d’exécution. Voici un exemple de sortie de cette cmdlet :
+Le service Proxy peut être configuré pour écrire dans un journal de texte en définissant la valeur de Registre suivante :
 
-```
-PS C:\> Get-AzureADPasswordProtectionDCAgent
-ServerFQDN            : bplChildDC2.bplchild.bplRootDomain.com
-Domain                : bplchild.bplRootDomain.com
-Forest                : bplRootDomain.com
-Heartbeat             : 2/16/2018 8:35:01 AM
-```
+HKLM\System\CurrentControlSet\Services\AzureADPasswordProtectionProxy\Parameters!EnableTextLogging = 1 (REG_DWORD value)
 
-Les différentes propriétés sont mises à jour par chaque service de l’agent DC environ toutes les heures. Les données sont toujours soumises à la latence de la réplication Active Directory.
+Le journal texte est désactivé par défaut. Un redémarrage du service Proxy est nécessaire pour que les modifications de cette valeur entrent en vigueur. Lorsqu’il est activé, le service Proxy, il écrit dans un fichier journal situé dans :
 
-La portée de la requête de la cmdlet peut être influencée à l’aide des paramètres –Forest ou –Domain.
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
+
+> [!TIP]
+> Le journal texte reçoit les mêmes entrées de niveau débogage que celles qui peuvent être consignées dans le journal de trace, mais sont format est généralement plus facile à consulter et à analyser.
+
+> [!WARNING]
+> Lorsqu’il est activé, ce journal reçoit un volume élevé d’événements et peut influer sur les performances du contrôleur de domaine. Par conséquent, ce journal amélioré doit uniquement être activé lorsqu’un problème nécessite un examen plus approfondi, puis seulement pendant une courte période.
+
+#### <a name="powershell-cmdlet-logging"></a>Journalisation de cmdlet PowerShell
+
+La plupart des cmdlets PowerShell de protection par mot de passe Azure AD écrivent dans un journal de texte qui se trouve dans :
+
+`%ProgramFiles%\Azure AD Password Protection Proxy\Logs`
+
+En cas d’erreur du cmdlet et si solution et/ou la cause n’est pas évidente, ces journaux texte peuvent servir de référence.
 
 ### <a name="emergency-remediation"></a>Correction d’urgence
 
-Si le service d’agent DC cause des problèmes, vous devez l’arrêter immédiatement. La DLL de filtre de mot de passe d’agent DC tente d’appeler le service non exécuté et enregistrera des événements d’avertissement (10012, 10013), mais tous les mots de passe entrants sont acceptés pendant ce temps. Le service d’agent DC peut également être configuré via le Gestionnaire de contrôle des services Windows avec un type de démarrage « Désactivé » en fonction des besoins.
+Si le service d’agent DC cause des problèmes, vous devez l’arrêter immédiatement. La DLL de filtre de mot de passe d’agent DC tente encore d’appeler le service non exécuté et enregistrera des événements d’avertissement (10012, 10013), mais tous les mots de passe entrants sont acceptés pendant ce temps. Le service d’agent DC peut également être configuré via le Gestionnaire de contrôle des services Windows avec un type de démarrage « Désactivé » en fonction des besoins.
 
 ### <a name="performance-monitoring"></a>Analyse des performances
 
-Le logiciel de service d’agent DC installe un objet de compteur de performances nommé **protection de mot de passe Azure AD**. Les compteurs de performances suivants sont actuellement disponibles :
+Le logiciel de service d’agent DC installe un objet de compteur de performances appelé **protection de mot de passe Azure AD**. Les compteurs de performances suivants sont actuellement disponibles :
 
 |Nom de compteur de performances | Description|
 | --- | --- |
@@ -173,7 +227,7 @@ Le logiciel de service d’agent DC installe un objet de compteur de performanc
 |Requêtes de filtre de mot de passe/seconde |Ce compteur affiche la vitesse à laquelle les mots de passe sont traités.|
 |Temps de traitement des requêtes de filtre de mot de passe |Ce compteur affiche le temps moyen nécessaire pour traiter une requête de filtre de mot de passe.|
 |Temps maximal de traitement des requêtes de filtre de mot de passe |Ce compteur affiche le temps de traitement maximal de requêtes de filtre de mot de passe depuis le dernier redémarrage.|
-|Mots de passe acceptés en raison du mode d’audit |Ce compteur affiche le nombre total de mots de passe qui auraient normalement été rejetés, mais qui ont été acceptés, car la stratégie de mot de passe a été configurée en mode d’audit (depuis le dernier redémarrage).|
+|Mots de passe acceptés en raison du mode d’audit |Ce compteur affiche le nombre total de mots de passe qui aurait normalement été rejetés, mais qui ont été acceptés, car la stratégie de mot de passe a été configurée en mode d’audit (depuis le dernier redémarrage).|
 
 ## <a name="directory-services-repair-mode"></a>Mode de réparation des services d'annuaire
 
@@ -182,6 +236,7 @@ Si le contrôleur de domaine est démarré en mode de réparation des services d
 ## <a name="domain-controller-demotion"></a>Rétrogradation du contrôleur de domaine
 
 Il est possible de rétrograder un contrôleur de domaine exécutant le logiciel de l’agent DC. Les administrateurs doivent toutefois savoir que le logiciel de l’agent DC continue de s’exécuter et d’appliquer la stratégie de mot de passe en vigueur lors de la procédure de rétrogradation. Le nouveau mot de passe du compte administrateur local (spécifié dans le cadre de l’opération de rétrogradation) est validé comme n’importe quel autre mot de passe. Microsoft recommande de choisir des mots de passe sécurisés pour les comptes administrateur locaux dans le cadre d’une procédure de rétrogradation DC. Toutefois, la validation du nouveau mot de passe de compte administrateur local par le logiciel de l’agent DC peut perturber les procédures opérationnelles de rétrogradation pré-existantes.
+
 Une fois que la rétrogradation a réussi et que le contrôleur de domaine a été redémarré et est à nouveau en cours d’exécution en tant que serveur de membre normal, le logiciel de l’agent DC repasse à une exécution en mode passif. Il peut alors être désinstallé à tout moment.
 
 ## <a name="removal"></a>Suppression
@@ -189,35 +244,36 @@ Une fois que la rétrogradation a réussi et que le contrôleur de domaine a ét
 Si vous décidez de désinstaller le logiciel de la version préliminaire publique et de nettoyer tous les états des domaines et de la forêt, cette tâche peut être réalisée en procédant comme suit :
 
 > [!IMPORTANT]
-> Il est important d’effectuer ces étapes dans l’ordre. Si une instance du service proxy de protection de mot de passe reste en cours d’exécution, elle recrée périodiquement son objet serviceConnectionPoint et l’état sysvol.
+> Il est important d’effectuer ces étapes dans l’ordre. Si une instance du service Proxy reste en cours d’exécution, elle recrée périodiquement son objet serviceConnectionPoint. Si une instance du service d’agent DC reste en cours d’exécution, elle recrée périodiquement son objet serviceConnectionPoint et l’état sysvol.
 
 1. Désinstallez le logiciel de proxy de protection de mot de passe sur tous les ordinateurs. Cette étape ne requiert **pas** de redémarrage.
 2. Désinstallez le logiciel de l’agent DC sur tous les contrôleurs de domaine. Cette étape **requiert** un redémarrage.
-3. Supprimez manuellement tous les points de connexion de service de proxy dans chaque contexte de nommage de domaine. L’emplacement de ces objets peut être détecté avec la commande Powershell Active Directory suivante :
-   ```
+3. Supprimez manuellement tous les points de connexion du service Proxy dans chaque contexte de nommage de domaine. L’emplacement de ces objets peut être détecté avec la commande Powershell Active Directory suivante :
+
+   ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{EBEFB703-6113-413D-9167-9F8DD4D24468}*"
+   $keywords = "{ebefb703-6113-413d-9167-9f8dd4d24468}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
    N’omettez pas l’astérisque (« * ») à la fin de la valeur de la variable $keywords.
 
-   L’objet trouvé via la commande `Get-ADObject` peut ensuite être dirigé vers `Remove-ADObject` ou supprimé manuellement. 
+   Les objets trouvés via la commande `Get-ADObject` peuvent ensuite être dirigés vers `Remove-ADObject` ou supprimés manuellement. 
 
 4. Supprimez manuellement tous les points de connexion d’agent DC dans chaque contexte de nommage de domaine. Il peut exister un de ces objets par contrôleur de domaine dans la forêt, selon la portée du déploiement du logiciel de la version préliminaire publique. L’emplacement de cet objet peut être détecté avec la commande Powershell Active Directory suivante :
 
-   ```
+   ```Powershell
    $scp = "serviceConnectionPoint"
-   $keywords = "{B11BB10A-3E7D-4D37-A4C3-51DE9D0F77C9}*"
+   $keywords = "{2bac71e6-a293-4d5b-ba3b-50b995237946}*"
    Get-ADObject -SearchScope Subtree -Filter { objectClass -eq $scp -and keywords -like $keywords }
    ```
 
-   L’objet trouvé via la commande `Get-ADObject` peut ensuite être dirigé vers `Remove-ADObject` ou supprimé manuellement.
+   Les objets trouvés via la commande `Get-ADObject` peuvent ensuite être dirigés vers `Remove-ADObject` ou supprimés manuellement.
 
 5. Supprimez manuellement l’état de configuration au niveau de la forêt. L’état de configuration de la forêt est conservé dans un conteneur du contexte de nommage de configuration Active Directory. Il peut être détecté et supprimé comme suit :
 
-   ```
-   $passwordProtectonConfigContainer = "CN=Azure AD password protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
+   ```Powershell
+   $passwordProtectonConfigContainer = "CN=Azure AD Password Protection,CN=Services," + (Get-ADRootDSE).configurationNamingContext
    Remove-ADObject $passwordProtectonConfigContainer
    ```
 

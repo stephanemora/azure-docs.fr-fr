@@ -1,25 +1,25 @@
 ---
-title: Streaming Apache Spark avec Kafka - Azure HDInsight
+title: Streaming Apache Spark avec Apache Kafka - Azure HDInsight
 description: Découvrez comment utiliser Apache Spark pour diffuser des données vers ou depuis Apache Kafka à l’aide de DStreams. Dans cet exemple, vous diffusez des données à l’aide d’un bloc-notes Jupyter à partir de Spark sur HDInsight.
 keywords: exemple kafka, zookeeper kafka, kafka de diffusion spark, exemple kafka de diffusion spark
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 02/23/2018
-ms.author: jasonh
-ms.openlocfilehash: d06e9d26051fbfafc4d717ec180e8760157aefd9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: b103300c7d4b72c0605b8355b03fac5201ab6d68
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094164"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279158"
 ---
-# <a name="apache-spark-streaming-dstream-example-with-kafka-on-hdinsight"></a>Exemple Apache Spark Streaming (DStream) avec Kafka sur HDInsight
+# <a name="apache-spark-streaming-dstream-example-with-apache-kafka-on-hdinsight"></a>Exemple Apache Spark Streaming (DStream) avec Apache Kafka sur HDInsight
 
-Découvrez comment utiliser Apache Spark pour diffuser des données vers ou depuis Apache Kafka à l’aide de DStreams. Cet exemple utilise un bloc-notes jupyter qui s’exécute sur le cluster Spark.
+Découvrez comment utiliser Apache Spark pour diffuser des données vers ou depuis Apache Kafka sur Microsoft Azure HDInsight à l’aide de DStreams. Cet exemple utilise un bloc-notes jupyter qui s’exécute sur le cluster Spark.
 
 > [!NOTE]
 > Les étapes décrites dans ce document créent un groupe de ressources Azure qui contient à la fois un Spark sur HDInsight et un Kafka sur un cluster HDInsight. Ces clusters sont tous deux situés dans un réseau virtuel Azure, ce qui permet au cluster Spark de communiquer directement avec le cluster Kafka.
@@ -59,7 +59,7 @@ Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et S
 
     * **Emplacement** : choisissez un emplacement proche de vous géographiquement.
 
-    * **Nom de cluster de base** : cette valeur sera utilisée comme nom de base pour les clusters Spark et Kafka. Par exemple, si vous entrez **hdi**, un cluster Spark nommé __spark-hdi__ et un cluster Kafka nommé **kafka-hdi** sont créés.
+    * **Nom de cluster de base** : cette valeur sera utilisée comme nom de base pour les clusters Spark et Kafka. Par exemple, si vous entrez **hdistreaming**, un cluster Spark nommé __spark-hdistreaming__ et un cluster Kafka nommé **kafka-hdistreaming** sont créés.
 
     * **Nom d’utilisateur du cluster** : nom utilisateur Admin pour les clusters Spark et Kafka.
 
@@ -71,7 +71,7 @@ Même si vous pouvez créer un réseau virtuel Azure, et des clusters Kafka et S
 
 3. Passez en revue les **termes et conditions**, puis cochez la case **J’accepte les termes et conditions mentionnés ci-dessus**.
 
-4. Pour finir, cochez **Épingler au tableau de bord**, puis sélectionnez **Acheter**. La création des clusters prend environ 20 minutes.
+4. Enfin, sélectionnez **Achat**. La création des clusters prend environ 20 minutes.
 
 Dès que les ressources sont créées, une page de résumé s’affiche.
 

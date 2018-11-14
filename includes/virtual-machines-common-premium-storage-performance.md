@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/24/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f0ed4b20f9dbfef4824f66eab3ab953a5dbcfaae
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 4960ee485ac8c6b233eacc569cdac6748481887d
+ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060945"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50746306"
 ---
 # <a name="azure-premium-storage-design-for-high-performance"></a>Azure Premium Storage : conception sous le signe de la haute performance
 
@@ -30,6 +30,10 @@ Cet article vous aidera à répondre à certaines questions courantes relatives 
 * Comment optimiser les performances d’E/S par seconde, de bande passante et de latence ?  
 
 Ces instructions vous sont spécifiquement fournies pour Premium Storage, car les charges de travail exécutées sur Premium Storage sont extrêmement sensibles aux performances. Nous vous proposons des exemples lorsque cela s’y prête. Vous pouvez également appliquer certaines de ces instructions aux applications qui s’exécutent sur des machines virtuelles IaaS avec des disques de stockage Standard.
+
+> [!NOTE]
+> Parfois, ce qui semble être un problème de performances est en fait un goulot d’étranglement sur le réseau. Dans ces situations, vous devez optimiser vos [performances réseau](../articles/virtual-network/virtual-network-optimize-network-bandwidth.md).
+> Vous devez également vous assurer que votre machine virtuelle prend en charge une mise en réseau accélérée. Le cas échéant, vous pouvez l’activer même après le déploiement sur les deux machines virtuelles [windows](../articles/virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms) et [linux](../articles/virtual-network/create-vm-accelerated-networking-cli.md#enable-accelerated-networking-on-existing-vms).
 
 Avant de commencer, si vous ne connaissez pas le Stockage Premium, lisez tout d’abord les articles [Stockage Premium : stockage haute performance pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md) et [Objectifs de performance et évolutivité du Stockage Azure](../articles/storage/common/storage-scalability-targets.md).
 
@@ -221,11 +225,11 @@ Lorsque vous exécutez Linux avec Premium Storage, vérifiez les dernières mise
 
 Stockage Azure Premium offre trois tailles de disque qui sont actuellement en préversion et les huit tailles de disque de la disponibilité générale. Chaque taille de disque a une limite de mise à l’échelle bien spécifique pour le nombre d’E/S par seconde, la bande passante et le stockage. Choisissez la taille de disque Premium Storage adaptée aux exigences de l’application et à la taille de machine virtuelle à grande échelle. Le tableau ci-dessous répertorie les onze tailles de disque et leurs fonctionnalités. Les tailles P4, P6, P15, P60, P70 et P80 ne sont actuellement prises en charge que par Managed Disks.
 
-| Type de disque Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
+| Type de disque Premium  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Taille du disque           | 32 Gio | 64 Gio | 128 Go| 256 Gio| 512 Go            | 1 024 Gio (1 Tio)    | 2 048 Gio (2 Tio)    | 4 095 Gio (4 Tio)    | 8 192 Gio (8 Tio)    | 16 384 Gio (16 Tio)    | 32 767 Gio (32 Gio)    |
-| IOPS par disque       | 120   | 240   | 500   | 1100 | 2 300              | 5 000              | 7500              | 7500              | 12 500              | 15 000              | 20 000              |
-| Débit par disque | 25 Mio par seconde  | 50 Mio par seconde  | 100 Mio par seconde |125 Mio par seconde | 150 Mio par seconde | 200 Mio par seconde | 250 Mio par seconde | 250 Mio par seconde | 480 Mio par seconde | 750 Mio par seconde | 750 Mio par seconde |
+| Taille du disque           | 32 Gio | 64 Gio | 128 Go| 256 Gio| 512 Go            | 1 024 Gio (1 Tio)    | 2 048 Gio (2 Tio)    | 4 095 Gio (4 Tio)    | 8 192 Gio (8 Tio)    | 16 384 Gio (16 Tio)    | 32 767 Gio (32 Gio)    |
+| IOPS par disque       | 120   | 240   | 500   | 1100 | 2 300              | 5 000              | 7500              | 7500              | 12 500              | 15 000              | 20 000              |
+| Débit par disque | 25 Mio par seconde  | 50 Mio par seconde  | 100 Mio par seconde |125 Mio par seconde | 150 Mio par seconde | 200 Mio par seconde | 250 Mio par seconde | 250 Mio par seconde | 480 Mio par seconde | 750 Mio par seconde | 750 Mio par seconde |
 
 Le nombre de disques que vous choisissez dépend de la taille de disque choisie. Vous pouvez utiliser un seul disque P50 ou plusieurs disques P10 pour répondre aux besoins de votre application. Tenez compte des remarques ci-dessous pour faire votre choix.
 
@@ -593,7 +597,7 @@ Pour obtenir le débit maximal combiné en lecture et en écriture, utilisez une
 
 En savoir plus sur Azure Premium Storage :
 
-* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure.](../articles/virtual-machines/windows/premium-storage.md)  
+* [Stockage Premium : stockage hautes performances pour les charges de travail des machines virtuelles Azure](../articles/virtual-machines/windows/premium-storage.md)  
 
 Pour les utilisateurs de SQL Server, consultez les articles relatifs aux meilleures pratiques de performances de SQL Server :
 

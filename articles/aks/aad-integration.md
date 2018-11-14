@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/09/2018
 ms.author: iainfou
-ms.openlocfilehash: bd7f8748dc5260ed6574a1b48632318e9399bca0
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 0dc0421baf1e5cb19be925072b5fffb989e23a3b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48042119"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979248"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Intégrer Azure Active Directory dans Azure Kubernetes Service
 
@@ -68,7 +68,9 @@ La première application Azure AD permet d’obtenir l’appartenance à un grou
 
   ![Définir des autorisations d’application pour Microsoft Graph](media/aad-integration/delegated-permissions.png)
 
-7. Sélectionnez **Terminé**, choisissez *Microsoft Graph* dans la liste des API, puis sélectionnez **Accorder des autorisations**. Cette étape échouera si le compte actuel n’est pas un administrateur de locataire.
+  Sélectionnez **Terminé**.
+
+7. Choisissez *Microsoft Graph* dans la liste des API, puis sélectionnez **Accorder des autorisations**. Cette étape échouera si le compte actuel n’est pas un administrateur de locataire.
 
   ![Définir des autorisations d’application pour Microsoft Graph](media/aad-integration/grant-permissions.png)
 
@@ -98,7 +100,9 @@ La deuxième application Azure AD est utilisée lors de la connexion avec la CLI
 
   ![Sélectionnez le point de terminaison de l’application serveur AKS AAD](media/aad-integration/select-server-app.png)
 
-4. Sélectionnez **Terminé** et **Accorder des autorisations** pour effectuer cette étape.
+  Sélectionnez **Terminé**
+
+4. Sélectionnez l’API de votre serveur dans la liste, puis choisissez **Accorder des autorisations** :
 
   ![Accorder des autorisations](media/aad-integration/grant-permissions-client.png)
 

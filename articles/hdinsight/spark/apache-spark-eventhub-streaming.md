@@ -3,18 +3,18 @@ title: 'Tutoriel : Traiter des données à partir d’Azure Event Hubs avec Apa
 description: Connectez Apache Spark dans Azure HDInsight à Azure Event Hubs et traitez les données de streaming.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,mvc
 ms.topic: conceptual
-ms.date: 06/14/2018
-ms.openlocfilehash: 9cdb5ae31e2743b5ebe877ddd8d6680423e3d9b2
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: eb2145d2e7b787bafa0b546449282454f7059999
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046250"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283408"
 ---
 # <a name="tutorial-process-tweets-using-azure-event-hubs-and-spark-in-hdinsight"></a>Tutoriel : Traiter les tweets à l’aide d’Azure Event Hubs et de Spark dans HDInsight
 
@@ -73,18 +73,14 @@ Ce hub d’événements vous permet de stocker des tweets.
     ![Fournir un nom d’Event Hub pour un exemple de diffusion en continu Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-name-for-spark-streaming.png "Fournir un nom d’Event Hub pour un exemple de diffusion en continu Spark")
 5. Sélectionnez **Créer** pour créer l’espace de noms.
 
-6. Ouvrez l’espace de noms du hub d’événements à l’aide des instructions suivantes :
+7. Ouvrez l’espace de noms du hub d’événements à l’aide des instructions suivantes :
 
     1. À partir du portail Azure, sélectionnez **Tous les services**.
     2. Dans la zone de filtre, entrez **hubs d’événements**.
-    3. Double-cliquez sur l’espace de noms que vous avez créé.
+    3. Sélectionnez l’espace de noms que vous venez de créer.
     4. Sélectionnez **+ Hub d’événements**.
 
-6. Dans la liste d’espaces de noms Event Hubs, sélectionnez le nouvel espace de noms.      
-5. Sélectionnez **Hubs d’événements**, puis sélectionnez **+ Hub d’événements** pour créer un hub d’événements.
-  
-
-6. Saisissez les valeurs suivantes :
+8. Saisissez les valeurs suivantes :
 
     - Nom : donnez un nom à votre hub d’événements.
     - Nombre de partitions : 10
@@ -92,12 +88,12 @@ Ce hub d’événements vous permet de stocker des tweets.
    
     ![Fournir des détails d’Event Hub pour un exemple de diffusion en continu Spark](./media/apache-spark-eventhub-streaming/hdinsight-provide-event-hub-details-for-spark-streaming-example.png "Fournir des détails d’Event Hub pour un exemple de diffusion en continu Spark")
 
-7. Sélectionnez **Créer**.
-8. Sélectionnez **Stratégies d’accès partagé** pour l’espace de noms (notez qu’il ne s’agit pas des stratégies d’accès partagé du hub d’événements), puis sélectionnez **RootManageSharedAccessKey**.
+9. Sélectionnez **Créer**.
+10. Sélectionnez **Stratégies d’accès partagé** pour l’espace de noms (notez qu’il ne s’agit pas des stratégies d’accès partagé du hub d’événements), puis sélectionnez **RootManageSharedAccessKey**.
     
      ![Définir des stratégies d’Event Hub pour l’exemple de diffusion en continu Spark](./media/apache-spark-eventhub-streaming/hdinsight-set-event-hub-policies-for-spark-streaming-example.png "Définir des stratégies d’Event Hub pour l’exemple de diffusion en continu Spark")
 
-9. Enregistrez les valeurs de **Clé primaire** et **Clé primaire de la chaîne de connexion** à utiliser plus tard dans le tutoriel.
+11. Enregistrez les valeurs de **Clé primaire** et **Clé primaire de la chaîne de connexion** à utiliser plus tard dans le tutoriel.
 
      ![Afficher des clés de stratégie d’Event Hub pour l’exemple de diffusion en continu Spark](./media/apache-spark-eventhub-streaming/hdinsight-view-event-hub-policy-keys.png "Afficher des clés de stratégie d’Event Hub pour l’exemple de diffusion en continu Spark")
 
@@ -220,9 +216,9 @@ Vous devez créer un autre bloc-notes Jupyter et le nommer **ReadTweetsFromEvent
     messages.writeStream.outputMode("append").format("console").option("truncate", false).start().awaitTermination()
     ```
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Avec HDInsight, vos données étant stockées dans Stockage Azure ou Azure Data Lake Store, vous pouvez supprimer un cluster de manière sécurisée s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés. Si vous prévoyez de suivre le tutoriel suivant immédiatement, vous souhaiterez peut-être conserver le cluster.
+Avec HDInsight, vos données étant stockées dans Stockage Azure ou Azure Data Lake Store, vous pouvez supprimer un cluster de manière sécurisée s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Si vous prévoyez de suivre le tutoriel suivant immédiatement, vous souhaiterez peut-être conserver le cluster. Sinon, supprimez-le.
 
 Ouvrez le cluster dans le portail Azure, puis sélectionnez **Supprimer**.
 

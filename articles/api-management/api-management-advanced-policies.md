@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2017
 ms.author: apimpm
-ms.openlocfilehash: dcd4d28341e766baeaf6d581a69312cc33a0282a
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
+ms.openlocfilehash: 803fa89145d3a38b2df34666754fe8949a74eb53
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30233824"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51262333"
 ---
 # <a name="api-management-advanced-policies"></a>Stratégies avancées de la Gestion des API
-Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](http://go.microsoft.com/fwlink/?LinkID=398186).
+Cette rubrique est une ressource de référence au sujet des stratégies Gestion des API suivantes. Pour plus d'informations sur l'ajout et la configuration des stratégies, consultez la page [Stratégies dans Gestion des API](https://go.microsoft.com/fwlink/?LinkID=398186).
 
 ##  <a name="AdvancedPolicies"></a> Stratégies avancées
 
@@ -125,18 +125,18 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|choose|Élément racine.|OUI|
-|when|Condition à utiliser pour les parties `if` ou `ifelse` de la stratégie `choose`. Si la stratégie `choose` possède plusieurs sections `when`, elles sont évaluées de façon séquentielle. Une fois la `condition` d’un élément when évaluée à `true`, aucune autre condition `when` n’est évaluée.|OUI|
+|choose|Élément racine.|Oui|
+|when|Condition à utiliser pour les parties `if` ou `ifelse` de la stratégie `choose`. Si la stratégie `choose` possède plusieurs sections `when`, elles sont évaluées de façon séquentielle. Une fois la `condition` d’un élément when évaluée à `true`, aucune autre condition `when` n’est évaluée.|Oui|
 |otherwise|Contient l’extrait de stratégie à utiliser si aucune des conditions `when` n’est évaluée à `true`.|Non |
 
 ### <a name="attributes"></a>Attributs
 
 |Attribut|Description|Obligatoire|
 |---------------|-----------------|--------------|
-|condition="Boolean expression &#124; Boolean constant"|Constante ou expression booléenne à évaluer lorsque la déclaration de stratégie `when` qui l’englobe est évaluée.|OUI|
+|condition="Boolean expression &#124; Boolean constant"|Constante ou expression booléenne à évaluer lorsque la déclaration de stratégie `when` qui l’englobe est évaluée.|Oui|
 
 ###  <a name="ChooseUsage"></a> Utilisation
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -237,7 +237,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|forward-request|Élément racine.|OUI|
+|forward-request|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
@@ -247,7 +247,7 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 |follow-redirects="true &#124; false"|Indique si les redirections à partir du service principal sont suivies par la passerelle ou renvoyées à l’appelant.|Non |false|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** backend
 -   **Étendues de la stratégie :** toutes les étendues
@@ -284,17 +284,17 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|limit-concurrency|Élément racine.|OUI|
+|limit-concurrency|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
 |Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|--------------|
-|key|Une chaîne. Expression autorisée. Spécifie l’étendue de la simultanéité. Peut être partagée par plusieurs stratégies.|OUI|N/A|
-|max-count|Nombre entier. Spécifie le nombre maximal de requêtes autorisées à entrer dans la stratégie.|OUI|N/A|
+|key|Une chaîne. Expression autorisée. Spécifie l’étendue de la simultanéité. Peut être partagée par plusieurs stratégies.|Oui|N/A|
+|max-count|Nombre entier. Spécifie le nombre maximal de requêtes autorisées à entrer dans la stratégie.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -334,18 +334,18 @@ Cette rubrique est une ressource de référence au sujet des stratégies Gestion
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|log-to-eventhub|Élément racine. La valeur de cet élément est la chaîne à consigner dans votre Event Hub.|OUI|
+|log-to-eventhub|Élément racine. La valeur de cet élément est la chaîne à consigner dans votre Event Hub.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
 |Attribut|Description|Obligatoire|
 |---------------|-----------------|--------------|
-|logger-id|ID de l’Enregistreur d’événements inscrit auprès de votre service Gestion des API.|OUI|
+|logger-id|ID de l’Enregistreur d’événements inscrit auprès de votre service Gestion des API.|Oui|
 |partition-id|Spécifie l’index de la partition où les messages sont envoyés.|facultatif. Cet attribut peut ne pas être utilisé si `partition-key` est utilisé.|
 |partition-key|Spécifie la valeur utilisée pour l’affectation de partitions lorsque des messages sont envoyés.|facultatif. Cet attribut peut ne pas être utilisé si `partition-id` est utilisé.|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -377,7 +377,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|mock-response|Élément racine.|OUI|
+|mock-response|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
@@ -387,7 +387,7 @@ status code and media type. If no example or schema found, the content is empty.
 |content-type|Spécifie la valeur d’état de réponse `Content-Type` et permet de sélectionner l’exemple ou le schéma correspondant.|Non |Aucun|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, on-error
 
@@ -433,15 +433,15 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|retry|Élément racine. Peut contenir n’importe quelle autre stratégie sous forme d’élément enfant.|OUI|
+|retry|Élément racine. Peut contenir n’importe quelle autre stratégie sous forme d’élément enfant.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
 |Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|-------------|
-|condition|[Expression](api-management-policy-expressions.md) ou littéral booléen spécifiant si les nouvelles tentatives doivent être arrêtées (`false`) ou poursuivies (`true`).|OUI|N/A|
-|count|Nombre positif spécifiant le nombre maximal de nouvelles tentatives à effectuer.|OUI|N/A|
-|interval|Nombre positif en secondes spécifiant le délai d’attente entre les tentatives.|OUI|N/A|
+|condition|[Expression](api-management-policy-expressions.md) ou littéral booléen spécifiant si les nouvelles tentatives doivent être arrêtées (`false`) ou poursuivies (`true`).|Oui|N/A|
+|count|Nombre positif spécifiant le nombre maximal de nouvelles tentatives à effectuer.|Oui|N/A|
+|interval|Nombre positif en secondes spécifiant le délai d’attente entre les tentatives.|Oui|N/A|
 |max-interval|Nombre positif en secondes spécifiant le délai d’attente maximal entre les tentatives. Il est utilisé pour implémenter un algorithme de nouvelles tentatives exponentiel.|Non |N/A|
 |delta|Nombre positif en secondes spécifiant l’incrément du délai d’attente. Il est utilisé pour implémenter les algorithmes de nouvelles tentatives linéaires et exponentiels.|Non |N/A|
 |first-fast-retry|S’il a la valeur `true`, la première des nouvelles tentatives est effectuée immédiatement.|Non |`false`|
@@ -452,7 +452,7 @@ status code and media type. If no example or schema found, the content is empty.
 > Lorsque `interval`, `max-interval` et `delta` sont spécifiés, l’algorithme de nouvelles tentatives à intervalle **exponentiel** s’applique, suivant lequel le temps d’attente entre les tentatives augmente de façon exponentielle entre la valeur `interval` et la valeur `max-interval` selon la formule suivante : `min(interval + (2^count - 1) * random(delta * 0.8, delta * 1.2), max-interval)`.
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes. Notez que des restrictions d’utilisation des stratégies enfants seront héritées par cette stratégie.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes. Notez que des restrictions d’utilisation des stratégies enfants seront héritées par cette stratégie.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -488,7 +488,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|return-response|Élément racine.|OUI|
+|return-response|Élément racine.|Oui|
 |set-header|Instruction de stratégie [set-header](api-management-transformation-policies.md#SetHTTPheader).|Non |
 |set-body|Instruction de stratégie [set-body](api-management-transformation-policies.md#SetBody).|Non |
 |set-status|Instruction de stratégie [set-status](api-management-advanced-policies.md#SetStatus).|Non |
@@ -500,7 +500,7 @@ status code and media type. If no example or schema found, the content is empty.
 |response-variable-name|Nom de la variable de contexte référencée à partir, par exemple, d’une stratégie [send-request](api-management-advanced-policies.md#SendRequest) en amont et contenant un objet `Response`.|facultatif.|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -555,7 +555,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|send-one-way-request|Élément racine.|OUI|
+|send-one-way-request|Élément racine.|Oui|
 |url|URL de la demande.|Non si mode=copy ; sinon, oui.|
 |method|Méthode HTTP de la demande.|Non si mode=copy ; sinon, oui.|
 |en-tête|En-tête de demande. Utilisez un élément d’en-tête pour chaque en-tête de demande.|Non |
@@ -568,11 +568,11 @@ status code and media type. If no example or schema found, the content is empty.
 |Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.|Non |Nouveau|
-|Nom|Spécifie le nom de l’en-tête à définir.|OUI|N/A|
+|Nom|Spécifie le nom de l’en-tête à définir.|Oui|N/A|
 |exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non |override|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -637,7 +637,7 @@ status code and media type. If no example or schema found, the content is empty.
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|send-request|Élément racine.|OUI|
+|send-request|Élément racine.|Oui|
 |url|URL de la demande.|Non si mode=copy ; sinon, oui.|
 |method|Méthode HTTP de la demande.|Non si mode=copy ; sinon, oui.|
 |en-tête|En-tête de demande. Utilisez un élément d’en-tête pour chaque en-tête de demande.|Non |
@@ -649,14 +649,14 @@ status code and media type. If no example or schema found, the content is empty.
 |Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|-------------|
 |mode="string"|Détermine s’il s’agit d’une nouvelle demande ou d’une copie de la demande actuelle. En mode outbound, mode=copy n’initialise pas le corps de la demande.|Non |Nouveau|
-|response-variable-name="string"|En son absence, `context.Response` est utilisé.|Non |N/A|
+|response-variable-name="string"|Nom de la variable contextuelle qui recevra un objet Response. Si la variable n’existe pas, elle sera créée lors de l’exécution réussie de la stratégie, et deviendra accessible via une collecte [`context.Variable`](api-management-policy-expressions.md#ContextVariables).|Oui|N/A|
 |timeout="integer"|Délai d’expiration en secondes avant l’échec de l’appel à l’URL.|Non |60|
 |ignore-error|S’il a la valeur true et que la demande aboutit à une erreur :<br /><br /> - Si response-variable-name a été spécifié, il contiendra une valeur Null.<br />- Si response-variable-nam n’est pas spécifié, context.Request ne sera pas mis à jour.|Non |false|
-|Nom|Spécifie le nom de l’en-tête à définir.|OUI|N/A|
+|Nom|Spécifie le nom de l’en-tête à définir.|Oui|N/A|
 |exists-action|Spécifie l’action à entreprendre lorsque l’en-tête est déjà spécifié. Cet attribut doit avoir une des valeurs suivantes.<br /><br /> - override : remplace la valeur de l’en-tête actuel.<br />- skip : ne remplace pas la valeur de l’en-tête actuel.<br />- append : ajoute la valeur à celle de l’en-tête actuel.<br />- delete : supprime l’en-tête de la demande.<br /><br /> S’il a la valeur `override`, l’inscription de plusieurs entrées portant le même nom fait que l’en-tête est défini selon toutes les entrées (qui figurent plusieurs fois) ; seules les valeurs listées seront définies dans le résultat.|Non |override|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -684,18 +684,18 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|proxy|Élément racine|OUI|
+|proxy|Élément racine|Oui|
 
 ### <a name="attributes"></a>Attributs
 
 |Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|-------------|
-|url="chaîne"|URL du proxy sous la forme http://host:port.|OUI|N/A|
+|url="chaîne"|URL du proxy sous la forme http://host:port.|Oui|N/A|
 |username="chaîne"|Nom d’utilisateur à utiliser pour l’authentification auprès du proxy.|Non |N/A|
 |password="chaîne"|Mot de passe à utiliser pour l’authentification auprès du proxy.|Non |N/A|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound
 
@@ -744,10 +744,10 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|set-method|Élément racine. La valeur de l’élément spécifie la méthode HTTP.|OUI|
+|set-method|Élément racine. La valeur de l’élément spécifie la méthode HTTP.|Oui|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, on-error
 
@@ -784,17 +784,17 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|set-status|Élément racine.|OUI|
+|set-status|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
 |Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|-------------|
-|code="integer"|Code d’état HTTP à renvoyer.|OUI|N/A|
-|reason="string"|Description du motif pour lequel le code d’état est renvoyé.|OUI|N/A|
+|code="integer"|Code d’état HTTP à renvoyer.|Oui|N/A|
+|reason="string"|Description du motif pour lequel le code d’état est renvoyé.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** outbound, backend, on-error
 -   **Étendues de la stratégie :** toutes les étendues
@@ -819,17 +819,17 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|set-variable|Élément racine.|OUI|
+|set-variable|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
 |Attribut|Description|Obligatoire|
 |---------------|-----------------|--------------|
-|Nom|Nom de la variable.|OUI|
-|value|Valeur de la variable. Peut être une expression ou une valeur littérale.|OUI|
+|Nom|Nom de la variable.|Oui|
+|value|Valeur de la variable. Peut être une expression ou une valeur littérale.|Oui|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 -   **Étendues de la stratégie :** toutes les étendues
@@ -886,16 +886,16 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|trace|Élément racine.|OUI|
+|trace|Élément racine.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
 |Attribut|Description|Obligatoire|Default|
 |---------------|-----------------|--------------|-------------|
-|source|Littéral chaîne significatif pour la visionneuse de trace, qui spécifie la source du message.|OUI|N/A|
+|source|Littéral chaîne significatif pour la visionneuse de trace, qui spécifie la source du message.|Oui|N/A|
 
 ### <a name="usage"></a>Usage
- Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+ Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend, on-error
 
@@ -953,7 +953,7 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 
 |Élément|Description|Obligatoire|
 |-------------|-----------------|--------------|
-|wait|Élément racine. Ne peut contenir comme éléments enfants que les stratégies `send-request`, `cache-lookup-value` et `choose`.|OUI|
+|wait|Élément racine. Ne peut contenir comme éléments enfants que les stratégies `send-request`, `cache-lookup-value` et `choose`.|Oui|
 
 ### <a name="attributes"></a>Attributs
 
@@ -963,7 +963,7 @@ Notez l’utilisation de [propriétés](api-management-howto-properties.md) en t
 
 ### <a name="usage"></a>Usage
 
-Cette stratégie peut être utilisée dans les [sections](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
+Cette stratégie peut être utilisée dans les [sections](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) et [étendues](https://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes) de stratégie suivantes.
 
 -   **Sections de la stratégie :** inbound, outbound, backend
 -   **Étendues de la stratégie :** toutes les étendues

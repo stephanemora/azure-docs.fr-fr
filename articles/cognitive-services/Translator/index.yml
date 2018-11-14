@@ -1,9 +1,15 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: d74ef4b68545c349c8df2cb7090ee8c26e2cd3e4
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622855"
 documentType: LandingData
 title: Documentation de l’API de traduction de texte Translator Text
 metadata:
   title: Documentation de l’API de traduction de texte Translator Text - Démarrages rapides, tutoriels, informations de référence de l’API - Azure Cognitive Services | Microsoft Docs
-  description: Découvrez comment utiliser l’API de traduction de texte Translator Text pour traduire du texte dans de multiples langues.
+  description: Découvrez comment utiliser l’API de traduction de texte Translator Text pour traduire du texte dans plusieurs langues.
   services: cognitive-services
   author: Jann-Skotdal
   manager: Chris.Wendt
@@ -11,17 +17,32 @@ metadata:
   ms.tgt_pltfrm: na
   ms.devlang: na
   ms.topic: landing-page
-  ms.date: 10/30/2017
+  ms.date: 11/06/18
   ms.author: v-jansko
-  ms.openlocfilehash: 85ef860a742c114d01696b9189f57ac9207c0bc5
-  ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
-  ms.translationtype: HT
-  ms.contentlocale: fr-FR
-  ms.lasthandoff: 07/20/2018
-  ms.locfileid: "39185871"
 abstract:
-  description: L’API de traduction de texte Microsoft Translator Text est un service de traduction basé sur le cloud. Avec cette API, vous pouvez traduire du texte presque en temps réel à partir de n’importe quelle application ou via un simple appel d’API REST. L’API utilise la technologie de traduction automatique neuronale la plus récente, ainsi que la technologie de traduction automatique statistique. Pour obtenir la liste des langues prises en charge pour la traduction automatique neuronale et pour la traduction automatique statistique, consultez <a href="languages.md">Langues prises en charge</a>.
+  description: L’API de traduction de texte Translator Text est un service de traduction automatique basé sur le cloud que vous pouvez utiliser pour traduire du texte en temps quasi réel via un simple appel d’API REST. L’API utilise les technologies modernes de traduction automatique neuronale et propose des technologies de traduction automatique statistique. Custom Translator est une extension de l’API de traduction de texte Translator Text qui permet de créer des systèmes de traduction neuronaux. Le système de traduction personnalisé peut être utilisé pour traduire du texte avec l’API de traduction de texte Translator Text ou les <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/">Services Voix de Microsoft</a>. Pour obtenir la liste des langues prises en charge pour la traduction automatique neuronale et pour la traduction automatique statistique, consultez <a href="languages.md">Langues prises en charge</a>.
 sections:
+- items:
+  - type: list
+    style: cards
+    className: cardsM
+    columns: 3
+    items:
+    - href: /azure/cognitive-services/translator/translator-info-overview
+      html: <p>En savoir plus sur l’API de traduction de texte Translator Text</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Qu’est-ce que l’API de traduction de texte Translator Text ?
+    - href: /azure/cognitive-services/translator/custom-translator/overview
+      html: <p>En savoir plus sur Custom Translator</p>
+      image:
+        src: ../media/index/i_overview.svg
+      title: Qu’est-ce que Custom Translator (Préversion) ?
+    - href: /azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model
+      html: <p>Découvrez comment bien démarrer avec Custom Translator</p>
+      image:
+        src: ../media/index/i_get-started.svg
+      title: Démarrage rapide avec Custom Translator
 - title: Démarrages en 5 minutes
   items:
   - type: paragraph
@@ -79,7 +100,7 @@ sections:
     text: 'Découvrez comment développer des applications à l’aide de l’API de traduction de texte Translator Text :'
   - type: paragraph
     text: <a href="tutorial-wpf-translation-csharp.md">Écrire une application WPF pour l’API de traduction de texte Translator Text avec C#</a>
-- title: Référence
+- title: Informations de référence
   items:
   - type: paragraph
     text: <p><a href="reference/v3-0-reference.md">Référence sur l’API</a></p>

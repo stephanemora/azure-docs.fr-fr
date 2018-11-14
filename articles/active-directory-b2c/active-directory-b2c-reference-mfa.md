@@ -7,51 +7,46 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2016
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 3d18e1b2e45aba4e83989e29c533cfc7bf5033fc
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: eabae0f3575719c6cb93affefe0a393dd13d1439
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442706"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014004"
 ---
-# <a name="azure-active-directory-b2c-enable-multi-factor-authentication-in-your-consumer-facing-applications"></a>Azure Active Directory B2C : activation de Multi-Factor Authentication dans vos applications accessibles aux consommateurs
-Azure Active Directory (Azure AD) B2C s’intègre directement à [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) pour vous permettre d’ajouter une deuxième couche de sécurité aux expériences d’inscription et de connexion dans vos applications accessibles aux consommateurs. Vous pouvez faire cela sans écrire une seule ligne de code. Actuellement, nous prenons en charge un appel téléphonique et un message texte pour la vérification. Si vous déjà créé des stratégies d’inscription et de connexion, vous pouvez toujours activer Multi-Factor Authentication.
+# <a name="enable-multi-factor-authentication-in-azure-active-directory-b2c"></a>Activer l'authentification multifacteur dans Azure Active Directory B2C
 
-> [!NOTE]
-> Vous pouvez également activer Multi-Factor Authentication lors de la création de stratégies d’inscription et de connexion, pas seulement lors de la modification de stratégies existantes.
-> 
-> 
+Azure Active Directory (Azure AD) B2C s’intègre directement à [Azure Multi-Factor Authentication](../active-directory/authentication/multi-factor-authentication.md) pour vous permettre d’ajouter une deuxième couche de sécurité aux expériences d’inscription et de connexion dans vos applications. Vous activez l’authentification multifacteur sans écrire la moindre ligne de code. Si vous déjà créé des stratégies d’inscription et de connexion, vous pouvez toujours activer l'authentification multifacteur.
 
 Cette fonctionnalité permettent aux applications de gérer des scénarios tels que le suivant :
 
-* Vous n’avez pas besoin de Multi-Factor Authentication pour accéder à une application, mais en avez besoin pour accéder à une autre. Par exemple, le consommateur peut se connecter à une application d’assurance automobile avec un compte local ou social, mais il doit confirmer un numéro de téléphone avant d’accéder à l’application d’assurance domestique inscrite dans le même annuaire.
-* Vous n’avez pas besoin de Multi-Factor Authentication pour accéder à une application en général, mais en avez besoin pour accéder à des portions sensibles de celle-ci. Par exemple, le consommateur peut se connecter à une application bancaire avec un compte local ou social pour consulter le solde de son compte, mais il doit confirmer un numéro de téléphone avant de tenter d’effectuer un virement.
+- Vous n’avez pas besoin de l'authentification multifacteur pour accéder à une application, mais en avez besoin pour une autre. Par exemple, le client peut se connecter à une application d’assurance automobile avec un compte local ou social, mais il doit confirmer le numéro de téléphone avant d’accéder à l’application d’assurance habitation inscrite dans le même annuaire.
+- Vous n’avez pas besoin l'authentification multifacteur pour accéder à une application en général, mais en avez besoin pour accéder à des portions sensibles de celle-ci. Par exemple, le client peut se connecter à une application bancaire avec un compte local ou social pour consulter le solde de son compte, mais il doit confirmer le numéro de téléphone avant d’effectuer un virement.
 
-## <a name="modify-your-sign-up-policy-to-enable-multi-factor-authentication"></a>Modification de votre stratégie d’inscription pour activer Multi-Factor Authentication
-1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Cliquez sur **Stratégies d'inscription**.
-3. Ouvrez votre stratégie d’inscription (par exemple, « B2C_1_SiUp ») en cliquant dessus.
-4. Cliquez sur **Multi-Factor Authentication**, puis affectez la valeur **Actif** à l’**État**. Cliquez sur **OK**.
-5. Cliquez sur **Enregistrer** dans la partie supérieure du panneau.
+## <a name="set-multi-factor-authentication"></a>Définir l'authentification multifacteur
 
-La fonctionnalité « Exécuter maintenant » de la stratégie permet de vérifier l’expérience utilisateur. Vérifiez les éléments suivants :
+Lorsque vous créez une stratégie, vous avez la possibilité d’activer l’authentification multifacteur.
 
-Un compte de consommateur est créé dans votre annuaire avant l’étape Multi-Factor Authentication. Lors de cette étape, le consommateur est invité à fournir son numéro de téléphone et à le confirmer. Si la vérification réussit, le numéro de téléphone est associé au compte du consommateur en vue d’une utilisation ultérieure. Même si le consommateur annule ou abandonne, il peut être invité à confirmer à nouveau un numéro de téléphone lors de la prochaine connexion (avec Multi-Factor Authentication activée).
+![Définir l'authentification multifacteur](./media/active-directory-b2c-reference-mfa/add-policy.png)
 
-## <a name="modify-your-sign-in-policy-to-enable-multi-factor-authentication"></a>Modification de votre stratégie de connexion pour activer Multi-Factor Authentication
-1. [Suivez ces étapes pour accéder au panneau de fonctionnalités B2C sur le portail Azure](active-directory-b2c-app-registration.md#navigate-to-b2c-settings).
-2. Cliquez sur **Stratégies d’authentification**.
-3. Ouvrez votre stratégie de connexion (par exemple, « B2C_1_SiIn ») en cliquant dessus. Cliquez sur **Modifier** dans la partie supérieure du panneau.
-4. Cliquez sur **Multi-Factor Authentication**, puis affectez la valeur **Actif** à l’**État**. Cliquez sur **OK**.
-5. Cliquez sur **Enregistrer** dans la partie supérieure du panneau.
+Définissez **État** sur **Activer**.
 
-La fonctionnalité « Exécuter maintenant » de la stratégie permet de vérifier l’expérience utilisateur. Vérifiez les éléments suivants :
+Vous pouvez utiliser **Exécuter maintenant** sur la stratégie à des fins de vérification. Vérifiez le scénario suivant :
 
-Lorsque le consommateur se connecte (à l’aide d’un compte local ou social), si un numéro de téléphone vérifié est associé à son compte, il est invité à la confirmer. Si aucun numéro de téléphone n’est associé, le consommateur est invité à le fournir et à le confirmer. Si la vérification réussit, le numéro de téléphone est associé au compte du consommateur en vue d’une utilisation ultérieure.
+Un compte client est créé dans votre locataire avant l’étape d'authentification multifacteur. Lors de cette étape, le client est invité à fournir un numéro de téléphone et à le confirmer. Si la vérification aboutit, le numéro de téléphone est associé au compte en vue d’une utilisation ultérieure. Même si le client annule ou abandonne, il peut être invité à confirmer à nouveau un numéro de téléphone lors de la connexion suivante avec activation de l'authentification multifacteur.
 
-## <a name="multi-factor-authentication-on-other-policies"></a>Authentification multifacteur sur d’autres stratégies
-Comme décrit pour les stratégies d’inscription et de connexion ci-dessus, il est également possible d’activer l’authentification multifacteur sur les stratégies d’inscription ou d’authentification ainsi que sur les stratégies de réinitialisation de mot de passe. Cette fonctionnalité sera également disponible prochainement sur les stratégies de modification de profil.
+## <a name="add-multi-factor-authentication"></a>Ajouter une authentification multifacteur
+
+Il est possible d’activer l’authentification multifacteur sur une stratégie que vous avez précédemment créée. 
+
+Pour activer l’authentification multifacteur :
+
+1. Ouvrez la stratégie, puis sélectionnez **Modifier**. 
+2. Sélectionnez **Authentification multifacteur**.
+3. Définissez **État** sur **Activer**.
+4. Cliquez sur **Enregistrer** dans la partie supérieure de la page.
+
 

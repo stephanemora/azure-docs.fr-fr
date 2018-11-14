@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 10/23/2018
 ms.author: juliako
-ms.openlocfilehash: 90aa3551bb9e2d903fb0f66e3a9b464b0f4be928
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a087c1a069e340c01f2eda657a3d0ecce768168c
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49987611"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228128"
 ---
 # <a name="analyzing-video-and-audio-files"></a>Analyser des fichiers vidéo et audio
 
@@ -27,18 +27,27 @@ Pour analyser votre contenu à l’aide des présélections Media Services v3, v
 > [!NOTE]
 > Lorsque vous utilisez des présélections pour l’analyseur vidéo ou audio, utilisez le Portail Azure pour paramétrer votre compte de sorte à ce qu’il dispose de 10 unités réservées Multimédia S3. Pour plus d’informations, consultez [Vue d’ensemble de la mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md).
 
-## <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+## <a name="built-in-presets"></a>Préréglages intégrés
 
-**AudioAnalyzerPreset** vous permet d’extraire plusieurs insights audio d’un fichier audio ou vidéo. La sortie inclut un fichier JSON (avec tous les insights) et un fichier VTT pour la transcription audio. Ce paramètre accepte une propriété qui spécifie la langue du fichier d’entrée sous la forme d’une chaîne [BCP47](https://tools.ietf.org/html/bcp47). Les analyses audio sont les suivantes :
+Actuellement, Media Services prend en charge les préréglages d’analyseur intégrés suivants :  
+
+|**Nom du préréglage**|**Scénario**|**Détails**|
+|---|---|---|
+|**AudioAnalyzerPreset**|Analyse de contenu audio|Ce préréglage applique un ensemble prédéfini d’opérations d’analyse basée sur l’IA, notamment la transcription de la parole. Actuellement, le préréglage prend en charge le traitement du contenu avec une seule piste audio.<br/>Vous pouvez spécifier la langue de la charge utile audio de l’entrée en utilisant le format BCP-47 « étiquette langue-région » (par exemple « en-US »). La liste des langues prises en charge est : « en-US », « en-GB », « es-ES », « es-MX », « fr-FR », « it-IT », « ja-JP », « pt-BR », « zh-CN ».|
+|**VideoAnalyzerPreset**|Analyse de contenu audio et vidéo|Extrait des insights (métadonnées enrichies) des contenus audio et vidéo, et génère en sortie un fichier au format JSON. Vous pouvez spécifier si vous voulez extraire seulement des insights audio lors du traitement d’un fichier vidéo. Pour plus d’informations, consultez [Analyser un contenu vidéo](analyze-videos-tutorial-with-api.md).|
+
+### <a name="audioanalyzerpreset"></a>AudioAnalyzerPreset
+
+Le préréglage vous permet d’extraire plusieurs insights audio d’un fichier audio ou vidéo. La sortie inclut un fichier JSON (avec tous les insights) et un fichier VTT pour la transcription audio. Ce paramètre accepte une propriété qui spécifie la langue du fichier d’entrée sous la forme d’une chaîne [BCP47](https://tools.ietf.org/html/bcp47). Les analyses audio sont les suivantes :
 
 * Transcription audio : transcription des mots prononcés avec horodatages. Plusieurs langues sont prises en charge
 * Indexation de l’orateur : mappage des orateurs et des mots prononcés correspondants
 * Analyse du sentiment vocal : sortie de l’analyse des sentiments effectuée sur la transcription audio
 * Mots clés : mots clés extraits de la transcription audio.
 
-## <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
+### <a name="videoanalyzerpreset"></a>VideoAnalyzerPreset
 
-**VideoAnalyzerPreset** vous permet d’extraire plusieurs insights audio et vidéo à partir d’une vidéo. La sortie inclut un fichier JSON (avec tous les insights), un fichier VTT pour la transcription audio et une collection de miniatures. Ce paramètre accepte également une chaîne [BCP47](https://tools.ietf.org/html/bcp47) (représentant la langue de la vidéo) en tant que propriété. Les insights vidéo incluent tous les insights audio mentionnés ci-dessus en complément des éléments suivants :
+Ce préréglage vous permet d’extraire plusieurs insights audio et vidéo à partir d’un fichier vidéo. La sortie inclut un fichier JSON (avec tous les insights), un fichier VTT pour la transcription audio et une collection de miniatures. Ce paramètre accepte également une chaîne [BCP47](https://tools.ietf.org/html/bcp47) (représentant la langue de la vidéo) en tant que propriété. Les insights vidéo incluent tous les insights audio mentionnés ci-dessus en complément des éléments suivants :
 
 * Suivi du visage : durée pendant laquelle des visages sont présentes dans la vidéo. Chaque visage est associé à un identifiant de visage et à une collection de miniatures correspondante
 * Texte visuel : texte détecté par la reconnaissance optique des caractères. Le texte est horodaté et également utilisé pour extraire des mots clés (en plus de la transcription audio)

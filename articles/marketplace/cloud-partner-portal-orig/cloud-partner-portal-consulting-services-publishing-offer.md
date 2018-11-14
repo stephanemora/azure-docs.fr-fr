@@ -1,6 +1,6 @@
 ---
-title: Services de conseil | Microsoft Docs
-description: Guide pour la définition et publication d’une offre de services de conseil.
+title: Offre de service de conseil Azure et Dynamics 365 | Microsoft Docs
+description: Guide pour la définition et publication d’une offre de service de conseil Azure ou Dynamics 365 sur le portail Cloud Partner.
 services: Azure, Marketplace, Cloud Partner Portal,
 documentationcenter: ''
 author: dan-wesley
@@ -12,19 +12,29 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 11/01/2018
 ms.author: pbutlerm
-ms.openlocfilehash: b3f6b9166afce9ca0cdeaa1c9dd6e10a5a976453
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 43f1e71486cedbeccb2c02388147a68756581e50
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806369"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037760"
 ---
-<a name="defining-and-publishing-your-consulting-services-offer"></a>Définition et publication d’une offre de services de conseil
-======================================================
+# <a name="azure-and-dynamics-365-consulting-service-offer"></a>offre de service de conseil Azure et Dynamics 365
 
-Ce guide est conçu pour vous aider à définir et publier votre offre de services de conseil sur le portail Cloud Partner.
+<table> <tr> <td>Cette section explique comment publier un service de conseil sur la <a href="https://azuremarketplace.microsoft.com">Place de marché Microsoft Azure</a> ou la <a href="https://appsource.microsoft.com">Place de marché AppSource</a>. Les solutions basées sur des applications <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://products.office.com">Office 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> et <a href="https://powerapps.microsoft.com">PowerApps</a> Microsoft peuvent être répertoriées sur AppSource. D’autres offres basées sur d’autres <a href="https://azure.microsoft.com/services">services Microsoft Azure</a> sont éligibles pour être répertoriées sur la Place de marché Microsoft Azure. </td> <td><img src="./media/consulting-services-publishing-offer/consulting-icon1.png"  alt="Microsoft consulting icon" /></td> </tr> </table>
+
+
+# <a name="publishing-benefits"></a>Avantages liés à la publication
+
+La publication sur l’une des places de marché Microsoft présente des avantages substantiels :
+
+- Promouvez votre entreprise en tirant parti de la marque Microsoft.
+- Touchez potentiellement plus de 100 millions d’utilisateurs Office 365 et Dynamics 365 sur AppSource, ainsi que plus de 200 000 organisations via la Place de marché Microsoft Azure.
+- Obtenez des prospects de grande qualité à partir de ces places de marché.
+- Bénéficiez d’une promotion de vos services assurée par les équipes de terrain et de télévente de Microsoft.
+
 
 <a name="define-your-consulting-services-offer"></a>Définir votre offre de services de conseil
 -------------------------------------
@@ -52,45 +62,38 @@ Pour créer une offre, exécutez les étapes suivantes :
 
 ### <a name="define-offer-settings"></a>Définir les paramètres de l’offre
 
-Dans l’écran Nouvelle offre, la première étape consiste à créer l’identité de l’offre.
-L’identité de l’offre se compose de trois parties :
-
-1.  ID de l’offre
-2.  ID de l’éditeur
-3.  NOM
-
-Chacune de ces parties est présentée individuellement dans les sections suivantes.
+Dans l’écran Nouvelle offre, la première étape consiste à créer l’identité de l’offre.  L’identité de l’offre consiste en trois aspects : **ID de l’offre**, **ID de l’éditeur** et **Nom**.  Chacune de ces parties est présentée individuellement dans les sections suivantes.
 
 #### <a name="offer-id"></a>ID de l’offre
 
-Nom unique que vous créez lorsque vous soumettez l’offre pour la première fois. Il doit contenir uniquement des caractères alphanumériques en minuscules, des tirets ou des traits de soulignement. L’ID est visible dans l’URL et il a un impact sur les résultats des moteurs de recherche. Par exemple, *nomdevotreentreprise\_exempledeservice*
+Cet identificateur est un nom unique que vous créez lorsque vous soumettez l’offre pour la première fois. Il doit contenir uniquement des caractères alphanumériques en minuscules, des tirets ou des traits de soulignement. L’ID de l’offre est visible dans l’URL et a une incidence sur les résultats des moteurs de recherche. Par exemple, *nomdevotreentreprise\_exempledeservice*
 
-Comme indiqué dans l’exemple, l’ID de l’offre est ajouté à votre ID d’éditeur pour créer un identificateur unique. Cette information est exposée sous forme de lien permanent, qui peut être réservé et indexé par les moteurs de recherche.
+Comme indiqué dans l’exemple, l’ID de l’offre est ajouté à votre ID d’éditeur pour créer un identificateur unique. Cette information est exposée sous forme de lien permanent, qui peut être réservé et indexé par les moteurs de recherche. 
 
-**Une fois l’offre publiée, il est possible de la \'mettre à jour**
+*Une fois une offre active, son identificateur ne peut plus être mis à jour*
 
 #### <a name="publisher-id"></a>ID de l’éditeur
 
-Lié à votre compte. Lorsque vous êtes connecté avec votre compte professionnel, votre ID d’éditeur s’affiche dans le menu déroulant.
+Cet identificateur est associé à votre compte. Lorsque vous êtes connecté avec votre compte professionnel, votre ID d’éditeur s’affiche dans le menu déroulant.
 
 #### <a name="name"></a>NOM
 
-Information qui figure comme nom de l’offre sur AppSource ou sur la Place de marché Microsoft Azure.
+Cette chaîne s’affiche en tant que nom de l’offre sur la Place de marché AppSource ou Azure.
 
 **Important :** entrez uniquement entrer le nom réel du service ici. Ne mentionnez pas la durée ni le type de service.
 
-L’exemple suivant par Edgewater Fullscope montre comment se compose le nom de l’offre. Le nom de l’offre apparaît comme suit :
+L’exemple suivant par Edgewater Fullscope montre comment se compose le nom de l’offre. Le nom de l’offre s’affiche comme suit :
 
 ![Création d’une offre de services de conseil](media/consulting-services-publishing-offer/cppsampleconsultingoffer.png)
 
 Le nom de l’offre se compose de quatre parties :
 
--   **Durée** : vous pouvez la définir dans l’onglet Détails de la vitrine de l’éditeur. La durée peut être exprimée en heures, en jours ou en semaines.
--   **Type de service** : vous pouvez le définir dans l’onglet Détails de la vitrine de l’éditeur. Les types de services sont l’évaluation, la réunion d’information, l’implémentation, la preuve de concept et l’atelier.
--   **Préposition** : insérée par le réviseur
--   **Nom** : ce que vous avez défini dans la page Paramètres de l’offre.
+-   **Durée** : définie sous l’onglet **Détails de la vitrine** de l’éditeur. La durée peut être exprimée en heures, en jours ou en semaines.
+-   **Type de service** : défini sous l’onglet **Détails de la vitrine** de l’éditeur. Les types de services sont `Assessment`, `Briefing`, `Implementation`, `Proof of concept` et `Workshop`.
+-   **Préposition** : insérée par le réviseur.
+-   **Nom** : défini dans la page **Paramètres de l’offre**.
 
-La liste suivante contient des noms d’offres bien présentés :
+La liste suivante contient plusieurs noms d’offres bien nommés :
 
 -   Essentials pour services professionnels : réunion d’information 1 heure
 -   Plateforme de migration cloud : réunion d’information 1 heure
@@ -153,7 +156,7 @@ Le résumé de l’offre est une description courte de votre offre, qui figure j
 
 ##### <a name="offer-description"></a>Description de l’offre
 
-Description de l’offre de services de conseil. Une bonne description comprend les détails de l’engagement et les livrables proposés au client. Elle doit être claire pour aider le client à comprendre ce qu’il peut en obtenir.
+Description de l’offre de service de conseil. Une bonne description comprend les détails de l’engagement et les livrables proposés au client. Elle doit être claire pour aider le client à comprendre ce qu’il peut en obtenir.
 
 Ne mentionnez pas d’adresses e-mail ni de numéros de téléphone dans la description de votre offre. Votre offre comportera un bouton de contact qui chargera les prospects dans l’environnement de gestion des prospects que vous identifiez dans votre offre.
 
@@ -161,7 +164,7 @@ Entrez la description de l’offre au format Markdown. Si vous ne connaissez pas
 
 Ces formats garantissent une lisibilité maximale pour les clients.
 
-Restez bref dans la description de votre offre et respectez la limite de caractères, car utilisateurs n’aiment pas lire trop de texte. Vous aurez encore la possibilité de charger des brochures marketing, des fiches techniques et d’autres documents décrivant votre offre en détail.
+Restez bref dans la description de votre offre, et respectez la limite de nombre de caractères, car les utilisateurs n’aiment pas lire un texte abondant. Vous aurez encore la possibilité de charger des brochures marketing, des fiches techniques et d’autres documents décrivant votre offre en détail.
 
 L’exemple suivant montre une description d’offre bien composée, avec son nom et son résumé :
 
@@ -223,7 +226,7 @@ ID du nouvel Espace partenaires, si vous en avez un.
 **ID MPN**
 
 Entrez une clé secrète pour afficher un aperçu de votre offre sur AppSource avant de commencer.
-Il ne s’agit pas d’un mot de passe.
+Cet identificateur n’est pas un mot de passe.
 
 #### <a name="listing-details"></a>Détails de l’annonce
 
@@ -287,4 +290,4 @@ Chargez jusqu’à cinq images avec plus d’informations sur l’offre, sur les
 
 Après avoir complété les paramètres de l’offre, les détails de la vitrine et les coordonnées, sélectionnez **Publier** et indiquez une adresse e-mail. Quand Microsoft est prêt à publier votre offre, vous recevrez un e-mail pour en afficher un aperçu avant sa mise en service. Vous pouvez revenir au portail pour vérifier l’état de votre offre à tout moment.
 
-Les offres peuvent apparaître dans l’état « Échec de la publication » ou « Publication annulée » pendant le processus de publication. Cela fait partie du processus et permet à Microsoft d’apporter des modifications à votre offre. Si vous voyez votre offre dans « Publication annulée », laissez-la dans cet état.
+Les offres peuvent apparaître dans l’état « Échec de la publication » ou « Publication annulée » pendant le processus de publication. Cet état est un aspect normal du processus, qui permet à Microsoft d’apporter des modifications à votre offre. Si vous voyez votre offre dans « Publication annulée », laissez-la dans cet état.

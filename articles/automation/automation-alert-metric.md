@@ -5,47 +5,41 @@ services: automation
 ms.service: automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/17/2018
+ms.date: 11/01/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: a8a4b24e6b2503f64cc3fd7f4fd8c7400c547d4d
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 65de18445f114f468dd42c5a7e7128dd2f63d44c
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34659049"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959823"
 ---
 # <a name="monitoring-runbooks-with-metric-alerts"></a>Surveillance de runbooks avec des alertes de métriques
 
 Dans le cadre de cet article, vous allez apprendre à créer des alertes reposant sur l’état d’achèvement des runbooks.
 
-## <a name="log-in-to-azure"></a>Connexion à Azure
+## <a name="sign-in-to-azure"></a>Connexion à Azure
 
-Connectez-vous à Azure à l’adresse https://portal.azure.com.
+Se connecter à Azure à https://portal.azure.com
 
 ## <a name="create-alert"></a>Créer une alerte
 
 Les alertes vous permettent de définir une condition à surveiller, ainsi qu’une action à entreprendre lorsque cette condition est remplie.
 
-Dans le Portail Microsoft Azure, accédez à **Tous les services**, puis sélectionnez **Surveiller**. Sur la page Surveiller, sélectionnez **Alertes**, puis cliquez sur **+ Nouvelle règle d’alerte**.
-
-### <a name="define-the-alert-condition"></a>Définir la condition de l’alerte
-
-1. Sous **1. Définir la condition de l’alerte**, cliquez sur **+ Sélectionner la cible**. Choisissez votre abonnement, puis sous **Filtrer par type de ressource**, sélectionnez **Comptes Automation**. Choisissez votre compte Automation, puis cliquez sur **Terminé**.
-
-   ![Sélection d’une ressource pour l’alerte](./media/automation-alert-activity-log/select-resource.png)
+Dans le portail Azure, accédez à votre compte Automation. Sous **Supervision**, sélectionnez **Alertes**, puis cliquez sur **+ Nouvelle règle d’alerte**. L’étendue pour la cible est déjà définie sur votre compte Automation.
 
 ### <a name="configure-alert-criteria"></a>Configurer les critères de l’alerte
 
 1. Cliquez sur **+ Ajouter des critères**. Sélectionnez **Métriques** pour le **Type de signal**, puis choisissez **Nombre total de travaux** dans le tableau.
 
-1. La page **Configurer la logique du signal** vous permet de définir la logique qui déclenche l’alerte. Sous le graphique d’historique, deux dimensions apparaissent : **Nom du Runbook** et **État**. Les dimensions correspondent aux différentes propriétés d’une métrique qui sont utilisables pour le filtrage des résultats. Pour la dimension **Nom du Runbook**, sélectionnez le runbook pour lequel vous souhaitez créer une alerte, ou laissez la dimension vide si vous voulez définir une alerte pour tous les runbooks. Pour la dimension **État**, sélectionnez dans la liste déroulante l’état que vous souhaitez surveiller. Les valeurs de nom et d’état de runbook qui s’affichent dans la liste déroulante s’appliquent uniquement aux travaux qui se sont exécutés la semaine précédente.
+2. La page **Configurer la logique du signal** vous permet de définir la logique qui déclenche l’alerte. Sous le graphique d’historique, deux dimensions apparaissent : **Nom du Runbook** et **État**. Les dimensions correspondent aux différentes propriétés d’une métrique qui sont utilisables pour le filtrage des résultats. Pour la dimension **Nom du Runbook**, sélectionnez le runbook pour lequel vous souhaitez créer une alerte, ou laissez la dimension vide si vous voulez définir une alerte pour tous les runbooks. Pour la dimension **État**, sélectionnez dans la liste déroulante l’état que vous souhaitez surveiller. Les valeurs de nom et d’état de runbook qui s’affichent dans la liste déroulante s’appliquent uniquement aux travaux qui se sont exécutés la semaine précédente.
 
-   Si vous souhaitez créer une alerte pour un état ou un runbook qui ne figurent pas dans la liste déroulante, cliquez sur le signe **\+** en regard de la dimension. Cette opération affiche une boîte de dialogue vous permettant d’entrer une valeur personnalisée non émise récemment pour cette dimension. Si vous entrez une valeur de propriété inexistante, votre alerte ne se déclenchera pas.
+   Si vous souhaitez créer une alerte pour un état ou un runbook qui ne figurent pas dans la liste déroulante, cliquez sur le signe **\+** en regard de la dimension. Cette action ouvre une boîte de dialogue vous permettant d’entrer une valeur personnalisée non émise récemment pour cette dimension. Si vous entrez une valeur de propriété inexistante, votre alerte ne se déclenchera pas.
 
-1. Sous **Logique d’alerte**, définissez la condition et le seuil de votre alerte. Un aperçu de la condition que vous avez définie s’affiche en dessous.
+3. Sous **Logique d’alerte**, définissez la condition et le seuil de votre alerte. Un aperçu de la condition que vous avez définie s’affiche en dessous.
 
-1. Sous **Évaluées sur la base de**, sélectionnez l’intervalle de temps et la fréquence d’exécution de la requête. Par exemple, si vous définissez **Période** sur **Au cours des 5 dernières minutes** et **Fréquence** sur **Toutes les minutes**, l’alerte recherche le nombre de runbooks qui répondaient à vos critères au cours des 5 dernières minutes. Cette requête s’exécute toutes les minutes, et une fois que les critères d’alerte que vous avez définis ne sont plus détectés au cours d’une période de 5 minutes, l’alerte se résout d’elle-même. Lorsque vous avez terminé, cliquez sur **Terminé**.
+4. Sous **Évaluées sur la base de**, sélectionnez l’intervalle de temps et la fréquence d’exécution de la requête. Par exemple, si vous définissez **Période** sur **Au cours des 5 dernières minutes** et **Fréquence** sur **Toutes les minutes**, l’alerte recherche le nombre de runbooks qui répondaient à vos critères au cours des 5 dernières minutes. Cette requête s’exécute toutes les minutes, et une fois que les critères d’alerte que vous avez définis ne sont plus détectés au cours d’une période de 5 minutes, l’alerte se résout d’elle-même. Lorsque vous avez terminé, cliquez sur **Terminé**.
 
    ![Sélection d’une ressource pour l’alerte](./media/automation-alert-activity-log/configure-signal-logic.png)
 
@@ -69,7 +63,7 @@ Dans le Portail Microsoft Azure, accédez à **Tous les services**, puis sélect
 
 1. Cliquez sur **OK** dans la page **E-mail/SMS/Push/Voix** pour la fermer, puis cliquez sur **OK** pour fermer la page **Ajouter un groupe d’actions**. Le nom spécifié dans cette page est enregistré dans le champ **NOM D’ACTION**.
 
-1. Lorsque vous avez terminé, cliquez sur **Enregistrer**. Cette opération crée la règle qui vous alerte lorsqu’un runbook s’est achevé avec un état spécifique.
+1. Lorsque vous avez terminé, cliquez sur **Enregistrer**. Cette action crée la règle qui vous alerte lorsqu’un runbook s’est achevé avec un état spécifique.
 
 > [!NOTE]
 > Lorsque vous ajoutez une adresse e-mail à un groupe d’actions, le système envoie un e-mail de notification indiquant que l’adresse a été ajoutée à un groupe d’actions.

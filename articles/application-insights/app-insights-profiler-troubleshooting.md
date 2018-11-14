@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: cawa
 ms.date: 08/06/2018
 ms.author: mbullwin
-ms.openlocfilehash: 28de0f8bdcaa730c5beea0c630d4e86e15642809
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 6013c0a1b404336ad7cca21edafb7adec5c7f7ca
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50142854"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978840"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Résoudre les problèmes d’activation ou d’affichage d’Application Insights Profiler
 
@@ -46,16 +46,16 @@ Le profileur écrit les messages de trace et les événements personnalisés dan
 
 1. Si des requêtes ont eu lieu pendant l’exécution du profileur, vérifiez qu’elles sont gérées par la partie de votre application pour laquelle le profileur est activé. Parfois, les applications sont constituées de plusieurs composants mais Profiler n’est activé que pour certains d’entre eux. La page Configurer Application Insights Profiler montre les composants qui ont chargé des traces.
 
-### <a name="net-core-21-bug"></a>**Bogue lié à .Net Core 2.1** 
+### <a name="net-core-21-bug"></a>Bogue lié à .Net Core 2.1
 Il existe un bogue dans l’agent du profileur qui l’empêche de charger les traces effectuées à partir d’applications s’exécutant sur ASP.NET Core 2.1. Nous travaillons sur un correctif qui sera bientôt disponible. Le correctif pour ce bogue sera déployé d’ici la fin du mois d’octobre.
 
-### <a name="other-things-to-check"></a>**Autres éléments à vérifier :**
+### <a name="other-things-to-check"></a>Autres éléments à vérifier :
 * Votre application s’exécute sur .NET Framework 4.6.
 * Si votre application web est une application ASP.NET Core, elle doit exécuter au moins ASP.NET Core 2.0.
 * Si les données que vous essayez d’afficher datent d’il y a plus de deux semaines, essayez de limiter votre filtre de temps puis réessayez. Les traces sont supprimées après sept jours.
 * Vérifiez que votre proxy ou pare-feu n’a pas bloqué l’accès à https://gateway.azureserviceprofiler.net.
 
-### <a id="double-counting"></a>**Double comptage dans des threads parallèles**
+### <a id="double-counting"></a>Double comptage dans des threads parallèles
 
 Dans certains cas, la mesure du temps total dans la visionneuse de pile est supérieure à la durée de la requête.
 
@@ -63,11 +63,11 @@ Cette situation peut se présenter lorsque deux threads au moins sont associés 
 
 Quand vous voyez des threads parallèles dans vos traces, identifiez les threads en attente pour confirmer le chemin critique pour la requête. Dans la plupart des cas, le thread qui passe rapidement à un état d’attente attend simplement les autres threads. Concentrez-vous sur ces autres threads et ignorez le temps dans les threads en attente.
 
-### <a name="error-report-in-the-profiling-viewer"></a>**Rapport d’erreurs dans la visionneuse de profilage**
+### <a name="error-report-in-the-profile-viewer"></a>Rapport d’erreurs dans la visionneuse du profil
 Soumettez un ticket de support dans le portail. Veillez à indiquer l’ID de corrélation du message d’erreur.
 
 ## <a name="troubleshooting-profiler-on-app-services"></a>Résolution des problèmes liés à Profiler sur App Services
-### <a name="for-the-profiler-to-work-properly"></a>**Pour que le profileur fonctionne correctement :**
+### <a name="for-the-profiler-to-work-properly"></a>Pour que le profileur fonctionne correctement :
 * Votre plan de service d’application web doit être au niveau De base ou supérieur.
 * L’extension Application Insights pour App Services (2.6.5) doit être installée sur votre application web.
 * Le paramètre **APPINSIGHTS_INSTRUMENTATIONKEY** de votre application web doit utiliser la même clé d’instrumentation que le SDK Application Insights.
@@ -82,7 +82,7 @@ Soumettez un ticket de support dans le portail. Veillez à indiquer l’ID de co
     
     ![profiler-webjob-log]
 
-### <a name="manual-installation"></a>**Installation manuelle**
+### <a name="manual-installation"></a>Installation manuelle
 
 Lorsque vous configurez Profiler, des mises à jour sont appliquées aux paramètres de l’application web. Vous pouvez appliquer les mises à jour manuellement si votre environnement l’exige. Cela peut être le cas, par exemple, si votre application s’exécute dans un environnement d’applications web pour PowerApps.
 
@@ -97,9 +97,9 @@ Lorsque vous configurez Profiler, des mises à jour sont appliquées aux paramè
 1. Installez **Application Insights** à partir de la galerie Azure Web Apps.
 1. Redémarrez l’application web.
 
-### <a name="too-many-active-profiling-sessions"></a>**Trop de sessions de profilage actives**
+### <a name="too-many-active-profiling-sessions"></a>Trop de sessions de profilage actives
 
-Actuellement, vous pouvez activer Profiler sur un maximum de quatre applications web Azure et emplacements de déploiement exécutés sur le même plan de service. Si la tâche web de Profiler signale un nombre trop important de sessions de profilage actives, vous devez déplacer certaines applications web vers un autre plan de service.
+Actuellement, vous pouvez activer Profiler sur un maximum de quatre applications web Azure et emplacements de déploiement exécutés sur le même plan de service. Si vous avez plus d’applications web que celles exécutées dans un seul plan App Service, vous verrez peut-être une exception Microsoft.ServiceProfiler.Exceptions.TooManyETWSessionException levée par le profileur. Le profileur s’exécute séparément pour chaque application web, et tente de démarrer une session ETW pour chaque application. Mais le nombre de sessions ETW qui peuvent être actives en même temps est limité. Si la tâche web de Profiler signale un nombre trop important de sessions de profilage actives, vous devez déplacer certaines applications web vers un autre plan de service.
 
 ### <a name="deployment-error-directory-not-empty-dhomesitewwwrootappdatajobs"></a>Erreur de déploiement : Répertoire non vide 'D:\\home\\site\\wwwroot\\App_Data\\jobs'
 

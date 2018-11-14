@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 7/20/2018
 ms.author: msfussell
-ms.openlocfilehash: 70ea33f2c3e3a79d1754b72d12e8fc27689e38ea
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 434f0639baa45dc83ee2fae4ec8b67a80517db14
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49387936"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035912"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Service DNS dans Azure Service Fabric
 Le service DNS est un service système facultatif que vous pouvez activer dans votre cluster pour détecter d’autres services utilisant le protocole DNS. 
@@ -43,6 +43,9 @@ Le schéma suivant montre le fonctionnement du service DNS pour des services par
 Les ports dynamiques ne sont pas pris en charge par le service DNS. Pour résoudre des services exposés sur des ports dynamiques, utilisez le [service de proxy inverse](./service-fabric-reverseproxy.md).
 
 ## <a name="enabling-the-dns-service"></a>Activation du service DNS
+> [!NOTE]
+> Le service DNS pour les services Service Fabric n’est pas encore pris en charge sur Linux.
+
 Quand vous créez un cluster à l’aide du portail, le service DNS est activé par défaut dans la case à cocher **Inclure le service DNS** du menu **Configuration du cluster** :
 
 ![Activation du service DNS via le portail](./media/service-fabric-dnsservice/enable-dns-service.png)
@@ -251,6 +254,8 @@ public class ValuesController : Controller
 
 ## <a name="known-issues"></a>Problèmes connus
 * Pour les versions 6.3 et ultérieures de Service Fabric, il y a un problème avec les recherches DNS pour les noms de service contenant un trait d’union dans le nom DNS. Pour plus d’informations sur ce problème, veuillez suivre le [Problème GitHub](https://github.com/Azure/service-fabric-issues/issues/1197) suivant. Une solution à ce problème est prévue dans la prochaine mise à jour 6.3. 
+
+* Le service DNS pour les services Service Fabric n’est pas encore pris en charge sur Linux. Le service DNS est pris en charge pour les conteneurs sur Linux. L’alternative possible est la résolution manuelle à l’aide de Fabric Client/ServicePartitionResolver.
 
 ## <a name="next-steps"></a>Étapes suivantes
 Pour en savoir plus sur la communication de service au sein du cluster, consultez l’article [Se connecter aux services et communiquer avec eux dans Service Fabric](service-fabric-connect-and-communicate-with-services.md)

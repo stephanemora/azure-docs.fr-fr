@@ -2,19 +2,19 @@
 title: Utiliser Data Lake Store avec Hadoop dans Azure HDInsight
 description: Apprenez à interroger des données depuis Azure Data Lake Store et à stocker les résultats de votre analyse.
 services: hdinsight,storage
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/23/2018
-ms.openlocfilehash: d205a46c672523e029816b573742d991de79b2ae
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 11/06/2018
+ms.openlocfilehash: 0859e480df0111e26d5b64bf835f94b3852b3414
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956729"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277356"
 ---
 # <a name="use-data-lake-store-with-azure-hdinsight-clusters"></a>Utiliser Data Lake Store avec des clusters Azure HDInsight
 
@@ -40,16 +40,17 @@ Les clusters HDInsight peuvent utiliser Data Lake Store de deux manières :
 
 | Type de cluster HDInsight | Data Lake Store comme stockage par défaut | Data Lake Store comme stockage supplémentaire| Notes |
 |------------------------|------------------------------------|---------------------------------------|------|
-| HDInsight version 3.6 | OUI | OUI | |
+| HDInsight version 3.6 | OUI | OUI | With the exception of HBase|
 | HDInsight version 3.5 | OUI | OUI | With the exception of HBase|
 | HDInsight version 3.4 | Non | OUI | |
 | HDInsight version 3.3 | Non | Non | |
 | HDInsight version 3.2 | Non | OUI | |
 | Storm | | |Vous pouvez utiliser Data Lake Store pour écrire des données à partir d’une topologie Storm. Vous pouvez également vous en servir pour stocker des données de référence qui peuvent ensuite être lues par une topologie Storm.|
 
+[!WARNING]
+> HDInsight HBase n’est pas pris en charge avec Azure Data Lake Storage Gen 1
+
 L’utilisation de Data Lake Store en tant que compte de stockage supplémentaire n’affecte pas les performances ni la capacité de lecture ou d’écriture sur le stockage Azure à partir du cluster.
-
-
 ## <a name="use-data-lake-store-as-default-storage"></a>Utiliser Data Lake Store comme stockage par défaut
 
 Lorsque HDInsight est déployé avec Data Lake Store en tant que stockage par défaut, les fichiers associés au cluster sont stockés dans Data Lake Store à l’emplacement suivant :

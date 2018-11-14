@@ -15,12 +15,12 @@ ms.date: 10/17/2018
 ms.author: barbkess
 ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: c9c21b9beb891a685d7e264ec55817c0045455bc
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 62738cda8ce37ec7ca50e1e3f285dc71a37113f7
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406275"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036035"
 ---
 # <a name="understand-azure-ad-application-proxy-connectors"></a>Présentation des connecteurs de proxy d’application Azure AD
 
@@ -32,7 +32,7 @@ Les connecteurs sont des agents légers présent en local et qui facilitent la c
 
 ## <a name="requirements-and-deployment"></a>Exigences et déploiement
 
-Pour déployer le proxy d’application avec succès, vous devez disposer d’au moins un connecteur, mais nous vous recommandons d’en utiliser deux ou plusieurs pour assurer une meilleure résilience. Installez le connecteur sur un serveur Windows Server 2012 R2 ou une machine 2016. Le connecteur doit être en mesure de communiquer avec le service Application Proxy, ainsi que les applications locales que vous publiez. 
+Pour déployer le proxy d’application avec succès, vous devez disposer d’au moins un connecteur, mais nous vous recommandons d’en utiliser deux ou plusieurs pour assurer une meilleure résilience. Installez le connecteur sur un serveur Windows Server 2012 R2 ou une machine 2016. Le connecteur doit être en mesure de communiquer avec le service Application Proxy, ainsi que les applications locales que vous publiez. Le Proxy d’application requiert également l'exécution de TLS 1.2 sur le système d’exploitation sous-jacent. Pour basculer vers TLS 1.2, suivez les étapes de l’article [Activer TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Bien que le contenu s’adresse à Azure AD Connect, cette procédure est identique pour tous les clients .NET.
 
 Pour plus d’informations sur la configuration réseau requise pour le serveur du connecteur, consultez [Prise en main du proxy d’application et de l’installation d’un connecteur](application-proxy-enable.md).
 

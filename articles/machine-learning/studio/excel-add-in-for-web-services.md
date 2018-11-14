@@ -13,19 +13,19 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 2/1/2018
-ms.openlocfilehash: 8fade171095ff6a9f4c10925089452d8925e11fe
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: ed3fc6d1d2a4b674e2866d2e168fb72490575869
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095806"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281831"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-web-services"></a>Complément Excel de services web Azure Machine Learning Studio
 Excel permet d'appeler facilement des services web directement sans qu'il soit nécessaire d'écrire du code.
 
 ## <a name="steps-to-use-an-existing-web-service-in-the-workbook"></a>Procédure d’utilisation d’un service web existant dans le classeur
 
-1. Ouvrez [l’exemple de fichier Excel](http://aka.ms/amlexcel-sample-2), qui contient le complément Excel et les données concernant les passagers sur le Titanic. 
+1. Ouvrez l’ [exemple de fichier Excel](https://aka.ms/amlexcel-sample-2), qui contient le complément Excel et les données concernant les passagers sur le Titanic. 
  
 > [!NOTE]
 > Vous pouvez voir la liste des services web associés au fichier. En bas, la case de prédiction automatique s’affiche. Si vous activez la prédiction automatique, les prédictions de **tous** vos services seront mises à jour chaque fois que les entrées sont modifiées. Si la case n’est pas cochée, vous devrez cliquer sur le bouton « Prédire tout » pour actualiser. Pour activer la prédiction automatique au niveau du service, passez à l’étape 6.
@@ -85,7 +85,7 @@ Obtenez la clé API de votre service web. L’emplacement à partir duquel exéc
 ## <a name="sharing-your-workbook"></a>Partage de votre classeur
 Si vous enregistrez votre classeur, l'API/la clé primaire pour les services web que vous avez ajoutés seront également enregistrés. Cela signifie que vous devez uniquement partager le classeur avec des personnes de confiance.
 
-Posez les questions que vous voulez dans la section de commentaire suivante ou dans notre [forum](http://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
+Posez les questions que vous voulez dans la section de commentaire suivante ou dans notre [forum](https://go.microsoft.com/fwlink/?LinkID=403669&clcid=0x409).
 
 [01]: ./media/excel-add-in-for-web-services/image1.png
 [02]: ./media/excel-add-in-for-web-services/image2.png

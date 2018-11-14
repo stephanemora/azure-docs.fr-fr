@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 08d8822410545fb0ae3a2a99de00b38566c9834c
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: ec17f6923fc1c928f24fcb762daedbaea5b688ac
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41947930"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035099"
 ---
 # <a name="infrastructure-backup-service-best-practices"></a>Meilleures pratiques concernant le service de sauvegarde de l’infrastructure
 
@@ -52,9 +52,8 @@ La clé doit être stockée dans un emplacement sécurisé (par exemple, un secr
 
 ### <a name="backups"></a>Sauvegardes
 
- - Le contrôleur de sauvegarde de l’infrastructure doit être déclenché à la demande. Il est recommandé de sauvegarder au moins deux fois par jour.
  - Les travaux de sauvegarde s’exécutent pendant l’exécution du système, les expériences de gestion et les applications utilisateur ne subissent donc aucun temps d’arrêt. Les travaux de sauvegarde prennent généralement entre 20 et 40 minutes pour une solution sous charge raisonnable.
- - À l’aide des instructions fournies par le fabricant d’ordinateurs (OEM), sauvegardez manuellement les commutateurs réseau et l’hôte de cycle de vie du matériel (HLH) devrait être stocké sur le même partage de sauvegarde dans lequel le contrôleur de sauvegarde de l’infrastructure conserve les données de sauvegarde du plan de contrôle. Envisagez de stocker les configurations HLH et de commutateur dans le dossier de la région. Si vous avez plusieurs instances Azure Stack dans la même région, envisagez d’utiliser un identificateur pour chaque configuration qui appartient à une unité d’échelle.
+ - Suivant les instructions fournies par le fabricant d’ordinateurs (OEM), sauvegardez manuellement les commutateurs réseau ; il est recommandé de stocker l’hôte de cycle de vie du matériel (HLH) sur le partage de sauvegarde dans lequel le contrôleur Infrastructure Backup conserve les données de sauvegarde du plan de contrôle. Envisagez de stocker les configurations HLH et de commutateur dans le dossier de la région. Si vous avez plusieurs instances Azure Stack dans la même région, envisagez d’utiliser un identificateur pour chaque configuration qui appartient à une unité d’échelle.
 
 ### <a name="folder-names"></a>Noms de dossier
 
@@ -95,5 +94,6 @@ Les alertes suivantes sont prises en charge par le système :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
- - Passez en revue la documentation de référence pour le [service de sauvegarde de l’infrastructure](azure-stack-backup-reference.md).  
- - Activez le [service de sauvegarde de l’infrastructure](azure-stack-backup-enable-backup-console.md).
+Passez en revue la documentation de référence pour le [service de sauvegarde de l’infrastructure](azure-stack-backup-reference.md).
+
+Activez le [service de sauvegarde de l’infrastructure](azure-stack-backup-enable-backup-console.md).

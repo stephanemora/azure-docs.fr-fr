@@ -5,15 +5,15 @@ services: virtual-machines-windows
 author: cynthn
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 03/11/2018
+ms.date: 11/01/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d750ac7a5ac847a8c1eb5a9c91bb42804c2eebe0
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 73273447bcf534f6ffd4584673756c40e8509e21
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49437037"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50973787"
 ---
 Lorsque vous créez une machine virtuelle Azure, vous devez créer un [réseau virtuel](../articles/virtual-network/virtual-networks-overview.md) ou en utiliser un existant. Vous devez également décider de la façon dont vos machines virtuelles doivent accéder au réseau virtuel. Il est essentiel de [planifier les choses avant de créer des ressources](../articles/virtual-network/virtual-network-vnet-plan-design-arm.md) et de s’assurer que vous connaissez les [limites des ressources réseau](../articles/azure-subscription-service-limits.md#networking-limits).
 
@@ -36,9 +36,7 @@ En plus de ces ressources de base, vous devez également envisager d’utiliser 
 
 Une [carte d’interface réseau](../articles/virtual-network/virtual-network-network-interface.md) est l’interconnexion entre une machine virtuelle et un réseau virtuel. Une machine virtuelle doit posséder au moins une carte d’interface réseau. Plusieurs cartes d’interface réseau peuvent être nécessaires en fonction de la taille de la machine virtuelle que vous créez. Découvrez combien de cartes réseau chaque taille de machine virtuelle prend en charge pour [Windows](../articles/virtual-machines/windows/sizes.md) ou [Linux](../articles/virtual-machines/linux/sizes.md).
 
-Vous pouvez créer une machine virtuelle avec plusieurs cartes réseau et ajouter ou supprimer des cartes réseau tout au long du cycle de vie d’une machine virtuelle. Une machine virtuelle dotée de plusieurs cartes réseau peut se connecter à différents sous-réseaux et envoyer ou recevoir le trafic sur l’interface la plus appropriée.
-
-Si la machine virtuelle est ajoutée à un groupe à haute disponibilité, toutes les machines virtuelles du groupe à haute disponibilité doivent avoir une ou plusieurs cartes d’interface réseau. Il n’est pas nécessaire que les machines virtuelles possédant plusieurs cartes d’interface réseau en aient toutes le même nombre. Cependant, elles doivent toutes en avoir minimum deux.
+Vous pouvez créer une machine virtuelle avec plusieurs cartes réseau et ajouter ou supprimer des cartes réseau tout au long du cycle de vie d’une machine virtuelle. Une machine virtuelle dotée de plusieurs cartes réseau peut se connecter à différents sous-réseaux et envoyer ou recevoir le trafic sur l’interface la plus appropriée. Les machines virtuelles d’un même groupe à haute disponibilité peuvent comporter autant d’interfaces réseau que le permet leur taille. 
 
 Chaque carte d’interface réseau attachée à une machine virtuelle doit se trouver dans le même emplacement et abonnement que la machine virtuelle. Chaque carte d’interface réseau doit être connectée à un réseau virtuel existant dans les mêmes emplacement et abonnement Azure que la carte d’interface réseau. Après la création d’une carte réseau, vous pouvez modifier le sous-réseau auquel une machine virtuelle est connectée, mais pas le réseau virtuel. Chaque carte d’interface réseau attachée à une machine virtuelle est attribuée à une adresse MAC qui ne change pas jusqu’à ce que la machine virtuelle soit supprimée.
 
@@ -151,7 +149,7 @@ Ce tableau répertorie les méthodes que vous pouvez utiliser pour créer un éq
 
 Les machines virtuelles peuvent être créées dans le même réseau virtuel et se connecter les unes aux autres à l’aide d’adresses IP privées. Elles peuvent se connecter même si elles se trouvent dans des sous-réseaux différents, sans que vous ayez besoin de configurer de passerelle, ni d’utiliser des adresses IP publiques. Pour placer des machines virtuelles dans un réseau virtuel, vous créez le réseau virtuel, puis dès que vous créez une machine virtuelle, vous l’attribuez au réseau virtuel et au sous-réseau. Les machines virtuelles acquièrent leurs paramètres réseau lors du déploiement ou du démarrage.  
 
-Les machines virtuelles sont attribuées à une adresse IP lorsqu’elles sont déployées. Si vous déployez plusieurs machines virtuelles dans un réseau virtuel ou un sous-réseau, des adresses IP leur sont attribuées lorsqu’elles démarrent. Une adresse IP dynamique est l’adresse IP interne associée à une machine virtuelle. Vous pouvez allouer une adresse IP dynamique statique à une machine virtuelle. Si vous allouez une adresse IP dynamique statique, vous devez envisager d’utiliser un sous-réseau spécifique pour éviter de réutiliser accidentellement une adresse IP dynamique statique pour une autre machine virtuelle.  
+Les machines virtuelles sont attribuées à une adresse IP lorsqu’elles sont déployées. Si vous déployez plusieurs machines virtuelles dans un réseau virtuel ou un sous-réseau, des adresses IP leur sont attribuées lorsqu’elles démarrent. Vous pouvez également allouer une adresse IP statique à une machine virtuelle. Dans ce cas, utilisez éventuellement un sous-réseau spécifique afin d’éviter de réutiliser accidentellement l’adresse IP statique pour une autre machine virtuelle.  
 
 Si vous créez une machine virtuelle et que vous voulez la migrer plus tard vers un réseau virtuel, il ne s’agit pas d’une modification de configuration simple. Vous devez redéployer la machine virtuelle dans le réseau virtuel. Pour la redéployer, le plus simple consiste à supprimer la machine virtuelle (mais pas les disques attachés à celle-ci), puis à recréer la machine virtuelle à l’aide des disques d’origine dans le réseau virtuel. 
 

@@ -1,24 +1,24 @@
 ---
-title: Utiliser des nœuds de périphérie vides sur des clusters Hadoop dans HDInsight - Azure
+title: Utiliser des nœuds de périphérie vides sur des clusters Apache Hadoop dans HDInsight - Azure
 description: Découvrez comment ajouter un nœud de périphérie vide à un cluster HDInsight, qui peut être utilisé en tant que client, et comment tester / héberger vos applications HDInsight.
 services: hdinsight
 ms.reviewer: jasonh
-author: jasonwhowell
+author: hrasheed-msft
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 04/23/2018
-ms.author: jasonh
-ms.openlocfilehash: 1111f3c21e3c3718a9a010284a42ea469e04473d
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 276f11bf889927ee74fa4e9078e147db6df78b9e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090386"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281368"
 ---
-# <a name="use-empty-edge-nodes-on-hadoop-clusters-in-hdinsight"></a>Utiliser les nœuds de périphérie vides sur les clusters Hadoop dans HDInsight
+# <a name="use-empty-edge-nodes-on-apache-hadoop-clusters-in-hdinsight"></a>Utiliser des nœuds de périphérie vides sur des clusters Apache Hadoop dans HDInsight
 
-Découvrez comment ajouter un nœud de périphérie vide à un cluster HDInsight. Un nœud de périphérie vide est une machine virtuelle Linux dotée des mêmes outils clients installés et configurés dans les nœuds principaux, mais sans exécution de services Hadoop. Vous pouvez utiliser le nœud de périmètre pour accéder au cluster, tester vos applications clientes et héberger vos applications clientes. 
+Découvrez comment ajouter un nœud de périphérie vide à un cluster HDInsight. Un nœud de périphérie vide est une machine virtuelle Linux dotée des mêmes outils clients installés et configurés dans les nœuds principaux, mais sans exécution de services Apache Hadoop. Vous pouvez utiliser le nœud de périmètre pour accéder au cluster, tester vos applications clientes et héberger vos applications clientes. 
 
 Vous pouvez ajouter un nœud de périmètre vide à un cluster HDInsight existant et à un nouveau cluster, lorsque vous créez le cluster. L’ajout d’un nœud de périmètre vide est effectué à l’aide du modèle Azure Resource Manager.  L’exemple suivant montre comment procéder à l’aide d’un modèle :
 
@@ -66,7 +66,7 @@ Après avoir créé un nœud de périmètre, vous pouvez vous connecter au nœud
 > Si vous utilisez une technologie Apache, vous pouvez obtenir de l’aide par l’intermédiaire des sites de projets Apache sur [http://apache.org](http://apache.org), par exemple sur le site [Hadoop](http://hadoop.apache.org/).
 
 > [!NOTE]
-> Comme pour les clusters, la gestion des correctifs des nœuds de périphérie est également assurée.  Pour plus d’informations, consultez [Mise à jour corrective du système d’exploitation pour HDInsight](./hdinsight-os-patching.md).
+> Comme pour les autres nœuds de cluster, la gestion des correctifs des nœuds de périphérie est également assurée.  Pour plus d’informations, consultez [Mise à jour corrective du système d’exploitation pour HDInsight](./hdinsight-os-patching.md).
 
 ## <a name="add-an-edge-node-to-an-existing-cluster"></a>Ajouter un nœud de périmètre à un cluster existant
 Dans cette section, vous allez utiliser un modèle Resource Manager pour ajouter un nœud de périmètre à un cluster HDInsight existant.  Le modèle Resource Manager se trouve dans [GitHub](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-add-edge-node/). Le modèle Resource Manager appelle une action de script située dans https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-hdinsight-linux-add-edge-node/scripts/EmptyNodeSetup.sh. Le script n’effectue aucune action.  Cela sert à illustrer l’appel d’action de script à partir d’un modèle Resource Manager.

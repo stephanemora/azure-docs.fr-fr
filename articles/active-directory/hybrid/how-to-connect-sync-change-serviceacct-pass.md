@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2017
+ms.date: 10/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b0b88622069801124aff5b44dc4b813838f41c73
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 331c536970445dacdb9afc9d3cfa5711b82bfbf0
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46310478"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747250"
 ---
 # <a name="changing-the-azure-ad-connect-sync-service-account-password"></a>Modification du mot de passe du compte de service de synchronisation Azure AD
 Si vous modifiez le mot de passe du service Azure AD Connect Sync, le service de synchronisation ne sera pas en mesure de démarrer correctement jusqu'à ce que vous abandonniez la clé de chiffrement et réinitialisiez le mot de passe du service Azure AD Connect Sync. 
@@ -44,7 +44,7 @@ Tout d’abord, vous devez modifier le mot de passe sous le Gestionnaire de cont
 Ensuite, sous certaines conditions, si le mot de passe est mis à jour, le service de synchronisation ne peut plus extraire la clé de chiffrement avec DPAPI. Sans la clé de chiffrement, le service de synchronisation ne peut pas déchiffrer les mots de passe requis pour la synchronisation locale vers/depuis AD et Azure AD.
 Vous voyez des erreurs telles que :
 
-- Sous le Gestionnaire de contrôle des services Windows, si vous essayez de démarrer le service de synchronisation et qu’il ne peut pas récupérer la clé de chiffrement, il échoue avec l’erreur « **Windows n’a pas pu démarrer Microsoft Azure AD Sync sur l’ordinateur local.** Pour plus d’informations, consultez le journal des événements système. **S’il s’agit d’un service hors Microsoft, contactez le fournisseur de services et faites référence au code d’erreur propre au service \*\*-21451857952**\*\*.”
+- Sous le Gestionnaire de contrôle des services Windows, si vous essayez de démarrer le service de synchronisation et qu’il ne peut pas récupérer la clé de chiffrement, il échoue avec l’erreur « **Windows n’a pas pu démarrer Microsoft Azure AD Sync sur l’ordinateur local. Pour plus d’informations, consultez le journal des événements système. **S’il s’agit d’un service hors Microsoft, contactez le fournisseur de services et faites référence au code d’erreur propre au service \*\*-21451857952**\*\*.”
 - Dans l’observateur d’événements Windows, le journal des événements contient une erreur avec **l’ID d’événement 6028** et le message d’erreur *”**La clé de chiffrement du serveur n’est pas accessible.**”*
 
 Pour vous assurer que vous ne recevez pas ces erreurs, suivez les procédures de [Abandon de la clé de chiffrement Azure AD Connect Sync](#abandoning-the-azure-ad-connect-sync-encryption-key) lorsque vous modifiez le mot de passe.
@@ -59,6 +59,8 @@ Utilisez les procédures suivantes pour abandonner la clé de chiffrement.
 
 Si vous souhaitez abandonner la clé de chiffrement, procédez comme suit.
 
+1. [Arrêter le service de synchronisation](#stop-the-synchronization-service)
+
 1. [Abandonner la clé de chiffrement existante](#abandon-the-existing-encryption-key)
 
 2. [Fournir le mot de passe du compte AD DS](#provide-the-password-of-the-ad-ds-account)
@@ -66,6 +68,13 @@ Si vous souhaitez abandonner la clé de chiffrement, procédez comme suit.
 3. [Réinitialiser le mot de passe du compte Azure AD Sync](#reinitialize-the-password-of-the-azure-ad-sync-account)
 
 4. [Lancer le service de synchronisation](#start-the-synchronization-service)
+
+#### <a name="stop-the-synchronization-service"></a>Arrêter le service de synchronisation
+Tout d’abord, vous pouvez arrêter le service dans le Gestionnaire de contrôle des services Windows.  Vérifiez que le service n’est pas en cours d’exécution lorsque vous tentez de l’arrêter.  Dans le cas contraire, attendez qu’il finisse, puis arrêtez-le.
+
+
+1. Accédez au Gestionnaire de contrôle des services Windows (DÉMARRER → Services).
+2. Sélectionnez **Microsoft Azure AD Sync** et cliquez sur Arrêter.
 
 #### <a name="abandon-the-existing-encryption-key"></a>Abandon de la clé de chiffrement existante
 Abandonnez la clé de chiffrement existante pour que la nouvelle clé de chiffrement puisse être créée :

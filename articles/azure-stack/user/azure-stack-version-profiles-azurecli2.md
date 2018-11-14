@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 6042aa4dd8b26a0986737edc3c89b8e165ae970a
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 2c862dcaf5f9267265879faa8ac927ddf7515419
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49067701"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277271"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-in-azure-stack"></a>Utiliser des profils de version des API avec Azure CLI dans Azure Stack
 
@@ -139,6 +139,18 @@ Suivez les étapes ci-dessous pour vous connecter à Azure Stack :
         --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
         --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases>
       ```
+    c. Pour inscrire l’*utilisateur* dans un environnement mutualisé, utilisez :
+
+      ```azurecli
+      az cloud register \ 
+        -n AzureStackUser \ 
+        --endpoint-resource-manager "https://management.local.azurestack.external" \ 
+        --suffix-storage-endpoint "local.azurestack.external" \ 
+        --suffix-keyvault-dns ".vault.local.azurestack.external" \ 
+        --endpoint-vm-image-alias-doc <URI of the document which contains virtual machine image aliases> \
+        --endpoint-active-directory-resource-id=<URI of the ActiveDirectoryServiceEndpointResourceID> \
+        --profile 2018-03-01-hybrid
+      ```
 
 1. Définissez l’environnement actif avec les commandes suivantes.
 
@@ -223,7 +235,7 @@ Si la création du groupe de ressources réussit, la commande précédente affic
 Il existe certains problèmes connus dont vous devez prendre connaissance quand vous utilisez CLI dans Azure Stack :
 
  - Le mode interactif de l’interface CLI, c’est-à-dire la commande `az interactive`, n’est pas encore pris en charge dans Azure Stack.
- - Pour obtenir la liste des images de machines virtuelles disponibles dans Azure Stack, utilisez la commande `az vm images list --all` au lieu de la commande `az vm image list`. L’option `--all` permet de faire en sorte que la réponse retourne uniquement les images disponibles dans l’environnement Azure Stack.
+ - Pour obtenir la liste des images de machines virtuelles disponibles dans Azure Stack, utilisez la commande `az vm image list --all` au lieu de la commande `az vm image list`. L’option `--all` permet de faire en sorte que la réponse retourne uniquement les images disponibles dans l’environnement Azure Stack.
  - Les alias d’images de machines virtuelles disponibles dans Azure ne s’appliquent pas forcément à Azure Stack. Si vous utilisez des images de machines virtuelles, vous devez utiliser la totalité du paramètre URN (Canonical:UbuntuServer:14.04.3-LTS:1.0.0) plutôt que l’alias de l’image. Cet URN doit par ailleurs correspondre aux spécifications des images dérivées de la commande `az vm images list`.
 
 ## <a name="next-steps"></a>Étapes suivantes

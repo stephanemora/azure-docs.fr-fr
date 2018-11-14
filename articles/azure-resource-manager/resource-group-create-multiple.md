@@ -10,26 +10,26 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8828ba3c91df7b0a2fde3c42ecd81bd4ee4d17a3
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: e1edf0ed0c9efcb9f0c81718621706550bf3c4d7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295935"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012001"
 ---
-# <a name="deploy-multiple-instances-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Déployer plusieurs instances d’une ressource ou d’une propriété dans des modèles Azure Resource Manager
+# <a name="deploy-more-than-one-instance-of-a-resource-or-property-in-azure-resource-manager-templates"></a>Déployer plusieurs instances d’une ressource ou d’une propriété dans des modèles Azure Resource Manager
 
-Cet article explique comment procéder à une itération dans votre modèle Azure Resource Manager pour créer plusieurs instances d’une ressource. Si vous devez spécifier si une ressource est déployée, consultez la page relative à l’[élément Condition](resource-manager-templates-resources.md#condition).
+Cet article explique comment créer plusieurs instances d’une ressource par itérations dans un modèle Azure Resource Manager. Si vous devez spécifier si une ressource est déployée, consultez la page relative à l’[élément Condition](resource-manager-templates-resources.md#condition).
 
 Pour un didacticiel, consultez [Tutoriel : créer plusieurs instances de ressources à l’aide de modèles Resource Manager](./resource-manager-tutorial-create-multiple-instances.md).
 
 ## <a name="resource-iteration"></a>Itération de ressource
 
-Quand vous devez décider au cours du déploiement s’il faut créer une ou plusieurs instances d’une ressource, ajoutez un élément `copy` au type de ressource. Dans l’élément copy, vous indiquez le nombre d’itérations et un nom pour cette boucle. La valeur de décompte doit être un entier positif et ne pas dépasser 800. 
+Quand vous devez décider au cours du déploiement s’il faut créer une ou plusieurs instances d’une ressource, ajoutez un élément `copy` au type de ressource. Dans l’élément copy, vous indiquez le nombre d’itérations et un nom pour cette boucle. La valeur count doit être un entier positif inférieur ou égal à 800. 
 
-La ressource à créer plusieurs fois prend le format suivant :
+La ressource à créer plusieurs fois est au format suivant :
 
 ```json
 {
@@ -111,7 +111,7 @@ Crée les noms suivants :
 * storagefabrikam
 * storagecoho
 
-Par défaut, Resource Manager crée les ressources en parallèle. Par conséquent, l’ordre de création n’est pas garanti. Toutefois, vous souhaiterez peut-être spécifier que les ressources soient déployées en séquence. Par exemple, lors de la mise à jour d’un environnement de production, vous souhaiterez échelonner les mises à jour afin que seulement un certain nombre soient mises à jour à un moment donné.
+Par défaut, Resource Manager crée les ressources en parallèle. L’ordre de création n’est pas garanti. Toutefois, vous souhaiterez peut-être spécifier que les ressources soient déployées en séquence. Par exemple, lors de la mise à jour d’un environnement de production, vous souhaiterez échelonner les mises à jour afin que seulement un certain nombre soient mises à jour à un moment donné.
 
 Pour déployer en série plusieurs instances d’une ressource, affectez à `mode` la valeur **serial** et à `batchSize` le nombre d’instances à déployer à la fois. Avec le mode série, Resource Manager crée une dépendance sur les instances précédentes de la boucle, afin de ne pas démarrer un lot tant que le précédent n’est pas terminé.
 
@@ -148,10 +148,10 @@ La propriété mode accepte également **parallel**, qui est la valeur par défa
 
 ## <a name="property-iteration"></a>Itération de propriété
 
-Pour créer des valeurs multiples pour une propriété sur une ressource, ajoutez un tableau `copy` dans l’élément Propriétés. Ce tableau contient des objets possédant tous les propriétés suivantes :
+Pour créer plusieurs valeurs pour une propriété sur une ressource, ajoutez un tableau `copy` dans l’élément properties. Ce tableau contient des objets possédant tous les propriétés suivantes :
 
-* name : nom de la propriété pour laquelle créer plusieurs valeurs
-* count : nombre de valeurs à créer
+* name : nom de la propriété pour laquelle plusieurs valeurs seront créées
+* count : nombre de valeurs à créer. La valeur count doit être un entier positif inférieur ou égal à 800.
 * input : objet contenant les valeurs à assigner à la propriété  
 
 L’exemple suivant montre comment appliquer `copy` à la propriété dataDisks sur une machine virtuelle :
@@ -381,7 +381,7 @@ Vous spécifiez qu’une ressource est déployée après une autre ressource à 
 <a id="looping-on-a-nested-resource" />
 
 ## <a name="iteration-for-a-child-resource"></a>Itération d’une ressource enfant
-Vous ne pouvez pas utiliser une boucle de copie pour une ressource enfant. Pour créer plusieurs instances d’une ressource que vous définissez généralement comme imbriquée dans une autre ressource, vous devez plutôt créer cette ressource comme une ressource de niveau supérieur. Vous définissez la relation avec la ressource parente par le biais des propriétés type et name.
+Vous ne pouvez pas utiliser une boucle de copie pour une ressource enfant. Pour créer plusieurs instances d’une ressource que l’on définit en général comme imbriquée dans une autre ressource, vous devez au contraire la créer sous la forme d’une ressource de premier niveau. Vous définissez la relation avec la ressource parente par le biais des propriétés type et name.
 
 Par exemple, supposons que vous définissez généralement un jeu de données comme une ressource enfant dans une fabrique de données.
 
@@ -403,7 +403,7 @@ Par exemple, supposons que vous définissez généralement un jeu de données co
 }]
 ```
 
-Pour créer plusieurs instances de jeux de données, vous devez le déplacer en dehors de la fabrique de données. Le jeu de données doit être au même niveau que la fabrique de données, mais il est toujours une ressource enfant de la fabrique de données. Vous conservez la relation entre le jeu de données et la fabrique de données par le biais des propriétés type et name. Étant donné que le type ne peut plus peut être déduit à partir de sa position dans le modèle, vous devez fournir le type qualifié complet au format : `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
+Pour créer plusieurs jeux de données, déplacez-le en dehors de la fabrique de données. Le jeu de données doit être au même niveau que la fabrique de données, mais il est toujours une ressource enfant de la fabrique de données. Vous conservez la relation entre le jeu de données et la fabrique de données par le biais des propriétés type et name. Étant donné que le type ne peut plus peut être déduit à partir de sa position dans le modèle, vous devez fournir le type qualifié complet au format : `{resource-provider-namespace}/{parent-resource-type}/{child-resource-type}`.
 
 Pour établir une relation parent/enfant avec une instance de la fabrique de données, fournissez un nom pour le jeu de données incluant le nom de la ressource parente. Utilisez le format : `{parent-resource-name}/{child-resource-name}`.  
 
@@ -432,12 +432,12 @@ L’exemple ci-après illustre l’implémentation :
 
 ## <a name="example-templates"></a>Exemples de modèles
 
-Les exemples suivants montrent des scénarios courants pour la création de plusieurs propriétés ou ressources.
+Les exemples suivants montrent des scénarios courants de création de plusieurs instances d’une ressource ou d’une propriété.
 
 |Modèle  |Description  |
 |---------|---------|
-|[Copie de stockage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Déploie plusieurs comptes de stockage avec un numéro d’index dans le nom. |
-|[Copie de stockage en série](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Déploie plusieurs comptes de stockage un à la fois. Le nom inclut le numéro d’index. |
+|[Copie de stockage](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |Déploie plusieurs comptes de stockage dont le nom comporte un numéro d’index . |
+|[Copie de stockage en série](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |Déploie plusieurs comptes de stockage un par un. Le nom inclut le numéro d’index. |
 |[Copie de stockage avec tableau](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystoragewitharray.json) |Déploie plusieurs comptes de stockage. Le nom contient une valeur tirée d’un tableau. |
 |[Déploiement de machine virtuelle avec un nombre variable de disques de données](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-windows-copy-datadisks) |Déploie plusieurs disques de données avec une machine virtuelle. |
 |[Copie de variables](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copyvariables.json) |Illustre les différentes façons d’itérer sur des variables. |

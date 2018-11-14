@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2018
+ms.date: 11/05/2018
 ms.author: jingwang
-ms.openlocfilehash: 51cacb385f28cf70a65b9c0e1c14d48e22be0a4d
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: ca12c7a3fe8a5ade8cf0e4ce00977bdcc9a300a6
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37051108"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007652"
 ---
 # <a name="copy-data-from-google-bigquery-by-using-azure-data-factory"></a>Copier des données à partir de Google BigQuery avec Azure Data Factory
 
@@ -28,7 +28,10 @@ Cet article décrit comment utiliser l’activité de copie dans Azure Data Fact
 
 Vous pouvez copier les données depuis Google BigQuery vers toute banque de données réceptrice prise en charge. Pour obtenir la liste des banques de données prises en charge en tant que sources ou récepteurs par l’activité de copie, consultez le tableau [banques de données prises en charge](copy-activity-overview.md#supported-data-stores-and-formats).
 
- Data Factory fournit un pilote intégré pour permettre la connectivité. Vous n’avez donc pas besoin d’installer manuellement un pilote pour utiliser ce connecteur.
+Data Factory fournit un pilote intégré pour permettre la connectivité. Vous n’avez donc pas besoin d’installer manuellement un pilote pour utiliser ce connecteur.
+
+>[!NOTE]
+>Ce connecteur Google BigQuery repose sur les API BigQuery. N’oubliez pas que BigQuery limite le taux maximal de requêtes entrantes et applique des quotas appropriés sur une base par projet. Reportez-vous à [Quotas et limites - requêtes d’API](https://cloud.google.com/bigquery/quotas#api_requests). Assurez-vous que vous ne déclenchez pas trop de demandes simultanées pour le compte.
 
 ## <a name="get-started"></a>Prise en main
 
@@ -42,11 +45,11 @@ Les propriétés prises en charge pour le service lié Google BigQuery sont les 
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type doit être définie sur **GoogleBigQuery**. | OUI |
-| project | L’ID du projet BigQuery par défaut sur lequel exécuter la requête.  | OUI |
+| Type | La propriété type doit être définie sur **GoogleBigQuery**. | Oui |
+| project | L’ID du projet BigQuery par défaut sur lequel exécuter la requête.  | Oui |
 | additionalProjects | Liste séparée par des virgules des ID de projets BigQuery publics accessibles.  | Non  |
 | requestGoogleDriveScope | Pour demander l’accès à Google Drive. Autoriser l’accès à Google Drive active la prise en charge des tables fédérées qui combinent les données BigQuery avec les données issues de Google Drive. La valeur par défaut est **false**.  | Non  |
-| authenticationType | Mécanisme d’authentification OAuth 2.0 utilisé pour l’authentification. ServiceAuthentication ne peut être utilisé que sur un runtime d’intégration auto-hébergé. <br/>Les valeurs autorisées sont **UserAuthentication** et **ServiceAuthentication**. Reportez-vous aux sections suivant ce tableau pour accéder à d’autres propriétés et à des exemples JSON sur ces types d’authentification. | OUI |
+| authenticationType | Mécanisme d’authentification OAuth 2.0 utilisé pour l’authentification. ServiceAuthentication ne peut être utilisé que sur un runtime d’intégration auto-hébergé. <br/>Les valeurs autorisées sont **UserAuthentication** et **ServiceAuthentication**. Reportez-vous aux sections suivant ce tableau pour accéder à d’autres propriétés et à des exemples JSON sur ces types d’authentification. | Oui |
 
 ### <a name="using-user-authentication"></a>Utiliser l’authentification utilisateur
 
@@ -148,8 +151,8 @@ Pour copier des données à partir de Google BigQuery, définissez le type de so
 
 | Propriété | Description | Obligatoire |
 |:--- |:--- |:--- |
-| Type | La propriété type de la source d’activité de copie doit être définie sur **GoogleBigQuerySource**. | OUI |
-| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | OUI |
+| Type | La propriété type de la source d’activité de copie doit être définie sur **GoogleBigQuerySource**. | Oui |
+| query | Utiliser la requête SQL personnalisée pour lire les données. Par exemple `"SELECT * FROM MyTable"`. | Oui |
 
 **Exemple :**
 

@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/19/2018
 ms.author: laviswa
-ms.openlocfilehash: 33614628926e53354db14886530d7ca44da61f0a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 762997492d18e9b14525dc6a196f98815f27fbbb
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42140700"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979503"
 ---
 # <a name="azure-cosmos-db-sql-syntax-reference"></a>Référence sur la syntaxe SQL Azure Cosmos DB
 
@@ -483,7 +483,7 @@ ORDER BY <sort_specification>
   
  **Opérateurs unaires :**  
   
-|**Name**|**Opérateur**|**Détails**|  
+|**Nom**|**Opérateur**|**Détails**|  
 |-|-|-|  
 |**Opérateurs arithmétiques**|+<br /><br /> -|Retourne la valeur de nombre.<br /><br /> Négation au niveau du bit. Retourne une valeur numérique avec négation.|  
 |**Opérateurs au niveau du bit**|~|Complément d’une valeur. Retourne un complément d’une valeur numérique.|  
@@ -491,11 +491,11 @@ ORDER BY <sort_specification>
   
  **Opérateurs binaires :**  
   
-|**Name**|**Opérateur**|**Détails**|  
+|**Nom**|**Opérateur**|**Détails**|  
 |-|-|-|  
 |**Opérateurs arithmétiques**|+<br /><br /> -<br /><br /> *<br /><br /> /<br /><br /> %|Addition.<br /><br /> Soustraction.<br /><br /> Multiplication.<br /><br /> Division.<br /><br /> Modulation.|  
 |**Opérateurs au niveau du bit**|&#124;<br /><br /> &<br /><br /> ^<br /><br /> <<<br /><br /> >><br /><br /> >>>|Opérateur OR au niveau du bit.<br /><br /> Opérateur AND au niveau du bit.<br /><br /> XOR au niveau du bit.<br /><br /> Décalage vers la gauche.<br /><br /> Décalage vers la droite.<br /><br /> Décalage vers la droite avec remplissage de zéros.|  
-|**Opérateurs logiques**|**AND**<br /><br /> **OU**|Conjonction logique. Retourne **true** si les deux arguments sont **true**, retourne **false** dans le cas contraire.<br /><br /> Conjonction logique. Retourne **true** si les deux arguments sont **true**, retourne **false** dans le cas contraire.|  
+|**Opérateurs logiques**|**AND**<br /><br /> **OR**|Conjonction logique. Retourne **true** si les deux arguments sont **true**, retourne **false** dans le cas contraire.<br /><br /> Conjonction logique. Retourne **true** si les deux arguments sont **true**, retourne **false** dans le cas contraire.|  
 |**Opérateurs de comparaison**|**=**<br /><br /> **!=, &lt;&gt;**<br /><br /> **>**<br /><br /> **>=**<br /><br /> **<**<br /><br /> **<=**<br /><br /> **??**|Égal à. Retourne **true** si les arguments sont égaux, **false** dans le cas contraire.<br /><br /> Non égal à. Retourne **true** si les arguments ne sont pas égaux, **false** dans le cas contraire.<br /><br /> Supérieur à. Retourne **true** si le premier argument est supérieur au second, **false** dans le cas contraire.<br /><br /> Supérieur ou égal à. Retourne **true** si le premier argument est supérieur ou égal au second, **false** dans le cas contraire.<br /><br /> Inférieur à. Retourne **true** si le premier argument est inférieur au second, **false** dans le cas contraire.<br /><br /> Inférieur ou égal à. Retourne **true** si le premier argument est inférieur ou égal au second, **false** dans le cas contraire.<br /><br /> Coalesce. Retourne le deuxième argument si le premier argument est une valeur **Undefined**.|  
 |**Chaîne**|**&amp;#124;&amp;#124;**|Concaténation. Renvoie une concaténation de deux arguments.|  
   
@@ -2656,20 +2656,30 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
 -   `num_expr`  
   
-     Est une expression numérique valide.  
-  
+     Index numérique de base zéro à partir duquel commencer le tableau. Des valeurs négatives peuvent être utilisées pour spécifier l’index de départ par rapport au dernier élément du tableau, -1, par exemple, référence le dernier élément dans le tableau.  
+
+-   `num_expr`  
+
+     Nombre maximal d’éléments dans le tableau obtenu.    
+
  **Types de retour**  
   
- Retourne une valeur booléenne.  
+ Retourne une expression de tableau.  
   
  **Exemples**  
   
- L’exemple suivant comment obtenir une partie d’un tableau avec ARRAY_SLICE.  
+ L’exemple suivant montre comment obtenir différentes tranches d’un tableau avec ARRAY_SLICE.  
   
 ```  
 SELECT   
            ARRAY_SLICE(["apples", "strawberries", "bananas"], 1),  
-           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1)  
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 1),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], -2, 2),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 0),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, 1000),
+           ARRAY_SLICE(["apples", "strawberries", "bananas"], 1, -100)      
+  
 ```  
   
  Voici le jeu de résultats obtenu.  
@@ -2677,10 +2687,15 @@ SELECT
 ```  
 [{  
            "$1": ["strawberries", "bananas"],   
-           "$2": ["strawberries"]  
-       }]  
+           "$2": ["strawberries"],
+           "$3": ["strawberries"],  
+           "$4": ["strawberries", "bananas"], 
+           "$5": [],
+           "$6": ["strawberries", "bananas"],
+           "$7": [] 
+}]  
 ```  
-  
+ 
 ###  <a name="bk_spatial_functions"></a> Fonctions spatiales  
  Les fonctions scalaires suivantes effectuent une opération sur une valeur d’entrée de chaîne et retournent une valeur d’entrée d’objet spatial, une valeur numérique ou une valeur booléenne.  
   

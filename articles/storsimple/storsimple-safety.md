@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/16/2016
 ms.author: alkohli
-ms.openlocfilehash: a178e8880bcbcada9d66eaacf5ccbdb7c55957cb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 1be635826edbb60d50b06cc7c529e32b6280390b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23109927"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51249385"
 ---
 # <a name="safely-install-and-operate-your-storsimple-device"></a>Installer et utiliser en toute sécurité votre appareil StorSimple
 ![Icône Avertissement](./media/storsimple-safety/IC740879.png)
 ![Icône Lire l’avis de sécurité](./media/storsimple-safety/IC740885.png)**LIRE LES INFORMATIONS SUR LA SANTÉ ET LA SÉCURITÉ**
 
-Prenez connaissance de toutes les informations sur la santé et la sécurité relatives à votre appareil Microsoft Azure StorSimple présentées dans cet article. Conservez tous les guides imprimés fournis avec votre appareil StorSimple pour pouvoir vous y reporter ultérieurement. Le non-respect des instructions et une configuration, une utilisation et un entretien inappropriés de ce produit peuvent augmenter le risque de blessure grave ou de mort, ou de dommages à l’appareil ou à d’autres appareils. Une [version téléchargeable de ce guide](http://www.microsoft.com/download/details.aspx?id=44233) est également disponible.
+Prenez connaissance de toutes les informations sur la santé et la sécurité relatives à votre appareil Microsoft Azure StorSimple présentées dans cet article. Conservez tous les guides imprimés fournis avec votre appareil StorSimple pour pouvoir vous y reporter ultérieurement. Le non-respect des instructions et une configuration, une utilisation et un entretien inappropriés de ce produit peuvent augmenter le risque de blessure grave ou de mort, ou de dommages à l’appareil ou à d’autres appareils. Une [version téléchargeable de ce guide](https://www.microsoft.com/download/details.aspx?id=44233) est également disponible.
 
 ## <a name="safety-icon-conventions"></a>Conventions des icônes de sécurité
 Voici les icônes utilisées dans les précautions de sécurité à observer lors de la configuration et de l’exécution de votre appareil Microsoft Azure StorSimple.
@@ -52,7 +52,7 @@ Pour réduire le risque de blessure :
 * Ne soulevez pas le boîtier à l’aide des poignées des modules d’alimentation et de refroidissement (PCM) situées à l’arrière de l’unité. Elles ne sont pas conçues pour supporter le poids du boîtier.
 
 ## <a name="connection-precautions"></a>Précautions relatives au branchement
-![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png)**AVERTISSEMENT !**
+![Warning Icon](./media/storsimple-safety/IC740879.png)![Electrical Shock Icon](./media/storsimple-safety/IC740882.png)**AVERTISSEMENT !**
 
 Pour réduire le risque de blessure, d’électrocution ou de mort :
 
@@ -62,7 +62,7 @@ Pour réduire le risque de blessure, d’électrocution ou de mort :
 * Veillez toujours à débrancher l’alimentation avant de retirer un PCM du boîtier.
 * La prise du cordon d’alimentation étant le moyen principal de débrancher l’alimentation, assurez-vous que les prises de courant sont situées à proximité du matériel et facilement accessibles.
 
-![Icône Avertissement](./media/storsimple-safety/IC740879.png)![Icône Risque d’électrocution](./media/storsimple-safety/IC740882.png)**AVERTISSEMENT !**
+![Warning Icon](./media/storsimple-safety/IC740879.png)![Electrical Shock Icon](./media/storsimple-safety/IC740882.png)**AVERTISSEMENT !**
 
 Pour réduire le risque de surchauffe ou d’incendie dû aux branchements électriques :
 

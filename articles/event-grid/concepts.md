@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2a288cdb96a1e1ff7e261d4782f7e02aee12868f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89f0f5847f157cff59a57f7958508e4f260355c3
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621199"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747556"
 ---
 # <a name="concepts-in-azure-event-grid"></a>Concepts utilisés dans Azure Event Grid
 
@@ -48,7 +48,7 @@ Lorsque vous concevez votre application, vous pouvez choisir le nombre de rubriq
 
 ## <a name="event-subscriptions"></a>Abonnements à des événements
 
-Un abonnement indique à Event Grid quels événements sur une rubrique vous souhaitez recevoir. Lors de la création de l’abonnement, vous spécifiez un point de terminaison pour la gestion de l’événement. Vous pouvez filtrer les événements qui sont envoyés au point de terminaison. Vous pouvez filtrer par type d’événement, ou modèle d’objet. Pour plus d’informations, consultez [Schéma d’abonnement à Event Grid](subscription-creation-schema.md).
+Un abonnement indique à Event Grid quels événements vous souhaitez recevoir sur une rubrique. Lors de la création de l’abonnement, vous spécifiez un point de terminaison pour la gestion de l’événement. Vous pouvez filtrer les événements qui sont envoyés au point de terminaison. Vous pouvez filtrer par type d’événement, ou modèle d’objet. Pour plus d’informations, consultez [Schéma d’abonnement à Event Grid](subscription-creation-schema.md).
 
 Pour obtenir des exemples de création d’abonnements, consultez :
 
@@ -58,9 +58,17 @@ Pour obtenir des exemples de création d’abonnements, consultez :
 
 Pour plus d’informations sur l’obtention de vos abonnements Event Grid actuels, consultez [Interroger les abonnements Event Grid](query-event-subscriptions.md).
 
+## <a name="event-subscription-expiration"></a>Expiration de l’abonnement aux événements
+
+[L’extension Event Grid](/cli/azure/azure-cli-extensions-list) pour Azure CLI permet de définir une date d’expiration lors de la création d’un abonnement aux événements. Si vous vous servez de l’API REST, utilisez `api-version=2018-09-15-preview`.
+
+L’abonnement aux événements expire automatiquement après cette date. Définissez une expiration pour les abonnements aux événements qui ne sont nécessaires que pour une durée limitée et que vous ne souhaitez pas avoir à nettoyer ; par exemple, si vous créez un abonnement aux événements pour tester un scénario. 
+
+Pour un exemple de configuration d’une expiration, voir [S’abonner avec des filtres avancés](how-to-filter-events.md#subscribe-with-advanced-filters).
+
 ## <a name="event-handlers"></a>Gestionnaires d’événements
 
-Pour Event Grid, un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Event Grid prend en charge plusieurs types de gestionnaires. Vous pouvez utiliser un service Azure pris en charge ou votre propre webhook comme gestionnaire. En fonction du type de gestionnaire, Event Grid suit différents mécanismes pour garantir la distribution de l’événement. Pour les gestionnaires d’événements HTTP Webhook, l’exécution de l’événement est retentée jusqu'à ce que le gestionnaire renvoie un code d’état de `200 – OK`. Pour la file d’attente de stockage Azure, l’exécution des événements est retentée jusqu'à ce que le service de file d’attente soit en mesure de traiter correctement la transmission de type push du message dans la file d’attente.
+Pour Event Grid, un gestionnaire d’événements désigne l’endroit où l’événement est envoyé. Le gestionnaire effectue des actions supplémentaires pour traiter l’événement. Event Grid prend en charge plusieurs types de gestionnaires. Vous pouvez utiliser un service Azure pris en charge ou votre propre webhook comme gestionnaire. En fonction du type de gestionnaire, Event Grid suit différents mécanismes pour garantir la distribution de l’événement. Pour les gestionnaires d’événements HTTP Webhook, l’exécution de l’événement est retentée jusqu'à ce que le gestionnaire renvoie un code d’état de `200 – OK`. Dans le cas de la file d’attente de Stockage Azure, l’exécution des événements est retentée jusqu’à ce que le service de File d’attente traite correctement la transmission de type push du message dans la file d’attente.
 
 Pour plus d’informations sur l’implémentation d’un gestionnaire Event Grid pris en charge, consultez [Gestionnaires d’événements dans Azure Event Grid](event-handlers.md).
 
@@ -74,7 +82,7 @@ Si Event Grid ne peut pas confirmer qu’un événement a été reçu par le poi
 
 ## <a name="batching"></a>Traitement par lot
 
-Quand vous utilisez une rubrique personnalisée, les événements doivent toujours être publiés dans un tableau. Il peut s’agir d’un lot de un pour les scénarios à faible débit. Toutefois, pour les cas d’utilisation à volume élevé, il est recommandé de regrouper dans un lot plusieurs événements par publication pour améliorer l’efficacité. La taille maximale d’un lot est de 1 Mo. Chaque événement ne doit pas dépasser 64 Ko.
+Quand vous utilisez une rubrique personnalisée, les événements doivent toujours être publiés dans un tableau. Il peut s’agir d’un lot de un pour les scénarios à faible débit. Toutefois, dans les cas d’utilisation à volume élevé, il est recommandé de regrouper dans un lot plusieurs événements par publication afin d’améliorer l’efficacité. La taille maximale d’un lot est de 1 Mo. Un événement ne doit pas dépasser 64 Ko.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

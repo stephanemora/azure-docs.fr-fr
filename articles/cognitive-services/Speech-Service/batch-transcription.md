@@ -1,5 +1,5 @@
 ---
-title: API de transcription Azure Batch
+title: Utilisation de l’API de transcription Azure Batch
 titlesuffix: Azure Cognitive Services
 description: Exemples de transcription de grands volumes de contenu audio.
 services: cognitive-services
@@ -10,33 +10,31 @@ ms.component: speech-service
 ms.topic: conceptual
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: e7523bf97d6252422ebb853b818453c935640f50
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: cd57e9a90b07447392fbff48017bb29f002ad29e
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49648800"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035949"
 ---
-# <a name="batch-transcription"></a>Transcription Batch
+# <a name="use-batch-transcription"></a>Utiliser la transcription Batch
 
-La transcription Batch est idéale si vous stockez d’importants volumes de données audio. Avec notre API Rest, vous pouvez pointer vers des fichiers audio par URI SAS et recevoir les transcriptions de manière asynchrone.
+La transcription Batch est idéale si vous stockez d’importants volumes de données audio. Avec l’API Rest, vous pouvez pointer vers des fichiers audio par URI SAS et recevoir les transcriptions de manière asynchrone.
 
-## <a name="batch-transcription-api"></a>API de transcription Batch
+## <a name="the-batch-transcription-api"></a>L’API de transcription Batch
 
-L’API de transcription Batch offre une transcription de parole en texte asynchrone, ainsi que des fonctionnalités supplémentaires. Il s’agit d’une API REST présentant des méthodes pour :
+L’API de transcription Batch offre une transcription de parole en texte asynchrone, ainsi que des fonctionnalités supplémentaires. Il s’agit d’une API REST qui expose des méthodes pour :
 
 1. Créer des demandes de traitement par lots
-
-2. Interroger l’état 
-
-3. Télécharger des transcriptions
+1. Interroger l’état 
+1. Téléchargement des transcriptions
 
 > [!NOTE]
-> L’API de transcription Batch constitue la solution idéale pour les centres d’appels qui accumulent généralement plusieurs milliers d’heures de données audio. L’API est guidée par une philosophie de type « Fire & Forget » (fonctionnement autonome après déclenchement), facilitant la transcription d’importants volumes d’enregistrements audio.
+> L’API de transcription Batch est la solution idéale pour les centres d’appels qui accumulent généralement plusieurs milliers d’heures de données audio. L’API est guidée par une philosophie de type « Fire & Forget » (fonctionnement autonome après déclenchement), facilitant la transcription d’importants volumes d’enregistrements audio.
 
 ### <a name="supported-formats"></a>Formats pris en charge
 
-L’API de transcription Batch prend en charge les formats suivants :
+L’API de transcription Batch prend en charge les formats suivants :
 
 NOM| Canal  |
 ----|----------|
@@ -44,22 +42,22 @@ mp3 |   Mono   |
 mp3 |  Stéréo  | 
 wav |   Mono   |
 wav |  Stéréo  |
+opus|   Mono   |
+opus|  Stéréo  |
 
-Dans le cas des flux audio stéréo, l’API de transcription Batch fractionne les canaux gauche et droit lors de la transcription. Elle crée deux fichiers JSON contenant le résultat relatif à chacun de ces deux canaux. Les timestamps par énoncé permettent au développeur de créer une transcription finale ordonnée chronologiquement. L’exemple JSON ci-après illustre la sortie d’un canal.
+Dans le cas des flux audio stéréo, l’API de transcription Batch fractionne les canaux gauche et droit lors de la transcription. Elle crée deux fichiers JSON contenant le résultat relatif à chacun de ces deux canaux. Les timestamps par énoncé permettent au développeur de créer une transcription finale ordonnée chronologiquement. La sortie d’un canal, y compris les propriétés pour configurer le filtre d’obscénités et le modèle de ponctuation, est illustrée dans l’exemple JSON suivant :
 
 ```json
-       {
-        "recordingsUrl": "https://mystorage.blob.core.windows.net/cris-e2e-datasets/TranscriptionsDataset/small_sentence.wav?st=2018-04-19T15:56:00Z&se=2040-04-21T15:56:00Z&sp=rl&sv=2017-04-17&sr=b&sig=DtvXbMYquDWQ2OkhAenGuyZI%2BYgaa3cyvdQoHKIBGdQ%3D",
-        "resultsUrls": {
-            "channel_0": "https://mystorage.blob.core.windows.net/bestor-87a0286f-304c-4636-b6bd-b3a96166df28/TranscriptionData/24265e4c-e459-4384-b572-5e3e7795221f?sv=2017-04-17&sr=b&sig=IY2qd%2Fkgtz2PwRe2C88BphH4Hv%2F1VCb1UVJ33xsw%2BEY%3D&se=2018-04-23T14:48:24Z&sp=r"
-        },
-        "statusMessage": "None.",
-        "id": "0bb95356-ff06-469d-acc7-81f9144a269a",
-        "createdDateTime": "2018-04-20T14:11:57.167",
-        "lastActionDateTime": "2018-04-20T14:12:54.643",
-        "status": "Succeeded",
-        "locale": "en-US"
-    },
+{
+  "recordingsUrl": "https://contoso.com/mystoragelocation",
+  "models": [],
+  "locale": "en-US",
+  "name": "Transcription using locale en-US",
+  "description": "An optional description of the transcription.",
+  "properties": {
+    "ProfanityFilterMode": "Masked",
+    "PunctuationMode": "DictatedAndAutomatic"
+  },
 ```
 
 > [!NOTE]
@@ -67,28 +65,28 @@ Dans le cas des flux audio stéréo, l’API de transcription Batch fractionne l
 
 ## <a name="authorization-token"></a>Jeton d’autorisation
 
-Comme pour toutes les fonctionnalités du Service Speech, créez une clé d’abonnement à partir du [Portail Azure](https://portal.azure.com) en suivant les instructions du [guide de démarrage rapide](get-started.md). Si vous souhaitez obtenir des transcriptions de nos modèles de base, c’est tout ce que vous avez besoin de faire. 
+Comme pour toutes les fonctionnalités du service Speech, créez une clé d’abonnement à partir du [Portail Azure](https://portal.azure.com) en suivant les instructions du [guide de démarrage rapide](get-started.md). Si vous souhaitez obtenir des transcriptions de nos modèles de base, la création de la clé est la seule opération à faire. 
 
-Si vous prévoyez de personnaliser et d’utiliser un modèle personnalisé, vous devez ajouter cette clé d’abonnement au portail de reconnaissance vocale personnalisée de la façon suivante :
+Si vous souhaitez personnaliser et utiliser un modèle personnalisé, ajoutez la clé d’abonnement au portail vocal personnalisé en procédant comme suit :
 
 1. Connectez-vous à [Custom Speech](https://customspeech.ai).
 
-2. Sélectionnez **Abonnements**.
+2. En haut à droite, sélectionnez **Abonnements**.
 
-3. Sélectionnez **Connect Existing Subscription** (Connecter un abonnement existant).
+3. Sélectionnez **Connecter un abonnement existant**.
 
-4. Ajoutez la clé d’abonnement et un alias dans la vue qui s’affiche.
+4. Dans la fenêtre qui s’affiche, ajoutez la clé d’abonnement et un alias.
 
-    ![Capture d’écran de la page Abonnements de discours personnalisé](media/stt/Subscriptions.jpg)
+    ![Fenêtre Ajouter un abonnement](media/stt/Subscriptions.jpg)
 
 5. Copiez et collez la clé dans l’exemple de code client ci-après.
 
 > [!NOTE]
-> Si vous prévoyez d’utiliser un modèle personnalisé, vous devrez également disposer de l’ID de ce modèle. Notez qu’il ne s’agit pas de l’ID de point de terminaison qui se trouve dans la vue des détails du point de terminaison. Il s’agit de l’ID de modèle que vous pouvez récupérer lorsque vous sélectionnez les détails du modèle.
+> Si vous prévoyez d’utiliser un modèle personnalisé, vous devrez également disposer de l’ID de ce modèle. Il ne s’agit pas de l’ID de point de terminaison qui se trouve dans la vue des détails du point de terminaison. Il s’agit de l’ID de modèle que vous pouvez récupérer lorsque vous sélectionnez les détails du modèle.
 
 ## <a name="sample-code"></a>Exemple de code
 
-Personnalisez l’exemple de code suivant avec une clé d’abonnement et une clé API. Cela vous permet d’obtenir un jeton du porteur.
+Personnalisez l’exemple de code suivant avec une clé d’abonnement et une clé API. Cette action vous permet d’obtenir un jeton du porteur.
 
 ```cs
      public static CrisClient CreateApiV2Client(string key, string hostName, int port)
@@ -103,7 +101,7 @@ Personnalisez l’exemple de code suivant avec une clé d’abonnement et une cl
         }
 ```
 
-Une fois le jeton obtenu, vous devez spécifier l’URI SAP qui pointe vers le fichier audio à transcrire. Le reste du code effectue une itération dans l’état et affiche les résultats. Il faut normalement configurer la clé, la région, les modèles à utiliser et l’association de sécurité, comme illustré dans l’extrait de code ci-dessous. Il faut ensuite instancier le client et la requête POST. 
+Après avoir obtenu le jeton, spécifiez l’URI SAS qui pointe vers le fichier audio qui nécessite une transcription. Le reste du code effectue une itération dans l’état et affiche les résultats. Dans un premier temps, vous configurez la clé, de la région, les modèles à utiliser et l’association de sécurité, comme illustré dans l’extrait de code suivant. Ensuite, vous instanciez le client et la demande POST. 
 
 ```cs
             private const string SubscriptionKey = "<your Speech subscription key>";
@@ -111,19 +109,19 @@ Une fois le jeton obtenu, vous devez spécifier l’URI SAP qui pointe vers le f
             private const int Port = 443;
     
             // SAS URI 
-            private const string RecordingsBlobUri = "some SAS URI";
+            private const string RecordingsBlobUri = "SAS URI pointing to the file in Azure Blob Storage";
 
             // adapted model Ids
-            private static Guid AdaptedAcousticId = new Guid("some guid");
-            private static Guid AdaptedLanguageId = new Guid("some guid");
+            private static Guid AdaptedAcousticId = new Guid("guid of the acoustic adaptation model");
+            private static Guid AdaptedLanguageId = new Guid("guid of the language model");
 
-            // Creating a Batch transcription API Client
+            // Creating a Batch Transcription API Client
             var client = CrisClient.CreateApiV2Client(SubscriptionKey, HostName, Port);
             
             var transcriptionLocation = await client.PostTranscriptionAsync(Name, Description, Locale, new Uri(RecordingsBlobUri), new[] { AdaptedAcousticId, AdaptedLanguageId }).ConfigureAwait(false);
 ```
 
-Maintenant que la requête a été effectuée, l’utilisateur peut interroger et télécharger les résultats de la transcription comme le montre l’extrait de code.
+Maintenant que vous avez effectué la demande, vous pouvez interroger et télécharger les résultats de la transcription, comme illustré dans l’extrait de code suivant :
 
 ```cs
   
@@ -141,13 +139,13 @@ Maintenant que la requête a été effectuée, l’utilisateur peut interroger e
                             // we check to see if it was one of the transcriptions we created from this client.
                         if (!createdTranscriptions.Contains(transcription.Id))
                         {
-                            // not creted form here, continue
+                            // not created from here, continue
                             continue;
                         }
                             
                         completed++;
                             
-                        // if the transcription was successfull, check the results
+                        // if the transcription was successful, check the results
                         if (transcription.Status == "Succeeded")
                         {
                             var resultsUri = transcription.ResultsUrls["channel_0"];
@@ -155,7 +153,7 @@ Maintenant que la requête a été effectuée, l’utilisateur peut interroger e
                             var filename = Path.GetTempFileName();
                             webClient.DownloadFile(resultsUri, filename);
                             var results = File.ReadAllText(filename);
-                            Console.WriteLine("Transcription succedded. Results: ");
+                            Console.WriteLine("Transcription succeeded. Results: ");
                             Console.WriteLine(results);
                         }
                     
@@ -173,30 +171,30 @@ Maintenant que la requête a été effectuée, l’utilisateur peut interroger e
         }
 ```
 
-Notre [document Swagger](https://westus.cris.ai/swagger/ui/index) présente en détails les appels ci-dessus. L’exemple complet présenté ici est disponible sur [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+Pour plus d’informations sur les appels précédents, consultez notre [document swagger](https://westus.cris.ai/swagger/ui/index). L’exemple complet présenté ici est disponible sur [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
 > Dans le code précédent, la clé d’abonnement provient de la ressource Speech que vous créez dans le Portail Azure. Les clés obtenues à partir de la ressource Custom Speech Service ne fonctionnent pas.
 
-Notez la configuration asynchrone concernant la publication des données audio et la réception de l’état de la transcription. Le client créé est un client http .NET. Le code utilise une méthode `PostTranscriptions` pour l’envoi des détails du fichier audio, et une méthode `GetTranscriptions` pour la réception des résultats. `PostTranscriptions` renvoie un descripteur, et `GetTranscriptions` l’utilise pour créer un descripteur permettant d’obtenir l’état de la transcription.
+Notez la configuration asynchrone concernant la publication des données audio et la réception de l’état de la transcription. Le client que vous créez est un client HTTP .NET. Il existe une méthode `PostTranscriptions` pour l’envoi des détails du fichier audio, et une méthode `GetTranscriptions` pour la réception des résultats. `PostTranscriptions` renvoie un descripteur et `GetTranscriptions` l’utilise pour créer un descripteur permettant d’obtenir l’état de la transcription.
 
-L’exemple de code actuel ne spécifie aucun modèle personnalisé. Le service utilise les modèles de base pour la transcription du ou des fichiers. Pour spécifier les modèles, vous pouvez transmettre à la même méthode les ID du modèle acoustique et du modèle de langage. 
+L’exemple de code actuel ne spécifie pas de modèle personnalisé. Le service utilise les modèles de base pour la transcription du ou des fichiers. Pour spécifier les modèles, vous pouvez transmettre à la même méthode les ID du modèle acoustique et du modèle de langage. 
 
-Si vous ne voulez pas utiliser le modèle de base, vous devez transmettre à la fois l’ID du modèle acoustique et l’ID du modèle de langage.
+Si vous ne voulez pas utiliser le modèle de base, transmettez à la fois l’ID du modèle acoustique et l’ID du modèle de langage.
 
 > [!NOTE]
-> Dans le cas d’une transcription de base, vous n’avez pas besoin de déclarer les points de terminaison des modèles de base. Si vous souhaitez utiliser des modèles personnalisés, vous fournissez les ID de point de terminaison de ces modèles en guise [d’exemple de code](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Si vous voulez utiliser un modèle acoustique de base avec un modèle de langage de base, vous devez simplement déclarer l’ID de point de terminaison du modèle personnalisé. Microsoft détecte le modèle de base partenaire (modèle acoustique ou de langage) et l’utilise pour traiter la requête de transcription.
+> Dans le cas des transcriptions de base, vous n’avez pas besoin de déclarer les points de terminaison des modèles de base. Si vous souhaitez utiliser des modèles personnalisés, vous fournissez les ID de point de terminaison de ces modèles en guise [d’exemple de code](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI). Si vous voulez utiliser un modèle acoustique de base avec un modèle de langage de base, vous devez simplement déclarer l’ID de point de terminaison du modèle personnalisé. Microsoft détecte le modèle de base partenaire (modèle acoustique ou de langage) et l’utilise pour traiter la requête de transcription.
 
 ### <a name="supported-storage"></a>Stockage pris en charge
 
 Pour l’instant, le seul stockage pris en charge est le Stockage Blob Azure.
 
-## <a name="downloading-the-sample"></a>Téléchargement de l’exemple
+## <a name="download-the-sample"></a>Télécharger l’exemple
 
-L’exemple montré ici est disponible sur [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
+Vous trouverez l’exemple dans cet article sur [GitHub](https://github.com/PanosPeriorellis/Speech_Service-BatchTranscriptionAPI).
 
 > [!NOTE]
-> Généralement, le temps nécessaire à l’exécution d’une transcription audio correspond à la durée du fichier audio plus un laps de temps supplémentaire de 2 à 3 minutes.
+> Généralement, le temps nécessaire à l’exécution d’une transcription audio correspond à la durée du fichier audio plus un laps de temps supplémentaire de 2 à 3 minutes.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

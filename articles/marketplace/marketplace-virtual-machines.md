@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: d2ff854d291f65848c7e87b88d8020a835b3bdaa
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144520"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958659"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Guide de publication d’une offre de machine virtuelle
 
@@ -29,18 +29,18 @@ Il s’agit d’offres de transaction qui sont déployées et facturées via la 
 
 ## <a name="free-trial"></a>Version d’évaluation gratuite 
 
-Vous pouvez organiser le test de votre offre par les utilisateurs en leur proposant des licences logicielles à durée limitée en utilisant le modèle de facturation BYOL (apportez votre propre licence). Voici les exigences requises pour déployer cette offre : 
+Vous pouvez donner aux utilisateurs la possibilité de tester votre offre en leur proposant des licences logicielles à durée limitée suivant le modèle de facturation BYOL (apportez votre propre licence). Voici les exigences requises pour déployer cette offre : 
 
 |Configuration requise  |Détails  |
 |---------|---------|
-|Période d’essai gratuite et évaluation     |   Votre client peut utiliser votre application gratuitement pendant une durée limitée. Votre client n’est pas obligé de payer des frais de licence ou d’abonnement pour votre offre. Vos clients ne sont pas obligés de payer le produit ou service interne Microsoft sous-jacent. Toutes les options de la version d’évaluation sont déployées sur votre abonnement Azure. Vous avez le contrôle exclusif de la gestion et de l’optimisation des coûts. Vous pouvez choisir un essai gratuit ou une démonstration interactive. Quel que soit votre choix, votre version d’évaluation gratuite doit permettre au client de tester gratuitement votre offre pendant une durée définie.|
+|Période d’essai gratuite et évaluation     |   Vos clients peuvent utiliser votre application gratuitement pendant une durée limitée. Ils n’ont pas de frais de licence ou d’abonnement à payer pour votre offre. Vos clients ne sont pas obligés de payer le produit ou service interne Microsoft sous-jacent. Toutes les options de la version d’évaluation sont déployées sur votre abonnement Azure. Vous avez le contrôle exclusif de la gestion et de l’optimisation des coûts. Vous pouvez choisir un essai gratuit ou une démonstration interactive. Quel que soit votre choix, votre essai gratuit doit permettre aux clients de tester gratuitement votre offre pendant une durée définie.|
 |Solution facile à configurer et prête à l’emploi    |  Votre application doit être facile et rapide à configurer.       |
 |Disponibilité/Temps d’activité    |    La durée de fonctionnement de votre plateforme ou application SaaS doit être au minimum égale à 99,9 % du temps total.     |
 |Azure Active Directory     |    Votre offre doit permettre l’authentification unique fédérée Azure Active Directory (Azure AD) avec activation du consentement.     |
 
 ## <a name="test-drive"></a>Version d’évaluation
 
-Vous déployez une ou plusieurs machines virtuelles via des applications infrastructure-as-a-service (IaaS) ou SaaS. L’avantage de l’option de publication Test drive est l’approvisionnement automatique d’une machine virtuelle ou de la solution complète dirigé par une visite guidée hébergée par un partenaire. Un test drive permet d’évaluer le produit sans frais supplémentaires pour votre client. Votre client n’est pas tenu d’être un client Azure existant pour opter pour l’expérience d’essai. 
+Vous déployez une ou plusieurs machines virtuelles par le biais d’applications IaaS (infrastructure as a service) ou SaaS (software as a service). L’avantage de l’option de publication Test drive est l’approvisionnement automatique d’une machine virtuelle ou de la solution complète dirigé par une visite guidée hébergée par un partenaire. Un test drive permet d’évaluer le produit sans frais supplémentaires pour votre client. Votre client n’est pas tenu d’être un client Azure existant pour opter pour l’expérience d’essai. 
 
 Contactez-nous à l’adresse [amp-testdrive](mailto:amp-testdrive@microsoft.com) pour commencer. 
 

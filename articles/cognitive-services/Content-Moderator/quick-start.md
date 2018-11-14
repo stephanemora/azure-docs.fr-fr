@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: conceptual
 ms.date: 10/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: f25434814a7fb3d0f49cab539b394970c9bcfb3b
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 79fe761bc6d8bb9561701fd11b06b010bf3454f6
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50023438"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260004"
 ---
 # <a name="quickstart-get-familiar-with-content-moderator"></a>Démarrage rapide : Bien démarrer avec Content Moderator
 
@@ -26,7 +26,7 @@ Dans ce démarrage rapide, vous allez utiliser l’outil de révision Content Mo
 - Un navigateur web
 
 ## <a name="set-up-the-review-tool"></a>Installer l’outil de révision
-L’outil de révision Content Moderator est un outil web qui permet aux réviseurs humains d’aider le service cognitif à prendre des décisions. Dans ce guide, vous allez suivre le processus consistent à installer l’outil de révision pour voir comment le service Content Moderator fonctionne. Accédez au site [Content Moderator](http://contentmoderator.cognitive.microsoft.com/) et inscrivez-vous.
+L’outil de révision Content Moderator est un outil web qui permet aux réviseurs humains d’aider le service cognitif à prendre des décisions. Dans ce guide, vous allez suivre le processus consistent à installer l’outil de révision pour voir comment le service Content Moderator fonctionne. Accédez au site [Content Moderator](https://contentmoderator.cognitive.microsoft.com/) et inscrivez-vous.
 
 ![Page d'accueil Content Moderator](images/homepage.PNG)
 
@@ -48,7 +48,7 @@ Envoyez votre contenu en modération. En interne, l’outil de révision appelle
 
 ## <a name="review-moderation-tags"></a>Vérifier les balises de modération
 
-Passez en revue les balises de modération appliquées. Vous voyez les balises qui ont été appliquées à votre contenu et le score dans chaque catégorie.
+Passez en revue les balises de modération appliquées. Vous voyez les balises qui ont été appliquées à votre contenu et le score dans chaque catégorie. Pour en savoir plus sur ce qu'indiquent les différentes balises de contenu, consultez [Image](image-moderation-api.md), [Texte](text-moderation-api.md) et [Vidéo](video-moderation-api.md).
 
 ![Passer en revue les résultats](images/reviewresults_text.png)
 
@@ -70,4 +70,4 @@ Vous pouvez également passer aux étapes suivantes pour apprendre à utiliser l
 Découvrez comment utiliser les API de modération dans votre application.
 - Implémentez la modération d’images. Utilisez la [console d’API](try-image-api.md) ou le [démarrage rapide C#](image-moderation-quickstart-dotnet.md) pour rechercher dans des images d’éventuels contenus pour adultes ou choquants à l’aide de balises, d’indices de confiance et d’autres informations extraites.
 - Implémentez la modération de texte. Utilisez la [console d’API](try-text-api.md) ou le [démarrage rapide C#](text-moderation-quickstart-dotnet.md) pour rechercher dans un texte des termes vulgaires, la classification de texte indésirable assistée par ordinateur (préversion) et des informations d’identification personnelles. 
-- Implémentez la modération de vidéo. Utilisez le [démarrage rapide C#](video-moderation-api.md) pour rechercher dans des vidéos d’éventuels contenus pour adultes ou choquants. 
+- Implémentez la modération de vidéo. Suivez le [guide de modération vidéo pour C# ](video-moderation-api.md) afin d'analyser des vidéos et détecter tout contenu potentiellement pour adultes et choquant. 

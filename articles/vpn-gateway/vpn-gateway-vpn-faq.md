@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 07/27/2018
 ms.author: yushwang
-ms.openlocfilehash: 94183b639c02f6a7d74e87e8f8335da67db113d6
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: a232ac111974444848aec82f3c7ab6236f82ac03
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468175"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037092"
 ---
 # <a name="vpn-gateway-faq"></a>FAQ sur la passerelle VPN
 
@@ -65,7 +65,7 @@ Les passerelles basées sur des stratégies implémentent des VPN basés sur des
 Les passerelles basées sur des itinéraires implémentent les VPN basés sur des itinéraires. Les VPN basés sur l'itinéraire utilisent des « itinéraires » dans l'adresse IP de transfert ou la table de routage pour acheminer des paquets dans leurs interfaces de tunnel correspondantes. Les interfaces de tunnel chiffrent ou déchiffrent ensuite les paquets se trouvant dans et hors des tunnels. La stratégie ou le sélecteur de trafic pour les VPN basés sur l'itinéraire sont configurés comme universels (ou en caractères génériques).
 
 ### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>Puis-je mettre à jour ma passerelle VPN basée sur une stratégie en passerelle VPN basée sur l’itinéraire ?
-Non. Vous ne pouvez pas modifier le type de passerelle de réseau virtuelle Azure. La passerelle doit être supprimée et recréée. Le processus dure environ 60 minutes. Ni l’adresse IP de la passerelle ni la clé prépartagée (PSK) ne sont conservées.
+Non. Vous ne pouvez pas modifier le type de passerelle de réseau virtuelle Azure. La passerelle doit être supprimée et recréée. Le processus dure environ 60 minutes. Ni l’adresse IP de la passerelle ni la clé prépartagée (PSK) ne sont conservées.
 1. Supprimez toutes connexions associées à la passerelle que vous comptez supprimer.
 2. Supprimez la passerelle :
 * [Portail Azure](vpn-gateway-delete-vnet-gateway-portal.md)
@@ -122,11 +122,11 @@ Oui. Consultez [Configurer un tunneling forcé](vpn-gateway-about-forced-tunneli
 
 Oui, vous pouvez déployer vos propres serveurs ou passerelles VPN dans Azure depuis Azure Marketplace ou en créant vos propres routeurs VPN. Vous devez configurer des itinéraires définis par l’utilisateur dans votre réseau virtuel pour vous assurer que le trafic est acheminé correctement entre vos réseaux locaux et les sous-réseaux de votre réseau virtuel.
 
-### <a name="why-are-certain-ports-opened-on-my-vpn-gateway"></a>Pourquoi certains ports sont-ils ouverts sur ma passerelle VPN ?
+### <a name="gatewayports"></a>Pourquoi certains ports sont-ils ouverts sur ma passerelle de réseau virtuel ?
 
 Ils sont nécessaires pour la communication avec l’infrastructure Azure. Ils sont protégés (verrouillés) par des certificats Azure. Sans les certificats appropriés, les entités externes (notamment les clients de ces passerelles) ne pourront avoir aucun effet sur ces points de terminaison.
 
-Une passerelle VPN est, fondamentalement, un périphérique multirésident avec une carte réseau qui exploite le réseau privé du client et une autre carte réseau connectée au réseau public. Les entités de l’infrastructure Azure ne peuvent pas se connecter aux réseaux privés des clients pour des raisons de conformité. Elles doivent donc utiliser des points de terminaison publics pour la communication avec l’infrastructure. Les points de terminaison publics sont analysés régulièrement par l’audit de sécurité Azure.
+Une passerelle de réseau virtuel est, fondamentalement, un périphérique multirésident avec une carte réseau qui exploite le réseau privé du client et une autre carte réseau connectée au réseau public. Les entités de l’infrastructure Azure ne peuvent pas se connecter aux réseaux privés des clients pour des raisons de conformité. Elles doivent donc utiliser des points de terminaison publics pour la communication avec l’infrastructure. Les points de terminaison publics sont analysés régulièrement par l’audit de sécurité Azure.
 
 ### <a name="more-information-about-gateway-types-requirements-and-throughput"></a>Plus d'informations sur les types de passerelle, la configuration requise et le débit
 

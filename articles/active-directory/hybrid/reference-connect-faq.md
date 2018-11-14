@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 11/02/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 3cb44779f376dca1844f42f346ed0fa3bfaa93cf
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: 50ec49c22c64780c8f887b12eef1dd0e75c379ed
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269443"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010602"
 ---
 # <a name="azure-active-directory-connect-faq"></a>FAQ Azure Active Directory Connect
 
@@ -75,6 +75,9 @@ Non, Azure AD Connect ne prend pas en charge les forêts ni les domaines locaux 
 
 **Q : L'environnement IPv6 pur est-il pris en charge ?**  
 Non, Azure AD Connect ne prend pas en charge les environnements IPv6 purs.
+
+**Q : j’ai un environnement à forêts multiples et le réseau entre les deux forêts utilise la traduction d’adresses réseau (Network Address Translation). Est-il possible d’utiliser Azure AD Connect entre ces deux forêts ?**</br>
+ Non, l’utilisation d’Azure AD Connect sur NAT n’est pas prise en charge. 
 
 ## <a name="federation"></a>Fédération
 **Q : Que faire si je reçois un e-mail me demandant de renouveler mon certificat Office 365 ?**  

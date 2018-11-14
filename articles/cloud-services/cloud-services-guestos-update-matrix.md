@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 10/16/2018
 ms.author: raiye
-ms.openlocfilehash: 5a9f8e332aae72d6fb0ce2f697a41391a51c44b6
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: c153e87224c596929440d814d30b94cc49d7ba76
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376667"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978738"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Versions du SE invité et matrice de compatibilité du Kit de développement logiciel (SDK) Azure
 Fournit des informations récentes sur les dernières publications du SE (système d’exploitation) invité de Microsoft Azure pour Cloud Services. Ces informations vous permettent de planifier votre mise à niveau avant la désactivation d’un SE invité. Si vous configurez vos rôles pour utiliser les mises à jour *automatiques* d’un SE invité comme cela est décrit dans [Paramètres de mise à jour du SE invité Azure][Azure Guest OS Update Settings], il n’est pas indispensable que vous lisiez cette page.
@@ -66,7 +66,7 @@ Le système d’exploitation invité d’avril a été publié.
 ## <a name="family-5-releases"></a>Publications de famille 5
 **Windows Server 2016**
 
-.NET Framework installé : 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
+.NET Framework installé : 3.5, 4.6.2
 
 > [!NOTE]
 > Le mot de passe RDP pour la famille 5 de SE doit comporter au moins 10 caractères.
@@ -84,7 +84,7 @@ Le système d’exploitation invité d’avril a été publié.
 ## <a name="family-4-releases"></a>Publications de famille 4
 **Windows Server 2012 R2**
 
-.NET Framework installé : 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework installé : 3.5, 4.5.1
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
@@ -98,7 +98,7 @@ Le système d’exploitation invité d’avril a été publié.
 ## <a name="family-3-releases"></a>Publications de famille 3
 **Windows Server 2012**
 
-.NET Framework installé : 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework installé : 3.5, 4.5
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |
@@ -112,7 +112,7 @@ Le système d’exploitation invité d’avril a été publié.
 ## <a name="family-2-releases"></a>Publications de famille 2
 **Windows Server 2008 R2 SP1**
 
-.NET Framework installé : 3.5, 4.0, 4.5, 4.5.1, 4.5.2
+.NET Framework installé : 3.5 (comprend 2.0 et 3.0)
 
 | Chaîne de configuration | Date de lancement | Date de désactivation |
 | --- | --- | --- |

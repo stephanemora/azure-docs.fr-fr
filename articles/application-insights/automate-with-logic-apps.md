@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1e9170c955f2a36d68600372e3dcdac2a63056c1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301189"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957742"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Automatiser les processus Application Insights en utilisant Logic Apps
 
@@ -93,7 +93,7 @@ Lorsque vous créez vos propres requêtes, vérifiez qu’elles fonctionnent cor
 
 1. Dans la zone de recherche, tapez **Office 365 Outlook**.
 
-1. Cliquez sur **Office 365 Outlook – Envoyer un message électronique**.
+1. Cliquez sur **Office 365 Outlook – Envoyer un e-mail**.
 
     ![Sélection d’Office 365 Outlook](./media/automate-with-logic-apps/flow2b.png)
 
@@ -132,7 +132,7 @@ Lorsque votre application logique s’exécute, les destinataires que vous avez 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Découvrez la création de [requêtes Analytics](app-insights-analytics-using.md).
+- Découvrez la création de [requêtes Analytics](../log-analytics/query-language/get-started-queries.md).
 - Découvrez plus en détail les [applications logiques](https://docs.microsoft.com/azure/logic-apps/logic-apps-what-are-logic-apps).
 
 

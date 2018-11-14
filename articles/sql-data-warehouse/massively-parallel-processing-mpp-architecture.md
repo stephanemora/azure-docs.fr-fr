@@ -10,12 +10,12 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 1fa31b23aa8df73b13e73da80096596bf1ce2db3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 92e16104edb46298d6e503b7546449ed71041047
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093294"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51005748"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL Data Warehouse - Architecture MPP (Massively Parallel Processing).
 Découvrez comment Azure SQL Data Warehouse combine un traitement massivement parallèle (MPP, Massively Parallel Processing) avec un stockage Azure pour obtenir des performances et une extensibilité élevées. 
@@ -23,7 +23,7 @@ Découvrez comment Azure SQL Data Warehouse combine un traitement massivement pa
 > [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="mpp-architecture-components"></a>Composants de l’architecture MPP
-SQL Data Warehouse tire parti d’une architecture permettant d’adapter l’échelle pour répartir le traitement informatique des données sur plusieurs nœuds. L’unité d’échelle est une abstraction de la puissance de calcul, qui est connue comme Data Warehouse Unit (unité d’entrepôt de données). SQL Data Warehouse sépare le calcul du stockage, ce qui vous permet d’adapter l’échelle du calcul indépendamment des données présentes dans votre système.
+SQL Data Warehouse tire parti d’une architecture permettant d’adapter l’échelle pour répartir le traitement informatique des données sur plusieurs nœuds. L’unité d’échelle est une abstraction de la puissance de calcul connue sous le nom de [Data Warehouse Unit](what-is-a-data-warehouse-unit-dwu-cdwu.md). SQL Data Warehouse sépare le calcul du stockage, ce qui vous permet d’adapter l’échelle du calcul indépendamment des données présentes dans votre système.
 
 ![Architecture de SQL Data Warehouse](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 

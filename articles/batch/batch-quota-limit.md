@@ -12,15 +12,15 @@ ms.workload: big-compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 11/06/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 25a8150a2fcf7cdd4e3c82478c0b3db3dad870b4
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: a7d77c0a2ce334c9909a621c55866a67e036f9cb
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887562"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282779"
 ---
 # <a name="batch-service-quotas-and-limits"></a>Quotas et limites du service Batch
 
@@ -45,17 +45,27 @@ Si vous envisagez d’exécuter des charges de travail de production dans Batch,
 
 Si vous avez créé un compte Batch avec le mode d’allocation de pool défini sur **abonnement utilisateur**, les quotas sont appliqués de manière différente. Dans ce mode, les machines virtuelles Batch et les autres ressources sont créées directement dans votre abonnement quand un pool est créé. Les quotas de cœurs Azure Batch ne s’appliquent pas à un compte créé dans ce mode. Seuls s’appliquent les quotas de votre abonnement imposés aux cœurs de calcul régionaux et aux autres ressources. Pour en savoir plus sur ces quotas, consultez [Abonnement Azure et limites, quotas et contraintes de service](../azure-subscription-service-limits.md).
 
+## <a name="pool-size-limits"></a>Limites de taille de pool
+
+| **Ressource** | **Limite maximale** |
+| --- | --- |
+| **Nœuds de calcul dans un [pool prenant en charge la communication entre nœuds](batch-mpi.md)**  ||
+| Mode d’allocation de pool du service Batch | 100 |
+| Mode d’allocation de pool de l'abonnement Batch | 80 |
+| **Nœuds de calcul dédiés dans un [pool créé avec une image de machine virtuelle personnalisée](batch-custom-images.md)**<sup>1</sup> ||
+| Nœuds dédiés | 2000 |
+| Nœuds de faible priorité | 1 000 |
+
+<sup>1</sup> Pour les pools ne prenant pas en charge la communication entre nœuds.
+
 ## <a name="other-limits"></a>Autres limites
 
 | **Ressource** | **Limite maximale** |
 | --- | --- |
-| [Tâches simultanées](batch-parallel-node-tasks.md) par nœud de calcul |4 x nombre de cœurs de nœud |
-| [Applications](batch-application-packages.md) par compte Batch |20 |
-| Packages d’applications par application |40 |
+| [Tâches simultanées](batch-parallel-node-tasks.md) par nœud de calcul | 4 x nombre de cœurs de nœud |
+| [Applications](batch-application-packages.md) par compte Batch | 20 |
+| Packages d’applications par application | 40 |
 | Durée de vie maximale de la tâche | 7 jours<sup>1</sup> |
-| Nœuds de calcul dans un [pool prenant en charge la communication entre nœuds](batch-mpi.md) | 100 |
-| Nœuds de calcul dédiés dans un [pool créé avec une image de machine virtuelle personnalisée](batch-custom-images.md) | 2 500 |
-| Nœuds de calcul basse priorité dans un [pool créé avec une image de machine virtuelle personnalisée](batch-custom-images.md) | 1 000 |
 
 <sup>1</sup> La durée de vie maximale d’une tâche, entre le moment où elle est ajoutée au travail et la fin de son exécution, est de sept jours. Les tâches terminées sont conservées indéfiniment ; les données de tâches non terminées pendant la durée de vie maximale ne sont pas accessibles.
 

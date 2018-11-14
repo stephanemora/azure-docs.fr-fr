@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/07/2016
 ms.author: mandia
-ms.openlocfilehash: 39fc5ef36bb581c3a81c9948fda048f6cb75eb7e
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: daab61a0ea9321b0fb918c60688215c80088e0bc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102084"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51243349"
 ---
 # <a name="biztalk-services-throttling"></a>Limitation BizTalk Services
 
@@ -42,7 +42,7 @@ Azure BizTalk Services assure le suivi du statut de la limitation (état normal 
 ## <a name="runtime-behavior"></a>Comportement d'exécution
 Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes se produisent :
 
-* La limitation s'effectue par instance de rôle. Par exemple :<br/>
+* La limitation s'effectue par instance de rôle. Par exemple : <br/>
   L'instance RoleInstanceA est limitée. L'instance RoleInstanceB ne l'est pas. Dans ce cas, les messages dans RoleInstanceB sont traités normalement. Les messages dans RoleInstanceA sont ignorés et le message d'erreur suivant est affiché :<br/><br/>
   **Le serveur est occupé. Réessayez.**<br/><br/>
 * Les sources d'extraction cessent d'interroger et de télécharger les messages. Par exemple : <br/>
@@ -57,15 +57,15 @@ Lorsque Azure BizTalk Services passe en mode limitation, les actions suivantes s
 * Le serveur de base de données SQL d'Azure comporte également un dispositif de limitation intégré.
 
 ## <a name="additional-azure-biztalk-services-topics"></a>Autres rubriques Azure BizTalk Services
-* [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
-* [Didacticiels : Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
-* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
-* [Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
+* [Installation du Kit de développement logiciel (SDK) Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=241589)<br/>
+* [Didacticiels : Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=236944)<br/>
+* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302335)<br/>
+* [Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=303664)<br/>
 
 ## <a name="see-also"></a>Voir aussi
-* [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Tableau comparatif des états d'approvisionnement BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
-* [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [Sauvegarde et restauration de BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Nom et clé de l'émetteur dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [Tableau comparatif des éditions Développeur, De base, Standard et Premium de BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [Tableau comparatif des états d'approvisionnement BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=329870)<br/>
+* [Onglets Tableau de bord, Surveiller et Mettre à l'échelle dans BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [Sauvegarde et restauration de BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Nom et clé de l'émetteur dans BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
 

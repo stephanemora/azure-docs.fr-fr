@@ -8,12 +8,12 @@ ms.date: 09/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a782a7341e53420dbc31fefc86007951df967a9e
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: af1a14f87eaf20a7f49a8fc6112c4f3c7595f6bd
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46307978"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914364"
 ---
 # <a name="azure-iot-edge-certificate-usage-detail"></a>Utilisation détaillée des certificats Azure IoT Edge
 
@@ -78,9 +78,9 @@ On peut raisonnablement se demander pourquoi IoT Edge a besoin d’un certifica
 
 ## <a name="devtest-implications"></a>Implications en matière de développement/test
 
-Pour faciliter les scénarios de développement et de test, Microsoft fournit un ensemble de [scripts de commodité](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) permettant de générer des certificats hors production appropriés pour IoT Edge dans le scénario de passerelle transparente.
+Pour faciliter les scénarios de développement et de test, Microsoft fournit un ensemble de [scripts de commodité](https://github.com/Azure/azure-iot-sdk-c/tree/master/tools/CACertificates) permettant de générer des certificats hors production appropriés pour IoT Edge dans le scénario de passerelle transparente. Pour obtenir des exemples de fonctionnement des scripts, voir [Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md).
 
-Ces scripts génèrent des certificats qui suivent la structure de chaîne d’approbation expliquée dans cet article. Pour [Linux](how-to-create-transparent-gateway-linux.md#certificate-creation) ou [Windows](how-to-create-transparent-gateway-windows.md#certificate-creation). Les commandes suivantes génèrent le « certificat d’autorité de certification racine » et un seul « certificat d’autorité de certification intermédiaire ».
+Ces scripts génèrent des certificats qui suivent la structure de chaîne d’approbation expliquée dans cet article. Les commandes suivantes génèrent le « certificat d’autorité de certification racine » et un seul « certificat d’autorité de certification intermédiaire ».
 
 ```bash
 ./certGen.sh create_root_and_intermediate 
@@ -124,6 +124,4 @@ Observez la hiérarchie des certificats représentée dans la capture d’écran
 
 [Présentation des modules Azure IoT Edge](iot-edge-modules.md)
 
-[Utiliser un appareil IoT Edge en tant que passerelle transparente (Linux)](how-to-create-transparent-gateway-linux.md)
-
-[Utiliser un appareil IoT Edge en tant que passerelle transparente (Windows)](how-to-create-transparent-gateway-windows.md)
+[Configurer un appareil IoT Edge en tant que passerelle transparente](how-to-create-transparent-gateway.md)

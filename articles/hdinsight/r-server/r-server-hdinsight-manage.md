@@ -3,18 +3,18 @@ title: Gérer un cluster ML Services sur HDInsight - Azure
 description: Découvrez comment gérer un cluster ML Services dans Azure HDInsight.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/27/2018
-ms.openlocfilehash: 38a8366a586b032c3b11cbef8ee5f01ad2b822a5
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.date: 11/06/2018
+ms.openlocfilehash: 35b80223552181e44beac011f5fb541158466acc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702399"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255399"
 ---
 # <a name="manage-ml-services-cluster-on-azure-hdinsight"></a>Gérer un cluster ML Services dans Azure HDInsight
 
@@ -80,7 +80,7 @@ Notez également que les utilisateurs récemment ajoutés ne possèdent pas les 
 
 ## <a name="connect-remotely-to-microsoft-ml-services"></a>Se connecter à distance à Microsoft ML Services
 
-Vous pouvez configurer l’accès au contexte de calcul HDInsight Hadoop Spark à partir d’une instance distante de ML Client s’exécutant sur votre poste de travail. Pour ce faire, vous devez spécifier les options hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches et sshProfileScript quand vous définissez le contexte de calcul RxSpark sur votre ordinateur de bureau. Par exemple :
+Vous pouvez configurer l’accès au contexte de calcul HDInsight Spark à partir d’une instance distante de ML Client s’exécutant sur votre bureau. Pour ce faire, vous devez spécifier les options hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches et sshProfileScript quand vous définissez le contexte de calcul RxSpark sur votre ordinateur de bureau. Par exemple :
 
     myNameNode <- "default"
     myPort <- 0
@@ -226,16 +226,13 @@ Un contexte de calcul vous permet de contrôler si le calcul doit être effectu�
         summary(modelSpark)
 
 
-   > [!NOTE]
-   > Vous pouvez également utiliser MapReduce pour répartir le calcul sur des nœuds de cluster. Pour plus d’informations sur le contexte de calcul, consultez [Options de contexte de calcul pour un cluster ML Services sur HDInsight](r-server-compute-contexts.md).
-
 ## <a name="distribute-r-code-to-multiple-nodes"></a>Distribuer le code R à plusieurs nœuds
 
 Avec ML Services sur HDInsight, vous pouvez utiliser du code R existant et l’exécuter sur plusieurs nœuds du cluster à l’aide de la commande `rxExec`. Cette fonction est utile lors d’un balayage paramétrique ou lorsque vous effectuez des simulations. Le code suivant montre comment utiliser `rxExec` :
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-Si vous utilisez toujours le contexte Spark ou MapReduce, cette commande renvoie à la valeur nodename (nom de nœud) des nœuds Worker où le code `(Sys.info()["nodename"])` s’exécute. Par exemple, sur un cluster à quatre nœuds, vous vous attendez à recevoir une sortie similaire à l’extrait de code suivant :
+Si vous utilisez toujours le contexte Spark, cette commande renvoie à la valeur nodename (nom de nœud) des nœuds Worker sur lesquels le code `(Sys.info()["nodename"])` s’exécute. Par exemple, sur un cluster à quatre nœuds, vous vous attendez à recevoir une sortie similaire à l’extrait de code suivant :
 
     $rxElem1
         nodename

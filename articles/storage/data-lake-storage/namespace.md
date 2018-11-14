@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: 44eec21f4687d2df64c59d41cdb02c6ef2268f82
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b5d3a735bd490468e989ac29c9f082475cc7eab3
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528695"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283363"
 ---
 # <a name="azure-data-lake-storage-gen2-preview-hierarchical-namespace"></a>Espace de noms hiérarchique d’Azure Data Lake Storage Gen2 Preview
 
-**L’espace de noms hiérarchique** est un mécanisme clé d’Azure Data Lake Storage Gen2 Preview qui permet d’optimiser les performances de système de fichiers en termes de mise à l’échelle et de prix du stockage d’objets. La collection d’objets/de fichiers dans un compte peut alors être organisée en une hiérarchie de répertoires et sous-répertoires imbriqués, de la même façon que le système de fichiers sur votre ordinateur. Quand vous activez l’espace de noms hiérarchique, Data Lake Storage Gen2 fournit la scalabilité et la rentabilité du stockage d’objets en plus de la sémantique de système de fichiers standard des moteurs et frameworks analytiques.
+**L’espace de noms hiérarchique** est un mécanisme clé d’Azure Data Lake Storage Gen2 Preview qui permet d’optimiser les performances de système de fichiers en termes de mise à l’échelle et de prix du stockage d’objets. La collection d’objets/de fichiers dans un compte peut alors être organisée en une hiérarchie de répertoires et sous-répertoires imbriqués, de la même façon que le système de fichiers sur votre ordinateur. Quand vous activez l’espace de noms hiérarchique, le compte de stockage peut fournir l’extensibilité et la rentabilité du stockage d’objets en plus de la sémantique de système de fichiers standard des moteurs et infrastructures d’analyse.
 
 ## <a name="the-benefits-of-the-hierarchical-namespace"></a>Avantages de l’espace de noms hiérarchique
 
@@ -26,7 +26,7 @@ ms.locfileid: "39528695"
 
 Les avantages suivants sont associés aux systèmes de fichiers qui implémentent un espace de noms hiérarchique sur les données d’objet blob :
 
-- **Manipulation de répertoires atomique :** Les magasins d’objets se rapprochent d’une hiérarchie de répertoires en adoptant une convention de nommage des objets contenant des barres obliques (/) pour indiquer les segments de chemin. Bien que cette convention fonctionne pour organiser les objets, elle ne fournit aucune assistance pour les actions de déplacement, renommage ou suppression de répertoires. Sans répertoires réels, les applications doivent traiter potentiellement des millions d’objets blob individuels pour accomplir des tâches au niveau du répertoire. En revanche, l’espace de noms hiérarchique traite ces tâches en mettant à jour une entrée unique (le répertoire parent). 
+- **Manipulation de répertoires atomique :** les magasins d’objets se rapprochent d’une hiérarchie de répertoires en adoptant une convention de nommage des objets contenant des barres obliques (/) pour indiquer les segments de chemin. Bien que cette convention fonctionne pour organiser les objets, elle ne fournit aucune assistance pour les actions de déplacement, renommage ou suppression de répertoires. Sans répertoires réels, les applications doivent traiter potentiellement des millions d’objets blob individuels pour accomplir des tâches au niveau du répertoire. En revanche, l’espace de noms hiérarchique traite ces tâches en mettant à jour une entrée unique (le répertoire parent).
 
     Cette optimisation spectaculaire est particulièrement significative pour de nombreux frameworks analytiques du Big Data. Des outils comme Hive, Spark, etc. écrivent souvent la sortie dans des emplacements temporaires, qu’ils renomment ensuite à la fin du travail. Sans espace de noms hiérarchique, ce renommage peut souvent durer plus longtemps que le processus analytique lui-même. Une latence de travail moindre équivaut à un coût total de possession inférieur pour les charges de travail analytiques.
 

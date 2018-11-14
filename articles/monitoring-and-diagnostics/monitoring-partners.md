@@ -5,28 +5,28 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 8/08/2018
+ms.date: 11/01/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 3a15cfeb39cea31a24d27fd8b350d7e8a6696f31
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: eb60afc21b7f8e21c4573e46165696c3461d3613
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46955365"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963861"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Intégrations partenaires d’Azure Monitor
 | Partenaires |  |  |
 | --- | --- | --- |
-| [**AlertLogic**<br/>![Logo du partenaire][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![Logo du partenaire][appdynamics-logo]][appdynamics-anchor]  | [**Atlassian**<br/>![Logo du partenaire][atlassian-logo]][atlassian-anchor] 
-| [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![Logo du partenaire][circonus-logo]][circonus-anchor]  | [**CloudHealth**<br/>![Logo du partenaire][cloudhealth-logo]][cloudhealth-anchor] 
-| [**CloudMonix** <br/>![Logo du partenaire][cloudmonix-logo]][cloudmonix-anchor] | [**Cloudyn**<br/>![Logo du partenaire][cloudyn-logo]][cloudyn-anchor] | [**Datadog**<br/>![Logo du partenaire][datadog-logo]][datadog-anchor] 
-| [**Dynatrace** <br/>![Logo du partenaire][dynatrace-logo]][dynatrace-anchor] | [**Grafana**<br/>![Logo du partenaire][grafana-logo]][grafana-anchor] | [**Influxdata**<br/>![Logo du partenaire][influxdata-logo]][influxdata-anchor]
-| [**Logic Monitor**<br/>![Logo du partenaire][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![Logo du partenaire][moogsoft-logo]][moogsoft-anchor] | [**NewRelic**<br/>![Logo du partenaire][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Logo du partenaire][opsgenie-logo]][opsgenie-anchor] 
-| [**PagerDuty**<br/>![Logo du partenaire][pagerduty-logo]][pagerduty-anchor] | [**QRadar**<br/>![Logo du partenaire][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![Logo du partenaire][sciencelogic-logo]][sciencelogic-anchor] 
-| [**SignalFx**<br/>![Logo du partenaire][signalfx-logo]<br/>][signalfx-anchor] | [**SIGNL4**<br/>![Logo du partenaire][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] 
-| [**Splunk** <br/>![Logo du partenaire][splunk-logo]][splunk-anchor] | [**Sumo Logic**<br/>![Logo du partenaire][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![Logo du partenaire][turbonomic-logo]][turbonomic-anchor] 
-
+| [**AlertLogic**<br/>![Logo du partenaire][alertlogic-logo]][alertlogic-anchor] | [**AppDynamics**<br/>![Logo du partenaire][appdynamics-logo]][appdynamics-anchor] | [**ArcSight**][arcsight-anchor] |
+| [**Atlassian**<br/>![Logo du partenaire][atlassian-logo]][atlassian-anchor] | [**Botmetric**][botmetric-anchor] | [**Circonus**<br/>![Logo du partenaire][circonus-logo]][circonus-anchor] |
+| [**CloudHealth**<br/>![Logo du partenaire][cloudhealth-logo]][cloudhealth-anchor] | [**CloudMonix** <br/>![Logo du partenaire][cloudmonix-logo]][cloudmonix-anchor] | [**Datadog**<br/>![Logo du partenaire][datadog-logo]][datadog-anchor] |
+| [**Dynatrace** <br/>![Logo du partenaire][dynatrace-logo]][dynatrace-anchor] | [**Elastic**<br/>![Logo de partenaire][elastic-logo]][elastic-anchor] | [**Grafana**<br/>![Logo du partenaire][grafana-logo]][grafana-anchor] |
+| [**Influxdata**<br/>![Logo du partenaire][influxdata-logo]][influxdata-anchor] | [**Logic Monitor**<br/>![Logo du partenaire][logicmonitor-logo]][logicmonitor-anchor] | [**Moogsoft**<br/>![Logo du partenaire][moogsoft-logo]][moogsoft-anchor] |
+| [**NewRelic**<br/>![Logo du partenaire][newrelic-logo]][newrelic-anchor] | [**OpsGenie**<br/>![Logo du partenaire][opsgenie-logo]][opsgenie-anchor] | [**PagerDuty**<br/>![Logo du partenaire][pagerduty-logo]][pagerduty-anchor] |
+| [**QRadar**<br/>![Logo du partenaire][qradar-logo]][qradar-anchor] | [**ScienceLogic**<br/>![Logo du partenaire][sciencelogic-logo]][sciencelogic-anchor] | [**SignalFx**<br/>![Logo du partenaire][signalfx-logo]<br/>][signalfx-anchor] |
+| [**SIGNL4**<br/>![Logo du partenaire][signl4-logo]][signl4-anchor] | [**SolarWinds**][solarwinds-anchor] | [**Splunk** <br/>![Logo du partenaire][splunk-logo]][splunk-anchor] |
+| [**Sumo Logic**<br/>![Logo du partenaire][sumologic-logo]][sumologic-anchor] | [**Turbonomic**<br/>![Logo du partenaire][turbonomic-logo]][turbonomic-anchor] |
 
 ## <a name="alertlogic-log-manager"></a>AlertLogic Log Manager
 Alert Logic Log Manager collecte les journaux de la plateforme Azure, des applications et des machines virtuelles pour l’analyse de la sécurité et la rétention. Le journal d’activité Azure est également collecté par le biais de l’API Azure Monitor. Ces informations sont utilisées pour détecter les méfaits et répondre aux exigences de conformité.
@@ -37,6 +37,11 @@ Alert Logic Log Manager collecte les journaux de la plateforme Azure, des applic
 AppDynamics Application Performance Management (APM) permet aux propriétaires d’applications de résoudre rapidement les goulots d’étranglement et d’optimiser les performances de leurs applications s’exécutant dans l’environnement Azure. Ce service permet de surveiller Azure Cloud Service (PaaS), les rôles web et de travail, les machines virtuelles (IaaS), la détection de services à distance (Microsoft Azure Service Bus), la file d’attente Microsoft Azure, les services à distance Microsoft Azure (objet blob Azure), la file d’attente Azure (Microsoft Service Bus), le stockage des données et Stockage Blob Microsoft Azure. AppDynamics APM est disponible dans la Place de marché Microsoft Azure.
 
 [Consultez la documentation.][appdynamics-doc]
+
+## <a name="microfocus-arcsight"></a>Microfocus ArcSight
+ArcSight comporte un connecteur intelligent pour les concentrateurs d’événements Azure Monitor.
+
+[En savoir plus.][arcsight-doc]
 
 ## <a name="atlassian-jira"></a>Atlassian JIRA
 Vous pouvez créer des tickets JIRA lors des alertes Azure Monitor.
@@ -62,11 +67,6 @@ CloudMonix offre des services de surveillance, d’automatisation et de réparat
 
 [Consultez la documentation.][cloudmonix-doc]
 
-## <a name="cloudyn"></a>Cloudyn
-Cloudyn gère et optimise les déploiements cloud hybrides, multiplateformes pour aider les entreprises à exploiter pleinement le potentiel de leur cloud. La solution SaaS offre une visibilité sur l’utilisation, les performances et le coût. Elle fournit des insights et des recommandations exploitables sur l’optimisation intelligente et la gouvernance du cloud. Cloudyn permet de gérer les responsabilités via la facturation interne et la gestion hiérarchique de l’allocation de coûts. Cloudyn est intégré à Surveillance Azure pour fournir des insights et des recommandations exploitables afin d’optimiser votre déploiement Azure.
-
-[Consultez la documentation.][cloudyn-doc]
-
 ## <a name="datadog"></a>Datadog
 Datadog est le premier service mondial de surveillance des applications à l’échelle du cloud. Il regroupe des données en provenance de serveurs, de bases de données, d’outils et de services pour présenter une vue unifiée de votre pile entière. Ces fonctionnalités sont fournies sur une plateforme d’analyse de données SaaS. Ce service permet aux équipes de développeurs et opérateurs de travailler ensemble pour éviter les temps d’arrêt, résoudre les problèmes de performance et vérifier que les cycles de développement et de déploiement sont terminés à temps. En intégrant Datadog et Azure, vous pouvez collecter et afficher des métriques à partir de votre infrastructure. Mettez en corrélation des métriques de machines virtuelles avec des métriques au niveau de l’application. Segmentez et découpez les métriques à l’aide d’une combinaison de propriétés et d’étiquettes personnalisées.
 
@@ -76,6 +76,11 @@ Datadog est le premier service mondial de surveillance des applications à l’�
 Dynatrace OneAgent s’intègre aux machines virtuelles Azure et à App Services via les mécanismes d’extension Azure correspondants. De cette façon, Dynatrace OneAgent peut collecter des indicateurs de performance sur les hôtes, réseaux et services. En plus d’afficher les métriques, Dynatrace visualise les environnements de bout en bout. Ce service présente les transactions du côté client à la couche de base de données. Dynatrace fournit propose une corrélation basée sur AI des problèmes et une analyse de la cause racine entièrement intégrée pour donner des insights au niveau de la méthode sur le code et la base de données. Cet insight facilite grandement la résolution des problèmes et les optimisations des performances.
 
 [Consultez la documentation.][dynatrace-doc]
+
+## <a name="elastic"></a>Elastic
+Élastique est une société de recherche. En tant que créatrice de la pile élastique (Elasticsearch, Kibana, Beats et Logstash), Elastic crée des offres managées et SaaS qui font que les données sont utilisables en temps réel et à grande échelle pour la recherche, la journalisation, la sécurité et l’analyse.
+
+[Consultez la documentation.][elastic-doc]
 
 ## <a name="grafana"></a>Grafana
 Grafana est une application Open Source qui vous permet de visualiser les données de métrique de série chronologique.
@@ -159,7 +164,7 @@ Turbonomic fournit une automatisation des charges de travail pour les clouds hyb
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [En savoir plus sur Azure Monitor](monitoring-overview.md)
+* [En savoir plus sur Azure Monitor](../azure-monitor/overview.md)
 * [Accéder aux mesures avec l’API REST](monitoring-rest-api-walkthrough.md)
 * [Transmettre en continu le journal d’activité vers un service non-Microsoft](monitoring-stream-activity-logs-event-hubs.md)
 * [Transmettre en continu les journaux de diagnostic vers un service non-Microsoft](monitoring-stream-diagnostic-logs-to-event-hubs.md)
@@ -167,14 +172,15 @@ Turbonomic fournit une automatisation des charges de travail pour les clouds hyb
 <!--Partner Anchors-->
 [alertlogic-anchor]: #alertlogic-log-manager "AlertLogic"
 [appdynamics-anchor]: #appdynamics "AppDynamics"
+[arcsight-anchor]: #microfocus-arcsight "ArcSight"
 [atlassian-anchor]: #atlassian-jira "Atlassian"
 [botmetric-anchor]: #botmetric "Botmetric"
 [circonus-anchor]: #circonus "Circonus"
 [cloudhealth-anchor]: #cloudhealth "CloudHealth"
 [cloudmonix-anchor]: #cloudmonix "CloudMonix"
-[cloudyn-anchor]: #cloudyn "Cloudyn"
 [datadog-anchor]: #datadog "Datadog"
 [dynatrace-anchor]: #dynatrace "Dynatrace"
+[elastic-anchor]: #elastic "Elastic"
 [newrelic-anchor]: #newrelic "NewRelic"
 [grafana-anchor]: #grafana "Grafana"
 [influxdata-anchor]: #Influxdata "Influxdata"
@@ -198,9 +204,9 @@ Turbonomic fournit une automatisation des charges de travail pour les clouds hyb
 [circonus-logo]: ./media/partner-logos/circonus.png
 [cloudhealth-logo]: ./media/partner-logos/cloudhealth.png
 [cloudmonix-logo]: ./media/partner-logos/cloudmonix.png
-[cloudyn-logo]: ./media/partner-logos/cloudyn.png
 [datadog-logo]: ./media/partner-logos/datadog.png
 [dynatrace-logo]: ./media/partner-logos/dynatrace.png
+[elastic-logo]: ./media/partner-logos/elastic.png
 [newrelic-logo]: ./media/partner-logos/newrelic.png
 [grafana-logo]: ./media/partner-logos/grafana.png
 [influxdata-logo]: ./media/partner-logos/influxdata.png
@@ -219,14 +225,15 @@ Turbonomic fournit une automatisation des charges de travail pour les clouds hyb
 <!--Partner Documentation-->
 [alertlogic-doc]: https://docs.alertlogic.com/userGuides/log-manager-collection-sources.htm "Documentation AlertLogic."
 [appdynamics-doc]: https://www.appdynamics.com/net/azure/ "Documentation AppDynamics."
+[arcsight-doc]: https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "Documentation ArcSight."
 [atlassian-doc]: https://azure.microsoft.com/blog/automated-notifications-from-azure-monitor-for-atlassian-jira/
 [botmetric-doc]: https://www.botmetric.com/blog/announcing-botmetric-cost-governance-beta-microsoft-azure/ "Présentation de Botmetric."
 [circonus-doc]: https://support.circonus.com/support/solutions/articles/24000013515-azure-integration 
 [cloudhealth-doc]: https://www.cloudhealthtech.com/azure
 [cloudmonix-doc]: http://cloudmonix.com/features/azure-management/ "Introduction de CloudMonix."
-[cloudyn-doc]: https://www.cloudyn.com/azure-monitoring "Introduction de Cloudyn."
 [datadog-doc]: http://docs.datadoghq.com/integrations/azure/ "Documentation de Datadog."
 [dynatrace-doc]: https://help.dynatrace.com/infrastructure-monitoring/paas/how-do-i-monitor-microsoft-azure-web-apps/ "Documentation de Dynatrace."
+[elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Documentation Elastic."
 [grafana-doc]: ./monitor-send-to-grafana.md "Intégration d’Azure Monitor Grafana."
 [influxdata-doc]: ./metrics-store-custom-linux-telegraf.md "Intégration d’Azure Monitor Influxdata Telegraf."
 [logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Documentation de Logic Monitor."

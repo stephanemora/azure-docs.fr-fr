@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: conceptual
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 0047ed4f0a172451bd50af3f62e2fecb8e147bf2
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 925d97658a299bea983b16ae6b507159ef0e9e62
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49944437"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50979129"
 ---
 # <a name="service-fabric-mesh-terminology"></a>Terminologie de Service Fabric mesh
 
@@ -84,5 +84,6 @@ Le tableau suivant décrit les différents modèles d’application et les outil
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur Service Fabric mesh, voir la
-- [Vue d’ensemble de Service Fabric mesh](service-fabric-mesh-overview.md)
+Pour en savoir plus sur Service Fabric mesh, voir la [vue d’ensemble de Service Fabric mesh](service-fabric-mesh-overview.md).
+
+Lisez les réponses aux [questions fréquentes](service-fabric-mesh-faq.md).

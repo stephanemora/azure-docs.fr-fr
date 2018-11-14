@@ -8,23 +8,23 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: artek
 ms.component: data-lake-storage-gen2
-ms.openlocfilehash: c59331c772e140fccfefb89eef086a35837171e1
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: c5f11cbb12b727f5f308d7a71c51706fa8ec373f
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576973"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277084"
 ---
 # <a name="using-the-hdfs-cli-with-data-lake-storage-gen2"></a>Utilisation de l’interface CLI HDFS avec Data Lake Storage Gen2
 
-Azure Data Lake Storage Gen2 Preview vous permet de gérer les données et d’y accéder comme avec un [système de fichiers DFS Hadoop (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Si vous avez un cluster HDInsight attaché ou que vous exécutez un travail Apache Spark à l’aide d’Azure Databricks pour analyser les données stockées dans Azure Data Lake Storage Gen2, vous pouvez utiliser l’interface de ligne de commande (CLI) pour récupérer et manipuler les données chargées. Le reste de l’article décrit les options dont vous disposez en attendant que [l’équipe du Stockage Azure ajoute la prise en charge de l’Explorateur Stockage Azure et du portail Azure](https://azure.microsoft.com/roadmap/).
+Azure Data Lake Storage Gen2 Preview vous permet de gérer les données et d’y accéder comme avec un [système de fichiers DFS Hadoop (HDFS)](http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). Si vous avez un cluster HDInsight attaché ou que vous exécutez un travail Apache Spark à l’aide d’Azure Databricks pour analyser les données stockées dans un compte Stockage Azure, vous pouvez utiliser l’interface de ligne de commande (CLI) pour récupérer et manipuler les données chargées.
 
 ## <a name="hdfs-cli-with-hdinsight"></a>Interface CLI HDFS avec HDInsight
 
 HDInsight permet d'accéder au système de fichiers distribués (DFS) connecté localement aux nœuds de calcul. Ce système de fichiers est accessible à l’aide de l’interpréteur de commandes qui interagit directement avec le système de fichiers HDFS et d’autres systèmes de fichiers pris en charge par Hadoop. Voici les commandes couramment utilisées et les liens vers des ressources utiles.
 
 >[!IMPORTANT]
->La facturation du cluster HDInsight démarre à la création du cluster et s’arrête à sa suppression. La facturation est effectuée au prorata des minutes écoulées. Par conséquent, vous devez toujours supprimer votre cluster quand il n’est plus utilisé (découvrez comment [supprimer un cluster](../../hdinsight/hdinsight-delete-cluster.md)). Toutefois, les données stockées dans Azure Data Lake Storage Gen2 persistent même après la suppression d’un cluster HDInsight.
+>La facturation du cluster HDInsight démarre après la création du cluster et s’arrête à sa suppression. La facturation est effectuée au prorata des minutes écoulées. Par conséquent, vous devez toujours supprimer votre cluster lorsqu’il n’est plus utilisé. Pour découvrir comment supprimer un cluster, consultez notre [article à ce sujet](../../hdinsight/hdinsight-delete-cluster.md). Toutefois, les données stockées dans un compte de stockage avec Azure Data Lake Storage Gen2 persistent même après la suppression du cluster HDInsight.
 
 Pour obtenir la liste des fichiers ou répertoires :
 

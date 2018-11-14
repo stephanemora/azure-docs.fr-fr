@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 12/11/2017
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 4e21c011f54382466bf614dc01fb9d51b514d998
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: f2f6472fc485691b95305337dd608126d001aa27
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48044244"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010706"
 ---
 # <a name="windows-event-log-data-sources-in-log-analytics"></a>Sources de données de journal d’événements Windows dans Log Analytics
 Les journaux d’événements Windows sont les [sources de données](log-analytics-data-sources.md) les plus communément utilisées pour collecter des données à l’aide d’agents Windows puisque de nombreuses applications écrivent dans le journal d’événements Windows.  Vous pouvez collecter des événements à partir de journaux standard tels que Système et Application, ou spécifier des journaux personnalisés créés par les applications que vous souhaitez surveiller.
@@ -40,7 +40,7 @@ Lorsque vous saisissez le nom d’un journal d’événements, Log Analytics sug
 Log Analytics collecte chaque événement correspondant à un niveau de gravité sélectionné à partir d'un journal d’événements surveillé à mesure que l'événement est créé.  L’agent enregistre sa position dans chaque journal des événements à partir duquel il collecte.  Si l’agent est mis hors connexion pendant un moment, Log Analytics collecte les événements à partir de là où il s’était arrêté, même si ces événements ont été créés lorsque l’agent était hors connexion.  Il est possible que ces événements ne soient pas collectés si des événements non collectés d’un journal sont écrasés pendant que l’agent est hors connexion.
 
 >[!NOTE]
->Log Analytics ne collecte pas les événements d’audit créés par SQL Server à partir de la source *MSSQLSERVER* avec l’ID d’événement 18453 qui contient les mots clés - *Classic* ou *Audit Success* et le mot clé *0xa0000000000000*.
+>Log Analytics ne collecte pas les événements d’audit créés par SQL Server à partir de la source *MSSQLSERVER* avec l’ID d’événement 18453 qui contient les mots clés -  *Classic* ou *Audit Success* et le mot clé *0xa0000000000000*.
 >
 
 ## <a name="windows-event-records-properties"></a>Propriétés des enregistrements d’événements Windows
@@ -76,6 +76,6 @@ Le tableau suivant fournit plusieurs exemples de recherches qui extraient des en
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Configurez Log Analytics pour collecter d’autres [sources de données](log-analytics-data-sources.md) à analyser.
-* En savoir plus sur les [recherches de journal](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.  
+* En savoir plus sur les [recherches de journal](log-analytics-queries.md) pour analyser les données collectées à partir de sources de données et de solutions.  
 * Utilisez [Champs personnalisés](log-analytics-custom-fields.md) pour analyser les enregistrements d'événements dans des champs individuels.
 * Configurez la [collecte des compteurs de performances](log-analytics-data-sources-performance-counters.md) à partir de vos agents Windows.

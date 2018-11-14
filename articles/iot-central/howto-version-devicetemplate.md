@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: b125d822596675b138560c14c76f9a3120ce3424
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 3b9e6a59b44db9295d86e3bc8a8dda9ec9761f38
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34628825"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51009206"
 ---
 # <a name="create-a-new-device-template-version"></a>Créer une nouvelle version de modèle d’appareil
 
-Avec Microsoft Azure IoT Central, vous pouvez développer rapidement des applications IoT. Vous pouvez effectuer une itération rapide au sein des modèles d’appareil que vous avez conçus en ajoutant, modifiant ou supprimant des mesures, des paramètres ou des propriétés. Certains de ces changements peuvent s’avérer intrusifs pour les appareils actuellement connectés. Azure IoT Central identifie ces changements cassants et offre un moyen de déployer de façon sécurisée ces mises à jour sur les appareils.
+Avec Azure IoT Central, vous pouvez développer rapidement des applications IoT. Vous pouvez effectuer une itération rapide au sein des modèles d’appareil que vous avez conçus en ajoutant, modifiant ou supprimant des mesures, des paramètres ou des propriétés. Certains de ces changements peuvent s’avérer intrusifs pour les appareils actuellement connectés. Azure IoT Central identifie ces changements cassants et offre un moyen de déployer de façon sécurisée ces mises à jour sur les appareils.
 
 Chaque modèle d’appareil que vous créez se voit attribuer un numéro de version. Par défaut, il s’agit du numéro de version 1.0.0. Si vous modifiez un modèle d’appareil et que ce changement peut impacter les appareils actuellement connectés, Azure IoT Central vous invite à créer une nouvelle version du modèle d’appareil.
 

@@ -11,15 +11,15 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlrab, srbozovi, bonova
 manager: craigg
-ms.date: 09/13/2018
-ms.openlocfilehash: 08b8e37493ea7bc549a2352aaa6714ef7c65bfdb
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/01/2018
+ms.openlocfilehash: 97362cb91c16f91d637283df7a583f685124a21b
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159514"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913668"
 ---
-# <a name="configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance
+# <a name="quickstart-configure-azure-vm-to-connect-to-an-azure-sql-database-managed-instance"></a>Démarrage rapide : configurer la machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance
 
 Ce guide de démarrage rapide montre comment configurer une machine virtuelle Azure pour qu’elle se connecte à Azure SQL Database Managed Instance à l’aide de SQL Server Management Studio (SSMS). Pour un guide de démarrage rapide montrant comment se connecter à partir d’un ordinateur client local à l’aide d’une connexion point à site, consultez [Configurer une connexion point à site](sql-database-managed-instance-configure-p2s.md). 
 
@@ -47,7 +47,7 @@ Les étapes suivantes créent un sous-réseau dans le réseau virtuel Managed In
 
    | Paramètre| Valeur suggérée | Description |
    | ---------------- | ----------------- | ----------- | 
-   | **Name** | Nom valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
+   | **Nom** | Nom valide|Pour connaître les noms valides, consultez [Conventions d’affectation de noms](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions).|
    | **Plage d’adresses (bloc CIDR)** | Plage valide | La valeur par défaut convient pour ce guide de démarrage rapide.|
    | **Groupe de sécurité réseau** | Aucun | La valeur par défaut convient pour ce guide de démarrage rapide.|
    | **Table de routage** | Aucun | La valeur par défaut convient pour ce guide de démarrage rapide.|

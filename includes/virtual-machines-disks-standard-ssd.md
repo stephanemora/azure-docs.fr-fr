@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: f8ca716f4ab991fecca52ca2d5fed080e6f4c177
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 7c7671578dc22926dabfe7735038186ab1c2c2b3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47060352"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51264167"
 ---
 # <a name="standard-ssd-managed-disks-for-azure-virtual-machine-workloads"></a>Disques managés SSD Standard pour les charges de travail des machines virtuelles Azure
 
@@ -22,7 +22,7 @@ Les disques managés SSD (Solid State Drives) Standard constituent une option de
 ## <a name="standard-ssd-features"></a>Fonctionnalités des disques SSD Standard
 
 **Disques managés** : Les disques SSD Standard sont seulement disponibles en tant que disques managés. Les disques non managés et les objets blob de pages ne sont pas pris en charge sur les disques SSD Standard. Quand vous créez un disque managé, vous spécifiez le type de disque SSD Standard et vous indiquez la taille du disque dont vous avez besoin, puis Azure crée et gère le disque pour vous.
-Les disques SSD Standard prennent en charge toutes les opérations de gestion de service qu’offrent les disques managés. Par exemple, vous pouvez créer, copier ou capturer des disques managés SSD Standard comme vous le faites avec des disques managés.
+Les disques SSD Standard prennent en charge toutes les opérations du modèle de déploiement classique qu’offrent les disques managés. Par exemple, vous pouvez créer, copier ou capturer des disques managés SSD Standard comme vous le faites avec des disques managés.
 
 **Machines virtuelles** : Les disques SSD Standard peuvent être utilisés avec toutes les machines virtuelles Azure, y compris les types de machine virtuelle qui ne prennent pas en charge les disques Premium. Par exemple, si vous utilisez une machine virtuelle de série A ou une machine virtuelle de série N ou de série DS, ou de n’importe quelle autre série de machine virtuelle Azure, vous pouvez utiliser des disques SSD Standard. Avec l’introduction des disques SSD Standard, nous permettons à un large éventail de charges de travail qui utilisaient des disques HDD d’effectuer une transition vers des disques SSD et de bénéficier de performances cohérentes, d’une disponibilité plus élevée, d’une meilleure latence et d’une meilleure expérience générale qu’offrent les disques SSD.
 
@@ -32,7 +32,7 @@ Les disques SSD Standard prennent en charge toutes les opérations de gestion de
 
 ## <a name="scalability-and-performance-targets"></a>Cibles de performance et d’évolutivité
 
-Le tableau suivant contient les tailles de disque qui sont actuellement proposées pour les disques SSD Standard.
+Le tableau suivant contient les tailles de disque qui sont actuellement proposées pour les disques SSD Standard. Les tailles signalées par un astérisque sont actuellement en préversion.
 
 |Type de disque SSD Standard  |Taille du disque  |IOPS par disque  |Débit par disque  |
 |---------|---------|---------|---------|
@@ -42,9 +42,9 @@ Le tableau suivant contient les tailles de disque qui sont actuellement proposé
 |E30     |1 024 Gio       |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
 |E40     |2 048 Gio       |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
 |E50     |4 095 Gio       |Jusqu’à 500         |Jusqu’à 60 Mio par seconde         |
-|E60     |8 192 Gio       |Jusqu’à 1 300       |Jusqu’à 300 Mio par seconde        |
-|E70     |16 384 Gio      |Jusqu’à 2 000       |Jusqu’à 500 Mio par seconde        |
-|E80     |32 767 Gio      |Jusqu’à 2 000       |Jusqu’à 500 Mio par seconde        |
+|E60 *     |8 192 Gio       |Jusqu’à 1 300       |Jusqu’à 300 Mio par seconde        |
+|E70 *    |16 384 Gio      |Jusqu’à 2 000       |Jusqu’à 500 Mio par seconde        |
+|E80 *    |32 767 Gio      |Jusqu’à 2 000       |Jusqu’à 500 Mio par seconde        |
 
 Les disques SSD Standard sont conçus pour fournir des latences en millisecondes à un chiffre pour la plupart des opérations d’E/S et offrir les E/S et le débit dans les limites décrites dans le tableau ci-dessus. Les E/S et le débit réels peuvent parfois varier selon les modèles de trafic. Les disques SSD Standard offrent des performances plus cohérentes que les disques HDD avec une latence plus faible.
 

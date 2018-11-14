@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 8/16/2018
 ms.author: trinadhk
-ms.openlocfilehash: ba77ec34e7887f676ea3df101e87c1ea80fceec5
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ff97d164ee8b2059e1b46377067041d6c381052b
+ms.sourcegitcommit: 3dcb1a3993e51963954194ba2a5e42260d0be258
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50414792"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50753965"
 ---
 # <a name="questions-about-the-azure-vm-backup-service"></a>Questions sur le service de sauvegarde de machine virtuelle Azure
 Cet article comporte les réponses aux questions fréquentes pour vous aider à comprendre rapidement les composants de la sauvegarde de machine virtuelle Azure. Certaines réponses comportent des liens vers les articles présentant des informations complètes. Vous pouvez également publier des questions sur le service Azure Backup dans le [forum de discussion](https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazureonlinebackup).
@@ -48,13 +48,13 @@ Oui. Même lorsqu’une machine est éteinte, les sauvegardes fonctionnent et le
 Oui. Vous pouvez annuler le travail de sauvegarde s’il est dans la phase « Capture instantanée en cours ». **Vous ne pouvez pas annuler un travail si un transfert de données à partir de la capture instantanée est en cours**.
 
 ### <a name="i-enabled-resource-group-lock-on-my-backed-up-managed-disk-vms-will-my-backups-continue-to-work"></a>J’ai activé le verrou de groupe de ressources sur mes machines virtuelles à disque géré sauvegardées. Est-ce que mes sauvegardes continueront de fonctionner ?
-Si l’utilisateur verrouille le groupe de ressources, le service de sauvegarde ne peut pas supprimer les anciens points de restauration. Pour cette raison, les nouvelles sauvegardes échouent, car une limite maximale de 18 points de restauration est imposée par le back-end. Si vos sauvegardes échouent avec une erreur interne après le verrouillage du groupe de ressources, suivez ces [étapes pour supprimer la collection de points de restauration](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-portal-created-by-backup-service).
+Si l’utilisateur verrouille le groupe de ressources, le service de sauvegarde ne peut pas supprimer les anciens points de restauration. Pour cette raison, les nouvelles sauvegardes échouent, car une limite maximale de 18 points de restauration est imposée par le back-end. Si vos sauvegardes échouent avec une erreur interne après le verrouillage du groupe de ressources, suivez ces [étapes pour supprimer la collection de points de restauration](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal).
 
 ### <a name="does-backup-policy-take-daylight-saving-timedst-into-account"></a>La stratégie de sauvegarde prend-elle en compte l’heure d’été ?
 Non. N’oubliez pas que la date et l’heure de votre ordinateur local s’affichent dans votre fuseau local avec le décalage actuel lié à l’heure d’été. La durée configurée pour les sauvegardes planifiées peut donc être différente de votre heure locale en raison de l’heure d’été.
 
 ### <a name="maximum-of-how-many-data-disks-can-i-attach-to-a-vm-to-be-backed-up-by-azure-backup"></a>Combien de disques de données au maximum puis-je attacher à une machine virtuelle qui doit être sauvegardée par la Sauvegarde Azure ?
-Sauvegarde Azure prend désormais en charge la sauvegarde des machines virtuelles comportant jusqu’à 32 disques. Pour la prise en charge de 32 disques, [mettez à niveau vers la pile de sauvegarde de machine virtuelle Azure V2](backup-upgrade-to-vm-backup-stack-v2.md). Toutes les machines virtuelles qui activent la protection à partir du 24 septembre 2018 seront prises en charge.
+La Sauvegarde Azure prend désormais en charge la sauvegarde de machines virtuelles comportant jusqu’à 16 disques. Pour profiter de cette prise en charge, [faites une mise à niveau vers la pile de sauvegarde de machine virtuelle Azure v2](backup-upgrade-to-vm-backup-stack-v2.md). Toutes les machines virtuelles qui activent la protection à partir du 24 septembre 2018 seront prises en charge.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disk"></a>Le service Sauvegarde Azure prend-il en charge les disques managés SSD Standard ?
 Le service Sauvegarde Azure prend en charge les [disques managés SSD Standard](https://azure.microsoft.com/blog/announcing-general-availability-of-standard-ssd-disks-for-azure-virtual-machine-workloads/), un nouveau type de stockage durable pour Machines virtuelles Microsoft Azure. Cette prise en charge fonctionne pour les [piles de sauvegarde de machine virtuelle Azure V2](backup-upgrade-to-vm-backup-stack-v2.md).

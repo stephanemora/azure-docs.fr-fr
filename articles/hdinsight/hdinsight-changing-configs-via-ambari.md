@@ -1,6 +1,6 @@
 ---
-title: Optimiser les configurations de cluster avec Ambari - Azure HDInsight
-description: Utilisez l’interface utilisateur Web d’Ambari pour configurer et optimiser les clusters HDInsight.
+title: Optimiser les configurations de cluster avec Apache Ambari - Azure HDInsight
+description: Utilisez l’interface utilisateur web d’Apache Ambari pour configurer et optimiser les clusters HDInsight.
 author: ashishthaps
 ms.reviewer: jasonh
 ms.service: hdinsight
@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: ashish
-ms.openlocfilehash: 73fdd3f221e35bc1e0b0904bdbbaa63525ba4be3
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 82995f2cc8facac9bef6f8c84c9667775ac81463
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105471"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038516"
 ---
 # <a name="use-ambari-to-optimize-hdinsight-cluster-configurations"></a>Utiliser Ambari pour optimiser les configurations de cluster HDInsight
 

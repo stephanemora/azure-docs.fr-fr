@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7a5372174fcc7cd9552c00c9d283772c9863b815
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 41965c4a498cfa4c1f0dfefaf7615e43083eb94c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257996"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011831"
 ---
 # <a name="stream-the-azure-activity-log-to-event-hubs"></a>Diffuser en continu le journal des activités Azure sur les Event Hubs
 Vous pouvez diffuser en continu le [journal d’activité Azure](monitoring-overview-activity-logs.md) en temps quasi réel vers n’importe quelle application :
@@ -39,10 +39,10 @@ Pour mettre à jour le profil de journal d’activité afin d’inclure la diffu
 ### <a name="via-the-azure-portal"></a>Via le portail azure
 1. Accédez au panneau **Journal d’activité** à l’aide de la recherche **Tous les services** sur le côté gauche du portail.
    
-   ![Sélection du journal d’activité dans la liste des services du portail](./media/monitoring-stream-activity-logs-event-hubs/activity.png)
-2. Sélectionnez le bouton **Exporter** en haut du journal.
+   ![Sélection du journal d’activité dans la liste des services du portail](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-navigate-v2.png)
+2. Sélectionnez le bouton **Exporter vers Event Hub** en haut du journal.
    
-   ![Bouton Exporter dans le portail](./media/monitoring-stream-activity-logs-event-hubs/export.png)
+   ![Bouton Exporter dans le portail](./media/monitoring-stream-activity-logs-event-hubs/activity-logs-portal-export-v2.png)
 
    Notez que les paramètres de filtre que vous aviez appliqué lors de l’affichage du journal d’activité dans la vue précédente n’ont aucun impact sur vos paramètres d’exportation. Ils concernent uniquement le filtrage que vous voyez lorsque vous parcourez votre journal d’activité dans le portail.
 3. Dans la section qui s’affiche, sélectionnez **Toutes les régions**. Ne sélectionnez pas de régions particulières.
@@ -101,5 +101,5 @@ Le schéma pour le journal d’activité est disponible dans [Surveiller l’act
 ## <a name="next-steps"></a>Étapes suivantes
 * [Archiver le journal d’activité dans un compte de stockage](monitoring-archive-activity-log.md)
 * [Lire la présentation du journal d’activité Azure](monitoring-overview-activity-logs.md)
-* [Définir une alerte basée sur un événement de journal d’activité](insights-auditlog-to-webhook-email.md)
+* [Définir une alerte basée sur un événement de journal d’activité](monitor-alerts-unified-log-webhook.md)
 

@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/21/2018
 ms.author: barbkess
-ms.reviewer: asteen
-ms.openlocfilehash: 98dc3981e0f34ebfe7d8881d77b84cfe252e3f4f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.reviewer: japere
+ms.openlocfilehash: 2d528c04a9301998220b5564330f20ed014b68d6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354980"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036927"
 ---
 # <a name="problem-installing-the-application-proxy-agent-connector"></a>Problèmes lors de l’installation du connecteur d’agent de proxy d’application
 
@@ -63,13 +63,13 @@ En cas d’échec de l’installation d’un connecteur, la cause est générale
 
 ## <a name="verify-admin-is-used-to-install-the-connector"></a>Vérification de l’utilisation d’une connexion administrateur pour l’installation du connecteur
 
-**Objectif :** vérifier que l’utilisateur qui tente d’installer le connecteur est un administrateur disposant des informations d’identification correctes. Actuellement, l’installation requiert que l’utilisateur soit un administrateur général.
+**Objectif :** vérifier que l’utilisateur qui tente d’installer le connecteur est un administrateur disposant des informations d’identification correctes. Actuellement, l’installation requiert que l’utilisateur soit un administrateur d’application ou un administrateur général.
 
 **Pour vérifier que les informations d’identification sont correctes :**
 
 Connectez-vous à <https://login.microsoftonline.com> en utilisant les mêmes informations d’identification. Vérifiez que la connexion a réussi. Vous pouvez vérifier le rôle utilisateur en sélectionnant **Azure Active Directory** -&gt; **Utilisateurs et groupes** -&gt; **Tous les utilisateurs**. 
 
-Sélectionnez votre compte d’utilisateur, puis sélectionnez « Rôle d’annuaire » dans le menu qui s’affiche. Vérifiez que le rôle sélectionné est « Administrateur général ». Si vous ne pouvez accéder à aucune des pages de cette procédure, cela signifie que vous n’êtes pas administrateur général.
+Sélectionnez votre compte d’utilisateur, puis sélectionnez « Rôle d’annuaire » dans le menu qui s’affiche. Vérifiez que le rôle sélectionné est « Administrateur d’application » ou « Administrateur général ». Si vous ne pouvez accéder à aucune des pages de ces étapes, vous n’avez pas de rôle requis.
 
 ## <a name="next-steps"></a>Étapes suivantes
 [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md)

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 94de5566db2395a3daf24c99a43cca6853e12cce
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 1bfa52d07ddc4eaf86bce17c0ad7c63493a8b5fd
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45736969"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255725"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Connecter un appareil DevKit IoT MXChip à votre application Azure IoT Central
 
@@ -23,7 +23,7 @@ Cet article vous explique comment, en tant que développeur d’appareils, vous 
 
 Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
 
-1. Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [Créer votre application Azure IoT Central](howto-create-application.md).
+1. Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [créer une application](quick-deploy-iot-central.md).
 1. Un appareil DevKit. Pour acheter un appareil DevKit, accédez à [MXChip IoT DevKit](http://mxchip.com/az3166).
 
 
@@ -69,7 +69,7 @@ Dans votre application Azure IoT Central, ajoutez un appareil réel à partir du
 #### <a name="to-prepare-the-devkit-device"></a>Pour préparer l’appareil DevKit :
 
 
-1. Téléchargez la dernière version du microprogramme Azure IoT Central prédéfini pour MXChip à partir de la page [Releases](http://aka.ms/iotcentral-docs-MXChip-releases) de GitHub.
+1. Téléchargez la dernière version du microprogramme Azure IoT Central prédéfini pour MXChip à partir de la page [Releases](https://aka.ms/iotcentral-docs-MXChip-releases) de GitHub.
 1. Connectez l’appareil DevKit à votre machine de développement à l’aide d’un câble USB. Dans Windows, une fenêtre Explorateur de fichiers s’ouvre sur un lecteur mappé au stockage de l’appareil DevKit. Par exemple, le lecteur peut s’appeler **AZ3166 (d)**.
 1. Faites glisser le fichier **iotCentral.bin** jusqu’à la fenêtre du lecteur. Une fois la copie effectuée, l’appareil redémarre avec le nouveau microprogramme.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: mbullwin
-ms.openlocfilehash: cfcdf13f8aa4dfab9b361ccbb82ea4b2c3e2ca0d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 5550bbb95b24e12510c69bc3952c346250786994
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42145740"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960002"
 ---
 # <a name="import-data-into-analytics"></a>Importer des données dans Analytics
 
@@ -121,13 +121,13 @@ Format JSON
 Chaque colonne est identifiée par l’emplacement, le nom et le type.
 
 * Emplacement : pour le format de fichier délimité, il s’agit de la position de la valeur mappée. Pour le format JSON, il s’agit du jpath de la clé mappée.
-* Nom : nom affiché de la colonne.
+* Nom : nom d’affichage de la colonne.
 * Type : type de données de cette colonne.
- 
+
 > [!NOTE]
 > Si un exemple de données a été utilisé et que le format de fichier est délimité, la définition du schéma doit mapper toutes les colonnes et ajouter de nouvelles colonnes à la fin.
 > 
-> JSON permet un mappage partiel des données : par conséquent la définition du schéma avec un format JSON n’a pas besoin de mapper toutes les clés trouvées dans l’exemple de données. Il peut également mapper les colonnes qui ne font pas partie de l’exemple de données. 
+> JSON permet un mappage partiel des données ; par conséquent, la définition de schéma au format JSON n’a pas besoin de mapper toutes les clés trouvées dans l’exemple de données. Il peut également mapper les colonnes qui ne font pas partie de l’exemple de données. 
 
 ## <a name="import-data"></a>Importer des données
 
@@ -137,7 +137,7 @@ Pour importer des données, chargez-les dans le stockage Azure, créez une clé 
 
 Vous pouvez effectuer l’opération suivante manuellement ou configurer un système automatisé pour qu’il le fasse à intervalles réguliers. Vous devez suivre ces étapes pour chaque bloc de données à importer.
 
-1. Chargez les données dans le [stockage Blob Azure](../storage/blobs/storage-dotnet-how-to-use-blobs.md). 
+1. Chargez les données dans le [stockage Blob Azure](../storage/blobs/storage-quickstart-blobs-dotnet.md). 
 
  * La taille maximum des blobs est de 1 Go (sans compression). Les blobs d’une centaine de Mo sont parfaits, du point de vue des performances.
  * Vous pouvez les compresser avec Gzip pour améliorer le temps de chargement et la latence de disponibilité des données pour interrogation. Utilisez l’extension de nom de fichier `.gz`.
@@ -369,5 +369,5 @@ Utilisez ce code pour chaque blob.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Présentation du langage de requête Log Analytics](app-insights-analytics-tour.md)
+* [Présentation du langage de requête Log Analytics](../log-analytics/query-language/get-started-analytics-portal.md)
 * Si vous utilisez Logstash, utilisez le [plug-in Logstash pour envoyer des données à Application Insights](https://github.com/Microsoft/logstash-output-application-insights)

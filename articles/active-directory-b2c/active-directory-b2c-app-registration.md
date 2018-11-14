@@ -1,134 +1,84 @@
 ---
-title: Inscription d’application dans Azure Active Directory B2C | Microsoft Docs
-description: Inscription de votre application auprès d’Azure Active Directory B2C
+title: Inscrire une application dans Azure Active Directory B2C | Microsoft Docs
+description: Découvrez comment inscrire votre application auprès d’Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 6/13/2017
+ms.date: 11/01/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4f8a5b1ceda77ef254ad0c2afb7d2316581d778e
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 8068c4a8f38cd33a1a0547f5db5079bc75c76ec1
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376394"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013409"
 ---
-# <a name="azure-active-directory-b2c-register-your-application"></a>Azure Active Directory B2C : inscription de votre application
+# <a name="register-an-application-in-azure-active-directory-b2c"></a>Inscrire une application dans Azure Active Directory B2C
 
-Ce démarrage rapide vous aide à inscrire une application dans un client B2C Microsoft Azure Active Directory (Azure AD) en quelques minutes. Lorsque vous avez terminé, votre application est inscrite comme utilisable dans le client Azure AD B2C.
+Pour générer une [application](active-directory-b2c-apps.md) acceptant l’inscription et la connexion des consommateurs, vous devez commencer par inscrire cette application auprès d’un client Azure AD B2C. Cet article vous aide à inscrire une application dans un client B2C Azure Active Directory (Azure AD) en quelques minutes. Lorsque vous avez terminé, votre application est inscrite comme utilisable dans le client Azure AD B2C.
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour générer une application acceptant l’inscription et la connexion des consommateurs, vous devez commencer par inscrire cette application auprès d’un client Azure Active Directory B2C. Obtenez votre propre client en suivant la procédure décrite dans [Création d’un client Azure AD B2C](active-directory-b2c-get-started.md).
+Obtenez votre propre client en suivant la procédure décrite dans [Créer un client Azure Active Directory B2C](tutorial-create-tenant.md).
 
-Les applications créées dans le portail Azure doivent être gérées à partir du même emplacement. Si vous modifiez des applications Azure AD B2C à l’aide de PowerShell ou d’un autre portail, elles ne sont plus prises en charge et ne fonctionnent pas avec Azure AD B2C. Consultez les détails dans la section [Applications ayant généré une erreur](#faulted-apps). 
+Choisissez les étapes suivantes en fonction du type de votre application :
 
-Cet article utilise des exemples qui vous aideront à démarrer avec nos exemples. Les articles suivants fournissent plus d’informations sur ces exemples.
+- [Inscrire une application web](#register-a-web-application)
+- [Inscrire une API web](#register-a-web-api)
+- [Inscrire une application mobile ou native](#register-a-mobile-or-native-application)
 
-## <a name="navigate-to-b2c-settings"></a>Accéder aux paramètres B2C
+## <a name="register-a-web-application"></a>Inscrire une application web
 
-Connectez-vous au [portail Azure](https://portal.azure.com/) en tant qu’administrateur général du client B2C. 
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+2. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+3. Sélectionnez **Applications**, puis **Ajouter**.
+4. Entrez un nom pour l’application. Par exemple *testapp1*.
+5. Pour **inclure l’application web/l’API web** et **autoriser un flux implicite**, sélectionnez **Oui**.
+6. Pour les **URL de réponse**, entrez les points de terminaison où Azure AD B2C doit retourner des jetons requis par votre application. Par exemple, vous pouvez le définir pour qu’il écoute localement sur `https://localhost:44316`. Si vous ne connaissez pas encore le numéro de port, vous pouvez entrer une valeur d’espace réservé que vous modifierez ultérieurement.
+7. Cliquez sur **Créer**.
 
-[!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
+### <a name="create-a-client-secret"></a>Créer une clé secrète client
 
-[!INCLUDE [active-directory-b2c-portal-navigate-b2c-service](../../includes/active-directory-b2c-portal-navigate-b2c-service.md)]
+Si votre application appelle une API web sécurisée par Azure AD B2C, vous devez créer un secret d’application.
 
-## <a name="choose-next-steps-based-on-your-application-type"></a>Choisissez les étapes suivantes en fonction de votre type d’application
+1. Sélectionnez **Clés**, puis cliquez sur **Générer une clé**. 
+2. Sélectionnez **Enregistrer** pour afficher la clé. Prenez note de la valeur **Clé d’application** . Vous utilisez la valeur en tant que secret d’application dans le code de votre application.
+3. Sélectionnez **Accès d’API**, cliquez sur **Ajouter**, puis sélectionnez votre API web et les étendues (autorisations).
 
-* [Inscrire une application web](#register-a-web-app)
-* [Inscrire une API web](#register-a-web-api)
-* [Inscrire une application mobile ou native](#register-a-mobile-or-native-app)
- 
-### <a name="register-a-web-app"></a>Inscrire une application web
+## <a name="register-a-web-api"></a>Inscrire une API web
 
-[!INCLUDE [active-directory-b2c-register-web-app](../../includes/active-directory-b2c-register-web-app.md)]
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+2. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+3. Sélectionnez **Applications**, puis **Ajouter**.
+4. Entrez un nom pour l’application. Par exemple *testapp2*.
+5. Pour **inclure l’application web/l’API web** et **autoriser un flux implicite**, sélectionnez **Oui**.
+6. Pour les **URL de réponse**, entrez les points de terminaison où Azure AD B2C doit retourner des jetons requis par votre application. Par exemple, vous pouvez le définir pour qu’il écoute localement sur `https://localhost:44316`. Si vous ne connaissez pas encore le numéro de port, vous pouvez entrer une valeur d’espace réservé que vous modifierez ultérieurement.
+7. Pour l’**L’URI de l’ID d’application**, entrez l’identificateur utilisé pour votre API web. L’identificateur complet URI, y compris le domaine, est généré pour vous. Par exemple : `https://contosotenant.onmicrosoft.com/api`.
+8. Cliquez sur **Créer**.
+9. Sélectionnez **Étendues publiées** pour ajouter des étendues si nécessaire. Par défaut, l’étendue `user_impersonation` est définie. L’étendue `user_impersonation` permet à d’autres applications d’accéder à cette API pour le compte de l’utilisateur connecté. Si vous le souhaitez, l’étendue `user_impersonation` peut être supprimée.
 
-### <a name="create-a-web-app-client-secret"></a>Créer une clé secrète client d’application web
+## <a name="register-a-mobile-or-native-application"></a>Inscrire une application mobile ou native
 
-Si votre application web appelle une API web sécurisée par Azure AD B2C, procédez comme suit :
-   1. Créez une clé secrète d’application en accédant au panneau **Clés** et en cliquant sur le bouton **Générer la clé**. Prenez note de la valeur **Clé d’application** . Vous utilisez la valeur en tant que secret d’application dans le code de votre application.
-   2. Cliquez sur **Accès d’API**, cliquez sur **Ajouter**, puis sélectionnez votre API web et les étendues (autorisations).
+1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
+2. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+3. Sélectionnez **Applications**, puis **Ajouter**.
+4. Entrez un nom pour l’application. Par exemple *testapp3*.
+5. Pour **Inclure une application/API web**, sélectionnez **Non**.
+6. Pour **Inclure un client natif**, sélectionnez **Oui**.
+7. Pour **URI de redirection**, entrez un [URI de redirection avec un schéma personnalisé](active-directory-b2c-apps.md). Prenez soin de choisir un URI de redirection approprié et de ne pas y inclure de caractères spéciaux tels que des traits de soulignement.
+8. Cliquez sur **Créer**.
 
-> [!NOTE]
-> Une **Clé secrète d’application** est une information d’identification de sécurité importante, qui doit être correctement sécurisée.
-> 
+### <a name="create-a-client-secret"></a>Créer une clé secrète client
 
-[Passer aux **étapes suivantes**](#next-steps)
+Si votre application appelle une API web sécurisée par Azure AD B2C, vous devez créer un secret d’application.
 
-### <a name="register-a-web-api"></a>Inscrire une API web
-
-[!INCLUDE [active-directory-b2c-register-web-api](../../includes/active-directory-b2c-register-web-api.md)]
-
-Cliquez sur **Étendues publiées** pour ajouter des étendues si nécessaire. Par défaut, l’étendue « user_impersonation » est définie. L’étendue user_impersonation permet à d’autres applications d’accéder à cette API pour le compte de l’utilisateur connecté. Si vous le souhaitez, l’étendue user_impersonation peut être supprimée.
-
-[Passer aux **étapes suivantes**](#next-steps)
-
-### <a name="register-a-mobile-or-native-app"></a>Inscrire une application mobile/native
-
-[!INCLUDE [active-directory-b2c-register-mobile-native-app](../../includes/active-directory-b2c-register-mobile-native-app.md)]
-
-[Passer aux **étapes suivantes**](#next-steps)
-
-## <a name="limitations"></a>Limites
-
-### <a name="choosing-a-web-app-or-api-reply-url"></a>Choix d’une URL de réponse d’API ou d’application web
-
-Pour l’instant, les applications qui sont inscrites auprès d’Azure AD B2C sont limitées à un ensemble restreint de valeurs d’URL de réponse. L’URL de réponse pour les services et applications web doit commencer par le schéma `https`, et toutes les valeurs d’URL de réponse doivent partager un même domaine DNS. Par exemple, vous ne pouvez pas inscrire une application web comportant l’une des URL de réponse suivantes :
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-Le système d’inscription compare le nom DNS complet de l’URL de réponse existante au nom DNS de l’URL de réponse que vous ajoutez. La demande d’ajout du nom DNS échoue si l’une des conditions suivantes est remplie :
-
-* Le nom DNS complet de la nouvelle URL de réponse ne correspond pas au nom DNS de l’URL de réponse existante.
-* Le nom DNS complet de la nouvelle URL de réponse n’est pas un sous-domaine de l’URL de réponse existante.
-
-Par exemple, si l’application a cette URL de réponse :
-
-`https://login.contoso.com`
-
-Vous pouvez la compléter comme suit :
-
-`https://login.contoso.com/new`
-
-Dans ce cas, le nom DNS correspond exactement. Vous pouvez aussi définir l’URI suivant :
-
-`https://new.login.contoso.com`
-
-Dans ce cas, vous faites référence à un sous-domaine DNS de login.contoso.com. Si vous voulez disposer d’une application avec login-east.contoso.com et login-west.contoso.com comme URL de réponse, vous devez ajouter ces URL de réponse dans l’ordre suivant :
-
-`https://contoso.com`
-
-`https://login-east.contoso.com`
-
-`https://login-west.contoso.com`
-
-Vous pouvez ajouter les deux derniers car il s’agit de sous-domaines de la première URL de réponse, contoso.com.
-
-### <a name="choosing-a-native-app-redirect-uri"></a>Choix d’un URI de redirection d’application native
-
-Il existe deux points importants à prendre en considération lors du choix d’un URI de redirection pour les applications mobiles/natives :
-
-* **Unique** : le schéma de l’URI de redirection doit être unique pour chaque application. Dans l’exemple (com.onmicrosoft.contoso.appname://redirect/path), com.onmicrosoft.contoso.appname correspond au schéma. Nous vous recommandons de suivre ce modèle. Si deux applications partagent le même schéma, l’utilisateur voit une boîte de dialogue « Choix d’une application ». Si l’utilisateur effectue un choix incorrect, la connexion échoue.
-* **Complet** : l’URI de redirection doit comporter un schéma et un chemin d’accès. Le chemin d’accès doit contenir au moins une barre oblique après le domaine (par exemple, //contoso/ fonctionne, tandis que //contoso échoue).
-
-Vérifiez que l’URI de redirection ne comporte aucun caractère spécial, tel que des traits de soulignement.
-
-### <a name="faulted-apps"></a>Applications ayant généré une erreur
-
-Les applications B2C ne doivent PAS être modifiées :
-
-* Sur les autres portails de gestion des applications tels que le [Portail d’inscription des applications](https://apps.dev.microsoft.com/)
-* À l’aide de l’API Graph ou de PowerShell
-
-Si vous modifiez l’application Azure AD B2C comme décrit et tentez de la modifier de nouveau dans les fonctionnalités d’Azure AD B2C sur le portail Azure, l’application génère une erreur et n’est plus utilisable avec Azure AD B2C. Vous devez supprimer l’application, puis la recréer.
-
-Pour supprimer l’application, accédez au [Portail d’inscription des applications](https://apps.dev.microsoft.com/), puis supprimez l’application à cet emplacement. Pour que l’application soit visible, vous devez en être le propriétaire (et non simplement un administrateur du locataire).
+1. Sélectionnez **Clés**, puis cliquez sur **Générer une clé**. 
+2. Sélectionnez **Enregistrer** pour afficher la clé. Prenez note de la valeur **Clé d’application** . Vous utilisez la valeur en tant que secret d’application dans le code de votre application.
+3. Sélectionnez **Accès d’API**, cliquez sur **Ajouter**, puis sélectionnez votre API web et les étendues (autorisations).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

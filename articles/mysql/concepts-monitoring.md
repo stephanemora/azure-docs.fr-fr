@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 10/03/2018
-ms.openlocfilehash: c2248f185c5c1c5dd8c4e1d4a24e6145a82ec5cb
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.date: 11/05/2018
+ms.openlocfilehash: a66311cb35815b5db7724a277677ad41d7afec77
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091553"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035731"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Monitoring dans Azure Database pour MySQL
 La surveillance des données relatives à vos serveurs vous aide à résoudre les problèmes et à optimiser votre charge de travail. Azure Database pour MySQL propose diverses métriques qui fournissent des insights sur le comportement de votre serveur.
@@ -41,10 +41,12 @@ Ces métriques sont disponibles pour Azure Database pour MySQL :
 |seconds_behind_master|Décalage de la réplication en secondes|Count|Nombre de secondes de latence du serveur réplica par rapport au serveur maître.|
 |network_bytes_egress|Network Out|Octets|Sortie réseau entre connexions actives.|
 |network_bytes_ingress|Network In|Octets|Entrée réseau entre connexions actives.|
+|backup_storage_used|Stockage de sauvegarde utilisé|Octets|Quantité de stockage de sauvegarde utilisée.|
 
 ## <a name="server-logs"></a>Journaux des serveurs
-Vous pouvez activer la journalisation des requêtes lentes sur votre serveur. Ces journaux sont également disponibles via les journaux de diagnostic Azure dans OMS Log Analytics, Event Hubs et le compte de stockage. Pour en savoir plus sur la journalisation, consultez la page [journaux serveur](concepts-server-logs.md).
+Vous pouvez activer la journalisation des requêtes lentes sur votre serveur. Ces journaux sont également disponibles via les journaux de diagnostic Azure dans OMS Log Analytics, Event Hubs et le compte de stockage. Pour en savoir plus sur la journalisation, consultez la page  [journaux serveur](concepts-server-logs.md).
 
 ## <a name="next-steps"></a>Étapes suivantes
 - Consultez le [guide pratique pour configurer des alertes](howto-alert-on-metric.md) pour savoir comment créer une alerte sur une métrique.
 - Pour plus d’informations sur la façon d’accéder aux métriques et de les exporter à l’aide du portail Azure, de l’API REST ou de CLI, consultez [Vue d’ensemble des métriques Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Lisez notre blog sur les [meilleures pratiques de surveillance de votre serveur](https://azure.microsoft.com/blog/best-practices-for-alerting-on-metrics-with-azure-database-for-mysql-monitoring/).

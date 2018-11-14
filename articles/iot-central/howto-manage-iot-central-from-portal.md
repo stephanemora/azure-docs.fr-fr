@@ -8,12 +8,12 @@ ms.author: tanmayb
 ms.date: 08/30/2018
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: ff6978ddbf8718ad45a4265898109b7ac799d70c
-ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.openlocfilehash: 2977c3d1656bacf8ba8d34080641ea6c5cdf5bbe
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46468515"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50957105"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Gérer IoT Central à l’aide du Portail Azure 
 Outre la création et la gestion d’applications IoT Central depuis le site web IoT Central, vous pouvez également gérer IoT Central depuis le Portail Azure. Cet article vous explique en détail ce qui possible et comment.
@@ -35,14 +35,14 @@ Cliquez maintenant sur le bouton « Créer » pour afficher un formulaire à rem
 
 ![Portail de gestion : ressource IoT Central](media\howto-manage-iot-central-from-portal\image0c.png)
 
-Renseignez tous les champs dans le formulaire. Ce formulaire ressemble à celui que vous devez remplir pour créer des applications à partir du site web IoT Central. Pour en savoir plus sur ce que vous devez renseigner dans chaque champ, vous pouvez vous référer au document [Créer une application IoT Central](https://docs.microsoft.com/ azure/iot-central/howto-create-application). 
+Renseignez tous les champs dans le formulaire. Ce formulaire ressemble à celui que vous devez remplir pour créer des applications à partir du site web IoT Central. Pour en savoir plus sur ce que vous devez renseigner dans chaque champ, consultez le démarrage rapide [Créer une application IoT Central](quick-deploy-iot-central.md). 
 
 ![Portail de gestion : créer une ressource IoT Central](media\howto-manage-iot-central-from-portal\image1.png)  
 
 Après avoir renseigné tous les champs, cliquez sur le bouton « Créer ».
 
 ## <a name="manage-existing-iot-central-applications"></a>Gérer des applications IoT Central existantes
-Si vous disposez déjà d’une application Azure IoT Central, vous pouvez la supprimer ou la déplacer vers un abonnement ou groupe de ressources différent dans le portail Azure. Les applications avec essai de 7 jours ne sont pas visibles dans le portail Azure car aucun abonnement ne prend en charge ces essais.
+Si vous disposez déjà d’une application Azure IoT Central, vous pouvez la supprimer ou la déplacer vers un abonnement ou groupe de ressources différent dans le portail Azure. Les applications avec essai ne sont pas visibles dans le portail Azure car aucun abonnement ne prend en charge ces essais.
 
 Pour commencer, cliquez sur « Toutes les ressources » dans le menu de navigation principal situé sur la gauche. Saisissez le nom de votre application dans la zone de recherche, et cherchez-la dans la liste de vos ressources. Cliquez ensuite sur l’application IoT Central que vous souhaitez gérer.
 

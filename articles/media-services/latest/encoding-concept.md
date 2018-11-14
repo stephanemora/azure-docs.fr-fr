@@ -9,22 +9,22 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: bee74f0399def142915aa26d15ecfa671925f405
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 0df13e3364cebe7cb5804b840889bca971b36be2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025580"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235052"
 ---
-# <a name="encoding-with-azure-media-services"></a>Encodage avec Azure Media Services
+# <a name="encoding-with-media-services"></a>Encodage avec Media Services
 
-Azure Media Services vous permet d’encoder vos fichiers multimédias numériques haute définition dans des formats pouvant être lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Media Services vous permet également d’analyser le contenu de vos fichiers vidéo ou audio. Cette rubrique vous explique comment encoder votre contenu avec Media Services v3.
+Azure Media Services vous permet d’encoder vos fichiers multimédias numériques haute définition dans des formats pouvant être lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Cette rubrique vous explique comment encoder votre contenu avec Media Services v3.
 
 Pour encoder avec Media Services v3, vous devez créer une transformation et un travail. Une transformation définit la recette à appliquer pour vos paramètres et sorties d’encodage, et la tâche est une instance de la recette. Pour plus d’informations, consultez [Transformations et travaux](transform-concept.md).
 
-Lors de l’encodage avec Azure Media Services, vous utilisez des préréglages pour indiquer comment traiter les fichiers multimédias en entrée. Par exemple, vous pouvez spécifier la résolution vidéo et/ou le nombre de canaux audio souhaité dans le contenu encodé. 
+Lors de l’encodage avec Media Services, vous utilisez des préréglages pour indiquer comment traiter les fichiers multimédias en entrée. Par exemple, vous pouvez spécifier la résolution vidéo et/ou le nombre de canaux audio souhaité dans le contenu encodé. 
 
 Vous pouvez commencer rapidement à utiliser un des préréglages intégrés recommandés et basés sur les bonnes pratiques du secteur, ou vous pouvez choisir de créer un préréglage personnalisé pour les besoins de votre scénario ou de votre appareil. Pour plus d’informations, consultez [Encoder avec une transformation personnalisée](customize-encoder-presets-how-to.md). 
 
@@ -34,8 +34,6 @@ Actuellement, Media Services prend en charge les préréglages d’encodage int�
 
 |**Nom du préréglage**|**Scénario**|**Détails**|
 |---|---|---|
-|**AudioAnalyzerPreset**|Analyse de contenu audio|Ce préréglage applique un ensemble prédéfini d’opérations d’analyse basée sur l’IA, notamment la transcription de la parole. Actuellement, le préréglage prend en charge le traitement du contenu avec une seule piste audio.<br/>Vous pouvez spécifier la langue de la charge utile audio de l’entrée en utilisant le format BCP-47 « étiquette langue-région » (par exemple « en-US »). La liste des langues prises en charge est : « en-US », « en-GB », « es-ES », « es-MX », « fr-FR », « it-IT », « ja-JP », « pt-BR », « zh-CN ».|
-|**VideoAnalyzerPreset**|Analyse de contenu audio et vidéo|Extrait des insights (métadonnées enrichies) des contenus audio et vidéo, et génère en sortie un fichier au format JSON. Vous pouvez spécifier si vous voulez extraire seulement des insights audio lors du traitement d’un fichier vidéo. Pour plus d’informations, consultez [Analyser un contenu vidéo](analyze-videos-tutorial-with-api.md).|
 |**BuiltInStandardEncoderPreset**|Diffusion en continu|Utilisé pour définir un préréglage intégré pour l’encodage de la vidéo en entrée avec l’encodeur standard. <br/>Les préréglages suivants sont actuellement pris en charge :<br/>**EncoderNamedPreset.AdaptiveStreaming** (recommandé). Pour plus d’informations, consultez [Génération automatique d’une échelle de débit binaire](autogen-bitrate-ladder.md).<br/>**EncoderNamedPreset.AACGoodQualityAudio** - produit un fichier MP4 unique contenant seulement le contenu audio stéréo encodé à 192 Kbits/s.<br/>**EncoderNamedPreset.H264MultipleBitrate1080** produit un ensemble de 8 fichiers MP4 alignés sur GOP, de 6 000 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 1 080p et descend à 360p.<br/>**EncoderNamedPreset.H264MultipleBitrate720p** produit un ensemble de 6 fichiers MP4 alignés sur GOP, de 3 400 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 720p et descend à 360p.<br/>**EncoderNamedPreset.H264MultipleBitrateSD** produit un ensemble de 5 fichiers MP4 alignés sur GOP, de 1 600 Kbits/s à 400 Kbits/s, et un contenu audio AAC stéréo. La résolution commence à 480p et descend à 360p.<br/><br/>Pour plus d’informations, consultez [Chargement, encodage et streaming de fichiers](stream-files-tutorial-with-api.md).|
 |**StandardEncoderPreset**|Diffusion en continu|Décrit les paramètres utilisés lors de l’encodage de vidéo en entrée avec l’encodeur standard. <br/>Utilisez ce préréglage lors de la personnalisation des préréglages de transformation. Pour plus d’informations, consultez [Guide pratique pour personnaliser les paramètres de transformation prédéfinis](customize-encoder-presets-how-to.md).|
 
@@ -45,16 +43,15 @@ Media Services prend entièrement en charge la personnalisation de toutes les va
 
 ## <a name="scaling-encoding-in-v3"></a>Mise à l’échelle de l’encodage dans v3
 
-Actuellement, les clients doivent utiliser le portail Azure ou les API d’AMS v2 pour définir des RU (comme décrit dans [Mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md). 
+Actuellement, les clients doivent utiliser le portail Azure ou des API Media Services v2 pour définir des unités de demande (comme décrit dans [Mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md). 
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 ### <a name="tutorials"></a>Didacticiels
 
-Les tutoriels suivants montrent comment encoder votre contenu avec Media Services :
+Les didacticiels suivants montrent comment encoder votre contenu avec Media Services :
 
-* [Charger, encoder et diffuser en continu à l’aide d’Azure Media Services](stream-files-tutorial-with-api.md)
-* [Analyser des vidéos avec Azure Media Services](analyze-videos-tutorial-with-api.md)
+* [Charger, encoder et diffuser en continu à l’aide de Media Services](stream-files-tutorial-with-api.md)
 
 ### <a name="code-samples"></a>Exemples de code
 

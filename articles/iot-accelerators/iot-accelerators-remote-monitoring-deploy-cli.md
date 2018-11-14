@@ -1,29 +1,29 @@
 ---
-title: Déployer la solution de surveillance à distance Java - Azure | Microsoft Docs
-description: Ce tutoriel montre comment provisionner l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI.
+title: Déployer la solution de surveillance à distance à l’aide d’Azure CLI – Azure | Microsoft Docs
+description: Ce guide pratique montre comment approvisionner l’accélérateur de solution de surveillance à distance à l’aide d’Azure CLI.
 author: dominicbetts
 manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/12/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
-ms.openlocfilehash: ddb0b5b1a0847200caa7d8d04ecdc9dab4c41d14
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 5704cc21b14d83ebc30cd29f52102c751cfb11f2
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956695"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51248008"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>Déployer l’accélérateur de solution de surveillance à distance à l’aide de l’interface CLI
 
-Ce tutoriel montre comment provisionner l’accélérateur de solution de surveillance à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web à partir d’azureiotsuite.com. Pour en savoir plus sur cette option, consultez [Déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md).
+Ce guide pratique montre comment déployer l’accélérateur de solution de surveillance à distance. Vous déployez la solution à l’aide de l’interface CLI. Vous pouvez également déployer la solution à l’aide de l’interface utilisateur basée sur le web à partir d’azureiotsuite.com. Pour découvrir cette option, voir le guide de démarrage rapide [Déployer l’accélérateur de solution de surveillance à distance](quickstart-remote-monitoring-deploy.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
 Pour déployer l’accélérateur de solution de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
 
-Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](http://azure.microsoft.com/pricing/free-trial/).
+Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 Pour pouvoir exécuter l’interface CLI, vous devez installer [Node.js](https://nodejs.org/) sur votre ordinateur local.
 
@@ -37,7 +37,7 @@ npm install iot-solutions -g
 
 ## <a name="sign-in-to-the-cli"></a>Se connecter à l’interface CLI
 
-Avant de pouvoir déployer l’accélérateur de solution, vous devez vous connecter à votre abonnement Azure à l’aide de l’interface CLI comme suit :
+Avant de pouvoir déployer l’accélérateur de solution, vous devez vous connecter à votre abonnement Azure à l’aide d’Azure CLI :
 
 ```cmd/sh
 pcs login
@@ -51,19 +51,20 @@ Quand vous déployez l’accélérateur de solution, vous disposez de plusieurs 
 
 | Option | Valeurs | Description |
 | ------ | ------ | ----------- |
-| SKU    | `basic`, `standard`, `local` | Utilisez un déploiement _basic_ à des fins de test et de démonstration ; il déploie tous les microservices sur une seule machine virtuelle. Utilisez un déploiement _standard_ à des fins de production ; il déploie les microservices sur plusieurs machines virtuelles. Un déploiement _local_ configure un conteneur Docker pour exécuter les microservices sur votre ordinateur local, et il utilise des services Azure tels que Stockage et Cosmos DB dans le cloud. |
+| SKU    | `basic`, `standard`, `local` | Utilisez un déploiement _basic_ à des fins de test et de démonstration ; il déploie tous les microservices sur une seule machine virtuelle. Utilisez un déploiement _standard_ à des fins de production ; il déploie les microservices sur plusieurs machines virtuelles. Un déploiement _local_ configure un conteneur Docker pour exécuter les microservices sur votre ordinateur local, et il utilise des services Azure tels que Stockage et Cosmos DB. |
 | Runtime | `dotnet`, `java` | Sélectionne l’implémentation de langage des microservices. |
 
-Pour découvrir comment utiliser le déploiement local, consultez [Running the remote monitoring solution locally (Exécution locale de la solution de surveillance à distance)](iot-accelerators-remote-monitoring-deploy-local.md).
+Pour découvrir comment utiliser le déploiement local, consultez [Running the remote monitoring solution locally](iot-accelerators-remote-monitoring-deploy-local.md) (Exécution locale de la solution de surveillance à distance).
 
-## <a name="basic-vs-standard-deployments"></a>Déploiements de base et standard
+## <a name="basic-and-standard-deployments"></a>Déploiements de base et standard
+
+Cette section récapitule les principales différences entre les déploiements de base et standard.
 
 ### <a name="basic"></a>De base
-Le déploiement de base est destiné à présenter la solution. Pour réduire le coût de cette démonstration, tous les microservices sont déployés sur une seule machine virtuelle ; il ne s’agit pas d’une architecture prête pour la production.
 
-Notre option de déploiement standard doit être utilisée quand vous êtes prêt à personnaliser une architecture prête pour la production, créée pour la scalabilité et l’extensibilité.
+Le déploiement de base est destiné à présenter la solution. Pour réduire les coûts, tous les microservices sont déployés dans une seule machine virtuelle. Ce déploiement n’utilise pas d’architecture prête pour la production.
 
-La création d’une solution de base entraîne le provisionnement des services Azure suivants dans votre abonnement Azure au coût ci-après : 
+Un déploiement de base crée les services suivants dans votre abonnement Azure :
 
 | Count | Ressource                       | type         | Utilisation |
 |-------|--------------------------------|--------------|----------|
@@ -78,13 +79,11 @@ La création d’une solution de base entraîne le provisionnement des services 
 | 1     | [Service d’approvisionnement des appareils Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Approvisionnement des appareils à grande échelle |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 : 1 unité              | Stockage des données de messages et activation de l’analyse approfondie des données de télémétrie |
 
-
-
 ### <a name="standard"></a>standard
-Le déploiement standard est un déploiement prêt pour la production, qu’un développeur peut personnaliser et étendre pour répondre à ses besoins. Le développeur doit utiliser l’option de déploiement standard quand il est prêt à personnaliser une architecture prête pour la production, créée pour la scalabilité et l’extensibilité. Les microservices d’application sont générés en tant que conteneurs Docker et déployés à l’aide d’Azure Kubernetes Service (AKS). L’orchestrateur est responsable du déploiement, de la mise à l’échelle et de la gestion de l’application.
 
+Un déploiement standard est un déploiement prêt pour la production, qu’un développeur peut personnaliser et étendre. Utilisez l’option de déploiement standard quand vous êtes prêt à personnaliser une architecture prête pour la production, créée pour la mise à l’échelle et l’extensibilité. Les microservices d’application sont générés en tant que conteneurs Docker et déployés à l’aide d’Azure Kubernetes Service. L’orchestrateur Kubernetes déploie, met à l’échelle et gère les microservices.
 
-La création d’une solution standard entraîne le provisionnement des services Azure suivants dans votre abonnement Azure au coût ci-après :
+Un déploiement standard crée les services suivants dans votre abonnement Azure :
 
 | Count | Ressource                                     | Référence (SKU) / Taille      | Utilisation |
 |-------|----------------------------------------------|-----------------|----------|
@@ -99,9 +98,12 @@ La création d’une solution standard entraîne le provisionnement des services
 | 1     | [Service d’approvisionnement des appareils Azure](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Approvisionnement des appareils à grande échelle |
 | 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1 : 1 unité              | Stockage des données de messages et activation de l’analyse approfondie des données de télémétrie |
 
-> Les tarifs de ces services sont disponibles [ici](https://azure.microsoft.com/pricing). Les quantités utilisées et la facturation détaillée de votre abonnement sont disponibles dans le [portail Azure](https://portal.azure.com/).
+> [!NOTE]
+> Les informations relatives à la tarification de ces services sont disponibles à l’adresse [https://azure.microsoft.com/pricing](https://azure.microsoft.com/pricing). Des détails relatifs à l’utilisation et à la facturation de votre abonnement sont disponibles sur le [portail Azure](https://portal.azure.com/).
 
 ## <a name="deploy-the-solution-accelerator"></a>Déployer l’accélérateur de solution
+
+Exemples de déploiements :
 
 ### <a name="example-deploy-net-version"></a>Exemple : déployer la version .NET
 
@@ -128,7 +130,7 @@ Quand vous exécutez la commande `pcs` pour déployer une solution, vous êtes i
 - Un emplacement.
 - Les informations d’identification des machines virtuelles qui hébergent les microservices. Vous pouvez utiliser ces informations d’identification pour accéder aux machines virtuelles à des fins de dépannage.
 
-Quand la commande `pcs` se termine, elle affiche l’URL du nouveau déploiement de l’accélérateur de solution. La commande `pcs` crée également un fichier `{deployment-name}-output.json` avec des informations supplémentaires telles que le nom du hub IoT qui a été automatiquement provisionné.
+Une fois la commande `pcs` exécutée, l’URL de votre nouvel accélérateur de solution s’affiche. La commande `pcs` crée également un fichier `{deployment-name}-output.json` contenant des informations telles que le nom de l’IoT Hub qui l’a créé.
 
 Pour plus d’informations sur les paramètres de la ligne de commande, exécutez :
 
@@ -140,7 +142,7 @@ Pour plus d’informations sur l’interface CLI, consultez [How to use the CLI]
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
+Dans ce guide pratique, vous avez appris à effectuer les opérations suivantes :
 
 > [!div class="checklist"]
 > * Configurer l’accélérateur de solution
@@ -149,4 +151,4 @@ Dans ce tutoriel, vous avez appris à :
 
 La solution de surveillance à distance étant déployée, l’étape suivante consiste à [explorer les fonctionnalités du tableau de bord des solutions](./quickstart-remote-monitoring-deploy.md).
 
-<!-- Next tutorials in the sequence -->
+<!-- Next how-to guides in the sequence -->

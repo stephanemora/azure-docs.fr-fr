@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 32a887d54a239db0c1e40458e1b304d899befff5
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 0f53d71cca70f9340689d3d01fb9c67090f917c5
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48870551"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51277532"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C : Utiliser l’API Graph Azure AD
 
@@ -66,8 +66,8 @@ Vous disposez maintenant d’une application autorisée à créer, lire et mettr
 > 
 > 
 
-## <a name="configure-delete-permissions-for-your-application"></a>Configurer les autorisations de suppression pour votre application
-Actuellement, l’autorisation *Accéder en lecture et en écriture aux données de l’annuaire* n’inclut **PAS** la possibilité d’effectuer des suppressions telles que la suppression des utilisateurs. Si vous souhaitez donner à votre application la possibilité de supprimer des utilisateurs, vous devez effectuer ces étapes supplémentaires impliquant PowerShell. Dans le cas contraire, vous pouvez passer à la section suivante.
+## <a name="configure-delete-or-update-password-permissions-for-your-application"></a>Configurer les autorisations de suppression ou de mise à jour du mot de passe pour votre application
+Actuellement, l’autorisation *Accéder en lecture et en écriture aux données de l’annuaire* n’inclut **PAS** la possibilité de supprimer des utilisateurs ou de mettre à jour des mots de passe. Si vous souhaitez donner à votre application la possibilité de supprimer des utilisateurs ou de mettre à jour des mots de passe, vous devez effectuer ces étapes supplémentaires impliquant PowerShell. Dans le cas contraire, vous pouvez passer à la section suivante.
 
 Tout d’abord, si vous ne l’avez pas déjà fait, installez le [module Azure AD PowerShell version 1 (MSOnline)](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0) :
 
@@ -84,7 +84,7 @@ Une fois le module PowerShell installé, connectez-vous à votre locataire Azure
 Connect-MsolService
 ```
 
-Maintenant, nous allons utiliser l’**ID d’application** dans le script ci-dessous pour affecter à l’application le rôle d’administrateur de compte utilisateur qui va lui permettre de supprimer des utilisateurs. Comme ces rôles ont des identificateurs bien connus, il vous suffit d’entrer votre **ID d’application** dans le script ci-dessous.
+Maintenant, nous allons utiliser l’**ID d’application** dans le script ci-dessous pour affecter à l’application le rôle d’administrateur de compte utilisateur. Comme ces rôles ont des identificateurs bien connus, il vous suffit d’entrer votre **ID d’application** dans le script ci-dessous.
 
 ```powershell
 $applicationId = "<YOUR_APPLICATION_ID>"
@@ -92,7 +92,7 @@ $sp = Get-MsolServicePrincipal -AppPrincipalId $applicationId
 Add-MsolRoleMember -RoleObjectId fe930be7-5e62-47db-91af-98c3a49a38b1 -RoleMemberObjectId $sp.ObjectId -RoleMemberType servicePrincipal
 ```
 
-À présent, votre application dispose également des autorisations pour supprimer des utilisateurs sur votre locataire B2C.
+À présent, votre application dispose également des autorisations pour supprimer des utilisateurs ou mettre à jour des mots de passe sur votre locataire B2C.
 
 ## <a name="download-configure-and-build-the-sample-code"></a>Téléchargement, configuration et création de l’exemple de code
 Tout d’abord, téléchargez l’exemple de code et exécutez-le. Nous l’examinerons ensuite plus en détail.  Vous pouvez [télécharger l’exemple de code en tant que fichier .zip](https://github.com/AzureADQuickStarts/B2C-GraphAPI-DotNet/archive/master.zip). Vous pouvez également le cloner dans un répertoire de votre choix :

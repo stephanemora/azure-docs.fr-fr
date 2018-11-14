@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 10/04/2018
 ms.topic: article
 description: Découvrez comment créer rapidement un cluster Kubernetes activé pour Azure Dev Spaces directement depuis votre navigateur, sans rien installer.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-manager: douge
-ms.openlocfilehash: f10a84a602ce152d5c428525aa50f678b50c8b41
-ms.sourcegitcommit: 0bb8db9fe3369ee90f4a5973a69c26bff43eae00
+ms.openlocfilehash: 47c467e020a7a9253daa636352352d9a57dddf28
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48872195"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978145"
 ---
 # <a name="create-a-kubernetes-cluster-using-azure-cloud-shell"></a>Créer un cluster Kubernetes à l’aide d’Azure Cloud Shell
 
@@ -24,7 +23,7 @@ Vous pouvez utiliser [Azure Cloud Shell](/azure/cloud-shell) pour créer un clus
 
 ## <a name="create-the-cluster"></a>Création du cluster
 
-Nous devons d’abord créer le groupe de ressources. Utilisez une des régions actuellement prises en charge (EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral ou CanadaEast).
+Nous devons d’abord créer le groupe de ressources. Utilisez une des régions actuellement prises en charge (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral ou CanadaEast).
 
 ```azurecli-interactive
 az group create --name MyResourceGroup --location <region>
@@ -33,7 +32,7 @@ az group create --name MyResourceGroup --location <region>
 Créez un cluster Kubernetes avec la commande suivante :
 
 ```azurecli-interactive
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.3 --enable-addons http_application_routing
 ```
 
 La création du cluster ne prend que quelques minutes.  Une fois terminée, la sortie s’affiche au format JSON. Recherchez `provisioningState` et vérifiez qu’il s’agit bien de `Succeeded`.

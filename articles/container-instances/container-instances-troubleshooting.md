@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: seanmck
 ms.custom: mvc
-ms.openlocfilehash: d2e4491f2ee21deedd674a5a8a64e4dd99149924
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 41e3f38817abbdd0cab9ab2c72d39cb6f3f69531
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49079348"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978176"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Résoudre les problèmes courants dans Azure Container Instances
 
@@ -102,7 +102,7 @@ az container create -g MyResourceGroup --name myapp --image ubuntu --command-lin
 
 ```azurecli-interactive 
 ## Deploying a Windows container
-az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image windowsservercore:ltsc2016
+az container create -g myResourceGroup --name mywindowsapp --os-type Windows --image microsoft/windowsservercore:ltsc2016
  --command-line "ping -t localhost"
 ```
 
@@ -187,7 +187,7 @@ Pour garantir le meilleur temps de démarrage du conteneur Windows, utilisez une
 
 ### <a name="windows-containers-slow-network-readiness"></a>Disponibilité lente du réseau des conteneurs Windows
 
-Les conteneurs Windows peuvent s’exposer à l’absence de connectivité entrante ou sortante pendant 5 secondes au plus à la création initiale. Après l’installation initiale, la mise en réseau de conteneur devrait reprendre correctement.
+Lors de la création initiale, les conteneurs Windows peuvent n’avoir aucune connectivité entrante ou sortante pendant 30 secondes (ou plus longtemps dans de rares cas). Si votre application conteneur requiert une connexion Internet, ajoutez un retard et réessayez la logique afin de laisser 30 secondes pour établir la connectivité Interne. Après l’installation initiale, la mise en réseau de conteneur devrait reprendre correctement.
 
 ## <a name="resource-not-available-error"></a>Erreur : ressource non disponible
 

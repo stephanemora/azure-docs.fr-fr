@@ -1,5 +1,5 @@
 ---
-title: Utilisation de données géospatiales dans Azure Cosmos DB | Microsoft Docs
+title: Utilisation de données géospatiales dans un compte d'API SQL Azure Cosmos DB | Microsoft Docs
 description: Découvrez comment créer, indexer et interroger des objets spatiaux avec Azure Cosmos DB et l’API SQL.
 services: cosmos-db
 author: SnehaGunda
@@ -7,18 +7,18 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/20/2017
+ms.date: 11/01/2017
 ms.author: sngun
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b1dcd9ba428618e1b234d76d5ad459eab0662aa
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 6ad59f14a0ade305bc9b1f9f125c21e9bdc39c0d
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417555"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50961906"
 ---
-# <a name="working-with-geospatial-and-geojson-location-data-in-azure-cosmos-db"></a>Utilisation de données d’emplacement géospatiales et GeoJSON dans Azure Cosmos DB
-Cet article est une introduction aux fonctionnalités géospatiales dans [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
+# <a name="use-geospatial-and-geojson-location-data-with-azure-cosmos-db-sql-api-account"></a>Utiliser des données d’emplacement géospatiales et GeoJSON avec un compte d’API SQL Azure Cosmos DB
+
+Cet article est une introduction aux fonctionnalités géospatiales dans Azure Cosmos DB. Les données géospatiales de stockage et d’accès ne sont actuellement prises en charge que par des comptes d’API SQL Cosmos DB. Après avoir lu cet article, vous serez en mesure de répondre aux questions suivantes :
 
 * Comment puis-je stocker des données spatiales dans Azure Cosmos DB ?
 * Comment puis-je interroger des données géospaciales dans Azure Cosmos DB dans SQL et LINQ ?
@@ -132,9 +132,6 @@ public class UserProfile
 
     [JsonProperty("location")]
     public Point Location { get; set; }
-
-    [JsonProperty("profiletype")]
-    public string ProfileType { get; set; }
 
     // More properties
 }
@@ -279,7 +276,7 @@ Voici un exemple de requête LINQ qui recherche tous les documents de la collect
 **Requête LINQ de distance**
 
     foreach (UserProfile user in client.CreateDocumentQuery<UserProfile>(UriFactory.CreateDocumentCollectionUri("db", "profiles"))
-        .Where(u => u.ProfileType == "Public" && u.Location.Distance(new Point(32.33, -4.66)) < 30000))
+        .Where(u => u.ProfileType == "Public" && a.Location.Distance(new Point(32.33, -4.66)) < 30000))
     {
         Console.WriteLine("\t" + user);
     }

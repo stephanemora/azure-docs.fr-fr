@@ -13,14 +13,14 @@ ms.workload: web
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 05/11/2018
+ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: ab8750e5824cf9f7635d11a6b2be332b2f9a761c
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b38291df576d1dbd180f741659dbc379ca006d8e
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302586"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748440"
 ---
 # <a name="deployment-faqs-for-web-apps-in-azure"></a>Forum aux questions sur le déploiement de Web Apps dans Azure
 
@@ -79,7 +79,7 @@ Pour résoudre les problèmes de FTP :
 
 ## <a name="how-do-i-publish-my-code-to-app-service"></a>Comment publier mon code sur App Service ?
 
-Le démarrage rapide Azure est conçu pour vous aider à déployer votre application à l’aide de la pile de déploiement et de la méthode de votre choix. Pour utiliser le démarrage rapide, dans le portail Azure, accédez à **Paramètres** > **Déploiement d’application**.
+Le démarrage rapide Azure est conçu pour vous aider à déployer votre application à l’aide de la pile de déploiement et de la méthode de votre choix. Pour utiliser le démarrage rapide, dans le portail Azure, accédez à votre App Service, sous **Déploiement**, sélectionnez **Démarrage rapide**.
 
 ## <a name="why-does-my-app-sometimes-restart-after-deployment-to-app-service"></a>Pourquoi mon application redémarre-t-elle parfois après un déploiement sur App Service ?
 

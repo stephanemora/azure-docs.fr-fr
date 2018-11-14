@@ -1,22 +1,22 @@
 ---
-title: Activer des dumps de tas pour les services Hadoop sur HDInsight - Azure
-description: Activez les services Hadoop à partir des clusters HDInsight sur Linux pour le débogage et l’analyse.
+title: Activer des dumps de tas pour les services Apache Hadoop sur HDInsight – Azure
+description: Activez les services Apache Hadoop à partir des clusters HDInsight sur Linux pour le débogage et l’analyse.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
-ms.openlocfilehash: 7fa0ebb1946a856d02296b4ec752113ff8fecbd5
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.author: hrasheed
+ms.openlocfilehash: 966f05fba96cc829c3a11331e2a66609705f6f4f
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43095580"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037681"
 ---
-# <a name="enable-heap-dumps-for-hadoop-services-on-linux-based-hdinsight"></a>Activer les dumps de tas pour les services Hadoop sur HDInsight sur Linux
+# <a name="enable-heap-dumps-for-apache-hadoop-services-on-linux-based-hdinsight"></a>Activer les dumps de tas pour les services Apache Hadoop sur HDInsight sur Linux
 
 [!INCLUDE [heapdump-selector](../../includes/hdinsight-selector-heap-dump.md)]
 
@@ -29,11 +29,11 @@ Les dumps de tas contiennent un instantané de la mémoire de l’application, y
 
 Vous pouvez activer des dumps de tas pour les services suivants :
 
-* **hcatalog** - tempelton
-* **hive** - hiveserver2, metastore, derbyserver
+* **Apache hcatalog** - tempelton
+* **Apache hive** - hiveserver2, metastore, derbyserver
 * **mapreduce** - jobhistoryserver
-* **yarn** - resourcemanager, nodemanager, timelineserver
-* **hdfs** - datanode, secondarynamenode, namenode
+* **Apache yarn** - resourcemanager, nodemanager, timelineserver
+* **Apache hdfs** - datanode, secondarynamenode, namenode
 
 Vous pouvez également activer les dumps de tas du mappage et réduire les processus exécutés par HDInsight.
 
@@ -49,7 +49,7 @@ Les processus de mappage et de réduction sont légèrement différents, car ces
 * **mapreduce.admin.reduce.child.java.opts**
 
 > [!NOTE]
-> Nous recommandons d’utiliser Ambari pour modifier les scripts et les paramètres de mapred-site.xml, car Ambari gère la réplication des modifications sur les nœuds du cluster. Consultez la section [Utilisation d’Ambari](#using-ambari) pour connaître les étapes spécifiques.
+> Nous recommandons d’utiliser Apache Ambari pour modifier les scripts et les paramètres de mapred-site.xml, car Ambari gère la réplication des modifications sur les nœuds du cluster. Consultez la section [Utilisation d’Ambari](#using-ambari) pour connaître les étapes spécifiques.
 
 ### <a name="enable-heap-dumps"></a>Activer les dumps de tas
 

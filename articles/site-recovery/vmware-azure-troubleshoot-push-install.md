@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.author: ramamill
 ms.date: 10/29/2018
-ms.openlocfilehash: c12683fee7022b84e097c2b71628776271611429
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2051f37656b6717c879a24f6e06c31a0ade0b950
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210990"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012324"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Résoudre les problèmes d’installation Push du service Mobilité
 
@@ -73,7 +73,7 @@ Pour **Windows 2008 R2 et les versions antérieures**,
   * Dans le volet de navigation, ouvrez les dossiers suivants : Stratégie ordinateur local, Configuration utilisateur, Modèles d’administration, Composants Windows et Partage réseau.
   * Dans le volet d’informations, double-cliquez sur **Prevent users from sharing files within their profile** (Empêcher les utilisateurs de partager des fichiers dans leur profil). Pour désactiver le paramètre de stratégie de groupe et activer la capacité d’utilisateur à partager des fichiers, cliquez sur Désactivé. Cliquez sur OK pour enregistrer vos modifications. Cliquez [ici](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10))pour en savoir plus.
 
-Pour **les versions ultérieures**, suivez les instructions fournies [ici](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) pour activer le partage de fichiers et d’imprimantes
+Pour **les versions ultérieures**, suivez les instructions fournies [ici](vmware-azure-install-mobility-service.md) pour activer le partage de fichiers et d’imprimantes.
 
 ## <a name="windows-management-instrumentation-wmi-configuration-check"></a>Vérification de la configuration de Windows Management Instrumentation (WMI)
 

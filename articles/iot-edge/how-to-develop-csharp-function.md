@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4b4f9bd1c7390d64a0db08b55bfb777498a10cb0
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 343264f90ecf067786db9c0096625b87b2dbd319
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382703"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51004406"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-azure-functions-for-azure-iot-edge"></a>Utiliser Visual Studio Code pour développer et déboguer des fonctions Azure pour Azure IoT Edge
 
@@ -74,7 +74,7 @@ La solution comprend quatre éléments :
 
 ## <a name="develop-your-module"></a>Développer votre module
 
-Le code Azure Function par défaut qui est fourni avec la solution se trouve sous **modules** > [nom de votre module] > **EdgeHubTrigger-Csharp** > **run.csx**. Le module et le fichier deployment.template.json sont définis de manière à vous permettre de générer la solution, de l’envoyer vers votre registre de conteneurs et de la déployer sur un appareil pour commencer les tests, sans avoir à utiliser de code. Le module est conçu pour récupérer les entrées d’une source (dans ce cas, le module tempSensor qui simule des données) et les acheminer vers IoT Hub. 
+Le code Azure Function par défaut fourni avec la solution se trouve sous **modules** > [nom de votre module]**modulename.cs**. Le module et le fichier deployment.template.json sont définis de manière à vous permettre de générer la solution, de l’envoyer vers votre registre de conteneurs et de la déployer sur un appareil pour commencer les tests, sans avoir à utiliser de code. Le module est conçu pour récupérer les entrées d’une source (dans ce cas, le module tempSensor qui simule des données) et les acheminer vers IoT Hub. 
 
 Lorsque vous êtes prêt à personnaliser le modèle Azure Functions avec votre propre code, utilisez les [SDK Azure IoT Hub](../iot-hub/iot-hub-devguide-sdks.md) pour créer des modules répondant aux besoins des solutions IoT, tels que la sécurité, la gestion des appareils et la fiabilité. 
 
@@ -93,7 +93,7 @@ Vérifiez l’état de votre conteneur dans l’explorateur du Docker VS Code ou
 
    ![Sélectionner la configuration du débogage](./media/how-to-debug-csharp-function/select-debug-configuration.jpg)
 
-2. Accédez à `run.csx`. Ajoutez un point d’arrêt dans la fonction.
+2. Accédez à `modulename.cs`. Ajoutez un point d’arrêt dans la fonction.
 3. Sélectionnez **Démarrer le débogage** ou **F5**. Sélectionnez le processus à attacher.
 4. Dans l’affichage de débogage de VS Code, les variables apparaissent dans le volet de gauche. 
 

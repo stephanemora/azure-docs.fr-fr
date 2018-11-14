@@ -6,24 +6,25 @@ author: PatAltimore
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 11/05/2018
 ms.author: patricka
 ms.reviewer: fiseraci
 keywords: ''
-ms.openlocfilehash: 459cdf4e1a70ee02d818dd6abe101e4fc3475b68
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 83177363803c8f5c505c083614000dfa8f0df60d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "40036680"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036901"
 ---
 # <a name="azure-stack-datacenter-integration---physical-device-auditing"></a>Intégration de centre de données Azure Stack - audit d’appareil physique
 
-Tous les appareils physiques dans Azure Stack, tels que les contrôleurs de gestion de carte de base (BMC) et les commutateurs réseau, émettent des journaux d’audit, et ils doivent être intégrées dans votre solution d’audit globale. Étant donné que les appareils varient entre les différents fournisseurs de matériel OEM Azure Stack, contactez votre fournisseur pour obtenir la documentation sur l’intégration d’audit. Les sections suivantes fournissent des informations générales sur l’audit d’appareil physique dans Azure Stack.  
+Tous les appareils physiques dans Azure Stack, tels que les contrôleurs de gestion de carte de base (BMC) et les commutateurs réseau, émettent des journaux d’audit. Vous pouvez intégrer les journaux d’audit dans votre solution d’audit globale. Étant donné que les appareils varient entre les différents fournisseurs de matériel OEM Azure Stack, contactez votre fournisseur pour obtenir la documentation sur l’intégration d’audit.
+Les sections suivantes fournissent des informations générales sur l’audit d’appareil physique dans Azure Stack.  
 
 ## <a name="physical-device-access-auditing"></a>Audit des accès aux appareils physiques
 
-Tous les appareils physiques dans Azure Stack prennent en charge l’utilisation de TACACS ou de RADIUS. Ceci inclut l’accès au contrôleur BMC (Baseboard Management Controller) et aux commutateurs réseau.
+Tous les appareils physiques dans Azure Stack prennent en charge l’utilisation de TACACS ou de RADIUS. La prise en charge inclut l’accès au contrôleur BMC (Baseboard Management Controller) et aux commutateurs réseau.
 
 Les solutions Azure Stack ne sont pas fournies avec RADIUS ou TACACS intégrés. Les solutions ont cependant été validées pour prendre en charge l’utilisation de solutions RADIUS ou TACACS existantes disponibles sur le marché.
 

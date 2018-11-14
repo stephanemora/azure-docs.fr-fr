@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2018
 ms.author: ericrad
-ms.openlocfilehash: d96058ae9415ccb361af8a281a4b65b3f69edfcd
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 7a7267faae2067a873ee11bfbf4ef3027b285a0b
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746763"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034947"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-windows-vms"></a>Service de métadonnées Azure : Événements planifiés pour les machines virtuelles Windows
 
@@ -42,7 +42,7 @@ De nombreuses applications peuvent bénéficier d’un délai pour se préparer 
 - Journalisation des événements
 - Arrêt approprié 
 
-Avec Événements planifiés, votre application peut savoir quand une maintenance aura lieu et déclencher des tâches pour limiter son impact.  
+Avec Événements planifiés, votre application peut savoir quand une maintenance aura lieu et déclencher des tâches pour limiter son impact. Les événements planifiés laissent à votre machine virtuelle une période minimale avant l’activité de maintenance. Pour plus d’informations, voir la section Planification d’événements ci-dessous.
 
 Le service Événements planifiés fournit des événements dans les cas d’usage suivants :
 - Maintenance lancée par la plateforme (par exemple, mise à jour du système d’exploitation hôte)
@@ -71,7 +71,7 @@ Les versions du service Événements planifiés sont gérées. Les versions sont
 > Les préversions précédentes des événements planifiés prenaient en charge {dernière version} en tant que version de l’api. Ce format n’est plus pris en charge et sera déconseillé à l’avenir.
 
 ### <a name="enabling-and-disabling-scheduled-events"></a>Activation et désactivation du service Événements planifiés
-Le service Événements planifiés est activé pour votre service la première fois que vous faites une requête d’événements. Attendez-vous à ce que la réponse à votre première demande ait un retard pouvant atteindre deux minutes.
+Le service Événements planifiés est activé pour votre service la première fois que vous faites une requête d’événements. Attendez-vous à ce que la réponse à votre première demande ait un retard pouvant atteindre deux minutes. Interrogez régulièrement le point de terminaison pour détecter les événements de maintenance à venir, ainsi que l’état des activités de maintenance en cours d’exécution.
 
 Le service Événements planifiés est désactivé pour votre service, s’il ne fait aucune requête pendant 24 heures.
 
@@ -110,6 +110,7 @@ S'il existe des événements planifiés, la réponse contient un tableau d’év
     ]
 }
 ```
+DocumentIncarnation est un ETag qui permet d’inspecter facilement la charge utile d’événement pour savoir si elle a changé depuis la dernière requête.
 
 ### <a name="event-properties"></a>Propriétés de l’événement
 |Propriété  |  Description |

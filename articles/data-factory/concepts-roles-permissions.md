@@ -4,7 +4,7 @@ description: Cet article décrit les rôles et autorisations requis pour créer 
 author: douglaslMS
 ms.author: douglasl
 manager: craigg
-ms.date: 10/08/2018
+ms.date: 11/5/2018
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -12,12 +12,12 @@ documentationcenter: ''
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.openlocfilehash: 10f325f3b7c93b91180b6a170c8b7accb75eb03b
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 82c0ec4d114ec198ecba475b247a3c9952a6069a
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48883769"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51218761"
 ---
 # <a name="roles-and-permissions-for-azure-data-factory"></a>Rôles et autorisations pour Azure Data Factory
 
@@ -50,6 +50,8 @@ Pour plus d’informations sur ce rôle, voir [Rôle Contributeur de Data Factor
 ### <a name="resource-manager-template-deployment"></a>Déploiement de modèle Resource Manager
 
 Le rôle **Contributeur de Data Factory**, au niveau du groupe de ressources ou au-delà, permet aux utilisateurs de déployer des modèles Resource Manager. Par conséquent, les membres de ce rôle peuvent utiliser des modèles Resource Manager pour déployer des fabriques de données et leurs ressources enfants, y compris des jeux de données, des services liés, des pipelines, des déclencheurs et des runtimes d’intégration. Toutefois, l’appartenance à ce rôle ne permet pas à l’utilisateur de créer d’autres ressources.
+
+Les autorisations pour les référentiels Azure et GitHub sont indépendantes des autorisations Data Factory. Par conséquent, un utilisateur disposant des autorisations de référentiel et uniquement membre du rôle Lecteur peut modifier les ressources enfant Data Factory et apporter des modifications au référentiel, mais il ne peut pas publier ces modifications.
 
 > [!IMPORTANT]
 > Le déploiement du modèle Resource Manager avec le rôle **Contributeur de Data Factory** ne permet pas d’accroître vos autorisations. Par exemple, si vous déployez un modèle qui crée une machine virtuelle Azure et si vous n’êtes pas autorisé à créer des machines virtuelles, le déploiement échoue et renvoie une erreur d’autorisation.

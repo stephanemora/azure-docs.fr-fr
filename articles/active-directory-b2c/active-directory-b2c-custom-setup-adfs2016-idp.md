@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/20/2018
+ms.date: 11/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6f7fced5163476dc1de866474484f98d546d1901
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 31ae13fb84453a7014b66499c983e1f52554775e
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945720"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279124"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Ajouter ADFS en tant que fournisseur d’identités SAML à l’aide de stratégies personnalisées dans Azure Active Directory B2C
 
@@ -26,19 +26,19 @@ Cet article explique comment autoriser la connexion d’un compte d’utilisateu
 ## <a name="prerequisites"></a>Prérequis
 
 - Suivez les étapes de l’article [Prise en main des stratégies personnalisées dans Azure Active Directory B2C](active-directory-b2c-get-started-custom.md).
-- Assurez-vous d’avoir accès au fichier .pfx de certificat avec la clé privée émise par ADFS.
+- Assurez-vous d’avoir accès à un fichier .pfx de certificat avec une clé privée. Vous pouvez générer votre propre certificat autosigné et le charger dans Azure AD B2C. Azure AD B2C utilise ce certificat pour signer la requête SAML envoyée à votre fournisseur d’identité SAML.
 
 ## <a name="create-a-policy-key"></a>Création d’une clé de stratégie
 
-Vous devez enregistrer votre certificat ADFS dans votre client Azure AD B2C.
+Vous devez enregistrer votre certificat dans votre client Azure AD B2C.
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com/).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité - PRÉVERSION**.
 5. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
 6. Pour **Options**, choisissez `Upload`.
-7. Entrez un **nom** pour la clé de stratégie. Par exemple : `ADFSSamlCert`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
+7. Entrez un **nom** pour la clé de stratégie. Par exemple : `SamlCert`. Le préfixe `B2C_1A_` est ajouté automatiquement au nom de votre clé.
 8. Recherchez et sélectionnez votre fichier de certificat .pfx contenant la clé privée.
 9. Cliquez sur **Créer**.
 
@@ -64,6 +64,7 @@ Vous pouvez définir un compte ADFS en tant que fournisseur de revendications en
           <Metadata>
             <Item Key="WantsEncryptedAssertions">false</Item>
             <Item Key="PartnerEntity">https://your-ADFS-domain/federationmetadata/2007-06/federationmetadata.xml</Item>
+            <Item Key=" XmlSignatureAlgorithm">Sha256</Item>
           </Metadata>
           <CryptographicKeys>
             <Key Id="SamlAssertionSigning" StorageReferenceId="B2C_1A_ADFSSamlCert"/>
@@ -165,6 +166,15 @@ Ouvrez un navigateur et accédez à l’URL. Veillez à taper l’URL est correc
 9. Sélectionnez **Ajouter une règle**.  
 10. Dans **Modèle de règle de revendication**, sélectionnez **Envoyer les attributs LDAP en tant que revendications**.
 11. Fournissez un **Nom de règle de revendication**. Pour le **Magasin d’attributs** choisissez **Sélectionner Active Directory**, ajoutez les revendications suivantes, puis cliquez sur **Terminer** et **OK**.
+
+    | Attribut LDAP | Type de revendication sortante |
+    | -------------- | ------------------- |
+    | User-Principal-Name | userPricipalName |
+    | Surname | family_name |
+    | Given-Name | given_name |
+    | E-Mail-Address | email |
+    | Display-Name | Nom |
+    
 12.  Selon votre type de certificat, il se peut que vous deviez définir l’algorithme de hachage. Dans la fenêtre de propriétés de l’approbation de partie de confiance (Démo B2C), sélectionnez l’onglet **Avancé**, modifiez l’**Algorithme de hachage sécurisé** en `SHA-1` ou `SHA-256`, puis cliquez sur **OK**.  
 13. Dans Gestionnaire de serveur, sélectionnez **Outils**, puis **Gestion ADFS**.
 14. Sélectionnez l’approbation de partie de confiance que vous avez créée, choisissez **Mettre à jour à partir des métadonnées de fédération**, puis cliquez sur **Mettre à jour**. 
@@ -175,7 +185,7 @@ La communication avec Azure AD B2C s’effectue via une application que vous cr�
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application (par exemple, *testapp1*).
 6. Pour **Application/API web**, sélectionnez `Yes`, puis entrez `https://jwt.ms` pour l’**URL de réponse**.

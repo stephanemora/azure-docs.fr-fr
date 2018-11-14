@@ -2,26 +2,26 @@
 title: À propos d’Azure ExpressRoute Direct | Microsoft Docs
 description: Cette page propose une vue d’ensemble d’ExpressRoute Direct (préversion).
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.author: cherylmc
-ms.openlocfilehash: ce4bc88f6b599bb3f5f760b2ba83c81f2b6acc5f
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.date: 11/01/2018
+ms.author: mialdrid
+ms.openlocfilehash: 3b46f24edf10fee7001b35ffdd9fa218aa438e19
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405176"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959671"
 ---
 # <a name="about-expressroute-direct-preview"></a>À propos d’ExpressRoute Direct (préversion)
 
-Avec ExpressRoute Direct, les clients ont la possibilité de se connecter directement au réseau international de Microsoft à partir d’emplacements d’appairage qui sont distribués stratégiquement dans le monde entier. ExpressRoute Direct offre une double connectivité de 100 Gbits/s qui prend en charge la connectivité Active/Active à grande échelle. 
+Avec ExpressRoute Direct, les clients ont la possibilité de se connecter directement au réseau international de Microsoft à partir d’emplacements d’appairage qui sont distribués stratégiquement dans le monde entier. ExpressRoute Direct offre une double connectivité de 100 Gbit/s qui prend en charge la connectivité Active/Active à grande échelle.
 
 Les principales fonctionnalités offertes par ExpressRoute Direct sont les suivantes (sans s’y limiter) :
 
-* Ingestion de données massive dans des services comme le stockage et Cosmos DB 
-* Isolation physique pour les secteurs qui sont réglementés, pour lesquels la connectivité isolée et dédiée est obligatoire (secteur bancaire, public et de vente au détail, par exemple) 
+* Ingestion de données massive dans des services comme le stockage et Cosmos DB
+* Isolement physique dans les secteurs réglementés pour lesquels une connectivité isolée et dédiée est obligatoire (secteur bancaire, secteur public et vente au détail, par exemple)
 * Contrôle précis de la distribution du circuit en fonction de l’unité commerciale
 
 > [!IMPORTANT]
@@ -31,7 +31,7 @@ Les principales fonctionnalités offertes par ExpressRoute Direct sont les suiva
 
 ## <a name="enroll-in-the-preview"></a>S’inscrire à la préversion
 
-Avant d’utiliser ExpressRoute Direct, vous devez tout d’abord inscrire votre abonnement à la préversion. Pour vous abonner, envoyez un e-mail à <ExpressRouteDirect@microsoft.com> avec votre ID d’abonnement. ExpressRoute Direct est une fonctionnalité de qualité professionnelle. Veuillez fournir des informations supplémentaires :
+Vous devez commencer par inscrire votre abonnement à la préversion pour pouvoir utiliser ExpressRoute Direct. Envoyez pour cela un e-mail à <ExpressRouteDirect@microsoft.com> avec votre ID d’abonnement et les informations suivantes :
 
 * Scénarios que vous souhaitez réaliser avec **ExpressRoute Direct**
 * Préférences d’emplacement : consultez l’article [Partenaires et emplacements d’homologation](expressroute-locations-providers.md) pour obtenir la liste complète de tous les emplacements
@@ -41,10 +41,10 @@ Avant d’utiliser ExpressRoute Direct, vous devez tout d’abord inscrire votre
 ## <a name="expressroute-using-a-service-provider-and-expressroute-direct"></a>ExpressRoute avec fournisseur de services et ExpressRoute Direct
 
 | **ExpressRoute avec fournisseur de services** | **ExpressRoute Direct** | 
-| --- | --- | 
-| Utilisation d’un fournisseur de services afin de permettre une intégration et une connectivité rapides dans l’infrastructure existante | Infrastructure de 100 Gbit/s et gestion complète de toutes les couches obligatoires
-| Intégration avec des centaines de fournisseurs, y compris Ethernet et MPLS | Capacité directe dédiée pour les secteurs réglementés et ingestion massive de données | 
-| Références SKU de circuits de 50 Mbits/s à 10 Gbits/s | Références SKU de circuits de 5 Gbit/s à 100 Gbits/s (5 Gbits/s, 10 Gbits/s, 40 Gbits/s, 100 Gbits/s)
+| --- | --- |
+| Utilisation de fournisseurs de services pour permettre une intégration et une connectivité rapides dans l’infrastructure existante | Infrastructure de 100 Gbit/s et gestion complète de toutes les couches obligatoires
+| Intégration avec des centaines de fournisseurs, y compris Ethernet et MPLS | Capacité directe dédiée pour les secteurs réglementés et ingestion massive de données |
+| Références SKU de circuits de 50 Mbit/s à 10 Gbit/s | Possibilité pour le client de sélectionner une combinaison entre les références SKU de circuits suivantes : 5 Gbit/s, 10 Gbit/s, 40 Gbit/s, 100 Gbit/s, dans la limite de 200 Gbit/s au total
 | Optimisé pour monolocataire | Optimisé pour monolocataire/fournisseurs de services cloud/unités commerciales multiples
 
 ## <a name="expressroute-direct-circuits"></a>Circuits ExpressRoute Direct
@@ -57,13 +57,13 @@ Dans la plupart des scénarios, la fonctionnalité se comporte comme des circuit
 
 ## <a name="circuit-skus"></a>Références SKU de circuit
 
-ExpressRoute Direct prend en charge des scénarios d’ingestion massive de données dans le Stockage Azure et d’autres services de Big Data. Désormais, les circuits ExpressRoute sur ExpressRoute Direct prennent également en charge les références SKU de circuit **40 Gbit/s** et **100 Gbit/s**. 
+ExpressRoute Direct prend en charge des scénarios d’ingestion massive de données dans le Stockage Azure et d’autres services de Big Data. Désormais, les circuits ExpressRoute sur ExpressRoute Direct prennent également en charge les références SKU de circuit **40 Gbit/s** et **100 Gbit/s**.
 
 ## <a name="vlan-tagging"></a>Balisage VLAN
 
 ExpressRoute Direct prend en charge le balisage VLAN QinQ et Dot1Q.
 
-* Grâce au **balisage VLAN QinQ**, il est possible d’isoler des domaines de routage individuellement pour chaque circuit ExpressRoute. Azure alloue dynamiquement une balise-S (S-Tag) non modifiable lors de la création du circuit. Chaque homologation du circuit (privé et Microsoft) utilise une balise-C (C-Tag) unique en tant que VLAN. La balise-C (C-Tag) n’a pas besoin d’être unique sur les circuits des ports ExpressRoute Direct. 
+* Grâce au **balisage VLAN QinQ**, il est possible d’isoler des domaines de routage individuellement pour chaque circuit ExpressRoute. Azure alloue dynamiquement une balise-S (S-Tag) non modifiable lors de la création du circuit. Chaque homologation du circuit (privé et Microsoft) utilise une balise-C (C-Tag) unique en tant que VLAN. La balise-C (C-Tag) n’a pas besoin d’être unique sur les circuits des ports ExpressRoute Direct.
 
 * Grâce au **balisage VLAN Dot1Q**, il est possible d’avoir un VLAN balisé unique pour chaque paire de ports ExpressRoute Direct. Une balise-C (C-Tag) utilisée sur une homologation doit être unique sur tous les circuits et homologations de la paire de ports ExpressRoute Direct.
 

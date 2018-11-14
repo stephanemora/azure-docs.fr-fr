@@ -1,25 +1,25 @@
 ---
-title: 'Didacticiel : Créer des clusters Hadoop à la demande dans Azure HDInsight avec Data Factory '
-description: Découvrez comment créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factory.
+title: 'Didacticiel : Créer des clusters Apache Hadoop à la demande dans Azure HDInsight avec Data Factory '
+description: Découvrez comment créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
-ms.author: jasonh
-ms.openlocfilehash: 9e21c49e7a472830c19f61388739c35aac17c3ff
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.author: hrasheed
+ms.openlocfilehash: 76651874951255d9b01efdc6e91892f6852d948d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955607"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036374"
 ---
-# <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Tutoriel : Créer des clusters Hadoop à la demande dans HDInsight avec Azure Data Factory
+# <a name="tutorial-create-on-demand-apache-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Didacticiel : Créer des clusters Apache Hadoop à la demande dans HDInsight avec Azure Data Factory
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
 
-Dans cet article, vous allez apprendre à créer un cluster Hadoop, à la demande, dans Azure HDInsight à l’aide d’Azure Data Factory. Ensuite, vous utiliserez des pipelines de données dans Azure Data Factory pour exécuter des travaux Hive et supprimer le cluster. À la fin de ce tutoriel, vous saurez rendre opérationnelle l’exécution d’un travail Big Data, où la création du cluster, l’exécution du travail et la suppression du cluster sont effectuées selon une planification.
+Dans cet article, vous allez apprendre à créer un cluster Apache Hadoop, à la demande, dans Azure HDInsight à l’aide d’Azure Data Factory. Ensuite, vous utiliserez des pipelines de données dans Azure Data Factory pour exécuter des travaux Hive et supprimer le cluster. À la fin de ce tutoriel, vous saurez rendre opérationnelle l’exécution d’un travail Big Data, où la création du cluster, l’exécution du travail et la suppression du cluster sont effectuées selon une planification.
 
 Ce tutoriel décrit les tâches suivantes : 
 

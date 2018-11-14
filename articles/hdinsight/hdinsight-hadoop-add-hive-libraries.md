@@ -1,24 +1,24 @@
 ---
-title: Ajouter des bibliothèques Hive durant la création d’un cluster HDInsight - Azure
-description: Découvrez comment ajouter des bibliothèques Hive (fichiers jar) à un cluster HDInsight pendant la création du cluster.
+title: Ajouter des bibliothèques Apache Hive durant la création d’un cluster HDInsight - Azure
+description: Découvrez comment ajouter des bibliothèques Apache Hive (fichiers jar) à un cluster HDInsight pendant la création du cluster.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 02/27/2018
-ms.author: jasonh
+ms.author: hrasheed
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: 40650c813efc8fe7389b0445c72007dbd97e3ce8
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f9788c82e74b47d4550640a1069f6d97487eecc6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43108684"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035303"
 ---
-# <a name="add-custom-hive-libraries-when-creating-your-hdinsight-cluster"></a>Ajouter des bibliothèques Hive personnalisées lors de la création de votre cluster HDInsight
+# <a name="add-custom-apache-hive-libraries-when-creating-your-hdinsight-cluster"></a>Ajouter des bibliothèques Apache Hive personnalisées lors de la création de votre cluster HDInsight
 
-Découvrez comment précharger des bibliothèques Hive dans HDInsight. Ce document contient des informations sur l’utilisation d’une action de script pour précharger des bibliothèques durant la création d’un cluster. Les bibliothèques ajoutées à l’aide de la procédure de ce document sont disponibles dans Hive : il n’est pas nécessaire d’utiliser [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) pour les charger.
+Découvrez comment précharger des bibliothèques Apache Hive dans HDInsight. Ce document contient des informations sur l’utilisation d’une action de script pour précharger des bibliothèques durant la création d’un cluster. Les bibliothèques ajoutées à l’aide de la procédure de ce document sont disponibles dans Hive : il n’est pas nécessaire d’utiliser [ADD JAR](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Cli) pour les charger.
 
 ## <a name="how-it-works"></a>Fonctionnement
 

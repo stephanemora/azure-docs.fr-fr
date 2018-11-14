@@ -2,19 +2,19 @@
 title: Utiliser Livy Spark pour envoyer des travaux à un cluster Spark sur Azure HDInsight
 description: Découvrez comment utiliser l’API REST Apache Spark pour envoyer des travaux Spark à distance à un cluster Azure HDInsight.
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/18/2018
-ms.openlocfilehash: 677c7d27d34725b75c5dfed70cc377735f5d7d61
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 11/06/2018
+ms.openlocfilehash: 86a047fe291c7872fe275ba7246b9f3e59044723
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045210"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51236821"
 ---
 # <a name="use-apache-spark-rest-api-to-submit-remote-jobs-to-an-hdinsight-spark-cluster"></a>Utiliser l’API REST Spark Apache pour envoyer des travaux à distance à un cluster Spark HDInsight
 
@@ -152,9 +152,9 @@ Procédez comme suit :
    
     La dernière ligne de la sortie indique que le lot a été supprimé. Supprimer un travail, alors qu’il est en cours d’exécution, tue également le travail. Si vous supprimez un travail qui s’est terminé, les informations du travail sont entièrement supprimées.
 
-## <a name="using-livy-spark-on-hdinsight-35-clusters"></a>Utilisation de Livy Spark sur des clusters HDInsight 3.5
+## <a name="updates-to-livy-configuration-starting-with-hdinsight-35-version"></a>Mises à jour de la configuration de Livy depuis la version 3.5 de HDInsight
 
-Par défaut, un cluster HDInsight 3.5, désactive l’utilisation de chemins locaux pour accéder à des fichiers de données ou des fichiers JAR. Nous vous conseillons plutôt d'utiliser le chemin `wasb://` pour accéder aux fichiers JAR ou aux exemples de fichiers de données à partir du cluster. Si vous ne souhaitez pas utiliser le chemin d’accès local, vous devez mettre à jour la configuration Ambari en conséquence. Pour ce faire :
+Par défaut, un cluster HDInsight 3.5 ou version supérieure, désactive l’utilisation de chemins locaux pour accéder à des fichiers de données ou des fichiers JAR. Nous vous conseillons plutôt d'utiliser le chemin `wasb://` pour accéder aux fichiers JAR ou aux exemples de fichiers de données à partir du cluster. Si vous ne souhaitez pas utiliser le chemin d’accès local, vous devez mettre à jour la configuration Ambari en conséquence. Pour ce faire :
 
 1. Accédez au portail Ambari pour le cluster. L’interface utilisateur Web d’Ambari est disponible sur votre cluster HDInsight à l’adresse https://**CLUSTERNAME**.azurehdidnsight.net, où CLUSTERNAME correspond au nom de votre cluster.
 

@@ -1,5 +1,5 @@
 ---
-title: Console série de machine virtuelle Azure | Microsoft Docs
+title: Console série de machine virtuelle Azure pour Linux | Microsoft Docs
 description: Console série bidirectionnelle pour machines virtuelles Azure.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: harijay
-ms.openlocfilehash: 22128f027f0a218756e413653aa92ee097064587
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: a3d59d0e7575721dbb719944f27fd673ba41f469
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741706"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963816"
 ---
 # <a name="virtual-machine-serial-console-for-linux"></a>Console série de machine virtuelle pour Linux
 
@@ -33,17 +33,17 @@ Pour en savoir plus sur la console série des machines virtuelles Windows, consu
 
 ## <a name="prerequisites"></a>Prérequis 
 
-* La machine virtuelle dans laquelle vous accédez à une console série doit utiliser le modèle de déploiement de gestion des ressources. Les déploiements classiques ne sont pas pris en charge. 
+- La machine virtuelle dans laquelle vous accédez à une console série doit utiliser le modèle de déploiement de gestion des ressources. Les déploiements classiques ne sont pas pris en charge. 
 
-* Les [diagnostics de démarrage](boot-diagnostics.md) doivent être activés sur la machine virtuelle dans laquelle vous accédez à une console série. Sélectionnez **Diagnostics de démarrage** dans la section **Support + dépannage**.
+- Les [diagnostics de démarrage](boot-diagnostics.md) doivent être activés sur la machine virtuelle dans laquelle vous accédez à une console série. 
 
     ![Paramètres de l’option Diagnostics de démarrage](./media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 
-Un compte qui utilise une console série doit disposer du [rôle Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour la machine virtuelle et du compte de stockage de [diagnostics de démarrage](boot-diagnostics.md) : 
+- Un compte qui utilise une console série doit disposer du [rôle Contributeur de machine virtuelle](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) pour la machine virtuelle et du compte de stockage de [diagnostics de démarrage](boot-diagnostics.md) : 
 
-* La machine virtuelle dans laquelle vous accédez à une console série doit disposer d’un compte avec mot de passe. Vous pouvez en créer un avec la fonction [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**. 
+    - La machine virtuelle dans laquelle vous accédez à une console série doit disposer d’un compte avec mot de passe. Vous pouvez en créer un avec la fonction [Réinitialiser le mot de passe](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) de l’extension d’accès aux machines virtuelles. Sélectionnez **Réinitialiser le mot de passe** dans la section **Support + dépannage**. 
 
-* Pour découvrir les paramètres spécifiques des distributions Linux, consultez [Disponibilité de distributions Linux pour la console série](#serial-console-linux-distribution-availability).
+    - Pour découvrir les paramètres spécifiques des distributions Linux, consultez [Disponibilité de distributions Linux pour la console série](#serial-console-linux-distribution-availability).
 
 
 
@@ -51,12 +51,14 @@ Un compte qui utilise une console série doit disposer du [rôle Contributeur de
 Pour les machines virtuelles, la console série est accessible uniquement sur le portail Azure :
 
   1. Ouvrez le [portail Azure](https://portal.azure.com).
+
   1. Dans le menu de gauche, sélectionnez **Machines virtuelles**.
+
   1. Sélectionnez une machine virtuelle dans la liste. La page de présentation de la machine virtuelle s’ouvre.
+
   1. Faites défiler l’écran jusqu’à la section **Support + dépannage**, puis sélectionnez **Console série**. Un nouveau volet s’ouvre avec la console série, puis démarre la connexion.
 
-   ![Fenêtre de console série Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
-
+     ![Fenêtre de console série Linux](./media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
 
 > [!NOTE] 

@@ -8,19 +8,19 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 9759e209f15622d70aaa833a993234863ac1053c
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: caef9a93e7d388ab55939876b7cc8344ce6370d0
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918864"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012511"
 ---
 # <a name="reprotect-failed-over-azure-vms-to-the-primary-region"></a>Reprotéger les machines virtuelles Azure basculées vers la région principale
 
 
 Lorsque vous [basculez](site-recovery-failover.md) des machines virtuelles Azure d’une région vers une autre avec [Azure Site Recovery](site-recovery-overview.md), le démarrage des machines virtuelles dans la région secondaire se fait dans un état non protégé. Si les machines virtuelles rebasculent vers la région principale, vous devez effectuer les opérations suivantes :
 
-- Reprotégez les machines virtuelles dans la région secondaire, afin qu’elles commencent à se répliquer dans la région principale. 
+- Reprotégez les machines virtuelles dans la région secondaire, afin qu’elles commencent à se répliquer dans la région principale.
 - Après l’exécution de la reprotection et de la réplication des machines virtuelles, vous pouvez les basculer de la région secondaire vers la région principale.
 
 > [!WARNING]
@@ -33,7 +33,7 @@ Lorsque vous [basculez](site-recovery-failover.md) des machines virtuelles Azure
 
 ## <a name="reprotect-a-vm"></a>Reprotéger une machine virtuelle
 
-1. Dans **Coffre** > **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle ayant échoué, puis sélectionnez **Reprotéger**. La direction de reprotection doit afficher secondaire à principal. 
+1. Dans **Coffre** > **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle ayant échoué, puis sélectionnez **Reprotéger**. La direction de reprotection doit afficher secondaire à principal.
 
   ![Reprotéger](./media/site-recovery-how-to-reprotect-azure-to-azure/reprotect.png)
 
@@ -53,7 +53,7 @@ Vous pouvez personnaliser les propriétés suivantes de la machine virtuelle cib
 |Groupe de ressources cible     | Modifiez le groupe de ressources cible dans lequel la machine virtuelle est créée. Dans le cadre de la reprotection, la machine virtuelle cible est supprimée. Vous pouvez choisir un nouveau groupe de ressources sous lequel créer la machine virtuelle après le basculement.        |
 |Réseau virtuel cible     | Le réseau cible ne peut pas être modifié lors de la tâche de reprotection. Pour modifier le réseau, refaites le mappage réseau.         |
 |Stockage cible (la machine virtuelle secondaire n’utilise pas de disques managés)     | Vous pouvez modifier le compte de stockage que la machine virtuelle utilise après le basculement.         |
-|Disques managés de réplica (la machine virtuelle secondaire utilise des disques managés)    | Site Recovery crée des disques managés de réplica dans la région primaire pour mettre en miroir les disques managés de la machine virtuelle secondaire.         | 
+|Disques managés de réplica (la machine virtuelle secondaire utilise des disques managés)    | Site Recovery crée des disques managés de réplica dans la région primaire pour mettre en miroir les disques managés de la machine virtuelle secondaire.         |
 |Stockage du cache     | Vous pouvez spécifier un compte de stockage de cache à utiliser lors de la réplication. Par défaut, un nouveau compte de stockage de cache est créé, s’il n’existe pas.         |
 |Groupe à haute disponibilité     |Si la machine virtuelle dans la région secondaire fait partie d’un groupe à haute disponibilité, vous pouvez choisir un groupe à haute disponibilité pour la machine virtuelle cible dans la région principale. Par défaut, Site Recovery tente de trouver le groupe à haute disponibilité dans la région principale et de l’utiliser. Au cours de la personnalisation, vous pouvez spécifier un groupe à haute disponibilité.         |
 
@@ -62,23 +62,25 @@ Vous pouvez personnaliser les propriétés suivantes de la machine virtuelle cib
 
 Par défaut les événements suivants se produisent :
 
-1. Un compte de stockage de cache est créé dans la région principale
+1. Un compte de stockage de cache est créé dans la région où la machine virtuelle ayant basculé est en cours d’exécution.
 2. Si le compte de stockage cible (le compte de stockage d’origine dans la région principale) n’existe pas, un nouveau est créé. Le nom de compte de stockage affecté est le nom du compte de stockage utilisé par la machine virtuelle secondaire, suivi du suffixe « asr ».
-3. Si votre machine virtuelle utilise des disques managés, les disques managés de réplica sont créés dans la région primaire pour stocker les données répliquées à partir des disques de la machine virtuelle secondaire. 
+3. Si votre machine virtuelle utilise des disques managés, les disques managés de réplica sont créés dans la région primaire pour stocker les données répliquées à partir des disques de la machine virtuelle secondaire.
 4. Si le groupe à haute disponibilité cible n’existe pas, un nouveau est créé dans le cadre du travail de reprotection si nécessaire. Si vous avez personnalisé les paramètres de la reprotection, le groupe sélectionné est utilisé.
 
 Lorsque vous déclenchez un travail de reprotection et que la cible de que machine virtuelle existe, les événements suivants se produisent :
 
-1. Les composants nécessaires sont créés pendant la reprotection. S’ils existent déjà, ils sont réutilisés.
-2. La machine virtuelle côté cible est désactivée si elle est en cours d’exécution.
-3. Le disque de la machine virtuelle côté cible est copié dans un conteneur par Site Recovery, en tant qu’objet blob de valeur initiale.
-4. La machine virtuelle du côté cible est supprimée.
-5. L’objet blob d’amorçage est utilisé par la machine virtuelle côté source (secondaire) pour la réplication. Cela garantit que seuls les deltas sont répliqués.
-6. Les principales modifications entre le disque source et l’objet blob d’amorçage sont synchronisées. Cela peut prendre du temps.
-7. Une fois le travail de reprotection terminé, la réplication delta commence à créer un point de récupération conformément à la stratégie de réplication.
-8. Une fois la tâche de reprotection réussie, la machine virtuelle passe à l’état protégé.
+1. La machine virtuelle côté cible est désactivée si elle est en cours d’exécution.
+2. Si la machine virtuelle utilise des disques managés, une copie des disques d’origine est créée avec le suffixe '-ASRReplica'. Les disques d’origine sont supprimés. Les copies '-ASRReplica' sont utilisées pour la réplication.
+3. Si la machine virtuelle utilise des disques non managés, les disques de données de la machine virtuelle cible sont détachés et utilisés pour la réplication. Une copie du disque du système d’exploitation est créée et attachée à la machine virtuelle. Le disque d’origine du système d’exploitation est détaché et utilisé pour la réplication.
+4. Seules les modifications entre le disque source et le disque cible sont synchronisées. Les sauvegardes différentielles sont calculées en comparant deux disques, puis transférées. Cette opération prend quelques heures.
+5. Une fois la synchronisation terminée, la réplication delta commence à créer un point de récupération conformément à la stratégie de réplication.
+
+Lorsque vous déclenchez un travail de reprotection et que la machine virtuelle cible et les disques n’existent pas, les événements suivants se produisent :
+1. Si la machine virtuelle utilise des disques managés, des disques de réplica sont créés avec le suffixe '-ASRReplica'. Les copies '-ASRReplica' sont utilisées pour la réplication.
+2. Si la machine virtuelle à l’aide de disques non gérés, des disques de réplica sont créés dans le compte de stockage cible.
+3. Les disques entiers sont copiés à partir de la région ayant échoué vers la nouvelle région cible.
+4. Une fois la synchronisation terminée, la réplication delta commence à créer un point de récupération conformément à la stratégie de réplication.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 Une fois la machine virtuelle protégée, vous pouvez commencer un basculement. Le basculement arrête la machine virtuelle dans la région secondaire et crée et démarre la machine virtuelle dans la région principale, avec un léger temps d’indisponibilité. Nous vous recommandons de choisir une période en conséquence, et d’effectuer un test de basculement avant d’initialiser un basculement complet vers le site principal. [En savoir plus](site-recovery-failover.md) sur le basculement.
-

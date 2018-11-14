@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: roiyz
-ms.openlocfilehash: 7396277c58b079dc2f0c68b7832a6f2ca57ee287
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 2c8ac43d96c100f0c26281fea1d4e9eba41bc178
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212299"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282326"
 ---
 # <a name="custom-script-extension-for-windows"></a>Extension de script personnalisé pour Windows
 
@@ -201,7 +201,7 @@ Set-AzureRmVMExtension -ResourceGroupName myRG
 ### <a name="how-to-run-custom-script-more-than-once-with-cli"></a>Comment exécuter un script personnalisé plusieurs fois avec l’interface de ligne de commande
 Si vous souhaitez exécuter plusieurs fois l’extension de script personnalisé, vous ne pouvez le faire que dans les conditions suivantes :
 1. Le paramètre « Name » de l’extension est le même que pour le déploiement précédent de celle-ci.
-2. Vous devez mettre à jour la configuration, sans quoi la commande n’est pas ré-exécutée. Par exemple, vous pouvez ajouter à la commande une propriété dynamique, telle que timestamp. 
+2. Vous devez mettre à jour la configuration, à défaut de quoi la commande n’est pas ré-exécutée. Par exemple, vous pouvez ajouter à la commande une propriété dynamique, telle que timestamp. 
 
 ## <a name="troubleshoot-and-support"></a>Dépannage et support technique
 

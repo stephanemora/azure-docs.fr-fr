@@ -3,19 +3,19 @@ title: Suggestions concernant SQL Data Warehouse - Concepts | Microsoft Docs
 description: Découvrez les suggestions concernant SQL Data Warehouse et la façon dont elles sont générées
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg
+manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 07/27/2018
+ms.date: 11/05/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 57bce631a570f549d46a9b0beefcb5adce4decfc
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 712eed36f3a68ee02668849207835e3c8bdb8238
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380112"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51232152"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Suggestions concernant SQL Data Warehouse
 
@@ -39,4 +39,28 @@ Des statistiques non optimales peuvent fortement influer sur les performances de
 
 - [Création et la mise à jour des statistiques sous forme de tableau](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
-Pour afficher la liste des tableaux concernés par ces suggestions, exécutez le [script T-SQL](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables) suivant. Le conseiller exécute en permanence le même script T-SQL pour générer ces suggestions.
+Pour afficher la liste des tableaux concernés par ces suggestions, exécutez le [script T-SQL](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables) suivant. Azure Advisor exécute en permanence le même script T-SQL pour générer ces suggestions.
+
+## <a name="replicate-tables"></a>Répliquer des tables
+
+Pour suggérer une table répliquée, Advisor détecte des tables candidates en fonction des caractéristiques physiques suivantes :
+
+- Taille de table répliquée
+- Nombre de colonnes
+- Type de distribution de tables
+- Nombre de partitions
+
+Advisor s’appuie en permanence sur une méthode heuristique basée sur la charge de travail, telle que la fréquence d’accès à la table, les lignes renvoyées en moyenne et les seuils relatifs à la taille et à l’activité de l’entrepôt de données, afin de générer des suggestions de haute qualité. 
+
+Vous trouverez ci-dessous une heuristique basée sur la charge de travail que vous pouvez trouver dans le portail Azure pour chaque suggestion de table répliquée :
+
+- Scan avg : indique le pourcentage moyen de lignes retournées à partir de la table pour chaque accès à la table au cours des sept derniers jours.
+- Frequent read, no update : indique que la table n’a pas été mise à jour au cours des sept derniers jours d’affichage de l’activité d’accès.
+- Read/update ratio : indique le rapport entre la fréquence d’accès à la table et sa mise à jour au cours des sept derniers jours.
+- Activity : mesure l’utilisation en fonction de l’activité d’accès. Cela compare l’activité d’accès à la table à l’activité d’accès moyenne à l’entrepôt de données au cours des sept derniers jours. 
+
+Actuellement, Advisor affiche au maximum quatre tables candidates répliquées à la fois, avec des index columnstore en cluster donnant la priorité à l’activité la plus élevée.
+
+> [!IMPORTANT]
+> La suggestion de table répliquée n’est pas une preuve complète, et ne prend pas en compte les opérations de déplacement de données. Nous travaillons actuellement sur l’ajout de cette heuristique. En attendant, vous devriez toujours valider votre charge de travail après l’application de la suggestion. Si vous découvrez des suggestions de table répliquées qui entraînent une régression de votre charge de travail, veuillez contacter sqldwadvisor@service.microsoft.com. Pour en savoir plus sur les tables répliquées, voir la [documentation](https://docs.microsoft.com/azure/sql-data-warehouse/design-guidance-for-replicated-tables#what-is-a-replicated-table) suivante.
+>

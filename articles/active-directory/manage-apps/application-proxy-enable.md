@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5227f756e807a30573733bd408144d869caac9ec
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 59ca9ca7711904fe7882aac4878bd62c597645d8
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366473"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51034964"
 ---
 # <a name="get-started-with-application-proxy-and-install-the-connector"></a>Bien démarrer avec le proxy d’application et l’installation du connecteur
 Cet article vous guide tout au long des étapes d’activation du proxy d’application Microsoft Azure AD pour votre répertoire de cloud dans Azure AD.
@@ -33,6 +33,7 @@ Pour pouvoir activer et utiliser les services Proxy d’application, vous devez 
 * Un [abonnement Microsoft Azure AD de base ou Premium](../fundamentals/active-directory-whatis.md) et un annuaire Azure AD sur lequel vous êtes administrateur général.
 * Un serveur exécutant Windows Server 2012 R2 ou 2016, sur lequel vous pouvez installer le connecteur de proxy d’application. Le serveur doit pouvoir se connecter aux services Proxy d’application dans le cloud et aux applications locales que vous publiez.
   * Pour permettre une authentification unique de vos applications publiées à l’aide de la délégation contrainte, cette machine doit être jointe au même domaine AD que les applications que vous publiez. Pour plus d’informations, consultez [KCD pour authentification unique avec le proxy d’application](application-proxy-configure-single-sign-on-with-kcd.md).
+* TLS 1.2 en cours d’exécution sur le système d’exploitation sous-jacent. Pour basculer vers TLS 1.2, suivez les étapes de l’article [Activer TLS 1.2](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#enable-tls-12-for-azure-ad-connect). Bien que le contenu s’adresse à Azure AD Connect, cette procédure est identique pour tous les clients .NET.
 
 Si votre organisation utilise des serveurs proxy pour se connecter à Internet, consultez [Travailler avec des serveurs proxy locaux existants](application-proxy-configure-connectors-with-proxy-servers.md) pour découvrir comment les configurer avant la prise en main du Proxy d’application.
 

@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: a322edbc6825261dde0fd926a362ca037739e06e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: f1fd60774f5790a514e540984812fc1aaf6e38e0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49388056"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238911"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Choisir la méthode d’authentification adaptée à votre solution d’identité hybride Azure Active Directory 
 
@@ -68,6 +68,18 @@ L’arbre de décision présenté dans la section suivante vous aide à détermi
 ## <a name="decision-tree"></a>Arbre de décision
 
 ![Authentification AD Azure : arbre de décision](media/azure-ad/azure-ad-authn-image1.png)
+
+Détails relatifs aux questions de décision :
+
+1. Azure AD peut gérer la connexion des utilisateurs sans s’appuyer sur des composants locaux pour vérifier les mots de passe.
+2. Azure AD peut transférer la connexion des utilisateurs à un fournisseur d’authentification approuvé tel qu’AD FS de Microsoft.
+3. Si vous devez appliquer des stratégies de sécurité Active Directory au niveau utilisateur, telles que l’expiration de compte, la désactivation de compte, l’expiration de mot de passe, le verrouillage de compte et les heures de connexion à chaque connexion d’utilisateur, Azure AD requiert certains composants locaux.
+4. Fonctionnalités de connexion non prises en charge en mode natif par Azure AD :
+   * Connexion à l’aide de cartes à puce ou de certificats.
+   * Connexion à l’aide d’un serveur MFA local.
+   * Connexion à l’aide d’une solution d’authentification tierce.
+   * Solution d’authentification locale multisite.
+5. Quelle que soit la méthode de connexion choisie, pour générer le rapport « Utilisateurs avec des informations d’identification volées », Azure AD Identity Protection requiert une synchronisation du hachage de mot de passe. Les organisations peuvent basculer vers une synchronisation du hachage de mot de passe si leur méthode de connexion principale échoue alors qu’elle a été configurée avant l’événement d’échec.
 
 ## <a name="detailed-considerations"></a>Considérations détaillées
 
@@ -207,4 +219,4 @@ Aujourd’hui, les menaces sont présentes 24 heures sur 24 et proviennent de pa
 
 [Démarrez](https://docs.microsoft.com/azure/active-directory/get-started-azure-ad) avec Azure AD et déployez la solution d’authentification adaptée à votre organisation.
 
-Si vous envisagez de passer de l’authentification fédérée à l’authentification cloud, découvrez plus en détail [comment changer la méthode de connexion](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Pour vous aider à planifier et à implémenter la migration, utilisez [ces plans de déploiement de projet](http://aka.ms/deploymentplans).
+Si vous envisagez de passer de l’authentification fédérée à l’authentification cloud, découvrez plus en détail [comment changer la méthode de connexion](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-user-signin#changing-the-user-sign-in-method). Pour vous aider à planifier et à implémenter la migration, utilisez [ces plans de déploiement de projet](https://aka.ms/deploymentplans).

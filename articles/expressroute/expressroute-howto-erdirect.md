@@ -2,17 +2,17 @@
 title: Comment configurer Azure ExpressRoute Direct | Microsoft Docs
 description: Cette page vous permet de configurer ExpressRoute Direct (préversion)
 services: expressroute
-author: cherylmc
+author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/21/2018
-ms.author: cherylmc
-ms.openlocfilehash: e0009791263c45e0172abcb4836aaadde26f3ace
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.date: 11/02/2018
+ms.author: jaredro
+ms.openlocfilehash: 857602cf9c3c743e91ea6dace64e71e03cdd879b
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887187"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959665"
 ---
 # <a name="how-to-configure-expressroute-direct-preview"></a>Comment configurer ExpressRoute Direct (préversion)
 
@@ -23,7 +23,7 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
 >
 > Cette préversion publique est fournie sans contrat de niveau de service et ne doit pas être utilisée pour les charges de travail de production. Certaines fonctionnalités peuvent ne pas être prises en charge, disposer de capacités limitées ou ne pas être disponibles dans tous les emplacements Azure. Consultez les [Conditions d’utilisation supplémentaires des préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## <a name="resources"></a>1. Créer la ressource
+## <a name="resources"></a>Créer la ressource
 
 1. Connectez-vous à Azure et sélectionnez l’abonnement. La ressource ExpressRoute Direct et les circuits ExpressRoute doivent se trouver dans le même abonnement.
 
@@ -154,10 +154,9 @@ ExpressRoute Direct vous offre la possibilité de vous connecter directement au 
   Circuits                   : []
   ```
 
-## <a name="state"></a>2. Changer l’état Administrateur de liens
+## <a name="state"></a>Changer l’état Administrateur de liens
 
-Ce processus doit être utilisé pour effectuer un test de la couche 1, en s’assurant que chaque connexion croisée est correctement reliée dans chaque routeur principal et secondaire.
-
+  Ce processus doit être utilisé pour effectuer un test de la couche 1, en s’assurant que chaque connexion croisée est correctement reliée dans chaque routeur principal et secondaire.
 1. Obtenez des détails sur ExpressRoute Direct.
 
   ```powershell
@@ -223,9 +222,9 @@ Ce processus doit être utilisé pour effectuer un test de la couche 1, en s’a
   Circuits                   : []
   ```
 
-Utilisez la même procédure avec `AdminState = “Disabled”` pour désactiver les ports.
+  Utilisez la même procédure avec `AdminState = “Disabled”` pour désactiver les ports.
 
-## <a name="circuit"></a>3. Créer un circuit
+## <a name="circuit"></a>Créer un circuit
 
 Par défaut, vous pouvez créer 10 circuits dans l’abonnement où se trouve la ressource ExpressRoute Direct. Ce nombre peut être augmenté par le support. Vous êtes responsable du suivi de la bande passante approvisionnée et utilisée. La bande passante approvisionnée équivaut à la somme de la bande passante de tous les circuits sur la ressource ExpressRoute Direct et la bande passante utilisée équivaut à l’utilisation physique des interfaces physiques sous-jacentes.
 
@@ -235,43 +234,43 @@ Des circuits Standard ou Premium peuvent être créés. Les circuits Standard so
 
 Créez un circuit sur la ressource ExpressRoute Direct.
 
-```powershell
-New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 1.0 | 2.0 | 5.0 | 10.0 | 40.0 | 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
-```
+  ```powershell
+  New-AzureRmExpressRouteCircuit -Name $Name -ResourceGroupName $ResourceGroupName -ExpressRoutePort $ERDirect -BandwidthinGbps 100.0  -Location $AzureRegion -SkuTier Premium -SkuFamily MeteredData 
+  ```
 
-D’autres bandes passantes incluent les suivantes : 1.0, 2.0, 5.0, 10.0 et 40.0
+  D’autres bandes passantes incluent : 5.0, 10.0 et 40.0
 
-**Exemple de sortie :**
+  **Exemple de sortie :**
 
-```powershell
-Name                             : ExpressRoute-Direct-ckt
-ResourceGroupName                : Contoso-Direct-rg
-Location                         : westcentralus
-Id                               : /subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Netwo
+  ```powershell
+  Name                             : ExpressRoute-Direct-ckt
+  ResourceGroupName                : Contoso-Direct-rg
+  Location                         : westcentralus
+  Id                               : /subscriptions/<subscriptionID>/resourceGroups/Contoso-Direct-rg/providers/Microsoft.Netwo
                                    rk/expressRouteCircuits/ExpressRoute-Direct-ckt
-Etag                             : W/"<etagnumber>"
-ProvisioningState                : Succeeded
-Sku                              : {
+  Etag                             : W/"<etagnumber>"
+  ProvisioningState                : Succeeded
+  Sku                              : {
                                      "Name": "Premium_MeteredData",
                                      "Tier": "Premium",
                                      "Family": "MeteredData"
                                    }
-CircuitProvisioningState         : Enabled
-ServiceProviderProvisioningState : Provisioned
-ServiceProviderNotes             : 
-ServiceProviderProperties        : null
-ExpressRoutePort                 : {
+  CircuitProvisioningState         : Enabled
+  ServiceProviderProvisioningState : Provisioned
+  ServiceProviderNotes             : 
+    ServiceProviderProperties        : null
+  ExpressRoutePort                 : {
                                      "Id": "/subscriptions/<subscriptionID>n/resourceGroups/Contoso-Direct-rg/providers/Micros
                                    oft.Network/expressRoutePorts/Contoso-Direct"
                                    }
-BandwidthInGbps                  : 10
-Stag                             : 2
-ServiceKey                       : <number>
-Peerings                         : []
-Authorizations                   : []
-AllowClassicOperations           : False
-GatewayManagerEtag     
-```
+  BandwidthInGbps                  : 10
+  Stag                             : 2
+  ServiceKey                       : <number>
+  Peerings                         : []
+  Authorizations                   : []
+  AllowClassicOperations           : False
+  GatewayManagerEtag     
+  ```
 
 ## <a name="next-steps"></a>Étapes suivantes
 

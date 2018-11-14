@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/19/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 5c16f06d0cc031cd9b51a3c6cf0beb149a19aeb4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9cf37e611dce5705a4c866f25afa59e5c1602ec4
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001437"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51282201"
 ---
 # <a name="certificates-overview-for-azure-cloud-services"></a>Vue d’ensemble des certificats pour Azure Cloud Services
 Dans Azure, des certificats sont utilisés pour les services cloud ([certificats de service](#what-are-service-certificates)) et pour l’authentification auprès de l’API de gestion ([certificats de gestion](#what-are-management-certificates)). Cette rubrique offre une vue d’ensemble de ces deux types de certificats et vous explique comment les [créer](#create) et les [déployer](#deploy) dans Azure.
@@ -27,6 +27,9 @@ Dans Azure, des certificats sont utilisés pour les services cloud ([certificats
 Les certificats utilisés dans Azure sont des certificats x.509 v3 et peuvent être signés par un autre certificat approuvé ou être auto-signés. Un certificat auto-signé est signé par son propre créateur et n’est donc pas approuvé par défaut. La plupart des navigateurs peuvent ignorer ce problème. Les certificats auto-signés ne doivent être utilisés que par vous au moment où vous développez et testez vos services cloud. 
 
 Les certificats utilisés par Azure peuvent contenir une clé privée ou publique. Les certificats comportent une empreinte numérique qui permet de les identifier sans ambiguïté. Cette empreinte numérique est utilisée dans le [fichier de configuration](cloud-services-configure-ssl-certificate-portal.md) Azure pour identifier le certificat qu’un service cloud doit utiliser. 
+
+>[!Note]
+>Azure Cloud Services n’accepte pas de certificat chiffré AES256-SHA256.
 
 ## <a name="what-are-service-certificates"></a>Que sont les certificats de service ?
 Les certificats de service sont associés aux services cloud et sécurisent les communications à destination et en provenance du service. Par exemple, si vous avez déployé un rôle web, vous pouvez fournir un certificat qui peut authentifier un point de terminaison HTTPS exposé. Les certificats de service, définis dans votre définition de service, sont déployés automatiquement sur la machine virtuelle qui exécute une instance de votre rôle. 
@@ -46,7 +49,7 @@ Les certificats de gestion vous permettent de vous authentifier dans le modèle 
 > 
 > 
 
-### <a name="limitations"></a>Limitations
+### <a name="limitations"></a>Limites
 Le nombre de certificats de gestion est limité à 100 par abonnement. Il existe également une limite de 100 certificats de gestion pour l’ensemble des abonnements figurant sous un identificateur d’utilisateur d’administrateur de service spécifique. Si l’identificateur d’utilisateur de l’administrateur de compte a déjà été utilisé pour ajouter 100 certificats de gestion et que d’autres certificats sont nécessaires, vous pouvez ajouter un coadministrateur pour disposer des certificats supplémentaires. 
 
 <a name="create"></a>

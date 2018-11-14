@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 02/02/2018
+ms.date: 11/04/2018
 ms.author: juliako;dbgeorge
-ms.openlocfilehash: a36e12080cbbcb1a98bf786a6634959362cb52a7
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f6d4fcf5e6ec8029bb0e7c303849fdceef5bace7
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666447"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51012086"
 ---
 # <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Utiliser l’encodeur Haivision KB pour envoyer un flux temps réel à débit binaire unique
 > [!div class="op_single_selector"]
@@ -61,7 +61,7 @@ Vidéo :
 -   Codec : H.264
 -   Profil : Élevé (niveau 4.0)
 -   Débit binaire : 5 000 kbit/s
--   Image clé : 2 secondes (60 secondes)
+-   Image clé : 2 secondes (60 images)
 -   Fréquence d’images : 30
 
 Audio :

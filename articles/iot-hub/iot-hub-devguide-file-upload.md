@@ -6,18 +6,18 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 08/08/2017
+ms.date: 11/07/2018
 ms.author: dobett
-ms.openlocfilehash: 8fee8dd727623e81140656a070e6855547693154
-ms.sourcegitcommit: f31bfb398430ed7d66a85c7ca1f1cc9943656678
+ms.openlocfilehash: 1d9e5b46460f04ad491ac741a62ee6d644985e61
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47451152"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283425"
 ---
 # <a name="upload-files-with-iot-hub"></a>Chargement de fichiers avec IoT Hub
 
-Comme nous l’avons expliqué dans l’article [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md), un appareil peut lancer un chargement de fichiers en envoyant une notification par le biais d’un point de terminaison orienté appareil (**/devices/{deviceId}/files**). Lorsqu’un appareil indique à IoT Hub la fin d’un chargement, IoT Hub envoie un message de notification de chargement de fichiers via le point de terminaison côté service (**/messages/servicebound/filenotifications**).
+Comme nous l’avons expliqué dans l’article [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md), un appareil peut lancer le chargement de fichiers en envoyant une notification par le biais d’un point de terminaison orienté appareil (**/devices/{deviceId}/files**). Lorsqu’un appareil indique à IoT Hub la fin d’un chargement, IoT Hub envoie un message de notification de chargement de fichiers via le point de terminaison côté service (**/messages/servicebound/filenotifications**).
 
 Au lieu de distribuer les messages via sa propre plate-forme, IoT Hub joue le rôle de répartiteur vers un compte Stockage Azure associé. Un appareil demande à IoT Hub un jeton de stockage spécifique au fichier que l’appareil souhaite télécharger. L’appareil utilise l’URI SAP pour télécharger le fichier vers le stockage. Une fois le téléchargement terminé, l’appareil envoie une notification à IoT Hub pour l’en informer. IoT Hub vérifie que le chargement de fichiers est terminé, puis ajoute un message de notification de chargement de fichiers au point de terminaison côté service dédié à la notification de fichiers.
 
@@ -33,14 +33,15 @@ Reportez-vous à [l’aide sur la communication appareil-à-cloud](iot-hub-devgu
 
 ## <a name="associate-an-azure-storage-account-with-iot-hub"></a>Association d’un compte Stockage Azure à IoT Hub
 
-Pour utiliser la fonctionnalité de téléchargement de fichier, vous devez d’abord lier un compte Stockage Azure à IoT Hub. Vous pouvez effectuer cette tâche en utilisant le [portail Azure](https://portal.azure.com), ou par programmation avec les [API REST du fournisseur de ressources IoT Hub](/rest/api/iothub/iothubresource). Une fois que vous avez associé un compte Stockage Azure à IoT Hub, le service retourne un URI SAP vers un appareil lorsque ce dernier initie une demande de téléchargement de fichier.
+Pour utiliser la fonctionnalité de téléchargement de fichier, vous devez d’abord lier un compte Stockage Azure à IoT Hub. Vous pouvez effectuer cette tâche via le portail Azure, ou par programmation avec les [API REST du fournisseur de ressources IoT Hub](/rest/api/iothub/iothubresource). Une fois que vous avez associé un compte Stockage Azure à IoT Hub, le service retourne un URI SAP vers un appareil lorsque ce dernier démarre une demande de téléchargement de fichier.
+
+Les guides pratiques [Télécharger des fichiers de votre appareil vers le cloud avec IoT Hub](iot-hub-csharp-csharp-file-upload.md) fournissent la description complète du processus de chargement de fichier. Ces guides pratiques vous montrent comment utiliser le portail Azure pour associer un compte de stockage à un hub IoT.
 
 > [!NOTE]
 > Les kits [Azure IoT SDK](iot-hub-devguide-sdks.md) gèrent automatiquement la récupération de l’URI SAP, le chargement du fichier et l’envoi d’une notification à IoT Hub de la fin du chargement.
 
-
 ## <a name="initialize-a-file-upload"></a>Initialiser un téléchargement de fichier
-IoT Hub a un point de terminaison spécifique aux appareils pour demander une URI SAS pour le stockage afin de télécharger un fichier. Pour initier le processus de chargement de fichiers, l’appareil envoie une requête POST à `{iot hub}.azure-devices.net/devices/{deviceId}/files` avec le corps JSON suivant :
+IoT Hub a un point de terminaison spécifique aux appareils pour demander une URI SAS pour le stockage afin de télécharger un fichier. Pour démarrer le processus de chargement de fichiers, l’appareil envoie une requête POST à `{iot hub}.azure-devices.net/devices/{deviceId}/files` avec le corps JSON suivant :
 
 ```json
 {
@@ -65,7 +66,7 @@ IoT Hub renvoie les données suivantes. L’appareil l’utilise pour téléchar
 > [!NOTE]
 > Cette section décrit les fonctionnalités déconseillées pour la réception d’une URI SAS d’IoT Hub. Utilisez la méthode POST décrite précédemment.
 
-IoT Hub utilise deux points de terminaison REST pour prendre en charge le téléchargement de fichier, le premier afin d’obtenir l’URI SAP pour le stockage et le second pour informer IoT hub de la fin du téléchargement. L’appareil lance le processus de téléchargement de fichier en envoyant une commande GET à IoT Hub à `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. L’IoT Hub renvoie :
+IoT Hub utilise deux points de terminaison REST pour prendre en charge le téléchargement de fichier, le premier afin d’obtenir l’URI SAP pour le stockage et le second pour informer IoT hub de la fin du téléchargement. L’appareil démarre le processus de téléchargement de fichier en envoyant une commande GET à IoT Hub à `{iot hub}.azure-devices.net/devices/{deviceId}/files/{filename}`. L’IoT Hub renvoie :
 
 * Un URI SAS spécifique au fichier à charger.
 
@@ -73,7 +74,7 @@ IoT Hub utilise deux points de terminaison REST pour prendre en charge le télé
 
 ## <a name="notify-iot-hub-of-a-completed-file-upload"></a>Notifier IoT Hub de la fin du téléchargement d’un fichier
 
-L’appareil est chargé de télécharger le fichier vers le stockage à l’aide des kits SDK Stockage Azure. Une fois le chargement terminé, l’appareil envoie une requête POST à `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` avec le corps JSON suivant :
+L’appareil charge le fichier dans le stockage à l’aide des kits SDK Stockage Azure. Une fois le chargement terminé, l’appareil envoie une requête POST à `{iot hub}.azure-devices.net/devices/{deviceId}/files/notifications` avec le corps JSON suivant :
 
 ```json
 {
@@ -84,7 +85,7 @@ L’appareil est chargé de télécharger le fichier vers le stockage à l’aid
 }
 ```
 
-La valeur de `isSuccess` est une valeur booléenne indiquant si le fichier a été téléchargé avec succès. Le code d’état de `statusCode` est l’état pour le téléchargement du fichier vers le stockage et `statusDescription` correspond à `statusCode`.
+La valeur de `isSuccess` est une valeur booléenne qui indique si le fichier a bien été téléchargé. Le code d’état de `statusCode` est l’état pour le téléchargement du fichier vers le stockage et `statusDescription` correspond à `statusCode`.
 
 ## <a name="reference-topics"></a>Rubriques de référence :
 
@@ -92,7 +93,7 @@ Les rubriques de référence suivantes vous fournissent des informations supplé
 
 ## <a name="file-upload-notifications"></a>Notifications de téléchargement de fichier
 
-Lorsqu’un appareil informe IoT Hub de la fin d’un chargement, IoT Hub peut éventuellement générer un message de notification contenant le nom et l’emplacement de stockage du fichier.
+Éventuellement, lorsqu’un appareil notifie IoT Hub que le chargement est terminé, le service peut générer un message de notification. Ce message contient l’emplacement de stockage et le nom du fichier.
 
 Comme l’explique la section [Points de terminaison](iot-hub-devguide-endpoints.md), IoT Hub émet des notifications de chargement de fichiers sous forme de messages par le biais d’un point de terminaison orienté service (**/messages/servicebound/fileuploadnotifications**). La sémantique de réception des notifications de chargement de fichiers est identique à celle des messages cloud-à-appareil et présente le même [cycle de vie des messages](iot-hub-devguide-messages-c2d.md#the-cloud-to-device-message-lifecycle). Chaque message récupéré à partir du point de terminaison de notification de téléchargement de fichier est un enregistrement JSON qui possède les propriétés suivantes :
 
@@ -120,7 +121,7 @@ Comme l’explique la section [Points de terminaison](iot-hub-devguide-endpoints
 
 ## <a name="file-upload-notification-configuration-options"></a>Options de configuration de notification de téléchargement de fichier
 
-Chaque IoT Hub expose les options de configuration suivantes pour les notifications de téléchargement de fichier :
+Chaque IoT Hub dispose des options de configuration suivantes pour les notifications de chargement de fichier :
 
 | Propriété | Description | Plage et valeur par défaut |
 | --- | --- | --- |
@@ -133,7 +134,7 @@ Chaque IoT Hub expose les options de configuration suivantes pour les notificati
 
 Les autres rubriques de référence dans le Guide du développeur IoT Hub comprennent :
 
-* La rubrique [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md) décrit les différents points de terminaison que chaque hub IoT expose pour les opérations d’exécution et de gestion.
+* La rubrique [Points de terminaison IoT Hub](iot-hub-devguide-endpoints.md), qui décrit les différents points de terminaison de chaque hub IoT pour les opérations d’exécution et de gestion.
 
 * La rubrique [Quotas et limitation IoT Hub](iot-hub-devguide-quotas-throttling.md) décrit les quotas et le comportement de limitation qui s’appliquent au service IoT Hub.
 
@@ -141,7 +142,7 @@ Les autres rubriques de référence dans le Guide du développeur IoT Hub compre
 
 * La rubrique [Langage de requête IoT Hub](iot-hub-devguide-query-language.md) décrit le langage de requête permettant de récupérer à partir d’IoT Hub des informations sur les jumeaux d’appareil et les travaux.
 
-* La rubrique [Prise en charge de MQTT dans IoT Hub](iot-hub-mqtt-support.md) fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
+* La rubrique [Prise en charge de MQTT au niveau d’IoT Hub](iot-hub-mqtt-support.md), qui fournit des informations supplémentaires sur la prise en charge du protocole MQTT par IoT Hub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

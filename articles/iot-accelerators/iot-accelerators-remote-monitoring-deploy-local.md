@@ -1,107 +1,117 @@
 ---
-title: Déployer la solution de supervision à distance localement - Azure | Microsoft Docs
+title: Déployer localement la solution de surveillance à distance (via l’IDE Visual Studio) - Azure | Microsoft Docs
 description: Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local à des fins de test et de développement.
-author: asdonald
-manager: timlt
-ms.author: asdonald
+author: avneet723
+manager: hegate
+ms.author: avneet723
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 09/26/2018
+ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7007b1406dbcfab3af4700418ac2ce07b9e521c0
-ms.sourcegitcommit: b7e5bbbabc21df9fe93b4c18cc825920a0ab6fab
+ms.openlocfilehash: c667782ef49f41cda8ccefc2f56e5f1265531037
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47407431"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278818"
 ---
-# <a name="deploy-the-remote-monitoring-solution-accelerator-locally"></a>Déployer l’accélérateur de solution de supervision à distance localement
+# <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Déployer localement l’accélérateur de solution de surveillance à distance - Visual Studio
 
-Cet article montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local à des fins de test et de développement. L’approche décrite dans cet article déploie les microservices sur un conteneur Docker local et utilise les services IoT Hub, Cosmos DB et Azure Time Series Insights dans le cloud. Pour savoir comment exécuter l’accélérateur de solution de supervision à distance dans un IDE sur votre ordinateur local, consultez [Starting Microservices on local environment](https://github.com/Azure/remote-monitoring-services-java/blob/master/docs/LOCAL_DEPLOYMENT.md) sur GitHub.
+[!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
+
+Cet article montre comment déployer l’accélérateur de solution de surveillance à distance sur votre ordinateur local à des fins de test et de développement. Cet article vous explique comment exécuter les microservices dans Visual Studio. Les déploiements de microservices locaux utilisent les services de cloud suivants : IoT Hub, Cosmos DB, Azure Stream Analytics et Azure Time Series Insights dans le cloud.
+
+Si vous souhaitez exécuter l’accélérateur de solution de surveillance à distance dans un Docker sur votre ordinateur local, consultez [Déployer localement l’accélérateur de solution de surveillance à distance - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour déployer les services Azure utilisés par l’accélérateur de solution de supervision à distance, vous avez besoin d’un abonnement Azure actif.
+Pour déployer les services Azure utilisés par l’accélérateur de solution de surveillance à distance, vous avez besoin d’un abonnement Azure actif.
 
-Si vous n’avez pas de compte, vous pouvez créer un compte d’essai gratuit en quelques minutes. Pour plus d’informations, consultez [Essai gratuit Azure](http://azure.microsoft.com/pricing/free-trial/).
+Si vous ne possédez pas de compte, vous pouvez créer un compte d’évaluation gratuit en quelques minutes. Pour plus d'informations, consultez la page [Version d'évaluation gratuite d'Azure](https://azure.microsoft.com/pricing/free-trial/).
+
+### <a name="machine-setup"></a>Configuration de la machine
 
 Pour terminer le déploiement local, vous devez avoir installé les outils suivants sur votre machine de développement local :
 
 * [Git](https://git-scm.com/)
 * [Docker](https://www.docker.com)
-* [Docker Compose](https://docs.docker.com/compose/install/)
-* [Node.js v8](https://nodejs.org/) : Ce logiciel est un prérequis pour l’interface de ligne de commande PCS que les scripts utilisent pour créer des ressources Azure. N’utilisez pas Node.js v10.
+* [Visual Studio](https://visualstudio.microsoft.com/)
+* [Nginx](http://nginx.org/en/download.html)
+* [Node.js v8](https://nodejs.org/) : Ce logiciel est un prérequis pour l’interface de ligne de commande PCS que les scripts utilisent pour créer des ressources Azure. N’utilisez pas Node.js v10.
 
 > [!NOTE]
-> Ces outils sont disponibles sur de nombreuses plateformes, notamment Windows, Linux et iOS.
+> Visual Studio est disponible pour Windows et Mac.
 
-### <a name="download-the-source-code"></a>Télécharger le code source
+[!INCLUDE [iot-accelerators-local-setup](../../includes/iot-accelerators-local-setup.md)]
 
-Le dépôt GitHub du code source de la supervision à distance contient les fichiers de configuration Docker dont vous avez besoin pour télécharger, configurer et exécuter les images Docker qui contiennent les microservices. Pour cloner le dépôt et en créer une version locale, utilisez votre environnement de ligne de commande pour accéder à un dossier approprié sur votre ordinateur local et exécutez l’une des commandes suivantes :
+## <a name="run-the-microservices"></a>Exécuter les microservices
 
-Pour télécharger la dernière version des implémentations de microservices Java, exécutez :
+Dans cette section, vous exécutez les microservices de surveillance à distance. Vous exécutez l’interface utilisateur web en mode natif, le service Device Simulation dans Docker et les microservices dans Visual Studio.
 
-```cmd/sh
-git clone https://github.com/Azure/remote-monitoring-services-java.git
+### <a name="run-the-web-ui"></a>Exécuter l’interface utilisateur web
+
+Dans cette étape, vous démarrez l’interface utilisateur web. Accédez au dossier **webui** de votre copie locale du référentiel et exécutez les commandes suivantes :
+
+```cmd
+npm install
+npm start
 ```
 
-Pour télécharger la dernière version des implémentations de microservices .NET, exécutez :
+### <a name="run-the-device-simulation-service"></a>Exécuter le service Device Simulation
 
-```cmd\sh
-git clone https://github.com/Azure/remote-monitoring-services-dotnet.git
+Exécutez la commande suivante pour lancer le conteneur Docker pour le service Device Simulation. Le service simule des appareils pour la solution de surveillance à distance.
+
+```cmd
+<path_to_cloned_repository>\services\device-simulation\scripts\docker\run.cmd
 ```
 
-> [!NOTE]
-> Ces commandes téléchargent le code source de tous les microservices en plus des scripts que vous utilisez pour exécuter les microservices localement. Même si vous n’avez pas besoin du code source pour exécuter les microservices dans Docker, vous pouvez l’utiliser si vous envisagez de modifier ultérieurement l’accélérateur de solution et de tester vos modifications localement.
+### <a name="deploy-all-other-microservices-on-local-machine"></a>Déployer toutes les autres microservices sur l’ordinateur local
 
-## <a name="deploy-the-azure-services"></a>Déployer des services Azure
+Les étapes suivantes vous montrent comment exécuter les microservices de surveillance à distance dans Visual Studio 2017 :
 
-Bien que cet article explique comment exécuter les microservices localement, ceux-ci dépendent de l’exécution des services Azure exécutés dans le cloud. Vous pouvez déployer ces services Azure [manuellement via le portail Azure](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Manual-steps-to-create-azure-resources-for-local-setup) ou utiliser le script fourni. Les exemples de script suivants supposent que vous utilisez le référentiel .NET sur un ordinateur Windows. Si vous travaillez dans un autre environnement, adaptez les chemins, les extensions de fichier et les séparateurs de chemin en conséquence. Pour utiliser les scripts fournis pour :
+1. Lancer Visual Studio 2017
+1. Ouvrez le la solution **remote-monitoring.sln** dans le dossier **services** dans votre copie locale du référentiel.
+1. Dans l’**Explorateur de solutions**, cliquez avec le bouton droit sur la solution, puis cliquez sur **Propriétés**.
+1. Sélectionnez **Propriétés communes > Projet de démarrage**.
+1. Sélectionnez **Plusieurs projets de démarrage** et définissez **Action** sur **Démarrer** pour les projets suivants :
+    * WebService (asa-manager\WebService)
+    * WebService (auth\WebService)
+    * WebService (config\WebService)
+    * WebService (device-telemetry\WebService)
+    * WebService (iothub-manager\WebService)
+    * WebService (storage-adapter\WebService)
+1. Cliquez sur **OK** pour enregistrer vos choix.
+1. Cliquez sur **Déboguer > Démarrer le débogage** pour générer et exécuter les services web sur l’ordinateur local.
 
-### <a name="create-new-azure-resources"></a>Créer des ressources Azure
+Chaque service web ouvre une invite de commandes et une fenêtre de navigateur web. Dans l’invite de commandes, vous voyez le résultat de l’exécution du service et la fenêtre du navigateur vous permet d’en surveiller l’état. Ne fermez pas les invites de commandes ni les pages web, car cette action arrête le service web.
 
-Si vous n’avez pas encore créé les ressources Azure nécessaires, procédez comme suit :
+### <a name="start-the-stream-analytics-job"></a>Démarrage de la tâche Stream Analytics
 
-1. Dans votre environnement de ligne de commande, accédez au dossier **remote-monitoring-services-dotnet\scripts\local\launch** dans votre copie clonée du référentiel.
+Suivez ces étapes pour démarrer la tâche Stream Analytics :
 
-2. Exécutez le script **start.cmd** et suivez les invites. Le script vous invite à vous connecter à votre compte Azure et à redémarrer le script. Le script vous invite ensuite à entrer les informations suivantes :
-    * Le nom de la solution.
-    * Sélectionnez l’abonnement Azure à utiliser.
-    * L’emplacement du centre de données Azure à utiliser.
+1. Accédez au [portail Azure](https://portal.azure.com).
+1. Accédez au **groupe de ressources** créé pour votre solution. Le nom du groupe de ressources est le nom que vous avez choisi pour votre solution lorsque vous avez exécuté le script **start.cmd**.
+1. Cliquez sur la **tâche Stream Analytics** dans la liste des ressources.
+1. Dans la **vue d’ensemble** de la tâche Stream Analytics, sélectionnez **Démarrer**. Cliquez ensuite sur **Démarrer** pour démarrer la tâche.
 
-    Le script crée un groupe de ressources dans Azure avec le nom de votre solution. Ce groupe de ressources contient les ressources Azure qu’utilise l’accélérateur de solution.
+### <a name="configure-and-run-nginx"></a>Configurer et exécuter NGINX
 
-3. Lorsque le script a fini, il affiche une liste de variables d’environnement. Suivez les instructions dans la sortie de la commande pour enregistrer ces variables dans le fichier **remote-monitoring-services-dotnet\\scripts\\local\\.env**.
+Configurer un serveur proxy inverse pour lier l’application web et les microservices qui s’exécutent sur votre ordinateur local :
 
-### <a name="use-existing-azure-resources"></a>Utiliser les ressources Azure existantes
+* Copiez le fichier **nginx.conf** du dossier **webui\scripts\localhost** vers le répertoire d’installation **nginx\conf**.
+* Exécutez **nginx**.
 
-Si vous avez déjà créé les ressources Azure nécessaires, modifiez les définitions de variable d’environnement dans le fichier **remote-monitoring-services-dotnet\\scripts\\local\\.env** avec les valeurs requises. Le fichier **.env** contient des informations détaillées sur où trouver les valeurs requises.
+Pour plus d’informations sur l’exécution de **nginx**, consultez [nginx pour Windows](http://nginx.org/en/docs/windows.html).
 
-## <a name="run-the-microservices-in-docker"></a>Exécuter les microservices dans Docker
+### <a name="connect-to-the-dashboard"></a>Connexion au tableau de bord
 
-Les microservices exécutés dans les conteneurs Docker locaux doivent accéder aux services exécutés dans Azure. Vous pouvez tester la connexion Internet de votre environnement Docker à l’aide de la commande suivante qui démarre un petit conteneur et tente d’effectuer un test ping sur une adresse Internet :
-
-```cmd/sh
-docker run --rm -ti library/alpine ping google.com
-```
-
-Pour exécuter l’accélérateur de solution, accédez au dossier **remote-monitoring-services-dotnet\\scripts\\local** dans votre environnement de ligne de commande et exécutez la commande suivante :
-
-```cmd\sh
-docker-compose up
-```
-
-La première fois que vous exécutez cette commande, Docker télécharge les images des microservices à partir de Docker Hub pour créer les conteneurs localement. Lors des exécutions suivantes, Docker exécute les conteneurs immédiatement.
-
-Vous pouvez utiliser un interpréteur de commandes distinct pour afficher les journaux du conteneur. Tout d’abord, trouvez l’ID du conteneur à l’aide de la commande `docker ps -a`. Utilisez ensuite `docker logs {container-id} --tail 1000` pour afficher les 1 000 dernières entrées de journal pour le conteneur spécifié.
-
-Pour accéder au tableau de bord de la solution de supervision à distance, accédez à [http://localhost:8080](http://localhost:8080) dans votre navigateur.
+Pour accéder au tableau de bord de la solution de surveillance à distance, accédez à [http://localhost:9000](http://localhost:9000) dans votre navigateur.
 
 ## <a name="clean-up"></a>Nettoyer
 
-Pour éviter des frais superflus, lorsque vous avez terminé votre test, supprimez les services cloud de votre abonnement Azure. Pour supprimer les services, le plus simple consiste à accéder au [portail Azure](https://ms.portal.azure.com) et à supprimer le groupe de ressources créé quand vous avez exécuté le script **start.cmd**.
+Pour éviter des frais superflus, lorsque vous avez terminé votre test, supprimez les services cloud de votre abonnement Azure. Pour supprimer les services, accédez au [portail Azure](https://ms.portal.azure.com) et supprimez le groupe de ressources créé par le script **start.cmd**.
 
-Utilisez la commande `docker-compose down --rmi all` pour supprimer les images Docker et libérer de l’espace sur votre machine locale. Vous pouvez également supprimer la copie locale du dépôt de supervision à distance créé quand vous avez cloné le code source à partir de GitHub.
+Vous pouvez également supprimer la copie locale du dépôt de surveillance à distance créé quand vous avez cloné le code source à partir de GitHub.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
@@ -113,6 +123,6 @@ Dans ce tutoriel, vous avez appris à :
 > * Déployer l’accélérateur de solution
 > * Établir une connexion à l’accélérateur de solution
 
-La solution de supervision à distance étant déployée, l’étape suivante consiste à [explorer les fonctionnalités du tableau de bord des solutions](quickstart-remote-monitoring-deploy.md).
+La solution de surveillance à distance étant déployée, l’étape suivante consiste à [explorer les fonctionnalités du tableau de bord des solutions](quickstart-remote-monitoring-deploy.md).
 
 <!-- Next tutorials in the sequence -->

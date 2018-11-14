@@ -4,16 +4,16 @@ description: Découvrez comment configurer le runtime Azure IoT Edge et les modu
 author: kgremban
 manager: ''
 ms.author: kgremban
-ms.date: 09/24/2018
+ms.date: 11/01/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 6e6a1d2f758cabca41ac405a01de1f0d8bfd0a7b
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 72855058c5e8294eece55f8dbcdc501025c9aabf
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47037454"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913221"
 ---
 # <a name="configure-an-iot-edge-device-to-communicate-through-a-proxy-server"></a>Configurer un appareil IoT Edge pour communiquer via un serveur proxy
 
@@ -25,6 +25,18 @@ Pour configurer un appareil IoT Edge devant communiquer avec un serveur proxy, e
 2. Configurez le démon Docker et le démon IoT Edge sur votre appareil pour utiliser le serveur proxy.
 3. Configurez les propriétés d’edgeAgent dans le fichier config.yaml sur votre appareil.
 4. Définissez les variables d’environnement pour le runtime IoT Edge et les autres modules IoT Edge dans le manifeste de déploiement. 
+
+## <a name="know-your-proxy-url"></a>Identifier l’URL de votre proxy
+
+Pour configurer à la fois le démon Docker et IoT Edge sur votre appareil, vous devez connaître l’URL de votre proxy. 
+
+Les URL de proxy se présentent sous ce format : **protocol**://**proxy_host**:**proxy_port**. 
+
+* Le paramètre **protocol** a la valeur HTTP ou HTTPS. Le démon Docker peut être configuré avec chacun de ces protocoles, selon vos paramètres de registre de conteneurs, mais les conteneurs de démon et runtime IoT Edge doivent toujours utiliser HTTPS.
+
+* Le paramètre **proxy_host** est une adresse du serveur proxy. Si votre serveur proxy requiert une authentification, vous pouvez fournir vos informations d’identification à l’aide de l’élément hôte_proxy au format **user**:**password**@**proxy_host**. 
+
+* **proxy_port** représente le port réseau à partir duquel le proxy répond au trafic réseau. 
 
 ## <a name="install-the-runtime"></a>Installer le runtime
 
@@ -47,7 +59,7 @@ Les démons Docker et IoT Edge exécutés sur votre appareil IoT Edge doivent ê
 
 ### <a name="docker-daemon"></a>Démon Docker
 
-Pour savoir comment configurer le démon Docker avec des variables d’environnement, consultez la documentation de Docker. La plupart des registres de conteneurs (y compris les registres de conteneurs DockerHub et Azure) prennent en charge les requêtes HTTPS. Vous devez donc définir la variable **HTTPS_PROXY**. Si vous tirez des images d’un registre qui ne prend pas en charge le protocole TLS, vous devez définir la variable **HTTP_PROXY**. 
+Pour savoir comment configurer le démon Docker avec des variables d’environnement, consultez la documentation de Docker. La plupart des registres de conteneurs (y compris les registres de conteneurs DockerHub et Azure) prennent en charge les requêtes HTTPS. Vous devez donc définir le paramètre **HTTPS_PROXY**. Si vous tirez des images d’un registre qui ne prend pas en charge le protocole TLS, vous devez définir le paramètre **HTTP_PROXY**. 
 
 Consultez l’article correspondant à votre version de Docker : 
 
@@ -113,7 +125,9 @@ Ouvrez le fichier config.yaml sur votre appareil IoT Edge. Sur les systèmes Lin
 
 Dans le fichier config.yaml, recherchez la section **Edge Agent module spec**. La définition de l’agent Edge inclut un paramètre **env** où vous pouvez ajouter des variables d’environnement. 
 
-![Définition d’edgeAgent](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+<!--
+![edgeAgent definition](./media/how-to-configure-proxy-support/edgeagent-unedited.png)
+-->
 
 Supprimez les accolades servant d’espaces réservés pour le paramètre env, puis ajoutez la nouvelle variable sur une nouvelle ligne. N’oubliez pas que les mises en retrait dans YAML sont de deux espaces. 
 
@@ -201,7 +215,7 @@ Si vous avez inclus la variable d’environnement **UpstreamProtocol** dans le f
 ```json
 "env": {
     "https_proxy": {
-        "value": "<proxy URL"
+        "value": "<proxy URL>"
     },
     "UpstreamProtocol": {
         "value": "AmqpWs"

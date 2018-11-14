@@ -9,13 +9,13 @@ ms.component: core
 ms.reviewer: larryfr
 manager: cgronlun
 ms.topic: conceptual
-ms.date: 8/6/2018
-ms.openlocfilehash: 657a762874f7c2fb40553552ef6c17d9b5b6da0f
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.date: 11/6/2018
+ms.openlocfilehash: 8ce411e424d538a4a1f94300bfe5510658017f56
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49958616"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51238317"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurer un environnement de développement pour Azure Machine Learning
 
@@ -84,14 +84,40 @@ Le Kit de développement logiciel (SDK) Azure Machine Learning utilise le fichie
 
 Azure Notebooks et Azure Data Science Virtual Machines (DSVM) sont fournis configurés pour fonctionner avec le service Azure Machine Learning. Ces environnements incluent les composants requis, tels que le Kit de développement logiciel (SDK) Azure Machine Learning.
 
+### <a name="azure-notebooks"></a>Azure Notebooks
+
 - Azure Notebooks est un service de blocs-notes Jupyter dans le cloud Azure.
-- Data Science Virtual Machine est une image de machine virtuelle personnalisée qui est conçue pour le travail de science des données. Il inclut :
-  - des outils courants ;
-  - des environnements de développement intégrés ;
-  - des packages tels que Jupyter Notebooks, PyCharm et Tensorflow.
 - Vous avez toujours besoin d’un fichier de configuration d’espace de travail pour utiliser ces environnements.
 
 Pour obtenir un exemple d’utilisation d’Azure Notebooks avec le service Azure Machine Learning, consultez le document [Bien démarrer avec le service Azure Machine Learning](quickstart-get-started.md).
+
+### <a name="data-science-virtual-machines"></a>Data Science Virtual Machine
+
+- Data Science Virtual Machine est une image de machine virtuelle personnalisée qui est conçue pour le travail de science des données. Il inclut :
+  - Outils de science des données prisés
+  - Environnements de développement intégré (IDE) tels que PyCharm et RStudio
+  - Packages tels que Jupyter Notebooks et Tensorflow
+
+La machine DSVM est fournie avec plusieurs environnements Anaconda pré-installés. Pour utiliser le Kit de développement logiciel (SDK) Python pour Azure Machine Learning sans installer de package, ouvrez une invite de commande ou un interpréteur de commandes shell, puis utilisez l’une des commandes suivantes pour activer l’environnement :
+
+* Sur la machine DSVM __Ubuntu__, utilisez la commande suivante :
+
+    ```shell
+    conda activate py36
+    ```
+
+* Sur la machine DSVM __Windows__, utilisez la commande suivante :
+
+    ```shell
+    conda activate AzureML
+    ```
+
+Une fois dans cet environnement, vous pouvez importer immédiatement le Kit de développement logiciel (SDK) Azure Machine Learning dans l’outil de build de votre choix, sans installer le package.
+
+```python
+import azureml.core
+print(azureml.core.VERSION)
+```
 
 Pour plus d’informations sur Data Science Virtual Machines, consultez [Data Science Virtual Machines](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
@@ -120,12 +146,16 @@ Pour plus d’informations sur Data Science Virtual Machines, consultez [Data Sc
     pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep
     ```
 
-    > [!NOTE]
-    > Si vous recevez un message indiquant que `PyYAML` ne peut pas être désinstallé, utilisez plutôt la commande suivante :
-    >
-    > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+   La documentation de référence Python pour les classes et les méthodes est disponible dans les SDK suivants :
+   + [SDK Azure Machine Learning pour Python](https://aka.ms/aml-sdk)
+   + [Kit de développement logiciel (SDK) de préparation de données Azure Machine Learning](https://aka.ms/data-prep-sdk)
 
-    L’installation du Kit de développement logiciel (SDK) peut prendre plusieurs minutes.
+   > [!NOTE]
+   > Si vous recevez un message indiquant que `PyYAML` ne peut pas être désinstallé, utilisez plutôt la commande suivante :
+   >
+   > `pip install --upgrade azureml-sdk[notebooks,automl] azureml-dataprep --ignore-installed PyYAML`
+
+   L’installation du Kit de développement logiciel (SDK) peut prendre plusieurs minutes.
 
 1. Installez des packages pour votre expérimentation Machine Learning. Utilisez la commande suivante et remplacez `<new package>` par le package que vous souhaitez installer :
 

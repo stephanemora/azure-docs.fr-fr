@@ -1,6 +1,6 @@
 ---
 title: Installer une application publiée - Dataiku DDS - Azure HDInsight
-description: Installez et utilisez l’application Hadoop tierce Dataiku DSS.
+description: Installez et utilisez l’application Apache Hadoop tierce Dataiku DSS.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: ashish
-ms.openlocfilehash: 64a6f393498ca90675712747afc8f9befc4b932f
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: feb94f450621e999da01f77f0b5550258377d6c9
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105167"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038261"
 ---
 # <a name="install-published-application---dataiku-dds"></a>Installer une application publiée - Dataiku DSS
 
-Cet article explique comment installer et exécuter l’application Hadoop publiée [Dataiku DSS](https://www.dataiku.com/) sur Azure HDInsight. Pour obtenir une vue d’ensemble de la plateforme d’application HDInsight et la liste des applications publiées d’éditeurs de logiciels indépendants (ISV), consultez [Installer des applications Hadoop tierces sur Azure HDInsight](hdinsight-apps-install-applications.md). Pour des instructions d’installation de votre propre application, consultez la page [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
+Cet article explique comment installer et exécuter l’application Apache Hadoop publiée [Dataiku DSS](https://www.dataiku.com/) sur Azure HDInsight. Pour obtenir une vue d’ensemble de la plateforme d’application HDInsight et la liste des applications publiées d’éditeurs de logiciels indépendants (ISV), consultez [Installer des applications Hadoop tierces sur Azure HDInsight](hdinsight-apps-install-applications.md). Pour des instructions d’installation de votre propre application, consultez la page [Installer des applications HDInsight personnalisées](hdinsight-apps-install-custom-applications.md).
 
 ## <a name="about-dataiku-dss"></a>À propos de Dataiku DSS
 

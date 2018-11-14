@@ -8,12 +8,12 @@ ms.date: 06/06/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: beb7574653375024f36912c4b3a37b01d2f59bd5
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 12c53b1fdad4ab8f55c000ca1cb4f08dab7c8a74
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50248393"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51230363"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>Découvrez comment déployer des modules et établir des itinéraires dans IoT Edge.
 
@@ -174,7 +174,7 @@ Le manifeste de déploiement peut spécifier les propriétés souhaitées pour l
 
 Si vous ne spécifiez pas de propriétés souhaitées d’une représentation de module dans le manifeste de déploiement, IoT Hub ne modifiera d’aucune façon pas la représentation de module et vous ne pourrez pas définir les propriétés souhaitées par programmation.
 
-Les mêmes mécanismes que ceux qui vous permettent de modifier des jumeaux d’appareils sont utilisés pour modifier des jumeaux de modules. Pour plus d’informations, consultez le [guide du développeur des jumeaux d’appareil](../iot-hub/iot-hub-devguide-device-twins.md).   
+Les mêmes mécanismes que ceux qui vous permettent de modifier des jumeaux d’appareils sont utilisés pour modifier des jumeaux de modules. Pour plus d’informations, consultez le [guide du développeur des jumeaux de module](../iot-hub/iot-hub-devguide-module-twins.md).   
 
 ## <a name="deployment-manifest-example"></a>Exemple de manifeste de déploiement
 

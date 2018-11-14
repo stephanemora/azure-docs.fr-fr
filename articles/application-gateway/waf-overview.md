@@ -2,16 +2,16 @@
 title: Présentation du pare-feu d’applications web (WAF) pour la passerelle Application Gateway Azure
 description: Cet article fournit une vue d’ensemble du pare-feu d’applications web (WAF) pour la passerelle Application Gateway
 services: application-gateway
-author: amsriva
+author: vhorne
 ms.service: application-gateway
-ms.date: 10/11/2018
+ms.date: 11/7/2018
 ms.author: amsriva
-ms.openlocfilehash: 10a67eab142287cf9303e54005b6b167e9890df0
-ms.sourcegitcommit: 7b0778a1488e8fd70ee57e55bde783a69521c912
+ms.openlocfilehash: 4b03065c59eed8f0d72e2724e60b6d8908518727
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49068449"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219526"
 ---
 # <a name="web-application-firewall-waf"></a>Pare-feu d’applications web (WAF)
 
@@ -39,7 +39,7 @@ Voici les principaux avantages liés à Application Gateway et au pare-feu d’a
 
 * Analysez les attaques contre votre application web à l’aide d’un journal WAF en temps réel. Ce journal est intégré à [Azure Monitor](../monitoring-and-diagnostics/monitoring-overview.md) pour effectuer le suivi des journaux et alertes WAF et analyser facilement les tendances.
 
-* WAF sera bientôt intégré à Azure Security Center. Azure Security Center vous offre un aperçu central de l’état de sécurité de toutes vos ressources Azure.
+* WAF est intégré avec Azure Security Center. Azure Security Center vous offre un aperçu central de l’état de sécurité de toutes vos ressources Azure.
 
 ### <a name="customization"></a>Personnalisation
 
@@ -49,7 +49,7 @@ Voici les principaux avantages liés à Application Gateway et au pare-feu d’a
 
 - Protection contre les injections de code SQL
 - Protection de l’exécution de script de site à site
-- Protection contre les attaques web courante comme l’injection de commande, les dissimulations de requêtes HTTP, la séparation de réponse HTTP et les attaques RFI (Remote File Inclusion)
+- Protection contre les attaques web courantes comme l’injection de commande, les dissimulations de requêtes HTTP, la séparation de réponse HTTP et les attaques RFI (Remote File Inclusion)
 - Protection contre les violations de protocole HTTP
 - Protection contre les anomalies de protocole HTTP comme un agent-utilisateur hôte manquant et les en-têtes Accept
 - Protection contre les robots, les crawlers et les scanneurs
@@ -76,7 +76,7 @@ Le pare-feu d’applications web est préconfiguré avec CRS 3.0 par défaut. V
 
 - Protection contre les injections de code SQL
 - Protection de l’exécution de script de site à site
-- Protection contre les attaques web courante comme l’injection de commande, les dissimulations de requêtes HTTP, la séparation de réponse HTTP et les attaques RFI (Remote File Inclusion)
+- Protection contre les attaques web courantes comme l’injection de commande, les dissimulations de requêtes HTTP, la séparation de réponse HTTP et les attaques RFI (Remote File Inclusion)
 - Protection contre les violations de protocole HTTP
 - Protection contre les anomalies de protocole HTTP comme un agent-utilisateur hôte manquant et les en-têtes Accept
 - Protection contre les robots, les crawlers et les scanneurs

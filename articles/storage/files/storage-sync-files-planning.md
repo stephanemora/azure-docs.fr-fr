@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: e4e793ac5735f7f3b07d285dea027a8f603b7964
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 0c9c254625ccca27a3525c45da0303f5e045ef44
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237891"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914326"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planification d’un déploiement de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -242,7 +242,9 @@ Azure File Sync est disponible uniquement dans les régions suivantes :
 | Est de l'Asie | Hong Kong (R.A.S.) |
 | Est des États-Unis | Virginie |
 | Est des États-Unis 2 | Virginie |
-| Europe du Nord | Irlande |
+| USA Centre Nord | Illinois |
+| Europe Nord | Irlande |
+| USA Centre Sud | Texas |
 | Inde Sud | Chennai |
 | Asie Sud-Est | Singapour |
 | Sud du Royaume-Uni | Londres |
@@ -269,6 +271,7 @@ Pour prendre en charge l’intégration du basculement entre le stockage géored
 | USA Est             | USA Ouest            |
 | USA Est 2           | USA Centre         |
 | Europe Nord        | Europe Ouest        |
+| USA Centre Nord    | USA Centre Sud   |
 | Inde Sud         | Inde Centre      |
 | Asie Sud-Est      | Asie Est          |
 | Sud du Royaume-Uni            | Ouest du Royaume-Uni            |

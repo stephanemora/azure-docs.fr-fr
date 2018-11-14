@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 85004852b4e67f1a3f030a5cf97abea7c16c5695
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 43ad99d4814923204b3b1993969bd6a0730530c5
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741740"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51016129"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft-v52"></a>Tutoriel : Intégration d’Azure Active Directory à JIRA SAML SSO by Microsoft (v5.2)
 
@@ -62,7 +62,7 @@ Vous devez en outre suivre les recommandations ci-dessous :
 **Versions prises en charge :**
 
 * JIRA Core et Software : 5.2
-* JIRA prend également en charge les versions 6.0 et 7.12. Pour plus d’informations, cliquez sur [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md).
+* JIRA prend également en charge les versions 6.0 à 7.12. Pour plus d’informations, cliquez sur [JIRA SAML SSO by Microsoft](jiramicrosoft-tutorial.md).
 
 ## <a name="scenario-description"></a>Description du scénario
 
@@ -139,7 +139,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD sur 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Le port est facultatif s’il s’agit d’une URL nommée. Ces valeurs sont reçues durant la configuration du plug-in JIRA qui est décrite plus loin dans le didacticiel.
 
-5. Sur la page **Certificat de signature SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération de l’application**, puis collez-la dans le bloc-notes.
+5. Dans la page **Certificat de signature SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération de l’application**, puis collez-la dans le bloc-notes.
 
     ![Lien Téléchargement de certificat](./media/jira52microsoft-tutorial/tutorial_metadataurl.png) 
 
@@ -280,7 +280,7 @@ Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentifi
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette JIRA SAML SSO by Microsoft (v5.2) dans le volet d’accès, la connexion à votre application JIRA SAML SSO by Microsoft (v5.2) doit se faire automatiquement.
-Pour plus d’informations concernant le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 

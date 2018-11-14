@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 06/06/2018
+ms.date: 11/05/2018
 ms.author: barbkess
 ms.reviewer: luleon
-ms.openlocfilehash: f23c9976dacc1ca696772d6bf02b5d59e3e0b4d5
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ee0b14123e193f219e403d2608368c27f953013d
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39368687"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037972"
 ---
 # <a name="assign-a-user-or-group-to-an-enterprise-app-in-azure-active-directory"></a>Affecter un utilisateur ou un groupe à une application d’entreprise dans Azure Active Directory
 Pour affecter un utilisateur ou un groupe à une application d’entreprise, vous devez disposer des autorisations nécessaires pour gérer l’application d’entreprise, et vous devez être l’administrateur général du répertoire.
 
 > [!NOTE]
-> Les fonctionnalités abordées dans cet article nécessitent une licence Azure Active Directory Premium P1 ou Premium P2. Pour plus d’informations, consultez la page [Tarification Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
+> Pour les conditions de gestion des licences relatives aux composants traités dans le présent article, consultez la [page sur la tarification d’Azure Active Directory](https://azure.microsoft.com/pricing/details/active-directory).
 
 > [!NOTE]
 > Dans le cas des applications Microsoft (par exemple, les applications Office 365), utilisez PowerShell pour affecter des utilisateurs à une application d’entreprise.
@@ -35,7 +35,7 @@ Pour affecter un utilisateur ou un groupe à une application d’entreprise, vou
 ## <a name="how-do-i-assign-user-access-to-an-enterprise-app-in-the-azure-portal"></a>Comment faire pour attribuer l’accès à une application d’entreprise à un utilisateur dans le portail Azure ?
 1. Connectez-vous au [portail Azure](https://portal.azure.com) en utilisant un compte d’administrateur général pour le répertoire.
 2. Sélectionnez **Tous les services**, entrez Azure Active Directory dans la zone de texte, puis sélectionnez **Entrée**.
-3. Dans le panneau **Azure Active Directory - *Nom_répertoire*** (autrement dit, le panneau Azure AD correspondant au répertoire que vous gérez), sélectionnez **Applications d’entreprise**.
+3. Sélectionnez **Applications d’entreprise**.
 
     ![Ouverture des applications d’entreprise](./media/assign-user-or-group-access-portal/open-enterprise-apps.png)
 4. Dans le panneau **Applications d’entreprise**, sélectionnez **Toutes les applications**. Cette action répertorie les applications que vous pouvez gérer.
@@ -121,6 +121,6 @@ Cet exemple affecte l’utilisateur Britta Simon à l’application [Microsoft W
 
 ## <a name="next-steps"></a>Étapes suivantes
 * [Voir tous mes groupes](../fundamentals/active-directory-groups-view-azure-portal.md)
-* [Supprimer l’affectation d’un utilisateur ou d’un groupe à une application d’entreprise dans la version préliminaire d’Azure Active Directory](remove-user-or-group-access-portal.md)
+* [Suppression d’une affectation d’utilisateur ou de groupe à partir d’une application d’entreprise](remove-user-or-group-access-portal.md)
 * [Désactiver les connexions utilisateur pour une application d’entreprise](disable-user-sign-in-portal.md)
-* [Modifier le nom ou le logo d’une application d’entreprise dans la version préliminaire d’Azure Active Directory](change-name-or-logo-portal.md)
+* [Modifier le nom ou le logo d’une application d’entreprise](change-name-or-logo-portal.md)

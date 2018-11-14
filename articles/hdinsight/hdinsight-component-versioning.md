@@ -1,6 +1,6 @@
 ---
-title: Composants et versions Hadoop - Azure HDInsight
-description: Découvrez les composants et versions Hadoop de HDInsight et les niveaux de service disponibles dans cette distribution cloud de la solution Hortonworks Data Platform.
+title: Composants et versions Apache Hadoop – Azure HDInsight
+description: Découvrez les composants et versions Apache Hadoop dans HDInsight, et les niveaux de service disponibles dans cette distribution cloud de la solution Hortonworks Data Platform.
 keywords: versions Hadoop,composants de l’écosystème hadoop,composants hadoop,comment vérifier la version hadoop
 services: hdinsight
 ms.reviewer: jasonh
@@ -10,20 +10,20 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 09/19/2018
 ms.author: kakampf
-ms.openlocfilehash: e299eda50967bee25f76c2e6456afa1ecbd7970c
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: fca83090e6713e4360bd19d49c7fd6b9147fd6ea
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50243178"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219730"
 ---
-# <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Quels sont les composants et versions Hadoop disponibles avec HDInsight ?
+# <a name="what-are-the-apache-hadoop-components-and-versions-available-with-hdinsight"></a>Quels sont les composants et versions Apache Hadoop disponibles avec HDInsight ?
 
 Découvrez les composants et versions de l’écosystème Apache Hadoop inclus dans Microsoft Azure HDInsight, ainsi que le package de sécurité d’entreprise. Découvrez également comment vérifier les versions des composants Hadoop dans HDInsight. 
 
 Chaque version de HDInsight est une distribution cloud d’une version de la solution Hortonworks Data Platform (HDP).
 
-## <a name="hadoop-components-available-with-different-hdinsight-versions"></a>Composants Hadoop disponibles avec différentes versions de HDInsight
+## <a name="apache-hadoop-components-available-with-different-hdinsight-versions"></a>Composants Apache Hadoop disponibles avec différentes versions de HDInsight
 Azure HDInsight prend en charge plusieurs versions de cluster Hadoop qui peuvent être déployées à tout moment. Le choix d’une version crée une version spécifique de la distribution de la plateforme HDP ainsi qu’un ensemble de composants, qui sont contenus dans cette distribution. Depuis le 4 avril 2017, la version de cluster par défaut utilisée par Azure HDInsight est la version 3.6 ; elle est basée sur la plateforme HDP 2.6.
 
 Les versions de composants associées aux versions de cluster HDInsight sont répertoriées dans le tableau suivant : 
@@ -50,7 +50,7 @@ Les versions de composants associées aux versions de cluster HDInsight sont ré
 | Apache Phoenix |5. |4.7.0 |4.7.0 |4.4.0 |4.4.0 |4.2.0 |4.0.0.2.1.7.0-2162 |-|
 | Apache Spark |2.3.1 |2.3.0, 2.2.0, 2.1.0 |1.6.2, 2.0 |1.6.0 |1.5.2 |1.3.1 (Windows uniquement) |-|-|
 | Apache Livy |0.5 |0.4 |0.3 |0.3 |0.2 |-|-|-|
-| Apache Kafka | 1.0.1 |1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
+| Apache Kafka | 1.1 |1.1, 1.0, 0.10.1 | 0.10.0 | 0.9.0 |-|-|-|-|
 | Apache Ambari | 2.7.0 |2.6.0 | 2.4.0 | 2.2.1 | 2.1.0 |-|-|-|
 | Apache Zeppelin | 0.8.0 |0.7.0 |-|-|-|-|-|-|
 | Mono |4.2.1 |4.2.1 |4.2.1 |3.2.8 |-|-|-|
@@ -247,7 +247,7 @@ Les tableaux suivants répertorient les tailles de machine virtuelle par défaut
   | Edge : taille de machine virtuelle recommandée | | | | | |Windows : D12 v2, D13 v2, D14 v2; Linux : D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brésil Sud et Japon Ouest uniquement (aucune taille pour V2) :
 
-  | Type de cluster | Hadoop | hbase | Interactive Query |Storm | Spark | ML Service |
+  | Type de cluster | Hadoop | hbase | Interactive Query |Storm | Spark | ML Services |
   | --- | --- | --- | --- | --- | --- | --- |
   | Head : taille de machine virtuelle par défaut |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | Head : tailles de machine virtuelle recommandées |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |

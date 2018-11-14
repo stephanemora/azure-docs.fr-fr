@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 9/12/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: b1f7120b3758e35d818aedbcc3b85feca44f8c33
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: a7f21d0ebebbe2c811470de384cc5ee9a34ab060
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129656"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006156"
 ---
 # <a name="protect-your-network-resources-in-azure-security-center"></a>Protection de vos ressources réseau dans Azure Security Center
 Azure Security Center analyse continuellement l’état de sécurité de vos ressources Azure pour les meilleures pratiques de sécurité réseau. Lorsque Security Center identifie des failles de sécurité potentielles, il crée des suggestions qui vous guident tout au long du processus de configuration des contrôles nécessaires afin de renforcer et protéger vos ressources.
@@ -126,6 +126,20 @@ Dans cet affichage topologique, le premier niveau affiche les réseaux virtuels.
 
 Le troisième niveau affiche les machines virtuelles, ce qui est similaire à ce qui est décrit précédemment. Vous pouvez cliquer sur une ressource pour en savoir plus ou pour appliquer la configuration ou le contrôle de sécurité nécessaire.
 
+## <a name="network-recommendations"></a>Recommandations pour le réseau
+
+|Type de ressource|Degré de sécurisation|Recommandation|Description|
+|----|----|----|----|
+|Ordinateur|40|Activer des groupes de sécurité réseau sur des machines virtuelles|Activez des groupes de sécurité réseau pour contrôler l’accès réseau de vos machines virtuelles.|
+|Sous-réseau|35|Activer les groupes de sécurité réseau sur les sous-réseaux |Activez des groupes de sécurité réseau pour contrôler l’accès réseau aux ressources déployées sur vos réseaux virtuels.|
+|Ordinateur|30|Appliquer un contrôle d’accès réseau Juste à temps|Appliquer un contrôle d’accès de machine virtuelle Juste à temps pour bloquer définitivement l’accès aux ports sélectionnés et permettre aux utilisateurs autorisés de les ouvrir via le même mécanisme, pour une durée limitée.|
+|Ordinateur|20|Restreindre l’accès via un point de terminaison accessible sur Internet|Renforcez les groupes de sécurité réseau de vos machines virtuelles accessibles sur Internet en limitant l’accès des règles d’autorisation existantes.|
+|Ordinateur|10|Ajouter un pare-feu de nouvelle génération|Ajoutez une solution de pare-feu nouvelle génération afin de mieux protéger les machines virtuelles accessibles sur Internet.|
+|Ordinateur|5.|Acheminer le trafic via le pare-feu de la passerelle de réseau uniquement|Afin de finaliser le déploiement de votre solution de pare-feu nouvelle génération, le trafic vers les machines virtuelles accessible sur Internet que vous protégez doit être acheminé uniquement par le biais de la solution de pare-feu nouvelle génération.|
+|Réseau virtuel|5.|Activer la protection DDoS standard|Les applications avec des adresses IP publiques dans ces réseaux virtuels ne sont pas protégées avec le service de protection DDOS standard. Il est conseillé de l’activer pour limiter les risques d’attaques volumétrique et les attaques par protocole réseau.|
+|Ordinateur|10|Ajouter un pare-feu de nouvelle génération|Ajoutez une solution de pare-feu nouvelle génération afin de mieux protéger les machines virtuelles accessibles sur Internet.|
+|Ordinateur|5.|Acheminer le trafic via le pare-feu de la passerelle de réseau uniquement|Afin de finaliser le déploiement de votre solution de pare-feu nouvelle génération, le trafic vers les machines virtuelles accessible sur Internet que vous protégez doit être acheminé uniquement par le biais de la solution de pare-feu nouvelle génération.|
+Réseau virtuel|5.|Activer la protection DDoS standard|Les applications avec des adresses IP publiques dans ces réseaux virtuels ne sont pas protégées avec le service de protection DDOS standard. Il est conseillé de l’activer pour limiter les risques d’attaques volumétrique et les attaques par protocole réseau.|
 ## <a name="see-also"></a>Voir aussi
 Pour en savoir plus sur les recommandations qui s’appliquent à d’autres types de ressources Azure, consultez les rubriques suivantes :
 

@@ -9,12 +9,12 @@ ms.date: 06/25/2018
 ms.topic: troubleshooting
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: d0ae7fbb22f6d98662f83968158182d447a75394
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: f80f61cbfc1f7b719e73d7d29c6948bebe84aa6c
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501965"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51278308"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Questions fréquemment posées sur Service Fabric mesh
 Azure Service Fabric mesh est un service entièrement géré qui permet aux développeurs de déployer des applications de microservices sans gestion de machines virtuelles, de stockage ou de mise en réseau. Cet article contient des réponses aux questions fréquemment posées.
@@ -27,24 +27,54 @@ Posez des questions, obtenez des réponses d’ingénieurs Microsoft, et signale
 
 **Quel est le coût de participation à la préversion ?**
 
-Le déploiement d’applications ou de conteneurs sur la préversion de Mesh n’occasionne aucuns frais. En revanche, nous vous invitons à supprimer les ressources que vous déployez et à ne pas les laisser s’exécuter si vous ne les testez activement.
+Le déploiement d’applications ou de conteneurs sur la préversion de Mesh n’occasionne actuellement pas de frais. En revanche, nous vous invitons à supprimer les ressources que vous déployez et à ne pas les laisser s’exécuter, sauf si vous les testez de façon active.
 
 **Y a-t-il une limite de quota concernant le nombre de cœurs et la RAM ?**
 
 Oui, les quotas pour chaque abonnement sont les suivants :
 
 - Nombre d’applications : 5 
-- Nombre de cœurs par application : 12 
+- Cœurs par application : 12 
 - RAM totale par application : 48 Go 
-- Nombre de points de terminaison réseau et d’entrée : 5  
-- Nombre de volumes Azure que vous pouvez attacher : 10 
+- Points de terminaison réseau et d’entrée : 5  
+- Volumes Azure que vous pouvez attacher : 10 
 - Nombre de réplicas de service : 3 
-- Le plus grand conteneur que vous puissiez déployer est limité à 4 cœurs, 16 Go de RAM.
+- Le plus grand conteneur que vous puissiez déployer est limité à 4 cœurs, 16 Go de RAM.
 - Vous pouvez allouer des cœurs partiels à vos conteneurs, par incréments de 0,5 cœurs, jusqu’à au maximum 6 cœurs.
 
-**Puis-je laisser mon application s’exécuter pendant la nuit ?**
+**Combien de temps puis-je laisser mon application déployée ?**
 
-Oui, vous le pouvez. En revanche, nous vous invitons à supprimer les ressources que vous déployez et à ne pas les laisser s’exécuter si vous ne les testez activement. Cette stratégie pourrait changer à l’avenir, et les ressources pourraient être supprimées en cas d’utilisation à mauvais escient.
+Actuellement, nous avons réduit la durée de vie des applications à deux jours, ceci afin d’optimiser l’utilisation des cœurs libres alloués à la préversion. Par conséquent, vous ne pouvez exécuter un déploiement donné en permanence que pendant 48 heures, après quoi il sera arrêté par le système. Si cela se produit, vous pouvez valider le fait que le système l’arrête en exécutant une commande Azure CLI `az mesh app show` pour voir si elle produit le résultat `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."` 
+
+Par exemple :  
+
+```cli
+chackdan@Azure:~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+{
+  "debugParams": null,
+  "description": "Service Fabric Mesh HelloWorld Application!",
+  "diagnostics": null,
+  "healthState": "Ok",
+  "id": "/subscriptions/1134234-b756-4979-84re-09d671c0c345/resourcegroups/myResourceGroup/providers/Microsoft.ServiceFabricMesh/applications/helloWorldApp",
+  "location": "eastus",
+  "name": "helloWorldApp",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myResourceGroup",
+  "serviceNames": [
+    "helloWorldService"
+  ],
+  "services": null,
+  "status": "Failed",
+  "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue.",
+  "tags": {},
+  "type": "Microsoft.ServiceFabricMesh/applications",
+  "unhealthyEvaluation": null
+}
+```
+
+Pour continuer à déployer la même application sur Mesh, vous devez supprimer le groupe de ressources associé à l’application ou supprimer l’application et toutes les ressources Mesh associées (y compris le réseau). 
+
+Pour supprimer le groupe de ressources, utilisez la commande `az group delete <nameOfResourceGroup>`. 
 
 ## <a name="supported-container-os-images"></a>Images de système d’exploitation du conteneur prises en charge
 Lors du déploiement de services, vous pouvez utiliser les images de système d’exploitation du conteneur suivantes.

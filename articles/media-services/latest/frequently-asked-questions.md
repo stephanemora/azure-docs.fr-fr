@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 10/15/2018
+ms.date: 11/05/2018
 ms.author: juliako
-ms.openlocfilehash: dccbc6e57e970ec7089f81fccb33b741b9c00e74
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 26661a213b5df5424bf9ab9ad799345ae35620ea
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49376718"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036765"
 ---
 # <a name="azure-media-services-v3-frequently-asked-questions"></a>Forum Aux Questions (FAQ) Azure Media Services v3
 
@@ -28,7 +28,7 @@ Pas encore. Vous pouvez utiliser un des SDK pris en charge. Consultez les tutori
 
 ## <a name="is-there-an-api-for-configuring-media-reserved-units"></a>Existe-t-il une API pour configurer les unités réservées Multimédia ?
 
-L’équipe Media Services est occupée à supprimer les RU dans v3. Le travail de maintenance n’est cependant pas terminé. D’ici là, les clients doivent utiliser le portail Azure ou les API d’AMS v2 pour définir des RU (comme décrit dans [Mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md). 
+Actuellement, vous devez utiliser les API AMS v2 pour configurer des unités réservées Multimédia (comme décrit dans [Mise à l’échelle du traitement multimédia](../previous/media-services-scale-media-processing-overview.md). 
 
 Lorsque vous utilisez **VideoAnalyzerPreset** et/ou **AudioAnalyzerPreset**, définissez votre compte Media Services à 10 unités réservées Multimédia S3.
 

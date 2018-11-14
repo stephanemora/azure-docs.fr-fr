@@ -8,14 +8,14 @@ tags: billing
 ms.assetid: 60d848f9-ff26-496e-a5ec-ccf92ad7d125
 ms.service: billing
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 11/05/2018
 ms.author: byvinyal
-ms.openlocfilehash: efaca1b9506ada02c52ad0833139d3b4e441d456
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: bd20ea58c7693b3be8f583810384aa26dde572d8
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47393611"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219560"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Abonnement Azure et limites, quotas et contraintes de service
 Ce document répertorie quelques-unes des limites de Microsoft Azure les plus courantes, parfois appelées des quotas. Ce document ne couvre pas actuellement tous les services Azure. Ces limites seront étendues et mises à jour dans des prochaines versions pour couvrir une plus grande partie de la plateforme.
@@ -78,7 +78,6 @@ Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compt
 * [Log Analytics](#log-analytics-limits)
 * [Identité gérée](#managed-identity-limits)
 * [Media Services](#media-services-limits)
-* [Mobile Engagement](#mobile-engagement-limits)
 * [Mobile Services](#mobile-services-limits)
 * [Azure Multi-Factor Authentication](#multi-factor-authentication)
 * [Mise en réseau](#networking-limits)
@@ -102,13 +101,13 @@ Dans les limites ci-dessous, un nouveau tableau a été ajouté pour tenir compt
 * [Jeux de mise à l’échelle de machine virtuelle](#virtual-machine-scale-sets-limits)
 
 ### <a name="subscription-limits"></a>Limites d’abonnement
-#### <a name="subscription-limits"></a>Limites d’abonnement
+#### <a name="subscription-limits---azure-service-management-classic-resources"></a>Limites d’abonnement – Gestion des services Azure (ressources classiques)
 [!INCLUDE [azure-subscription-limits](../includes/azure-subscription-limits.md)]
 
 #### <a name="subscription-limits---azure-resource-manager"></a>Limites d’abonnement – Azure Resource Manager
 Les limites suivantes s'appliquent lorsque vous utilisez Azure Resource Manager et les groupes de ressources Azure. Les limites qui restent identiques avec Azure Resource Manager ne sont pas répertoriées ci-dessous. Reportez-vous au tableau précédent pour les consulter.
 
-Pour plus d’informations sur la gestion des limites sur les demandes Resource Manager, consultez [Limitation des requêtes Resource Manager](resource-manager-request-limits.md).
+Pour plus d’informations sur l’API Resource Manager et les limites d’écriture, voir [Limitation des requêtes de Resource Manager](resource-manager-request-limits.md).
 
 [!INCLUDE [azure-subscription-limits-azure-resource-manager](../includes/azure-subscription-limits-azure-resource-manager.md)]
 
@@ -145,6 +144,8 @@ Le tableau suivant détaille les fonctionnalités et les limites des [niveaux de
 [!INCLUDE [azure-virtual-network-limits](../includes/azure-virtual-network-limits.md)]
 
 #### <a name="application-gateway-limits"></a>Limites d’Application Gateway
+
+Sauf mention contraire, le tableau suivant s’applique aux références SKU v1, v2, Standard et WAF.
 [!INCLUDE [application-gateway-limits](../includes/application-gateway-limits.md)]
 
 #### <a name="network-watcher-limits"></a>Limites de Network Watcher
@@ -166,7 +167,7 @@ Le tableau suivant détaille les fonctionnalités et les limites des [niveaux de
 <!--like # storage accts -->
 [!INCLUDE [azure-storage-limits](../includes/azure-storage-limits.md)]
 
-Pour plus d'informations sur les limites des comptes de stockage, consultez [Cibles de scalabilité et de performance de Stockage Azure](storage/common/storage-scalability-targets.md).
+Pour plus d'informations sur les limites des comptes de stockage, consultez [Objectifs de performance et d’extensibilité Azure Storage](storage/common/storage-scalability-targets.md).
 
 #### <a name="storage-resource-provider-limits"></a>Limites de fournisseur de ressources de stockage 
 
@@ -236,7 +237,7 @@ Pour les limites d’Azure Database pour MySQL, voir [Limitations dans Azure Dat
 ### <a name="azure-database-for-postgresql"></a>Azure Database pour PostgreSQL
 Pour les limites d’Azure Database pour PostgreSQL, voir [Limitations dans Azure Database pour PostgreSQL](postgresql/concepts-limits.md).
 
-### <a name="search-limits"></a>Limites de Recherche Azure
+### <a name="search-limits"></a>Limites Azure Search
 Les niveaux tarifaires déterminent la capacité et les limites de votre service de recherche. Les niveaux sont les suivants :
 
 * *Gratuit* : service mutualisé, partagé avec d’autres abonnés Azure, destiné à des projets d’évaluation et de développement de petite taille.
@@ -251,7 +252,7 @@ Les niveaux tarifaires déterminent la capacité et les limites de votre service
 
 [!INCLUDE [azure-search-limits-per-service](../includes/azure-search-limits-per-service.md)]
 
-Pour en savoir plus sur les limites à un niveau plus granulaire, notamment la taille du document, les requêtes par seconde, les clés, les requêtes et les réponses, consultez [Limites du service Recherche Azure](search/search-limits-quotas-capacity.md).
+Pour en savoir plus sur les limites à un niveau plus granulaire, notamment la taille du document, les requêtes par seconde, les clés, les requêtes et les réponses, consultez [Limites de service d’Azure Search](search/search-limits-quotas-capacity.md).
 
 ### <a name="media-services-limits"></a>Limites de Media Services
 [!INCLUDE [azure-mediaservices-limits](../includes/azure-mediaservices-limits.md)]
@@ -268,13 +269,13 @@ Pour en savoir plus sur les limites à un niveau plus granulaire, notamment la t
 ### <a name="notification-hub-service-limits"></a>Limites du service Notification Hub
 [!INCLUDE [notification-hub-limits](../includes/notification-hub-limits.md)]
 
-### <a name="event-hubs-limits"></a>Limites d’Event Hubs
+### <a name="event-hubs-limits"></a>Limites de concentrateurs d’événements
 [!INCLUDE [azure-servicebus-limits](../includes/event-hubs-limits.md)]
 
 ### <a name="service-bus-limits"></a>Limites de Service Bus
 [!INCLUDE [azure-servicebus-limits](../includes/service-bus-quotas-table.md)]
 
-### <a name="iot-hub-limits"></a>Limites d’IoT Hub
+### <a name="iot-hub-limits"></a>Limites de hub IoT (IoT Hub)
 [!INCLUDE [azure-iothub-limits](../includes/iot-hub-limits.md)]
 
 ### <a name="iot-hub-device-provisioning-service-limits"></a>Limites du service IoT Hub Device Provisioning
@@ -313,7 +314,7 @@ Pour en savoir plus sur les limites à un niveau plus granulaire, notamment la t
 ### <a name="log-analytics-limits"></a>Limites de Log Analytics
 [!INCLUDE [operational-insights-limits](../includes/operational-insights-limits.md)]
 
-### <a name="backup-limits"></a>Limites de Sauvegarde Azure
+### <a name="backup-limits"></a>Limites Azure Backup
 [!INCLUDE [azure-backup-limits](../includes/azure-backup-limits.md)]
 
 ### <a name="signalr-service-limits"></a>Limites du service SignalR

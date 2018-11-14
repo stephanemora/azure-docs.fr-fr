@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 09/05/2018
-ms.author: sngun
-ms.openlocfilehash: 57172927011532af9b14fa7ff09d6aad9bac1e92
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/02/2018
+ms.author: moderakh
+ms.openlocfilehash: 80beeda607c83bc2a583c140779766952efcc568
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417597"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252868"
 ---
 # <a name="azure-cosmos-db-async-java-sdk-for-sql-api-release-notes-and-resources"></a>Kit de développement logiciel (SDK) Java Async Azure Cosmos DB pour API SQL : notes de publication et ressources
 > [!div class="op_single_selector"]
@@ -52,6 +52,15 @@ Le Kit de développement logiciel (SDK) Java Async de l’API SQL est différent
 </table></br>
 
 ## <a name="release-notes"></a>Notes de publication
+
+### <a name="a-name221221"></a><a name="2.2.1"/>2.2.1
+* Correction d’un bogue NPE dans le chemin de nouvelle tentative d’écriture.
+* Correction d’un bogue NPE dans la gestion des points de terminaison.
+* Mise à niveau des dépendances vulnérables ([github #68](https://github.com/Azure/azure-cosmosdb-java/issues/68)).
+* Ajout de la prise en charge de la journalisation réseau Netty à des fins de dépannage.
+
+### <a name="a-name220220"></a><a name="2.2.0"/>2.2.0
+* Ajout de la prise en charge de l’écriture dans plusieurs régions.
 
 ### <a name="a-name210210"></a><a name="2.1.0"/>2.1.0
 * Ajout de la prise en charge de Proxy.
@@ -110,6 +119,8 @@ Le service rejette toute requête envoyée à Cosmos DB à l’aide d’un Kit d
 
 | Version | Date de lancement | Date de suppression |
 | --- | --- | --- |
+| [2.2.1](#2.1.0) |2 novembre 2018|--- |
+| [2.2.0](#2.2.1) |22 septembre 2018|--- |
 | [2.1.0](#2.1.0) |5 septembre 2018|--- |
 | [2.0.1](#2.0.1) |16 août 2018|--- |
 | [2.0.0](#2.0.0) |20 juin 2018|--- |

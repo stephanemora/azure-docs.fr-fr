@@ -1,18 +1,18 @@
 ---
 title: Comprendre le langage de requête d’Azure IoT Hub | Microsoft Docs
 description: Guide du développeur - Description du langage de requête IoT Hub de type SQL utilisé pour récupérer des informations sur les jumeaux d’appareil/de module et les travaux à partir de votre hub IoT.
-author: fsautomata
+author: rezasherafat
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 02/26/2018
-ms.author: elioda
-ms.openlocfilehash: f28a41f4a80806df14e314dae05405b7b45449b1
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.date: 10/29/2018
+ms.author: rezas
+ms.openlocfilehash: b7919a86c5f0b6b6990b465ed0c563fb42ea8bbc
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318246"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50747913"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Langage de requête IoT Hub pour les jumeaux d’appareil et de module, les travaux et le routage des messages
 
@@ -389,6 +389,11 @@ GROUP BY <group_by_element>
 **Attribute_name** fait référence à n’importe quelle propriété du document JSON dans le regroupement FROM.
 
 Actuellement, la clause GROUP BY est prise en charge uniquement lors de l’interrogation de jumeaux d’appareil.
+
+> [!IMPORTANT]
+> Le terme `group` est actuellement traité comme un mot clé spécial dans les requêtes. Si vous utilisez `group` comme nom de propriété, vous pouvez l’encadrer entre doubles crochets pour éviter les erreurs, par exemple, `SELECT * FROM devices WHERE tags.[[group]].name = 'some_value'`.
+>
+>
 
 ## <a name="expressions-and-conditions"></a>Expressions et conditions
 À un niveau élevé, une *expression* :

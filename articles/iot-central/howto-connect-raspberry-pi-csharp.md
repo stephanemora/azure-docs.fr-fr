@@ -1,19 +1,19 @@
 ---
 title: Connecter un appareil Raspberry Pi à votre application Azure IoT Central (C#) | Microsoft Docs
 description: En tant que développeur d’appareils, comment connecter un appareil Raspberry Pi à votre application Azure IoT Central en utilisant C#.
-author: dominicbetts
-ms.author: dobett
-ms.date: 01/22/2018
+author: viv-liu
+ms.author: viviali
+ms.date: 10/31/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-manager: timlt
-ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+manager: peterpr
+ms.openlocfilehash: 489a644bd2d17e2be3232ec522b9ed7e37d246ad
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734233"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50956721"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Connecter un appareil Raspberry Pi à votre application Azure IoT Central (C#)
 
@@ -23,10 +23,10 @@ Cet article vous explique comment, en tant que développeur d’appareils, conne
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Pour effectuer les étapes de cet article, vous avez besoin des éléments suivants :
+Pour suivre les étapes décrites dans cet article, vous devez disposer de ce qui suit :
 
 * [.NET Core 2](https://www.microsoft.com/net) doit être installé sur votre machine de développement. Vous devez également disposer d’un éditeur de code approprié, comme [Visual Studio Code](https://code.visualstudio.com/).
-* Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [Créer votre application Azure IoT Central](howto-create-application.md).
+* Une application Azure IoT Central créée à partir du modèle d’application **Exemples de Devkits**. Pour plus d’informations, consultez [Créer une application](quick-deploy-iot-central.md).
 * Un appareil Raspberry Pi exécutant le système d’exploitation Raspbian.
 
 
@@ -34,10 +34,21 @@ Pour effectuer les étapes de cet article, vous avez besoin des éléments suiva
 
 Une application créée à partir du modèle d’application **Exemples de Devkits** présente un modèle d’appareil **Raspberry Pi** avec les caractéristiques suivantes : 
 
-- Données de télémétrie qui contiennent les mesures d’**humidité**, de **température**, de **pression**, du **magnétomètre** (mesurées le long des axes X, Y et Z), de l’**accéléromètre** (mesurées le long des axes X, Y et Z) et du **gyroscope** (mesurées le long des axes X, Y et Z) de l’appareil.
-- Paramètres montrant la **tension**, le **courant**, la **vitesse du ventilateur** et un bouton bascule **Infrarouge**.
-- Propriétés contenant la propriété d’appareil **Numéro gravé** et la propriété cloud **Emplacement**.
-
+- Les données de télémétrie, qui comprennent les mesures suivantes recueillies par l’appareil :
+    - Humidité
+    - Température
+    - Pression
+    - Magnétomètre (X, Y, Z)
+    - Accéléromètre (X, Y, Z)
+    - Gyroscope (X, Y, Z)
+- Paramètres
+    - Voltage
+    - Current
+    - Vitesse du ventilateur
+    - Bascule IR.
+- properties
+    - Propriété d’appareil avec numéro gravé
+    - Propriété d’emplacement cloud
 
 Pour plus d’informations sur la configuration du modèle d’appareil, consultez [Détails de modèle d’appareil Raspberry PI](howto-connect-raspberry-pi-csharp.md#raspberry-pi-device-template-details).
 

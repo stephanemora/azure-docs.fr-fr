@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2017
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: df1cada5e730189546f65d9799926807390db083
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: b61ee3c3baa4590dc8a2fbf91b1ff941626a01e4
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432254"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959818"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Créer une machine virtuelle Windows à partir d’un modèle Resource Manager
 
@@ -53,9 +53,9 @@ Toutes les ressources doivent être déployées dans un [groupe de ressources](.
 
 ## <a name="create-the-files"></a>Créer les fichiers
 
-Lors de cette étape, vous créez un fichier de modèle qui déploie les ressources et un fichier de paramètres qui fournit les valeurs des paramètres au modèle. Vous créez également un fichier d’autorisation qui est utilisé pour effectuer des opérations Azure Resource Manager.
+Lors de cette étape, vous créez un fichier de modèle qui déploie les ressources et un fichier de paramètres qui fournit les valeurs des paramètres au modèle. Vous créez également un fichier d’autorisation qui est utilisé pour effectuer des opérations Azure Resource Manager. 
 
-1. Créez un fichier nommé *CreateVMTemplate.json* et ajoutez-y le code JSON suivant :
+1. Créez un fichier nommé *CreateVMTemplate.json* et ajoutez-y votre code JSON. Remplacez la valeur `domainNameLabel` par votre nom unique.
 
     ```json
     {

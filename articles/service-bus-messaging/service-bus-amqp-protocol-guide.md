@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: clemensv
-ms.openlocfilehash: 75c6b5c34559ad17f662c895352bff5a58da00d4
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: b3c652baa515035fc91d2a5f7f962685b673a25e
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47395846"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51013324"
 ---
 # <a name="amqp-10-in-azure-service-bus-and-event-hubs-protocol-guide"></a>Guide du protocole AMQP 1.0 dans Azure Service Bus et Event Hubs
 
@@ -391,7 +391,7 @@ Le mécanisme ANONYMOUS doit donc être pris en charge par le client AMQP 1.0 ch
 
 Une fois la session et la connexion établies, l’association des liens avec le nœud *$cbs* et l’envoi de la demande *put-token* sont les seules opérations autorisées. Un jeton valide doit être défini avec succès à l’aide d’une demande *put-token* pour un nœud d’entité dans les 20 secondes suivant l’établissement de la connexion, sans quoi la connexion sera abandonnée unilatéralement par Service Bus.
 
-Le client est ensuite chargé de vérifier l’expiration du jeton. Lorsqu’un jeton arrive à expiration, Service Bus annule rapidement tous les liens sur la connexion à l’entité respective. Pour éviter ce problème, le client peut remplacer le jeton du nœud par un nouveau jeton à tout moment via le nœud de gestion *$cbs* virtuel avec le même mouvement *put-token* et sans gêner le trafic de la charge utile qui transite sur différents liens.
+Le client est ensuite chargé de vérifier l’expiration du jeton. Lorsqu’un jeton arrive à expiration, Service Bus annule rapidement tous les liens sur la connexion à l’entité respective. Pour éviter ce problème, le client peut remplacer à tout moment le jeton du nœud par un autre au moyen du nœud de gestion *$cbs* virtuel, dans le même mouvement *put-token* et sans gêner le trafic de la charge utile qui transite sur différents liens.
 
 ### <a name="send-via-functionality"></a>Fonctionnalité Envoyer via
 
@@ -410,9 +410,9 @@ Avec cette fonctionnalité, vous créez un expéditeur et établissez le lien ve
 
 Pour plus d’informations sur AMQP, consultez les liens suivants :
 
-* [Vue d’ensemble du protocole AMQP de Service Bus]
+* [Vue d’ensemble d’AMQP de Service Bus]
 * [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]
-* [AMQP dans Service Bus pour Windows Server]
+* [AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]
 
 [this video course]: https://www.youtube.com/playlist?list=PLmE4bZU0qx-wAP02i0I7PJWvDWoCytEjD
 [1]: ./media/service-bus-amqp-protocol-guide/amqp1.png
@@ -420,6 +420,6 @@ Pour plus d’informations sur AMQP, consultez les liens suivants :
 [3]: ./media/service-bus-amqp-protocol-guide/amqp3.png
 [4]: ./media/service-bus-amqp-protocol-guide/amqp4.png
 
-[Vue d’ensemble du protocole AMQP de Service Bus]: service-bus-amqp-overview.md
+[Vue d’ensemble d’AMQP de Service Bus]: service-bus-amqp-overview.md
 [Prise en charge d’AMQP 1.0 dans les rubriques et files d’attente partitionnées Service Bus]: service-bus-partitioned-queues-and-topics-amqp-overview.md
-[AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx
+[AMQP in Service Bus for Windows Server (AMQP dans Service Bus pour Windows Server]: https://msdn.microsoft.com/library/dn574799.aspx

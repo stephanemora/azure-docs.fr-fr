@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 11/05/2018
 ms.author: jingwang
-ms.openlocfilehash: d8bbc3a5e4ac14ed60fcd6e5f19bdf1df03455a6
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: aed1ab14072da3e3d3e49060b7117a24eeecdb56
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48817022"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010250"
 ---
 # <a name="copy-data-to-or-from-azure-data-lake-storage-gen1-by-using-azure-data-factory"></a>Copier des données vers ou depuis Azure Data Lake Storage Gen1 à l’aide d’Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -44,9 +44,6 @@ Plus précisément, ce connecteur Azure Data Lake Store prend en charge ce qui s
 > Pour obtenir une procédure pas à pas d’utilisation du connecteur Azure Data Lake Store, consultez [Charger des données dans Azure Data Lake Store](load-azure-data-lake-store.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
-
->[!NOTE]
->Lorsque vous utilisez l’outil Copier des données pour créer le pipeline de copie ou quand vous utilisez l’IU ADF pour tester les dossiers de navigation/connexion pendant la création, l’autorisation du principal de service ou de la fonctionnalité MSI doit être accordée au niveau racine. Toutefois, l’exécution de l’activité de copie peut fonctionner tant que l’autorisation est accordée aux données faisant l’objet de la copie. Vous pouvez ignorer les opérations de création si vous avez besoin de limiter l’autorisation.
 
 Les sections suivantes fournissent des informations détaillées sur les propriétés utilisées pour définir les entités Data Factory spécifiques d’Azure Data Lake Store.
 
@@ -79,6 +76,9 @@ Pour utiliser une authentification du principal du service, inscrivez une entit�
 > Veillez à accorder l’autorisation appropriée au principal de service dans Azure Data Lake Store :
 >- **Pour la source**, dans Explorateur de données -> Accès, accordez au moins une autorisation **Lecture + Exécution** pour répertorier et copier les fichiers dans les dossiers/sous-dossiers, ou une autorisation **Lecture** pour copier un seul fichier. Choisissez d’effectuer un ajout à **This folder and all chidren** (Ce dossier et tous les dossiers enfants) pour l’option récursive, et d’effectuer un ajout en tant qu’entrée **d’autorisation d’accès et d’autorisation par défaut**. Aucune exigence sur le contrôle d’accès au niveau du compte (gestion des identités et des accès (IAM)).
 >- **Pour le récepteur**, dans Explorateur de données -> Accès, accordez au moins une autorisation **Écriture + Exécution** pour créer des éléments enfants dans le dossier, puis choisissez d’effectuer un ajout à **This folder and all chidren** (Ce dossier et tous les dossiers enfants) pour l’option récursive, et d’effectuer un ajout en tant qu’entrée **d’autorisation d’accès et d’autorisation par défaut**. Si vous utilisez Azure IR pour copier (la source et le récepteur sont tous les deux dans le cloud), dans Access Control (IAM), accordez au moins le rôle **Lecteur** pour que Data Factory puisse détecter la région Data Lake Store. Si vous souhaitez éviter ce rôle IAM, [créez un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) de manière explicite avec l’emplacement de votre Data Lake Store, puis associez-le au service lié Data Lake Store, comme dans l’exemple suivant.
+
+>[!NOTE]
+>Lorsque vous utilisez **Copier des données** pour créer le pipeline de copie ou quand vous utilisez l’**IU ADF** pour tester les dossiers de navigation/connexion pendant la création, l’autorisation du principal de service ou de la fonctionnalité MSI doit être accordée **au niveau racine avec une autorisation « Exécuter »** afin de pouvoir répertorier les dossiers à partir de la racine. Toutefois, l’exécution de l’activité de copie peut fonctionner tant que l’autorisation est accordée aux données faisant l’objet de la copie. Vous pouvez ignorer les opérations de création si vous avez besoin de limiter l’autorisation.
 
 Les propriétés prises en charge sont les suivantes :
 
@@ -127,6 +127,9 @@ Pour utiliser les identités managées afin d’authentifier les ressources Azur
 > Veillez à accorder l’autorisation appropriée à l’identité de service de la fabrique de données dans Azure Data Lake Store :
 >- **Pour la source**, dans Explorateur de données -> Accès, accordez au moins une autorisation **Lecture + Exécution** pour répertorier et copier les fichiers dans les dossiers/sous-dossiers, ou une autorisation **Lecture** pour copier un seul fichier. Choisissez d’effectuer un ajout à **This folder and all chidren** (Ce dossier et tous les dossiers enfants) pour l’option récursive, et d’effectuer un ajout en tant qu’entrée **d’autorisation d’accès et d’autorisation par défaut**. Aucune exigence sur le contrôle d’accès au niveau du compte (gestion des identités et des accès (IAM)).
 >- **Pour le récepteur**, dans Explorateur de données -> Accès, accordez au moins une autorisation **Écriture + Exécution** pour créer des éléments enfants dans le dossier, puis choisissez d’effectuer un ajout à **This folder and all chidren** (Ce dossier et tous les dossiers enfants) pour l’option récursive, et d’effectuer un ajout en tant qu’entrée **d’autorisation d’accès et d’autorisation par défaut**. Si vous utilisez Azure IR pour copier (la source et le récepteur sont tous les deux dans le cloud), dans Access Control (IAM), accordez au moins le rôle **Lecteur** pour que Data Factory puisse détecter la région Data Lake Store. Si vous souhaitez éviter ce rôle IAM, [créez un runtime Azure IR](create-azure-integration-runtime.md#create-azure-ir) de manière explicite avec l’emplacement de votre Data Lake Store, puis associez-le au service lié Data Lake Store, comme dans l’exemple suivant.
+
+>[!NOTE]
+>Lorsque vous utilisez **Copier des données** pour créer le pipeline de copie ou quand vous utilisez l’**IU ADF** pour tester les dossiers de navigation/connexion pendant la création, l’autorisation doit être accordée **au niveau racine avec une autorisation « Exécuter »** afin de pouvoir répertorier les dossiers à partir de la racine. Toutefois, l’exécution de l’activité de copie peut fonctionner tant que l’autorisation est accordée aux données faisant l’objet de la copie. Vous pouvez ignorer les opérations de création si vous avez besoin de limiter l’autorisation.
 
 Dans Azure Data Factory, il n’est pas nécessaire de spécifier de propriétés en dehors des informations générales Data Lake Store du service lié.
 

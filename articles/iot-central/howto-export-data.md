@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 86128abd82ee41459a84fc7d9169042179807793
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: 3231a956648b80d88059b7b0fc8f790e0e58be99
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47034907"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962790"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exporter vos données dans Azure IoT Central
 
@@ -26,10 +26,10 @@ Cet article décrit comment utiliser la fonctionnalité d’exportation continue
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Essai étendu de30 jours de l’application IoT Central ou application payante.
-- Compte Azure avec abonnement Azure.
-- Le même compte Azure est un administrateur dans votre application IoT Central.
-- Le même compte Azure dispose des autorisations pour créer un compte de stockage ou pour accéder à un compte de stockage existant dans le même abonnement Azure.
+- Application avec paiement à l'utilisation.
+- Un administrateur dans votre application IoT Central qui a :
+    - un compte Azure dans l’abonnement Azure où se trouve votre application IoT Central ;
+    - des autorisations pour créer un compte de stockage ou pour accéder à un compte de stockage existant dans cet abonnement Azure.
 
 ## <a name="types-of-data-to-export"></a>Types de données à exporter
 

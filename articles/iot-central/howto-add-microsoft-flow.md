@@ -8,12 +8,12 @@ ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: 7a52ee11e52367755d2a241a0bea2cfc053cff3d
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: c06939ccb920954c08ef02f38e6d12471ac267db
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47039936"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959288"
 ---
 # <a name="build-workflows-with-the-iot-central-connector-in-microsoft-flow"></a>Créer des flux de travail avec le connecteur IoT Central dans Microsoft Flow
 
@@ -21,8 +21,10 @@ ms.locfileid: "47039936"
 
 Utilisez Microsoft Flow pour automatiser les flux de travail entre les nombreux services et applications sur lesquels s’appuient les utilisateurs métier. Avec le connecteur IoT Central dans Microsoft Flow, vous pouvez déclencher des workflows quand une règle est déclenchée dans IoT Central. Dans un flux de travail déclenché par IoT Central ou toute autre application, vous pouvez utiliser les actions dans le connecteur IoT Central pour créer un appareil, mettre à jour les propriétés et les paramètres d’un appareil, ou supprimer un appareil. Consultez [ces modèles Microsoft Flow](https://aka.ms/iotcentralflowtemplates) qui connectent IoT Central à d’autres services, comme les notifications mobiles et Microsoft Teams.
 
-> [!NOTE] 
-> Vous devez vous connecter à Microsoft Flow avec un compte Microsoft personnel, scolaire ou professionnel. Découvrez plus d’informations sur les plans Microsoft Flow [ici](https://aka.ms/microsoftflowplans).
+## <a name="prerequisites"></a>Prérequis
+
+- Application avec paiement à l'utilisation
+- Un compte Microsoft personnel, scolaire ou professionnel pour se connecter à Flow ([En savoir plus sur les plans Microsoft Flow](https://aka.ms/microsoftflowplans))
 
 ## <a name="trigger-a-workflow-when-a-rule-is-triggered"></a>Déclencher un workflow quand une règle est déclenchée
 
@@ -96,6 +98,8 @@ Cette section vous montre comment mettre à jour les paramètres et les proprié
     ![ID d’appareil dans l’Explorateur d’appareils d’IoT Central](./media/howto-add-microsoft-flow/iotcdeviceid.PNG)
 
 1. Vous pouvez mettre à jour le nom de l’appareil. Pour mettre à jour des propriétés et des paramètres de l’appareil, vous devez sélectionner le modèle d’appareil de l’appareil que vous voulez mettre à jour dans la liste déroulante **Modèle d’appareil**. La vignette de l’action se développe pour montrer tous les paramètres et propriétés que vous pouvez mettre à jour.
+
+    ![Flux de travail de mise à jour d’appareil dans Flow](./media/howto-add-microsoft-flow/flowupdatedevice.PNG)
 
 1. Sélectionnez les propriétés et les paramètres que vous voulez mettre à jour. Dans le volet Contenu dynamique, sélectionnez l’entrée correspondante dans le déclencheur. Dans cet exemple, la valeur de Location (Emplacement) est propagée vers le bas pour mettre à jour la propriété Location de l’appareil.
 

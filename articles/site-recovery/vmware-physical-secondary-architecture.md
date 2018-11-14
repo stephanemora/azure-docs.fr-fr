@@ -1,21 +1,22 @@
 ---
-title: Architecture de réplication d’un serveur physique/VMware dans Azure Site Recovery | Microsoft Docs
-description: Cet article fournit une vue d’ensemble des composants et de l’architecture utilisés lors de la réplication de serveurs physiques Windows/Linux et de machines virtuelles VMware locaux vers un site secondaire VMware avec Azure Site Recovery
+title: Architecture pour la reprise d’activité de machines virtuelles VMware ou de serveurs physiques sur un site secondaire avec Azure Site Recovery | Microsoft Docs
+description: Cet article offre une vue d’ensemble de l’architecture et des composants utilisés lors de la reprise d’activité de machines virtuelles VMware locales ou de serveurs physiques Windows/Linux sur un site secondaire VMware avec Azure Site Recovery.
 author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
-ms.topic: article
-ms.date: 07/06/2018
+ms.topic: conceptual
+ms.date: 10/29/2018
 ms.author: raynew
-ms.openlocfilehash: 04591c57f90e3c540963d77c2213498bf0ad2577
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 77387b52003923dffce7519df9cca47fad8f6e6c
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922697"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51007431"
 ---
-# <a name="vmware-vmphysical-server-to-vmware-replication-architecture"></a>Architecture de réplication de serveur physique/machine virtuelle VMware vers VMware
+# <a name="architecture-for-vmwarephysical-server-replication-to-a-secondary-on-premises-site"></a>Architecture pour la réplication de machines virtuelles VMware ou de serveurs physiques vers un site local secondaire
 
-Cet article décrit l’architecture et les processus utilisés quand vous répliquez, basculez et récupérez des machines virtuelles VMware locales ou des serveurs physiques Windows/Linux vers un site secondaire VMware en utilisant [Azure Site Recovery](site-recovery-overview.md).
+Cet article décrit l’architecture et les processus utilisés quand vous configurez la réplication et le basculement pour la reprise d’activité de machines virtuelles VMware locales ou de serveurs physiques Windows/Linux vers un site secondaire VMware en utilisant [Azure Site Recovery](site-recovery-overview.md).
 
 
 ## <a name="architectural-components"></a>Composants architecturaux

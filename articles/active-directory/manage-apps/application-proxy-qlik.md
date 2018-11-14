@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: article
 ms.date: 09/06/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 5f103e9fe410374a551eb43d456d5993bdd36627
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 55e262e1855eb6ab50c2d32e7e8cd4bb9175a593
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44056750"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50962552"
 ---
 # <a name="application-proxy-and-qlik-sense"></a>Proxy d’application et Qlik Sens 
 Le proxy d’application Azure Active Directory et Qlik Sense se sont associés afin de vous permettre d’utiliser facilement le Proxy d’application pour fournir l’accès à distance à votre déploiement Qlik sens.  
@@ -57,7 +57,11 @@ Suivez les mêmes étapes que pour la 1ère application, avec les exceptions sui
 ## <a name="testing"></a>Test 
 Votre application est maintenant prête à être testée. Accédez à l’URL externe utilisée pour publier QlikSense dans la 1ère application et connectez-vous en tant qu’utilisateur affecté aux deux applications.  
 
+## <a name="additional-references"></a>Références supplémentaires
+Pour plus d’informations sur la publication Qlik Sense avec le Proxy d’Application, voir l’article de la Communauté Qlik : [Azure AD avec l’authentification Windows intégrée à l’aide d’une délégation Kerberos contrainte avec Qlik Sense](https://community.qlik.com/docs/DOC-20183).
+
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Publiez des applications avec le proxy d’application](application-proxy-publish-azure-portal.md)
-- [Utilisation de connecteurs Proxy d’application](application-proxy-connector-groups.md).
+- [Utiliser des connecteurs Proxy d’application](application-proxy-connector-groups.md)
+

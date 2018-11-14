@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 12d3b358be8bb90b63e5e7310123f8ae7093994c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ebf5a23743d1fdd9553b391bb0518c2887ddb096
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190270"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50959985"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Guide pratique pour planifier l’implémentation de la jointure Azure Active Directory hybride
 
@@ -49,6 +49,7 @@ Pour planifier votre implémentation Azure AD hybride, prenez connaissance de ce
 |---|---|
 |![Vérification][1]|Vérifier les appareils pris en charge|
 |![Vérification][1]|Connaître les points à savoir|
+|![Vérification][1]|Guide pratique pour contrôler la jointure Azure AD hybride de vos appareils|
 |![Vérification][1]|Sélectionner un scénario|
 
 
@@ -95,13 +96,13 @@ En cas de dépendance vis-à-vis de l’Outil de préparation du système (Syspr
 
 Si vous utilisez une capture instantanée de machine virtuelle pour créer des machines virtuelles supplémentaires, vérifiez qu’elle n’a pas été configurée pour la jointure Azure AD hybride.
 
-L’inscription des appareils Windows de bas niveau n’est pas prise en charge pour les appareils ayant pour configuration l’itinérance du profil utilisateur ou des informations d’identification. Si vous vous appuyez sur l’itinérance de profils ou de paramètres, utilisez Windows 10.
+La jonction Azure AD hybride des appareils Windows de bas niveau :
 
-- L’inscription d’appareils de bas niveau Windows **est** prise en charge dans les environnements non fédérés via l’authentification unique transparente [Authentification unique transparente d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
- 
-- L’inscription d’appareils de bas niveau Windows **n’est pas** prise en charge lors de l’utilisation de l’authentification directe Azure AD sans authentification unique transparente.
+- **Est** prise en charge dans les environnements non fédérés via l’[authentification unique transparente d’Azure Active Directory](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-sso-quick-start). 
 
-- L’inscription des appareils Windows de bas niveau **n’est pas** prise en charge pour les appareils utilisant des profils d’itinérance. Si vous vous appuyez sur l’itinérance de profils ou de paramètres, utilisez Windows 10.
+- **N’est pas** prise en charge lors de l’utilisation de l’authentification directe Azure AD sans l’authentification unique transparente.
+
+- **N’est pas** prise en charge lors de l’utilisation de l’itinérance des informations d’identification ou du profil utilisateur, ni lors de l’utilisation de l’infrastructure de bureau virtuel (VDI).
 
 
 L’inscription de Windows Server avec le rôle de contrôleur de domaine n’est pas prise en charge.
@@ -112,6 +113,11 @@ Si votre organisation a besoin d’accéder à Internet via un proxy sortant aut
 La jointure Azure AD hybride est un processus qui consiste à inscrire automatiquement auprès d’Azure AD des appareils joints au domaine local. Si vous ne souhaitez pas que tous vos appareils s’inscrivent automatiquement, voir [Guide pratique pour contrôler la jointure Azure AD hybride de vos appareils](hybrid-azuread-join-control.md).
 
 
+## <a name="review-how-to-control-the-hybrid-azure-ad-join-of-your-devices"></a>Guide pratique pour contrôler la jointure Azure AD hybride de vos appareils
+
+La jointure Azure AD hybride est un processus qui consiste à inscrire automatiquement auprès d’Azure AD des appareils joints au domaine local. Il existe des cas où vous ne souhaitez pas que tous vos appareils s’inscrivent automatiquement. Cela est vrai, par exemple, lors du déploiement initial pour vérifier que tout fonctionne conformément à ce qui est attendu.
+
+Pour plus d’informations, consultez le [Guide pratique pour contrôler la jointure Azure AD hybride de vos appareils](hybrid-azuread-join-control.md)
 
 ## <a name="select-your-scenario"></a>Sélectionner un scénario
 
@@ -124,7 +130,7 @@ La jointure Azure AD hybride peut être configurée pour les scénarios suivants
 
 Si votre environnement comporte des domaines managés, la jointure Azure AD hybride prend en charge :
 
-- La synchronisation directe avec authentification unique transparente (SSO) 
+- la synchronisation directe avec authentification unique transparente (SSO) ; 
 
 - La synchronisation du hachage de mot de passe avec authentification unique transparente (SSO) 
 

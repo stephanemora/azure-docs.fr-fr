@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 05/04/2017
 ms.reviewer: antonfr
 ms.author: mbullwin
-ms.openlocfilehash: 8c34696f81e40b4db13e6868f6bdaa1b2a8e7a2a
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 099e597982172bcea39fedd0fd1445f466eb2bc1
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47095461"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50960818"
 ---
 # <a name="smart-detection---performance-anomalies"></a>Détection intelligente - anomalies de performances
 
@@ -47,7 +47,7 @@ Non, une notification ne signifie pas que votre application rencontre réellemen
 Les notifications incluent des informations de diagnostic. Voici un exemple :
 
 
-![Voici un exemple de détection Dégradation du temps de réponse du serveur](./media/app-insights-proactive-diagnostics/server_response_time_degradation.png)
+![Voici un exemple de détection Dégradation du temps de réponse du serveur](media/app-insights-proactive-performance-diagnostics/server_response_time_degradation.png)
 
 1. **Tri**. La notification vous indique le nombre d’utilisateurs ou le nombre d’opérations affectés. Ceci vous permet d’attribuer une priorité au problème.
 2. **Portée**. Le problème affecte-t-il tout le trafic, ou certaines pages seulement ? Se limite-t-il à des navigateurs ou emplacements particuliers ? Ces informations peuvent être obtenues dans la notification.
@@ -61,7 +61,7 @@ Les notifications incluent des informations de diagnostic. Voici un exemple :
 
 Les notifications de détection intelligente sont activées par défaut et envoyées aux personnes disposant d’un [accès propriétaire, collaborateur ou lecteur à la ressource Application Insights](app-insights-resources-roles-access-control.md). Pour le modifier, cliquez sur **Configurer** dans la notification par courrier électronique ou ouvrez Paramètres de détection intelligente dans Application Insights. 
   
-  ![Paramètres de détection intelligente](./media/app-insights-proactive-diagnostics/smart_detection_configuration.png)
+  ![Paramètres de détection intelligente](media/app-insights-proactive-performance-diagnostics/smart_detection_configuration.png)
   
   * Vous pouvez utiliser le lien **se désabonner** dans l’e-mail de détection intelligente pour ne plus recevoir de notifications par courrier électronique.
 
@@ -143,7 +143,7 @@ Les applications modernes adoptent de plus en plus l’approche de conception de
 
 Exemple de notification de dégradation de dépendance :
 
-![Voici un exemple de détection de la dégradation de la durée de dépendance](./media/app-insights-proactive-diagnostics/dependency_duration_degradation.png)
+![Voici un exemple de détection de la dégradation de la durée de dépendance](media/app-insights-proactive-performance-diagnostics/dependency_duration_degradation.png)
 
 Notez qu’il vous indique :
 
@@ -161,7 +161,7 @@ Notez qu’il vous indique :
 
 Application Insights recherche les problèmes de performances pouvant toucher uniquement une partie de vos utilisateurs ou bien l’ensemble des utilisateurs mais dans certains cas de figure seulement. Par exemple, une notification sur des pages qui se chargent plus lentement dans un type de navigateur que dans d’autres types de navigateurs ou si les demandes sont traitées plus lentement à partir d’un serveur particulier. Elle peut aussi détecter les problèmes liés à des combinaisons de propriétés, tels que des pages qui se chargent lentement dans une zone géographique pour des clients utilisant un système d’exploitation particulier.  
 
-Les anomalies de ce type, qui sont très difficiles à détecter par la simple inspection des données, sont plus courantes que vous ne l’imaginez. Souvent, elles sont révélées par les plaintes des clients. Mais il est déjà trop tard : les utilisateurs affectés sont déjà passés à la concurrence !
+Les anomalies de ce type, qui sont très difficiles à détecter par la simple inspection des données, sont plus courantes que vous ne l’imaginez. Souvent, elles sont révélées par les plaintes des clients. Mais il est déjà trop tard : les utilisateurs concernés sont déjà passés à la concurrence !
 
 À l’heure actuelle, nos algorithmes examinent le temps de chargement des pages, le temps de réponse aux demandes et le temps de réponse des dépendances.  
 
@@ -185,8 +185,8 @@ Ces outils de diagnostic vous aident à inspecter les données de télémétrie 
 
 * [Profileur](app-insights-profiler.md) 
 * [Débogueur de capture instantanée](app-insights-snapshot-debugger.md)
-* [Analyse](app-insights-analytics-tour.md)
-* [Diagnostics intelligents Analytics](app-insights-analytics-diagnostics.md)
+* [Analyse](../log-analytics/query-language/get-started-analytics-portal.md)
+* [Diagnostics intelligents Analytics](app-insights-analytics.md)
 
 Les détections intelligentes sont entièrement automatiques. Mais vous souhaitez peut-être configurer des alertes supplémentaires ?
 

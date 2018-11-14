@@ -2,19 +2,19 @@
 title: Personnaliser des clusters HDInsight à l’aide d’actions de script - Azure
 description: Ajoutez des composants personnalisés à des clusters HDInsight Linux à l’aide des actions de script. Les actions de script sont des scripts Bash qui permettent de personnaliser la configuration du cluster ou d’ajouter d’autres services et utilitaires comme Hue, Solr ou R.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/01/2018
-ms.author: jasonh
-ms.openlocfilehash: e9662a0a0def91fa2cace1eb47dceffed5ff1ae6
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.date: 11/06/2018
+ms.author: hrasheed
+ms.openlocfilehash: 24fecd73876228b3665cde21ae312963ec979df6
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46978027"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51279706"
 ---
 # <a name="customize-linux-based-hdinsight-clusters-using-script-actions"></a>Personnaliser des clusters HDInsight Linux à l’aide d’actions de script
 
@@ -44,7 +44,7 @@ De plus, si vous créez un cluster HDInsight, une personne disposant d’au moin
 
 Pour plus d’informations sur le fonctionnement de la gestion des accès, consultez les documents suivants :
 
-* [Bien démarrer avec la gestion des accès dans le portail Azure](../role-based-access-control/overview.md)
+* [Prise en main de la gestion des accès dans le portail Azure](../role-based-access-control/overview.md)
 * [Utiliser les attributions de rôle pour gérer l’accès à vos ressources d’abonnement Azure](../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="understanding-script-actions"></a>Présentation des actions de script
@@ -67,7 +67,7 @@ Une action de script est un script bash qui s’exécute sur les nœuds dans un 
         Pour obtenir des exemples d’URI, consultez la section [Exemple de script d’action de script](#example-script-action-scripts).
 
         > [!WARNING]
-        > HDInsight prend uniquement en charge les comptes de stockage Azure à __usage général__. Il ne prend pas en charge le type de compte __Stockage Blob__.
+        > HDInsight prend uniquement en charge Blob dans les comptes de stockage Azure avec niveau de performances standard. 
 
 * Ils peuvent être limités de manière à **s’exécuter sur certains types de nœuds uniquement**, par exemple des nœuds principaux ou des nœuds de travail.
 
@@ -464,7 +464,7 @@ Si la création d’un cluster échoue en raison d’une erreur de script, les j
 
 * Vous pouvez créer plusieurs fois un cluster d’action de script portant le même nom. Dans ce cas, vous pouvez différencier les journaux correspondants selon le nom de dossier DATE. Par exemple, la structure de dossiers d’un cluster (mycluster) créé à différentes dates ressemble à aux entrées de journaux suivantes :
 
-    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04` `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
+    `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-04``\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\mycluster\2015-10-05`
 
 * Si vous créez un cluster d’action de script avec le même nom le même jour, vous pouvez utiliser le préfixe unique pour identifier les fichiers journaux correspondants.
 

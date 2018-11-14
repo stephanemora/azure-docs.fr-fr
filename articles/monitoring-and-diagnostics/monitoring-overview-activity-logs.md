@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/30/2018
 ms.author: johnkem
 ms.component: activitylog
-ms.openlocfilehash: 7538951b1ac8290b574180779b83c6b8e79fcf1f
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 538481088d6355729486c1d9fbaaa6af16a1b841
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094361"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006020"
 ---
 # <a name="monitor-subscription-activity-with-the-azure-activity-log"></a>Surveiller l’activité d’abonnement avec le journal d’activité Azure
 
@@ -33,10 +33,7 @@ Le journal d’activité est différent des [journaux de diagnostic](monitoring-
 Vous pouvez extraire des événements de votre journal d’activité à l’aide du portail Azure, de l’interface de ligne de commande, des applets de commande PowerShell et de l’API REST Azure Monitor.
 
 > [!NOTE]
->  Les [alertes les plus récentes](monitoring-overview-unified-alerts.md) offrent actuellement une expérience améliorée de création et de gestion des règles d’alerte du journal d’activité.  [Plus d’informations](monitoring-activity-log-alerts-new-experience.md)
-
-Regardez la vidéo suivante de présentation du journal d’activité.
-> [!VIDEO https://channel9.msdn.com/Blogs/Seth-Juarez/Logs-John-Kemnetz/player]
+>  Les [alertes les plus récentes](monitoring-overview-unified-alerts.md) offrent actuellement une expérience améliorée de création et de gestion des règles d’alerte du journal d’activité.  [Plus d’informations](alert-activity-log.md)
 
 
 ## <a name="categories-in-the-activity-log"></a>Catégories dans le journal d’activité
@@ -70,7 +67,7 @@ Voici ce que vous pouvez faire avec le journal d’activité :
 À l’intérieur du portail Azure, vous pouvez afficher votre journal d’activité à plusieurs endroits :
 * Le **Journal d’activité** auquel vous avez accès en recherchant le Journal d’activité sous **Tous les services** dans le volet de navigation de gauche.
 * **Monitor** s’affiche par défaut dans le volet de navigation de gauche. Le journal d’activité est une section d’Azure Monitor.
-* Toutes les **ressources** des ressources, par exemple, le panneau de configuration d’une machine virtuelle. Le journal d’activité se trouve dans la plupart des panneaux de ressources. Quand vous cliquez dessus, les événements associés à la ressource sont automatiquement affichés.
+* La plupart des **ressources**, par exemple, le panneau de configuration d’une machine virtuelle. Le journal d’activité est une section présente dans la plupart des panneaux de ressources. Quand vous cliquez dessus, les événements associés à la ressource sont automatiquement affichés.
 
 Dans le portail Azure, vous pouvez filtrer le journal d’activités à l’aide des champs suivants :
 * Intervalle de temps : heure de début et de fin des événements.
@@ -84,11 +81,9 @@ Dans le portail Azure, vous pouvez filtrer le journal d’activités à l’aide
 * Événement lancé par : « appelant » ou utilisateur ayant effectué l’opération.
 * Recherche libre : zone de recherche textuelle libre qui permet de rechercher une chaîne dans les champs de tous les événements.
 
-Une fois ces filtres définis, vous pouvez enregistrer l’ensemble des filtres sous la forme d’une requête persistante afin de l’utiliser dans les autres sessions si besoin. Vous pouvez également épingler une requête à votre tableau de bord Azure afin de toujours avoir un œil sur certains événements.
+Après avoir défini un ensemble de filtres, vous pouvez épingler une requête à votre tableau de bord Azure afin de toujours avoir un œil sur certains événements.
 
-Cliquez sur Appliquer pour exécuter votre requête et afficher tous les événements correspondants. Quand vous cliquez sur un événement de la liste, un récapitulatif de l’événement est affiché, ainsi que ses données JSON brutes complètes.
-
-Pour encore plus de puissance, vous pouvez cliquer sur l’icône **Recherche dans les journaux** pour afficher les données du journal d’activité dans la [solution Activity Log Analytics](../log-analytics/log-analytics-activity.md). Le panneau Journal d’activité offre des fonctionnalités de base pour filtrer et parcourir les journaux, tandis que Log Analytics vous permet d’interroger et de visualiser vos données, ainsi que d’ajouter un tableau croisé dynamique.
+Pour encore plus de puissance, vous pouvez cliquer sur l’icône **Journaux** pour afficher les données du journal d’activité dans la [solution Activity Log Analytics](../log-analytics/log-analytics-activity.md). Le panneau Journal d’activité offre des fonctionnalités de base pour filtrer et parcourir les journaux, tandis que Log Analytics vous permet d’interroger et de visualiser vos données, ainsi que d’ajouter un tableau croisé dynamique.
 
 ## <a name="export-the-activity-log-with-a-log-profile"></a>Exporter le journal d’activité avec un profil de journal
 Un **profil de journal** contrôle comment votre journal d’activité est exporté. À l’aide d’un profil de journal, vous pouvez configurer :
@@ -114,14 +109,14 @@ Vous pouvez utiliser un compte de stockage ou un espace de noms Event Hub qui n�
 Ces paramètres peuvent être configurés via l’option « Exporter » dans le panneau Journal d’activité dans le portail. Ils peuvent également être configurés par programme [à l’aide de l’API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931927.aspx), d’applets de commande PowerShell ou de l’interface de ligne de commande. Un abonnement ne peut avoir qu’un seul profil de journal.
 
 ### <a name="configure-log-profiles-using-the-azure-portal"></a>Configuration des profils de journal à l’aide du portail Azure
-Vous pouvez diffuser en continu le journal d’activité vers un Event Hub ou le stocker dans un compte de stockage à l’aide de l’option d’export dans le portail Azure.
+Vous pouvez diffuser en continu le journal d’activité vers un Event Hub ou le stocker dans un compte de stockage à l’aide de l’option « Export vers Event Hub » dans le portail Azure.
 
 1. Accédez au **Journal d’activité** à l’aide du menu sur le côté gauche du portail.
 
-    ![Accéder au journal d’activité dans le portail](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate.png)
-2. Cliquez sur le bouton **Exporter** en haut du panneau.
+    ![Accéder au journal d’activité dans le portail](./media/monitoring-overview-activity-logs/activity-logs-portal-navigate-v2.png)
+2. Cliquez sur le bouton **Exporter vers Event Hub** en haut du panneau.
 
-    ![Bouton Exporter dans le portail](./media/monitoring-overview-activity-logs/activity-logs-portal-export.png)
+    ![Bouton Exporter dans le portail](./media/monitoring-overview-activity-logs/activity-logs-portal-export-v2.png)
 3. Dans le panneau qui s’affiche, vous pouvez sélectionner :  
   * les régions pour lesquelles vous souhaitez exporter des événements
   * le compte de stockage pour lequel vous souhaitez enregistrer les événements
