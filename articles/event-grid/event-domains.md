@@ -6,17 +6,17 @@ author: banisadr
 ms.service: event-grid
 ms.author: babanisa
 ms.topic: conceptual
-ms.date: 10/30/2018
-ms.openlocfilehash: fe66ca8b8f5b4474290e302f73b35868dce68caa
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.date: 11/01/2018
+ms.openlocfilehash: b5a1e521f46da7feffd2eb556ad1662a9ccaee55
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669326"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913834"
 ---
 # <a name="understand-event-domains-for-managing-event-grid-topics"></a>Comprendre les domaines d’événements pour gérer les rubriques Event Grid
 
-Cet article décrit comment utiliser les domaines d’événements pour gérer le flux d’événements personnalisés vers vos différentes unités organisationnelles, vos clients ou vos applications. Utilisez les domaines d’événements pour :
+Cet article décrit comment utiliser les domaines d’événements pour gérer le flux d’événements personnalisés vers vos organisations, clients ou applications. Utilisez des domaines d’événements pour effectuer les opérations suivantes :
 
 * Gérer des architectures d’événements à grande échelle avec abonnés multiples.
 * Gérer les authentifications et les autorisations.
@@ -25,114 +25,47 @@ Cet article décrit comment utiliser les domaines d’événements pour gérer l
 
 [!INCLUDE [event-grid-preview-feature-note.md](../../includes/event-grid-preview-feature-note.md)]
 
+## <a name="event-domain-overview"></a>Vue d’ensemble des domaine d’événements
 
-## <a name="event-domains-overview"></a>Vue d’ensemble des domaines d’événements
+Un domaine d’événements est un outil de gestion pour un nombre élevé de rubriques Event Grid relatives à la même application. Vous pouvez le considérer comme une méta-rubrique pouvant compter des milliers de rubriques individuelles.
 
-Un domaine d’événements est un outil de gestion pour un nombre élevé de rubriques Event Grid relatives à une même application. Vous pouvez le considérer comme une méta-rubrique pouvant contenir des milliers de rubriques individuelles.
-
-Les domaines d’événements créent l’architecture des services Azure, comme le service de stockage Azure et IoT Hub, utilisée pour la publication des événements disponibles afin que vous puissiez les utiliser dans votre propre système. Ils vous permettent de publier des événements dans des milliers de rubriques. Les domaines vous donnent également le contrôle sur l’authentification et l’autorisation sur chaque rubrique pour que vous puissiez partitionner vos abonnés.
+Les domaines d’événements mettent à votre disposition la même architecture que celle qu’utilisent les services Azure (par exemple, Stockage et IoT Hub) pour publier leurs événements. Ils vous permettent de publier des événements dans des milliers de rubriques. Les domaines vous donnent également le contrôle sur l’authentification et l’autorisation sur chaque rubrique pour que vous puissiez partitionner vos abonnés.
 
 ### <a name="example-use-case"></a>Exemple de cas d’usage
 
-Il est plus simple de partir d’un exemple pour expliquer les domaines d’événements. Disons que votre société, Contoso Construction Machinery, produit des tracteurs, du matériel d’excavation et autres machineries lourdes. Dans le cadre de la gestion de votre entreprise, vous envoyez des informations en temps réel à vos clients sur la maintenance des machines, l’état des systèmes et les mises à jour de vos contrats, etc. Tout ceci est envoyé vers différents points de terminaison, par exemple votre application, les points de terminaison côté client ou toute autre infrastructure que les clients ont mis en place.
+Il est plus simple de partir d’un exemple pour expliquer les domaines d’événements. Disons que votre société, Contoso Construction Machinery, produit des tracteurs, du matériel d’excavation et autres machineries lourdes. Dans le cadre de la gestion de votre entreprise, vous envoyez des informations en temps réel à vos clients sur la maintenance des machines, l’état des systèmes et les mises à jour de vos contrats. Tout ceci est envoyé vers différents points de terminaison, dont votre application, des points de terminaison côté client ou toute autre infrastructure que des clients ont mise en place.
 
-Les domaines d’événements vous permettent de modéliser Contoso Construction Machinery en une unique entité source d’événements. Chaque client est représenté par une rubrique dans le domaine et l’authentification et les autorisations sont gérées via Azure Active Directory. Chacun de vos clients peut s’abonner à sa rubrique et recevoir ses événements. L’accès géré via le domaine d’événements garantit qu’ils n’ont accès qu’à leur rubrique.
+Les domaines d’événements vous permettent de modéliser Contoso Construction Machinery en une unique entité source d’événements. Chacun de vos clients est représenté en tant que rubrique au sein du domaine. L’authentification et l’autorisation sont gérées à l’aide d’Azure Active Directory. Chacun de vos clients peut s’abonner à sa rubrique et recevoir ses événements. L’accès géré via le domaine d’événements garantit qu’ils n’ont accès qu’à leur rubrique.
 
-Il vous donne également un point de terminaison unique, dans lequel vous pouvez publier l’ensemble des événements du client. Event Grid fera en sorte que chaque rubrique prenne uniquement en compte les événements qui concernent son abonné.
+Il vous donne également un point de terminaison unique, dans lequel vous pouvez publier l’ensemble des événements du client. Event Grid veille à ce que chaque rubrique prenne uniquement en compte les événements qui concernent son abonné.
 
 ![Exemple Contoso Construction](./media/event-domains/contoso-construction-example.png)
 
 ## <a name="access-management"></a>gestion de l’accès
 
- Avec un domaine, vous bénéficiez d’autorisations détaillées et du contrôle de l’authentification sur chaque rubrique via la vérification d’accès par rôle (RBAC) d’Azure. Vous pouvez vous servir de ces rôles pour limiter l’accès de chaque abonné dans votre application aux rubriques que souhaitez uniquement.
+Avec un domaine, vous bénéficiez d’autorisations détaillées et du contrôle de l’authentification sur chaque rubrique via le contrôle d’accès en fonction du rôle (RBAC) d’Azure. Vous pouvez vous servir de ces rôles pour limiter l’accès de chaque abonné dans votre application aux rubriques que souhaitez uniquement.
 
-La vérification d’accès par rôle (RBAC) dans les domaines d’événements fonctionne de la même façon que [Contrôle d’accès gérés](https://docs.microsoft.com/azure/event-grid/security-authentication#management-access-control) dans le reste de Event Grid et Azure. Utilisez la vérification d’accès par rôle (RBAC) pour créer et appliquer des définitions de rôles personnalisés dans les domaines d’événements.
+Le contrôle d’accès en fonction du rôle (RBAC) dans les domaines d’événements fonctionne de la même façon que le [contrôle d’accès géré](security-authentication.md#management-access-control) dans le reste d’Event Grid et d’Azure. Utilisez le contrôle d’accès en fonction du rôle (RBAC) pour créer et appliquer des définitions de rôles personnalisés dans des domaines d’événements.
 
 ### <a name="built-in-roles"></a>Vérification d’accès par rôle : rôles intégrés
 
-Event Grid possède deux définitions de rôles intégrés pour faciliter la vérification d’accès par rôle :
+Event Grid possède deux définitions de rôles intégrées pour faciliter l’utilisation du contrôle d’accès en fonction du rôle (RBAC) avec des domaines d’événements. Ces rôles sont **EventGrid EventSubscription Contributor (préversion)** et **EventGrid EventSubscription Reader (préversion)**. Vous affectez ces rôles aux utilisateurs qui doivent s’abonner à des rubriques dans votre domaine d’événements. Vous étendez l’attribution de rôle uniquement à la rubrique à laquelle les utilisateurs doivent s’abonner.
 
-#### <a name="eventgrid-eventsubscription-contributor-preview"></a>EventGrid EventSubscription Contributeur (préversion)
-
-```json
-[
-  {
-    "Description": "Lets you manage EventGrid event subscription operations.",
-    "IsBuiltIn": true,
-    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
-    "Name": "EventGrid EventSubscription Contributor (Preview)",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/*",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Insights/alertRules/*",
-          "Microsoft.Resources/deployments/*",
-          "Microsoft.Resources/subscriptions/resourceGroups/read",
-          "Microsoft.Support/*"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": [],
-        "Condition": null
-      }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
-
-#### <a name="eventgrid-eventsubscription-reader-preview"></a>EventGrid EventSubscription Lecteur (préversion)
-
-```json
-[
-  {
-    "Description": "Lets you read EventGrid event subscriptions.",
-    "IsBuiltIn": true,
-    "Id": "2414bbcf64974faf8c65045460748405",
-    "Name": "EventGrid EventSubscription Reader (Preview)",
-    "IsServiceRole": false,
-    "Permissions": [
-      {
-        "Actions": [
-          "Microsoft.Authorization/*/read",
-          "Microsoft.EventGrid/eventSubscriptions/read",
-          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/eventSubscriptions/read",
-          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
-          "Microsoft.Resources/subscriptions/resourceGroups/read"
-        ],
-        "NotActions": [],
-        "DataActions": [],
-        "NotDataActions": []
-       }
-    ],
-    "Scopes": [
-      "/"
-    ]
-  }
-]
-```
+Pour plus d’informations sur ces rôles, voir [Rôles intégrés pour Event Grid](security-authentication.md#built-in-roles).
 
 ## <a name="subscribing-to-topics"></a>S’abonner aux rubriques
 
-S’abonner aux événements d’une rubrique dans un domaine d’événements revient à [crée un abonnement à un événement dans une rubrique personnalisée](./custom-event-quickstart.md) ou s’abonner à un des éditeurs d’événements intégrés qu’Azure propose.
+S’abonner aux événements d’une rubrique dans un domaine d’événements revient à [créer un abonnement à un événement dans une rubrique personnalisée](./custom-event-quickstart.md) ou à s’abonner à un événement d’un service Azure.
 
 ### <a name="domain-scope-subscriptions"></a>Abonnements à l’étendue de domaine
 
-Les domaines d’événements permettent également des abonnements à l’étendue de domaine. Un abonnement aux événements d’un domaine d’événements recevra l’ensemble des événements envoyés au domaine, quelle que soit la rubrique dans laquelle les événements sont envoyés. Les abonnements à l’étendue de domaine peuvent être utiles à des fins de gestion et d’audit.
+Les domaines d’événements permettent également des abonnements à l’étendue de domaine. Un abonnement aux événements d’un domaine d’événements recevra l’ensemble des événements envoyés au domaine, quelle que soit la rubrique à laquelle les événements sont envoyés. Les abonnements à l’étendue de domaine peuvent être utiles à des fins de gestion et d’audit.
 
 ## <a name="publishing-to-an-event-domain"></a>Publier dans un domaine d’événements
 
 Lorsque vous créez un domaine d’événements, vous recevez un point de terminaison de publication identique à celui que vous auriez reçu si vous aviez créé une rubrique dans Event Grid. 
 
-Pour publier des événements dans une rubrique d’un domaine d’événements, envoyez les événements vers le point de terminaison du domaine de la [même manière que vous le feriez pour une rubrique personnalisée](./post-to-custom-topic.md). La seule différence est que vous devez spécifier la rubrique dans laquelle vous souhaitez envoyer l’événement.
+Pour publier des événements dans une rubrique d’un domaine d’événements, envoyez-les au point de terminaison du domaine de la [même manière que vous le feriez pour une rubrique personnalisée](./post-to-custom-topic.md). La seule différence est que vous devez spécifier la rubrique dans laquelle vous souhaitez envoyer l’événement.
 
 Par exemple, publier le tableau d’événements suivant enverrait les événements avec `"id": "1111"` dans la rubrique `foo` alors que l’événement avec `"id": "2222"` serait envoyé dans la rubrique `bar` :
 
@@ -163,24 +96,24 @@ Par exemple, publier le tableau d’événements suivant enverrait les événeme
 }]
 ```
 
-Les domaines d’événements gèrent la publication des rubriques à votre place. Plutôt que de publier vos événements un par un dans chaque rubrique, vous pouvez publier l’ensemble de vos événements dans le point de terminaison du domaine et Event Grid s’assure que chaque événement est envoyé vers la bonne rubrique.
+Les domaines d’événements gèrent la publication des rubriques à votre place. Au lieu de publier vos événements un par un dans chaque rubrique que vous gérez, vous pouvez les publier tous dans le point de terminaison du domaine. Event Grid s’assure que chaque événement est envoyé à la rubrique appropriée.
 
 ## <a name="limits-and-quotas"></a>Limites et quotas
 
 ### <a name="control-plane"></a>Plan de contrôle
 
-Lors de l’aperçu, les domaines d’événements seront limités à 1 000 rubriques dans un domaine et 50 abonnements aux événements par rubrique dans un domaine. Les abonnements à l’étendue de domaine d’événements seront également limités à 50.
+Durant la période de préversion, les domaines d’événements seront limités à 1 000 rubriques par domaine et à 50 abonnements aux événements par rubrique au sein d’un domaine. Les abonnements à l’étendue de domaine d’événements sont également limités à 50.
 
 ### <a name="data-plane"></a>Plan de données
 
-Lors de l’aperçu, le débit d’événements pour un domaine d’événement sera limité aux mêmes 5 000 événements par seconde de taux d’ingestion auxquels les rubriques personnalisées sont limitées.
+Durant la période de préversion, le débit d’événements pour un domaine d’événement sera limité au même taux d’ingestion de 5 000 événements par seconde que les rubriques personnalisées.
 
 ## <a name="pricing"></a>Tarifs
 
-Lors de l’aperçu, les domaines d’événements utiliseront les mêmes [opérations de tarification](https://azure.microsoft.com/pricing/details/event-grid/) que toutes les autres fonctionnalités dans Event Grid.
+Durant la période de préversion, les domaines d’événements utiliseront la même [tarification des opérations](https://azure.microsoft.com/pricing/details/event-grid/) que toutes les autres fonctionnalités dans Event Grid.
 
-Ces opérations fonctionnent de la même manière dans les domaines d’événements que dans les rubriques personnalisées. Chaque entrée d’un événement dans un domaine d’événements est une opération et chaque tentative de livraison d’un événement est aussi une opération.
+Les opérations fonctionnent de la même manière dans des domaines d’événements que dans des rubriques personnalisées. Chaque entrée d’un événement dans un domaine d’événements est une opération, tout comme chaque tentative de livraison d’un événement.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Pour découvrir comment configurer les domaines d’événements, créer des rubriques, créer des abonnements à des événements et publier des événements, consultez [Gérer les domaines d’événements](./how-to-event-domains.md).
+* Pour découvrir comment configurer des domaines d’événements, créer des rubriques, créer des abonnements à des événements et publier des événements, voir [Gérer les domaines d’événements](./how-to-event-domains.md).
