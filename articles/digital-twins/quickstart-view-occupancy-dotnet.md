@@ -8,20 +8,24 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 10/02/2018
+ms.date: 11/7/2018
 ms.author: alinast
-ms.openlocfilehash: e0b47b1322a520ad8b09fd2fe2967e628b5e4e03
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 6e83ca543937948ad8028969cceca0f8787972c9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49322770"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281216"
 ---
 # <a name="quickstart-find-available-rooms-using-azure-digital-twins"></a>Démarrage rapide : Rechercher des salles disponibles avec Azure Digital Twins
 
 Le service Azure Digital Twins vous permet de reproduire une image numérique de votre environnement physique. Vous pouvez ensuite recevoir des notifications sur les événements dans votre environnement et personnaliser les réponses que vous y apportez. 
 
 Ce guide de démarrage rapide utilise [une paire d’exemples .NET](https://github.com/Azure-Samples/digital-twins-samples-csharp) permettant de numériser un immeuble de bureaux fictif. De plus, il vous montre comment trouver les pièces disponibles dans cet immeuble. Digital Twins vous permet d’associer plusieurs capteurs à votre environnement. Outre la disponibilité de la pièce, vous pouvez également vérifier si la qualité de l’air y est optimale à l’aide d’une simulation de détection du dioxyde de carbone. L’un des exemples d’applications génère des données de capteurs aléatoires pour vous aider à visualiser ce scénario.
+
+La vidéo suivante résume la configuration à l’aide du guide de démarrage rapide :
+
+> [!VIDEO https://www.youtube.com/embed/1izK266tbMI]
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -36,7 +40,7 @@ Ce guide de démarrage rapide utilise [une paire d’exemples .NET](https://gith
 
 Créez une instance Digital Twins dans le [portail](https://portal.azure.com) en suivant les étapes décrites dans cette section.
 
-[!INCLUDE [create-digital-twins-portal](../../includes/create-digital-twins-portal.md)]
+[!INCLUDE [create-digital-twins-portal](../../includes/digital-twins-create-portal.md)]
 
 ## <a name="set-permissions-for-your-app"></a>Définir les autorisations pour votre application
 
@@ -74,7 +78,7 @@ Cette étape permet d’approvisionner votre graphique spatial Digital Twins ave
 
     ![Exemple d’approvisionnement][4]
 
-1. A la fin de l’exécution, copiez le `ConnectionString` de l’appareil pour l’utiliser dans l’exemple de simulateur d’appareil. Copiez uniquement la chaîne indiquée dans l’image ci-dessous :
+1. À la fin de l’exécution, copiez le `ConnectionString` de l’appareil pour l’utiliser dans l’exemple de simulateur d’appareil. Copiez uniquement la chaîne indiquée dans l’image ci-dessous :
 
     ![Exemple d’approvisionnement][1]
 

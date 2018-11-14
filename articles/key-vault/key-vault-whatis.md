@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: d1a6da5d599296a11678ee58cadc42d61296e8e7
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: d7de20e1de91e37b2437091e6d7503e2cb2a4590
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50230299"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51246529"
 ---
 # <a name="what-is-azure-key-vault"></a>Qu’est-ce qu’Azure Key Vault ?
 
@@ -81,12 +81,5 @@ Les développeurs peuvent également gérer les clés directement à l’aide d�
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour un didacticiel de prise en main d’un administrateur, consultez la page [Prise en main d’Azure Key Vault](key-vault-get-started.md).
-
-Pour plus d’informations sur l’utilisation de la journalisation du coffre de clés, consultez [journalisation d’Azure Key Vault](key-vault-logging.md).
-
-Pour en savoir plus sur l’utilisation des clés et des secrets avec Azure Key Vault, consultez la page [À propos des clés, des secrets et des certificats](https://msdn.microsoft.com/library/azure/dn903623\(v=azure.1\).aspx).
-
-<!--Image references-->
-[1]: ./media/key-vault-whatis/AzureKeyVault_overview.png
-Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).
+Découvrez comment [sécuriser votre coffre](key-vault-secure-your-key-vault.md)
+<!--Image references--> [1] :./media/key-vault-whatis/AzureKeyVault_overview.png Azure Key Vault est disponible dans la plupart des régions. Pour plus d’informations, consultez la [page de tarification de Key Vault](https://azure.microsoft.com/pricing/details/key-vault/).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 05/31/2016
 ms.author: deonhe
-ms.openlocfilehash: 2ebd6a8cb70f218c3b56bc78c9b853dbf51ab468
-ms.sourcegitcommit: e266df9f97d04acfc4a843770fadfd8edf4fa2b7
+ms.openlocfilehash: bb07e3ab8043aab24d6d8c3e3db3f3674b28c6f3
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 12/11/2017
-ms.locfileid: "26633864"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244489"
 ---
 # <a name="tutorial-process-edifact-invoices-using-azure-biztalk-services"></a>Didacticiel : Processus de facturation EDIFACT à l’aide des Services BizTalk Azure
 
@@ -28,10 +28,10 @@ ms.locfileid: "26633864"
 Vous pouvez utiliser le portail BizTalk Services pour configurer et déployer des accords X12 et EDIFACT. Dans ce didacticiel, nous allons étudier comment créer un accord EDIFACT destiné à l’échange de factures entre partenaires commerciaux. Ce didacticiel a été rédigé à partir d’une solution de bout en bout faisant intervenir deux partenaires commerciaux, Northwind et Contoso qui échangent des messages EDIFACT.  
 
 ## <a name="sample-based-on-this-tutorial"></a>Exemple basé sur ce didacticiel
-Ce didacticiel s’articule autour d’un exemple, **Envoi de factures EDIFACT à l’aide de BizTalk  Services**, qui est disponible au téléchargement depuis [MSDN Code Gallery](http://go.microsoft.com/fwlink/?LinkId=401005). Vous pouvez utiliser l’exemple et parcourir ce didacticiel pour comprendre comment l’exemple a été créé. Vous pouvez également utiliser ce didacticiel pour créer votre propre solution de A à Z. Ce didacticiel concerne la deuxième approche, afin que vous sachiez comment la solution a été créée. En outre, le plus souvent possible, ce didacticiel est cohérent avec l’exemple et utilise pour les artefacts (schémas et transformations, par exemple) les mêmes noms que ceux qui sont utilisés dans l’exemple.  
+Ce didacticiel s’articule autour d’un exemple, **Envoi de factures EDIFACT à l’aide de BizTalk  Services**, qui est disponible au téléchargement depuis [MSDN Code Gallery](https://go.microsoft.com/fwlink/?LinkId=401005). Vous pouvez utiliser l’exemple et parcourir ce didacticiel pour comprendre comment l’exemple a été créé. Vous pouvez également utiliser ce didacticiel pour créer votre propre solution de A à Z. Ce didacticiel concerne la deuxième approche, afin que vous sachiez comment la solution a été créée. En outre, le plus souvent possible, ce didacticiel est cohérent avec l’exemple et utilise pour les artefacts (schémas et transformations, par exemple) les mêmes noms que ceux qui sont utilisés dans l’exemple.  
 
 > [!NOTE]
-> Étant donné que cette solution implique l’envoi d’un message d’un pont EAI vers un pont EDI, elle il réutilise le [l’exemple de chaînage du pont BizTalk Services](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) .  
+> Étant donné que cette solution implique l’envoi d’un message d’un pont EAI vers un pont EDI, elle il réutilise le [l’exemple de chaînage du pont BizTalk Services](https://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104) .  
 > 
 > 
 
@@ -54,12 +54,12 @@ Pour réaliser ce scénario d’entreprise, Contoso utilise les fonctionnalités
 
 Pour achever le scénario, nous utilisons des files d’attente Service Bus pour envoyer la facture de Contoso à Northwind ou recevoir l’accusé de réception de la part de Northwind. Ces files d’attente peuvent être créées à l’aide d’une application cliente disponible au téléchargement incluse dans l’exemple de package disponible dans le cadre de ce didacticiel.  
 
-## <a name="prerequisites"></a>Composants requis
+## <a name="prerequisites"></a>Prérequis
 * Vous devez disposer d’un espace de noms Azure Service Bus. Pour obtenir des instructions sur la création d’un espace de noms, consultez [Création ou modification d’un espace de noms de service Service Bus](https://msdn.microsoft.com/library/azure/hh674478.aspx). Supposons que vous disposez déjà d’un espace de noms Service Bus configuré appelé **edifactbts**.
 * Vous devez posséder un abonnement BizTalk Services. Pour ce didacticiel, supposons que vous disposez d’un abonnement BizTalk Services, appelé **contosowabs**.
 * Enregistrez votre abonnement BizTalk Services sur le portail BizTalk Services. Pour obtenir des instructions, consultez la page [Enregistrement d’un déploiement de BizTalk Services sur le portail BizTalk Services](https://msdn.microsoft.com/library/hh689837.aspx)
 * Visual Studio doit être installé sur votre machine.
-* Vous devez disposer du kit de développement logiciel BizTalk Services. Vous pouvez télécharger le kit de développement logiciel sur [http://go.microsoft.com/fwlink/?LinkId=235057](http://go.microsoft.com/fwlink/?LinkId=235057)  
+* Vous devez disposer du kit de développement logiciel BizTalk Services. Vous pouvez télécharger le Kit de développement logiciel (SDK) à partir de [http://go.microsoft.com/fwlink/?LinkId=235057](https://go.microsoft.com/fwlink/?LinkId=235057)  
 
 ## <a name="step-1-create-the-service-bus-queues"></a>Étape 1 : créer les files d’attente Service Bus
 Cette solution utilise des files d’attente Service Bus pour l’échange de messages entre partenaires commerciaux. Contoso et Northwind envoient aux files d’attente des messages qui sont ensuite utilisés par les ponts IAE et/ou EDI. Pour cette solution, vous avez besoin de trois files d’attente Service Bus :
@@ -121,7 +121,7 @@ Des accords de partenariat commercial sont créés entre les profils d’entrepr
       ![][6]  
       
       1. Fournissez des valeurs pour **Nom de la règle**, **Règle de routage** et **Destination d’itinéraire** comme indiqué dans l’image.
-      2. Cliquez sur **Save**.
+      2. Cliquez sur **Enregistrer**.
    5. De retour sur l’onglet **Itinéraire** , spécifiez l’endroit vers lequel acheminer les accusés de réception suspendus (accusés de réception qui échouent en cours du traitement). Définissez le type de transport sur Azure Service Bus, le type de destination d’itinéraire sur **File d’attente**, le type d’authentification sur **Signature d’accès partagé** (SAS), fournissez la chaîne de connexion SAP pour l’espace de noms Service Bus, puis saisissez le nom de la file d’attente en tant que **Suspendu**.
 5. Enfin, cliquez sur **Déployer** pour redéployer l’accord. Notez les points de terminaison sur lesquels les accords d’envoi et de réception sont déployés.
    
@@ -154,7 +154,7 @@ Le projet BizTalk Services **InvoiceProcessingBridge**qui transforme le message 
 7. Dans l’Explorateur de solutions, développez **MessageFlowItinerary.bcs** et double-cliquez sur le fichier **EDIBridge.config**. Remplacez le contenu du fichier **EDIBridge.config** par le code suivant.
    
    > [!NOTE]
-   > Pourquoi dois-je modifier le fichier .config ? Le point de terminaison de service externe que nous avons ajouté à la zone de dessin du pont représente les ponts EDI que nous avons déployés précédemment. Les ponts EDI sont bidirectionnels et présentent un côté envoi et un côté réception. Toutefois, le pont IAE que nous avons ajouté au concepteur de pont est un pont unidirectionnel. Par conséquent, pour gérer les modèles d’échange de messages différents des deux ponts, nous utilisons un comportement de pont personnalisé en incluant sa configuration dans le fichier .config. En outre, le comportement personnalisé gère également l’authentification au niveau du point de terminaison du pont d’envoi EDI. Ce comportement personnalisé est disponible sous forme d’exemple distinct dans [l’exemple de chaînage de pont BizTalk Services - IAE à EDI](http://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Cette solution réutilise l’exemple.  
+   > Pourquoi dois-je modifier le fichier .config ? Le point de terminaison de service externe que nous avons ajouté à la zone de dessin du pont représente les ponts EDI que nous avons déployés précédemment. Les ponts EDI sont bidirectionnels et présentent un côté envoi et un côté réception. Toutefois, le pont IAE que nous avons ajouté au concepteur de pont est un pont unidirectionnel. Par conséquent, pour gérer les modèles d’échange de messages différents des deux ponts, nous utilisons un comportement de pont personnalisé en incluant sa configuration dans le fichier .config. En outre, le comportement personnalisé gère également l’authentification au niveau du point de terminaison du pont d’envoi EDI. Ce comportement personnalisé est disponible sous forme d’exemple distinct dans [l’exemple de chaînage de pont BizTalk Services - IAE à EDI](https://code.msdn.microsoft.com/BizTalk-Bridge-chaining-2246b104). Cette solution réutilise l’exemple.  
    > 
    > 
    

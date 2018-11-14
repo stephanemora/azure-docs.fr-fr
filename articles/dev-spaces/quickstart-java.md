@@ -11,12 +11,12 @@ ms.topic: quickstart
 description: Développement Kubernetes rapide avec des conteneurs et des microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
 manager: mmontwil
-ms.openlocfilehash: 7fcdd2d41f5fe76776acd5642cda11ef8a65f82d
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 9e0d90dc4e5e4782802233dd311d10fc1cbe969c
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353756"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978534"
 ---
 # <a name="quickstart-create-a-kubernetes-dev-space-with-azure-dev-spaces-java-and-vs-code"></a>Démarrage rapide : créer un espace de développement Kubernetes avec Azure Dev Spaces (Java et VS Code)
 
@@ -34,7 +34,7 @@ Dans ce guide, vous allez apprendre à :
 - Un abonnement Azure. Si vous n’en avez pas, vous pouvez créer un [compte gratuit](https://azure.microsoft.com/free).
 - [Visual Studio Code](https://code.visualstudio.com/download).
 - [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) version 2.0.43 ou ultérieure.
-- Un cluster Kubernetes, qui exécute Kubernetes 1.10.3 ou ultérieure dans les régions EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral ou CanadaEast, avec le **routage d’application HTTP** activé.
+- Un cluster Kubernetes, qui exécute Kubernetes 1.10.3 ou une version ultérieure dans les régions EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral ou CanadaEast, avec le **routage d’application HTTP** activé.
 
     ```cmd
     az group create --name MyResourceGroup --location <region>

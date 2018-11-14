@@ -11,14 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2018
+ms.date: 11/6/2018
 ms.author: patricka
-ms.openlocfilehash: a1c516ebbeb33d2aa92f6a0e3031a2b2d9fb4e9c
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.reviewer: bryanr
+ms.openlocfilehash: fbf62e53ffe3fc3540086137955417bec56e7825
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50026158"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240169"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Architecture multilocataire dans Azure Stack
 
@@ -26,9 +27,9 @@ ms.locfileid: "50026158"
 
 Vous pouvez configurer Azure Stack pour prendre en charge l’utilisation des services Azure Stack par les utilisateurs de plusieurs locataires Azure Active Directory (Azure AD). Par exemple, considérez le scénario suivant :
 
- - Vous êtes l’administrateur de services de contoso.onmicrosoft.com, où Azure Stack est installé.
- - Marie est l’administrateur de l’annuaire de fabrikam.onmicrosoft.com, où se trouvent les utilisateurs invités. 
- - La société de Marie reçoit des services IaaS et PaaS de la part de votre entreprise, et doit autoriser les utilisateurs de l’annuaire invité (fabrikam.onmicrosoft.com) à se connecter et à utiliser des ressources Azure Stack dans contoso.onmicrosoft.com.
+- Vous êtes l’administrateur de services de contoso.onmicrosoft.com, où Azure Stack est installé.
+- Marie est l’administrateur de l’annuaire de fabrikam.onmicrosoft.com, où se trouvent les utilisateurs invités.
+- La société de Marie reçoit des services IaaS et PaaS de la part de votre entreprise, et doit autoriser les utilisateurs de l’annuaire invité (fabrikam.onmicrosoft.com) à se connecter et à utiliser des ressources Azure Stack dans contoso.onmicrosoft.com.
 
 Ce guide fournit les étapes nécessaires, dans le cadre de ce scénario, pour configurer une architecture multilocataire dans Azure Stack. Dans ce scénario, Marie et vous-même devez effectuer des étapes pour permettre aux utilisateurs de Fabrikam de se connecter et d’utiliser les services du déploiement Azure Stack dans Contoso.  
 
@@ -50,6 +51,8 @@ Il existe quelques prérequis à prendre en compte avant de configurer une archi
 Dans cette section, vous allez configurer Azure Stack pour autoriser les connexions à partir de locataires de l’annuaire Azure AD Fabrikam.
 
 Embarquez le locataire du répertoire invité (Fabrikam) vers Azure Stack en configurant Azure Resource Manager de façon à accepter les utilisateurs et les principaux du service du locataire d’annuaire invité.
+
+L’administrateur de services de contoso.onmicrosoft.com exécute les commandes suivantes.
 
 ````PowerShell  
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -76,11 +79,11 @@ Register-AzSGuestDirectoryTenant -AdminResourceManagerEndpoint $adminARMEndpoint
 
 ### <a name="configure-guest-directory"></a>Configurer l’annuaire invité
 
-Après avoir terminé les étapes dans l’annuaire Azure Stack, Marie doit autoriser Azure Stack à accéder à l’annuaire invité et inscrire Azure Stack auprès de l’annuaire invité. 
+Une fois que l’administrateur/opérateur Azure Stack a activé l’utilisation de l’annuaire Fabrikam avec Azure Stack, Marie doit inscrire Azure Stack auprès du locataire d’annuaire de Fabrikam.
 
 #### <a name="registering-azure-stack-with-the-guest-directory"></a>Inscription d’Azure Stack auprès de l’annuaire invité
 
-Une fois que l’administrateur de l’annuaire invité a autorisé Azure Stack à accéder à l’annuaire de Fabrikam, Marie doit inscrire Azure Stack auprès du locataire d’annuaire de Fabrikam.
+Marie est l’administratrice de l’annuaire de Fabrikam et exécute les commandes suivantes dans l’annuaire invité fabrikam.onmicrosoft.com.
 
 ````PowerShell
 ## The following Azure Resource Manager endpoint is for the ASDK. If you are in a multinode environment, contact your operator or service provider to get the endpoint.
@@ -99,7 +102,7 @@ Register-AzSWithMyDirectoryTenant `
 > Si votre administrateur Azure Stack installe des mises à jour ou de nouveaux services à l’avenir, vous devrez peut-être réexécuter ce script.
 >
 > Faites-le à tout moment pour vérifier l’état des applications Azure Stack dans votre répertoire.
-> 
+>
 > Pour résoudre les problèmes avec la création de machines virtuelles dans Managed Disks (une nouvelle fonctionnalité disponible dans la mise à jour 1808), un nouveau **fournisseur de ressources de disque** a été ajouté, nécessitant la réexécution de ce script.
 
 ### <a name="direct-users-to-sign-in"></a>Inviter les utilisateurs à se connecter

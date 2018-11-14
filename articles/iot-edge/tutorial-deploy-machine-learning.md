@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1cc1115612e8ffbe383f563e30ed5c36055df50a
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 59ce51ba4b015c7236df9e20416832e877dd26c6
+ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50158106"
+ms.lasthandoff: 11/01/2018
+ms.locfileid: "50748372"
 ---
 # <a name="tutorial-deploy-azure-machine-learning-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Machine Learning en tant que module IoT Edge (préversion)
 
@@ -208,5 +208,5 @@ Sinon, vous pouvez supprimer les ressources Azure et les configurations locales 
 Dans ce didacticiel, vous avez déployé un module IoT Edge optimisé par Azure Machine Learning. Vous pouvez continuer avec l’un des autres didacticiels pour en savoir plus sur les autres façons dont Azure IoT Edge peut vous aider à transformer des données en informations métier à la périphérie.
 
 > [!div class="nextstepaction"]
-> [Filtrer les données de capteur à l’aide du code C#](tutorial-csharp-module.md)
+> [Classer des images avec le service Vision personnalisée](tutorial-deploy-custom-vision.md)
 

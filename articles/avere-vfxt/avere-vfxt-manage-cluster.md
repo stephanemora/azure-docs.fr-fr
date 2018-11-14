@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: f5b91329f5287c1d8f76c98f27d9bc2fd464a11a
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 9eba9eef315f1ec6eb25ea21c1d4747ab002d078
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670146"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958914"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Gérer le cluster Avere vFXT
 
@@ -83,7 +83,7 @@ Comme le Panneau de configuration Avere, vfxt.py tente de s’assurer que les do
 
 vfxt.py est préinstallé sur la machine virtuelle du contrôleur de cluster. <!-- (If you want to install it on another system, refer to http://github.com/Azure/AvereSDK) xxx change when this repo goes  public -->
 
-Un guide d’utilisation de vfxt.py complet est disponible sur GitHub : <https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md> 
+Un guide complet consacré à l'utilisation de vfxt.py est disponible sur GitHub : [Gestion des clusters cloud avec vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
 ### <a name="add-cluster-nodes-with-vfxtpy"></a>Ajouter des nœuds au cluster avec vfxt.py
 
@@ -115,7 +115,7 @@ Si vous n’utilisez pas le modèle fourni, créez une commande similaire à l�
    --log ~/vfxt.log
 ```
 
-Pour plus d’informations, consultez [Ajouter des nœuds à un cluster](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) dans le guide d’utilisation de vfxt.py.
+Pour plus d’informations, consultez [Ajouter des nœuds à un cluster](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) dans le guide d’utilisation de vfxt.py.
 
 ### <a name="stop-a-cluster-with-vfxtpy"></a>Arrêter un cluster avec vfxt.py
 
@@ -129,7 +129,7 @@ vfxt.py --cloud-type azure --from-environment --stop --resource-group GROUPNAME 
 vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --instances INSTANCE1_ID INSTANCE2_ID INSTANCE3_ID ...
 ```    
 
-Étant donné que le cluster est arrêté, vous devez passer les identificateurs d’instance pour spécifier les nœuds de cluster. Pour en savoir plus, consultez [Spécifier le cluster à modifier](https://github.com/AvereSystems/vFXT.py/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) dans le guide d’utilisation de vfxt.py.
+Étant donné que le cluster est arrêté, vous devez passer les identificateurs d’instance pour spécifier les nœuds de cluster. Pour en savoir plus, consultez [Spécifier le cluster à modifier](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) dans le guide d’utilisation de vfxt.py.
 
 ### <a name="destroy-a-cluster-with-vfxtpy"></a>Détruire un cluster avec vfxt.py
 
@@ -139,8 +139,7 @@ vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNA
 
 Vous pouvez utiliser l’option ``--quick-destroy`` si vous ne souhaitez pas écrire les données modifiées du cache du cluster.
 
-Pour plus d’informations, consultez le [guide d’utilisation de vfxt.py](<https://github.com/AvereSystems/vFXT.py/blob/master/docs/README.md>).  
-<!-- change to final location when available -->
+Pour plus d’informations, consultez le [guide d’utilisation de vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>).  
 
 ## <a name="manage-cluster-vms-from-the-azure-portal"></a>Gérer des machines virtuelles du cluster à partir du portail Azure 
 
@@ -193,9 +192,9 @@ Outre la suppression des nœuds du cluster, vous pouvez supprimer ces composants
 * La machine virtuelle du contrôleur de cluster
 * Les disques de données associés aux nœuds du cluster
 * Les interfaces réseau et adresses IP publiques associées aux composants du cluster
-* Les réseaux virtuels
+* Réseaux virtuels
 * Les comptes de stockage (**uniquement** s’ils ne contiennent pas de données importantes)
-* Le groupe à haute disponibilité 
+* Groupe à haute disponibilité 
 
 ![Liste de toutes les ressources dans le portail Azure, répertoriant les ressources créées pour un cluster de test](media/avere-vfxt-all-resources-list.png)
 

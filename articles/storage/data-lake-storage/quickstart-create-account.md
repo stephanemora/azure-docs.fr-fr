@@ -9,18 +9,18 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 2dae7938c63ee141ea6705ab4c324882f575e298
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 41f25496d089a5c6487176afee01f7cb06330794
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426870"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281555"
 ---
-# <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Démarrage rapide : créer un compte de stockage Azure Data Lake Storage Gen2 (Préversion)
+# <a name="quickstart-create-a-storage-account-for-analytics"></a>Démarrage rapide : Créer un compte de stockage pour l’analyse
 
-Les comptes Azure Data Lake Storage Gen2 (Préversion) [prennent en charge un service d’espace de noms hiérarchique](introduction.md) qui fournit un système de fichiers sur la base de répertoire conçu spécifiquement pour fonctionner avec le système de fichiers DFS hadoop (HDFS). L’accès aux données Data Lake Storage Gen2 à partir du HDFS est disponible via le [pilote ABFS](abfs-driver.md).
+Les comptes de stockage avec Data Lake Storage Gen2 (Préversion) [prennent en charge un service d’espace de noms hiérarchique](introduction.md) qui fournit un système de fichiers natif basé sur des répertoires conçu spécifiquement pour fonctionner avec le système de fichiers DFS hadoop (HDFS). L’accès aux données Data Lake Storage Gen2 à partir du HDFS est disponible via le [pilote ABFS](abfs-driver.md).
 
-Pour activer les fonctionnalités de Data Lake Storage Gen2 sur votre compte de stockage, [remplissez le sondage de la préversion pour demander l’accès](https://aka.ms/adlsgen2signup). Une fois validé, vous pouvez créer un nouveau compte Data Lake Storage Gen2. Ce démarrage rapide montre comment créer un compte en utilisant le [Portail Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), ou [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
+Pour activer les fonctionnalités de Data Lake Storage Gen2 sur votre compte de stockage, [remplissez le sondage de la préversion pour demander l’accès](https://aka.ms/adlsgen2signup). Une fois l’accès validé, vous pouvez créer un nouveau compte de stockage avec Data Lake Storage Gen2. Ce démarrage rapide montre comment créer un compte en utilisant le [Portail Azure](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), ou [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest).
 
 > [!NOTE]
 > L’interface utilisateur de création de compte dans le portail Azure est mise à jour une fois que votre demande de création de compte Data Lake Storage Gen2 a été validée. De la même façon, les arguments de PowerShell et l’interface CLI liés à Data Lake Storage Gen2 fonctionnent uniquement une fois que votre demande de version préliminaire est validée.
@@ -51,7 +51,7 @@ Ce bouton lance un interpréteur de commandes interactif que vous pouvez utilise
 
 Vous pouvez également installer et utiliser Azure CLI localement. Ce guide de démarrage rapide vous demande d’exécuter Azure CLI version 2.0.38 ou ultérieur. Exécutez `az --version` pour trouver la version. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="overview-of-creating-an-azure-data-lake-storage-gen2-account"></a>Aperçu de création d’un compte Azure Data Lake Storage Gen2
+## <a name="create-a-storage-account-with-azure-data-lake-storage-gen2-enabled"></a>Créer un compte de stockage avec Data Lake Storage Gen2 activé
 
 Avant de créer un compte, vous devez tout d’abord créer un groupe de ressources qui agit comme conteneur logique pour les comptes de stockage ou les autres ressources Azure que vous créez. Si vous souhaitez supprimer les ressources créées par ce démarrage rapide, vous pouvez simplement supprimer le groupe de ressources. La suppression du groupe de ressources efface également le compte de stockage associé et d’autres ressources liées au groupe de ressources. Pour plus d’informations sur les groupes de ressources Azure, consultez l’article [Présentation d’Azure Resource Manager](../../azure-resource-manager/resource-group-overview.md).
 
@@ -135,7 +135,7 @@ Ensuite, redémarrez votre interpréteur de commandes.
 Pour créer un groupe de ressources avec PowerShell, utilisez la commande [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) : 
 
 > [!NOTE]
-> > L’espace de noms hiérarchique est actuellement disponible dans toutes les régions publiques, mais dans aucune des régions privées. Il est actuellement indisponible dans les clouds souverains.
+> > L’espace de noms hiérarchique est actuellement disponible dans toutes les régions publiques. Il est actuellement indisponible dans les clouds souverains.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -222,6 +222,6 @@ az group delete --name myResourceGroup
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce guide de démarrage rapide, vous avez créé un compte de stockage Data Lake Storage Gen2. Pour savoir comment charger et télécharger des objets blob vers/à partir de votre compte de stockage, passez au guide de démarrage rapide du stockage Blob.
+Dans ce guide de démarrage rapide, vous avez créé un compte de stockage avec des fonctions Data Lake Storage Gen2. Pour savoir comment charger et télécharger des objets blob vers/à partir de votre compte de stockage, passez au guide de démarrage rapide du stockage Blob.
 
 * [Déplacer des données vers et depuis Stockage Blob Azure à l’aide d’AzCopy](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azcopy)

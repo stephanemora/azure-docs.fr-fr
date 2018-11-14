@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 08/29/2018
 ms.author: ryanwi,v-steg
 ms.custom: mvc
-ms.openlocfilehash: 5ec898465b550a136db71ee731be5943c7441dcd
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: db0abf2c70ac79356496c78275dc658d1ee29a23
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381944"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51035904"
 ---
 # <a name="tutorial-deploy-a-container-application-with-cicd-to-a-service-fabric-cluster"></a>Tutoriel : Déployer une application conteneur avec intégration et déploiement continus sur un cluster Service Fabric
 
@@ -76,6 +76,9 @@ Une définition de mise en production Team Services décrit un flux de travail q
 Ouvrez un navigateur web et accédez à votre nouveau projet d’équipe à l’adresse : [https://&lt;moncompte&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
 Sélectionnez l’onglet **Build et mise en production**, **Builds**, puis **Nouveau pipeline**.
+
+>[!NOTE]
+>Si vous ne voyez pas le modèle de définition de build, assurez-vous que la fonctionnalité **Nouvelle expérience de création de pipeline YAML** soit désactivée. Cette fonctionnalité est configurée dans la section **Fonctionnalités préliminaires** de votre compte de DevOps.
 
 ![Nouveau pipeline][new-pipeline]
 

@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.component: core
 ms.topic: article
 ms.date: 09/24/2018
-ms.openlocfilehash: 30a1f2be1917ba6ea404a2862daaf5f51f35ac3f
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7eacc475145dac61db1717f1860e22cedd022262
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49394882"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51231445"
 ---
 # <a name="select-and-use-a-compute-target-to-train-your-model"></a>Sélectionner et utiliser une cible de calcul pour entraîner votre modèle
 
-Avec le service Azure Machine Learning, vous pouvez entraîner votre modèle dans plusieurs environnements. Ces environnements, appelés __cibles de calcul__, peuvent être locaux ou dans le cloud. Dans ce document, vous allez découvrir les cibles de calcul prises en charge et comment les utiliser.
+Avec le service Azure Machine Learning, vous pouvez entraîner votre modèle dans différents environnements. Ces environnements, appelés __cibles de calcul__, peuvent être locaux ou dans le cloud. Dans ce document, vous allez découvrir les cibles de calcul prises en charge et comment les utiliser.
 
 Une cible de calcul est la ressource qui exécute votre script d’entraînement ou qui héberge votre modèle quand il est déployé en tant que service web. Vous pouvez les créer et les gérer à l’aide du SDK Azure Machine Learning ou de l’interface CLI. Si vous avez des cibles de calcul qui ont été créées par un autre processus (par exemple le portail Azure ou Azure CLI), vous pouvez les utiliser en les attachant à votre espace de travail du service Azure Machine Learning.
 
@@ -36,8 +36,13 @@ Le service Azure Machine Learning prend en charge les cibles de calcul suivantes
 |----|:----:|:----:|:----:|:----:|
 |[Ordinateur local](#local)| Peut-être | &nbsp; | ✓ | &nbsp; |
 |[Data Science Virtual Machine (DSVM)](#dsvm) | ✓ | ✓ | ✓ | ✓ |
-|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ | ✓ |
+|[Azure Batch AI](#batch)| ✓ | ✓ | ✓ | ✓ |
+|[Azure Databricks](#databricks)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
+|[Service Analytique Azure Data Lake](#adla)| &nbsp; | &nbsp; | &nbsp; | ✓[*](#pipeline-only) |
 |[Azure HDInsight](#hdinsight)| &nbsp; | &nbsp; | &nbsp; | ✓ |
+
+> [!IMPORTANT]
+> <a id="pipeline-only"></a>* Azure Databricks et Azure Data Lake Analytics peuvent __uniquement__ être utilisés dans un pipeline. Pour plus d’informations sur les pipelines, consultez le document [Pipelines dans Azure Machine Learning](concept-ml-pipelines.md).
 
 __[Azure Container Instances (ACI)](#aci)__  peut également être utilisé pour entraîner des modèles. Il s’agit d’une offre de cloud serverless peu coûteuse et facile à créer et à utiliser. ACI ne prend pas en charge l’accélération GPU, le réglage automatisé des hyperparamètres, ni la sélection automatisée du modèle. De plus, vous ne pouvez pas l’utiliser dans un pipeline.
 
@@ -52,7 +57,7 @@ Vous pouvez utiliser le SDK Azure Machine Learning, Azure CLI ou le portail Azur
 > [!IMPORTANT]
 > Vous ne pouvez pas attacher une instance ACI existante à votre espace de travail. Au lieu de cela, vous devez créer une nouvelle instance.
 >
-> Vous ne pouvez pas créer un cluster Azure HDInsight dans un espace de travail. Au lieu de cela, vous devez attacher un cluster existant.
+> Vous ne pouvez pas créer Azure HDInsight, Azure Databricks ou Azure Data Lake Store au sein d’un espace de travail. Au lieu de cela, vous devez créer la ressource puis l’attacher à votre espace de travail.
 
 ## <a name="workflow"></a>Workflow
 
@@ -178,6 +183,7 @@ Les étapes suivantes utilisent le SDK pour configurer une DSVM comme cible d’
     run_config.environment.docker.enabled = True
 
     # Use CPU base image
+    # If you want to use GPU in DSVM, you must also use GPU base Docker image azureml.core.runconfig.DEFAULT_GPU_IMAGE
     run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
     print('Base Docker image is:', run_config.environment.docker.base_image)
 
@@ -295,7 +301,6 @@ run_config.environment.docker.enabled = True
 
 # set Docker base image to the default CPU-based image
 run_config.environment.docker.base_image = azureml.core.runconfig.DEFAULT_CPU_IMAGE
-#run_config.environment.docker.base_image = 'microsoft/mmlspark:plus-0.9.9'
 
 # use conda_dependencies.yml to create a conda environment in the Docker image
 run_config.environment.python.user_managed_dependencies = False
@@ -310,6 +315,106 @@ run_config.environment.python.conda_dependencies = CondaDependencies.create(cond
 La création d’une cible de calcul ACI peut prendre de quelques secondes à quelques minutes.
 
 Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement sur Azure Container Instances, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/03.train-on-aci/03.train-on-aci.ipynb).
+
+## <a id="databricks"></a>Azure Databricks
+
+Azure Databricks est un environnement basé sur Apache Spark dans le cloud Azure. Il peut être utilisé comme une cible de calcul lors de l’apprentissage des modèles avec un pipeline Azure Machine Learning.
+
+> [!IMPORTANT]
+> Une cible de calcul Azure Databricks est utilisable uniquement dans un pipeline Machine Learning.
+>
+> Vous devez créer un espace de travail Azure Databricks avant de l’utiliser pour former votre modèle. Pour créer ces ressources, consultez le document [Exécuter un travail Spark sur Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal).
+
+Pour attacher Azure Databricks comme cible de calcul, vous devez utiliser le Kit de développement logiciel Azure Machine Learning et fournir les informations suivantes :
+
+* __Nom du calcul__ : nom que vous souhaitez attribuer à cette ressource de calcul.
+* __ID de ressource__ : ID de la ressource dans l’espace de travail Azure Databricks. Le texte suivant est un exemple de format pour cette valeur :
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.Databricks/workspaces/<databricks-workspace-name>
+    ```
+
+    > [!TIP]
+    > Pour obtenir l’ID de la ressource, utilisez la commande Azure CLI suivante. Remplacez `<databricks-ws>` par le nom de votre espace de travail Databricks :
+    > ```azurecli-interactive
+    > az resource list --name <databricks-ws> --query [].id
+    > ```
+
+* __Jeton d’accès__ : jeton d’accès utilisé pour s’authentifier auprès d’Azure Databricks. Pour générer un jeton d’accès, consultez le document [Authentification](https://docs.azuredatabricks.net/api/latest/authentication.html).
+
+Le code suivant montre comment attacher Azure Databricks comme cible de calcul :
+
+```python
+databricks_compute_name = os.environ.get("AML_DATABRICKS_COMPUTE_NAME", "<databricks_compute_name>")
+databricks_resource_id = os.environ.get("AML_DATABRICKS_RESOURCE_ID", "<databricks_resource_id>")
+databricks_access_token = os.environ.get("AML_DATABRICKS_ACCESS_TOKEN", "<databricks_access_token>")
+
+try:
+    databricks_compute = ComputeTarget(workspace=ws, name=databricks_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('databricks_compute_name {}'.format(databricks_compute_name))
+    print('databricks_resource_id {}'.format(databricks_resource_id))
+    print('databricks_access_token {}'.format(databricks_access_token))
+    databricks_compute = DatabricksCompute.attach(
+             workspace=ws,
+             name=databricks_compute_name,
+             resource_id=databricks_resource_id,
+             access_token=databricks_access_token
+         )
+    
+    databricks_compute.wait_for_completion(True)
+```
+
+## <a id="adla"></a>Azure Data Lake Analytics
+
+Azure Data Lake Analytics est une plateforme analytique de Big Data dans le cloud Azure. Il peut être utilisé comme une cible de calcul lors de l’apprentissage des modèles avec un pipeline Azure Machine Learning.
+
+> [!IMPORTANT]
+> Une cible de calcul Azure Data Lake Analytics est utilisable uniquement dans un pipeline Machine Learning.
+>
+> Vous devez créer un compte Azure Data Lake Analytics avant de l’utiliser pour former votre modèle. Pour créer cette ressource, consultez le document [Prise en main d’Azure Data Lake Analytics](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-get-started-portal).
+
+Pour attacher Data Lake Analytics comme cible de calcul, vous devez utiliser le Kit de développement logiciel Azure Machine Learning et fournir les informations suivantes :
+
+* __Nom du calcul__ : nom que vous souhaitez attribuer à cette ressource de calcul.
+* __ID de ressource__ : ID de la ressource du compte Data Lake Analytics. Le texte suivant est un exemple de format pour cette valeur :
+
+    ```text
+    /subscriptions/<your_subscription>/resourceGroups/<resource-group-name>/providers/Microsoft.DataLakeAnalytics/accounts/<datalakeanalytics-name>
+    ```
+
+    > [!TIP]
+    > Pour obtenir l’ID de la ressource, utilisez la commande Azure CLI suivante. Remplacez `<datalakeanalytics>` par le nom de votre compte Data Lake Analytics :
+    > ```azurecli-interactive
+    > az resource list --name <datalakeanalytics> --query [].id
+    > ```
+
+Le code suivant montre comment attacher Data Lake Analytics comme cible de calcul :
+
+```python
+adla_compute_name = os.environ.get("AML_ADLA_COMPUTE_NAME", "<adla_compute_name>")
+adla_resource_id = os.environ.get("AML_ADLA_RESOURCE_ID", "<adla_resource_id>")
+
+try:
+    adla_compute = ComputeTarget(workspace=ws, name=adla_compute_name)
+    print('Compute target already exists')
+except ComputeTargetException:
+    print('compute not found')
+    print('adla_compute_name {}'.format(adla_compute_name))
+    print('adla_resource_id {}'.format(adla_resource_id))
+    adla_compute = AdlaCompute.attach(
+             workspace=ws,
+             name=adla_compute_name,
+             resource_id=adla_resource_id
+         )
+    
+    adla_compute.wait_for_completion(True)
+```
+
+> [!TIP]
+> Les pipelines Azure Machine Learning peuvent uniquement fonctionner avec les données stockées dans le magasin de données par défaut du compte Data Lake Analytics. Si les données dont vous avez besoin se trouvent dans un magasin non défini par défaut, vous pouvez utiliser un [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) pour copier les données avant l’apprentissage.
 
 ## <a id="hdinsight"></a>Attacher un cluster HDInsight 
 
@@ -351,8 +456,19 @@ run_config.auto_prepare_environment = True
 ```
 
 ## <a name="submit-training-run"></a>Soumettre une exécution d’entraînement
-    
-Le code permettant de soumettre une exécution d’entraînement est le même quelle que soit la cible de calcul :
+
+Il existe deux façons de soumettre une exécution d’entraînement :
+
+* Soumettre un objet `ScriptRunConfig`.
+* Soumettre un objet `Pipeline`.
+
+> [!IMPORTANT]
+> Les cibles de calcul Azure Databricks et Azure Data Lake Analytics peuvent uniquement être utilisées dans un pipeline.
+> La cible de calcul locale ne peut pas être utilisée dans un pipeline.
+
+### <a name="submit-using-scriptrunconfig"></a>Soumettre en utilisant `ScriptRunConfig`
+
+Le modèle de code permettant de soumettre une exécution d’entraînement à l’aide de `ScriptRunConfig` est le même quelle que soit la cible de calcul :
 
 * Créez un objet `ScriptRunConfig` à l’aide de la configuration d’exécution de la cible de calcul.
 * Soumettez l’exécution.
@@ -360,13 +476,46 @@ Le code permettant de soumettre une exécution d’entraînement est le même qu
 
 L’exemple suivant utilise la configuration de la cible de calcul locale gérée par le système créée plus haut dans ce document :
 
-```pyghon
+```python
 src = ScriptRunConfig(source_directory = script_folder, script = 'train.py', run_config = run_config_system_managed)
 run = exp.submit(src)
 run.wait_for_completion(show_output = True)
 ```
 
 Pour un obtenir un notebook Jupyter qui fait la démonstration d’un entraînement avec Spark sur HDInsight, consultez [https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/01.getting-started/05.train-in-spark/05.train-in-spark.ipynb).
+
+### <a name="submit-using-a-pipeline"></a>Soumettre à l’aide d’un pipeline
+
+Le modèle de code permettant de soumettre une exécution d’entraînement à l’aide d’un pipeline est le même, quelle que soit la cible de calcul :
+
+* Ajoutez une étape au pipeline pour la ressource de calcul.
+* Soumettez une exécution à l’aide du pipeline.
+* Attendez la fin de l’exécution.
+
+L’exemple suivant utilise la cible de calcul Azure Databricks créée plus haut dans ce document :
+
+```python
+dbStep = DatabricksStep(
+    name="databricksmodule",
+    inputs=[step_1_input],
+    outputs=[step_1_output],
+    num_workers=1,
+    notebook_path=notebook_path,
+    notebook_params={'myparam': 'testparam'},
+    run_name='demo run name',
+    databricks_compute=databricks_compute,
+    allow_reuse=False
+)
+# list of steps to run
+steps = [dbStep]
+pipeline = Pipeline(workspace=ws, steps=steps)
+pipeline_run = Experiment(ws, 'Demo_experiment').submit(pipeline)
+pipeline_run.wait_for_completion()
+```
+
+Pour plus d’informations sur les pipelines Machine Learning, consultez le document [Pipelines et Azure Machine Learning](concept-ml-pipelines.md).
+
+Pour des exemples Blocs-notes Jupyter montrant l’apprentissage à l’aide d’un pipeline, consultez [https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline).
 
 ## <a name="view-and-set-up-compute-using-the-azure-portal"></a>Afficher et configurer la cible de calcul à l’aide du portail Azure
 
@@ -387,11 +536,18 @@ Suivez les étapes ci-dessus pour afficher la liste des cibles de calcul, puis p
 
 1. Entrez un nom pour la cible de calcul.
 1. Sélectionnez le type de cible de calcul à attacher pour l’__Entraînement__. 
+
+    > [!IMPORTANT]
+    > Il n’est pas possible de créer tous les types de calcul à l’aide du portail Azure. Actuellement, les types qui peuvent être créés pour l’apprentissage sont les suivants :
+    > 
+    > * Machine virtuelle
+    > * Batch AI
+
 1. Sélectionnez __Créer nouveau__ et remplissez le formulaire. 
 1. Sélectionnez __Créer__
 1. Vous pouvez afficher l’état de l’opération de création en sélectionnant la cible de calcul dans la liste.
 
-    ![Afficher la liste des cibles de calcul](./media/how-to-set-up-training-targets/View_list.png) Vous verrez alors les détails de cette cible de calcul.
+    ![Afficher la liste des cibles de calcul](./media/how-to-set-up-training-targets/View_list.png) Vous verrez alors les détails de la cible de calcul.
     ![Afficher les détails](./media/how-to-set-up-training-targets/vm_view.PNG)
 1. Vous pouvez maintenant soumettre une exécution par rapport à ces cibles comme indiqué ci-dessus.
 
@@ -401,8 +557,16 @@ Suivez les étapes ci-dessus pour afficher la liste des cibles de calcul, puis p
 
 1. Cliquez sur le signe **+** pour ajouter une cible de calcul.
 2. Entrez un nom pour la cible de calcul.
-3. Sélectionnez le type de cible de calcul à attacher pour l’Entraînement. Batch AI et Machines virtuelles sont actuellement pris en charge dans le portail pour l’entraînement.
-4. Sélectionnez « Utiliser l’existant ».
+3. Sélectionnez le type de cible de calcul à attacher pour l’Entraînement.
+
+    > [!IMPORTANT]
+    > Il n’est pas possible d’attacher tous les types de calcul à l’aide du portail.
+    > Actuellement, les types qui peuvent être attachés pour l’apprentissage sont les suivants :
+    > 
+    > * Machine virtuelle
+    > * Batch AI
+
+1. Sélectionnez « Utiliser l’existant ».
     - Lors de l’attachement de clusters Batch AI, sélectionnez la cible de calcul dans la liste déroulante, sélectionnez l’espace de travail Batch AI et le cluster Batch AI, puis cliquez sur **Créer**.
     - Lors de l’attachement d’une machine virtuelle, entrez l’adresse IP, la combinaison nom d’utilisateur/mot de passe, les clés publique/privée et le port, puis cliquez sur Créer.
 
@@ -427,7 +591,7 @@ Consultez ces notebooks : [!INCLUDE [aml-clone-in-azure-notebook](../../../inclu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Référence du SDK Azure Machine Learning](http://aka.ms/aml-sdk)
+* [Référence du SDK Azure Machine Learning](https://aka.ms/aml-sdk)
 * [Tutoriel : Entraîner un modèle](tutorial-train-models-with-aml.md)
 * [Où déployer les modèles](how-to-deploy-and-where.md)
 * [Générer des pipelines de machine learning avec le service Azure Machine Learning](concept-ml-pipelines.md)

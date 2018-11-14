@@ -8,16 +8,16 @@ ms.component: data-lake-storage-gen2
 ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
-ms.openlocfilehash: 5ffbc52bf8a4b8dab298b3ed4895596480fbdccc
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 338acd3e26f9b36e5f9afaf90f95f61e7623cebc
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49426717"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281725"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure
 
-Ce démarrage rapide montre comment exécuter un travail Apache Spark à l’aide d’Azure Databricks pour effectuer une analyse des données stockées dans Azure Data Lake Storage Gen2 Préversion.
+Ce démarrage rapide montre comment exécuter un travail Apache Spark à l’aide d’Azure Databricks pour effectuer une analyse des données stockées dans un compte de stockage avec la préversion d’Azure Data Lake Storage Gen2 activée.
 
 Dans le cadre du travail Spark, vous analysez des données d’abonnement à un canal de radio pour obtenir des informations sur l’utilisation gratuite/payante en fonction de données démographiques.
 
@@ -25,7 +25,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="prerequisites"></a>Prérequis
 
-- [Créer un compte Azure Data Lake Storage Gen2](quickstart-create-account.md)
+- [Créer un compte de stockage avec Data Lake Storage Gen2 activé](quickstart-create-account.md)
 
 ## <a name="set-aside-storage-account-configuration"></a>Mettre de côté la configuration du compte de stockage
 
@@ -38,7 +38,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 Dans cette section, vous créez un espace de travail Azure Databricks en utilisant le portail Azure.
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource** >  **Analytique** > **Azure Databricks**. 
+1. Dans le portail Azure, sélectionnez **Créer une ressource** >  **Analytique** > **Azure Databricks**.
 
     ![Databricks sur le portail Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks sur le portail Azure")
 
@@ -47,7 +47,7 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     ![Créer un espace de travail Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Créer un espace de travail Azure Databricks")
 
     Renseignez les valeurs suivantes :
-     
+
     |Propriété  |Description  |
     |---------|---------|
     |**Nom de l’espace de travail**     | Renseignez un nom pour votre espace de travail Databricks.        |
@@ -191,7 +191,7 @@ Si vous n’arrêtez pas le cluster manuellement, il s’arrête automatiquement
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez créé un cluster Spark dans Azure Databricks et exécuté un travail Spark avec des données dans Data Lake Storage Gen2. Vous pouvez également consulter [Sources de données Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) pour découvrir comment importer des données à partir d’autres sources de données dans Azure Databricks. Passez à l’article suivant pour savoir comment effectuer une opération ETL (extraction, transformation et chargement de données) à l’aide d’Azure Databricks.
+Dans cet article, vous avez créé un cluster Spark dans Azure Databricks et exécuté un travail Spark à l’aide des données dans un compte de stockage dans Data Lake Storage Gen2 activé. Vous pouvez également consulter [Sources de données Spark](https://docs.azuredatabricks.net/spark/latest/data-sources/index.html) pour découvrir comment importer des données à partir d’autres sources de données dans Azure Databricks. Passez à l’article suivant pour savoir comment effectuer une opération ETL (extraction, transformation et chargement de données) à l’aide d’Azure Databricks.
 
 > [!div class="nextstepaction"]
 >[Extraire, transformer et charger des données à l’aide d’Azure Databricks](../../azure-databricks/databricks-extract-load-sql-data-warehouse.md)

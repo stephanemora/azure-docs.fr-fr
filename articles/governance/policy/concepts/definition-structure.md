@@ -4,16 +4,16 @@ description: Explique comment Azure Policy utilise une définition de stratégie
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 09/18/2018
+ms.date: 10/30/2018
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: f5906a93e92691cb6046fb04a9fd83f3484e17b8
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: b5c7d0c6d54272518b19ffec0d8f02ebbcfe55d9
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49427397"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283288"
 ---
 # <a name="azure-policy-definition-structure"></a>Structure de définition Azure Policy
 
@@ -123,12 +123,12 @@ Dans la règle de stratégie, vous référencez des paramètres avec la syntaxe 
 
 ## <a name="definition-location"></a>Emplacement de la définition
 
-Quand vous créez une définition d’initiative ou de stratégie, il est important de spécifier son emplacement.
+Lors de la création d’une initiative ou d’une stratégie, il est important de spécifier l’emplacement de la définition. L’emplacement de la définition doit être un groupe d’administration et détermine l’étendue à laquelle l’initiative ou la stratégie peut être affectée. Les ressources doivent être des membres directs ou des enfants dans la hiérarchie de l’emplacement de la définition à cibler pour l’affectation.
 
-L’emplacement de la définition détermine l’étendue à laquelle la définition d’initiative ou de stratégie peut être affectée. L’emplacement peut être spécifié en tant que groupe d’administration ou d’abonnement.
+Si l’emplacement de la définition est l’un ou l’autre élément suivant :
 
-> [!NOTE]
-> Si vous envisagez d’appliquer cette définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration qui contient les abonnements auxquels vous allez affecter l’initiative ou la stratégie.
+- **Abonnement** : seules les ressources au sein de cet abonnement peuvent être assignées à la stratégie.
+- **Groupe d’administration** : seules les ressources au sein des groupes d’administration enfants et des abonnements enfants peuvent être assignées à la stratégie. Si vous envisagez d’appliquer la définition de stratégie à plusieurs abonnements, l’emplacement doit correspondre à un groupe d’administration qui contient ces abonnements.
 
 ## <a name="display-name-and-description"></a>Nom d’affichage et description
 
@@ -146,7 +146,7 @@ Dans le bloc **then**, vous définissez l’effet qui se produit lorsque les con
         <condition> | <logical operator>
     },
     "then": {
-        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists"
+        "effect": "deny | audit | append | auditIfNotExists | deployIfNotExists | disabled"
     }
 }
 ```
@@ -228,11 +228,12 @@ Les champs suivants sont pris en charge :
 
 La stratégie prend en charge les types d’effet suivants :
 
-- **deny** : génère un événement dans le journal d’audit et fait échouer la requête.
-- **audit** : génère un événement d’avertissement dans le journal d’audit, mais ne fait pas échouer la requête.
+- **deny** : génère un événement dans le journal d’activité et fait échouer la requête.
+- **audit** : génère un événement d’avertissement dans le journal d’activité, mais ne fait pas échouer la requête.
 - **append** : ajoute l’ensemble de champs défini à la requête.
 - **AuditIfNotExists** : active l’audit si une ressource n’existe pas.
-- **DeployIfNotExists** : déploie une ressource si elle n’existe pas déjà.
+- **DeployIfNotExists** : déploie une ressource si elle n’existe pas déjà.
+- **Désactivé** : n’évalue pas les ressources pour la conformité à la règle de stratégie
 
 Pour **append**, vous devez fournir les détails suivants :
 
@@ -247,6 +248,18 @@ Pour **append**, vous devez fournir les détails suivants :
 La valeur peut être une chaîne ou un objet au format JSON.
 
 Avec **AuditIfNotExists** et **DeployIfNotExists**, vous pouvez évaluer l’existence d’une ressource connexe et appliquer une règle et un effet correspondant quand cette ressource n’existe pas. Par exemple, vous pouvez exiger qu’un observateur réseau soit déployé pour tous les réseaux virtuels. Pour obtenir un exemple d’audit quand une extension de machine virtuelle n’est pas déployée, consultez [Auditer si une extension n’existe pas](../samples/audit-ext-not-exist.md).
+
+L’effet **DeployIfNotExists** requiert la présence de la propriété **roleDefinitionId** dans la partie **détails** de la règle de stratégie. Pour plus d’informations, consultez [Correction - Configurer une définition de stratégie](../how-to/remediate-resources.md#configure-policy-definition).
+
+```json
+"details": {
+    ...
+    "roleDefinitionIds": [
+        "/subscription/{subscriptionId}/providers/Microsoft.Authorization/roleDefinitions/{roleGUID}",
+        "/providers/Microsoft.Authorization/roleDefinitions/{builtinroleGUID}"
+    ]
+}
+```
 
 Pour plus d’informations sur chaque effet, l’ordre d’évaluation, les propriétés et des exemples, voir [Présentation des effets des stratégies](effects.md).
 

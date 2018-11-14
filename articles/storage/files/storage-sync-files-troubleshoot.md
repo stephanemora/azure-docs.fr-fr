@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: jeffpatt
 ms.component: files
-ms.openlocfilehash: d240bafa543633999a74ef66efcfd7130a4a7b7a
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 507bbc9013d8b02084b639f8d9fac0c7d97503f4
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389273"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51014276"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Résoudre les problèmes de synchronisation de fichiers Azure
 Utilisez Azure File Sync pour centraliser les partages de fichiers de votre organisation dans Azure Files tout en conservant la flexibilité, le niveau de performance et la compatibilité d’un serveur de fichiers local. Azure File Sync transforme Windows Server en un cache rapide de votre partage de fichiers Azure. Vous pouvez utiliser tout protocole disponible dans Windows Server pour accéder à vos données localement, notamment SMB, NFS et FTPS. Vous pouvez avoir autant de caches que nécessaire dans le monde entier.
@@ -74,9 +74,9 @@ Ce problème se produit si le partage de fichiers Azure est déjà en cours d’
 Si vous voyez ce message et que le partage de fichiers Azure n’est pas en cours d’utilisation par un point de terminaison cloud, effectuez les étapes suivantes pour supprimer les métadonnées Azure File Sync sur le partage de fichiers Azure :
 
 > [!Warning]  
-> La suppression des métadonnées sur un partage de fichiers Azure en cours d’utilisation par un point de terminaison cloud entraîne l’échec des opérations Azure File Sync. 
+> La suppression des métadonnées sur un partage de fichiers Azure en cours d’utilisation par un point de terminaison cloud entraîne l’échec des opérations Azure File Sync. 
 
-1. Dans le portail Azure, accédez au partage de fichiers Azure.  
+1. Dans le portail Azure, accédez au partage de fichiers Azure.  
 2. Cliquez avec le bouton droit sur le partage de fichiers Azure, puis sélectionnez **Modifier les métadonnées**.
 3. Cliquez avec le bouton droit sur **SyncService**, puis sélectionnez **Supprimer**.
 
@@ -260,7 +260,7 @@ Le tableau ci-dessous contient tous les caractères unicode qu’Azure File Sync
 | <ul><li>0x0000009D (osc commande de système d’exploitation)</li><li>0x00000090 (dcs chaîne de commande d’appareils)</li><li>0x0000008F (ss3 remplacement unique trois)</li><li>0x00000081 (préréglage haut octet)</li><li>0x0000007F (suppr Supprimer)</li><li>0x0000008D (ri interligne inversé)</li></ul> | 6. |
 | 0x0000FDD0 - 0x0000FDEF (formulaire de présentation arabe-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (caractères spéciaux) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (type non caractère)</li><li>0x0002FFFE - 0x0002FFFF = 2 (type non caractère)</li><li>0x0003FFFE - 0x0003FFFF = 2 (type non caractère)</li><li>0x0004FFFE - 0x0004FFFF = 2 (type non caractère)</li><li>0x0005FFFE - 0x0005FFFF = 2 (type non caractère)</li><li>0x0006FFFE - 0x0006FFFF = 2 (type non caractère)</li><li>0x0007FFFE - 0x0007FFFF = 2 (type non caractère)</li><li>0x0008FFFE - 0x0008FFFF = 2 (type non caractère)</li><li>0x0009FFFE - 0x0009FFFF = 2 (type non caractère)</li><li>0x000AFFFE - 0x000AFFFF = 2 (type non caractère)</li><li>0x000BFFFE - 0x000BFFFF = 2 (type non caractère)</li><li>0x000CFFFE - 0x000CFFFF = 2 (type non caractère)</li><li>0x000DFFFE - 0x000DFFFF = 2 (type non caractère)</li><li>0x000EFFFE - 0x000EFFFF = 2 (type non caractère)</li><li>0x000FFFFE - 0x000FFFFF = 2 (zone d’utilisation privée supplémentaire)</li></ul> | 30 |
+| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (type non caractère)</li><li>0x0002FFFE - 0x0002FFFF = 2 (type non caractère)</li><li>0x0003FFFE - 0x0003FFFF = 2 (type non caractère)</li><li>0x0004FFFE - 0x0004FFFF = 2 (type non caractère)</li><li>0x0005FFFE - 0x0005FFFF = 2 (type non caractère)</li><li>0x0006FFFE - 0x0006FFFF = 2 (type non caractère)</li><li>0x0007FFFE - 0x0007FFFF = 2 (type non caractère)</li><li>0x0008FFFE - 0x0008FFFF = 2 (type non caractère)</li><li>0x0009FFFE - 0x0009FFFF = 2 (type non caractère)</li><li>0x000AFFFE - 0x000AFFFF = 2 (type non caractère)</li><li>0x000BFFFE - 0x000BFFFF = 2 (type non caractère)</li><li>0x000CFFFE - 0x000CFFFF = 2 (type non caractère)</li><li>0x000DFFFE - 0x000DFFFF = 2 (type non caractère)</li><li>0x000EFFFE - 0x000EFFFF = 2 (non défini)</li><li>0x000FFFFE - 0x000FFFFF = 2 (zone d’utilisation privée supplémentaire)</li></ul> | 30 |
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>Erreurs de synchronisation courantes
@@ -519,7 +519,7 @@ Cette erreur se produit parce qu’il y a des changements sur le partage de fich
 | | |
 | **HRESULT** | 0x80c8021c |
 | **HRESULT (décimal)** | -2134375908 |
-| **Chaîne d’erreur** | ECS_E_SYNC_METADATA_KNOWLEGE_LIMIT_REACHED |
+| **Chaîne d’erreur** | ECS_E_SYNC_METADATA_KNOWLEDGE_LIMIT_REACHED |
 | **Correction requise** | Oui |
 | | |
 | **HRESULT** | 0x80c80253 |

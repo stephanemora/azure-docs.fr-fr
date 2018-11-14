@@ -6,12 +6,12 @@ ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
 ms.author: v-erkell
-ms.openlocfilehash: 47773f9375927e4d8dfbfec922e4cf11e42ade04
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 359ada08f1d9df6b60fc27ca385f6003af498e17
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670046"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50958599"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Déployer le cluster vFXT
 
@@ -30,7 +30,7 @@ Pour plus d’informations sur la planification du déploiement du cluster et le
 
 Après avoir suivi les instructions de ce document, vous disposerez d’un réseau virtuel, d’un sous-réseau, d’un contrôleur et d’un cluster vFXT, comme le montre le diagramme suivant :
 
-![Diagramme montrant un réseau virtuel contenant un stockage d’objets blob facultatif et un sous-réseau contenant trois machines virtuelles regroupées, étiquetées « nœuds vFXT/cluster vFXT », et une machine virtuelle étiquetée « contrôleur de cluster »](media/avere-vfxt-deployment-500px.png)
+![Diagramme montrant un réseau virtuel contenant un stockage d’objets blob facultatif et un sous-réseau contenant trois machines virtuelles regroupées, étiquetées « nœuds vFXT/cluster vFXT », et une machine virtuelle étiquetée « contrôleur de cluster »](media/avere-vfxt-deployment.png)
 
 Avant de commencer, veillez à satisfaire ces prérequis :  
 
@@ -198,9 +198,7 @@ Pour trouver les informations manquantes, accédez à la page d’informations s
 
 Pour trouver ces informations à partir de la sortie du modèle Resource Manager, effectuez les étapes suivantes :
 
-1. À partir de l’icône de notification dans la barre supérieure du portail Azure, cliquez sur **Accéder au groupe de ressources**. Vous accédez au nouveau groupe de ressources contenant le contrôleur et le réseau virtuel.
-
-   ![Section Notifications du portail avec le message « Déploiement réussi » et les boutons « Accéder au groupe de ressources » et « Épingler au tableau de bord »](media/avere-vfxt-browse-to-rg.png)
+1. Accédez au groupe de ressources de votre contrôleur de cluster.
 
 1. À gauche, cliquez sur **Déploiements**, puis sur **Microsoft.Template**.
 

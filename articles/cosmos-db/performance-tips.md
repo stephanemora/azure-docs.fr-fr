@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: sngun
-ms.openlocfilehash: a805294ecb416d18f3ce13981d26a7d25cd5a204
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 3e724301d235db49ab9332dedc877d7315460ecc
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432849"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51256168"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Conseils sur les performances pour Azure Cosmos DB et .NET
 
@@ -25,7 +25,7 @@ ms.locfileid: "47432849"
 > * [.NET](performance-tips.md)
 > 
 
-Azure Cosmos DB est une base de données distribuée rapide et flexible qui peut être mise à l’échelle en toute transparence avec une latence et un débit garantis. Vous n’avez pas à apporter de modifications d’architecture majeures ou écrire de code complexe pour mettre à l’échelle votre base de données avec Azure Cosmos DB. Il suffit d’un simple appel d’API ou de méthode de [kit de développement logiciel (SDK)](set-throughput.md#set-throughput-sdk)pour effectuer une mise à l’échelle. Toutefois, étant donné qu’Azure Cosmos DB est accessible par le biais d’appels réseau, vous pouvez apporter des optimisations côté client de manière à atteindre des performances de pointe quand vous utilisez le [SDK SQL .NET](documentdb-sdk-dotnet.md).
+Azure Cosmos DB est une base de données distribuée rapide et flexible qui peut être mise à l’échelle en toute transparence avec une latence et un débit garantis. Vous n’avez pas à apporter de modifications d’architecture majeures ou écrire de code complexe pour mettre à l’échelle votre base de données avec Azure Cosmos DB. La réduction et l’augmentation de l’échelle est aussi simple que le passage d’un appel d’API. Pour en savoir plus, voir [Approvisionner le débit d’un conteneur](how-to-provision-container-throughput.md) ou [Approvisionner le débit d’une base de données](how-to-provision-database-throughput.md). Toutefois, étant donné qu’Azure Cosmos DB est accessible par le biais d’appels réseau, vous pouvez apporter des optimisations côté client de manière à atteindre des performances de pointe quand vous utilisez le [SDK SQL .NET](documentdb-sdk-dotnet.md).
 
 Si vous vous demandez comment améliorer les performances de votre base de données, lisez ce qui suit :
 
@@ -118,7 +118,7 @@ Si vous vous demandez comment améliorer les performances de votre base de donn�
     Réduire la fréquence de Garbage Collection peut aider dans certains cas. Dans .NET, définissez [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) sur true.
 6. **Implémentation d’interruption à des intervalles de RetryAfter**
 
-    Lors du test de performances, vous devez augmenter la charge jusqu’à une limite d’un petit nombre de requêtes. En cas de limitation, l’application cliente doit s’interrompre à la limitation pour l’intervalle de nouvelle tentative spécifié sur le serveur Le respect de l’interruption garantit un temps d’attente minimal entre chaque tentative. La prise en charge de la stratégie de nouvelle tentative est incluse dans les versions 1.8.0 et ultérieures du SDK SQL [.NET](sql-api-sdk-dotnet.md) et [Java](sql-api-sdk-java.md), dans les versions 1.9.0 et ultérieures du SDK [Node.js](sql-api-sdk-node.md) et [Python](sql-api-sdk-python.md), et dans toutes les versions prises en charge des SDK [.NET Core](sql-api-sdk-dotnet-core.md). Pour plus d’informations, consultez la section [Dépassement des limites de débit réservé](request-units.md#RequestRateTooLarge) et [Propriété RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
+    Lors du test de performances, vous devez augmenter la charge jusqu’à une limite d’un petit nombre de requêtes. En cas de limitation, l’application cliente doit s’interrompre à la limitation pour l’intervalle de nouvelle tentative spécifié sur le serveur Le respect de l’interruption garantit un temps d’attente minimal entre chaque tentative. La prise en charge de la stratégie de nouvelle tentative est incluse dans les versions 1.8.0 et ultérieures du SDK SQL [.NET](sql-api-sdk-dotnet.md) et [Java](sql-api-sdk-java.md), dans les versions 1.9.0 et ultérieures du SDK [Node.js](sql-api-sdk-node.md) et [Python](sql-api-sdk-python.md), et dans toutes les versions prises en charge des SDK [.NET Core](sql-api-sdk-dotnet-core.md). Pour plus d’informations, voir [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx).
     
     Dans la version 1.19 ou version ultérieure du Kit de développement logiciel (SDK) .NET, un mécanisme permet de consigner des informations de diagnostic supplémentaires et de résoudre les problèmes de latence, comme indiqué dans l’exemple suivant. Vous pouvez consigner la chaîne de diagnostic de requêtes ayant une latence de lecture supérieure. La chaîne de diagnostic capturée vous permet de connaître le nombre de fois où des erreurs 429 ont été rencontrées pour une requête donnée.
     ```csharp

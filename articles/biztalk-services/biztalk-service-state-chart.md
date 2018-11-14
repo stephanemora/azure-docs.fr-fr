@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/08/2016
 ms.author: mandia
-ms.openlocfilehash: 05470e75fc7b46603c8fce3a98c66ac6a24758a8
-ms.sourcegitcommit: dcf5f175454a5a6a26965482965ae1f2bf6dca0a
+ms.openlocfilehash: bbe1288a42db307001ac778394ac410206f1df21
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/10/2017
-ms.locfileid: "24102740"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228196"
 ---
 # <a name="what-you-can-and-cant-do-using-the-biztalk-service-state"></a>Ce que vous pouvez et ne pouvez pas faire avec l’état du service BizTalk
 
@@ -33,9 +33,9 @@ Par exemple, vous provisionnez un nouveau service BizTalk. Quand il se termine c
 
 ## <a name="view-the-possible-states"></a>Afficher les états possibles
 
-Les tableaux ci-dessous répertorient les opérations ou les actions qui peuvent être effectuées selon l’état du service BizTalk. Un ✔ signifie que l'opération peut être effectuée dans cet état. Une case vide signifie que l'opération ne peut pas être effectuée dans cet état.
+Les tableaux ci-dessous répertorient les opérations ou les actions qui peuvent être effectuées selon l’état du service BizTalk. Une coche (✔) indique que l’opération est autorisée dans cet état. Une case vide signifie que l'opération ne peut pas être effectuée dans cet état.
 
-| État du service | Démarrer | Arrêter | Redémarrer | Interrompre | Reprendre | Supprimer | Mettre à l'échelle | Mettre à jour <br/> Configuration | Backup  |
+| État du service | Démarrer | Arrêter | Redémarrer | Interrompre | Reprendre | Supprimer | Scale | Mettre à jour <br/> Configuration | Sauvegarde |
 | --- | --- | --- | --- | --- | --- | --- |--- | --- | --- |
 | Actif |  | ✔ | ✔ | ✔ |  | ✔ |✔ |✔ |✔ |
 | Désactivé |  |  |  |  |  | ✔ | |  |  | 
@@ -53,10 +53,10 @@ Les tableaux ci-dessous répertorient les opérations ou les actions qui peuvent
 
 
 ## <a name="see-also"></a>Voir aussi
-* [Ce que vous pouvez faire sous les onglets Tableau de bord, Surveiller et Mettre à l’échelle dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
-* [Ce que vous obtenez avec les éditions Développeur, De base, Standard et Premium dans BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
-* [Guide pratique pour sauvegarder et restaurer un service BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
-* [Qu’est-ce que la limitation dans BizTalk Services ?](http://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
-* [Récupérer le nom et les valeurs de clés de l’émetteur du contrôle d’accès et Service Bus pour votre service BizTalk](http://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
-* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](http://go.microsoft.com/fwlink/p/?LinkID=302335)
+* [Ce que vous pouvez faire sous les onglets Tableau de bord, Surveiller et Mettre à l’échelle dans BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302281)<br/>
+* [Ce que vous obtenez avec les éditions Développeur, De base, Standard et Premium dans BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302279)<br/>
+* [Guide pratique pour sauvegarder et restaurer un service BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=329873)<br/>
+* [Qu’est-ce que la limitation dans BizTalk Services ?](https://go.microsoft.com/fwlink/p/?LinkID=302282)<br/>
+* [Récupérer le nom et les valeurs de clés de l’émetteur du contrôle d’accès et Service Bus pour votre service BizTalk](https://go.microsoft.com/fwlink/p/?LinkID=303941)<br/>
+* [Utilisation du Kit de développement logiciel (SDK) Azure BizTalk Services](https://go.microsoft.com/fwlink/p/?LinkID=302335)
 

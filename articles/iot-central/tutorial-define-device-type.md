@@ -3,24 +3,24 @@ title: Définir un nouveau type d’appareil dans Azure IoT Central | Microsoft 
 description: Ce didacticiel vous indique comment définir un nouveau type d’appareil dans votre application Azure IoT Central en votre qualité de générateur. Vous définissez la télémétrie, l’état, les propriétés et les paramètres pour votre type d’appareil.
 author: tbhagwat3
 ms.author: tanmayb
-ms.date: 10/12/2018
+ms.date: 10/30/2018
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8c69a863d8719a0e4eba30a6d5a619210e7f95b8
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: dd81c10bcda6665de7ffabe94a4c1be991687797
+ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50156032"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50963591"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Didacticiel : définir un nouveau type d’appareil dans votre application Azure IoT Central
 
 Ce didacticiel vous indique comment utiliser un modèle d’appareil pour définir un nouveau type d’appareil dans votre application Microsoft Azure IoT Central en votre qualité de générateur. Un modèle d’appareil définit la télémétrie, l’état, les propriétés et les paramètres pour votre type d’appareil.
 
-Pour vous permettre de tester votre application avant de connecter un appareil réel, Azure IoT Central génère un appareil simulé à partir du modèle d’appareil lorsque vous créez ce dernier.
+Pour vous permettre de tester votre application avant de connecter un appareil réel, IoT Central génère un appareil simulé à partir du modèle d’appareil lorsque vous créez ce dernier.
 
 Dans ce didacticiel, vous allez créer le modèle d’appareil **Climatiseur connecté**. Un climatiseur connecté :
 
@@ -59,9 +59,9 @@ Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Ce
 
 4. Pour créer une nouvelle application Azure IoT Central :
     
-    * Sélectionnez **Gratuit**. La version d’évaluation gratuite de 7 jours ne nécessite aucun abonnement.
+    * Choisissez **Version d’évaluation**. Vous n’avez pas besoin d’un abonnement Azure pour créer une application d’évaluation.
     
-       Pour plus d’informations sur les répertoires et les abonnements, consultez l’article [Créer votre application Azure IoT Central](howto-create-application.md).
+       Pour plus d’informations sur les répertoires et les abonnements, consultez le guide de démarrage rapide [Créer une application](quick-deploy-iot-central.md).
     
     * Choisissez **Application personnalisée**.
     
@@ -69,9 +69,9 @@ Pour suivre ce didacticiel, vous devez disposer d’une application Azure IoT Ce
     
     * Cliquez sur **Créer**.
 
-    ![Page de création d’une application Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreatenew.png)
+    ![Page de création d’une application Azure IoT Central](./media/tutorial-define-device-type/iotcentralcreate.png)
 
-    Pour plus d’informations, consultez l’article [Créer votre application Azure IoT Central](howto-create-application.md).
+    Pour plus d’informations, consultez le guide de démarrage rapide [Créer une application](quick-deploy-iot-central.md).
 
 ## <a name="create-a-new-custom-device-template"></a>Créer un modèle d’appareil personnalisé
 

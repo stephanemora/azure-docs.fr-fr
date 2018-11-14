@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: tomsh
-ms.openlocfilehash: 0f738348dd0a000df8b1da299bb7b58ebc5a1165
-ms.sourcegitcommit: 4ecc62198f299fc215c49e38bca81f7eb62cdef3
+ms.openlocfilehash: cceea9fa613d2a2428427bfe73eb50550db6c69a
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "47040091"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281623"
 ---
 # <a name="azure-database-security-best-practices"></a>Meilleures pratiques en matière de sécurité pour les bases de données Azure
-La sécurité est une préoccupation majeure pour la gestion des bases de données, et elle a toujours été une priorité pour [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Vos bases de données peuvent être étroitement sécurisées pour permettre de répondre aux exigences réglementaires ou de sécurité, notamment HIPAA, ISO 27001/27002 et PCI DSS Level 1. Une liste à jour des certifications de conformité en matière de sécurité est disponible sur le [site du Centre de gestion de la confidentialité Microsoft](http://azure.microsoft.com/support/trust-center/services/). Vous pouvez également choisir de placer vos bases de données dans des centres de données Azure spécifiques, en fonction des exigences réglementaires.
+La sécurité est une préoccupation majeure pour la gestion des bases de données, et elle a toujours été une priorité pour [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/). Vos bases de données peuvent être étroitement sécurisées pour permettre de répondre aux exigences réglementaires ou de sécurité, notamment HIPAA, ISO 27001/27002 et PCI DSS Level 1. Une liste à jour des certifications de conformité en matière de sécurité est disponible sur le [site du Centre de gestion de la confidentialité Microsoft](https://azure.microsoft.com/support/trust-center/services/). Vous pouvez également choisir de placer vos bases de données dans des centres de données Azure spécifiques, en fonction des exigences réglementaires.
 
 Dans cet article, nous abordons différentes bonnes pratiques relatives à la sécurité pour les bases de données Azure. Ces bonnes pratiques sont issues de notre expérience dans le domaine de la sécurité des bases de données Azure, mais également de celle des clients comme vous.
 
@@ -72,22 +72,18 @@ Les avantages suivants sont inclus :
 
 > [!NOTE]
 > L’authentification SQL Server ne peut pas utiliser le protocole de sécurité Kerberos.
->
->
 
 Si vous utilisez l’authentification SQL Server, vous devez :
 
 - Gérer les informations d’identification fortes vous-même.
 - Protéger les informations d’identification dans la chaîne de connexion.
-- (Éventuellement) Protéger les informations d’identification transmises via le réseau à partir du serveur web à la base de données. Pour plus d’informations, consultez [Guide pratique : Se connecter à SQL Server à l’aide de l’authentification SQL dans ASP.NET 2.0](https://msdn.microsoft.com/library/ms998300.aspx).
+- (Éventuellement) Protéger les informations d’identification transmises via le réseau à partir du serveur web à la base de données. Pour plus d’informations, consultez [Guide pratique : Se connecter à SQL Server à l’aide de l’authentification SQL dans ASP.NET 2.0](/previous-versions/msp-n-p/ff648340(v=pandp.10)).
 
 ### <a name="azure-active-directory-ad-authentication"></a>*Authentification Azure Active Directory (AD)*
 L’authentification Azure AD est un mécanisme de connexion aux services Azure SQL Database et [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) à l’aide d’identités dans Azure AD. Avec l’authentification Azure AD, vous pouvez gérer les identités des utilisateurs de base de données et d’autres services Microsoft dans un emplacement centralisé. La gestion centralisée des ID fournit un emplacement unique pour gérer les utilisateurs de la base de données et simplifie la gestion des autorisations.
 
 > [!NOTE]
 > Nous recommandons d’utiliser l’authentification Azure AD plutôt que l’authentification SQL Server.
->
->
 
 Les avantages suivants sont inclus :
 
@@ -112,12 +108,12 @@ Les étapes de configuration incluent les procédures suivantes pour configurer 
 
 Vous trouverez des informations détaillées dans [Utiliser l’authentification Azure Active Directory pour l’authentification auprès de SQL Database, de Managed Instance ou de SQL Data Warehouse](../sql-database/sql-database-aad-authentication.md).
 
-## <a name="protect-your-data-by-using-encryption"></a>Protéger vos données à l’aide du chiffrement
-Le [chiffrement transparent des données Azure SQL Database](https://msdn.microsoft.com/library/dn948096.aspx) permet de protéger les données sur disque et protège contre tout accès non autorisé au matériel. Il assure le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux des transactions au repos, sans que cela nécessite de modifier l’application. Le chiffrement transparent des données chiffre le stockage d’une base de données entière, à l’aide d’une clé symétrique appelée clé de chiffrement de base de données.
+## <a name="protect-your-data-by-using-encryption-and-row-level-security"></a>Protéger vos données à l’aide du chiffrement et de la sécurité au niveau des lignes
+Le [chiffrement transparent des données Azure SQL Database](../sql-database/transparent-data-encryption-azure-sql.md) permet de protéger les données sur disque et protège contre tout accès non autorisé au matériel. Il assure le chiffrement et le déchiffrement en temps réel de la base de données, des sauvegardes associées et des fichiers journaux des transactions au repos, sans que cela nécessite de modifier l’application. Le chiffrement transparent des données chiffre le stockage d’une base de données entière, à l’aide d’une clé symétrique appelée clé de chiffrement de base de données.
 
 Même quand l’ensemble du stockage est chiffré, il est important de chiffrer également la base de données. Il s’agit d’une implémentation de l’approche de défense en profondeur visant à protéger les données. Si vous utilisez Azure SQL Database et souhaitez protéger des données sensibles (comme des numéros de carte de crédit ou de sécurité sociale), vous pouvez chiffrer des bases de données avec le chiffrement AES 256 bits, conforme à la norme FIPS 140-2. Ce chiffrement répond aux exigences de nombreuses normes du secteur (HIPAA, PCI, etc.).
 
-Les fichiers liés à [l’extension du pool de mémoires tampons (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) ne sont pas chiffrés quand vous chiffrez une base de données à l’aide du chiffrement transparent des données. Vous devez utiliser des outils de chiffrement au niveau du système de fichiers comme [BitLocker](https://technet.microsoft.com/library/cc732774) ou le [système de fichiers EFS (Encrypting File System)]() pour les fichiers liés à l’extension du pool de mémoires tampons (BPE).
+Les fichiers liés à [l’extension du pool de mémoires tampons (BPE)](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) ne sont pas chiffrés quand vous chiffrez une base de données à l’aide du chiffrement transparent des données. Vous devez utiliser des outils de chiffrement au niveau du système de fichiers comme [BitLocker](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc732774(v=ws.11)) ou le [système de fichiers EFS (Encrypting File System)](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc749610(v%3dws.10)) pour les fichiers liés à l’extension du pool de mémoires tampons (BPE).
 
 Étant donné qu’un utilisateur autorisé (un administrateur de sécurité ou un administrateur de base de données, par exemple) peut accéder aux données même si la base de données est chiffrée avec le chiffrement transparent des données (TDE), vous devez également suivre les recommandations suivantes :
 
@@ -126,11 +122,11 @@ Les fichiers liés à [l’extension du pool de mémoires tampons (BPE)](https:/
 - Vérifiez que les utilisateurs et les applications utilisent des comptes distincts pour l’authentification. De cette façon, vous pouvez limiter les autorisations accordées aux utilisateurs et aux applications, et réduire les risques d’activité malveillante.
 - Implémentez la sécurité de niveau de la base de données en utilisant des rôles de base de données fixes (comme db_datareader ou db_datawriter). Vous pouvez aussi créer des rôles personnalisés pour votre application afin d’accorder des autorisations explicites à des objets de base de données sélectionnés.
 
-Vous pouvez également utiliser les méthodes de chiffrement des données suivantes :
+Vous pouvez également utiliser les méthodes de sécurisation des données suivantes :
 
-- [chiffrement au niveau des cellules](https://msdn.microsoft.com/library/ms179331.aspx) permet de chiffrer des colonnes spécifiques, voire des cellules de données, avec des clés de chiffrement différentes.
-- [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx), qui permet aux clients de chiffrer les données sensibles dans les applications clientes et de ne jamais divulguer les clés de chiffrement au moteur de base de données (SQL Database ou SQL Server). Always Encrypted sépare ainsi les utilisateurs qui sont propriétaires des données (et peuvent les consulter) des utilisateurs qui gèrent les données (mais n’y ont pas accès).
-- [Sécurité au niveau des lignes](https://msdn.microsoft.com/library/dn765131), qui permet aux clients de contrôler l’accès aux lignes d’une table de base de données en fonction des caractéristiques de l’utilisateur qui exécute une requête. (Par exemple, son groupe d’appartenance et son contexte d’exécution.)
+- [chiffrement au niveau des cellules](/sql/relational-databases/security/encryption/encrypt-a-column-of-data) permet de chiffrer des colonnes spécifiques, voire des cellules de données, avec des clés de chiffrement différentes.
+- [Always Encrypted](/sql/relational-databases/security/encryption/always-encrypted-database-engine), qui permet aux clients de chiffrer les données sensibles dans les applications clientes et de ne jamais divulguer les clés de chiffrement au moteur de base de données (SQL Database ou SQL Server). Always Encrypted sépare ainsi les utilisateurs qui sont propriétaires des données (et peuvent les consulter) des utilisateurs qui gèrent les données (mais n’y ont pas accès).
+- [Sécurité au niveau des lignes](/sql/relational-databases/security/row-level-security), qui permet aux clients de contrôler l’accès aux lignes d’une table de base de données en fonction des caractéristiques de l’utilisateur qui exécute une requête. (Par exemple, son groupe d’appartenance et son contexte d’exécution.)
 
 Les organisations qui n’utilisent pas le chiffrement au niveau de la base de données peuvent être plus vulnérables à des attaques qui compromettent les données se trouvant dans des bases de données SQL.
 

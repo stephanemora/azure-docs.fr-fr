@@ -8,12 +8,12 @@ ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 30b85f15d8718e21af66634db5a4afd5623a77e6
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: c4ab33f4d706eb677b2b790ff871c1fb900846ff
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49340169"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51235630"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge (préversion)
 
@@ -46,7 +46,7 @@ L’exemple de scénario IoT Edge suivant montre le fonctionnement en mode hors 
 
 ## <a name="restrictions-and-limits"></a>Restrictions et limites
 
-Les fonctionnalités hors connexion étendues décrites dans cet article sont disponibles dans [IoT Edge version 1.0.2 ou version ultérieure](https://github.com/Azure/azure-iotedge/releases). Les versions antérieures fournissent toutefois certaines fonctionnalités hors connexion. Les appareils IoT Edge existants qui n’ont pas de fonctionnalités hors connexion étendues ne peuvent pas être mis à niveau en changeant de version de runtime. Pour bénéficier de ces fonctionnalités, ils doivent être reconfigurés avec une nouvelle identité d’appareil IoT Edge. 
+Les fonctionnalités hors connexion étendues décrites dans cet article sont disponibles dans [IoT Edge version 1.0.4 ou ultérieure](https://github.com/Azure/azure-iotedge/releases). Les versions antérieures fournissent toutefois certaines fonctionnalités hors connexion. Les appareils IoT Edge existants qui n’ont pas de fonctionnalités hors connexion étendues ne peuvent pas être mis à niveau en changeant de version de runtime. Pour bénéficier de ces fonctionnalités, ils doivent être reconfigurés avec une nouvelle identité d’appareil IoT Edge. 
 
 La prise en charge des fonctionnalités hors connexion étendues est proposée dans toutes les régions où IoT Hub est disponible, à l’exception des régions USA Est et Europe Ouest. 
 
@@ -56,34 +56,7 @@ Les appareils IoT Edge et leurs appareils enfants assignés peuvent fonctionner 
 
 ## <a name="set-up-an-edge-device"></a>Configurer un appareil Edge
 
-Pour chaque appareil IoT Edge amené à fonctionner hors connexion pendant de longues périodes, configurez le runtime IoT Edge pour communiquer via MQTT. 
-
 Pour étendre les fonctionnalités hors connexion étendues d’un appareil IoT Edge aux appareils IoT enfants assignés, déclarez les relations parent-enfant appropriées dans le portail Azure.
-
-### <a name="set-the-upstream-protocol-to-mqtt"></a>Définir MQTT comme protocole amont
-
-Configurez le hub Edge et l’agent Edge pour utiliser MQTT comme protocole de communication en amont. Déclarez ce protocole à l’aide de variables d’environnement dans le manifeste de déploiement. 
-
-Dans le portail Azure, vous pouvez accéder aux définitions des modules du hub Edge et de l’agent Edge en sélectionnant le bouton **Configurer les paramètres avancés du runtime Edge** quand vous configurez les modules d’un déploiement. Pour les deux modules, créez une variable d’environnement appelée **UpstreamProtocol** et définissez sa valeur sur **MQTT**. 
-
-Dans le modèle de déploiement JSON, les variables d’environnement sont déclarées de la manière suivante : 
-
-```json
-"edgeHub": {
-    "type": "docker",
-    "settings": {
-        "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-        "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"8883/tcp\":[{\"HostPort\":\"8883\"}],\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}]}}}"
-    },
-    "env": {
-        "UpstreamProtocol": {
-            "value": "MQTT"
-        }
-    },
-    "status": "running",
-    "restartPolicy": "always"
-}
-```
 
 ### <a name="assign-child-devices"></a>Assigner des appareils enfants
 
@@ -142,4 +115,4 @@ Remplacez `<HostStoragePath>` et `<ModuleStoragePath>` par le chemin de stockage
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Rendre possibles les opérations hors connexion étendues dans vos scénarios de passerelle transparente pour des appareils [Linux](how-to-create-transparent-gateway-linux.md) ou [Windows](how-to-create-transparent-gateway-windows.md).
+Rendre possibles les opérations hors connexion étendues dans vos scénarios de [passerelle transparente](how-to-create-transparent-gateway.md).

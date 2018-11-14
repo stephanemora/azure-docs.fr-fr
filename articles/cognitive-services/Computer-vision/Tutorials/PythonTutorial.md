@@ -8,35 +8,46 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: tutorial
-ms.date: 02/25/2017
+ms.date: 11/6/2018
 ms.author: kefre
-ms.openlocfilehash: 046250d3d2142badaac35490eff27bcac220fea9
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 16054d19c1ce6f211ebd3e2f0bbc4d152a255dda
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49344895"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51276965"
 ---
 # <a name="tutorial-computer-vision-api-python"></a>Tutoriel : API Vision par ordinateur avec Python
 
-Ce didacticiel vous montre comment utiliser l’API Vision par ordinateur dans Python et comment visualiser vos résultats à l’aide de certaines bibliothèques populaires. Utilisez Jupyter pour exécuter le didacticiel. Pour savoir comment prendre en main les blocs-notes Jupyter interactifs, consultez la [documentation Jupyter](http://jupyter.readthedocs.io/en/latest/index.html). 
+Ce didacticiel vous montre comment utiliser l’API Vision par ordinateur dans Python et comment visualiser vos résultats à l’aide de bibliothèques populaires. Vous allez utiliser Jupyter pour exécuter le didacticiel. Pour savoir comment prendre en main les blocs-notes Jupyter interactifs, consultez la [documentation Jupyter](http://jupyter.readthedocs.io/en/latest/index.html).
+
+## <a name="prerequisites"></a>Prérequis
+
+- [Python 2.7+ ou 3.5+](https://www.python.org/downloads/)
+- Outil [pip](https://pip.pypa.io/en/stable/installing/)
+- [Bloc-notes Jupyter](http://jupyter.org/install) installé
 
 ## <a name="open-the-tutorial-notebook-in-jupyter"></a>Ouvrir le bloc-notes du didacticiel dans Jupyter 
 
-1. Accédez au [bloc-notes du didacticiel dans GitHub](https://github.com/Microsoft/Cognitive-Vision-Python). 
-2. Cliquez sur le bouton vert pour cloner ou télécharger le didacticiel. 
-3. Ouvrez une invite de commandes et accédez au dossier _Cognitive-Vision-Python-master\Jupyter Notebook_. 
-4. Exécutez la commande **jupyter notebook** dans l’invite de commandes. Cela permet de démarrer Jupyter.
-5. Dans la fenêtre Jupyter, cliquez sur _Computer Vision API Example.ipynb_ pour ouvrir le bloc-notes du didacticiel. 
+1. Accédez référentiel GitHub [Cognitive Python Vision](https://github.com/Microsoft/Cognitive-Vision-Python). 
+2. Cliquez sur le bouton vert pour cloner ou télécharger le référentiel. 
+3. Ouvrez une invite de commandes et accédez au dossier **Cognitive-Vision-Python\Jupyter Notebook**.
+1. Assurez-vous que vous disposez de toutes les bibliothèques nécessaires en exécutant la commande `pip install requests opencv-python numpy matplotlib` à partir de l’invite de commandes.
+1. Démarrez Jupyter en exécutant la commande `jupyter notebook` à partir de l’invite de commandes.
+1. Dans la fenêtre Jupyter, cliquez sur _Computer Vision API Example.ipynb_ pour ouvrir le bloc-notes du didacticiel.
 
 ## <a name="run-the-tutorial"></a>Exécuter le didacticiel
 
-Pour utiliser ce bloc-notes, vous avez besoin d’une clé d’abonnement pour l’API Vision par ordinateur. Rendez-vous sur la [page d’inscription](https://azure.microsoft.com/try/cognitive-services/) pour vous inscrire. Sur la page de connexion, utilisez votre compte Microsoft pour vous authentifier et vous abonner afin d’obtenir des clés gratuites. À la suite du processus d’inscription, collez votre clé dans la section des variables du bloc-notes (reproduite ci-dessous). La clé primaire ou secondaire fonctionne. Veillez à placer la clé entre guillemets pour créer une chaîne.
+Pour utiliser ce bloc-notes, vous avez besoin d’une clé d’abonnement pour l’API Vision par ordinateur. Rendez-vous sur la [page d’inscription](https://azure.microsoft.com/try/cognitive-services/) pour vous inscrire. Sur la page de **connexion**, utilisez votre compte Microsoft pour vous authentifier et vous abonner afin d’obtenir des clés gratuites. À la suite du processus d’inscription, collez votre clé dans la section `Variables` du bloc-notes (reproduite ci-dessous). La clé primaire ou secondaire fonctionne. Veillez à placer la clé entre guillemets pour créer une chaîne.
+
+Vous devez également vous assurer que le champ `_region` correspond à la région de votre abonnement.
 
 ```python
 # Variables
-
-_url = 'https://westcentralus.api.cognitive.microsoft.com/vision/v1/analyses'
+_region = 'westcentralus' #Here you enter the region of your subscription
+_url = 'https://{}.api.cognitive.microsoft.com/vision/v2.0/analyze'.format(_region)
 _key = None #Here you have to paste your primary key
 _maxNumRetries = 10
 ```
+
+Lorsque vous exécuterez le didacticiel, vous pourrez ajouter des images à analyser, à la fois à partir d’une URL et du stockage local. Le script affichera les images et les informations d’analyse dans le bloc-notes.

@@ -6,19 +6,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 11/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: bd90d3c4c9207374d6a6085df6a3962ef42b68a9
-ms.sourcegitcommit: 4047b262cf2a1441a7ae82f8ac7a80ec148c40c4
+ms.openlocfilehash: fae5771afea742b2746c32e1ed6ae88c511876e6
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49091423"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51037947"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutoriel : Commander un disque Azure Data Box Disk (préversion)
 
-Azure Data Box Disk est une solution cloud hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers des disques SSD fournis par Microsoft et renvoyez les disques. Ces données sont ensuite chargées dans Azure. 
+Azure Data Box Disk est une solution cloud hybride qui vous permet d’importer vos données locales dans Azure de manière rapide, simple et fiable. Vous transférez vos données vers des disques SSD fournis par Microsoft et renvoyez les disques. Ces données sont ensuite chargées dans Azure.
 
 Ce tutoriel explique comment commander un Azure Data Box Disk. Ce tutoriel vous fournira des informations sur :
 
@@ -34,7 +34,7 @@ Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://az
 > - Data Box Disk est disponible en préversion. Veuillez lire les [conditions d’utilisation de la préversion Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) avant de commander et déployer cette solution. 
 > - Pendant la période de préversion, Data Box Disk peut être envoyé aux clients se trouvant aux États-Unis, en Europe du Nord et de l’Ouest, au Canada et en Australie. Pour plus d’informations, consultez [Disponibilité des régions](data-box-disk-overview.md#region-availability).
 
-## <a name="sign-up"></a>Inscription 
+## <a name="sign-up"></a>Inscription
 
 Data Box Disk est en préversion et vous devez vous inscrire pour utiliser ce service. Procédez comme suit pour vous inscrire au service Data Box Disk :
 
@@ -64,7 +64,7 @@ Procédez comme suit dans le [portail Azure](https://aka.ms/azuredataboxfromdisk
     |Région Azure de destination|Sélectionnez la région Azure où vous souhaitez transférer des données.|
 
   
-5.  Sélectionnez **Data Box Disk**. La capacité maximale de la solution pour une seule commande de 5 disques est de 35 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures. 
+5.  Sélectionnez **Data Box Disk**. La capacité maximale de la solution pour une seule commande de 5 disques est de 35 To. Vous pouvez créer plusieurs commandes pour des tailles de données supérieures.
 
      ![Sélectionnez l’option Data Box Disk](media/data-box-disk-deploy-ordered/select-data-box-sku-zoom.png)
 
@@ -77,6 +77,7 @@ Procédez comme suit dans le [portail Azure](https://aka.ms/azuredataboxfromdisk
     |Région Azure de destination| Sélectionnez une région pour votre compte de stockage.<br> Actuellement, les comptes de stockage de toutes les régions des États-Unis, d’Europe du Nord et de l’Ouest, du Canada et de l’Australie sont pris en charge. |
     |Compte(s) de stockage|Selon la région Azure spécifiée, effectuez la sélection dans la liste filtrée d’un compte de stockage existant. <br>Vous pouvez également créer un nouveau compte Usage général v1 et Usage général v2. |
     |Taille de données estimée en To| Entrez une estimation en To. <br>Selon la taille des données, Microsoft vous envoie un nombre de disques SSD de 8 To (7 To de capacité utilisable) approprié. <br>La capacité utilisable maximale de 5 disques peut atteindre 35 To. |
+    |Clé d’accès de disque| Fournissez la clé d’accès de disque si vous cochez l’option **Utiliser une clé personnalisée à la place de la clé d’accès générée par Azure**. <br> Fournissez une clé alphanumérique comprenant entre 12 et 32 caractères et contenant au moins une valeur numérique et un caractère spécial. Seuls les caractères spéciaux `@?_+` sont autorisés. <br> Vous pouvez choisir d’ignorer cette option et d’utiliser la clé d’accès générée par Azure pour déverrouiller vos disques.|
 
 13. Cliquez sur **Suivant**. 
 

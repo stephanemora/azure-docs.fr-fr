@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/29/2017
-ms.openlocfilehash: 537839295deb631c3b9811c8d40db8608954e8a1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7520780060f603a7e394b100549529a2c1b6fe4b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835251"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51228162"
 ---
 # <a name="execute-python-machine-learning-scripts-in-azure-machine-learning-studio"></a>Exécution des scripts d’apprentissage automatique Python dans Azure Machine Learning Studio
 
@@ -67,7 +67,7 @@ Figure 1. Le module **Exécuter le script Python** .
 Le module [Exécuter le script Python][execute-python-script] dans Azure ML Studio accepte jusqu’à trois entrées et génère jusqu’à deux sorties (voir section suivante), comme son analogue R, le module [Exécuter le script R][execute-r-script]. Le code Python, qui doit être exécuté, est saisi dans la boîte de paramètres en tant que fonction de point d’entrée spécialement nommée, appelée `azureml_main`. Vous trouverez ici les principes de conception clés utilisés pour implémenter ce module :
 
 1. *Doit être idiomatique pour les utilisateurs de Python.* La plupart des utilisateurs de Python factorisent leur code en tant que fonctions au sein des modules. De ce fait, l’insertion de nombreuses instructions exécutables dans un module de niveau supérieur est relativement rare. La boîte de script utilise également une fonction Python spécialement nommée plutôt qu'une séquence d'instructions. Les objets exposés dans la fonction sont des types de bibliothèques standards Python, tels que des trames de données [Pandas](http://pandas.pydata.org/) et des tableaux [NumPy](http://www.numpy.org/).
-2. *Doit disposer d'une haute fidélité entre les exécutions locales et les exécutions du cloud.* Le serveur principal utilisé pour exécuter le code Python est basé sur [Anaconda](https://store.continuum.io/cshop/anaconda/), une distribution scientifique interplateforme Python largement utilisée. Il est fourni avec près de 200 des principaux packages Python. Par conséquent, les scientifiques de données peuvent déboguer et qualifier leur code dans leur environnement Anaconda local compatible avec Azure Machine Learning. Ils peuvent ensuite utiliser un environnement de développement existant, comme le bloc-notes [IPython](http://ipython.org/) ou [Python Tools pour Visual Studio](http://aka.ms/ptvs), afin d’exécuter le code dans le cadre d’une expérience Azure ML. Le point d’entrée `azureml_main` est une fonction Python vanille qui ****peut être créée sans code Azure ML spécifique ou kit de développement logiciel installé.
+2. *Doit disposer d'une haute fidélité entre les exécutions locales et les exécutions du cloud.* Le serveur principal utilisé pour exécuter le code Python est basé sur [Anaconda](https://store.continuum.io/cshop/anaconda/), une distribution scientifique interplateforme Python largement utilisée. Il est fourni avec près de 200 des principaux packages Python. Par conséquent, les scientifiques de données peuvent déboguer et qualifier leur code dans leur environnement Anaconda local compatible avec Azure Machine Learning. Ils peuvent ensuite utiliser un environnement de développement existant, comme le bloc-notes [IPython](http://ipython.org/) ou [Python Tools pour Visual Studio](https://aka.ms/ptvs), afin d’exécuter le code dans le cadre d’une expérience Azure ML. Le point d’entrée `azureml_main` est une fonction Python vanille qui ****peut être créée sans code Azure ML spécifique ou kit de développement logiciel installé.
 3. *Doit être composé, de manière transparente, d’autres modules Azure Machine Learning.* Le module [Exécuter le script Python][execute-python-script] accepte en tant qu'entrées et sorties, les ensembles de données Azure Machine Learning standard. L’infrastructure sous-jacente établit efficacement et en toute transparence un pont entre les runtimes Azure ML et Python. Python peut donc être utilisé en combinaison avec des flux de travail Azure ML existants, y compris ceux qui font appel à R et SQLite. Un scientifique des données peut ainsi composer des flux de travail qui :
    * utilisent Python et Pandas pour le prétraitement et le nettoyage de données
    * alimentent des données pour une transformation SQL, en joignant plusieurs jeux de données dans le but de former des fonctionnalités
@@ -190,7 +190,8 @@ Voici la fonction Python permettant de calculer les notations d’importance et 
 ![image11](./media/execute-python-scripts/figure8.png)
 
 Figure 10. Fonction permettant de classer les fonctionnalités par notations.
-  L'expérience suivante calcule et renvoie ensuite les notations d'importance des fonctionnalités dans l'ensemble de données « Diabète chez les indiens Pima » dans Azure Machine Learning :
+ 
+L’expérience suivante calcule, puis renvoie les notations d’importance des fonctionnalités dans l’ensemble de données « Diabète chez les indiens Pima » dans Azure Machine Learning :
 
 ![image12](./media/execute-python-scripts/figure9a.png)
 ![image13](./media/execute-python-scripts/figure9b.png)    

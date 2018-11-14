@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: 6599d634ec1e13715bdd34b6e8ab6fbd9f4f3e61
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 02c2b7560a0a609f6d902af78877d5f0236615d3
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742914"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51011491"
 ---
 # <a name="preview-deploy-azure-ad-password-protection"></a>Préversion : Déployer la protection de mot de passe Azure AD
 
@@ -53,6 +53,13 @@ Une fois que la fonctionnalité a été exécutée en mode d’audit pendant une
 * Le runtime C universel doit être installé sur tous les ordinateurs sur lesquels les composants de protection par mot de passe Azure AD sont installés, notamment les contrôleurs de domaine.
 Pour cela, téléchargez de préférence tous les correctifs sur l’ordinateur avec Windows Update. Sinon, il est possible d’installer un package de mise à jour propre au système d’exploitation ; voir [Mise à jour du runtime C universel C sous Windows](https://support.microsoft.com/help/2999226/update-for-universal-c-runtime-in-windows).
 * Une connectivité réseau doit exister entre au moins un contrôleur de domaine dans chaque domaine et au moins un serveur hébergeant le service de proxy de protection de mot de passe Azure AD. Cette connectivité doit autoriser le contrôleur de domaine à accéder au port du mappeur de point de terminaison RPC (135) et au port du serveur RPC sur le service de proxy.  Le port du serveur RPC est par défaut un port RPC dynamique, mais il peut être configuré (voir ci-dessous) pour utiliser un port statique.
+* Tous les ordinateurs hébergeant le service proxy de protection par mot de passe Azure AD doivent disposer d'un accès réseau aux points de terminaison suivants :
+
+    |Point de terminaison |Objectif|
+    | --- | --- |
+    |`https://login.microsoftonline.com`|Demandes d’authentification|
+    |`https://enterpriseregistration.windows.net`|Fonctionnalité de protection par mot de passe Azure AD|
+
 * Vous devez utiliser un compte d’administrateur général pour inscrire la forêt et le service de proxy de protection par mot de passe Azure AD auprès d’Azure AD.
 * Un compte disposant des privilèges d’administrateur de domaine Active Directory dans le domaine racine de la forêt pour inscrire la forêt Windows Server Active Directory auprès d’Azure AD.
 * Les domaines Active Directory exécutant le logiciel du service d’agent de contrôleur de domaine doivent utiliser DFSR pour la réplication sysvol.

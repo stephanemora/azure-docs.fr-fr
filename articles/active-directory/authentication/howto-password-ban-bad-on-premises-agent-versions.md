@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.component: authentication
 ms.topic: article
-ms.date: 10/30/2018
+ms.date: 11/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: jsimmons
-ms.openlocfilehash: c52c84a1311c30c19356bb8a1287b203faf476fc
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 89d64a28d2fe43464995e434c9f3807047b29492
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50742904"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50913634"
 ---
 # <a name="preview--azure-ad-password-protection-agent-version-history"></a>Préversion : Historique des versions de l’agent de protection par mot de passe Azure AD
 
@@ -23,6 +23,23 @@ ms.locfileid: "50742904"
 | --- |
 | La protection par mot de passe Azure AD est une fonctionnalité de préversion publique d’Azure Active Directory. Pour plus d’informations sur les préversions, consultez [Conditions d’utilisation supplémentaires pour les préversions de Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)|
 |     |
+
+## <a name="12250"></a>1.2.25.0
+
+Date de publication : 1/11/2018
+
+Correctifs :
+
+* L'agent DC et le service proxy ne devraient plus échouer pour cause d'échecs des certificats de confiance.
+* L'agent DC et le service proxy disposent de correctifs supplémentaires pour les ordinateurs compatibles avec les normes FIPS.
+* Le service proxy fonctionnera désormais correctement dans un environnement réseau utilisant uniquement le protocole TLS 1.2.
+* Correctifs mineurs de performances et de robustesse
+* Amélioration de la journalisation
+
+Modifications :
+
+* Windows Server 2012 R2 est désormais le système d'exploitation minimum requis pour le service proxy. Windows Server 2012 reste le système d'exploitation minimum requis pour le service de l'agent DC.
+* L’algorithme de validation de mot de passe utilise une table de normalisation des caractères étendus. Cela peut entraîner le rejet de mots de passe qui étaient acceptés dans les versions précédentes.
 
 ## <a name="12100"></a>1.2.10.0
 
@@ -45,8 +62,8 @@ Correctifs :
 > Les mises à niveau sur place du logiciel d’agent de contrôleur de domaine nécessitent un redémarrage.
 
 * Le service de proxy et l’agent de contrôleur de domaine prennent désormais en charge l’exécution sur un serveur configuré pour utiliser uniquement des algorithmes compatibles FIPS.
-* Amélioration de la journalisation
 * Correctifs mineurs de performances et de robustesse
+* Amélioration de la journalisation
 
 ## <a name="11103"></a>1.1.10.3
 

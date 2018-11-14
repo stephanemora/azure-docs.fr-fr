@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: ded952ac6418ae3d9916b3ae8b8dbacb0c9c5a84
-ms.sourcegitcommit: 9eaf634d59f7369bec5a2e311806d4a149e9f425
+ms.openlocfilehash: 5320b8d5ca7456a6f1b0fdd1372c9f39ac1edfb0
+ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48806269"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51219407"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publier un modèle de solution sur la Place de marché Microsoft Azure
 
@@ -59,7 +59,7 @@ Les prérequis techniques et non techniques suivants s’appliquent à la public
 
 ## <a name="before-you-begin"></a>Avant de commencer
 
-Dès que vous répondez à tous les prérequis, vous pouvez commencer à créer votre offre de modèle de solution. Avant de commencer, examinez les informations ci-dessous concernant l’offre et les références SKU.
+Dès que vous répondez à tous les prérequis, vous pouvez commencer à créer votre offre de modèle de solution. Avant de commencer, examinez les informations ci-dessous concernant l’offre et la référence SKU.
 
 **Offer**
 
@@ -67,11 +67,11 @@ Une offre Azure Application correspond à une classe d’offre de produit d’un
 
 **Référence (SKU)**
 
-Une référence (SKU) est la plus petite unité achetable d’une offre. À l’intérieur d’une même classe de produit (offre), les références SKU vous permettent de faire la distinction entre les fonctionnalités prises en charge. Par exemple, l’offre est managée ou non managée et différents modèles de facturation sont pris en charge.
+Une référence (SKU) est la plus petite unité achetable d’une offre. À l’intérieur d’une même classe de produit (offre), les références SKU vous permettent de faire la distinction entre les différentes fonctionnalités prises en charge. Par exemple, l’offre est managée ou non managée et différents modèles de facturation sont pris en charge.
 
 Ajoutez plusieurs références SKU dans les scénarios suivants :
 - Vous pouvez prendre en charge différents modèles de facturation, tels que BYOL (apportez votre propre licence) ou PAYG (payez au fur et à mesure).
-- Chaque référence SKU prend en charge un ensemble différent de fonctionnalités dont le trafic est différent.
+- Chaque référence SKU prend en charge un ensemble différent de fonctionnalités et chaque ensemble de fonctionnalités n’affiche pas le même tarif.
 
 Une référence SKU apparaît sous l’offre parente sur la Place de marché Microsoft Azure, tandis qu’elle apparaît en tant qu’entité achetable en tant que telle sur le portail Azure.
 
@@ -91,7 +91,9 @@ Une référence SKU apparaît sous l’offre parente sur la Place de marché Mic
     - Paramètres de l’offre
     - Références (SKU)
     - Marketplace
-    - Support Chaque vue contient un ensemble de champs que vous devez remplir. Les champs obligatoires sont indiqués par un astérisque rouge (\*).
+    - Support
+
+Chaque vue contient un ensemble de champs que vous devez remplir. Les champs obligatoires sont indiqués par un astérisque rouge (\*).
 
 ## <a name="to-configure-offer-settings"></a>Pour configurer les paramètres de l’offre
 
@@ -107,7 +109,7 @@ Une référence SKU apparaît sous l’offre parente sur la Place de marché Mic
 
     Liste déroulante pour le profil d’éditeur. Choisissez le profil sous lequel vous voulez publier l’offre. 
     >[!Note]
-    >Ce champ est verrouillé une fois l’offre publiée.
+    >Ce champ est verrouillé une fois que l’offre est en ligne.
 
     **Nom**
 

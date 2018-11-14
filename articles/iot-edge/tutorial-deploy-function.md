@@ -9,16 +9,16 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: f2b1c394f561b87baf2be261728a1ac39b1f7835
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 67540a02aab0880ea1a5c52e42036029b95c4f43
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49116050"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51006258"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Tutoriel : Déployer des fonctions Azure en tant que modules IoT Edge (préversion)
 
-Vous pouvez utiliser Azure Functions pour déployer un code qui implémente votre logique métier directement sur vos appareils Azure IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’une fonction Azure qui filtre des données de capteur sur l’appareil IoT Edge simulé. Vous utilisez l’appareil IoT Edge simulé que vous avez créé dans les tutoriels Déployer Azure IoT Edge sur un appareil simulé sous [Windows][lnk-tutorial1-win] ou [Linux][lnk-tutorial1-lin]. Ce tutoriel vous montre comment effectuer les opérations suivantes :     
+Vous pouvez utiliser Azure Functions pour déployer un code qui implémente votre logique métier directement sur vos appareils Azure IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’une fonction Azure qui filtre des données de capteur sur l’appareil IoT Edge simulé. Vous utilisez l’appareil IoT Edge simulé que vous avez créé dans les tutoriels Déployer Azure IoT Edge sur un appareil simulé sous [Windows](quickstart.md) ou [Linux](quickstart-linux.md). Ce tutoriel vous montre comment effectuer les opérations suivantes :     
 
 > [!div class="checklist"]
 > * Utilisez Visual Studio Code pour créer une fonction Azure.
@@ -98,67 +98,81 @@ L’extension Azure IoT Edge pour Visual Studio Code que vous avez installée co
    2. Spécifiez un nom pour votre solution ou acceptez le nom par défaut **EdgeSolution**.
    3. Choisissez **Azure Functions - C#** comme modèle du module. 
    4. Nommez votre module **CSharpFunction**. 
-   5. Spécifiez le registre Azure Container Registry que vous avez créé dans la section précédente comme référentiel d’images pour votre premier module. Remplacez **localhost:5000** par la valeur de serveur de connexion que vous avez copiée. La chaîne finale ressemble à \<nom de registre\>.azurecr.io/csharpfunction.
+   5. Spécifiez le registre Azure Container Registry que vous avez créé dans la section précédente comme référentiel d’images pour votre premier module. Remplacez **localhost:5000** par la valeur de serveur de connexion que vous avez copiée. Assurez-vous que le nom du module (par exemple /csharpfunction) reste intact dans la chaîne. La chaîne finale ressemble à \<nom de registre\>.azurecr.io/csharpfunction.
 
    ![Fourniture du référentiel d’images Docker](./media/tutorial-deploy-function/repository.png)
 
-4. La fenêtre VS Code charge votre espace de travail de solution IoT Edge : un dossier \.vscode, un dossier modules, un fichier de modèle de manifeste de déploiement. et un fichier \.env. Dans l’Explorateur Visual Studio Code, ouvrez **modules** > **CSharpFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
+4. La fenêtre VS Code charge votre espace de travail de solution IoT Edge : un dossier \.vscode, un dossier modules, un fichier de modèle de manifeste de déploiement. et un fichier \.env. Dans l’Explorateur Visual Studio Code, ouvrez **modules** > **CSharpFunction** > **CSharpFunction.cs**.
 
-5. Remplacez le contenu du fichier **run.csx** par le code suivant :
+5. Remplacez le contenu du fichier **CSharpFunction.cs** par le code suivant :
 
    ```csharp
-   #r "Microsoft.Azure.Devices.Client"
-   #r "Newtonsoft.Json"
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Text;
+    using System.Threading.Tasks;
+    using Microsoft.Azure.Devices.Client;
+    using Microsoft.Azure.WebJobs;
+    using Microsoft.Azure.WebJobs.Extensions.EdgeHub;
+    using Microsoft.Azure.WebJobs.Host;
+    using Microsoft.Extensions.Logging;
+    using Newtonsoft.Json;
 
-   using System.IO;
-   using Microsoft.Azure.Devices.Client;
-   using Newtonsoft.Json;
-
-   // Filter messages based on the temperature value in the body of the message and the temperature threshold value.
-   public static async Task Run(Message messageReceived, IAsyncCollector<Message> output, TraceWriter log)
-   {
-        const int temperatureThreshold = 25;
-        byte[] messageBytes = messageReceived.GetBytes();
-        var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
-
-        if (!string.IsNullOrEmpty(messageString))
+    namespace Functions.Samples
+    {
+        public static class CSharpFunction
         {
-            // Get the body of the message and deserialize it.
-            var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
-
-            if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+            [FunctionName("CSharpFunction")]
+            public static async Task FilterMessageAndSendMessage(
+                        [EdgeHubTrigger("input1")] Message messageReceived,
+                        [EdgeHub(OutputName = "output1")] IAsyncCollector<Message> output,
+                        ILogger logger)
             {
-                // Send the message to the output as the temperature value is greater than the threashold.
-                var filteredMessage = new Message(messageBytes);
-                // Copy the properties of the original message into the new Message object.
-                foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                const int temperatureThreshold = 20;
+                byte[] messageBytes = messageReceived.GetBytes();
+                var messageString = System.Text.Encoding.UTF8.GetString(messageBytes);
+
+                if (!string.IsNullOrEmpty(messageString))
                 {
-                    filteredMessage.Properties.Add(prop.Key, prop.Value);                }
-                // Add a new property to the message to indicate it is an alert.
-                filteredMessage.Properties.Add("MessageType", "Alert");
-                // Send the message.       
-                await output.AddAsync(filteredMessage);
-                log.Info("Received and transferred a message with temperature above the threshold");
+                    logger.LogInformation("Info: Received one non-empty message");
+                    // Get the body of the message and deserialize it.
+                    var messageBody = JsonConvert.DeserializeObject<MessageBody>(messageString);
+
+                    if (messageBody != null && messageBody.machine.temperature > temperatureThreshold)
+                    {
+                        // Send the message to the output as the temperature value is greater than the threashold.
+                        var filteredMessage = new Message(messageBytes);
+                        // Copy the properties of the original message into the new Message object.
+                        foreach (KeyValuePair<string, string> prop in messageReceived.Properties)
+                        {
+                            filteredMessage.Properties.Add(prop.Key, prop.Value);                }
+                        // Add a new property to the message to indicate it is an alert.
+                        filteredMessage.Properties.Add("MessageType", "Alert");
+                        // Send the message.       
+                        await output.AddAsync(filteredMessage);
+                        logger.LogInformation("Info: Received and transferred a message with temperature above the threshold");
+                    }
+                }
             }
         }
-    }
-
-    //Define the expected schema for the body of incoming messages.
-    class MessageBody
-    {
-        public Machine machine {get; set;}
-        public Ambient ambient {get; set;}
-        public string timeCreated {get; set;}
-    }
-    class Machine
-    {
-       public double temperature {get; set;}
-       public double pressure {get; set;}         
-    }
-    class Ambient
-    {
-       public double temperature {get; set;}
-       public int humidity {get; set;}         
+        //Define the expected schema for the body of incoming messages.
+        class MessageBody
+        {
+            public Machine machine {get; set;}
+            public Ambient ambient {get; set;}
+            public string timeCreated {get; set;}
+        }
+        class Machine
+        {
+            public double temperature {get; set;}
+            public double pressure {get; set;}         
+        }
+        class Ambient
+        {
+            public double temperature {get; set;}
+            public int humidity {get; set;}         
+        }
     }
    ```
 
@@ -256,6 +270,3 @@ Passez aux tutoriels suivants pour en savoir plus sur les autres façons dont Az
 > [!div class="nextstepaction"]
 > [Rechercher des moyennes à l’aide d’une fenêtre flottante dans Azure Stream Analytics](tutorial-deploy-stream-analytics.md)
 
-<!--Links-->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md

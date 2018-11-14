@@ -11,13 +11,13 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 manager: craigg
-ms.date: 09/14/2018
-ms.openlocfilehash: 27f807c8f2f6b6a65ef95136047f5eed1b3aab02
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.date: 11/02/2018
+ms.openlocfilehash: 11777013eca0ba3a759635ef99c2cfa04104e24b
+ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47159310"
+ms.lasthandoff: 11/03/2018
+ms.locfileid: "50978993"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Utiliser le portail Azure pour créer des alertes pour Azure SQL Database et Data Warehouse
 
@@ -44,19 +44,15 @@ Vous pouvez configurer et obtenir des informations sur les règles d’alerte av
 
 ## <a name="create-an-alert-rule-on-a-metric-with-the-azure-portal"></a>Créer une règle d’alerte sur une métrique avec le Portail Azure
 1. Sur le [portail](https://portal.azure.com/), localisez la ressource que vous souhaitez surveiller et sélectionnez-la.
-2. Cette étape est différente pour SQL DS et les pools élastiques par rapport à SQL DW : 
-
-   - **SQL DB et pools élastiques UNIQUEMENT** : sélectionnez **Alertes** ou **Règles d’alerte** dans la section SURVEILLANCE. Le texte et l’icône peuvent varier légèrement pour les différentes ressources.  
+2. Sélectionnez **Alertes (classiques)** dans la section SURVEILLANCE. Le texte et l’icône peuvent varier légèrement pour les différentes ressources.  
    
-     ![Surveillance](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButton.png)
+     ![Surveillance](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertsClassicButton.JPG)
   
-   - **SQL DW UNIQUEMENT** : sélectionnez **Surveillance** dans la section TÂCHES COURANTES. Cliquez sur le graphique **Utilisation DWU**.
+   - **SQL DW UNIQUEMENT** : cliquez sur le graphique **Utilisation DWU**. Sélectionnez **Afficher les alertes classiques**.
 
-     ![TÂCHES COURANTES](../monitoring-and-diagnostics/media/insights-alerts-portal/AlertRulesButtonDW.png)
-
-3. Sélectionnez la commande **Ajouter une alerte** et renseignez les champs.
+3. Sélectionnez le bouton **Ajouter une alerte de métrique (classique)** et renseignez les champs.
    
-    ![Ajouter une alerte](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPage.png)
+    ![Ajouter une alerte](../monitoring-and-diagnostics/media/insights-alerts-portal/AddDBAlertPageClassic.JPG)
 4. **Nommez** votre règle d’alerte, puis choisissez une **Description** qui indique également les adresses électroniques de notification.
 5. Sélectionnez la **Métrique** que vous souhaitez surveiller, puis choisissez une **Condition** et une valeur de **Seuil** pour la métrique. Choisissez également la **Période** de temps pendant laquelle la règle de métrique doit être satisfaite pour que l’alerte se déclenche. Par exemple, si vous utilisez la période « PT5M » et que votre alerte recherche une utilisation de l’UC supérieure à 80 %, elle se déclenche quand l’utilisation **moyenne** de l’UC est supérieure à 80 % depuis cinq minutes. Après le premier déclenchement, elle se déclenchera à nouveau si l’utilisation moyenne de l’UC reste au-dessous de 80 % pendant cinq minutes. La mesure de l’UC se produit toutes les minutes. Consultez le tableau ci-dessous pour connaître les fenêtres de temps prises en charge et le type d’agrégation que chaque alerte utilise, puisque toutes les alertes n’utilisent pas la valeur moyenne.   
 6. Cochez **Propriétaires de messagerie...** si vous souhaitez que les administrateurs et les coadministrateurs reçoivent un courrier électronique lorsque l’alerte se déclenche.

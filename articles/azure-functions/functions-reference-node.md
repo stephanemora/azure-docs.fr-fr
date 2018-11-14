@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 10/26/2018
 ms.author: glenga
-ms.openlocfilehash: 1918ed664a79a46f25cfc5162a28b311bea29cd8
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f99c0fe798baa272bc2c74e8a171dd6bc7ca4304
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740448"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51036544"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guide des développeurs JavaScript sur Azure Functions
 
@@ -76,7 +76,7 @@ Quand vous utilisez la déclaration [`async function`](https://developer.mozilla
 
 L’exemple suivant est une fonction simple qui enregistre qu’elle a été déclenchée et dont l’exécution se termine immédiatement.
 
-``` javascript
+```javascript
 module.exports = async function (context) {
     context.log('JavaScript trigger function processed a request.');
 };
@@ -109,22 +109,27 @@ module.exports = async function (context, req) {
 ## <a name="bindings"></a>Liaisons 
 Dans JavaScript, les [liaisons](functions-triggers-bindings.md) sont configurées et définies dans le fichier function.json d’une fonction. Les fonctions interagissent avec des liaisons de plusieurs façons.
 
-### <a name="reading-trigger-and-input-data"></a>Lecture du déclencheur et données d’entrée
-Le déclencheur et les liaisons d’entrée (liaisons de `direction === "in"`) peuvent être lus par une fonction de trois façons :
+### <a name="inputs"></a>Entrées
+Les entrées sont réparties en deux catégories dans Azure Functions : l’une correspond à l’entrée du déclencheur et l’autre, à l’entrée supplémentaire. Le déclencheur et autres liaisons d’entrée (liaisons de `direction === "in"`) peuvent être lus par une fonction de trois façons :
  - **_[Recommandé]_  En tant que paramètres transmis à votre fonction.** Elles sont transmises à la fonction dans l’ordre dans lequel elles sont définies dans le fichier *function.json*. Notez que la propriété `name` définie dans *function.json* n’a pas besoin de correspondre au nom de votre paramètre, même si c’est conseillé.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
+   
  - **En tant que membres de l’objet [`context.bindings`](#contextbindings-property).** Chaque membre est nommé par la propriété `name` définie dans *function.json*.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + context.bindings.myTrigger);
        context.log("This is myInput: " + context.bindings.myInput);
        context.log("This is myOtherInput: " + context.bindings.myOtherInput);
    };
    ```
+   
  - **En tant qu’entrées à l’aide de l’objet [`arguments`](https://msdn.microsoft.com/library/87dw3w1k.aspx) JavaScript.** Cette approche revient pratiquement au même que la transmission des entrées en tant que paramètres, mais elle vous permet de gérer des entrées de manière dynamique.
-   ``` javascript
+ 
+   ```javascript
    module.exports = async function(context) { 
        context.log("This is myTrigger: " + arguments[1]);
        context.log("This is myInput: " + arguments[2]);
@@ -132,12 +137,13 @@ Le déclencheur et les liaisons d’entrée (liaisons de `direction === "in"`) p
    };
    ```
 
-### <a name="writing-data"></a>Écriture de données
+### <a name="outputs"></a>Outputs
 Une fonction peut écrire des données dans les sorties (liaisons de `direction === "out"`) de plusieurs façons. Dans tous les cas, la propriété `name` de la liaison, comme définie dans *function.json* correspond au nom du membre d’objet faisant l’objet d’une écriture dans votre fonction. 
 
 Vous pouvez assigner des données aux liaisons de sortie de l’une des manières suivantes. Vous ne devez pas combiner ces méthodes.
 - **_[Recommandé pour plusieurs sorties]_  Retourner un objet.** Si vous utilisez une fonction de retour async/Promise, vous pouvez retourner un objet avec des données de sortie assignées. Dans l’exemple ci-dessous, les liaisons de sortie sont nommées « httpResponse » et « queueOutput » dans *function.json*.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       return {
@@ -148,10 +154,12 @@ Vous pouvez assigner des données aux liaisons de sortie de l’une des manière
       };
   };
   ```
+  
   Si vous utilisez une fonction synchrone, vous pouvez retourner cet objet à l’aide de [`context.done`](#contextdone-method) (voir l’exemple).
 - **_[Recommandé en cas de sortie unique]_  Retourner une valeur directement et utiliser le nom de la liaison $return.** Cela fonctionne uniquement pour les fonctions de retour async/Promise. Voir l’exemple dans l’[exportation en tant que fonction asynchrone](#exporting-an-async-function). 
 - **Assigner des valeurs à `context.bindings`** Vous pouvez affecter des valeurs directement à context.bindings.
-  ``` javascript
+
+  ```javascript
   module.exports = async function(context) {
       let retMsg = 'Hello, world!';
       context.bindings.httpResponse = {

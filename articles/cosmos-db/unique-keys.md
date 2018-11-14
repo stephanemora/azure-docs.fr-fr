@@ -1,157 +1,65 @@
 ---
-title: Clés uniques dans Azure Cosmos DB | Microsoft Docs
-description: Découvrez comment utiliser des clés uniques dans votre base de données Azure Cosmos DB.
-services: cosmos-db
-keywords: contrainte de clé unique, violation de contrainte de clé unique
-author: rafats
-manager: kfile
-editor: monicar
+title: Clés uniques dans Azure Cosmos DB
+description: Apprenez à utiliser des clés uniques dans votre base de données Azure Cosmos DB
+author: aliuy
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/08/2018
-ms.author: rafats
-ms.openlocfilehash: ff432de59e5a5fdfeaad4c3a5361554ee32e21b0
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.date: 10/30/2018
+ms.author: andrl
+ms.openlocfilehash: 36b57fd98de206641422d80bf3ea3d2a3853f578
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740006"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252562"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Clés uniques dans Azure Cosmos DB
 
-Les clés uniques permettent aux développeurs d’ajouter une couche d’intégrité des données à leur base de données. En créant une stratégie de clé unique durant la création d’un conteneur, vous garantissez l’unicité d’une ou de plusieurs valeurs par [clé de partition](partition-data.md). Une fois qu’un conteneur a été créé avec une stratégie de clé unique, il empêche la création de tout nouvel élément ou de tout élément mis à jour avec des valeurs dupliquant des valeurs spécifiées par la contrainte de clé unique.   
+Les clés uniques vous permettent d'ajouter une couche d'intégrité des données à un conteneur Cosmos. Vous créez une stratégie de clé unique lors de la création d'un conteneur Cosmos. Avec les clés uniques, vous garantissez l'unicité d'une ou plusieurs valeurs au sein d'une partition logique (vous pouvez garantir l'unicité par [clé de partition](partition-data.md)). Une fois qu'un conteneur a été créé avec une stratégie de clé unique, il empêche la création (ou la mise à jour) de doublons au sein d'une partition logique, comme spécifié par la contrainte de clé unique. La clé de partition associée à la clé unique garantit l'unicité d'un élément au sein d'un conteneur.
 
-> [!NOTE]
-> Les clés uniques sont prises en charge par les dernières versions des SDK SQL [.NET](sql-api-sdk-dotnet.md) et [.NET Core](sql-api-sdk-dotnet-core.md) et de [l’API MongoDB](mongodb-feature-support.md#unique-indexes). L’API Table et l’API Gremlin ne prennent pas en charge les clés uniques pour l’instant. 
-> 
->
+Penons l'exemple d'un conteneur Cosmos avec une adresse e-mail en guise de contrainte de clé unique et `CompanyID` en guise de clé de partition. En configurant l'adresse e-mail de l'utilisateur comme clé unique, vous veillez à ce que chaque élément possède une adresse e-mail unique dans un `CompanyID` donné. Il est impossible de créer deux éléments avec des adresses e-mail en double et avec la même valeur de clé de partition.  
 
-## <a name="use-case"></a>Cas d’utilisation
+Si vous souhaitez permettre aux utilisateurs de créer plusieurs éléments avec la même adresse e-mail, mais pas avec la même combinaison de prénom, nom et adresse e-mail, vous pouvez ajouter d’autres chemins d’accès à la stratégie de clé unique. Au lieu de créer une clé unique basée sur l'adresse e-mail, vous pouvez créer une clé unique combinant à la fois le prénom, le nom et l’adresse e-mail (clé unique composite). Dans ce cas, chaque combinaison unique des trois valeurs est autorisée dans un `CompanyID` donné. Par exemple, le conteneur peut inclure des éléments présentant les valeurs suivantes, chaque élément respectant la contrainte de clé unique.
 
-Examinons, par exemple, comment une base de données utilisateur associée à une [application sociale](use-cases.md#web-and-mobile-applications) pourrait tirer avantage d’une stratégie de clé unique appliquée aux adresses e-mail. En convertissant l’adresse e-mail de l’utilisateur en clé unique, vous êtes sûr que chaque enregistrement possède une adresse e-mail unique et qu’aucun nouvel enregistrement ne peut être créé avec des adresses e-mail dupliquées. 
+|CompanyID|Prénom|Nom|Adresse de messagerie|
+|---|---|---|---|
+|Contoso|Gaby|Duperre|gaby@contoso.com |
+|Contoso|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Gaby|Duperre|gaby@fabrikam.com|
+|Fabrikam|Ivan|Duperre|gaby@fabrikam.com|
+|Fabrikam|   |Duperre|gaby@fabraikam.com|
+|Fabrikam|   |   |gaby@fabraikam.com|
 
-Si vous souhaitez que les utilisateurs soient autorisés à créer plusieurs enregistrements avec la même adresse e-mail, mais pas avec les mêmes prénom, nom et adresse e-mail, vous pouvez ajouter d’autres chemins d’accès à la stratégie de clé unique. Par conséquent, au lieu de créer une clé unique basée sur une adresse e-mail, vous pouvez créer une clé unique combinant à la fois le prénom, le nom et l’adresse e-mail. Dans ce cas, chaque combinaison unique des trois chemins d’accès est autorisée, ce qui permet à la base de données de contenir des éléments ayant les valeurs de chemin d’accès suivantes. Chacun de ces enregistrements passerait la stratégie de clé unique.  
+Si vous tentez d’ajouter un autre élément avec les combinaisons répertoriées dans le tableau ci-dessus, vous recevrez une erreur indiquant que la contrainte de clé unique n’est pas respectée. L'un de messages suivants s'affichera : « Une ressource existante possède déjà l'ID ou le nom spécifié » ou « Une ressource existante possède déjà l'ID, le nom ou l'index unique spécifié ».  
 
-**Valeurs de clé unique autorisées pour firstName (prénom), lastName (nom) et email**
+## <a name="defining-a-unique-key"></a>Définir une clé unique
 
-|Prénom|Nom|Adresse de messagerie|
-|---|---|---|
-|Gaby|Duperre|gaby@contoso.com |
-|Gaby|Duperre|gaby@fabrikam.com|
-|Ivan|Duperre|gaby@fabrikam.com|
-|    |Duperre|gaby@fabrikam.com|
-|    |       |gaby@fabraikam.com|
+Les clés uniques ne peuvent être définies qu'au moment de la création d'un conteneur Cosmos. Une clé unique est associée à une partition logique. Dans l'exemple précédent, si vous partitionnez le conteneur en fonction du code postal, vous aurez des doublons dans chaque partition logique. Lors de la création de clés uniques, tenez compte des propriétés suivantes :
 
-Si vous tentez d’ajouter un autre enregistrement avec l’une des combinaisons répertoriées dans le tableau ci-dessus, vous recevrez une erreur indiquant que la contrainte de clé unique n’est pas respectée. L’erreur Azure Cosmos DB retournée est de type « La ressource avec l’ID ou le nom spécifié existe déjà. » ou « La ressource avec l’ID, le nom ou l’index unique spécifié existe déjà. » 
+* Vous ne pouvez pas mettre à jour un conteneur existant pour qu'il utilise une autre clé unique. Autrement dit, une fois qu'un conteneur a été créé avec une stratégie de clé unique, la stratégie n'est pas modifiable.
 
-## <a name="using-unique-keys"></a>Utilisation de clés uniques
+* Si vous souhaitez définir une clé unique pour un conteneur existant, vous devez créer un nouveau conteneur avec la contrainte de clé unique et utiliser l'outil de migration de données approprié pour déplacer les données du conteneur existant vers le nouveau conteneur. Sur les conteneurs SQL, utilisez l'[outil de migration de données](import-data.md) pour déplacer des données. Sur les conteneurs MongoDB, utilisez [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md) pour déplacer des données.
 
-Des clés uniques doivent être définies durant la création du conteneur, et la clé unique est incluse dans la clé de partition. Pour reprendre l’exemple précédent, si vous partitionnez en fonction du code postal, les enregistrements de la table pourraient se trouver dupliqués dans chaque partition.
+* Une stratégie de clé unique peut inclure un maximum de 16 valeurs de chemin d’accès (par exemple : /firstName, /lastName, /address/zipCode). Chaque stratégie de clé unique peut inclure jusqu’à 10 contraintes ou combinaisons de clé unique, et les chemins d’accès combinés de chaque contrainte d’index unique ne doivent pas dépasser 60 octets. Dans l’exemple précédent, la combinaison prénom, nom et adresse e-mail représente une seule contrainte et utilise trois des 16 chemins d’accès possibles.
 
-Vous ne pouvez pas mettre à jour les conteneurs existants pour utiliser des clés uniques.
+* Lorsqu'un conteneur dispose d'une stratégie de clé unique, le coût en unités de requête de la création, de la mise à jour et de la suppression d'un élément est légèrement supérieur.
 
-Une fois un conteneur créé avec une stratégie de clé unique, la stratégie ne peut pas être modifiée, sauf si vous recréez le conteneur. Si vous disposez de données existantes sur lesquelles implémenter des clés uniques, créez le conteneur, puis utilisez l’outil de migration de données approprié pour déplacer les données vers le nouveau conteneur. Pour les conteneurs SQL, utilisez [l’outil de migration de données](import-data.md). Pour les conteneurs MongoDB, utilisez [mongoimport.exe ou mongorestore.exe](mongodb-migrate.md).
+* Les clés uniques partiellement allouées ne sont pas prises en charge. Si les valeurs de certains chemins d’accès uniques sont manquantes, ces dernières sont traitées comme des valeurs null, qui font partie intégrante de la contrainte d’unicité. Par conséquent, il ne peut y avoir qu'un seul élément avec une valeur null pour satisfaire cette contrainte.
 
-Un maximum de 16 valeurs de chemin d’accès (par exemple /firstName, /lastName, /address/zipCode, etc.) peuvent être incluses dans chaque clé unique. 
+* Les noms de clés uniques sont sensibles à la casse. Prenons l'exemple d'un conteneur doté d'une contrainte de clé unique définie sur /address/zipcode. Si vos données comportent un champ intitulé ZipCode, Cosmos DB insère « null » comme clé unique car « zipcode » n’est pas identique à « ZipCode ». En raison de ce respect de la casse, aucun autre enregistrement contenant ZipCode ne peut être inséré car la valeur « null » dupliquée violera la contrainte de clé unique.
 
-Chaque stratégie de clé unique peut inclure jusqu’à 10 contraintes ou combinaisons de clé unique, et les chemins d’accès combinés de toutes les propriétés d’index unique ne doivent pas dépasser 60 caractères. Ainsi, l’exemple précédent qui utilise le prénom, le nom et l’adresse e-mail représente une seule contrainte et utilise trois des 16 chemins d’accès disponibles. 
+## <a name="supported-apis-and-sdks"></a>API et kits de développement logiciel (SDK) pris en charge
 
-Les frais unitaires de demande de création, de mise à jour et de suppression d’un élément sont légèrement supérieurs quand il existe une stratégie de clé unique appliquée au conteneur. 
+La fonctionnalité de clés uniques est actuellement prise en charge par les API et kits de développement logiciel (SDK) Cosmos DB suivants : 
 
-Les clés uniques partiellement allouées ne sont pas prises en charge. Si les valeurs de certains chemins d’accès uniques sont manquantes, ces dernières sont traitées comme une valeur null spéciale, qui fait partie intégrante de la contrainte d’unicité.
-
-## <a name="sql-api-sample"></a>Exemple d’API SQL
-
-L’exemple de code suivant montre comment créer un conteneur SQL avec deux contraintes de clé unique. La première contrainte est la contrainte firstName, lastName, email décrite dans l’exemple précédent. La deuxième contrainte est la contrainte address/zipCode des utilisateurs. Un exemple de fichier JSON utilisant les chemins d’accès de cette stratégie de clé unique est fourni après l’exemple de code. 
-
-```csharp
-// Create a collection with two separate UniqueKeys, one compound key for /firstName, /lastName,
-// and /email, and another for /address/zipCode.
-private static async Task CreateCollectionIfNotExistsAsync(string dataBase, string collection)
-{
-    try
-    {
-        await client.ReadDocumentCollectionAsync(UriFactory.CreateDocumentCollectionUri(dataBase, collection));
-    }
-    catch (DocumentClientException e)
-    {
-        if (e.StatusCode == System.Net.HttpStatusCode.NotFound)
-        {
-            DocumentCollection myCollection = new DocumentCollection();
-            myCollection.Id = collection;
-            myCollection.PartitionKey.Paths.Add("/pk");
-            myCollection.UniqueKeyPolicy = new UniqueKeyPolicy
-            {
-                UniqueKeys =
-                new Collection<UniqueKey>
-                {
-                    new UniqueKey { Paths = new Collection<string> { "/firstName" , "/lastName" , "/email" }}
-                    new UniqueKey { Paths = new Collection<string> { "/address/zipcode" } },
-          }
-            };
-            await client.CreateDocumentCollectionAsync(
-                UriFactory.CreateDatabaseUri(dataBase),
-                myCollection,
-                new RequestOptions { OfferThroughput = 2500 });
-        }
-        else
-        {
-            throw;
-        }
-    }
-```
-
-Exemple de document JSON.
-
-```json
-{
-    "id": "1",
-    "pk": "1234",
-    "firstName": "Gaby",
-    "lastName": "Duperre",
-    "email": "gaby@contoso.com",
-    "address": 
-        {            
-            "line1": "100 Some Street",
-            "line2": "Unit 1",
-            "city": "Seattle",
-            "state": "WA",
-            "zipcode": 98012
-        }
-    
-}
-```
-> [!NOTE]
-> Veuillez noter que le nom de clé unique respecte la casse. Comme indiqué dans à l’exemple ci-dessus, le nom unique est défini pour /address/zipcode. Si vos données auront une valeur ZipCode, alors « null » est inséré dans la clé unique, car zipcode ne correspond pas à ZipCode. Et en raison de ce respect de la casse, tous les autres enregistrements contenant ZipCode ne pourront pas être insérés, car une valeur « null » dupliquée viole la contrainte de clé unique.
-
-## <a name="mongodb-api-sample"></a>Exemple d’API MongoDB
-
-L’exemple de commande suivant montre comment créer un index unique sur les champs firstName, lastName et email de la collection d’utilisateurs pour l’API MongoDB. Cela garantit l’unicité de la combinaison des trois champs dans tous les documents de la collection. Pour les collections de l’API MongoDB, l’index unique est créé après la création de la collection, mais avant le remplissage de cette dernière.
-
-> [!NOTE]
-> Le format de clé unique pour les comptes API MongoDB est différent de celui des comptes API SQL, où il est inutile de spécifier le caractère barre oblique (/) avant le nom du champ. 
-
-```
-db.users.createIndex( { firstName: 1, lastName: 1, email: 1 }, { unique: true } )
-```
-## <a name="configure-unique-keys-by-using-azure-portal"></a>Configurer les clés uniques à l’aide du portail Azure
-
-Dans les sections ci-dessus, vous trouverez des exemples de code illustrant comment vous pouvez définir des contraintes de clé unique lors de la création d’une collection à l’aide de l’API SQL ou de l’API MongoDB. Mais il est également possible de définir des clés uniques lorsque vous créez une collection via l’interface utilisateur web dans le portail Azure. 
-
-- Accédez à **l’Explorateur de données** dans votre compte Cosmos DB
-- Cliquez sur **Nouvelle collection**
-- Dans la section Clés uniques, ** vous pouvez ajouter les contraintes de clé unique souhaitées en cliquant sur **Ajouter une clé unique**
-
-![Définir des clés uniques dans l’Explorateur de données](./media/unique-keys/unique-keys-azure-portal.png)
-
-- Si vous souhaitez créer une contrainte de clé unique sur le chemin d’accès lastName, ajoutez `/lastName`.
-- Si vous souhaitez créer une contrainte de clé unique pour la combinaison lastName firstName, ajoutez `/lastName,/firstName`.
-
-Lorsque vous avez terminé, cliquez sur **OK** pour créer la collection.
+|Pilotes clients|API SQL|API Cassandra|API MongoDB|API Gremlin|API de table|
+|---|---|---|---|---|---|
+|.NET|Oui|Non |Oui|Non |Non |
+|Java|Oui|Non |Oui|Non |Non |
+|Python|Oui|Non |Oui|Non |Non |
+|Node/JS|Oui|Non |Oui|Non |Non |
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans cet article, vous avez appris à créer des clés uniques pour les éléments d’une base de données. Si vous créez un conteneur pour la première fois, consultez [Partitionnement de données Azure Cosmos DB](partition-data.md), car les clés uniques et les clés de partition dépendent les unes des autres. 
-
-
+* En savoir plus sur les [partitions logiques](partition-data.md)

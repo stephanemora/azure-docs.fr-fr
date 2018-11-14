@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: jeedes
-ms.openlocfilehash: 7d25b072ffc41608bca9e0b23116b2eb453dd160
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f3f7fc3b837dd4eef9bab8ff34a36329436bad9a
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740346"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51010726"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jira-saml-sso-by-microsoft"></a>Didacticiel : Intégration d’Azure Active Directory à JIRA SAML SSO by Microsoft
 
@@ -43,7 +43,7 @@ Utilisez votre compte Microsoft Azure Active Directory avec le serveur Atlassian
 Pour configurer l’intégration d’Azure AD à JIRA SAML SSO by Microsoft, vous avez besoin des éléments suivants :
 
 - Un abonnement Azure AD
-- JIRA Core et Software versions 6.0 à 7.8 ou JIRA Service Desk versions 3.0 à 3.2 doivent être installés et configurés sur Windows version 64 bits.
+- JIRA Core et Software versions 6.0 à 7.12 ou JIRA Service Desk versions 3.0 à 3.5 doivent être installés et configurés sous Windows version 64 bits.
 - L’activation du HTTPS dans le serveur JIRA
 - Notez que les versions prises en charge par le plug-in JIRA sont mentionnées dans la section ci-dessous.
 - L’accessibilité du serveur JIRA via Internet (particulièrement pour la page de connexion Azure AD pour l’authentification) et la capacité à recevoir le jeton d’Azure AD
@@ -140,7 +140,7 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’identificateur, l’URL de réponse et l’URL de connexion réels. Le port est facultatif s’il s’agit d’une URL nommée. Ces valeurs sont reçues durant la configuration du plug-in JIRA qui est décrite plus loin dans le didacticiel.
 
-5. Dans la page **Certificat de signature SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération de l’application**, puis collez-la dans le bloc-notes.
+5. Sur la page **Certificat de signature SAML**, dans la section **Certificat de signature SAML**, cliquez sur le bouton Copier pour copier l’**URL des métadonnées de fédération de l’application**, puis collez-la dans le Bloc-notes.
 
     ![Lien Téléchargement de certificat](./media/jiramicrosoft-tutorial/tutorial_metadataurl.png) 
 

@@ -8,35 +8,69 @@ ms.topic: reference
 author: hning86
 ms.author: haining
 ms.reviewer: j-martens
-ms.date: 03/28/2018
-ms.openlocfilehash: 58d0d028c920faa7e86884c85f8fb677ce67c390
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.date: 10/24/2018
+ms.openlocfilehash: 5ceb47f437f736829d0be10a856fe787fab944b0
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49389919"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51261571"
 ---
 # <a name="azure-machine-learning-service-release-notes"></a>Notes de publication du service Azure Machine Learning
 
 Dans cet article, découvrez les versions du service Azure Machine Learning. 
 
+## <a name="2018-11-05"></a>2018-11-05
+
+### <a name="azure-portal"></a>Portail Azure 
+Le portail Azure du service Azure Machine Learning contient les mises à jour suivantes :
+  * Un nouveau onglet **Pipelines** pour les pipelines publiés.
+  * Ajout de la prise en charge de la connexion d’un cluster HDInsight existant comme cible de calcul.
+
+### <a name="azure-machine-learning-sdk-for-python-v0174"></a>SDK Azure Machine Learning pour Python v0.1.74
+
++ **Dernières modifications** 
+  * *Workspace.compute_targets, datastores, experiments, images, models* et *webservices* ne sont plus des méthodes, mais deviennent des propriétés. Par exemple, *Workspace.compute_targets* remplace *Workspace.compute_targets()*.
+  * *Run.get_context* rend *Run.get_submitted_run* obsolète. Cette dernière méthode sera supprimée dans les versions ultérieures.
+  * La classe *PipelineData* attend un objet datastore en tant que paramètre et non pas datastore_name. De même, *Pipeline* accepte default_datastore plutôt que default_datastore_name.
+
++ **Nouvelles fonctionnalités**
+  * L’[exemple de notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/pipeline/pipeline-mpi-batch-prediction.ipynb) Azure Machine Learning Pipelines utilise maintenant les étapes MPI.
+  * Le widget RunDetails pour les ordinateurs portables Jupyter est mis à jour pour afficher une visualisation du pipeline.
+
+### <a name="azure-machine-learning-data-prep-sdk-v040"></a>SDK de préparation de données Azure Machine Learning v0.4.0 
+ 
++ **Nouvelles fonctionnalités**
+  * Nombre de types ajouté au profil de données 
+  * Nombre de valeurs et histogramme désormais disponible
+  * Plus de centiles dans le profil de données
+  * Médian disponible dans Summarize (Résumer)
+  * Prise en charge de Python 3.7
+  * Lorsque vous enregistrez un dataflow contenant des données dans un package DataPrep, les informations du magasin de données sont conservées dans ce package.
+  * L’écriture dans le magasin de données est maintenant prise en charge 
+        
++ **Bogue corrigé**
+  * Les dépassements de capacité d’entiers non signés 64 bits sont maintenant gérés correctement sous Linux
+  * Étiquette de texte incorrecte corrigées pour les fichiers en texte brut dans smart_read
+  * Le type de colonne chaîne s’affiche maintenant dans la vue métriques
+  * Le nombre de types est maintenant corrigé pour associer ValueKinds à un seul FieldType et non pas à des FieldTypes individuels.
+  * Write_to_csv n’échoue plus lorsque le chemin d’accès est fourni en tant que chaîne
+  * Lorsque vous utilisez Remplacer, le fait de ne pas renseigner « find » (trouver) ne fait plus échouer l’application 
+
 ## <a name="2018-10-12"></a>12-10-2018
 
 ### <a name="azure-machine-learning-sdk-for-python-v0168"></a>SDK Azure Machine Learning pour Python v0.1.68
 
-#### <a name="new-features"></a>Nouvelles fonctionnalités
- * Prise en charge de plusieurs locataires durant la création d’un espace de travail.
++ **Nouvelles fonctionnalités**
+  * Prise en charge de plusieurs locataires durant la création d’un espace de travail.
 
-#### <a name="breaking-changes"></a>Dernières modifications
- * **À venir dans la prochaine version** *Workspace.compute_targets, datastores, experiments, images, models* et *webservices* deviennent des propriétés au lieu de méthodes. Par exemple, *Workspace.compute_targets* remplace *Workspace.compute_targets()*.
-
-#### <a name="bugs-fixed"></a>Bogues corrigés
- * Il n’est plus nécessaire d’épingler la version de la bibliothèque pynacl durant le déploiement d’un service web.
++ **Bogues corrigés**
+  * Il n’est plus nécessaire d’épingler la version de la bibliothèque pynacl durant le déploiement d’un service web.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v030"></a>SDK de préparation de données Azure Machine Learning v0.3.0
 
-#### <a name="new-features"></a>Nouvelles fonctionnalités :
-* Ajout de la méthode transform_partition_with_file(script_path), qui permet aux utilisateurs de transmettre le chemin d’un fichier Python à exécuter
++ **Nouvelles fonctionnalités**
+  * Ajout de la méthode transform_partition_with_file(script_path), qui permet aux utilisateurs de transmettre le chemin d’un fichier Python à exécuter
 
 ## <a name="2018-10-01"></a>01-10-2018
 
@@ -45,56 +79,55 @@ La [version 0.1.65](https://pypi.org/project/azureml-sdk/0.1.65) inclut de nouv
 
 Consultez la [liste des problèmes connus](resource-known-issues.md) pour en savoir plus sur les bogues connus et les solutions de contournement.
 
-#### <a name="breaking-changes"></a>Dernières modifications
- * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services retournent un dictionnaire, et non plus une liste. Consultez la documentation de l’API [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py).
++ **Dernières modifications**
+  * Workspace.experiments, Workspace.models, Workspace.compute_targets, Workspace.images, Workspace.web_services retournent un dictionnaire, et non plus une liste. Consultez la documentation de l’API [azureml.core.Workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py).
 
- * Machine Learning automatisé : suppression de l’erreur quadratique moyenne normalisée des métriques principales.
+  * Machine Learning automatisé : suppression de l’erreur quadratique moyenne normalisée des métriques principales.
 
++ **HyperDrive**
+  * Divers correctifs de bogues HyperDrive pour la méthode Bayésien, améliorations des performances pour les appels d’obtention de métriques. 
+  * Mise à niveau de Tensorflow 1.10 depuis 1.9 
+  * Optimisation des images docker pour le démarrage à froid. 
+  * Les travaux indiquent maintenant l’état correct même s’ils quittent avec une erreur de code autre que 0. 
+  * Validation des attributs RunConfig dans le SDK. 
+  * L’objet d’exécution HyperDrive prend en charge l’annulation comme dans une exécution normale : il n’est pas nécessaire de transmettre de paramètres. 
+  * Améliorations des widgets pour maintenir l’état des valeurs de liste déroulante pour les exécutions distribuées et les exécutions HyperDrive. 
+  * Les fichiers journaux, dont ceux de TensorBoard, prennent en charge l’état fixe pour le serveur de paramètres. 
+  * Prise en charge d’Intel(R) MPI côté service. 
+  * Résolution de bogue dans le réglage des paramètres pour corriger l’exécution distribuée durant la validation dans BatchAI. 
+  * Le gestionnaire de contexte identifie désormais l’instance principale. 
 
-#### <a name="hyperdrive"></a>HyperDrive
- * Divers correctifs de bogues HyperDrive pour la méthode Bayésien, améliorations des performances pour les appels d’obtention de métriques. 
- * Mise à niveau de Tensorflow 1.10 depuis 1.9 
- * Optimisation des images docker pour le démarrage à froid. 
- * Les travaux indiquent maintenant l’état correct même s’ils quittent avec une erreur de code autre que 0. 
- * Validation des attributs RunConfig dans le SDK. 
- * L’objet d’exécution HyperDrive prend en charge l’annulation comme dans une exécution normale : il n’est pas nécessaire de transmettre de paramètres. 
- * Améliorations des widgets pour maintenir l’état des valeurs de liste déroulante pour les exécutions distribuées et les exécutions HyperDrive. 
- * Les fichiers journaux, dont ceux de TensorBoard, prennent en charge l’état fixe pour le serveur de paramètres. 
- * Prise en charge d’Intel(R) MPI côté service. 
- * Résolution de bogue dans le réglage des paramètres pour corriger l’exécution distribuée durant la validation dans BatchAI. 
- * Le gestionnaire de contexte identifie désormais l’instance principale. 
++ **Expérience du Portail Azure**
+  * log_table() et log_row() sont pris en charge dans les détails de l’exécution. 
+  * Création automatique de graphes pour les tables et les lignes avec 1, 2 ou 3 colonnes numériques et une colonne catégorielle facultative.
 
-#### <a name="azure-portal-experience"></a>Utilisation du portail Azure
- * log_table() et log_row() sont pris en charge dans les détails de l’exécution. 
- * Création automatique de graphes pour les tables et les lignes avec 1, 2 ou 3 colonnes numériques et une colonne catégorielle facultative.
++ **Machine Learning automatisé**
+  * Amélioration de la gestion des erreurs et de la documentation 
+  * Résolution des problèmes de performances liés à la récupération de propriétés d’exécution. 
+  * Résolution d’un problème de poursuite d’exécution. 
+  * Résolution de problèmes liés aux itérations ensemblistes.
+  * Correction d’un bogue d’entraînement bloquant sur MAC OS.
+  * Sous-échantillonnage d’une courbe PR/ROC pour une macro-moyenne dans un scénario de validation personnalisé.
+  * Suppression d’une logique d’index en trop.
+  * Suppression d’un filtre de l’API get_output.
 
-#### <a name="automated-machine-learning"></a>Machine Learning automatisé
- * Amélioration de la gestion des erreurs et de la documentation 
- * Résolution des problèmes de performances liés à la récupération de propriétés d’exécution. 
- * Résolution d’un problème de poursuite d’exécution. 
- * Résolution de problèmes liés aux itérations ensemblistes.
- * Correction d’un bogue d’entraînement bloquant sur MAC OS.
- * Sous-échantillonnage d’une courbe PR/ROC pour une macro-moyenne dans un scénario de validation personnalisé.
- * Suppression d’une logique d’index en trop.
- * Suppression d’un filtre de l’API get_output.
++ **Pipelines**
+  * Ajout d’une méthode Pipeline.publish() pour publier un pipeline directement, sans nécessiter une exécution au préalable.   
+  * Ajout d’une méthode PipelineRun.get_pipeline_runs() pour extraire les exécutions de pipeline qui ont été générées à partir d’un pipeline publié.
 
-#### <a name="pipelines"></a>Pipelines
- * Ajout d’une méthode Pipeline.publish() pour publier un pipeline directement, sans nécessiter une exécution au préalable.   
- * Ajout d’une méthode PipelineRun.get_pipeline_runs() pour extraire les exécutions de pipeline qui ont été générées à partir d’un pipeline publié.
-
-#### <a name="project-brainwave"></a>Projet Brainwave
- * Mise à jour de la prise en charge des nouveaux modèles d’intelligence artificielle disponibles sur les FPGA.
++ **Projet Brainwave**
+  * Mise à jour de la prise en charge des nouveaux modèles d’intelligence artificielle disponibles sur les FPGA.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v020"></a>SDK de préparation de données Azure Machine Learning v0.2.0
 La [version 0.2.0](https://pypi.org/project/azureml-dataprep/0.2.0/) inclut les fonctionnalités et les correctifs de bogues suivants :
 
-**Nouvelles fonctionnalités :** 
- * Prise en charge de l’encodage à chaud
- * Prise en charge de la transformation de quantile
++ **Nouvelles fonctionnalités**
+  * Prise en charge de l’encodage à chaud
+  * Prise en charge de la transformation de quantile
    
-**Bogues Corrigés :**
- * Fonctionne avec n’importe quelle version de Tornado, sans besoin de passer à une version antérieure à votre version de Tornado
- * Décompte de valeurs pour toutes les valeurs, pas seulement les trois premières
++ **Bogues Corrigés :**
+  * Fonctionne avec n’importe quelle version de Tornado, sans besoin de passer à une version antérieure à votre version de Tornado
+  * Décompte de valeurs pour toutes les valeurs, pas seulement les trois premières
 
 ## <a name="2018-09-public-preview-refresh"></a>09-2018 (actualisation de la préversion publique)
 
@@ -218,7 +251,7 @@ Bienvenue dans la troisième mise à jour d’Azure Machine Learning. Cette mise
 **Nouvelles fonctionnalités notables**
 - [Prise en charge de SQL Server et Azure SQL DB comme source de données](../desktop-workbench/data-prep-appendix2-supported-data-sources.md#types) 
 - [Apprentissage approfondi sur Spark avec prise en charge GPU à l’aide de MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- [Tous les conteneurs AML sont compatibles avec les appareils Azure IoT Edge lors du déploiement (aucune étape supplémentaire requise)](http://aka.ms/aml-iot-edge-blog)
+- [Tous les conteneurs AML sont compatibles avec les appareils Azure IoT Edge lors du déploiement (aucune étape supplémentaire requise)](https://aka.ms/aml-iot-edge-blog)
 - Liste de modèles inscrits et vues de détails disponibles dans le portail Azure
 - Accès aux cibles de calcul à l’aide de l’authentification par clé SSH en plus de l’accès par nom d’utilisateur/mot de passe. 
 - Nouvel inspecteur de fréquence de modèle dans l’expérience de préparation des données. 
@@ -283,7 +316,7 @@ Pour plus d’informations sur la création de cibles de calcul, consultez [Conf
 - Ajout de la commande `az ml datasource create` permettant de créer un fichier de source de données à partir de la ligne de commande
 
 #### <a name="model-management-and-operationalization"></a>Gestion des modèles et opérationnalisation
-- [Tous les conteneurs AML sont compatibles avec les appareils Azure IoT Edge lors de l’opérationnalisation (aucune étape supplémentaire requise)](http://aka.ms/aml-iot-edge-blog) 
+- [Tous les conteneurs AML sont compatibles avec les appareils Azure IoT Edge lors de l’opérationnalisation (aucune étape supplémentaire requise)](https://aka.ms/aml-iot-edge-blog) 
 - Améliorations apportées aux messages d’erreur dans la CLI o16n
 - Correctifs de bogues dans le portail de gestion des modèles UX  
 - Casse cohérente pour les attributs de gestion des modèles dans la page de détails

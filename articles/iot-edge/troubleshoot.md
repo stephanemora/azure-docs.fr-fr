@@ -8,12 +8,12 @@ ms.date: 06/26/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 632a91e9c76f14bceace00c9cee29a189b604464
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 6728ea6e8c8323ed3d418a018de0ad64b7af8033
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740210"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51283255"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Problèmes courants et résolutions pour Azure IoT Edge
 
@@ -116,7 +116,7 @@ Sur Linux :
    sudo nano /etc/iotedge/config.yaml
    ```
 
-Sur Windows :
+Sous Windows :
 
    ```cmd
    notepad C:\ProgramData\iotedge\config.yaml
@@ -255,7 +255,7 @@ Lorsque vous voyez cette erreur, vous pouvez la résoudre par la configuration d
       sudo nano /etc/iotedge/config.yaml
       ```
 
-   - Sur Windows :
+   - Sous Windows :
 
       ```cmd
       notepad C:\ProgramData\iotedge\config.yaml
@@ -265,7 +265,7 @@ Lorsque vous voyez cette erreur, vous pouvez la résoudre par la configuration d
 Vous pouvez rencontrer des problèmes de stabilité sur des appareils avec contraintes, comme le Raspberry Pi, en particulier quand ils sont utilisés comme passerelle. Les symptômes incluent des exceptions de mémoire insuffisante dans le module Edge Hub, des appareils en aval qui ne peuvent pas se connecter ou l’appareil qui cesse d’envoyer des messages de télémétrie au bout de quelques heures.
 
 ### <a name="root-cause"></a>Cause racine
-Le hub de périphérie, qui fait partie du runtime de périphérie, est optimisé pour les performances par défaut et tente d’allouer de grandes quantités de mémoire. Cette optimisation n’est pas idéale pour les appareils de périphérie limités et peut entraîner des problèmes de stabilité.
+Le hub Edge, qui fait partie du runtime Edge, est optimisé pour les performances par défaut et tente d’allouer de grandes quantités de mémoire. Cette optimisation n’est pas idéale pour les appareils de périphérie limités et peut entraîner des problèmes de stabilité.
 
 ### <a name="resolution"></a>Résolution :
 Pour le hub de périphérie, affectez la valeur **false** à une variable d’environnement **OptimizeForPerformance**. Il existe deux façons d'effectuer cette opération :
@@ -311,16 +311,16 @@ Windows Registry Editor Version 5.00
 "TypesSupported"=dword:00000007
 ```
 
-## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>Le module IoT Edge ne parvient pas à envoyer de message au hub de périphérie avec l’erreur 404
+## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>Le module IoT Edge ne parvient pas à envoyer de message à l’edgeHub avec l’erreur 404
 
-Un module IoT Edge personnalisé ne parvient pas à envoyer de message au hub de périphérie avec l’erreur `Module not found` 404. Le démon IoT Edge imprime le message suivant dans les journaux : 
+Un module IoT Edge personnalisé ne parvient pas à envoyer de message à l’edgeHub avec l’erreur `Module not found` 404. Le démon IoT Edge imprime le message suivant dans les journaux : 
 
 ```output
 Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
 ```
 
 ### <a name="root-cause"></a>Cause racine
-Pour des raisons de sécurité, le démon IoT Edge applique l’identification du processus à tous les modules se connectant au hub de périphérie. Il vérifie que tous les messages envoyés par un module proviennent de l’ID de processus principal du module. Si un message est envoyé par un module depuis un ID de processus différent de celui qui a été établi initialement, il rejette le message avec un message d’erreur 404.
+Pour des raisons de sécurité, le démon IoT Edge applique l’identification du processus à tous les modules se connectant à l’edgeHub. Il vérifie que tous les messages envoyés par un module proviennent de l’ID de processus principal du module. Si un message est envoyé par un module depuis un ID de processus différent de celui qui a été établi initialement, il rejette le message avec un message d’erreur 404.
 
 ### <a name="resolution"></a>Résolution :
 Assurez-vous que le même ID de processus est bien toujours utilisé par le module IoT Edge personnalisé pour envoyer des messages au hub de périphérie. Par exemple, veillez à utiliser `ENTRYPOINT` plutôt que la commande `CMD` dans votre fichier Docker, car `CMD` va générer un ID de processus pour le module et un autre pour la commande bash exécutant le programme principal, tandis que `ENTRYPOINT` génère un ID de processus unique.
@@ -340,4 +340,6 @@ Bien que IoT Edge assure une configuration améliorée pour la sécurisation du 
 
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pensez que vous avez trouvé un bogue dans la plateforme IoT Edge ? [Soumettez un problème](https://github.com/Azure/iotedge/issues) afin que nous puissions poursuivre les améliorations. 
+
+Si vous avez d'autres questions, créez une [Support request](https://portal.azure.com/#create/Microsoft.Support) pour obtenir de l'aide. 
 

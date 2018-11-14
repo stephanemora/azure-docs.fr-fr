@@ -14,16 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 4dc61258df2311c4e7ccd4c05ebe077b3e2343eb
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: f2bf811bfb0856b7ceb2fca2fd84c0d9830fb65d
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47222282"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255624"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Créer des environnements de plusieurs machines virtuelles et des ressources PaaS avec les modèles Azure Resource Manager
 
-Le [portail Azure ](http://go.microsoft.com/fwlink/p/?LinkID=525040) vous permet [d’ajouter facilement une machine virtuelle à la fois à un laboratoire](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Toutefois, si l’environnement contient plusieurs machines virtuelles, chaque machine virtuelle doit être créée individuellement. Pour des scénarios comme une application web à plusieurs niveaux ou une batterie de serveurs SharePoint, un mécanisme est nécessaire pour permettre la création de plusieurs machines virtuelles en une seule étape. Les modèles Azure Resource Manager, vous permettent désormais de définir l’infrastructure et la configuration de votre solution Azure et de déployer de manière répétée plusieurs machines virtuelles dans un état cohérent. Cette fonctionnalité permet de bénéficier des avantages suivants :
+Le [portail Azure ](https://go.microsoft.com/fwlink/p/?LinkID=525040) vous permet [d’ajouter facilement une machine virtuelle à la fois à un laboratoire](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Toutefois, si l’environnement contient plusieurs machines virtuelles, chaque machine virtuelle doit être créée individuellement. Pour des scénarios comme une application web à plusieurs niveaux ou une batterie de serveurs SharePoint, un mécanisme est nécessaire pour permettre la création de plusieurs machines virtuelles en une seule étape. Les modèles Azure Resource Manager, vous permettent désormais de définir l’infrastructure et la configuration de votre solution Azure et de déployer de manière répétée plusieurs machines virtuelles dans un état cohérent. Cette fonctionnalité permet de bénéficier des avantages suivants :
 
 - Les modèles Azure Resource Manager sont chargés directement à partir de votre dépôt de contrôle de code source (GitHub ou Azure DevOps Services Git).
 - Suite à la configuration, vos utilisateurs peuvent créer un environnement en choisissant un modèle Azure Resource Manager à partir du portail Azure, comme avec les autres types de [bases de machines virtuelles](./devtest-lab-comparing-vm-base-image-types.md).
@@ -64,7 +64,7 @@ Quelques règles sont à prendre en compte pour organiser vos modèles Azure Res
 
 Les étapes suivantes vous guident pour ajouter un dépôt dans votre laboratoire à l’aide du portail Azure. 
 
-1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.   
 1. Dans le volet **Vue d’ensemble** du laboratoire, sélectionnez **Configuration et stratégies**.
@@ -94,7 +94,7 @@ La section suivante vous guidera dans la création d’environnements à partir 
 
 Une fois qu’un dépôt de modèles Azure Resource Manager a été configuré dans le laboratoire, vos utilisateurs de laboratoire peuvent créer un environnement à l’aide du portail Azure en procédant comme suit :
 
-1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 1. Sélectionnez le laboratoire souhaité dans la liste des laboratoires.   
 1. Dans le volet du laboratoire, sélectionnez **Ajouter +**.

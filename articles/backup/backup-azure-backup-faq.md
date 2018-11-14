@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: raynew
-ms.openlocfilehash: 42994a38aeab7f6da552f2f9073a806142511531
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 2ba6fefb9c1d952fbfdb6942694d69565a299c2e
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095526"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51241257"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Sauvegarde Azure - Forum Aux Questions
 Cet article répond aux questions courantes sur le service Sauvegarde Azure.
@@ -44,7 +44,7 @@ Non. Les données de sauvegarde stockées dans un coffre ne peuvent pas être d�
 Non. Dans un coffre Recovery Services, vous pouvez uniquement changer les options de stockage avant de commencer le stockage des sauvegardes.
 
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>Puis-je effectuer une restauration de niveau élément (ILR) pour les machines virtuelles sauvegardées dans un coffre Recovery Services ?
-ILR n’est pas pris en charge. 
+ILR n’est pas pris en charge.
 
 
 ## <a name="azure-backup-agent"></a>Agent Azure Backup
@@ -75,7 +75,7 @@ Vous n’avez pas besoin de licence distincte pour la protection VMware/Hyper-V.
 
 ### <a name="which-dpm-versions-are-supported"></a>Quelles sont les versions de DPM prises en charge ?
 
-Les versions de DPM prises en charge sont résumées dans la [matrice de prise en charge](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Nous vous recommandons d’installer les dernières mises à jour de DPM et d’exécuter le [version la plus récente](http://aka.ms/azurebackup_agent) de l’agent de sauvegarde Azure sur le serveur DPM.
+Les versions de DPM prises en charge sont résumées dans la [matrice de prise en charge](backup-azure-dpm-introduction.md#prerequisites-and-limitations). Nous vous recommandons d’installer les dernières mises à jour de DPM et d’exécuter le [version la plus récente](https://aka.ms/azurebackup_agent) de l’agent de sauvegarde Azure sur le serveur DPM.
 
 ### <a name="can-i-register-the-server-to-multiple-vaults"></a>Puis-je enregistrer mon serveur dans plusieurs coffres ?
 
@@ -99,7 +99,7 @@ Oui. Mais vous devez configurer tout d’abord DPM et puis installer l’agent S
 ## <a name="general-backup"></a>Sauvegarde générale
 
 ### <a name="are-there-limits-on-backup-scheduling"></a>Existe-t-il des limites sur la planification de la sauvegarde ?
-Oui. 
+Oui.
 - Vous pouvez sauvegarder des machines Windows Server ou Windows jusqu’à trois fois par jour. Vous pouvez définir la stratégie de planification pour des planifications quotidiennes ou hebdomadaires.
 - Vous pouvez sauvegarder DPM jusqu’à deux fois par jour. Vous pouvez définir la stratégie de planification pour des sauvegardes quotidiennes, hebdomadaires, mensuelles et annuelles.
 - Vous sauvegardez les machines virtuelles Azure une fois par jour.
@@ -110,12 +110,12 @@ Sauvegarde Azure prend en charge les systèmes d’exploitation suivants pour la
 
 **SE**| **Référence (SKU)** |**Détails**
 --- | --- | ---
-Station de travail | | 
+Station de travail | |
 Windows 10 64 bits | Entreprise, Professionnel, Familiale | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
 Windows 8.1 64 bits | Entreprise, Professionnel | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
 Windows 8 64 bits | Entreprise, Professionnel | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
 Windows 7 64 bits | Édition Intégrale, Entreprise, Professionnel, Édition Familiale Premium, Édition Familiale Basique, Édition Starter | Les machines virtuelles doivent utiliser les derniers service packs et les dernières mises à jour.
-Serveur | | 
+Serveur | |
 Windows Server 2016 64 bits | Standard, Datacenter, Essentials | Avec les derniers Service packs et dernières mises à jour.
 Windows Server 2012 R2 64 bits | Standard, Datacenter, Foundation | Avec les derniers Service packs et dernières mises à jour.
 Windows Server 2012 64 bits | Datacenter, Foundation, Standard | Avec les derniers Service packs et dernières mises à jour.
@@ -133,20 +133,20 @@ Pour les sauvegardes Linux de machines virtuelles Azure, Sauvegarde Azure prend 
 Les limites de tailles sont les suivantes :
 
 
-Système d’exploitation/machine | Limite de taille de la source de données 
---- | --- | --- 
-Windows 8 ou version ultérieure | 54 400 Go 
-Windows 7 |1 700 Go 
-Windows Server 2012 ou version ultérieure | 54 400 Go 
-Windows Server 2008, Windows Server 2008 R2 | 1 700 Go 
-Microsoft Azure | 32 disques de données<br/><br/> Disque de données jusqu’à 4 095 Go
+Système d’exploitation/machine | Limite de taille de la source de données
+--- | --- | ---
+Windows 8 ou version ultérieure | 54 400 Go
+Windows 7 |1 700 Go
+Windows Server 2012 ou version ultérieure | 54 400 Go
+Windows Server 2008, Windows Server 2008 R2 | 1 700 Go
+Microsoft Azure | 16 disques de données<br/><br/> Disque de données jusqu’à 4 095 Go
 
 ## <a name="how-is-the-data-source-size-determined"></a>Comment la taille de la source de données est-elle déterminée ?
 
 Le tableau suivant explique comment la taille de chaque source de données est déterminée.
 
 **Source de données** | **Détails**
---- | --- 
+--- | ---
 Volume |Quantité de données sauvegardées à partir d’une machine virtuelle à volume unique.
 Base de données SQL Server |Taille d’une base de données SQL unique sauvegardée.
 SharePoint | Somme des bases de données de contenu et de configuration dans une batterie de serveurs SharePoint sauvegardée.
@@ -158,7 +158,7 @@ Microsoft Exchange |Somme de toutes les bases de données Exchange sur un serve
 
 Il n’existe aucune limite pour la quantité de données que vous pouvez sauvegarder dans un coffre Recovery Services.
 
-### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Si j’annule une opération de sauvegarde en cours, les données de sauvegarde transférées sont-elles supprimées ? 
+### <a name="if-i-cancel-a-backup-job-once-it-has-started-is-the-transferred-backup-data-deleted"></a>Si j’annule une opération de sauvegarde en cours, les données de sauvegarde transférées sont-elles supprimées ?
 Non. Toutes les données transférées dans le coffre avant l’annulation de l’opération de sauvegarde sont conservées. Azure Backup utilise un mécanisme de point de contrôle pour ajouter occasionnellement des points de contrôle aux données de sauvegarde pendant la sauvegarde. En présence de points de contrôle dans les données de sauvegarde le processus de sauvegarde suivant est en mesure de valider l’intégrité des fichiers. La prochaine tâche de sauvegarde sera incrémentielle par rapport aux données précédemment sauvegardées. Les sauvegardes incrémentielles transfèrent uniquement les données nouvelles ou modifiées, ce qui équivaut à une meilleure utilisation de la bande passante.
 
 Si vous annulez une tâche de sauvegarde pour une machine virtuelle Azure, toutes les données transférées sont ignorées. La tâche de sauvegarde suivante transfère des données incrémentielles à partir de la dernière sauvegarde réussie.
@@ -186,7 +186,7 @@ Non. Toutes les données transférées dans le coffre avant l’annulation de l�
 ### <a name="are-the-retention-policies-for-dpm-and-windows-machines-without-dpm-the-same"></a>Les stratégies de rétention pour les ordinateurs DPM et Windows sans DPM sont-elles identiques ?
 Oui, elles ont toutes les deux des stratégies quotidienne, hebdomadaire, mensuelle et annuelle de rétention.
 
-### <a name="can-i-customize-retention-policies"></a>Puis-je personnaliser les stratégies de rétention ? 
+### <a name="can-i-customize-retention-policies"></a>Puis-je personnaliser les stratégies de rétention ?
 Oui, vous pouvez personnaliser les stratégies. Par exemple, vous pouvez configurer une rétention hebdomadaire et quotidienne, mais pas annuelle ou mensuelle.
 
 ### <a name="can-i-use-different-times-for-backup-scheduling-and-retention-policies"></a>Puis-je utiliser des heures différentes pour la planification de la sauvegarde et les stratégies de rétention ?
@@ -208,7 +208,7 @@ L’architecture de stockage d’Azure Backup vous offre le meilleur des deux en
 
 ### <a name="is-there-a-limit-on-the-number-of-recovery-points-that-can-be-created"></a>Le nombre de points de récupération pouvant être créés est-il limité ?
 
-Vous pouvez créer jusqu’à 9 999 points de récupération par instance protégée. Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail sauvegardé dans Azure. 
+Vous pouvez créer jusqu’à 9 999 points de récupération par instance protégée. Une instance protégée est un ordinateur, un serveur (physique ou virtuel) ou une charge de travail sauvegardé dans Azure.
 
 - En savoir plus sur la [sauvegarde et la rétention](./backup-introduction-to-azure-backup.md#backup-and-retention).
 - En savoir plus sur les [instances protégées](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance) ?
@@ -238,7 +238,7 @@ Oui. Les données dans Azure sont chiffrées au repos.
 - Pour la sauvegarde sur site, le chiffrement à la réinitialisation est assuré à l’aide de la phrase secrète que vous fournissez lorsque vous sauvegardez sur Azure.
 - Pour les machines virtuelles Azure, les données sont chiffrées à la réinitialisation à l’aide de Storage Service Encryption (SSE).
 
-Microsoft ne déchiffre les données de sauvegarde à aucun moment. 
+Microsoft ne déchiffre les données de sauvegarde à aucun moment.
 
 
 ### <a name="what-is-the-minimum-length-of-encryption-the-key-used-to-encrypt-backup-data"></a>Quelle est la longueur minimale de la clé de chiffrement utilisée pour chiffrer les données de sauvegarde ?

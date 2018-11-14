@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/10/2018
+ms.date: 10/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 279818e6b43e53206deb9e33591f75ef381a8962
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f4bc90b2d1a80125ae88b4b5c4c11e42a34a985a
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49319980"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51240424"
 ---
 # <a name="platforms-and-features-supported-by-azure-security-center"></a>Plateformes et fonctionnalités prises en charge par Azure Security Center
 
@@ -80,22 +80,22 @@ Les machines virtuelles en cours d’exécution dans un service cloud sont égal
 |Configurations de sécurité|✔|✔|✔|✔|
 |Anti-programme malveillant|✔|✔|X|X|
 |Accès JIT à la machine virtuelle|✔|X|✔|X|
-|Contrôles d’application adaptative|✔ (Azure uniquement)|X|X|X|
+|Contrôles d’application adaptative|✔|X|X|X|
 |FIM|✔|✔|✔|✔|
 |Chiffrement de disque|✔|X|✔|X|
 |Déploiement tiers|✔|X|✔|X|
 |Groupes de sécurité réseau|✔|X|✔|X|
-|Fichiers V1|✔|✔|X|X|
+|Détection des menaces sur les fichiers|✔|✔|X|X|
 |Mappage réseau|✔|X|✔|X|
-|Sécurisation adaptative du réseau|✔|X|✔|X|
+|Contrôles réseau adaptatifs|✔|X|✔|X|
 
-* Ces fonctionnalités sont actuellement prises en charge en préversion publique.
+\* Ces fonctionnalités sont actuellement prises en charge en préversion publique.
 
 
 ## <a name="supported-paas-features"></a>Fonctionnalités PaaS prises en charge
 
 
-|Service|Recommandations|Détection de menaces|
+|de diffusion en continu|Recommandations|Détection de menaces|
 |----|----|----|
 |SQL|✔| ✔|
 |PostGreSQL*|✔| ✔|
@@ -103,26 +103,17 @@ Les machines virtuelles en cours d’exécution dans un service cloud sont égal
 |Comptes de stockage d’objets blob*|✔| ✔|
 |App Services|✔| ✔|
 |Services cloud|✔| X|
-|Le cache Redis|✔| X|
-|Service Fabric|✔| X|
-|Azure Automation|✔| X|
-|Data Lake |✔| X|
-|Coffre de clés|✔| X|
-|Service Bus|✔| X|
-|Stream Analytics|✔| X|
-|Batch|✔| X|
-|Logic Apps|✔| X|
 |Réseaux virtuels|✔| N/D|
 |Sous-réseaux|✔| N/D|
 |Cartes réseau|✔| ✔|
 |Groupes de sécurité réseau|✔| N/D|
 |Abonnement|✔| ✔|
 
-* Ces fonctionnalités sont actuellement prises en charge en préversion publique.
+\* Ces fonctionnalités sont actuellement prises en charge en préversion publique.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
 - [Guide des opérations et de planification d’Azure Security Center](security-center-planning-and-operations-guide.md) : découvrez comment planifier l’adoption d’Azure Security Center et prenez connaissance des considérations relatives à la conception
 - [Alertes de sécurité par type dans Azure Security Center](security-center-alerts-type.md#virtual-machine-behavioral-analysis) : en savoir plus sur l’analytique comportementale de machine virtuelle et l’analyse de mémoire de vidage sur incident dans Security Center
 - [FAQ d’Azure Security Center](security-center-faq.md) : découvrez les réponses aux questions les plus souvent posées à propos de l’utilisation de ce service
-- [Blog sur la sécurité Azure](http://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure
+- [Blog sur la sécurité Azure](https://blogs.msdn.com/b/azuresecurity/) : accédez à des billets de blog sur la sécurité et la conformité Azure

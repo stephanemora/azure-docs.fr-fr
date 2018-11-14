@@ -1,26 +1,26 @@
 ---
-title: Utiliser Caffe sur Azure HDInsight Spark pour une formation approfondie échelonnée
-description: Utiliser Caffe sur Azure HDInsight Spark pour une formation approfondie échelonnée
+title: Utiliser Caffe sur Azure HDInsight Spark pour un apprentissage profond distribué
+description: Utiliser Caffe sur Azure HDInsight Spark pour un apprentissage profond distribué
 services: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/17/2017
-ms.openlocfilehash: a7873996d83dbc79b4d44c58bd964c274f9c7709
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 71322869eb9272fb59b98a0e21b1f639129572b7
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622913"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51255919"
 ---
-# <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Utiliser Caffe sur Azure HDInsight Spark pour une formation approfondie échelonnée
+# <a name="use-caffe-on-azure-hdinsight-spark-for-distributed-deep-learning"></a>Utiliser Caffe sur Azure HDInsight Spark pour un apprentissage profond distribué
 
 
 ## <a name="introduction"></a>Introduction
 
-La formation approfondie affecte tous les secteurs, de la santé publique au transport en passant par la fabrication, et plus encore. Les entreprises se tournent vers la formation approfondie pour résoudre les problématiques difficiles, comme la [classification des images](http://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), la [reconnaissance vocale](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), la reconnaissance des objets et la traduction automatique. 
+La formation approfondie affecte tous les secteurs, de la santé publique au transport en passant par la fabrication, et plus encore. Des entreprises se tournent vers l’apprentissage profond pour résoudre des problématiques difficiles, telles que la [classification d’images](https://blogs.microsoft.com/next/2015/12/10/microsoft-researchers-win-imagenet-computer-vision-challenge/), la [reconnaissance vocale](http://googleresearch.blogspot.jp/2015/08/the-neural-networks-behind-google-voice.html), la reconnaissance d’objets et la traduction automatique. 
 
 Il existe de [nombreux frameworks populaires](https://en.wikipedia.org/wiki/Comparison_of_deep_learning_software), notamment [Microsoft Cognitive Toolkit](https://www.microsoft.com/en-us/research/product/cognitive-toolkit/), [Tensorflow](https://www.tensorflow.org/), MXNet, Theano, etc. Caffe est l’un des frameworks de réseau neuronal non symbolique (impératif) les plus connus ; il a été largement adopté dans de nombreux secteurs, notamment dans celui de la vision par ordinateur. En outre, [CaffeOnSpark](http://yahoohadoop.tumblr.com/post/139916563586/caffeonspark-open-sourced-for-distributed-deep) combine Caffe avec Apache Spark, auquel cas un apprentissage approfondi peut être facilement utilisé dans un cluster Hadoop existant. Vous pouvez utiliser un apprentissage approfondi avec les pipelines Spark ETL, réduisant ainsi la complexité du système et la latence pour l’apprentissage de la solution complète.
 

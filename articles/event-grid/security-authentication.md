@@ -6,14 +6,14 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 10/31/2018
+ms.date: 11/01/2018
 ms.author: babanisa
-ms.openlocfilehash: a9bffe148339bfac89796405b771e9c2816eb0de
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: fe13c424a3da91e92a04cceb807b98fd1ffe4db0
+ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741519"
+ms.lasthandoff: 11/02/2018
+ms.locfileid: "50914037"
 ---
 # <a name="event-grid-security-and-authentication"></a>Sécurité et authentification Azure Event Grid 
 
@@ -191,15 +191,83 @@ Les trois dernières opérations retournent des informations potentiellement con
 
 ### <a name="built-in-roles"></a>Rôles intégrés
 
-Event Grid fournit deux rôles intégrés pour gérer les abonnements aux événements. Ces rôles sont `EventSubscription Contributor (Preview)` et `EventSubscription Reader (Preview)`. Ils sont importants durant l’implémentation des domaines d’événement. Pour plus d’informations sur les actions accordées, consultez [Événement de domaine : gestion de l’accès](event-domains.md#access-management).
+Event Grid fournit deux rôles intégrés pour gérer les abonnements aux événements. Ceux-ci sont importants lors de l'implémentation de [domaines d'événements](event-domains.md) car ils fournissent aux utilisateurs les autorisations nécessaires pour s'abonner aux rubriques de votre domaine d'événements. Ces rôles sont centrés sur les abonnements aux événements et ne donnent pas accès aux actions telles que la création de rubriques.
 
 Vous pouvez [affecter ces rôles à un utilisateur ou groupe](../role-based-access-control/quickstart-assign-role-user-portal.md).
+
+**EventGrid EventSubscription Contributeur (préversion)**  : permet de gérer les opérations relatives aux abonnements Event Grid
+
+```json
+[
+  {
+    "Description": "Lets you manage EventGrid event subscription operations.",
+    "IsBuiltIn": true,
+    "Id": "428e0ff05e574d9ca2212c70d0e0a443",
+    "Name": "EventGrid EventSubscription Contributor (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/*",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Insights/alertRules/*",
+          "Microsoft.Resources/deployments/*",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": [],
+        "Condition": null
+      }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
+
+**EventGrid EventSubscription Lecteur (préversion)**  : permet de lire les abonnements Event Grid
+
+```json
+[
+  {
+    "Description": "Lets you read EventGrid event subscriptions.",
+    "IsBuiltIn": true,
+    "Id": "2414bbcf64974faf8c65045460748405",
+    "Name": "EventGrid EventSubscription Reader (Preview)",
+    "IsServiceRole": false,
+    "Permissions": [
+      {
+        "Actions": [
+          "Microsoft.Authorization/*/read",
+          "Microsoft.EventGrid/eventSubscriptions/read",
+          "Microsoft.EventGrid/topicTypes/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/eventSubscriptions/read",
+          "Microsoft.EventGrid/locations/topicTypes/eventSubscriptions/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read"
+        ],
+        "NotActions": [],
+        "DataActions": [],
+        "NotDataActions": []
+       }
+    ],
+    "Scopes": [
+      "/"
+    ]
+  }
+]
+```
 
 ### <a name="custom-roles"></a>Rôles personnalisés
 
 Si vous avez besoin de spécifier des autorisations autres que les rôles intégrés, vous pouvez créer des rôles personnalisés.
 
-Voici des exemples de définitions de rôle dans Event Grid permettant aux utilisateurs d’effectuer différentes actions.
+Voici des exemples de définitions de rôle dans Event Grid permettant aux utilisateurs d’effectuer différentes actions. Ces rôles personnalisés sont différents des rôles intégrés car ils confèrent un accès qui va au-delà des abonnements aux événements.
 
 **EventGridReadOnlyRole.json** : pour autoriser uniquement les opérations en lecture seule.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: fbaf6b92a2605d284a749365d542c223e09f730d
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 8e57c071c9fd93a8581d574aeec2b23b38b3ab95
+ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49362600"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51281654"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduction à la mise à l’échelle automatique
 La mise à l’échelle automatique est une fonctionnalité supplémentaire de Service Fabric pour mettre dynamiquement à l’échelle vos services selon la charge qu’ils présentent ou leur utilisation des ressources. La mise à l’échelle automatique offre une extensibilité idéale et permet le provisionnement d’instances ou de partitions supplémentaires de votre service à la demande. Tout le processus de mise à l’échelle automatique est automatisé et fluide, et après avoir configuré vos stratégies sur un service, aucune opération de mise à l’échelle manuelle n’est nécessaire au niveau du service. La mise à l’échelle automatique peut être activée au moment de la création du service ou à tout moment par la mise à jour du service.
@@ -28,7 +28,9 @@ La charge d’un service particulier qui varie au fil du temps correspond à un 
 * Si toutes les instances de ma passerelle utilisent plus de deux cœurs en moyenne, augmentez la taille du service de passerelle en ajoutant une autre instance. Effectuez cette opération toutes les heures, mais sans jamais avoir plus de sept instances au total.
 * Si toutes les instances de ma passerelle utilisent moins d’un demi-cœur en moyenne, diminuez la taille du service en supprimant une instance. Effectuez cette opération toutes les heures, mais sans jamais avoir moins de trois instances au total.
 
-La mise à l’échelle automatique est prise en charge pour les conteneurs et les services Service Fabric standard. Le reste de cet article décrit les stratégies de mise à l’échelle ainsi que les façons d’activer ou de désactiver la mise à l’échelle automatique, et fournit des exemples d’utilisation de cette fonctionnalité.
+La mise à l’échelle automatique est prise en charge pour les conteneurs et les services Service Fabric standard. Pour que vous puissiez utiliser la mise à l’échelle automatique, il est nécessaire que le runtime Service Fabric version 6.2 ou ultérieure soit en cours d’exécution. 
+
+Le reste de cet article décrit les stratégies de mise à l’échelle ainsi que les façons d’activer ou de désactiver la mise à l’échelle automatique, et fournit des exemples d’utilisation de cette fonctionnalité.
 
 ## <a name="describing-auto-scaling"></a>Description de la mise à l’échelle automatique
 Des stratégies de mise à l’échelle automatique peuvent être définies pour chaque service dans un cluster Service Fabric. Chaque stratégie de mise à l’échelle se compose de deux parties :
@@ -41,7 +43,7 @@ Tous les déclencheurs qui sont actuellement pris en charge fonctionnent avec de
 Deux mécanismes sont pris en charge pour la mise à l’échelle automatique. Le premier est destiné aux services sans état ou aux conteneurs dans lesquels la mise à l’échelle automatique est effectuée en ajoutant ou supprimant des [instances](service-fabric-concepts-replica-lifecycle.md). Pour les services avec et sans état, la mise à l’échelle automatique peut également être effectuée en ajoutant ou supprimant des [partitions](service-fabric-concepts-partitioning.md) nommées du service.
 
 > [!NOTE]
-> Pour l’instant, une seule stratégie de mise à l’échelle est prise en charge par service.
+> Pour l’instant, une seule stratégie de mise à l’échelle est prise en charge par service, et un seul déclencheur de mise à l’échelle est pris en charge par stratégie de mise à l’échelle.
 
 ## <a name="average-partition-load-trigger-with-instance-based-scaling"></a>Déclencheur de charge moyenne de partitions avec mise à l’échelle basée sur les instances
 Le premier type de déclencheur est basé sur la charge d’instances dans une partition de service sans état. Les charges de métriques sont d’abord lissées afin d’obtenir la charge pour chaque instance d’une partition, puis la moyenne de ces valeurs est calculée pour toutes les instances de la partition. Trois facteurs déterminent quand le service est mis à l’échelle :

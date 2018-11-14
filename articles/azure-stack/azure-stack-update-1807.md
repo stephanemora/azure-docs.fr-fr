@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/07/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b4ee3354d024034fd47ee50ae78d25d5bb4a38f5
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: ce74d12e4ea91d8c230218081461bc375e250ce4
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49345269"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51260582"
 ---
 # <a name="azure-stack-1807-update"></a>Mise à jour 1807 d’Azure Stack
 
@@ -85,7 +85,7 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack.
   Pour plus d’informations, consultez [Transfert de syslog dans Azure Stack](azure-stack-integrate-security.md).
 
 <!-- ####### | IS, ASDK | --> 
-- **Azure Resource Manager inclut le nom de la région.** Avec cette version, les objets récupérés à partir d’Azure Resource Manager incluront désormais l’attribut de nom de région. Si un script PowerShell existant passe directement l’objet à une autre applet de commande, le script peut générer une erreur et échouer. Ce comportement est conforme à Azure Resource Manager et oblige le client appelant à soustraire l’attribut de région. Pour plus d’informations sur Azure Resource Manager, consultez la [documentation Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/). verify 8-10 mdb --&gt;
+- **Azure Resource Manager inclut le nom de la région.** Avec cette version, les objets récupérés à partir d’Azure Resource Manager incluront désormais l’attribut de nom de région. Si un script PowerShell existant passe directement l’objet à une autre applet de commande, le script peut générer une erreur et échouer. Ce comportement est conforme à Azure Resource Manager et oblige le client appelant à soustraire l’attribut de région. Pour plus d’informations sur Azure Resource Manager, consultez la [documentation Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/). verify 8-10 mdb -->
 
 <!-- TBD | IS, ASDK -->  
 - **Modifications apportées à la fonctionnalité Fournisseurs délégués.** À compter de la version 1807, le modèle Fournisseurs délégués est simplifié afin de mieux s’aligner sur le modèle de revendeur Azure, et les fournisseurs délégués ne pourront pas créer d’autres fournisseurs délégués, ce qui revient à aplanir le modèle et à rendre la fonctionnalité de fournisseur délégué disponible sur un seul niveau. Pour permettre la transition vers le nouveau modèle et la gestion des abonnements, vous pouvez maintenant déplacer les abonnements utilisateur entre des abonnements Fournisseur délégué nouveaux ou existants qui appartiennent au même locataire d’annuaire. Les abonnements utilisateur appartenant à l’abonnement Fournisseur par défaut peuvent également être déplacés vers les abonnements Fournisseur délégué dans le même locataire d’annuaire.  Pour plus d’informations, consultez [Déléguer des offres dans Azure Stack](azure-stack-delegated-provider.md).
@@ -94,7 +94,7 @@ Cette mise à jour inclut les améliorations suivantes pour Azure Stack.
 - **Amélioration du temps de création de machine virtuelle** pour les machines virtuelles qui sont créées avec des images que vous téléchargez à partir de la Place de marché Azure.
 
 <!-- TBD | IS, ASDK -->  
-- **Améliorations de facilité d’utilisation d’Azure Stack Capacity Planner**. Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) offre désormais une expérience simplifiée pour la saisie de cache S2D et de capacité S2D lors de la définition des références (SKU) de solution. La limite de 1000 machines virtuelles a été supprimée.
+- **Améliorations de facilité d’utilisation d’Azure Stack Capacity Planner**. Azure Stack [Capacity Planner](https://aka.ms/azstackcapacityplanner) offre désormais une expérience simplifiée pour la saisie de cache S2D et de capacité S2D lors de la définition des références (SKU) de solution. La limite de 1000 machines virtuelles a été supprimée.
 
 
 ### <a name="fixed-issues"></a>Problèmes résolus
@@ -269,7 +269,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
     L’alerte peut être ignorée sans risque, mais vous devez la fermer manuellement.
 
 <!-- 2368581 - IS. ASDK --> 
-- En tant qu’opérateur d’Azure Stack, si vous recevez une alerte d’insuffisance de mémoire et que les machines virtuelles de locataire ne parviennent pas à se déployer à cause d’une **erreur de création de machine virtuelle de structure**, il est possible que l’horodatage d’Azure Stack soit à court de mémoire disponible. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail.
+- En tant qu’opérateur d’Azure Stack, si vous recevez une alerte de mémoire insuffisante et que les machines virtuelles de locataire ne parviennent pas à se déployer à cause d’une **erreur de création de machine virtuelle de structure**, il est possible que l’horodatage d’Azure Stack soit à court de mémoire. Utilisez le [Capacity Planner Azure Stack](https://gallery.technet.microsoft.com/Azure-Stack-Capacity-24ccd822) pour mieux comprendre la capacité disponible pour vos charges de travail.
 
 
 ### <a name="compute"></a>Calcul
@@ -358,7 +358,7 @@ Les éléments suivants sont des problèmes connus qui apparaissent après l’i
 - Les utilisateurs doivent inscrire le fournisseur de ressources de stockage avant de créer leur première fonction Azure dans l’abonnement.
 
 <!-- 2489178 - IS ASDK --> 
-- Pour un scale-out de l’infrastructure (workers, gestion, rôles de front-end), vous devez utiliser PowerShell comme décrit dans les notes de publication pour Compute.
+- Pour monter en puissance l’infrastructure (Workers, gestion, rôles frontaux), vous devez utiliser PowerShell comme décrit dans les notes de publication pour Compute.
 
 <!-- TBD - IS ASDK --> 
 - Le déploiement d’App Service n’est possible à l’heure actuelle que sur l’*abonnement du fournisseur par défaut*. 

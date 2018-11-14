@@ -9,12 +9,12 @@ ms.author: omidm
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 06/26/2018
-ms.openlocfilehash: 052afbe185f9c66af3759775b38b6bf0f2c2e6b2
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: a2b209dc0204c390b16039ed1cf58b47f29629f1
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783319"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51252103"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-on-linux-based-azure-hdinsight"></a>Utilisation d’Oozie avec Hadoop pour définir et exécuter un workflow Azure HDInsight basé sur Linux
 
@@ -30,12 +30,12 @@ Découvrez comment utiliser Apache Oozie avec Hadoop sur Azure HDInsight. Oozie 
 Vous pouvez également utiliser Oozie pour planifier des travaux propres à un système, comme des programmes Java ou des scripts de l’interpréteur de commandes.
 
 > [!NOTE]
-> Une autre option pour définir des workflows avec HDInsight consiste à utiliser Azure Data Factory. Pour en savoir plus sur Data Factory, consultez la page [Transformer des données dans Azure Data Factory][azure-data-factory-pig-hive].
+> Une autre option pour définir des workflows avec HDInsight consiste à utiliser Azure Data Factory. Pour en savoir plus sur Data Factory, consultez la page [Transformer des données dans Azure Data Factory][azure-data-factory-pig-hive]. Pour utiliser Oozie sur les clusters avec le Pack Sécurité Entreprise, consultez la section [Exécuter Apache Oozie dans des clusters HDInsight Hadoop avec le Pack Sécurité Entreprise](domain-joined/hdinsight-use-oozie-domain-joined-clusters.md).
 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* **Un cluster HDInsight**: consultez la page [Prise en main de HDInsight sur Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
+* **Un cluster HDInsight normal** : consultez la page [Prise en main de HDInsight sur Linux](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 
 > [!IMPORTANT]
 > Les étapes décrites dans ce document nécessitent un cluster HDInsight utilisant Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Suppression de HDInsight sous Windows](hdinsight-component-versioning.md#hdinsight-windows-retirement).

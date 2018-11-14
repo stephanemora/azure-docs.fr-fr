@@ -4,20 +4,19 @@ description: Exemple de script Azure CLI - S’abonner à une rubrique personnal
 services: event-grid
 documentationcenter: na
 author: tfitzmac
-manager: timlt
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/05/2018
+ms.date: 11/02/2018
 ms.author: tomfitz
-ms.openlocfilehash: 0c0b4c77815efc4ae3c80a8602222122254f7d88
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: a46c348533468ad037ac092037cb34def2b0405c
+ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31425873"
+ms.lasthandoff: 11/06/2018
+ms.locfileid: "51038380"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>S’inscrire aux événements d’une rubrique personnalisée avec Azure CLI
 
@@ -27,18 +26,25 @@ Ce script crée un abonnement Event Grid aux événements d’une rubrique perso
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="sample-script"></a>Exemple de script
+L’exemple de script en préversion requiert l’extension Event Grid. Pour l’installer, exécutez `az extension add --name eventgrid`.
+
+## <a name="sample-script---stable"></a>Exemple de script : stable
 
 [!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-custom-topic/subscribe-to-custom-topic.sh "Subscribe to custom topic")]
 
+## <a name="sample-script---preview-extension"></a>Exemple de script : extension en préversion
+
+[!code-azurecli[main](../../../cli_scripts/event-grid/subscribe-to-custom-topic-preview/subscribe-to-custom-topic-preview.sh "Subscribe to custom topic")]
+
+
 ## <a name="script-explanation"></a>Explication du script
 
-Ce script utilise les commandes suivantes pour créer l’abonnement aux événements. Chaque commande du tableau renvoie à une documentation spécifique.
+Ce script utilise la commande suivante pour créer l’abonnement aux événements. Chaque commande du tableau renvoie à une documentation spécifique.
 
 | Commande | Notes |
 |---|---|
 | [az eventgrid event-subscription create](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription#az-eventgrid-event-subscription-create) | Créer un abonnement Event Grid. |
-
+| [az eventgrid event-subscription create](/cli/azure/ext/eventgrid/eventgrid/event-subscription#ext-eventgrid-az-eventgrid-event-subscription-create) : version d’extension | Créer un abonnement Event Grid. |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

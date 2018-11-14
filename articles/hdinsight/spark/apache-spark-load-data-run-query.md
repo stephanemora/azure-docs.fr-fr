@@ -2,23 +2,23 @@
 title: 'Didacticiel : charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight '
 description: Découvrez comment charger des données et exécuter des requêtes interactives sur des clusters Spark dans Azure HDInsight.
 services: azure-hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: jasonh
-ms.date: 05/17/2018
-ms.openlocfilehash: d59f04c5dde522f3d193f345ac59147ece9d86f0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.author: hrasheed
+ms.date: 11/06/2018
+ms.openlocfilehash: 85afc16fe6bcae4e0a7218fa9f66bab3e947ec6b
+ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047555"
+ms.lasthandoff: 11/07/2018
+ms.locfileid: "51244069"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Didacticiel : charger des données et exécuter des requêtes sur un cluster Apache Spark dans Azure HDInsight
 
-Dans ce didacticiel, vous apprenez à créer une trame de données à partir d’un fichier CSV et comment exécuter des requêtes interactives SQL Spark sur un cluster Apache Spark dans Azure HDInsight. Dans Spark, une trame de données est une collection distribuée de données organisées en colonnes nommées. D’un point de vue conceptuel, une trame de données équivaut à une table d’une base de données relationnelle ou à une trame de données dans R/Python.
+Dans ce tutoriel, vous apprenez à créer une trame de données à partir d’un fichier CSV et à exécuter des requêtes interactives SQL Spark sur un cluster Apache Spark dans Azure HDInsight. Dans Spark, une trame de données est une collection distribuée de données organisées en colonnes nommées. D’un point de vue conceptuel, une trame de données équivaut à une table d’une base de données relationnelle ou à une trame de données dans R/Python.
  
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 > [!div class="checklist"]
@@ -33,7 +33,7 @@ Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https:/
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Créer une trame de données à partir d’un fichier CSV
 
-Les applications peuvent créer des trames de données à partir d’un RDD (Resilient Distributed Dataset) existant, d’une table Hive ou de sources de données à l’aide de l’objet SQLContext. La capture d’écran suivante montre un instantané du fichier HVAC.csv utilisé dans ce didacticiel. Le fichier CSV est fourni avec tous les clusters HDInsight Spark. Les données capturent les variations de température de certains bâtiments.
+Les applications peuvent créer des tableaux de données directement à partir de fichiers ou de dossiers dans le stockage à distance, tels que Stockage Azure ou Azure Data Lake Storage; à partir d’une table Hive, ou d’autres sources de données prises en charge par Spark, telles que Cosmos DB, la base de données SQL Azure, DW, etc. La capture d’écran suivante montre un instantané du fichier HVAC.csv utilisé dans ce didacticiel. Le fichier CSV est fourni avec tous les clusters HDInsight Spark. Les données capturent les variations de température de certains bâtiments.
     
 ![Instantané des données pour les requêtes Spark SQL interactives](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "instantané des données pour les requêtes Spark SQL interactives")
 
@@ -41,7 +41,7 @@ Les applications peuvent créer des trames de données à partir d’un RDD (Res
 1. Ouvrez le bloc-notes Jupyter que vous avez créé dans la section des prérequis.
 2. Collez l’exemple de code suivant dans une cellule vide du bloc-notes, puis appuyez sur **MAJ + ENTRÉE** pour exécuter le code. Le code importe les types requis pour ce scénario :
 
-    ```PySpark
+    ```python
     from pyspark.sql import *
     from pyspark.sql.types import *
     ```
@@ -52,14 +52,14 @@ Les applications peuvent créer des trames de données à partir d’un RDD (Res
 
 3. Exécutez le code suivant pour créer une trame de données et une table temporaire (**hvac**). 
 
-    ```PySpark
-    # Create an RDD from sample data
-    csvFile = spark.read.csv('wasb:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
+    ```python
+    # Create a dataframe and table from sample data
+    csvFile = spark.read.csv('/HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv', header=True, inferSchema=True)
     csvFile.write.saveAsTable("hvac")
     ```
 
     > [!NOTE]
-    > Lorsque vous utilisez le noyau PySpark pour créer un bloc-notes, les contextes SQL sont automatiquement créés pour vous lorsque vous exécutez la première cellule de code. Vous n’avez pas besoin de créer explicitement de contextes.
+    > Lorsque vous utilisez le noyau PySpark pour créer un bloc-notes, la session `spark` est automatiquement créée lorsque vous exécutez la première cellule de code. Vous n’avez pas besoin de créer explicitement la session.
 
 
 ## <a name="run-queries-on-the-dataframe"></a>Exécuter des requêtes sur la trame de données
@@ -68,12 +68,10 @@ Une fois la table créée, vous pouvez exécuter une requête interactive sur le
 
 1. Exécutez le code suivant dans une cellule vide du bloc-notes :
 
-    ```PySpark
+    ```sql
     %%sql
     SELECT buildingID, (targettemp - actualtemp) AS temp_diff, date FROM hvac WHERE date = \"6/1/13\"
     ```
-
-   Étant donné que le noyau PySpark est utilisé dans le bloc-notes, vous pouvez maintenant exécuter directement une requête SQL interactive sur la table temporaire **hvac**.
 
    La sortie sous forme de tableau suivante s’affiche.
 
@@ -87,9 +85,9 @@ Une fois la table créée, vous pouvez exécuter une requête interactive sur le
 
 11. Si vous démarrez le [didacticiel suivant](apache-spark-use-bi-tools.md) maintenant, laissez le bloc-notes ouvert. Dans le cas contraire, arrêtez le bloc-notes pour libérer les ressources de cluster : dans le menu **File** (Fichier) du bloc-notes, sélectionnez **Close and Halt** (Fermer et arrêter).
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Avec HDInsight, vos données étant stockées dans Stockage Azure ou Azure Data Lake Store, vous pouvez supprimer un cluster de manière sécurisée s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés. Si vous prévoyez de suivre le tutoriel suivant immédiatement, vous souhaiterez peut-être conserver le cluster.
+Avec HDInsight, vos données et blocs-notes Jupyter sont stockés dans Stockage Azure ou Azure Data Lake Store. Vous pouvez ainsi supprimer un cluster de manière sécurisée s’il n’est pas en cours d’utilisation. Vous devez également payer pour un cluster HDInsight, même lorsque vous ne l’utilisez pas. Étant donné que les frais pour le cluster sont bien plus élevés que les frais de stockage, économique, mieux vaut supprimer les clusters lorsqu’ils ne sont pas utilisés. Si vous prévoyez de suivre le tutoriel suivant immédiatement, vous souhaiterez peut-être conserver le cluster.
 
 Ouvrez le cluster dans le portail Azure, puis sélectionnez **Supprimer**.
 

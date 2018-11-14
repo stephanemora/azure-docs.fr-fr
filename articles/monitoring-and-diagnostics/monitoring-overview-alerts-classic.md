@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 7046a0c6ac84ad5f156098a26dcef2b8accd50af
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
+ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46987643"
+ms.lasthandoff: 11/05/2018
+ms.locfileid: "51015772"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Que sont les alertes classiques dans Microsoft Azure ?
 
@@ -29,7 +29,7 @@ Par le passé, Azure Monitor, Application Insights, Log Analytics et Service Hea
 
 Vous pouvez afficher des alertes classiques uniquement sur l’écran utilisateur d’alertes classiques dans le Portail Azure. Pour obtenir cet écran, cliquez sur le bouton **Afficher les alertes classiques** de l’écran destiné aux alertes. 
 
- ![Choix d’alertes dans le Portail Azure](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png) 
+ ![Choix d’alertes dans le Portail Azure](./media/monitoring-overview-alerts-classic/monitor-alert-screen2.png)
 
 La nouvelle expérience utilisateur pour les alertes présente les avantages suivants par rapport à celle des alertes classiques :
 -   **Meilleur système de notification** : toutes les alertes plus récentes utilisent des groupes d’actions, qui sont des groupes nommés de notifications et d’actions qui peuvent être réutilisés dans plusieurs alertes. Les alertes métriques classiques et les alertes Log Analytics plus anciennes n’utilisent pas de groupes d’actions.
@@ -40,7 +40,7 @@ La nouvelle expérience utilisateur pour les alertes présente les avantages sui
 -   **Consolidation des alertes intelligentes** et **définition d’état d’alerte** : les alertes plus récentes incluent une fonctionnalité de regroupement automatique qui montre des alertes similaires ensemble pour réduire la surcharge de l’interface utilisateur. 
 
 Les alertes de métrique plus récentes présentent les avantages suivants par rapport aux alertes de métrique classiques :
--   **Latence améliorée** : les alertes métriques plus récentes peuvent être exécutées toutes les minutes. Les alertes métriques les plus anciennes s’exécutent toujours à une fréquence de 5 minutes. Pour les alertes plus récentes, le délai entre le moment où le problème survient et la notification ou l’action a été raccourci (3 à 5 minutes). Pour les alertes plus anciennes, comptez 5 à 15 minutes, en fonction du type.  Le délai des alertes de journal est généralement de 10 à 15 minutes en raison du temps nécessaire pour ingérer les journaux, mais les méthodes de traitement plus récentes permettent de réduire cette durée. 
+-   **Latence améliorée** : les alertes métriques plus récentes peuvent être exécutées toutes les minutes. Les alertes métriques les plus anciennes s’exécutent toujours à une fréquence de 5 minutes. Pour les alertes plus récentes, le délai entre le moment où le problème survient et la notification ou l’action a été raccourci (de 3 à 5 minutes). Pour les alertes plus anciennes, comptez 5 à 15 minutes, en fonction du type.  Le délai des alertes de journal est généralement de 10 à 15 minutes en raison du temps nécessaire pour ingérer les journaux, mais les méthodes de traitement plus récentes permettent de réduire cette durée. 
 -   **Prise en charge de plusieurs métriques multidimensionnelles** : vous pouvez avertir sur des métriques dimensionnelles ce qui vous permet d’analyser un segment intéressant de la métrique.
 -   **Contrôle renforcé des conditions de métrique** : vous pouvez définir des règles d’alerte plus riches. Les alertes plus récentes prennent en charge la surveillance des valeurs maximales, minimales, moyennes et totales des métriques.
 -   **Surveillance combinée de plusieurs métriques** : vous pouvez surveiller plusieurs métriques (actuellement jusqu’à deux) avec une seule règle. Une alerte est déclenchée si les deux métriques violent leurs seuils respectifs durant la période spécifiée.
@@ -89,14 +89,14 @@ Les webhooks autorisent l’automatisation et la correction avec, par exemple :
 ## <a name="next-steps"></a>Étapes suivantes
 Vous pouvez obtenir des informations sur les règles d’alerte et leur configuration avec :
 
-* En savoir plus sur les [métriques](monitoring-overview-metrics.md)
-* Configurer les [alertes métriques classiques via le Portail Azure](insights-alerts-portal.md)
-* Configurer les [alertes métriques classiques PowerShell](insights-alerts-powershell.md)
-* Configurer [l’interface de ligne de commande (CLI) des alertes métriques classiques](insights-alerts-command-line-interface.md)
+* En savoir plus sur les [métriques](../monitoring/monitoring-data-collection.md)
+* Configurer les [alertes métriques classiques via le Portail Azure](alert-metric-classic.md)
+* Configurer les [alertes métriques classiques PowerShell](alert-metric-classic.md)
+* Configurer [l’interface de ligne de commande (CLI) des alertes métriques classiques](alert-metric-classic.md)
 * Configurer les [l’API REST Azure Monitor des alertes métriques](https://msdn.microsoft.com/library/azure/dn931945.aspx)
 * En savoir plus sur les [journaux d’activité](monitoring-overview-activity-logs.md)
 * Configurer les [alertes de journal d’activité par le biais du portail Azure](monitoring-activity-log-alerts.md)
-* Configurer les [alertes de journal d’activité au moyen de Resource Manager](monitoring-create-activity-log-alerts-with-resource-manager-template.md)
+* Configurer les [alertes de journal d’activité au moyen de Resource Manager](alert-activity-log.md)
 * Consulter le [schéma de webhook d’alerte de journal d’activité](monitoring-activity-log-alerts-webhook.md)
 * En savoir plus sur les [groupes d’actions](monitoring-action-groups.md)
-* Configurer des [alertes plus récentes](monitor-alerts-unified-usage.md)
+* Configurer des [alertes plus récentes](alert-metric.md)
