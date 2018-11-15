@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: bc16b71ad20e2cf2bc61a046336fe6a3618bc403
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: a0c7dcf848bfe6e5128117169a48adfbf9483f9b
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269562"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346760"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Référence de fonctions du langage de définition de workflow dans Azure Logic Apps
 
@@ -1751,7 +1751,7 @@ Ces exemples illustrent la recherche du premier élément dans ces collections :
 
 ```
 first('hello')
-first([0, 1, 2])
+first(createArray(0, 1, 2))
 ```
 
 Et retournent les résultats suivants : 
@@ -2312,7 +2312,7 @@ intersection('<collection1>', '<collection2>', ...)
 Cet exemple recherche les éléments communs dans ces tableaux :  
 
 ```
-intersection([1, 2, 3], [101, 2, 1, 10], [6, 8, 1, 2])
+intersection(createArray(1, 2, 3), createArray(101, 2, 1, 10), createArray(6, 8, 1, 2))
 ```
 
 Et retourne un tableau comportant *uniquement* ces éléments : `[1, 2]`
@@ -2343,7 +2343,7 @@ join([<collection>], '<delimiter>')
 Cet exemple illustre la création d’une chaîne à partir de tous les éléments de ce tableau avec le caractère spécifié comme séparateur :
 
 ```
-join([a, b, c], '.')
+join(createArray('a', 'b', 'c'), '.')
 ```
 
 Et retourne ce résultat : `"a.b.c"`
@@ -2375,7 +2375,7 @@ Ces exemples illustrent la recherche du dernier élément dans ces collections :
 
 ```
 last('abcd')
-last([0, 1, 2, 3])
+last(createArray(0, 1, 2, 3))
 ```
 
 Et retournent les résultats suivants : 
@@ -2441,7 +2441,7 @@ Ces exemples illustrent le comptage du nombre d’éléments contenus dans ces c
 
 ```
 length('abcd')
-length([0, 1, 2, 3])
+length(createArray(0, 1, 2, 3))
 ```
 
 Et retourne ce résultat : `4`
@@ -2569,7 +2569,7 @@ Ces exemples illustrent l’obtention de la valeur la plus élevée de l’ensem
 
 ```
 max(1, 2, 3)
-max([1, 2, 3])
+max(createArray(1, 2, 3))
 ```
 
 Et retourne ce résultat : `3`
@@ -2602,7 +2602,7 @@ Ces exemples illustrent l’obtention de la valeur la plus petite de l’ensembl
 
 ```
 min(1, 2, 3)
-min([1, 2, 3])
+min(createArray(1, 2, 3))
 ```
 
 Et retourne ce résultat : `1`
@@ -3007,7 +3007,7 @@ skip([<collection>], <count>)
 Cet exemple illustre la suppression d’un élément, le nombre 0, au début du tableau spécifié : 
 
 ```
-skip([0, 1, 2, 3], 1)
+skip(createArray(0, 1, 2, 3), 1)
 ```
 
 Et retourne ce tableau avec les éléments restants : `[1,2,3]`
@@ -3350,8 +3350,8 @@ take([<collection>], <count>)
 Ces exemples illustrent l’obtention du nombre spécifié d’éléments à partir du début de ces collections :
 
 ```
-take('abcde`, 3)
-take([0, 1, 2, 3, 4], 3)
+take('abcde', 3)
+take(createArray(0, 1, 2, 3, 4), 3)
 ```
 
 Et retournent les résultats suivants :
@@ -3626,7 +3626,7 @@ union([<collection1>], [<collection2>], ...)
 Cet exemple illustre l’obtention de *tous* les éléments de ces collections : 
 
 ```
-union([1, 2, 3], [1, 2, 10, 101])
+union(createArray(1, 2, 3), createArray(1, 2, 10, 101))
 ```
 
 Et retourne ce résultat : `[1, 2, 3, 10, 101]`

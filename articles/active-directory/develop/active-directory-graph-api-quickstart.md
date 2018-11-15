@@ -18,16 +18,18 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 7b7f2133634a91b828d7e978c9041b12873fa3a1
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: b8dba999ac6523aad29aae40b528fd010fec0550
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46997214"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687348"
 ---
 # <a name="how-to-use-the-azure-ad-graph-api"></a>Comment utiliser l’API Graph Azure AD
 
 L’API Graph Azure Active Directory (Azure AD) donne accès par programme à Azure AD via les points de terminaison de l’API REST OData. Les applications peuvent utiliser l’API Azure AD Graph pour des opérations de création, de lecture, de mise à jour et de suppression (CRUD) sur des données et objets du répertoire. Par exemple, vous pouvez utiliser l’API Graph Azure AD pour créer un utilisateur, afficher ou mettre à jour ses propriétés, modifier son mot de passe, vérifier que l’appartenance à un groupe offre un accès en fonction du rôle et désactiver ou supprimer l’utilisateur. Pour plus d’informations sur les fonctionnalités de l’API Graph Azure AD et les scénarios d’application, consultez [Graph API Azure AD](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/api-catalog) et [Composants requis de l’API Graph Azure AD](https://msdn.microsoft.com/library/hh974476.aspx).
+
+Cet article s’applique à l’API Graph Azure AD. Pour obtenir des informations similaires sur l’API Microsoft Graph, consultez [Utiliser l’API Microsoft Graph](https://developer.microsoft.com/graph/docs/concepts/use_the_api).
 
 > [!IMPORTANT]
 > Nous vous recommandons fortement d’utiliser [Microsoft Graph](https://developer.microsoft.com/graph) au lieu de l’API Azure AD Graph pour accéder aux ressources Azure Active Directory. Nos efforts de développement sont maintenant axés sur Microsoft Graph et aucune autre amélioration n’est prévue pour l’API Azure AD Graph. Il existe un nombre très limité de scénarios pour lesquels l’API Azure AD Graph peut être appropriée. Pour plus d’informations, consultez le billet de blog [Microsoft Graph ou Azure AD Graph](https://dev.office.com/blogs/microsoft-graph-or-azure-ad-graph) dans le centre de développement Office.
@@ -95,7 +97,7 @@ Dans l'exemple ci-dessous, vous utilisez le débogueur web Fiddler pour créer u
    > [!NOTE]
    > Vous devez remplacer {mytenantdomain} par le nom de domaine de votre propre annuaire Azure AD.
 
-4. Dans le champ situé directement en dessous du menu déroulant Publier, entre l’en-tête HTTP suivante :
+4. Dans le champ situé directement en-dessous du menu déroulant Publier, entre l’en-tête HTTP suivante :
    
     ```
    Host: graph.windows.net

@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 1ab404b838af65dcb75395dfeee1ca0553e497a1
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572103"
+---
 ## <a name="specifying-structure-definition-for-rectangular-datasets"></a>Spécification de la définition de la structure des jeux de données rectangulaires
 La section structure dans les jeux de données JSON est une section **facultative** pour les tables rectangulaires (avec des lignes et colonnes) et contient une collection de colonnes de la table. Vous allez utiliser la section structure pour indiquer des informations de type pour les conversions de type ou pour effectuer des mappages de colonnes. Les sections suivantes décrivent ces fonctionnalités en détail. 
 

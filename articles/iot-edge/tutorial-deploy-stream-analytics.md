@@ -2,23 +2,23 @@
 title: Didacticiel - Déployer les travaux ASA sur des appareils Azure IoT Edge | Microsoft Docs
 description: Dans ce tutoriel, vous déployez Azure Stream Analytics en tant que module dans une zone d’un appareil Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 2d22e995f489a6379a2f134b461b8bb17160919e
-ms.sourcegitcommit: 4eddd89f8f2406f9605d1a46796caf188c458f64
+ms.openlocfilehash: 2188e21cfd29ac8ac2d44878819ee62a3e2d555e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2018
-ms.locfileid: "49113833"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566939"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Didacticiel : Déployer Azure Stream Analytics en tant que module IoT Edge - (prévision)
 
-De nombreuses solutions IoT utilisent les services d’analytiques pour obtenir des informations sur les données envoyées par les appareils IoT au fur et à mesure de leur arrivée dans le Cloud. Avec Azure IoT Edge, vous pouvez utiliser cette logique [Azure Stream Analytics] [ azure-stream] et la transposer à l’appareil lui-même. Lors du traitement des flux de données de télémétrie en périphérie, vous pouvez réduire la quantité de données chargées et réduire le temps nécessaire pour réagir aux informations actionnables.
+De nombreuses solutions IoT utilisent les services d’analytiques pour obtenir des informations sur les données envoyées par les appareils IoT au fur et à mesure de leur arrivée dans le Cloud. Avec Azure IoT Edge, vous pouvez utiliser cette logique [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) et la transposer à l’appareil lui-même. Lors du traitement des flux de données de télémétrie en périphérie, vous pouvez réduire la quantité de données chargées et réduire le temps nécessaire pour réagir aux informations actionnables.
 
 Azure IoT Edge et Azure Stream Analytics sont intégrés pour que vous puissiez créer un travail Azure Stream Analytics dans le portail Azure et ensuite le déployer comme module IoT Edge sans code supplémentaire.  
 
@@ -207,7 +207,7 @@ Pour ce didacticiel, vous déployez deux modules. Le premier est **tempSensor**,
 
     Vous devez voir le nouveau module Stream Analytics en cours d’exécution avec le module Agent IoT Edge et IoT Edge Hub.
 
-    ![Sortie de module][7]
+    ![Sortie de module](./media/tutorial-deploy-stream-analytics/module_output2.png)
 
 ## <a name="view-data"></a>Afficher les données
 
@@ -219,7 +219,7 @@ Vous pouvez désormais aller sur votre appareil IoT Edge pour consulter les inte
    iotedge list  
    ```
 <!--
-   ![Docker output][8]
+   ![Docker output](./media/tutorial-deploy-stream-analytics/docker_output.png)
 -->
 1. Affichez tous les journaux système et les données des métriques. Utilisez le nom du module Stream Analytics :
 
@@ -229,7 +229,7 @@ Vous pouvez désormais aller sur votre appareil IoT Edge pour consulter les inte
 
 Vous devriez voir la température de l’ordinateur augmenter progressivement jusqu’à ce qu’elle atteigne 70 degrés pendant 30 secondes. Le module Stream Analytics déclenche alors une réinitialisation qui fait redescendre la température de l’ordinateur à 21. 
 
-   ![Journal de docker][9]
+   ![Journal de docker](./media/tutorial-deploy-stream-analytics/docker_log.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources 
 
@@ -247,29 +247,4 @@ Sinon, vous pouvez supprimer les ressources Azure et les configurations locales 
 Dans ce didacticiel, vous avez configuré un travail Azure Stream Analytics pour qu’il analyse les données de votre appareil IoT Edge. Ensuite, vous avez chargé ce module Azure Stream Analytics sur votre appareil IoT Edge pour traiter et réagir localement à l’augmentation de température, et pour envoyer le flux de données agrégées dans le cloud. Vous pouvez passer à d’autres didacticiels pour savoir comment Azure IoT Edge peut trouver d’autres solutions pour votre entreprise.
 
 > [!div class="nextstepaction"] 
-> [Déployer un modèle Azure Machine Learning en tant que module][lnk-ml-tutorial]
-
-<!-- Images. -->
-[4]: ./media/tutorial-deploy-stream-analytics/add_device.png
-[5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
-[6]: ./media/tutorial-deploy-stream-analytics/set_module.png
-[7]: ./media/tutorial-deploy-stream-analytics/module_output2.png
-[8]: ./media/tutorial-deploy-stream-analytics/docker_output.png
-[9]: ./media/tutorial-deploy-stream-analytics/docker_log.png
-[10]: ./media/tutorial-deploy-stream-analytics/storage_settings.png
-[11]: ./media/tutorial-deploy-stream-analytics/temp_module.png
-
-
-<!-- Links -->
-[lnk-what-is-iot-edge]: what-is-iot-edge.md
-[lnk-module-dev]: module-development.md
-[iot-hub-get-started-create-hub]: ../../includes/iot-hub-get-started-create-hub.md
-[azure-iot]: https://docs.microsoft.com/azure/iot-hub/
-[azure-storage]: https://docs.microsoft.com/azure/storage/
-[azure-stream]: https://docs.microsoft.com/azure/stream-analytics/
-[lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-quickstart-win]: quickstart.md
-[lnk-quickstart-lin]: quickstart-linux.md
-[lnk-module-tutorial]: tutorial-csharp-module.md
-[lnk-ml-tutorial]: tutorial-deploy-machine-learning.md
-
+> [Déployer un modèle Azure Machine Learning en tant que module](tutorial-deploy-machine-learning.md)

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/18/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 08a85cea75d692573f9e9e6c4bcd8bb61e03867f
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: e2a931b14719775ac3d901591b6424d9c9e9ee10
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041967"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625825"
 ---
 # <a name="log-analytics-faq"></a>FAQ sur Log Analytics
 Cette FAQ Microsoft consiste en une liste de questions fréquemment posées au sujet de Log Analytics dans Microsoft Azure. Si vous avez d’autres questions sur Log Analytics, rendez-vous sur le [forum de discussion](https://social.msdn.microsoft.com/Forums/azure/home?forum=opinsights) et publiez vos questions. Lorsqu’une question est fréquemment posée, nous l’ajoutons à cet article pour qu’elle soit facile et rapide à trouver.
@@ -88,7 +88,7 @@ R : Cette région a une limite de capacité temporaire. Une solution à la limit
 
 ### <a name="q-does-log-analytics-use-the-same-agent-as-azure-security-center"></a>Q. Log Analytics utilise-t-il le même agent qu’Azure Security Center ?
 
-R : Au début du mois de juin 2017, Azure Security Center a commencé à utiliser Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Forum aux questions sur la migration de plateforme Azure Security Center](../security-center/security-center-platform-migration-faq.md).
+R : Au début du mois de juin 2017, Azure Security Center a commencé à utiliser Microsoft Monitoring Agent pour collecter et stocker des données. Pour en savoir plus, consultez [Forum aux questions sur la migration de plateforme Azure Security Center](../security-center/security-center-enable-data-collection.md).
 
 ### <a name="q-what-checks-are-performed-by-the-ad-and-sql-assessment-solutions"></a>Q. Quels sont les contrôles effectués par les solutions AD et SQL Assessment ?
 
@@ -135,7 +135,7 @@ Log Analytics utilise l’heure UTC ; chaque jour commence à minuit UTC. Si l�
 
 ### <a name="q-how-can-i-be-notified-when-data-collection-stops"></a>Q. Comment être informé de l’arrêt de la collecte de données ?
 
-R : Suivez les étapes décrites dans [Créer une nouvelle alerte de journal](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) pour être averti lorsque la collecte de données s’arrête.
+R : Suivez les étapes décrites dans [Créer une nouvelle alerte de journal](../monitoring-and-diagnostics/alert-metric.md) pour être averti lorsque la collecte de données s’arrête.
 
 Lorsque vous créez l’alerte d’arrêt de la collecte de données, définissez les valeurs suivantes :
 
@@ -158,9 +158,9 @@ R. Non, il n’est pas possible pour le moment de lire des tables ou des contene
 
 ### <a name="q-what-ip-addresses-does-the-log-analytics-service-use-how-do-i-ensure-that-my-firewall-only-allows-traffic-to-the-log-analytics-service"></a>Q. Quelles sont les adresses IP utilisées par le service Log Analytics ? Comment vérifier que le pare-feu autorise uniquement le trafic vers le service Log Analytics ?
 
-R. Le service Log Analytics repose sur Azure. Les adresses IP Log Analytics se trouvent dans les [plages d’adresses IP des centres de données Microsoft Azure](http://www.microsoft.com/download/details.aspx?id=41653).
+R. Le service Log Analytics repose sur Azure. Les adresses IP Log Analytics se trouvent dans les [plages d’adresses IP des centres de données Microsoft Azure](https://www.microsoft.com/download/details.aspx?id=41653).
 
-Les adresses IP réelles du service Log Analytics changent au fil des déploiements. Les noms DNS à autoriser via votre pare-feu sont documentés dans la [configuration réseau requise](log-analytics-concept-hybrid.md#network-firewall-requirements).
+Les adresses IP réelles du service Log Analytics changent au fil des déploiements. Les noms DNS à autoriser via votre pare-feu sont documentés dans la [configuration réseau requise](log-analytics-agent-overview.md#network-firewall-requirements).
 
 ### <a name="q-i-use-expressroute-for-connecting-to-azure-does-my-log-analytics-traffic-use-my-expressroute-connection"></a>Q. J’utilise ExpressRoute pour me connecter à Azure. Mon trafic Log Analytics utilise-t-il ma connexion ExpressRoute ?
 
@@ -170,7 +170,7 @@ Le trafic vers Log Analytics utilise le circuit ExpressRoute d’homologation pu
 
 ### <a name="q-is-there-a-simple-and-easy-way-to-move-an-existing-log-analytics-workspace-to-another-log-analytics-workspaceazure-subscription"></a>Q. Existe-t-il un moyen simple de déplacer un espace de travail Log Analytics existant vers un autre espace de travail Log Analytics ou un autre abonnement Azure ?
 
-R. La cmdlet `Move-AzureRmResource` permet de déplacer un espace de travail Log Analytics ainsi qu’un compte Automation d’un abonnement Azure à un autre. Pour plus d’informations, consultez [Move-AzureRmResource](http://msdn.microsoft.com/library/mt652516.aspx).
+R. La cmdlet `Move-AzureRmResource` permet de déplacer un espace de travail Log Analytics ainsi qu’un compte Automation d’un abonnement Azure à un autre. Pour plus d’informations, consultez [Move-AzureRmResource](https://msdn.microsoft.com/library/mt652516.aspx).
 
 Cette modification peut également être effectuée dans le portail Azure.
 
@@ -231,4 +231,4 @@ Type=WireData (ProcessName="C:\\Program Files\\Microsoft Monitoring Agent\\Agent
 ```
 
 ## <a name="next-steps"></a>Étapes suivantes
-* [Familiarisez-vous avec Log Analytics](log-analytics-get-started.md) pour en savoir plus sur Log Analytics et être opérationnel en quelques minutes.
+* [Familiarisez-vous avec Log Analytics](../azure-monitor/overview.md) pour en savoir plus sur Log Analytics et être opérationnel en quelques minutes.

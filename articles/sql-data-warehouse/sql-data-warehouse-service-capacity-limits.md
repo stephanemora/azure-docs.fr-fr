@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 07/26/2018
+ms.date: 11/14/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.openlocfilehash: 7c6445624b2c03497c881b0c34bac8256fa28a98
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: aa1d98f5ea2db0cc549b60e33769c8628181721b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302041"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686600"
 ---
 # <a name="sql-data-warehouse-capacity-limits"></a>Limites de la capacité de SQL Data Warehouse
 Valeurs maximales autorisées pour les différents composants d’Azure SQL Data Warehouse.
@@ -27,7 +27,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure SQL Data
 | [Data Warehouse Units (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |La valeur par défaut de DTU par serveur |54 000<br></br>Par défaut, le Quota de DTU de chaque serveur SQL (par exemple, myserver.database.windows.net) est de 54 000, ce qui permet jusqu’à 6 000 DW. Ce quota constitue simplement une limite de sécurité. Vous pouvez augmenter votre quota en [créant un ticket de support](sql-data-warehouse-get-started-create-support-ticket.md) et en sélectionnant *Quota* comme type de requête.  Pour calculer vos besoins en matière de DTU, multipliez le nombre total de DWU nécessaire par 7,5, ou multipliez le nombre total de cDWU nécessaire par 9,0. Par exemple : <br></br>6 000 DW x 7,5 = 45 000 DTU<br></br>DW6000c x 9,0 = 54 000 DTU.<br></br>Vous pouvez consulter votre consommation de DTU actuelle dans l’option SQL Server dans le portail. Les bases de données suspendues et réactivées sont prises en compte dans le quota de DTU. |
 | Connexion de base de données |Sessions simultanées ouvertes |1 024<br/><br/>Chacune des 1024 sessions actives peut envoyer des requêtes à une base de données SQL Data Warehouse en même temps. Notez qu’il existe des limites sur le nombre de requêtes pouvant s’exécuter simultanément. En cas de dépassement d’une limite de concurrence, la demande est placée dans une file d’attente interne où elle attend d’être traitée. |
 | Connexion de base de données |Mémoire maximale pour les instructions préparées |20 Mo |
-| [gestion des charges de travail](resource-classes-for-workload-management.md) |Nombre maximal de requêtes concurrentes |128<br/><br/> SQL Data Warehouse peut exécuter un maximum de 128 requêtes et files d’attente simultanées.<br/><br/>Le nombre de requêtes simultanées peut diminuer lorsque les utilisateurs sont assignés à des classes de ressources plus élevées ou lorsque SQL Data Warehouse a un paramètre [d’unité d’entrepôt de données](memory-and-concurrency-limits.md) inférieur. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter et n’affectent pas la limite de requêtes simultanées. Pour plus d’informations sur l’exécution de requêtes simultanées, consultez l’article [Valeurs maximales de concurrence](memory-and-concurrency-limits.md#concurrency-maximums). |
+| [Gestion des charges de travail](resource-classes-for-workload-management.md) |Nombre maximal de requêtes concurrentes |128<br/><br/> SQL Data Warehouse peut exécuter un maximum de 128 requêtes et files d’attente simultanées.<br/><br/>Le nombre de requêtes simultanées peut diminuer lorsque les utilisateurs sont assignés à des classes de ressources plus élevées ou lorsque SQL Data Warehouse a un paramètre [d’unité d’entrepôt de données](memory-and-concurrency-limits.md) inférieur. Certaines requêtes, comme les requêtes DMV, sont toujours autorisées à s’exécuter et n’affectent pas la limite de requêtes simultanées. Pour plus d’informations sur l’exécution de requêtes simultanées, consultez l’article [Valeurs maximales de concurrence](memory-and-concurrency-limits.md#concurrency-maximums). |
 | [tempdb](sql-data-warehouse-tables-temporary.md) |Go maximum |399 Go par DW100. Par conséquent, pour DWU1000, la taille de tempdb est 3,99 To. |
 
 ## <a name="database-objects"></a>Objets de base de données
@@ -35,7 +35,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure SQL Data
 |:--- |:--- |:--- |
 | Base de données |Taille maximale | Gen1 : 240 To compressés sur disque. Cet espace est indépendant de tempdb ou de l’espace de journalisation. Par conséquent, cet espace est dédié aux tables permanentes.  La compression du cluster columnstore est estimée à 5 X.  Cette compression permet à la base de données d’atteindre un volume d’environ 1 Po lorsque toutes les tables sont en cluster columnstore (le type de table par défaut). <br/><br/> Gen2 : 240 To pour rowstore et stockage illimité pour les tables columnstore |
 | Table |Taille maximale |60 To compressés sur disque |
-| Table |Tables par base de données |10 000 |
+| Table |Tables par base de données | 100 000 |
 | Table |Colonnes par table |1 024 colonnes |
 | Table |Octets par colonne |Dépend de la colonne [type de données](sql-data-warehouse-tables-data-types.md). La limite est de 8 000 pour les types de données Char, de 4 000 pour nvarchar ou 2 Go pour les types de données MAX. |
 | Table |Octets par ligne, taille définie |8060 octets<br/><br/>Le nombre d’octets par ligne est calculé de la même manière que pour SQL Server avec la compression de page. Comme SQL Server, SQL Data Warehouse prend en charge le stockage de dépassement de ligne qui permet d’envoyer les **colonnes de longueur variable** hors ligne. Lorsque des lignes de longueur variable sont envoyées hors ligne, seule une racine de 24 octets est stockée dans l’enregistrement principal. Pour plus d’informations, consultez [Données de dépassement de ligne de plus de 8 Ko](https://msdn.microsoft.com/library/ms186981.aspx). |
@@ -69,7 +69,7 @@ Valeurs maximales autorisées pour les différents composants d’Azure SQL Data
 | SELECT |Colonnes par JOIN |1 024 colonnes<br/><br/>L’instruction JOIN ne peut pas contenir plus de 1 024 colonnes. Le nombre de 1024 colonnes n’est pas toujours garanti. Si le plan JOIN exige une table temporaire avec davantage de colonnes que le résultat JOIN, la limite de 1 024 s’applique à la table temporaire. |
 | SELECT |Octets par colonnes GROUP BY. |8 060<br/><br/>Les colonnes incluses dans la clause GROUP BY peuvent comporter un maximum de 8 060 octets. |
 | SELECT |Octets par colonnes ORDER BY |8060 octets<br/><br/>Les colonnes incluses dans la clause ORDER BY peuvent comporter un maximum de 8060 octets. |
-| Identificateurs par instruction |Nombre d’identificateurs référencés |65 535<br/><br/>SQL Data Warehouse limite le nombre d’identificateurs pouvant être contenus dans une seule expression d’une requête. Le dépassement de ce nombre génère l’erreur SQL Server 8632. Pour plus d’informations, consultez [Erreur interne : une limite des services d’expression a été atteinte][Erreur interne : une limite des services d’expression a été atteinte]. |
+| Identificateurs par instruction |Nombre d’identificateurs référencés |65 535<br/><br/>SQL Data Warehouse limite le nombre d’identificateurs pouvant être contenus dans une seule expression d’une requête. Le dépassement de ce nombre génère l’erreur SQL Server 8632. Pour plus d’informations, consultez [Erreur interne : une limite des services d’expression a été atteint](https://support.microsoft.com/en-us/help/913050/error-message-when-you-run-a-query-in-sql-server-2005-internal-error-a). |
 | Littéraux de chaîne | Nombre de littéraux de chaîne dans une instruction | 20 000 <br/><br/>SQL Data Warehouse limite le nombre de constantes de chaînes dans une seule expression d’une requête. Le dépassement de ce nombre génère l’erreur SQL Server 8632.|
 
 ## <a name="metadata"></a>Métadonnées

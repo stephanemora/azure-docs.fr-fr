@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2017
 ms.author: magoedte
-ms.openlocfilehash: c76b922d311a0e0bc5af2b4c8a95c2ef2ec09ba1
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 7b05876214c08c9298cca30e01958e43e2ef81d6
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914156"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615329"
 ---
 #  <a name="agent-health-solution-in-azure"></a>Solution Agent Health dans Azure
 La solution Agent Health dans Azure vous permet de savoir quels agents, au service de cet espace de travail ou d’un groupe d’administration System Center Operations Manager connecté à Log Analytics, ne répondent pas et renvoient des données opérationnelles.  Vous pouvez aussi suivre le nombre d’agents déployés et leur localisation géographique, et réaliser diverses requêtes pour être au fait de la distribution d’agents déployés au sein d’Azure, d’environnements de cloud ou localement.    
@@ -118,4 +118,4 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* Consultez [Alertes dans Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) pour obtenir des informations sur la génération d’alertes à partir de Log Analytics.
+* Consultez [Alertes dans Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) pour obtenir des informations sur la génération d’alertes à partir de Log Analytics. 

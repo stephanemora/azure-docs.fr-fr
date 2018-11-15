@@ -7,12 +7,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: andrl
-ms.openlocfilehash: 36b57fd98de206641422d80bf3ea3d2a3853f578
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 006d0ef28d82a7648a56b3bf871c5a3afd6a55a6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252562"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624418"
 ---
 # <a name="unique-keys-in-azure-cosmos-db"></a>Clés uniques dans Azure Cosmos DB
 
@@ -48,17 +48,6 @@ Les clés uniques ne peuvent être définies qu'au moment de la création d'un c
 * Les clés uniques partiellement allouées ne sont pas prises en charge. Si les valeurs de certains chemins d’accès uniques sont manquantes, ces dernières sont traitées comme des valeurs null, qui font partie intégrante de la contrainte d’unicité. Par conséquent, il ne peut y avoir qu'un seul élément avec une valeur null pour satisfaire cette contrainte.
 
 * Les noms de clés uniques sont sensibles à la casse. Prenons l'exemple d'un conteneur doté d'une contrainte de clé unique définie sur /address/zipcode. Si vos données comportent un champ intitulé ZipCode, Cosmos DB insère « null » comme clé unique car « zipcode » n’est pas identique à « ZipCode ». En raison de ce respect de la casse, aucun autre enregistrement contenant ZipCode ne peut être inséré car la valeur « null » dupliquée violera la contrainte de clé unique.
-
-## <a name="supported-apis-and-sdks"></a>API et kits de développement logiciel (SDK) pris en charge
-
-La fonctionnalité de clés uniques est actuellement prise en charge par les API et kits de développement logiciel (SDK) Cosmos DB suivants : 
-
-|Pilotes clients|API SQL|API Cassandra|API MongoDB|API Gremlin|API de table|
-|---|---|---|---|---|---|
-|.NET|Oui|Non |Oui|Non |Non |
-|Java|Oui|Non |Oui|Non |Non |
-|Python|Oui|Non |Oui|Non |Non |
-|Node/JS|Oui|Non |Oui|Non |Non |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

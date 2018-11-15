@@ -1,3 +1,16 @@
+---
+author: mrbullwinkle
+ms.service: application-insights
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: mbullwin
+ms.openlocfilehash: 3986b77cfad167134bf8ada1e3cbb73ad64dd3ca
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572094"
+---
 Collection des mesures personnalisées. Utilisez cette collection pour présenter des mesures nommées associées à l’élément de télémétrie. Les cas d’utilisation classiques sont :
 - la taille de charge utile de télémétrie des dépendances ;
 - le nombre d’éléments d’attente traités par la télémétrie des requêtes ;

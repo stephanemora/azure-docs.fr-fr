@@ -9,14 +9,14 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/24/2018
+ms.date: 10/29/2018
 ms.author: glenga
-ms.openlocfilehash: 15fb99270048d104dc392928c6932c6c2f7199a3
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 6ba2fd85e23f3a0b634319f7399f97bec9ef3954
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49430151"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346420"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Utiliser Azure Functions Core Tools
 
@@ -113,16 +113,6 @@ Les étapes suivantes utilisent [APT](https://wiki.debian.org/Apt) pour installe
     ```bash
     sudo apt-get install azure-functions-core-tools
     ```
-
-### <a name="v1"></a>Version 1.x
-
-La version d’origine des outils utilise le runtime de Functions 1.x. Cette version utilise .NET Framework (4.7.1) et n’est prise en charge que sur les ordinateurs Windows. Avant d’installer les outils de la version 1.x, vous devez [installer NodeJS](https://docs.npmjs.com/getting-started/installing-node), qui inclut npm.
-
-Pour installer les outils de la version 1.x, utilisez la commande suivante :
-
-```bash
-npm install -g azure-functions-core-tools@v1
-```
 
 ## <a name="create-a-local-functions-project"></a>Créer un projet Functions local
 
@@ -342,6 +332,9 @@ Host.Functions.MyHttpTrigger
 Job host started
 Http Function MyHttpTrigger: http://localhost:7071/api/MyHttpTrigger
 ```
+
+>[!IMPORTANT]
+>Lors d’une exécution locale, l’authentification n’est pas appliquée pour les points de terminaison HTTP. Cela signifie que toutes les demandes HTTP locales sont gérées de manière `authLevel = "anonymous"`. Pour plus d’informations, consultez l’article sur la [liaison HTTP](functions-bindings-http-webhook.md#authorization-keys). 
 
 ### <a name="passing-test-data-to-a-function"></a>Transmission de données de test à une fonction
 

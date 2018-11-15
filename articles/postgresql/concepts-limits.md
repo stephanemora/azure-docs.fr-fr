@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 0bd894e99fd575fca734a101a1cde0f0a2979682
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: f24f15134bf189097f20f75ff0b23b72a3e48363
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983742"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299604"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Limitations des bases de données Azure pour PostgreSQL
 Les sections suivantes décrivent les limites fonctionnelles et les limites de capacités du service de base de données.
@@ -31,10 +31,10 @@ Le nombre maximal de connexions par niveau tarifaire et de vCores est le suivant
 |Usage général| 8| 480|
 |Usage général| 16| 950|
 |Usage général| 32| 1 500|
-|Mémoire optimisée| 2| 150|
-|Mémoire optimisée| 4| 250|
-|Mémoire optimisée| 8| 480|
-|Mémoire optimisée| 16| 950|
+|Mémoire optimisée| 2| 300|
+|Mémoire optimisée| 4| 500|
+|Mémoire optimisée| 8| 960|
+|Mémoire optimisée| 16| 1900|
 
 Lorsque la limite du nombre de connexions est dépassée, vous pouvez recevoir l’erreur suivante :
 > FATAL:  sorry, too many clients already
@@ -47,7 +47,7 @@ Le système Azure a besoin de cinq connexions pour effectuer le monitoring du se
 - La diminution de la taille de stockage du serveur n’est pas prise en charge pour le moment.
 
 ### <a name="server-version-upgrades"></a>Mises à niveau de la version du serveur
-- La migration automatique entre les versions principales du moteur de base de données n’est pas prise en charge pour le moment. Si vous souhaitez mettre à niveau vers la version principale suivante, effectuez une [sauvegarde et restaurer](./howto-migrate-using-dump-and-restore.md) vers un serveur créé avec la nouvelle version du moteur.
+- La migration automatique entre les versions principales du moteur de base de données n’est pas prise en charge pour le moment. Si vous souhaitez mettre à niveau vers la version principale suivante, effectuez une [sauvegarde et une restauration](./howto-migrate-using-dump-and-restore.md) vers un serveur créé avec la nouvelle version du moteur.
 
 ### <a name="vnet-service-endpoints"></a>Points de terminaison de service VNet
 - Les points de terminaison de service de réseau virtuel sont uniquement pris en charge pour les serveurs Usage général et Mémoire optimisée.

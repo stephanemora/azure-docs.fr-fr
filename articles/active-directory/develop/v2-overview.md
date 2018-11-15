@@ -16,12 +16,12 @@ ms.date: 09/24/2018
 ms.author: celested
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 265d34c91a8c803256e718899f5b6ce2738a88e5
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: ecb95f0440751a6cdbf81dbf02c62bed6b5e780b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49956424"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286688"
 ---
 # <a name="about-v20"></a>À propos de v2.0
 
@@ -32,7 +32,7 @@ Le point de terminaison et la plateforme v2.0 sont en préversion et améliorés
 
 L’expérience de développement du portail Azure a été considérablement mise à jour pour inclure désormais toutes vos applications générées avec la bibliothèque ADAL ou MSAL, et pour améliorer la convivialité.
 
-Auparavant, les développeurs d’application qui souhaitaient prendre en charge à la fois les comptes Microsoft personnels et les comptes professionnels d’Azure Active Directory (Azure AD) devait opérer une intégration à deux systèmes distincts. Le point de terminaison et la plateforme v2.0 fournissent une version d’API d’authentification qui simplifie ce processus. Ils permettent une connexion à partir de ces deux types de compte à l’aide d’une intégration unique. Les applications qui utilisent le point de terminaison v2.0 peuvent également consommer les API REST à partir de l’[API Microsoft Graph](https://graph.microsoft.io) à l’aide d’un des deux types de compte.
+Auparavant, les développeurs d’application qui souhaitaient prendre en charge à la fois les comptes Microsoft personnels et les comptes professionnels d’Azure Active Directory (Azure AD) devait opérer une intégration à deux systèmes distincts. Le point de terminaison et la plateforme v2.0 fournissent une version d’API d’authentification qui simplifie ce processus. Ils permettent une connexion à partir de ces deux types de compte à l’aide d’une intégration unique. Les applications qui utilisent le point de terminaison v2.0 peuvent également consommer les API REST à partir de l’[API Microsoft Graph](https://developer.microsoft.com/graph) à l’aide d’un des deux types de compte.
 
 ## <a name="getting-started"></a>Prise en main
 
@@ -56,10 +56,10 @@ Informations approfondies sur v2.0 :
 
 * [Informations de référence sur les protocoles v2.0](active-directory-v2-protocols.md)
 * [Référence sur les jetons d’accès](access-tokens.md)
-* [Référence sur `id_tokens` ](id-tokens.md)
+* [Référence sur les jetons d’ID](id-tokens.md)
 * [Informations de référence sur les bibliothèques d’authentification v2.0](reference-v2-libraries.md)
-* [Étendues et consentement dans v2.0](v2-permissions-and-consent.md)
-* [API Microsoft Graph](https://graph.microsoft.io)
+* [Autorisations et consentement dans v2.0](v2-permissions-and-consent.md)
+* [API Microsoft Graph](https://developer.microsoft.com/graph)
 
 > [!NOTE]
 > Si vous ne devez connecter que des comptes professionnels et scolaires à partir d’Azure Active Directory, commencez par le [Guide du développeur Azure AD](v1-overview.md). Le point de terminaison v2.0 est destiné aux développeurs qui doivent explicitement connecter des comptes personnels Microsoft.

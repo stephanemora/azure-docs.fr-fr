@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: mattbriggs
 ms.author: mabrigg
-ms.date: 11/02/2018
+ms.date: 11/09/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: thoroet
 manager: femila
-ms.openlocfilehash: 4376b9e89aeef32987f7a3bb29ca6815e941ba00
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 049e859f1d736e7c06ac5d40e33d91d1540c3d9e
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50960240"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514364"
 ---
 # <a name="prepare-for-extension-host-for-azure-stack"></a>Préparer l’hôte d’extension pour Azure Stack
 
@@ -84,8 +84,7 @@ Utilisez un ordinateur capable de se connecter au point de terminaison Azure Sta
 
 1. Utilisez un ordinateur capable de se connecter au point de terminaison Azure Stack privilégié pour les étapes suivantes. Assurez-vous d’avoir accès aux nouveaux fichiers de certificat à partir de cet ordinateur.
 2. Ouvrez PowerShell ISE pour exécuter les blocs de script suivants.
-3. Importez le certificat pour le point de terminaison d’hébergement. Ajustez le script afin qu’il corresponde à votre environnement.
-4. Importez le certificat pour le point de terminaison d’hébergement d’administration.
+3. Importez le certificat pour le point de terminaison d’hébergement d’administration.
 
     ```PowerShell  
 
@@ -104,7 +103,7 @@ Utilisez un ordinateur capable de se connecter au point de terminaison Azure Sta
             Import-AdminHostingServiceCert $AdminHostingCertContent $certPassword
     }
     ```
-5. Importez le certificat pour le point de terminaison d’hébergement.
+4. Importez le certificat pour le point de terminaison d’hébergement.
     ```PowerShell  
     $CertPassword = read-host -AsSecureString -prompt "Certificate Password"
 

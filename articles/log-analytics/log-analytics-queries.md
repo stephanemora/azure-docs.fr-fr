@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: 2ab7e0c5d4a62b9c4fa0492b9bc9a19dfab36c74
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 0a8a1ab41972aa2ae184b900c2dab94ec58f3e7c
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005051"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51612746"
 ---
 # <a name="analyze-log-analytics-data-in-azure-monitor"></a>Analyser les données Log Analytics dans Azure Monitor
 
-Les données de journal collectées par Azure Monitor sont stockées dans un espace de travail Log Analytics, qui est basé sur [Azure Data Explorer](/data-explorer). Il collecte des données de télémétrie à partir de diverses sources et utilise le [langage de requête de Data Explorer](/kusto) pour récupérer et analyser les données.
+Les données de journal collectées par Azure Monitor sont stockées dans un espace de travail Log Analytics, qui est basé sur [Azure Data Explorer](/azure/data-explorer). Il collecte des données de télémétrie à partir de diverses sources et utilise le [langage de requête de Data Explorer](/azure/kusto/query) pour récupérer et analyser les données.
 
 > [!NOTE]
 > Log Analytics a été précédemment traité comme un service propre dans Azure. Il fait désormais partie intégrante d’Azure Monitor et se concentre sur le stockage et l’analyse des données de journal par le biais de son langage de requête. Les fonctionnalités qui faisaient partie intégrante de Log Analytics, comme les agents Windows et Linux de collecte de données, les vues permettant d’afficher les données existantes, et les alertes vous informant des problèmes, n’ont pas changé, mais elles font aujourd’hui partie d’Azure Monitor.
@@ -41,12 +41,12 @@ Vous devez effectuer une requête dans les journaux pour récupérer des donnée
 Voici plusieurs façons d’utiliser les requêtes dans Log Analytics :
 
 - **Portails.** Vous pouvez effectuer une analyse interactive des données de journal dans le [portail Azure](log-analytics-log-search-portals.md).  Cela vous permet de modifier votre requête et d’analyser les résultats dans divers formats et visualisations.  
-- **Règles d’alerte.** Les [règles d’alerte](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) identifient de façon proactive les problèmes à partir des données dans votre espace de travail.  Chaque règle d’alerte est basée sur une recherche dans les journaux qui est exécutée automatiquement à intervalles réguliers.  Les résultats sont inspectés pour déterminer si une alerte doit être créée.
+- **Règles d’alerte.** Les [règles d’alerte](../monitoring-and-diagnostics/monitoring-overview-alerts.md) identifient de façon proactive les problèmes à partir des données dans votre espace de travail.  Chaque règle d’alerte est basée sur une recherche dans les journaux qui est exécutée automatiquement à intervalles réguliers.  Les résultats sont inspectés pour déterminer si une alerte doit être créée.
 - **Tableaux de bord.** Vous pouvez épingler les résultats de n’importe quelle requête dans un [tableau de bord Azure]() afin de visualiser les données de journal et les métriques ensemble et de partager ces informations avec d’autres utilisateurs Azure si vous le souhaitez. 
 - **Vues.**  Vous pouvez créer des visualisations de données à inclure dans les tableaux de bord utilisateur avec le [Concepteur de vues](log-analytics-view-designer.md).  Les requêtes dans les journaux fournissent les données utilisées par les [vignettes](log-analytics-view-designer-tiles.md) et les [composants de visualisation](log-analytics-view-designer-parts.md) dans chaque vue.  
 - **Exportation.**  Quand vous importez des données de l’espace de travail Log Analytics vers Excel ou [Power BI](log-analytics-powerbi.md), vous créez une requête de journal pour définir les données à exporter.
 - **PowerShell.** Vous pouvez exécuter un script PowerShell à partir d’une ligne de commande ou d’un runbook Azure Automation qui utilise [Get-AzureRmOperationalInsightsSearchResults](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/get-azurermoperationalinsightssearchresults?view=azurermps-4.0.0) pour récupérer des données à partir de Log Analytics.  Cette applet de commande nécessite une requête pour déterminer les données à récupérer.
-- **API Log Analytics.**  L’[API de recherche dans les journaux Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) permet à tout client d’API REST de récupérer des données de journal à partir de l’espace de travail.  La demande d’API comprend une requête qui est exécutée sur Log Analytics pour déterminer les données à récupérer.
+- **API Log Analytics.**  L’[API de recherche dans les journaux Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md) permet à tout client d’API REST de récupérer des données de journal à partir de l’espace de travail.  La demande d’API comprend une requête qui est exécutée sur Log Analytics pour déterminer les données à récupérer.
 
 ![Recherches dans les journaux](media/log-analytics-queries/queries-overview.png)
 

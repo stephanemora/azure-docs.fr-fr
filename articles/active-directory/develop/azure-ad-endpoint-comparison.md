@@ -17,12 +17,12 @@ ms.date: 09/27/2018
 ms.author: andret
 ms.reviewer: hirsin, andret
 ms.custom: aaddev
-ms.openlocfilehash: e393851535c36eb604d57cc4d7c7561a3ebb201b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 215e0abe196620624dcca7f430aec4ee9b9612f2
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49955420"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288201"
 ---
 # <a name="comparing-the-azure-ad-v20-endpoint-with-the-v10-endpoint"></a>Comparer le point de terminaison Azure AD v2.0 avec le point de terminaison v1.0
 
@@ -41,7 +41,7 @@ Lorsque vous développez une nouvelle application, vous devez connaître les dif
 
 * Tous deux (v1.0 et v2.0) acceptent des connexions d’*[utilisateurs invités](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b)* issus d’un répertoire Azure AD pour les applications configurées en tant que *[mono-locataire](single-and-multi-tenant-apps.md)* ou pour les applications *multi-locataire* configurées de manière à pointer vers le point de terminaison spécifique au locataire (`https://login.microsoftonline.com/{TenantId_or_Name}`).
 
-Le point de terminaison v2.0 vous permet d’écrire des applications qui acceptent des connexions à partir de comptes professionnels et scolaires, ce qui vous donne la possibilité d’écrire votre application sans vous soucier du type de compte. Par exemple, si votre application appelle [Microsoft Graph](https://graph.microsoft.io), certaines fonctionnalités et données supplémentaires seront disponibles pour les comptes professionnels (leurs sites SharePoint ou les données du répertoire, par exemple). Mais pour de nombreuses actions, comme la [lecture du courrier d’un utilisateur](https://graph.microsoft.io/docs/api-reference/v1.0/resources/message), vous pouvez utiliser le même code pour accéder à la messagerie, aussi bien pour les comptes professionnels que scolaires.
+Le point de terminaison v2.0 vous permet d’écrire des applications qui acceptent des connexions à partir de comptes professionnels et scolaires, ce qui vous donne la possibilité d’écrire votre application sans vous soucier du type de compte. Par exemple, si votre application appelle [Microsoft Graph](https://developer.microsoft.com/graph), certaines fonctionnalités et données supplémentaires seront disponibles pour les comptes professionnels (leurs sites SharePoint ou les données du répertoire, par exemple). Mais pour de nombreuses actions, comme la [lecture du courrier d’un utilisateur](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/message), vous pouvez utiliser le même code pour accéder à la messagerie, aussi bien pour les comptes professionnels que scolaires.
 
 Pour le point de terminaison v2.0, vous pouvez utiliser une bibliothèque unique (MSAL) pour accéder aux différents univers (consommation, scolaire ou professionnel).
 

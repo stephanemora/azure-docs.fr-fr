@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: bwren
-ms.openlocfilehash: d1fdec8e3a959aaeb68d4b63a1c71d6ef1ddd054
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 22e22a2eb6eefb84c6745de9b19e7710913b4ee7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49406319"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616280"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Solution de gestion Office 365 dans Azure (préversion)
 
@@ -30,7 +30,7 @@ La solution de gestion Office 365 vous permet d’effectuer le monitoring de vot
 - Analysez les activités d’administrateur pour effectuer le suivi des modifications de configuration ou d’opérations de privilèges élevés.
 - Détectez et analysez le comportement des utilisateurs indésirables, qui peut être personnalisé pour les besoins de votre organisation.
 - Présentation d’audit et de conformité. Par exemple, vous pouvez surveiller les opérations d’accès aux fichiers sur des fichiers confidentiels, ce qui peut vous aider dans le processus d’audit et de conformité.
-- Effectuez un dépannage opérationnel à l’aide des [Recherches dans les journaux](../log-analytics/log-analytics-log-search.md) en haut des données d’activité Office 365 de votre organisation.
+- Effectuez un dépannage opérationnel à l’aide des [Recherches dans les journaux](../log-analytics/log-analytics-queries.md) en haut des données d’activité Office 365 de votre organisation.
 
 ## <a name="prerequisites"></a>Prérequis
 Les conditions suivantes sont requises avant l’installation et la configuration de cette solution.
@@ -709,6 +709,6 @@ Le tableau suivant fournit des exemples de recherches de journaux pour les enreg
 
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Utilisez les recherches de journaux de [Log Analytics](../log-analytics/log-analytics-log-searches.md) pour afficher des données détaillées sur les mises à jour.
+* Utilisez les recherches de journaux de [Log Analytics](../log-analytics/log-analytics-queries.md) pour afficher des données détaillées sur les mises à jour.
 * [Créez vos propres tableaux de bord](../log-analytics/log-analytics-dashboards.md) pour afficher vos requêtes de recherche favoris Office 365.
-* [Créez des alertes](../log-analytics/log-analytics-alerts.md) pour être informé de façon proactive des activités importantes Office 365.  
+* [Créez des alertes](../monitoring-and-diagnostics/monitoring-overview-alerts.md) pour être informé de façon proactive des activités importantes Office 365.  

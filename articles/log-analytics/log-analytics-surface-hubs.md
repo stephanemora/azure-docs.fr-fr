@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/16/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f07488e526a15fb067d6ea7a265d069fbe3aee3
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5601c6c5b85b144b853c40e89c81a22f87b7880f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51009553"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614989"
 ---
 # <a name="monitor-surface-hubs-with-log-analytics-to-track-their-health"></a>Surveiller les Surface Hubs avec Log Analytics pour suivre leur intégrité
 
@@ -84,8 +84,8 @@ L’analyse de vos Surface Hubs à l’aide de Log Analytics est très similaire
 
    ![Tableau de bord de Surface Hub](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
-Vous pouvez créer des [alertes](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) basées sur des recherches de journal existantes ou personnalisées. En utilisant les données que Log Analytics collecte à partir de vos Surface Hubs, vous pouvez rechercher des problèmes et générer des alertes sur les conditions que vous définissez pour vos appareils.
+Vous pouvez créer des [alertes](../monitoring-and-diagnostics/monitoring-overview-alerts.md) basées sur des recherches de journal existantes ou personnalisées. En utilisant les données que Log Analytics collecte à partir de vos Surface Hubs, vous pouvez rechercher des problèmes et générer des alertes sur les conditions que vous définissez pour vos appareils.
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Utiliser des [recherches de journal dans Log Analytics](log-analytics-queries.md) pour afficher des données détaillées de Surface Hub.
-* Créer des [alertes](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) pour être averti en cas de problèmes avec vos Surface Hubs.
+* Créer des [alertes](../monitoring-and-diagnostics/monitoring-overview-alerts.md) pour être averti en cas de problèmes avec vos Surface Hubs.

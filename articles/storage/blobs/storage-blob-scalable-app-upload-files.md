@@ -10,12 +10,12 @@ ms.date: 02/20/2018
 ms.author: rogarana
 ms.custom: mvc
 ms.component: blobs
-ms.openlocfilehash: 557dd1d89fc05d82f1839a7b02356857f41164c6
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: a69d67ee455b447eb038903bb8fafb644d025662
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399734"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51565732"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Charger en parallèle de grandes quantités de données aléatoires dans le stockage Azure
 
@@ -95,7 +95,7 @@ private static async Task UploadFilesAsync()
         int max_outstanding = 100;
         int completed_count = 0;
 
-        // Define the BlobRequestionOptions on the upload.
+        // Define the BlobRequestOptions on the upload.
         // This includes defining an exponential retry policy to ensure that failed connections are retried with a backoff policy. As multiple large files are being uploaded
         // large block sizes this can cause an issue if an exponential retry policy is not defined.  Additionally parallel operations are enabled with a thread count of 8
         // This could be should be multiple of the number of cores that the machine has. Lastly MD5 hash validation is disabled for this example, this improves the upload speed.
@@ -196,6 +196,6 @@ Dans la deuxième partie de la série, vous avez appris à charger de grandes qu
 Passez à la troisième partie de la série pour télécharger de grandes quantités de données à partir d’un compte de stockage.
 
 > [!div class="nextstepaction"]
-> [Charger en parallèle de grandes quantités de fichiers volumineux dans un compte de stockage](storage-blob-scalable-app-download-files.md)
+> [Télécharger de grandes quantités de données aléatoires depuis le stockage Azure](storage-blob-scalable-app-download-files.md)
 
 [previous-tutorial]: storage-blob-scalable-app-create-vm.md

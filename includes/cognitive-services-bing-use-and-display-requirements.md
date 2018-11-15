@@ -8,15 +8,13 @@ ms.topic: include
 ms.custom: include file
 ms.date: 04/19/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 174af83686eba665a729246be7a477b9a5054f30
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: f166ceac1ae848565f861a94781ce0500c24747e
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "35370948"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51289153"
 ---
-# <a name="bing-search-api-use-and-display-requirements"></a>Conditions d’utilisation et d’affichage de l’API Recherche Bing
-
 Les conditions d’utilisation et d’affichage s’appliquent à toute implémentation du contenu et des informations associées. Par exemple, ces conditions s’appliquent aux relations, métadonnées et autres signaux. Ces derniers peuvent être disponibles via des appels aux API suivantes :
 
 - Recherche personnalisée Bing
@@ -36,7 +34,7 @@ Vous trouverez des informations détaillées sur l’implémentation de ces cond
 Ne pas :
 
 - copier, stocker ou mettre en cache des données provenant des API Vérification orthographique Bing ou Suggestion automatique Bing ;
-- utiliser des données provenant des API Vérification orthographique Bing ou Suggestion automatique Bing dans le cadre de Machine Learning ou d’une activité algorithmique similaire. N’utilisez pas ces données pour former, évaluer ou améliorer des services nouveaux ou existants que vous ou des parties tierces pourriez proposer.
+- utiliser des données provenant des API Vérification orthographique Bing ou Suggestion automatique Bing dans le cadre de Machine Learning ou d’une activité algorithmique similaire. N’utilisez pas ces données pour former, évaluer ou améliorer des services nouveaux ou existants que vous ou des parties tierces pourriez proposer ;
 
 ## <a name="definitions"></a>Définitions
 

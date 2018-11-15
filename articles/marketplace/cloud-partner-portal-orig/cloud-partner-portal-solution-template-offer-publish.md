@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 09/17/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 5320b8d5ca7456a6f1b0fdd1372c9f39ac1edfb0
-ms.sourcegitcommit: 1b186301dacfe6ad4aa028cfcd2975f35566d756
+ms.openlocfilehash: c7c7912860568aea497e327f29a1b7b71b8f5e87
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51219407"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345587"
 ---
 # <a name="publish-a-solution-template-to-azure-marketplace"></a>Publier un modèle de solution sur la Place de marché Microsoft Azure
 
@@ -161,7 +161,7 @@ Une fois que vous avez terminé de renseigner les paramètres de la référence 
 
 ![Détails du package](./media/cloud-partner-portal-publish-managed-app/newOffer_newsku_ST_package.png)
 
-- **Version actuelle** : version du package que vous allez charger. Elle doit respecter le format - ..
+- **Version actuelle** : version du package que vous allez charger. Les balises de version doivent être au format X.Y.Z, où X, Y et Z sont des entiers.
 
 - **Fichier de package** : ce package contient les fichiers suivants, compressés dans un fichier .zip.
 

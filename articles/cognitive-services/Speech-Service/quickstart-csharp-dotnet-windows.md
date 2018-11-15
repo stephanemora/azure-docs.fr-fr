@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: quickstart
 ms.date: 11/05/2018
 ms.author: wolfma
-ms.openlocfilehash: 2dd001ebebd5cdf90d7d0b8163a85a5f83c855f6
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 502f59c88808480f26e6ea5a6d2c5b362c78869b
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281292"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683492"
 ---
 # <a name="quickstart-recognize-and-transcribe-speech-using-the-speech-sdk-and-net-framework-windows"></a>Démarrage rapide : Reconnaissance et transcription vocale à l’aide du kit SDK Speech et de .NET Framework (Windows)
 
@@ -23,7 +23,7 @@ ms.locfileid: "51281292"
 
 Utilisez ce guide pour créer une application de console de reconnaissance vocale à l’aide de .NET Framework pour Windows et du kit SDK Speech. Lorsque vous avez terminé, vous pouvez utiliser le microphone de l’ordinateur pour une retranscription vocale en temps réel.
 
-Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) et Microsoft Speech doit être activé. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started) pour obtenir une clé d’abonnement.
+Pour suivre ce démarrage rapide, vous devrez disposer d’un [compte Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) et Microsoft Speech doit être activé. Si vous n’avez pas de compte, vous pouvez utiliser la [version d’évaluation gratuite](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started) pour obtenir une clé d’abonnement.
 
 ## <a name="prerequisites"></a>Prérequis
 

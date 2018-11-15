@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/04/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: fe2407f67e2ef7a2eb14105db0fef10917f34ba9
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 5c9f37d326d66e69e87ec846ca6f22d1788203f5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51005221"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613985"
 ---
 # <a name="vmware-monitoring-preview-solution-in-log-analytics"></a>Solution Analyse VMware (version préliminaire) dans Log Analytics
 
@@ -165,7 +165,7 @@ L’enregistrement des requêtes de recherche est une fonctionnalité standard d
 ![DockerDashboardView](./media/log-analytics-vmware/dockerdashboardview.png)
 
 #### <a name="create-alerts-from-queries"></a>Créer des alertes à partir de requêtes
-Après avoir créé vos requêtes, vous pouvez les utiliser pour vous avertir quand des événements spécifiques se produisent. Pour plus d’informations sur la création d’alertes, voir [Alertes dans Log Analytics](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md). Pour obtenir des exemples de requêtes d’alerte et d’autres requêtes, voir le billet de blog [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Analyser VMware à l’aide Log Analytics).
+Après avoir créé vos requêtes, vous pouvez les utiliser pour vous avertir quand des événements spécifiques se produisent. Pour plus d’informations sur la création d’alertes, voir [Alertes dans Log Analytics](../monitoring-and-diagnostics/monitoring-overview-alerts.md). Pour obtenir des exemples de requêtes d’alerte et d’autres requêtes, voir le billet de blog [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics) (Analyser VMware à l’aide Log Analytics).
 
 ## <a name="frequently-asked-questions"></a>Questions fréquentes (FAQ)
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>Que dois-je faire avec les paramètres d’hôte ESXi ? Quel sera l’impact sur mon environnement actuel ?
@@ -208,4 +208,4 @@ Il peut y avoir plusieurs raisons :
 ## <a name="next-steps"></a>Étapes suivantes
 * Utiliser des [recherches de journal](log-analytics-queries.md) dans Log Analytics pour afficher des données détaillées de l’hôte VMware.
 * [Créer vos propres tableaux de bord](log-analytics-dashboards.md) affichant des données de l’hôte VMware.
-* [Créer des alertes](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) lorsque des événements d’hôte VMware spécifiques se produisent.
+* [Créer des alertes](../monitoring-and-diagnostics/monitoring-overview-alerts.md) lorsque des événements d’hôte VMware spécifiques se produisent.

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/25/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: e2d1ccbc6532da3600c952236c3904c9e55294c8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: c65f5364ccd4943d1d3e703ed27099408d3a2a27
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279413"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346590"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Déplacer des ressources vers un nouveau groupe de ressource ou un nouvel abonnement
 
@@ -28,11 +28,10 @@ Lorsque vous déplacez des ressources, le groupe source et le groupe cible sont 
 Vous ne pouvez pas modifier l’emplacement de la ressource. Le déplacement d’une ressource consiste uniquement en sa translation vers un nouveau groupe de ressources. Le nouveau groupe de ressources peut présenter à un autre emplacement, mais l’emplacement de la ressource n’est aucunement modifié.
 
 > [!NOTE]
-> Cet article décrit le déplacement des ressources dans une offre de compte Azure. Si vous souhaitez changer l’offre de votre compte Azure (par exemple, passer d’une offre gratuite au paiement à l’utilisation), vous devez convertir votre abonnement. 
+> Cet article décrit le déplacement des ressources dans une offre de compte Azure. Si vous souhaitez changer l’offre de votre compte Azure (par exemple, passer d’une offre gratuite au paiement à l’utilisation), vous devez convertir votre abonnement.
 > * Pour mettre à niveau votre essai gratuit, consultez [Passer d’un essai gratuit ou d’un abonnement Azure Microsoft Imagine au paiement à l’utilisation](..//billing/billing-upgrade-azure-subscription.md).
 > * Pour changer un compte de paiement à l’utilisation, consultez [Remplacer votre abonnement Paiement à l’utilisation Azure par une autre offre](../billing/billing-how-to-switch-azure-offer.md).
 > * Si vous ne pouvez pas convertir l’abonnement, [créez une demande de support Azure](../azure-supportability/how-to-create-azure-support-request.md). Sélectionnez **Gestion des abonnements** comme type de problème.
->
 
 ## <a name="checklist-before-moving-resources"></a>Liste de contrôle avant le déplacement de ressources
 
@@ -42,7 +41,7 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
 
   Pour Azure PowerShell, utilisez :
 
-  ```powershell
+  ```azurepowershell-interactive
   (Get-AzureRmSubscription -SubscriptionName <your-source-subscription>).TenantId
   (Get-AzureRmSubscription -SubscriptionName <your-destination-subscription>).TenantId
   ```
@@ -63,14 +62,14 @@ Plusieurs étapes importantes doivent être effectuées avant de déplacer une r
 
   Pour PowerShell, utilisez les commandes suivantes pour obtenir l’état de l’inscription :
 
-  ```powershell
+  ```azurepowershell-interactive
   Set-AzureRmContext -Subscription <destination-subscription-name-or-id>
   Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
   ```
 
   Pour inscrire un fournisseur de ressources, utilisez :
 
-  ```powershell
+  ```azurepowershell-interactive
   Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
   ```
 
@@ -325,7 +324,6 @@ Voici les contraintes qui ne sont pas encore prises en charge :
 * Les groupes de machines virtuelles identiques avec un équilibreur de charge de référence SKU Standard ou avec une adresse IP publique de référence SKU Standard ne peuvent pas être déplacés
 * Les machines virtuelles auxquelles des plans sont associés créées à partir de ressources de la Place de marché ne peuvent pas être déplacées entre des groupes de ressources ou des abonnements. Déprovisionnez la machine virtuelle dans l’abonnement actuel, puis redéployez-la dans le nouvel abonnement.
 
-
 ## <a name="virtual-networks-limitations"></a>Limitations de réseaux virtuels
 
 Lors de la migration d’un réseau virtuel, vous devez également migrer ses ressources dépendantes. Pour les passerelles VPN, vous devez déplacer les adresses IP, les passerelles de réseau virtuel et toutes les ressources de connexion associées. Les passerelles de réseau locales peuvent se trouver dans un autre groupe de ressources.
@@ -346,9 +344,9 @@ Lorsque vous déplacez une application web _au sein du même abonnement_, vous n
 
 Si vous souhaitez déplacer le certificat SSL avec l’application web, suivez ces étapes :
 
-1.  Supprimer le certificat chargé à partir de l’application web
-2.  Déplacer l’application web
-3.  Charger le certificat sur l’application web déplacée
+1. Supprimer le certificat chargé à partir de l’application web
+2. Déplacer l’application web
+3. Charger le certificat sur l’application web déplacée
 
 ### <a name="moving-across-subscriptions"></a>Déplacement entre différents abonnements
 
@@ -503,7 +501,7 @@ Lorsque l’opération est terminée, vous êtes informé du résultat.
 
 Pour déplacer des ressources existantes vers un autre groupe de ressources ou un autre abonnement, utilisez la commande [Move-AzureRmResource](/powershell/module/azurerm.resources/move-azurermresource) . L’exemple suivant vous indique comment déplacer plusieurs ressources vers un nouveau groupe de ressources.
 
-```powershell
+```azurepowershell-interactive
 $webapp = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExampleSite
 $plan = Get-AzureRmResource -ResourceGroupName OldRG -ResourceName ExamplePlan
 Move-AzureRmResource -DestinationResourceGroupName NewRG -ResourceId $webapp.ResourceId, $plan.ResourceId

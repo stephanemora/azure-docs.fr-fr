@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2017
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 811bb40816339dbe7097e429722625a3ae5c95c0
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: fafc16bdf00f947d4ba8ffe56d7cf2ae3e0bc489
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358198"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344941"
 ---
 # <a name="resource-providers-and-types"></a>Fournisseurs et types de ressources
 
@@ -38,7 +38,7 @@ Vous pouvez effectuer ces étapes via le portail, PowerShell ou l’interface de
 
 Pour afficher tous les fournisseurs de ressources dans Azure et l’état de l’inscription de votre abonnement, utilisez :
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceProvider -ListAvailable | Select-Object ProviderNamespace, RegistrationState
 ```
 
@@ -56,7 +56,7 @@ Microsoft.CognitiveServices      Registered
 
 L’inscription d’un fournisseur de ressources configure votre abonnement pour travailler avec le fournisseur de ressources. L’étendue pour l’inscription est toujours l’abonnement. Par défaut, de nombreux fournisseurs de ressources sont enregistrés automatiquement. Toutefois, vous devrez peut-être inscrire manuellement certains fournisseurs de ressources. Pour inscrire un fournisseur de ressources, vous devez être autorisé à effectuer `/register/action`l’opération pour le fournisseur de ressources. Cette opération est incluse dans les rôles de contributeur et de propriétaire.
 
-```powershell
+```azurepowershell-interactive
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
@@ -73,7 +73,7 @@ Vous ne pouvez pas annuler l’inscription d’un fournisseur de ressources lors
 
 Pour afficher des informations pour un fournisseur de ressources particulier, utilisez :
 
-```powershell
+```azurepowershell-interactive
 Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch
 ```
 
@@ -90,7 +90,7 @@ Locations         : {West Europe, East US, East US 2, West US...}
 
 Pour afficher les types de ressources pour un fournisseur de ressources, utilisez :
 
-```powershell
+```azurepowershell-interactive
 (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes.ResourceTypeName
 ```
 
@@ -103,11 +103,11 @@ locations
 locations/quotas
 ```
 
-La version de l'API correspond à une version des opérations de l'API REST publiées par le fournisseur de ressources. Lorsqu'un fournisseur de ressources active de nouvelles fonctionnalités, une nouvelle version de l'API REST sera publiée. 
+La version de l'API correspond à une version des opérations de l'API REST publiées par le fournisseur de ressources. Lorsqu'un fournisseur de ressources active de nouvelles fonctionnalités, une nouvelle version de l'API REST sera publiée.
 
 Pour obtenir les versions d’API disponibles pour un type de ressource, utilisez :
 
-```powershell
+```azurepowershell-interactive
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).ApiVersions
 ```
 
@@ -121,11 +121,11 @@ Résultat :
 2015-07-01
 ```
 
-Resource Manager est pris en charge dans toutes les régions, mais il est possible que certaines ressources que vous déployez ne soient pas prises en charge dans toutes les régions. Par ailleurs, il peut y avoir des limitations sur votre abonnement qui vous empêchent d’utiliser certaines régions prenant en charge la ressource. 
+Resource Manager est pris en charge dans toutes les régions, mais il est possible que certaines ressources que vous déployez ne soient pas prises en charge dans toutes les régions. Par ailleurs, il peut y avoir des limitations sur votre abonnement qui vous empêchent d’utiliser certaines régions prenant en charge la ressource.
 
 Pour obtenir les emplacements pris en charge pour un type de ressource, utilisez :
 
-```powershell
+```azurepowershell-interactive
 ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Batch).ResourceTypes | Where-Object ResourceTypeName -eq batchAccounts).Locations
 ```
 
@@ -140,6 +140,7 @@ West US
 ```
 
 ## <a name="azure-cli"></a>Azure CLI
+
 Pour afficher tous les fournisseurs de ressources dans Azure et l’état de l’inscription de votre abonnement, utilisez :
 
 ```azurecli
@@ -204,7 +205,7 @@ locations
 locations/quotas
 ```
 
-La version de l'API correspond à une version des opérations de l'API REST publiées par le fournisseur de ressources. Lorsqu'un fournisseur de ressources active de nouvelles fonctionnalités, une nouvelle version de l'API REST sera publiée. 
+La version de l'API correspond à une version des opérations de l'API REST publiées par le fournisseur de ressources. Lorsqu'un fournisseur de ressources active de nouvelles fonctionnalités, une nouvelle version de l'API REST sera publiée.
 
 Pour obtenir les versions d’API disponibles pour un type de ressource, utilisez :
 
@@ -224,7 +225,7 @@ Result
 2015-07-01
 ```
 
-Resource Manager est pris en charge dans toutes les régions, mais il est possible que certaines ressources que vous déployez ne soient pas prises en charge dans toutes les régions. Par ailleurs, il peut y avoir des limitations sur votre abonnement qui vous empêchent d’utiliser certaines régions prenant en charge la ressource. 
+Resource Manager est pris en charge dans toutes les régions, mais il est possible que certaines ressources que vous déployez ne soient pas prises en charge dans toutes les régions. Par ailleurs, il peut y avoir des limitations sur votre abonnement qui vous empêchent d’utiliser certaines régions prenant en charge la ressource.
 
 Pour obtenir les emplacements pris en charge pour un type de ressource, utilisez :
 
@@ -289,7 +290,7 @@ La version de l'API correspond à une version des opérations de l'API REST publ
 ![afficher les versions d’API](./media/resource-manager-supported-services/show-api-versions.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
+
 * Pour en savoir plus sur la création de modèles Resource Manager, consultez [Création de modèles Azure Resource Manager](resource-group-authoring-templates.md).
 * Pour en savoir plus sur le déploiement de ressources, consultez [Déploiement d’une application avec un modèle Azure Resource Manager](resource-group-template-deploy.md).
 * Pour afficher les opérations pour un fournisseur de ressources, consultez [API REST Azure](/rest/api/).
-

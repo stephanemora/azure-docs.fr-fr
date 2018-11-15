@@ -7,15 +7,15 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: tutorial
 ms.workload: infrastructure-services
-ms.date: 7/13/2018
+ms.date: 11/13/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 11cd052ca07e074ce8303891f7a372890fdf7291
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 785f3e5f55520b3851e8989b79c340bce55c2135
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45580597"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566906"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Créer une passerelle d’application avec une redirection basée sur un chemin d’accès d’URL à l’aide d’Azure PowerShell
 
@@ -32,6 +32,8 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 L’exemple suivant montre le trafic du site en provenance des ports 8080 et 8081, et sa redirection vers les même pools principaux :
 
 ![Exemple d’acheminement d’URL](./media/tutorial-url-redirect-powershell/scenario.png)
+
+Si vous préférez, vous pouvez suivre ce tutoriel en utilisant [Azure CLI](tutorial-url-redirect-cli.md).
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -508,7 +510,7 @@ Changez l’URL en http://&lt;ip-address&gt;:8080/video/test.htm, en remplaçant
 
 À présent, changez l’URL en http://&lt;ip-address&gt;:8081/images/test.htm, en remplaçant &lt;ip-address&gt; par votre adresse IP, de façon à voir le trafic redirigé vers le pool principal d’images à l’adresse http://&lt;ip-address&gt;:8080/images.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la passerelle d’application et toutes les ressources associées à l’aide de [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup).
 
@@ -516,14 +518,6 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la pass
 Remove-AzureRmResourceGroup -Name myResourceGroupAG
 ```
 ## <a name="next-steps"></a>Étapes suivantes
-
-Dans ce tutoriel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Configurer le réseau
-> * Créer une passerelle Application Gateway
-> * Créer des écouteurs et des règles de routage
-> * Créer des groupes de machines virtuelles identiques pour les pools principaux
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur ce que la passerelle d’application vous permet de faire](application-gateway-introduction.md)

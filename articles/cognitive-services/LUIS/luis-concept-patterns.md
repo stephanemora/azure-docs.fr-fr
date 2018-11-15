@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: conceptual
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: fbd11eb23b10800e115a63549f233e0239763420
-ms.sourcegitcommit: 17633e545a3d03018d3a218ae6a3e4338a92450d
+ms.openlocfilehash: 09c869bf28b804d8fabe331c4a9c2d222accc1e5
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/22/2018
-ms.locfileid: "49638141"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300368"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Les modèles améliorent la précision de la prédiction
 Les modèles sont conçus pour améliorer la précision lorsque plusieurs énoncés sont très similaires.  Un modèle vous permet d’obtenir plus de précision pour une intention sans fournir de nombreux énoncés en plus. 
@@ -89,7 +89,7 @@ Pour ajouter une entité **Pattern.any** au modèle, placez l’entité Pattern.
 Dans ces exemples de titres de livres, les mots contextuels des titres ne prêtent pas à confusion pour LUIS. LUIS sait où le titre du livre se termine, car il se trouve dans un modèle et est marqué d’une entité Pattern.any.
 
 ### <a name="explicit-lists"></a>Listes explicites
-Si votre modèle contient une entité Pattern.any, et que la syntaxe du modèle permet d’extraire une entité incorrecte en fonction de l’énoncé, créez une [Liste explicite](https://aka.ms/ExplicitList) via l’API de création pour autoriser l’exception. 
+Si votre modèle contient une entité Pattern.any, et que la syntaxe du modèle permet d’extraire une entité incorrecte en fonction de l’énoncé, créez une [Liste explicite](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8) via l’API de création pour autoriser l’exception. 
 
 Par exemple, supposons que vous disposez d’un modèle contenant la syntaxe facultative, `[]`, et la syntaxe d’entité, `{}`, combinées de façon à extraire les données de manière incorrecte.
 
@@ -102,7 +102,7 @@ Prenons l’exemple du modèle « [trouver] e-mail sur {objet} [de {personne}] �
 
 Dans le tableau précédent, dans l’énoncé `email about the man from La Mancha`, l’objet doit être `the man from La Mancha` (titre du livre), mais comme l’objet inclut le mot facultatif `from`, le titre est incorrectement prédit. 
 
-Pour corriger cette exception dans le modèle, ajoutez `the man from la mancha` en tant que correspondance de liste explicite pour l’entité {objet} à l’aide de l’[API de création de liste explicite](https://aka.ms/ExplicitList).
+Pour corriger cette exception dans le modèle, ajoutez `the man from la mancha` en tant que correspondance de liste explicite pour l’entité {objet} à l’aide de l’[API de création de liste explicite](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5ade550bd5b81c209ce2e5a8).
 
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Syntaxe pour marquer le texte facultatif dans un modèle d’énoncé
 Marquez un texte facultatif dans l’énoncé à l’aide de la syntaxe en crochet d’expression régulière, `[]`. Dans le texte facultatif, vous pouvez imbriquer jusqu'à deux crochets uniquement.

@@ -9,12 +9,12 @@ ms.date: 10/16/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: d031965a812cd218fbb4e78dfbf90ee01c26f5bb
-ms.sourcegitcommit: 5de9de61a6ba33236caabb7d61bee69d57799142
+ms.openlocfilehash: b91c3dec1dda401fbacab39325b2c8980ec7254f
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50085968"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625062"
 ---
 # <a name="onboard-update-management-change-tracking-and-inventory-solutions"></a>Intégrer les solutions Update Management, Change Tracking et Inventory
 
@@ -81,7 +81,7 @@ Cliquez sur **+ Ajouter des machines virtuelles Azure**, sélectionnez une ou pl
 
 Les machines qui ne sont pas dans Azure doivent être ajoutées manuellement. À partir de votre compte Automation, Sélectionnez **Inventory** ou **Change Tracking** sous **GESTION DE LA CONFIGURATION**, ou **Update Management** sous **UPDATE MANAGEMENT**.
 
-Cliquez sur **Ajouter une machine virtuelle non-Azure**. Une nouvelle fenêtre de navigateur s’ouvre contenant des [instructions pour installer et configurer Microsoft Monitoring Agent sur la machine](../log-analytics/log-analytics-concept-hybrid.md) pour que celle-ci puisse commencer à envoyer des informations à la solution. Si vous intégrez une machine actuellement gérée par System Center Operations Manager, l’installation d’un nouvel agent n’est pas nécessaire, car les informations de l’espace de travail sont entrées dans l’agent existant.
+Cliquez sur **Ajouter une machine virtuelle non-Azure**. Une nouvelle fenêtre de navigateur s’ouvre contenant des [instructions pour installer et configurer Microsoft Monitoring Agent sur la machine](../log-analytics/log-analytics-agent-overview.md) pour que celle-ci puisse commencer à envoyer des informations à la solution. Si vous intégrez une machine actuellement gérée par System Center Operations Manager, l’installation d’un nouvel agent n’est pas nécessaire, car les informations de l’espace de travail sont entrées dans l’agent existant.
 
 ## <a name="onboard-machines-in-the-workspace"></a>Intégrer des machines dans l’espace de travail
 
@@ -136,9 +136,9 @@ Si vous avez utilisé la solution de gestion de la mise à jour, vous pouvez (si
 
 Si vous avez utilisé la solution Démarrer et Arrêter des machines virtuelles pendant les heures creuses, vous pouvez, si vous le souhaitez, supprimer les éléments suivants qui ne sont plus nécessaires après la suppression de la solution.
 
-* Démarrer et arrêter les planifications de runbook de machine virtuelle
-* Démarrer et arrêter les runbooks de machine virtuelle
-* Variables
+* Start and stop VM runbook schedules (Démarrer et arrêter les planifications de Runbook de machine virtuelle)
+* Start and stop VM runbooks (Démarrer et arrêter les Runbooks de machine virtuelle)
+* variables
 
 ## <a name="next-steps"></a>Étapes suivantes
 

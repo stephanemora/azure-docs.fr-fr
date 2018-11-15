@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/10/2018
+ms.date: 01/09/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: f52a849fee4005628fb6a8ad567d89f5046d4765
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 43a682568708ab0286328cf3e483ddc3d5cf9dd8
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46968066"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515350"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Guide pratique pour optimiser votre investissement dans le cloud avec Azure Cost Management
 
@@ -186,10 +186,6 @@ Pour plus d’informations, consultez [Qu’est-ce qu’une réservation Azure 
 Si vous avez déjà des licences Windows Server ou SQL Server dans vos déploiements locaux, vous pouvez utiliser le programme Azure Hybrid Benefit pour faire des économies dans Azure. Avec l’avantage Windows Server, chaque licence couvre le coût du système d’exploitation (jusqu’à deux machines virtuelles) et vous payez uniquement les coûts liés au calcul de base. Vous pouvez utiliser des licences SQL Server existantes pour économiser jusqu’à 55 % sur les options SQL Database basées sur vCore. Parmi ces options figurent SQL Server dans Machines virtuelles Azure et SQL Server Integration Services.
 
 Pour plus d’informations, consultez [Calculatrice des économies réalisées avec Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).
-
-#### <a name="monetary-commitment"></a>Engagement monétaire
-
-Les clients qui souscrivent un Contrat Entreprise peuvent créer un engagement monétaire initial auprès de Microsoft. Outre fournir un moyen simple pour allouer des budgets à des ressources cloud, les engagements monétaires vous permettent d’obtenir des tarifs réduits sur Azure. Ces réductions tarifaires peuvent engendrer des économies significatives pour votre organisation.
 
 ### <a name="other-resources"></a>Autres ressources
 

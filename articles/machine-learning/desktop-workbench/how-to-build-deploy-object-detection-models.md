@@ -1,6 +1,6 @@
 ---
 title: Générez et déployez un modèle de détection d’objet à l’aide du package Azure Machine Learning de la vision par ordinateur.
-description: Découvrez comment créer, entraîner, tester et déployer un modèle de détection d’objet de la vision par ordinateur à l’aide du package Azure Machine Learning de la vision par ordinateur.
+description: Découvrez comment créer, former, tester et déployer un modèle de détection d’objet de la vision par ordinateur à l’aide du package Azure Machine Learning de la vision par ordinateur.
 services: machine-learning
 ms.service: machine-learning
 ms.component: core
@@ -10,31 +10,31 @@ ms.author: netahw
 author: nhaiby
 ms.date: 06/01/2018
 ROBOTS: NOINDEX
-ms.openlocfilehash: 166adc2b464ede5ba77d049075479e3b37a02a88
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 1451cdc5efcb62cff5c5d3725d5b15eb44be1755
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46954855"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613662"
 ---
 # <a name="build-and-deploy-object-detection-models-with-azure-machine-learning"></a>Générer et déployer des modèles de détection d’objet avec Azure Machine Learning
 
 [!INCLUDE [workbench-deprecated](../../../includes/aml-deprecating-preview-2017.md)]
 
 
-Dans cet article, découvrez comment utiliser le **package Azure Machine Learning de la vision par ordinateur** pour entraîner, tester et déployer un modèle de détection d’objet [R-CNN plus rapide](https://arxiv.org/abs/1506.01497). 
+Dans cet article, découvrez comment utiliser le **package Azure Machine Learning de la vision par ordinateur** (Azure Machine Learning Package for Computer Vision), pour former, tester et déployer un modèle de détection d’objet [R-CNN plus rapide](https://arxiv.org/abs/1506.01497). 
 
 Un grand nombre de problèmes survenant dans le domaine de la vision par ordinateur peuvent être résolus au moyen de la détection d’objet. Ces problèmes incluent la création de modèles pour rechercher un nombre variable d’objets sur une image. 
 
 Lors de la génération et du déploiement de ce modèle avec ce package, vous parcourez les étapes suivantes :
 1.  Création d’un jeu de données
 2.  Définition des modèles DNN (Deep Neural Network)
-3.  Entraînement du modèle
+3.  Apprentissage du modèle
 4.  Évaluation et visualisation
 5.  Déploiement de services web
 6.  Test de chargement de services Web
 
-Dans cet exemple, TensorFlow est utilisé en tant que framework d’apprentissage profond, l’entraînement est assurée localement sur une machine optimisée par GPU, comme la [machine virtuelle Deep learning Data Science](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview), et le déploiement utilise Azure ML Operationalization CLI.
+Dans cet exemple, TensorFlow est utilisé en tant que framework d’apprentissage profond, la formation est assurée localement sur une machine optimisée par GPU, comme la [machine virtuelle Deep learning Data Science](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-ads.dsvm-deep-learning?tab=Overview), et le déploiement utilise Azure ML Operationalization CLI.
 
 Consultez la [documentation de référence du package](https://aka.ms/aml-packages/vision) pour obtenir des informations détaillées sur chaque module et chaque classe.
 
@@ -70,7 +70,7 @@ L’illustration suivante montre la structure des dossiers recommandée.
 
 ## <a name="image-annotation"></a>Annotation image
 
-Des emplacements d’objet annotés sont requis pour entraîner et évaluer un détecteur d’objet. [LabelImg](https://tzutalin.github.io/labelImg) est un outil d’annotation open source qui peut être utilisé pour annoter des images. LabelImg écrit un fichier xml par image au format Pascal-VOC, qui peut être lu par ce package. 
+Des emplacements d’objet annotés sont requis pour former et évaluer un détecteur d’objet. [LabelImg](https://tzutalin.github.io/labelImg) est un outil d’annotation open source qui peut être utilisé pour annoter des images. LabelImg écrit un fichier xml par image au format Pascal-VOC, qui peut être lu par ce package. 
 
 
 ```python
@@ -130,7 +130,7 @@ _ = data_train.images[2].visualize_bounding_boxes(image_size = (10,10))
 
 ## <a name="define-a-model"></a>Définir un modèle
 
-Dans cet exemple, le modèle R-CNN plus rapide est utilisé. Différents paramètres peuvent être fournis lors de la définition de ce modèle. La signification de ces paramètres, ainsi que les paramètres utilisés pour l’entraînement (voir la section suivante) sont accessibles dans la documentation de l’API CVTK ou sur le [site web de détection d’objet Tensorflow](https://github.com/tensorflow/models/tree/master/research/object_detection). Vous trouverez plus d’informations sur le modèle R-CNN plus rapide avec [ce lien](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Ce modèle est basé sur R-CNN rapide et plus d’informations sont accessibles [ici](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
+Dans cet exemple, le modèle R-CNN plus rapide est utilisé. Différents paramètres peuvent être fournis lors de la définition de ce modèle. La signification de ces paramètres, ainsi que les paramètres utilisés pour l’apprentissage (voir la section suivante) sont accessibles dans la documentation de l’API CVTK ou sur le [site web de détection d’objet Tensorflow](https://github.com/tensorflow/models/tree/master/research/object_detection). Vous trouverez plus d’informations sur le modèle R-CNN plus rapide avec [ce lien](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Faster-R-CNN#technical-details). Ce modèle est basé sur R-CNN rapide et plus d’informations sont accessibles [ici](https://docs.microsoft.com/cognitive-toolkit/Object-Detection-using-Fast-R-CNN#algorithm-details).
 
 
 ```python
@@ -141,17 +141,17 @@ my_detector = TFFasterRCNN(labels=data_train.labels,
                            max_total_detections=max_total_detections)
 ```
 
-## <a name="train-the-model"></a>Entraîner le modèle
+## <a name="train-the-model"></a>Formation du modèle
 
-Le modèle R-CNN plus rapide entraîné avec COCO avec ResNet50 est utilisé comme point de départ pour l’entraînement. 
+Le modèle R-CNN plus rapide formé avec COCO avec ResNet50 est utilisé comme point de départ pour l’apprentissage. 
 
-Pour entraîner le détecteur, le nombre d’étapes d’entraînement dans le code est défini sur 350, afin que l’entraînement s’exécute plus rapidement (~5 minutes avec une GPU). Dans la pratique, affectez-lui une valeur égale à au moins 10 fois le nombre d’images dans le jeu d’entraînement.
+Pour former le détecteur, le nombre d’étapes d’apprentissage dans le code est défini sur 350, afin que l’apprentissage s’exécute plus rapidement (~5 minutes avec une GPU). Dans la pratique, affectez-lui une valeur égale à au moins 10 fois le nombre d’images dans le jeu d’apprentissage.
 
-Dans cet exemple, le nombre d’étapes d’entraînement du détecteur est défini sur 350 pour un entraînement rapide. Toutefois, dans la pratique, une règle empirique consiste à définir les étapes à une valeur égale à au moins 10 fois le nombre d’images dans le jeu d’entraînement.
+Dans cet exemple, le nombre d’étapes d’apprentissage du détecteur est défini sur 350 pour un apprentissage rapide. Toutefois, dans la pratique, une règle empirique consiste à définir les étapes à une valeur égale à au moins 10 fois le nombre d’images dans le jeu d’apprentissage.
 
-Deux paramètres clés pour l’entraînement sont :
-- Nombre d’étapes pour entraîner le modèle, représenté par l’argument num_seps. Chaque étape effectue l’entraînement du modèle avec un mini-lot d'un lot taille un.
-- Taux d’entraînement, qui peut être défini avec initial_learning_rate
+Deux paramètres clés pour l’apprentissage sont :
+- Nombre d’étapes pour former le modèle, représenté par l’argument num_seps. Chaque étape effectue l’apprentissage du modèle avec un mini-lot d'un lot taille un.
+- Taux d’apprentissage, qui peut être défini avec initial_learning_rate
 
 ```python
 print("tensorboard --logdir={}".format(my_detector.train_dir))
@@ -187,17 +187,17 @@ print(end_train-start_train)
     361.604615688324
     
 
-TensorBoard peut être utilisé pour visualiser la progression de l’entraînement. Les événements TensorBoard sont situés dans le dossier spécifié par l’attribut train_dir de l’objet de modèle. Pour afficher TensorBoard, procédez comme suit :
+TensorBoard peut être utilisé pour visualiser la progression de la formation. Les événements TensorBoard sont situés dans le dossier spécifié par l’attribut train_dir de l’objet de modèle. Pour afficher TensorBoard, procédez comme suit :
 1. Copiez l’impression qui commence par « tensorboard--logdir » dans une ligne de commande et exécutez-la. 
 2. Copiez l’URL retournée à partir de la ligne de commande dans un navigateur web pour afficher TensorBoard. 
 
-TensorBoard doit ressembler à la capture d’écran suivante. Le remplissage du dossier d’entraînement prend un certain temps. Par conséquent, si TensorBoard ne s’affiche pas correctement au premier essai, essayez de répéter les étapes 1 et 2.  
+TensorBoard doit ressembler à la capture d’écran suivante. Le remplissage du dossier d’apprentissage prend un certain temps. Par conséquent, si TensorBoard ne s’affiche pas correctement au premier essai, essayez d répéter les étapes 1 et 2.  
 
 ![tensorboard](media/how-to-build-deploy-object-detection-models/tensorboard.JPG)
 
 ## <a name="evaluate-the-model"></a>Évaluer le modèle
 
-La méthode « evaluate » est utilisée pour évaluer le modèle. Cette fonction nécessite un objet ObjectDetectionDataset en tant qu’entrée. Le jeu de données d’évaluation peut être créé à l’aide de la même fonction que celle utilisée pour le jeu de données d’entraînement. La métrique prise en charge est Average Precision (Précision moyenne) telle que définie pour [PASCAL COV Challenge](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf).  
+La méthode « evaluate » est utilisée pour évaluer le modèle. Cette fonction nécessite un objet ObjectDetectionDataset en tant qu’entrée. Le jeu de données d’évaluation peut être créé à l’aide de la même fonction que cellle utilisée pour le jeu de données d’apprentissage. La métrique prise en charge est Average Precision (Précision moyenne) telle que définie pour [PASCAL COV Challenge](http://host.robots.ox.ac.uk/pascal/VOC/pubs/everingham10.pdf).  
 
 
 ```python
@@ -259,9 +259,9 @@ print('{0: <15}: {1: <3}'.format("overall:", round(eval_result['PASCAL/Precision
     overall:       : 0.99
     
 
-De même, vous pouvez calculer la précision du modèle sur le jeu d’entraînement. Cela permet de s’assurer que l’entraînement a convergé vers une bonne solution. La précision sur le jeu d’entraînement après un entraînement réussi est souvent proche de 100 %.
+De même, vous pouvez calculer la précision du modèle sur le jeu d’apprentissage. Cela permet de s’assurer que la formation a convergé vers une bonne solution. La précision sur le jeu d’apprentissage après une formation réussie est souvent proche de 100 %.
 
-Les résultats de l’évaluation peuvent également être affichés à partir de TensorBoard, notamment les valeurs mAP et les images avec des rectangles englobants prédits. Copiez l’impression à partir du code suivant dans une fenêtre de ligne de commande pour démarrer le client TensorBoard. Ici, une valeur de port 8008 est utilisée pour éviter tout conflit avec la valeur par défaut 6006, utilisée pour afficher l’état de l’entraînement.
+Les résultats de l’évaluation peuvent également être affichés à partir de TensorBoard, notamment les valeurs mAP et les images avec des rectangles englobants prédits. Copiez l’impression à partir du code suivant dans une fenêtre de ligne de commande pour démarrer le client TensorBoard. Ici, une valeur de port 8008 est utilisée pour éviter tout conflit avec la valeur par défaut 6006, utilisée pour afficher l’état de l’apprentissage.
 
 
 ```python
@@ -534,7 +534,7 @@ def score_image_with_http(image, service_endpoint_url, service_key=None, paramet
         image (str): Image file path
         service_endpoint_url(str): web service endpoint url
         service_key(str): Service key. None for local deployment.
-        parameters (dict): Additional request paramters in dictionary. Default is {}.
+        parameters (dict): Additional request parameters in dictionary. Default is {}.
 
 
     Returns:

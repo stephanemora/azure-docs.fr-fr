@@ -2,19 +2,19 @@
 title: Installer Azure IoT Edge sur Linux ARM32 | Microsoft Docs
 description: Instructions d’installation d’Azure IoT Edge sur Linux sur des appareils ARM32, comme un Raspberry PI
 author: kgremban
-manager: timlt
+manager: philmea
 ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
 ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: 874e72a0c76a5935f4a3451ba5ffbd6e9e3eecd6
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: ccd38dd7570dc451a1a5b87163bfdd7aea51dad5
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393845"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567432"
 ---
 # <a name="install-azure-iot-edge-runtime-on-linux-arm32v7armhf"></a>Installer le runtime Azure IoT Edge sur Linux (ARM32v7/armhf)
 
@@ -68,9 +68,9 @@ curl -L https://aka.ms/iotedged-linux-armhf-latest -o iotedge.deb && sudo dpkg -
 sudo apt-get install -f
 ```
 
-## <a name="connect-your-device-to-an-iot-hub"></a>Connectez votre appareil à un hub IoT 
+## <a name="connect-your-device-to-an-iot-hub"></a>Connectez votre appareil à un IoT Hub 
 
-Configurez le runtime IoT Edge pour lier votre appareil physique à une identité d’appareil existante dans un hub IoT Azure. 
+Configurez le runtime IoT Edge pour lier votre appareil physique à une identité d’appareil existante dans un IoT Hub Azure. 
 
 Le démon peut être configuré à l’aide du fichier de configuration situé à l’emplacement `/etc/iotedge/config.yaml`. Le fichier étant protégé en écriture par défaut, vous pouvez avoir besoin d’autorisations élevées pour le modifier.
 
@@ -121,7 +121,7 @@ Ouvrez le fichier de configuration.
 sudo nano /etc/iotedge/config.yaml
 ```
 
-Recherchez la section de provisionnement du fichier et supprimez les commentaires du mode de provisionnement **dps**. Mettez à jour les valeurs de **scope_id** et de **registration_id** avec les valeurs de votre service IoT Hub Device Provisioning et de votre appareil IoT Edge avec TPM. 
+Recherchez la section de provisionnement du fichier et supprimez les commentaires du mode de provisionnement **dps**. Mettez à jour les valeurs de **scope_id** et de **registration_id** avec les valeurs de votre IoT Hub Device Provisioning Service et de votre appareil IoT Edge avec TPM. 
 
    ```yaml
    # provisioning:

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: 4abde91e04048d64a17f861825d1fb7779873155
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.openlocfilehash: 638946f0ffa8b6540f55fb7a22ac17bd262269bf
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47106095"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621681"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Didacticiel : utiliser une identité managée affectée par l’utilisateur sur une machine virtuelle Linux pour accéder à Azure Resource Manager
 
@@ -40,13 +40,11 @@ Ce tutoriel vous montre comment effectuer les opérations suivantes :
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+- [Connectez-vous au Portail Azure](https://portal.azure.com).
 
-[Connectez-vous au Portail Azure](https://portal.azure.com).
+- [Créez une machine virtuelle Linux](/azure/virtual-machines/linux/quick-create-portal).
 
-[Créez une machine virtuelle Linux](/azure/virtual-machines/linux/quick-create-portal).
-
-Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
+- Si vous choisissez d’installer et d’utiliser l’interface de ligne de commande localement, vous devez exécuter Azure CLI version 2.0.4 ou une version ultérieure pour poursuivre la procédure décrite dans ce guide de démarrage rapide. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installation d’Azure CLI 2.0]( /cli/azure/install-azure-cli).
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Créer une identité managée attribuée par l’utilisateur
 
@@ -128,20 +126,20 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
 1. Connectez-vous au [portail Azure](https://portal.azure.com).
 2. Dans le portail, accédez à **Machines virtuelles**, puis à la machine virtuelle Linux. Ensuite, dans **Vue d’ensemble**, cliquez sur **Connecter**. Copiez la chaîne permettant de se connecter à votre machine virtuelle.
 3. Connectez-vous à la machine virtuelle à l’aide du client SSH de votre choix. Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](~/articles/virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
-4. Dans la fenêtre du terminal, à l’aide de CURL, envoyez une requête au point de terminaison d’identité du service IMDS (Instance Metadata Service) Azure pour obtenir un jeton d’accès à Azure Resource Manager.  
+4. Dans la fenêtre du terminal, à l’aide de CURL, envoyez une requête au point de terminaison d’identité du service IMDS (Instance Metadata Service) Azure pour obtenir un jeton d’accès à Azure Resource Manager.  
 
-   La requête CURL permettant d’acquérir un jeton d’accès est illustrée dans l’exemple suivant. Veillez à remplacer `<CLIENT ID>` par la propriété `clientId` retournée par la commande `az identity create` dans [Créer une identité managée affectée par l’utilisateur](#create-a-user-assigned-managed-identity) : 
+   La requête CURL permettant d’acquérir un jeton d’accès est illustrée dans l’exemple suivant. Veillez à remplacer `<CLIENT ID>` par la propriété `clientId` retournée par la commande `az identity create` dans [Créer une identité managée affectée par l’utilisateur](#create-a-user-assigned-managed-identity) : 
     
    ```bash
-   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
+   curl -H Metadata:true "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com/&client_id=<UAMI CLIENT ID>"   
    ```
     
     > [!NOTE]
-    > La valeur du paramètre `resource` doit correspondre exactement à ce qui est attendu par Azure AD. Lorsque vous utilisez l’ID de ressource Resource Manager, vous devez inclure la barre oblique de fin à l’URI. 
+    > La valeur du paramètre `resource` doit correspondre exactement à ce qui est attendu par Azure AD. Lorsque vous utilisez l’ID de ressource Resource Manager, vous devez inclure la barre oblique de fin à l’URI. 
     
-    La réponse inclut le jeton d’accès dont vous avez besoin pour accéder à Azure Resource Manager. 
+    La réponse inclut le jeton d’accès dont vous avez besoin pour accéder à Azure Resource Manager. 
     
-    Exemple de réponse :  
+    Exemple de réponse :  
 
     ```bash
     {
@@ -152,19 +150,19 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
     "not_before":"1504126627",
     "resource":"https://management.azure.com",
     "token_type":"Bearer"
-    } 
+    } 
     ```
 
 5. Utilisez le jeton d’accès pour accéder à Azure Resource Manager et lisez les propriétés du groupe de ressources dont vous avez précédemment accordé l’accès à votre identité managée affectée par l’utilisateur. Veillez à remplacer `<SUBSCRIPTION ID>`, `<RESOURCE GROUP>` par les valeurs que vous avez spécifiées auparavant, et `<ACCESS TOKEN>` par le jeton retourné à l’étape précédente.
 
     > [!NOTE]
-    > L’URL respecte la casse, par conséquent veillez à ce que l’usage des minuscules et des majuscules soit strictement identique à celui que vous avez précédemment suivi lorsque vous avez nommé le groupe de ressources, que la majuscule « G » soit également bien respectée dans `resourceGroups`.  
+    > L’URL respecte la casse, par conséquent veillez à ce que l’usage des minuscules et des majuscules soit strictement identique à celui que vous avez précédemment suivi lorsque vous avez nommé le groupe de ressources, que la majuscule « G » soit également bien respectée dans `resourceGroups`.  
 
     ```bash 
-    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl https://management.azure.com/subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP>?api-version=2016-09-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
 
-    La réponse contient les informations particulières du groupe de ressources, comme dans l’exemple suivant : 
+    La réponse contient les informations particulières du groupe de ressources, comme dans l’exemple suivant : 
 
     ```bash
     {
@@ -172,9 +170,9 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH. Si vous uti
     "name":"DevTest",
     "location":"westus",
     "properties":{"provisioningState":"Succeeded"}
-    } 
+    } 
     ```
-    
+    
 ## <a name="next-steps"></a>Étapes suivantes
 
 Dans ce didacticiel, vous avez découvert comment créer une identité managée affectée par l’utilisateur, puis l’attacher à une machine virtuelle Linux pour accéder à l’API Azure Resource Manager.  Pour en savoir plus sur Azure Resource Manager, consultez :

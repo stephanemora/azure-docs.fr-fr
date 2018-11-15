@@ -2,18 +2,18 @@
 title: Fonctionnalités hors connexion d’Azure IoT Edge | Microsoft Docs
 description: Découvrez de quelle manière les appareils et modules IoT Edge peuvent fonctionner en mode hors connexion durant de longues périodes, et comment IoT Edge permet aussi aux appareils IoT standards de continuer à fonctionner hors connexion.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c4ab33f4d706eb677b2b790ff871c1fb900846ff
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: eb44d6b0a4ea69d92f91af7ce1d6b19deff4e753
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51235630"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567024"
 ---
 # <a name="understand-extended-offline-capabilities-for-iot-edge-devices-modules-and-child-devices-preview"></a>Comprendre les fonctionnalités hors connexion étendues pour les appareils, modules et appareils enfants IoT Edge (préversion)
 

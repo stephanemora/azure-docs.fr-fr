@@ -1,3 +1,16 @@
+---
+author: vladvino
+ms.service: api-management
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: vlvinogr
+ms.openlocfilehash: 2bfa356deeede1c16bd5a464ea7081132a67faf6
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572070"
+---
 ## <a name="append-other-apis"></a>Ajouter d’autres API
 
 Une API peut être composée d’API exposées par différents services, y compris la spécification OpenAPI, une API SOAP, la fonctionnalité API Apps d’Azure App Service, Azure Function App, Azure Logic Apps et Azure Service Fabric.

@@ -9,16 +9,16 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: fa429553caf874dd634944a5fca6cd9283194bb4
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 3932ad18ceedb36a4a8c1f9fc78eb8aef27a8a4f
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50251105"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51301014"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Liaisons Microsoft Graph pour Azure Functions
 
-Cet article explique comment configurer et utiliser des déclencheurs et liaisons Microsoft Graph dans Azure Functions. Ces fonctions vous permettent d’utiliser Azure Functions pour travailler sur des données, des informations et des événements à partir de [Microsoft Graph](https://graph.microsoft.io).
+Cet article explique comment configurer et utiliser des déclencheurs et liaisons Microsoft Graph dans Azure Functions. Ces fonctions vous permettent d’utiliser Azure Functions pour travailler sur des données, des informations et des événements à partir de [Microsoft Graph](https://developer.microsoft.com/graph).
 
 L’extension Microsoft Graph fournit les liaisons suivantes :
 - Une [liaison d’entrée de jeton d’authentification](#token-input) permet d’interagir avec toute API Microsoft Graph.
@@ -834,7 +834,7 @@ Cette section comporte les sous-sections suivantes :
 * [Exemple](#outlook-output---example)
 * [Attributs](#outlook-output---attributes)
 * [Configuration](#outlook-output---configuration)
-* [Utilisation](#outlook-outnput---usage)
+* [Utilisation](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Sortie Outlook - exemple
 

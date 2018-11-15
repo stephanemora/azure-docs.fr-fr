@@ -2,7 +2,6 @@
 title: Publication d’applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs dans le proxy d’application Azure AD | Microsoft Docs
 description: Explique comment créer et gérer des groupes de connecteurs dans le proxy d’Application Azure AD.
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
 ms.service: active-directory
@@ -11,16 +10,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/31/2018
+ms.date: 11/08/2018
 ms.author: barbkess
-ms.reviewer: harshja
-ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: e149df09bf424d33fa9abdf8108b3b79534a8599
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.reviewer: japere
+ms.openlocfilehash: aebb042c065652bef568f6bc1be2ee8bfde43988
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364971"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622631"
 ---
 # <a name="publish-applications-on-separate-networks-and-locations-using-connector-groups"></a>Publier des applications sur des réseaux et emplacements distincts à l’aide de groupes de connecteurs
 
@@ -86,14 +84,14 @@ Avec les groupes de connecteurs de proxy d’application Azure AD, vous pouvez a
 La plupart des clients qui ont déployé le proxy d’application utilisent ses fonctionnalités d’authentification unique (SSO) par le biais de la délégation Kerberos contrainte (KCD). Pour ce faire, les machines du connecteur doivent être jointes à un domaine qui peut déléguer les utilisateurs vers l’application. KCD prend en charge les fonctionnalités inter-forêts. Mais pour les entreprises qui disposent d’environnements distincts à plusieurs forêts sans approbation entre eux, il est impossible d’utiliser un connecteur unique pour toutes les forêts. 
 
 Dans ce cas, des connecteurs spécifiques peuvent être déployés par forêt et définis pour traiter les applications qui ont été publiées pour traiter uniquement les utilisateurs de cette forêt spécifique. Chaque groupe de connecteurs représente une forêt différente. Bien que le client et la majorité de l’expérience soient unifiés pour toutes les forêts, les utilisateurs peuvent être affectés à leurs applications de forêt à l’aide de groupes Azure AD.
- 
+ 
 ### <a name="disaster-recovery-sites"></a>Sites de récupération d’urgence
 
 Il existe deux approches différentes que vous pouvez utiliser avec un site de récupération d’urgence, en fonction de l’implémentation de vos sites :
 
 * Si votre site de récupération d’urgence est créé en mode actif - actif où il est identique au site principal et dispose des mêmes paramètres de mise en réseau et AD, vous pouvez créer les connecteurs sur le site de récupération d’urgence dans le même groupe de connecteurs que le site principal. Cela permet à Azure AD de détecter les basculements.
 * Si votre site de récupération d’urgence est distinct du site principal, vous pouvez créer un groupe de connecteurs différent dans le site de récupération d’urgence et soit 1) avoir des applications de sauvegarde, soit 2) diriger manuellement l’application existante vers le groupe de connecteurs de récupération d’urgence si nécessaire.
- 
+ 
 ### <a name="serve-multiple-companies-from-a-single-tenant"></a>Traiter plusieurs entreprises à partir d’un seul client
 
 Il existe différentes manières d’implémenter un modèle dans lequel un fournisseur de services unique déploie et gère les services relatifs à Azure AD pour plusieurs entreprises. Les groupes de connecteurs aident l’administrateur à séparer les connecteurs et les applications en différents groupes. Une méthode, qui est appropriée pour les petites entreprises, est d’avoir un seul client Azure AD tandis que les différentes entreprises ont leurs propres nom de domaine et réseaux. Cela vaut également pour les scénarios et les situations M&A où une division informatique unique sert plusieurs entreprises pour des raisons réglementaires ou professionnelles. 
@@ -101,7 +99,7 @@ Il existe différentes manières d’implémenter un modèle dans lequel un four
 ## <a name="sample-configurations"></a>Exemples de configurations
 
 Certains exemples que vous pouvez implémenter incluent les groupes de connecteurs suivants.
- 
+ 
 ### <a name="default-configuration--no-use-for-connector-groups"></a>Configuration par défaut : inutile pour les groupes de connecteurs
 
 Si vous n’utilisez pas les groupes de connecteurs, votre configuration ressemblerait à ceci :
@@ -109,7 +107,7 @@ Si vous n’utilisez pas les groupes de connecteurs, votre configuration ressemb
 ![AzureAD Aucun groupe de connecteurs](./media/application-proxy-connector-groups/application-proxy-sample-config-1.png)
  
 Cette configuration est suffisante pour les tests et les petits déploiements. Elle est également adaptée si votre organisation dispose d’une topologie de réseau à plat.
- 
+ 
 ### <a name="default-configuration-and-an-isolated-network"></a>Configuration par défaut et réseau isolé
 
 Cette configuration est une évolution de la configuration par défaut, dans laquelle une application spécifique s’exécute sur un réseau isolé, comme un réseau virtuel IaaS : 
@@ -127,6 +125,6 @@ Dans l’exemple ci-dessous, l’entreprise a deux centres de données, A et B, 
 ## <a name="next-steps"></a>Étapes suivantes
 
 * [Présentation des connecteurs de proxy d’application Azure AD](application-proxy-connectors.md)
-* [Activer l’authentification unique](application-proxy-single-sign-on.md)
+* [Activer l’authentification unique](what-is-single-sign-on.md)
 
 

@@ -16,15 +16,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/03/2017
-ms.openlocfilehash: 4ca551ed07447e41ec94b0334eac0d235e0a5b6f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9543b1f3b10c246dadaf21b6960c7b6785fb66f4
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835081"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566378"
 ---
 # <a name="learn-how-to-manage-azureml-web-services-using-api-management"></a>Gestion des services web AzureML à l’aide de Gestion des API
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Ce guide décrit la prise en main rapide de la gestion de vos services web AzureML grâce à Gestion des API.
 
 ## <a name="what-is-azure-api-management"></a>Qu’est-ce que Gestion des API Azure ?
@@ -377,7 +377,7 @@ Ce guide fournit un exemple Python opérationnel. Vous devez le modifier avec le
 
     while True:
         print("Checking the job status...")
-        # If you are using Python 3+, replace urllib2 with urllib.request in the follwing code
+        # If you are using Python 3+, replace urllib2 with urllib.request in the following code
         req = urllib2.Request(url2, headers = { "Authorization":("Bearer " + api_key) })
         try:
             response = urllib2.urlopen(req)

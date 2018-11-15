@@ -2,20 +2,20 @@
 title: Utiliser Hadoop Oozie dans HDInsight
 description: Utilisation de Hadoop Oozie dans HDInsight, un service pour les données volumineuses. Découvrez comment définir un workflow Oozie et envoyer une tâche Oozie.
 services: hdinsight
-author: jasonwhowell
+author: hrasheed-msft
 ms.reviewer: jasonh
-ms.author: jasonh
+ms.author: hrasheed
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/25/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: f5a6616403d7e3fc7944c26bbbcbfa9fbfb4fff5
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: affef85c917804f0b99200dcfa8e53f6d08fcbe4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050493"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684220"
 ---
 # <a name="use-oozie-with-hadoop-to-define-and-run-a-workflow-in-hdinsight"></a>Utilisation d'Oozie avec Hadoop pour définir et exécuter un workflow dans HDInsight
 [!INCLUDE [oozie-selector](../../includes/hdinsight-oozie-selector.md)]
@@ -63,7 +63,7 @@ Avant de commencer ce didacticiel, vous devez disposer de l’élément suivant�
 
 ## <a name="define-oozie-workflow-and-the-related-hiveql-script"></a>Définition du workflow Oozie et du script HiveQL lié
 Les définitions des workflows Oozie sont écrites en hPDL (un langage de définition du processus XML). Le nom du fichier de workflow par défaut est *workflow.xml*. Dans ce didacticiel, vous utilisez le fichier de flux de travail suivant.
-
+```xml
     <workflow-app name="useooziewf" xmlns="uri:oozie:workflow:0.2">
         <start to = "RunHiveScript"/>
 
@@ -118,7 +118,7 @@ Les définitions des workflows Oozie sont écrites en hPDL (un langage de défin
 
         <end name="end"/>
     </workflow-app>
-
+```
 Voici les deux actions définies dans le workflow : l'action de démarrage est *RunHiveScript*. Si cette action fonctionne correctement, l’action suivante est *RunSqoopExport*.
 
 RunHiveScript a plusieurs variables. Vous transmettez ces valeurs lors de l’envoi de la tâche Oozie à partir de votre station de travail en utilisant Azure PowerShell.
@@ -191,7 +191,7 @@ Le script PowerShell de cette section effectue les étapes suivantes :
     Pour examiner les résultats de la tâche OOzie, utilisez Visual Studio ou d’autres outils pour vous connecter à la base de données SQL Azure.
 
 Voici le script.  Vous pouvez exécuter le script à partir de Windows PowerShell ISE. Vous devez uniquement configurer les 7 premières variables.
-
+```powershell
     #region - provide the following values
 
     $subscriptionID = "<Enter your Azure subscription ID>"
@@ -200,7 +200,7 @@ Voici le script.  Vous pouvez exécuter le script à partir de Windows PowerShel
     $sqlDatabaseLogin = "<Enter SQL Database Login Name>"
     $sqlDatabasePassword = "<Enter SQL Database Login Password>"
 
-    # HDInsight cluster HTTP user credential used for creating and connectin
+    # HDInsight cluster HTTP user credential used for creating and connecting
     $httpUserName = "admin"  # The default name is "admin"
     $httpPassword = "<Enter HDInsight Cluster HTTP User Password>"
 
@@ -243,7 +243,7 @@ Voici le script.  Vous pouvez exécuter le script à partir de Windows PowerShel
     }
     #endregion
 
-    #region - Create Azure resouce group
+    #region - Create Azure resource group
     Write-Host "`nCreating an Azure resource group ..." -ForegroundColor Green
     try{
         Get-AzureRmResourceGroup -Name $resourceGroupName
@@ -529,8 +529,8 @@ Voici le script.  Vous pouvez exécuter le script à partir de Windows PowerShel
     $response = Invoke-RestMethod -Method Get -Uri $clusterUriStatus -Credential $httpCredential -OutVariable $OozieServerStatus
 
     $jsonResponse = ConvertFrom-Json (ConvertTo-Json -InputObject $response)
-    $oozieServerSatus = $jsonResponse[0].("systemMode")
-    Write-Host "Oozie server status is $oozieServerSatus."
+    $oozieServerStatus = $jsonResponse[0].("systemMode")
+    Write-Host "Oozie server status is $oozieServerStatus."
 
     # create Oozie job
     Write-Host "Sending the following Payload to the cluster:" -ForegroundColor Green
@@ -570,7 +570,7 @@ Voici le script.  Vous pouvez exécuter le script à partir de Windows PowerShel
     Write-Host "$(Get-Date -format 'G'): $oozieJobId is in $JobStatus state!" -ForegroundColor Green
 
     #endregion
-
+```
 
 **Réexécution du didacticiel**
 
@@ -580,7 +580,7 @@ Pour réexécuter le workflow, vous devez supprimer les éléments suivants :
 * Les données dans la table log4jLogsCount
 
 Voici un exemple d'un script PowerShell que vous pouvez utiliser :
-
+```powershell
     $resourceGroupName = "<AzureResourceGroupName>"
 
     $defaultStorageAccountName = "<AzureStorageAccountName>"
@@ -610,6 +610,7 @@ Voici un exemple d'un script PowerShell que vous pouvez utiliser :
     $cmd.executenonquery()
 
     $conn.close()
+```
 
 ## <a name="next-steps"></a>Étapes suivantes
 Dans ce didacticiel, vous avez appris à définir un flux de travail Oozie et à exécuter une tâche Oozie en utilisant PowerShell. Pour en savoir plus, consultez les articles suivants :
@@ -647,7 +648,6 @@ Dans ce didacticiel, vous avez appris à définir un flux de travail Oozie et à
 
 [hdinsight-develop-mapreduce]:hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
 
-[sqldatabase-create-configue]: ../sql-database-create-configure.md
 [sqldatabase-get-started]: ../sql-database-get-started.md
 
 [azure-management-portal]: https://portal.azure.com/

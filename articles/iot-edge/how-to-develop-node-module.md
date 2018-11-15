@@ -4,17 +4,17 @@ description: Utiliser Visual Studio Code pour développer et déboguer des modul
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/21/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a1459e3cbd433e2997ffd822b961ac781a72ca90
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 92746b37d6c7577691b46bf34a00f607ad707ff9
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423525"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569037"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code pour développer et déboguer des modules Node.js pour Azure IoT Edge
 
@@ -119,11 +119,11 @@ Le module Node.js IoT Edge repose sur le SDK de l’appareil Node.js Azure IoT. 
 
 3. Accédez à la vue de débogage de VS Code. Sélectionnez la configuration de débogage **Débogage local de ModuleName (Node.js)**. 
 
-4. Cliquez sur **Démarrer le débogage** ou appuyez sur **F5**. Vous démarrez la session de débogage.
+4. Cliquez sur **Démarrer le débogage** ou appuyez sur **F5**. Vous démarrer la session de débogage.
 
 5. Dans le terminal intégré de VS Code, exécutez la commande suivante pour envoyer un message **Hello World** à votre module. Il s’agit de la commande décrite dans les étapes précédentes de configuration du simulateur IoT Edge. Il se peut que vous deviez créer un autre terminal intégré (ou basculer vers celui-ci s’il existe déjà) si le terminal actuel est bloqué.
 
-    ```cmd
+    ```bash
     curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
     ```
 

@@ -12,14 +12,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 11/08/2018
 ms.author: tomfitz
-ms.openlocfilehash: 2dcf93a635a8eb0a01ec266d2478b6e5a336ec00
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: 09f7fba2b8ae3b3ccc8710ffe9302d02d311c74c
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 05/20/2018
-ms.locfileid: "34358691"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514330"
 ---
 # <a name="view-activity-logs-to-audit-actions-on-resources"></a>Afficher les journaux d’activité pour auditer les actions sur les ressources
 
@@ -35,28 +35,26 @@ Le journal d’audit contient toutes les opérations d’écriture (PUT, POST, D
 
 Les journaux d’activité sont conservés pendant 90 jours. Vous pouvez interroger une plage quelconque de dates, pour autant que la date de début ne remonte pas à plus de 90 jours dans le passé.
 
-
-
 Vous pouvez récupérer des informations dans les journaux d’activité par le biais du portail, de PowerShell, de l’interface de ligne de commande Azure, de l’API REST Insights ou de [Insights .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Insights/).
 
 ## <a name="portal"></a>Portail
 
 1. Pour afficher les journaux d’activité via le portail, sélectionnez **Surveiller**.
-   
+
     ![sélectionner les journaux d’activité](./media/resource-group-audit/select-monitor.png)
 
    Pour afficher automatiquement le journal d’activité d’une ressource ou d’un groupe de ressources en particulier, sélectionnez **Journal d’activité**. Notez que le journal d’activité est automatiquement filtré sur la dernière ressource sélectionnée.
-   
+
     ![filtrer par ressource](./media/resource-group-audit/filtered-by-resource.png)
 2. Le **Journal d’activité** affiche un résumé des opérations récentes.
-   
+
     ![afficher des actions](./media/resource-group-audit/audit-summary.png)
 3. Pour limiter le nombre d’opérations affichées, sélectionnez d’autres conditions. Par exemple, l’illustration suivante indique les champs **Intervalle de temps** et **Événement lancé par** modifiés pour afficher les actions effectuées par un utilisateur ou une application au cours du mois passé. Sélectionnez **Appliquer** pour afficher les résultats de votre requête.
-   
+
     ![définir des options de filtre](./media/resource-group-audit/set-filter.png)
 
 4. Si vous avez besoin d’exécuter la requête ultérieurement, sélectionnez **Enregistrer** et attribuez un nom à votre requête.
-   
+
     ![enregistrer la requête](./media/resource-group-audit/save-query.png)
 5. Pour exécuter rapidement une requête, vous pouvez sélectionner une des requêtes intégrées, telles que les déploiements ayant échoué.
 
@@ -64,7 +62,7 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 
    La requête sélectionnée définit automatiquement les valeurs de filtre requis.
 
-    ![afficher les erreurs de déploiement](./media/resource-group-audit/view-failed-deployment.png)   
+    ![afficher les erreurs de déploiement](./media/resource-group-audit/view-failed-deployment.png)
 
 6. Sélectionnez l’une des opérations pour afficher un résumé de l’événement.
 
@@ -74,31 +72,31 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 
 1. Pour récupérer les entrées de journal, exécutez la commande **Get-AzureRmLog** . Vous spécifiez des paramètres supplémentaires pour filtrer la liste des entrées. Si vous ne spécifiez pas une heure de début et de fin, les entrées de la dernière heure sont retournées. Par exemple, pour récupérer les opérations d’un groupe de ressources pendant la dernière heure d’exécution :
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup
   ```
-   
+
     L’exemple suivant montre comment utiliser le journal d’activité pour rechercher les opérations effectuées pendant une période spécifique. Les dates de début et de fin sont indiquées dans un format de date.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime 2015-08-28T06:00 -EndTime 2015-09-10T06:00
   ```
 
     Vous pouvez également utiliser les fonctions de date pour spécifier la plage de dates, par exemple, les 14 derniers jours.
-   
-  ```powershell 
+
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14)
   ```
 
 2. En fonction de l’heure de début que vous spécifiez, les commandes précédentes peuvent retourner une longue liste d’opérations pour le groupe de ressources. Vous pouvez filtrer les résultats de votre recherche en fournissant des critères de recherche. Par exemple, si vous recherchez la manière dont une application web a été arrêtée, vous pouvez exécuter la commande suivante :
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -StartTime (Get-Date).AddDays(-14) | Where-Object OperationName -eq Microsoft.Web/sites/stop/action
   ```
 
-    Dans cet exemple, elle montre qu’une action d’arrêt a été effectuée par someone@contoso.com. 
+    Dans cet exemple, elle montre qu’une action d’arrêt a été effectuée par someone@contoso.com.
 
-  ```powershell 
+  ```powershell
   Authorization     :
   Scope     : /subscriptions/xxxxx/resourcegroups/ExampleGroup/providers/Microsoft.Web/sites/ExampleSite
   Action    : Microsoft.Web/sites/stop/action
@@ -118,26 +116,27 @@ Vous pouvez récupérer des informations dans les journaux d’activité par le 
 
 3. Vous pouvez rechercher les actions effectuées par un utilisateur particulier, même pour un groupe de ressources qui n’existe plus.
 
-  ```powershell 
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup deletedgroup -StartTime (Get-Date).AddDays(-14) -Caller someone@contoso.com
   ```
 
 4. Vous pouvez filtrer les résultats sur les opérations ayant échoué.
 
-  ```powershell
+  ```azurepowershell-interactive
   Get-AzureRmLog -ResourceGroup ExampleGroup -Status Failed
   ```
 
 5. Vous pouvez vous focaliser sur une erreur en examinant le message d’état pour cette entrée.
-   
-        ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
-   
-    Résultat :
-   
-        code           message                                                                        
-        ----           -------                                                                        
-        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP. 
 
+  ```azurepowershell-interactive
+  ((Get-AzureRmLog -Status Failed -ResourceGroup ExampleGroup -DetailedOutput).Properties[1].Content["statusMessage"] | ConvertFrom-Json).error
+  ```
+
+    Résultat :
+
+        code           message
+        ----           -------
+        DnsRecordInUse DNS record dns.westus.cloudapp.azure.com is already used by another public IP.
 
 ## <a name="azure-cli"></a>Azure CLI
 
@@ -147,8 +146,7 @@ Pour récupérer des entrées de journal, exécutez la commande [az monitor acti
   az monitor activity-log list --resource-group <group name>
   ```
 
-
-## <a name="rest-api"></a>de l’API REST
+## <a name="rest-api"></a>API REST
 
 Les opérations REST à utiliser avec le journal d’activité font partie de l’ [API REST Insights](https://msdn.microsoft.com/library/azure/dn931943.aspx). Pour récupérer les événements du journal d’activité, consultez [Liste des événements de gestion dans un abonnement](https://msdn.microsoft.com/library/azure/dn931934.aspx).
 
@@ -159,4 +157,3 @@ Les opérations REST à utiliser avec le journal d’activité font partie de l�
 * Pour en savoir plus sur les commandes permettant d’afficher les opérations de déploiement, consultez [Voir les opérations de déploiement](resource-manager-deployment-operations.md).
 * Pour savoir comment empêcher des suppressions sur une ressource pour tous les utilisateurs, consultez [Verrouiller des ressources avec Azure Resource Manager](resource-group-lock-resources.md).
 * Pour obtenir la liste des opérations disponibles pour chaque fournisseur Microsoft Azure Resource Manager, consultez [Opérations du fournisseur de ressources Azure Resource Manager](../role-based-access-control/resource-provider-operations.md).
-

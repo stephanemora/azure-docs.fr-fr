@@ -13,15 +13,15 @@ ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 07/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b9ad4e69c0693bc856789c52870a588671573b5c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4a610780d11452a8207a1108e4469bc9de62ecb8
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42146604"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620916"
 ---
 # <a name="interpret-the-azure-ad-sign-in-logs-schema-in-azure-monitor-preview"></a>Interpréter le schéma des journaux de connexion Azure Active Directory dans Azure Monitor (préversion)
 
@@ -165,7 +165,7 @@ Cet article décrit le schéma de journal de connexion Azure Active Directory (A
 | callerIpAddress | Adresse IP du client à l’origine de la demande. | 
 | CorrelationId | GUID facultatif transmis par le client. Cette valeur peut aider à corréler des opérations côté client avec des opérations côté serveur, et est utile lors du suivi de journaux couvrant plusieurs services. |
 | Identité | Identité extraite du jeton présenté lors de la création de la demande. Il peut s’agir d’un compte d’utilisateur, d’un compte système ou d’un principal du service. |
-| Level | Fournit le type de message. Pour l’audit, il s’agit toujours d’*Information*. |
+| Niveau | Fournit le type de message. Pour l’audit, il s’agit toujours d’*Information*. |
 | Lieu | Indique l’emplacement de l’activité de connexion. |
 | properties | Répertorie toutes les propriétés associées aux connexions. Pour plus d’informations, voir la [documentation de référence sur l’API Microsoft Graph](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin). Ce schéma utilise les mêmes noms d’attribut que la ressource de connexion pour une meilleure lisibilité.
 

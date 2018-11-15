@@ -2,19 +2,19 @@
 title: Inscrire un nouvel appareil Azure IoT Edge (CLI) | Microsoft Docs
 description: Utiliser l’extension IoT pour Azure CLI afin d’inscrire un nouvel appareil IoT Edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/27/2018
 ms.topic: conceptual
 ms.reviewer: menchi
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ee5e68d45c7d966619238312dabedc1628a4bf61
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 737a2dfe5c3b3382db00785b3465147143b17e9e
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46998030"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51569248"
 ---
 # <a name="register-a-new-azure-iot-edge-device-with-azure-cli"></a>Inscrire un nouvel appareil Azure IoT Edge avec Azure CLI
 

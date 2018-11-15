@@ -6,18 +6,18 @@ keywords: ''
 author: ggailey777
 ms.author: glenga
 ms.assetid: 674a01a7-fd34-4775-8b69-893182742ae0
-ms.date: 09/10/2018
+ms.date: 11/13/2018
 ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 ms.devlang: azure-cli
 manager: jeconnoc
-ms.openlocfilehash: 07a079e00963f1f5aff96369649e2e4fb248aae0
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 05b35ac182d70d6d7a7630a14c8a8aa3b7a6a9fd
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985996"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634309"
 ---
 # <a name="create-your-first-function-from-the-command-line"></a>Créer votre première fonction à partir de la ligne de commande
 
@@ -59,7 +59,7 @@ Writing local.settings.json
 Initialized empty Git repository in C:/functions/MyFunctionProj/.git/
 ```
 
-Utilisez la commande suivante pour accéder au nouveau `MyFunctionProj` dossier du projet.
+Utilisez la commande suivante pour accéder au nouveau dossier du projet `MyFunctionProj`.
 
 ```bash
 cd MyFunctionProj
@@ -108,17 +108,18 @@ Une fois la Function App créée, Azure CLI affiche des informations semblables
 }
 ```
 
-## <a name="configure-the-function-app"></a>Configurer l’application de fonction
+### <a name="configure-the-function-app-nodejs"></a>Configurer l’application de fonction (Node.js)
 
-Core Tools version 2.x crée des projets à l’aide de modèles pour le runtime Azure Functions 2.x. Par conséquent, vous devez vous assurer que le runtime version 2.x est utilisé dans Azure. Définir le paramètre d’application `FUNCTIONS_WORKER_RUNTIME` sur `~2` épingle l’application de fonction à la dernière version 2.x. Configurez les paramètres d’application à l’aide de la commande [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set).
+Lorsque vous créez une application de fonction JavaScript, il est important de cibler la version de Node.js appropriée. La version 2.x du runtime Functions nécessite la version 8.x de Node.js. Le paramètre d’application `WEBSITE_NODE_DEFAULT_VERSION` contrôle la version de Node.js utilisée par l’application de fonction dans Azure. Configurez la commande [az functionapp config appsettings set](https://docs.microsoft.com/cli/azure/functionapp/config/appsettings#set) pour définir la version Node.js sur `8.11.1`.
 
 Dans la commande Azure CLI suivante, « <app_name> » est le nom de votre application de fonction.
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <app_name> \
---resource-group myResourceGroup \
---settings FUNCTIONS_WORKER_RUNTIME=~2
+az functionapp config appsettings set --resource-group myResourceGroup \
+ --name <app_name> --settings WEBSITE_NODE_DEFAULT_VERSION=8.11.1
 ```
+
+Vérifiez le nouveau paramètre dans la sortie.
 
 [!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
 
@@ -127,3 +128,4 @@ az functionapp config appsettings set --name <app_name> \
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 
 [!INCLUDE [functions-quickstart-next-steps-cli](../../includes/functions-quickstart-next-steps-cli.md)]
+

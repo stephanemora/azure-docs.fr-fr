@@ -15,19 +15,19 @@ ms.workload: infrastructure-services
 ms.date: 06/26/2018
 ms.author: bwren
 ms.component: ''
-ms.openlocfilehash: b8c3a2cc67c47753957963fc04b52f934b10ddfc
-ms.sourcegitcommit: 3856c66eb17ef96dcf00880c746143213be3806a
+ms.openlocfilehash: 071e4694bc3e2a8dc70a199fe7d6021332693b88
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/02/2018
-ms.locfileid: "48041711"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613866"
 ---
 # <a name="data-sources-in-log-analytics"></a>Sources de données dans Log Analytics
 Log Analytics collecte les données à partir de vos sources connectées et les stocke dans votre espace de travail Log Analytics.  Les données collectées à partir de chacune de ces sources dépendent des sources de données que vous configurez.  Les données dans Log Analytics sont stockées sous forme d’ensemble d’enregistrements.  Chaque source de données crée des enregistrements d'un type particulier, chaque type ayant son propre ensemble de propriétés.
 
 ![Collecte de données Log Analytics](./media/log-analytics-data-sources/overview.png)
 
-Les sources de données sont différentes des [solutions de gestion](log-analytics-add-solutions.md) qui collectent également des données à partir de sources connectées et créent des enregistrements dans Log Analytics.  En plus de la collecte de données, les solutions incluent généralement des vues et des recherches de journaux pour vous aider à analyser l’opération d’une application ou d’un service particulier.
+Les sources de données sont différentes des [solutions de gestion](../monitoring/monitoring-solutions.md) qui collectent également des données à partir de sources connectées et créent des enregistrements dans Log Analytics.  En plus de la collecte de données, les solutions incluent généralement des vues et des recherches de journaux pour vous aider à analyser l’opération d’une application ou d’un service particulier.
 
 
 ## <a name="summary-of-data-sources"></a>Résumé des sources de données
@@ -68,5 +68,5 @@ Toutes les données collectées par Log Analytics sont stockées dans l’espace
 
 ## <a name="next-steps"></a>Étapes suivantes
 * Découvrez les [solutions](../monitoring/monitoring-solutions.md) qui ajoutent des fonctionnalités à Log Analytics et collectent également des données dans l’espace de travail.
-* Découvrez les [recherches de journaux](log-analytics-log-searches.md) pour analyser les données collectées à partir de sources de données et de solutions.  
-* Configurez des [alertes](log-analytics-alerts.md) qui vous informent de façon proactive des données critiques collectées à partir de sources de données et solutions.
+* Découvrez les [recherches de journaux](log-analytics-queries.md) pour analyser les données collectées à partir de sources de données et de solutions.  
+* Configurez des [alertes](../monitoring-and-diagnostics/monitoring-overview-alerts.md) qui vous informent de façon proactive des données critiques collectées à partir de sources de données et solutions.

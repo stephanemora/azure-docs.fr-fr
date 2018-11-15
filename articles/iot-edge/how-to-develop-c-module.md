@@ -4,17 +4,17 @@ description: Utiliser Visual Studio Code pour développer, générer et débogue
 services: iot-edge
 keywords: ''
 author: shizn
-manager: timlt
+manager: philmea
 ms.author: xshi
 ms.date: 09/13/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 3ec7f6043c1d2e8e8f090ffc60822768ab9bc9d9
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: d40b82b5beac2da78038e303cb50402d6fa0be7a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983999"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566022"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Utiliser Visual Studio Code pour développer et déboguer des modules C pour Azure IoT Edge
 
@@ -37,7 +37,7 @@ Pour créer un module, vous avez besoin de Docker pour générer l’image du mo
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) ou [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * Vous pouvez utiliser un registre Docker local pour le prototype et à des fins de test, au lieu d’un registre cloud. 
 
-Pour tester votre module sur un appareil, vous avez besoin d’un hub IoT actif avec au moins un appareil IoT Edge. Pour utiliser votre ordinateur comme appareil IoT Edge, suivez les étapes décrites dans le guide de démarrage rapide pour [Linux](quickstart-linux.md). 
+Pour tester votre module sur un appareil, vous avez besoin d’un hub IoT actif avec au moins un appareil IoT Edge. Pour utiliser votre ordinateur comme appareil IoT Edge, suivez les étapes décrites dans le démarrage rapide pour [Linux](quickstart-linux.md). 
 
 ## <a name="create-a-new-solution-template"></a>Créer un modèle de solution
 
@@ -94,10 +94,10 @@ Chaque dossier du module contient plusieurs fichiers Docker pour différents typ
 2. Remplacez le module C createOptions dans **deployment.template.json** par le contenu ci-dessous, puis enregistrez ce fichier : 
     
     ```json
-    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
+    "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
     ```
 
-2. Dans la palette de commandes VS Code, tapez et exécutez la commande **Azure IoT Edge : Générer et envoyer par push la solution IoT Edge**.
+2. Dans la palette de commandes VS Code, entrez et exécutez la commande **Azure IoT Edge : générer et envoyer par push la solution IoT Edge**.
 3. Sélectionnez le fichier `deployment.template.json` pour votre solution à partir de la palette de commandes. 
 4. Dans Azure IoT Hub Device Explorer, cliquez avec le bouton droit sur l’ID d’un appareil IoT Edge. Ensuite, sélectionnez **Créer un déploiement pour un seul appareil**. 
 5. Ouvrez le dossier **config** de votre solution. Ensuite, sélectionnez le fichier `deployment.json`. Choisissez **Select Edge Deployment Manifest** (Sélectionner un manifeste de déploiement Edge). 

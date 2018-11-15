@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: robb
 ms.component: diagnostic-extension
-ms.openlocfilehash: a40917ec24ede1107f7d8ae7f5fb2f0f03d1094c
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 7da75e052aaf36d0f59a5f23c28e42c0e4661b0a
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278325"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615245"
 ---
 # <a name="what-is-azure-diagnostics-extension"></a>Présentation de l’extension Azure Diagnostics
 L’extension Azure Diagnostics est un agent au sein d’Azure qui permet la collecte de données de diagnostic d’une application déployée. Vous pouvez utiliser l'extension de diagnostic à partir de plusieurs sources différentes. Les sources actuellement prises en charge sont les rôles Web et Worker Azure Cloud Service (classique), les machines virtuelles, les groupes de machines virtuelles identiques et Service Fabric. Les autres services Azure ont des méthodes de diagnostic différentes. Consultez [Vue d’ensemble du monitoring dans Azure](../azure-monitor/overview.md).
@@ -47,7 +47,7 @@ Vous pouvez également les envoyer vers [Application Insights](../application-in
 ### <a name="azure-monitor"></a>Azure Monitor
 Vous avez aussi la possibilité d’envoyer vos données vers Azure Monitor. Pour le moment, ce récepteur s’applique uniquement aux compteurs de performances. Vous permet d’envoyer les compteurs de performances collectés sur votre machine virtuelle, groupe de machines virtuelles identiques (VMSS) ou service cloud à Azure Monitor sous la forme de métriques personnalisées. Le récepteur Azure Monitor prend en charge ce qui suit :
 * Récupération de tous les compteurs de performances envoyés à Azure Monitor via les [API de métriques Azure Monitor.](https://docs.microsoft.com/rest/api/monitor/)
-* Génération d’alertes sur l’ensemble des compteurs de performances envoyés à Azure Monitor via la nouvelle [expérience d’alerte unifiée](monitoring-overview-unified-alerts.md) dans Azure Monitor.
+* Génération d’alertes sur l’ensemble des compteurs de performances envoyés à Azure Monitor via la nouvelle [expérience d’alerte unifiée](monitoring-overview-alerts.md) dans Azure Monitor.
 * Traitement de l’opérateur générique des compteurs de performances comme dimension « Instance » sur votre métrique.  Par exemple, si vous avez collecté le compteur « LogicalDisk(\*)/DiskWrites/sec », vous pouvez filtrer et fractionner sur la dimension « Instance » pour tracer ou générer des alertes sur le nombre d’écritures/s de chaque disque logique sur la machine virtuelle (C:, D:, etc.)
 
 Pour en savoir plus sur la manière de configurer ce récepteur, consultez la [documentation relative à Azure Diagnostics Schema.](azure-diagnostics-schema-1dot3-and-later.md)

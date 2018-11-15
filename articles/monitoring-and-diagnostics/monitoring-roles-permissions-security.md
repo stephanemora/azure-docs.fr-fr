@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/27/2017
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 6a197cf5667e1668b2007a5f552b813cb8ed68d3
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: caa1b4b3bf1f9b8fb1a34bd58dde04f13fbc6c88
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957826"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614564"
 ---
 # <a name="get-started-with-roles-permissions-and-security-with-azure-monitor"></a>Familiarisation avec les rôles, les autorisations et la sécurité dans Azure Monitor
 De nombreuses équipes ont besoin de réglementer strictement l’accès aux données et aux paramètres d’analyse. Par exemple, si des membres de votre équipe travaillent exclusivement sur l’analyse (ingénieurs du support technique, ingénieurs devops) ou si vous utilisez un fournisseur de services gérés, vous souhaiterez leur accorder l’accès à l’analyse des données tout en limitant leur capacité à créer, modifier ou supprimer des ressources. Cet article montre comment appliquer un rôle RBAC d’analyse intégré à un utilisateur dans Azure ou créer vos propres rôles personnalisés pour un utilisateur qui a rapidement besoin d’autorisations limitées pour l’analyse. Il évoque ensuite les considérations de sécurité pour vos ressources liées à Azure Monitor et comment vous pouvez restreindre l’accès aux données contenues.
@@ -25,7 +25,7 @@ Les rôles intégrés d’Azure Monitor sont conçus pour vous aider à limiter 
 Les personnes affectées au rôle de lecteur d’analyse peuvent afficher toutes les données d’analyse dans un abonnement, mais ne peuvent pas modifier de ressource ou modifier les paramètres relatifs à l’analyse des ressources. Ce rôle est approprié pour les utilisateurs dans une organisation, tels que les ingénieurs de support ou d’opération, qui doivent être en mesure de faire ce qui suit :
 
 * Afficher des tableaux de bord d’analyse dans le portail et créer leurs propres tableaux de bord privés d’analyse.
-* Afficher les règles d’alerte définies dans [Alertes Azure](monitoring-overview-unified-alerts.md)
+* Afficher les règles d’alerte définies dans [Alertes Azure](monitoring-overview-alerts.md)
 * Requête de mesures avec l’[API REST Azure Monitor](https://msdn.microsoft.com/library/azure/dn931930.aspx), les [applets de commande PowerShell](insights-powershell-samples.md) ou le [CLI multiplateforme](insights-cli-samples.md).
 * Interroger le journal d’activité via le portail, l’API REST Azure Monitor, les applets de commande PowerShell ou le CLI multiplateforme.
 * Affichez les [Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) pour une ressource.
@@ -51,7 +51,7 @@ Les personnes affectées au rôle de contributeur d’analyse peuvent afficher t
 * Publier des tableaux de bord d’analyse en tant que tableau de bord partagé.
 * Définissez les [Paramètres de diagnostic](monitoring-overview-of-diagnostic-logs.md#diagnostic-settings) pour une ressource.*
 * Définir le [profil de journal](monitoring-overview-activity-logs.md#export-the-activity-log-with-a-log-profile) pour un abonnement.*
-* Définir l’activité et les paramètres de règles d’alerte via [Alertes Azure](monitoring-overview-unified-alerts.md).
+* Définir l’activité et les paramètres de règles d’alerte via [Alertes Azure](monitoring-overview-alerts.md).
 * Créer des tests web et composants Application Insights.
 * Répertorier les clés partagées d’espace de travail Log Analytics.
 * Activer ou désactiver les Intelligence Packs Log Analytics.

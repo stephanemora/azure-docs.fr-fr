@@ -1,3 +1,16 @@
+---
+author: nitinme
+ms.service: cognitive-services
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: nitinme
+ms.openlocfilehash: fccc036a5e0422508f7ebc3370a4b5faa5176dc2
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572086"
+---
 Bing prend en charge la mise en surbrillance des correspondances qui marque les termes de requête (ou d’autres termes que Bing estime pertinents) dans les chaînes d’affichage de certaines des réponses. Par exemple, les champs `name`, `displayUrl` et `snippet` d’une page web peuvent marquer les termes de requête.
 
 Par défaut, Bing n’inclut pas les marqueurs de mise en surbrillance dans les chaînes d’affichage. Pour inclure les marqueurs, ajoutez le paramètre de requête `textDecorations` dans votre demande et définissez-le sur **true**. Bing marque les termes de requête en utilisant des caractères Unicode E000 et E001 pour marquer le début et la fin du terme. Par exemple, si le terme de requête est Sailing Dinghy et si l’un des deux termes existe dans le champ, le terme est placé entre les caractères de mise en surbrillance des correspondances comme indiqué dans l’exemple suivant :  

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: a2b6b3334176cb6fdd86c17b4d11cb03a42dd4bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 42697f7f4bb8c6b9ef785eef0fe2f5f33b2b38a7
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731800"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615601"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Stocker l’entrée et la sortie de travail Batch AI avec Stockage Azure
 
@@ -98,7 +98,7 @@ Si votre script de formation nécessite de connaître un chemin d’accès, vous
 
 ### <a name="abbreviate-input-paths"></a>Abréger les chemins d’accès d’entrée
 
-Pour abréger les chemins d’accès d’entrée en tant que variable d’environnement, utilisez la propriété `inputDirectories` de votre fichier `job.json` (ou `models.JobCreateParamters.input_directories` si vous utilisez le Kit de développement logiciel (SDK) Batch AI). Le schéma de `inputDirectories` est :
+Pour abréger les chemins d’accès d’entrée en tant que variable d’environnement, utilisez la propriété `inputDirectories` de votre fichier `job.json` (ou `models.JobCreateParameters.input_directories` si vous utilisez le Kit de développement logiciel (SDK) Batch AI). Le schéma de `inputDirectories` est :
 
 ```json
 {
@@ -115,7 +115,7 @@ Vous pourrez trouver plus d’informations [ici](https://github.com/Azure/BatchA
 
 ### <a name="abbreviate-output-paths"></a>Abréger les chemins d’accès de sortie
 
-Pour abréger les chemins d’accès de sortie en tant que variable d’environnement, utilisez la propriété `outputDirectories` de votre fichier `job.json` (ou `models.JobCreateParamters.output_directories` si vous utilisez le Kit de développement logiciel (SDK) Batch AI). L’utilisation de cette méthode peut simplifier les chemins d’accès aux fichiers de sortie. Le schéma de `outputDirectories` est :
+Pour abréger les chemins d’accès de sortie en tant que variable d’environnement, utilisez la propriété `outputDirectories` de votre fichier `job.json` (ou `models.JobCreateParameters.output_directories` si vous utilisez le Kit de développement logiciel (SDK) Batch AI). L’utilisation de cette méthode peut simplifier les chemins d’accès aux fichiers de sortie. Le schéma de `outputDirectories` est :
 
 ```json
 {

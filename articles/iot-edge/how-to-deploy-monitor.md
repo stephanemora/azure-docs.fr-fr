@@ -3,18 +3,18 @@ title: Déployer et surveiller des modules pour Azure IoT Edge | Microsoft Docs
 description: Gérer les modules qui s’exécutent sur des appareils Edge
 keywords: ''
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 07/25/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: c6700dc4bc0cc458e34e129b2468daad88ecc8be
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 6ebd2a4e24a5f0bd9a9adad97bf26ae61219c8e0
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49393455"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566242"
 ---
 # <a name="deploy-and-monitor-iot-edge-modules-at-scale-using-the-azure-portal"></a>Déployer et surveiller des modules IoT Edge à grande échelle à l’aide du portail Azure
 
@@ -106,7 +106,7 @@ Utilisez la propriété tags à partir de vos appareils pour cibler des appareil
 Étant donné que plusieurs déploiements peuvent cibler le même appareil, vous devez donner à chaque déploiement un numéro de priorité. En cas de conflit, le déploiement avec la priorité la plus élevée prévaut (plus la valeur est grande, plus la priorité est élevée). Si deux déploiements ont le même numéro de priorité, celui qui a été créé le plus récemment prévaut. 
 
 1. Entrez un entier positif pour la **Priorité** du déploiement. Si deux ou plusieurs déploiements sont ciblés sur le même appareil, le déploiement ayant la valeur numérique la plus élevée pour Priority s’applique.
-1. Entrez une **Condition cible** pour déterminer quels sont les appareils ciblés par ce déploiement. La condition est basée sur les balises de jumeau d’appareil ou sur les propriétés signalées du jumeau d’appareil et doit correspondre au format de l’expression. Par exemple, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
+1. Entrez une **Condition cible** pour déterminer quels sont les appareils ciblés par ce déploiement. La condition est basée sur les balises de jumeau d’appareil ou sur les propriétés signalées du jumeau d’appareil et doit correspondre au format de l’expression. Par exemple, `tags.environment='test'` ou `properties.reported.devicemodel='4000x'`. 
 1. Sélectionnez **Suivant** pour passer à l’étape finale.
 
 ### <a name="step-5-review-template"></a>Étape 5 : vérifier le modèle
@@ -123,14 +123,14 @@ Pour afficher les détails d’un déploiement et surveiller les appareils qui l
 
    ![Afficher les déploiements IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
-1. Inspectez la liste des déploiements. Pour chaque déploiement, vous pouvez consulter les détails suivants :
+1. Inspectez la liste des déploiements. Pour chaque déploiement, vous pouvez consulter les détails suivants :
    * **ID** : nom du déploiement.
    * **Target condition (Condition cible)** : balise utilisée pour définir les appareils ciblés.
    * **Priorité** : numéro de priorité du déploiement.
    * **System metrics** - **Targeted** (Métriques système - Ciblé) spécifie le nombre de jumeaux d’appareil dans IoT Hub qui correspondent à la condition de ciblage, et **Applied** (appliqué) spécifie le nombre d’appareils dont les jumeaux de module se sont vu appliquer le contenu de déploiement dans IoT Hub. 
    * **Device metrics** (Métriques de l’appareil) : nombre d’appareils Edge dans le déploiement indiquant une réussite ou des erreurs de l’exécution du client IoT Edge.
    * **Creation time (Heure de création)** : horodatage de création du déploiement. Cet horodatage sert à départager deux déploiements ayant la même priorité. 
-2. Sélectionnez le déploiement que vous souhaitez surveiller.  
+2. Sélectionnez le déploiement que vous souhaitez surveiller.  
 3. Inspectez les détails du déploiement. Vous pouvez utiliser les onglets pour passer en revue les détails du déploiement.
 
 ## <a name="modify-a-deployment"></a>Modifier un déploiement
@@ -151,10 +151,10 @@ Pour modifier un déploiement, effectuez les étapes suivantes :
    ![Afficher les déploiements IoT Edge](./media/how-to-deploy-monitor/iot-edge-deployments.png)
 
 1. Sélectionnez le déploiement à modifier. 
-1. Mettez à jour les champs suivants : 
-   * Condition cible 
-   * Étiquettes 
-   * Priorité 
+1. Mettez à jour les champs suivants : 
+   * Condition cible 
+   * Étiquettes 
+   * Priorité 
 1. Sélectionnez **Enregistrer**.
 1. Suivez les étapes fournies dans [Surveiller un déploiement](#monitor-a-deployment) pour observer le déploiement des modifications. 
 
@@ -170,7 +170,7 @@ Quand vous supprimez un déploiement, tous les appareils prennent leur déploiem
 
 1. Utilisez la case à cocher pour sélectionner le déploiement à supprimer. 
 1. Sélectionnez **Supprimer**.
-1. Un message vous informe que cette action va supprimer ce déploiement et restaurer tous les appareils à leur état précédent.  Cela signifie qu’un déploiement avec une priorité inférieure sera utilisé.  Si aucun autre déploiement n’est ciblé, aucun module n’est supprimé. Si vous souhaitez supprimer tous les modules de votre appareil, créez un déploiement sans aucun module et déployez-le sur l’appareil en question. Cliquez sur **Oui** pour continuer. 
+1. Un message vous informe que cette action va supprimer ce déploiement et restaurer tous les appareils à leur état précédent.  Cela signifie qu’un déploiement avec une priorité inférieure sera utilisé.  Si aucun autre déploiement n’est ciblé, aucun module n’est supprimé. Si vous souhaitez supprimer tous les modules de votre appareil, créez un déploiement sans aucun module et déployez-le sur l’appareil en question. Cliquez sur **Oui** pour continuer. 
 
 ## <a name="next-steps"></a>Étapes suivantes
 

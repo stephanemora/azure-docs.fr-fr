@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: a470299df86f6b8f7fd61279af0334d01ef94f8d
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 325da912c8fc4e453df895976df970f8e0f56412
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50957419"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614943"
 ---
 # <a name="extend-alerts-from-log-analytics-into-azure-alerts"></a>Étendre des alertes à partir de Log Analytics vers Azure Alerts
 La fonctionnalité des alertes dans Azure Log Analytics est remplacée par Azure Alerts. Dans le cadre de cette transition, les alertes que vous avez configurées à l’origine dans Log Analytics vont être étendues à Azure. Si vous ne souhaitez pas attendre qu’elles soient déplacées automatiquement dans Azure, vous pouvez lancer le processus :
@@ -479,5 +479,5 @@ Voici les étapes de correction pour chaque erreur :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la nouvelle [expérience des alertes Azure](monitoring-overview-unified-alerts.md).
+* En savoir plus sur la nouvelle [expérience des alertes Azure](monitoring-overview-alerts.md).
 * En savoir plus sur les [alertes de journal dans Azure Alerts](monitor-alerts-unified-log.md).

@@ -2,24 +2,20 @@
 title: Comment configurer l’authentification unique avec mot de passe pour une application ne relevant pas de la galerie | Microsoft Docs
 description: Comment configurer une application personnalisée ne relevant pas de la galerie pour l’authentification unique avec mot de passe lorsqu’elle n’est pas répertoriée dans la galerie d’applications Azure AD
 services: active-directory
-documentationcenter: ''
 author: barbkess
 manager: mtillman
-ms.assetid: ''
 ms.service: active-directory
 ms.component: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 11/12/2018
 ms.author: barbkess
-ms.openlocfilehash: 37ac3b5fb680a9966f5b8f3da43a2b3013554557
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d880a142b54d253cc1522b3dcc521c86119e0997
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44354796"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578397"
 ---
 # <a name="how-to-configure-password-single-sign-on-for-a-non-gallery-application"></a>Comment configurer l’authentification unique avec mot de passe pour une application ne relevant pas de la galerie
 
@@ -113,9 +109,8 @@ Pour configurer l’authentification unique pour une application, procédez comm
 
 10. Affectez des utilisateurs à l’application.
 
-11. En outre, vous pouvez également fournir des informations d’identification pour le compte de l’utilisateur en sélectionnant les lignes des utilisateurs, en cliquant sur **Mettre à jour les informations d’identification** et en entrant le nom d’utilisateur et le mot de passe à la place des utilisateurs. Autrement, les utilisateurs devront entrer les informations d’identification eux-mêmes lors du lancement.
+11. En outre, vous pouvez également fournir des informations d’identification pour le compte de l’utilisateur en sélectionnant les lignes des utilisateurs, en cliquant sur **Mettre à jour les informations d’identification** et en entrant le nom d’utilisateur et le mot de passe à la place des utilisateurs. Autrement, les utilisateurs doivent entrer les informations d’identification eux-mêmes lors du lancement.
 
-12. **Facultatif :** pour certaines applications de médias sociaux telles que Twitter et Facebook, il est également possible d’activer un effet de substitution automatique du mot de passe pour l’application selon une certaine fréquence. Pour activer cette option, sélectionnez **Je veux qu’Azure AD gère automatiquement le mot de passe de cet utilisateur ou de ce groupe** lors de la saisie des informations d’identification pour le compte d’un utilisateur ou d’un groupe. Sélectionnez ensuite **Fréquence de l’effet de substitution (en semaines)**.
 
 ## <a name="assign-a-user-to-an-application-directly"></a>Affecter un utilisateur directement à une application
 

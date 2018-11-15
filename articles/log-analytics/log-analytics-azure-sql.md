@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: ''
-ms.openlocfilehash: 3c80007a8188fb239a13aaa0ccc9ef2237a2d8d1
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: 5eb398cf981edbcfe9b98ee89c3dd4e12b3f758f
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50025665"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615491"
 ---
 # <a name="monitor-azure-sql-database-using-azure-sql-analytics-preview"></a>Superviser Azure SQL Database avec Azure SQL Analytics (préversion)
 
@@ -46,8 +46,8 @@ Azure SQL Analytics est une solution de supervision uniquement dans le cloud qui
 | --- | --- | --- |
 | **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Oui** | Les métriques Azure et les données des journaux sont envoyées à Log Analytics directement par Azure. |
 | [Compte Azure Storage](log-analytics-azure-storage.md) | Non  | Log Analytics ne lit pas les données d’un compte de stockage. |
-| [Agents Windows](log-analytics-windows-agent.md) | Non  | Les agents directs Windows ne sont pas utilisés par la solution. |
-| [Agents Linux](log-analytics-linux-agents.md) | Non  | Les agents directs Linux ne sont pas utilisés par la solution. |
+| [Agents Windows](log-analytics-agent-windows.md) | Non  | Les agents directs Windows ne sont pas utilisés par la solution. |
+| [Agents Linux](log-analytics-quick-collect-linux-computer.md) | Non  | Les agents directs Linux ne sont pas utilisés par la solution. |
 | [Groupe d’administration SCOM](log-analytics-om-agents.md) | Non  | La solution ne valorise aucune connexion directe entre l’agent SCOM et Log Analytics. |
 
 ## <a name="configuration"></a>Configuration
@@ -192,7 +192,7 @@ Dans la solution, les alertes automatisées nécessitent d’écrire une requêt
 
 ### <a name="creating-alerts-for-azure-sql-database"></a>Création d’alertes pour Azure SQL Database
 
-Vous pouvez facilement [créer des alertes](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md) avec les données provenant de ressources Azure SQL Database. Voici quelques requêtes utiles de [recherche dans les journaux](log-analytics-log-searches.md) que vous pouvez utiliser pour créer des alertes :
+Vous pouvez facilement [créer des alertes](../monitoring-and-diagnostics/alert-metric.md) avec les données provenant de ressources Azure SQL Database. Voici quelques requêtes utiles de [recherche dans les journaux](log-analytics-queries.md) que vous pouvez utiliser pour créer des alertes :
 
 *UC élevée sur Azure SQL Database*
 
@@ -289,6 +289,6 @@ La solution est gratuite, mais la consommation de la télémétrie de diagnostic
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-- Utilisez les [Recherches de journal](log-analytics-log-searches.md) dans Log Analytics pour afficher les données détaillées sur Azure SQL.
+- Utilisez les [Recherches de journal](log-analytics-queries.md) dans Log Analytics pour afficher les données détaillées sur Azure SQL.
 - [Créer un tableau de bord personnalisé](log-analytics-dashboards.md) comportant les données Azure SQL.
-- [Create and manage alert rules in Log Analytics with the OMS portal](log-analytics-alerts.md) (Créer et gérer des règles d’alerte dans Log Analytics dans Log Analytics à l’aide du portail OMS).
+- [Create and manage alert rules in Log Analytics with the OMS portal](../monitoring-and-diagnostics/monitoring-overview-alerts.md) (Créer et gérer des règles d’alerte dans Log Analytics dans Log Analytics à l’aide du portail OMS).

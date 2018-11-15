@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: sanpil
 author: sanpil
 ms.date: 11/07/2018
-ms.openlocfilehash: 59a35cd7ca3af446853d518fc7e7d48d2321ff10
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 099b59cde4ee438f16b9d7e77bd81c004006cb71
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278971"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684856"
 ---
 # <a name="pipelines-and-azure-machine-learning"></a>Pipelines et Azure Machine Learning
 
@@ -44,7 +44,7 @@ Une fois que le pipeline est conçu, des optimisations se font souvent au cours 
 
 Avec Azure Machine Learning, vous pouvez utiliser différentes boîtes à outils et infrastructures, comme Microsoft Cognitive Toolkit ou TensorFlow, pour chaque étape de votre pipeline. Azure effectue la coordination entre les différentes [cibles de calcul](concept-azure-machine-learning-architecture.md) que vous utilisez afin que vos données intermédiaires puissent être partagées facilement avec les cibles de calcul en aval. 
 
-Vous pouvez [suivre les mesures de vos expérimentations de pipeline](https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-track-experiments) directement dans le portail Microsoft Azure. 
+Vous pouvez [suivre les mesures de vos expérimentations de pipeline](https://docs.microsoft.com/azure/machine-learning/service/how-to-track-experiments) directement dans le portail Microsoft Azure. 
 
 ## <a name="key-advantages"></a>Principaux avantages
 

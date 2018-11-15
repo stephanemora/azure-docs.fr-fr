@@ -3,7 +3,7 @@ title: Enregistrement en toute sécurité des paramètres d’application de sec
 description: Procédure d’enregistrement en toute sécurité des paramètres d’application de secret tels que les informations d’identification Azure ou les clés API tierces à l’aide du fournisseur de Key Vault ASP.NET Core, du secret utilisateur ou des générateurs de configuration .NET 4.7.1
 services: visualstudio
 documentationcenter: ''
-author: cawa
+author: cawaMS
 manager: paulyuk
 editor: ''
 ms.assetid: ''
@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2017
 ms.author: cawa
-ms.openlocfilehash: 339d96c8b9a6e149e41a8668e51ba38f8b024d47
-ms.sourcegitcommit: fbdfcac863385daa0c4377b92995ab547c51dd4f
+ms.openlocfilehash: 7578950af2dafdade3c97650dfd212240053dd3b
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50229944"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625451"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Enregistrement en toute sécurité des paramètres d’application de secret d’une application web
 
@@ -100,7 +100,7 @@ Si vous écrivez un prototype rapide et que vous ne souhaitez pas approvisionner
 
 1. Installer le package NuGet suivant dans votre projet
     ```
-    Microsoft.Configuration.ConfigurationBuilders.Basic.1.0.0-alpha1.nupkg
+    Microsoft.Configuration.ConfigurationBuilders.Basic
     ```
 
 2. Créez un fichier similaire à ci-dessous. Enregistrez-le dans un emplacement en dehors de votre dossier de projet.
@@ -145,7 +145,7 @@ Suivez les instructions de la section ASP.NET Core pour configurer un Key Vault 
 
 1. Installer le package NuGet suivant dans votre projet
 ```
-Microsoft.Configuration.ConfigurationBuilders.UserSecrets.1.0.0-preview2.nupkg
+Microsoft.Configuration.ConfigurationBuilders.UserSecrets
 ```
 
 2. Définissez le générateur de configuration de Key Vault dans le fichier Web.config. Placez cette section avant la section *appSettings*. Remplacez *vaultName* par le nom de Key Vault si votre Key Vault se trouve dans Azure public, ou par l’URI complet si vous utilisez un cloud Sovereign.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: iainfou
-ms.openlocfilehash: 127f6a5cd8f46b72a4cddcef09cb31b60edd0582
-ms.sourcegitcommit: 48592dd2827c6f6f05455c56e8f600882adb80dc
+ms.openlocfilehash: 9d953cdb82412c07fe0ed4bef75dece4a929cad9
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50157188"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51299127"
 ---
 # <a name="access-the-kubernetes-web-dashboard-in-azure-kubernetes-service-aks"></a>Accéder au tableau de bord web Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -33,9 +33,6 @@ Pour ouvrir le tableau de bord Kubernetes, utilisez la commande [az aks browse][
 ```azurecli
 az aks browse --resource-group myResourceGroup --name myAKSCluster
 ```
-
-> [!TIP]
-> Si vous exécutez cette commande à partir d’Azure Cloud Shell, ajoutez le paramètre `--enable-cloud-console-aks-browse` pour ouvrir correctement le tableau de bord.
 
 Cette commande crée un proxy entre votre système de développement et l’API Kubernetes, et ouvre un navigateur web sur le tableau de bord Kubernetes. Si le tableau de bord Kubernetes ne s’ouvre pas dans le navigateur web utilisé, copiez et collez l’adresse URL indiquée dans Azure CLI (habituellement *http://127.0.0.1:8001*).
 

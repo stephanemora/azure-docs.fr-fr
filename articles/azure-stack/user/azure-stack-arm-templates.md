@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 11/14/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 38e85ede1e984aa3d26fe509d68b4582d11b6c26
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161763"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636218"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Utiliser les modèles Azure Resource Manager dans Azure Stack
 
@@ -30,11 +30,11 @@ Vous pouvez utiliser les modèles Azure Resource Manager pour déployer et provi
 
 Ces modèles peuvent être déployés à l’aide du portail Microsoft Azure Stack, de PowerShell, de l’interface de ligne de commande et de Visual Studio.
 
-Les modèles de démarrage rapide suivants sont disponibles sur [GitHub](http://aka.ms/azurestackgithub) :
+Les modèles de démarrage rapide suivants sont disponibles sur [GitHub](https://aka.ms/azurestackgithub) :
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Déployer SharePoint Server (déploiement sans haute disponibilité)
 
-Utilisez l’extension DSC PowerShell pour [créer une batterie de serveurs SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha) comprenant les ressources suivantes :
+Utilisez l’extension DSC PowerShell pour [créer une batterie de serveurs SharePoint Server 2013](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha) comprenant les ressources suivantes :
 
 * Un réseau virtuel
 * Trois comptes de stockage
@@ -45,7 +45,7 @@ Utilisez l’extension DSC PowerShell pour [créer une batterie de serveurs Shar
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>Déployer AD (déploiement sans haute disponibilité)
 
-Utilisez l’extension PowerShell DSC pour [créer un serveur de contrôleurs de domaine AD](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha) comprenant les ressources suivantes :
+Utilisez l’extension PowerShell DSC pour [créer un serveur de contrôleurs de domaine AD](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/ad-non-ha) comprenant les ressources suivantes :
 
 * Un réseau virtuel
 * Un compte de stockage
@@ -54,7 +54,7 @@ Utilisez l’extension PowerShell DSC pour [créer un serveur de contrôleurs d
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>Déployer AD/SQL (déploiement sans haute disponibilité)
 
-Utilisez l’extension PowerShell DSC pour [créer un serveur autonome SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha) comprenant les ressources suivantes :
+Utilisez l’extension PowerShell DSC pour [créer un serveur autonome SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2014-non-ha) comprenant les ressources suivantes :
 
 * Un réseau virtuel
 * deux comptes de stockage ;
@@ -68,11 +68,11 @@ Utilisez l’extension PowerShell DSC pour configurer un gestionnaire local de 
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>Création d’une machine virtuelle à partir d’une image utilisateur
 
-[Créez une machine virtuelle à partir d’une image utilisateur personnalisée](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image). Ce modèle déploie également un réseau virtuel (avec DNS), une adresse IP publique et une interface réseau.
+[Créez une machine virtuelle à partir d’une image utilisateur personnalisée](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-vm-from-user-image). Ce modèle déploie également un réseau virtuel (avec DNS), une adresse IP publique et une interface réseau.
 
 ## <a name="basic-virtual-machine"></a>Machine virtuelle classique
 
-[Déployez une machine virtuelle Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm) comprenant un réseau virtuel (avec DNS), une adresse IP publique et une interface réseau.
+[Déployez une machine virtuelle Windows](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm) comprenant un réseau virtuel (avec DNS), une adresse IP publique et une interface réseau.
 
 ## <a name="cancel-a-running-template-deployment"></a>Annuler le déploiement d’un modèle en cours d’exécution
 

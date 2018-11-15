@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/08/2017
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: d906515214e042a09d434f02be1778c275f214a8
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 8afefa95e0a7b4f10f4a2bf6c7f099ba9eb4a957
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50958132"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613201"
 ---
 # <a name="create-a-custom-dashboard-for-use-in-log-analytics"></a>Créer un tableau de bord personnalisé à utiliser dans Log Analytics
 
@@ -88,4 +88,4 @@ Pour supprimer une vignette, accédez à la vue Mon tableau de bord, puis clique
 ![Suppression d'une vignette](./media/log-analytics-dashboards/oms-dashboards-remove-tile.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Créez des [alertes](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) dans Log Analytics pour générer des notifications et corriger les problèmes.
+* Créez des [alertes](../monitoring-and-diagnostics/monitoring-overview-alerts.md) dans Log Analytics pour générer des notifications et corriger les problèmes.

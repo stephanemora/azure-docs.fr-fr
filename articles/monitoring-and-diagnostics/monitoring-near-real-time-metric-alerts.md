@@ -8,16 +8,17 @@ ms.topic: conceptual
 ms.date: 06/29/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 15ecbcafd3397b425b669a48f19bee6073b71149
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 89b412a58291dd542b38cd0cbfa1288795024151
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51279787"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613713"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Ressources prises en charge pour les alertes de métrique dans Azure Monitor
 
-Azure Monitor prend désormais en charge un nouveau type d’alerte de métrique qui présente d’importants avantages par rapport aux anciennes [alertes de métrique classiques](alert-metric-classic.md). Des métriques sont disponibles pour une [longue liste de services Azure](monitoring-supported-metrics.md). Les alertes plus récentes prennent en charge un sous-ensemble (croissant) des types de ressource. Cet article répertorie ce sous-ensemble.
+Azure Monitor prend désormais en charge un [nouveau type d’alerte de métrique](monitoring-overview-alerts.md) qui présente d’importants avantages par rapport aux anciennes [alertes de métrique classiques](monitoring-overview-alerts-classic.md). Des métriques sont disponibles pour une [longue liste de services Azure](monitoring-supported-metrics.md). Les alertes plus récentes prennent en charge un sous-ensemble (croissant) des types de ressource. Cet article répertorie ce sous-ensemble.
+
 
 Vous pouvez également utiliser des alertes métriques plus récentes sur des journaux Log Analytics populaires extraits en tant que métriques. Pour plus d’informations, consultez [Alertes de métrique pour les journaux](monitoring-metric-alerts-logs.md).
 
@@ -120,6 +121,6 @@ L’opération POST contient le schéma et la charge utile JSON ci-après pour t
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* En savoir plus sur la nouvelle [expérience Alertes](monitoring-overview-unified-alerts.md).
+* En savoir plus sur la nouvelle [expérience Alertes](monitoring-overview-alerts.md).
 * En savoir plus sur les [alertes de journal dans Azure](monitor-alerts-unified-log.md).
 * En savoir plus sur les [alertes dans Azure](monitoring-overview-alerts.md).

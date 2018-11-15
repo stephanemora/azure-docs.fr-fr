@@ -8,12 +8,12 @@ ms.topic: howto
 ms.date: 09/24/2018
 ms.author: ancav
 ms.component: metrics
-ms.openlocfilehash: f15590f1a626709722235ef499d22d9999f5b662
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ccfe108b895450e97df1639f6c47eb01823ce5f4
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094777"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636762"
 ---
 # <a name="send-custom-metrics-for-an-azure-resource-to-the-azure-monitor-metric-store-by-using-a-rest-api"></a>Envoyer les métriques personnalisées d’une ressource Azure à un magasin de métriques Azure Monitor à l’aide d’une API REST
 
@@ -43,7 +43,7 @@ curl -X POST https://login.microsoftonline.com/<yourtenantid>/oauth2/token -F "g
 ```
 Enregistrez le jeton d’accès de la réponse.
 
-![Jeton d’accès](./media/metrics-store-custom-rest-api/accesstoken.png)
+![Access token (Jeton d’accès)](./media/metrics-store-custom-rest-api/accesstoken.png)
 
 ## <a name="emit-the-metric-via-the-rest-api"></a>Émettre la métrique par le biais de l’API REST 
 
@@ -51,7 +51,7 @@ Enregistrez le jeton d’accès de la réponse.
     
     ```json
     { 
-        "time": "2018-09-13T16:34:20”, 
+        "time": "2018-09-13T16:34:20", 
         "data": { 
             "baseData": { 
                 "metric": "QueueDepth", 
@@ -83,7 +83,7 @@ Enregistrez le jeton d’accès de la réponse.
     - **AccessToken**. Collez le jeton que vous avez acquis précédemment.
 
     ```Shell 
-    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId> /metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
+    curl -X POST curl -X POST https://<azureRegion>.monitoring.azure.com/<resourceId>/metrics -H "Content-Type: application/json" -H "Authorization: Bearer <AccessToken>" -d @custommetric.json 
     ```
 1. Modifiez le timestamp et les valeurs dans le fichier JSON. 
 1. Répétez les deux étapes précédentes plusieurs fois afin d’obtenir des données pendant plusieurs minutes.

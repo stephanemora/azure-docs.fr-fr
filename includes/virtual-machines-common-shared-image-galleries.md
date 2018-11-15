@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/20/2018
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 8eca04478fd5aba292fcc47abac37b740b552dff
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 48404c8b6f45ab79a9136154c44c7fd44572a3e6
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51209584"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51678183"
 ---
 La galerie d’images partagées est un service qui vous permet de structurer et d’organiser vos images de machine virtuelle personnalisées. La galerie d’images partagées fournit trois propositions de valeur principales :
 - Gestion simple
@@ -98,7 +98,7 @@ L’utilisation du service Galerie d’images partagées n’engendre aucuns fra
 
 ```bash 
 az feature register --namespace Microsoft.Compute --name GalleryPreview
-az provider register -name Microsoft.Compute
+az provider register --name Microsoft.Compute
 ```
 
 **PowerShell** : 

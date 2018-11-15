@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/22/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 6d31e6a4d424b8e3c634c9d5075b1f02c512187b
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 8c3c7e94db1f09164d6248cf0b9b093db0cf1d69
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49651131"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578669"
 ---
 # <a name="how-to-use-managed-identities-with-azure-container-instances"></a>Comment utiliser une identité managée avec Azure Container Instances
 
@@ -38,7 +38,7 @@ Utilisez une identité managée dans un conteneur en cours d’exécution pour v
 
 ### <a name="enable-a-managed-identity"></a>Activer une identité managée
 
- Dans Azure Container Instances, les identités managées pour les ressources Azure sont prises en charge à compter de la version 2018-10-01 de l’API REST et dans les outils et kits de développement logiciel correspondants. Lorsque vous créez un groupe de conteneurs, activez une ou plusieurs identités managées en définissant une propriété [ContainerGroupIdentity](/rest/api/container-instances/containergroups/containergroups_createorupdate#containergroupidentity). Vous pouvez également activer ou mettre à jour des identités managées après l’exécution d’un groupe de conteneurs. Ces actions entraînent le redémarrage du groupe de conteneurs. Pour définir les identités sur un nouveau groupe de conteneurs ou sur un groupe existant, utilisez Azure CLI, un modèle Resource Manager ou un fichier YAML. 
+ Dans Azure Container Instances, les identités managées pour les ressources Azure sont prises en charge à compter de la version 2018-10-01 de l’API REST et dans les outils et kits de développement logiciel correspondants. Lorsque vous créez un groupe de conteneurs, activez une ou plusieurs identités managées en définissant une propriété [ContainerGroupIdentity](/rest/api/container-instances/containergroups/createorupdate#containergroupidentity). Vous pouvez également activer ou mettre à jour des identités managées après l’exécution d’un groupe de conteneurs. Ces actions entraînent le redémarrage du groupe de conteneurs. Pour définir les identités sur un nouveau groupe de conteneurs ou sur un groupe existant, utilisez Azure CLI, un modèle Resource Manager ou un fichier YAML. 
 
 Azure Container Instances prend en charge les deux types d’identités Azure managées : attribuées par l’utilisateur et attribuées par le système. Sur un groupe de conteneurs, vous pouvez activer une identité attribuée par le système, une ou plusieurs identités attribuées par l’utilisateur, ou les deux types d’identités. 
 

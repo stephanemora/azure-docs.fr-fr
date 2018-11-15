@@ -2,19 +2,19 @@
 title: Recevoir des événements Azure Event Hubs avec Python | Microsoft Docs
 description: Bien démarrer avec la réception d’événements Event Hubs avec Python
 services: event-hubs
-author: sethmanheim
+author: ShubhaVijayasarathy
 manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
 ms.date: 07/26/2018
-ms.author: sethm
-ms.openlocfilehash: f5388f2de599d94f68a1d24a7d701a2cb4795915
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.author: shvija
+ms.openlocfilehash: db177c3356d378317c41e0c91c10865db5e05992
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43703273"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51286977"
 ---
 # <a name="receive-events-from-event-hubs-using-python"></a>Recevoir des événements Event Hubs avec Python
 
@@ -108,14 +108,7 @@ start python recv.py
 ```
  
 ## <a name="next-steps"></a>Étapes suivantes
-
-Pour envoyer des événements, consultez [l’article correspondant sur l’envoi](event-hubs-python-get-started-send.md).
-
-Pour plus d’informations sur Event Hubs, visitez les pages suivantes :
-
-* [Vue d’ensemble des hubs d’événements][Event Hubs overview]
-* [Créer un concentrateur d’événements](event-hubs-create.md)
-* [FAQ sur les hubs d’événements](event-hubs-faq.md)
+Dans ce guide de démarrage rapide, vous avez créé une application Python qui a reçu des messages d’un hub d’événements. Pour découvrir comment envoyer des événements à un hub d’événements à l’aide de Python, consultez [Envoyer des événements à un hub d’événements - Python](event-hubs-python-get-started-send.md).
 
 <!-- Links -->
 [Event Hubs overview]: event-hubs-about.md
