@@ -1,19 +1,19 @@
 ---
 title: Fichier Include
 description: Fichier Include
-services: azure-digital-twins
-author: adamgerard
-ms.service: azure-digital-twins
+services: digital-twins
+author: kingdomofends
+ms.service: digital-twins
 ms.topic: include
-ms.date: 09/27/2018
+ms.date: 11/13/2018
 ms.author: adgera
 ms.custom: include file
-ms.openlocfilehash: a03f2b4e8d216db3764af03dc06b5188289ffc92
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 42aa275e692e4e2e9b7ca38825c828c1f56247fb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964201"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51628131"
 ---
 Le contrôle d’accès en fonction du rôle est une stratégie de sécurité basée sur l’héritage permettant de gérer les accès, les autorisations et les rôles. Les rôles descendants héritent des autorisations des rôles parents. Les autorisations peuvent également être attribuées sans être héritées d’un rôle parent. Elle peuvent aussi être attribuées pour personnaliser un rôle, si besoin.
 

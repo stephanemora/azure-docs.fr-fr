@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: robb
 ms.component: alerts
-ms.openlocfilehash: 02e69a9e3442f276e89e8515fb506ddd876ad2d2
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: e7622ffcfbaca4f83f0b5233159fc94720148365
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51015772"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614138"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Que sont les alertes classiques dans Microsoft Azure ?
 
@@ -55,7 +55,7 @@ Deux types d’alertes classiques sont disponibles : les alertes de métriques 
 
 * **Alertes classiques du journal d’activité** : alertes du journal de streaming qui sont déclenchées lorsqu’un événement du journal d’activité généré répond aux critères de filtre que vous avez définis. Ces alertes ne peuvent être qu’à l’état actif, puisque le moteur d’alerte ne fait qu’appliquer les critères de filtre aux nouveaux événements. Ces alertes peuvent être utilisées pour être informé lorsqu’un nouvel incident d’état du service se produit ou lorsqu’un utilisateur ou une application effectue une opération dans votre abonnement (par exemple, « Supprimer la machine virtuelle »).
 
-Pour les données du journal de diagnostic disponibles dans Azure Monitor, routez les données dans Log Analytics (anciennement OMS) et utilisez une alerte de requête Log Analytics. Log Analytics utilise maintenant la [nouvelle méthode d’alerte](monitoring-overview-unified-alerts.md) 
+Pour les données du journal de diagnostic disponibles dans Azure Monitor, routez les données dans Log Analytics (anciennement OMS) et utilisez une alerte de requête Log Analytics. Log Analytics utilise maintenant la [nouvelle méthode d’alerte](monitoring-overview-alerts.md) 
 
 Le diagramme suivant récapitule les sources de données d’Azure Monitor, et explique comment créer des alertes à partir de ces données.
 
