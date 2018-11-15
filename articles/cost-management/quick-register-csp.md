@@ -24,7 +24,7 @@ En tant que partenaire CSP, vous pouvez vous inscrire à Cloudyn. Votre inscript
 
 >[!NOTE]
 
->Seuls les partenaires et les fournisseurs CSP Indirect peuvent effectuer une inscription Cloudyn.
+>Seuls les partenaires CSP Direct et les fournisseurs CSP Indirect peuvent effectuer une inscription Cloudyn.
 >
 >La configuration de l’API Partner Center est nécessaire pour l’authentification et l’accès aux données. Un compte d’administrateur général Partner Center est nécessaire pour provisionner l’accès à l’API.
 Pour plus d’informations, consultez [Se connecter à l’API Espace partenaires](https://msdn.microsoft.com/library/partnercenter/mt709136.aspx).
