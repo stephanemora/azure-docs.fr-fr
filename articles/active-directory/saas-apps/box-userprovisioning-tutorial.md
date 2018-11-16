@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2017
 ms.author: jeedes
-ms.openlocfilehash: f7fa4c9b0926d796c0c12b39d0056fe72e4028c7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 3dac1d18a021c8d6c1b6e3db370c60b9aa782f1c
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349022"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625349"
 ---
 # <a name="tutorial-configure-box-for-automatic-user-provisioning"></a>Didacticiel : configurer Box pour l’approvisionnement automatique d’utilisateurs
 
@@ -55,7 +55,7 @@ Avant de configurer et d’activer le service d’approvisionnement, vous devez 
 L’onglet **Box > Utilisateurs et groupes** du portail Azure vous permet de spécifier quels utilisateurs et groupes doivent avoir accès à Box. L'affectation d'un utilisateur ou groupe entraîne les événements suivants :
 
 * Azure AD permet à l'utilisateur affecté (par affectation directe ou appartenance au groupe) de s'identifier auprès de Box. Si un utilisateur n’est pas attribué, Azure AD ne lui permet pas de se connecter à Box et retourne une erreur dans la page de connexion Azure AD.
-* Une mosaïque d'application pour Box est ajoutée au [lanceur d'applications](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users)de cet utilisateur.
+* Une mosaïque d'application pour Box est ajoutée au [lanceur d'applications](../manage-apps/end-user-experiences.md)de cet utilisateur.
 * Si la configuration automatique est activée, les utilisateurs et/ou groupes affectés sont ajoutés à la file d'attente d'approvisionnement automatique.
   
   * Si seuls des objets utilisateur ont été configurés pour être attribués, tous les utilisateurs directement assignés sont placés dans la file d’attente d’attribution et tous les utilisateurs membres des groupes assignés sont placés dans la file d’attente d’attribution. 

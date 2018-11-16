@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: 059667787c905f47f6629afdb249a2273ceed585
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 1b9afa89e5d355668defac30afe4c012b684c71e
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094225"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614394"
 ---
 # <a name="understand-the-health-of-your-azure-virtual-machines-with-azure-monitor-for-vms-preview"></a>Comprendre l’intégrité de vos machines virtuelles Azure grâce à Azure Monitor pour machines virtuelles (préversion)
 Azure comprend plusieurs services qui effectuent individuellement un rôle spécifique ou une tâche dans l’espace de supervision, mais en fournissant une perspective approfondie de l’intégrité du système d’exploitation hébergé sur les machines virtuelles Azure qui n’était pas disponible auparavant.  Bien que vous puissiez surveiller différentes conditions à l’aide de Log Analytics ou d’Azure Monitor, ils n’ont pas été conçus pour modéliser et représenter l’intégrité des composants de base ou l’intégrité globale de la machine virtuelle.  La fonctionnalité de contrôle d’intégrité Azure Monitor pour les machines virtuelles surveille proactivement la disponibilité et les performances du système d'exploitation invité Windows ou Linux avec un modèle qui représente les composants clés et leurs relations (critères spécifiant comment mesurer l’intégrité de ces composants) et vous avertit lorsqu’un problème d’intégrité est détecté.  
@@ -119,7 +119,7 @@ Dans l’onglet **Intégrité**, vous découvrez les informations suivantes :
 * Combien de machines virtuelles, classées par état d’intégrité, sont non saines en raison d’un problème détecté avec un processeur, un disque, une mémoire ou une carte réseau.  
 * Combien de machines virtuelles, classées par état d’intégrité, sont non saines en raison d’un problème détecté avec un service du système d’exploitation principal.
 
-Ici, vous pouvez rapidement identifier les principaux problèmes critiques détectés par les critères d’intégrité qui surveillent la machine virtuelle de façon proactive, et passer en revue les détails des alertes d’intégrité de machine virtuelle ainsi que l’article de la base de connaissances associé destiné à aider au diagnostic et à la correction du problème.  Sélectionnez l’un des niveaux de gravité pour ouvrir la page [Toutes les alertes](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md#all-alerts-page) filtrée sur ce niveau de gravité.
+Ici, vous pouvez rapidement identifier les principaux problèmes critiques détectés par les critères d’intégrité qui surveillent la machine virtuelle de façon proactive, et passer en revue les détails des alertes d’intégrité de machine virtuelle ainsi que l’article de la base de connaissances associé destiné à aider au diagnostic et à la correction du problème.  Sélectionnez l’un des niveaux de gravité pour ouvrir la page [Toutes les alertes](../monitoring-and-diagnostics/monitoring-overview-alerts.md#all-alerts-page) filtrée sur ce niveau de gravité.
 
 La liste **Distribution de machine virtuelle par système d’exploitation** affiche les machines virtuelles répertoriées par édition Windows ou distribution Linux, ainsi que leur version. Dans chaque catégorie de système d’exploitation, les machines virtuelles sont ventilées selon l’intégrité de la machine virtuelle. 
 
@@ -247,7 +247,7 @@ Dans l’exemple ci-dessus, en sélectionnant **/mnt (Logical Disk)**, le filtre
 Pour afficher l’état d’intégrité mis à jour, vous pouvez actualiser la page de diagnostics d’intégrité en cliquant sur le lien **Actualiser**.  S’il existe une mise à jour de l’état d’intégrité des critères d’intégrité en fonction de l’intervalle d’interrogation prédéfini, cette tâche vous permet d’éviter l’attente en reflétant l’état d’intégrité le plus récent.  L’**état des critères d’intégrité** est un filtre qui vous permet de limiter les résultats en fonction de l’état d’intégrité sélectionné - Sain, Avertissement, Critique, Inconnu et Tous.  L’heure de **Dernière mise à jour** dans le coin en haut à droite représente la dernière fois que la page de diagnostics d’intégrité a été actualisée.  
 
 ## <a name="alerting-and-alert-management"></a>Alertes et gestion des alertes 
-La fonctionnalité Azure Monitor pour l’intégrité des machines virtuelles s’intègre aux [Alertes Azure](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md) et déclenche une alerte lorsque les critères d’intégrité prédéfinis passent d’un état sain à un état non intègre lorsque la condition est détectée. Les alertes sont classées par niveau de gravité : de 0 à 4, la gravité 0 représentant le niveau de gravité le plus élevé.  
+La fonctionnalité Azure Monitor pour l’intégrité des machines virtuelles s’intègre aux [Alertes Azure](../monitoring-and-diagnostics/monitoring-overview-alerts.md) et déclenche une alerte lorsque les critères d’intégrité prédéfinis passent d’un état sain à un état non intègre lorsque la condition est détectée. Les alertes sont classées par niveau de gravité : de 0 à 4, la gravité 0 représentant le niveau de gravité le plus élevé.  
 
 Le nombre total d’alertes d’intégrité de machine virtuelle classées par niveau de gravité est disponible au niveau du tableau de bord **Intégrité** dans la section **Alertes**. Lorsque vous sélectionnez le nombre total d’alertes ou le numéro correspondant à un niveau de gravité, la page **Alertes** s’ouvre et affiche toutes les alertes correspondant à votre sélection.  Par exemple, si vous avez sélectionné la ligne correspondant au **Niveau de gravité 1**, vous voyez l’écran suivant :
 
@@ -271,7 +271,7 @@ Vous pouvez filtrer cet affichage en sélectionnant des valeurs dans les menus d
 |Service de surveillance |Sélectionnez un service ou *Tous* pour inclure tous les services. Seules les alertes de *VM Insights* sont prises en charge pour cette fonctionnalité.| 
 |Période| Seules les alertes déclenchées dans la fenêtre de temps sélectionnée seront incluses dans l’affichage. Les valeurs prises en charge sont : dernière heure, dernières 24 heures, 7 derniers jours et 30 derniers jours. | 
 
-La page **Détails de l’alerte** s’affiche lorsque vous sélectionnez une alerte, vous fournissant des détails sur l’alerte et vous permettant de modifier son état. Pour plus d’informations sur la gestion des alertes, consultez [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](../monitoring-and-diagnostics/monitor-alerts-unified-usage.md).  
+La page **Détails de l’alerte** s’affiche lorsque vous sélectionnez une alerte, vous fournissant des détails sur l’alerte et vous permettant de modifier son état. Pour plus d’informations sur la gestion des alertes, consultez [Créer, afficher et gérer des alertes à l’aide d’Azure Monitor](../monitoring-and-diagnostics/alert-metric.md).  
 
 >[!NOTE]
 >Pour l’heure, il n’est pas possible de créer des alertes basées sur des critères d’intégrité ni de modifier les règles d’alertes d’intégrité existantes dans Azure Monitor à partir du portail.  

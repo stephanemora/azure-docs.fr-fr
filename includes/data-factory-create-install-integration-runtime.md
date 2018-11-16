@@ -1,3 +1,16 @@
+---
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 11/09/2018
+ms.author: jingwang
+ms.openlocfilehash: 4189d3a09625f211c6f9eddc7c1c5fe43ad31732
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
+ms.translationtype: HT
+ms.contentlocale: fr-FR
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51572100"
+---
 ## <a name="create-a-self-hosted-integration-runtime"></a>Créer un runtime d’intégration auto-hébergé
 
 Dans cette section, vous allez créer un runtime d’intégration auto-hébergé et l’associer à un ordinateur local avec la base de données SQL Server. Le runtime d’intégration auto-hébergé est le composant qui copie les données de SQL Server sur votre ordinateur dans le stockage Blob Azure. 
@@ -13,7 +26,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
    Set-AzureRmDataFactoryV2IntegrationRuntime -Name $integrationRuntimeName -Type SelfHosted -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName
    ```
 
-   Voici l’exemple de sortie :
+   Voici l'exemple de sortie :
 
    ```json
     Id                : /subscriptions/<subscription ID>/resourceGroups/ADFTutorialResourceGroup/providers/Microsoft.DataFactory/factories/onpremdf0914/integrationruntimes/myonpremirsp0914
@@ -30,7 +43,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
    Get-AzureRmDataFactoryV2IntegrationRuntime -name $integrationRuntimeName -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Status
    ```
 
-   Voici l’exemple de sortie :
+   Voici l'exemple de sortie :
 
    ```json
    Nodes                     : {}
@@ -55,7 +68,7 @@ Dans cette section, vous allez créer un runtime d’intégration auto-hébergé
    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -Name $integrationRuntimeName -DataFactoryName $dataFactoryName -ResourceGroupName $resourceGroupName | ConvertTo-Json
    ```
 
-   Voici l’exemple de sortie :
+   Voici l'exemple de sortie :
 
    ```json
    {

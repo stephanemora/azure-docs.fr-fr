@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/20/2018
 ms.author: mjbrown
-ms.openlocfilehash: 8f36026c7e5802994b8cf22d60c6ecea052e6382
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: 0e4105d6f56a8eb45a83e970c85319cf25041781
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50963045"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51514772"
 ---
 # <a name="availability-and-performance-tradeoffs-for-various-consistency-levels-in-azure-cosmos-db"></a>Compromis entre disponibilité et performance pour différents niveaux de cohérence dans Azure Cosmos DB
 
@@ -33,20 +33,6 @@ Les bases de données distribuées qui reposent sur la réplication afin d’off
 - Pour la même quantité d’unités de requête, les niveaux de cohérence de type session, préfixe cohérent et à terme assurent un débit de lecture approximativement deux fois supérieur à celui des cohérences de type fort et obsolescence limitée.
 
 - Pour un type donné d’opération d’écriture, tel qu’insert, replace, upsert, delete, etc., le débit d’écriture des unités de requête est identique pour tous les niveaux de cohérence.
-
-## <a name="consistency-levels-and-durability"></a>Niveaux de cohérence et durabilité
-
-Avant la reconnaissance d’une opération d’écriture auprès du client, les données sont validées durablement par un quorum de réplicas se trouvant la région qui accepte les opérations d’écriture. Par ailleurs, si le conteneur est configuré avec une stratégie d’indexation cohérente, l’index est également mis à jour de manière synchrone, répliqué et durablement validé par le quorum de réplicas avant cette même reconnaissance de l’opération d’écriture.
-
-Le tableau suivant récapitule la fenêtre potentielle de perte de données en cas de sinistre régional pour les comptes Cosmos qui couvrent plusieurs régions.
-
-| **Niveau de cohérence** | **Fenêtre de perte de données potentielle en cas de sinistre régional** |
-| - | - |
-| Remarque | Zéro |
-| Obsolescence limitée | Limitée à la « fenêtre d’obsolescence » que vous configurez sur le compte Cosmos. |
-| session | Jusqu’à 5 secondes |
-| Préfixe cohérent | Jusqu’à 5 secondes |
-| Eventual (Éventuel) | Jusqu’à 5 secondes |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

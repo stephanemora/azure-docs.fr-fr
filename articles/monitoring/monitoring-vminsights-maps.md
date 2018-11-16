@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/25/2018
 ms.author: magoedte
-ms.openlocfilehash: af3d2b997a4d58f2d32705c55151c4cf13bdcc7c
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: ac96de2669a75a5966650afc0b49cc2f926537fa
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095476"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614206"
 ---
 # <a name="using-azure-monitor-for-vms-preview-map-to-understand-application-components"></a>Utilisation de la fonctionnalité Map d’Azure Monitor pour machines virtuelles dans le but de comprendre les composants d’application
 Lorsque vous visualisez les composants d’application détectés sur des machines virtuelles Windows et Linux s’exécutant dans Azure, vous pouvez observer votre environnement de deux manières avec Azure Monitor pour machines virtuelles : directement à partir d’une machine virtuelle ou à l’échelle des groupes de machines virtuelles à partir d’Azure Monitor. 
@@ -52,7 +52,7 @@ Pour permettre à la fonctionnalité Map d’afficher les alertes pertinentes, c
 - Incluez une clause de regroupement par ordinateur (par exemple, **by Computer interval 1minute**).
 - Choisissez d’alerter des mesures de métriques.
 
-Pour plus d’informations sur les alertes Azure et la création de règles d’alerte, consultez [Alertes unifiées dans Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-unified-alerts.md).
+Pour plus d’informations sur les alertes Azure et la création de règles d’alerte, consultez [Alertes unifiées dans Azure Monitor](../monitoring-and-diagnostics/monitoring-overview-alerts.md).
 
 L’option **Légende** dans le coin supérieur droit décrit les symboles et les rôles sur une carte.  Vous pouvez faire un zoom afin d’examiner une carte plus en détail et déplacer la carte. Les contrôles de zoom en bas à droite de la page définissent le niveau de zoom et permettent d’ajuster l’affichage selon la taille de page actuelle.  
 

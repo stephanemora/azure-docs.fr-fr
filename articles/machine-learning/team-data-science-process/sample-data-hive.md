@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 558f7d684453c8b5040f586820bd2a8a9ac0f9c8
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 8a1fd001980efbff27f10cfb4be1502cd2f9f402
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838430"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345927"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Échantillonner des données dans des tables Hive Azure HDInsight
 Cet article décrit la procédure de sous-échantillonnage des données stockées dans des tables Hive Azure HDInsight à l'aide de requêtes Hive pour les réduire à une taille plus gérable à des fins d’analyse. Nous y abordons trois méthodes d’échantillonnage communément utilisées :
@@ -28,10 +28,6 @@ Cet article décrit la procédure de sous-échantillonnage des données stockée
 * Échantillonnage aléatoire uniforme
 * Échantillonnage aléatoire par groupe
 * Échantillonnage stratifié
-
-Le **menu** ci-après pointe vers des rubriques qui expliquent comment échantillonner des données dans différents environnements de stockage.
-
-[!INCLUDE [cap-sample-data-selector](../../../includes/cap-sample-data-selector.md)]
 
 **Pourquoi échantillonner vos données ?**
 Si vous prévoyez d’analyser un jeu de données volumineux, il est généralement recommandé de sous-échantillonner les données afin de réduire leur taille sous une forme plus facilement exploitable, mais toujours représentative. Cette opération d’échantillonnage facilite la compréhension et l’exploration des données, ainsi que la conception de fonctionnalités. Son rôle dans le processus TDSP (Team Data Science Process) consiste à permettre le prototypage rapide des fonctions de traitement des données et des modèles d’apprentissage automatique.

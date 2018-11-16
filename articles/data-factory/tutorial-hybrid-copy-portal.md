@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2018
 ms.author: jingwang
-ms.openlocfilehash: f408d24a5957061bf03d340a555b87bdc6b2aacc
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f4edd1632203e2f8723fa7880683727f8fb69c4d
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304133"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51614019"
 ---
 # <a name="copy-data-from-an-on-premises-sql-server-database-to-azure-blob-storage"></a>Copier des données depuis une base de données SQL Server locale vers un stockage Blob Azure
 Dans ce didacticiel, vous allez utiliser l’interface utilisateur d’Azure Data Factory pour créer un pipeline Data Factory qui copie les données d’une base de données SQL Server locale vers un stockage Blob Azure. Vous allez créer et utiliser un runtime d’intégration auto-hébergé, qui déplace les données entre les banques de données locales et cloud.
@@ -111,7 +111,7 @@ Dans cette section, vous allez créer un conteneur d’objets blob nommé **adft
 
 1. Cliquez sur **adftutorial** dans la liste des conteneurs.
 
-    ![Sélection de conteneurs](media/tutorial-hybrid-copy-powershell/seelct-adftutorial-container.png)
+    ![Sélection de conteneurs](media/tutorial-hybrid-copy-powershell/select-adftutorial-container.png)
 
 1. Gardez la fenêtre **conteneur** de **adftutorial** ouverte. Elle vous permet de vérifier la sortie à la fin du tutoriel. Data Factory crée automatiquement le dossier de sortie de ce conteneur, de sorte que vous n’avez pas besoin d’en créer.
 
@@ -197,7 +197,7 @@ Le nom de la fabrique de données doit être un *nom global unique*. Si le messa
 
 1. Sélectionnez **Click here to launch the express setup for this computer** (Cliquez ici pour lancer l’installation rapide pour cet ordinateur) sous **Option 1 : installation rapide**. 
 
-    ![Lien d’installation rapide](./media/tutorial-hybrid-copy-portal/click-exress-setup.png)
+    ![Lien d’installation rapide](./media/tutorial-hybrid-copy-portal/click-express-setup.png)
 
 1. Dans la fenêtre **Installation rapide d'Integration Runtime (auto-hébergé)**, sélectionnez **Fermer**. 
 
@@ -237,7 +237,7 @@ Le nom de la fabrique de données doit être un *nom global unique*. Si le messa
 
 1. Accédez à l’onglet avec **SQLServerToBlobPipeline** ou sélectionnez **SQLServerToBlobPipeline** dans l’arborescence. 
 
-    ![Onglet Pipeline](./media/tutorial-hybrid-copy-portal/pipeliene-tab.png)
+    ![Onglet Pipeline](./media/tutorial-hybrid-copy-portal/pipeline-tab.png)
 
 1. Accédez à l’onglet **Récepteur** au bas de la fenêtre **Propriétés**, puis sélectionnez **+ Nouveau**. 
 

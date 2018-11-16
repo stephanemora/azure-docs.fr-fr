@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 08/20/2018
 ms.author: daveba
-ms.openlocfilehash: 1d1e0d8f5a030daadb8dab1233dee52d5485c8fb
-ms.sourcegitcommit: 1981c65544e642958917a5ffa2b09d6b7345475d
+ms.openlocfilehash: 57e719c6ef75b08d8c188d2d2d344867bbf590b1
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/03/2018
-ms.locfileid: "48237481"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623093"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-ad-graph-api"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux affectée par le système pour accéder à l’API Azure AD Graph
 
@@ -37,15 +37,7 @@ Dans le cadre de ce didacticiel, vous allez effectuer une requête sur l’appar
 
 ## <a name="prerequisites"></a>Prérequis
 
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
-
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
-
-- [Connectez-vous au Portail Azure](https://portal.azure.com).
-
-- [Créez une machine virtuelle Linux](/azure/virtual-machines/linux/quick-create-portal).
-
-- [Activer l’identité managée affectée par le système sur votre machine virtuelle](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 - [Installez la dernière version de l’interface de ligne de commande Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
 

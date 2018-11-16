@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 10/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 9c40cfd9b15f2ae6398b70effc4f4d38111cfe1e
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: b6c5f55a575605eef3a280de4f973d9b2d0a4ace
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48886063"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288303"
 ---
 # <a name="azure-ad-connect-sync-directory-extensions"></a>Azure AD Connect Sync : extensions d’annuaire
-Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être consommés par le biais des [extensions d’annuaire de l’API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou de [Microsoft Graph](https://graph.microsoft.io/). Vous pouvez visualiser les attributs disponibles en utilisant [l’explorateur Azure AD Graph](https://graphexplorer.azurewebsites.net/) et [l’Explorateur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) respectivement.
+Vous pouvez utiliser les extensions d’annuaire pour étendre le schéma dans Azure Active Directory (Azure AD) avec vos propres attributs à partir d’un annuaire Active Directory local. Cette fonctionnalité vous permet de générer des applications métiers en consommant les attributs que vous continuez à gérer en local. Ces attributs peuvent être consommés par le biais des [extensions d’annuaire de l’API Azure AD Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-directory-schema-extensions) ou de [Microsoft Graph](https://developer.microsoft.com/graph/). Vous pouvez visualiser les attributs disponibles en utilisant [l’explorateur Azure AD Graph](https://graphexplorer.azurewebsites.net/) et [l’Explorateur Microsoft Graph](https://developer.microsoft.com/graph/graph-explorer) respectivement.
 
 Actuellement, aucune charge de travail Office 365 ne consomme ces attributs.
 
