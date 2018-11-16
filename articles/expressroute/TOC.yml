@@ -89,7 +89,11 @@ items:
     - name: Configurer le mode de transport IPsec pour les hôtes Windows
       href: expressroute-howto-ipsec-transport-private-windows.md
   - name: Configurer ExpressRoute Global Reach
-    href: expressroute-howto-set-global-reach.md
+    items:
+    - name: Azure PowerShell
+      href: expressroute-howto-set-global-reach.md
+    - name: Azure CLI
+      href: expressroute-howto-set-global-reach-cli.md
   - name: Configurer une passerelle de réseau virtuel pour ExpressRoute
     items:
     - name: Portail Azure
@@ -120,7 +124,7 @@ items:
     href: expressroute-howto-move-arm.md
   - name: Migrer les réseaux virtuels associés du déploiement classique vers Resource Manager
     href: expressroute-migration-classic-resource-manager.md
-  - name: Créer une passerelle de réseau virtuel redondante dans une zone dans les zones de disponibilité Azure
+  - name: Créer une passerelle de réseau virtuel redondante interzone dans les zones de disponibilité Azure
     href: ../vpn-gateway/create-zone-redundant-vnet-gateway.md?toc=%2fazure%2fexpressroute%2ftoc.json
   - name: Configurer un routeur pour ExpressRoute
     items:
@@ -221,9 +225,9 @@ items:
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-microsoft-peering-for-your-expressroute-circuit/
     - name: Configurer l’homologation publique pour votre circuit
       href: https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-set-up-azure-public-peering-for-your-expressroute-circuit/
-ms.openlocfilehash: 13f0548ebc60dd1ffe7800f9eb9c45fea66a2bcc
-ms.sourcegitcommit: dbfd977100b22699823ad8bf03e0b75e9796615f
+ms.openlocfilehash: e5a0212c70e2a1c8096ec473deb7704fc2e0bdb8
+ms.sourcegitcommit: 275eb46107b16bfb9cf34c36cd1cfb000331fbff
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50242600"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51706498"

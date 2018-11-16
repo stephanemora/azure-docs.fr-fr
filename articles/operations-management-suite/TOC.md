@@ -28,8 +28,8 @@
 ### [Évaluation de la ligne de base web](../security-center/security-center-customize-os-security-config.md)
 
 ## Utiliser des solutions
-### [Liste des solutions de gestion](../monitoring/monitoring-solutions.md)
-### [Solutions cibles](../monitoring/monitoring-solution-targeting.md)
+### [Liste des solutions de gestion](../azure-monitor/insights/solutions.md)
+### [Solutions cibles](../azure-monitor/insights/solution-targeting.md)
 ### Insight & Analytics
 #### [Évaluation d'AD](../log-analytics/log-analytics-ad-assessment.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 #### [État de la réplication AD](../log-analytics/log-analytics-ad-replication-status.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
@@ -57,12 +57,12 @@
 #### [Analyse anti-programme malveillant](../log-analytics/log-analytics-malware.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
 
 ## Créer des solutions
-### [Conception et création](../monitoring/monitoring-solutions-creating.md)
-### [Fichier de solution](../monitoring/monitoring-solutions-solution-file.md)
-### [Ressources Automation](../monitoring/monitoring-solutions-resources-automation.md)
-### [Recherches de journaux et alertes](../monitoring/monitoring-solutions-resources-searches-alerts.md)
-### [Views](../monitoring/monitoring-solutions-resources-views.md)
-### [Meilleures pratiques](../monitoring/monitoring-solutions-best-practices.md)
+### [Conception et création](../azure-monitor/insights/solutions-creating.md)
+### [Fichier de solution](../azure-monitor/insights/solutions-solution-file.md)
+### [Ressources Automation](../azure-monitor/insights/solutions-resources-automation.md)
+### [Recherches de journaux et alertes](../azure-monitor/insights/solutions-resources-searches-alerts.md)
+### [Views](../azure-monitor/insights/solutions-resources-views.md)
+### [Meilleures pratiques](../azure-monitor/insights/solutions-best-practices.md)
 
 ## Scénarios de gestion
 ### [Recueillir des données d’analyse à partir du runbook](../monitoring/monitoring-runbook-datacollect.md?toc=%2fazure%2foperations-management-suite%2ftoc.json)
