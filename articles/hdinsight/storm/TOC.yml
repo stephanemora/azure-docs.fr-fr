@@ -111,13 +111,13 @@ items:
       - name: Utiliser cURL et l’API REST Azure
         href: ../hdinsight-hadoop-create-linux-clusters-curl-rest.md
         maintainContext: true
-      - name: Utiliser le kit de développement logiciel (SDK) .NET
+      - name: Utiliser le kit SDK .NET
         href: ../hdinsight-hadoop-create-linux-clusters-dotnet-sdk.md
         maintainContext: true
       - name: Utiliser Azure Classic CLI
         href: ../hdinsight-hadoop-create-linux-clusters-azure-cli.md
         maintainContext: true
-      - name: Utilisation du portail Azure
+      - name: Utiliser le portail Azure
         href: ../hdinsight-hadoop-create-linux-clusters-portal.md
         maintainContext: true
       - name: Utiliser les modèles Azure Resource Manager
@@ -127,10 +127,10 @@ items:
     - name: Gérer des clusters Hadoop
       href: ../hdinsight-administer-use-portal-linux.md
       items:
-      - name: Utilisation du Kit de développement logiciel (SDK) .NET
+      - name: Utiliser le kit SDK .NET
         href: ../hdinsight-administer-use-dotnet-sdk.md
         maintainContext: true
-      - name: Utilisation d'Azure PowerShell
+      - name: Utiliser Azure PowerShell
         href: ../hdinsight-administer-use-powershell.md
         maintainContext: true
       - name: Utiliser Azure Classic CLI
@@ -252,17 +252,11 @@ items:
 - name: Informations de référence
   items:
   - name: Exemples de code
-    href: https://azure.microsoft.com/resources/samples/?service=hdinsight
+    href: https://azure.microsoft.com/en-us/resources/samples/?service=hdinsight
   - name: Azure PowerShell
     href: /powershell/module/azurerm.hdinsight
-  - name: Kit de développement logiciel (SDK) .NET
-    href: https://docs.microsoft.com/dotnet/api/overview/azure/hdinsight?view=azure-dotnet
-  - name: Kit de développement logiciel (SDK) Python
-    href: https://docs.microsoft.com/python/api/overview/azure/hdinsight?view=azure-python
-  - name: Kit de développement logiciel (SDK) Java
-    href: https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview
-  - name: Kit de développement logiciel (SDK) Go
-    href: ../hdinsight-go-sdk-overview.md
+  - name: .NET (Hadoop)
+    href: https://docs.microsoft.com/dotnet/api/overview/azure/hd-insight?view=azure-dotnet
   - name: .NET (HBase)
     href: https://www.nuget.org/packages/Microsoft.HBase.Client/
   - name: .NET (Avro)
@@ -316,9 +310,9 @@ items:
   - name: Outils Windows pour HDInsight
     href: ../hdinsight-hadoop-windows-tools.md
     maintainContext: true
-ms.openlocfilehash: 056413070b6b268db215a119dd216d8ad711ffb7
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 24f9cea8b89c20e64ac5aa31e8508cf071fa0381
+ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365473"
+ms.lasthandoff: 09/24/2018
+ms.locfileid: "46992692"

@@ -3,24 +3,24 @@ title: Présentation des accélérateurs de solution Azure IoT | Microsoft Docs
 description: Découvrez les accélérateurs de solution Azure IoT. Les accélérateurs de solution IoT sont des solutions de bout en bout complètes et prêtes au déploiement.
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/24/2018
+ms.date: 11/09/2018
 ms.topic: overview
 ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: 7020d8a1756702d8c2b1998eef5a3fc64809ca5e
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: aac079feefde53ff30cbeab942ee0443c113cdc8
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308110"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345111"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Que sont les accélérateurs de solution IoT ?
 
-Une solution IoT informatique utilise généralement un code personnalisé et plusieurs services cloud pour gérer la connectivité d’un appareil, le traitement et l’analyse de données et la présentation.
+Une solution IoT cloud utilise généralement un code personnalisé et des services cloud pour gérer la connectivité des appareils, le traitement et l’analytique de données et la présentation.
 
-Les accélérateurs de solution IoT sont une collection de solutions IoT complètes et prêtes au déploiement qui implémentent des scénarios IoT communs tels que la surveillance à distance, la fabrique connectée, la maintenance prédictive et la simulation de périphérique. Lorsque vous déployez un accélérateur de solution, le déploiement inclut tous les services informatiques nécessaires ainsi que tout code d’application requis.
+Les accélérateurs de solution IoT sont complets et prêts à déployer des solutions IoT qui implémentent des scénarios IoT courants. Les scénarios incluent la supervision à distance, l’usine connectée, la maintenance prédictive et la simulation d’appareil. Lorsque vous déployez un accélérateur de solution, le déploiement inclut tous les services informatiques nécessaires ainsi que tout code d’application requis.
 
 Les accélérateurs de solution représentent le point de départ de vos solutions IoT. Le code source de tous les accélérateurs de solution est open source et disponible sur GitHub. Nous vous invitons à télécharger et personnaliser les accélérateurs de solution afin qu’ils répondent à vos exigences.
 
@@ -34,7 +34,7 @@ Vous disposez actuellement de quatre accélérateurs de solution à déployer :
 
 ### <a name="remote-monitoring"></a>Surveillance à distance
 
-Utilisez cet accélérateur de solution pour récolter des données de télémétrie de plusieurs appareils distants et pour les contrôler. On peut citer par exemple des systèmes de refroidissement installés dans les locaux de vos clients ou des valves installées dans des stations de pompage distantes.
+Utilisez cet accélérateur de solution pour récolter des données de télémétrie d’appareils distants et pour les contrôler. On peut citer par exemple des systèmes de refroidissement installés dans les locaux de vos clients ou des valves installées dans des stations de pompage distantes.
 
 Vous pouvez utiliser le tableau de bord de surveillance à distance pour afficher les données de télémétrie de vos appareils connectés, provisionner de nouveaux appareils ou mettre à niveau le microprogramme sur vos appareils connectés :
 
@@ -58,7 +58,7 @@ Vous pouvez utiliser le tableau de bord de maintenance prédictive pour afficher
 
 ### <a name="device-simulation"></a>Simulation d’appareil
 
-Utilisez cet accélérateur de solution pour exécuter plusieurs appareils simulés qui génèrent des données de télémétrie réalistes. Vous pouvez utiliser cet accélérateur de solution pour tester le comportement d’autres accélérateurs de solution ou pour tester vos propres solutions IoT personnalisées.
+Utilisez cet accélérateur de solution pour exécuter des appareils simulés qui génèrent des données de télémétrie réalistes. Vous pouvez utiliser cet accélérateur de solution pour tester le comportement d’autres accélérateurs de solution ou pour tester vos propres solutions IoT personnalisées.
 
 Vous pouvez utiliser l’application web de simulation d’appareils pour configurer et exécuter des simulations :
 
@@ -93,7 +93,7 @@ Vous pouvez déployer les accélérateurs de solution à partir du site [Accél�
 
 Vous pouvez déployer l’accélérateur de solution de surveillance à distance dans les configurations suivantes :
 
-* **Standard :** déploiement étendu de l’infrastructure pour le développement d’un déploiement de production. Azure Container Service déploie les microservices vers plusieurs machines virtuelles Azure. Kubernetes orchestre les conteneurs Docker qui hébergent les microservices individuels.
+* **Standard :** déploiement étendu de l’infrastructure pour le développement d’un déploiement de production. Azure Container Service déploie les microservices sur plusieurs machines virtuelles Azure. Kubernetes orchestre les conteneurs Docker qui hébergent les microservices individuels.
 * **Basic :** version à coût réduit pour une démonstration ou pour tester un déploiement. Tous les microservices se déploient sur une seule machine virtuelle Azure.
 * **Locale :** déploiement de machine locale pour développement et test. Cette approche déploie les microservices vers un conteneur Docker local et se connecte à IoT Hub, Azure Cosmos DB et aux services de stockage Azure dans le cloud.
 

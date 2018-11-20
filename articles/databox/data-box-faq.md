@@ -1,6 +1,6 @@
 ---
 title: FAQ Microsoft Azure Data Box | Microsoft Docs sur les données
-description: Contient des questions fréquemment posées et des réponses au sujet d’Azure Data Box, une solution de cloud qui vous permet de transférer de grandes quantités de données dans Azure.
+description: Contient des questions fréquemment posées et des réponses au sujet d’Azure Data Box, une solution cloud qui vous permet de transférer de grandes quantités de données dans Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: overview
 ms.date: 09/27/2018
 ms.author: alkohli
-ms.openlocfilehash: 1d38b563e2a272acdbaa4ea0c2a169a04e798d12
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: e03d913e1887bceb9267207e3a9abea93ab6d000
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49649395"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568028"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box : Forum aux Questions
 
@@ -113,7 +113,7 @@ A.-->
 R. L’allumage du voyant LED d’erreur système indique que votre système est défectueux. [contactez le support technique Microsoft](data-box-disk-contact-microsoft-support.md) .
 
 ### <a name="q-i-cant-access-the-data-box-unlock-password-in-the-azure-portal-why-would-this-be"></a>Q. Impossible d’accéder au mode de passe de déverrouillage Data Box dans le portail Azure. Quel est le problème ?
-R. Si vous ne pouvez pas accéder au mot de passe de déverrouillage dans le portail Azure, vérifiez les autorisations de votre abonnement et de votre compte de stockage. Assurez-vous de disposer des autorisations de collaborateur ou de propriétaire au niveau du groupe de ressources. Si ce n’est pas le cas, vous devez posséder au moins une autorisation de rôle d’opérateur Data Box pour afficher les identifiants d’accès.
+R. Si vous ne pouvez pas accéder au mot de passe de déverrouillage dans le portail Azure, vérifiez les autorisations de votre abonnement et de votre compte de stockage. Assurez-vous de disposer des autorisations de collaborateur ou de propriétaire au niveau du groupe de ressources. Si ce n’est pas le cas, vous devez avoir au moins une autorisation de rôle d’opérateur Data Box pour voir les identifiants d’accès.
 
 ## <a name="track-status"></a>Suivi de l'état
 
@@ -233,7 +233,7 @@ R.  Les rapports suivants sont disponibles pour prendre en charge la chaîne de 
 R.  Les journaux de suivi du transporteur sont consignés dans l’historique des commandes Data Box. Ce rapport est à votre disposition une fois que l’appareil a été retourné au centre de données Azure et que les données stockées sur les disques de l’appareil ont été nettoyées. Pour vos besoins immédiats, vous pouvez également accéder directement au site Web du transporteur et y saisir le numéro de suivi de la commande pour obtenir les informations de suivi.
 
 ### <a name="can-i-transport-the-data-box-to-azure-datacenter"></a>Puis-je apporter la Data Box au centre de données Azure ? 
-R.  Non. Actuellement, le centre de données Azure n’accepte pas la remise des Data Box des clients ou de transporteurs autres que UPS/DHL.
+R.   Non. Actuellement, le centre de données Azure n’accepte pas la remise des Data Box des clients ou de transporteurs autres que UPS/DHL.
 
 
 ## <a name="next-steps"></a>Étapes suivantes

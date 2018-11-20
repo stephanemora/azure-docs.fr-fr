@@ -8,55 +8,58 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 5572c80879584e7f6df650263ae455a134ee4088
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 68488788f73c9662b5d1eaa3b670f2120941defc
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51283595"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616484"
 ---
 # <a name="troubleshooting-log-alerts-in-azure-monitor"></a>Résolution des problèmes liés aux alertes de journal d’activité dans Azure Monitor  
-
 ## <a name="overview"></a>Vue d’ensemble
-Cet article vous explique comment gérer les problèmes courants lors de la configuration d'alertes de journal dans Azure Monitor, et proposer une réponse aux questions fréquemment posées en termes de fonctionnalité ou de configuration des alertes de journal. Le terme **alertes de journal** décrit les alertes où le signal est une requête personnalisée basée sur [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Obtenez plus d’informations sur la fonctionnalité, la terminologie et les types dans [Alertes de journal - Vue d’ensemble](monitor-alerts-unified-log.md).
+Cet article vous explique comment résoudre les problèmes courants lors de la configuration d'alertes de journal dans Azure Monitor. Il propose également des réponses aux questions fréquemment posées en termes de fonctionnalité ou de configuration des alertes de journal. 
+
+Le terme **alertes de journal** décrit les alertes déclenchées suite à une requête personnalisée dans [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Obtenez plus d’informations sur la fonctionnalité, la terminologie et les types dans [Alertes de journal - Vue d’ensemble](monitor-alerts-unified-log.md).
 
 > [!NOTE]
-> Cet article ne couvre pas les cas où la règle d'alerte apparaît comme déclenchée dans le portail Microsoft Azure ou par notification via les groupes d'actions associés. Pour ces différents cas, reportez-vous aux détails de l’article relatif aux [Groupes d’actions](monitoring-action-groups.md).
+> Cet article ne couvre pas les cas où le portail Microsoft Azure affiche une règle d’alerte déclenchée et notification effectuée via des groupes d'actions associés. Pour ces différents cas, reportez-vous aux détails de l’article relatif aux [Groupes d’actions](monitoring-action-groups.md).
 
 
 ## <a name="log-alert-didnt-fire"></a>L'alerte de journal ne s'est pas déclenchée
 
-Les informations développées ci-dessous portent sur certaines raisons pour lesquelles une [règle d'alerte de journal configurée dans Azure Monitor](alert-log.md) ne se déclenche alors qu'elle apparaît dans les [alertes Azure](monitoring-alerts-managing-alert-states.md). 
+Voici quelques-unes des raisons pour lesquelles un état de [règle d’alerte de journal dans Azure Monitor](alert-log.md) ne s’affiche pas [comme étant *déclenché* lorsque cela est prévu](monitoring-alerts-managing-alert-states.md). 
 
 ### <a name="data-ingestion-time-for-logs"></a>Durée d’ingestion de données pour les journaux
-L'alerte de journal fonctionne en exécutant régulièrement la requête fournie par le client basée sur [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Ces deux services sont optimisés par Analytics, qui traite de vastes quantités de données de journal et fournit des fonctionnalités. Le service Log Analytics impliquant le traitement de nombreux téraoctets de données issues de milliers de clients, ainsi que de sources variées partout dans le monde, il peut nécessiter un certain délai. Pour plus d’informations, consultez [Durée d’ingestion de données dans Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
+L'alerte de journal exécute régulièrement votre requête basée sur [Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) ou [Application Insights](../application-insights/app-insights-analytics.md). Comme Log Analytics traite plusieurs téraoctets de données issues de milliers de clients provenant de sources variées partout dans le monde, le service peut nécessiter un certain délai. Pour plus d’informations, consultez [Durée d’ingestion de données dans Log Analytics](../log-analytics/log-analytics-data-ingestion-time.md).
 
-Pour combler la durée d’ingestion de données possible dans les journaux Log Analytics ou Application Insights, l'alerte de journal patiente et effectue une nouvelle tentative si les données ne sont pas encore ingérées dans le délai d'alerte. Les alertes de journal s'accompagnent d'un délai d'attente exponentiel pour veiller à ce que nous patientions le temps nécessaire à l'ingestion des données par Log Analytics. Dès lors, si les journaux interrogés par votre règle d’alerte de journal sont affectés par des retards d’ingestion, l'alerte de journal se déclenche uniquement une fois les données disponibles après ingestion dans Log Analytics et après un délai exponentiel dû aux différentes tentatives du service d'alerte de journal.
+Pour réduire le délai d’ingestion de données, le système attend et relance plusieurs fois la requête d’alerte s’il détecte que les données nécessaires n’ont pas encore été ingérées. Le temps d’attente du système est défini de manière exponentielle. Comme l’alerte de journal se déclenche uniquement une fois que les données sont disponibles, ce délai peut être dû à la lenteur du processus d’ingestion des données du journal. 
 
 ### <a name="incorrect-time-period-configured"></a>Configuration d'une période incorrecte
 Comme décrit dans l’article relatif à la [terminologie des les alertes de journal](monitor-alerts-unified-log.md#log-search-alert-rule---definition-and-types), la période indiquée dans la configuration spécifie l'intervalle de temps de la requête. La requête renvoie uniquement les enregistrements créés dans cet intervalle de temps. La période limite les données extraites pour la requête de journal afin d’empêcher les abus, et contourne toute commande de temps (comme « il y a ») utilisée dans une requête de journal. 
-*Par exemple, si la période est définie sur 60 minutes et la requête exécutée à 13 h 15, seuls les enregistrements créés entre 12 h 15 et 13 h 15 sont retournés pour l’exécution de la requête de journal. Maintenant, si la requête de journal utilise une commande de temps telle que « il y a » (1d), la requête de journal est exécutée uniquement pour les données collectées entre 12 h 15 et 13 h 15, comme si celles-ci n’avaient existé que pendant les 60 minutes passées, et non pendant les sept jours de données spécifiés dans la requête de journal.*
+*Par exemple, si la période est définie sur 60 minutes et la requête exécutée à 13 h 15, seuls les enregistrements créés entre 12 h 15 et 13 h 15 sont utilisés pour la requête de journal. Si la requête de journal utilise une commande de temps telle que *il y a (1d)*, la requête continue d’utiliser les données collectées entre 12 h 15 et 13 h 15 car la période est définie sur cet intervalle.*
 
-Selon votre logique de requête, vérifiez que la période a été indiquée dans la configuration. Dans le cas de l'exemple indiqué précédemment, si la requête de journal utilise il y a (1d) comme illustré avec la marque verte, la période doit être définie sur 24 heures ou 1 440 minutes (comme indiqué en rouge) pour veiller à ce que la requête fournie s’exécute comme prévu.
-    ![Période](./media/monitor-alerts-unified/LogAlertTimePeriod.png)
+Par conséquent, vérifiez dans la configuration que cette période correspond à votre requête. Dans le cas de l'exemple indiqué précédemment, si la requête de journal utilise *il y a (1d)* comme illustré avec la marque verte, la période doit être définie sur 24 heures ou 1440 minutes (comme indiqué en rouge) pour veiller à ce que la requête s’exécute comme prévu.
+
+![Période](./media/monitor-alerts-unified/LogAlertTimePeriod.png)
 
 ### <a name="suppress-alerts-option-is-set"></a>Activer l'option Supprimer les alertes
-Comme décrit à l’étape 8 de l’article relatif à la [création d’une règle d’alerte de journal dans le portail Microsoft Azure](alert-log.md#managing-log-alerts-from-the-azure-portal), une alerte de journal permet de configurer la suppression automatique de la règle d’alerte et d'empêcher la notification et/ou le déclencheur pendant le laps de temps stipulé. L'option Supprimer les alertes entraîne l'exécution de l'alerte de journal, sans déclencher le groupe d'actions pendant le laps de temps spécifié dans l'option **Supprimer les alertes**, et dès lors, l'utilisateur peut penser que l'alerte ne s'est pas déclenchée alors qu'elle a été supprimée comme configuré.
-    ![Supprimer les alertes](./media/monitor-alerts-unified/LogAlertSuppress.png)
+Comme décrit à l’étape 8 de l’article relatif à la [création d’une règle d’alerte de journal dans le portail Microsoft Azure](alert-log.md#managing-log-alerts-from-the-azure-portal), les alertes de journal proposer une option **Supprimer les alertes** permettant de supprimer les actions de déclenchement et de notification pendant un laps de temps défini. Par conséquent, vous pouvez penser qu’une alerte ne se déclenche alors qu’en réalité c’est le cas, mais cette alerte a été supprimée.  
+
+![Supprimer les alertes](./media/monitor-alerts-unified/LogAlertSuppress.png)
 
 ### <a name="metric-measurement-alert-rule-is-incorrect"></a>La règle d’alerte Mesure métrique est incorrecte
-Le type de mesure métrique de la règle d'alerte de journal correspond à un sous-type des alertes de journal, doté de fonctionnalités spécifiques mais limitant la syntaxe de requête d'alerte. La règle d'alerte de journal Mesure métrique implique que la sortie de la requête d'alerte fournisse une série chronologique de métriques, une table présentant des périodes équivalentes, ainsi que les valeurs correspondantes pour AggregatedValue. En outre, les utilisateurs peuvent choisir de disposer dans la table de variables en plus de la valeur AggregatedValue comme ordinateur, nœud, etc., en utilisant les données de la table qui peuvent être triées.
+Les **alertes de journal Mesure métrique** représentent un sous-type d’alertes de journal, dotées de fonctionnalités spécifiques et d’une syntaxe de requête d’alerte limitée. Une règle d'alerte de journal Mesure métrique implique que la sortie de la requête constitue une série chronologique de métriques, c’est-à-dire une table présentant des périodes équivalentes distinctes, avec les valeurs agrégées correspondantes. En outre, les utilisateurs peuvent ajouter d’autres variables à la table en plus de la valeur AggregatedValue. Ces variables peuvent être utilisées pour trier la table. 
 
-Par exemple, supposons que la règle d’alerte de journal Mesure métrique soit configurée comme suit :
+Par exemple, supposons qu’une règle d’alerte de journal Mesure métrique soit configurée comme suit :
 - requête : `search *| summarize AggregatedValue = count() by $table, bin(timestamp, 1h)`  
 - période de 6 heures
 - seuil de 50
 - logique d’alerte de trois violations consécutives
 - Aggregate Upon sélectionné en tant que $table
 
-Ainsi, puisque dans la commande nous avons utilisé résumer... par et fourni deux variables : timestamp & $table ; le service d'alerte choisit $table pour « Aggregate Upon » - triez la table des résultats par champ : $table - comme indiqué ci-dessous et examinez la valeur AggregatedValue pour chaque type de table (comme availabilityResults) afin de détecter la présence de 3 violations consécutives ou plus.
+Étant donné que la commande inclut *summarize … by* et fournit deux variables (timestamp & $table), le système choisit $table avec la valeur « Aggregate Upon ». Elle trie la table des résultats selon le champ  *$table* comme indiqué ci-dessous, puis examine la valeur AggregatedValue pour chaque type de table (comme availabilityResults) afin de détecter la présence de 3 violations consécutives ou plus.
 
-   ![Exécution de la requête Mesure métrique avec plusieurs valeurs](./media/monitor-alerts-unified/LogMMQuery.png)
+![Exécution de la requête Mesure métrique avec plusieurs valeurs](./media/monitor-alerts-unified/LogMMQuery.png)
 
 « Aggregate Upon » correspondant à $table, les données sont triées sur la colonne $table (comme en ROUGE), puis nous regroupons et examinons les types du champ « Aggregate Upon » (autrement dit) $table – par exemple : les valeurs pour availabilityResults seront considérées en tant que tracé/entité (comme mis en surbrillance en orange). Dans cette valeur de tracé/entité, le service d’alerte vérifie trois violations consécutives se produisant (comme indiqué en vert) pour lesquelles l'alerte sera déclenchée pour la valeur de table « availabilityResults ». De même, si pour toute autre valeur de $table trois violations consécutives sont observées, une autre notification d’alerte sera déclenchée ; le service d’alerte triant automatiquement les valeurs d'un tracé/d'une entité (comme indiqué en orange) par heure.
 
@@ -85,4 +88,5 @@ Le contenu affiché dans la section **Requête à exécuter** correspond à ce q
 
 * En savoir plus sur les [alertes de journal dans les alertes Azure ](monitor-alerts-unified-log.md)
 * En savoir plus sur [Application Insights](../application-insights/app-insights-analytics.md)
-* En savoir plus sur [Log Analytics](../log-analytics/log-analytics-queries.md). 
+* En savoir plus sur [Log Analytics](../log-analytics/log-analytics-overview.md). 
+
