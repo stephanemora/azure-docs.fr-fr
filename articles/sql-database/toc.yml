@@ -143,7 +143,7 @@ items:
     items:
     - name: Instances managées
       href: sql-database-managed-instance-index.yml
-    - name: Présentation de Managed Instance
+    - name: Vue d’ensemble
       href: sql-database-managed-instance.md
     - name: Limites des ressources
       href: sql-database-managed-instance-resource-limits.md
@@ -163,15 +163,15 @@ items:
       href: sql-database-managed-instance-transact-sql-information.md
     - name: Réplication transactionnelle
       href: replication-with-sql-database-managed-instance.md
-  - name: Continuité de l’activité
+  - name: Platform as a service
     items:
+    - name: Platform as a service
+      href: sql-database-paas.yml
     - name: Continuité de l’activité
       href: sql-database-business-continuity.md
     - name: Haute disponibilité
       href: sql-database-high-availability.md
-    - name: Récupération de la base de données accélérée
-      href: sql-database-accelerated-database-recovery.md
-    - name: Sauvegardes de base de données
+    - name: Sauvegardes automatisées
       href: sql-database-automated-backups.md
     - name: Rétention des sauvegardes à long terme
       items:
@@ -193,6 +193,8 @@ items:
       items:
       - name: Récupération à l’aide de sauvegardes
         href: sql-database-recovery-using-backups.md
+      - name: Récupération de la base de données accélérée
+        href: sql-database-accelerated-database-recovery.md
       - name: Conseils sur la récupération après panne
         href: sql-database-disaster-recovery.md
       - name: Marche à suivre en cas de récupération
@@ -208,6 +210,8 @@ items:
   - name: Sécurité
     items:
     - name: Sécurité
+      href: sql-database-security-index.yml
+    - name: Vue d’ensemble
       href: sql-database-security-overview.md
     - name: Protection avancée contre les menaces
       items:
@@ -648,9 +652,9 @@ items:
     href: /azure/architecture/
   - name: Témoignages client
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 90ce805e96458e83315cd5f7c9e60b3585f7313d
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 12add5f8ee32ce3c5207a604ef7cad821d5e5a4e
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51854286"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52165260"

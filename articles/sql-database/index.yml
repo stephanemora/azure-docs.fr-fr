@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d7111b5faaa5276c65219db8ddd35fca64081a72
-ms.sourcegitcommit: 7804131dbe9599f7f7afa59cacc2babd19e1e4b9
+ms.openlocfilehash: 9e68e60fa22964f43680cd2070a09fffc98fbee3
+ms.sourcegitcommit: ebf2f2fab4441c3065559201faf8b0a81d575743
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/17/2018
-ms.locfileid: "51853045"
+ms.lasthandoff: 11/20/2018
+ms.locfileid: "52163385"
 documentType: LandingData
 title: Documentation Azure SQL Database
 metadata:
@@ -68,13 +68,13 @@ sections:
       image:
         src: media/index/i_mi.svg
       title: Instance gérée
-    - href: /azure/sql-database/sql-database-business-continuity
+    - href: /azure/sql-database/sql-database-paas
       html: <p>Une haute disponibilité, des sauvegardes automatisées et une géoréplication intégrées feront en sorte que les opérations de maintenance et les défaillances matérielles et d’infrastructure ne suspendent pas votre activité.</p>
       image:
         src: media/index/gear.svg
-      title: Continuité de l’activité
-    - href: /azure/sql-database/sql-database-security-overview
-      html: <p>Sécurisez votre base de données avec l’authentification Azure AD, ainsi que des réseaux virtuels, des pare-feu et des connexions Always Encrypted. Identifiez les menaces et vulnérabilités avec la le service de sécurité intégré.</p>
+      title: Platform as a service
+    - href: /azure/sql-database/sql-database-security-index
+      html: <p>Sécurisez votre base de données avec l’authentification Azure AD, ainsi que des réseaux virtuels, des pare-feu et des connexions Always Encrypted. Identifiez les menaces et vulnérabilités avec le service de sécurité intégré.</p>
       image:
         src: media/index/i_security.svg
       title: Sécurité avancée
