@@ -16,12 +16,12 @@ ms.topic: get-started-article
 ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a607591dd6b60b80c670bdd08b6f7c320aadc17f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: afc24d75b128c192efe14af061ac1df7521c7ef2
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46301409"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621257"
 ---
 # <a name="federate-multiple-instances-of-azure-ad-with-single-instance-of-ad-fs"></a>Fédérer plusieurs instances d’Azure AD avec une seule instance d’AD FS
 
@@ -45,9 +45,9 @@ Pour qu’AD FS dans contoso.com puisse authentifier les utilisateurs de fabrika
  
 ## <a name="step-2-modify-contosocom-federation-settings"></a>Étape 2 : Modifier les paramètres de fédération contoso.com 
  
-L’émetteur par défaut défini pour un seul domaine fédéré sur AD FS est « http://ADFSServiceFQDN/adfs/services/trust » (par exemple, « http://fs.contoso.com/adfs/services/trust »). Azure Active Directory nécessite un émetteur unique pour chaque domaine fédéré. Étant donné qu’une même instance d’AD FS va fédérer deux domaines, la valeur de l’émetteur doit être modifiée pour être propre à chaque domaine qu’AD FS fédère avec Azure Active Directory. 
+L’émetteur par défaut défini pour un seul domaine fédéré sur AD FS est « http://ADFSServiceFQDN/adfs/services/trust » (par exemple, « http://fs.contoso.com/adfs/services/trust »). Azure Active Directory nécessite un émetteur unique pour chaque domaine fédéré. Étant donné qu’une même instance d’AD FS va fédérer deux domaines, la valeur de l’émetteur doit être modifiée pour être propre à chaque domaine qu’AD FS fédère avec Azure Active Directory. 
  
-Sur le serveur AD FS, ouvrez Azure AD PowerShell et suivez les étapes suivantes :
+Sur le serveur AD FS, ouvrez Azure AD PowerShell (assurez-vous que le module MSOnline est installé) et effectuez les étapes suivantes :
  
 Connectez-vous à l’instance d’Azure Active Directory qui contient le domaine contoso.com : Connect-MsolService. Mettez à jour les paramètres de fédération de contoso.com : Update-MsolFederatedDomain -DomainName contoso.com –SupportMultipleDomain
  

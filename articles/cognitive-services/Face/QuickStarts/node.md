@@ -1,47 +1,35 @@
 ---
-title: 'Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST et de Node.js'
+title: 'Démarrage rapide : Détecter des visages dans une image avec l’API REST Azure et Node.js'
 titleSuffix: Azure Cognitive Services
-description: Dans ce démarrage rapide, vous détectez les visages dans une image à l’aide de l’API Visage avec Node.js dans Cognitive Services.
+description: Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azure avec Node.js pour détecter des visages dans une image.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 06/08/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: b5258f1c465732df257a7db85e828effff200ee0
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 76747f7e9f1a95ee14ee570dcc29b42f98c26838
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954092"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577977"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-nodejs"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST et de Node.js
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST Visage et de Node.js
 
-Dans ce démarrage rapide, vous allez détecter des visages humains dans une image à l’aide de l’API Visage.
+Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azure avec Node.js pour détecter des visages humains dans une image.
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin d’une clé d’abonnement pour exécuter l’exemple. Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé.
 
-## <a name="face---detect-request"></a>Requête Visage - Détecter
+## <a name="create-the-nodejs-script"></a>Créer le script Node.js
 
-Utilisez la méthode [Visage - Détecter](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) pour détecter les visages dans une image et retourner les attributs du visage, notamment :
-
-* ID du visage : ID unique utilisé dans plusieurs scénarios d’API Visage.
-* Rectangle du visage : valeurs gauche, haut, largeur et hauteur indiquant l’emplacement du visage dans l’image.
-* Points de repère : tableau des 27 points de repère du visage pointant vers les positions importantes des composants du visage.
-* Les attributs du visage, notamment l’âge, le sexe, l’intensité du sourire, la posture de la tête et la pilosité faciale.
-
-Pour exécuter l’exemple, effectuez les étapes suivantes :
-
-1. Copiez le code ci-après dans un éditeur.
-1. Remplacez `<Subscription Key>` par votre clé d’abonnement valide.
-1. Remplacez la valeur `uriBase` par l’emplacement où vous avez obtenu vos clés d’abonnement, si nécessaire.
-1. Si vous le souhaitez, définissez `imageUri` sur l’image que vous souhaitez analyser.
-1. Enregistrez le fichier avec une extension `.js`.
-1. Ouvrez l’invite de commandes Node.js et exécutez le fichier, par exemple : `node myfile.js`.
+Le code suivant appelle l’API Visage et obtient les données des attributs de visage à partir d’une image. Pour commencer, copiez le code dans un éditeur de texte. Avant de l’exécuter, vous devez apporter quelques changements.
 
 ```nodejs
 'use strict';
@@ -88,9 +76,29 @@ request.post(options, (error, response, body) => {
 });
 ```
 
-## <a name="face---detect-response"></a>Réponse Visage - Détecter
+### <a name="subscription-key"></a>Clé d’abonnement
+Remplacez `<Subscription Key>` par votre clé d’abonnement Visage valide.
 
-Une réponse correcte est retournée au format JSON, par exemple :
+### <a name="face-endpoint-url"></a>URL du point de terminaison Visage
+
+L’URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indique le point de terminaison Visage Azure à interroger. Vous devez changer la première partie de cette URL pour faire corresponde la région à celle de votre clé d’abonnement (sauf si elle est déjà correcte).
+
+### <a name="url-query-string"></a>Chaîne de requête d’URL
+
+Le champ `returnFaceAttributes` spécifie les attributs du visage à récupérer. Vous pouvez changer cette chaîne en fonction de votre utilisation prévue.
+
+### <a name="image-source-url"></a>URL source de l’image
+Le champ `imageUrl` indique l’image à utiliser comme entrée. Vous pouvez la faire pointer vers n’importe quelle image que vous souhaitez analyser.
+
+## <a name="save-and-run-the-script"></a>Enregistrer et exécuter le script
+
+Après avoir apporté vos changements, enregistrez le fichier en tant que script JavaScript (.js). Ouvrez ensuite une invite de commandes et exécutez la commande `node`.
+
+```
+node myfile.js
+```
+
+Les informations de visage doivent apparaître en tant que données JSON dans la fenêtre de console. Par exemple : 
 
 ```json
 [
@@ -273,7 +281,7 @@ Une réponse correcte est retournée au format JSON, par exemple :
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les API Visage utilisées pour détecter les visages humains dans une image, délimiter les visages avec des rectangles et retourner des attributs tels que l’âge et le sexe.
+Dans ce guide de démarrage rapide, vous avez écrit une commande cURL qui appelle l’API Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Explorez à présent la documentation de référence sur l’API Visage pour en savoir plus.
 
 > [!div class="nextstepaction"]
 > [API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

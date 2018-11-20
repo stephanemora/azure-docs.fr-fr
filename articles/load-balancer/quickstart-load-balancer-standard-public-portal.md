@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 2197ab230341fb2945e7b1acd9a010ef3d3f8c22
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: df79581f4ad6af3dc420e7c7895acf46b5e3d997
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42702404"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615206"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Démarrage rapide : Créer un équilibreur de charge standard pour équilibrer la charge de machines virtuelles avec le portail Azure
 
@@ -145,6 +145,7 @@ Pour permettre à l’équilibrage de charge de surveiller l’état de votre ap
     - *myHealthProbe* : pour le nom de la sonde d’intégrité.
     - **HTTP** : pour le type de protocole.
     - *80* : pour le numéro de port.
+    - *Healthprobe.aspx*: pour le chemin de l’URI. Vous pouvez remplacer cette valeur par n’importe quel autre URI ou conserver la valeur de chemin par défaut de **« \\ »** pour obtenir l’URI par défaut.
     - *15* : pour **l’intervalle** en secondes entre les tentatives de la sonde.
     - *2* : pour le nombre de **seuils de défaillance** ou d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante.
 4. Cliquez sur **OK**.
@@ -175,7 +176,7 @@ Une règle d’équilibrage de charge est utilisée pour définir la distributio
 
       ![Serveur Web IIS](./media/load-balancer-standard-public-portal/9-load-balancer-test.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’équilibreur de charge et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources qui contient l’équilibreur de charge, puis cliquez sur **Supprimer**.
 

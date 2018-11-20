@@ -1,41 +1,43 @@
 ---
-title: 'Tutoriel : Détecter et encadrer des visages dans une image - API Visage, Python'
+title: 'Démarrage rapide : Détecter et encadrer des visages dans une image avec le SDK Python'
 titleSuffix: Azure Cognitive Services
-description: Découvrez comment utiliser l’API Visage avec le SDK Python pour détecter les visages humains d’une image.
+description: Dans ce guide de démarrage rapide, vous allez créer un script Python simple qui utilise l’API Visage pour détecter et encadrer des visages dans une image distante.
 services: cognitive-services
 author: SteveMSFT
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: tutorial
-ms.date: 03/01/2018
+ms.topic: quickstart
+ms.date: 11/13/2018
 ms.author: sbowles
-ms.openlocfilehash: 6cc3ac25d2196c0275b445503b79b9ac06a791d3
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: e8b16f7ebe918e5b8d59c6b57794c4f35a89b5f3
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127735"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683999"
 ---
-# <a name="tutorial-detect-and-frame-faces-with-the-face-api-and-python"></a>Tutoriel : Détecter et encadrer des visages avec l’API Visage et Python 
+# <a name="quickstart-create-a-python-script-to-detect-and-frame-faces-in-an-image"></a>Démarrage rapide : Créer un script Python pour détecter et encadrer des visages dans une image
 
-Dans ce didacticiel, vous apprendrez à invoquer l’API Visage via le Kit de développement logiciel (SDK) Python pour détecter les visages humains d’une image.
+Dans ce guide de démarrage rapide, vous allez créer un script Python simple qui utilise l’API Visage Azure, par le biais du SDK Python, pour détecter des visages humains dans une image distante. L’application affiche une image sélectionnée et trace un cadre autour de chaque visage détecté.
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Pour suivre ce didacticiel, vous devez effectuer les opérations suivantes :
+- Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé.
+- [Python 2.7+ ou 3.5+](https://www.python.org/downloads/)
+- Outil [pip](https://pip.pypa.io/en/stable/installing/)
+- SDK Python de l’API Visage. Vous pouvez l’installer en exécutant la commande suivante :
+    ```bash
+    pip install cognitive_face
+    ```
 
-- Installez Python 2.7+ ou Python 3.5+.
-- Installez pip.
-- Pour installer le Kit de développement logiciel (SDK) Python pour l’API Visage, procédez comme suit :
+## <a name="detect-faces-in-an-image"></a>Détecter des visages dans une image
 
-```bash
-pip install cognitive_face
-```
+Créez un script Python, _FaceQuickstart.py_. Ajoutez le code suivant. Il s’agit de la fonctionnalité de base de la détection des visages. Vous devez remplacer `<Subscription Key>` par la valeur de votre clé. Vous devrez aussi peut-être changer la valeur de `BASE_URL` pour utiliser l’identificateur de région approprié pour votre clé. Les clés d’abonnement d’essai gratuit sont générées dans la région **westus**. Si vous le souhaitez, définissez `img_url` avec l’URL d’une image que vous souhaitez utiliser.
 
-- Obtenez une [clé d’abonnement](https://azure.microsoft.com/try/cognitive-services/) pour Microsoft Cognitive Services. Vous pouvez utiliser votre clé principale ou secondaire pour ce didacticiel. (Remarque : pour utiliser n’importe quelle API Visage, vous devez posséder une clé d’abonnement valide.)
-
-## <a name="detect-a-face-in-an-image"></a>Détecter un visage dans une image
+Le script détecter les visages en appelant la méthode **cognitive_face.face.detect**, laquelle inclut dans un wrapper l’API REST [Detect](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) et retourne une liste de visages.
 
 ```python
 import cognitive_face as CF
@@ -52,15 +54,22 @@ faces = CF.face.detect(img_url)
 print(faces)
 ```
 
-Voici un exemple de résultat. Il s’agit d’une `list` de visages détectés. Chaque élément dans cette liste est une instance `dict` où `faceId` est un ID unique pour le visage détecté, et `faceRectangle` décrit la position du visage détecté. Un ID de visage expire au bout de 24 heures.
+### <a name="try-the-app"></a>Essayer l’application
 
-```python
-[{u'faceId': u'68a0f8cf-9dba-4a25-afb3-f9cdf57cca51', u'faceRectangle': {u'width': 89, u'top': 66, u'height': 89, u'left': 446}}]
+Exécutez l’application avec la commande `python FaceQuickstart.py`. Vous devriez obtenir une réponse de texte semblable à la suivante dans la fenêtre de console :
+
+```shell
+[{'faceId': '26d8face-9714-4f3e-bfa1-f19a7a7aa240', 'faceRectangle': {'top': 124, 'left': 459, 'width': 227, 'height': 227}}]
 ```
 
-## <a name="draw-rectangles-around-the-faces"></a>Tracer des rectangles autour des visages
+Il s’agit d’une liste des visages détectés. Chaque élément dans cette liste est une instance **dict** où `faceId` est un ID unique pour le visage détecté et où `faceRectangle` décrit la position du visage détecté. 
 
-À l’aide des coordonnées json reçues avec la commande précédente, vous pouvez tracer des rectangles sur l’image pour délimiter visuellement chaque visage. Vous aurez besoin de `pip install Pillow` pour utiliser le module de création d’images `PIL`.  À son début, ajoutez ce qui suit :
+> [!NOTE]
+> Les ID de visage expirent après 24 heures. Vous devez donc stocker explicitement les données de visage si vous souhaitez les conserver à long terme.
+
+## <a name="draw-face-rectangles"></a>Tracer des rectangles autour des visages
+
+À l’aide des coordonnées reçues avec la commande précédente, vous pouvez tracer des rectangles sur l’image pour délimiter visuellement chaque visage. Vous devez installer Pillow (`pip install pillow`) pour utiliser le module Image de Pillow. En haut de *FaceQuickstart.py*, ajoutez le code suivant :
 
 ```python
 import requests
@@ -68,7 +77,7 @@ from io import BytesIO
 from PIL import Image, ImageDraw
 ```
 
-Ensuite, après `print(faces)`, ajoutez les éléments suivants dans votre script :
+Ensuite, en bas du script, ajoutez le code suivant. Vous obtenez une fonction simple qui analyse les coordonnées des rectangles et qui utilise Pillow pour tracer des rectangles sur l’image d’origine. Elle affiche ensuite l’image dans votre visionneuse d’images par défaut.
 
 ```python
 #Convert width height to a point in a rectangle
@@ -93,21 +102,15 @@ for face in faces:
 img.show()
 ```
 
-## <a name="further-exploration"></a>Exploration approfondie
+## <a name="run-the-app"></a>Exécution de l'application
 
-Pour vous aider à découvrir davantage l’API Visage, ce didacticiel fournit un exemple d’interface graphique utilisateur. Pour l’exécuter, installez d’abord [wxPython](https://wxpython.org/pages/downloads/) puis exécutez les commandes ci-dessous.
+Vous pouvez être invité à sélectionner une visionneuse d’images par défaut. Une image similaire à la suivante doit ensuite s’afficher. Les données de rectangle doivent également apparaître dans la fenêtre de console.
 
-```bash
-git clone https://github.com/Microsoft/Cognitive-Face-Python.git
-cd Cognitive-Face-Python
-python sample
-```
+![Jeune femme dont le visage est indiqué par un rectangle rouge](../images/face-rectangle-result.png)
 
-## <a name="summary"></a>Résumé
+## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce didacticiel, vous avez appris le processus de base d’utilisation de l’API Visage via l’invocation du Kit de développement logiciel (SDK) Python. Pour plus d’informations sur les API, veuillez consulter les guides et la [documentation sur les API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236).
+Dans ce guide de démarrage rapide, vous avez découvert le processus de base pour l’utilisation du SDK Python de l’API Visage, et créé un script pour détecter et encadrer des visages dans une image. Explorez à présent l’utilisation du SDK Python dans un exemple plus complexe. Accédez à l’exemple Cognitive Face Python sur GitHub, clonez-le dans votre dossier de projet, puis suivez les instructions contenues dans le fichier _README.md_.
 
-## <a name="related-topics"></a>Rubriques connexes
-
-- [Prise en main de l’API Visage dans CSharp](FaceAPIinCSharpTutorial.md)
-- [Prise en main de l’API Visage dans Java pour Android](FaceAPIinJavaForAndroidTutorial.md)
+> [!div class="nextstepaction"]
+> [Exemple Cognitive Face Python](https://github.com/Microsoft/Cognitive-Face-Python)

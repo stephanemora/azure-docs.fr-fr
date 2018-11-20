@@ -1,60 +1,65 @@
 ---
-title: 'Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST et de cURL'
+title: 'Démarrage rapide : Détecter des visages dans une image avec l’API REST Azure et cURL'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous allez détecter les visages d’une image à l’aide de l’API Visage avec cURL.
+description: Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azure avec cURL pour détecter des visages dans une image.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 05/10/2018
+ms.date: 11/09/2018
 ms.author: pafarley
-ms.openlocfilehash: ab403ec6a9db4d1a0dc03074044eeb424e4ba875
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: a9e3b4713e11b5f01ea8343471aa33a327210338
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49953346"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578032"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-curl"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST et de cURL
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-curl"></a>Démarrage rapide : Détecter des visages dans une image à l’aide de l’API REST Visage et de cURL
 
-Dans ce guide de démarrage rapide, vous allez détecter les visages d’une image à l’aide de l’API Visage.
+Dans ce guide de démarrage rapide, vous allez utiliser l’API REST Visage Azure avec cURL pour détecter des visages humains dans une image.
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-Vous avez besoin d’une clé d’abonnement pour exécuter l’exemple. Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
+- Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé.
 
-## <a name="detect-faces-in-an-image"></a>Détecter des visages dans une image
-
-Utilisez la méthode [Visage - Détecter](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) pour détecter les visages dans une image et retourner les attributs du visage, notamment :
-
-* ID du visage : ID unique utilisé dans plusieurs scénarios d’API Visage.
-* Rectangle du visage : valeurs gauche, haut, largeur et hauteur indiquant l’emplacement du visage dans l’image.
-* Points de repère : tableau des 27 points de repère du visage pointant vers les positions importantes des composants du visage.
-* Les attributs du visage, notamment l’âge, le sexe, l’intensité du sourire, la posture de la tête et la pilosité faciale.
-
-Pour exécuter l’exemple, effectuez les étapes suivantes :
-
-1. Ouvrez une invite de commandes.
-2. Remplacez `<Subscription Key>` par votre clé d’abonnement valide.
-3. Remplacez l’URL (`https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect`) par l’emplacement où vous avez obtenu vos clés d’abonnement, si nécessaire.
-4. Modifiez éventuellement l’image (`"{\"url\":...`) à analyser.
-5. Collez le code dans la fenêtre Commande.
-6. Exécutez la commande.
-
-### <a name="face---detect-request"></a>Requête Visage - Détecter
-
-> [!NOTE]
-> Dans votre appel REST, vous devez utiliser le même emplacement que celui à partir duquel vous avez obtenu vos clés d’abonnement. Par exemple, si vous avez obtenu vos clés d’abonnement à l’emplacement westus, remplacez « westcentralus » par « westus » dans l’URL ci-après.
+## <a name="write-the-command"></a>Écrire la commande
+ 
+Vous allez utiliser une commande similaire à la suivante pour appeler l’API Visage et obtenir des données d’attribut de visage à partir d’une image. Pour commencer, copiez le code dans un éditeur de texte. Avant de l’exécuter, vous devez changer certaines parties.
 
 ```shell
 curl -H "Ocp-Apim-Subscription-Key: <Subscription Key>" "https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise" -H "Content-Type: application/json" --data-ascii "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg\"}"
 ```
 
-### <a name="face---detect-response"></a>Réponse Visage - Détecter
+### <a name="subscription-key"></a>Clé d’abonnement
+Remplacez `<Subscription Key>` par votre clé d’abonnement Visage valide.
 
-Une réponse correcte est retournée au format JSON.
+### <a name="face-endpoint-url"></a>URL du point de terminaison Visage
+
+L’URL `https://westcentralus.api.cognitive.microsoft.com/face/v1.0/detect` indique le point de terminaison Visage Azure à interroger. Vous devez changer la première partie de cette URL pour faire corresponde la région à celle de votre clé d’abonnement (sauf si elle est déjà correcte).
+
+### <a name="url-query-string"></a>Chaîne de requête d’URL
+
+La chaîne de requête de l’URL du point de terminaison Visage spécifie les attributs de visage à récupérer. Vous pouvez changer cette chaîne en fonction de votre utilisation prévue.
+
+```
+?returnFaceId=true&returnFaceLandmarks=false&returnFaceAttributes=age,gender,headPose,smile,facialHair,glasses,emotion,hair,makeup,occlusion,accessories,blur,exposure,noise
+```
+
+### <a name="image-source-url"></a>URL source de l’image
+L’URL source indique l’image à utiliser comme entrée. Vous pouvez la faire pointer vers n’importe quelle image que vous souhaitez analyser.
+
+```
+https://upload.wikimedia.org/wikipedia/commons/c/c3/RH_Louise_Lillian_Gish.jpg
+``` 
+
+## <a name="run-the-command"></a>Exécutez la commande.
+
+Après avoir apporté vos changements, ouvrez une invite de commandes et entrez la nouvelle commande. Les informations de visage doivent apparaître en tant que données JSON dans la fenêtre de console. Par exemple : 
 
 ```json
 [
@@ -150,7 +155,7 @@ Une réponse correcte est retournée au format JSON.
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Explorez les API Visage utilisées pour détecter les visages humains dans une image, délimiter les visages avec des rectangles et retourner des attributs tels que l’âge et le sexe.
+Dans ce guide de démarrage rapide, vous avez écrit une commande cURL qui appelle l’API Visage Azure pour détecter des visages dans une image et retourner leurs attributs. Explorez à présent la documentation de référence sur l’API Visage pour en savoir plus.
 
 > [!div class="nextstepaction"]
 > [API Visage](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

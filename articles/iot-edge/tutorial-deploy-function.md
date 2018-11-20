@@ -2,21 +2,21 @@
 title: Déployer des fonctions Azure avec Azure IoT Edge | Microsoft Docs
 description: Dans ce didacticiel, vous déployez une fonction Azure en tant que module vers un appareil Edge.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 67540a02aab0880ea1a5c52e42036029b95c4f43
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 27aac9431c3f4cd801d090ddf11114c98edab405
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51006258"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567313"
 ---
-# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Tutoriel : Déployer des fonctions Azure en tant que modules IoT Edge (préversion)
+# <a name="tutorial-deploy-azure-functions-as-iot-edge-modules"></a>Tutoriel : Déployer des fonctions Azure en tant que modules IoT Edge
 
 Vous pouvez utiliser Azure Functions pour déployer un code qui implémente votre logique métier directement sur vos appareils Azure IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’une fonction Azure qui filtre des données de capteur sur l’appareil IoT Edge simulé. Vous utilisez l’appareil IoT Edge simulé que vous avez créé dans les tutoriels Déployer Azure IoT Edge sur un appareil simulé sous [Windows](quickstart.md) ou [Linux](quickstart-linux.md). Ce tutoriel vous montre comment effectuer les opérations suivantes :     
 

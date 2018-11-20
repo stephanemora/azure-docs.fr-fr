@@ -7,14 +7,14 @@ services: iot-fundamentals
 ms.topic: overview
 ms.date: 10/09/2018
 ms.author: robinsh
-ms.openlocfilehash: 6834ad6c6915ceb3306284ea738d76027e2c9479
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: ba4f5fcb08d671937c677d8a14c27aaec16bcb1b
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365354"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288711"
 ---
-# <a name="azure-iot-technologies-and-solutions-paas-and-saas"></a>Technologies et solutions Azure IoT : PaaS et SaaS
+# <a name="internet-of-things-iot-technologies-and-solutions-paas-and-saas"></a>Technologies et solutions de l’Internet des objets (IoT) : PaaS et SaaS
 
 Microsoft a développé un portefeuille qui prend en charge les besoins de tous les clients, pour permettre à tous d’accéder aux avantages de la transformation numérique. Le portefeuille de produits Azure IoT constitue une vue d’ensemble des technologies et solutions PaaS et SaaS disponibles. Il présente les deux possibilités offertes pour créer votre propre solution :
 
@@ -24,7 +24,7 @@ Microsoft a développé un portefeuille qui prend en charge les besoins de tous 
 
 - Software as a Service (SaaS) : pour une prise en main rapide avec [Azure IoT Central](https://azure.microsoft.com/services/iot-central/), la nouvelle solution SaaS conçue pour développer des applications IoT sans la complexité habituellement inhérente à ce genre de solution. Si votre organisation ne possède pas les ressources nécessaires pour concevoir sa propre solution IoT, Azure IoT Central peut l’y aider. En effet, cette solution IoT sans code est capable de créer des modèles d’appareil, des tableaux de bord et des règles en quelques minutes seulement.
 
-![Technologies et solutions Azure IoT](./media/iot-comparison/paas-saas-technologies-solutions.png)
+![Technologies et solutions Azure IoT](./media/iot-services-and-technologies/paas-saas-technologies-solutions.png)
 
 ## <a name="solutions"></a>solutions
 

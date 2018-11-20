@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/05/2018
 ms.author: dimazaid
-ms.openlocfilehash: 1e9ed9d3500b112f98492e6a85d02a1f1843c7c3
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: dc2535bb8cae91e5df4554cdbc4239a5e81a4d90
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49365575"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616254"
 ---
 # <a name="tutorial-push-notifications-to-android-devices-by-using-azure-notification-hubs-and-google-cloud-messaging"></a>Didacticiel : Notifications Push vers des appareils Android à l’aide d’Azure Notification Hubs et de Google Cloud Messaging
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
@@ -46,7 +46,7 @@ Dans ce tutoriel, vous allez effectuer les actions suivantes :
 ## <a name="prerequisites"></a>Prérequis
 
 - **Abonnement Azure**. Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer. 
-- [Android Studio](http://go.microsoft.com/fwlink/?LinkId=389797).
+- [Android Studio](https://go.microsoft.com/fwlink/?LinkId=389797).
 
 ## <a name="creating-a-project-that-supports-google-cloud-messaging"></a>Création d’un projet prenant en charge Google Cloud Messaging
 [!INCLUDE [mobile-services-enable-Google-cloud-messaging](../../includes/mobile-services-enable-google-cloud-messaging.md)]
@@ -524,7 +524,7 @@ En règle générale, vous devez envoyer des notifications à l'aide d'un serveu
     private String HubSasKeyName = null;
     private String HubSasKeyValue = null;
     ```
-6. Créez un jeton SaS (Software Access Signature) pour authentifier une requête POST d’envoi de messages à votre hub de notification. Analysez les données clés de la chaîne de connexion, puis créez le jeton SaS, comme indiqué sur la page [Concepts courants](http://msdn.microsoft.com/library/azure/dn495627.aspx) des informations de référence sur l’API REST. Le code suivant est un exemple d'implémentation.
+6. Créez un jeton SaS (Software Access Signature) pour authentifier une requête POST d’envoi de messages à votre hub de notification. Analysez les données clés de la chaîne de connexion, puis créez le jeton SaS, comme indiqué sur la page [Concepts courants](https://msdn.microsoft.com/library/azure/dn495627.aspx) des informations de référence sur l’API REST. Le code suivant est un exemple d'implémentation.
    
     Dans `MainActivity.java`, ajoutez la méthode suivante à la classe `MainActivity` pour analyser votre chaîne de connexion.
    
@@ -663,7 +663,7 @@ En règle générale, vous devez envoyer des notifications à l'aide d'un serveu
                         bodyStream.write(json.getBytes());
                         bodyStream.close();
 
-                        // Get reponse
+                        // Get response
                         urlConnection.connect();
                         int responseCode = urlConnection.getResponseCode();
                         if ((responseCode != 200) && (responseCode != 201)) {

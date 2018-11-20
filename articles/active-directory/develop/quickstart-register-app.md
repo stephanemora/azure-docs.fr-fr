@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/25/2018
+ms.date: 11/02/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: lenalepa, sureshja
-ms.openlocfilehash: e4e667c9a9490d164b9fb1c90580ceb30989a7dc
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: 1809e7f72afd99de38387317daf2ecb92dbe3cf0
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49988755"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51298719"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform-preview"></a>Guide de démarrage rapide : Inscrire une application à l’aide de la plateforme d’identités Microsoft (préversion)
 
 Les développeurs et les fournisseurs de logiciels en tant que service (SaaS) peuvent développer des services cloud commerciaux ou des applications métier qui peuvent être intégrés à la plateforme d’identités Microsoft pour fournir un processus de connexion et d’autorisation sécurisé à leurs services.
 
-Ce guide de démarrage rapide vous explique comment ajouter et inscrire une application dans le portail Azure afin de l’intégrer à la plateforme d’identités Microsoft.
+Ce guide de démarrage rapide vous explique comment ajouter et inscrire une application à l’aide de l’expérience **Inscriptions d’applications (préversion)** dans le portail Azure, afin de l’intégrer à la plateforme d’identités Microsoft. Pour en savoir plus sur les nouvelles fonctionnalités et les améliorations de la nouvelle expérience permettant d’inscrire des applications, consultez [ce billet de blog](https://developer.microsoft.com/graph/blogs/new-app-registration/). 
 
 ## <a name="prerequisite"></a>Configuration requise
 
@@ -37,7 +37,7 @@ Pour démarrer, vous devez intégrer l’expérience de préversion pour les ins
 
 1. Connectez-vous au [portail Azure](https://portal.azure.com) avec un compte professionnel ou scolaire ou avec un compte personnel Microsoft.
 1. Si votre compte vous propose un accès à plusieurs locataires, sélectionnez votre compte en haut à droite et définissez votre session de portail sur le locataire Azure AD souhaité.
-1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, sélectionnez ensuite **inscriptions d’applications (préversion) > Nouvelle inscription**.
+1. Dans le volet de navigation gauche, sélectionnez le service **Azure Active Directory**, puis sélectionnez **Inscriptions d’applications (préversion) > Nouvelle inscription**.
 1. Lorsque la page **Inscrire une application** s’affiche, saisissez les informations d’inscription de votre application :
 
     - **Nom** : saisissez un nom d’application cohérent qui s’affichera pour les utilisateurs de l’application.
@@ -59,7 +59,7 @@ Pour démarrer, vous devez intégrer l’expérience de préversion pour les ins
 
     [![Inscrire une nouvelle application dans le portail Azure](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-registration-expanded.png#lightbox)
 
-Azure AD assigne un ID d’application unique à votre application, et vous êtes redirigé vers la page **Vue d’ensemble** de votre application. Pour ajouter des fonctionnalités supplémentaires à votre application, vous pouvez sélectionner d’autres options de configuration, dont la personnalisation, les certificats et les secrets, les autorisations API, et plus encore.
+Azure AD assigne un ID d’application unique (client) à votre application, et vous êtes redirigé vers la page **Vue d’ensemble** de votre application. Pour ajouter des fonctionnalités supplémentaires à votre application, vous pouvez sélectionner d’autres options de configuration, dont la personnalisation, les certificats et les secrets, les autorisations API, et plus encore.
 
 [![Page Vue d’ensemble d’une application nouvellement inscrite](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png)](./media/quickstart-add-azure-ad-app-preview/new-app-overview-page-expanded.png#lightbox)
 

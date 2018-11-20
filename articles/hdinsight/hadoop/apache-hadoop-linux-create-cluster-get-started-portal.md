@@ -1,5 +1,5 @@
 ---
-title: 'Démarrage rapide : prise en main d’Hadoop et Hive dans Azure HDInsight à l’aide du portail Azure '
+title: 'Démarrage rapide : Bien démarrer avec Apache Hadoop et Apache Hive dans Azure HDInsight à l’aide du portail Azure '
 description: Découvrez comment créer des clusters HDInsight à l’aide du portail Azure et interroger des données avec Hive.
 keywords: prise en main de hadoop,hadoop sur linux,démarrage rapide de hadoop,prise en main de hive,démarrage rapide de hive
 services: hdinsight
@@ -10,16 +10,16 @@ ms.custom: hdinsightactive,hdiseo17may2017,mvc
 ms.topic: quickstart
 ms.date: 11/06/2018
 ms.author: hrasheed
-ms.openlocfilehash: 07f9f774e3d133a2a39aad16b06ed77938ad74c8
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 9b6ae9030069f48e1805a657f938595b081271ba
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281640"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632949"
 ---
-# <a name="quickstart-get-started-with-hadoop-and-hive-in-azure-hdinsight-using-the-azure-portal"></a>Démarrage rapide : bien commencer avec Hadoop et Hive dans Azure HDInsight à l’aide du portail Azure
+# <a name="quickstart-get-started-with-apache-hadoop-and-apache-hive-in-azure-hdinsight-using-the-azure-portal"></a>Démarrage rapide : Bien démarrer avec Apache Hadoop et Apache Hive dans Azure HDInsight à l’aide du portail Azure
 
-Dans cet article, vous apprenez à créer des clusters [Hadoop](http://hadoop.apache.org/) dans HDInsight à l’aide du portail Azure, puis à exécuter des travaux Hive dans HDInsight. La plupart des tâches Hadoop sont des tâches de traitements par lots. Vous créez un cluster, exécutez certaines tâches, puis supprimez le cluster. Dans cet article, vous allez effectuer les trois tâches.
+Dans cet article, vous apprenez à créer des clusters [Apache Hadoop](http://hadoop.apache.org/) dans HDInsight à l’aide du portail Azure, puis à exécuter des travaux Apache Hive dans HDInsight. La plupart des tâches Hadoop sont des tâches de traitements par lots. Vous créez un cluster, exécutez certaines tâches, puis supprimez le cluster. Dans cet article, vous allez effectuer les trois tâches.
 
 Dans ce guide de démarrage rapide, vous utilisez le portail Azure pour créer un cluster HDInsight Hadoop. Vous pouvez aussi créer un cluster à l’aide du [modèle Azure Resource Manager](apache-hadoop-linux-tutorial-get-started.md).
 

@@ -1,5 +1,5 @@
 ---
-title: 'Tutoriel : Créer des machines virtuelles exécutant une pile SQL&#47;IIS&#47;.NET dans Azure | Microsoft Docs'
+title: 'Tutoriel : Créer des machines virtuelles exécutant une pile SQL, IIS, .NET dans Azure | Microsoft Docs'
 description: Dans ce tutoriel, vous allez apprendre à installer la pile Azure SQL, IIS, .NET sur une machine virtuelle Windows dans Azure.
 services: virtual-machines-windows
 documentationcenter: virtual-machines
@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 02/27/2018
 ms.author: zarhoads
 ms.custom: mvc
-ms.openlocfilehash: 357a81ef3ab23a1e06b88f083c2fcdc35b27853d
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 4909edf6e434e626e89409f01ae0f5fbca5bf442
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49464908"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515486"
 ---
-# <a name="tutorial-install-the-sql47iis47net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutoriel : Installer la pile SQL&#47;IIS&#47;.NET dans une machine virtuelle Windows avec Azure PowerShell
+# <a name="tutorial-install-the-sql-iis-net-stack-in-a-windows-vm-with-azure-powershell"></a>Tutoriel : Installer la pile SQL, IIS, .NET dans une machine virtuelle Windows avec Azure PowerShell
 
-Dans ce tutoriel, nous installons une pile SQL&#47;IIS&#47;.NET avec Azure PowerShell. Cette pile se compose de deux machines virtuelles exécutant Windows Server 2016 : une avec IIS et .NET, et l’autre avec SQL Server.
+Dans ce tutoriel, nous installons une pile SQL, IIS, .NET avec Azure PowerShell. Cette pile se compose de deux machines virtuelles exécutant Windows Server 2016 : une avec IIS et .NET, et l’autre avec SQL Server.
 
 > [!div class="checklist"]
 > * Créer une machine virtuelle 
@@ -57,7 +57,7 @@ New-AzureRmVm `
     -OpenPorts 80,3389 
 ```
 
-Installez IIS et le .NET Framework avec l’extension de script personnalisé.
+Installez IIS et le .NET Framework avec l’extension de script personnalisé à l’aide de l’applet de commande [Set-AzureRmVMExtension](/powershell/module/azurerm.compute/set-azurermvmextension).
 
 ```azurepowershell-interactive
 Set-AzureRmVMExtension `

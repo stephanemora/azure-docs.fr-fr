@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 274005d7cea5833f9653038b710a7dbc248f0c04
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: b694f72f812696fe1d03a799b31d9ce176cc824d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47221517"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621461"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Didacticiel : Utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder à Azure Key Vault 
 
@@ -32,61 +32,53 @@ Vous allez apprendre à effectuer les actions suivantes :
 > [!div class="checklist"]
 > * Accorder à votre machine virtuelle l’accès à un secret stocké dans Key Vault 
 > * Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer la clé secrète de Key Vault 
- 
+ 
 ## <a name="prerequisites"></a>Prérequis
-
-[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-- [Connectez-vous au Portail Azure](https://portal.azure.com).
+## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Accorder à votre machine virtuelle l’accès à un secret stocké dans Key Vault  
 
-- [Créez une machine virtuelle Linux](/azure/virtual-machines/linux/quick-create-portal).
+À l’aide d’identités de service managées pour les ressources Azure, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure Active Directory. Toutefois, tous les services Azure ne prennent pas en charge l’authentification Azure AD. Pour utiliser des identités managées pour les ressources Azure avec ces services, stockez les informations d’identification des services dans Azure Key Vault, puis utilisez des identités managées pour des ressources Azure afin d’accéder à Key Vault pour récupérer les informations d’identification. 
 
-- [Activer l’identité managée affectée par le système sur votre machine virtuelle](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+Tout d’abord, nous devons créer un Key Vault et accorder son accès à l’identité managée attribuée par le système de machine virtuelle.   
 
-## <a name="grant-your-vm-access-to-a-secret-stored-in-a-key-vault"></a>Accorder à votre machine virtuelle l’accès à un secret stocké dans Key Vault  
-
-À l’aide d’identités de service managées pour les ressources Azure, votre code peut obtenir des jetons d’accès pour vous authentifier sur des ressources prenant en charge l’authentification Azure Active Directory. Toutefois, tous les services Azure ne prennent pas en charge l’authentification Azure AD. Pour utiliser des identités managées pour les ressources Azure avec ces services, stockez les informations d’identification des services dans Azure Key Vault, puis utilisez des identités managées pour des ressources Azure afin d’accéder à Key Vault pour récupérer les informations d’identification. 
-
-Tout d’abord, nous devons créer un Key Vault et accorder son accès à l’identité managée attribuée par le système de machine virtuelle.   
-
-1. En haut de la barre de navigation de gauche, sélectionnez **Créer une ressource** > **Sécurité + Identité** > **Key Vault**.  
-2. Entrez un **Nom** pour le nouveau Key Vault. 
-3. Recherchez le Key Vault dans le même abonnement et le même groupe de ressources que la machine virtuelle créée précédemment. 
-4. Sélectionnez des **Stratégies d’accès** et cliquez sur le bouton **Ajouter un nouveau**. 
-5. Dans Configurer à partir du modèle, sélectionnez **Gestion de secret**. 
-6. Choisissez **Sélectionner le principal**, et dans la zone de recherche entrez le nom de la machine virtuelle créée précédemment.  Sélectionnez la machine virtuelle dans la liste des résultats, cliquez sur **Sélectionner**. 
-7. Cliquez sur **OK** pour terminer l’ajout de la nouvelle stratégie d’accès, puis sur **OK** pour terminer la sélection de stratégie d’accès. 
-8. Cliquez sur **Créer** pour terminer la création de Key Vault. 
+1. En haut de la barre de navigation de gauche, sélectionnez **Créer une ressource** > **Sécurité + Identité** > **Key Vault**.  
+2. Entrez un **Nom** pour le nouveau Key Vault. 
+3. Recherchez le Key Vault dans le même abonnement et le même groupe de ressources que la machine virtuelle créée précédemment. 
+4. Sélectionnez des **Stratégies d’accès** et cliquez sur le bouton **Ajouter un nouveau**. 
+5. Dans Configurer à partir du modèle, sélectionnez **Gestion de secret**. 
+6. Choisissez **Sélectionner le principal**, et dans la zone de recherche entrez le nom de la machine virtuelle créée précédemment.  Sélectionnez la machine virtuelle dans la liste des résultats, cliquez sur **Sélectionner**. 
+7. Cliquez sur **OK** pour terminer l’ajout de la nouvelle stratégie d’accès, puis sur **OK** pour terminer la sélection de stratégie d’accès. 
+8. Cliquez sur **Créer** pour terminer la création de Key Vault. 
 
     ![Texte de remplacement d’image](./media/msi-tutorial-windows-vm-access-nonaad/msi-blade.png)
 
-Ensuite, ajoutez un secret à Key Vault, afin de pouvoir le retrouver à l’aide du code en cours d’exécution dans votre machine virtuelle : 
+Ensuite, ajoutez un secret à Key Vault, afin de pouvoir le retrouver à l’aide du code en cours d’exécution dans votre machine virtuelle : 
 
-1. Sélectionnez **Toutes les ressources**, puis sélectionnez le coffre de clés créé précédemment. 
-2. Sélectionnez **Secret**, puis cliquez sur **Ajouter**. 
-3. Dans les **Options de chargement**, sélectionnez **Manuel**. 
-4. Entrez un nom et une valeur pour le secret.  Vous pouvez choisir la valeur de votre choix. 
-5. Laissez les champs pour la date d’activation et la date d’expiration vides, puis pour **Activé**, laissez la valeur **Oui**. 
-6. Cliquez sur **Créer** pour créer le secret. 
- 
-## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer la clé secrète de Key Vault  
+1. Sélectionnez **Toutes les ressources**, puis sélectionnez le coffre de clés créé précédemment. 
+2. Sélectionnez **Secret**, puis cliquez sur **Ajouter**. 
+3. Dans les **Options de chargement**, sélectionnez **Manuel**. 
+4. Entrez un nom et une valeur pour le secret.  Vous pouvez choisir la valeur de votre choix. 
+5. Laissez les champs pour la date d’activation et la date d’expiration vides, puis pour **Activé**, laissez la valeur **Oui**. 
+6. Cliquez sur **Créer** pour créer le secret. 
+ 
+## <a name="get-an-access-token-using-the-vms-identity-and-use-it-to-retrieve-the-secret-from-the-key-vault"></a>Obtenir un jeton d’accès à l’aide d’une identité de machine virtuelle et l’utiliser pour récupérer la clé secrète de Key Vault  
 
-Pour effectuer cette procédure, vous avez besoin d’un client SSH.  Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
- 
-1. Dans le portail, accédez à votre machine virtuelle Linux et dans **Vue d’ensemble**, cliquez sur **Connexion**. 
-2. **Connectez-vous** à la machine virtuelle à l’aide du client SSH de votre choix. 
-3. Dans la fenêtre de terminal, envoyez une requête aux identités managées locales pour le point de terminaison des ressources Azure en vue d’obtenir un jeton d’accès pour Azure Key Vault.  
- 
-    Vous trouverez la requête CURL pour le jeton d’accès ci-dessous.  
+Pour effectuer cette procédure, vous avez besoin d’un client SSH.  Si vous utilisez Windows, vous pouvez utiliser le client SSH dans le [Sous-système Windows pour Linux](https://msdn.microsoft.com/commandline/wsl/about). Si vous avez besoin d’aide pour configurer les clés de votre client SSH, consultez [Comment utiliser les clés SSH avec Windows sur Azure](../../virtual-machines/linux/ssh-from-windows.md), ou [Comment créer et utiliser une paire de clés publique et privée SSH pour les machines virtuelles Linux dans Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+ 
+1. Dans le portail, accédez à votre machine virtuelle Linux et dans **Vue d’ensemble**, cliquez sur **Connexion**. 
+2. **Connectez-vous** à la machine virtuelle à l’aide du client SSH de votre choix. 
+3. Dans la fenêtre de terminal, à l’aide de CURL, envoyez une requête aux identités managées locales pour le point de terminaison des ressources Azure en vue d’obtenir un jeton d’accès pour Azure Key Vault.  
+ 
+    Vous trouverez la requête CURL pour le jeton d’accès ci-dessous.  
     
     ```bash
-    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true  
+    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true  
     ```
-    La réponse inclut le jeton d’accès dont vous avez besoin pour accéder au Gestionnaire des ressources. 
+    La réponse inclut le jeton d’accès dont vous avez besoin pour accéder au Gestionnaire des ressources. 
     
-    Réponse :  
+    Réponse :  
     
     ```bash
     {"access_token":"eyJ0eXAi...",
@@ -95,19 +87,19 @@ Pour effectuer cette procédure, vous avez besoin d’un client SSH.  Si vous ut
     "expires_on":"1504130527",
     "not_before":"1504126627",
     "resource":"https://vault.azure.net",
-    "token_type":"Bearer"} 
+    "token_type":"Bearer"} 
     ```
     
-    Vous pouvez utiliser ce jeton d’accès pour vous authentifier sur Azure Key Vault.  La requête CURL suivante montre comment lire un secret de Key Vault à l’aide de CURL et de l’API REST de Key Vault.  Vous avez besoin de l’URL de votre Key Vault qui se trouve dans la section **Bases** de la page **Vue d’ensemble** de Key Vault.  Vous avez également besoin du jeton d’accès que vous avez obtenu lors de l’appel précédent. 
+    Vous pouvez utiliser ce jeton d’accès pour vous authentifier sur Azure Key Vault.  La requête CURL suivante montre comment lire un secret de Key Vault à l’aide de CURL et de l’API REST de Key Vault.  Vous avez besoin de l’URL de votre Key Vault qui se trouve dans la section **Bases** de la page **Vue d’ensemble** de Key Vault.  Vous avez également besoin du jeton d’accès que vous avez obtenu lors de l’appel précédent. 
         
     ```bash
-    curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
+    curl https://<YOUR-KEY-VAULT-URL>/secrets/<secret-name>?api-version=2016-10-01 -H "Authorization: Bearer <ACCESS TOKEN>" 
     ```
     
-    La réponse aura l’aspect suivant : 
+    La réponse aura l’aspect suivant : 
     
     ```bash
-    {"value":"p@ssw0rd!","id":"https://mytestkeyvault.vault.azure.net/secrets/MyTestSecret/7c2204c6093c4d859bc5b9eff8f29050","attributes":{"enabled":true,"created":1505088747,"updated":1505088747,"recoveryLevel":"Purgeable"}} 
+    {"value":"p@ssw0rd!","id":"https://mytestkeyvault.vault.azure.net/secrets/MyTestSecret/7c2204c6093c4d859bc5b9eff8f29050","attributes":{"enabled":true,"created":1505088747,"updated":1505088747,"recoveryLevel":"Purgeable"}} 
     ```
     
 Après avoir récupéré le secret à partir de Key Vault, vous pouvez l’utiliser pour vous authentifier sur un service qui requiert un nom et un mot de passe.
@@ -117,7 +109,7 @@ Après avoir récupéré le secret à partir de Key Vault, vous pouvez l’utili
 Dans ce didacticiel, vous avez appris à utiliser une identité managée de machine virtuelle Linux attribuée par le système pour accéder à Azure Key Vault.  Pour en savoir plus sur Azure Key Vault, consultez :
 
 > [!div class="nextstepaction"]
->[Azure Key Vault](/azure/key-vault/key-vault-whatis)
+>[Azure Key Vault](/azure/key-vault/key-vault-whatis)
 
 
 

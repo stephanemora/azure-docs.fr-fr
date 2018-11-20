@@ -1,7 +1,6 @@
 ---
-title: 'Exemple : Comment extraire des phrases clés dans l’API Analyse de texte'
-titleSuffix: Azure Cognitive Services
-description: Découvrez comment extraire des phrases clés à l’aide de l’API REST Analyse de texte.
+title: Guide pratique pour extraire des expressions clés dans l’API REST Analyse de texte (Microsoft Cognitive Services sur Azure) | Microsoft Docs
+description: Explique comment extraire des expressions clés à l’aide de l’API REST Analyse de texte dans Microsoft Cognitive Services sur Azure dans ce didacticiel pas à pas.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 62c078a8a72cd0a3633b7dd5fda1545f01067dbc
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: d38886d40a92d5e75f5d0b6b189dbf7c067e1635
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605485"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632388"
 ---
 # <a name="example-how-to-extract-key-phrases-in-text-analytics"></a>Exemple : Comment extraire des phrases clés dans l’API Analyse de texte
 
@@ -24,6 +23,9 @@ L’[API Extraction de phrases clés](https://westus.dev.cognitive.microsoft.com
 Cette fonctionnalité est utile si vous avez besoin d’identifier rapidement les principaux points d’une collection de documents. Par exemple, pour le texte d’entrée « The food was delicious and there were wonderful staff » (La nourriture était délicieuse et le personnel adorable), le service retourne les principaux points de discussion : « food » (nourriture) et « wonderful staff » (personnel adorable).
 
 Actuellement, l’API Extraction de phrases clés prend en charge l’anglais, l’allemand, l’espagnol et le japonais. D’autres langues sont en préversion. Pour en savoir plus, consultez [Langages pris en charge](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Analyse de texte fournit également une image conteneur Docker basée sur Linux pour l’extraction de phrases clés. Vous pouvez ainsi [installer et exécuter le conteneur Analyse de texte](text-analytics-how-to-install-containers.md) à proximité de vos données.
 
 ## <a name="preparation"></a>Préparation
 
@@ -71,7 +73,7 @@ Vous trouverez plus d’informations sur la définition d’une demande dans [Gu
 
 + Créez une demande **POST**. Passez en revue la documentation de l’API pour cette demande : [API Expressions clés](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6)
 
-+ Définissez le point de terminaison HTTP pour l’extraction d’expressions clés. Il doit inclure la ressource `/keyphrases` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
++ Définissez le point de terminaison HTTP pour l’extraction de phrases clés à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Il doit inclure la ressource `/keyPhrases` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases`
 
 + Définissez un en-tête de demande pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Guide pratique pour rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
 

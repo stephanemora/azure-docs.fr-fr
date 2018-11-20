@@ -10,18 +10,18 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 07/23/2018
 ms.custom: mvc
-ms.openlocfilehash: c4b20421135ac27712cf50deb7d74ce91ed639e5
-ms.sourcegitcommit: 6678e16c4b273acd3eaf45af310de77090137fa1
+ms.openlocfilehash: 080bf465d65199c54e0d09eab8c7bccbc9616ed7
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50747862"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568952"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Démarrage rapide : Exécuter une tâche Spark sur Azure Databricks à l’aide du portail Azure
 
 Ce guide de démarrage rapide montre comment créer un espace de travail Azure Databricks et un cluster Apache Spark au sein de cet espace de travail. Enfin, vous découvrirez comment exécuter un travail Spark sur le cluster Databricks. Pour plus d’informations sur Azure Databricks, consultez [Présentation d’Azure Databricks](what-is-azure-databricks.md)
 
-Dans ce démarrage rapide, dans le cadre du travail Spark, vous analysez des données d’abonnement à un canal de radio pour obtenir des informations sur l’utilisation gratuite/payante en fonction de données démographiques. 
+Dans ce démarrage rapide, dans le cadre du travail Spark, vous analysez des données d’abonnement à un canal de radio pour obtenir des informations sur l’utilisation gratuite/payante en fonction de données démographiques.
 
 Si vous ne disposez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/) avant de commencer.
 
@@ -31,9 +31,9 @@ Connectez-vous au [portail Azure](https://portal.azure.com).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Créer un espace de travail Azure Databricks
 
-Dans cette section, vous créez un espace de travail Azure Databricks en utilisant le portail Azure. 
+Dans cette section, vous créez un espace de travail Azure Databricks en utilisant le portail Azure.
 
-1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Données + Analytique** > **Azure Databricks**. 
+1. Dans le portail Azure, sélectionnez **Créer une ressource** > **Données + Analytique** > **Azure Databricks**.
 
     ![Databricks sur le portail Azure](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks sur le portail Azure")
 
@@ -41,8 +41,8 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
     ![Créer un espace de travail Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Créer un espace de travail Azure Databricks")
 
-    Renseignez les valeurs suivantes : 
-     
+    Renseignez les valeurs suivantes :
+    
     |Propriété  |Description  |
     |---------|---------|
     |**Nom de l’espace de travail**     | Renseignez un nom pour votre espace de travail Databricks.        |
@@ -59,8 +59,8 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
 
 ## <a name="create-a-spark-cluster-in-databricks"></a>Créer un cluster Spark dans Databricks
 
-> [!NOTE] 
-> Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/).  
+> [!NOTE]
+> Pour utiliser un compte gratuit pour créer le cluster Azure Databricks, avant de créer le cluster, accédez à votre profil et définissez votre abonnement sur **paiement à l’utilisation**. Pour plus d’informations, consultez la page [Compte Azure gratuit](https://azure.microsoft.com/free/).
 
 1. Dans le portail Azure, accédez à l’espace de travail Databricks que vous avez créé, puis cliquez sur **Initialiser l’espace de travail**.
 
@@ -75,10 +75,10 @@ Dans cette section, vous créez un espace de travail Azure Databricks en utilisa
     Acceptez toutes les valeurs par défaut autres que les suivantes :
 
     * Entrez un nom pour le cluster.
-    * Pour cet article, créez un cluster avec le runtime **4.0**. 
+    * Pour cet article, créez un cluster avec le runtime **4.0**.
     * Veillez à cocher la case **Arrêter après \_\_ minutes d’inactivité**. Spécifiez une durée (en minutes) pour arrêter le cluster, si le cluster n’est pas utilisé.
     
-    Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark. 
+    Sélectionnez **Créer un cluster**. Une fois que le cluster est en cours d’exécution, vous pouvez y attacher des notebooks et exécuter des travaux Spark.
 
 Pour plus d’informations sur la création de clusters, consultez [Créer un cluster Spark dans Azure Databricks](https://docs.azuredatabricks.net/user-guide/clusters/create.html).
 
@@ -86,29 +86,28 @@ Pour plus d’informations sur la création de clusters, consultez [Créer un cl
 ## <a name="download-a-sample-data-file"></a>Télécharger un exemple de fichier de données
 Téléchargez un exemple de fichier de données JSON, et enregistrez-le dans le stockage blob Azure.
 
-1. Téléchargez cet exemple de fichier de données JSON [à partir de Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) vers votre ordinateur local. Cliquez sur le bouton droit de la souris, et sélectionnez Enregistrer sous pour enregistrer le fichier brut localement. 
+1. Téléchargez cet exemple de fichier de données JSON [à partir de Github](https://raw.githubusercontent.com/Azure/usql/master/Examples/Samples/Data/json/radiowebsite/small_radio_json.json) vers votre ordinateur local. Cliquez sur le bouton droit de la souris, et sélectionnez Enregistrer sous pour enregistrer le fichier brut localement.
 
-2. Si vous ne disposez pas d'un compte de stockage, créez-en un. 
-   - Dans le portail Azure, sélectionnez **Créer une ressource**.  Sélectionnez la catégorie **Stockage**, puis **Comptes de stockage**.  
-   - Attribuez un nom unique au compte de stockage.
-   - Sélectionnez **Type de compte** : **Stockage Blob**.
-   - Sélectionnez un nom de **Groupe de ressources**. Utilisez le même groupe de ressources que vous avez créé avec l’espace de travail Databricks.
-   
-   Pour plus d’informations, consultez la rubrique [Créer un compte de stockage Blob Azure](../storage/common/storage-quickstart-create-account.md). 
+2. Si vous ne disposez pas d'un compte de stockage, créez-en un.
+    - Dans le portail Azure, sélectionnez **Créer une ressource**. Sélectionnez la catégorie **Stockage**, puis **Comptes de stockage**.
+    - Attribuez un nom unique au compte de stockage.
+    - Sélectionnez **Type de compte** : **Stockage Blob**.
+    - Sélectionnez un nom de **Groupe de ressources**. Utilisez le même groupe de ressources que vous avez créé avec l’espace de travail Databricks.
+    
+    Pour plus d’informations, consultez la rubrique [Créer un compte de stockage Blob Azure](../storage/common/storage-quickstart-create-account.md).
 
 3. Créez un conteneur de stockage dans le compte de stockage Blob, et téléchargez l’exemple de fichier JSON dans le conteneur. Vous pouvez utiliser le portail Azure ou de l’[Explorateur Stockage Microsoft Azure](../vs-azure-tools-storage-manage-with-storage-explorer.md) pour télécharger le fichier.
 
-   - Ouvrez le compte de stockage dans le portail Azure.
-   - Sélectionnez **Objets Blob**.
-   - Sélectionnez **+ conteneur** pour créer un conteneur vide.
-   - Fournir un **nom** pour le conteneur, tel que `databricks`. 
-   - Sélectionnez le niveau d’accès **Privé (non anonyme)**.
-   - Une fois le conteneur créé, sélectionnez le nom du conteneur.
-   - Cliquez sur le bouton **Charger**.
-   - Sur la page **Fichiers**, sélectionnez l’**icône de dossier** pour parcourir et sélectionner le fichier d’exemple `small_radio_json.json` pour le téléchargement. 
-   - Sélectionnez **Télécharger** pour télécharger le fichier.
-   
-   
+    - Ouvrez le compte de stockage dans le portail Azure.
+    - Sélectionnez **Objets Blob**.
+    - Sélectionnez **+ conteneur** pour créer un conteneur vide.
+    - Fournir un **nom** pour le conteneur, tel que `databricks`.
+    - Sélectionnez le niveau d’accès **Privé (non anonyme)**.
+    - Une fois le conteneur créé, sélectionnez le nom du conteneur.
+    - Cliquez sur le bouton **Charger**.
+    - Sur la page **Fichiers**, sélectionnez l’**icône de dossier** pour parcourir et sélectionner le fichier d’exemple `small_radio_json.json` pour le téléchargement.
+    - Sélectionnez **Télécharger** pour télécharger le fichier.
+
 ## <a name="run-a-spark-sql-job"></a>Exécuter un travail Spark SQL
 Effectuez les tâches suivantes pour créer un notebook dans Databricks, configurer le notebook pour la lecture de données d’un compte de stockage Blob Azure et exécuter un travail Spark SQL sur les données.
 
@@ -122,7 +121,7 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 
     Cliquez sur **Créer**.
 
-3. Dans cette étape, associez le compte de Stockage Azure au cluster Spark Databricks. Il existe deux manières d’y parvenir. Vous pouvez monter le compte de Stockage Azure sur le système de fichiers Databricks Filesystem (DBFS) ou accéder directement au compte de Stockage Azure depuis l’application que vous créez.  
+3. Dans cette étape, associez le compte de Stockage Azure au cluster Spark Databricks. Il existe deux manières d’y parvenir. Vous pouvez monter le compte de Stockage Azure sur le système de fichiers Databricks Filesystem (DBFS) ou accéder directement au compte de Stockage Azure depuis l’application que vous créez.
 
     > [!IMPORTANT]
     >Cet article utilise la méthode de **montage du stockage sur le système de fichiers DBFS**. Cette méthode garantit l’association du stockage monté et du cluster de système de fichiers. Ainsi, toute application qui accède au cluster est en mesure d’utiliser aussi le stockage associé. La méthode d’accès direct est limitée à l’application à partir de laquelle vous configurez l’accès.
@@ -150,7 +149,7 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 4. Exécutez une instruction SQL pour créer une table temporaire en utilisant les données de l’exemple de fichier de données JSON, **small_radio_json.json**. Dans l’extrait de code suivant, remplacez les valeurs des espaces réservés par le nom de votre conteneur et par le nom de votre compte de stockage. Collez l’extrait de code dans une cellule vide du notebook, puis appuyez sur Maj+Entrée. Dans l’extrait de code, `path` désigne l’emplacement de l’exemple de fichier JSON que vous avez chargé sur votre compte de stockage Azure.
 
     ```sql
-    %sql 
+    %sql
     DROP TABLE IF EXISTS radio_sample_data;
     CREATE TABLE radio_sample_data
     USING json
@@ -166,7 +165,7 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 5. Examinons un instantané des données JSON pour mieux comprendre la requête que vous exécutez. Collez l’extrait de code suivant dans une cellule de code, puis appuyez sur **Maj+Entrée**.
 
     ```sql
-    %sql 
+    %sql
     SELECT * from radio_sample_data
     ```
 
@@ -193,7 +192,7 @@ Effectuez les tâches suivantes pour créer un notebook dans Databricks, configu
 
 9. La sortie montre la représentation visuelle, comme illustré dans la capture d’écran suivante :
 
-     ![Personnaliser le graphique à barres](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Personnaliser le graphique à barres")
+    ![Personnaliser le graphique à barres](./media/quickstart-create-databricks-workspace-portal/databricks-sql-query-output-bar-chart.png "Personnaliser le graphique à barres")
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
@@ -201,7 +200,7 @@ Une fois l’article terminé, vous pouvez arrêter le cluster. Pour cela, dans 
 
 ![Arrêter un cluster Databricks](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Arrêter un cluster Databricks")
 
-Si vous n’arrêtez pas le cluster manuellement, il s’arrêtera automatiquement, à condition d’avoir coché **Arrêter après __ minutes d’inactivité** lors de la création du cluster. Dans ce cas, le cluster s’arrête automatiquement s’il a été inactif pendant la période renseignée.
+Si vous n’arrêtez pas le cluster manuellement, il s’arrête automatiquement, à condition d’avoir coché **Arrêter après \_\_ minutes d’inactivité** lors de la création du cluster. Dans ce cas, le cluster s’arrête automatiquement s’il a été inactif pendant la période renseignée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

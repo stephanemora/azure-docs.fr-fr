@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 0134f6c83548ae5ffb4924ecf7d652ce89910340
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 176f8bb6fbb7a1a6bb81525cd3833d57bf9a5086
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210616"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568799"
 ---
 # <a name="migrate-on-premises-machines-to-azure"></a>Migrer des machines sur site vers Azure
 
@@ -110,7 +110,10 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
 3. Le paramètre de clé de chiffrement ne s’applique pas à ce scénario.
 4. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter les machines virtuelles avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 5. Vérifiez que la machine virtuelle Azure s’affiche dans Azure comme prévu.
-6. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Terminer la migration**. Cette opération termine le processus de migration, interrompt la réplication pour la machine virtuelle et arrête la facturation Site Recovery pour la machine virtuelle.
+6. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Terminer la migration**. Cette opération effectue les actions suivantes :
+
+    - Termine le processus de migration, arrête la réplication pour la machine virtuelle AWS et arrête la facturation Site Recovery pour la machine virtuelle.
+    - Cette étape nettoie les données de réplication. Elle ne supprime pas les machines virtuelles migrées.
 
     ![Terminer la migration](./media/migrate-tutorial-on-premises-azure/complete-migration.png)
 

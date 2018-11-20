@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 0cf42245981afb44415b9709be9d45c44255f295
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 158bfedc8c0eb7d49c72d40cda08588d7377d17d
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50417512"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636847"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>Didacticiel NoSQL : Créer une application console Java avec l’API SQL
 
@@ -91,7 +91,7 @@ Dans le portail Azure, accédez à votre compte Azure Cosmos DB, puis cliquez su
 ![Capture d’écran du portail Azure utilisé par le didacticiel NoSQL pour créer une application console Java. Présente un compte Azure Cosmos DB, avec le hub ACTIF et le bouton CLÉS mis en surbrillance dans le panneau du compte Azure Cosmos DB, et les valeurs d’URI, de CLÉ PRIMAIRE et de CLÉ SECONDAIRE mises en surbrillance dans le panneau Clés][keys]
 
 ## <a name="step-4-create-a-database"></a>Étape 4 : créer une base de données
-Pour créer votre [base de données](sql-api-resources.md#databases) Azure Cosmos DB, utilisez la méthode [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) de la classe **DocumentClient**. Une base de données est le conteneur logique de stockage de documents JSON partitionné entre les collections.
+Pour créer votre [base de données](databases-containers-items.md#azure-cosmos-databases) Azure Cosmos DB, utilisez la méthode [createDatabase](/java/api/com.microsoft.azure.documentdb._document_client.createdatabase) de la classe **DocumentClient**. Une base de données est le conteneur logique de stockage de documents JSON partitionné entre les collections.
 
     Database database = new Database();
     database.setId("familydb");
@@ -103,7 +103,7 @@ Pour créer votre [base de données](sql-api-resources.md#databases) Azure Cosmo
 > 
 > 
 
-Pour créer une [collection](sql-api-resources.md#collections), utilisez la méthode [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) de la classe **DocumentClient**. Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript.
+Pour créer une collection, utilisez la méthode [createCollection](/java/api/com.microsoft.azure.documentdb._document_client.createcollection) de la classe **DocumentClient**. Une collection est un conteneur de documents JSON. Elle est associée à une logique d'application JavaScript.
 
 
     DocumentCollection collectionInfo = new DocumentCollection();
@@ -117,7 +117,7 @@ Pour créer une [collection](sql-api-resources.md#collections), utilisez la mét
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Étape 6 : Création de documents JSON
-Pour créer un [document](sql-api-resources.md#documents), utilisez la méthode [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) de la classe **DocumentClient**. Les documents sont du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser [l’outil de migration de données](import-data.md) d’Azure Cosmos DB pour les importer dans une base de données.
+Pour créer un document, utilisez la méthode [createDocument](/java/api/com.microsoft.azure.documentdb._document_client.createdocument) de la classe **DocumentClient**. Les documents sont du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Si vous disposez déjà de données que vous souhaitez stocker dans votre base de données, vous pouvez utiliser [l’outil de migration de données](import-data.md) d’Azure Cosmos DB pour les importer dans une base de données.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();

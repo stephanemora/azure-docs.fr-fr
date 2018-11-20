@@ -11,12 +11,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 06/29/2018
 ms.author: sngun
-ms.openlocfilehash: 66e937e92528e2f0a1fca9d9aac78f7265eef4f7
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: f79455166ef0d1bec9a2fb1d6045005f844e55ac
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741230"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636745"
 ---
 # <a name="tutorial-build-a-java-app-with-async-java-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>Tutoriel : Créer une application Java avec le Kit de développement logiciel (SDK) Java Async pour gérer les données de l’API SQL Azure Cosmos DB
 
@@ -116,7 +116,7 @@ client = new AsyncDocumentClient.Builder()
 
 ## <a id="CreateDatabase"></a>Étape 5 : Créer une base de données
 
-Votre [base de données](sql-api-resources.md#databases) Azure Cosmos DB peut être créée à l’aide de la méthode createDatabaseIfNotExists() de la classe DocumentClient. Une base de données est le conteneur logique de stockage de documents JSON partitionné entre les collections.
+Votre [base de données](databases-containers-items.md#azure-cosmos-databases) Azure Cosmos DB peut être créée à l’aide de la méthode createDatabaseIfNotExists() de la classe DocumentClient. Une base de données est le conteneur logique de stockage de documents JSON partitionné entre les collections.
 
 ```java
 private void createDatabaseIfNotExists() throws Exception 
@@ -203,7 +203,7 @@ private void createDocumentCollectionIfNotExists() throws Exception
 
 ## <a id="CreateDoc"></a>Étape 7 : Créer des documents JSON
 
-Pour créer un [document](sql-api-resources.md#documents), utilisez la méthode createDocument de la classe DocumentClient. Les documents sont du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Le fichier « src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java » définit les documents de famille JSON 
+Pour créer un document, utilisez la méthode createDocument de la classe DocumentClient. Les documents sont du contenu JSON (arbitraire) défini par l'utilisateur. Nous pouvons maintenant insérer un ou plusieurs documents. Le fichier « src/main/java/com/microsoft/azure/cosmosdb/sample/Families.java » définit les documents de famille JSON 
 
 ```java
 public static Family getJohnsonFamilyDocument() {

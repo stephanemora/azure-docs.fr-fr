@@ -13,15 +13,15 @@ ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 82cd29cf1a635d1cd613d289a5d8db6ef54ee661
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 0afa4f85f443789d1ce7e79d0708967e308a4683
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49398718"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623194"
 ---
 # <a name="what-is-azure-active-directory-monitoring-preview"></a>En quoi consiste la surveillance d’Azure Active Directory ? (préversion)
 
@@ -32,7 +32,6 @@ Actuellement, vous pouvez acheminer les journaux vers :
 - Un compte de stockage Azure.
 - Un Azure Event Hub pour vous permettre d’intégrer vos instances Splunk et Sumologic.
 - Espace de travail Azure Log Analytics, dans lequel vous pouvez analyser les données, créer un tableau de bord et signaler des événements spécifiques
-
 
 ## <a name="diagnostic-settings-configuration"></a>Configuration des paramètres de diagnostic
 
@@ -53,7 +52,7 @@ Si vous acheminez les journaux vers un compte de stockage Azure, vous pouvez les
 
 ## <a name="stream-logs-to-event-hub"></a>Transmettre en continu des journaux vers un Event Hub
 
-L’acheminement des journaux vers un Azure Event Hub vous permet d’intégrer des outils SIEM tiers comme Sumologic et Splunk. Cette intégration vous permet d’associer les données du journal d’activité d’Azure AD à d’autres données gérées par votre SIEM afin d’obtenir davantage d’informations sur votre environnement. Découvrez comment [transmettre les journaux à un Event Hub](tutorial-azure-monitor-stream-logs-to-event-hub.md).
+L’acheminement des journaux vers un Azure Event Hub vous permet d’intégrer des outils SIEM tiers comme Sumologic et Splunk. Cette intégration vous permet d’associer les données du journal d’activité d’Azure AD à d’autres données gérées par votre SIEM pour offrir des insights plus fournis sur votre environnement. Découvrez comment [transmettre les journaux à un Event Hub](tutorial-azure-monitor-stream-logs-to-event-hub.md).
 
 ## <a name="send-logs-to-log-analytics"></a>Envoyer des journaux à Log Analytics
 

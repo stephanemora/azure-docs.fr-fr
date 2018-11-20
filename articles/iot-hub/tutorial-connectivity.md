@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.date: 05/29/2018
 ms.topic: tutorial
 ms.service: iot-hub
-ms.openlocfilehash: 5a09211dc134cdb372a9712c1f45d7c44660a759
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 05f6b32fad4f0a449f0d801c1c7cc6a28be6f940
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46966858"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685347"
 ---
 # <a name="tutorial-use-a-simulated-device-to-test-connectivity-with-your-iot-hub"></a>Tutoriel : utiliser un appareil simulé pour tester la connectivité avec votre Hub IoT
 
@@ -257,7 +257,7 @@ L’appareil simulé imprime un message lorsqu’il reçoit une mise à jour de 
 
 En plus de recevoir les modifications apportées aux propriétés souhaitées lorsqu’elles sont effectuées, l’appareil simulé vérifie automatiquement les propriétés souhaitées lors de son démarrage.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Si vous n’avez plus besoin du hub IoT, supprimez-le ainsi que le groupe de ressources dans le portail. Pour ce faire, sélectionnez le groupe de ressources **tutorials-iot-hub-rg** qui contient votre Hub IoT, puis cliquez sur **Supprimer**.
 

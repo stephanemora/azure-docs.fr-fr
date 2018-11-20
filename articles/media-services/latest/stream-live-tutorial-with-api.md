@@ -1,5 +1,5 @@
 ---
-title: Diffuser en temps réel avec Azure Media Services v3 à l’aide de .NET Core | Microsoft Docs
+title: Diffuser en temps réel avec Azure Media Services v3 | Microsoft Docs
 description: Ce didacticiel vous présente les étapes pour diffuser en temps réel avec Media Services v3 à l’aide de .NET Core.
 services: media-services
 documentationcenter: ''
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/08/2018
 ms.author: juliako
-ms.openlocfilehash: bd149177a91bc0d5897723df2fad50fef11a37ef
-ms.sourcegitcommit: b4a46897fa52b1e04dd31e30677023a29d9ee0d9
+ms.openlocfilehash: 7863f007093b5a86fb5095ee8bf1e14fc01d0348
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49392333"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613390"
 ---
-# <a name="stream-live-with-azure-media-services-v3-using-net-core"></a>Diffuser en temps réel avec Azure Media Services v3 à l’aide de .NET Core
+# <a name="tutorial-stream-live-with-media-services-v3-using-apis"></a>Tutoriel : Diffuser en temps réel avec Media Services v3 à l’aide d’API
 
-Dans Media Services, les [LiveEvents](https://docs.microsoft.com/rest/api/media/liveevents) (événements en temps réel) sont responsables du traitement du contenu vidéo en flux continu. Un LiveEvent (événement en temps réel) fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un encodeur live. Il reçoit des flux de données entrants en continu d’un encodeur live et les rend disponibles en diffusion via un ou plusieurs [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) (point de terminaison de streaming). Ces événements fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour obtenir un aperçu et valider votre flux avant tout traitement et remise supplémentaires. Ce didacticiel explique comment utiliser .NET Core pour créer un type de **canal direct** d’un événement en temps réel. 
+Dans Azure Media Services, les [événements en temps réel](https://docs.microsoft.com/rest/api/media/liveevents) sont responsables du traitement du contenu vidéo en flux continu. Un LiveEvent (événement en temps réel) fournit un point de terminaison d’entrée (URL de réception) que vous fournissez ensuite à un encodeur live. Il reçoit des flux de données entrants en continu d’un encodeur live et les rend disponibles en diffusion via un ou plusieurs [StreamingEndpoints](https://docs.microsoft.com/rest/api/media/streamingendpoints) (point de terminaison de streaming). Ces événements fournissent également un point de terminaison d’aperçu (URL d’aperçu) que vous utilisez pour obtenir un aperçu et valider votre flux avant tout traitement et remise supplémentaires. Ce didacticiel explique comment utiliser .NET Core pour créer un type de **canal direct** d’un événement en temps réel. 
 
 > [!NOTE]
 > Veillez à consulter [Diffusion en continu avec Media Services v3](live-streaming-overview.md) avant de commencer. 
@@ -31,7 +31,6 @@ Dans Media Services, les [LiveEvents](https://docs.microsoft.com/rest/api/media/
 Ce didacticiel explique les procédures suivantes :    
 
 > [!div class="checklist"]
-> * Créer un compte Media Services
 > * Accéder à l’API Media Services
 > * Configurer l’exemple d’application
 > * Examiner le code qui effectue la diffusion en continu
@@ -44,9 +43,17 @@ Ce didacticiel explique les procédures suivantes :
 
 Les éléments suivants sont requis pour suivre le didacticiel.
 
-* Installer Visual Studio Code ou Visual Studio
-* Une caméra ou appareil (ordinateur portable) utilisé pour diffuser un événement.
-* Un encodeur vidéo dynamique local qui convertit les signaux de la caméra en flux de données qui sont envoyés vers le service de vidéo en flux continu Media Services. La diffusion doit se faire au format **RTMP** ou **Smooth Streaming**.
+- Installez Visual Studio Code ou Visual Studio.
+- Installez et utilisez l’interface CLI localement. Vous devez avoir Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
+
+    Actuellement, les commandes [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) ne fonctionnent pas toutes dans Azure Cloud Shell. Il est recommandé d’utiliser l’interface CLI localement.
+
+- [Créer un compte Media Services](create-account-cli-how-to.md).
+
+    Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services
+
+- Une caméra ou appareil (ordinateur portable) utilisé pour diffuser un événement.
+- Un encodeur vidéo dynamique local qui convertit les signaux de la caméra en flux de données qui sont envoyés vers le service de vidéo en flux continu Media Services. La diffusion doit se faire au format **RTMP** ou **Smooth Streaming**.
 
 ## <a name="download-the-sample"></a>Télécharger l’exemple
 
@@ -61,10 +68,6 @@ L’exemple de diffusion en continu est situé dans le dossier [Live](https://gi
 > [!IMPORTANT]
 > Cet exemple utilise un suffixe unique pour chaque ressource. Si vous annulez le débogage ou fermer l’application sans l’avoir effectué, vous disposerez plusieurs événements en temps réel sur votre compte. <br/>
 > Veillez à arrêter les événements en cours. Sinon, vous serez **facturé** !
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -176,9 +179,9 @@ Une fois arrêté, l’événement en direct est automatiquement converti en con
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes de stockage et Media Services que vous avez créés pour ce didacticiel, supprimez le groupe de ressources créé précédemment. Vous pouvez utiliser l’outil **CloudShell**.
+Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes de stockage et Media Services que vous avez créés pour ce didacticiel, supprimez le groupe de ressources créé précédemment.
 
-Dans **CloudShell**, exécutez la commande suivante :
+Exécutez la commande CLI suivante :
 
 ```azurecli-interactive
 az group delete --name amsResourceGroup

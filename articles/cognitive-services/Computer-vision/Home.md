@@ -10,12 +10,12 @@ ms.component: computer-vision
 ms.topic: overview
 ms.date: 08/22/2018
 ms.author: pafarley
-ms.openlocfilehash: 39b3f51693229e75f58c4244089f21c7d3f8677d
-ms.sourcegitcommit: 1d3353b95e0de04d4aec2d0d6f84ec45deaaf6ae
+ms.openlocfilehash: 8f18b01409680c07b942087b75b1618c75973391
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/30/2018
-ms.locfileid: "50250612"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634326"
 ---
 # <a name="what-is-computer-vision"></a>Qu’est-ce que le service Vision par ordinateur ?
 
@@ -53,6 +53,10 @@ Vous pouvez également [reconnaître le texte imprimé et le texte manuscrit](co
 ## <a name="moderating-content-in-images"></a>Modérer du contenu dans les images
 
 Vous pouvez utiliser le service Vision par ordinateur pour [détecter du contenu pour adultes et choquant](concept-detecting-adult-content.md) dans une image, évaluer la probabilité que l’image contienne du contenu pour adultes ou choquant, et générer un score de confiance pour ces deux types de contenu. Le filtre pour la détection de contenu choquant et réservé aux adultes peut être défini sur une échelle variable afin de répondre à vos besoins spécifiques.
+
+## <a name="using-containers"></a>Utilisation de conteneurs
+
+[Utilisez des conteneurs Vision par ordinateur](computer-vision-how-to-install-containers.md) pour reconnaître le texte imprimé et manuscrit localement, en installant un conteneur Docker normalisé plus près de vos données.
 
 ## <a name="image-requirements"></a>Exigences des images
 

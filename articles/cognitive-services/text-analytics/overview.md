@@ -10,12 +10,12 @@ ms.component: text-analytics
 ms.topic: overview
 ms.date: 10/01/2018
 ms.author: ashmaka
-ms.openlocfilehash: fcc10723b2fb750b099f99999de01ab699d5d5e8
-ms.sourcegitcommit: 55952b90dc3935a8ea8baeaae9692dbb9bedb47f
+ms.openlocfilehash: 545d60207bbd1941920bc0e70096417c35486634
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/09/2018
-ms.locfileid: "48887766"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634587"
 ---
 # <a name="what-is-text-analytics"></a>Qu’est-ce que le service Analyse de texte ?
 
@@ -32,7 +32,11 @@ L’analyse de texte peut signifier différentes choses mais, dans Cognitive Ser
 |[**Analyse des sentiments**](how-tos/text-analytics-how-to-sentiment-analysis.md) | Découvrez ce que les clients pensent de votre marque ou thématique en analysant du texte brut pour trouver des indices sur les sentiments positifs ou négatifs. Cette API renvoie un score de sentiment de 0 à 1 pour chaque document, où 1 correspond au sentiment le plus positif.<br /> Les modèles d’analyse sont préformés à l’aide d’un corps complet de technologies de texte et de Langage naturel de Microsoft. Pour les [langues sélectionnées](text-analytics-supported-languages.md), l’API peut analyser tout texte brut que vous fournissez, lui attribuer un score, et renvoyer directement les résultats à l’application appelante. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package)  |
 |[**extraction de phrases clés**](how-tos/text-analytics-how-to-keyword-extraction.md) | Extrayez automatiquement des phrases clés pour identifier rapidement les points principaux. Par exemple, pour le texte d’entrée « Le repas était délicieux et le personnel adorable », l’API renvoie les principaux points de discussion : « repas » et « personnel adorable ».  | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6) <br /> [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) |
 |[**Détection de la langue**](how-tos/text-analytics-how-to-language-detection.md) | Détectez parmi jusqu’à 120 langues celle dans laquelle le texte d’entrée est rédigé, et générez un code de langue unique pour chaque document soumis dans la demande. Le code de langue est associé à un score indiquant la puissance de l’analyse. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) <br />  [.NET](https://docs.microsoft.com/azure/cognitive-services/text-analytics/quickstarts/csharp#install-the-nuget-sdk-package) | 
-|[**Reconnaissance d’entité (préversion)**](how-tos/text-analytics-how-to-entity-linking.md) | Identifiez et classez les entités dans votre texte en tant que personnes, lieux, organisations, date/heure, quantités, pourcentages, devises et bien plus encore. Les entités bien connues sont également reconnues et liées pour des informations supplémentaires sur le web. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) | 
+|[**Reconnaissance d’entité (préversion)**](how-tos/text-analytics-how-to-entity-linking.md) | Identifiez et classez les entités dans votre texte en tant que personnes, lieux, organisations, date/heure, quantités, pourcentages, devises et bien plus encore. Les entités bien connues sont également reconnues et liées pour des informations supplémentaires sur le web. | [REST](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-V2-1-Preview/operations/5ac4251d5b4ccd1554da7634) |
+
+## <a name="use-containers"></a>Utiliser des conteneurs
+
+[Utilisez les conteneurs Analyse de texte](how-tos/text-analytics-how-to-install-containers.md) pour extraire les phrases clés, détecter la langue et analyser les sentiments localement, en installant des conteneurs Docker normalisés plus près de vos données.
 
 ## <a name="typical-workflow"></a>Flux de travail classique
 

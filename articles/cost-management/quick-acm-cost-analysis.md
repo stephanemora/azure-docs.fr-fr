@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/19/2018
+ms.date: 11/09/2018
 ms.topic: quickstart
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 6b935322c9d892793f3695e0922d15f5886c7e25
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: 40f3f56c15956a93176a753f7c66f66df1b8f5f4
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49471286"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515724"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Démarrage rapide : Explorer et analyser les coûts avec Analyse du coût
 
@@ -32,27 +32,14 @@ Dans ce guide de démarrage rapide, vous apprenez à :
 
 ## <a name="prerequisites"></a>Prérequis
 
-L’analyse du coût est accessible à tous les clients bénéficiant d’un [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût.
+L’analyse du coût est accessible à tous les clients bénéficiant d’un [Contrat Entreprise (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/). Vous devez au moins disposer d’un accès en lecture à une ou plusieurs des étendues suivantes pour afficher les données de coût. Pour plus d’informations sur l’attribution de l’accès aux données Cost Management, consultez [Assigner l’accès aux données](assign-access-acm-data.md).
 
-
-|**Portée**|**Définition**|**Accès requis pour analyser les coûts sur l’étendue**|**Paramètre de Contrat Entreprise (EA) prérequis**|**Consolide les données de facturation vers**|
-|---                |---                  |---                   |---            |---           |
-|<sup>Premier</sup> compte de facturation|[https://ea.azure.com ](https://ea.azure.com )|Administrateur d'entreprise|Aucun|Abonnements du contrat entreprise|
-|department|[https://ea.azure.com ](https://ea.azure.com )|Administrateur de service|Afficher les frais autorisés de l’administrateur de service|Abonnements appartenant à un compte d’inscription lié au service|
-|<sup>Deuxième</sup2> compte d’inscription|[https://ea.azure.com ](https://ea.azure.com )|Propriétaire du compte|Afficher les frais autorisés du propriétaire du compte|Abonnements à partir du compte d’inscription|
-|Groupe d’administration|[https://portal.azure.com ](https://portal.azure.com )|Lecteur Cost Management (ou Lecteur)|Afficher les frais autorisés du propriétaire du compte|Abonnements en dessous du groupe d’administration|
-|Abonnement|[https://portal.azure.com ](https://portal.azure.com )|Lecteur Cost Management (ou Lecteur)|Afficher les frais autorisés du propriétaire du compte|Ressources/groupes de ressources compris dans l’abonnement|
-|Groupe de ressources|[https://portal.azure.com ](https://portal.azure.com )|Lecteur Cost Management (ou Lecteur)|Afficher les frais autorisés du propriétaire du compte|Ressources comprises dans le groupe de ressources|
-
-Le <sup>premier</sup> compte de facturation est souvent désigné sous le terme de Contrat Entreprise ou le Compte d’inscription.
-
-Le <sup>deuxième</sup> compte d’inscription est souvent désigné sous le terme de propriétaire du compte.
-
-Pour plus d’informations sur la configuration des paramètres **d’affichage des frais pour l’administrateur de service** et **d’affichage des frais pour le propriétaire du compte**, consultez la section [Activation de l’accès aux coûts](../billing/billing-enterprise-mgmt-grp-troubleshoot-cost-view.md#enabling-access-to-costs).
-
-
-
-
+- Compte de facturation
+- department
+- Compte d’inscription
+- Groupe d’administration
+- Abonnement
+- Groupe de ressources
 
 ## <a name="sign-in-to-azure"></a>Connexion à Azure
 

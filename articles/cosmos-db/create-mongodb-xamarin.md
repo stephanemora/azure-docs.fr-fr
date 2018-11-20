@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/20/2018
 ms.author: masoucou
-ms.openlocfilehash: e002f99cc16721b78d85284105ce22ee7d1eb9a3
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 45d299e2d5e1f9c9c454e6b2f77df7cdf8295e5f
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574825"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568707"
 ---
 # <a name="quickstart-build-a-mongodb-api-xamarinforms-app-with-net-and-the-azure-portal"></a>Démarrage rapide : Développer une application Xamarin.Forms API MongoDB avec .NET et le Portail Azure
 
@@ -79,7 +79,7 @@ Si vous ne souhaitez pas utiliser git, vous pouvez également [télécharger le 
 
 Cette étape est facultative. Pour savoir comment les ressources de base de données sont créées dans le code, vous pouvez examiner les extraits de code suivants. Sinon, vous pouvez passer à l’étape [Mise à jour de votre chaîne de connexion](#update-your-connection-string).
 
-Les extraits de code suivants sont tirés de la classe `MongoService`, à l’emplacement suivant : src/TaskList.Core/Services/MongoService.cs.
+Les extraits de code suivants sont tirés de la classe `MongoService`, à l’emplacement suivant : src/TaskList.Core/Services/MongoService.cs.
 
 * Initialisez le client Mongo.
     ```cs

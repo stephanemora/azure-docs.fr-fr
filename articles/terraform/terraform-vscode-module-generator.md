@@ -1,6 +1,6 @@
 ---
-title: Azure Terraform ou générateur de module de code
-description: Découvrez comment utiliser Yeoman pour créer un modèle de base Terraform.
+title: Créer un modèle de base Terraform dans Azure à l’aide de Yeoman
+description: Découvrez comment créer un modèle de base Terraform dans Azure à l’aide de Yeoman.
 services: terraform
 ms.service: terraform
 keywords: terraform, devops, machine virtuelle, azure, yeoman
@@ -8,32 +8,34 @@ author: v-mavick
 manager: jeconnoc
 ms.author: v-mavick
 ms.topic: tutorial
-ms.date: 09/12/2018
-ms.openlocfilehash: 513b123c44cf2cd37cf81a91e0d2da9599eb1fcd
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.date: 11/08/2018
+ms.openlocfilehash: 9ef27166e84192dec81fd8f8da508785342ffefc
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47396251"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288014"
 ---
-# <a name="create-a-terraform-base-template-using-yeoman"></a>Créer un modèle de base Terraform à l’aide de Yeoman
+# <a name="create-a-terraform-base-template-in-azure-using-yeoman"></a>Créer un modèle de base Terraform dans Azure à l’aide de Yeoman
 
 [Terraform](https://docs.microsoft.com/azure/terraform/
 ) permet de créer facilement des infrastructure sur Azure. [Yeoman](http://yeoman.io/) simplifie considérablement le travail du développeur de module pour la création de modules Terraform tout en offrant un excellent framework de *meilleures pratiques*.
 
-Dans cet article, vous allez apprendre à utiliser le générateur de module Yeoman pour créer un modèle Terraform de base.
+Dans cet article, vous allez apprendre à utiliser le générateur de module Yeoman pour créer un modèle Terraform de base. Vous découvrirez ensuite comment tester votre nouveau modèle Terraform à l’aide de deux méthodes différentes :
+
+- Exécuter le module Terraform à l’aide d’un fichier Docker créé dans cet article
+- Exécuter le module Terraform en mode natif dans Azure Cloud Shell
 
 ## <a name="prerequisites"></a>Prérequis
 
-- Un ordinateur exécutant Windows 10, Linux ou macOS 10.10+
-- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, créez un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
+- **Abonnement Azure** : si vous n’avez pas d’abonnement Azure, vous pouvez créer un [compte Azure gratuit](https://azure.microsoft.com/free/) avant de commencer.
 - **Visual Studio Code** : nous allons utiliser [Visual Studio Code](https://www.bing.com/search?q=visual+studio+code+download&form=EDGSPH&mkt=en-us&httpsmsn=1&refig=dffc817cbc4f4cb4b132a8e702cc19a3&sp=3&ghc=1&qs=LS&pq=visual+studio+code&sk=LS1&sc=8-18&cvid=dffc817cbc4f4cb4b132a8e702cc19a3&cc=US&setlang=en-US) pour examiner les fichiers créés par le générateur Yeoman. Toutefois, vous pouvez utiliser n’importe quel éditeur de code de votre choix.
 - **Terraform** : [Terraform](https://docs.microsoft.com/azure/virtual-machines/linux/terraform-install-configure ) doit être installé pour exécuter le module créé par Yeoman.
 - **Docker** : nous allons utiliser [Docker](https://www.docker.com/get-started) pour exécuter le module créé par le générateur Yeoman. (Si vous préférez, vous pouvez utiliser Ruby à la place de Docker pour exécuter l’exemple de module.)
 - **Langage de programmation Go** : [Go](https://golang.org/) doit être installé, car les cas de test générés par Yeoman sont écrits en Go.
 
 >[!NOTE]
->La plupart des procédures de ce tutoriel impliquent des entrées de ligne de commande. Les étapes décrites ici s’appliquent à tous les systèmes d’exploitation et tous les outils de ligne de commande. Dans nos exemples, nous avons choisi d’utiliser PowerShell. Toutefois, vous pouvez utiliser n’importe quelle alternative, comme Git Bash, des invites de commandes Windows ou des commandes de ligne de commande Linux ou macOS.
+>La plupart des procédures de ce tutoriel impliquent des entrées de ligne de commande. Les étapes décrites ici s’appliquent à tous les systèmes d’exploitation et tous les outils de ligne de commande. Dans nos exemples, nous avons choisi d’utiliser PowerShell pour l’environnement local et Git Bash pour l’environnement Cloud Shell.
 
 ## <a name="prepare-your-environment"></a>Préparation de votre environnement
 
@@ -103,7 +105,7 @@ Le modèle Yeoman génère des fichiers dans le **répertoire actif**. Pour cett
         ![Inclure le fichier d’image Docker ?](media/terraform-vscode-module-generator/ymg-include-docker-image-file.png) 
 
         >[!NOTE]
-        >Entrez `y`. Si vous sélectionnez **n**, le code de module généré ne prendra en charge que l’exécution en mode natif.
+        >Entrez `y`. Si vous sélectionnez **n**, le code de module généré ne prend en charge que l’exécution en mode natif.
 
 3. Entrez `ls` pour afficher les fichiers créés.
 
@@ -149,7 +151,7 @@ Définit les étapes de génération. Ces étapes sont les suivantes :
 - Les tests de bout en bout essaient d’utiliser Terraform pour provisionner tous les éléments définis sous **fixture** et comparent les résultats dans le code **template_output.go** avec les valeurs attendues prédéfinies.
 - **Gopkg.lock** et **Gopkg.toml** : définir vos dépendances. 
 
-## <a name="test-the-module-using-docker"></a>Tester le module à l’aide de Docker
+## <a name="test-your-new-terraform-module-using-a-docker-file"></a>Tester votre nouveau module Terraform à l’aide d’un fichier Docker
 
 >[!NOTE]
 >Dans notre exemple, nous exécutons le module en tant que module local sans réellement toucher Azure.
@@ -191,6 +193,8 @@ Pour confirmer que Docker est en cours d’exécution, entrez `docker info`.
 
     ![Répertorier le fichier Docker](media/terraform-vscode-module-generator/ymg-list-docker-file.png)
 
+### <a name="build-the-module"></a>Générer le module
+
 1. Entrez `bundle install`.
 
     Attendez que le message **Bundle terminé** s’affiche, puis passez à l’étape suivante.
@@ -199,7 +203,7 @@ Pour confirmer que Docker est en cours d’exécution, entrez `docker info`.
 
     ![Build Rake](media/terraform-vscode-module-generator/ymg-rake-build.png)
 
-### <a name="perform-the-end-to-end-test"></a>Exécuter le test de bout en bout
+### <a name="run-the-end-to-end-test"></a>Exécuter le test de bout en bout
 
 1. Entrez `rake e2e`.
 
@@ -207,7 +211,74 @@ Pour confirmer que Docker est en cours d’exécution, entrez `docker info`.
 
     ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
-1. Entrez `exit` pour exécuter le test de bout en bout.
+1. Entrez `exit` pour terminer le test de bout en bout et quitter l’environnement Docker.
+
+## <a name="use-yeoman-generator-to-create-and-test-a-module-in-cloud-shell"></a>Utiliser le générateur Yeoman pour créer et tester un module dans Cloud Shell
+
+Dans la section précédente, vous avez appris à tester un module Terraform à l’aide d’un fichier Docker. Dans cette section, vous allez utiliser le générateur Yeoman pour créer et tester un module dans Cloud Shell.
+
+L’utilisation de Cloud Shell à la place d’un fichier Docker simplifie considérablement le processus. Avec Cloud Shell :
+
+- Il est inutile d’installer Node.js.
+- Il est inutile d’installer Yeoman.
+- Il est inutile d’installer Terraform.
+
+Tous ces éléments sont préinstallés dans Cloud Shell.
+
+### <a name="start-a-cloud-shell-session"></a>Démarrer une session Cloud Shell
+
+1. Démarrez une session Azure Cloud Shell à l’aide du [portail Azure](https:/portal.azure.com/), du site [shell.azure.com](https://shell.azure.com) ou de l’application [Azure mobile app](https://azure.microsoft.com/features/azure-portal/mobile-app/).
+
+1. La page **Bienvenue dans Azure Cloud Shell** s’ouvre. Sélectionnez **Bash (Linux)**. (PowerShell n’est pas pris en charge.)
+
+    ![Bienvenue dans Azure Cloud Shell](media/terraform-vscode-module-generator/ymg-welcome-to-azure-cloud-shell.png)
+
+    >[!NOTE]
+    >Dans cet exemple, Bash (Linux) a été sélectionné.
+
+1. Si vous n’avez pas déjà configuré un compte de stockage Azure, l’écran suivant s’affiche. Sélectionnez **Créer le stockage**.
+
+    ![Vous n’avez aucun stockage monté](media/terraform-vscode-module-generator/ymg-you-have-no-storage-mounted.png)
+
+1. Azure Cloud Shell démarre dans l’interpréteur de commandes précédemment sélectionné, et affiche des informations concernant le lecteur cloud qu’il vient de créer pour vous.
+
+    ![Votre service cloud a été créé.](media/terraform-vscode-module-generator/ymg-your-cloud-drive-has-been-created-in.png)
+
+### <a name="prepare-a-folder-to-hold-your-terraform-module"></a>Préparer un dossier où stocker le module Terraform
+
+1. À ce stade, Cloud Shell a déjà configuré GOPATH dans vos variables d’environnement. Pour voir le chemin, entrez `go env`.
+
+1. Créez le dossier $GOPATH s’il n’existe pas. Pour cela, entrez `mkdir ~/go`.
+
+1. Créez un dossier dans le dossier $GOPATH. Pour cela, entrez `mkdir ~/go/src`. Ce dossier est utilisé pour stocker et organiser les différents dossiers de projet que vous pouvez créer, notamment le dossier <your-module-name> que nous allons créer à l’étape suivante.
+
+1. Créez un dossier où stocker votre module Terraform. Pour cela, entrez `mkdir ~/go/src/<your-module-name>`.
+
+    >[!NOTE]
+    >Dans cet exemple, nous avons choisi `my-module-name` comme nom de dossier.
+
+1. Accédez au dossier du module. Pour cela, entrez `cd ~/go/src/<your-module-name>`.
+
+### <a name="create-and-test-your-terraform-module"></a>Créer et tester le module Terraform
+
+1. Entrez `yo az-terra-module` et suivez les instructions de l’Assistant.
+
+    >[!NOTE]
+    >Quand vous êtes invité à créer les fichiers Docker, vous pouvez entrer `N`.
+
+1. Entrez `bundle install` pour installer les dépendances.
+
+    Attendez que le message **Bundle terminé** s’affiche, puis passez à l’étape suivante.
+
+1. Entrez `rake build` pour générer votre module.
+
+    ![Build Rake](media/terraform-vscode-module-generator/ymg-rake-build.png)
+
+1. Entrez `rake e2e` pour exécuter le test de bout en bout.
+
+1. Après quelques instants, le message **PASS** s’affiche.
+
+    ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
 

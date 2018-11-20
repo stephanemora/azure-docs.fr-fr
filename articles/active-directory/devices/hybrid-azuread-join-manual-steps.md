@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/18/2018
+ms.date: 11/01/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 33fc8a3822def68cc0baad4670233f57044d1985
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: c85d3ce6ab3e84d454ddbc2550f430b87705c192
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408405"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622174"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Tutoriel : Configurer manuellement des appareils joints à Azure Active Directory hybride 
 
@@ -504,6 +504,9 @@ Si certains de vos appareils joints à un domaine sont des appareils Windows de 
  
 - Ajouter le point de terminaison d’authentification d’appareil Azure AD aux zones Intranet local afin d’éviter les invites de certificat lors de l’authentification des appareils
 
+- Contrôler des appareils Windows de bas niveau 
+
+
 ### <a name="set-policy-in-azure-ad-to-enable-users-to-register-devices"></a>Définir une stratégie dans Azure AD pour permettre aux utilisateurs d’inscrire des appareils
 
 Pour inscrire des appareils Windows de bas niveau, vous devez vous assurer que le paramètre permettant aux utilisateurs d’inscrire des appareils dans Azure AD est défini. Dans le Portail Azure, ce paramètre est disponible à l’emplacement suivant :
@@ -517,7 +520,7 @@ La stratégie ci-après doit être définie sur la valeur **Tous** : **Les utili
 
 ### <a name="configure-on-premises-federation-service"></a>Configurer le service de fédération local 
 
-Votre service de fédération local doit prendre en charge l’émission des revendications **authenticationmethod** et **wiaormultiauthn** lors de la réception d’une demande d’authentification auprès de la partie de confiance Azure AD qui contient un paramètre resouce_params avec une valeur encodée comme indiqué ci-dessous :
+Votre service de fédération local doit prendre en charge l’émission des revendications **authenticationmethod** et **wiaormultiauthn** lors de la réception d’une requête d’authentification auprès de la partie de confiance Azure AD qui contient un paramètre resource_params avec une valeur encodée, comme indiqué ci-dessous :
 
     eyJQcm9wZXJ0aWVzIjpbeyJLZXkiOiJhY3IiLCJWYWx1ZSI6IndpYW9ybXVsdGlhdXRobiJ9XX0
 
@@ -551,6 +554,12 @@ Dans AD FS, vous devez ajouter une règle de transformation d’émission qui es
 Pour éviter les invites de certificat lorsque les utilisateurs des appareils inscrits s’authentifient auprès d’Azure AD, vous pouvez transmettre une stratégie à vos appareils joints à un domaine pour ajouter l’URL ci-après à la zone Intranet local dans Internet Explorer :
 
 `https://device.login.microsoftonline.com`
+
+
+### <a name="control-windows-down-level-devices"></a>Contrôler des appareils Windows de bas niveau 
+
+Pour inscrire des appareils Windows de bas niveau, vous devez télécharger et installer un package Windows Installer (.msi) à partir du Centre de téléchargement. Pour plus d’informations, cliquez [ici](hybrid-azuread-join-control.md#control-windows-down-level-devices). 
+
 
 
 ## <a name="verify-joined-devices"></a>Vérifier des appareils joints

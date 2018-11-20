@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/30/2018
 ms.author: dobett
-ms.openlocfilehash: 06ca8269fc41807dd6cb27bab22d10e45f025ee2
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 08b2018ec1f1d34291778df0fa217b874cc3ffab
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49363858"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515093"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>Démarrage rapide : contrôler un appareil connecté à un IoT Hub (Python)
 
@@ -26,6 +26,7 @@ IoT Hub est un service Azure qui vous permet de traiter de gros volumes de donn�
 Ce démarrage rapide utilise deux applications Python prédéfinies :
 
 * Une application d’appareil simulé qui répond aux méthodes directes appelées à partir d’une application back-end. Pour recevoir les appels de méthode directe, cette application se connecte à un point de terminaison spécifique à l’appareil sur votre IoT Hub.
+
 * Une application back-end qui appelle les méthodes directes sur l’appareil simulé. Pour appeler une méthode directe sur un appareil, cette application se connecte à un point de terminaison côté service sur votre IoT Hub.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
@@ -54,7 +55,7 @@ Si ce n’est déjà fait, téléchargez l’exemple de projet Python à partir 
 
 Si vous avez terminé le [Démarrage rapide : envoyer des données de télémétrie à partir d’un appareil à un IoT Hub](quickstart-send-telemetry-python.md) précédent, vous pouvez ignorer cette étape.
 
-[!INCLUDE [iot-hub-quickstarts-create-hub](../../includes/iot-hub-quickstarts-create-hub.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>Inscrire un appareil
 
@@ -64,7 +65,7 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
 1. Exécutez les commandes suivantes dans Azure Cloud Shell pour ajouter l’extension CLI IoT Hub et créer l’identité d’appareil. 
 
-    **YourIoTHubName** : remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
+    **YourIoTHubName** : remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
     **MyPythonDevice** : il s’agit du nom donné à l’appareil inscrit. Utilisez MyPythonDevice comme indiqué. Si vous choisissez un autre nom pour votre appareil, vous devez également utiliser ce nom pour l’ensemble de cet article et mettre à jour le nom de l’appareil dans les exemples d’application avant de les exécuter.
 
@@ -73,9 +74,9 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
     az iot hub device-identity create --hub-name YourIoTHubName --device-id MyPythonDevice
     ```
 
-1. Exécutez les commandes suivantes dans Azure Cloud Shell pour obtenir la _chaîne de connexion_ à l’appareil que vous venez d’inscrire :
+2. Exécutez les commandes suivantes dans Azure Cloud Shell pour obtenir la _chaîne de connexion_ à l’appareil que vous venez d’inscrire :
 
-    **YourIoTHubName** : remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
+    **YourIoTHubName** : remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
     az iot hub device-identity show-connection-string --hub-name YourIoTHubName --device-id MyPythonDevice --output table
@@ -87,12 +88,14 @@ Un appareil doit être inscrit dans votre hub IoT pour pouvoir se connecter. Dan
 
     Vous utiliserez cette valeur plus loin dans ce démarrage rapide.
 
-1. Vous avez également besoin d’une _chaîne de connexion de service_ pour activer l’application back-end afin de vous connecter à votre IoT Hub et récupérer les messages. La commande suivante récupère la chaîne de connexion de service correspondant à votre hub IoT :
+3. Vous avez également besoin d’une _chaîne de connexion de service_ pour activer l’application back-end afin de vous connecter à votre IoT Hub et récupérer les messages. La commande suivante récupère la chaîne de connexion de service correspondant à votre hub IoT :
 
     **YourIoTHubName** : remplacez l’espace réservé ci-dessous par le nom que vous avez choisi pour votre hub IoT.
 
     ```azurecli-interactive
-    az iot hub show-connection-string --hub-name YourIoTHubName --output table
+    az iot hub show-connection-string \
+      --hub-name YourIoTHubName \
+      --output table
     ```
 
     Notez la chaîne de connexion de service, qui ressemble à ce qui suit :
@@ -125,7 +128,7 @@ L’application d’appareil simulé se connecte à un point de terminaison spé
 
     La capture d’écran suivante présente la sortie lorsque l’application d’appareil simulé envoie des données de télémétrie à votre IoT Hub :
 
-    ![Exécuter l’appareil simulé](media/quickstart-control-device-python/SimulatedDevice-1.png)
+    ![Exécuter l’appareil simulé](./media/quickstart-control-device-python/SimulatedDevice-1.png)
 
 ## <a name="call-the-direct-method"></a>Appeler la méthode directe
 
@@ -151,11 +154,11 @@ L’application back-end se connecte au point de terminaison côté service sur 
 
     La capture d’écran suivante montre la sortie lorsque l’application effectue un appel de méthode directe sur l’appareil et reçoit un accusé de réception :
 
-    ![Exécuter l’application back-end](media/quickstart-control-device-python/BackEndApplication.png)
+    ![Exécuter l’application back-end](./media/quickstart-control-device-python/BackEndApplication.png)
 
     Après avoir exécuté l’application back-end, un message s’affiche dans la fenêtre de la console exécutant l’appareil simulé, et la fréquence à laquelle il envoie les messages change :
 
-    ![Changement dans le client simulé](media/quickstart-control-device-python/SimulatedDevice-2.png)
+    ![Changement dans le client simulé](./media/quickstart-control-device-python/SimulatedDevice-2.png)
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 

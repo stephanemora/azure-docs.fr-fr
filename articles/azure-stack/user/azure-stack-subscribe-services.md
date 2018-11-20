@@ -13,21 +13,22 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 09/05/2018
+ms.date: 11/13/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: aff20cba3bc07924f669420a8c367613b41111a1
-ms.sourcegitcommit: 4b1083fa9c78cd03633f11abb7a69fdbc740afd1
+ms.openlocfilehash: 35b3e6d59cdb1edc59aa211954b8a69a3ce51bc5
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/10/2018
-ms.locfileid: "49076098"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632203"
 ---
 # <a name="tutorial-create-and-test-a-subscription"></a>Didacticiel : créer et tester un abonnement
-Ce didacticiel vous montre comment créer un abonnement qui contient une offre et comment la tester. Pour le test, vous allez vous connecter au portail utilisateur Azure Stack en tant qu’administrateur cloud, vous abonner à l’offre, puis créer une machine virtuelle.
+
+Ce didacticiel vous montre comment créer un abonnement qui contient une offre et comment la tester. Pour le test, connectez-vous au portail utilisateur Azure Stack en tant qu’administrateur cloud, abonnez-vous à l’offre, puis créez une machine virtuelle.
 
 > [!TIP]
-> Pour une expérience d’évaluation d’expérience avancée, vous pouvez [créer un abonnement pour un utilisateur particulier](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm#create-a-subscription-as-a-cloud-operator) puis vous connecter en tant que cet utilisateur au portail utilisateur. 
+> Pour une expérience d’évaluation plus avancée, vous pouvez [créer un abonnement pour un utilisateur particulier](../azure-stack-subscribe-plan-provision-vm.md#create-a-subscription-as-a-cloud-operator), puis vous connecter en tant que cet utilisateur dans le portail utilisateur. 
 
 Dans ce didacticiel, vous allez apprendre à vous abonner à une offre Azure Stack.
 
@@ -38,43 +39,44 @@ Contenu :
 > * Tester l’offre
 
 ## <a name="subscribe-to-an-offer"></a>S’abonner à une offre
-Pour vous abonner à une offre en tant qu’utilisateur, vous devez vous connecter au portail utilisateur Azure Stack pour découvrir les services offerts par l’opérateur Azure Stack.
 
-1. Connectez-vous au portail utilisateur et cliquez sur **Obtenir un abonnement**.
+Pour vous abonner à une offre en tant qu’utilisateur, connectez-vous au portail utilisateur Azure Stack afin de découvrir les services offerts par l’opérateur Azure Stack.
+
+1. Connectez-vous au portail utilisateur et sélectionnez **Obtenir un abonnement**.
 
    ![Prendre un abonnement](media/azure-stack-subscribe-services/get-subscription.png)
 
-2. Dans le champ **Nom d’affichage** , tapez un nom pour votre abonnement. Ensuite, cliquez sur **Offre** pour sélectionner l’une des offres disponibles dans la section **Choisir une offre**, puis cliquez sur **Créer**.
+2. Dans le champ **Nom d’affichage** , tapez un nom pour votre abonnement. Ensuite, sélectionnez **Offre** pour choisir l’une des offres disponibles dans la section **Choisir une offre**. Sélectionnez ensuite **Créer**.
 
    ![Créer une offre](media/azure-stack-subscribe-services/create-subscription.png)
 
    > [!TIP]
    > Vous devez maintenant actualiser le portail utilisateur pour commencer à utiliser votre abonnement.
 
-3. Pour afficher l’abonnement que vous avez créé, cliquez sur **Tous les services**.  Ensuite, dans la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**, puis sélectionnez votre nouvel abonnement. Une fois que vous êtes abonné à une offre, actualisez le portail pour voir si les nouveaux services ont été ajoutés à votre nouvel abonnement. Dan cet exemple, **Machines virtuelles** a été ajouté.
+3. Pour afficher l’abonnement que vous avez créé, sélectionnez **Tous les services**. Ensuite, dans la catégorie **GÉNÉRAL**, sélectionnez **Abonnements**, puis sélectionnez votre nouvel abonnement. Une fois que vous êtes abonné à une offre, actualisez le portail pour voir si les nouveaux services ont été ajoutés à votre nouvel abonnement. Dan cet exemple, **Machines virtuelles** a été ajouté.
 
    ![Afficher l’abonnement](media/azure-stack-subscribe-services/view-subscription.png)
 
-
 ## <a name="test-the-offer"></a>Tester l’offre
-En étant connecté au portail utilisateur, vous pouvez tester l’offre en approvisionnant une machine virtuelle à l’aide des fonctionnalités du nouvel abonnement. 
+
+En étant connecté au portail utilisateur, vous pouvez tester l’offre en provisionnant une machine virtuelle à l’aide des fonctionnalités du nouvel abonnement. 
 
 > [!NOTE]
 > Ce test nécessite d’avoir ajouté une machine virtuelle Windows Server 2016 Datacenter à la place de marché Azure Stack. 
 
 1. Connectez-vous au portail utilisateur.
 
-2. Dans le portail utilisateur, cliquez sur **Machines virtuelles** > **Ajouter** > **Windows Server 2016 Datacenter**, puis sur **Créer**.
+2. Dans le portail utilisateur, sélectionnez **Machines virtuelles**, **Ajouter**, **Windows Server 2016 Datacenter**, puis cliquez sur **Créer**.
 
-3. Dans la section **Bases**, tapez un **Nom**, un **Nom d’utilisateur** et un **Mot de passe**, choisissez un **Abonnement**, créez un **Groupe de ressources** (ou sélectionnez un groupe existant), puis cliquez sur **OK**.
+3. Dans la section **Bases**, tapez un **Nom**, un **Nom d’utilisateur** et un **Mot de passe**, choisissez un **Abonnement**, créez un **Groupe de ressources** (ou sélectionnez un groupe existant), puis sélectionnez **OK**.
 
-4. Dans la section **Choisir une taille**, cliquez sur **A1 Standard**, puis cliquez sur **Sélectionner**.  
+4. Dans la section **Choisir une taille**, sélectionnez **A1 Standard**, puis cliquez sur **Sélectionner**.  
 
-5. Dans le panneau Paramètres, acceptez les valeurs par défaut et cliquez sur **OK**.
+5. Dans le panneau **Paramètres**, acceptez les valeurs par défaut et sélectionnez **OK**.
 
 6. Dans la section **Résumé**, cliquez sur **OK** pour créer la machine virtuelle.  
 
-7. Pour voir votre nouvelle machine virtuelle, cliquez sur **Machines virtuelles**, puis recherchez la nouvelle machine virtuelle et cliquez sur son nom.
+7. Pour voir votre nouvelle machine virtuelle, sélectionnez **Machines virtuelles**, puis recherchez la nouvelle machine virtuelle et cliquez sur son nom.
 
     ![Toutes les ressources](media/azure-stack-subscribe-services/view-vm.png)
 

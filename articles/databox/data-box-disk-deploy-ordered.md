@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 11/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: fae5771afea742b2746c32e1ed6ae88c511876e6
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 961352dc99a164b8537fb588e038ad1b385941cc
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037947"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567449"
 ---
 # <a name="tutorial-order-an-azure-data-box-disk-preview"></a>Tutoriel : Commander un disque Azure Data Box Disk (préversion)
 
@@ -77,7 +77,7 @@ Procédez comme suit dans le [portail Azure](https://aka.ms/azuredataboxfromdisk
     |Région Azure de destination| Sélectionnez une région pour votre compte de stockage.<br> Actuellement, les comptes de stockage de toutes les régions des États-Unis, d’Europe du Nord et de l’Ouest, du Canada et de l’Australie sont pris en charge. |
     |Compte(s) de stockage|Selon la région Azure spécifiée, effectuez la sélection dans la liste filtrée d’un compte de stockage existant. <br>Vous pouvez également créer un nouveau compte Usage général v1 et Usage général v2. |
     |Taille de données estimée en To| Entrez une estimation en To. <br>Selon la taille des données, Microsoft vous envoie un nombre de disques SSD de 8 To (7 To de capacité utilisable) approprié. <br>La capacité utilisable maximale de 5 disques peut atteindre 35 To. |
-    |Clé d’accès de disque| Fournissez la clé d’accès de disque si vous cochez l’option **Utiliser une clé personnalisée à la place de la clé d’accès générée par Azure**. <br> Fournissez une clé alphanumérique comprenant entre 12 et 32 caractères et contenant au moins une valeur numérique et un caractère spécial. Seuls les caractères spéciaux `@?_+` sont autorisés. <br> Vous pouvez choisir d’ignorer cette option et d’utiliser la clé d’accès générée par Azure pour déverrouiller vos disques.|
+    |Clé d’accès de disque| Fournissez la clé d’accès de disque si vous cochez l’option **Utiliser une clé personnalisée à la place de la clé d’accès générée par Azure**. <br> Fournissez une clé alphanumérique comprise entre 12 et 32 caractères, et contenant au moins une valeur numérique et un caractère spécial. Seuls les caractères spéciaux `@?_+` sont autorisés. <br> Vous pouvez choisir d’ignorer cette option et d’utiliser la clé d’accès générée par Azure pour déverrouiller vos disques.|
 
 13. Cliquez sur **Suivant**. 
 

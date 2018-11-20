@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 334649dbe315cb54ba95a29f4c69441fcd2c3417
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 0e6e72424530d18b55f68077ba7c3328d9a2e549
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46362967"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621426"
 ---
 # <a name="quickstart-download-a-sign-in-report-using-the-azure-portal"></a>Démarrage rapide : Télécharger un rapport de connexion avec le portail Azure
 
@@ -32,7 +32,7 @@ Dans ce guide de démarrage rapide, vous apprenez à télécharger les données 
 Ce dont vous avez besoin :
 
 * Un locataire Azure Active Directory, avec une licence Premium pour afficher le rapport d’activité de connexion. 
-* Un utilisateur, dans le rôle d’administrateur de la sécurité, de lecteur de rapport ou d’administrateur général pour le locataire. De plus, tout utilisateur du locataire peut accéder à ses propres connexions.
+* Un utilisateur dans le rôle **Administrateur de la sécurité**, **Lecteur Sécurité**, **Lecteur de rapport** ou **Administrateur général** pour le locataire. De plus, tout utilisateur du locataire peut accéder à ses propres connexions.
 
 ## <a name="quickstart-download-a-sign-in-report"></a>Démarrage rapide : Télécharger un rapport de connexion
 

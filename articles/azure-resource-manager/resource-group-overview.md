@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2018
 ms.author: tomfitz
-ms.openlocfilehash: 16e78784337771d1e31d826f475c92c86fe20411
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 470d08c13d5874283794fa9a2ce06fcaad4f60c2
+ms.sourcegitcommit: d372d75558fc7be78b1a4b42b4245f40f213018c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50212316"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51300538"
 ---
 # <a name="azure-resource-manager-overview"></a>Présentation d’Azure Resource Manager
-L’infrastructure sur laquelle s’appuie votre application est généralement constituée de plusieurs composants, par exemple une machine virtuelle, un compte de stockage et un réseau virtuel ou bien une application web, une base de données, un serveur de base de données et des services tiers. Vous ne voyez pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. Azure Resource Manager vous permet de travailler avec les ressources de solution sous forme de groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Le gestionnaire de ressources assure la sécurité, les fonctions d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement. 
+L’infrastructure sur laquelle s’appuie votre application est généralement constituée de plusieurs composants, par exemple une machine virtuelle, un compte de stockage et un réseau virtuel ou bien une application web, une base de données, un serveur de base de données et des services tiers. Vous ne verrez peut-être pas ces composants comme des entités distinctes, mais plutôt comme des parties associées et interdépendantes d’une seule et même entité. Vous avez alors besoin de regrouper le déploiement, la gestion et la surveillance de ces différentes parties. Azure Resource Manager vous permet de travailler avec les ressources de solution sous forme de groupe. Vous pouvez déployer, mettre à jour ou supprimer toutes les ressources de votre solution dans le cadre d’une opération unique et coordonnée. Vous utilisez un modèle de déploiement pouvant fonctionner avec différents environnements (environnements de test, intermédiaire et de production). Le gestionnaire de ressources assure la sécurité, les fonctions d’audit et de balisage pour vous aider à gérer vos ressources après le déploiement. 
 
 ## <a name="consistent-management-layer"></a>Couche de gestion cohérente
 Resource Manager fournit une couche de gestion cohérente pour effectuer des tâches avec Azure PowerShell, Azure CLI, le portail Azure, l’API REST et les kits SDK clients. Toutes les fonctionnalités disponibles dans le portail Azure sont également disponibles dans Azure PowerShell, Azure CLI, les API REST Azure et les kits SDK clients. Les fonctionnalités initialement publiées par le biais des API seront représentées dans le portail dans les 180 jours après la publication de la version initiale.

@@ -3,29 +3,31 @@ title: Tutoriel C# d’Azure IoT Edge | Microsoft Docs
 description: Ce tutoriel explique comment créer un module IoT Edge avec un code C# et le déployer sur un appareil Edge.
 services: iot-edge
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 09/21/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 61bcb01f549b6a47f3c4899975d4b1b23fbd9e3b
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4c20ab78ba4da44d4746ef6f68674fe494392347
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49957018"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633986"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Tutoriel : Développer un module C# IoT Edge et le déployer sur votre appareil simulé
 
-Vous pouvez utiliser des modules Azure IoT Edge pour déployer un code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’un module IoT Edge qui filtre des données de capteur. Vous utilisez l’appareil IoT Edge simulé que vous avez créé dans les tutoriels Déployer Azure IoT Edge sur un appareil simulé sous [Windows][lnk-tutorial1-win] ou [Linux][lnk-tutorial1-lin]. Ce tutoriel vous montre comment effectuer les opérations suivantes :    
+Vous pouvez utiliser des modules Azure IoT Edge pour déployer un code qui implémente votre logique métier directement sur vos appareils IoT Edge. Ce tutoriel vous guide dans la création et le déploiement d’un module IoT Edge qui filtre des données de capteur. Vous utiliserez l’appareil IoT Edge simulé que vous avez créé dans les tutoriels Déployer Azure IoT Edge sur un appareil simulé sous [Windows](quickstart.md) ou [Linux](quickstart-linux.md). Ce tutoriel vous montre comment effectuer les opérations suivantes :    
 
 > [!div class="checklist"]
-> * Utilisez Visual Studio Code pour créer un module IoT Edge basé sur le SDK .NET Core 2.0.
-> * Utilisez Visual Studio Code et Docker pour créer une image Docker et la publier dans votre registre.
+> * Utilisez Visual Studio Code pour créer un module IoT Edge basé sur le kit SDK .NET Core 2.1.
+> * Utiliser Visual Studio Code et Docker pour créer une image Docker et la publier dans votre registre
 > * Déployer le module sur votre appareil IoT Edge
 > * Afficher les données générées
 
+>[!NOTE]
+>Vous pouvez également utiliser [Visual Studio 2017 pour développer, déboguer et déployer des modules IoT Edge](how-to-visual-studio-develop-csharp-module.md).
 
 Le module IoT Edge que vous créez dans ce didacticiel filtre les données de température générées par votre appareil. Il envoie uniquement des messages en amont lorsque la température dépasse un seuil spécifié. Ce type d’analyse à la périphérie est utile pour réduire la quantité de données communiquées et stockées dans le cloud. 
 
@@ -141,7 +143,7 @@ Le fichier d’environnement stocke les informations d’identification de votre
 
     ```csharp
     // Register a callback for messages that are received by the module.
-    // await ioTHubModuleClient.SetImputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
+    // await ioTHubModuleClient.SetInputMessageHandlerAsync("input1", PipeMessage, iotHubModuleClient);
 
     // Read the TemperatureThreshold value from the module twin's desired properties
     var moduleTwin = await ioTHubModuleClient.GetTwinAsync();
@@ -336,12 +338,3 @@ Dans ce didacticiel, vous avez créé un module IoT Edge contenant le code pour 
 
 > [!div class="nextstepaction"]
 > [Stocker des données en périphérie avec les bases de données SQL Server](tutorial-store-data-sql-server.md)
-
-<!-- Links -->
-[lnk-tutorial1-win]: quickstart.md
-[lnk-tutorial1-lin]: quickstart-linux.md
-
-<!-- Images -->
-[1]: ./media/tutorial-csharp-module/programcs.png
-[2]: ./media/tutorial-csharp-module/build-module.png
-[3]: ./media/tutorial-csharp-module/docker-os.png

@@ -1,5 +1,5 @@
 ---
-title: Configurer des stratégies Kafka dans HDInsight avec le Pack Sécurité Entreprise - Azure
+title: Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise - Azure
 description: Découvrez comment configurer des stratégies Apache Ranger pour Kafka dans Azure HDInsight avec le Pack Sécurité Entreprise (ESP, Enterprise Security Package).
 services: hdinsight
 ms.service: hdinsight
@@ -8,16 +8,16 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.openlocfilehash: 48cfba6f62d75470efd27e3a4cdcb995e716798b
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: aa6702ccf00faa3d63d5458cfbd77ac15fbfbeaa
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51037139"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633036"
 ---
-# <a name="tutorial-configure-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Didacticiel : Configurer des stratégies Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)
+# <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>Tutoriel : Configurer des stratégies Apache Kafka dans HDInsight avec le Pack Sécurité Entreprise (préversion)
 
-Découvrez comment configurer des stratégies Apache Ranger pour des clusters Kafka avec le Pack Sécurité Entreprise. Les clusters ESP sont connectés à un domaine permettant aux utilisateurs de s’authentifier avec les informations d’identification du domaine. Dans ce tutoriel, vous créez deux stratégies Ranger pour restreindre l’accès aux rubriques `sales*` et `marketingspend`.
+Découvrez comment configurer des stratégies Apache Ranger pour des clusters Apache Kafka avec le Pack Sécurité Entreprise. Les clusters ESP sont connectés à un domaine permettant aux utilisateurs de s’authentifier avec les informations d’identification du domaine. Dans ce tutoriel, vous créez deux stratégies Ranger pour restreindre l’accès aux rubriques `sales*` et `marketingspend`.
 
 Ce tutoriel vous montre comment effectuer les opérations suivantes :
 

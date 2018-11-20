@@ -9,12 +9,12 @@ ms.component: face-api
 ms.topic: overview
 ms.date: 10/29/2018
 ms.author: sbowles
-ms.openlocfilehash: 3fe9dd713bef509b1972b51cb07d4f942c544544
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: a15b6678b15bf5d1a3078494e12da3a08c57bed3
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914190"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633459"
 ---
 # <a name="what-is-the-azure-face-api"></a>Qu’est ce que le l’API Visage Azure ?
 
@@ -63,6 +63,10 @@ L’image suivante est un exemple de base de données nommée « myfriends ». C
 Après avoir créé et entraîné une base de données, il est possible d’effectuer l’identification par rapport au groupe avec un nouveau visage détecté. Si le visage est identifié en tant qu’une personne du groupe, l’objet Personne est renvoyé.
 
 Pour plus d’informations sur l’identification des personnes, consultez la section [API d’identification](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+
+## <a name="use-containers"></a>Utiliser des conteneurs
+
+[Utilisez le conteneur Visage](face-how-to-install-containers.md) pour détecter, reconnaître et identifier des visages, en installant un conteneur Docker normalisé plus près de vos données.
 
 ## <a name="sample-apps"></a>Exemples d’application
 

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: get-started-article
 ms.date: 09/26/2018
 ms.author: iainfou
-ms.openlocfilehash: ef3139c4b3f06644b219e177fad0c094ed600fb6
-ms.sourcegitcommit: d1aef670b97061507dc1343450211a2042b01641
+ms.openlocfilehash: 4af4cae07f4e02bc8306c0b317da3a58e4586494
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/27/2018
-ms.locfileid: "47394588"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578347"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>Principaux de service avec Azure Kubernetes Service (AKS)
 
@@ -24,7 +24,7 @@ Cet article montre comment créer et utiliser un principal de service pour vos c
 
 Pour créer un principal de service Azure AD, vous devez disposer des autorisations suffisantes pour inscrire une application auprès de votre client Azure AD et l’affecter à un rôle dans votre abonnement. Si vous n’avez pas les privilèges nécessaires, vous devriez demander à votre administrateur Azure AD ou administrateur d’abonnement de vous attribuer les privilèges nécessaires, de ou créer au préalable un principal de service que vous pourrez utiliser avec le cluster AKS.
 
-Vous devez également avoir installé et configuré Azure CLI version 2.0.46 ou version ultérieure. Exécutez `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez [Installer Azure CLI 2.0][install-azure-cli].
+Vous devez également avoir installé et configuré Azure CLI version 2.0.46 ou ultérieure. Exécutez  `az --version` pour trouver la version. Si vous devez installer ou mettre à niveau, consultez  [Installation d’Azure CLI 2.0][install-azure-cli].
 
 ## <a name="automatically-create-and-use-a-service-principal"></a>Créer et utiliser un principal de service automatiquement
 
@@ -75,6 +75,45 @@ Si vous déployez un cluster AKS à l’aide du portail Azure, sur la page *Auth
 
 ![Image de la navigation vers Azure Vote](media/kubernetes-service-principal/portal-configure-service-principal.png)
 
+## <a name="delegate-access-to-other-azure-resources"></a>Déléguer l’accès à d’autres ressources Azure
+
+Vous pouvez utiliser le principal du service du cluster AKS pour accéder à d’autres ressources. Par exemple, si vous souhaitez utiliser le réseau avancé pour vous connecter à des réseaux virtuels existants, ou vous connecter à Azure Container Registry (ACR), vous devez déléguer l’accès au principal du service.
+
+Pour déléguer des autorisations, vous créez une attribution de rôle avec la commande [az role assignment create][az-role-assignment-create]. Vous affectez `appId` à une étendue spécifique, tel qu’un groupe de ressources ou une ressource de réseau virtuel. Un rôle définit ensuite les autorisations dont le principal du service dispose sur la ressource, comme indiqué dans l’exemple suivant :
+
+```azurecli
+az role assignment create --assignee <appId> --scope <resourceScope> --role Contributor
+```
+
+L’élément `--scope` d’une ressource doit être un ID de ressource complet, tel que */subscriptions/\<guid\>/resourceGroups/myResourceGroup* ou */subscriptions/\<guid\>/resourceGroups/myResourceGroupVnet/providers/Microsoft.Network/virtualNetworks/myVnet*
+
+Les sections suivantes détaillent les délégations courantes que vous serez peut-être amené à effectuer.
+
+### <a name="azure-container-registry"></a>Azure Container Registry
+
+Si vous utilisez Azure Container Registry (ACR) comme magasin d’images conteneur, vous devez accorder des autorisations pour que votre cluster AKS puisse lire et extraire des images. Le rôle *Lecteur* doit être délégué au principal du service du cluster AKS dans le registre. Pour des instructions détaillées, consultez [Accorder à AKS un accès à ACR][aks-to-acr].
+
+### <a name="networking"></a>Mise en réseau
+
+Vous pouvez utiliser un réseau avancé dans lequel le réseau virtuel et le sous-réseau, ou les adresses IP publiques, se trouvent dans un autre groupe de ressources. Assignez un des ensembles d’autorisations de rôle suivants :
+
+- Créez un [rôle personnalisé][rbac-custom-role] et définissez les autorisations de rôle suivantes :
+  - *Microsoft.Network/virtualNetworks/subnets/join/action*
+  - *Microsoft.Network/virtualNetworks/subnets/read*
+  - *Microsoft.Network/publicIPAddresses/read*
+  - *Microsoft.Network/publicIPAddresses/write*
+  - *Microsoft.Network/publicIPAddresses/join/action*
+- Ou attribuez le rôle intégré [Contributeur de réseaux][rbac-network-contributor] sur le sous-réseau dans le réseau virtuel
+
+### <a name="storage"></a>Stockage
+
+Vous pouvez avoir besoin d’accéder à des ressources disque existantes dans un autre groupe de ressources. Assignez un des ensembles d’autorisations de rôle suivants :
+
+- Créez un [rôle personnalisé][rbac-custom-role] et définissez les autorisations de rôle suivantes :
+  - *Microsoft.Compute/disks/read*
+  - *Microsoft.Compute/disks/write*
+- Ou attribuez le rôle intégré [Contributeur de comptes de stockage][rbac-storage-contributor] sur le groupe de ressources
+
 ## <a name="additional-considerations"></a>Considérations supplémentaires
 
 Lorsque vous travaillez avec des principaux de service AKS et Azure AD, gardez les points suivants à l’esprit.
@@ -107,3 +146,8 @@ Pour plus d’informations sur les principaux de service Azure Active Directory,
 [az-ad-app-list]: /cli/azure/ad/app#az-ad-app-list
 [az-ad-app-delete]: /cli/azure/ad/app#az-ad-app-delete
 [az-aks-create]: /cli/azure/aks#az-aks-create
+[rbac-network-contributor]: ../role-based-access-control/built-in-roles.md#network-contributor
+[rbac-custom-role]: ../role-based-access-control/custom-roles.md
+[rbac-storage-contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
+[az-role-assignment-create]: /cli/azure/role/assignment#az-role-assignment-create
+[aks-to-acr]: ../container-registry/container-registry-auth-aks.md?toc=%2fazure%2faks%2ftoc.json#grant-aks-access-to-acr

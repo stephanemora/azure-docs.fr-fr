@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: abd751cf867fea2e634161c4cf0b1e84acbe18c6
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: a543561658d593398ca74f8ae68dd6d0d27bcdaa
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49354102"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636442"
 ---
 # <a name="tutorial-bind-an-existing-custom-ssl-certificate-to-azure-web-apps"></a>Tutoriel : Lier un certificat SSL existant à des applications web Azure
 
@@ -260,7 +260,9 @@ New-AzureRmWebAppSSLBinding `
     -SslState SniEnabled
 ```
 ## <a name="public-certificates-optional"></a>Certificats publics (facultatifs)
-Vous pouvez charger des [certificats publics](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) sur votre application web, afin que l’application puisse accéder à un service externe qui requiert une authentification par certificat.  Pour plus d’informations sur le chargement et l’utilisation d’un certificat public dans votre application, consultez [Utiliser un certificat SSL dans votre code d’application dans Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load).  Vous pouvez également utiliser des certificats publics avec les applications dans les environnements App Service. Si vous avez besoin de stocker le certificat dans le magasin de certificats LocalMachine, vous devez utiliser une application web dans le service App Service Environment. Pour plus d’informations, consultez [How to configure public certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Configuration de certificats publics pour votre application web).
+Si votre application doit accéder à des ressources distantes en tant que client, et qu’une ressource distante exige l’authentification par certificat, vous pouvez charger des [certificats publics](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer/) sur votre application web. Les certificats publics ne sont pas exigés pour les liaisons SSL de votre application.
+
+Pour plus d’informations sur le chargement et l’utilisation d’un certificat public dans votre application, consultez [Utiliser un certificat SSL dans votre code d’application dans Azure App Service](https://docs.microsoft.com/azure/app-service/app-service-web-ssl-cert-load). Vous pouvez également utiliser des certificats publics avec les applications dans les environnements App Service. Si vous avez besoin de stocker le certificat dans le magasin de certificats LocalMachine, vous devez utiliser une application web dans le service App Service Environment. Pour plus d’informations, consultez [How to configure public certificates to your Web App](https://blogs.msdn.microsoft.com/appserviceteam/2017/11/01/app-service-certificates-now-supports-public-certificates-cer) (Configuration de certificats publics pour votre application web).
 
 ![Charger un certificat public](./media/app-service-web-tutorial-custom-ssl/upload-certificate-public1.png)
 

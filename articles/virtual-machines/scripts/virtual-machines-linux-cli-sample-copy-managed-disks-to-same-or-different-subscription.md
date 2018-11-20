@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 05/19/2017
 ms.author: ramankum
 ms.custom: mvc
-ms.openlocfilehash: dfdbc0563810447a1a214356b5153afe38d9cf2f
-ms.sourcegitcommit: 8c3267c34fc46c681ea476fee87f5fb0bf858f9e
+ms.openlocfilehash: 65d0d6848534326bb3ef43f1bd8bc700971603e6
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 03/09/2018
-ms.locfileid: "29846789"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636796"
 ---
 # <a name="copy-managed-disks-to-same-or-different-subscription-with-cli"></a>Copier des disques managés vers un abonnement identique ou différent avec l’interface de ligne de commande
 
-Ce script copie le disque managé vers un abonnement identique ou différent, mais dans la même région. 
+Ce script copie le disque managé vers un abonnement identique ou différent, mais dans la même région. Vous devez être administrateur général Locataire AAD des deux abonnements pour exécuter ce script.
 
 
 [!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]

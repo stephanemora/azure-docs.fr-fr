@@ -9,16 +9,16 @@ ms.reviewer: jasonwhowell
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/27/2018
-ms.openlocfilehash: 96114270c246e23db0423dec7871e4c24fe1be10
-ms.sourcegitcommit: f6050791e910c22bd3c749c6d0f09b1ba8fccf0c
+ms.openlocfilehash: a224ba7030542108e521d5699e2a86f07381a1bd
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50024343"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346545"
 ---
 # <a name="tutorial-extract-transform-and-load-data-using-azure-databricks"></a>Tutoriel : Extraire, transformer et charger des données à l’aide d’Azure Databricks
 
-Dans ce tutoriel, vous effectuez une opération ETL (extraction, transformation et chargement de données) pour déplacer des données d’Azure Data Lake Storage Gen2 Préversion vers Azure SQL Data Warehouse, à l’aide d’Azure Databricks.
+Dans ce tutoriel, vous effectuez une opération ETL (extraction, transformation et chargement de données) pour déplacer des données d’un compte Stockage Azure avec Azure Data Lake Storage Gen2 activé vers Azure SQL Data Warehouse, à l’aide d’Azure Databricks.
 
 L’illustration suivante montre le flux d’application :
 
@@ -52,7 +52,7 @@ Connectez-vous au [Portail Azure](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace"></a>Créer un espace de travail Azure Databricks
 
-Dans cette section, vous créez un espace de travail Azure Databricks en utilisant le portail Azure. 
+Dans cette section, vous créez un espace de travail Azure Databricks en utilisant le portail Azure.
 
 1. Dans le portail Azure, sélectionnez **Créer une ressource** >  **Analytique** > **Azure Databricks**.
 
@@ -138,7 +138,7 @@ L’étape suivante consiste à charger un exemple de fichier de données dans l
 
 2. Ensuite, vous chargez les exemples de données dans votre compte de stockage. La méthode que vous utilisez pour charger les données dans votre compte de stockage varie selon l’espace de noms hiérarchique est ou non activé.
 
-    Si l’espace de noms hiérarchique est activé sur votre compte de stockage Azure créé pour le compte Gen2, vous pouvez utiliser Azure Data Factory, distp ou AzCopy (version 10) pour gérer le chargement. AzCopy version 10 est disponible uniquement pour les clients de la préversion. Pour utiliser AzCopy dans le code suivant dans une fenêtre de commande :
+    Si l’espace de noms hiérarchique est activé sur votre compte Stockage Azure, vous pouvez utiliser Azure Data Factory, distp ou AzCopy (version 10) pour gérer le chargement. Actuellement, AzCopy version 10 est disponible uniquement en préversion. Pour utiliser AzCopy, collez le code suivant dans une fenêtre de commande :
 
     ```bash
     set ACCOUNT_NAME=<ACCOUNT_NAME>
@@ -333,7 +333,7 @@ Une fois le tutoriel terminé, vous pouvez arrêter le cluster. Pour cela, dans 
 
 ![Arrêter un cluster Databricks](./media/handle-data-using-databricks/terminate-databricks-cluster.png "Arrêter un cluster Databricks")
 
-Si vous n’arrêtez pas le cluster manuellement, il s’arrêtera automatiquement, à condition d’avoir coché **Arrêter après __ minutes d’inactivité** lors de la création du cluster. Dans ce cas, le cluster s’arrête automatiquement s’il a été inactif pendant la période renseignée.
+Si vous n’arrêtez pas le cluster manuellement, il s’arrêtera automatiquement, à condition d’avoir coché **Arrêter après \_\_ minutes d’inactivité** durant la création du cluster. Dans ce cas, le cluster s’arrête automatiquement s’il a été inactif pendant la période renseignée.
 
 ## <a name="next-steps"></a>Étapes suivantes
 

@@ -4,19 +4,18 @@ titleSuffix: Azure Dev Spaces
 services: azure-dev-spaces
 ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
-author: ghogen
-ms.author: ghogen
+author: iainfoulds
+ms.author: iainfou
 ms.date: 09/26/2018
 ms.topic: tutorial
 description: Développement Kubernetes rapide avec les conteneurs et les microservices sur Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, conteneurs
-manager: douge
-ms.openlocfilehash: f5ff55543e12c9ca98e35760f011a8da2d4c5e78
-ms.sourcegitcommit: 5843352f71f756458ba84c31f4b66b6a082e53df
+ms.openlocfilehash: c1263efbef4d4bd2d3a0a709fa488ed9aef6c027
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/01/2018
-ms.locfileid: "47586068"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684969"
 ---
 # <a name="get-started-on-azure-dev-spaces-with-nodejs"></a>Prise en main d’Azure Dev Spaces avec Node.js
 
@@ -64,7 +63,7 @@ az account set --subscription <subscription ID>
 
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Créer un cluster Kubernetes activé pour Azure Dev Spaces
 
-À l’invite de commandes, créez le groupe de ressources. Utilisez une des régions actuellement prises en charge (EastUS, CentralUS, WestUS2, WestEurope, CanadaCentral ou CanadaEast).
+Lorsque l’invite de commandes apparaît, créez le groupe de ressources. Utilisez une des régions actuellement prises en charge (EastUS, EastUS2, CentralUS, WestUS2, WestEurope, SoutheastAsia, CanadaCentral ou CanadaEast).
 
 ```cmd
 az group create --name MyResourceGroup --location <region>
@@ -73,18 +72,21 @@ az group create --name MyResourceGroup --location <region>
 Créez un cluster Kubernetes avec la commande suivante :
 
 ```cmd
-az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing
+az aks create -g MyResourceGroup -n MyAKS --location <region> --kubernetes-version 1.11.2 --enable-addons http_application_routing --generate-ssh-keys
 ```
 
 La création du cluster ne prend que quelques minutes.
 
 ### <a name="configure-your-aks-cluster-to-use-azure-dev-spaces"></a>Configurer votre cluster AKS pour utiliser Azure Dev Spaces
 
-Entrez la commande Azure CLI suivante en utilisant le groupe de ressources qui contient votre cluster AKS et le nom de ce dernier. La commande configure votre cluster avec la prise en charge d’Azure Dev Spaces.
+Entrez la commande Azure CLI suivante en utilisant le groupe de ressources qui contient votre cluster AKS et le nom du cluster AKS. La commande configure votre cluster avec la prise en charge d’Azure Dev Spaces.
 
    ```cmd
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
+
+> [!IMPORTANT]
+> Le processus de configuration d’Azure Dev Spaces supprime l’espace de noms `azds` dans le cluster, s’il existe.
 
 ## <a name="get-kubernetes-debugging-for-vs-code"></a>Obtenir un débogage Kubernetes pour VS Code
 Des fonctionnalités puissantes comme le débogage Kubernetes sont disponibles pour les développeurs .NET Core et Node.js à l’aide de VS Code.

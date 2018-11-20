@@ -8,21 +8,22 @@ manager: cgronlun
 ms.service: cognitive-services
 ms.component: video-indexer
 ms.topic: sample
-ms.date: 09/15/2018
+ms.date: 11/12/2018
 ms.author: juliako
-ms.openlocfilehash: 53dc65c3d2c56308dd298f33bb78047904810ae5
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 513c64ba7c9dad29fbef4a4010f5320dadda3c82
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377828"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625180"
 ---
 # <a name="upload-and-index-your-videos"></a>Charger et indexer vos vidéos  
 
 Cet article montre comment charger une vidéo avec Azure Video Indexer. L’API Video Indexer fournit deux options de chargement : 
 
 * charger votre vidéo à partir d’une URL (par défaut),
-* envoyer le fichier vidéo sous forme de tableau d’octets dans le corps de la demande.
+* Envoyer le fichier vidéo sous forme de tableau d’octets dans le corps de la demande,
+* Utiliser l’actif Azure Media Services existant en fournissant l’[ID de l’actif](https://docs.microsoft.com/azure/media-services/latest/assets-concept) (pris en charge dans les comptes payants uniquement).
 
 L’article montre comment utiliser l’API [Charger une vidéo](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) pour charger et indexer vos vidéos selon une URL. L’exemple de code dans l’article inclut le code commenté qui montre comment charger le tableau d’octets.  
 
@@ -50,6 +51,35 @@ Cette section décrit certains des paramètres facultatifs et les moments où vo
 
 Ce paramètre vous permet de spécifier un ID qui sera associé à la vidéo. L’ID peut être appliqué à l’intégration de système externe « Gestion de contenu vidéo» (VCM). Les vidéos situées dans le portail Video Indexer peuvent faire l’objet d’une recherche à l’aide de l’ID externe spécifié.
 
+### <a name="callbackurl"></a>callbackUrl
+
+URL qui est utilisée pour notifier le client (à l’aide d’une requête POST) sur les événements suivants :
+
+- Changement de l’état d’indexation : 
+    - Propriétés :    
+    
+        |NOM|Description|
+        |---|---|
+        |id|ID de la vidéo|
+        |state|État de la vidéo|  
+    - Exemple : https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed
+- Personne identifiée dans la vidéo :
+    - Propriétés
+    
+        |Nom|Description|
+        |---|---|
+        |id| ID de la vidéo|
+        |faceId|ID de visage qui apparaît dans l’index de la vidéo|
+        |knownPersonId|ID de la personne qui est unique au sein d’un modèle de visage|
+        |personName|Nom de la personne|
+        
+     - Exemple : https://test.com/notifyme?projectName=MyProject&id=1234abcd&faceid=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+
+#### <a name="notes"></a>Notes
+
+- Video Indexer retourne tous les paramètres existants fournis dans l’URL d’origine.
+- L’URL fournie doit être encodée.
+
 ### <a name="indexingpreset"></a>indexingPreset
 
 Utilisez ce paramètre si des enregistrements bruts ou externes contiennent un bruit de fond. Ce paramètre est utilisé pour configurer le processus d’indexation. Vous pouvez spécifier les valeurs suivantes :
@@ -60,11 +90,11 @@ Utilisez ce paramètre si des enregistrements bruts ou externes contiennent un b
 
 Le prix dépend de l’option d’indexation sélectionnée.  
 
-### <a name="callbackurl"></a>callbackUrl
+### <a name="priority"></a>priority
 
-Une URL POST pour notifier la fin de l’indexation. Video Indexer y ajoute deux paramètres de la chaîne de requête : l’ID et l’état. Par exemple, si l’URL de rappel est « https://test.com/notifyme?projectName=MyProject », la notification sera envoyée avec des paramètres supplémentaires vers « https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed ».
+Les vidéos sont indexées par Video Indexer selon leur priorité. Utilisez le paramètre **priority** pour spécifier la priorité d’index. Les valeurs suivantes sont valides : **Basse**, **Normale** (valeur par défaut) et **Haute**.
 
-Vous pouvez également ajouter davantage de paramètres à l’URL avant de publier l’appel auprès de Video Indexer et ces paramètres figureront dans le rappel. Plus tard, dans votre code, vous pouvez analyser la chaîne de requête et obtenir en rappel tous les paramètres spécifiés dans la chaîne de requête (les données que vous aviez initialement ajoutées à l’URL et les informations fournies par Video Indexer.) L’URL doit être encodée.
+Le paramètre **priority** est uniquement pris en charge dans les comptes payants.
 
 ### <a name="streamingpreset"></a>streamingPreset
 

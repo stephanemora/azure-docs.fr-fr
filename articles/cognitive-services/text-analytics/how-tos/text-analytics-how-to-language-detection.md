@@ -1,7 +1,6 @@
 ---
-title: 'Exemple : Détection de la langue avec l’API REST Analyse de texte'
-titleSuffix: Azure Cognitive Services
-description: Découvrez comment détecter la langue à l’aide de l’API REST Analyse de texte.
+title: Guide pratique pour détecter la langue dans l’API REST Analyse de texte (Microsoft Cognitive Services sur Azure) | Microsoft Docs
+description: Explique comment détecter la langue à l’aide de l’API REST Analyse de texte dans Microsoft Cognitive Services sur Azure dans ce didacticiel pas à pas.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,18 +9,21 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: fa71e4ce2e5cb5967bb583c7314072830de08051
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 460dfb168894d28d5fbc5e5585a6054917127931
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604550"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633562"
 ---
 # <a name="example-how-to-detect-language-in-text-analytics"></a>Exemple : Comment détecter la langue dans l’API Analyse de texte
 
 L’[API Détection de langue](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7) évalue le texte en entrée pour chaque document de texte et retourne les identificateurs de langue avec un score qui indique la puissance de l’analyse. Analyse de texte reconnaît jusqu'à 120 langues.
 
 Cette capacité est utile pour les magasins de contenu qui collectent du texte arbitraire dont la langue est inconnue. Vous pouvez analyser les résultats de cette analyse pour déterminer la langue utilisée dans le document d’entrée. La réponse retourne également un score qui reflète la confiance du modèle (valeur comprise entre 0 et 1).
+
+> [!TIP]
+> Analyse de texte fournit également une image conteneur Docker basée sur Linux pour la détection de la langue. Vous pouvez ainsi [installer et exécuter le conteneur Analyse de texte](text-analytics-how-to-install-containers.md) à proximité de vos données.
 
 ## <a name="preparation"></a>Préparation
 
@@ -62,7 +64,7 @@ Vous trouverez plus d’informations sur la définition d’une demande dans [Gu
 
 + Créez une demande **POST**. Passez en revue la documentation de l’API pour cette demande : [API Détection de langue](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7)
 
-+ Définissez le point de terminaison HTTP pour la détection de la langue. Il doit inclure la ressource `/languages` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
++ Définissez le point de terminaison HTTP pour la détection de la langue à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Il doit inclure la ressource `/languages` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/languages`
 
 + Définissez un en-tête de demande pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Guide pratique pour rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
 

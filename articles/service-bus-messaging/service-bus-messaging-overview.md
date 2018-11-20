@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 09/22/2018
 ms.custom: mvc
 ms.author: spelluru
-ms.openlocfilehash: 870cfcf8712cc5bee2674b82d5292e4241433386
-ms.sourcegitcommit: 1aacea6bf8e31128c6d489fa6e614856cf89af19
+ms.openlocfilehash: 7b4045737ea2be466a436e6abb0de6a1a61e6a5b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49342205"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636589"
 ---
 # <a name="what-is-azure-service-bus"></a>Qu’est-ce qu’Azure Service Bus ?
 
@@ -39,7 +39,7 @@ Les messages sont envoyés vers et reçus depuis les *files d’attente*. Les fi
 
 ![File d'attente](./media/service-bus-messaging-overview/about-service-bus-queue.png)
 
-Les messages dans les files d’attente sont classés et horodatés à l’arrivée. Une fois accepté, le message est conservé en toute sécurité dans un stockage redondant. Les messages sont remis en mode *pull*, qui remet les messages à la demande.
+Les messages dans les files d’attente sont classés et horodatés à l’arrivée. Une fois accepté, le message est conservé en lieu sûr dans un stockage redondant. Les messages sont remis en mode  *pull*, qui remet les messages à la demande.
 
 ## <a name="topics"></a>Rubriques
 
@@ -115,9 +115,9 @@ Service Bus prend en charge les bibliothèques clientes pour [.NET](https://gith
 
 Service Bus intègre complétement les services Azure suivants :
 
-- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
-- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
-- [Fonctions](https://azure.microsoft.com/services/functions/) 
+- [Event Grid](https://azure.microsoft.com/services/event-grid/) 
+- [Logic Apps](https://azure.microsoft.com/services/logic-apps/) 
+- [Fonctions](https://azure.microsoft.com/services/functions/) 
 - [Dynamics 365](https://dynamics.microsoft.com)
 - [Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)
  

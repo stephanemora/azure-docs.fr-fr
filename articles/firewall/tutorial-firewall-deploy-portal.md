@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/6/2018
+ms.date: 11/15/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 4873da97b790df98b6d10ae8b7a57fc39b534755
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 8a3a9e4019be0b6039fe43df11a5f6093545f9cd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278580"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685348"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Tutoriel : Déployer et configurer un pare-feu Azure à l’aide du portail Azure
 
@@ -97,46 +97,36 @@ Créez un autre sous-réseau nommé **Jump-SN**, avec la plage d’adresses **10
 
 Maintenant créez les machines virtuelles de rebond et de charge de travail, et placez-les dans les sous-réseaux appropriés.
 
-1. À partir de la page d’accueil du portail Azure, cliquez sur **Tous les services**.
-2. Sous **Compute**, cliquez sur **Machines virtuelles**.
-3. Cliquez sur **Ajouter** > **Windows Server** > **Windows Server 2016 Datacenter** > **Créer**.
+1. Dans le portail Azure, cliquez sur **Créer une ressource**.
+2. Cliquez sur **Compute**, puis sélectionnez **Windows Server 2016 Datacenter** dans la liste de suggestions.
+3. Entrez ces valeurs pour la machine virtuelle :
 
-**Concepts de base**
+    - *Test-FW-RG*, pour le groupe de ressources.
+    - *Srv-Jump*, pour le nom de la machine virtuelle.
+    - *azureuser*, pour le nom d’utilisateur administrateur.
+    - *Azure123456!* pour le mot de passe.
 
-1. Pour **Nom**, entrez **Srv-Jump**.
-5. Entrez un nom d’utilisateur et un mot de passe.
-6. Pour **Abonnement**, sélectionnez votre abonnement.
-7. Pour **Groupe de ressources**, cliquez sur **Existant** > **Test-FW-RG**.
-8. Pour **Emplacement**, sélectionnez le même emplacement que celui utilisé précédemment.
-9. Cliquez sur **OK**.
+4. Sous **Règles des ports d’entrée**, pour **Ports d’entrée publics**, cliquez sur **Autoriser les ports sélectionnés**.
+5. Pour **Sélectionner des ports d’entrée**, sélectionnez **RDP (3389)**.
 
-**Taille**
-
-1. Choisissez une taille appropriée pour une machine virtuelle de test exécutant Windows Server. Par exemple, **B2ms** (8 Go de RAM, 16 Go de stockage).
-2. Cliquez sur **Sélectionner**.
-
-**Paramètres**
-
-1. Sous **Réseau**, sélectionnez **Test-FW-VN** pour **Réseau virtuel**.
-2. Pour **Sous-réseau**, sélectionnez **Jump-SN**.
-3. Pour **Sélectionner des ports entrants publics**, sélectionnez **RDP (3389)**. 
-
-    Vous devez limiter l’accès à votre adresse IP publique, mais vous avez besoin d’ouvrir le port 3389 pour connecter un bureau à distance au serveur de rebond. 
-2. Laissez les autres paramètres par défaut et cliquez sur **OK**.
-
-**Résumé**
-
-Consultez le résumé, puis cliquez sur **Créer**. L’exécution de cette opération nécessite quelques minutes.
+6. Acceptez toutes les autres valeurs par défaut et cliquez sur **Suivant : Disques**.
+7. Acceptez les valeurs de disque par défaut et cliquez sur **Suivant : Réseau**.
+8. Assurez-vous que **Test-FW-VN** est sélectionné pour le réseau virtuel et que le sous-réseau est **Jump-SN**.
+9. Pour **Adresse IP publique**, cliquez sur **Créer**.
+10. Tapez **Srv-Jump-PIP** pour le nom de l’adresse IP publique et cliquez sur **OK**.
+11. Acceptez les autres valeurs par défaut et cliquez sur **Suivant : Gestion**.
+12. Cliquez sur **Désactivé** pour désactiver les diagnostics de démarrage. Acceptez les autres valeurs par défaut et cliquez sur **Vérifier + créer**.
+13. Vérifiez les paramètres sur la page de résumé, puis cliquez sur **Créer**.
 
 Répétez ce processus pour créer une autre machine virtuelle nommée **Srv-Work**.
 
-Utilisez les informations du tableau suivant pour configurer les **Paramètres** de la machine virtuelle Srv-Work. Le reste de la configuration est identique à celle de la machine virtuelle Srv-Jump.
+Utilisez les informations du tableau suivant pour configurer la machine virtuelle Srv-Work. Le reste de la configuration est identique à celle de la machine virtuelle Srv-Jump.
 
 |Paramètre  |Valeur  |
 |---------|---------|
 |Sous-réseau|Workload-SN|
-|Adresse IP publique|Aucun|
-|Sélectionner des ports entrants publics|Aucun port entrant public|
+|Adresse IP publique|Aucun|
+|Aucun port d’entrée public|Aucun|
 
 ## <a name="deploy-the-firewall"></a>Déployer le pare-feu
 
@@ -196,15 +186,16 @@ Il s’agit de la règle d’application qui autorise un accès sortant à githu
 
 1. Ouvrez **Test-FW-RG**, et cliquez sur le pare-feu **Test-FW01**.
 2. Sur la page **Test-FW01**, sous **Paramètres**, cliquez sur **Règles**.
-3. Cliquez sur **Ajouter un regroupement de règles d’application**.
-4. Pour **Nom**, entrez **App-Coll01**.
-5. Pour **Priorité**, entrez **200**.
-6. Pour **Action**, sélectionnez **Autoriser**.
-7. Sous **Règles**, pour **Nom**, entrez **AllowGH**.
-8. Pour **Adresses sources**, entrez **10.0.2.0/24**.
-9. Pour **Protocol:port**, entrez **http, https**.
-10. Pour **Noms de domaine complets (FQDN) cibles**, entrez **github.com**
-11. Cliquez sur **Add**.
+3. Cliquez sur l’onglet **Collection de règles d’application**.
+4. Cliquez sur **Ajouter un regroupement de règles d’application**.
+5. Pour **Nom**, entrez **App-Coll01**.
+6. Pour **Priorité**, entrez **200**.
+7. Pour **Action**, sélectionnez **Autoriser**.
+8. Sous **Règles**, **Noms de domaine complets cibles**, pour **Nom**, entrez **AllowGH**.
+9. Pour **Adresses sources**, entrez **10.0.2.0/24**.
+10. Pour **Protocol:port**, entrez **http, https**.
+11. Pour **Noms de domaine complets (FQDN) cibles**, entrez **github.com**
+12. Cliquez sur **Add**.
 
 Le Pare-feu Azure comprend un regroupement de règles intégré pour les noms de domaine complets d’infrastructure qui sont autorisés par défaut. Ces noms de domaine complets sont spécifiques à la plateforme et ne peuvent pas être utilisés à d’autres fins. Pour plus d’informations, consultez [Noms de domaine complets d’infrastructure](infrastructure-fqdns.md).
 
@@ -212,6 +203,7 @@ Le Pare-feu Azure comprend un regroupement de règles intégré pour les noms de
 
 Il s’agit de la règle de réseau qui autorise un accès sortant à deux adresses IP sur le port 53 (DNS).
 
+1. Cliquez sur l’onglet **Collection de règles de réseau**.
 1. Cliquez sur **Ajouter un regroupement de règles de réseau**.
 2. Pour **Nom**, entrez **Net-Coll01**.
 3. Pour **Priorité**, entrez **200**.

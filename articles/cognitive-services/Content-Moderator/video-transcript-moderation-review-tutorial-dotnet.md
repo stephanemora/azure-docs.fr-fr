@@ -10,12 +10,12 @@ ms.component: content-moderator
 ms.topic: tutorial
 ms.date: 1/27/2018
 ms.author: sajagtap
-ms.openlocfilehash: 12f03352373bebecb74b9dd8d31470ac337f5e71
-ms.sourcegitcommit: ad08b2db50d63c8f550575d2e7bb9a0852efb12f
+ms.openlocfilehash: d156c481e3c16105ad85cbc793d93306a310d5ef
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/26/2018
-ms.locfileid: "47227569"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567109"
 ---
 # <a name="tutorial-video-and-transcript-moderation"></a>Tutoriel : Modération de vidéos et de transcriptions
 
@@ -35,7 +35,7 @@ Téléchargez l’[application console C#](https://github.com/MicrosoftContentMo
 
 ## <a name="sample-program-outputs"></a>Exemple de sorties du programme
 
-Avant de continuer, examinons les exemples de sorties du programme suivantes :
+Avant de continuer, examinons les exemples de sorties du programme :
 
 - [Sortie de la console](#program-output)
 - [Révision de vidéo](#video-review-default-view)

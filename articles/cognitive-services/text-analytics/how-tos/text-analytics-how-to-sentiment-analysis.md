@@ -1,7 +1,6 @@
 ---
-title: 'Exemple : Analyser les sentiments avec l’API REST Analyse de texte'
-titleSuffix: Azure Cognitive Services
-description: Découvrez comment détecter des sentiments à l’aide de l’API REST Analyse de texte.
+title: Guide pratique pour analyser les sentiments dans l’API REST Analyse de texte (Microsoft Cognitive Services sur Azure) | Microsoft Docs
+description: Explique comment détecter des sentiments à l’aide de l’API REST Analyse de texte dans Microsoft Cognitive Services sur Azure dans ce tutoriel pas à pas.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
@@ -10,12 +9,12 @@ ms.component: text-analytics
 ms.topic: sample
 ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: 981e663b6a93abed1da9c2765a1b43063c70ad43
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: bbe9ffd0709157b5f0389ccc68a285b9c3829db9
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45605893"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632864"
 ---
 # <a name="example-how-to-detect-sentiment-in-text-analytics"></a>Exemple : Comment détecter des sentiments dans l’API Analyse de texte
 
@@ -24,6 +23,9 @@ L’[API Analyse des sentiments](https://westus.dev.cognitive.microsoft.com/docs
 Cette fonctionnalité est utile pour détecter des sentiments positifs ou négatifs dans les réseaux sociaux, les avis client et les forums de discussion. Le contenu est fourni par vous. Les modèles et les données d’entraînement sont fournis par le service.
 
 Actuellement, l’API Analyse des sentiments prend en charge l’anglais, l’allemand, l’espagnol et le français. D’autres langues sont en préversion. Pour en savoir plus, consultez [Langages pris en charge](../text-analytics-supported-languages.md).
+
+> [!TIP]
+> Analyse de texte fournit également une image conteneur Docker basée sur Linux pour l’analyse des sentiments. Vous pouvez ainsi [installer et exécuter le conteneur Analyse de texte](text-analytics-how-to-install-containers.md) à proximité de vos données.
 
 ## <a name="concepts"></a>Concepts
 
@@ -77,7 +79,7 @@ Vous trouverez plus d’informations sur la définition d’une demande dans [Gu
 
 + Créez une demande **POST**. Passez en revue la documentation de l’API pour cette demande : [API Analyse des sentiments](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9)
 
-+ Définissez le point de terminaison HTTP pour l’extraction d’expressions clés. Il doit inclure la ressource `/sentiment` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
++ Définissez le point de terminaison HTTP pour l’analyse des sentiments à l’aide d’une ressource Analyse de texte sur Azure ou d’un [conteneur Analyse de texte](text-analytics-how-to-install-containers.md) instancié. Il doit inclure la ressource `/sentiment` : `https://westus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment`
 
 + Définissez un en-tête de demande pour inclure la clé d’accès pour les opérations d’Analyse de texte. Pour plus d’informations, consultez [Guide pratique pour rechercher des points de terminaison et des clés d’accès](text-analytics-how-to-access-key.md).
 

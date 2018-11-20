@@ -1,5 +1,5 @@
 ---
-title: 'Didacticiel : créer et gérer un Standard Load Balancer (équilibreur de charge standard) - Portail Azure | Microsoft Docs'
+title: 'Tutoriel : Équilibrer la charge du trafic internet sur les machines virtuelles - Portail Azure | Microsoft Docs'
 description: Ce didacticiel vous montre comment créer et gérer un Standard Load Balancer (équilibreur de charge standard) avec le portail Azure.
 services: load-balancer
 documentationcenter: na
@@ -17,16 +17,16 @@ ms.workload: infrastructure-services
 ms.date: 08/20/18
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7c3e5c0cc8297ba60925d36d667e0b72a5072553
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ef021a89cb1cba5a3240ade5ba67141940413cdc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380044"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687304"
 ---
-# <a name="tutorial-create-and-manage-standard-load-balancer-using-the-azure-portal"></a>Didacticiel : créer et gérer un Standard Load Balancer (équilibreur de charge standard) avec le portail Azure
+# <a name="tutorial-load-balance-internet-traffic-to-vms-using-the-azure-portal"></a>Tutoriel : Équilibrer la charge du trafic internet sur les machines virtuelles avec le portail Azure
 
-L’équilibrage de charge offre un niveau plus élevé de disponibilité et d’évolutivité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce didacticiel, vous allez découvrir les différents composants du Standard Load Balancer (équilibreur de charge standard) Azure qui répartissent le trafic et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :
+L’équilibrage de charge offre un niveau plus élevé de disponibilité et d’évolutivité en répartissant les demandes entrantes sur plusieurs machines virtuelles. Dans ce tutoriel, vous découvrez les différents composants d’Azure Standard Load Balancer qui répartissent le trafic Internet entre les machines virtuelles et fournissent une haute disponibilité. Vous allez apprendre à effectuer les actions suivantes :
 
 
 > [!div class="checklist"]
@@ -202,7 +202,7 @@ Lorsque *myVM1* ne figure plus dans le pool d’adresses principal, vous pouvez 
 
 Pour rajouter *myVM1* au pool principal, suivez la procédure décrite dans la section *Ajouter des machines virtuelles au pool principal* de cet article.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, l’équilibreur de charge et toutes les ressources associées. Pour ce faire, sélectionnez le groupe de ressources qui contient l’équilibreur de charge, puis cliquez sur **Supprimer**.
 

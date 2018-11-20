@@ -12,15 +12,15 @@ ms.component: report-monitor
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 07/23/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ba2784663a585aebb82ee149be3b54e73920f6dd
-ms.sourcegitcommit: 6f59cdc679924e7bfa53c25f820d33be242cea28
+ms.openlocfilehash: cd5da2a3c5fa3d9cd67715493eb649926badb694
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/05/2018
-ms.locfileid: "48816648"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622532"
 ---
 # <a name="quickstart-install-azure-active-directory-power-bi-content-pack"></a>Démarrage rapide : Installer le pack de contenu Azure Active Directory Power BI
 
@@ -29,7 +29,7 @@ ms.locfileid: "48816648"
 |Actuellement, le pack de contenu Azure AD Power BI utilise les API Azure AD Graph pour récupérer des données à partir de votre locataire Azure AD. Par conséquent, vous pouvez voir certaines différences entre les données disponibles dans le pack de contenu et les données récupérées à l’aide des [API Microsoft Graph pour les rapports](concept-reporting-api.md). |
 |  |
 
-Le pack de contenu Power BI pour Azure Active Directory vous donne la possibilité d’obtenir des informations détaillées sur l’activité de votre répertoire active directory. Vous pouvez télécharger le pack de contenu exemple et l’utiliser pour créer des rapports sur toutes les activités au sein de votre répertoire grâce à la puissante expérience de visualisation qu’offre Power BI. Vous pouvez créer votre propre tableau de bord et le partager facilement avec d’autres personnes de votre organisation. 
+Le pack de contenu Power BI pour Azure Active Directory (Azure AD) vous donne la possibilité de visualiser les données de rapport de votre environnement. Vous pouvez télécharger le pack de contenu prédéfini et l’utiliser pour créer des rapports sur toutes les activités au sein de votre annuaire en utilisant l’expérience de visualisation avancée qu’offre Power BI. Vous pouvez créer votre propre tableau de bord et le partager facilement avec d’autres personnes de votre organisation. 
 
 Dans ce démarrage rapide, vous allez apprendre à installer le pack de contenu.
 

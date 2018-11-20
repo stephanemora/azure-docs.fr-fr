@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 03/22/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 7451d6ade7f8b042a68f456e604e2919cacab0a5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 523f5eba632b15eaaf45f24be820f7b255aae7c0
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378429"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616025"
 ---
 # <a name="quickstart-create-a-public-basic-load-balancer-by-using-the-azure-portal"></a>Démarrage rapide : créer un équilibreur de charge de base public à l’aide du portail Azure
 
@@ -159,6 +159,7 @@ Pour permettre à l’équilibreur de charge de surveiller l’état de votre ap
    - **myHealthProbe** pour le nom de la sonde d’intégrité
    - **HTTP** pour le type de protocole
    - **80** pour le numéro de port
+   - **Healthprobe.aspx** pour le chemin de l’URI. Vous pouvez remplacer cette valeur par n’importe quel autre URI ou conserver la valeur de chemin par défaut de **« \\ »** pour obtenir l’URI par défaut.
    - **15** pour **Intervalle**, le nombre de secondes entre les tentatives de la sonde
    - **2** pour **Unhealthy threshold** (Seuil de défaillance), le nombre d’échecs de sonde consécutifs qui se produisent avant qu’une machine virtuelle soit considérée comme défaillante
 
@@ -189,7 +190,7 @@ Créez une règle d’équilibreur de charge nommée **myLoadBalancerRuleWeb** p
 
    ![Serveur web IIS](./media/load-balancer-get-started-internet-portal/9-load-balancer-test.png)
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Vous pouvez supprimer le groupe de ressources, l’équilibreur de charge et toutes les ressources associées lorsque vous n’en avez plus besoin. Sélectionnez le groupe de ressources qui contient l’équilibreur de charge, puis sélectionnez **Supprimer**.
 

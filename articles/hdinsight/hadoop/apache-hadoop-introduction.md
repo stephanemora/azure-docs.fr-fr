@@ -1,6 +1,6 @@
 ---
-title: Qu’est-ce que HDInsight et la pile de technologies Hadoop et Spark ? - Azure
-description: Présentation de HDInsight et de la pile de technologies et des composants Hadoop et Spark, notamment Kafka, Hive, Storm, et HBase pour l’analyse de données volumineuses (Big Data).
+title: Qu’est-ce que HDInsight et la pile de technologies Apache Hadoop et Apache Spark ? - Azure
+description: Présentation de HDInsight et de la pile de technologies et des composants Apache Hadoop et Apache Spark, notamment Kafka, Hive, Storm, et HBase pour l’analyse de données volumineuses (Big Data).
 keywords: azure hadoop, hadoop azure, intro hadoop, introduction hadoop, pile de technologies hadoop, intro à hadoop, introduction à hadoop, qu’est-ce qu’un cluster hadoop, qu’est-ce un cluster hadoop, pourquoi hadoop est utilisé
 services: hdinsight
 author: hrasheed-msft
@@ -9,14 +9,14 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017, mvc
 ms.topic: overview
 ms.date: 05/07/2018
-ms.openlocfilehash: 0c617f09c846811f876206e6045b640e63ad90b1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 190d6203c4a00ed3f448bdbb7366db5bc22c45f8
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51007044"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634513"
 ---
-# <a name="what-is-azure-hdinsight-and-the-hadoop-technology-stack"></a>Présentation de HDInsight et de la pile de technologies Hadoop
+# <a name="what-is-azure-hdinsight-and-the-apache-hadoop-technology-stack"></a>Présentation de HDInsight et de la pile de technologies Apache Hadoop
 
 Cet article présente Apache Hadoop sur Azure HDInsight. Azure HDInsight est un service d’analyse entièrement géré, complet et open source pour les entreprises. Vous pouvez utiliser les infrastructures open source telles que Hadoop, Spark, Hive, LLAP, Kafka, Storm, R et bien plus encore. 
 

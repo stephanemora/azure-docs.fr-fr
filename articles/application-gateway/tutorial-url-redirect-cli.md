@@ -1,6 +1,6 @@
 ---
-title: Créer une passerelle d’application avec une redirection basée sur un chemin d’URL - Azure CLI
-description: Découvrez comment créer une passerelle d’application avec un trafic redirigé en fonction d’un chemin d’accès d’URL à l’aide d’Azure CLI.
+title: Tutoriel - Créer une passerelle d’application avec une redirection basée sur un chemin d’URL - Azure CLI
+description: Dans ce tutoriel, vous découvrez comment créer une passerelle d’application avec un trafic redirigé en fonction d’un chemin d’URL, à l’aide d’Azure CLI.
 services: application-gateway
 author: vhorne
 manager: jpconnock
@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.date: 7/14/2018
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 3515d603c16bffe911df1b927d02644fcffa0788
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 8489cf79848eb41e3c6334242ca607e925ae0b31
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46947548"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568146"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Didacticiel : créer une passerelle d’application avec une redirection basée sur un chemin d’URL à l’aide d’Azure CLI
 
@@ -313,14 +313,6 @@ Lorsque vous n’en avez plus besoin, supprimez le groupe de ressources, la pass
 az group delete --name myResourceGroupAG --location eastus
 ```
 ## <a name="next-steps"></a>Étapes suivantes
-
-Dans ce tutoriel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Configurer le réseau
-> * Créer une passerelle Application Gateway
-> * Créer des écouteurs et des règles de routage
-> * Créer des groupes de machines virtuelles identiques pour les pools principaux
 
 > [!div class="nextstepaction"]
 > [En savoir plus sur ce que la passerelle d’application vous permet de faire](application-gateway-introduction.md)

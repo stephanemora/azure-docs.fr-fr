@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 10/28/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: cd33b7cb45bb165a120a7efe20eba962ec75e273
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 9d10464dac8d9e47d80f11b8bfaf70740e3ad250
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51252137"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567092"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>Migrer des machines virtuelles Amazon Web Services (AWS) vers Azure
 
@@ -241,7 +241,10 @@ Effectuez un basculement réel pour les instances EC2 pour les migrer vers des m
 1. Dans **Éléments protégés** > **Éléments répliqués**, sélectionnez les instances AWS, puis **Basculement**.
 2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Sélectionnez le dernier point de récupération, puis lancez le basculement. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 1. Assurez-vous que la machine virtuelle apparaît dans **Éléments répliqués**.
-2. Cliquez avec le bouton droit sur chaque machine virtuelle, puis sélectionnez **Effectuer la migration**. Ceci termine le processus de migration, arrête la réplication pour la machine virtuelle AWS et arrête la facturation Site Recovery pour la machine virtuelle.
+2. Cliquez avec le bouton droit sur chaque machine virtuelle, puis sélectionnez **Effectuer la migration**. Cette opération effectue les actions suivantes :
+
+    - Ceci termine le processus de migration, arrête la réplication pour la machine virtuelle AWS et arrête la facturation Site Recovery pour la machine virtuelle.
+    - Cette étape nettoie les données de réplication. Elle ne supprime pas les machines virtuelles migrées. 
 
     ![Terminer la migration](./media/migrate-tutorial-aws-azure/complete-migration.png)
 

@@ -9,12 +9,12 @@ ms.tgt_pltfrm: na
 ms.date: 09/22/2018
 ms.author: bsiva
 ms.custom: MVC
-ms.openlocfilehash: 68a1367eec5392036797612e631a438b076b2cfc
-ms.sourcegitcommit: 6e09760197a91be564ad60ffd3d6f48a241e083b
+ms.openlocfilehash: 1f537a381bbd595e519aaeb4cadb5b9be4657b6b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/29/2018
-ms.locfileid: "50210463"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566565"
 ---
 # <a name="migrate-servers-running-windows-server-2008-to-azure"></a>Migrer des serveurs exécutant Windows Server2008 vers Azure
 
@@ -154,7 +154,10 @@ Exécutez un basculement pour les machines que vous souhaitez migrer.
 2. Dans **Basculement**, sélectionnez un **point de récupération** vers lequel basculer. Sélectionnez le dernier point de récupération.
 3. Sélectionnez **Arrêter la machine avant de commencer le basculement**. Site Recovery tente d’arrêter le serveur avant de déclencher le basculement. Le basculement est effectué même en cas d’échec de l’arrêt. Vous pouvez suivre la progression du basculement sur la page **Tâches**.
 4. Vérifiez que la machine virtuelle Azure s’affiche dans Azure comme prévu.
-5. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Terminer la migration**. Cette opération termine le processus de migration, interrompt la réplication pour la machine virtuelle et arrête la facturation Site Recovery pour la machine virtuelle.
+5. Dans **Éléments répliqués**, cliquez avec le bouton droit sur la machine virtuelle > **Terminer la migration**. Cette opération effectue les actions suivantes :
+
+    - Termine le processus de migration, arrête la réplication pour la machine virtuelle AWS et arrête la facturation Site Recovery pour la machine virtuelle.
+    - Cette étape nettoie les données de réplication. Elle ne supprime pas les machines virtuelles migrées.
 
    ![Terminer la migration](media/migrate-tutorial-windows-server-2008/complete-migration.png)
 

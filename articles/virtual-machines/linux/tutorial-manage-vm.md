@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 01e8f74f409271810652a9202b634762ad88dcea
-ms.sourcegitcommit: 32d218f5bd74f1cd106f4248115985df631d0a8c
+ms.openlocfilehash: 5605ac9f3ac4f9a1c85cfedf257cb721205564db
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/24/2018
-ms.locfileid: "46981244"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51613424"
 ---
 # <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Tutoriel : Créer et gérer des machines virtuelles Linux avec Azure CLI
 
@@ -262,7 +262,7 @@ Une machine virtuelle Azure peut présenter différents états d’alimentation.
 | Libéré | Indique que la machine virtuelle est supprimée de l’hyperviseur, mais reste disponible dans le plan de contrôle. Les machines virtuelles à l’état Libéré n’entraînent pas de frais de calcul. |
 | - | Indique que l’état d’alimentation de la machine virtuelle est inconnu. |
 
-### <a name="find-power-state"></a>Rechercher un état d’alimentation
+### <a name="find-the-power-state"></a>Rechercher l’état d’alimentation
 
 Pour récupérer l’état d’une machine virtuelle spécifique, utilisez la commande [az vm get instance-view](/cli/azure/vm#az_vm_get_instance_view). Veillez à spécifier le nom valide d’une machine virtuelle et d’un groupe de ressources. 
 
@@ -273,7 +273,7 @@ az vm get-instance-view \
     --query instanceView.statuses[1] --output table
 ```
 
-Output:
+Sortie :
 
 ```azurecli-interactive 
 ode                DisplayStatus    Level

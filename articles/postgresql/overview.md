@@ -9,17 +9,17 @@ editor: jasonwhowell
 ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
-ms.date: 06/15/2018
-ms.openlocfilehash: 86a8b824479173024b1a14bb8612073ffbfac468
-ms.sourcegitcommit: cc4fdd6f0f12b44c244abc7f6bc4b181a2d05302
+ms.date: 11/14/2018
+ms.openlocfilehash: c1e90e9e39bb9ff698b2e53a2b7cf02340e1111f
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47092155"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685852"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Qu’est-ce qu’Azure Database pour PostgreSQL ?
 
-Azure Database pour PostgreSQL est un service de base de données relationnelle dans le cloud de Microsoft conçu pour les développeurs basés sur la version de la communauté du moteur de base de données [PostgreSQL](https://www.postgresql.org/) open source. Azure Database pour PostgreSQL offre :
+Azure Database pour PostgreSQL est un service de base de données relationnelle dans le cloud Microsoft conçu pour les développeurs basés sur la version Community du moteur de base de données [PostgreSQL](https://www.postgresql.org/) open source,versions 9.5, 9.6 et 10. Azure Database pour PostgreSQL offre :
 
 - Une haute disponibilité intégrée sans coût supplémentaire
 - Des performances prévisibles, grâce aux tarifs du paiement à l’utilisation
@@ -40,7 +40,7 @@ Pour accéder à des exemples Azure CLI, consultez :
 - [Exemples Azure CLI pour base de données pour PostgreSQL](./sample-scripts-azure-cli.md)
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Ajustez les performances et la mise à l’échelle en quelques secondes
-Le service Azure Database pour PostgreSQL offre trois niveaux de tarification : De base, Usage général et À mémoire optimisée. Chaque niveau offre des fonctionnalités de ressources différentes pour prendre en charge vos charges de travail de base de données. Vous pouvez créer votre première application sur une petite base de données pour un faible coût mensuel, puis adapter l’échelle aux besoins de votre solution. L’évolutivité dynamique permet de répondre en toute transparence à l’évolution rapide des besoins en ressources de votre base de données. Vous payez uniquement pour les ressources dont vous avez besoin et seulement quand vous en avez besoin. Pour plus d’informations, consultez [Niveaux tarifaires](concepts-pricing-tiers.md).
+Le service Azure Database pour PostgreSQL offre trois niveaux de tarification : De base, Usage général et À mémoire optimisée. Chaque niveau offre des fonctionnalités de ressources différentes pour prendre en charge vos charges de travail de base de données. Vous pouvez créer votre première application sur une petite base de données pour un faible coût mensuel, puis adapter l’échelle aux besoins de votre solution. L’évolutivité dynamique permet de répondre en toute transparence à l’évolution rapide des besoins en ressources de votre base de données. Vous payez uniquement pour les ressources dont vous avez besoin et seulement quand vous en avez besoin. Pour plus d’informations, consultez  [Niveaux tarifaires](concepts-pricing-tiers.md).
 
 ## <a name="monitoring-and-alerting"></a>Surveillance et alerte
 Comment savoir quand augmenter ou diminuer la taille des instances ? Vous utilisez la surveillance Azure intégrée et les fonctionnalités d’alerte. Ces outils vous permettent d’évaluer rapidement l’impact des mises à l’échelle (montées ou descentes en charge) en fonction de vos besoins en stockage ou en performances actuels ou pour un projet. Pour plus d’informations, consultez [Alertes](howto-alert-on-metric.md).

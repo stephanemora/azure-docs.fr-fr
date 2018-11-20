@@ -1,5 +1,5 @@
 ---
-title: Charger, encoder et diffuser en continu à l’aide d’Azure Media Services | Microsoft Docs
+title: Charger, encoder et diffuser en continu à l’aide d’Azure Media Services - REST | Microsoft Docs
 description: Suivez les étapes décrites dans ce didacticiel pour charger un fichier et encoder la vidéo, puis diffuser en continu votre contenu avec Azure Media Services à l’aide de REST.
 services: media-services
 documentationcenter: ''
@@ -10,20 +10,20 @@ ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/16/2018
+ms.date: 11/11/2018
 ms.author: juliako
-ms.openlocfilehash: e49b450ef2c731e9ddbafa0c8366d9eae29dc5ef
-ms.sourcegitcommit: 3a7c1688d1f64ff7f1e68ec4bb799ba8a29a04a8
+ms.openlocfilehash: 67a0b6ced771519bd97934f8914ba420ee3119ce
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49377425"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51615770"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-rest"></a>Tutoriel : charger, encoder et diffuser en continu des vidéos à l’aide de REST
 
-Ce tutoriel vous explique comment charger, encoder et diffuser en continu des fichiers vidéo avec Azure Media Services.
+Azure Media Services vous permet d’encoder vos fichiers multimédias dans des formats pouvant être lus sur un large choix de navigateurs et d’appareils. Par exemple, vous pouvez streamer votre contenu au format HLS ou MPEG DASH d’Apple. Avant la diffusion en continu, vous devez encoder votre fichier multimédia numérique haute qualité. Pour obtenir des instructions d’encodage, consultez [Encoding concept](encoding-concept.md) (Concept d’encodage).
 
-Media Services vous permet d’encoder vos fichiers multimédias dans des formats pouvant être lus sur un large choix de navigateurs et d’appareils. Par exemple, vous souhaiterez peut-être diffuser votre contenu dans les formats HLS ou MPEG DASH d’Apple. Avant la diffusion en continu, vous devez encoder votre fichier multimédia numérique haute qualité. Pour obtenir des instructions d’encodage, consultez [Encoding concept](encoding-concept.md) (Concept d’encodage).
+Ce tutoriel vous explique comment charger, encoder et diffuser en continu des fichiers vidéo avec Azure Media Services au moyen de REST. 
 
 ![Lire la vidéo](./media/stream-files-tutorial-with-api/final-video.png)
 
@@ -42,6 +42,14 @@ Ce didacticiel vous explique les procédures suivantes :
 
 ## <a name="prerequisites"></a>Prérequis
 
+- Installez et utilisez l’interface CLI localement. Vous devez avoir Azure CLI 2.0 ou version ultérieure pour cet article. Exécutez `az --version` pour trouver la version qui est à votre disposition. Si vous devez effectuer une installation ou une mise à niveau, consultez [Installer Azure CLI](/cli/azure/install-azure-cli). 
+
+    Actuellement, les commandes [Media Services v3 CLI](https://aka.ms/ams-v3-cli-ref) ne fonctionnent pas toutes dans Azure Cloud Shell. Il est recommandé d’utiliser l’interface CLI localement.
+
+- [Créer un compte Media Services](create-account-cli-how-to.md).
+
+    Veillez à mémoriser les valeurs que vous avez utilisées pour le nom du groupe de ressources et le nom du compte Media Services
+
 - Installez le client REST [Postman](https://www.getpostman.com/) pour exécuter les API REST indiquées dans certains des didacticiels REST AMS. 
 
     Nous utilisons **Postman** mais n’importe quel outil REST serait approprié. Les autres solutions sont : **Visual Studio Code** avec le plug-in REST ou **Telerik Fiddler**. 
@@ -53,10 +61,6 @@ Cloner un référentiel GitHub contenant les fichiers de collection et d’envir
  ```bash
  git clone https://github.com/Azure-Samples/media-services-v3-rest-postman.git
  ```
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
-
-[!INCLUDE [media-services-cli-create-v3-account-include](../../../includes/media-services-cli-create-v3-account-include.md)]
 
 [!INCLUDE [media-services-v3-cli-access-api-include](../../../includes/media-services-v3-cli-access-api-include.md)]
 
@@ -316,7 +320,7 @@ Dans cette section, nous allons créer une URL de diffusion HLS. Les URL se comp
 
 2. Le nom d’hôte de StreamingEndpoint. Dans ce cas, le nom est « amsaccount-usw22.streaming.media.azure.net ».
 
-    Pour obtenir le nom d’hôte, vous pouvez utiliser l’opération GET suivante :
+    Pour obtenir le nom d’hôte, vous pouvez utiliser l’opération GET suivante :
     
     ```
     https://management.azure.com/subscriptions/00000000-0000-0000-0000-0000000000000/resourceGroups/amsResourceGroup/providers/Microsoft.Media/mediaservices/amsaccount/streamingEndpoints/default?api-version={{api-version}}
@@ -352,11 +356,11 @@ Pour supprimer une ressource, sélectionnez l’opération « Supprimer... » so
 
 ## <a name="clean-up-resources"></a>Supprimer des ressources
 
-Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes de stockage et Media Services que vous avez créés pour ce didacticiel, supprimez le groupe de ressources créé précédemment. Vous pouvez utiliser l’outil **CloudShell**.
+Si vous n’avez plus besoin des ressources de votre groupe de ressources, notamment les comptes de stockage et Media Services que vous avez créés pour ce didacticiel, supprimez le groupe de ressources créé précédemment.  
 
-Dans **CloudShell**, exécutez la commande suivante :
+Exécutez la commande CLI suivante :
 
-```azurecli-interactive
+```azurecli
 az group delete --name amsResourceGroup
 ```
 

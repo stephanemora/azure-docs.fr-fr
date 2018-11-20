@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 09/24/2018
+ms.date: 11/13/2018
 ms.author: alkohli
-ms.openlocfilehash: e99a3a7db7a934a8a72695c38ab952786579a640
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 60186ee6aa614c83691c9ce4ab9d8124fd5925fd
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51232204"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685954"
 ---
 # <a name="what-is-azure-data-box-edge-preview"></a>Qu’est-ce qu’Azure Data Box Edge (préversion) ? 
 
@@ -84,7 +84,7 @@ L’appareil physique Data Box Edge affiche les caractéristiques suivantes :
 | Mémoire| 64 Go de RAM|
 | Disques| 8 disques SSD NVMe, d’une capacité de 1,6 To chacun <br> Le système échoue si un disque SSD NVMe est défaillant. |
 | Capacité de stockage local| Capacité totale de 12,8 To|
-| Interfaces réseau| 2 interfaces 1 GbE : une pour la gestion, non configurable par l’utilisateur, utilisée pour l’installation initiale. L’autre interface de données est configurable par l’utilisateur et définie en mode DHCP par défaut. <br>2 interfaces 25 GbE : peuvent également fonctionner comme interfaces 10 GbE. Ces interfaces de données peuvent être configurées par l’utilisateur en mode statique ou DHCP (par défaut). <br> 2 interfaces 25 GbE : ces interfaces de données peuvent être configurées par l’utilisateur en mode statique ou DHCP (par défaut).|
+| Interfaces réseau| 2 interfaces 1 GbE : une pour la gestion, non configurable par l’utilisateur, utilisée pour l’installation initiale. L’autre interface peut être configurée par l’utilisateur, utilisée pour le transfert de données et est définie en mode DHCP par défaut. <br>2 interfaces 25 GbE : peuvent également fonctionner comme interfaces 10 GbE. Ces interfaces de données peuvent être configurées par l’utilisateur en mode statique ou DHCP (par défaut). <br> 2 interfaces 25 GbE : ces interfaces de données peuvent être configurées par l’utilisateur en mode statique ou DHCP (par défaut).|
 
 ## <a name="components"></a>Composants
 

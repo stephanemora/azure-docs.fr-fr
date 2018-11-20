@@ -1,6 +1,6 @@
 ---
 title: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web Node | Microsoft Docs'
-description: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web Node'
+description: 'Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/12/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 7f71e92513aedb1eb9c394c1e8f547173cfb4dbe
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: a53130dcc489764ce9284f15b8de0de37e0827e5
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604176"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686668"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-by-using-a-net-web-app"></a>Démarrage rapide : définir et récupérer un secret depuis Azure Key Vault à l’aide d’une application web .NET
 
@@ -25,15 +25,15 @@ Dans ce guide de démarrage rapide, vous suivez les étapes nécessaires pour qu
 > * Stockage d’un secret dans le coffre de clés.
 > * Récupération d’un secret à partir du coffre de clés.
 > * Création d’une application web Azure.
-> * Activer une [identité managée](../active-directory/managed-identities-azure-resources/overview.md) pour l’application web.
+> * Activer une [identité de service managée](../active-directory/managed-identities-azure-resources/overview.md) pour l’application web.
 > * Octroi des autorisations requises à l’application web pour lire des données venant du coffre de clés.
 
 Avant d’aller plus loin, veuillez lire les [concepts de base](key-vault-whatis.md#basic-concepts).
 
 >[!NOTE]
->Key Vault est un référentiel central pour stocker les secrets par programmation. Mais pour cela, les applications et les utilisateurs doivent d’abord s’authentifier sur Key Vault, et donc présenter un secret. Pour suivre les bonnes pratiques de sécurité, ce premier secret doit faire l’objet d’une rotation périodique. 
+>Key Vault est un référentiel central pour stocker les secrets par programmation. Mais pour cela, les applications et les utilisateurs doivent d’abord s’authentifier sur Key Vault, et donc présenter un secret. Pour suivre les meilleures pratiques de sécurité, ce premier secret doit faire l’objet d’une rotation périodique. 
 >
->Avec les [identités managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md), les applications s’exécutant dans Azure bénéficient d’une identité managée automatiquement par Azure. Cela permet de résoudre le *problème d’introduction de secrets* où les utilisateurs et les applications peuvent suivre les meilleures pratiques et n’ont pas à se soucier de la rotation du premier secret.
+>Avec les [identités de service managées pour les ressources Azure](../active-directory/managed-identities-azure-resources/overview.md), les applications s’exécutant dans Azure bénéficient d’une identité managée automatiquement par Azure. Cela permet de résoudre le *problème d’introduction de secrets* où les utilisateurs et les applications peuvent suivre les meilleures pratiques et n’ont pas à se soucier de la rotation du premier secret.
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -175,7 +175,6 @@ Maintenant lorsque vous exécutez l’application, vous devriez voir votre valeu
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-* [Page d'accueil d’Azure Key Vault](https://azure.microsoft.com/services/key-vault/)
-* [Documentation d’Azure Key Vault](https://docs.microsoft.com/azure/key-vault/)
+* [En savoir plus sur Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-whatis)
 * [Kit de développement logiciel (SDK) Azure pour .NET](https://github.com/Azure/azure-sdk-for-net)
-* [Informations de référence sur les API REST Azure](https://docs.microsoft.com/rest/api/keyvault/)
+* [Référence de l'API REST Azure](https://docs.microsoft.com/rest/api/keyvault/)

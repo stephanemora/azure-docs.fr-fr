@@ -13,15 +13,15 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 09/13/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: d6ecf62b46c25ec7cf4ab80219d1bc220e4eb4cc
-ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
+ms.openlocfilehash: 3f4090f1724850b0263905a0593fc77cc6dbfd16
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46367404"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620732"
 ---
 # <a name="quickstart-download-an-audit-report-using-the-azure-portal"></a>Démarrage rapide : Télécharger un rapport d’audit avec le portail Azure
 
@@ -32,7 +32,7 @@ Dans ce guide de démarrage rapide, vous apprenez à télécharger les journaux 
 Ce dont vous avez besoin :
 
 * Un locataire Azure Active Directory. 
-* Un utilisateur, dans le rôle d’administrateur de la sécurité, de lecteur Sécurité ou d’administrateur général pour le locataire. De plus, tout utilisateur du locataire peut accéder à ses propres journaux d’audit.
+* Un utilisateur dans le rôle **Administrateur de la sécurité**, **Lecteur Sécurité** ou **Administrateur général** pour le locataire. De plus, tout utilisateur du locataire peut accéder à ses propres journaux d’audit.
 
 ## <a name="quickstart-download-an-audit-report"></a>Démarrage rapide : Télécharger un rapport d’audit
 

@@ -10,12 +10,12 @@ ms.component: bing-spell-check
 ms.topic: overview
 ms.date: 05/03/2018
 ms.author: nolachar
-ms.openlocfilehash: 4caa05ffa96dbc15922fed85edfdefdb68ead68b
-ms.sourcegitcommit: 6361a3d20ac1b902d22119b640909c3a002185b3
+ms.openlocfilehash: 3a277b10561b2756fab0af6455d17557a8d93a53
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49361709"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345706"
 ---
 # <a name="what-is-bing-spell-check-api"></a>Qu’est-ce que l’API Vérification orthographique Bing ?
 
@@ -42,9 +42,12 @@ Le mode par défaut est `Proof`. Le mode de vérification `Proof` fournit des co
 <br /><br/>**REMARQUE :** si le texte de la requête contient plus de 4 096 caractères, il sera tronqué à 4 096 caractères, puis traité. 
 ### <a name="spell----for-web-searchesqueries-scenario"></a>Corriger l’orthographe - pour les requêtes/recherches web
 La fonction `Spell` est plus agressive et renvoie de meilleurs résultats de recherche. Le mode `Spell` détecte la plupart des fautes d’orthographe, mais passe à côté de certaines erreurs grammaticales repérées par le mode `Proof`, par exemple, la mise en majuscules et les répétitions de mots.
-<br /></br>**REMARQUE :** la longueur maximale de requête prise en charge est indiquée ci-dessous. Si la requête dépasse la limite, le résultat affiche une requête non modifiée.
-<ul><li>130 caractères pour les codes de langue en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh et ko. </li>
-<li>65 caractères pour les autres codes de langue</li></ul>
+
+> [!NOTE]
+> * La longueur maximale des requêtes est indiquée ci-dessous. Si la requête dépasse la longueur maximale, elle et ses résultats ne sont pas modifiés.
+>    * 130 caractères pour les codes de langue suivants : en, de, es, fr, pl, pt, sv, ru, nl, nb, tr-tr, it, zh, ko. 
+>    * 65 caractères pour tous les autres.
+> * Le mode Spell ne prend pas en charge les crochets (`[` et `]`) dans les requêtes, ceux-ci pouvant entraîner des résultats incohérents. Nous vous recommandons de les supprimer de vos requêtes quand vous utilisez le mode Spell.
 
 ## <a name="market-setting"></a>Paramètre de segment
 Le segment doit être spécifié dans le paramètre de requête de l’URL de requête, sinon le vérificateur d’orthographe utilisera le segment par défaut obtenu via l’adresse IP.

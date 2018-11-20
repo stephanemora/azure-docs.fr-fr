@@ -1,192 +1,91 @@
 ---
-title: 'Guide de démarrage rapide : Détecter des visages dans image à l’aide du kit de développement logiciel (SDK) .NET avec C#'
+title: 'Démarrage rapide : Détecter des visages dans une image avec le SDK .NET Visage Azure'
 titleSuffix: Azure Cognitive Services
-description: Dans ce guide de démarrage rapide, vous allez détecter les visages d’une image à l’aide de la bibliothèque de client C# Windows de l’API Visage de Cognitive Services.
+description: Dans ce guide de démarrage rapide, vous allez utiliser le SDK Visage Azure avec C# pour détecter des visages dans une image.
 services: cognitive-services
 author: PatrickFarley
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
 ms.topic: quickstart
-ms.date: 09/14/2018
+ms.date: 11/07/2018
 ms.author: pafarley
-ms.openlocfilehash: a4b0b8b277ed6bc6e2bc3c7549d1e67d5f18c615
-ms.sourcegitcommit: 5c00e98c0d825f7005cb0f07d62052aff0bc0ca8
+ms.openlocfilehash: 4fbbde167a8c895a71ab3614e8c3ecbce26604a9
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49954961"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578149"
 ---
-# <a name="quickstart-detect-faces-in-an-image-using-the-net-sdk-with-c"></a>Guide de démarrage rapide : Détecter des visages dans image à l’aide du kit de développement logiciel (SDK) .NET avec C#
+# <a name="quickstart-detect-faces-in-an-image-using-the-face-net-sdk"></a>Démarrage rapide : Détecter des visages dans une image à l’aide du SDK .NET Visage
 
-Dans ce guide de démarrage rapide, vous allez détecter des visages humains dans une image à l’aide de la bibliothèque de client Windows de l’API Visage.
+Dans ce guide de démarrage rapide, vous allez utiliser le SDK du service Visage avec C# pour détecter des visages humains dans une image. Pour obtenir un exemple opérationnel du code dans ce guide de démarrage rapide, consultez le projet Face dans le dépôt [Cognitive Services Vision csharp quickstarts](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face) sur GitHub.
+
+Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer. 
 
 ## <a name="prerequisites"></a>Prérequis
 
-* Vous avez besoin d’une clé d’abonnement pour exécuter l’exemple. Vous pouvez obtenir des clés d’abonnement d’essai à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api).
-* N’importe quelle édition de [Visual Studio 2017](https://www.visualstudio.com/downloads/).
-* Le package NuGet de la bibliothèque de client [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview). Il n’est pas nécessaire de télécharger le package. Vous trouverez ci-dessous des instructions d’installation.
+- Clé d’abonnement à l’API Visage. Vous pouvez obtenir une clé d’abonnement d’essai gratuit à partir de la page [Essayez Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=face-api). Vous pouvez également suivre les instructions dans [Créer un compte Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) pour vous abonner au service API Visage et obtenir votre clé.
+- N’importe quelle édition de [Visual Studio 2015 ou 2017](https://www.visualstudio.com/downloads/).
 
-## <a name="detectwithurlasync-method"></a>Méthode DetectWithUrlAsync
+## <a name="create-the-visual-studio-project"></a>Créer le projet Visual Studio
 
-> [!TIP]
-> Récupérez le dernier code en tant que solution Visual Studio à partir de [Github](https://github.com/Azure-Samples/cognitive-services-vision-csharp-sdk-quickstarts/tree/master/Face).
+1. Dans Visual Studio, créez un projet **Application console (.NET Framework)** et nommez-le **FaceDetection**. 
+1. Si votre solution comporte d’autres projets, sélectionnez celui-ci comme projet de démarrage unique.
+1. Récupérez les packages NuGet requis. Cliquez avec le bouton droit sur le projet dans l’Explorateur de solutions, puis sélectionnez **Gérer les packages NuGet**. Cliquez sur l’onglet **Parcourir**, sélectionnez **Inclure la préversion**, puis recherchez et installez le package suivant :
+    - [Microsoft.Azure.CognitiveServices.Vision.Face 2.2.0-preview](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.Face/2.2.0-preview)
 
-Les méthodes `DetectWithUrlAsync` et `DetectWithStreamAsync` permettent de wrapper [l’API de détection des visages](https://westcentralus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) pour les images locales et distantes, respectivement. Vous pouvez utiliser ces méthodes pour détecter les visages dans une image et retourner les attributs des visages, notamment :
+## <a name="add-face-detection-code"></a>Ajoutez le code de détection de visage
 
-* ID du visage : ID unique utilisé dans plusieurs scénarios d’API Visage.
-* Rectangle du visage : valeurs gauche, haut, largeur et hauteur indiquant l’emplacement du visage dans l’image.
-* Points de repère : tableau des 27 points de repère du visage pointant vers les positions importantes des composants du visage.
-* Les attributs du visage, notamment l’âge, le sexe, l’intensité du sourire, la posture de la tête et la pilosité faciale.
+Ouvrez le fichier *Program.cs* du nouveau projet. Ici, vous allez ajouter le code nécessaire pour charger des images et détecter des visages.
 
-Pour exécuter l’exemple, effectuez les étapes suivantes :
+### <a name="include-namespaces"></a>Inclure des espaces de noms
 
-1. Dans Visual Studio, créez une application de console Visual C#.
-1. Installez le package NuGet de la bibliothèque de client de l’API Visage.
-    1. Dans le menu supérieur, cliquez sur **Outils**, sélectionnez **Gestionnaire de packages NuGet**, puis **Gérer les packages NuGet de la solution**.
-    1. Cliquez sur l’onglet **Parcourir**, puis sélectionnez **Inclure la préversion**.
-    1. Dans la zone **Rechercher**, tapez « Microsoft.Azure.CognitiveServices.Vision.Face».
-    1. Sélectionnez **Microsoft.Azure.CognitiveServices.Vision.Face** lorsqu’il s’affiche, cochez la case en regard du nom de votre projet, puis cliquez sur **Installer**.
-1. Remplacez le contenu de *Program.cs* par le code suivant.
-1. Remplacez `<Subscription Key>` par votre clé d’abonnement valide.
-1. Changez `faceEndpoint` pour la région Azure associée à vos clés d’abonnement, si nécessaire.
-1. Si vous le souhaitez, remplacez <`LocalImage>` par le chemin et le nom d’une image locale (qui sera ignoré si non défini).
-1. Si vous le souhaitez, définissez `remoteImageUrl` sur une autre image.
-1. Exécutez le programme.
+Ajoutez les instructions `using` suivantes en haut de votre fichier *Program.cs*.
 
-```csharp
-using Microsoft.Azure.CognitiveServices.Vision.Face;
-using Microsoft.Azure.CognitiveServices.Vision.Face.Models;
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=1-7)]
 
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Threading.Tasks;
+### <a name="add-essential-fields"></a>Ajouter des champs essentiels
 
-namespace DetectFace
-{
-    class Program
-    {
-        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
-        private const string subscriptionKey = "<SubscriptionKey>";
+Ajoutez les champs suivants à la classe **Program** . Ces données spécifient comment se connecter au service Visage et où obtenir les données d’entrée. Vous devez mettre à jour le champ `subscriptionKey` avec la valeur de votre clé d’abonnement, et éventuellement changer la chaîne `faceEndpoint` pour qu’elle contienne l’identificateur de région approprié. Vous devez également définir les valeurs `localImagePath` et/ou `remoteImageUrl` avec des chemins qui pointent vers de vrais fichiers image.
 
-        // You must use the same region as you used to get your subscription
-        // keys. For example, if you got your subscription keys from westus,
-        // replace "westcentralus" with "westus".
-        //
-        // Free trial subscription keys are generated in the westcentralus
-        // region. If you use a free trial subscription key, you shouldn't
-        // need to change the region.
-        // Specify the Azure region
-        private const string faceEndpoint =
-            "https://westcentralus.api.cognitive.microsoft.com";
+Le champ `faceAttributes` est simplement un tableau de certains types d’attributs. Il spécifie les informations à récupérer sur les visages détectés.
 
-        // localImagePath = @"C:\Documents\LocalImage.jpg"
-        private const string localImagePath = @"<LocalImage>";
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=13-34)]
 
-        private const string remoteImageUrl =
-            "https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg";
+### <a name="create-and-use-the-face-client"></a>Créer et utiliser le client Visage
 
-        private static readonly FaceAttributeType[] faceAttributes =
-            { FaceAttributeType.Age, FaceAttributeType.Gender };
+Ajoutez ensuite le code suivant à la méthode **Main** de la classe **Program**. Ce code configure un client de l’API Visage.
 
-        static void Main(string[] args)
-        {
-            FaceClient faceClient = new FaceClient(
-                new ApiKeyServiceClientCredentials(subscriptionKey),
-                new System.Net.Http.DelegatingHandler[] { });
-            faceClient.Endpoint = faceEndpoint;
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=38-41)]
 
-            Console.WriteLine("Faces being detected ...");
-            var t1 = DetectRemoteAsync(faceClient, remoteImageUrl);
-            var t2 = DetectLocalAsync(faceClient, localImagePath);
+Toujours dans la méthode **Main**, ajoutez le code suivant pour utiliser le client Visage récemment créé pour détecter des visages dans une image locale et distante. Vous définissez ensuite les méthodes de détection. 
 
-            Task.WhenAll(t1, t2).Wait(5000);
-            Console.WriteLine("Press any key to exit");
-            Console.ReadLine();
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=43-49)]
 
-        // Detect faces in a remote image
-        private static async Task DetectRemoteAsync(
-            FaceClient faceClient, string imageUrl)
-        {
-            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
-            {
-                Console.WriteLine("\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
-                return;
-            }
+### <a name="detect-faces"></a>Détecter des visages
 
-            try
-            {
-                IList<DetectedFace> faceList =
-                    await faceClient.Face.DetectWithUrlAsync(
-                        imageUrl, true, false, faceAttributes);
+Ajoutez la méthode suivante à la classe **Program**. Elle utilise le client du service Visage pour détecter des visages dans une image distante référencée par une URL. Notez qu’elle utilise le champ `faceAttributes`. Les objets **DetectedFace** ajoutés à `faceList` ont les attributs spécifiés (dans ce cas, l’âge et le sexe).
 
-                DisplayAttributes(GetFaceAttributes(faceList, imageUrl), imageUrl);
-            }
-            catch (APIErrorException e)
-            {
-                Console.WriteLine(imageUrl + ": " + e.Message);
-            }
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=52-74)]
 
-        // Detect faces in a local image
-        private static async Task DetectLocalAsync(FaceClient faceClient, string imagePath)
-        {
-            if (!File.Exists(imagePath))
-            {
-                Console.WriteLine(
-                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
-                return;
-            }
+De même, ajoutez la méthode **DetectLocalAsync**. Elle utilise le client du service Visage pour détecter des visages dans une image locale référencée par un chemin de fichier.
 
-            try
-            {
-                using (Stream imageStream = File.OpenRead(imagePath))
-                {
-                    IList<DetectedFace> faceList =
-                            await faceClient.Face.DetectWithStreamAsync(
-                                imageStream, true, false, faceAttributes);
-                    DisplayAttributes(
-                        GetFaceAttributes(faceList, imagePath), imagePath);
-                }
-            }
-            catch (APIErrorException e)
-            {
-                Console.WriteLine(imagePath + ": " + e.Message);
-            }
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=76-101)]
 
-        private static string GetFaceAttributes(
-            IList<DetectedFace> faceList, string imagePath)
-        {
-            string attributes = string.Empty;
+### <a name="retrieve-and-display-face-attributes"></a>Récupérer et afficher des attributs de visage
 
-            foreach (DetectedFace face in faceList)
-            {
-                double? age = face.FaceAttributes.Age;
-                string gender = face.FaceAttributes.Gender.ToString();
-                attributes += gender + " " + age + "   ";
-            }
+Définissez ensuite la méthode **GetFaceAttributes**. Elle retourne une chaîne avec des informations pertinentes sur les attributs.
 
-            return attributes;
-        }
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=103-116)]
 
-        // Display the face attributes
-        private static void DisplayAttributes(string attributes, string imageUri)
-        {
-            Console.WriteLine(imageUri);
-            Console.WriteLine(attributes + "\n");
-        }
-    }
-}
-```
+Enfin, définissez la méthode **DisplayAttributes** pour écrire les données des attributs de visage dans la console de sortie.
 
-### <a name="detectwithurlasync-response"></a>Réponse DetectWithUrlAsync
+[!code-csharp[](~/cognitive-services-vision-csharp-sdk-quickstarts/Face/Program.cs?range=118-123)]
 
-Une réponse correcte affiche le sexe et l’âge pour chaque visage de l’image.
+## <a name="run-the-app"></a>Exécution de l'application
 
-Pour obtenir un exemple de sortie JSON brute, consultez [Guides de démarrage rapide des API : Détecter des visages dans une image avec C#](CSharp.md).
+Une réponse correcte affiche le sexe et l’âge pour chaque visage de l’image. Par exemple : 
 
 ```
 https://upload.wikimedia.org/wikipedia/commons/3/37/Dagestani_man_and_woman.jpg
@@ -195,7 +94,7 @@ Male 37   Female 56
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Découvrez comment créer une application Windows WPF qui utilise le service Visage pour détecter des visages dans une image. L’application dessine un cadre autour de chaque visage et affiche une description du visage dans la barre d’état.
+Dans ce guide de démarrage rapide, vous avez créé une application console .NET simple qui utilise le service d’API Visage pour détecter des visages dans des images locales et distantes. Suivez à présent un tutoriel plus approfondi pour voir comment présenter de manière intuitive les informations sur les visages à l’utilisateur.
 
 > [!div class="nextstepaction"]
-> [Tutoriel : Créer une application WPF pour détecter et encadrer des visages dans une image](../Tutorials/FaceAPIinCSharpTutorial.md)
+> [Tutoriel : Créer une application WPF pour détecter et analyser les visages dans une image](../Tutorials/FaceAPIinCSharpTutorial.md)

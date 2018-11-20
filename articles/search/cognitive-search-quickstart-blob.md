@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 05/01/2018
 ms.author: heidist
-ms.openlocfilehash: 85016ffb412b9f8773606639eb1496ac8ad251a7
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 23a62197d20901347be247d331e21d076bcf9e83
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729990"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288031"
 ---
 # <a name="quickstart-create-a-cognitive-search-pipeline-using-skills-and-sample-data"></a>Démarrage rapide : Créer un pipeline de recherche cognitive à l’aide de compétences et d’exemples de données
 
@@ -26,15 +26,21 @@ Dans ce guide de démarrage rapide, essayez le pipeline d’enrichissement dans 
 * Exécutez l’Assistant (une compétence d’entité détecte les personnes, l’emplacement et les organisations)
 * Utilisez l’[Explorateur de recherche](search-explorer.md) pour interroger l’index enrichi.
 
+## <a name="supported-regions"></a> Régions prises en charge
+
 Vous pouvez essayer la recherche cognitive dans un service Recherche Azure créé dans les régions suivantes :
 
+* USA Centre-Ouest
 * USA Centre Sud
+* USA Est
 * Europe Ouest
+* Europe Nord
+* Asie Sud-Est
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
 > [!NOTE]
-> La recherche cognitive est disponible en version préliminaire publique. L’exécution de compétences ainsi que l’extraction et la normalisation d’images sont actuellement proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. 
+> La recherche cognitive est disponible en version préliminaire publique. L’exécution d’ensemble de compétences, ainsi que l’extraction et la normalisation d’images, sont actuellement proposées gratuitement. Le prix de ces fonctionnalités sera annoncé à une date ultérieure. 
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -57,7 +63,7 @@ Tout d’abord, inscrivez-vous au service Recherche Azure.
 
 1. Pour Groupe de ressources, créez un groupe de ressources qui contiendra toutes les ressources que vous créerez dans ce guide de démarrage rapide. Cela facilite le nettoyage des ressources lorsque vous avez terminé le guide de démarrage rapide.
 
-1. Pour Emplacement, choisissez **USA Centre Sud** ou **Europe Ouest**. Actuellement, la version préliminaire est disponible uniquement dans ces régions.
+1. Concernant l’endroit, choisissez l’une des [régions prises en charge](#supported-regions) pour la Recherche cognitive.
 
 1. Pour le niveau tarifaire, vous pouvez créer un service **Gratuit** pour effectuer les tutoriels et les guides de démarrage rapide. Pour un examen plus approfondi à l’aide de vos propres données, créez un [service payant](https://azure.microsoft.com/pricing/details/search/), tel qu’un service **De base** ou **Standard**. 
 
@@ -180,7 +186,7 @@ Un autre concept important réside dans le fait que les compétences fonctionnen
 
 Enfin, vous avez appris que l’affichage des résultats est effectué en interrogeant l’index. Au final, Recherche Azure fournit un index dans lequel il est possible d’effectuer une recherche et que vous pouvez interroger à l’aide de la [syntaxe de requête simple](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) ou [entièrement étendue](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search). Un index contenant des champs enrichis ressemble à n’importe quel autre index. Si vous souhaitez intégrer des [analyseurs personnalisés](search-analyzers.md) ou standard, des [profils de notation](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), des [synonymes](search-synonyms.md), des [filtres à facettes](search-filters-facets.md), une recherche géographique ou tout autre fonctionnalité Recherche Azure, vous pouvez certainement le faire.
 
-## <a name="clean-up-resources"></a>Supprimer les ressources
+## <a name="clean-up-resources"></a>Supprimer des ressources
 
 Le moyen le plus rapide pour nettoyer après une exploration consiste à supprimer le groupe de ressources contenant le service Recherche Azure et le service Blob Azure.  
 
