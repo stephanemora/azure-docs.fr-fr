@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/30/2018
 ms.author: rimman
-ms.openlocfilehash: eabfe503d9b92252ada0014eba4c83390dd6fd97
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 709cd16c7eee30dd2d88ea87b5f704ad20530ffb
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51236073"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621341"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unités de requête dans Azure Cosmos DB
 
@@ -54,6 +54,6 @@ Lorsque vous évaluez le nombre de RU/s à provisionner, il est important à pre
 
 * En savoir plus sur le [provisionnement du débit pour les conteneurs et bases de données Cosmos DB](set-throughput.md)
 * En savoir plus sur les [partitions logiques](partition-data.md)
-* En savoir plus sur la [mise à l’échelle du débit](scaling-throughput.md)
+* En savoir plus sur la [mise à l’échelle du débit provisionné au niveau global](scaling-throughput.md)
 * En savoir plus sur le [provisionnement du débit sur un conteneur Cosmos](how-to-provision-container-throughput.md)
 * En savoir plus sur le [provisionnement du débit sur une base de données Cosmos](how-to-provision-database-throughput.md)

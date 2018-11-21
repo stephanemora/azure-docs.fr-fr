@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 11/13/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 796e10053df79f8f7106d98dd9c9be6083d9f719
-ms.sourcegitcommit: ada7419db9d03de550fbadf2f2bb2670c95cdb21
+ms.openlocfilehash: de464cfeca01e492139e8bf9679d8f9876eedda6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50964150"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625621"
 ---
 # <a name="manage-workspaces"></a>Gestion des espaces de travail
 
@@ -239,7 +239,7 @@ Votre nouveau forfait de données s’affiche dans le ruban du portail OMS, en 
 ![Ruban OMS](./media/log-analytics-manage-access/data-plan-changed.png)
 
 ## <a name="next-steps"></a>Étapes suivantes
-* Consultez [Collecter des données d’ordinateurs dans un environnement avec Log Analytics](log-analytics-concept-hybrid.md) pour rassembler des données d’ordinateurs de votre centre de données ou d’un autre environnement cloud.
+* Consultez [Présentation de l’agent Log Analytics](log-analytics-agent-overview.md) pour collecter des données à partir d’ordinateurs dans votre centre de données ou d’un autre environnement cloud.
 * Consultez [Collecter des données sur les machines virtuelles Azure](log-analytics-quick-collect-azurevm.md) pour configurer la collecte de données à partir de machines virtuelles Azure.  
 * [Ajoutez des solutions Log Analytics à partir de la galerie de solutions](../monitoring/monitoring-solutions.md) pour ajouter des fonctionnalités et collecter des données.
 

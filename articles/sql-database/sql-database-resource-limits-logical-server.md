@@ -1,6 +1,6 @@
 ---
 title: Limites de ressources d’Azure SQL Database – serveur logique | Microsoft Docs
-description: Cet article offre un aperçu des limites de ressources d'Azure SQL Database pour les bases de données uniques et regroupées utilisant des pools élastiques. Il fournit également des informations concernant ce qui se passe lorsque ces limites de ressources sont atteintes ou dépassées.
+description: Cet article offre un aperçu des limites de ressources du serveur logique Azure SQL Database pour les bases de données uniques et regroupées utilisant des pools élastiques. Il fournit également des informations concernant ce qui se passe lorsque ces limites de ressources sont atteintes ou dépassées.
 services: sql-database
 ms.service: sql-database
 ms.subservice: ''
@@ -11,15 +11,15 @@ author: CarlRabeler
 ms.author: carlrab
 ms.reviewer: sashan,moslake
 manager: craigg
-ms.date: 09/19/2018
-ms.openlocfilehash: b48c090cc67d4557140b5734f1a5e1f763b271ab
-ms.sourcegitcommit: 26cc9a1feb03a00d92da6f022d34940192ef2c42
+ms.date: 11/13/2018
+ms.openlocfilehash: a423f5c112faa615b7888dacfa20f9ff8f6a595a
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/06/2018
-ms.locfileid: "48829561"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51620889"
 ---
-# <a name="sql-database-resource-limits-for-single-and-pooled-databases-on-a-logical-server"></a>Limites de ressources de SQL Database pour les bases de données uniques et regroupées sur un serveur logique 
+# <a name="sql-database-resource-limits-for-single-and-pooled-databases"></a>Limites de ressources de SQL Database pour les bases de données uniques et regroupées
 
 Cet article offre un aperçu des limites de ressources de SQL Database pour les bases de données uniques et regroupées sur un serveur logique. Il fournit également des informations concernant ce qui se passe lorsque ces limites de ressources sont atteintes ou dépassées.
 
@@ -35,12 +35,11 @@ Cet article offre un aperçu des limites de ressources de SQL Database pour les 
 | Nombre maximal de serveurs par abonnement dans n’importe quelle région | 200 |  
 | Quota DTU/eDTU par serveur | 54 000 |  
 | Quota vCore par serveur/instance | 540 |
-| Nombre maximal de pools par serveur | Limité par le nombre de DTU ou de vCores |
+| Nombre maximal de pools par serveur | Limité par le nombre de DTU ou de vCores. Par exemple, si chaque pool contient 1 000 DTU, alors un seul serveur peut prendre en charge les 54 pools.|
 ||||
 
 > [!NOTE]
-> Pour augmenter le quota DTU/eDTU ou vCore ou pour obtenir une quantité de serveurs supérieure à la quantité par défaut, vous pouvez envoyer une nouvelle demande de support dans le Portail Azure pour l’abonnement en indiquant le type de problème « Quota ». Le quota DTU/eDTU et le nombre maximal de bases de données par serveur limitent le nombre de pools élastiques par serveur. 
-
+> Pour augmenter le quota DTU/eDTU ou vCore ou pour obtenir une quantité de serveurs supérieure à la quantité par défaut, vous pouvez envoyer une nouvelle demande de support dans le Portail Azure pour l’abonnement en indiquant le type de problème « Quota ». Le quota DTU/eDTU et le nombre maximal de bases de données par serveur limitent le nombre de pools élastiques par serveur.
 > [!IMPORTANT]
 > Le nombre de bases de données approchant la limite par serveur logique, ce qui suit peut se produire :
 > - Augmentation de latence dans l’exécution de requêtes sur la base de données master.  Cela inclut les vues de statistiques d’utilisation des ressources telles que sys.resource_stats.
@@ -66,11 +65,12 @@ En cas d’utilisation élevée de l’espace, voici certaines des options d’a
 - Si la base de données est dans un pool élastique, vous pouvez également déplacer la base de données en dehors du pool afin que son espace de stockage ne soit pas partagé avec d’autres bases de données.
 - Réduire une base de données afin de récupérer l’espace inutilisé. Pour plus d’informations, consultez l’article [Gérer l’espace du fichier de la base de données SQL Azure](sql-database-file-space-management.md).
 
-### <a name="sessions-and-workers-requests"></a>Sessions et workers (requêtes) 
+### <a name="sessions-and-workers-requests"></a>Sessions et workers (requêtes)
 
-Le nombre maximal de sessions et de workers est déterminé par le niveau de service et la taille de calcul (DTU et eDTU). Lorsque les limites de sessions ou de workers sont atteintes, les nouvelles requêtes sont refusées et les clients reçoivent un message d’erreur. Si le nombre de connexions disponibles peut être contrôlé par l’application, le nombre de workers simultanés est souvent plus difficile à estimer et à contrôler. Cela est particulièrement vrai pendant les pics de charge lorsque les limites de ressources de base de données sont atteintes et que les workers s’accumulent en raison de requêtes plus longues à exécuter. 
+Le nombre maximal de sessions et de workers est déterminé par le niveau de service et la taille de calcul (DTU et eDTU). Lorsque les limites de sessions ou de workers sont atteintes, les nouvelles requêtes sont refusées et les clients reçoivent un message d’erreur. Si le nombre de connexions disponibles peut être contrôlé par l’application, le nombre de workers simultanés est souvent plus difficile à estimer et à contrôler. Cela est particulièrement vrai pendant les pics de charge lorsque les limites de ressources de base de données sont atteintes et que les workers s’accumulent en raison de requêtes plus longues à exécuter.
 
 En cas d’utilisation élevée de workers ou de sessions, voici certaines des options d’atténuation à votre disposition :
+
 - Augmenter le niveau de service ou la taille de calcul du pool élastique ou de la base de données. Consultez [Mise à l’échelle des ressources d’une base de données unique](sql-database-single-database-scale.md) et [Mise à l'échelle des ressources d’un pool élastique](sql-database-elastic-pool-scale.md).
 - Optimiser les requêtes afin de réduire l’utilisation des ressources de chaque requête si la cause de l’utilisation du travail accrue est un problème de contention des ressources de calcul. Pour plus d’informations, consultez la page [Paramétrage/Compréhension de requêtes](sql-database-performance-guidance.md#query-tuning-and-hinting).
 

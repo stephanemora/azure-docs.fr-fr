@@ -12,20 +12,26 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: report-monitor
-ms.date: 05/14/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: fe5bcce06ef02bae75bf9fdaf5702a99f485885c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 6c1b9fabe89d254524006a21e3a422221791022d
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42145713"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625264"
 ---
 # <a name="azure-active-directory-risk-events"></a>Événements à risque dans Azure Active Directory
 
-La grande majorité des violations de sécurité ont lieu lorsque des cybercriminels parviennent à accéder à un environnement en volant l’identité d’un utilisateur. Détecter les identités compromises n’est pas chose aisée. Azure Active Directory utilise les algorithmes Machine Learning et des modèles heuristiques adaptatifs pour détecter les actions suspectes liées aux comptes de votre utilisateur. Chaque action suspecte détectée est stockée dans un enregistrement appelé *événement à risque*.
+La grande majorité des violations de sécurité ont lieu lorsque des cybercriminels parviennent à accéder à un environnement en volant l’identité d’un utilisateur. Détecter les identités compromises n’est pas chose aisée. Azure Active Directory utilise les algorithmes Machine Learning et des modèles heuristiques adaptatifs pour détecter les actions suspectes liées aux comptes de votre utilisateur. Chaque action suspecte détectée est stockée dans un enregistrement appelé **événement à risque**.
 
+Il existe deux emplacements dans lesquels vous pouvez passer en revue les événements à risque signalés :
+
+ - **Génération de rapports Azure AD** : les événements à risque font partie des rapports de sécurité d’Azure AD. Pour plus d’informations, consultez [Rapport sur la sécurité des utilisateurs courant un risque](concept-user-at-risk.md) et [Rapport de connexions risquées](concept-risky-sign-ins.md).
+
+ - **Azure AD Identity Protection** : les événements à risque font également partie des fonctionnalités de création de rapports [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
+    
 À l’heure actuelle, Azure Active Directory détecte six types d’événements à risque :
 
 - [Utilisateurs dont les informations d’identification ont fait l’objet d’une fuite](#leaked-credentials) 
@@ -35,18 +41,18 @@ La grande majorité des violations de sécurité ont lieu lorsque des cybercrimi
 - [Connexions depuis des adresses IP avec une activité suspecte](#sign-ins-from-ip-addresses-with-suspicious-activity) 
 - [Connexions depuis des emplacements inconnus](#sign-in-from-unfamiliar-locations) 
 
-
 ![Événement à risque](./media/concept-risk-events/91.png)
 
-L’information que vous obtenez pour un événement à risque détecté est liée à votre abonnement Azure AD. Avec l’édition Azure AD Premium P2, vous obtenez des informations très détaillées sur toutes les détections sous-jacentes. Avec l’édition Azure AD Premium P1, les détections qui ne sont pas couvertes par la licence s’affichent comme événement à risque **Connexion avec un risque supplémentaire détecté**.
+L’information que vous obtenez pour un événement à risque détecté est liée à votre abonnement Azure AD. 
 
+* Avec l’édition **Azure AD Premium P2**, vous obtenez des informations très détaillées sur toutes les détections sous-jacentes. 
+* Avec l’édition **Azure AD Premium P1**, les détections qui ne sont pas couvertes par la licence s’affichent comme des événements à risque **Connexion avec un risque supplémentaire détecté**.
 
-Cet article offre une présentation détaillée des événements à risque et montre comment les utiliser pour protéger vos identités Azure AD.
-
+Bien que la détection des événements à risque représente déjà un aspect important de la protection de vos identités, vous pouvez également les résoudre manuellement ou implémenter des réponses automatisées en configurant des stratégies d’accès conditionnel. Pour plus d’informations, consultez [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 
 ## <a name="risk-event-types"></a>Type d’événement à risque
 
-Le type d’événement à risque détermine l’action suspecte pour laquelle un enregistrement d’événement à risque a été créé.
+Le **type d’événement à risque** détermine l’action suspecte pour laquelle un enregistrement d’événement à risque a été créé.
 
 Les investissements continus de Microsoft dans le processus de détection assurent :
 
@@ -62,12 +68,11 @@ Souvent, lorsque les cybercriminels compromettent les mots de passe valides d’
 - Les équipes de sécurité Microsoft
 - D’autres sources approuvées 
 
-Lorsque le service acquiert les paires nom d’utilisateur/mot de passe, celles-ci sont vérifiées par rapport aux informations d’identification valides actuelles des utilisateurs AAD. Lorsqu’une correspondance est trouvée, cela signifie que le mot de passe d’un utilisateur a été compromis. Un *événement à risque lié à une fuite d’informations d’identification* est alors créé.
+Lorsque le service acquiert les paires nom d’utilisateur/mot de passe, celles-ci sont vérifiées par rapport aux informations d’identification valides actuelles des utilisateurs AAD. Lorsqu’une correspondance est trouvée, cela signifie que le mot de passe d’un utilisateur a été compromis. Un **événement à risque lié à une fuite d’informations d’identification** est alors créé.
 
 ### <a name="sign-ins-from-anonymous-ip-addresses"></a>Connexions depuis des adresses IP anonymes
 
 Ce type d’événement à risque signale les utilisateurs qui se sont connectés depuis une adresse IP ayant été identifiée comme l’adresse IP d’un proxy anonyme. Ces proxys sont utilisés par des individus souhaitant masquer l’adresse IP de leur appareil et peuvent être utilisés dans un but malveillant.
-
 
 ### <a name="impossible-travel-to-atypical-locations"></a>Voyage impossible vers des emplacements inhabituels
 
@@ -86,12 +91,11 @@ Identity Protection détecte les connexions provenant d’emplacements non connu
 Ce type d’événement à risque identifie les connexions depuis des appareils infectés par des logiciels malveillants, qui sont connus pour communiquer activement avec un serveur robot, grâce à la mise en corrélation des adresses IP des appareils des utilisateurs avec des adresses ayant été en contact avec un serveur robot. 
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Connexions depuis des adresses IP avec des activités suspectes
-Ce type d’événement à risque identifie les adresses IP depuis lesquelles un grand nombre de tentatives de connexion ayant échoué ont été constatées, pour plusieurs comptes d’utilisateurs et sur une courte période. Cela correspond aux modèles de trafic des adresses IP utilisées par les cybercriminels et donne une indication forte que les comptes sont déjà compromis ou sont sur le point de l’être. Il s’agit d’un algorithme d’apprentissage automatique qui ignore les «*faux positifs*» évidents, tels que les adresses IP régulièrement utilisées par d’autres membres de l’organisation.  Le système présente une période d’apprentissage initiale de 14 jours lui servant à assimiler le comportement de connexion des nouveaux utilisateurs et clients.
-
+Ce type d’événement à risque identifie les adresses IP depuis lesquelles un grand nombre de tentatives de connexion ayant échoué ont été constatées, pour plusieurs comptes d’utilisateurs et sur une courte période. Cela correspond aux modèles de trafic des adresses IP utilisées par les cybercriminels et donne une indication forte que les comptes sont déjà compromis ou sont sur le point de l’être. Il s’agit d’un algorithme d’apprentissage automatique qui ignore les « faux positifs » évidents, tels que les adresses IP régulièrement utilisées par d’autres membres de l’organisation.  Le système présente une période d’apprentissage initiale de 14 jours lui servant à assimiler le comportement de connexion des nouveaux utilisateurs et clients.
 
 ## <a name="detection-type"></a>Type de détection
 
-Le type de détection (Temps réel, Hors connexion) indique les circonstances de détection d’un événement à risque. À l’heure actuelle, la plupart des événements à risque sont détectés hors connexion dans le cadre d’une opération de post-traitement après la survenue de l’événement à risque.
+Le type de détection (**Temps réel**, **Hors connexion**) indique les circonstances de détection d’un événement à risque. À l’heure actuelle, la plupart des événements à risque sont détectés hors connexion dans le cadre d’une opération de post-traitement après la survenue de l’événement à risque.
 
 Le tableau suivant répertorie le temps nécessaire à un type de détection pour s’afficher dans un rapport associé :
 
@@ -115,7 +119,7 @@ Pour les types d’événement à risque détectés par Azure Active Directory, 
 
 ## <a name="risk-level"></a>Niveau de risque
 
-Le niveau de risque d’un événement à risque (Haut, Moyen ou Faible) indique la gravité et la probabilité d’un tel événement. Cette propriété vous aide à établir la priorité des mesures à prendre. 
+Le niveau de risque d’un événement à risque (**Haut**, **Moyen** ou **Faible**) indique la gravité et la probabilité d’un tel événement. Cette propriété vous aide à établir la priorité des mesures à prendre. 
 
 Le niveau de gravité de l’événement à risque signalé représente la probabilité qu’une identité soit compromise. La probabilité indique le risque de faux positifs. 
 
@@ -153,38 +157,17 @@ Les emplacements non connus peuvent donner une indication forte qu’un pirate t
 
 Cet événement à risque identifie les adresses IP, pas les appareils des utilisateurs. Si plusieurs appareils utilisent une même adresse IP, mais que seuls certains sont contrôlés par un réseau de robots, les connexions depuis les autres appareils peuvent déclencher inutilement cet événement. C’est pourquoi le niveau de risque de ce type d’événement est défini sur **Faible**.  
 
-Nous vous recommandons de contacter l’utilisateur et d’analyser tous ses appareils. Il est également possible que les appareils personnels d’un utilisateur soient infectés ou, comme indiqué précédemment, qu’une tierce personne utilisait un appareil infecté depuis la même adresse IP. Les appareils infectés le sont souvent par des logiciels malveillants qui n’ont pas encore été identifiés par les logiciels antivirus et dont la présence peut être le signe de mauvaises habitudes de la part de l’utilisateur.
+Nous vous recommandons de contacter l’utilisateur et d’analyser tous ses appareils. Il est également possible que les appareils personnels d’un utilisateur soient infectés ou qu’une tierce personne utilisait un appareil infecté depuis la même adresse IP. Les appareils infectés le sont souvent par des logiciels malveillants qui n’ont pas encore été identifiés par les logiciels antivirus et dont la présence peut être le signe de mauvaises habitudes de la part de l’utilisateur.
 
-Pour plus d'informations sur le traitement des infections de logiciels malveillants, consultez le [Centre de protection contre les programmes malveillants](http://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
-
+Pour plus d'informations sur le traitement des infections de logiciels malveillants, consultez le [Centre de protection contre les programmes malveillants](https://go.microsoft.com/fwlink/?linkid=335773&clcid=0x409).
 
 ### <a name="sign-ins-from-ip-addresses-with-suspicious-activity"></a>Connexions depuis des adresses IP avec des activités suspectes
 
 Nous vous conseillons de contacter l’utilisateur pour vérifier s’il s’est réellement connecté depuis une adresse IP qui a été signalée comme suspecte. Le niveau de risque pour ce type d’événement est défini sur**Moyen**, car il arrive que plusieurs appareils utilisent la même adresse IP, mais que seuls certains soient responsables des activités suspectes. 
 
 
- 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Les événements à risque sont l’élément de base qui définit le niveau de protection de vos identités Azure AD. Azure AD peut détecter actuellement six événements à risque : 
-
-
-| Type d’événement à risque | Niveau de risque | Type de détection |
-| :-- | --- | --- |
-| [Utilisateurs dont les informations d’identification ont fait l’objet d’une fuite](#leaked-credentials) | Élevé | Hors ligne |
-| [Connexions depuis des adresses IP anonymes](#sign-ins-from-anonymous-ip-addresses) | Moyenne | Temps réel |
-| [Voyage impossible vers des emplacements inhabituels](#impossible-travel-to-atypical-locations) | Moyenne | Hors ligne |
-| [Connexions depuis des emplacements inconnus](#sign-in-from-unfamiliar-locations) | Moyenne | Temps réel |
-| [Connexions depuis des périphériques infectés](#sign-ins-from-infected-devices) | Faible | Hors ligne |
-| [Connexions depuis des adresses IP avec une activité suspecte](#sign-ins-from-ip-addresses-with-suspicious-activity) | Moyenne | Hors ligne|
-
-Où pouvez-vous trouver les événements à risque qui ont été détectés dans votre environnement ?
-Il existe deux emplacements dans lesquels vous pouvez passer en revue les événements à risque signalés :
-
- - **Génération de rapports Azure AD** : les événements à risque font partie des rapports de sécurité d’Azure AD. Pour plus d’informations, consultez [Rapport sur la sécurité des utilisateurs courant un risque](concept-user-at-risk.md) et [Rapport de connexions risquées](concept-risky-sign-ins.md).
-
- - **Azure AD Identity Protection** : les événements à risque font également partie des fonctionnalités de génération de rapports [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
-    
-
-Bien que la détection des événements à risque représente déjà un aspect important de la protection de vos identités, vous pouvez également les résoudre manuellement ou implémenter des réponses automatisées en configurant des stratégies d’accès conditionnel. Pour plus d’informations, consultez [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
- 
+* [Rapport de sécurité sur les utilisateurs à risque](concept-user-at-risk.md)
+* [Rapport de sécurité sur les connexions à risque](concept-risky-sign-ins.md)
+* [Azure AD Identity Protection](../active-directory-identityprotection.md)

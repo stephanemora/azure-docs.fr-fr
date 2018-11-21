@@ -1,6 +1,6 @@
 ---
 title: Déployer localement la solution de surveillance à distance (via l’IDE Visual Studio) - Azure | Microsoft Docs
-description: Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local à des fins de test et de développement.
+description: Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local en utilisant Visual Studio à des fins de test et de développement.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: c667782ef49f41cda8ccefc2f56e5f1265531037
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 5068f0277726b7c468aa24d0629c4350b60b78b5
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51278818"
+ms.locfileid: "51287606"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---visual-studio"></a>Déployer localement l’accélérateur de solution de surveillance à distance - Visual Studio
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Cet article montre comment déployer l’accélérateur de solution de surveillance à distance sur votre ordinateur local à des fins de test et de développement. Cet article vous explique comment exécuter les microservices dans Visual Studio. Les déploiements de microservices locaux utilisent les services de cloud suivants : IoT Hub, Cosmos DB, Azure Stream Analytics et Azure Time Series Insights dans le cloud.
+Cet article montre comment déployer l’accélérateur de solution de surveillance à distance sur votre ordinateur local à des fins de test et de développement. Vous apprendrez à exécuter les microservices dans Visual Studio. Les déploiements de microservices locaux utilisent les services de cloud suivants : IoT Hub, Cosmos DB, Azure Stream Analytics et Azure Time Series Insights dans le cloud.
 
 Si vous souhaitez exécuter l’accélérateur de solution de surveillance à distance dans un Docker sur votre ordinateur local, consultez [Déployer localement l’accélérateur de solution de surveillance à distance - Docker](iot-accelerators-remote-monitoring-deploy-local-docker.md).
 
@@ -115,14 +115,4 @@ Vous pouvez également supprimer la copie locale du dépôt de surveillance à d
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Configurer un environnement de développement local
-> * Configurer l’accélérateur de solution
-> * Déployer l’accélérateur de solution
-> * Établir une connexion à l’accélérateur de solution
-
 La solution de surveillance à distance étant déployée, l’étape suivante consiste à [explorer les fonctionnalités du tableau de bord des solutions](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->

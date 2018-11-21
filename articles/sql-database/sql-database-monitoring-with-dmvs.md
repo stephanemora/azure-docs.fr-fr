@@ -12,12 +12,12 @@ ms.author: carlrab
 ms.reviewer: ''
 manager: craigg
 ms.date: 10/22/2018
-ms.openlocfilehash: 5dba091f62e320d6f9a48bea0208ef74db351402
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: c690e9b864d4b2b378814b478ea4918a9f75fbba
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50095503"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288525"
 ---
 # <a name="monitoring-azure-sql-database-using-dynamic-management-views"></a>Analyse d’une base de données SQL Azure à l’aide de vues de gestion dynamique
 
@@ -682,7 +682,7 @@ Pour une analyse SQL Database, vous pouvez obtenir des statistiques d’historiq
 
 ## <a name="monitoring-query-performance"></a>Analyse des performances des requêtes
 
-Des requêtes lentes ou longues peuvent consommer des ressources système significatives. Cette section montre comment utiliser des vues de gestion dynamique pour détecter quelques problèmes courants liés aux performances de requête. L’article [Résolution des problèmes de performances dans SQL Server 2008](http://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) sur Microsoft TechNet constitue une référence plus ancienne, mais toujours utile, pour le dépannage.
+Des requêtes lentes ou longues peuvent consommer des ressources système significatives. Cette section montre comment utiliser des vues de gestion dynamique pour détecter quelques problèmes courants liés aux performances de requête. L’article [Résolution des problèmes de performances dans SQL Server 2008](https://download.microsoft.com/download/D/B/D/DBDE7972-1EB9-470A-BA18-58849DB3EB3B/TShootPerfProbs2008.docx) sur Microsoft TechNet constitue une référence plus ancienne, mais toujours utile, pour le dépannage.
 
 ### <a name="finding-top-n-queries"></a>Recherche des N premières requêtes
 

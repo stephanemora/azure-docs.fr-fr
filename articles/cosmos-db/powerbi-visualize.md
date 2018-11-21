@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/03/2018
 ms.author: sngun
-ms.openlocfilehash: 90f5caa13bf95fb5298a06bda5a03e9bc17bcb1a
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: 782de7dc6e099fade0d2f1099ac19b9398562023
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945176"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622089"
 ---
 # <a name="visualize-azure-cosmos-db-data-by-using-the-power-bi-connector"></a>Visualiser les données Azure Cosmos DB à l’aide du connecteur Power BI
 
@@ -76,11 +76,11 @@ Vous souhaitez récupérer les données relatives aux volcans du compte Azure Co
 
 5. Sur la page **Aperçu connecteur**, cliquez sur **Continuer**. La fenêtre **Azure Cosmos DB** s’affiche.
 
-6. Spécifiez l’URL du point de terminaison du compte Azure Cosmos DB dont vous souhaitez récupérer les données, comme indiqué ci-dessous, puis cliquez sur **OK**. Vous pouvez récupérer l’URL dans la zone URI du panneau **[Clés](manage-account.md#keys)** du portail Azure pour utiliser votre propre compte. Vous pouvez, de manière facultative, fournir un nom de base données, un nom de collection ou utiliser le Navigateur pour sélectionner la base de données et la collection afin d’identifier la provenance des données.
+6. Spécifiez l’URL du point de terminaison du compte Azure Cosmos DB dont vous souhaitez récupérer les données, comme indiqué ci-dessous, puis cliquez sur **OK**. Vous pouvez récupérer l’URL dans la zone URI du panneau **Clés** du portail Azure pour utiliser votre propre compte. Vous pouvez, de manière facultative, fournir un nom de base données, un nom de collection ou utiliser le Navigateur pour sélectionner la base de données et la collection afin d’identifier la provenance des données.
    
-7. Si vous vous connectez pour la première fois à ce point de terminaison, le système vous demandera la clé du compte. Vous pouvez récupérer la clé dans la zone **Clé primaire** du panneau **[Clés en lecture seule](manage-account.md#keys)** du portail Azure pour votre propre compte. Entrez la clé appropriée, puis cliquez sur **Connecter**.
+7. Si vous vous connectez pour la première fois à ce point de terminaison, le système vous demandera la clé du compte. Vous pouvez récupérer la clé dans la zone **Clé primaire** du panneau **Clés en lecture seule** du portail Azure pour votre propre compte. Entrez la clé appropriée, puis cliquez sur **Connecter**.
    
-   nous vous recommandons d’utiliser la clé en lecture seule lorsque vous créez des rapports, ce afin de ne pas exposer inutilement la clé principale à des risques de sécurité potentiels. Cela évite toute exposition inutile de la clé principale à des risques de sécurité potentiels. La clé en lecture seule est disponible à partir du panneau [Clés](manage-account.md#keys) du portail Azure. 
+   nous vous recommandons d’utiliser la clé en lecture seule lorsque vous créez des rapports, ce afin de ne pas exposer inutilement la clé principale à des risques de sécurité potentiels. Cela évite toute exposition inutile de la clé principale à des risques de sécurité potentiels. La clé en lecture seule est disponible à partir du panneau **Clés** du portail Azure. 
     
 8. Une fois le compte connecté, le volet **Navigateur** s’affiche. Le **Navigateur** affiche une liste des bases de données attachées au compte.
 

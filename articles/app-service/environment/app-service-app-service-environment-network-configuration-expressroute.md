@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/14/2016
 ms.author: stefsch
-ms.openlocfilehash: fcb9fa9004039205fa49f63c50d5907a8029a079
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 7873192e4a66cd2faed5a1a1255377139d33d750
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32153216"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616059"
 ---
 # <a name="network-configuration-details-for-app-service-environments-with-expressroute"></a>Détails de la configuration réseau pour les environnements App Service avec ExpressRoute
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 Les clients peuvent connecter un circuit [Azure ExpressRoute][ExpressRoute] à leur infrastructure de réseau virtuel pour étendre leur réseau local à Azure.  Vous pouvez créer un environnement App Service dans un sous-réseau de cette infrastructure de [réseau virtuel][virtualnetwork].  Les applications exécutées dans l'environnement App Service peuvent alors établir des connexions sécurisées à des ressources principales accessibles uniquement par le biais de la connexion ExpressRoute.  
 
 Un environnement App Service peut être créé **soit** dans un réseau virtuel Azure Resource Manager, **soit** dans un réseau virtuel de modèle de déploiement classique.  Suite à une modification récente effectuée en juin 2016, les ASE peuvent désormais être déployés dans les réseaux virtuels qui utilisent soit des plages d’adresses publiques soit des espaces d’adressage RFC1918 (par exemple, des adresses privées). 
@@ -81,7 +81,7 @@ Pour plus d’informations sur la création et la configuration d’itinéraires
 
 **Étape 1 : Créer une table d’itinéraires nommée**
 
-L'extrait de code suivant crée une table d'itinéraires appelée « DirectInternetRouteTable » dans la région Azure Ouest des États-Unis :
+L'extrait de code suivant crée une table d'itinéraires appelée « DirectInternetRouteTable » dans la région Azure USA Ouest :
 
     New-AzureRouteTable -Name 'DirectInternetRouteTable' -Location uswest
 
@@ -93,7 +93,7 @@ L'approche recommandée pour la configuration d'un accès sortant à Internet co
 
     Get-AzureRouteTable -Name 'DirectInternetRouteTable' | Set-AzureRoute -RouteName 'Direct Internet Range 0' -AddressPrefix 0.0.0.0/0 -NextHopType Internet
 
-N’oubliez pas que 0.0.0.0/0 est une plage d’adresses étendue et, par conséquent, elle sera remplacée par les plages d’adresses plus spécifiques publiées par ExpressRoute.  Pour réitérer la recommandation antérieure, un UDR avec un itinéraire 0.0.0.0/0 doit être utilisé conjointement avec une configuration ExressRoute qui publie uniquement 0.0.0.0/0 également. 
+N’oubliez pas que 0.0.0.0/0 est une plage d’adresses étendue et, par conséquent, elle sera remplacée par les plages d’adresses plus spécifiques publiées par ExpressRoute.  Pour réitérer la recommandation antérieure, un UDR avec un itinéraire 0.0.0.0/0 doit être utilisé conjointement avec une configuration ExpressRoute qui publie uniquement 0.0.0.0/0 également. 
 
 Comme alternative, vous pouvez télécharger une liste complète et mise à jour des plages CIDR utilisées par Azure.  Le fichier XML qui contient toutes les plages d’adresses IP Azure est disponible dans le [Centre de téléchargement Microsoft][DownloadCenterAddressRanges].  
 

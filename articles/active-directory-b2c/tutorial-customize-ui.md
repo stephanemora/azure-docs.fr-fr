@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/30/2018
+ms.date: 11/12/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 9c206ac7a13ea222a01cac78c447c0764f753517
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: ee6d7735a2983f642eff82a7dabe036af100e60e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50669346"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51622667"
 ---
 # <a name="tutorial-customize-the-user-interface-of-your-applications-in-azure-active-directory-b2c"></a>Tutoriel : Personnaliser l’interface utilisateur de vos applications dans Azure Active Directory B2C
 
@@ -24,9 +24,9 @@ Pour des expériences utilisateur plus courantes telles que l’inscription, la 
 Dans cet article, vous apprendrez comment :
 
 > [!div class="checklist"]
-> * Créer des fichiers de personnalisation de l’interface utilisateur.
-> * Créer une stratégie d’inscription et de connexion qui utilise les fichiers.
-> * Tester l’interface utilisateur personnalisée.
+> * Créer des fichiers de personnalisation de l’interface utilisateur
+> * Créer une stratégie d’inscription et de connexion qui utilise les fichiers
+> * Tester l’interface utilisateur personnalisée
 
 Si vous n’avez pas d’abonnement Azure, créez un [compte gratuit](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) avant de commencer.
 
@@ -38,7 +38,7 @@ Si vous n’avez pas encore créé votre propre [locataire Azure AD B2C](tutoria
 
 Vous créez un conteneur et un compte de stockage Azure, puis vous placez les fichiers HTML et CSS de base dans le conteneur.
 
-### <a name="create-a-storage-account"></a>Créer un compte de stockage
+### <a name="create-a-storage-account"></a>Créez un compte de stockage.
 
 Bien que vous puissiez stocker vos fichiers de plusieurs façons, pour les besoins de ce tutoriel vous allez les stocker dans le [stockage d’objets blob Azure](../storage/blobs/storage-blobs-introduction.md).
 
@@ -54,21 +54,23 @@ Bien que vous puissiez stocker vos fichiers de plusieurs façons, pour les besoi
 7. Acceptez toutes les autres valeurs par défaut, sélectionnez **Vérifier + créer**, puis cliquez sur **Créer**.
 8. Une fois le compte de stockage créé, sélectionnez **Accéder à la ressource**.
 
-### <a name="create-a-container"></a>Créer un conteneur
+### <a name="create-a-container"></a>Créez un conteneur.
 
 1. Dans la page de vue d’ensemble du compte de stockage, sélectionnez **Objets blob**.
 2. Sélectionnez **Conteneur**, entrez un nom pour le conteneur, choisissez **Blob (accès en lecture anonyme pour les objets blob uniquement)**, puis cliquez sur **OK**.
 
-### <a name="enable-cors"></a>Activer CORS
+### <a name="enable-cors"></a>Activez CORS
 
  Le code Azure AD B2C dans un navigateur utilise une approche moderne et standard pour charger le contenu personnalisé à partir d’une URL que vous spécifiez dans une stratégie. Le partage des ressources Cross-Origin (CORS) permet de demander des ressources restreintes dans une page web à partir d’autres domaines.
 
 1. Dans le menu, sélectionnez **CORS**.
-2. Pour **Origines autorisées**, **En-têtes autorisés** et **En-têtes exposés**, entrez `your-tenant-name.b2clogin.com`. Remplacez `your-tenant-name` par le nom de votre locataire Azure AD B2C. Par exemple : `fabrikam.b2clogin.com`.
-3. Pour **Verbes autorisés**, sélectionnez `GET` et `OPTIONS`.
-4. Pour **Âge maximal**, tapez 200.
+2. Pour **Origines autorisées**, entrez `your-tenant-name.b2clogin.com`. Remplacez `your-tenant-name` par le nom de votre locataire Azure AD B2C. Par exemple : `fabrikam.b2clogin.com`.
+3. Pour **Méthodes autorisées**, sélectionnez `GET` et `OPTIONS`.
+4. Pour **En-têtes autorisés**, saisissez un astérisque (*).
+5. Pour **En-têtes exposés**, saisissez un astérisque (*).
+6. Pour **Âge maximal**, tapez 200.
 
-    ![Activer CORS](./media/tutorial-customize-ui/enable-cors.png)
+    ![Activez CORS](./media/tutorial-customize-ui/enable-cors.png)
 
 5. Cliquez sur **Enregistrer**.
 
@@ -139,7 +141,7 @@ Dans ce tutoriel, vous stockez les fichiers que vous avez créés dans le compte
 
 Pour effectuer les dernières étapes de ce tutoriel, vous devez créer une application test et une stratégie d’inscription ou de connexion dans Azure AD B2C. Vous pouvez appliquer les principes décrits dans ce tutoriel aux autres expériences utilisateur, telles que la modification de profil.
 
-### <a name="create-an-azure-ad-b2c-application"></a>Créer une application Azure AD B2C
+### <a name="create-an-azure-ad-b2c-application"></a>Création d’une application Azure AD B2C
 
 La communication avec Azure AD B2C s’effectue par le biais d’une application que vous créez dans votre locataire. Les étapes suivantes créent une application qui redirige le jeton d’autorisation retourné vers [https://jwt.ms](https://jwt.ms).
 
@@ -151,7 +153,7 @@ La communication avec Azure AD B2C s’effectue par le biais d’une application
 6. Pour **Application/API web**, sélectionnez `Yes`, puis entrez `https://jwt.ms` pour l’**URL de réponse**.
 7. Cliquez sur **Créer**.
 
-### <a name="create-the-policy"></a>Créer la stratégie
+### <a name="create-the-policy"></a>Création de la stratégie
 
 Pour tester vos fichiers de personnalisation, vous créez une stratégie d’inscription ou de connexion intégrée qui utilise l’application créée précédemment.
 

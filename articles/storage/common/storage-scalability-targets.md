@@ -1,41 +1,32 @@
 ---
-title: Objectifs de performance et d’extensibilité Azure Storage | Microsoft Docs
-description: Obtenez plus d’informations sur les objectifs d’extensibilité et de performances pour Azure Storage, y compris la capacité, le taux de demande et la bande passante entrante et sortante pour les comptes de stockage standard et premium. Découvrez les objectifs de performances des partitions dans chacun des services Azure Storage.
+title: Objectifs de performance et d’extensibilité du Stockage Azure
+description: Obtenez plus d’informations sur les objectifs d’extensibilité et de performances, y compris la capacité, le taux de demande et la bande passante entrante et sortante pour les comptes standards d’Azure Storage.
 services: storage
 author: roygara
 ms.service: storage
 ms.topic: article
-ms.date: 10/24/2017
+ms.date: 11/08/2018
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: 758871537b89a9c010cfaddf324e2208f9846afb
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 93e09f3ab6780eb9ce7fa29b4554b53d796b6837
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51241314"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51564950"
 ---
-# <a name="azure-storage-scalability-and-performance-targets"></a>Objectifs de performance et évolutivité d'Azure Storage
-## <a name="overview"></a>Vue d’ensemble
-Cet article décrit les rubriques liées à la scalabilité et aux performances de Stockage Azure. Pour prendre connaissance des autres informations relatives aux limites Azure, consultez [Limites, quotas et contraintes applicables aux services et abonnements Azure](../../azure-subscription-service-limits.md).
+# <a name="azure-storage-scalability-and-performance-targets-for-standard-storage-accounts"></a>Objectifs de performance et évolutivité d’Azure Storage pour les comptes de stockage standards
 
-> [!NOTE]
-> Tous les comptes de stockage s’exécutent sur la nouvelle topologie de réseau plat et prennent en charge les objectifs de scalabilité et de performances décrits dans cet article, quel que soit le moment où ils ont été créés. Pour plus d'informations sur l'architecture de réseau plat Azure Storage et sur son extensibilité, consultez le billet de blog [Microsoft Azure Storage: A Highly Available Cloud Storage Service with Strong Consistency](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx).
-> 
+Cet article présente les objectifs de performance et d’évolutivité pour les comptes d’Azure Storage standards. Les objectifs d’extensibilité et de performances répertoriés ici sont des objectifs haut de gamme mais réalisables. Dans tous les cas, le taux de demande et la bande passante atteints par votre compte de stockage dépendent de la taille des objets stockés, des modèles d’accès utilisés et du type de charge de travail de votre application. 
 
-> [!IMPORTANT]
-> Les objectifs d’extensibilité et de performances répertoriés ici sont des objectifs haut de gamme mais réalisables. Dans tous les cas, le taux de demande et la bande passante atteints par votre compte de stockage dépendent de la taille des objets stockés, des modèles d’accès utilisés et du type de charge de travail de votre application. Veillez à tester votre service afin de déterminer si ses performances répondent à vos besoins. Dans la mesure du possible, évitez les pics soudains de trafic et assurez-vous que le trafic est bien réparti sur toutes les partitions.
-> 
-> Lorsque votre application atteint la limite de gestion d’une partition concernant la charge de travail, Stockage Azure commence à renvoyer des codes d’erreur 503 (Serveur occupé) ou 500 (Délai d’expiration de l’opération). Si ces erreurs se produisent, alors votre application doit utiliser une stratégie d’interruption exponentielle pour les nouvelles tentatives. L’interruption exponentielle diminue la charge sur la partition et atténue les pics de trafic pour cette partition.
-> 
-> 
+Veillez à tester votre service afin de déterminer si ses performances répondent à vos besoins. Dans la mesure du possible, évitez les pics soudains de trafic et assurez-vous que le trafic est bien réparti sur toutes les partitions.
 
-Si les besoins de votre application dépassent les objectifs d’extensibilité d’un compte de stockage unique, vous pouvez concevoir votre application afin qu’elle utilise plusieurs comptes de stockage. Ensuite, vous pouvez partitionner vos objets de données sur ces comptes de stockage. Pour plus d’informations sur la tarification des licences en volume, consultez la page [Prix appliqués à Azure Storage](https://azure.microsoft.com/pricing/details/storage/) .
+Lorsque votre application atteint la limite de gestion d’une partition concernant la charge de travail, Stockage Azure commence à renvoyer des codes d’erreur 503 (Serveur occupé) ou 500 (Délai d’expiration de l’opération). Si vous rencontrez des erreurs 503, nous vous recommandons de modifier votre application pour utiliser une stratégie d’interruption exponentielle pour les nouvelles tentatives. L’interruption exponentielle diminue la charge sur la partition et atténue les pics de trafic pour cette partition.
 
-## <a name="scalability-targets-for-a-storage-account"></a>Objectifs d’évolutivité de compte de stockage
+## <a name="standard-storage-account-scale-limits"></a>Limites d’évolutivité d’un compte de stockage standard
 [!INCLUDE [azure-storage-limits](../../../includes/azure-storage-limits.md)]
 
-### <a name="storage-resource-provider-limits"></a>Limites de fournisseur de ressources de stockage 
+## <a name="storage-resource-provider-scale-limits"></a>Limites d’évolutivité d’un fournisseur de ressources de stockage 
 
 [!INCLUDE [azure-storage-limits-azure-resource-manager](../../../includes/azure-storage-limits-azure-resource-manager.md)]
 
@@ -48,7 +39,7 @@ Pour plus d’informations sur les objectifs de scalabilité et de performances 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 
 ### <a name="azure-file-sync-scale-targets"></a>Objectifs de mise à l’échelle d’Azure File Sync
-Avec Azure File Sync, nous nous sommes efforcés de proposer un usage illimité, mais cela n’est pas toujours possible. Le tableau ci-dessous indique les limites de nos tests et les limites matérielles de nos objectifs :
+Azure File Sync a été conçu pour proposer un usage illimité, mais cela n’est pas toujours possible. Le tableau suivant indique les limites de tests réalisés par Microsoft, ainsi que les cibles constituant des limites matérielles :
 
 [!INCLUDE [storage-sync-files-scale-targets](../../../includes/storage-sync-files-scale-targets.md)]
 
@@ -63,5 +54,4 @@ Avec Azure File Sync, nous nous sommes efforcés de proposer un usage illimité,
 * [Abonnement Azure et limites, quotas et contraintes du service](../../azure-subscription-service-limits.md)
 * [Réplication Azure Storage](../storage-redundancy.md)
 * [Liste de contrôle des performances et de l’évolutivité de Microsoft Azure Storage](../storage-performance-checklist.md)
-* [Microsoft Azure Storage : service de stockage sur le cloud à haute disponibilité et à cohérence forte](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/11/20/windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency.aspx)
 

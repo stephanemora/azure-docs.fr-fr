@@ -15,18 +15,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 336949d3c3c23041d1907ae2b2a9151ca626d94f
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 81a2f444012085782c377de050e7cb5445f8ebb3
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834639"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51344652"
 ---
 # <a name="discover-jupyter-notebooks-in-the-azure-ai-gallery"></a>Découvrir les blocs-notes Jupyter dans la galerie Azure AI
-[!INCLUDE [machine-learning-gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-## <a name="jupyter-notebooks"></a>Blocs-notes Jupyter
-Les **[Blocs-notes Jupyter](https://gallery.cortanaintelligence.com/notebooks)** incluent du code, des visualisations de données et de la documentation dans un seul canevas interactif.
+Les **[blocs-notes Jupyter](https://gallery.cortanaintelligence.com/notebooks)** dans [Azure AI Gallery](http://gallery.cortanaintelligence.com) incluent du code, des visualisations de données et de la documentation dans un seul canevas interactif.
 Les blocs-notes dans la galerie fournissent des didacticiels et des explications détaillées sur les solutions et les techniques avancées de Machine Learning.
 
 ## <a name="discover"></a>Découvrez

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 05/18/2018
 ms.author: alkohli
-ms.openlocfilehash: 578fb3f8bfe68ccd9bbade0ad04f3a811a249c08
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: ded3c89774c39b5edee02b9e3c6807ce75ff16a4
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37906385"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51566191"
 ---
 # <a name="storsimple-security-and-data-protection"></a>Sécurité et protection des données StorSimple
 
-## <a name="overview"></a>Vue d'ensemble
+## <a name="overview"></a>Vue d’ensemble
 
 La sécurité est une préoccupation majeure pour toute personne adoptant une nouvelle technologie, surtout lorsque cette technologie est utilisée avec des données confidentielles ou propriétaires. Lorsque vous évaluez différentes technologies, vous devez tenir compte des risques et des coûts relatifs à la protection des données. Microsoft Azure StorSimple fournit une solution de sécurité et de confidentialité pour la protection des données, afin de garantir :
 
@@ -121,7 +121,7 @@ Pour plus d'informations sur le Gestionnaire d'instantanés StorSimple, consulte
 Nous vous recommandons d'utiliser les instructions suivantes afin de garantir que les mots de passe StorSimple sont forts et bien protégés :
 
 * Modifiez votre mot de passe tous les trois mois. Vous devez modifier les mots de passe tous les ans.
-* Utilisez des mots de passe forts. Pour plus d’informations, consultez [Conseils pour créer un mot de passe plus fort et le protéger](http://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
+* Utilisez des mots de passe forts. Pour plus d’informations, consultez [Conseils pour créer un mot de passe plus fort et le protéger](https://blogs.microsoft.com/cybertrust/2014/08/25/create-stronger-passwords-and-protect-them/).
 * Utilisez toujours des mots de passe différents pour les différents mécanismes d’accès : chacun des mots de passe que vous spécifiez doit être unique.
 * Ne partagez pas les mots de passe avec les personnes non autorisées à accéder à l’appareil StorSimple.
 * Ne parlez pas d’un mot de passe devant d’autres personnes et ne faites pas allusion à son format.
@@ -205,9 +205,9 @@ StorSimple utilise les algorithmes de chiffrement suivants pour protéger les do
 
 [!INCLUDE [storsimple Cloud Appliance security](../../includes/storsimple-virtual-device-security.md)]
 
-## <a name="managing-personal-inforamation"></a>Gestion des informations personnelles
+## <a name="managing-personal-information"></a>Gestion des informations personnelles
 
-StorSimple Device Manager pour les séries physiques et virtuelles collecte des informations personnelles principalement dans les cas suivants :
+StorSimple Device Manager pour les séries physiques et virtuelles collecte des informations personnelles principalement dans les cas suivants :
 
 - Paramètres utilisateur d’alerte où l’adresse e-mail des utilisateurs est configurée. L’administrateur a la possibilité d’afficher et d’effacer ces données. Cela s’applique aux appareils StorSimple série 8000 et à StorSimple Virtual Array.
  * Pour afficher et effacer les paramètres de StorSimple série 8000, suivez les étapes de la page [Afficher et gérer les alertes StorSimple](storsimple-8000-manage-alerts.md#configure-alert-settings).

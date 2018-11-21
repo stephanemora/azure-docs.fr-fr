@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 8/17/2018
 ms.author: rambala
-ms.openlocfilehash: 97ac49ff5cc50621fd902f77c2543a428c7e8bae
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 6d941bf810a45e8808f83c4df701a856f664c7ef
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49384750"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51631657"
 ---
 # <a name="configure-bfd-over-expressroute"></a>Configurer BFD sur ExpressRoute
 
@@ -67,7 +67,7 @@ Voici un exemple de configuration de PE (avec Cisco IOS XE).
 
 ## <a name="bfd-timer-negotiation"></a>Négociation des minuteurs BFD
 
-Entre les pairs BFD, le plus lent des deux pairs détermine la vitesse de transmission. Les intervalles de transmission/réception BFD des appareils MSEE sont définis sur 300 millisecondes. En configurant des valeurs plus élevées, vous pouvez forcer ces intervalles à être plus longs, mais pas plus courts.
+Entre les pairs BFD, le plus lent des deux pairs détermine la vitesse de transmission. Les intervalles de transmission/réception BFD des appareils MSEE sont définis sur 300 millisecondes. Dans certains scénarios, l'intervalle peut être défini sur une valeur supérieure de 750 millisecondes. En configurant des valeurs plus élevées, vous pouvez forcer ces intervalles à être plus longs, mais pas plus courts.
 
 >[!NOTE]
 >Si vous avez configuré des circuits d’appairage privé ExpressRoute géoredondants ou que vous utilisez une connectivité de VPN IPSec de site à site comme solution de secours pour l’appairage privé ExpressRoute, l’activation de BFD sur l’appairage privé permet d’accélérer la bascule sur l’alternative de secours après une défaillance de la connectivité ExpressRoute. 

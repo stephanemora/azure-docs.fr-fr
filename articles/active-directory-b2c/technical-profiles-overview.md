@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: fe7d18cdfa88988e1c7dda7f1120d4750fa52e8c
-ms.sourcegitcommit: f58fc4748053a50c34a56314cf99ec56f33fd616
+ms.openlocfilehash: faf3cc6c333ee8f8757ec24ecc8ea8299657c4a7
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/04/2018
-ms.locfileid: "48269426"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578482"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>À propos des profils techniques dans les stratégies personnalisées d’Azure Active Directory B2C
 
@@ -38,8 +38,7 @@ Un profil technique permet les types de scénarios suivants :
 - [SAML2](saml-technical-profile.md) : fédération avec n’importe quel fournisseur d’identité du protocole SAML.
 - [Autodéclaré](self-asserted-technical-profile.md) : interaction avec l’utilisateur. Par exemple, collecter les informations d’identification de l’utilisateur pour se connecter, afficher la page d’inscription ou la réinitialisation du mot de passe.
 - **WsFed** : fédération avec n’importe quel fournisseur d’identité du protocole WsFed. 
-- **Gestion des sessions** : gère différents types de sessions. 
-- **Fournisseur de contexte du parcours utilisateur**
+- [Gestion des sessions](active-directory-b2c-reference-sso-custom.md) : gère différents types de sessions. 
 - **Application Insights**
 
 ## <a name="technical-profile-flow"></a>Flux du profil technique
@@ -56,7 +55,7 @@ Tous les types de profils techniques partagent le même concept. Vous pouvez env
     - Créez ou mettez à jour le compte d’utilisateur.
     - Envoie et vérifie le message texte MFA.
 4. **ValidationTechnicalProfiles** : pour un [profil technique autodéclaré](self-asserted-technical-profile.md), vous pouvez appeler une entrée [profil technique de validation](validation-technical-profile.md). Le profil technique de validation valide les données profilées par l’utilisateur et renvoie un message d’erreur ou OK, avec ou sans revendications de sortie. Par exemple, avant qu’Azure AD B2C ne crée un nouveau compte, il vérifie si l’utilisateur existe déjà dans les services d’annuaire. Vous pouvez appeler un profil technique d’API REST pour ajouter votre propre logique métier.<p>La portée des revendications de sortie d’un profil technique de validation se limite au profil technique qui invoque le profil technique de validation et aux autres profils techniques de validation sous le même profil technique. Si vous souhaitez utiliser les revendications de sortie à l’étape d’orchestration suivante, vous devez ajouter les revendications de sortie sur le profil technique qui invoque le profil technique de validation.
-5. **OutputClaims** : les revendications sont renvoyées au conteneur de revendications. Vous pouvez utiliser ces revendications dans la prochaine étape d’orchestration, ou dans les transformations de revendications de sortie.
+5. **OutputClaims** : les revendications sont renvoyées au conteneur de revendications. Vous pouvez utiliser ces revendications dans la prochaine étape d’orchestration, ou dans les transformations de revendications de sortie.
 6. **OutputClaimsTransformations** : les revendications d’entrée de chaque [transformation de revendications](claimstransformations.md) de sortie sont récupérées auprès du conteneur de revendications. Les revendications de sortie du profil technique des étapes précédentes peuvent être des revendications d’entrée d’une transformation de revendications de sortie. Après l’exécution, les revendications de sortie sont replacées dans le conteneur de revendications. Les revendications de sortie d’une transformation de revendications d’entrée peuvent également être des revendications d’entrée d’une transformation de revendications de sortie ultérieure.
 7. La **gestion de session d’authentification unique** - [gestion de session SSO](active-directory-b2c-reference-sso-custom.md) contrôle l’interaction avec l’utilisateur une fois qu’il a été authentifié. Par exemple, l’administrateur peut contrôler si la sélection des fournisseurs d’identité s’affiche, ou si des détails de compte local doivent être entrés à nouveau.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/14/2017
+ms.date: 11/12/2018
 ms.author: lizross
-ms.openlocfilehash: 5ff9d1cf76188ff38f59e8b74d4bfd380c8c88e1
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: b004968fc53e368497632cb18d6bb7a254d347e6
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49408708"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51621749"
 ---
 # <a name="azure-active-directory-faq"></a>Forum Aux Questions sur Azure Active Directory
 Azure Active Directory (Azure AD) est une solution IDaaS (Identity as a Service) complète qui couvre tous les aspects de l’identité, la gestion des accès et la sécurité.
@@ -86,7 +86,7 @@ Pour plus d’informations, consultez [Intégration des identités locales avec 
 - - -
 **Q : Azure AD fournit-il un portail en libre-service aux utilisateurs de mon organisation ?**
 
-**R :** Oui, Azure AD fournit le [Panneau d’accès Azure AD](http://myapps.microsoft.com) pour l’accès aux applications en libre-service. Si vous êtes un client Office 365, vous trouverez la plupart des mêmes fonctionnalités dans le portail Office 365.
+**R :** Oui, Azure AD fournit le [Panneau d’accès Azure AD](https://myapps.microsoft.com) pour l’accès aux applications en libre-service. Si vous êtes un client Office 365, vous trouverez la plupart des mêmes fonctionnalités dans le portail Office 365.
 
 Pour plus d’informations, consultez [Présentation du volet d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
@@ -171,7 +171,7 @@ Pour plus d'informations, consultez les pages suivantes :
 * Authentification directe pour les applications fédérées
 * Liens ciblés vers des applications fédérées, avec mot de passe ou des applications existantes
 
-Pour plus d’informations, voir [Déploiement d’applications Azure AD intégrées pour les utilisateurs](../manage-apps/what-is-single-sign-on.md#deploying-azure-ad-integrated-applications-to-users).
+Pour plus d’informations, consultez [Expériences d’utilisateurs finaux auprès des applications](../manage-apps/end-user-experiences.md).
 
 - - -
 **Q : Par quels moyens Azure AD active-t-il l’authentification et l’authentification unique pour la connexion aux applications ?**
@@ -182,7 +182,7 @@ Pour plus d'informations, consultez les pages suivantes :
 
 * [Scénarios d’authentification pour Azure AD](../develop/authentication-scenarios.md)
 * [Protocoles d’authentification Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
-* [Fonctionnement de l’authentification unique avec Azure Active Directory](../manage-apps/what-is-single-sign-on.md#how-does-single-sign-on-with-azure-active-directory-work)
+* [Authentification unique pour les applications dans Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 - - -
 **Q : Puis-je ajouter des applications si l’exécution s’effectue en local ?**

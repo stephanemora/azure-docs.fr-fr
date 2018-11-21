@@ -15,17 +15,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 03/31/2017
-ms.openlocfilehash: 0494963f59e885cf2e7fe42704f1314e66ea28a5
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 250b0cf6ff949fab064dc61a5260a68fd78d0387
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834785"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51346369"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Partager et découvrir des ressources dans Azure AI Gallery
-[!INCLUDE [gallery-item-selector](../../../includes/machine-learning-gallery-item-selector.md)]
 
-<!-- separating these 2 includes -->
+**[Azure AI Gallery](http://gallery.cortanaintelligence.com)** est un site communautaire ayant pour but d’explorer et de partager des solutions intégrées avec Azure AI.
+La galerie contient diverses ressources que vous pouvez utiliser pour développer vos propres solutions d’analyse.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 

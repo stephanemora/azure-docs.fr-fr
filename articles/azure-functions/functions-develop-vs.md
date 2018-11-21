@@ -10,12 +10,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 10/08/2018
 ms.author: glenga
-ms.openlocfilehash: b2676e8f86955a7601f9656f0a038b5ba904a462
-ms.sourcegitcommit: f0c2758fb8ccfaba76ce0b17833ca019a8a09d46
+ms.openlocfilehash: 888b9a256a68b77b91145bb3ccfeea820c97ccfa
+ms.sourcegitcommit: 5a1d601f01444be7d9f405df18c57be0316a1c79
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/06/2018
-ms.locfileid: "51036425"
+ms.lasthandoff: 11/10/2018
+ms.locfileid: "51515367"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Développer Azure Functions à l’aide de Visual Studio  
 
@@ -189,7 +189,7 @@ Pour en savoir plus sur l’utilisation d’Azure Functions Core Tools, consulte
 
 Les paramètres que vous avez ajoutés au fichier local.settings.json doivent être également ajoutés à l’application de fonction dans Azure. Ces paramètres ne sont pas chargés automatiquement quand vous publiez le projet.
 
-Le moyen le plus simple de charger les paramètres obligatoires sur votre application de fonctions dans Azure consiste à utiliser le lien **Gérer les paramètres d’application...** qui apparaît une fois votre projet correctement publié. 
+Le moyen le plus simple de charger les paramètres obligatoires sur votre application de fonctions dans Azure consiste à utiliser le lien **Gérer les paramètres d’application...** qui apparaît une fois votre projet correctement publié.
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings.png)
 
@@ -197,11 +197,13 @@ Vous accédez ainsi à la boîte de dialogue **Paramètres de l’application** 
 
 ![](./media/functions-develop-vs/functions-vstools-app-settings2.png)
 
+**Local** représente une valeur de paramètre dans le fichier local.settings.json, et **Distant** correspond au paramètre actuel dans l’application de fonction dans Azure.  Sélectionnez **Ajouter le paramètre** pour créer un nouveau paramètre d’application. Utilisez le lien **Insérer une valeur locale** pour copier une valeur de paramètre dans le champ **Distant**. Les modifications en attente sont écrites dans le fichier de paramètres local et l’application de fonction lorsque vous sélectionnez **OK**.
+
 Vous pouvez également gérer les paramètres d’application d’une des manières suivantes :
 
 * [Utilisation du portail Azure](functions-how-to-use-azure-function-app-settings.md#settings).
 * [Utilisation de l’option de publication `--publish-local-settings` dans Azure Functions Core Tools](functions-run-local.md#publish).
-* [Utilisation de l’interface CLI Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set). 
+* [Utilisation de l’interface CLI Azure](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set).
 
 ## <a name="monitoring-functions"></a>Surveillance des fonctions
 

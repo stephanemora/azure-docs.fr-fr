@@ -1,6 +1,6 @@
 ---
 title: Extraire, transformer et charger (ETL) des données à l’échelle - Azure HDInsight
-description: Découvrez comment ETL est utilisé dans HDInsight avec Hadoop.
+description: Découvrez comment ETL est utilisé dans HDInsight avec Apache Hadoop.
 services: hdinsight
 author: ashishthaps
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 6af55bf8311efc14687ee16c3226988fd730081d
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 17aeb847a2c701abf03b46d47e34d13b6fb27316
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049000"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633323"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Extraire, transformer et charger (ETL) à l’échelle
 
-L’extraction, la transformation et le chargement (ETL) sont le processus par lequel les données sont acquises à partir de diverses sources, collectées dans un emplacement standard, nettoyées et traitées et finalement chargées dans une banque de données à partir de laquelle elles peuvent être interrogées. Les processus ETL hérités importent des données, les nettoient sur place, puis les stockent dans un moteur de données relationnelles. Avec HDInsight, une grande variété de composants d’écosystème Hadoop prend en charge l’exécution du processus ETL à grande échelle. 
+L’extraction, la transformation et le chargement (ETL) sont le processus par lequel les données sont acquises à partir de diverses sources, collectées dans un emplacement standard, nettoyées et traitées et finalement chargées dans une banque de données à partir de laquelle elles peuvent être interrogées. Les processus ETL hérités importent des données, les nettoient sur place, puis les stockent dans un moteur de données relationnelles. Avec HDInsight, une grande variété de composants d’écosystème Apache Hadoop prend en charge l’exécution du processus ETL à grande échelle. 
 
 L’utilisation de HDInsight dans le processus ETL peut être résumée par ce pipeline :
 

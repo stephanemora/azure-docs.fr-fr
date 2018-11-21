@@ -5,14 +5,14 @@ services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 09/24/2018
+ms.date: 10/29/2018
 ms.author: danlep
-ms.openlocfilehash: cdabafc4f70b08076820e7e0d39300b3eb0bc1e7
-ms.sourcegitcommit: 67abaa44871ab98770b22b29d899ff2f396bdae3
+ms.openlocfilehash: 4492e05339c72c371eb2c935d0397b469440c4f6
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/08/2018
-ms.locfileid: "48856715"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632690"
 ---
 # <a name="run-multi-step-build-test-and-patch-tasks-in-acr-tasks"></a>Exécuter des tâches de compilation, de test et de correction multiétapes dans les tâches ACR
 
@@ -26,7 +26,7 @@ Par exemple, vous pouvez exécuter une tâche avec des étapes qui automatisent 
 1. Compiler une image d’application web
 1. Exécuter le conteneur d’application web
 1. Compiler une image test d’application web
-1. Exécuter le conteneur test d’application web qui effectue des tests sur le conteneur d’application en cours d’exécution
+1. Exécuter le conteneur de test de l’application web qui effectue des tests sur le conteneur d’application en cours d’exécution
 1. Si les tests réussissent, compilez un package d’archivage du graphique Helm
 1. Effectuer un `helm upgrade` à l’aide du nouveau package d’archivage du graphique Helm
 
@@ -53,7 +53,7 @@ Dans ACR Tasks, une tâche multiétapes est définie comme une série d’étape
 * [`push`](container-registry-tasks-reference-yaml.md#push) : Envoyer les images compilées dans un registre de conteneurs. Les registres privés comme Azure Container Registry sont pris en charge, de même que le hub Docker public.
 * [`cmd`](container-registry-tasks-reference-yaml.md#cmd) : Exécuter un conteneur de manière à ce qu’il fonctionne comme une fonction dans le cadre de la tâche à exécuter. Vous pouvez transférer des paramètres au conteneur `[ENTRYPOINT]`, et spécifier des propriétés comme env, detach, et d’autres paramètres `docker run` usuels. Le type d’étape `cmd` permet d’effectuer des tests unitaires et fonctionnels en exécutant les conteneurs en simultané.
 
-Les tâches multiétapes peuvent être aussi simples que compiler et envoyer une image unique :
+Les extraits de code suivants illustrent la combinaison de ses types d’étape de tâche. Les tâches en plusieurs étapes peuvent être aussi simples que la construction d’une image unique à partir d’un Dockerfile et son transfert dans votre registre, avec un fichier YAML similaire :
 
 ```yaml
 version: 1.0-preview-1
@@ -62,7 +62,7 @@ steps:
   - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
 ```
 
-Ou plus complexe, comme cette tâche qui comprend les étapes de compilation, de test, de package Helm et de déploiement Helm :
+Ou, plus complexes, telles que cette définition en plusieurs étapes fictive qui inclut des étapes de génération, de test, de package et de déploiement Helm (la configuration du registre des conteneurs et du référentiel Helm n’est pas indiquée) :
 
 ```yaml
 version: 1.0-preview-1
@@ -84,6 +84,8 @@ steps:
   - cmd: {{.Run.Registry}}/functions/helm package --app-version {{.Run.ID}} -d ./helm ./helm/helloworld/
   - cmd: {{.Run.Registry}}/functions/helm upgrade helloworld ./helm/helloworld/ --reuse-values --set helloworld.image={{.Run.Registry}}/helloworld:{{.Run.ID}}
 ```
+
+Consultez ces [exemples de tâches][task-examples] pour obtenir des fichiers YAML de tâche en plusieurs étapes et les fichiers Dockerfile pour plusieurs scénarios complets.
 
 ## <a name="run-a-sample-task"></a>Exécuter un exemple de tâche
 
@@ -163,6 +165,7 @@ Vous trouverez ici des références et des exemples de tâches multiétapes :
 
 * [Tâches de référence](container-registry-tasks-reference-yaml.md) : types d’étapes de tâches, leurs propriétés et leur utilisation.
 * [Exemples de tâches] [ task-examples] : exemple `task.yaml` pour plusieurs scénarios, simples et complexes.
+* [Référentiel Cmd](https://github.com/AzureCR/cmd) - Une collection de conteneurs agissant en tant que commandes pour les tâches ACR.
 
 <!-- IMAGES -->
 

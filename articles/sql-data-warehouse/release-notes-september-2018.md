@@ -1,5 +1,5 @@
 ---
-title: Notes de publication Azure SQL Data Warehouse RSe 2018 | Microsoft Docs
+title: Notes de publication Azure SQL Data Warehouse septembre 2018 | Microsoft Docs
 description: Notes de publication pour Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: twounder
@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 10/08/2018
 ms.author: mausher
 ms.reviewer: twounder
-ms.openlocfilehash: f2fe1bc06f4122a1d27b22288784b3db167c300c
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: f8073fd746bc02c23efab914c45c61830942a677
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49321697"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51577962"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-september-2018"></a>Nouveautés dans Azure SQL Data Warehouse Septembre 2018
 Azure SQL Data Warehouse reçoit continuellement des améliorations. Cet article décrit les nouvelles fonctionnalités et les changements introduits en septembre 2018.

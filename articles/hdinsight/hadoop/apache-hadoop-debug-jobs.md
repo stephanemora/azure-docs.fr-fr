@@ -1,5 +1,5 @@
 ---
-title: 'Déboguer Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur - Azure '
+title: 'Déboguer Apache Hadoop dans HDInsight : afficher les journaux et interpréter les messages d’erreur - Azure '
 description: Découvrez les messages d'erreur susceptibles de s'afficher lorsque vous administrez HDInsight au moyen de PowerShell, ainsi que la procédure de récupération.
 services: hdinsight
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: 694129fa39a84deac118c35da52a0617fe805d6c
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: 1589a5c1cab5a37322249762c840620d9ba4fc7e
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51261142"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51634632"
 ---
 # <a name="analyze-hadoop-logs"></a>Analyser les journaux Hadoop
 
-Chaque cluster Hadoop dans Azure HDInsight dispose d'un compte de stockage Azure utilisé comme système de fichiers par défaut. Le compte de stockage est désigné comme le compte de stockage par défaut. Le cluster utilise le stockage de tables Azure et le stockage d’objets Blob sur le compte de stockage par défaut pour stocker ses journaux.  Pour trouver le compte de stockage par défaut pour votre cluster, consultez [Gestion des clusters Hadoop dans HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Les journaux sont conservés dans le compte de stockage, même après la suppression du cluster.
+Chaque cluster Apache Hadoop dans Azure HDInsight dispose d'un compte de stockage Azure utilisé comme système de fichiers par défaut. Le compte de stockage est désigné comme le compte de stockage par défaut. Le cluster utilise le stockage de tables Azure et le stockage d’objets Blob sur le compte de stockage par défaut pour stocker ses journaux.  Pour trouver le compte de stockage par défaut pour votre cluster, consultez [Gestion des clusters Hadoop dans HDInsight](../hdinsight-administer-use-management-portal.md#find-the-default-storage-account). Les journaux sont conservés dans le compte de stockage, même après la suppression du cluster.
 
 ## <a name="logs-written-to-azure-tables"></a>Journaux écrits dans les tables Azure
 
@@ -131,7 +131,7 @@ Les messages d’erreur répertoriés dans cette section visent à aider les uti
 
 Certains de ces messages d'erreur peuvent également apparaître dans le portail Azure lorsqu'il sert à gérer les clusters HDinsight. Mais d'autres messages d'erreur que vous pouvez rencontrer ici sont moins granulaires, en raison des contraintes qui s'appliquent aux mesures correctives possibles dans ce contexte. D'autres encore sont fournis dans les contextes où l'atténuation est évidente. 
 
-### <a id="AtleastOneSqlMetastoreMustBeProvided"></a>AtleastOneSqlMetastoreMustBeProvided
+### <a id="AtLeastOneSqlMetastoreMustBeProvided"></a>AtLeastOneSqlMetastoreMustBeProvided
 * **Description**: fournissez des informations détaillées sur la base de données SQL Azure pour au moins un composant afin d’utiliser les paramètres personnalisés pour les metastores Hive et Oozie.
 * **Atténuation**: vous devez fournir un metastore SQL Azure valide et relancer la requête.  
 

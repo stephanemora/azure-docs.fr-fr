@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 07/30/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 951ac39e1bb6ce050da26fa8ff3f93fd4e27e7d7
-ms.sourcegitcommit: 74941e0d60dbfd5ab44395e1867b2171c4944dbe
+ms.openlocfilehash: 1dfc01d0f2f0f5f3eae58fd6c889fee3ad306135
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/15/2018
-ms.locfileid: "49318384"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623025"
 ---
 # <a name="azure-active-directory-connect-sync-configure-preferred-data-location-for-office-365-resources"></a>Synchronisation Azure Active Directory Connect : configurer un emplacement de données par défaut pour les ressources Office 365
 L’objectif de cette rubrique est de vous expliquer comment configurer l’attribut d’emplacement des données préféré dans la synchronisation Azure Active Directory (Azure AD) Connect. Lorsqu’une personne utilise les fonctionnalités multigéographiques dans Office 365, vous utilisez cet attribut pour désigner l’emplacement géographique des données Office 365 de l’utilisateur. (Les termes *région* et *zone géographique* sont utilisés de manière interchangeable.)
@@ -31,7 +31,7 @@ Par défaut, les ressources Office 365 des utilisateurs se trouvent dans la mêm
 L’attribut **preferredDataLocation** vous permet de définir la zone géographique d’un utilisateur. Il est possible de mettre les ressources Office 365 de l’utilisateur, par exemple la boîte aux lettres et OneDrive, dans la même zone géographique que l’utilisateur, tout en conservant un seul locataire pour l’organisation.
 
 > [!IMPORTANT]
-> La fonctionnalité Zones géographiques multiples est actuellement disponible pour les clients avec au moins 2 500 abonnements aux services Office 365. Pour plus d’informations, adressez-vous à votre représentant Microsoft.
+> La fonctionnalité Zones géographiques multiples est actuellement disponible pour les clients avec au moins 5 000 abonnements aux services Office 365. Pour plus d’informations, adressez-vous à votre représentant Microsoft.
 >
 >
 

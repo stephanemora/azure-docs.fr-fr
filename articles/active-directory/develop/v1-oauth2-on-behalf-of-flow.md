@@ -1,6 +1,6 @@
 ---
-title: Authentification de service à service Azure AD à l’aide de la spécification préliminaire Pour le compte de OAuth2.0 | Microsoft Docs
-description: Cet article explique comment utiliser des messages HTTP pour implémenter l’authentification de service à service en utilisant le flux Pour le compte de OAuth 2.0.
+title: Authentification de service à service Azure Active Directory qui utilise la spécification préliminaire On-Behalf-Of OAuth 2.0 | Microsoft Docs
+description: Cet article explique comment utiliser des messages HTTP pour implémenter l’authentification de service à service avec le flux On-Behalf-Of OAuth 2.0.
 services: active-directory
 documentationcenter: .net
 author: navyasric
@@ -17,86 +17,108 @@ ms.date: 06/06/2017
 ms.author: celested
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: a231b79bebd9684281edea48dfe7cf5f57ccdacb
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: ab9f2638de6f74944eb27f024be3000209554cdf
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49986013"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345130"
 ---
-# <a name="service-to-service-calls-using-delegated-user-identity-in-the-on-behalf-of-flow"></a>Appels service à service utilisant l’identité utilisateur déléguée dans le flux Pour le compte de
+# <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>Appels de service à service utilisant l’identité utilisateur déléguée dans le flux On-Behalf-Of
 
 [!INCLUDE [active-directory-develop-applies-v1](../../../includes/active-directory-develop-applies-v1.md)]
 
-Le flux On-Behalf-Of (OBO) de OAuth 2.0 sert quand une application appelle un service/API web, qui à son tour doit appeler un autre service/API web. L’idée est de propager l’identité et les autorisations de l’utilisateur délégué via la chaîne de la demande. Pour que le service de niveau intermédiaire puisse faire des demandes authentifiées au service en aval, il doit sécuriser un jeton d’accès d’Azure Active Directory (Azure AD) pour le compte de l’utilisateur.
+Le flux On-Behalf-Of (OBO) OAuth 2.0 permet à une application qui appelle un service ou une API web de passer l’authentification utilisateur à un autre service ou à une autre API web. Le flux OBO propage l’identité et les autorisations de l’utilisateur délégué à travers la chaîne des demandes. Pour que le service de niveau intermédiaire puisse faire des demandes authentifiées au service en aval, il doit sécuriser un jeton d’accès d’Azure Active Directory (Azure AD) pour le compte de l’utilisateur.
 
 > [!IMPORTANT]
-> Depuis mai 2018, il n’est pas possible d’utiliser `id_token` pour le flux Pour le compte de. Les SPA doivent transmettre leur jeton d’**accès** à un client confidentiel de couche intermédiaire pour effectuer les flux OBO. Consultez les [limitations](#client-limitations) pour plus d’informations sur les clients pouvant effectuer des appels On-Behalf-Of.
+> À compter de mai 2018, vous ne pouvez plus utiliser un `id_token` pour le flux On-Behalf-Of.  Les applications à une seule page doivent passer un jeton d’accès à un client confidentiel de la couche intermédiaire pour effectuer des flux OBO. Pour plus d’informations sur les clients pouvant effectuer des appels On-Behalf-Of, consultez [Limitations](#client-limitations).
 
 ## <a name="on-behalf-of-flow-diagram"></a>Diagramme du flux Pour le compte de
-Supposons que l’utilisateur a été authentifié sur une application à l’aide du [flux d’octroi de code d’autorisation OAuth 2.0](v1-protocols-oauth-code.md). À ce stade, l’application a un jeton d’accès (jeton A) avec les revendications et le consentement de l’utilisateur pour accéder à l’API web de niveau intermédiaire (API A). L’API A doit maintenant faire une demande authentifiée à l’API web en aval (API B).
 
-Les étapes qui suivent constituent le flux Pour le compte de et sont décrites à l’aide du diagramme suivant.
+Le flux OBO commence après que l’utilisateur a été authentifié sur une application qui utilise le [flux d’octroi de code d’autorisation OAuth 2.0](v1-protocols-oauth-code.md). À ce stade, l’application envoie un jeton d’accès (jeton A) à l’API web de niveau intermédiaire (API A) contenant les revendications de l’utilisateur et le consentement pour accéder à l’API A. Ensuite, l’API A fait une demande authentifiée à l’API web en aval (API B).
 
-![Flux Pour le compte de OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
-
+Ces étapes constituent le flux On-Behalf-Of : ![Flux On-Behalf-Of OAuth 2.0](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 1. L’application cliente fait une demande à l’API A avec le jeton A.
-2. L’API A s’authentifie auprès du point de terminaison d’émission de jeton Azure AD et demande un jeton pour accéder à l’API B.
-3. Le point de terminaison d’émission de jeton Azure AD valide les informations d’identification de l’API A avec le jeton A et émet le jeton d’accès pour l’API B (jeton B).
-4. Le jeton B est défini dans l’en-tête d’autorisation de la demande adressée à l’API B.
-5. Les données de la ressource sécurisée sont retournées par l’API B.
+1. L’API A s’authentifie auprès du point de terminaison d’émission de jeton Azure AD et demande un jeton pour accéder à l’API B.
+1. Le point de terminaison d’émission de jeton Azure AD valide les informations d’identification de l’API A avec le jeton A et émet le jeton d’accès pour l’API B (jeton B).
+1. La demande adressée à l’API B contient le jeton B dans l’en-tête d’autorisation.
+1. L’API B retourne les données depuis la ressource sécurisée.
 
 >[!NOTE]
->La revendication d’audience dans un jeton d’accès utilisé pour demander un jeton pour un service en aval doit être l’id du service qui effectue la requête OBO, et le jeton doit être signé avec la clé de signature globale d’Azure Active Directory (c’est-à-dire la valeur par défaut pour les applications inscrites via l’**inscription d’applications** dans le portail)
+>La revendication d’audience dans un jeton d’accès utilisé pour demander un jeton pour un service en aval doit être l’ID du service qui effectue la demande OBO. Le jeton doit également être signé avec la clé de signature globale Azure Active Directory (qui est la valeur par défaut pour les applications inscrites via **Inscriptions d’applications** dans le portail).
 
 ## <a name="register-the-application-and-service-in-azure-ad"></a>Inscrire le service et l’application dans Azure AD
-Inscrivez l’application cliente et le service de niveau intermédiaire dans Azure AD.
+
+Inscrivez le service de niveau intermédiaire et l’application cliente dans Azure AD.
+
 ### <a name="register-the-middle-tier-service"></a>Inscrire le service de niveau intermédiaire
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Dans la barre supérieure, cliquez sur votre compte et, dans la liste **Répertoire**, choisissez le locataire Active Directory auprès duquel vous voulez inscrire votre application.
-3. Cliquez sur **Autres services** dans le volet de navigation gauche et choisissez **Azure Active Directory**.
-4. Cliquez sur **Inscriptions des applications** et choisissez **Nouvelle inscription d’application**.
-5. Entrez un nom convivial pour l’application, puis sélectionnez le type d’application. En fonction du type d’application, définissez l’URL de connexion ou l’URL de redirection sur l’URL de base. Cliquez sur **Créer** pour créer l’application.
-6. Toujours dans le portail Azure, choisissez votre application, puis cliquez sur **Paramètres**. Dans le menu Paramètres, choisissez **Clés**, puis ajoutez une clé. Sélectionnez une durée de clé d’une ou deux années. Lorsque vous enregistrez cette page, la valeur de clé s’affiche. Copiez et enregistrez cette valeur dans un emplacement sûr, car vous en aurez besoin plus tard pour configurer les paramètres d’application dans votre implémentation. Cette valeur de clé ne s’affichera plus et ne pourra pas être récupérée, par conséquent, enregistrez-la dès que vous la voyez dans le portail Azure.
+1. Dans la barre du haut, sélectionnez votre compte et, sous la liste **Annuaire**, sélectionnez un locataire Active Directory pour votre application.
+1. Dans le volet gauche, sélectionnez **Plus de services** et choisissez **Azure Active Directory**.
+1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription d’application**.
+1. Entrez un nom convivial pour l’application, puis sélectionnez le type d’application.
+    1. En fonction du type d’application, définissez l’URL de connexion ou l’URL de redirection sur l’URL de base.
+    1. Sélectionnez **Créer** pour créer l’application.
+1. Générez une clé secrète du client avant de quitter le portail Azure.
+    1. Dans le portail Azure, choisissez votre application, puis sélectionnez **Paramètres**.
+    1. Sélectionnez **Clés** dans le menu Paramètres et ajoutez une clé avec une durée de clé d’un ou deux ans.
+    1. Quand vous enregistrez cette page, le portail Azure affiche la valeur de la clé. Copiez et enregistrez la clé dans un endroit sûr.
+
+    > [!IMPORTANT]
+    > Vous avez besoin de la clé pour configurer les paramètres de l’application dans votre implémentation. Cette valeur de clé ne sera plus affichée, et elle n’est récupérable par aucun autre moyen. Enregistrez-la dès qu’elle est visible dans le portail Azure.
 
 ### <a name="register-the-client-application"></a>Inscrire l’application cliente
+
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
-2. Dans la barre supérieure, cliquez sur votre compte et, dans la liste **Répertoire**, choisissez le locataire Active Directory auprès duquel vous voulez inscrire votre application.
-3. Cliquez sur **Autres services** dans le volet de navigation gauche et choisissez **Azure Active Directory**.
-4. Cliquez sur **Inscriptions des applications** et choisissez **Nouvelle inscription d’application**.
-5. Entrez un nom convivial pour l’application, puis sélectionnez le type d’application. En fonction du type d’application, définissez l’URL de connexion ou l’URL de redirection sur l’URL de base. Cliquez sur **Créer** pour créer l’application.
-6. Configurez les autorisations pour votre application : dans le menu Paramètres, cliquez sur la section **Autorisations requises**, cliquez sur **Ajouter**, cliquez sur **Sélectionner une API**, puis tapez le nom du service de niveau intermédiaire dans la zone de texte. Ensuite, cliquez sur **Sélectionner les autorisations**, puis sélectionnez Accéder à *nom du service*.
+1. Dans la barre du haut, sélectionnez votre compte et, sous la liste **Annuaire**, sélectionnez un locataire Active Directory pour votre application.
+1. Dans le volet gauche, sélectionnez **Plus de services** et choisissez **Azure Active Directory**.
+1. Sélectionnez **Inscriptions d’applications**, puis **Nouvelle inscription d’application**.
+1. Entrez un nom convivial pour l’application, puis sélectionnez le type d’application.
+   1. En fonction du type d’application, définissez l’URL de connexion ou l’URL de redirection sur l’URL de base.
+   1. Sélectionnez **Créer** pour créer l’application.
+1. Configurez les autorisations pour votre application.
+   1. Dans le menu Paramètres, choisissez la section **Autorisations nécessaires**, puis sélectionnez **Ajouter**et **Sélectionner une API**.
+   1. Tapez le nom du service de niveau intermédiaire dans le champ de texte.
+   1. Choisissez **Sélectionner les autorisations**, puis sélectionnez Accéder à **Nom du service**.
 
 ### <a name="configure-known-client-applications"></a>Configurer les applications clientes connues
-Dans ce scénario, le service de niveau intermédiaire n’a aucune interaction utilisateur pour obtenir le consentement de l’utilisateur pour accéder à l’API en aval. Par conséquent, l’option d’accorder l’accès à l’API en aval doit être présentée au préalable lors de l’étape de consentement pendant l’authentification.
-Pour ce faire, suivez les étapes ci-dessous pour lier de manière explicite l’inscription de l’application cliente dans Azure AD à l’inscription du service de niveau intermédiaire. Ceci a pour effet de fusionner le consentement exigé à la fois par le client et par le niveau intermédiaire dans une même boîte de dialogue.
-1. Accédez à l’inscription du service de niveau intermédiaire, puis cliquez sur **Manifeste** pour ouvrir l’éditeur de manifeste.
-2. Dans le manifeste, localisez la propriété de tableau `knownClientApplications`, puis ajoutez l’ID client de l’application cliente en tant qu’élément.
-3. Enregistrez le manifeste en cliquant sur le bouton Enregistrer.
+
+Dans ce scénario, le service de niveau intermédiaire doit obtenir le consentement de l’utilisateur pour accéder à l’API en aval sans interaction de l’utilisateur. L’option d’accorder l’accès à l’API en aval doit être présentée au préalable lors de l’étape de consentement pendant l’authentification.
+
+Effectuez les étapes ci-dessous pour lier explicitement l’inscription de l’application cliente dans Azure AD avec l’inscription du service de niveau intermédiaire. Cette opération fusionne le consentement exigé par le client et par le niveau intermédiaire dans une même boîte de dialogue.
+
+1. Accédez à l’inscription du service de niveau intermédiaire, puis sélectionnez **Manifeste** pour ouvrir l’éditeur de manifeste.
+1. Recherchez la propriété de tableau `knownClientApplications`, puis ajoutez l’ID client de l’application cliente en tant qu’élément.
+1. Enregistrez le manifeste en sélectionnant **Enregistrer**.
 
 ## <a name="service-to-service-access-token-request"></a>Demande de jeton d’accès de service à service
-Pour demander un jeton d’accès, faites une demande HTTP POST au point de terminaison Azure AD spécifique au locataire, avec les paramètres suivants.
+
+Pour demander un jeton d’accès, faites une requête HTTP POST au point de terminaison Azure AD spécifique au locataire, avec les paramètres suivants :
 
 ```
 https://login.microsoftonline.com/<tenant>/oauth2/token
 ```
-Deux cas de figure se présentent, selon que l’application cliente choisit d’être sécurisée par un secret partagé ou un certificat.
+
+L’application cliente est sécurisée par un secret partagé ou par un certificat.
 
 ### <a name="first-case-access-token-request-with-a-shared-secret"></a>Premier cas : demande de jeton d’accès avec un secret partagé
+
 Lorsque l’application utilise un secret partagé, la demande de jeton d’accès de service à service contient les paramètres suivants :
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| grant_type |required | Type de la demande de jeton. Comme les requêtes OBO utilisent un jeton d’accès JWT, la valeur doit être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| grant_type |required | Type de la demande de jeton. Une demande OBO utilise un jeton d’accès JWT : la valeur doit donc être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | Valeur du jeton d’accès utilisé dans la requête. |
-| client_id |required | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application, dans le Portail de gestion Azure, cliquez successivement sur **Active Directory**, sur le répertoire, puis sur le nom de l’application. |
+| client_id |required | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, choisissez l’annuaire, puis sélectionnez le nom de l’application. |
 | client_secret |required | Clé enregistrée pour le service appelant dans Azure AD. Vous devez avoir noté cette valeur au moment de l’inscription. |
-| resource |required | URI ID d’application du service web de destination (ressource sécurisée). Pour rechercher l’URI ID d’application, dans le portail de gestion Azure, cliquez successivement sur **Active Directory**, sur le répertoire, sur le nom de l’application, sur **Tous les paramètres**, puis sur **Propriétés**. |
+| resource |required | URI de l’ID d’application du service de destination (ressource sécurisée). Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
 | requested_token_use |required | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
 | scope |required | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour OpenID Connect, l’étendue **openid** doit être spécifiée.|
 
 #### <a name="example"></a>Exemples
+
 La requête HTTP POST suivante demande un jeton d’accès pour l’API web https://graph.windows.net. `client_id` identifie le service qui demande le jeton d’accès.
 
 ```
@@ -116,22 +138,24 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 ```
 
 ### <a name="second-case-access-token-request-with-a-certificate"></a>Deuxième cas : demande de jeton d’accès avec un certificat
+
 Une demande de jeton d’accès de service à service avec un certificat contient les paramètres suivants :
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| grant_type |required | Type de la demande de jeton. Comme les requêtes OBO utilisent un jeton d’accès JWT, la valeur doit être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| grant_type |required | Type de la demande de jeton. Une demande OBO utilise un jeton d’accès JWT : la valeur doit donc être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | Valeur du jeton utilisé dans la demande. |
-| client_id |required | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application, dans le Portail de gestion Azure, cliquez successivement sur **Active Directory**, sur le répertoire, puis sur le nom de l’application. |
+| client_id |required | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, choisissez l’annuaire, puis sélectionnez le nom de l’application. |
 | client_assertion_type |required |La valeur doit être `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`. |
-| client_assertion |required | Assertion (JSON Web Token) dont vous avez besoin pour créer et signer avec le certificat inscrit comme informations d’identification pour votre application. Pour découvrir comment inscrire votre certificat et le format de l’assertion, consultez la section traitant des [informations d’identification des certificats](active-directory-certificate-credentials.md).|
-| resource |required | URI ID d’application du service web de destination (ressource sécurisée). Pour rechercher l’URI ID d’application, dans le portail de gestion Azure, cliquez successivement sur **Active Directory**, sur le répertoire, sur le nom de l’application, sur **Tous les paramètres**, puis sur **Propriétés**. |
+| client_assertion |required | Jeton web JSON que vous créez et que vous signez avec le certificat inscrit comme informations d’identification pour votre application. Pour plus d’informations sur le format de l’assertion et sur la façon d’inscrire votre certificat, consultez [Informations d’identification des certificats](active-directory-certificate-credentials.md).|
+| resource |required | URI de l’ID d’application du service de destination (ressource sécurisée). Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
 | requested_token_use |required | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
 | scope |required | Liste des étendues (séparées par des espaces) pour la demande de jeton. Pour OpenID Connect, l’étendue **openid** doit être spécifiée.|
 
-Notez que les paramètres sont presque les mêmes que dans le cas de la demande par secret partagé, sauf que le paramètre client_secret est remplacé par deux paramètres : client_assertion_type et client_assertion.
+Ces paramètres sont presque les mêmes que pour la demande par secret partagé, sauf que le `client_secret parameter` est remplacé par deux paramètres : `client_assertion_type` et `client_assertion`.
 
 #### <a name="example"></a>Exemples
+
 La requête HTTP POST suivante demande un jeton d’accès pour l’API web https://graph.windows.net avec un certificat. `client_id` identifie le service qui demande le jeton d’accès.
 
 ```
@@ -151,8 +175,9 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 &scope=openid
 ```
 
-## <a name="service-to-service-access-token-response"></a>Réponse de jeton d’accès de service à service
-Une réponse correspondant à une réussite est une réponse JSON OAuth 2.0 avec les paramètres suivants.
+## <a name="service-to-service-access-token-response"></a>Réponse du jeton d’accès de service à service
+
+Une réponse correspondant à une réussite est une réponse JSON OAuth 2.0 avec les paramètres suivants :
 
 | Paramètre | Description |
 | --- | --- |
@@ -160,12 +185,13 @@ Une réponse correspondant à une réussite est une réponse JSON OAuth 2.0 avec
 | scope |Étendue de l’accès accordé dans le jeton. |
 | expires_in |Durée de validité du jeton d’accès (en secondes). |
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
-| resource |URI ID d’application du service web de destination (ressource sécurisée). |
+| resource |URI de l’ID d’application du service de destination (ressource sécurisée). |
 | access_token |Le jeton d’accès demandé. Le service web appelant peut utiliser ce jeton pour s’authentifier auprès du service destinataire. |
-| id_token |Jeton d’ID demandé. Le service appelant peut utiliser le jeton d’ID pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. |
+| id_token |Jeton d’ID demandé. Le service appelant peut utiliser ce jeton pour vérifier l’identité de l’utilisateur et démarrer une session avec lui. |
 | refresh_token |Jeton d’actualisation pour le jeton d’accès demandé. Le service appelant peut utiliser ce jeton pour demander un autre jeton d’accès après l’expiration du jeton d’accès actuel. |
 
 ### <a name="success-response-example"></a>Exemple de réponse correspondant à une réussite
+
 L’exemple suivant illustre une réponse affirmative à une demande de jeton d’accès pour l’API web https://graph.windows.net.
 
 ```
@@ -184,7 +210,8 @@ L’exemple suivant illustre une réponse affirmative à une demande de jeton d�
 ```
 
 ### <a name="error-response-example"></a>Exemple de réponse d’erreur
-Une réponse d’erreur est retournée par le point de terminaison du jeton Azure AD lors de la tentative d’acquérir un jeton d’accès pour l’API en aval si une stratégie d’accès conditionnel comme l’authentification multifacteur est définie sur cette API. Le service de niveau intermédiaire doit faire apparaître cette erreur à l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
+
+Le point de terminaison de jeton Azure AD renvoie une réponse d’erreur quand il tente d’acquérir un jeton d’accès pour une API en aval qui est définie avec une stratégie d’accès conditionnel (par exemple l’authentification multifacteur). Le service de niveau intermédiaire doit faire apparaître cette erreur à l’application cliente afin que celle-ci puisse fournir une interaction utilisateur pour satisfaire la stratégie d’accès conditionnel.
 
 ```
 {
@@ -199,45 +226,47 @@ Une réponse d’erreur est retournée par le point de terminaison du jeton Azur
 ```
 
 ## <a name="use-the-access-token-to-access-the-secured-resource"></a>Utiliser le jeton d’accès pour accéder à la ressource sécurisée
-Le service de niveau intermédiaire peut maintenant utiliser le jeton obtenu ci-dessus pour faire des demandes authentifiées à l’API web en aval, en définissant le jeton dans l’en-tête `Authorization`.
+
+Le service de niveau intermédiaire peut utiliser le jeton obtenu pour faire des demandes authentifiées à l’API web en aval, en définissant le jeton dans l’en-tête `Authorization`.
 
 ### <a name="example"></a>Exemples
+
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
 Host: graph.windows.net
 Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCIsImtpZCI6InowMzl6ZHNGdWl6cEJmQlZLMVRuMjVRSFlPMCJ9.eyJhdWQiOiJodHRwczovL2dyYXBoLndpbmRvd3MubmV0IiwiaXNzIjoiaHR0cHM6Ly9zdHMud2luZG93cy5uZXQvMjYwMzljY2UtNDg5ZC00MDAyLTgyOTMtNWIwYzUxMzRlYWNiLyIsImlhdCI6MTQ5MzQyMzE2OCwibmJmIjoxNDkzNDIzMTY4LCJleHAiOjE0OTM0NjY5NTEsImFjciI6IjEiLCJhaW8iOiJBU1FBMi84REFBQUE1NnZGVmp0WlNjNWdBVWwrY1Z0VFpyM0VvV2NvZEoveWV1S2ZqcTZRdC9NPSIsImFtciI6WyJwd2QiXSwiYXBwaWQiOiI2MjUzOTFhZi1jNjc1LTQzZTUtOGU0NC1lZGQzZTMwY2ViMTUiLCJhcHBpZGFjciI6IjEiLCJlX2V4cCI6MzAyNjgzLCJmYW1pbHlfbmFtZSI6IlRlc3QiLCJnaXZlbl9uYW1lIjoiTmF2eWEiLCJpcGFkZHIiOiIxNjcuMjIwLjEuMTc3IiwibmFtZSI6Ik5hdnlhIFRlc3QiLCJvaWQiOiIxY2Q0YmNhYy1iODA4LTQyM2EtOWUyZi04MjdmYmIxYmI3MzkiLCJwbGF0ZiI6IjMiLCJwdWlkIjoiMTAwMzNGRkZBMTJFRDdGRSIsInNjcCI6IlVzZXIuUmVhZCIsInN1YiI6IjNKTUlaSWJlYTc1R2hfWHdDN2ZzX0JDc3kxa1l1ekZKLTUyVm1Zd0JuM3ciLCJ0aWQiOiIyNjAzOWNjZS00ODlkLTQwMDItODI5My01YjBjNTEzNGVhY2IiLCJ1bmlxdWVfbmFtZSI6Im5hdnlhQGRkb2JhbGlhbm91dGxvb2sub25taWNyb3NvZnQuY29tIiwidXBuIjoibmF2eWFAZGRvYmFsaWFub3V0bG9vay5vbm1pY3Jvc29mdC5jb20iLCJ1dGkiOiJ4Q3dmemhhLVAwV0pRT0x4Q0dnS0FBIiwidmVyIjoiMS4wIn0.cqmUVjfVbqWsxJLUI1Z4FRx1mNQAHP-L0F4EMN09r8FY9bIKeO-0q1eTdP11Nkj_k4BmtaZsTcK_mUygdMqEp9AfyVyA1HYvokcgGCW_Z6DMlVGqlIU4ssEkL9abgl1REHElPhpwBFFBBenOk9iHddD1GddTn6vJbKC3qAaNM5VarjSPu50bVvCrqKNvFixTb5bbdnSz-Qr6n6ACiEimiI1aNOPR2DeKUyWBPaQcU5EAK0ef5IsVJC1yaYDlAcUYIILMDLCD9ebjsy0t9pj_7lvjzUSrbMdSCCdzCqez_MSNxrk1Nu9AecugkBYp3UVUZOIyythVrj6-sVvLZKUutQ
 ```
-## <a name="service-to-service-calls-using-a-saml-assertion-obtained-with-an-oauth20-on-behalf-of-flow"></a>Les appels de service à service avec une assertion SAML obtenue avec un flux d’authentification OAuth 2.0 Pour le compte de
 
-Certains services web basés sur OAuth doivent pouvoir accéder aux autres API de service web qui acceptent les instructions d’assertion SAML dans les flux non interactifs.  Azure Active Directory peut fournir une instruction d’assertion SAML en réponse à un flux Pour le compte de avec un service web basé sur SAML comme ressource cible. 
+## <a name="saml-assertions-obtained-with-an-oauth20-obo-flow"></a>Assertions SAML obtenues avec un flux OBO OAuth 2.0
 
->[!NOTE] 
->Il s’agit d’une extension non standard pour le flux Pour le compte de OAuth 2.0 qui permet à une application OAuth2 d’accéder aux points de terminaison API du service web qui consomment les jetons SAML.  
+Certains services web basés sur OAuth doivent accéder à d’autres API de service web qui acceptent les instructions d’assertion SAML dans des flux non interactifs. Azure Active Directory peut fournir une instruction d’assertion SAML en réponse à un flux On-Behalf-Of qui utilise un service web basé sur SAML comme ressource cible.
 
->[!TIP]
->Si vous appelez un service web SAML protégé à partir d’une application web frontale, vous pouvez simplement appeler l’API et lancer un flux d’authentification interactif normal qui utilise la session utilisateur existante.  Vous devez simplement envisager d’utiliser un flux OBO lorsqu’un appel de service à service requiert un jeton SAML pour fournir le contexte de l’utilisateur.
+>[!NOTE]
+>Il s’agit d’une extension non standard pour le flux On-Behalf-Of OAuth 2.0 qui permet à une application OAuth2 d’accéder aux points de terminaison d’API du service web qui consomment des jetons SAML.
 
-### <a name="obtain-a-saml-token-using-an-obo-request-with-a-shared-secret"></a>Obtenir un jeton SAML à l’aide d’une requête OBO avec un secret partagé
-Une demande de service à service pour obtenir une instruction d’assertion SAML contient les paramètres suivants :
+> [!TIP]
+> Quand vous appelez un service web protégé par SAML à partir d’une application web front-end, vous pouvez simplement appeler l’API et lancer un flux d’authentification interactif normal avec la session existante de l’utilisateur. Vous devez seulement utiliser un flux OBO quand un appel de service à service nécessite un jeton SAML pour fournir le contexte de l’utilisateur.
+
+### <a name="obtain-a-saml-token-by-using-an-obo-request-with-a-shared-secret"></a>Obtenir un jeton SAML en utilisant une demande OBO avec un secret partagé
+
+Une demande de service à service pour obtenir une assertion SAML contient les paramètres suivants :
 
 | Paramètre |  | Description |
 | --- | --- | --- |
-| grant_type |required | Type de la demande de jeton. Pour une demande à l’aide d’un JWT, la valeur doit être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
+| grant_type |required | Type de la demande de jeton. Pour une demande qui utilise un JWT, la valeur doit être **urn:ietf:params:oauth:grant-type:jwt-bearer**. |
 | assertion |required | Valeur du jeton d’accès utilisé dans la requête.|
-| client_id |required | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application, dans le Portail de gestion Azure, cliquez successivement sur **Active Directory**, sur le répertoire, puis sur le nom de l’application. |
+| client_id |required | ID d’application affecté au service appelant lors de l’inscription auprès d’Azure AD. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, choisissez l’annuaire, puis sélectionnez le nom de l’application. |
 | client_secret |required | Clé enregistrée pour le service appelant dans Azure AD. Vous devez avoir noté cette valeur au moment de l’inscription. |
-| resource |required | URI ID d’application du service web de destination (ressource sécurisée). Il s’agit de la ressource qui sera l’audience du jeton SAML.  Pour rechercher l’URI ID d’application, dans le portail de gestion Azure, cliquez successivement sur **Active Directory**, sur le répertoire, sur le nom de l’application, sur **Tous les paramètres**, puis sur **Propriétés**. |
+| resource |required | URI de l’ID d’application du service de destination (ressource sécurisée). Il s’agit de la ressource qui sera l’audience du jeton SAML. Pour rechercher l’ID d’application dans le portail Azure, sélectionnez **Active Directory**, puis choisissez l’annuaire. Sélectionnez le nom de l’application, choisissez **Tous les paramètres**, puis sélectionnez **Propriétés**. |
 | requested_token_use |required | Spécifie comment la demande doit être traitée. Dans le flux Pour le compte de, la valeur doit être **on_behalf_of**. |
-| requested_token_type | required | Spécifie le type de jeton demandé.  La valeur peut être « urn:ietf:params:oauth:token-type:saml2 » ou « urn:ietf:params:oauth:token-type:saml1 », en fonction des exigences de la ressource. |
+| requested_token_type | required | Spécifie le type de jeton demandé. La valeur peut être **urn:ietf:params:oauth:token-type:saml2** ou **urn:ietf:params:oauth:token-type:saml1**, en fonction des exigences de la ressource. |
 
+La réponse contient un jeton SAML encodé en UTF8 et Base64url.
 
-La réponse contiendra un jeton SAML encodé en UTF8 et Base64url. 
+- **SubjectConfirmationData pour une assertion SAML provenant d’un appel OBO** : si l’application cible requiert une valeur de destinataire dans **SubjectConfirmationData**, la valeur doit être une URL de réponse sans caractères génériques dans la configuration de la ressource d’application.
+- **Le nœud SubjectConfirmationData** : le nœud ne peut pas contenir d’attribut **InResponseTo**, car il ne fait pas partie d’une réponse SAML. L’application qui reçoit le jeton SAML doit pouvoir accepter l’assertion SAML sans attribut **InResponseTo**.
 
-SubjectConfirmationData pour une instruction d’assertion SAML provenant d’un appel OBO : si l’application cible requiert une valeur de destinataire dans SubjectConfirmationData, elle doit être définie comme une URL de réponse sans caractères génériques dans la configuration de la ressource d’application.
-
-Le nœud SubjectConfirmationData ne peut pas contenir d’attribut InResponseTo, dans la mesure où il ne fait pas partie d’une réponse SAML.  L’application qui reçoit le jeton SAML doit pouvoir accepter l’instruction d’assertion SAML sans attribut InResponseTo.
-
-Consentement : afin de recevoir un jeton SAML contenant des données utilisateur sur un flux OAuth, un consentement doit avoir été accordé.  Consultez https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent pour plus d’informations sur les autorisations et le consentement de l’administrateur.
+- **Consentement** : un consentement doit avoir été accordé pour recevoir un jeton SAML contenant des données utilisateur sur un flux OAuth. Pour plus d’informations sur les autorisations et sur l’obtention d’un consentement de l’administrateur, consultez [Autorisations et consentement dans le point de terminaison Azure Active Directory v1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent).
 
 ### <a name="response-with-saml-assertion"></a>Réponse avec instruction d’assertion SAML
 
@@ -247,16 +276,26 @@ Consentement : afin de recevoir un jeton SAML contenant des données utilisateu
 | scope |Étendue de l’accès accordé dans le jeton. |
 | expires_in |Durée de validité du jeton d’accès (en secondes). |
 | expires_on |L’heure d’expiration du jeton d’accès. La date est représentée en nombre de secondes à partir du 1er janvier 1970 (1970-01-01T0:0:0Z) UTC jusqu’au moment de l’expiration. Cette valeur est utilisée pour déterminer la durée de vie des jetons en cache. |
-| resource |URI ID d’application du service web de destination (ressource sécurisée). |
-| access_token |L’instruction d’assertion SAML est retournée dans le paramètre acces_token. |
+| resource |URI de l’ID d’application du service de destination (ressource sécurisée). |
+| access_token |Paramètre qui retourne l’assertion SAML. |
 | refresh_token |Le jeton d’actualisation. Le service appelant peut utiliser ce jeton pour demander un autre jeton d’accès après l’expiration de l’instruction d’assertion SAML actuelle. |
 
-token_type: Bearer expires_in:3296 ext_expires_in:0 expires_on:1529627844 resource:https://api.contoso.com access_token: <Saml assertion> issued_token_type:urn:ietf:params:oauth:token-type:saml2 refresh_token: <Refresh token>
+- token_type : Bearer
+- expires_in : 3296
+- ext_expires_in : 0
+- expires_on : 1529627844
+- resource : `https://api.contoso.com`
+- access_token : \<assertion SAML\>
+- issued_token_type : urn:ietf:params:oauth:token-type:saml2
+- refresh_token : \<jeton d’actualisation\>
 
 ## <a name="client-limitations"></a>Limitations du client
-Les clients publics avec des URL de réponse génériques ne peut pas utiliser un `id_token` pour les flux OBO. Toutefois, un client confidentiel peut toujours échanger les jetons d’accès obtenus via le flux d’octroi implicite, même si le client public a une URI de redirection générique inscrite.
+
+Les clients publics ayant des URL de réponse avec des caractères génériques ne peuvent pas utiliser un `id_token` pour les flux OBO. Cependant, un client confidentiel peut toujours échanger les jetons d’**accès** obtenus via le flux d’octroi implicite, même si le client public a un URI de redirection avec des caractères génériques inscrit.
 
 ## <a name="next-steps"></a>Étapes suivantes
-Découvrez plus d’informations sur le protocole OAuth 2.0 et une autre méthode pour effectuer l’authentification de service à service à l’aide des informations d’identification du client.
+
+Découvrez plus d’informations sur le protocole OAuth 2.0 et une autre méthode pour effectuer l’authentification de service à service utilisant les informations d’identification du client :
+
 * [Authentification de service à service utilisant l’octroi d’informations d’identification du client OAuth 2.0 dans Azure AD](v1-oauth2-client-creds-grant-flow.md)
 * [OAuth 2.0 dans Azure AD](v1-protocols-oauth-code.md)

@@ -1,6 +1,6 @@
 ---
 title: Déployer localement la solution de surveillance à distance - Docker - Azure | Microsoft Docs
-description: Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local à des fins de test et de développement.
+description: Ce guide pratique montre comment déployer l’accélérateur de solution de supervision à distance sur votre ordinateur local en utilisant Docker à des fins de test et de développement.
 author: avneet723
 manager: hegate
 ms.author: avneet723
@@ -8,18 +8,18 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 10/25/2018
 ms.topic: conceptual
-ms.openlocfilehash: 91f43473a5648be5264038993f43b61887e0c363
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: 46cd16c1667d3b33501c1b5680baabf243509f67
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
 ms.lasthandoff: 11/08/2018
-ms.locfileid: "51285411"
+ms.locfileid: "51288542"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-locally---docker"></a>Déployer localement l’accélérateur de solution de surveillance à distance - Docker
 
 [!INCLUDE [iot-accelerators-selector-local](../../includes/iot-accelerators-selector-local.md)]
 
-Cet article montre comment déployer l’accélérateur de solution de surveillance à distance sur votre ordinateur local à des fins de test et de développement. Cet article vous montre comment déployer les microservices dans des conteneurs Docker locaux. Les déploiements de microservices locaux utilisent les services de cloud suivants : IoT Hub, Cosmos DB, Azure Stream Analytics et Azure Time Series Insights dans le cloud.
+Cet article montre comment déployer l’accélérateur de solution de surveillance à distance sur votre ordinateur local à des fins de test et de développement. Vous apprendrez à déployer les microservices dans des conteneurs Docker locaux. Les déploiements de microservices locaux utilisent les services de cloud suivants : IoT Hub, Cosmos DB, Azure Stream Analytics et Azure Time Series Insights dans le cloud.
 
 Si vous souhaitez exécuter l’accélérateur de solution de surveillance à distance dans un IDE sur votre ordinateur local, consultez [Déployer localement l’accélérateur de solution de surveillance à distance - Visual Studio](iot-accelerators-remote-monitoring-deploy-local.md).
 
@@ -70,13 +70,13 @@ docker-compose up
 La première fois que vous exécutez cette commande, Docker télécharge les images des microservices à partir de Docker Hub pour créer les conteneurs localement. Lors des exécutions suivantes, Docker exécute les conteneurs immédiatement.
 
 > [!TIP]
-> Nous publions fréquemment de nouvelles images Docker avec de nouvelles fonctionnalités. Vous pouvez utiliser le jeu de commandes suivant pour nettoyer vos conteneurs Docker locaux et les images correspondantes avant d’extraire les plus récents. 
+> Microsoft publie fréquemment de nouvelles images Docker avec de nouvelles fonctionnalités. Vous pouvez utiliser le jeu de commandes suivant pour nettoyer vos conteneurs Docker locaux et les images correspondantes avant d’extraire les plus récents :
 
-```cmd/sh
-docker list
-docker rm <list_of_containers>
-docker rmi <list_of_images>
-```
+    ```cmd/sh
+    docker list
+    docker rm <list_of_containers>
+    docker rmi <list_of_images>
+    ```
 
 Vous pouvez utiliser un interpréteur de commandes distinct pour afficher les journaux du conteneur. Tout d’abord, trouvez l’ID du conteneur à l’aide de la commande `docker ps`. Utilisez ensuite `docker logs {container-id} --tail 1000` pour afficher les 1000 dernières entrées pour le conteneur spécifié.
 
@@ -101,14 +101,4 @@ Utilisez la commande `docker-compose down --rmi all` pour supprimer les images D
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Dans ce tutoriel, vous avez appris à :
-
-> [!div class="checklist"]
-> * Configurer un environnement de développement local
-> * Configurer l’accélérateur de solution
-> * Déployer l’accélérateur de solution
-> * Établir une connexion à l’accélérateur de solution
-
 La solution de surveillance à distance étant déployée, l’étape suivante consiste à [explorer les fonctionnalités du tableau de bord des solutions](quickstart-remote-monitoring-deploy.md).
-
-<!-- Next tutorials in the sequence -->

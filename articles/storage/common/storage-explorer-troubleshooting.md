@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
 ms.component: common
-ms.openlocfilehash: 4f0558f9619aa06557cf89e885154f6326d4b150
-ms.sourcegitcommit: ba4570d778187a975645a45920d1d631139ac36e
+ms.openlocfilehash: ec12da6ccd5b681c85da87d53f944fc4430149b5
+ms.sourcegitcommit: b62f138cc477d2bd7e658488aff8e9a5dd24d577
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/08/2018
-ms.locfileid: "51281769"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51616195"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Guide de résolution des problèmes de l’Explorateur de stockage Azure
 
@@ -81,7 +81,7 @@ Il peut arriver que le trousseau macOS soit dans un état qui provoque des probl
 * Redémarrez l’Explorateur de stockage
 * Si la fenêtre d’authentification est vide, patientez au moins une minute avant de fermer la boîte de dialogue d’authentification.
 * Vérifiez que vos paramètres de proxy et de certificat sont correctement configurés pour votre ordinateur et pour l’Explorateur Stockage.
-* Si vous êtes sur Windows et que vous avez accès à Visual Studio 2017 sur le même ordinateur et avec le même ID de connexion, essayez de vous connecter à Visual Studio 2017. Après une connexion réussie à Visual Studio 2017, vous devez être en mesure d’ouvrir l’Explorateur Stockage et de voir votre compte dans le panneau des comptes. 
+* Si vous êtes sur Windows et que vous avez accès à Visual Studio 2017 sur le même ordinateur et avec le même ID de connexion, essayez de vous connecter à Visual Studio 2017. Après une connexion réussie à Visual Studio 2017, vous devez être en mesure d’ouvrir l’Explorateur Stockage et de voir votre compte dans le panneau des comptes.
 
 Si aucune de ces méthodes ne fonctionne, [ouvrez un problème sur GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues).
 
@@ -115,6 +115,8 @@ Tout d’abord, vérifiez que les informations suivantes que vous avez entrées 
 
 * URL de proxy et numéro de port
 * Nom d’utilisateur et mot de passe si requis par le proxy
+
+Notez que l’Explorateur Stockage ne prend pas en charge les fichier .pac pour la configuration des paramètres de proxy.
 
 ### <a name="common-solutions"></a>Solutions courantes
 

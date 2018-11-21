@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: f36d08a397836f17ec25a61e77cb1db5ce10b9d4
-ms.sourcegitcommit: 9e179a577533ab3b2c0c7a4899ae13a7a0d5252b
+ms.openlocfilehash: d4b4d99ac943749faaca8cd699b1455795b9c399
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49945058"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51625792"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Personnaliser l’interface utilisateur de votre application à l’aide d’une stratégie personnalisée dans Azure Active Directory B2C
 
@@ -99,17 +99,13 @@ Pour créer un conteneur public dans le stockage Blob, procédez comme suit :
 
 Configurez le stockage Blob pour le partage des ressources cross-origin en procédant comme suit :
 
->[!NOTE]
->Vous souhaitez tester la fonctionnalité de personnalisation de l’interface utilisateur à l’aide de notre exemple de code HTML et de contenu CSS ? Nous vous avons fourni [un outil d’assistance simple](active-directory-b2c-reference-ui-customization-helper-tool.md) qui charge et configure notre exemple de contenu sur votre compte de stockage Blob. Si vous utilisez l’outil, passez directement à la section [Modifier votre stratégie personnalisée d’inscription ou de connexion](#modify-your-sign-up-or-sign-in-custom-policy).
-
-1. Dans le panneau **Stockage**, sous **Paramètres**, ouvrez **CORS**.
-2. Cliquez sur **Add**.
-3. Pour **Origines autorisées**, saisissez un astérisque (\*).
-4. Dans la liste déroulante **Verbes autorisés**, sélectionnez **GET** et **OPTIONS**.
-5. Pour **En-têtes autorisés**, saisissez un astérisque (\*).
-6. Pour **En-têtes exposés**, saisissez un astérisque (\*).
-7. Dans le champ **Âge maximal (secondes)**, saisissez **200**.
-8. Cliquez sur **Add**.
+1. Dans le menu, sélectionnez **CORS**.
+2. Pour **Origines autorisées**, entrez `your-tenant-name.b2clogin.com`. Remplacez `your-tenant-name` par le nom de votre locataire Azure AD B2C. Par exemple : `fabrikam.b2clogin.com`.
+3. Pour **Méthodes autorisées**, sélectionnez `GET` et `OPTIONS`.
+4. Pour **En-têtes autorisés**, saisissez un astérisque (*).
+5. Pour **En-têtes exposés**, saisissez un astérisque (*).
+6. Pour **Âge maximal**, tapez 200.
+7. Cliquez sur **Enregistrer**.
 
 ## <a name="test-cors"></a>Tester CORS
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 820fd904ac4ab983f4bd9858f3cf1ecff147876e
-ms.sourcegitcommit: f20e43e436bfeafd333da75754cd32d405903b07
+ms.openlocfilehash: 2a4519484c3319ca73bef2862db4d279ba117c4f
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/17/2018
-ms.locfileid: "49386618"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636728"
 ---
 # <a name="set-up-sign-in-with-an-azure-active-directory-account-using-custom-policies-in-azure-active-directory-b2c"></a>Configurer la connexion avec un compte Azure Active Directory à l’aide de stratégies personnalisées dans Azure Active Directory B2C 
 
@@ -31,20 +31,19 @@ Suivez les étapes de l’article [Prise en main des stratégies personnalisées
 
 Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spécifique, vous devez inscrire une application au sein du locataire Azure AD de l’organisation.
 
->[!NOTE]
->`Contoso.com` est utilisé pour le locataire Azure AD de l’organisation et `fabrikamb2c.onmicrosoft.com` est utilisé comme locataire Azure AD B2C dans les instructions suivantes.
-
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Veillez à utiliser le répertoire contenant le locataire Azure AD de l’organisation (contoso.com) en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant le répertoire qui contient votre locataire.
 3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Inscriptions d’applications**.
 4. Sélectionnez **Nouvelle inscription d’application**.
 5. Entrez un nom pour votre application. Par exemple : `Azure AD B2C App`.
 6. Pour le **Type d’application**, sélectionnez `Web app / API`.
-7. Pour le champ **URL de connexion**, entrez l’URL suivante en minuscules, où `your-tenant` est remplacé par le nom de votre locataire Azure AD B2C (fabrikamb2c.onmicrosoft.com) :
+7. Pour le champ **URL de connexion**, entrez l’URL suivante en minuscules, où `your-B2C-tenant-name` est remplacé par le nom de votre locataire Azure AD B2C :
 
     ```
-    https://yourtenant.b2clogin.com/your-tenant.onmicrosoft.com/oauth2/authresp
+    https://your-B2C-tenant-name.b2clogin.com/your-B2C-tenant-name.onmicrosoft.com/oauth2/authresp
     ```
+
+    Par exemple : `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 
 8. Cliquez sur **Créer**. Copiez **l’ID d’application** pour une utilisation ultérieure.
 9. Sélectionnez l’application, puis **Paramètres**.
@@ -55,7 +54,7 @@ Pour autoriser la connexion des utilisateurs d’une organisation Azure AD spéc
 Vous devez stocker la clé d’application que vous avez créée dans votre locataire Azure AD B2C.
 
 1. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-2. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+2. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 3. Dans la page de vue d’ensemble, sélectionnez **Infrastructure d’expérience d’identité - PRÉVERSION**.
 4. Sélectionnez **Clés de stratégie**, puis **Ajouter**.
 5. Pour **Options**, choisissez `Manual`.
@@ -85,7 +84,7 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Az
           <Protocol Name="OpenIdConnect"/>
           <OutputTokenFormat>JWT</OutputTokenFormat>
           <Metadata>
-            <Item Key="METADATA">https://login.windows.net/your-tenant/.well-known/openid-configuration</Item>
+            <Item Key="METADATA">https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration</Item>
             <Item Key="ProviderName">https://sts.windows.net/00000000-0000-0000-0000-000000000000/</Item>
             <Item Key="client_id">00000000-0000-0000-0000-000000000000</Item>
             <Item Key="IdTokenAudience">00000000-0000-0000-0000-000000000000</Item>
@@ -119,7 +118,7 @@ Vous pouvez définir Azure AD comme fournisseur de revendications en ajoutant Az
     </ClaimsProvider>
     ```
 
-4. Sous l’élément **ClaimsProvider**, mettez à jour la valeur de **Domaine** sur une valeur unique qui peut être utilisée pour le distinguer des autres fournisseurs d’identité.
+4. Sous l’élément **ClaimsProvider**, mettez à jour la valeur de **Domaine** sur une valeur unique qui peut être utilisée pour le distinguer des autres fournisseurs d’identité. Par exemple, `Contoso`. Vous ne placez pas de `.com` à la fin de ce paramètre de domaine.
 5. Sous l’élément **ClaimsProvider**, mettez à jour la valeur de **DisplayName** sur un nom convivial pour le fournisseur de revendications. Cette valeur n’est pas utilisée actuellement.
 
 ### <a name="update-the-technical-profile"></a>Mise à jour du profil technique
@@ -130,7 +129,7 @@ Pour obtenir un jeton à partir du point de terminaison Azure AD, vous devez dé
 2. Mettez à jour la valeur de **DisplayName**. Cette valeur s’affiche sur le bouton Se connecter dans votre écran de connexion.
 3. Mettez à jour la valeur de **Description**.
 4. Azure AD utilisant le protocole OpenID Connect, vérifiez que la valeur de **Protocol** est bien `OpenIdConnect`.
-5. Définissez la valeur de **METADATA** sur `https://login.windows.net/your-tenant/.well-known/openid-configuration`, où `your-tenant` est le nom de votre locataire Azure AD (contoso.com).
+5. Définissez la valeur de **METADATA** sur `https://login.windows.net/your-AD-tenant-name.onmicrosoft.com/.well-known/openid-configuration`, où `your-AD-tenant-name` est le nom de votre locataire Azure AD. Par exemple, `https://login.windows.net/fabrikam.onmicrosoft.com/.well-known/openid-configuration`
 6. Ouvrez votre navigateur, puis accédez à l’URL **METADATA** que vous venez de mettre à jour, recherchez l’objet **issuer**, puis copiez et collez la valeur dans **ProviderName** dans le fichier XML.
 8. Définissez **client_id** et **IdTokenAudience** sur l’ID d’application de l’inscription de l’application.
 9. Sous **CryptograhicKeys**, mettez à jour la valeur de **StorageReferenceId** sur la clé de stratégie que vous avez définie. Par exemple : `ContosoAppSecret`.
@@ -158,7 +157,7 @@ Pour obtenir un jeton à partir du point de terminaison Azure AD, vous devez dé
 L’élément **ClaimsProviderSelection** est analogue à un bouton de fournisseur d’identité sur un écran d’inscription ou de connexion. Si vous ajoutez un élément **ClaimsProviderSelection** à Azure AD, un nouveau bouton s’affiche quand un utilisateur arrive sur la page.
 
 1. Recherchez l’élément **OrchestrationStep** comprenant `Order="1"` dans le parcours utilisateur que vous avez créé.
-2. Sous **ClaimsProviderSelects**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `ContosoExchange` :
+2. Sous **ClaimsProviderSelections**, ajoutez l’élément suivant. Définissez la valeur de l’élément **TargetClaimsExchangeId** sur une valeur appropriée, par exemple `ContosoExchange` :
 
     ```XML
     <ClaimsProviderSelection TargetClaimsExchangeId="ContosoExchange" />
@@ -185,7 +184,7 @@ La communication avec Azure AD B2C s’effectue via une application que vous cr�
 
 1. Connectez-vous au [Portail Azure](https://portal.azure.com).
 2. Veillez à utiliser l’annuaire qui contient votre locataire Azure AD B2C en cliquant sur le **filtre Répertoire et abonnement** dans le menu du haut et en choisissant l’annuaire qui contient votre locataire.
-3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
+3. Choisissez **Tous les services** dans le coin supérieur gauche du portail Azure, puis recherchez et sélectionnez **Azure AD B2C**.
 4. Sélectionnez **Applications**, puis **Ajouter**.
 5. Entrez un nom pour l’application (par exemple, *testapp1*).
 6. Pour **Application/API web**, sélectionnez `Yes`, puis entrez `https://jwt.ms` pour l’**URL de réponse**.

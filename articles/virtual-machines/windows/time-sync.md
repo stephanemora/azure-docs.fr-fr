@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 09/017/2018
 ms.author: zarhoads
-ms.openlocfilehash: 1c784721d103ca623f6e9bac5ec1281beeb70074
-ms.sourcegitcommit: 62759a225d8fe1872b60ab0441d1c7ac809f9102
+ms.openlocfilehash: ad5ceeef170e38bf6368c54894b20245d10b74ee
+ms.sourcegitcommit: 0fc99ab4fbc6922064fc27d64161be6072896b21
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49468314"
+ms.lasthandoff: 11/13/2018
+ms.locfileid: "51578193"
 ---
 # <a name="time-sync-for-windows-vms-in-azure"></a>Synchronisation de l’heure pour les machines virtuelles Windows dans Azure
 
@@ -40,6 +40,8 @@ La précision de l’horloge de l’ordinateur est évaluée en fonction de la p
 Les hôtes Azure sont synchronisés avec les serveurs de temps internes Microsoft qui extraient l’heure depuis des appareils de couche 1 appartenant à Microsoft, grâce à des antennes GPS. Les machines virtuelles dans Azure peuvent dépendre de leur hôte pour transférer l’heure précise (*heure de l’hôte*) sur la machine virtuelle. La machine virtuelle peut également obtenir directement l’heure à partir d’un serveur de temps, ou par une combinaison des deux. 
 
 Les interactions de la machine virtuelle avec l’hôte peuvent également affecter l’horloge. Au cours de la [maintenance avec préservation de la mémoire](maintenance-and-updates.md#memory-preserving-maintenance), les machines virtuelles sont interrompues jusqu’à 30 secondes. Par exemple, avant le début de la maintenance, l’horloge de la machine virtuelle affiche 10:00:00 pendant 28 secondes. Une fois que la machine virtuelle reprend, l’horloge affiche toujours 10:00:00 et est donc décalée de 28 secondes. Pour corriger cela, le service VMICTimeSync surveille ce qu’il se passe sur l’hôte et demande des modifications sur les machines virtuelles pour compenser.
+
+Le service VMICTimeSync fonctionne en mode échantillon ou synchronisation et impactera uniquement l’horloge vers l’avant. Le mode échantillon, dont l’exécution nécessite W32time, le service VMICTimeSync interroge l’hôte toutes les 5 secondes et fournit des exemples de durée à W32time. Environ toutes les 30 secondes, le service W32time récupère l’échantillon de temps le plus récent et l’utilise pour influencer l’horloge de l’invité. Le mode de synchronisation s’active si un invité a repris son activité ou si l’horloge d’un invité retarde de plus de 5 secondes par rapport à l’horloge de l’ordinateur hôte. Si le service W32time est correctement exécuté, ce dernier cas ne doit jamais se produire.
 
 Si la synchronisation de l’heure ne fonctionne pas, l’horloge de la machine virtuelle accumule les erreurs. S’il n’y a qu’une seule machine virtuelle, l’effet n’est pas forcément significatif, sauf si la charge de travail nécessite une synchronisation extrêmement précise de l’horloge. Mais dans la plupart des cas, nous possédons plusieurs machines virtuelles interconnectées qui utilisent l’heure pour suivre les transactions. L’heure doit donc être cohérente tout au long du déploiement. Lorsque l’heure est différente d’une machine virtuelle à l’autre, vous pouvez rencontrer les effets suivants :
 

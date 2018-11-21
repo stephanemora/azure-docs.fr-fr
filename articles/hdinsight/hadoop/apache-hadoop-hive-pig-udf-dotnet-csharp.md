@@ -1,6 +1,6 @@
 ---
-title: Utiliser C# avec Hive et Pig sur Hadoop dans HDInsight - Azure
-description: Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec la diffusion en continu Hive et Pig dans Azure HDInsight.
+title: Utiliser C# avec Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight - Azure
+description: Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec la diffusion en continu Apache Hive et Apache Pig dans Azure HDInsight.
 services: hdinsight
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -9,16 +9,16 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.author: hrasheed
-ms.openlocfilehash: 8011a9b8009abd2688d76dc3f1cda84ca453fde1
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 2ef88fff1313a0e7b1aa0abb502629512daaf636
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51014684"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51633833"
 ---
-# <a name="use-c-user-defined-functions-with-hive-and-pig-streaming-on-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec la diffusion en continu Hive et Pig dans HDInsight
+# <a name="use-c-user-defined-functions-with-apache-hive-and-apache-pig-streaming-on-apache-hadoop-in-hdinsight"></a>Utilisation des fonctions définies par l’utilisateur C# avec la diffusion en continu Apache Hive et Apache Pig sur Apache Hadoop dans HDInsight
 
-Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec Apache Hive et Pig sur HDInsight.
+Découvrez comment utiliser des fonctions définies par l’utilisateur C# avec Apache Hive et Apache Pig sur HDInsight.
 
 > [!IMPORTANT]
 > Les étapes décrites dans ce document fonctionnent uniquement avec les clusters HDInsight Windows et Linux. Linux est le seul système d’exploitation utilisé sur HDInsight version 3.4 ou supérieure. Pour plus d’informations, consultez [Contrôle de version des composants HDInsight](../hdinsight-component-versioning.md).

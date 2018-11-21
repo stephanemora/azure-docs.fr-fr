@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: cf0e94b859b49eddb8e2471d5319b3cc4a2c17ba
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 7a7f959f54281dcce5b8d1349f5d6607f0e5da30
+ms.sourcegitcommit: 96527c150e33a1d630836e72561a5f7d529521b7
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720291"
+ms.lasthandoff: 11/09/2018
+ms.locfileid: "51345791"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Écriture d’expressions pour les mappages d’attributs dans Azure Active Directory
 Quand vous configurez l’approvisionnement pour une application SaaS, l’un des types de mappages d’attributs que vous pouvez spécifier est un mappage d’expression. Dans ce cas, vous devez écrire une expression semblable à un script qui vous permet de transformer les données des utilisateurs dans des formats plus acceptables pour l’application SaaS.
@@ -37,13 +37,13 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 * Pour les constantes de chaîne, si vous avez besoin d’une barre oblique inverse (\) ou d’un guillemet (") dans la chaîne, vous devez le faire précéder du symbole de barre oblique inverse (\). Par exemple : « Nom de la société : \"Contoso\" »
 
 ## <a name="list-of-functions"></a>Liste des fonctions
-[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
+[Append](#append) &nbsp;&nbsp;&nbsp;&nbsp; [FormatDateTime](#formatdatetime) &nbsp;&nbsp;&nbsp;&nbsp; [Join](#join) &nbsp;&nbsp;&nbsp;&nbsp; [Mid](#mid) &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; [NormalizeDiacritics](#normalizediacritics) [Not](#not) &nbsp;&nbsp;&nbsp;&nbsp; [Replace](#replace) &nbsp;&nbsp;&nbsp;&nbsp; [SelectUniqueValue](#selectuniquevalue)&nbsp;&nbsp;&nbsp;&nbsp; [SingleAppRoleAssignment](#singleapproleassignment)&nbsp;&nbsp;&nbsp;&nbsp; [StripSpaces](#stripspaces) &nbsp;&nbsp;&nbsp;&nbsp; [Switch](#switch)
 
 - - -
 ### <a name="append"></a>Append
-**Fonction :**<br> Append(source, suffixe)
+**Fonction :**<br>  Append(source, suffixe)
 
-**Description :**<br> prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
+**Description :**<br>  prend une valeur de chaîne source et ajoute le suffixe à la fin de celle-ci.
 
 **Paramètres :**<br> 
 
@@ -54,21 +54,21 @@ La syntaxe des expressions pour les mappages d’attributs rappelle celle des fo
 
 - - -
 ### <a name="formatdatetime"></a>FormatDateTime
-**Fonction :**<br> FormatDateTime(source, inputFormat, outputFormat)
+**Fonction :**<br>  FormatDateTime(source, inputFormat, outputFormat)
 
-**Description :**<br> prend une chaîne de date dans un format et la convertit dans un autre format.
+**Description :**<br>  prend une chaîne de date dans un format et la convertit dans un autre format.
 
 **Paramètres :**<br> 
 
 | NOM | Requis / Répétition | type | Notes |
 | --- | --- | --- | --- |
 | **source** |Obligatoire |Chaîne |Généralement le nom de l’attribut de l’objet source. |
-| **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+| **inputFormat** |Obligatoire |Chaîne |Format attendu de la valeur source. Pour connaitre les formats pris en charge, consultez [http://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
 | **outputFormat** |Obligatoire |Chaîne |Format de la date de sortie. |
 
 - - -
 ### <a name="join"></a>Join
-**Fonction :**<br> Join(séparateur, source1, source2, …)
+**Fonction :**<br>  Join(séparateur, source1, source2, …)
 
 **Description :**<br> Join() est similaire à Append(), mais elle peut combiner plusieurs valeurs de chaîne **sources** dans une même chaîne et chaque valeur sera séparée par une chaîne de **séparation**.
 
@@ -83,9 +83,9 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 - - -
 ### <a name="mid"></a>Mid
-**Fonction :**<br> Mid(source, début, longueur)
+**Fonction :**<br>  Mid(source, début, longueur)
 
-**Description :**<br> retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
+**Description :**<br>  retourne une sous-chaîne de la valeur source. Une sous-chaîne est une chaîne qui ne contient que certains des caractères de la chaîne source.
 
 **Paramètres :**<br> 
 
@@ -109,7 +109,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 
 - - -
 ### <a name="not"></a>not
-**Fonction :**<br> Not(source)
+**Fonction :**<br>  Not(source)
 
 **Description :**<br> inverse la valeur booléenne de la **source**. Si la valeur **source** est « *True* », cette fonction retourne «*False* ». Sinon, elle retourne «*True*».
 
@@ -124,7 +124,7 @@ Si l’une des valeurs sources est un attribut à valeurs multiples, toutes les 
 **Fonction :**<br> Remplacer (source, oldValue, regexPattern, regexGroupName, replacementValue, replacementAttributeName, template)
 
 **Description :**<br>
-Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
+ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les paramètres fournis :
 
 * Quand **oldValue** et **replacementValue** sont fournis :
   
@@ -152,6 +152,24 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 | **template** |Facultatif |Chaîne |Lorsque la valeur **template** est fournie, nous recherchons **oldValue** dans le modèle et la remplaçons par la valeur source. |
 
 - - -
+### <a name="selectuniquevalue"></a>SelectUniqueValue
+**Fonction :**<br> SelectUniqueValue(uniqueValueRule1, uniqueValueRule2, uniqueValueRule3, …)
+
+**Description :**<br> Nécessite un minimum de deux arguments, qui sont définis à l’aide d’expressions de règles de génération de valeur unique. La fonction évalue chaque règle, puis vérifie la valeur générée pour l’unicité dans le répertoire/application cible. La première valeur unique trouvée est celle retournée. Si toutes les valeurs existent déjà dans la cible, l’entrée sera déposée et le motif de cette action consigné dans les journaux d’audit. Il n’existe aucune limite supérieure au nombre d’arguments qui peuvent être fournis.
+
+> [!NOTE]
+>1. Il s’agit d’une fonction de niveau supérieur, vous ne pouvez donc pas l’imbriquer.
+>2. Cette fonction est uniquement destinée à être utilisée pour les créations d’entrées. Lorsque vous l’utilisez avec un attribut, définissez la propriété **Appliquer le mappage** sur **Uniquement durant la création d’objet**.
+
+
+**Paramètres :**<br> 
+
+| NOM | Requis / Répétition | type | Notes |
+| --- | --- | --- | --- |
+| **uniqueValueRule1  … uniqueValueRuleN ** |Au moins 2 requis, aucune limite supérieure |Chaîne | Liste des règles de génération de valeur unique à évaluer |
+
+
+- - -
 ### <a name="singleapproleassignment"></a>SingleAppRoleAssignment
 **Fonction :**<br> SingleAppRoleAssignment([appRoleAssignments])
 
@@ -165,9 +183,9 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 - - -
 ### <a name="stripspaces"></a>StripSpaces
-**Fonction :**<br> StripSpaces(source)
+**Fonction :**<br>  StripSpaces(source)
 
-**Description :**<br> supprime tous les caractères d’espacement (" ") de la chaîne source.
+**Description :**<br>  supprime tous les caractères d’espacement (" ") de la chaîne source.
 
 **Paramètres :**<br> 
 
@@ -177,7 +195,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 
 - - -
 ### <a name="switch"></a>Switch
-**Fonction :**<br> Switch(source, defaultValue, key1, value1, key2, value2, …)
+**Fonction :**<br>  Switch(source, defaultValue, key1, value1, key2, value2, …)
 
 **Description :**<br> quand la valeur **source** correspond à une **clé**, retourne la **valeur** de cette **clé**. Si la valeur **source** ne correspond à aucune clé, retourne **defaultValue**.  Les paramètres **key** et **value** doivent toujours être fournis par paires. La fonction attend toujours un nombre pair de paramètres.
 
@@ -193,7 +211,7 @@ Remplace les valeurs dans une chaîne. Elle fonctionne différemment selon les p
 ## <a name="examples"></a>Exemples
 ### <a name="strip-known-domain-name"></a>Supprimer un nom de domaine connu
 Vous devez supprimer un nom de domaine connu de l’adresse de messagerie d’un utilisateur pour obtenir un nom d’utilisateur. <br>
-Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
+ Par exemple, si le domaine est « contoso.com », vous pouvez utiliser l’expression suivante :
 
 **Expression :** <br>
 `Replace([mail], "@contoso.com", , ,"", ,)`
@@ -238,8 +256,9 @@ NormalizeDiacritics([givenName])
 * **SORTIE** : « Zoe »
 
 ### <a name="output-date-as-a-string-in-a-certain-format"></a>Sortir une date sous la forme d’une chaîne dans un certain format
+
 Vous souhaitez envoyer des dates à une application SaaS dans un format donné. <br>
-Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
+ Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
 
 **Expression :** <br>
 
@@ -251,8 +270,9 @@ Par exemple, vous souhaitez mettre en forme des dates pour ServiceNow.
 * **SORTIE** : « 2015-01-23 »
 
 ### <a name="replace-a-value-based-on-predefined-set-of-options"></a>Remplacer une valeur en fonction d’un ensemble d’options prédéfini
+
 Vous devez définir le fuseau horaire de l’utilisateur en fonction du code d’état stocké dans Azure AD. <br>
-Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
+ Si le code d’état ne correspond à aucune des options prédéfinies, utilisez la valeur par défaut « Australia/Sydney ».
 
 **Expression :** <br>
 
@@ -262,6 +282,26 @@ Si le code d’état ne correspond à aucune des options prédéfinies, utilisez
 
 * **ENTRÉE** (state) : « QLD »
 * **SORTIE**: « Australia/Brisbane »
+
+### <a name="generate-unique-value-for-userprincipalname-upn-attribute"></a>Générer une valeur unique pour l’attribut userPrincipalName (UPN)
+
+En fonction du prénom, du deuxième prénom et du nom de famille de l’utilisateur, vous devez générer une valeur pour l’attribut UPN et vérifier son caractère unique dans le répertoire AD cible avant d’attribuer la valeur à l’attribut UPN.
+
+**Expression :** <br>
+
+    SelectUniqueValue( 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  [PreferredFirstName], [PreferredLastName]))), "contoso.com"), 
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 1), [PreferredLastName]))), "contoso.com")
+        Join("@", NormalizeDiacritics(StripSpaces(Join(".",  Mid([PreferredFirstName], 1, 2), [PreferredLastName]))), "contoso.com")
+    )
+
+**Exemple d’entrée/sortie :**
+
+* **ENTRÉE** (PreferredFirstName) : "John"
+* **ENTRÉE** (PreferredLastName) : "John"
+* **SORTIE** : « John.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com n’existe pas déjà dans le répertoire
+* **SORTIE** : « J.Smith@contoso.com » si la valeur UPN de John.Smith@contoso.com existe déjà dans le répertoire
+* **SORTIE** : « Jo.Smith@contoso.com » si les deux valeurs UPN précédentes existent déjà dans le répertoire
 
 ## <a name="related-articles"></a>Articles connexes
 * [Automatiser l’approvisionnement/le déprovisionnement des utilisateurs pour les applications SaaS](user-provisioning.md)

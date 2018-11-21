@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 0058ce8316fa8202cf53eaa1048a44b77efdecb5
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: 15064e90690064e67b296e7a46749f27773c0814
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012443"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636898"
 ---
 # <a name="token-session-and-single-sign-on-configuration-in-azure-active-directory-b2c"></a>Configuration du jeton, de la session et de l’authentification unique dans Azure Active Directory B2C
 
@@ -26,9 +26,9 @@ Cette fonctionnalité vous donne un contrôle précis, [par stratégie](active-d
 - Formats des revendications importantes dans les jetons de sécurité émis par Azure AD B2C.
 - Comportement de l’authentification unique (SSO) entre plusieurs applications et stratégies dans votre client Azure AD B2C.
 
-Pour les stratégies intégrées, vous pouvez utiliser cette fonctionnalité dans votre annuaire Azure AD B2C de la façon suivante :
+Vous pouvez utiliser cette fonctionnalité sur n’importe quel type de stratégie, mais cet exemple montre comment utiliser la fonctionnalité avec une stratégie d’inscription ou de connexion. Pour les stratégies intégrées, vous pouvez utiliser cette fonctionnalité dans votre annuaire Azure AD B2C de la façon suivante :
 
-1. Cliquez sur **Stratégies d’inscription ou de connexion**. *Remarque : vous pouvez utiliser cette fonctionnalité sur tous types de stratégies, pas seulement les **Stratégies d’inscription ou de connexion*\*\*.
+1. Cliquez sur **Stratégies d’inscription ou de connexion**.
 2. Ouvrez une stratégie en cliquant dessus. Par exemple, cliquez sur **B2C_1_SiUpIn**.
 3. Cliquez sur **Modifier** en haut du menu.
 4. Cliquez sur **Configuration du jeton, de la session et de l’authentification unique**.

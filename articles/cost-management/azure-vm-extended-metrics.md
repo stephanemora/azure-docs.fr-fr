@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/27/2018
+ms.date: 11/13/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: bc3eb2721dd9fc0c4cde407a8257f6be73201a2a
-ms.sourcegitcommit: 42405ab963df3101ee2a9b26e54240ffa689f140
+ms.openlocfilehash: 5f1b4cf63379f0007b87c44164168b8510612f52
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47423355"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624095"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Ajouter des métriques étendues pour les machines virtuelles Azure
 
@@ -67,6 +67,8 @@ N’oubliez pas que la supervision d’invités Azure et Linux nécessite un com
 Quand vous créez des machines virtuelles, sous l’onglet Gestion, sélectionnez **Activé** pour **Diagnostic du système d’exploitation invité**.
 
 ![Activer les diagnostics du système d’exploitation invité](./media/azure-vm-extended-metrics/new-enable-diag.png)
+
+Pour plus d’informations sur l’activation des métriques étendues pour les machines virtuelles, consultez [Présentation et utilisation de l’agent Linux Azure](../virtual-machines/extensions/agent-linux.md) et [Vue d’ensemble d’agent de machine virtuelle Azure](../virtual-machines/extensions/agent-windows.md).
 
 ## <a name="resource-manager-credentials"></a>Informations d’identification Resource Manager
 

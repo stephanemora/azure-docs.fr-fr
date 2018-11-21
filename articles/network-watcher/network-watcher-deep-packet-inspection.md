@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: jdial
-ms.openlocfilehash: 1ad6ca4abe73336ce9ce3539fdaf2a9d7dd23fa6
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 7af14143e8ce4924c17a41c6bb1ff33954f4b583
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23036334"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51568724"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Inspection de paquets avec Azure Network Watcher
 
@@ -41,9 +41,9 @@ Dans ce scénario, vous allez :
 
 Dans ce scénario, nous expliquons comment afficher la durée initiale des boucles d’une conversation de protocole TCP entre deux points de terminaison.
 
-Lorsqu’une connexion TCP est établie, les trois premiers paquets envoyés via la connexion suivent un modèle dit de « connexion en trois temps ». En examinant les deux premiers paquets envoyés via cette connexion, une demande initiale du client et une réponse du serveur, nous pouvons calculer la latence lors de l’établissement de cette connexion. Cette latence correspond à la durée des boucles. Pour plus d’informations sur le protocole TCP et la connexion en trois temps, reportez-vous à la ressource suivante : https://support.microsoft.com/fr-fr/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
+Lorsqu’une connexion TCP est établie, les trois premiers paquets envoyés via la connexion suivent un modèle dit de « connexion en trois temps ». En examinant les deux premiers paquets envoyés via cette connexion, une demande initiale du client et une réponse du serveur, nous pouvons calculer la latence lors de l’établissement de cette connexion. Cette latence correspond à la durée des boucles. Pour plus d’informations sur le protocole TCP et la connexion en trois temps, reportez-vous à la ressource suivante : https://support.microsoft.com/en-us/help/172983/explanation-of-the-three-way-handshake-via-tcp-ip
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 
 Lancez WireShark.
 
@@ -51,7 +51,7 @@ Lancez WireShark.
 
 Chargez le fichier **.cap** à partir de votre capture de paquets. Ce fichier se trouve dans l’objet blob dans lequel il a été enregistré localement sur la machine virtuelle, selon sa configuration.
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 
 Pour afficher la durée initiale des boucles dans les conversations TCP, nous examinerons ici uniquement les deux premiers paquets impliqués dans l’établissement de la liaison TCP. Nous allons utiliser les deux premiers paquets de la connexion en trois temps, à savoir les paquets [SYN] et [SYN, ACK]. Ils sont nommés pour les indicateurs définis dans l’en-tête TCP. Le dernier paquet de la connexion, le paquet [ACK], ne sera pas utilisé dans ce scénario. Le paquet [SYN] est envoyé par le client. Une fois le paquet reçu, le serveur envoie le paquet [ACK] en guise d’accusé de réception du paquet SYN du client. Profitant du fait que la réponse du serveur nécessite très peu de traitement, nous calculons la durée des boucles en soustrayant l’heure à laquelle le paquet [SYN, ACK] a été reçu par le client et l’heure à laquelle le paquet [SYN] a été envoyé par le client.
 
@@ -77,7 +77,7 @@ De nombreuses applications peuvent être exécutées sur une instance de machine
 
 Dans cet exemple, nous allons examiner une capture de paquets précédemment exécutée afin d’identifier les protocoles indésirables susceptibles d’indiquer une communication non autorisée à partir d’une application en cours d’exécution sur votre ordinateur.
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 
 Dans la même capture que celle du scénario précédent, cliquez sur **Statistiques** > **Protocol Hierarchy** (Hiérarchie des protocoles).
 
@@ -85,7 +85,7 @@ Dans la même capture que celle du scénario précédent, cliquez sur **Statisti
 
 La fenêtre de la hiérarchie des protocoles s’affiche. Cette vue fournit la liste de tous les protocoles qui étaient en cours d’utilisation lors de la session de capture et le nombre de paquets transmis et reçus à l’aide des protocoles. Cette vue peut être utile pour détecter le trafic réseau indésirable sur vos machines virtuelles ou sur le réseau.
 
-![hiérarchie des protocoles développée][3]
+![Hiérarchie des protocoles ouverte][3]
 
 Comme vous pouvez le voir dans la capture d’écran suivante, un trafic utilisant le protocole BitTorrent (utilisé pour le partage de fichiers en pair à pair) a été enregistré. En tant qu’administrateur, vous ne vous attendez pas à voir un trafic BitTorrent sur cette machine virtuelle spécifique. Maintenant que vous avez connaissance de ce trafic, vous pouvez supprimer le logiciel pair à pair installé sur cette machine virtuelle ou bloquer le trafic à l’aide de groupes de sécurité réseau ou d’un pare-feu. En outre, vous pouvez choisir d’exécuter des captures de paquets planifiées, afin de pouvoir vérifier régulièrement l’utilisation des protocoles sur vos machines virtuelles. Pour obtenir un exemple d’automatisation des tâches réseau dans Azure, consultez la page [Monitor network resources with azure automation](network-watcher-monitor-with-azure-automation.md) (Surveiller les ressources réseau à l’aide d’Azure Automation).
 
@@ -93,7 +93,7 @@ Comme vous pouvez le voir dans la capture d’écran suivante, un trafic utilisa
 
 Identifier les types de trafic, les points de terminaison et les ports utilisés pour la communication est essentiel lors de la surveillance ou de la résolution des problèmes des applications et des ressources sur votre réseau. En utilisant un fichier de capture de paquets tel que ceux ci-dessus, il est possible de déterminer rapidement les principales destinations avec lesquelles votre machine virtuelle communique ainsi que les ports utilisés.
 
-### <a name="step-1"></a>Étape 1 :
+### <a name="step-1"></a>Étape 1
 
 Dans la même capture que celle du scénario précédent, cliquez sur **Statistiques** > **IPv4 Statistics (Statistiques IPv4)** > **Destinations and Ports (Destinations et ports)**.
 
@@ -107,7 +107,7 @@ Bien que ce trafic puisse être insignifiant, il s’agit d’un port qui a ét�
 
 ![figure 5][5]
 
-### <a name="step-3"></a>Étape 3
+### <a name="step-3"></a>Étape 3 :
 
 Maintenant que nous avons identifié un port utilisé de manière inhabituelle, nous pouvons filtrer notre capture sur celui-ci.
 

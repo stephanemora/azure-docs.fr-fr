@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: ce2b4304ea53be7e9a7be42b8a7fb30f713d85f8
-ms.sourcegitcommit: 07a09da0a6cda6bec823259561c601335041e2b9
+ms.openlocfilehash: 2dd6ebb9e2f35eccae3b267402a4ef9b0e1b2dbe
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/18/2018
-ms.locfileid: "49405206"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567160"
 ---
 # <a name="introduction-to-azure-security"></a>Présentation d’Azure Security
 ## <a name="overview"></a>Vue d’ensemble
@@ -62,7 +62,7 @@ Vous pouvez consulter les fonctionnalités répertoriées ci-après pour vous as
 | [Formation obligatoire sur les mesures de sécurité, vérifications de la formation](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx) |  [Contrôler l’emplacement des données](https://www.microsoft.com/en-us/trustcenter/Privacy/Where-your-data-is-located) |  [Hub des contrôles communs](https://www.microsoft.com/en-us/trustcenter/Common-Controls-Hub) |[Comment Microsoft gère l’emplacement des données dans les services Azure](http://azuredatacentermap.azurewebsites.net/)|
 | [Test de pénétration](https://downloads.cloudsecurityalliance.org/star/self-assessment/StandardResponsetoRequestforInformationWindowsAzureSecurityPrivacy.docx), [détection d’intrusion, DDoS](https://www.microsoft.com/en-us/trustcenter/Security/ThreatManagement), [audits et journalisation](https://www.microsoft.com/en-us/trustcenter/Security/AuditingAndLogging) | [Fournir l’accès aux données selon vos conditions](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms) |  [Liste de contrôle d’obligation de diligence des services cloud](https://www.microsoft.com/en-us/trustcenter/Compliance/Due-Diligence-Checklist) |[Qui dans Microsoft peut accéder à vos données dans quelles conditions](https://www.microsoft.com/en-us/trustcenter/Privacy/Who-can-access-your-data-and-on-what-terms)|
 | [Centre de données ultramoderne](https://www.microsoft.com/en-us/cloud-platform/global-datacenters), sécurité physique, [réseau sécurisé](https://docs.microsoft.com/azure/security/security-network-overview) | [Réponse à l’application de la législation](https://www.microsoft.com/en-us/trustcenter/Privacy/Responding-to-govt-agency-requests-for-customer-data) |  [Conformité par service, site et secteur](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx) |[Comment Microsoft sécurise les données client dans les services Azure](https://www.microsoft.com/en-us/trustcenter/Transparency/default.aspx)|
-|  [Réponse aux incidents de sécurité](http://aka.ms/SecurityResponsepaper), [responsabilité partagée](http://aka.ms/sharedresponsibility) |[Normes de confidentialité strictes](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Passer en revue la certification des services Azure, concentrateur de transparence](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
+|  [Réponse aux incidents de sécurité](https://aka.ms/SecurityResponsepaper), [responsabilité partagée](https://aka.ms/sharedresponsibility) |[Normes de confidentialité strictes](https://www.microsoft.com/en-us/TrustCenter/Privacy/We-set-and-adhere-to-stringent-standards) |  | [Passer en revue la certification des services Azure, concentrateur de transparence](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)|
 
 
 
@@ -345,7 +345,7 @@ Les mises à jour correctives fournissent les références permettant de détect
 ### <a name="azure-security-center"></a>Azure Security Center
 Le Centre de sécurité vous aide à prévenir, détecter et résoudre les menaces grâce à une visibilité et un contrôle accrus de la sécurité de vos ressources Azure. Il fournit une surveillance de la sécurité et une gestion des stratégies intégrées pour l’ensemble de vos abonnements Azure, vous aidant ainsi à détecter les menaces qui pourraient passer inaperçues. De plus, il est compatible avec un vaste écosystème de solutions de sécurité.
 
-## <a name="identify-and-access-management"></a>Gestion des identités et accès
+## <a name="identity-and-access-management"></a>Gestion de l’identité et de l’accès
 
 La sécurisation des systèmes, applications et données commencent par les contrôles d’accès basés sur l’identité. Les fonctionnalités de gestion des identités et accès qui sont intégrées aux services et produits Microsoft aident à protéger vos informations personnelles et d’organisation de tout accès non autorisé, tout en les mettant à disposition des utilisateurs légitimes où et lorsqu’ils en ont besoin.
 

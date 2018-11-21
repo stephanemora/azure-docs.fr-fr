@@ -1,24 +1,24 @@
 ---
-title: Python UDF avec Apache Hive et Pig - Azure HDInsight
-description: Découvrez comment utiliser des fonctions définies par l’utilisateur Python à partir de Hive et Pig dans HDInsight, la pile de technologies Hadoop sur Azure.
+title: Python UDF avec Apache Hive et Apache Pig - Azure HDInsight
+description: Découvrez comment utiliser des fonctions définies par l’utilisateur Python à partir de Apache Hive et Apache Pig dans HDInsight, la pile de technologies Apache Hadoop sur Azure.
 services: hdinsight
 ms.service: hdinsight
-author: jasonwhowell
-ms.author: jasonh
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 02/27/2018
 ms.custom: H1Hack27Feb2017,hdinsightactive
-ms.openlocfilehash: c2c2a6686d5da25e5a300bc58e1cf37467737c80
-ms.sourcegitcommit: ccdea744097d1ad196b605ffae2d09141d9c0bd9
+ms.openlocfilehash: 021ec3919e061010265ff3a2f30fde0ffb59e7b0
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/23/2018
-ms.locfileid: "49646539"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632609"
 ---
-# <a name="use-python-user-defined-functions-udf-with-hive-and-pig-in-hdinsight"></a>Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Hive et Pig dans HDInsight
+# <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Utiliser des fonctions définies par l’utilisateur (UDF) Python avec Apache Hive et Apache Pig dans HDInsight
 
-Découvrez comment utiliser des fonctions définies par l’utilisateur Python avec Apache Hive et Pig dans Hadoop sur Azure HDInsight.
+Découvrez comment utiliser des fonctions définies par l’utilisateur Python avec Apache Hive et Apache Pig dans Apache Hadoop sur Azure HDInsight.
 
 ## <a name="python"></a>Python sur HDInsight
 
@@ -379,7 +379,7 @@ Les informations sur l’erreur (STDERR) et le résultat du travail (STDOUT) son
 
 ## <a name="next"></a>Étapes suivantes
 
-Si vous devez charger des modules Python qui ne sont pas fournis par défaut, consultez l’article [How to deploy a Python module to Azure HDInsight](http://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) (Déploiement d’un module Python vers Azure HDInsight).
+Si vous devez charger des modules Python qui ne sont pas fournis par défaut, consultez l’article [How to deploy a Python module to Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx) (Déploiement d’un module Python vers Azure HDInsight).
 
 Pour connaître d’autres façons d’utiliser Pig et Hive et pour en savoir plus sur l’utilisation de MapReduce, consultez les documents suivants :
 

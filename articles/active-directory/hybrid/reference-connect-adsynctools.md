@@ -8,12 +8,12 @@ ms.workload: identity
 ms.date: 10/19/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: b1e95ade4793fd7d3acf396b00ee4f7d8b81b2f8
-ms.sourcegitcommit: 6135cd9a0dae9755c5ec33b8201ba3e0d5f7b5a1
+ms.openlocfilehash: 734387e7ce5fc27cb88c73601bdfd0f35d04b693
+ms.sourcegitcommit: 02ce0fc22a71796f08a9aa20c76e2fa40eb2f10a
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/31/2018
-ms.locfileid: "50670376"
+ms.lasthandoff: 11/08/2018
+ms.locfileid: "51288677"
 ---
 # <a name="azure-ad-connect--adsynctools-powershell-reference"></a>Azure AD Connect : Référence PowerShell ADSyncTools
 La documentation suivante fournit des informations de référence sur le module ADSyncTools.psm1 PowerShell inclus avec Azure AD Connect.
@@ -1102,7 +1102,8 @@ Accept wildcard characters: False
 ```
 
 #### <a name="-adwatermark"></a>-ADwatermark
-S’il est déjà en cours d’exécution en tant qu’administrateur de domaine, il n’est pas nécessaire de fournir des informations d’identification. Entrée manuelle filigrane, au lieu d’un fichier XML, par exemple $ADwatermark = « TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA(...) »
+Si vous êtes déjà administrateur de domaine, vous n’avez pas besoin de fournir d’informations d’identification AD.
+Entrez manuellement le filigrane, au lieu d’employer un fichier XML, par exemple, $ADwatermark = "TVNEUwMAAAAXyK9ir1zSAQAAAAAAAAAA(...)"
 
 ```yaml
 Type: String

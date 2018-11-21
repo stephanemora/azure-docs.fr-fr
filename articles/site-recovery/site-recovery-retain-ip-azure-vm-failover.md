@@ -1,114 +1,166 @@
 ---
-title: Conserver les adresses IP pour le basculement de machines virtuelles Azure vers une autre région Azure | Microsoft Docs
-description: Décrit comment conserver les adresses IP pour les scénarios de basculement Azure vers Azure avec Azure Site Recovery
+title: Conserver les adresses IP pendant le basculement des machines virtuelles Azure avec Azure Site Recovery | Microsoft Docs
+description: Décrit comment conserver les adresses IP en cas de défaillance des machines virtuelles Azure pour la reprise d’activité dans une région secondaire avec Azure Site Recovery.
 ms.service: site-recovery
-ms.workload: storage-backup-recovery
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 10/16/2018
 author: mayurigupta13
 ms.topic: conceptual
 ms.author: mayg
-ms.openlocfilehash: 4260a4487480c42b518374965d8deda1e7803e62
-ms.sourcegitcommit: 8e06d67ea248340a83341f920881092fd2a4163c
+ms.openlocfilehash: 4e75ba210e12a39d2c4cfb9753bbc2da2893746b
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/16/2018
-ms.locfileid: "49353320"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567398"
 ---
-# <a name="ip-address-retention-for-azure-virtual-machine-failover"></a>Conservation des adresses IP pour le basculement de machines virtuelles Azure
+# <a name="retain-ip-addresses-during-failover"></a>Conserver les adresses IP pendant le basculement
 
-Azure Site Recovery permet la récupération d’urgence de machines virtuelles Azure. En cas de basculement d’une région Azure vers une autre, les clients veulent généralement conserver leurs configurations IP. Par défaut, Site Recovery imite le réseau virtuel et la structure de sous-réseau sources durant la création de ces ressources dans la région cible. Pour les machines virtuelles Azure configurées avec des adresses IP statiques privées, Site Recovery permet également de tenter plus efficacement de configurer la même adresse IP privée sur la machine virtuelle cible, si cette adresse IP n’est pas déjà bloquée par une ressource Azure ou une machine virtuelle répliquée.
+[Azure Site Recovery](site-recovery-overview.md) permet la reprise d’activité pour les machines virtuelles Azure grâce à la réplication des machines virtuelles vers une autre région Azure, le basculement en cas de panne et la restauration automatique de la région primaire quand les choses sont revenues à la normale.
 
-Pour les applications simples, la configuration par défaut ci-dessus est suffisante. Pour les applications d’entreprise plus complexes, les clients peuvent avoir à provisionner des ressources réseau supplémentaires pour garantir la connectivité avec les autres composants de leur infrastructure après le basculement. Cet article explique la configuration réseau requise pour le basculement de machines virtuelles Azure d’une région vers une autre, tout en conservant les adresses IP des machines virtuelles.
+Pendant le basculement, vous souhaiterez peut-être conserver le même adressage IP dans la région cible que dans la région source :
 
-## <a name="azure-to-azure-connectivity"></a>Connectivité Azure vers Azure
+- Par défaut, quand vous activez la reprise d’activité pour les machines virtuelles Azure, Site Recovery crée des ressources cibles en fonction des paramètres de ressources sources. Pour les machines virtuelles Azure configurées avec des adresses IP statiques, Site Recovery tente de provisionner la même adresse IP pour la machine virtuelle cible, si elle n’est pas en cours d’utilisation. Pour obtenir une explication complète de la façon dont Site Recovery gère l’adressage, [consultez cet article](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
+- Pour les applications simples, la configuration par défaut suffit. Pour les applications plus complexes, vous devrez peut-être provisionner des ressources supplémentaires pour être sûr que la connectivité fonctionne comme prévu après le basculement.
 
-Pour le premier scénario, prenons le cas d’une **société A** qui exécute l’ensemble de son infrastructure d’applications dans Azure. Pour des raisons de conformité et de continuité d’activité, la **société A** décide d’utiliser Azure Site Recovery pour protéger ses applications.
 
-En raison de la nécessité de conserver les adresses IP (par exemple, pour les liaisons des applications), la société A dispose du même réseau virtuel et de la même structure de sous-réseau dans la région cible. Pour réduire davantage l’objectif de délai de récupération (RTO), la **société A** utilise des nœuds de réplica pour les contrôleurs de domaine, SQL Always ON, etc. Ces nœuds sont placés dans un autre réseau virtuel de la région cible. L’utilisation d’un espace d’adressage différent pour les nœuds de réplica permet à la **société A** d’établir une connectivité VPN de site à site entre les régions source et cible, ce qui serait autrement impossible si le même espace d’adressage était utilisé des deux côtés.
+Cet article fournit des exemples permettant de conserver les adresses IP dans les exemples de scénarios plus complexes. Il s’agit des scénarios suivants :
+
+- Basculement pour une société dont toutes les ressources s’exécutent dans Azure
+- Basculement pour une société avec un déploiement hybride et des ressources exécutées à la fois localement et dans Azure
+
+## <a name="resources-in-azure-full-failover"></a>Ressources dans Azure : basculement complet
+
+Toutes les applications de la société A s’exécutent dans Azure.
+
+### <a name="before-failover"></a>Avant le basculement
+
+Voici l’architecture avant le basculement.
+
+- La société A a des réseaux et des sous-réseaux identiques dans les régions Azure source et cible.
+- Pour réduire l’objectif de délai de récupération (RTO), la société utilise des nœuds de réplica pour SQL Server Always On, les contrôleurs de domaine, et ainsi de suite. Ces nœuds de réplica sont sur un autre réseau virtuel dans la région cible, afin de pouvoir établir la connectivité de site à site VPN entre les régions source et cible. Cela n’est pas possible si le même espace d’adressage IP est utilisé dans la source et la cible.  
+- Avant le basculement, l’architecture réseau est la suivante :
+    - La région primaire Azure est Asie Est
+        - Asie Est a un réseau virtuel (**Source VNet**) avec l’espace d’adressage 10.1.0.0/16
+        - Asie Est a des charges de travail réparties entre trois sous-réseaux sur le réseau virtuel :
+            - **Subnet 1** : 10.1.1.0/24
+            - **Subnet 2** : 10.1.2.0/24
+            - **Subnet 3** : 10.1.3.0/24
+    - La région Azure secondaire (cible) est Asie Sud-Est
+        - Asie Sud-Est a un réseau virtuel de récupération (**Recovery VNet**) identique à **Source VNet**.
+        - Asie Sud-Est a un réseau virtuel supplémentaire (**Azure VNet**) avec l’espace d’adressage 10.2.0.0/16
+        - **Azure VNet** contient un sous-réseau (**Subnet 4**) avec l’espace d’adressage 10.2.4.0/24
+        - Les nœuds de réplica pour SQL Server Always On, les contrôleurs de domaine, et ainsi de suite, sont situés sur **Subnet 4**
+    - **Source VNet** et **Azure VNet** sont connectés par le biais d’une connexion VPN de site à site
+    - **Recovery VNet** n’est connecté à aucun autre réseau virtuel
+    - La **société A** affecte/vérifie les adresses IP cibles pour les éléments répliqués. L’adresse IP cible est identique à l’adresse IP source pour chaque machine virtuelle.
+
+![Ressources dans Azure avant le basculement complet](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
+
+### <a name="after-failover"></a>Après le basculement
+
+Si une panne se produit dans la région source, la société A peut basculer toutes ses ressources vers la région cible.
+
+- Avec des adresses IP cibles déjà en place avant le basculement, la société A peut orchestrer le basculement et établir automatiquement des connexions après le basculement entre **Recovery VNet** et **Azure VNet**. C’est ce qu’illustre le diagramme suivant.
+- En fonction des exigences des applications, les connexions entre les deux réseaux virtuels (**Recovery VNet** et **Azure VNet**) dans la région cible peuvent être établies avant, pendant (en tant qu’étape intermédiaire) ou après le basculement.
+    - La société peut utiliser des [plans de récupération](site-recovery-create-recovery-plans.md) pour spécifier quand les connexions seront établies
+    - Elle peut établir une connexion entre les réseaux virtuels à l’aide de VNET Peering ou d’un VPN de site à site
+        - VNet Peering n’utilise pas de passerelle VPN et a d’autres contraintes
+        - La [tarification](https://azure.microsoft.com/pricing/details/virtual-network) de VNet Peering est calculée différemment de la [tarification](https://azure.microsoft.com/pricing/details/vpn-gateway) de la passerelle VPN de réseau virtuel à réseau virtuel. Pour les basculements, nous conseillons généralement d’utiliser la même méthode de connectivité que les réseaux source, y compris le type de connexion, afin de limiter les incidents réseau imprévisibles
+
+    ![Ressources dans Azure : basculement complet](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
+
+
+
+## <a name="resources-in-azure-isolated-app-failover"></a>Ressources dans Azure : basculement d’application isolée
+
+Vous devrez peut-être effectuer un basculement au niveau de l’application, par exemple pour effectuer le basculement d’une application ou d’une couche application spécifique situé sur un sous-réseau dédié.
+
+- Dans ce scénario, bien que vous puissiez conserver l’adressage IP, c’est généralement déconseillé car cela augmente le risque d’incohérences de connectivité. Vous perdrez également la connectivité de sous-réseau aux autres sous-réseaux du même réseau virtuel Azure.
+- Une meilleure façon d’effectuer le basculement d’application au niveau du sous-réseau consiste à utiliser différentes adresses IP cibles pour le basculement (si vous avez besoin d’une connectivité à d’autres sous-réseaux sur le réseau virtuel source) ou à isoler chaque application sur son propre réseau virtuel dédié dans la région source. Avec cette dernière approche, vous pouvez établir une connectivité entre les réseaux de la région source et émuler le même comportement quand vous basculez vers la région cible.  
+
+Dans cet exemple, la société A place des applications dans la région source sur des réseaux virtuels dédié, et établit une connectivité entre ces réseaux virtuels. Grâce à cette conception, elle peut effectuer un basculement d’application isolée et conserver les adresses IP privées sources sur le réseau cible.
+
+### <a name="before-failover"></a>Avant le basculement
+
+Avant le basculement, l’architecture est la suivante :
+
+- Les machines virtuelles d’application sont hébergées dans la région primaire Azure Asie Est :
+    - Les machines virtuelles d’**App1** sont situées sur le réseau virtuel **Source VNet 1** : 10.1.0.0/16
+    - Les machines virtuelles d’**App2** sont situées sur le réseau virtuel **Source VNet 2** : 10.2.0.0/16
+    - **Source VNet 1** a deux sous-réseaux.
+    - **Source VNet 2** a deux sous-réseaux.
+- La région secondaire (cible) Azure est Asie Sud-Est. Asie Sud-Est a des réseaux virtuels de récupération (**Recovery VNet 1** et **Recovery VNet 2**) qui sont identiques à **Source VNet 1** et **Source VNet 2**
+        - **Recovery VNet 1** et **Recovery VNet 2** ont chacun deux sous-réseaux qui correspondent aux sous-réseaux **Source VNet 1** and **Source VNet 2** - Asie Sud-Est a un réseau virtuel supplémentaire (**Azure VNet**) avec l’espace d’adressage 10.3.0.0/16
+        - **Azure VNet** contient un sous-réseau (**Subnet 4**) avec l’espace d’adressage 10.3.4.0/24
+        Les nœuds de réplica pour SQL Server Always On, les contrôleurs de domaine, et ainsi de suite, sont situés sur **Subnet 4**
+- Il existe plusieurs connexions VPN de site à site : 
+    - **Source VNet 1** et **Azure VNet**
+    - **Source VNet 2** et **Azure VNet**
+    - **Source VNet 1** et **Source VNet 2** sont connectés avec un VPN de site à site
+- **Recovery VNet 1** and **Recovery VNet 2** ne sont connectés à aucun autre réseau virtuel
+- La **société A** configure des passerelles VPN sur **Recovery VNet 1** et **Recovery VNet 2** afin de réduire le RTO  
+- **Recovery VNet1** et **Recovery VNet2** ne sont connectés à aucun autre réseau virtuel
+- Pour réduire l’objectif de délai de récupération (RTO), les passerelles VPN sont configurées sur **Recovery VNet1** et **Recovery VNet2** avant le basculement
+
+    ![Ressources dans Azure avant le basculement d’application](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
+
+### <a name="after-failover"></a>Après le basculement
+
+En cas de panne ou de problème qui affecte une seule application (dans **Source VNet 2 dans notre exemple), la société A peut récupérer l’application affectée comme suit :
+
+
+- Désactivation des connexions VPN entre **Source VNet1** et **Source VNet2**, et entre **Source VNet2** et **Azure VNet**.
+- Établissement de connexions VPN entre **Source VNet1** et **Recovery VNet2**, et entre **Recovery VNet2** et **Azure VNet**.
+- Basculement des machines virtuelles sur **Source VNet2** vers **Recovery VNet2**.
+
+![Ressources dans un basculement d’application Azure](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
+
+
+- Cet exemple peut être étendu pour inclure d’autres applications et connexions réseau. Dans la mesure du possible, nous vous recommandons de suivre un modèle de connexion de type égal à égal pour le basculement de la source vers la cible.
+- Les passerelles VPN utilisent des adresses IP publiques et des tronçons de passerelle pour établir les connexions. Si vous ne souhaitez pas utiliser d’adresses IP publiques, ou si vous préférez éviter tout tronçon supplémentaire, vous pouvez utiliser [Azure VNet Peering](../virtual-network/virtual-network-peering-overview.md) pour homologuer des réseaux virtuels dans les [régions Azure prises en charge](../virtual-network/virtual-network-manage-peering.md#cross-region).
+
+## <a name="hybrid-resources-full-failover"></a>Ressources hybrides : basculement complet
+
+Dans ce scénario, la **société B** dispose d’une infrastructure hybride, une partie de son infrastructure d’applications s’exécutant sur Azure et le reste localement. 
+
+### <a name="before-failover"></a>Avant le basculement
 
 Voici à quoi ressemble l’architecture réseau avant le basculement :
-- Les machines virtuelles des applications sont hébergées dans la région Azure Asie Est, et elles utilisent un réseau virtuel Azure avec l’espace d’adressage 10.1.0.0/16. Ce réseau virtuel est nommé **Source VNet**.
-- Les charges de travail d’application sont réparties entre trois sous-réseaux (10.1.1.0/24, 10.1.2.0/24 et 10.1.3.0/24), nommés respectivement **Subnet 1**, **Subnet 2** et **Subnet 3**.
-- Azure Southeast Asia (Asie du Sud-Est) est la région cible. Elle dispose d’un réseau virtuel de récupération qui imite la configuration de sous-réseau et de l’espace d’adressage de la source. Ce réseau virtuel est nommé **Recovery VNet**.
-- Les nœuds de réplica (comme ceux nécessaires pour le contrôleur de domaine, Always On, etc.) sont placés dans un réseau virtuel avec l’espace d’adressage 10.2.0.0/16 dans le sous-réseau 4 (Subnet 4) avec l’adresse 10.2.4.0/24. Le réseau virtuel est nommé **Azure VNet** et se trouve dans la région Azure Southeast Asia.
-- **Source VNet** et **Azure VNet** sont connectés via une connectivité VPN de site à site.
-- **Recovery VNet** n’est connecté à aucun autre réseau virtuel.
-- La **société A** affecte/vérifie une adresse IP cible pour les éléments répliqués. Dans cet exemple, l’adresse IP cible est identique à l’adresse IP source pour chaque machine virtuelle.
 
-![Connectivité Azure vers Azure avant le basculement](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-before-failover2.png)
+- Les machines virtuelles des applications sont hébergées dans la région Azure Asie.
+-  Asie Est a un réseau virtuel (**Source VNet**) avec l’espace d’adressage 10.1.0.0/16
+    - Asie Est a des charges de travail réparties entre trois sous-réseaux sur **Source VNet** :
+        - **Subnet 1** : 10.1.1.0/24
+        - **Subnet 2** : 10.1.2.0/24
+        - **Subnet 3** : 10.1.3.0/24 utilisant un réseau virtuel Azure avec l’espace d’adressage 10.1.0.0/16. Ce réseau virtuel se nomme **Source VNet**
+ - La région Azure secondaire (cible) est Asie Sud-Est :
+    - Asie Sud-Est a un réseau virtuel de récupération (**Recovery VNet**) identique à **Source VNet**.
+- Les machines virtuelles dans Asie Est sont connectées à un centre de données local avec Azure ExpressRoute ou un réseau privé virtuel de site à site
+- Pour réduire le RTO, la société B provisionne des passerelles sur Recovery VNet dans la région Azure Asie Sud-Est avant le basculement
+- La société B affecte/vérifie les adresses IP cibles pour les machines virtuelles répliquées. L’adresse IP cible est identique à l’adresse IP source pour chaque machine virtuelle
 
-### <a name="full-region-failover"></a>Basculement d’une région entière
-
-En cas de panne régionale, la **société A** peut rapidement et facilement récupérer l’intégralité de son déploiement à l’aide de [plans de récupération](site-recovery-create-recovery-plans.md) efficaces d’Azure Site Recovery. Ayant déjà défini l’adresse IP cible pour chaque machine virtuelle avant le basculement, la **société A** peut orchestrer le basculement et automatiser l’établissement de la connexion entre les réseaux virtuels Recovery VNet et Azure Vnet, comme le montre le diagramme ci-dessous.
-
-![Connectivité Azure vers Azure - Basculement d’une région entière](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-full-region-failover2.png)
-
-Selon la configuration requise pour les applications, les connexions entre les deux réseaux virtuels dans la région cible peuvent être établies avant, pendant (en tant qu’étape intermédiaire) ou après le basculement. Utilisez des [plans de récupération](site-recovery-create-recovery-plans.md) pour ajouter des scripts et définir l’ordre de basculement.
-
-La société A peut également choisir d’utiliser VNet Peering ou le réseau privé virtuel de site à site pour établir la connectivité entre Recovery VNet et Azure VNet. VNet Peering n’utilise pas une passerelle VPN et possède d’autres contraintes. En outre, la [tarification de VNet Peering](https://azure.microsoft.com/pricing/details/virtual-network) est différente de la [tarification de la passerelle VPN de réseau virtuel à réseau virtuel](https://azure.microsoft.com/pricing/details/vpn-gateway). Pour les basculements, il est généralement recommandé d’imiter la connectivité source, y compris le type de connexion, pour minimiser le risque d’incidents imprévisibles que peuvent entraîner des modifications du réseau.
-
-### <a name="isolated-application-failover"></a>Basculement d’applications isolées
-
-Dans certains cas, les utilisateurs peuvent avoir besoin de basculer uniquement des parties de leur infrastructure d’applications. Il peut s’agir, par exemple, du basculement d’une couche ou d’une application spécifique hébergée dans un sous-réseau dédié. Bien qu’un basculement de sous-réseau avec la conservation des adresses IP soit possible, cette méthode n’est pas recommandée dans la plupart des cas, car elle augmente considérablement les incohérences de connectivité. Vous perdrez également la connectivité de sous-réseau aux autres sous-réseaux du même réseau virtuel Azure.
-
-Pour prendre en compte la configuration requise pour le basculement d’applications au niveau des sous-réseaux, nous vous recommandons plutôt d’utiliser différentes adresses IP cibles pour le basculement (si la connectivité est nécessaire pour d’autres sous-réseaux du réseau virtuel source) ou d’isoler chaque application dans son propre réseau virtuel dédié sur la source. Cette approche vous permet d’établir une connectivité inter-réseau sur la source et d’émuler la même durant le basculement vers la région cible.
-
-Pour concevoir des applications individuelles garantissant la résilience, nous vous conseillons d’héberger une application dans son propre réseau virtuel dédié et d’établir la connectivité entre ces réseaux virtuels en fonction des besoins. Cela permet de basculer des applications isolées tout en conservant les adresses IP privées d’origine.
-
-La configuration de prébasculement se présente alors comme suit :
-- Les machines virtuelles des applications sont hébergées dans la région Azure East Asia, et elles utilisent un réseau virtuel Azure avec l’espace d’adressage 10.1.0.0/16 pour la première application et 10.2.0.0/16 pour la deuxième. Les réseaux virtuels sont nommés **Source VNet1** pour la première application, et **Source VNet2** pour la deuxième.
-- Chaque réseau virtuel est divisé en deux sous-réseaux.
-- Azure Southeast Asia est la région cible. Elle dispose des réseaux virtuels de récupération Recovery VNet1 et Recovery VNet2.
-- Les nœuds de réplica (comme ceux nécessaires pour le contrôleur de domaine, Always On, etc.) sont placés dans un réseau virtuel avec l’espace d’adressage 10.3.0.0/16 dans le sous-réseau 4 **(Subnet 4)** avec l’adresse 10.3.4.0/24. Le réseau virtuel est nommé Azure VNet et se trouve dans la région Azure Southeast Asia.
-- **Source VNet1** et **Azure VNet** sont connectés via une connectivité VPN de site à site. **Source VNet2** et **Azure VNet** sont également connectés via une connectivité VPN de site à site.
-- **Source VNet1** et **Source VNet2** sont aussi connectés via VPN S2S dans cet exemple. Étant donné que les deux réseaux virtuels se trouvent dans la même région, VNet Peering peut également être utilisé à la place de VPN S2S.
-- **Recovery VNet1** et **Recovery VNet2** ne sont connectés à aucun autre réseau virtuel.
-- Pour réduire l’objectif de délai de récupération (RTO), les passerelles VPN sont configurées sur **Recovery VNet1** et **Recovery VNet2** avant le basculement.
-
-![Connectivité Azure vers Azure d’une application isolée avant le basculement](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-before-failover2.png)
-
-En cas de situation d’urgence affectant une seule application (dans cet exemple, elle est hébergée dans Source VNet2), la société A peut récupérer l’application affectée comme suit :
-- Les connexions VPN entre **Source VNet1** et **Source VNet2**, et entre **Source VNet2** et **Azure VNet**, sont déconnectées.
-- Les connexions VPN sont établies entre **Source VNet1** et **Recovery VNet2**, et entre **Recovery VNet2** et **Azure VNet**.
-- Les machines virtuelles de **Source VNet2** sont basculées vers **Recovery VNet2**.
-
-![Connectivité Azure vers Azure d’une application isolée après le basculement](./media/site-recovery-retain-ip-azure-vm-failover/azure-to-azure-connectivity-isolated-application-after-failover2.png)
-
-L’exemple de basculement isolé ci-dessus peut être étendu pour inclure d’autres applications et connexions réseau. Dans la mesure du possible, nous vous recommandons de suivre un modèle de connexion de type égal à égal pour le basculement de la source vers la cible.
-
-### <a name="further-considerations"></a>Autres considérations
-
-Les passerelles VPN utilisent des adresses IP publiques et des tronçons de passerelle pour établir les connexions. Si vous ne souhaitez pas utiliser d’adresses IP publiques et/ou préférez éviter tout tronçon supplémentaire, vous pouvez utiliser l’[homologation de réseaux virtuels](../virtual-network/virtual-network-peering-overview.md) Azure pour homologuer des réseaux virtuels dans les [régions Azure prises en charge](../virtual-network/virtual-network-manage-peering.md#cross-region).
-
-## <a name="on-premises-to-azure-connectivity"></a>Connectivité locale vers Azure
-
-Pour le deuxième scénario, prenons le cas d’une **société B** qui exécute une partie de son infrastructure d’applications sur Azure, et le reste localement. Pour des raisons de conformité et de continuité d’activité, la **société B** décide d’utiliser Azure Site Recovery pour protéger ses applications exécutées dans Azure.
-
-Voici à quoi ressemble l’architecture réseau avant le basculement :
-- Les machines virtuelles des applications sont hébergées dans la région Azure Asie Est, et elles utilisent un réseau virtuel Azure avec l’espace d’adressage 10.1.0.0/16. Ce réseau virtuel est nommé **Source VNet**.
-- Les charges de travail d’application sont réparties entre trois sous-réseaux (10.1.1.0/24, 10.1.2.0/24 et 10.1.3.0/24), nommés respectivement **Subnet 1**, **Subnet 2** et **Subnet 3**.
-- Azure Southeast Asia (Asie du Sud-Est) est la région cible. Elle dispose d’un réseau virtuel de récupération qui imite la configuration de sous-réseau et de l’espace d’adressage de la source. Ce réseau virtuel est nommé **Recovery VNet**.
-- Les machines virtuelles dans Azure Asie Est sont connectées au centre de données local via ExpressRoute ou le réseau privé virtuel de site à site.
-- Pour réduire l’objectif de délai de récupération (RTO), la société B provisionne des passerelles sur Recovery VNet dans Azure Asie Sud-Est avant le basculement.
-- La **société B** affecte/vérifie une adresse IP cible pour les éléments répliqués. Dans cet exemple, l’adresse IP cible est identique à l’adresse IP source pour chaque machine virtuelle.
 
 ![Connectivité locale vers Azure avant le basculement](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-before-failover2.png)
 
-### <a name="full-region-failover"></a>Basculement d’une région entière
+### <a name="after-failover"></a>Après le basculement
 
-En cas de panne régionale, la **société B** peut rapidement et facilement récupérer l’intégralité de son déploiement à l’aide de [plans de récupération](site-recovery-create-recovery-plans.md) efficaces d’Azure Site Recovery. Ayant déjà défini l’adresse IP cible pour chaque machine virtuelle avant le basculement, la **société B** peut orchestrer le basculement et automatiser l’établissement de la connexion entre le réseau virtuel Recovery VNet et le centre de données local, comme le montre le diagramme ci-dessous.
 
-La connexion d’origine entre Azure Asie Est et le centre de données local doit être déconnectée avant d’établir la connexion entre Azure Asie Sud-Est et le centre de données local. Le routage local est également reconfiguré pour pointer vers la région cible et les passerelles après le basculement.
+Si une panne se produit dans la région source, la société B peut basculer toutes ses ressources vers la région cible.
+
+- Avec des adresses IP cibles déjà en place avant le basculement, la société B peut orchestrer le basculement et établir automatiquement des connexions après le basculement entre **Recovery VNet** et **Azure VNet**
+- En fonction des exigences des applications, les connexions entre les deux réseaux virtuels (**Recovery VNet** et **Azure VNet**) dans la région cible peuvent être établies avant, pendant (en tant qu’étape intermédiaire) ou après le basculement. La société peut utiliser des [plans de récupération](site-recovery-create-recovery-plans.md) pour spécifier quand les connexions seront établies
+- La connexion d’origine entre Azure Asie Est et le centre de données local doit être déconnectée avant d’établir la connexion entre Azure Asie Sud-Est et le centre de données local
+- Le routage local est reconfiguré pour pointer vers la région cible et les passerelles après le basculement
 
 ![Connectivité locale vers Azure après le basculement](./media/site-recovery-retain-ip-azure-vm-failover/on-premises-to-azure-connectivity-after-failover2.png)
 
-### <a name="subnet-failover"></a>Basculement de sous-réseau
+## <a name="hybrid-resources-isolated-app-failover"></a>Ressources hybrides : basculement d’application isolée
 
-À la différence du scénario Azure vers Azure décrit pour la **société A**, un basculement au niveau des sous-réseaux n’est pas possible dans ce cas pour la **société B**. Cette limitation est due au fait que l’espace d’adressage sur les réseaux virtuels source et de récupération est le même, et que la connexion « source à local » d’origine est active.
+La société B ne peut pas faire basculer des applications isolées au niveau du sous-réseau, car l’espace d’adressage sur les réseaux virtuels source et de récupération est le même, et la connexion « source à local » d’origine est active.
 
-Pour garantir la résilience des applications, nous vous recommandons d’héberger chaque application dans son propre réseau virtuel Azure dédié. Les applications peuvent ensuite être basculées de manière isolée, et les connexions « local à source » nécessaires peuvent être acheminées vers la région cible, comme décrit ci-dessus.
+ - Pour assurer la résilience d’application, la société B devra placer chaque application sur son propre réseau virtuel Azure dédié.
+ - Avec chaque application sur un réseau virtuel distinct, la société B peut faire basculer les applications isolées et router les connexions sources vers la région cible.
 
 ## <a name="next-steps"></a>Étapes suivantes
-- Découvrez-en plus sur les [plans de récupération](site-recovery-create-recovery-plans.md).
+
+En savoir plus sur les [plans de récupération](site-recovery-create-recovery-plans.md)

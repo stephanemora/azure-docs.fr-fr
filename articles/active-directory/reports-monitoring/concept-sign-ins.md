@@ -13,55 +13,50 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 06/21/2018
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: bc8d3525ab7cdbdf298ecbbc686ced16fa7bc77c
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: ae962cba5e3d08661eb1c93edfc2feb221a9367e
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42139833"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51623767"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Rapports d’activité de connexion dans le portail Azure Active Directory
 
-Grâce à la fonction de création de rapports Azure Active Directory (Azure AD) dans le [portail Azure](https://portal.azure.com), vous pouvez obtenir les informations dont vous avez besoin pour évaluer l’état de votre environnement.
-
-L’architecture de création de rapports dans Azure Active Directory comprend les composants suivants :
+L’architecture de création de rapports dans Azure Active Directory (Azure AD) comprend les composants suivants :
 
 - **Activité** 
-    - **Activités de connexion** – Informations sur l’utilisation des applications gérées et les activités de connexion des utilisateurs
-    - **Activités du système** – Informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, à vos applications gérées et aux activités de répertoire.
+    - **Connexions** – Il s’agit d’informations sur l’utilisation des applications managées et les activités de connexion des utilisateurs.
+    - **Journaux d’audit** - [Journaux d’audit](concept-audit-logs.md) – Fournit des informations sur les activités du système liées aux utilisateurs et à la gestion des groupes, les applications gérées et les activités de répertoire.
 - **Sécurité** 
-    - **Connexions risquées** : une connexion risquée est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur. Pour en savoir plus, consultez Connexions risquées.
-    - **Utilisateurs avec indicateur de risque** : il s’agit d’un compte d’utilisateur susceptible d’être compromis. Pour en savoir plus, consultez Utilisateurs avec indicateur de risque.
+    - **Connexions risquées** : une [connexion risquée](concept-risky-sign-ins.md) est une tentative de connexion susceptible de provenir d’un utilisateur autre que le propriétaire légitime d’un compte d’utilisateur.
+    - **Utilisateurs avec indicateur de risque** : un [utilisateur à risque](concept-user-at-risk.md) correspond à un indicateur de compte d’utilisateur susceptible d’être compromis.
 
-Cette rubrique vous donne une vue d’ensemble des activités de connexion.
+Cette rubrique présente une vue d’ensemble du rapport de connexions.
 
 ## <a name="prerequisites"></a>Prérequis
 
 ### <a name="who-can-access-the-data"></a>Qui peut accéder aux données ?
-* Les utilisateurs ayant le rôle Administrateur de sécurité, Lecteur Sécurité, Lecteur de rapports
-* Administrateurs généraux
-* Tous les utilisateurs (non administrateurs) peuvent accéder à leurs propres connexions 
+* Les utilisateurs ayant le rôle Administrateur de sécurité, Lecteur Sécurité et Lecteur de rapports
+* Les administrateurs généraux
+* De plus, tous les utilisateurs (non administrateurs) peuvent accéder à leurs propres connexions 
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>De quelle licence Azure AD avez-vous besoin pour accéder à l’activité de connexion ?
 * Votre client doit avoir une licence Azure AD Premium associée pour afficher tous les rapports d’activités de connexion.
 
+## <a name="sign-ins-report"></a>Rapport de connexions
 
-## <a name="sign-in-activities"></a>Activités de connexion
-
-Avec les informations fournies par le rapport sur les connexions des utilisateurs, trouvez des réponses aux questions telles que :
+Le rapport de connexions des utilisateurs permet de répondre aux questions suivantes :
 
 * Quel est le modèle de connexion d’un utilisateur ?
 * Combien d’utilisateurs se sont connectés au cours d’une semaine ?
 * Quel est l’état de ces connexions ?
 
-La zone **Connexions** de la section Activité de **Azure Active Directory** constitue votre premier point d’entrée pour toutes les activités de connexion.
-
+Vous pouvez accéder au rapport de connexions en sélectionnant **Connexions** dans la section **Activités** du panneau **Azure Active Directory** du [Portail Azure](https://portal.azure.com).
 
 ![Activité de connexion](./media/concept-sign-ins/61.png "Activité de connexion")
-
 
 Un journal de connexion inclut un mode Liste par défaut, qui indique :
 
@@ -82,7 +77,7 @@ Cela vous permet d’afficher des champs supplémentaires, ou de supprimer des c
 
 ![Activité de connexion](./media/concept-sign-ins/02.png "Activité de connexion")
 
-En cliquant sur un élément dans le mode Liste, vous pouvez obtenir toutes les informations disponibles le concernant dans un affichage horizontal.
+Sélectionnez un élément dans la vue sous forme de liste pour obtenir des informations plus détaillées.
 
 ![Activité de connexion](./media/concept-sign-ins/03.png "Activité de connexion")
 
@@ -100,7 +95,7 @@ Pour limiter les données transmises à un niveau qui vous convient, vous pouvez
 - Utilisateur
 - Application
 - État de la connexion
-- Status of the risk detection (État de la détection de risque)
+- Accès conditionnel
 - Date
 
 ![Activité de connexion](./media/concept-sign-ins/04.png "Activité de connexion")
@@ -115,11 +110,12 @@ Le filtre **État de la connexion** vous permet de sélectionner :
 - Succès
 - Échec
 
-Le filtre **Risque détecté** vous permet de sélectionner :
+Le filtre **Accès conditionnel** vous permet de sélectionner l’état de stratégie d’autorité de certification pour l’authentification dans :
 
 - Tous
-- Oui
-- Non 
+- Non appliqué
+- Succès
+- Échec
 
 Le filtre **Date** vous permet de définir un intervalle de temps pour les données renvoyées.  
 Les valeurs possibles sont les suivantes :
@@ -149,11 +145,14 @@ Si vous ajoutez des champs à votre affichage de connexions, ils sont automatiqu
 
 ## <a name="download-sign-in-activities"></a>Télécharger les activités de connexion
 
-Vous pouvez télécharger les données des activités de connexion si vous souhaitez les utiliser en dehors du portail Azure. En cliquant sur **Télécharger**, un fichier CSV contenant les 5K enregistrements les plus récents est créé.  En plus d’un bouton de téléchargement, le portail Azure vous propose une option permettant de générer un script pour télécharger vos données.  
+Vous pouvez [télécharger les données de connexion](quickstart-download-sign-in-report.md) pour les utiliser en dehors du portail Azure. En cliquant sur **Télécharger**, un fichier CSV contenant les 5K enregistrements les plus récents est créé.  En plus d’un bouton de téléchargement, le portail Azure vous propose une option permettant de [générer un script pour télécharger vos données](tutorial-signin-logs-download-script.md).  
 
 ![Télécharger](./media/concept-sign-ins/71.png "Télécharger")
 
 Si vous avez besoin de davantage de souplesse, vous pouvez utiliser la solution de script. En cliquant sur **Script**, un script PowerShell comprenant tous les filtres que vous avez définis est créé. Téléchargez et exécutez ce script en **mode administrateur** pour générer le fichier CSV. 
+
+> [!IMPORTANT]
+> Le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](reference-reports-data-retention.md).  
 
 ### <a name="running-the-script-on-a-windows-10-machine"></a>Exécuter le script sur une machine Windows 10
 
@@ -164,28 +163,18 @@ Si vous souhaitez exécuter le script sur une machine **Windows 10**, vous devez
 3. Exécutez **Set-ExecutionPolicy unrestricted (Définir la stratégie d’exécution sans restriction)** et choisissez **Yes to All (Oui à tous)**. 
 4. Vous pouvez maintenant exécuter le script PowerShell téléchargé en mode administrateur pour générer le fichier CSV.
 
-En plus de l’implémentation technique, le nombre d’enregistrements que vous pouvez télécharger est limité par les [stratégies de rétention de rapport Azure Active Directory](reference-reports-data-retention.md).  
+## <a name="sign-ins-data-shortcuts"></a>Raccourcis vers les données de connexions
 
-
-## <a name="sign-in-activities-shortcuts"></a>Raccourcis relatifs aux activités de connexion
-
-En plus d’Azure Active Directory, le portail Azure vous offre d’autres points d’entrée pour les données sur les activités de connexion :
+En plus d’Azure AD, le portail Azure vous offre d’autres points d’entrée pour accéder aux données de connexion :
 
 - Vue d’ensemble de la protection de la sécurité des identités
 - Utilisateurs
 - Groupes
 - Applications d’entreprise
 
+### <a name="users-sign-ins-data-in-identity-security-protection"></a>Données de connexion des utilisateurs dans la protection de la sécurité des identités
 
-### <a name="users-sign-ins-activities"></a>Activités de connexion des utilisateurs
-
-Avec les informations fournies par le rapport sur les connexions des utilisateurs, trouvez des réponses aux questions telles que :
-
-- Quel est le modèle de connexion d’un utilisateur ?
-- Combien d’utilisateurs se sont connectés au cours d’une semaine ?
-- Quel est l’état de ces connexions ?
-
-Votre point d’entrée pour ces données est le graphique des connexions des utilisateurs sur la page de vue d’ensemble de la **protection de la sécurité des identités**. Le graphique des connexions des utilisateurs affiche les agrégations hebdomadaires des connexions de tous les utilisateurs au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
+Le graphique des connexions des utilisateurs figurant sur la page **Protection de la sécurité des identités** affiche les agrégations hebdomadaires des connexions de tous les utilisateurs au cours d’une période donnée. La valeur par défaut de cette période est de 30 jours.
 
 ![Activité de connexion](./media/concept-sign-ins/06.png "Activité de connexion")
 
@@ -211,7 +200,6 @@ En cliquant sur un élément, vous obtenez plus d’informations sur l’opérat
 - Date
 - MFA obligatoire
 - État de la connexion
-
  
 Sur la page **Utilisateurs**, vous obtenez une vue d’ensemble complète de toutes les connexions des utilisateurs en cliquant sur **Connexions** dans la section **Activité**.
 
@@ -243,9 +231,9 @@ L’option **Connexions** vous fournit une vue d’ensemble complète de tous le
 
 ![Activité de connexion](./media/concept-sign-ins/11.png "Activité de connexion")
 
-
-
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour en savoir plus sur les codes d’erreur de l’activité des connexions, voir [Codes d’erreur des rapports d’activité des connexions dans le portail Azure Active Directory](reference-sign-ins-error-codes.md).
+* [Codes d’erreur du rapport d’activité de connexion](reference-sign-ins-error-codes.md)
+* [Stratégies de conservation des données Azure AD](reference-reports-data-retention.md)
+* [Latences de rapport Azure AD](reference-reports-latencies.md)
 

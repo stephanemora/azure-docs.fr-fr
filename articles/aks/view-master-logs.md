@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 10/25/2018
 ms.author: iainfou
-ms.openlocfilehash: c3256b2b1e8be0e883d0f7b47e66ab1fee95b042
-ms.sourcegitcommit: 0f54b9dbcf82346417ad69cbef266bc7804a5f0e
+ms.openlocfilehash: 5f151db9cb2cf7a5ef242f777cd2ad1820c856a8
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/26/2018
-ms.locfileid: "50138158"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636669"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Activer et consulter les journaux du nœud principal Kubernetes dans Azure Kubernetes Service (AKS)
 
@@ -42,7 +42,7 @@ L’exemple de capture d’écran du portail ci-après présente la fenêtre *Pa
 ![Activation de l’espace de travail Log Analytics pour Log Analytics dans un cluster AKS](media/view-master-logs/enable-oms-log-analytics.png)
 
 >[!NOTE]
->Les espaces de travail OMS sont désormais appelés espaces de travail Log Analytics.
+>Les espaces de travail OMS sont désormais appelés « espaces de travail Log Analytics ».
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Planifier un pod test sur le cluster AKS
 
@@ -116,7 +116,7 @@ Pour faciliter votre analyse des données de journal, le tableau ci-après décr
 | *resourceId*             | Ressource Azure ayant généré le journal |
 | *time*                   | Timestamp du chargement du journal |
 | *category*               | Nom du conteneur/composant générant le journal |
-| *operationName*          | Toujours *Microsoft.ContainerService/managedClusters/diagnositicLogs/Read* |
+| *operationName*          | Toujours *Microsoft.ContainerService/managedClusters/diagnosticLogs/Read* |
 | *properties.log*         | Texte complet du journal provenant du composant |
 | *properties.stream*      | *stderr* ou *stdout* |
 | *properties.pod*         | Nom du pod d’où provient le journal |

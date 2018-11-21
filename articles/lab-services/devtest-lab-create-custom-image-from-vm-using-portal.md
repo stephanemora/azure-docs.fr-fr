@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 22f1579b2df2acdc736ed4c1d5cee64d096c320a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 780799103708483fb0092c7a4c15bfaa3269c073
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38635335"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636453"
 ---
 # <a name="create-a-custom-image-from-a-vm"></a>Créer une image personnalisée à partir d’une machine virtuelle
 
@@ -29,7 +29,7 @@ ms.locfileid: "38635335"
 
 Vous pouvez créer une image personnalisée à partir d’une machine virtuelle approvisionnée et ensuite utiliser cette image personnalisée pour créer d’autres machines virtuelles identiques. Les étapes suivantes expliquent comment créer une image personnalisée à partir d’une machine virtuelle :
 
-1. Connectez-vous au [Portail Azure](http://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Connectez-vous au [Portail Azure](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
 1. Sélectionnez **Tous les services**, puis **DevTest Labs** dans la liste.
 
@@ -47,7 +47,7 @@ Vous pouvez créer une image personnalisée à partir d’une machine virtuelle 
 
     ![Volet Créer une image personnalisée](./media/devtest-lab-create-template/create-custom-image-blade.png)
 
-1. Choisissez si sysprep a été exécuté sur la machine virtuelle. Si sysprep n’a pas été exécuté sur la machine virtuelle, sélectionnez si vous souhaitez exécuter sysprep lorsqu’une machine virtuelle est créée à partir de cette image personnalisée.
+1. Choisissez si sysprep a été exécuté sur la machine virtuelle. Si le sysprep n’a pas été exécuté sur la machine virtuelle, spécifiez si vous voulez que le sysprep soit exécuté sur la machine virtuelle lors de la création de l’image personnalisée.
 
 1. Cliquez sur **OK** lorsque vous avez terminé de créer l’image personnalisée.
 

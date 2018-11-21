@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: fce96cf5be9e70863fd75e5d4b3045bc49f638cf
-ms.sourcegitcommit: 7c4fd6fe267f79e760dc9aa8b432caa03d34615d
+ms.openlocfilehash: 08991829c9c3d628b5028e04dbd4836647d94826
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/28/2018
-ms.locfileid: "47432621"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567483"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Contrôle d’accès dans Azure Data Lake Storage Gen1
 
@@ -128,9 +128,11 @@ L’utilisateur qui a créé l’élément est automatiquement l’utilisateur p
 
 Dans les ACL POSIX, chaque utilisateur est associé à un « groupe principal ». Par exemple, l’utilisateur « Alice » peut appartenir au groupe « Finance ». Alice peut appartenir à plusieurs groupes, mais un groupe est toujours désigné comme son groupe principal. Dans POSIX, lorsqu’Alice crée un fichier, son groupe principal est défini comme groupe propriétaire de ce fichier (en l’occurrence, « finance »). Sinon, le groupe propriétaire se comporte comme pour les autorisations assignées à d’autres utilisateurs/groupes.
 
+Comme il n’existe aucun « groupe principal », associé aux utilisateurs de Data Lake Storage Gen1, le groupe propriétaire est affecté comme indiqué ci-dessous.
+
 **Affectation du groupe propriétaire pour un nouveau fichier ou dossier**
 
-* **Cas 1** : le dossier racine « / ». Ce dossier est créé lors de la création d’un compte Data Lake Storage Gen1. Dans ce cas, le groupe propriétaire est celui de l’utilisateur qui a créé le compte.
+* **Cas 1** : le dossier racine « / ». Ce dossier est créé lors de la création d’un compte Data Lake Storage Gen1. Dans ce cas, le groupe propriétaire est défini sur un GUID composé uniquement de zéros.  Cette valeur n’autorise pas l’accès.  Il s’agit d’un espace réservé jusqu’à ce qu’un groupe soit affecté.
 * **Cas 2** (tous les autres cas) : lorsqu’un élément est créé, le groupe propriétaire est copié à partir du dossier parent.
 
 **Modification du groupe propriétaire**
@@ -140,7 +142,9 @@ Le groupe propriétaire peut être modifié par :
 * l’utilisateur propriétaire, si l’utilisateur propriétaire est également membre du groupe cible.
 
 > [!NOTE]
-> Le groupe propriétaire *ne peut pas* modifier les ACL d’un fichier ou d’un dossier.  Alors que le groupe d’appartenance est défini sur l’utilisateur qui a créé le compte dans le cas du dossier racine, **Cas 1** ci-dessus, un seul compte d’utilisateur n’est pas valide pour accorder des autorisations via le groupe d’appartenance.  Si applicable, vous pouvez assigner cette autorisation à un groupe d’utilisateurs valide.
+> Le groupe propriétaire *ne peut pas* modifier les ACL d’un fichier ou d’un dossier.
+>
+> Pour les comptes créés en septembre 2018 ou avant, le groupe propriétaire a été défini en fonction de l’utilisateur ayant créé le compte, par exemple le dossier racine pour l’exemple **Cas 1**, ci-dessus.  Un seul compte d’utilisateur n’est pas valide pour accorder des autorisations via le groupe propriétaire, par conséquent aucune autorisations n’est accordée par ce paramètre par défaut. Vous pouvez assigner cette autorisation à un groupe d’utilisateurs valide.
 
 
 ## <a name="access-check-algorithm"></a>Algorithme de vérification des accès
@@ -246,7 +250,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>Dois-je activer la prise en charge des ACL ?
 
-Non. Le contrôle d’accès via les ACL est toujours activé pour les comptes Data Lake Storage Gen1.
+ Non. Le contrôle d’accès via les ACL est toujours activé pour les comptes Data Lake Storage Gen1.
 
 ### <a name="which-permissions-are-required-to-recursively-delete-a-folder-and-its-contents"></a>Quelles sont les autorisations nécessaires pour supprimer de manière récursive un dossier et son contenu ?
 

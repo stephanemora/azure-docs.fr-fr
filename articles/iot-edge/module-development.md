@@ -2,18 +2,18 @@
 title: Développer des modules pour Azure IoT Edge | Microsoft Docs
 description: Découvrez comment créer des modules personnalisés pour Azure IoT Edge.
 author: kgremban
-manager: timlt
+manager: philmea
 ms.author: kgremban
 ms.date: 10/05/2017
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: d4253942ea5cd998bfd3806978e108413949f886
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: cb97e2cf6d554753f64afc76de84f43e38443909
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50741426"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567228"
 ---
 # <a name="understand-the-requirements-and-tools-for-developing-iot-edge-modules"></a>Comprendre les conditions requises et les outils de développement de modules IoT Edge
 
@@ -26,7 +26,7 @@ Le runtime IoT Edge fournit l’infrastructure nécessaire pour intégrer les fo
 Le hub IoT Edge fournit deux fonctionnalités principales : proxy d’IoT Hub et communications locales.
 
 ### <a name="iot-hub-primitives"></a>Primitives IoT Hub
-IoT Hub considère une instance de module comme un appareil, dans le sens où :
+IoT Hub considère une instance de module comme un appareil, dans le sens où :
 
 * Elle a un jumeau de module, qui est distinct et isolé du [jumeau d’appareil](../iot-hub/iot-hub-devguide-device-twins.md) et des autres jumeaux de module de cet appareil.
 * Elle peut envoyer des [messages appareil-à-cloud](../iot-hub/iot-hub-devguide-messaging.md).
@@ -58,7 +58,9 @@ Pour finir, les messages appareil-à-cloud gérés par le hub Edge sont marqués
 | $outputName | Sortie utilisée pour envoyer le message. Peut être vide. |
 
 ### <a name="connecting-to-iot-edge-hub-from-a-module"></a>Connexion au hub IoT Edge à partir d’un module
-La connexion au hub IoT Edge local à partir d’un module implique deux étapes : utiliser la chaîne de connexion fournie par le runtime IoT Edge au démarrage de votre module, et vérifier que votre application accepte le certificat présenté par le hub IoT Edge sur cet appareil.
+La connexion au hub IoT Edge local à partir d’un module passe par deux étapes : 
+1. Utilisez la chaîne de connexion fournie par le runtime IoT Edge au démarrage de votre module.
+2. Assurez-vous que votre application accepte le certificat présenté par le hub IoT Edge sur l’appareil.
 
 La chaîne de connexion à utiliser est injectée par le runtime IoT Edge dans la variable d’environnement `EdgeHubConnectionString`. Du coup, n’importe quel programme souhaitant l’utiliser peut y accéder.
 
