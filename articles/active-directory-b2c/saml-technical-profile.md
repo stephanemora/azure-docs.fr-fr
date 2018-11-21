@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 301ae251413cc174f115479e9ebef2310aa83ba7
-ms.sourcegitcommit: 51a1476c85ca518a6d8b4cc35aed7a76b33e130f
+ms.openlocfilehash: 347a437a9f45f29348e97c616c985764135e5427
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/25/2018
-ms.locfileid: "47162440"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687467"
 ---
 # <a name="define-a-saml-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Définir un profil technique SAML dans une stratégie personnalisée Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure Active Directory (Azure AD) B2C prend en charge le fournisseur d’identité SAML 2.0. Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé. Avec un profil technique SAML, vous pouvez fédérer avec un fournisseur d’identité SAML, tel qu’AD FS ou Salesforce, ce qui permet aux utilisateurs de se connecter avec leurs identités sociales ou d’entreprise existantes.
+Azure Active Directory (Azure AD) B2C prend en charge le fournisseur d’identité SAML 2.0. Cet article décrit les caractéristiques d’un profil technique permettant d’interagir avec un fournisseur de revendications qui prend en charge ce protocole normalisé. Avec un profil technique SAML, vous pouvez fédérer avec un fournisseur d’identité SAML, tel qu’[ADFS](active-directory-b2c-custom-setup-adfs2016-idp.md) ou [Salesforce](active-directory-b2c-setup-sf-app-custom.md), ce qui permet à vos utilisateurs de se connecter avec leurs identités sociales ou d’entreprise existantes.
 
 ## <a name="metadata-exchange"></a>Échange de métadonnées
 
@@ -34,12 +34,12 @@ Chaque fournisseur d’identité SAML a différentes étapes pour exposer et dé
 L’exemple suivant montre une adresse URL aux métadonnées SAML d’un profil technique d’AAD B2C :
 
 ```
-https://login.microsoftonline.com/te/your-tenant/your-policy/samlp/metadata?idptp=your-technical-profile
+https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadata?idptp=your-technical-profile
 ```
 
 Remplacez les valeurs suivantes :
 
-- **your-tenant** par le nom de votre locataire, par exemple your-tenant.onmicrosoft.com.
+- **your-tenant-name** par le nom de votre locataire, par exemple fabrikam.b2clogin.com.
 - **your-policy** par le nom de votre stratégie. Utilisez la stratégie dans laquelle vous configurez le profil technique du fournisseur SAML, ou une stratégie qui hérite de cette stratégie.
 - **your-technical-profile** par le nom du profil technique de votre fournisseur d’identité SAML.
 

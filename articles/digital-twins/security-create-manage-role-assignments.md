@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 10/10/2018
+ms.date: 11/13/2018
 ms.author: lyrana
-ms.openlocfilehash: 42c1b0fbb6d87e9ed35d4ecce3971d8512eed4d4
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: f032e3ebf6a10411057cd6d41df0cad6248f328b
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012460"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636235"
 ---
 # <a name="create-and-manage-role-assignments"></a>Créer et gérer des attributions de rôle
 
@@ -26,6 +26,8 @@ Chaque attribution de rôle comprend :
 * un **ID de définition de rôle** ;
 * un **chemin d’espace** ;
 * un **ID de locataire** : ID de locataire Azure Active Directory dans la plupart des cas.
+
+[!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
 ## <a name="role-definition-identifiers"></a>Identificateurs de définition de rôle
 
@@ -57,7 +59,7 @@ Le tableau suivant indique ce que peuvent donner des requêtes à l’API systè
 ## <a name="create-a-role-assignment"></a>Création d'une affectation de rôle
 
 ```plaintext
-HTTP POST /api/v1.0/roleassignments
+HTTP POST YOUR_MANAGEMENT_API_URL/roleassignments
 ```
 
 | **Nom** | **Obligatoire** | **Type** | **Description** |
@@ -108,22 +110,22 @@ Tous les utilisateurs qui font partie d’un domaine obtiennent un accès en lec
 Utilisez GET pour obtenir une attribution de rôle.
 
 ```plaintext
-HTTP GET /api/v1/roleassignments?path={path}
+HTTP GET YOUR_MANAGEMENT_API_URL/roleassignments?path=YOUR_PATH
 ```
 
 | **Nom** | **Dans** | **Obligatoire** |    **Type** |  **Description** |
 | --- | --- | --- | --- | --- |
-| path | path | True | Chaîne | Chemin complet de l’espace |
+| YOUR_PATH | path | True | Chaîne |    Chemin complet de l’espace |
 
 Utilisez DELETE pour supprimer une attribution de rôle.
 
 ```plaintext
-HTTP DELETE /api/v1/roleassignments/{id}
+HTTP DELETE YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ID
 ```
 
 | **Nom** | **Dans** | **Obligatoire** | **Type** | **Description** |
 | --- | --- | --- | --- | --- |
-| ID | path | True | Chaîne |   ID d’attribution de rôle |
+| YOUR_ROLE_ID | path | True | Chaîne | ID d’attribution de rôle |
 
 ## <a name="next-steps"></a>Étapes suivantes
 

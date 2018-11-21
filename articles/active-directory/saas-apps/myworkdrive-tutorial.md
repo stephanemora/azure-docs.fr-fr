@@ -8,18 +8,19 @@ manager: femila
 ms.reviewer: joflore
 ms.assetid: 4d049778-3c7b-46c0-92a4-f2633a32334b
 ms.service: active-directory
+ms.component: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2018
+ms.date: 11/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 7310d300c68399c31d9580f070602aa3adbc75e3
-ms.sourcegitcommit: 9d7391e11d69af521a112ca886488caff5808ad6
+ms.openlocfilehash: 7644a8517840b4fdffe0bc47c5a9bb97d48f6322
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/25/2018
-ms.locfileid: "50094054"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686791"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-myworkdrive"></a>Didacticiel : Intégration d’Azure Active Directory à MyWorkDrive
 
@@ -31,7 +32,7 @@ L’intégration de MyWorkDrive à Azure AD vous offre les avantages suivants :
 - Vous pouvez autoriser les utilisateurs à se connecter automatiquement à MyWorkDrive (par le biais de l’authentification unique) avec leur compte Azure AD.
 - Vous pouvez gérer vos comptes dans un emplacement central : le portail Azure
 
-Pour en savoir plus sur l’intégration des applications SaaS avec Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md).
+Pour en savoir plus sur l’intégration des applications SaaS à Azure AD, consultez [Qu’est-ce que l’accès aux applications et l’authentification unique auprès d’Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="prerequisites"></a>Prérequis
 
@@ -49,31 +50,33 @@ Vous devez en outre suivre les recommandations ci-dessous :
 - Si vous n’avez pas d’environnement d’essai Azure AD, vous pouvez [obtenir un essai d’un mois](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="scenario-description"></a>Description du scénario
+
 Dans ce didacticiel, vous testez l’authentification unique Azure AD dans un environnement de test. Le scénario décrit dans ce didacticiel se compose des deux sections principales suivantes :
 
 1. Ajout de MyWorkDrive à partir de la galerie
 2. Configuration et test de l’authentification unique Azure AD
 
 ## <a name="adding-myworkdrive-from-the-gallery"></a>Ajout de MyWorkDrive à partir de la galerie
+
 Pour configurer l’intégration de MyWorkDrive à Azure AD, vous devez ajouter MyWorkDrive à partir de la galerie à votre liste d’applications SaaS managées.
 
 **Pour ajouter MyWorkDrive à partir de la galerie, procédez comme suit :**
 
 1. Dans le volet de navigation gauche du **[portail Azure](https://portal.azure.com)**, cliquez sur l’icône **Azure Active Directory**. 
 
-    ![image](./media/myworkdrive-tutorial/selectazuread.png)
+    ![Bouton Azure Active Directory][1]
 
 2. Accédez à **Applications d’entreprise**. Accédez ensuite à **Toutes les applications**.
 
-    ![image](./media/myworkdrive-tutorial/a_select_app.png)
-    
+    ![Panneau Applications d’entreprise][2]
+
 3. Pour ajouter l’application, cliquez sur le bouton **Nouvelle application** en haut de la boîte de dialogue.
 
-    ![image](./media/myworkdrive-tutorial/a_new_app.png)
+    ![Bouton Nouvelle application][3]
 
 4. Dans la zone de recherche, tapez **MyWorkDrive**, sélectionnez **MyWorkDrive** dans le panneau de résultats, puis cliquez sur le bouton **Ajouter** pour ajouter l’application.
 
-     ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_addfromgallery.png)
+    ![MyWorkDrive dans la liste des résultats](./media/myworkdrive-tutorial/tutorial_myworkdrive_addfromgallery.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurer et tester l’authentification unique Azure AD
 
@@ -83,41 +86,41 @@ Pour que l’authentification unique fonctionne, Azure AD doit connaître l’ut
 
 Pour configurer et tester l’authentification unique Azure AD avec MyWorkDrive, vous devez suivre les indications des sections suivantes :
 
-1. **[Configurer l’authentification unique Azure AD](#configure-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
-2. **[Créer un utilisateur de test Azure AD](#create-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
-3. **[Créer un utilisateur de test MyWorkDrive](#create-a-myworkdrive-test-user)** pour avoir un équivalent de Britta Simon dans MyWorkDrive lié à la représentation Azure AD associée.
-4. **[Affecter l’utilisateur de test Azure AD](#assign-the-azure-ad-test-user)** pour permettre à Britta Simon d’utiliser l’authentification unique Azure AD.
-5. **[Tester l’authentification unique](#test-single-sign-on)** : pour vérifier si la configuration fonctionne.
+1. **[Configuration de l’authentification unique Azure AD](#configuring-azure-ad-single-sign-on)** pour permettre à vos utilisateurs d’utiliser cette fonctionnalité.
+2. **[Création d’un utilisateur de test Azure AD](#creating-an-azure-ad-test-user)** pour tester l’authentification unique Azure AD avec Britta Simon.
+3. **[Création d’un utilisateur de test MyWorkDrive](#creating-a-myworkdrive-test-user)** pour avoir un équivalent de Britta Simon dans MyWorkDrive lié à la représentation Azure AD associée de l'utilisateur.
+4. **[Affectation de l’utilisateur de test Azure AD](#assigning-the-azure-ad-test-user)** : permet à Britta Simon d’utiliser l’authentification unique Azure AD.
+5. **[Test de l’authentification unique](#testing-single-sign-on)** pour vérifier si la configuration fonctionne.
 
-### <a name="configure-azure-ad-single-sign-on"></a>Configurer l’authentification unique Azure AD
+### <a name="configuring-azure-ad-single-sign-on"></a>Configuration de l’authentification unique Azure AD
 
 Dans cette section, vous allez activer l’authentification unique Azure AD dans le Portail Azure et configurer l’authentification unique dans votre application MyWorkDrive.
 
 **Pour configurer l’authentification unique Azure AD avec MyWorkDrive, procédez comme suit :**
 
-1. Dans le [portail Azure](https://portal.azure.com/), sur la page d’intégration de l’application **MyWorkDrive**, sélectionnez **Authentification unique**.
+1. Dans le Portail Azure, sur la page d’intégration de l’application **MyWorkDrive**, cliquez sur **Authentification unique**.
 
-    ![image](./media/myworkdrive-tutorial/B1_B2_Select_SSO.png)
+    ![Lien Configurer l’authentification unique][4]
 
-2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, sélectionnez le mode **SAML** afin d’activer l’authentification unique.
+2. Dans la boîte de dialogue **Sélectionner une méthode d’authentification unique**, cliquez sur **Sélectionner** pour le mode **SAML** afin d’activer l’authentification unique.
 
-    ![image](./media/myworkdrive-tutorial/b1_b2_saml_sso.png)
+    ![Configurer l'authentification unique](common/tutorial_general_301.png)
 
-3. Sur la page **Configurer l’authentification unique avec SAML**, cliquez sur le bouton **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
+3. Dans la page **Configurer l’authentification unique avec SAML**, cliquez sur l’icône **Modifier** pour ouvrir la boîte de dialogue **Configuration SAML de base**.
 
-    ![image](./media/myworkdrive-tutorial/b1-domains_and_urlsedit.png)
+    ![Configurer l'authentification unique](common/editconfigure.png)
 
-4. Dans la section **Configuration SAML de base**, suivez les étapes ci-dessous si vous souhaitez configurer l’application en mode démarré par **IDP** :
+4. Dans la section **Configuration SAML de base**, suivez les étapes ci-dessous, si vous souhaitez configurer l’application en mode démarré par **IDP** :
 
-    ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_url.png)
+    ![Informations d’authentification unique dans Domaine et URL MyWorkDrive](./media/myworkdrive-tutorial/tutorial_myworkdrive_url.png)
 
     Dans la zone de texte **URL de réponse** , tapez une URL au format suivant : `https://<SERVER.DOMAIN.COM>/SAML/AssertionConsumerService.aspx`
 
 5. Si vous souhaitez configurer l’application en **mode démarré par le fournisseur de services**, cliquez sur **Définir des URL supplémentaires**, puis effectuez les étapes suivantes :
 
-    ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_url1.png)
+    ![Informations d’authentification unique dans Domaine et URL MyWorkDrive](./media/myworkdrive-tutorial/tutorial_myworkdrive_url1.png)
 
-    Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SERVER.DOMAIN.COM>/Account/Login-saml` 
+     Dans la zone de texte **URL de connexion**, tapez une URL au format suivant : `https://<SERVER.DOMAIN.COM>/Account/Login-saml` 
 
     > [!NOTE]
     > Il ne s’agit pas de valeurs réelles. Mettez à jour ces valeurs avec l’URL de réponse et l’URL de connexion réelles.  Entrez le nom d’hôte du serveur MyWorkDrive de votre propre société : p. ex.
@@ -128,40 +131,42 @@ Dans cette section, vous allez activer l’authentification unique Azure AD dans
     > 
     > Contactez l’équipe de support client MyWorkDrive si vous avez des doutes sur la façon de configurer vos propres nom d’hôte et certificat SSL pour ces valeurs.
 
-6. Sur la page **Configurer l’authentification unique avec SAML**, dans la section **Certificat de signature SAML**, cliquez sur l’icône **Copier** pour copier l’**URL des métadonnées de fédération d’application** et cliquez sur **Télécharger** pour télécharger le **Certificat (Base64)** et l’enregistrer sur votre ordinateur.
+6. Sur la page **Certificat de signature SAML**, accédez à la section **Certificat de signature SAML** et cliquez sur l'**icône** Copier pour copier l'**URL des métadonnées de fédération d'application** et l'enregistrer sur votre ordinateur.
 
-    ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_certficate.png) 
+    ![Lien Téléchargement de certificat](./media/myworkdrive-tutorial/tutorial_myworkdrive_certificate.png)
 
-7. Dans la section **Configurer MyWorkDrive**, copiez l’URL appropriée en fonction de vos besoins.
+7. Ouvrez une autre fenêtre de navigateur web et connectez-vous à MyWorkDrive en tant qu’administrateur de la sécurité.
 
-    Notez que l’URL peut indiquer les éléments suivants :
+8. Sur le serveur MyWorkDrive, accédez au panneau d'administration, cliquez sur **ENTREPRISE** et procédez comme suit :
 
-    a. URL de connexion
+    ![Administrateur](./media/myworkdrive-tutorial/tutorial_myworkdrive_admin.png)
 
-    b. Identificateur Azure AD
+    a. Activez **SAML/ADFS SSO**.
 
-    c. URL de déconnexion
+    b. Sélectionnez **SAML - Azure AD**
 
-    ![image](./media/myworkdrive-tutorial/d1_samlsonfigure.png) 
+    c. Dans la zone de texte **URL des métadonnées de fédération d'application Azure**, collez la valeur de l'**URL des métadonnées de fédération d'application** que vous avez copiée à partir du portail Azure.
 
-8. Pour configurer l’authentification unique côté MyWorkDrive, téléchargez les éléments **Certificat (Base64), URL de déconnexion, ID d’entité SAML et URL du service d’authentification unique SAML**, et configurez-les manuellement sur le serveur MyWorkDrive ou copiez et collez l’**URL des métadonnées de fédération d’application** Azure dans votre écran de configuration Azure AD SAML du volet d’administration du serveur MyWorkDrive. Pour plus d’informations, contactez l’[équipe du support technique MyWorkDrive](mailto:support@myworkdrive.com).
+    d. Cliquez sur **Enregistrer**.
 
-    
-### <a name="create-an-azure-ad-test-user"></a>Créer un utilisateur de test Azure AD
+    >[!NOTE]
+    >Pour plus d'informations, consultez l'[article de support MyWorkDrive Azure AD](https://www.myworkdrive.com/support/saml-single-sign-on-azure-ad/).
+
+### <a name="creating-an-azure-ad-test-user"></a>Création d’un utilisateur de test Azure AD
 
 L’objectif de cette section est de créer un utilisateur de test appelé Britta Simon dans le portail Azure.
 
 1. Dans le volet gauche du portail Azure, sélectionnez **Azure Active Directory**, sélectionnez **Utilisateurs**, puis sélectionnez **Tous les utilisateurs**.
 
-    ![image](./media/myworkdrive-tutorial/d_users_and_groups.png)
+    ![Créer un utilisateur Azure AD][100]
 
 2. Sélectionnez **Nouvel utilisateur** dans la partie supérieure de l’écran.
 
-    ![image](./media/myworkdrive-tutorial/d_adduser.png)
+    ![Création d’un utilisateur de test Azure AD](common/create_aaduser_01.png) 
 
 3. Dans les propriétés de l’utilisateur, effectuez les étapes suivantes.
 
-    ![image](./media/myworkdrive-tutorial/d_userproperties.png)
+    ![Création d’un utilisateur de test Azure AD](common/create_aaduser_02.png)
 
     a. Dans le champ **Nom**, entrez **BrittaSimon**.
   
@@ -171,43 +176,56 @@ L’objectif de cette section est de créer un utilisateur de test appelé Britt
     c. Sélectionnez **Propriétés**, cochez la case **Afficher le mot de passe**, puis notez la valeur affichée dans le champ Mot de passe.
 
     d. Sélectionnez **Créer**.
- 
-### <a name="create-a-myworkdrive-test-user"></a>Créer un utilisateur de test MyWorkDrive
+
+### <a name="creating-a-myworkdrive-test-user"></a>Création d'un utilisateur de test MyWorkDrive
 
 Dans cette section, vous allez créer un utilisateur appelé Britta Simon dans MyWorkDrive. Collaborez avec l’ [équipe du support technique MyWorkDrive](mailto:support@myworkdrive.com) pour ajouter les utilisateurs dans la plateforme MyWorkDrive. Les utilisateurs doivent être créés et activés avant que vous utilisiez l’authentification unique.
 
-### <a name="assign-the-azure-ad-test-user"></a>Affecter l’utilisateur de test Azure AD
+### <a name="assigning-the-azure-ad-test-user"></a>Affectation de l’utilisateur de test Azure AD
 
 Dans cette section, vous allez autoriser Britta Simon à utiliser l’authentification unique Azure en lui accordant l’accès à MyWorkDrive.
 
 1. Dans le portail Azure, sélectionnez **Applications d’entreprise**, puis **Toutes les applications**.
 
-    ![image](./media/myworkdrive-tutorial/d_all_applications.png)
+    ![Affecter des utilisateurs][201]
 
 2. Dans la liste des applications, sélectionnez **MyWorkDrive**.
 
-    ![image](./media/myworkdrive-tutorial/tutorial_myworkdrive_app.png)
+    ![Configurer l'authentification unique](./media/myworkdrive-tutorial/tutorial_myworkdrive_app.png) 
 
-3. Dans le menu de gauche, sélectionnez **Utilisateurs et groupes**.
+3. Dans le menu de gauche, cliquez sur **Utilisateurs et groupes**.
 
-    ![image](./media/myworkdrive-tutorial/d_leftpaneusers.png)
+    ![Affecter des utilisateurs][202]
 
-4. Sélectionnez le bouton **Ajouter**, puis **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une attribution**.
+4. Cliquez sur le bouton **Ajouter**. Ensuite, sélectionnez **Utilisateurs et groupes** dans la boîte de dialogue **Ajouter une affectation**.
 
-    ![image](./media/myworkdrive-tutorial/d_assign_user.png)
+    ![Affecter des utilisateurs][203]
 
-4. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
+5. Dans la boîte de dialogue **Utilisateurs et groupes**, sélectionnez **Britta Simon** dans la liste Utilisateurs, puis cliquez sur le bouton **Sélectionner** en bas de l’écran.
 
-5. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
-    
-### <a name="test-single-sign-on"></a>Tester l’authentification unique
+6. Dans la boîte de dialogue **Ajouter une attribution**, sélectionnez le bouton **Attribuer**.
+
+### <a name="testing-single-sign-on"></a>Test de l’authentification unique
 
 Dans cette section, vous allez tester la configuration de l’authentification unique Azure AD à l’aide du volet d’accès.
 
 Lorsque vous cliquez sur la vignette MyWorkDrive dans le volet d’accès, vous devez être connecté automatiquement à votre application MyWorkDrive.
-Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../active-directory-saas-access-panel-introduction.md). 
+Pour plus d’informations sur le panneau d’accès, consultez [Présentation du panneau d’accès](../user-help/active-directory-saas-access-panel-introduction.md).
 
 ## <a name="additional-resources"></a>Ressources supplémentaires
 
 * [Liste de didacticiels sur l’intégration d’applications SaaS avec Azure Active Directory](tutorial-list.md)
 * [Qu’est-ce que l’accès aux applications et l’authentification unique avec Azure Active Directory ?](../manage-apps/what-is-single-sign-on.md)
+
+<!--Image references-->
+
+[1]: common/tutorial_general_01.png
+[2]: common/tutorial_general_02.png
+[3]: common/tutorial_general_03.png
+[4]: common/tutorial_general_04.png
+
+[100]: common/tutorial_general_100.png
+
+[201]: common/tutorial_general_201.png
+[202]: common/tutorial_general_202.png
+[203]: common/tutorial_general_203.png

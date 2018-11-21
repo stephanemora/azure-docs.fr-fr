@@ -1,5 +1,5 @@
 ---
-title: Personnaliser les paramètres d’authentification et d’autorisation dans Azure App Service | Microsoft Docs
+title: Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service | Microsoft Docs
 description: Découvrez comment personnaliser les paramètres d’authentification et d’autorisation dans App Service, mais aussi obtenir des revendications d’utilisateur et des jetons distincts.
 services: app-service
 documentationcenter: ''
@@ -11,18 +11,18 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 11/08/2018
 ms.author: cephalin
-ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: e1109ec8cc98c7e5fc72d7f56ade19968b0056cc
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344168"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685325"
 ---
-# <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Personnaliser les paramètres d’authentification et d’autorisation dans Azure App Service
+# <a name="advanced-usage-of-authentication-and-authorization-in-azure-app-service"></a>Utilisation avancée des paramètres d’authentification et d’autorisation dans Azure App Service
 
-Cet article vous explique comment personnaliser [les paramètres d’authentification et d’autorisation dans App Service](app-service-authentication-overview.md), et comment gérer les identités à partir de votre application. 
+Cet article vous explique comment personnaliser les [paramètres d’authentification et d’autorisation intégrés dans App Service](app-service-authentication-overview.md), et comment gérer les identités à partir de votre application. 
 
 Pour commencer rapidement, consultez l’un des didacticiels suivants :
 
@@ -58,6 +58,48 @@ Pour rediriger l’utilisateur post-connexion vers une URL personnalisée, utili
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="validate-tokens-from-providers"></a>Valider les jetons des fournisseurs
+
+Dans une connexion dirigée par le client, l'application connecte manuellement l'utilisateur au fournisseur, puis soumet le jeton d'authentification à App Service pour validation (voir [Flux d'authentification](app-service-authentication-overview.md#authentication-flow)). Cette validation proprement dite ne vous octroie pas l'accès aux ressources souhaitées, mais une validation réussie vous conférera un jeton de session que vous pourrez utiliser pour accéder aux ressources de l'application. 
+
+Pour valider le jeton du fournisseur, l'application App Service doit d'abord être configurée avec le fournisseur souhaité. Au moment de l'exécution, après avoir récupéré le jeton d'authentification auprès de votre fournisseur, envoyez-le à `/.auth/login/<provider>` pour validation. Par exemple :  
+
+```
+POST https://<appname>.azurewebsites.net/.auth/login/aad HTTP/1.1
+Content-Type: application/json
+
+{"id_token":"<token>","access_token":"<token>"}
+```
+
+Le format du jeton varie légèrement selon le fournisseur. Pour plus de détails, consultez le tableau suivant :
+
+| Valeur du fournisseur | Requis dans le corps de la demande | Commentaires |
+|-|-|-|
+| `aad` | `{"access_token":"<access_token>"}` | |
+| `microsoftaccount` | `{"access_token":"<token>"}` | La propriété `expires_in` est facultative. <br/>Lors de la demande de jeton à partir des services Live, demandez toujours l'étendue `wl.basic`. |
+| `google` | `{"id_token":"<id_token>"}` | La propriété `authorization_code` est facultative. Lorsqu'elle est spécifiée, elle peut également être accompagnée de la propriété `redirect_uri`. |
+| `facebook`| `{"access_token":"<user_access_token>"}` | Utilisez un [jeton d'accès utilisateur](https://developers.facebook.com/docs/facebook-login/access-tokens) valide à partir de Facebook. |
+| `twitter` | `{"access_token":"<access_token>", "access_token_secret":"<acces_token_secret>"}` | |
+| | | |
+
+Si le jeton du fournisseur est validé, l'API renvoie un `authenticationToken` dans le corps de la réponse. Il s'agit de votre jeton de session. 
+
+```json
+{
+    "authenticationToken": "...",
+    "user": {
+        "userId": "sid:..."
+    }
+}
+```
+
+Une fois en possession de ce jeton de session, vous pouvez accéder aux ressources d'application protégées en ajoutant l'en-tête `X-ZUMO-AUTH` à vos requêtes HTTP. Par exemple :  
+
+```
+GET https://<appname>.azurewebsites.net/api/products/1
+X-ZUMO-AUTH: <authenticationToken_value>
 ```
 
 ## <a name="sign-out-of-a-session"></a>Déconnexion d’une session
@@ -119,7 +161,7 @@ Votre application peut également obtenir des détails supplémentaires sur l’
 
 À partir de votre code serveur, les jetons spécifiques au fournisseur sont ajoutés dans l’en-tête de requête, afin que vous puissiez y accéder facilement. Le tableau suivant présente les noms d’en-tête de jeton possibles :
 
-| | |
+| Fournisseur | Noms des en-têtes |
 |-|-|
 | Azure Active Directory | `X-MS-TOKEN-AAD-ID-TOKEN` <br/> `X-MS-TOKEN-AAD-ACCESS-TOKEN` <br/> `X-MS-TOKEN-AAD-EXPIRES-ON`  <br/> `X-MS-TOKEN-AAD-REFRESH-TOKEN` |
 | Jeton Facebook | `X-MS-TOKEN-FACEBOOK-ACCESS-TOKEN` <br/> `X-MS-TOKEN-FACEBOOK-EXPIRES-ON` |

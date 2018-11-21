@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/21/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: c16da55540faaf165faa592c3565b317a8eab922
-ms.sourcegitcommit: 799a4da85cf0fec54403688e88a934e6ad149001
+ms.openlocfilehash: 6d6b8d2bddcd3ac622a2a5f51ebe78cbecc29c29
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/02/2018
-ms.locfileid: "50914088"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687331"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Authentification unique transparente Azure Active Directory - Démarrage rapide
 
@@ -91,7 +91,7 @@ Suivez ces instructions pour vérifier que vous avez activé l’authentificatio
 ![Portail Azure : volet Azure AD Connect](./media/how-to-connect-sso-quick-start/sso10.png)
 
 >[!IMPORTANT]
-> L’authentification unique fluide crée un compte d’ordinateur nommé `AZUREADSSOACC` (c’est-à-dire Azure AD) sur votre instance Active Directory (AD) locale, dans chaque forêt AD. Ce compte d’ordinateur est nécessaire pour que la fonctionnalité soit opérationnelle. Déplacez le compte d’ordinateur `AZUREADSSOACC` vers une unité d’organisation (UO) où d’autres comptes d’ordinateurs sont stockés. Vous serez ainsi assuré qu’il sera géré de la même façon et qu’il ne sera pas supprimé.
+> L’authentification unique fluide crée un compte d’ordinateur nommé `AZUREADSSOACC` (c’est-à-dire Azure AD) sur votre instance Active Directory (AD) locale, dans chaque forêt AD. Ce compte d’ordinateur est nécessaire pour que la fonctionnalité soit opérationnelle. Si vous utilisez des architectures de type « Pass-The-Hash » et Atténuation des vols d'informations d'identification dans votre environnement local, veillez à ce que le compte d'ordinateur `AZUREADSSOACC` ne se retrouve pas dans le conteneur Quarantaine. Apportez les modifications qui conviennent pour créer le compte d'ordinateur dans le conteneur Ordinateurs. Une fois l'authentification unique transparente activée dans l'Assistant Azure AD Connect, déplacez le compte d'ordinateur `AZUREADSSOACC` vers une unité d'organisation où d'autres comptes d'ordinateur sont gérés afin d'éviter une suppression accidentelle de celui-ci.
 
 ## <a name="step-3-roll-out-the-feature"></a>Étape 3 : Déployer la fonctionnalité
 

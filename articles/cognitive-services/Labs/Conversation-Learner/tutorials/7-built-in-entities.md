@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 2dbbf2a47cdc4240e5b0ba38658a4cb8d5307ff8
-ms.sourcegitcommit: da3459aca32dcdbf6a63ae9186d2ad2ca2295893
+ms.openlocfilehash: cdd9ad16096c85db21829840b2bfd7acaced5942
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/07/2018
-ms.locfileid: "51260055"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683496"
 ---
 # <a name="how-to-add-pre-built-entities"></a>Comment ajouter des entités préintégrées
 Ce didacticiel explique comment ajouter des entités « préintégrées » à votre modèle Apprenant de conversation.
@@ -47,24 +47,25 @@ Les entités préintégrées reconnaissent les types classiques d’entités, te
     - Les options Programmable et Negatable sont désactivées, car elles ne s’appliquent pas aux entités préintégrées.
 3. Cliquez sur Créer.
 
-![](../media/tutorial7_entities.PNG)
+![](../media/tutorial7_entities_a.PNG)
 
 ### <a name="create-two-actions"></a>Créer deux actions
 
-1. Cliquez sur Actions, puis sur Nouvelle action
-2. Dans Réponse, tapez « La date est $luis-datetimev2 ».
-3. Cliquez sur Créer.
+1. Cliquez sur Actions, puis sur Nouvelle action.
+1. Dans Réponse, entrez « La date est $luis-datetimev2 ».
+1. Dans Entités requises, entrez « $builtin-datetimev2 ».
+1. Cliquez sur Créer.
 
-![](../media/tutorial7_actions.PNG)
+![](../media/tutorial7_actions_a.PNG)
 
 Ensuite, créez la deuxième action :
 
 1. Cliquez sur Actions, puis sur Nouvelle Action pour en créer une deuxième.
-3. Dans Réponse, tapez « Quelle est la date ? ».
-4. Dans Entités disqualifiantes, entrez « luis-datetimev2 ».
-4. Cliquez sur Create.
+1. Dans Réponse, tapez « Quelle est la date ? ».
+1. Dans Entités disqualifiantes, entrez « $builtin-datetimev2 ».
+1. Cliquez sur Créer.
 
-![](../media/tutorial7_actions2.PNG)
+![](../media/tutorial7_actions2_a.PNG)
 
 Vous avez maintenant deux actions.
 
@@ -75,11 +76,11 @@ Vous avez maintenant deux actions.
 3. Cliquez sur Attribuer un score aux actions et sélectionnez « Quelle est la date ? ».
 2. Entrez « aujourd’hui ». 
     - Notez qu’aujourd’hui est balisé et apparaît dans la deuxième ligne puisqu’il s’agit d’une entité préintégrée et non modifiable.
-5. Cliquez sur Attribuer un score aux actions
+5. Cliquez sur Score Actions (Actions de score).
     - Notez que la date s’affiche désormais dans la section Mémoire de l’entité. 
     - Si vous passez la souris sur la date, vous verrez les données supplémentaires fournies par LUIS, qui sont utilisables et peuvent être manipulées dans le code. 
-6. Sélectionnez « La date est $luis-datetimev2 ».
-7. Cliquez sur Apprentissage terminé
+6. Sélectionnez « La date est $luis-datetimev2 ».
+7. Cliquez sur Done Teaching (Apprentissage terminé).
 
 ## <a name="next-steps"></a>Étapes suivantes
 

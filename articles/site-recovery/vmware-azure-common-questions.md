@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 10/29/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 05f878d244647a79a2b3e9d0c789ba811dad71ee
-ms.sourcegitcommit: 00dd50f9528ff6a049a3c5f4abb2f691bf0b355a
+ms.openlocfilehash: c261dd083fed8b9c4a0f3846157c666cbb52083c
+ms.sourcegitcommit: 542964c196a08b83dd18efe2e0cbfb21a34558aa
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/05/2018
-ms.locfileid: "51012103"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51636813"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Questions courantes sur la réplication de VMware vers Azure
 
@@ -110,6 +110,8 @@ Le serveur de configuration exécute les composants Site Recovery en local, nota
 - Le serveur de traitement qui fait office de passerelle de réplication. Il reçoit les données de réplication, les optimise grâce à la mise en cache, la compression et le chiffrement, et les envoie vers le stockage Azure. En outre, le serveur de traitement installe le service Mobilité sur les machines virtuelles que vous souhaitez répliquer et effectue une détection automatique des machines virtuelles VMware en local.
 - Le serveur cible maître qui gère les données de réplication pendant la restauration automatique à partir d’Azure.
 
+[Découvrez-en plus](vmware-azure-architecture.md) sur les composants et les processus du serveur de configuration.
+
 ### <a name="where-do-i-set-up-the-configuration-server"></a>Où configurer le serveur de configuration ?
 Vous avez besoin d’une seule machine virtuelle VMware en local hautement disponible pour le serveur de configuration.
 
@@ -121,20 +123,40 @@ Examinez les [conditions préalables](vmware-azure-deploy-configuration-server.m
 Nous vous recommandons d’utiliser la version la plus récente du modèle OVF pour [créer la machine virtuelle du serveur de configuration](vmware-azure-deploy-configuration-server.md). Si ce n’est pas possible pour une raison quelconque, par exemple vous n’avez pas accès au serveur VMware, vous pouvez [télécharger le fichier d’installation unifiée](physical-azure-set-up-source.md) à partir du portail, puis l’exécuter sur une machine virtuelle.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Un serveur de configuration peut-il répliquer vers plusieurs régions ?
-Non. Pour ce faire, vous devez configurer un serveur de configuration dans chaque région.
+ Non. Pour ce faire, vous devez configurer un serveur de configuration dans chaque région.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Puis-je héberger un serveur de configuration dans Azure ?
 Bien que ce soit possible, la machine virtuelle Azure exécutant le serveur de configuration doit communiquer avec les machines virtuelles et votre infrastructure VMware en local. Cela peut ajouter des latences et avoir une incidence sur la réplication en cours.
 
-
-### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>Où puis-je obtenir la version la plus récente du modèle de serveur de configuration ?
-Téléchargez la dernière version à partir du [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver).
-
 ### <a name="how-do-i-update-the-configuration-server"></a>Comment mettre à jour le serveur de configuration ?
-Vous installez des correctifs cumulatifs. Les informations de mise à jour les plus récentes sont disponibles dans la [page wiki relative aux mises à jour](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+[Découvrez-en plus](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) sur la mise à jour des paramètres de configuration. Les informations de mise à jour les plus récentes sont disponibles dans la [page relatives aux mises à jour d'Azure](https://azure.microsoft.com/updates/?product=site-recovery). Vous pouvez aussi télécharger directement la dernière version du modèle de serveur de configuration dans le [Centre de téléchargement Microsoft](https://aka.ms/asrconfigurationserver).
 
 ### <a name="should-i-backup-the-deployed-configuration-server"></a>Dois-je sauvegarder le serveur de configuration déployé ?
 Nous vous recommandons d’effectuer des sauvegardes planifiées régulières du serveur de configuration. Pour que la restauration automatique réussisse, la machine virtuelle restaurée doit exister dans la base de données du serveur de configuration, et celui-ci doit être en cours d’exécution et en état connecté. Pour plus d’informations sur les tâches courantes d’administration du serveur de configuration, voir [ici](vmware-azure-manage-configuration-server.md).
+
+### <a name="when-im-setting-up-the-configuration-server-can-i-download-and-install-mysql-manually"></a>Lorsque je configure le serveur de configuration, puis-je télécharger et installer MySQL manuellement ?
+Oui. Téléchargez MySQL et placez-le dans le dossier **C:\Temp\ASRSetup**. Puis installez-le manuellement. Lorsque vous configurez la machine virtuelle du serveur de configuration et acceptez les termes du contrat, MySQL est répertorié comme **Déjà installé** dans **Télécharger et installer**.
+
+### <a name="can-i-avoid-downloading-mysql-but-let-site-recovery-install-it"></a>Puis-je ne pas télécharger MySQL et laisser Site Recovery l’installer ?
+Oui. Téléchargez le programme d'installation MySQL et placez-le dans le dossier **C:\Temp\ASRSetup**.  Lorsque vous configurez la machine virtuelle du serveur de configuration, acceptez les conditions, puis cliquez sur **Télécharger et installer** ; le portail utilisera le programme d’installation que vous avez ajouté pour installer MySQL.
+ 
+### <a name="canl-i-use-the-configuration-server-vm-for-anything-else"></a>Puis-je utiliser la machine virtuelle du serveur de configuration à d'autres fins ?
+Non, la machine virtuelle doit être réservée au serveur de configuration. 
+
+### <a name="can-i-change-the-vault-registered-in-the-configuration-server"></a>Puis-je modifier le coffre inscrit sur le serveur de configuration ?
+ Non. Une fois le coffre inscrit auprès du serveur de configuration, il n’est plus modifiable.
+
+### <a name="can-i-use-the-same-configuration-server-for-disaster-recovery-of-both-vmware-vms-and-physical-servers"></a>Puis-je utiliser le même serveur de configuration à des fins de récupération d'urgence pour les machines virtuelles VMware et les serveurs physiques ?
+Oui, mais notez qu'une machine physique peut uniquement être restaurée vers une machine virtuelle VMware.
+
+### <a name="where-can-i-download-the-passphrase-for-the-configuration-server"></a>Où puis-je télécharger la phrase secrète du serveur de configuration ?
+[Consultez cet article](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) pour en savoir plus sur le téléchargement de la phrase secrète.
+
+### <a name="where-can-i-download-vault-registration-keys"></a>Où puis-je télécharger les clés d’inscription du coffre ?
+
+Dans le **coffre Recovery Services**, **Gérer** > **Infrastructure Site Recovery** > **Serveurs de configuration**. Dans **Serveurs**, sélectionnez **Télécharger une clé d’inscription** pour télécharger le fichier d’informations d’identification du coffre.
+
+
 
 ## <a name="mobility-service"></a>Service Mobilité
 

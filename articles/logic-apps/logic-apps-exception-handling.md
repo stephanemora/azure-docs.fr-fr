@@ -10,12 +10,12 @@ ms.date: 01/31/2018
 ms.topic: article
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 7ce5c7007414bfe8e17727c25de9712e7993dc1e
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 19a715812f1250523fd050ac8b80dee9ec664be4
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39263750"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51686260"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Gérer les erreurs et les exceptions dans Azure Logic Apps
 
@@ -73,7 +73,7 @@ Vous pouvez aussi spécifier manuellement la stratégie de nouvelle tentative da
 
 | Valeur | type | Description |
 |-------|------|-------------|
-| <*retry-policy-type*> | Chaîne | Type de stratégie de nouvelle tentative à utiliser : « default », « none », « fixed » ou « exponential » | 
+| <*retry-policy-type*> | Chaîne | Type de stratégie de nouvelles tentatives à utiliser : `default`, `none`, `fixed` ou `exponential` | 
 | <*retry-interval*> | Chaîne | Intervalle de nouvelle tentative, où la valeur doit être au [format ISO 8601](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). L’intervalle minimal par défaut est `PT5S` et l’intervalle maximal est `PT1D`. Quand vous utilisez la stratégie d’intervalle exponentiel, vous pouvez spécifier différentes valeurs minimales et maximales. | 
 | <*retry-attempts*> | Entier  | Nombre de nouvelles tentatives, qui doit être compris entre 1 et 90 | 
 ||||
@@ -114,7 +114,7 @@ Bien que cela ne soit pas défini explicitement dans votre action ou déclencheu
 }
 ```
 
-### <a name="none"></a>Aucune
+### <a name="none"></a>Aucun
 
 Pour spécifier que l’action ou le déclencheur n’effectue pas de nouvelle tentative en cas d’échec de requête, affectez la valeur `none` à <*retry-policy-type*>.
 
@@ -221,9 +221,9 @@ Pour les limites sur les étendues, consultez [Limites et configuration](../logi
 
 ### <a name="get-context-and-results-for-failures"></a>Obtenir le contexte et les résultats des échecs
 
-Bien que l’interception des échecs d’une étendue soit très utile, vous aurez peut-être également besoin du contexte pour identifier précisément les actions qui ont échoué, ainsi que les codes d’erreur ou d’état renvoyés. L’expression « @result() » fournit le contexte concernant le résultat de toutes les actions au sein d’une étendue.
+Bien que l’interception des échecs d’une étendue soit très utile, vous aurez peut-être également besoin du contexte pour identifier précisément les actions qui ont échoué, ainsi que les codes d’erreur ou d’état renvoyés. L’expression `@result()` fournit un contexte sur le résultat de toutes les actions d’une étendue.
 
-L’expression « @result() » accepte un paramètre unique (le nom de l’étendue), et retourne un tableau de tous les résultats d’action dans cette étendue. Ces objets d’action incluent les mêmes attributs que l’objet  **@actions()**, tels que l’heure de début, l’heure de fin, l’état, les entrées, les ID de corrélation et les sorties de l’action. Vous pouvez facilement associer une fonction **@result()** à une propriété **runAfter** pour envoyer le contexte de toutes les actions qui ont échoué dans une étendue.
+L’expression `@result()` accepte un paramètre unique (le nom de l’étendue), et renvoie un tableau de tous les résultats d’action contenus dans cette étendue. Ces objets d’action incluent les mêmes attributs que l’objet  **@actions()**, tels que l’heure de début, l’heure de fin, l’état, les entrées, les ID de corrélation et les sorties de l’action. Vous pouvez facilement associer une fonction **@result()** à une propriété **runAfter** pour envoyer le contexte de toutes les actions qui ont échoué dans une étendue.
 
 Pour exécuter une action pour chaque action d’une étendue dont le résultat est **Failed**, et filtrer le tableau de résultats sur les actions ayant échoué, vous pouvez associer **@result()** à une action **[Filter Array](../connectors/connectors-native-query.md)** et à une boucle [**For each**](../logic-apps/logic-apps-control-flow-loops.md). Vous pouvez prendre le tableau des résultats filtrés et effectuer une action pour chaque échec à l’aide de la boucle **For each**. 
 
@@ -270,22 +270,22 @@ Cet exemple, suivi d’une explication détaillée, envoie une requête HTTP POS
 
 Voici la procédure détaillée pour décrire ce qui se produit dans cet exemple :
 
-1. Pour obtenir le résultat de toutes les actions à l’intérieur de « My_Scope », l’action **Filter Array** utilise cette expression de filtre : « @result('My_Scope') ».
+1. Pour obtenir le résultat de toutes les actions contenues dans « My_Scope », l’action **Filter Array** utilise cette expression de filtre : `@result('My_Scope')`
 
-2. La condition de l’action **Filter Array** est tout élément « @result() » dont l’état est égal à **Failed**. Cette condition filtre le tableau ayant tous les résultats d’action de « My_Scope » afin d’obtenir un tableau contenant uniquement les résultats d’action ayant échoué.
+2. La condition de l’action **Filter Array** est tout élément `@result()` dont l’état est égal à **Failed**. Cette condition filtre le tableau ayant tous les résultats d’action de « My_Scope » afin d’obtenir un tableau contenant uniquement les résultats d’action ayant échoué.
 
 3. Exécution d’une action en boucle **For each** sur les résultats du *tableau filtré*. Cette étape exécute une action pour chaque résultat d’action ayant échoué filtré précédemment.
 
    Si une seule action dans l’étendue a échoué, les actions de **For each** s’exécutent une seule fois. 
    Plusieurs actions ayant échoué peuvent provoquer une action par échec.
 
-4. Envoi d’une requête HTTP POST sur le corps de réponse de l’élément **For each**, qui est l’expression « @item()['outputs']['body'] ». 
+4. Envoi d’une requête HTTP POST sur le corps de réponse de l’élément **For each**, qui est l’expression `@item()['outputs']['body']`. 
 
-   La forme de l’élément « @result() » est identique à la forme « @actions() » et peut être analysée de la même façon.
+   La forme de l’élément `@result()` est identique à la forme `@actions()` et peut être analysée de la même façon.
 
-5. Deux en-têtes personnalisés avec le nom de l’action qui a échoué (« @item()['name'] » sont également inclus, ainsi que l’ID de suivi du client d’exécution qui a échoué (« @item()['clientTrackingId'] »).
+5. Deux en-têtes personnalisés avec le nom de l’action qui a échoué (`@item()['name']`) sont également inclus, ainsi que l’ID de suivi du client d’exécution qui a échoué (`@item()['clientTrackingId']`).
 
-Pour référence, voici un exemple d’un seul élément « @result() », montrant les propriétés **name**, **body** et **clientTrackingId** analysées dans l’exemple précédent. En dehors d’une action **For each**, « @result() » retourne un tableau de ces objets.
+Pour référence, voici un exemple d’un seul élément `@result()`, montrant les propriétés **name**, **body** et **clientTrackingId** analysées dans l’exemple précédent. En dehors d’une action **For each**, `@result()` renvoie un tableau de ces objets.
 
 ```json
 {

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 11/14/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 83a36c81ad88ccb37fe4a258f895b1e1cbe9299f
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 6f93d7c4b76d635a221c2711ce9d4ef0de2286f6
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 09/19/2018
-ms.locfileid: "46304548"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687399"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-technical-deep-dive"></a>Authentification unique transparente Azure Active Directory : immersion technique
 
@@ -79,8 +79,8 @@ Le flux de connexion sur un client natif est le suivant :
 
 1. Un utilisateur tente d’accéder à une application native (par exemple, le client Outlook) à partir d’un appareil d’entreprise joint à un domaine du réseau de l’entreprise.
 2. Si l’utilisateur n’est pas déjà connecté, l’application native récupère le nom d’utilisateur de l’utilisateur à partir de la session Windows de l’appareil.
-3. L’application envoie le nom d’utilisateur à Azure AD et récupère le point de terminaison WS-Trust MEX de votre locataire.
-4. L’application interroge ensuite le point de terminaison WS-Trust MEX pour savoir si le point de terminaison d’authentification intégrée est disponible.
+3. L’application envoie le nom d’utilisateur à Azure AD et récupère le point de terminaison WS-Trust MEX de votre locataire. Ce point de terminaison WS-Trust est exclusivement utilisé par la fonctionnalité d'authentification unique transparente et il ne s'agit pas d'une implémentation générale du protocole WS-Trust sur Azure AD.
+4. L’application interroge ensuite le point de terminaison WS-Trust MEX pour savoir si le point de terminaison d’authentification intégrée est disponible. Le point de terminaison d'authentification intégré est exclusivement utilisé par la fonctionnalité d'authentification unique transparente.
 5. Si l’étape 4 a réussi, une demande d’authentification Kerberos est émise.
 6. Si l’application est en mesure de récupérer le ticket Kerberos, il le transfère au point de terminaison d’authentification intégrée d’Azure AD.
 7. Azure AD déchiffre le ticket Kerberos, puis le valide.

@@ -9,16 +9,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
-ms.openlocfilehash: cd62083bc7bd0254084f0fc209540de929c25d06
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c26b4700f32ce4e0bd8327e862d31df8fea2439d
+ms.sourcegitcommit: 0b7fc82f23f0aa105afb1c5fadb74aecf9a7015b
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042251"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51632541"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Utiliser Apache Hive comme un outil d’extraction, de transformation et de chargement (ETL)
 
-En règle générale, vous devez nettoyer et transformer les données entrantes avant de les charger dans une destination appropriée à des fins d’analytique. Les opérations d’extraction, de transformation et de chargement (ETL) sont utilisées pour préparer les données et les charger dans une destination de données.  Hive sur HDInsight peut lire les données non structurées, traiter les données en fonction des besoins, puis charger les données dans un entrepôt de données relationnelles pour les systèmes de support de décision. Dans cette approche, les données sont extraites de la source et stockées dans un stockage scalable, tel que des objets blob Stockage Azure ou Azure Data Lake Store. Les données sont ensuite transformées à l’aide d’une séquence de requêtes Hive. Elles sont enfin mises en lots dans Hive en préparation du chargement en masse dans le magasin de données de destination.
+En règle générale, vous devez nettoyer et transformer les données entrantes avant de les charger dans une destination appropriée à des fins d’analytique. Les opérations d’extraction, de transformation et de chargement (ETL) sont utilisées pour préparer les données et les charger dans une destination de données.  Apache Hive sur HDInsight peut lire les données non structurées, traiter les données en fonction des besoins, puis charger les données dans un entrepôt de données relationnelles pour les systèmes de support de décision (DSS). Dans cette approche, les données sont extraites de la source et stockées dans un stockage scalable, tel que des objets blob Stockage Azure ou Azure Data Lake Store. Les données sont ensuite transformées à l’aide d’une séquence de requêtes Hive. Elles sont enfin mises en lots dans Hive en préparation du chargement en masse dans le magasin de données de destination.
 
 ## <a name="use-case-and-model-overview"></a>Cas d’usage et vue d’ensemble du modèle
 

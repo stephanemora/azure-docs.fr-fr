@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: gokuma
-ms.openlocfilehash: df29d0a55317d06d656d8444c6bd7754c6c955eb
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: c83c9929019e6e236ead783c0c617e51523a5a8a
+ms.sourcegitcommit: 6b7c8b44361e87d18dba8af2da306666c41b9396
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31407212"
+ms.lasthandoff: 11/12/2018
+ms.locfileid: "51567381"
 ---
 # <a name="data-exploration-and-visualization-tools-on-the-data-science-virtual-machine"></a>Outils d’exploration et de visualisation de données sur la machine virtuelle DSVM
 
@@ -60,7 +60,7 @@ Une étape clé de la science des données consiste à comprendre les données. 
 |    |           |
 | ------------- | ------------- |
 | Qu’est-ce que c’est ?   | Outil de décisionnel et de visualisation interactive des données    |
-| Versions DSVM prises en charge      | Windows  |
+| Versions DSVM prises en charge      |  Windows  |
 | Utilisations classiques      |  Visualisation des données et création de tableaux de bord   |
 | Comment l’utiliser/l’exécuter ?      | Raccourci sur le Bureau (`C:\Program Files\Microsoft Power BI Desktop\bin\PBIDesktop.exe`)      |
 | Outils connexes sur la machine virtuelle DSVM      |   Visual Studio 2017, Visual Studio Code, Juno      |

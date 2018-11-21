@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 10/18/2018
 ms.author: pbutlerm
-ms.openlocfilehash: a216f3ddd89ad92dbbae617c51d5fc9c478c0c03
-ms.sourcegitcommit: 707bb4016e365723bc4ce59f32f3713edd387b39
+ms.openlocfilehash: 205fd258ed397f5a9588773549368fc3c4aec058
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/19/2018
-ms.locfileid: "49432721"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51684815"
 ---
 # <a name="iot-edge-module-skus-tab"></a>Onglet Références de modules IoT Edge
 
@@ -90,7 +90,7 @@ Le tableau suivant décrit l’objectif, le contenu et le format des champs sous
 
 ## <a name="sku-content"></a>Contenu de la référence SKU
 
-Sous Edge Module Images (Images du module Edge), fournissez les informations nécessaires pour charger votre module IoT Edge.
+Sous **Edge Module Images** (Images du module Edge), fournissez les informations nécessaires pour charger votre module IoT Edge.
 
 Accordez-nous l’accès à votre [Azure Container Registry](https://azure.microsoft.com/services/container-registry/) qui contient votre image de module IoT Edge, afin que vous puissiez la charger et la certifier. Après sa publication, votre module IoT Edge est copié et distribué à l’aide d’un registre de conteneurs public hébergé par la Place de marché Microsoft Azure.
 

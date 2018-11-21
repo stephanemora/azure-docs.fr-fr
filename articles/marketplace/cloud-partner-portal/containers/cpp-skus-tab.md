@@ -12,14 +12,14 @@ ms.workload: ''
 ms.tgt_pltfrm: ''
 ms.devlang: ''
 ms.topic: conceptual
-ms.date: 11/01/2018
+ms.date: 11/14/2018
 ms.author: pbutlerm
-ms.openlocfilehash: 83acdb320e0be0837ec5188a11cb86b91ed077fa
-ms.sourcegitcommit: 1fc949dab883453ac960e02d882e613806fabe6f
+ms.openlocfilehash: 81f7e46e626bb061881be53e8cace36e1478e0e1
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/03/2018
-ms.locfileid: "50980150"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51683976"
 ---
 # <a name="container-skus-tab"></a>Onglet Références SKU de conteneur
 
@@ -46,7 +46,7 @@ Les métadonnées de la référence SKU contiennent une description du conteneur
 
 ### <a name="container-metadata"></a>Métadonnées de conteneur
 
-Les métadonnées du conteneur contiennent les informations de référence du référentiel d’image dans Azure Container Registry (ACR). La Place de marché Microsoft Azure copie cette image dans le registre public de la place de marché, ce qui la met à la disposition des clients après certification. Toutes les requêtes émanant de l’utilisateur Azure pour consommer une image conteneur sont traitées à partir du registre de conteneurs de la Place de marché.
+Les métadonnées du conteneur contiennent les informations de référence du référentiel d’image dans Azure Container Registry (ACR). La Place de marché Microsoft Azure copie cette image dans un registre public spécifique à la Place de marché, puis la met à la disposition des clients après la certification. Toutes les requêtes émanant de l'utilisateur Azure et visant à utiliser une image de conteneur de la Place de marché Microsoft Azure sont traitées à partir du registre public de la Place de marché, et non d'ACR.
 
 ![Métadonnées de conteneur](./media/containers-image-repository.png)
     

@@ -10,29 +10,31 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: report-monitor
-ms.date: 12/06/2017
+ms.date: 11/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 182537d6f07b624f2395f591681ed4596579bde0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: fab94088d1d54012a955b0663b078d03b13d6299
+ms.sourcegitcommit: 1f9e1c563245f2a6dcc40ff398d20510dd88fd92
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42139829"
+ms.lasthandoff: 11/14/2018
+ms.locfileid: "51624910"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trouver les rapports d’activité sur le Portail Azure
 
-Dans cet article, nous expliquons comment trouver les rapports d’activité utilisateur Azure Active Directory sur le portail Azure.
+Dans cet article, vous allez apprendre à rechercher les rapports d’activité utilisateur Azure Active Directory (Azure AD) sur le portail Azure.
 
-## <a name="activity-and-integrated-app-reports"></a>Rapports d’activité et d’application intégrée
+## <a name="audit-logs-report"></a>Rapport de journaux d’audit
 
-Dans le portail Azure, pour la création de rapports basés sur le contexte, les rapports existants sont fusionnés en une seule vue. Une seule API sous-jacente fournit les données de la vue.
+Le rapport de journaux d’audit regroupe plusieurs rapports en lien avec les activités des applications sur une vue unique pour la création de rapports contextuels. Pour accéder au rapport de journaux d’audit :
 
-Pour afficher cette vue, dans le panneau **Azure Active Directory**, sous **Activité**, sélectionnez **Journaux d’audit**.
+1. Accédez au [portail Azure](https://portal.azure.com).
+2. Sélectionnez votre annuaire en haut à droite de l'écran, puis sélectionnez le panneau **Azure Active Directory** à partir du volet de navigation de gauche.
+3. Sélectionnez **Journaux d’audit** dans la section **Activité** du panneau Azure Active Directory. 
 
-![Journaux d’audit](./media/howto-find-activity-reports/482.png "Journaux d’Audit")
+    ![Journaux d’audit](./media/howto-find-activity-reports/482.png "Journaux d’Audit")
 
-Les rapports suivants sont consolidés dans cette vue :
+Le rapport de journaux d’audit regroupe les rapports suivants :
 
 * Rapport d’audit
 * Activité de réinitialisation de mot de passe
@@ -43,26 +45,11 @@ Les rapports suivants sont consolidés dans cette vue :
 * État de substitution de mot de passe
 * Erreurs de configuration de compte
 
+### <a name="filtering-on-audit-logs"></a>Filtrage sur les journaux d’audit
 
-Le rapport d’utilisation de l’application a été amélioré et inclus dans la vue **Connexions**. Pour afficher cette vue, sur le panneau **Azure Active Directory**, sous **Activité**, sélectionnez **Connexions**.
+Vous pouvez appliquer le filtrage avancé au rapport d’audit pour accéder à une catégorie spécifique de données d’audit, en spécifiant celle-ci dans le filtre **Catégorie d’activité**. Par exemple, pour afficher toutes les activités en lien avec la réinitialisation de mot de passe en libre-service, sélectionnez la catégorie **Gestion de mot de passe en libre-service**. 
 
-![Vue Connexions](./media/howto-find-activity-reports/483.png "Vue Connexions")
-
-La vue **Connexions** inclut toutes les connexions des utilisateurs. Vous pouvez utiliser ces informations pour obtenir des informations sur l’utilisation de l’application. Vous pouvez également afficher des informations sur l’utilisation de l’application dans la vue d’ensemble **Applications d’entreprise** sous la section **Gérer**.
-
-![Applications d’entreprise](./media/howto-find-activity-reports/484.png "Applications d’entreprise")
-
-## <a name="access-a-specific-report"></a>Accéder à un rapport spécifique
-
-Bien que le portail Azure offre une vue unique, vous pouvez également consulter des rapports spécifiques.
-
-### <a name="audit-logs"></a>Journaux d’audit
-
-En réponse aux commentaires des clients, dans le portail Azure, vous pouvez utiliser un filtrage avancé pour accéder aux données de votre choix. Vous pouvez utiliser le filtre *Catégorie de l’activité*, qui répertorie les différents types de journaux d’activité dans Azure AD. Pour restreindre les résultats à ce que vous recherchez, vous pouvez sélectionner une catégorie.
-
-Par exemple, si vous souhaitez simplement obtenir les activités liées aux réinitialisations de mot de passe libre-service, vous pouvez choisir la catégorie **Gestion des mots de passe en libre-service**. Les catégories affichées sont basées sur la ressource que vous utilisez.  
-
-![Options de catégories dans la page Filtrer les journaux d’audit](./media/howto-find-activity-reports/06.png "Options de catégories dans la page Filtrer les journaux d’audit")
+    ![Category options on the Filter Audit Logs page](./media/howto-find-activity-reports/06.png "Category options on the Filter Audit Logs page")
 
 Les catégories d’activités sont les suivantes :
 
@@ -71,19 +58,36 @@ Les catégories d’activités sont les suivantes :
 - Gestion des groupes en libre-service
 - Approvisionnement des comptes
 
-### <a name="application-usage"></a>Utilisation des applications
 
-Pour afficher plus d’informations sur l’utilisation des applications (pour toutes les applications ou une seule application), sous **Activité**, sélectionnez **Connexions**. Pour restreindre les résultats, vous pouvez filtrer par nom d’utilisateur ou par nom d’application.
+## <a name="sign-ins-report"></a>Rapport de connexions 
+
+La vue **Connexions** inclut toutes les connexions utilisateur ainsi que le rapport **Utilisation des applications**. Vous pouvez également afficher des informations sur l’utilisation des applications dans la section **Gérer** de la vue d’ensemble **Applications d’entreprise**.
+
+    ![Enterprise applications](./media/howto-find-activity-reports/484.png "Enterprise applications")
+
+Pour accéder au rapport de connexions :
+
+1. Accédez au [portail Azure](https://portal.azure.com).
+2. Sélectionnez votre annuaire en haut à droite de l'écran, puis sélectionnez le panneau **Azure Active Directory** à partir du volet de navigation de gauche.
+3. Sélectionnez **Connexions** dans la section **Activité** du panneau Azure Active Directory. 
+
+    ![Vue Connexions](./media/howto-find-activity-reports/483.png "Vue Connexions")
+
+
+### <a name="filtering-on-application-name"></a>Filtrage sur le nom de l’application
+
+Vous pouvez utiliser le rapport de connexions pour afficher des détails sur l’utilisation d'une application, en filtrant sur le nom d’utilisateur ou sur le nom de l’application.
 
 ![Page Filtrer les événements de connexion](./media/howto-find-activity-reports/07.png "Page Filtrer les événements de connexion")
 
-### <a name="security-reports"></a>Rapports de sécurité
+## <a name="security-reports"></a>Rapports de sécurité
 
-#### <a name="azure-ad-anomalous-activity-reports"></a>Rapports d’activités anormales Azure AD
+### <a name="anomalous-activity-reports"></a>Rapports d’activités anormales
 
-Les rapports de sécurité sur les activités anormales d’Azure Active Directory sont consolidés pour vous fournir une seule vue centralisée. Cette vue affiche tous les événements liés à la sécurité qu’Azure AD peut détecter et signaler dans des rapports.
+Les rapports d'activité anormaux fournissent des informations sur les événements à risque qu'Azure AD peut détecter et signaler.
 
-Le tableau suivant répertorie les rapports de sécurité sur les activités anormales d’Azure AD et les types d’événements à risque correspondants dans le portail Azure.
+Le tableau suivant répertorie les rapports de sécurité sur les activités anormales d’Azure AD et les types d’événements à risque correspondants dans le portail Azure. Pour plus d’informations, consultez [Événements à risque dans Azure Active Directory](concept-risk-events.md).  
+
 
 | Rapport d’activités anormales Azure AD |  Type d’événement à risque signalé par Identity Protection|
 | :--- | :--- |
@@ -99,29 +103,18 @@ Les rapports de sécurité sur les activités anormales d’Azure AD suivants ne
 * Connexions après plusieurs échecs
 * Connexions depuis plusieurs zones géographiques
 
-Pour plus d’informations, consultez [Événements à risque dans Azure Active Directory](concept-risk-events.md).  
 
+### <a name="detected-risk-events"></a>Événements à risque détectés
 
-#### <a name="detected-risk-events"></a>Événements à risque détectés
+Sur le **portail Azure**, vous pouvez accéder aux rapports relatifs aux événements à risque détectés dans la section **Sécurité** du panneau [Azure Active Directory](https://portal.azure.com). Les événements à risque détectés sont suivis dans les rapports suivants :   
 
-Dans le portail Azure, vous pouvez accéder aux rapports sur les événements à risque détectés dans le panneau **Azure Active Directory** sous **Sécurité**. Les événements à risque détectés sont suivis dans les rapports suivants :   
+- [Utilisateurs à risque](concept-user-at-risk.md)
+- [Connexions risquées](concept-risky-sign-ins.md)
 
-- les utilisateurs à risque ;
-- les connexions risquées.
-
-![Rapports de sécurité](./media/howto-find-activity-reports/04.png "Rapports de sécurité")
-
-Pour plus d’informations sur les rapports de sécurité, consultez :
-
-- [Rapport sur la sécurité des utilisateurs courant un risque dans le portail Azure Active Directory](concept-user-at-risk.md)
-- [Rapports sur les connexions risquées dans le portail Azure Active Directory](concept-risky-sign-ins.md)
-
-
-Pour afficher le rapport **d’utilisation des applications**, dans le panneau **Azure Active Directory**, sous **Gérer**, sélectionnez **Applications d’entreprise**, puis **Connexions**.
-
-
-![Rapport des connexions aux applications d’entreprise](./media/howto-find-activity-reports/199.png)
+    ![Rapports de sécurité](./media/howto-find-activity-reports/04.png "Rapports de sécurité")
 
 ## <a name="next-steps"></a>Étapes suivantes
 
-Pour obtenir une vue d’ensemble des rapports, consultez [Création de rapports Azure Active Directory](overview-reports.md).
+* [Vue d’ensemble des journaux d’audit](concept-audit-logs.md)
+* [Vue d’ensemble des connexions](concept-sign-ins.md)
+* [Vue d’ensemble des événements à risque](concept-risk-events.md)

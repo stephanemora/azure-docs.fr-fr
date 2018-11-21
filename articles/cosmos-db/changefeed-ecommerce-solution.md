@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: sngun
-ms.openlocfilehash: 241cd2fddf31373ed9ca208efb0612dd4332131c
-ms.sourcegitcommit: ae45eacd213bc008e144b2df1b1d73b1acbbaa4c
+ms.openlocfilehash: 03fb56125bcc4133dd87a1dc76d4d6811ebb8f40
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 11/01/2018
-ms.locfileid: "50740975"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51685495"
 ---
 # <a name="use-azure-cosmos-db-change-feed-to-visualize-real-time-data-analytics"></a>Utiliser le flux de modification Azure Cosmos DB pour visualiser l’Analytique données en temps réel
 
@@ -89,7 +89,7 @@ Vous devez créer les ressources Azure requises par la solution : Azure Cosmos D
    ```powershell
    .\deploy.ps1
    ```
-5. Lorsque vous y êtes invité, indiquez votre **ID d’abonnement** Azure, la valeur **changefeedlab** comme nom du groupe de ressources, ainsi que la valeur **run1** pour le nom du déploiement. Le déploiement complet des ressources peut prendre jusqu’à 10 minutes.
+5. Lorsque vous y êtes invité, entrez votre **ID d’abonnement** Azure, la valeur **changefeedlab** comme nom du groupe de ressources, ainsi que la valeur **run1** pour le nom du déploiement. Le déploiement complet des ressources peut prendre jusqu’à 10 minutes.
 
 ## <a name="create-a-database-and-the-collection"></a>Créer une base de données et la collection
 
@@ -226,7 +226,7 @@ Azure Stream Analytics est un service cloud entièrement géré pour le traiteme
 
    ![Modifier la requête](./media/changefeed-ecommerce-solution/edit-query.png)
  
-9. Collez la requête ci-après dans la fenêtre de requête. La requête **AVERAGE PRICE** calcule le prix moyen de tous les articles consultés par les utilisateurs, de tous les articles ajoutés au panier des utilisateurs et de tous les articles achetés par les utilisateurs. Cette métrique peut aider les sociétés d’e-commerce à déterminer le prix de vente des articles, ainsi que le stock dans lequel investir. Par exemple, si le prix moyen des articles consultés est nettement plus élevé que celui des articles achetés, une société peut choisir d’ajouter des articles moins chers à son stock.
+9. Collez la requête ci-après dans la fenêtre de requête. La requête **AVERAGE PRICE** calcule le prix moyen de tous les articles consultés par les utilisateurs, de tous les articles ajoutés au panier des utilisateurs et de tous les articles achetés par les utilisateurs. Ce métrique peut aider les sociétés d’e-commerce à déterminer le prix de vente des articles, ainsi que le stock dans lequel investir. Par exemple, si le prix moyen des articles consultés est nettement plus élevé que celui des articles achetés, une société peut choisir d’ajouter des articles moins chers à son stock.
 
    ```sql
    /*AVERAGE PRICE*/      
@@ -303,11 +303,11 @@ Power BI est une suite d’outils d’analyse métier permettant d’analyser de
     GROUP BY TumblingWindow(second, 5)
    ```
    
-   La requête TOP 5 calcule les 5 articles les plus fréquemment achetés, classés par nombre de ventes. Cette métrique aide les sociétés d’e-commerce à évaluer les articles les plus populaires et peut influencer les décisions de la société en matière de publicité, de tarification et de stock.
+   La requête TOP 5 calcule les 5 articles les plus fréquemment achetés, classés par nombre de ventes. Ce métrique aide les sociétés d’e-commerce à évaluer les articles les plus populaires et peut influencer les décisions de la société en matière de publicité, de tarification et de stock.
 
-   La requête REVENUE calcule les recettes en additionnant à chaque minute les prix de tous les articles achetés. Cette métrique peut aider les sociétés d’e-commerce à évaluer leurs performances financières et à déterminer les heures de la journée qui contribuent à générer les recettes les plus élevées. Cette information peut avoir une incidence sur la stratégie globale de la société, notamment sur le plan marketing.
+   La requête REVENUE calcule les recettes en additionnant à chaque minute les prix de tous les articles achetés. Ce métrique peut aider les sociétés d’e-commerce à évaluer leurs performances financières et à déterminer les heures de la journée qui contribuent à générer les recettes les plus élevées. Cette information peut avoir une incidence sur la stratégie globale de la société, notamment sur le plan marketing.
 
-   La requête UNIQUE VISITORS calcule toutes les 5 secondes le nombre de visiteurs uniques qui sont présents sur le site en détectant les numéros d’identification de panier uniques. Cette métrique peut aider les sociétés d’e-commerce à évaluer l’activité de leur site et à élaborer un moyen d’attirer davantage de clients.
+   La requête UNIQUE VISITORS calcule toutes les 5 secondes le nombre de visiteurs uniques qui sont présents sur le site en détectant les numéros d’identification de panier uniques. Ce métrique peut aider les sociétés d’e-commerce à évaluer l’activité de leurs site et à élaborer un moyen d’attirer davantage de clients.
 
 8. À présent, vous pouvez également ajouter des vignettes pour ces jeux de données.
 

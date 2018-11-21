@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/16/2017
-ms.openlocfilehash: 73b594aaabd814108dfce813b53a4ea865336e63
-ms.sourcegitcommit: c2c279cb2cbc0bc268b38fbd900f1bac2fd0e88f
+ms.openlocfilehash: a9d3b92b9cb3334c8c52a9127a2fab92d187e3d9
+ms.sourcegitcommit: db2cb1c4add355074c384f403c8d9fcd03d12b0c
 ms.translationtype: HT
 ms.contentlocale: fr-FR
-ms.lasthandoff: 10/24/2018
-ms.locfileid: "49985061"
+ms.lasthandoff: 11/15/2018
+ms.locfileid: "51687433"
 ---
 # <a name="azure-stream-analytics-on-iot-edge-preview"></a>Azure Stream Analytics sur IoT Edge (version préliminaire)
 
@@ -71,13 +71,17 @@ Un conteneur de stockage est nécessaire pour exporter la requête ASA compilée
 
 1. Depuis le portail Azure, créez une nouvelle tâche Stream Analytics. [Lien direct pour créer une nouvelle tâche ASA](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
-2. Dans l’écran de création, sélectionnez **Edge** en tant qu’**environnement d’hébergement** (voir l’image suivante) ![Création de la tâche](media/stream-analytics-edge/ASAEdge_create.png)
+2. Dans l’écran de création, sélectionnez **Edge** en tant qu’**environnement d’hébergement** (voir l’illustration suivante)
+
+   ![Création d'une tâche](media/stream-analytics-edge/ASAEdge_create.png)
 3. Définition de la tâche
     1. **Définir le(s) flux d’entrée**. Définissez un ou plusieurs flux d’entrée pour votre tâche.
     2. Définissez les données de référence (facultatif).
     3. **Définir le(s) flux de sortie**. Définissez un ou plusieurs flux de sortie pour votre tâche. 
     4. **Définir la requête**. Définissez la requête ASA dans le cloud à l’aide de l’éditeur inclus. Le compilateur vérifie automatiquement la syntaxe prise en charge par ASA Edge. Vous pouvez également tester votre requête en téléchargeant des exemples de données. 
+
 4. Définissez les informations du conteneur de stockage dans le menu **Paramètres IoT Edge**.
+
 5. Définir des paramètres facultatifs
     1. **Ordre des événements**. Vous pouvez configurer une stratégie d’arrivée en désordre dans le portail. La documentation est disponible [ici](https://msdn.microsoft.com/library/azure/mt674682.aspx?f=255&MSPPError=-2147217396).
     2. **Paramètres régionaux**. Définissez le format d’internationalisation.
@@ -181,20 +185,27 @@ Actuellement, les seuls types d’entrée et de sortie de flux pris en charge so
 
 
 ##### <a name="reference-data"></a>Données de référence
-Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature. Elles sont utilisées pour effectuer des recherches ou pour effectuer des mises en corrélation avec votre flux de données. Pour utiliser des données de référence dans votre travail Azure Stream Analytics, vous utiliserez généralement une [jointure de données de référence](https://msdn.microsoft.com/library/azure/dn949258.aspx) dans votre requête. Pour plus d’informations, consultez la [documentation ASA sur les données de référence](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-use-reference-data).
+Les données de référence (également appelées « tables de choix ») sont un jeu de données finies, statiques ou variant lentement au fil du temps par nature. Elles sont utilisées pour effectuer des recherches ou pour effectuer des mises en corrélation avec votre flux de données. Pour utiliser des données de référence dans votre tâche Azure Stream Analytics, vous utiliserez généralement une [JOINTURE de données de référence](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) dans votre requête. Pour plus d’informations, consultez [Utiliser des données de référence pour effectuer des recherches dans Stream Analytics](stream-analytics-use-reference-data.md).
 
-Pour utiliser des données de référence pour ASA sur IoT Edge, procédez comme suit : 
+Seules les données de référence locales sont prises en charge. Lorsqu'une tâche est déployée sur un appareil IoT Edge, il charge les données de référence à partir du chemin de fichier défini par l'utilisateur.
+
+Pour créer une tâche avec des données de référence sur Edge :
+
 1. Créez une nouvelle entrée pour votre tâche.
+
 2. Choisissez **données de référence** pour le **type de source**.
-3. Définissez le chemin d’accès du fichier. Le chemin d’accès du fichier doit être un chemin d’accès **absolu** pour la ![création de données de référence](media/stream-analytics-edge/ReferenceData.png) du périphérique.
-4. Activez les **lecteurs partagés** dans votre configuration Docker et assurez-vous que le lecteur est activé avant de commencer votre déploiement.
 
-Pour plus d’informations, consultez la [documentation Docker pour Windows](https://docs.docker.com/docker-for-windows/#shared-drives).
+3. Préparez un fichier de données de référence sur l'appareil. Pour un conteneur Windows, placez le fichier de données de référence sur le lecteur local et partagez ce lecteur avec le conteneur Docker. Pour un conteneur Linux, créez un volume Docker et renseignez le fichier de données sur le volume.
 
-> [!Note]
-> Seules les données de référence locales sont prises en charge pour le moment.
+4. Définissez le chemin d’accès du fichier. Pour un appareil Windows, utilisez le chemin d’accès absolu. Pour un appareil Linux, utilisez le chemin d’accès du volume.
 
+![Nouvelle entrée de données de référence pour la tâche Azure Stream Analytics sur IoT Edge](./media/stream-analytics-edge/ReferenceDataNewInput.png)
 
+Les données de référence situées sur la mise à jour d'IoT Edge sont déclenchées par un déploiement. Une fois déclenché, le module ASA sélectionne les données mises à jour sans arrêter la tâche en cours.
+
+Deux méthodes sont disponibles pour mettre à jour les données de référence :
+* En mettant à jour le chemin des données de référence de votre tâche ASA à partir du portail Azure
+* En mettant à jour le déploiement IoT Edge
 
 
 ## <a name="license-and-third-party-notices"></a>Licence et mentions tierces
